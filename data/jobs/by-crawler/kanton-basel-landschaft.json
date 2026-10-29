@@ -5528,7 +5528,7 @@
       "slug": "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-ormalingen",
       "slugByLocale": {
         "it": "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-ormalingen",
-        "en": "social-pedagogue-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "en": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen",
         "de": "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-ormalingen",
         "fr": "pedagogue-sociale-pedagogue-sociale-kantonale-verwaltung-basel-landschaft-ormalingen"
       },
@@ -5576,7 +5576,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-ormalingen",
-        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen"
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "social-pedagogue-kantonale-verwaltung-basel-landschaft-ormalingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5587,7 +5588,7 @@
           "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen"
         ],
         "en": [
-          "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-ormalingen"
+          "social-pedagogue-kantonale-verwaltung-basel-landschaft-ormalingen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:02:40.850Z",
@@ -6325,12 +6326,12 @@
     },
     {
       "id": "kanton-basel-landschaft-cced189ede0a",
-      "slug": "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein",
+      "slug": "maestro-5a-classe-kantonale-verwaltung-basel-landschaft-munchenstein",
       "slugByLocale": {
         "de": "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein",
-        "it": "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein",
+        "it": "maestro-5a-classe-kantonale-verwaltung-basel-landschaft-munchenstein",
         "en": "lehrperson-5-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "fr": "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein"
+        "fr": "enseignant-5e-classe-kantonale-verwaltung-basel-landschaft-munchenstein"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6389,7 +6390,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:37:51.030Z"
+      "firstSeenAt": "2026-09-23T23:37:51.030Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein"
+        ],
+        "fr": [
+          "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-5-klasse-kanton-basel-landschaft-munchenstein"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-c0fc069d7238",

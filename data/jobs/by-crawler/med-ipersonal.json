@@ -482,8 +482,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b",
         "it": "installatore-trice-elettrico-a-region-egg-b-zurich-ipersonal-ag-egg-b",
-        "en": "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b",
-        "fr": "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b"
+        "en": "electrical-installer-region-egg-b-zurich-ipersonal-ag-egg-b",
+        "fr": "installation-electrique-region-egg-b-zurich-ipersonal-ag-egg-b"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -530,18 +530,21 @@
           "installatore-trice-elettrico-a-region-egg-b-zurich-ipersonal-ag-egg-b-zurich"
         ],
         "en": [
-          "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich"
+          "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich",
+          "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b"
         ],
         "de": [
           "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich"
         ],
         "fr": [
-          "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich"
+          "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich",
+          "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b-zurich-zurich",
-        "installatore-trice-elettrico-a-region-egg-b-zurich-ipersonal-ag-egg-b-zurich"
+        "installatore-trice-elettrico-a-region-egg-b-zurich-ipersonal-ag-egg-b-zurich",
+        "elektroinstallateur-region-egg-b-zurich-ipersonal-ag-egg-b"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,

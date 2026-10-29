@@ -758,12 +758,12 @@
     },
     {
       "id": "totalenergies-3ee23698b0d3",
-      "slug": "assets-trader-power-gas-europe-totalenergies-geneve",
+      "slug": "asset-trader-potenza-gas-europa-totalenergies-geneve",
       "slugByLocale": {
         "en": "assets-trader-power-gas-europe-totalenergies-geneve",
-        "it": "assets-trader-power-gas-europe-totalenergies-geneve",
+        "it": "asset-trader-potenza-gas-europa-totalenergies-geneve",
         "de": "assets-trader-power-gas-europe-totalenergies-geneve",
-        "fr": "assets-trader-power-gas-europe-totalenergies-geneve"
+        "fr": "trafic-d-actifs-energie-et-gaz-europe-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -824,7 +824,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T09:18:34.022Z"
+      "firstSeenAt": "2026-10-29T09:18:34.022Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assets-trader-power-gas-europe-totalenergies-geneve"
+        ],
+        "fr": [
+          "assets-trader-power-gas-europe-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assets-trader-power-gas-europe-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-701c6d8765d2",

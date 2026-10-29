@@ -2168,7 +2168,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -3119,7 +3119,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -5713,7 +5713,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -5762,7 +5762,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5770,7 +5770,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -7162,7 +7162,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -7211,8 +7211,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7221,7 +7220,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -17547,7 +17546,7 @@
         "it": "hr-business-partner-alle-bkw-ch",
         "en": "hr-business-partner-alle-bkw-ch",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -17592,11 +17591,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "hr-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -18081,7 +18080,7 @@
         "it": "senior-it-controller-tutti-bkw-bern",
         "en": "senior-it-controller-all-bkw-bern",
         "de": "senior-it-controller-alle-bkw-ch",
-        "fr": "senior-it-controller-alle-bkw-bern"
+        "fr": "controleur-informatique-principal-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -18127,7 +18126,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-it-controller-alle-bkw-ch",
-        "controleur-informatique-principal-tous-bkw-bern"
+        "senior-it-controller-alle-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18137,7 +18136,7 @@
           "senior-it-controller-alle-bkw-ch"
         ],
         "fr": [
-          "controleur-informatique-principal-tous-bkw-bern"
+          "senior-it-controller-alle-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-10-19T09:19:12.037Z",
@@ -22568,9 +22567,9 @@
     },
     {
       "id": "bkw-8caa5652140c",
-      "slug": "installateur-trice-de-service-en-chauffage-tous-bkw-bulle",
+      "slug": "installatore-di-servizio-di-riscaldamento-tutti-bkw-bulle",
       "slugByLocale": {
-        "it": "installateur-trice-de-service-en-chauffage-tous-bkw-bulle",
+        "it": "installatore-di-servizio-di-riscaldamento-tutti-bkw-bulle",
         "en": "heating-service-installer-all-bkw-bulle",
         "de": "heizungsinstallateur-alle-bkw-bulle",
         "fr": "installateur-trice-de-service-en-chauffage-tous-bkw-ch"
@@ -22619,12 +22618,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "installateur-trice-de-service-en-chauffage-tous-bkw-ch",
-        "installatore-di-servizio-di-riscaldamento-tutti-bkw-bulle"
+        "installateur-trice-de-service-en-chauffage-tous-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installateur-trice-de-service-en-chauffage-tous-bkw-ch",
-          "installatore-di-servizio-di-riscaldamento-tutti-bkw-bulle"
+          "installateur-trice-de-service-en-chauffage-tous-bkw-bulle"
         ],
         "en": [
           "installateur-trice-de-service-en-chauffage-tous-bkw-ch"
@@ -24734,12 +24733,12 @@
     },
     {
       "id": "bkw-95799de72ec9",
-      "slug": "contremaitre-sanitaire-tous-genres-100-bkw-ch",
+      "slug": "assistenza-sanitaria-tutti-i-tipi-100-bkw-bulle",
       "slugByLocale": {
         "fr": "contremaitre-sanitaire-tous-genres-100-bkw-ch",
-        "it": "contremaitre-sanitaire-tous-genres-100-bkw-ch",
-        "en": "contremaitre-sanitaire-tous-genres-100-bkw-ch",
-        "de": "contremaitre-sanitaire-tous-genres-100-bkw-ch"
+        "it": "assistenza-sanitaria-tutti-i-tipi-100-bkw-bulle",
+        "en": "health-foreman-all-kinds-100-bkw-bulle",
+        "de": "gesundheit-vorarbeiter-alle-arten-100-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24797,7 +24796,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T09:20:18.678Z"
+      "firstSeenAt": "2026-10-29T09:20:18.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "contremaitre-sanitaire-tous-genres-100-bkw-ch"
+        ],
+        "en": [
+          "contremaitre-sanitaire-tous-genres-100-bkw-ch"
+        ],
+        "de": [
+          "contremaitre-sanitaire-tous-genres-100-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "contremaitre-sanitaire-tous-genres-100-bkw-ch"
+      ]
     },
     {
       "id": "bkw-662b32b73153",

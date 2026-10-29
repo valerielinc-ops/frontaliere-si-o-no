@@ -905,7 +905,7 @@
         "it": "risorse-umane-direttore-msc-group-geneva",
         "en": "hr-director-msc-geneva",
         "de": "personalwesen-direktor-msc-group-geneva",
-        "fr": "hr-director-msc-group-geneva"
+        "fr": "directeur-des-ressources-humaines-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -951,7 +951,7 @@
       "previousSlugs": [
         "directeur-rh-msc-group-geneva",
         "hr-director-msc-geneva",
-        "directeur-des-ressources-humaines-msc-group-geneva"
+        "hr-director-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -963,7 +963,7 @@
         ],
         "fr": [
           "directeur-rh-msc-group-geneva",
-          "directeur-des-ressources-humaines-msc-group-geneva"
+          "hr-director-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-03T09:25:31.059Z",
@@ -1155,12 +1155,12 @@
     },
     {
       "id": "msc-cargo-b06079cfe661",
-      "slug": "jewellery-product-development-senior-manager-msc-geneva",
+      "slug": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
       "slugByLocale": {
         "en": "jewellery-product-development-senior-manager-msc-geneva",
-        "it": "jewellery-product-development-senior-manager-msc-geneva",
-        "de": "jewellery-product-development-senior-manager-msc-geneva",
-        "fr": "jewellery-product-development-senior-manager-msc-geneva"
+        "it": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
+        "de": "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
+        "fr": "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1222,28 +1222,27 @@
       "firstSeenAt": "2026-10-04T09:20:24.512Z",
       "previousSlugsByLocale": {
         "it": [
-          "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
           "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
           "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
           "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
-          "schmuckproduktentwicklung-senior-manager-msc-group-geneva"
+          "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
+          "jewellery-product-development-senior-manager-msc-geneva"
         ],
         "de": [
-          "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva"
+          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
+          "jewellery-product-development-senior-manager-msc-geneva"
         ],
         "fr": [
-          "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva",
-          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva"
+          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
+          "jewellery-product-development-senior-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
         "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-        "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva",
         "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
         "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
-        "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva"
+        "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
+        "jewellery-product-development-senior-manager-msc-geneva"
       ]
     },
     {
@@ -1426,12 +1425,12 @@
     },
     {
       "id": "msc-cargo-eea3761c3310",
-      "slug": "retail-training-manager-msc-geneva",
+      "slug": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
       "slugByLocale": {
         "en": "retail-training-manager-msc-geneva",
-        "it": "retail-training-manager-msc-geneva",
-        "de": "retail-training-manager-msc-geneva",
-        "fr": "retail-training-manager-msc-geneva"
+        "it": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
+        "de": "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
+        "fr": "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1493,37 +1492,36 @@
       "firstSeenAt": "2026-09-28T05:02:31.217Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
           "responsabile-formazione-e-sviluppo-del-retail-msc-group-geneva",
           "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva",
           "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva",
           "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
           "retail-learning-development-manager-msc-geneva",
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
+          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
+          "retail-training-manager-msc-geneva"
         ],
         "de": [
-          "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
           "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva",
-          "retail-learning-development-manager-msc-geneva"
+          "retail-learning-development-manager-msc-geneva",
+          "retail-training-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
           "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva",
-          "retail-learning-development-manager-msc-geneva"
+          "retail-learning-development-manager-msc-geneva",
+          "retail-training-manager-msc-geneva"
         ],
         "en": [
           "retail-learning-development-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
-        "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
         "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
         "responsabile-formazione-e-sviluppo-del-retail-msc-group-geneva",
         "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva",
         "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva",
         "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
-        "retail-learning-development-manager-msc-geneva"
+        "retail-learning-development-manager-msc-geneva",
+        "retail-training-manager-msc-geneva"
       ]
     },
     {

@@ -2180,12 +2180,12 @@
     },
     {
       "id": "richemont-a2bc506a8111",
-      "slug": "marketing-intern-richemont-bellevue",
+      "slug": "marketing-tirocinante-timevallee-bellevue",
       "slugByLocale": {
         "en": "marketing-intern-richemont-bellevue",
-        "it": "marketing-intern-richemont-bellevue",
-        "de": "marketing-intern-richemont-bellevue",
-        "fr": "marketing-intern-richemont-bellevue"
+        "it": "marketing-tirocinante-timevallee-bellevue",
+        "de": "marketing-praktikant-timevallee-bellevue",
+        "fr": "marketing-stagiaire-timevallee-bellevue"
       },
       "company": "TimeVallée",
       "companyKey": "richemont",
@@ -2244,7 +2244,21 @@
         }
       },
       "postalCode": "1293",
-      "firstSeenAt": "2026-10-29T09:40:13.644Z"
+      "firstSeenAt": "2026-10-29T09:40:13.644Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-intern-richemont-bellevue"
+        ],
+        "de": [
+          "marketing-intern-richemont-bellevue"
+        ],
+        "fr": [
+          "marketing-intern-richemont-bellevue"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-intern-richemont-bellevue"
+      ]
     },
     {
       "id": "richemont-63d626fd017c",
