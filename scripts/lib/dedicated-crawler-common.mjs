@@ -3339,21 +3339,30 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   // Bust the cache entries so fresh AI calls are made.
   if (out.needsRetranslation && ctx.buildAiCacheKey && ctx.deleteCachedAiResponse) {
     const { buildAiCacheKey: bck, deleteCachedAiResponse: delCache } = ctx;
-    const targetLocales = locales.filter((l) => l !== sourceLang);
+    const targetLocales = locales.slice(0, 4).filter((l) => l !== sourceLang);
     // Bust the main multi-locale localization cache
-    const mainKey = bck('localize-job-v2', [
-      nsFn(out.title || ''), nsFn(out.company || ''), nsFn(out.location || ''),
-      sourceLang || 'en', targetLocales.join(','),
-      JSON.stringify((out.requirements || []).map((x) => nsFn(String(x))).filter(Boolean).slice(0, 16)),
-      cleanFn(resolvedSourceDescription),
-    ]);
+    const titleSourceLocale = String(titleSourceLang || sourceLang || 'en').trim().toLowerCase();
+    const mainKey = bck(
+      isUnsupportedSourceLang(sourceLang) ? 'localize-job-unsupported-source-v2' : 'localize-job-v3',
+      [
+        nsFn(out.title || ''), titleSourceLocale, nsFn(out.company || ''), nsFn(out.location || ''),
+        sourceLang || 'en', targetLocales.join(','),
+        JSON.stringify((out.requirements || []).map((x) => nsFn(String(x))).filter(Boolean).slice(0, 16)),
+        cleanFn(resolvedSourceDescription),
+      ],
+    );
     delCache(mainKey);
     // Bust per-locale description + title caches
     const cleanDesc = cleanFn(resolvedSourceDescription);
-    const cleanTitle = nsFn(out.title || '').replace(/(\w):in(nen)?\b/gi, '$1/in$2');
-    for (const locale of targetLocales) {
-      delCache(bck('translate-desc-v2', [cleanDesc, locale, sourceLang]));
-      delCache(bck('translate-title-v2', [cleanTitle, locale, titleSourceLang]));
+    const sourceTitleText = nsFn(sourceTitle || '');
+    const cleanTitle = titleSourceLocale.startsWith('de')
+      ? normalizeGermanGenderForms(sourceTitleText).replace(/(\w):in(nen)?\b/gi, '$1/in$2')
+      : sourceTitleText.replace(/(\w):in(nen)?\b/gi, '$1/in$2');
+    for (const locale of locales) {
+      if (locale !== sourceLang) delCache(bck('translate-desc-v2', [cleanDesc, locale, sourceLang]));
+      if (locale !== titleSourceLang && cleanTitle) {
+        delCache(bck('translate-title-v2', [cleanTitle, locale, titleSourceLang]));
+      }
     }
   }
 

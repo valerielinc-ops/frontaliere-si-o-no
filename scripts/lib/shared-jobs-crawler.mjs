@@ -2347,7 +2347,13 @@ export function ensureLocaleFields(job) {
   // not be allowed to move the slot (see holdSourceLang in job-locale-utils).
   const sourceLang = pinnedLang || holdSourceLang(out, `${bestTitle} ${bestDescription}`, 'en');
   const titleSourceLang = jobTitleSourceLang({ ...out, sourceLang, title: baseTitle }, sourceLang);
-  const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
+  const mappedSourceTitle = normalizeSpace(titleByLocale[titleSourceLang] || '');
+  const flatTitleSourceLang = baseTitle
+    ? (pinnedLang || detectJobTitleLang(baseTitle, sourceLang))
+    : '';
+  const sourceTitle = baseTitle && (pinnedLang || !mappedSourceTitle || flatTitleSourceLang === titleSourceLang)
+    ? baseTitle
+    : mappedSourceTitle;
   const sourceLocaleIsPublished = LOCALES.includes(sourceLang);
 
   // Detect the language of the raw base description separately — it may differ
