@@ -1156,7 +1156,7 @@ async function main() {
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
     const asked = unknown.event.questions || [];
     check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
-      && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum' && Boolean(asked[0].question) && asked[0].type === 'date' && state.widgetApplications.length === 0);
+      && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum *' && Boolean(asked[0].question) && asked[0].type === 'date' && state.widgetApplications.length === 0);
     // Review of #10707: Codex failing inside the fallback ends in the owner's handoff, not a failed run.
     const failing = async (request) => {
       if (request.prompt.includes('{"agentPage"')) throw new Error('timeout');
