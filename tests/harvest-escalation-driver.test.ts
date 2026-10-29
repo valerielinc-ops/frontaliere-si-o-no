@@ -382,6 +382,8 @@ describe('contratto sul workflow: il self-heal non è più spento', () => {
     expect(harvest).toContain('node scripts/ci/harvest-agent-lessons.mjs');
     expect(harvest).not.toMatch(/^\s*FOLLOWUP_NO_AUTOCLOSE:/m);
     const drainer = stepEnv('.github/workflows/followup-drainer.yml', 'Drain follow-up queue');
-    expect(drainer).toMatch(/^\s*FOLLOWUP_NO_AUTOCLOSE: '1'/m);
+    expect(drainer).toMatch(/FOLLOWUP_NO_AUTOCLOSE:\s*\$\{\{[\s\S]*?inputs\.no_autoclose/);
+    expect(drainer).toContain("github.event_name == 'workflow_dispatch' && inputs.no_autoclose == '1' && '1' || ''");
+    expect(drainer).not.toMatch(/^\s*FOLLOWUP_NO_AUTOCLOSE:\s*['"]1['"]/m);
   });
 });
