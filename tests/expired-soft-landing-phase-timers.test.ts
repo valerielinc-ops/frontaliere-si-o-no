@@ -134,7 +134,7 @@ describe('#5130 — the same split is applied to the cluster sibling (AGENTS.md 
     sliceBetween('if (!shouldEmitLocale(locale)) {', 'const altKey = familyKeyByCtx.get(ctx)');
 
   const DECISION_PREPASS = () =>
-    sliceBetween('const __tClusterDecide = profileStart();', "profileRecord('cluster-decide', __tClusterDecide)");
+    sliceBetween('const __tClusterDecide = profileStart();', 'const __tGroupHreflang = profileStart();');
 
   it('keeps the decision before the thin conversion and each timer on its own phase', () => {
     // The decision moved behind `decideClusterEmission()` (#5242) — it builds
