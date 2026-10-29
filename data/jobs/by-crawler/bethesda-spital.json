@@ -1151,6 +1151,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-29T14:58:35.561Z",
+      "salaryMin": 44000,
+      "salaryMax": 61500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 44000,
+          "maxValue": 61500,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-mpa-50-klinik-rheumatologie-schmerzmedizin-bethesda"
@@ -1164,20 +1177,7 @@
       },
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-mpa-50-klinik-rheumatologie-schmerzmedizin-bethesda"
-      ],
-      "salaryMin": 44000,
-      "salaryMax": 61500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 44000,
-          "maxValue": 61500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "bethesda-spital-ec7649f23ec6",
@@ -1231,6 +1231,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-29T14:58:34.635Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-mpa-100-klinik-rheumatologie-schmerzmedizin-bethesda"
@@ -1244,20 +1257,7 @@
       },
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-mpa-100-klinik-rheumatologie-schmerzmedizin-bethesda"
-      ],
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     }
   ]
 }

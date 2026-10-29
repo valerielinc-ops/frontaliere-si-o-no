@@ -2219,6 +2219,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "firstSeenAt": "2026-10-29T14:54:06.172Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-pneumologie-spital-muri-muri-ag"
@@ -2232,20 +2245,7 @@
       },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-pneumologie-spital-muri-muri-ag"
-      ],
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     }
   ]
 }
