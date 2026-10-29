@@ -298,6 +298,36 @@ describe('assisted-application payment recovery policy', () => {
     expect(db.store.assisted_applications[order.orderId].sumupCheckoutId).toBe('sumup-new');
   });
 
+  it.each(['open', 'renewed'])('returns a client-compatible SumUp checkout for %s recovery', async (status) => {
+    const order = pendingOrder('order-resume', { paymentProvider: 'sumup', sumupCheckoutId: 'sumup-existing' });
+    const result = await recovery.handleResumeAssistedApplicationPayment({
+      method: 'POST', body: { orderId: order.orderId },
+    }, {
+      db: makeDb({ assisted_applications: { [order.orderId]: order } }),
+      postingClosed: mocks.postingClosedForOrder,
+      inspectPayment: vi.fn(async () => ({ status, checkoutId: 'sumup-renewed' })),
+    });
+    expect(result).toEqual({ status: 200, body: {
+      ok: true, status: 'open', paymentProvider: 'sumup', orderId: order.orderId,
+      checkoutId: status === 'open' ? 'sumup-existing' : 'sumup-renewed',
+    } });
+  });
+
+  it.each(['open', 'renewed'])('returns a client-compatible Stripe URL for %s recovery', async (status) => {
+    const order = pendingOrder('order-resume');
+    const result = await recovery.handleResumeAssistedApplicationPayment({
+      method: 'POST', body: { orderId: order.orderId },
+    }, {
+      db: makeDb({ assisted_applications: { [order.orderId]: order } }),
+      postingClosed: mocks.postingClosedForOrder,
+      inspectPayment: vi.fn(async () => ({ status, session: { url: 'https://checkout.stripe.com/test/' } })),
+    });
+    expect(result).toEqual({ status: 200, body: {
+      ok: true, status: 'open', paymentProvider: 'stripe', orderId: order.orderId,
+      url: 'https://checkout.stripe.com/test/',
+    } });
+  });
+
   it('does not resume an order for a different Firebase user', async () => {
     const order = pendingOrder('order-for-someone-else', { userId: 'other-user' });
     const db = makeDb({ assisted_applications: { [order.orderId]: order } });

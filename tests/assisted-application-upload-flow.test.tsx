@@ -20,6 +20,12 @@ const mocks = vi.hoisted(() => ({
   openWindow: vi.fn(),
 }));
 
+vi.mock('@/components/community/SumUpPaymentWidget', () => ({
+  default: ({ checkoutId, onClose }: { checkoutId: string; onClose: () => void }) => (
+    <div role="dialog" aria-label="SumUp"><span>{checkoutId}</span><button onClick={onClose}>Chiudi SumUp</button></div>
+  ),
+}));
+
 vi.mock('@/services/firebase', () => ({ getApp: mocks.getApp }));
 vi.mock('firebase/auth', () => ({ getAuth: mocks.getAuth }));
 vi.mock('firebase/firestore', () => ({
@@ -196,6 +202,44 @@ describe('assisted application consent and CV upload flow', () => {
       expect.objectContaining({ method: 'POST', body: JSON.stringify({ orderId: ORDER_ID }) }),
     ));
     expect(screen.getByText(itCore['jobBoard.assisted.pending'])).toBeTruthy();
+  });
+
+  it('automatically embeds SumUp once and keeps it closed after dismissal', async () => {
+    orderData = paidOrder({ paymentStatus: 'pending', submissionStatus: 'awaiting_payment', paymentProvider: 'sumup' });
+    mocks.fetch.mockResolvedValue({ ok: true, status: 200, json: async () => ({
+      ok: true, status: 'open', paymentProvider: 'sumup', checkoutId: 'sumup-pending', orderId: ORDER_ID,
+    }) });
+    const user = userEvent.setup();
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    expect(await screen.findByRole('dialog', { name: 'SumUp' })).toHaveTextContent('sumup-pending');
+    expect(mocks.openWindow).not.toHaveBeenCalled();
+    expect(mocks.fetch).toHaveBeenCalledOnce();
+    await user.click(screen.getByRole('button', { name: 'Chiudi SumUp' }));
+    expect(screen.queryByRole('dialog')).toBeNull();
+    await waitFor(() => expect(mocks.getDoc.mock.calls.length).toBeGreaterThan(1), { timeout: 4000 });
+    expect(screen.queryByRole('dialog')).toBeNull();
+    expect(mocks.fetch).toHaveBeenCalledOnce();
+    expect(mocks.trackEvent.mock.calls.filter(([event]) => event === 'checkout_resumed')).toHaveLength(1);
+    expect(mocks.trackEvent.mock.calls.some(([event]) => event === 'checkout_completed')).toBe(false);
+    await user.click(screen.getByRole('button', { name: itCore['jobBoard.assisted.pendingCta'] }));
+    await screen.findByRole('dialog', { name: 'SumUp' });
+    expect(mocks.fetch).toHaveBeenCalledTimes(2);
+    expect(mocks.openWindow).not.toHaveBeenCalled();
+  });
+
+  it('allows a manual retry after automatic SumUp recovery fails', async () => {
+    orderData = paidOrder({ paymentStatus: 'pending', submissionStatus: 'awaiting_payment', sumupCheckoutId: 'legacy-checkout' });
+    mocks.fetch.mockResolvedValueOnce({ ok: false, status: 502, json: async () => ({ error: 'provider_unavailable' }) });
+    const user = userEvent.setup();
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await screen.findByText(itCore['jobBoard.assisted.paymentResumeError']);
+    expect(mocks.fetch).toHaveBeenCalledOnce();
+    mocks.fetch.mockResolvedValue({ ok: true, status: 200, json: async () => ({
+      ok: true, status: 'open', paymentProvider: 'sumup', checkoutId: 'sumup-renewed', orderId: ORDER_ID,
+    }) });
+    await user.click(screen.getByRole('button', { name: itCore['jobBoard.assisted.pendingCta'] }));
+    await screen.findByRole('dialog', { name: 'SumUp' });
+    expect(mocks.openWindow).not.toHaveBeenCalled();
   });
 
   it('opens Stripe Checkout in a user-initiated popup and keeps the page as fallback', async () => {

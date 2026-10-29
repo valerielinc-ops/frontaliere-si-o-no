@@ -682,15 +682,15 @@ export async function handleResumeAssistedApplicationPayment(
   if (result.status === 'open') {
     const provider = paymentProviderFor(order);
     if (provider === SUMUP_PAYMENT_PROVIDER) {
-      return { status: 200, body: { ok: true, paymentProvider: SUMUP_PAYMENT_PROVIDER, checkoutId: checkoutIdFor(order), orderId } };
+      return { status: 200, body: { ok: true, status: 'open', paymentProvider: SUMUP_PAYMENT_PROVIDER, checkoutId: checkoutIdFor(order), orderId } };
     }
-    if (result.session?.url) return { status: 200, body: { ok: true, paymentProvider: 'stripe', url: result.session.url, orderId } };
+    if (result.session?.url) return { status: 200, body: { ok: true, status: 'open', paymentProvider: 'stripe', url: result.session.url, orderId } };
   }
   if (result.status === 'renewed') {
     if (paymentProviderFor(order) === SUMUP_PAYMENT_PROVIDER) {
-      return { status: 200, body: { ok: true, paymentProvider: SUMUP_PAYMENT_PROVIDER, checkoutId: result.checkoutId, orderId } };
+      return { status: 200, body: { ok: true, status: 'open', paymentProvider: SUMUP_PAYMENT_PROVIDER, checkoutId: result.checkoutId, orderId } };
     }
-    if (result.session?.url) return { status: 200, body: { ok: true, paymentProvider: 'stripe', url: result.session.url, orderId } };
+    if (result.session?.url) return { status: 200, body: { ok: true, status: 'open', paymentProvider: 'stripe', url: result.session.url, orderId } };
   }
   if (result.status === 'in_progress') return { status: 409, body: { ok: false, error: 'payment_session_in_progress' } };
   if (result.status === 'waiting_provider') return { status: 409, body: { ok: false, error: 'payment_processing' } };
