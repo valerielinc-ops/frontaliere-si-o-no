@@ -455,6 +455,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  */
 function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
   const items = questions.map((question) => ({
+    answerId: portalAnswerForApplication(question, answers[question.id]) !== String(answers[question.id] ?? '').trim() ? question.id : undefined,
     question: question.applicationQuestion || question.question,
     ...(question.applicationQuestion ? { applicationQuestion: question.applicationQuestion } : {}),
     ...(question.applicationQuestion ? { candidateQuestion: question.question } : {}),
@@ -476,7 +477,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     const question = String(item?.question || '').trim();
     const answer = String(item?.answer || '').trim();
     if (!question || !answer) continue;
-    const prior = { question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
+    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
     const group = priorGroups.get(key) || [];
@@ -493,8 +494,8 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     const previous = seen.get(key);
     if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source }) => ({
-    question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
+  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source }) => ({
+    ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
   }));
 }
 

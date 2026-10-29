@@ -132,7 +132,21 @@ beforeEach(() => {
     url: 'https://checkout.stripe.com/cs_concierge_1',
   });
   mocks.createSumUpApplicationConciergeCheckout.mockResolvedValue({ id: 'sumup_concierge_1' });
+  mocks.retrieveSumUpCheckout.mockResolvedValue({ id: 'sumup_concierge_1', checkout_reference: 'application_concierge_services-1', status: 'PENDING', amount: 39.99, currency: 'EUR' });
 });
+
+function pendingService(provider: 'sumup' | 'stripe', overrides: Record<string, unknown> = {}) {
+  const serviceId = 'recover-service';
+  const service = { userId: 'candidate-42', paymentProvider: provider, paymentStatus: 'pending',
+    serviceStatus: 'awaiting_payment', checkoutSessionStatus: 'open', checkoutAttempt: 1,
+    customerEmail: 'candidate@example.test',
+    ...(provider === 'sumup' ? { sumupCheckoutId: 'sumup-old' } : { stripeCheckoutSessionId: 'cs_old' }),
+    ...overrides,
+  };
+  mocks.store.set(`application_concierge_services/${serviceId}`, service);
+  return { serviceId, key: `application_concierge_services/${serviceId}`, service,
+    request: () => { const base = request(); return request({ body: { ...base.body, serviceId } }); } };
+}
 
 describe('application concierge checkout', () => {
   it('creates a 39.99 EUR, non-renewing parent service', async () => {
@@ -197,7 +211,7 @@ describe('application concierge checkout', () => {
     });
   });
 
-  it.each(['EXPIRED', 'FAILED', 'CANCELLED'])('renews stale-open SumUp provider state %s', async (status) => {
+  it.each(['EXPIRED'])('renews stale-open SumUp provider state %s', async (status) => {
     const serviceId = 'legacy-sumup';
     mocks.store.set(`application_concierge_services/${serviceId}`, {
       userId: 'candidate-42', paymentProvider: 'sumup', paymentStatus: 'pending',
@@ -211,7 +225,7 @@ describe('application concierge checkout', () => {
       ok: true, serviceId, paymentProvider: 'sumup', checkoutId: 'sumup_concierge_1',
     } });
     expect(mocks.createSumUpApplicationConciergeCheckout).toHaveBeenCalledWith({
-      serviceId, redirectUrl: expect.stringContaining(serviceId),
+      serviceId, redirectUrl: expect.stringContaining(serviceId), checkoutAttempt: 2,
     });
     expect(mocks.store.get(`application_concierge_services/${serviceId}`)).toMatchObject({ checkoutAttempt: 2, sumupCheckoutId: 'sumup_concierge_1' });
   });
@@ -223,7 +237,7 @@ describe('application concierge checkout', () => {
       serviceStatus: 'awaiting_payment', checkoutSessionStatus: 'open',
       sumupCheckoutId: 'sumup-old', customerEmail: 'candidate@example.test',
     });
-    mocks.retrieveSumUpCheckout.mockResolvedValue({ id: 'sumup-old', checkout_reference: serviceId, status: 'FAILED', amount: 39.99, currency: 'EUR' });
+    mocks.retrieveSumUpCheckout.mockResolvedValue({ id: 'sumup-old', checkout_reference: serviceId, status: 'EXPIRED', amount: 39.99, currency: 'EUR' });
     mocks.createSumUpApplicationConciergeCheckout.mockResolvedValueOnce({ id: 'sumup-old' });
     const base = request();
     const result = await handleCreateApplicationConciergeCheckout(request({ body: { ...base.body, serviceId } }));
@@ -247,7 +261,7 @@ describe('application concierge checkout', () => {
   });
 
   it.each([
-    { checkout_reference: 'another-service' }, { amount: 1.99 }, { currency: 'CHF' }, { status: 'UNKNOWN' },
+    { id: 'another-checkout' }, { checkout_reference: 'another-service' }, { amount: 1.99 }, { currency: 'CHF' }, { status: 'UNKNOWN' }, { status: 'CANCELLED' },
   ])('does not expose or renew an unverified SumUp checkout: %j', async (override) => {
     const serviceId = 'invalid-sumup';
     mocks.store.set(`application_concierge_services/${serviceId}`, {
@@ -261,6 +275,83 @@ describe('application concierge checkout', () => {
     expect(result.status).toBeGreaterThanOrEqual(400);
     expect(result.body.checkoutId).toBeUndefined();
     expect(mocks.createSumUpApplicationConciergeCheckout).not.toHaveBeenCalled();
+  });
+
+  it('reuses a failed SumUp processing attempt without creating a second checkout', async () => {
+    const order = pendingService('sumup', { paymentStatus: 'failed', serviceStatus: 'payment_failed', checkoutSessionStatus: 'failed' });
+    mocks.retrieveSumUpCheckout.mockResolvedValue({ id: 'sumup-old', checkout_reference: order.serviceId, status: 'FAILED', amount: 39.99, currency: 'EUR' });
+    const result = await handleCreateApplicationConciergeCheckout(order.request());
+    expect(result).toMatchObject({ status: 200, body: { checkoutId: 'sumup-old', serviceId: order.serviceId } });
+    expect(mocks.createSumUpApplicationConciergeCheckout).not.toHaveBeenCalled();
+  });
+
+  it.each(['PENDING', 'EXPIRED'])('supports an already reissued SumUp reference in state %s', async (status) => {
+    const order = pendingService('sumup', { checkoutAttempt: 3 });
+    mocks.retrieveSumUpCheckout.mockResolvedValue({ id: 'sumup-old', checkout_reference: `${order.serviceId}~sumup~3`, status, amount: 39.99, currency: 'EUR' });
+    const result = await handleCreateApplicationConciergeCheckout(order.request());
+    expect(result.status).toBe(200);
+    if (status === 'PENDING') expect(result.body.checkoutId).toBe('sumup-old');
+    else expect(mocks.createSumUpApplicationConciergeCheckout).toHaveBeenCalledWith(expect.objectContaining({ serviceId: order.serviceId, checkoutAttempt: 4 }));
+  });
+
+  it('rejects a provider snapshot after another request replaced the checkout', async () => {
+    const order = pendingService('sumup');
+    mocks.retrieveSumUpCheckout.mockImplementationOnce(async () => {
+      mocks.store.set(order.key, { ...order.service, sumupCheckoutId: 'newer-checkout', checkoutAttempt: 2 });
+      return { id: 'sumup-old', checkout_reference: order.serviceId, status: 'EXPIRED', amount: 39.99, currency: 'EUR' };
+    });
+    const result = await handleCreateApplicationConciergeCheckout(order.request());
+    expect(result.status).toBe(409);
+    expect(mocks.createSumUpApplicationConciergeCheckout).not.toHaveBeenCalled();
+    expect(mocks.store.get(order.key)?.sumupCheckoutId).toBe('newer-checkout');
+  });
+
+  it.each(['paid', 'refunded'])('preserves %s received while a replacement checkout is being created', async (paymentStatus) => {
+    const order = pendingService('sumup');
+    mocks.retrieveSumUpCheckout.mockResolvedValue({ id: 'sumup-old', checkout_reference: order.serviceId, status: 'EXPIRED', amount: 39.99, currency: 'EUR' });
+    mocks.createSumUpApplicationConciergeCheckout.mockImplementationOnce(async () => {
+      mocks.store.set(order.key, { ...mocks.store.get(order.key), paymentStatus, checkoutSessionStatus: 'completed' });
+      return { id: 'new-unpublished-checkout' };
+    });
+    const result = await handleCreateApplicationConciergeCheckout(order.request());
+    expect(result.status).toBe(paymentStatus === 'paid' ? 200 : 409);
+    expect(result.body.checkoutId).toBeUndefined();
+    expect(mocks.store.get(order.key)).toMatchObject({ paymentStatus, sumupCheckoutId: 'sumup-old', checkoutSessionStatus: 'completed' });
+  });
+
+  it('does not publish a delayed response over a newer checkout attempt', async () => {
+    const order = pendingService('sumup');
+    mocks.retrieveSumUpCheckout.mockResolvedValue({ id: 'sumup-old', checkout_reference: order.serviceId, status: 'EXPIRED', amount: 39.99, currency: 'EUR' });
+    mocks.createSumUpApplicationConciergeCheckout.mockImplementationOnce(async () => {
+      mocks.store.set(order.key, { ...mocks.store.get(order.key), checkoutAttempt: 3 });
+      return { id: 'late-checkout-attempt-2' };
+    });
+    const result = await handleCreateApplicationConciergeCheckout(order.request());
+    expect(result.status).toBe(409);
+    expect(result.body.checkoutId).toBeUndefined();
+    expect(mocks.store.get(order.key)).toMatchObject({ sumupCheckoutId: 'sumup-old', checkoutAttempt: 3 });
+  });
+
+  it.each([['complete', 'paid'], ['complete', 'unpaid'], ['open', 'paid']])('reconciles Stripe status %s with payment status %s', async (status, payment_status) => {
+    const order = pendingService('stripe');
+    mocks.stripeCheckoutSessionsRetrieve.mockResolvedValue({ id: 'cs_old', status, payment_status, url: 'https://checkout.stripe.com/cs_old',
+      amount_total: 3999, currency: 'eur', metadata: { product: 'application_concierge', serviceId: order.serviceId } });
+    const result = await handleCreateApplicationConciergeCheckout(order.request());
+    expect(result).toMatchObject({ status: 200, body: { url: expect.stringContaining(order.serviceId) } });
+    expect(mocks.store.get(order.key)).toMatchObject({
+      paymentStatus: payment_status === 'paid' ? 'paid' : 'pending',
+      checkoutSessionStatus: payment_status === 'paid' ? 'completed' : 'pending',
+    });
+    expect(mocks.stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
+  it('verifies an idempotently cached Stripe session instead of returning a stale URL', async () => {
+    const first = await handleCreateApplicationConciergeCheckout(request());
+    mocks.stripeCheckoutSessionsRetrieve.mockResolvedValue({ id: 'cs_concierge_1', status: 'expired', payment_status: 'unpaid' });
+    mocks.stripeCheckoutSessionsCreate.mockResolvedValueOnce({ id: 'cs_new', url: 'https://checkout.stripe.com/cs_new' });
+    const second = await handleCreateApplicationConciergeCheckout(request());
+    expect(second).toMatchObject({ status: 200, body: { serviceId: first.body.serviceId, url: 'https://checkout.stripe.com/cs_new' } });
+    expect(mocks.stripeCheckoutSessionsRetrieve).toHaveBeenCalledWith('cs_concierge_1');
   });
 
   it('creates an embedded SumUp checkout for the concierge price', async () => {
@@ -279,6 +370,7 @@ describe('application concierge checkout', () => {
     });
     expect(mocks.createSumUpApplicationConciergeCheckout).toHaveBeenCalledWith({
       serviceId: 'application_concierge_services-1',
+      checkoutAttempt: 1,
       redirectUrl: 'https://frontaliereticino.ch/lavoro?application_concierge_service_id=application_concierge_services-1',
     });
     expect(mocks.createSumUpHostedCheckout).not.toHaveBeenCalled();

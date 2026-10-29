@@ -16,9 +16,11 @@ import {
 } from './assistedApplicationConstants.js';
 import {
   createSumUpAssistedApplicationCheckout,
+  retrieveSumUpCheckout,
   getAssistedApplicationPaymentProvider,
   SUMUP_PAYMENT_PROVIDER,
 } from './sumupAssistedApplicationCore.js';
+import { matchesSumUpCheckoutReference } from './sumupCheckoutReference.js';
 import { isAutomationAgent, isCrawlerVisitorAgent } from './lib/returnVisit.js';
 import { localeFromSiteUrl } from './assistedApplicationNotifications.js';
 
@@ -196,29 +198,6 @@ function checkoutIdForRecord(record) {
     : boundedString(record?.stripeCheckoutSessionId, 200);
 }
 
-async function persistedStripeCheckoutExpired(record) {
-  if (record?.paymentProvider !== 'stripe') return false;
-  const sessionId = checkoutIdForRecord(record);
-  if (!sessionId) return false;
-  const persistedExpiresAt = checkoutExpirySeconds(record.checkoutExpiresAt);
-  if (persistedExpiresAt !== null) {
-    return persistedExpiresAt * 1000 <= Date.now();
-  }
-
-  try {
-    const stripe = await getStripe();
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-    if (session?.status === 'expired') return true;
-    const expiresAt = checkoutExpirySeconds(session?.expires_at);
-    return expiresAt !== null && expiresAt * 1000 <= Date.now();
-  } catch (error) {
-    console.warn(
-      '[assistedApplicationCheckout] Stripe checkout expiry lookup failed',
-      error instanceof Error ? error.message : String(error),
-    );
-    return false;
-  }
-}
 
 function isTerminalCheckoutOrder(order) {
   if (order?.paymentStatus === 'paid') return false;
@@ -375,6 +354,8 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   let stripeRequestKey = requestKeyHash;
   let paidOrderResumeId = null;
   let staleCheckout = null;
+  let verifiedSumUpCheckout = null;
+  let verifiedStripeCheckout = null;
 
   const existingRequestSnapshot = await requestRef.get();
   if (existingRequestSnapshot.exists) {
@@ -388,13 +369,95 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       const existingOrder = existingOrderSnapshot.exists ? existingOrderSnapshot.data() || {} : null;
       if (
         existingOrder
+        && existingOrder.userId === userId
         && sameCanonicalCheckoutOrder(existingOrder, order)
         && existingOrder.paymentStatus !== 'paid'
       ) {
         const checkoutRecord = { ...existingRecord, ...existingOrder };
-        const checkoutExpired = checkoutHasExpired(checkoutRecord)
-          || (!isTerminalCheckoutOrder(existingOrder)
-            && await persistedStripeCheckoutExpired(checkoutRecord));
+        if (checkoutIdForRecord(existingRecord) && !checkoutIdForRecord(existingOrder)) {
+          return { status: 409, body: { ok: false, error: 'assisted_application_request_conflict' } };
+        }
+        if (existingOrder.paymentStatus === 'refunded') {
+          return { status: 409, body: { ok: false, error: 'assisted_application_payment_refunded' } };
+        }
+        if (checkoutRecord.paymentProvider === SUMUP_PAYMENT_PROVIDER && checkoutRecord.sumupCheckoutId) {
+          let checkout;
+          try { checkout = await retrieveSumUpCheckout(checkoutRecord.sumupCheckoutId); }
+          catch { return { status: 502, body: { ok: false, error: 'assisted_application_checkout_unavailable' } }; }
+          if (checkout?.id !== checkoutRecord.sumupCheckoutId
+            || !matchesSumUpCheckoutReference(checkout.checkout_reference, existingRecord.orderId)
+            || Math.round(Number(checkout.amount) * 100) !== ASSISTED_APPLICATION_PRICE_CENTS
+            || String(checkout.currency || '').toLowerCase() !== ASSISTED_APPLICATION_CURRENCY) {
+            return { status: 502, body: { ok: false, error: 'assisted_application_checkout_unavailable' } };
+          }
+          const providerStatus = String(checkout.status || '').toUpperCase();
+          if (providerStatus === 'PAID') {
+            // Runtime import: the verified callback adapter delegates back to
+            // this module's ledger handler, after both modules are initialized.
+            const { applyAssistedApplicationSumUpCheckout } = await import('./assistedApplicationSumupWebhook.js');
+            await applyAssistedApplicationSumUpCheckout(checkout, { db: () => firestore, ts: FieldValue.serverTimestamp() });
+            const fresh = (await orderCollection.doc(existingRecord.orderId).get()).data() || {};
+            if (fresh.userId !== userId) return { status: 409, body: { ok: false, error: 'assisted_application_request_conflict' } };
+            if (fresh.paymentStatus === 'paid') return { status: 200, body: {
+              ok: true, orderId: existingRecord.orderId, url: appendOrderId(successUrl, existingRecord.orderId),
+            } };
+            return { status: 409, body: { ok: false, error: fresh.paymentStatus === 'refunded'
+              ? 'assisted_application_payment_refunded' : 'assisted_application_request_conflict' } };
+          }
+          if (!['PENDING', 'FAILED', 'EXPIRED'].includes(providerStatus)) {
+            return { status: 409, body: { ok: false, error: 'assisted_application_request_conflict' } };
+          }
+          verifiedSumUpCheckout = { id: checkout.id, orderId: existingRecord.orderId, status: providerStatus };
+          if (providerStatus === 'EXPIRED') staleCheckout = { orderId: existingRecord.orderId, checkoutId: checkout.id };
+        }
+        if ((checkoutRecord.paymentProvider === 'stripe' || (!checkoutRecord.paymentProvider && checkoutRecord.stripeCheckoutSessionId))
+          && checkoutRecord.stripeCheckoutSessionId) {
+          let session;
+          try { session = await (await getStripe()).checkout.sessions.retrieve(checkoutRecord.stripeCheckoutSessionId); }
+          catch { return { status: 502, body: { ok: false, error: 'assisted_application_checkout_unavailable' } }; }
+          if (session?.id !== checkoutRecord.stripeCheckoutSessionId
+            || (session.metadata?.orderId && session.metadata.orderId !== existingRecord.orderId)
+            || (session.metadata?.product && session.metadata.product !== ASSISTED_APPLICATION_PRODUCT)) {
+            return { status: 502, body: { ok: false, error: 'assisted_application_checkout_unavailable' } };
+          }
+          const providerStatus = String(session.status || '').toLowerCase();
+          const providerExpiresAt = checkoutExpirySeconds(session.expires_at);
+          const status = providerStatus === 'open' && session.payment_status !== 'paid'
+            && providerExpiresAt !== null && providerExpiresAt * 1000 <= Date.now() ? 'expired' : providerStatus;
+          if (status !== 'expired' && (Number(session.amount_total) !== ASSISTED_APPLICATION_PRICE_CENTS
+            || String(session.currency || '').toLowerCase() !== ASSISTED_APPLICATION_CURRENCY)) {
+            return { status: 502, body: { ok: false, error: 'assisted_application_checkout_unavailable' } };
+          }
+          if (session.payment_status === 'paid' || (status === 'complete' && existingOrder.paymentStatus !== 'failed')) {
+            await handleAssistedApplicationWebhookEvent({ type: 'checkout.session.completed', data: { object: {
+              ...session, metadata: { ...session.metadata, product: ASSISTED_APPLICATION_PRODUCT,
+                paymentProvider: 'stripe', orderId: existingRecord.orderId },
+            } } }, { db: () => firestore, ts: FieldValue.serverTimestamp() });
+            const fresh = (await orderCollection.doc(existingRecord.orderId).get()).data() || {};
+            if (fresh.userId === userId && (fresh.paymentStatus === 'paid'
+              || (fresh.paymentStatus === 'pending' && fresh.checkoutSessionStatus === 'pending'))) {
+              return { status: 200, body: { ok: true, orderId: existingRecord.orderId,
+                url: appendOrderId(successUrl, existingRecord.orderId) } };
+            }
+            return { status: 409, body: { ok: false, error: 'assisted_application_request_conflict' } };
+          }
+          if (status === 'expired') {
+            staleCheckout = { orderId: existingRecord.orderId, checkoutId: session.id };
+          } else if (status === 'open' && session.url && existingOrder.paymentStatus === 'pending') {
+            // An open Stripe checkout is reusable, but a known failed Stripe
+            // payment remains terminal and must never get the SumUp exception.
+          } else if (!(status === 'complete' && existingOrder.paymentStatus === 'failed'
+            && existingOrder.paymentFailureReason === 'payment_not_confirmed')) {
+            return { status: 409, body: { ok: false, error: 'assisted_application_request_conflict' } };
+          }
+          verifiedStripeCheckout = { id: session.id, orderId: existingRecord.orderId,
+            status: status === 'complete' ? 'failed' : status, url: session.url,
+            expiresAt: providerExpiresAt };
+        }
+        const checkoutExpired = verifiedSumUpCheckout?.orderId === existingRecord.orderId
+          ? verifiedSumUpCheckout.status === 'EXPIRED'
+          : verifiedStripeCheckout?.orderId === existingRecord.orderId
+            ? verifiedStripeCheckout.status === 'expired' : checkoutHasExpired(checkoutRecord);
         if (checkoutExpired) {
           staleCheckout = {
             orderId: existingRecord.orderId,
@@ -422,19 +485,65 @@ export async function handleCreateAssistedApplicationCheckout(req) {
         const existingOrder = existingOrderSnapshot.exists ? existingOrderSnapshot.data() || {} : null;
         if (
           !existingOrderSnapshot.exists
+          || existingOrder.userId !== userId
           || !sameCanonicalCheckoutOrder(existingOrder, order)
         ) {
+          throw new AssistedApplicationRequestConflictError();
+        }
+        if (existingOrder.paymentStatus === 'refunded') throw new AssistedApplicationRequestConflictError();
+        if (existingOrder.paymentStatus !== 'paid' && existingOrder.checkoutSessionStatus === 'creating'
+          && checkoutIdForRecord(existingOrder)) throw new AssistedApplicationRequestConflictError();
+        const verifiedCheckout = verifiedSumUpCheckout || verifiedStripeCheckout;
+        if (verifiedCheckout && existingOrder.paymentStatus !== 'paid'
+          && (existingRecord.orderId !== verifiedCheckout.orderId
+            || (existingOrder.paymentProvider || 'stripe') !== (verifiedSumUpCheckout ? SUMUP_PAYMENT_PROVIDER : 'stripe')
+            || checkoutIdForRecord(existingOrder) !== verifiedCheckout.id)) throw new AssistedApplicationRequestConflictError();
+        const verifiedSumUpReusable = verifiedSumUpCheckout
+          && ['PENDING', 'FAILED'].includes(verifiedSumUpCheckout.status)
+          && existingOrder.paymentProvider === SUMUP_PAYMENT_PROVIDER
+          && existingOrder.sumupCheckoutId === verifiedSumUpCheckout.id
+          && (existingOrder.paymentStatus === 'pending' || (existingOrder.paymentStatus === 'failed'
+            && existingOrder.paymentFailureReason === 'payment_not_confirmed'));
+        if (verifiedSumUpCheckout && verifiedSumUpCheckout.status !== 'EXPIRED'
+          && existingOrder.paymentStatus !== 'paid' && !verifiedSumUpReusable) throw new AssistedApplicationRequestConflictError();
+        const verifiedStripeReusable = verifiedStripeCheckout?.status === 'open' && existingOrder.paymentStatus === 'pending';
+        if (verifiedStripeCheckout?.status === 'failed' && !['failed', 'paid'].includes(existingOrder.paymentStatus)) {
           throw new AssistedApplicationRequestConflictError();
         }
         const stalePersistedCheckout = existingOrderSnapshot.exists
           && existingOrder.paymentStatus !== 'paid'
           && staleCheckout?.orderId === existingRecord.orderId
-          && staleCheckout.checkoutId === checkoutIdForRecord(existingRecord);
-        if (existingOrderSnapshot.exists && !isTerminalCheckoutOrder(existingOrder) && !stalePersistedCheckout) {
+          && staleCheckout.checkoutId === checkoutIdForRecord(existingOrder);
+        if (existingOrderSnapshot.exists && (!isTerminalCheckoutOrder(existingOrder) || verifiedSumUpReusable || verifiedStripeReusable) && !stalePersistedCheckout) {
           requestRecord = { ...existingRecord, payloadHash };
+          if (verifiedSumUpReusable) {
+            // Recovery can replace the provider ID without changing the order
+            // or this landing-page request key. Refresh that cache atomically.
+            const cache = { paymentProvider: SUMUP_PAYMENT_PROVIDER, sumupCheckoutId: verifiedSumUpCheckout.id,
+              checkoutSessionStatus: 'open', checkoutAttempt: checkoutAttemptFor(existingOrder.checkoutAttempt ?? existingRecord.checkoutAttempt),
+              checkoutExpiresAt: null, checkoutUrl: null, updatedAt: FieldValue.serverTimestamp() };
+            requestRecord = { ...requestRecord, ...cache };
+            transaction.set(requestRef, cache, { merge: true });
+            if (existingOrder.paymentStatus === 'failed') transaction.set(existingOrderRef, {
+              paymentStatus: 'pending', submissionStatus: 'awaiting_payment', checkoutSessionStatus: 'open',
+              paymentFailureReason: null, updatedAt: FieldValue.serverTimestamp(),
+            }, { merge: true });
+          }
+          if (verifiedStripeReusable) {
+            const cache = { paymentProvider: 'stripe', stripeCheckoutSessionId: verifiedStripeCheckout.id,
+              checkoutUrl: verifiedStripeCheckout.url, checkoutExpiresAt: verifiedStripeCheckout.expiresAt,
+              checkoutSessionStatus: 'open', checkoutAttempt: checkoutAttemptFor(existingOrder.checkoutAttempt ?? existingRecord.checkoutAttempt),
+              stripeRequestKey: stripeRequestKeyFor({ stripeRequestKey: existingOrder.stripeRequestKey || existingRecord.stripeRequestKey },
+                requestKeyHash, checkoutAttemptFor(existingOrder.checkoutAttempt ?? existingRecord.checkoutAttempt)),
+              updatedAt: FieldValue.serverTimestamp() };
+            requestRecord = { ...requestRecord, ...cache };
+            transaction.set(requestRef, cache, { merge: true });
+            transaction.set(existingOrderRef, { checkoutSessionStatus: 'open', checkoutExpiresAt: verifiedStripeCheckout.expiresAt,
+              updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+          }
           orderRef = existingOrderRef;
-          checkoutAttempt = checkoutAttemptFor(existingRecord.checkoutAttempt);
-          stripeRequestKey = stripeRequestKeyFor(existingRecord, requestKeyHash, checkoutAttempt);
+          checkoutAttempt = checkoutAttemptFor(requestRecord.checkoutAttempt);
+          stripeRequestKey = stripeRequestKeyFor(requestRecord, requestKeyHash, checkoutAttempt);
           paidOrderResumeId = existingOrder.paymentStatus === 'paid' ? existingRecord.orderId : null;
           if (existingRecord.payloadHash !== payloadHash) {
             transaction.set(requestRef, {
@@ -549,6 +658,9 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   const savedCheckoutId = requestRecord?.paymentProvider === SUMUP_PAYMENT_PROVIDER
     ? requestRecord.sumupCheckoutId
     : requestRecord?.stripeCheckoutSessionId;
+  if (savedCheckoutId && ![verifiedSumUpCheckout?.id, verifiedStripeCheckout?.id].includes(savedCheckoutId)) {
+    return { status: 409, body: { ok: false, error: 'assisted_application_request_conflict' } };
+  }
   const savedCheckoutCanBeReused = savedCheckoutId
     && requestRecord.checkoutSessionStatus !== 'expired'
     && (requestRecord.paymentProvider === SUMUP_PAYMENT_PROVIDER || requestRecord.checkoutUrl);
@@ -574,6 +686,37 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   const checkoutProvider = requestRecord?.paymentProvider || configuredPaymentProvider;
   const metadata = metadataForOrder({ ...order, orderId, locale, paymentProvider: checkoutProvider }, userId);
 
+  // The provider call may finish after a webhook or another creator. Publish
+  // its identity and the request cache together, only for this reserved order.
+  const publishCheckout = async (orderUpdate, requestUpdate) => firestore.runTransaction(async (transaction) => {
+    const [orderSnapshot, requestSnapshot] = await Promise.all([
+      transaction.get(orderRef), transaction.get(requestRef),
+    ]);
+    const current = orderSnapshot.exists ? orderSnapshot.data() || {} : null;
+    const currentRequest = requestSnapshot.exists ? requestSnapshot.data() || {} : null;
+    if (!current || current.userId !== userId || !currentRequest || currentRequest.userId !== userId
+      || currentRequest.requestKeyHash !== requestKeyHash || currentRequest.orderId !== orderId) return 'conflict';
+    if (current.paymentStatus === 'paid') return 'paid';
+    if (current.paymentStatus === 'refunded') return 'refunded';
+    const resultId = checkoutIdForRecord(orderUpdate);
+    if (!resultId) return 'conflict';
+    const orderIdNow = checkoutIdForRecord(current);
+    const requestIdNow = checkoutIdForRecord(currentRequest);
+    if (current.paymentStatus !== 'pending'
+      || current.paymentProvider !== checkoutProvider || currentRequest.paymentProvider !== checkoutProvider
+      || Number(current.checkoutAttempt) !== checkoutAttempt || Number(currentRequest.checkoutAttempt) !== checkoutAttempt
+      || (checkoutProvider === 'stripe' && (currentRequest.stripeRequestKey !== stripeRequestKey
+        || (current.stripeRequestKey && current.stripeRequestKey !== stripeRequestKey)))
+      || !['creating', 'open'].includes(current.checkoutSessionStatus)
+      || !['creating', 'open'].includes(currentRequest.checkoutSessionStatus)
+      || (orderIdNow && orderIdNow !== resultId) || (requestIdNow && requestIdNow !== resultId)
+      || (current.checkoutSessionStatus === 'open' && !orderIdNow)
+      || (currentRequest.checkoutSessionStatus === 'open' && !requestIdNow)) return 'conflict';
+    transaction.set(orderRef, { ...orderUpdate, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    transaction.set(requestRef, { ...requestUpdate, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    return 'published';
+  });
+  let publication;
   let checkoutUrl;
   let checkoutId;
   if (checkoutProvider === SUMUP_PAYMENT_PROVIDER) {
@@ -582,15 +725,14 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       redirectUrl: appendOrderId(successUrl, orderId),
     });
     checkoutId = checkout.id;
-    await orderRef.set({
+    publication = await publishCheckout({
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
       checkoutExpiresAt: null,
       checkoutAttempt,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-    await requestRef.set({
+    }, {
       checkoutAttempt,
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
@@ -600,7 +742,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       checkoutUrl: null,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
+    });
   } else {
     const stripe = await getStripe();
     const session = await stripe.checkout.sessions.create({
@@ -623,7 +765,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       idempotencyKey: 'assisted-application:' + stripeRequestKey,
     });
     checkoutUrl = session.url;
-    await orderRef.set({
+    publication = await publishCheckout({
       paymentProvider: 'stripe',
       stripeCheckoutSessionId: session.id,
       checkoutExpiresAt: checkoutExpirySeconds(session.expires_at),
@@ -631,8 +773,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       stripeRequestKey,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-    await requestRef.set({
+    }, {
       checkoutAttempt,
       paymentProvider: 'stripe',
       stripeRequestKey,
@@ -641,9 +782,16 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       checkoutUrl: session.url,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
+    });
   }
 
+  if (publication === 'paid') {
+    return { status: 200, body: { ok: true, url: appendOrderId(successUrl, orderId), orderId } };
+  }
+  if (publication !== 'published') {
+    return { status: 409, body: { ok: false, error: publication === 'refunded'
+      ? 'assisted_application_payment_refunded' : 'assisted_application_request_conflict' } };
+  }
   return {
     status: 200,
     body: checkoutProvider === SUMUP_PAYMENT_PROVIDER
@@ -799,8 +947,7 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
     const currentOrder = currentSnapshot.exists ? currentSnapshot.data() || {} : null;
     // A late negative callback must not cancel a replacement lease acquired
     // after the callback's initial read. Confirmed payments still win.
-    if (paymentProvider === SUMUP_PAYMENT_PROVIDER && currentOrder?.checkoutSessionStatus === 'creating'
-      && paymentStatus !== 'paid') return;
+    if (currentOrder?.checkoutSessionStatus === 'creating' && paymentStatus !== 'paid') return;
     if (shouldIgnoreAssistedApplicationWebhook(currentOrder, obj.id, paymentProvider)) return;
     transaction.set(orderRef, update, { merge: true });
   });

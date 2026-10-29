@@ -129,6 +129,29 @@ describe('email-link telemetry URL privacy', () => {
   expect(destination.pathname).toBe('/path');
  });
 
+ it.each([
+  ['https://outer.test/#https://user:password@inner.test/path', 'https://outer.test/#https://inner.test/path'],
+  ['https://outer.test/#' + encodeURIComponent('https://user:password@inner.test/path?utm_campaign=a%26b'), 'https://outer.test/#' + encodeURIComponent('https://inner.test/path?utm_campaign=a%26b')],
+  ['https://outer.test/#next=' + encodeURIComponent('https://user:password@inner.test/path'), 'https://outer.test/#next=' + encodeURIComponent('https://inner.test/path')],
+  ['https://outer.test/#route?ac=secret&utm_source=email', 'https://outer.test/#route?utm_source=email'],
+  ['https://outer.test/#' + encodeURIComponent('route?email=secret&utm_source=email'), 'https://outer.test/#' + encodeURIComponent('route?utm_source=email')],
+  ['https://outer.test/#next=https://user:password@inner.test/path?ac=secret&utm_source=email', 'https://outer.test/#utm_source=email&next=' + encodeURIComponent('https://inner.test/path')],
+ ])('sanitizes fragment references while retaining their representation: %s', (input, expected) => {
+  expect(sanitizeTelemetryProperties({ page_location: input }).page_location).toBe(expected);
+ });
+
+ it.each(['login?email=secret&utm_source=email', 'login#ne=secret&utm_source=email'])('sanitizes bare relative destinations %s', (relative) => {
+  const input = 'https://outer.test/?next=' + encodeURIComponent(relative) + '&utm_medium=payment_reminder';
+  const result = new URL(sanitizeTelemetryProperties({ page_location: input }).page_location);
+  expect(result.searchParams.get('next')).toBe(relative.replace(/(?:email|ne)=secret&/, ''));
+  expect(result.searchParams.get('utm_medium')).toBe('payment_reminder');
+ });
+
+ it.each(['#ordinary-route', '#caf%C3%A9', '#topic=a%20b', '#invalid%escape'])('keeps ordinary fragments unchanged: %s', (fragment) => {
+  const input = 'https://outer.test/?utm_campaign=a%26b' + fragment;
+  expect(sanitizeTelemetryProperties({ page_location: input }).page_location).toBe(input);
+ });
+
  it('keeps ordinary URLs byte-identical and embeds canonical code in static producers', () => {
   const ordinary = '/cerca-lavoro-ticino/?utm_campaign=a%20b&action=continue#details';
   expect(sanitizeTelemetryProperties({ page_path: ordinary }).page_path).toBe(ordinary);

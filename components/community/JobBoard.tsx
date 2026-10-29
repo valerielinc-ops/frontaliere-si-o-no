@@ -8978,7 +8978,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   return (
    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle">{t('jobBoard.assisted.loading')}</div>}>
     <AssistedApplicationUpload
-     key={assistedApplicationOrderId}
+     key={`${assistedApplicationOrderId}:${authUser?.uid ?? 'anonymous'}:${typeof window !== 'undefined' ? window.location.pathname : '/'}`}
      orderId={assistedApplicationOrderId}
      authUser={authUser}
      onRequireAuth={onRequireAuth}

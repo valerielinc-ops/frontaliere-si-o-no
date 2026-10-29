@@ -974,8 +974,11 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
   // too: the answer id still carries the portal question's wording as a slug.
+  // A mapped record already expresses this exact answer in the ATS language.
+  // Its candidate-language value is not a second, conflicting statement.
+  const mappedAnswerIds = new Set(recorded.map((item) => item.answerId).filter(Boolean));
   const fromAnswerIds = Object.entries(candidate?.answers || {})
-    .filter(([id, answer]) => /^portal_/i.test(id) && String(answer || '').trim())
+    .filter(([id, answer]) => /^portal_/i.test(id) && !mappedAnswerIds.has(id) && String(answer || '').trim())
     .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer, source: 'answer-id' }));
   const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));

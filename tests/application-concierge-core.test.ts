@@ -197,6 +197,16 @@ beforeEach(() => {
 });
 
 describe('historic concierge payment link session recovery', () => {
+  it('refuses a revoked caller before minting a replacement session, including normalized actions', async () => {
+    mocks.verifyCaller.mockResolvedValueOnce(null as any);
+    mocks.createCustomToken.mockClear();
+    const req = { method: 'POST', body: { action: ' recoverPaymentSession ', serviceId: 'service-1' } };
+    const result = await handleApplicationConcierge(req);
+    expect(mocks.verifyCaller).toHaveBeenCalledWith(req, { checkRevoked: true });
+    expect(result).toMatchObject({ status: 401, body: { ok: false, error: 'unauthenticated' } });
+    expect(mocks.createCustomToken).not.toHaveBeenCalled();
+  });
+
   it.each([
     { email_verified: false, email: 'candidate@example.test', allowed: false },
     { email_verified: true, email: 'other@example.test', allowed: false },
@@ -241,6 +251,16 @@ describe('application concierge candidate API', () => {
     const result = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
     expect(result).toMatchObject({ status: 200, body: { ok: true, service: {
       paymentStatus: 'pending', checkoutSessionStatus: 'open',
+    } } });
+  });
+
+  it('serializes actual failed SumUp state consumed by the retry UI', async () => {
+    const key = 'application_concierge_services/service-1';
+    mocks.documents.set(key, { ...mocks.documents.get(key), paymentProvider: 'sumup', paymentStatus: 'failed',
+      serviceStatus: 'payment_failed', checkoutSessionStatus: 'failed' });
+    const result = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(result).toMatchObject({ status: 200, body: { ok: true, service: {
+      paymentProvider: 'sumup', paymentStatus: 'failed', serviceStatus: 'payment_failed', checkoutSessionStatus: 'failed',
     } } });
   });
 

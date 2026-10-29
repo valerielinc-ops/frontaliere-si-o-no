@@ -35,15 +35,16 @@ function docRef(id: string) {
 
 const db = {
   collection: (name: string) => {
-    expect(name).toBe('assisted_applications');
+    expect(['assisted_applications', 'application_concierge_services']).toContain(name);
+    const prefix = name === 'application_concierge_services' ? 'concierge/' : '';
     return {
-      doc: (id: string) => docRef(id),
+      doc: (id: string) => docRef(`${prefix}${id}`),
       where: (field: string, op: string, value: unknown) => ({
         async get() {
           expect(op).toBe('==');
           const docs = Object.entries(store)
-            .filter(([, data]) => data?.[field] === value)
-            .map(([id, data]) => ({ id, data: () => data, ref: docRef(id) }));
+            .filter(([id, data]) => data?.[field] === value && (prefix ? id.startsWith(prefix) : !id.startsWith('concierge/')))
+            .map(([id, data]) => ({ id: prefix ? id.slice(prefix.length) : id, data: () => data, ref: docRef(id) }));
           return { docs };
         },
       }),
@@ -90,6 +91,7 @@ const {
   submittedReviewUrl,
   NOTIFICATION_KEYS,
 } = await import('../functions/src/assistedApplicationNotifications.js');
+const { buildConciergePaidEmail, handleConciergeServiceWritten, sendConciergePaidNotifications, sweepConciergePaidNotifications } = await import('../functions/src/applicationConciergeNotifications.js');
 const { renderBrandedEmail } = await import('../functions/src/assistedApplicationEmailLayout.js');
 const { CONSENT_BOUND_EXPIRES_AT, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 
@@ -721,5 +723,63 @@ describe('the «inviata» e-mail and the candidate’s documents', () => {
       .toMatchObject({ ok: true, expiresAt: NOW + 30 * DAY, consentBound: false });
     // An order the purge already emptied is no longer kept for the pool: its documents are gone.
     expect(await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', talentPoolConsent: true, retentionPurgedAt: new Date(NOW) }, nowMs: NOW, getSecret })).not.toContain('assisted_application_review');
+  });
+});
+
+
+describe('paid 30-day concierge notifications', () => {
+  const serviceId = 'bundle-example';
+  const key = `concierge/${serviceId}`;
+  function paidService() {
+    return { ...paidOrder(), serviceId, paidAt: new Date(NOW), amountTotal: 3999, serviceStatus: 'active' };
+  }
+
+  it('keeps receipts on the parent ledger and does not resend on updates or duplicate delivery', async () => {
+    store[key] = paidService();
+    await handleConciergeServiceWritten({ paymentStatus: 'pending' }, store[key], serviceId, { db, nowMs: NOW });
+    expect(payloads()).toHaveLength(2);
+    expect(payloads()[0].tracking).toBe(false);
+    expect(payloads()[0].text).toContain('39,99');
+    expect(payloads()[1].text).toContain('30 giorni');
+    expect(store[key].notifications.concierge_paid_customer.status).toBe('sent');
+    expect(store[key].notifications.concierge_paid_owner.status).toBe('sent');
+    expect(store[serviceId]).toBeUndefined();
+    await handleConciergeServiceWritten(store[key], store[key], serviceId, { db, nowMs: NOW });
+    await sendConciergePaidNotifications({ db, serviceId, nowMs: NOW });
+    expect(payloads()).toHaveLength(2);
+  });
+
+  it('recovers an owner delivery failure independently of the delivered customer receipt', async () => {
+    store[key] = paidService();
+    await sendConciergePaidNotifications({ db, serviceId, nowMs: NOW });
+    store[key].notifications.concierge_paid_owner = { status: 'failed', failedAt: new Date(NOW) };
+    sendEmailCascade.mockClear();
+    await sweepConciergePaidNotifications({ db, nowMs: NOW + HOUR });
+    expect(payloads()).toHaveLength(1);
+    expect(store[key].notifications.concierge_paid_owner.status).toBe('sent');
+  });
+
+  it('never automatically resends ambiguous deliveries and skips unpaid or old services', async () => {
+    store[key] = paidService();
+    store[key].notifications = { concierge_paid_owner: { status: 'ambiguous' }, concierge_paid_customer: { status: 'sent' } };
+    await sendConciergePaidNotifications({ db, serviceId, nowMs: NOW });
+    await sweepConciergePaidNotifications({ db, nowMs: NOW + HOUR });
+    expect(payloads()).toHaveLength(0);
+    store[key].paymentStatus = 'pending';
+    await handleConciergeServiceWritten(null, store[key], serviceId, { db, nowMs: NOW });
+    await sendConciergePaidNotifications({ db, serviceId, nowMs: NOW });
+    store[key] = { ...paidService(), paidAt: new Date(NOW - 4 * 24 * HOUR) };
+    await sweepConciergePaidNotifications({ db, nowMs: NOW });
+    expect(payloads()).toHaveLength(0);
+  });
+
+  it.each(['it', 'en', 'de', 'fr'])('builds a localized %s receipt and escapes owner-facing personal fields', (locale) => {
+    const service = { ...paidService(), locale, applicantName: '<img src=x>' };
+    const customer = buildConciergePaidEmail(service, serviceId);
+    expect(customer.text).toContain(serviceId);
+    expect(customer.html).not.toContain('undefined');
+    const owner = buildConciergePaidEmail(service, serviceId, { audience: 'owner' });
+    expect(owner.html).toContain('&lt;img src=x&gt;');
+    expect(owner.html).not.toContain('<img src=x>');
   });
 });

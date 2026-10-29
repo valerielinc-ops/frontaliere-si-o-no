@@ -182,7 +182,9 @@ export default function SumUpPaymentWidget({
           country: 'CH',
           showFooter: true,
           ...(googlePay ? { googlePay } : {}),
-          onResponse: (type, body) => responseRef.current(type, body),
+          onResponse: (type, body) => {
+            if (!cancelled) responseRef.current(type, body);
+          },
           onLoad: () => {
             if (!cancelled) setSdkLoading(false);
           },

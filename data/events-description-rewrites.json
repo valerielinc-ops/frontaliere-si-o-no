@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-29T16:29:32.701Z",
+  "generatedAt": "2026-10-29T17:31:21.321Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -18584,6 +18584,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T17:15:21.293Z"
     },
+    "guidle:A3c4xX1::096bd8760acc1b9313fa2b05996cb3dfd5a1c0ec7ffb98ab067a1946ca3493b6": {
+      "id": "guidle:A3c4xX1",
+      "sourceDescriptionHash": "096bd8760acc1b9313fa2b05996cb3dfd5a1c0ec7ffb98ab067a1946ca3493b6",
+      "description": "Il concerto riunisce formazioni che suonano arpa, chitarra, percussioni e strumenti a fiato in legno. Il programma della scuola di musica accompagna l’inizio della primavera e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Il concerto riunisce formazioni che suonano arpa, chitarra, percussioni e strumenti a fiato in legno. Il programma della scuola di musica accompagna l’inizio della primavera e l’ingresso è gratuito.",
+        "en": "The concert features ensembles using harp, guitar, percussion and woodwind instruments. The music school’s varied programme welcomes the spring season, and admission is free.",
+        "de": "Bei diesem Konzert treten Ensembles mit Harfe, Gitarre, Perkussion und Holzblasinstrumenten auf. Das abwechslungsreiche Programm der Musikschule steht im Zeichen des Frühlings, der Eintritt ist frei.",
+        "fr": "Le concert réunit des ensembles utilisant la harpe, la guitare, les percussions et des instruments à vent en bois. Le programme varié de l’école de musique accompagne l’arrivée du printemps et l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T17:19:36.356Z"
+    },
     "guidle:A3CiGcL::5b0854a79a894acf54f2c99cf6959b8ff34ad86f62a67699408b240c210f236d": {
       "id": "guidle:A3CiGcL",
       "sourceDescriptionHash": "5b0854a79a894acf54f2c99cf6959b8ff34ad86f62a67699408b240c210f236d",
@@ -19255,6 +19269,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T13:15:59.296Z"
+    },
+    "guidle:A4hqKyu::a04289b58ddf4e19af469998c3e18f7cb25f825bcdb9175838b4dcf91459ee8d": {
+      "id": "guidle:A4hqKyu",
+      "sourceDescriptionHash": "a04289b58ddf4e19af469998c3e18f7cb25f825bcdb9175838b4dcf91459ee8d",
+      "description": "Il programma presenta l’oratorio «Elias» di Mendelssohn, un’opera di musica sacra. L’esecuzione si tiene alla Kirche St. Martin.",
+      "descriptionByLocale": {
+        "it": "Il programma presenta l’oratorio «Elias» di Mendelssohn, un’opera di musica sacra. L’esecuzione si tiene alla Kirche St. Martin.",
+        "en": "The programme features Mendelssohn’s oratorio “Elias”, a work of church music. It is performed at Kirche St. Martin.",
+        "de": "Das Konzert stellt Mendelssohns Oratorium „Elias“ aus dem Bereich der Kirchenmusik vor. Veranstaltungsort ist die Kirche St. Martin.",
+        "fr": "Le programme comprend l’oratorio «Elias» de Mendelssohn, une œuvre de musique sacrée. Il est présenté à la Kirche St. Martin."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T17:24:28.567Z"
     },
     "guidle:A4j1q5c::437e9cf36276998c9493c1a8ab60690ae079cdff9e855a47a41f3dbf1923abb4": {
       "id": "guidle:A4j1q5c",
@@ -21047,6 +21075,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T20:22:52.083Z"
+    },
+    "guidle:A7E8HCC::310d1952066ebe7ebd3378f64069a15b06b6a1063ea5c73933648eef88bc0fef": {
+      "id": "guidle:A7E8HCC",
+      "sourceDescriptionHash": "310d1952066ebe7ebd3378f64069a15b06b6a1063ea5c73933648eef88bc0fef",
+      "description": "L’evento di musica folk al Diogenes Theater di Altstätten presenta il Julian von der Flühe Trio. La manifestazione è indicata con la denominazione Alpine Folk.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica folk al Diogenes Theater di Altstätten presenta il Julian von der Flühe Trio. La manifestazione è indicata con la denominazione Alpine Folk.",
+        "en": "The folk-music event at Diogenes Theater in Altstätten features the Julian von der Flühe Trio. It is listed under the Alpine Folk designation.",
+        "de": "Die Folk-Veranstaltung im Diogenes Theater in Altstätten präsentiert das Julian von der Flühe Trio. Sie ist als «Alpenvolk» bezeichnet.",
+        "fr": "Le rendez-vous de musique folk au Diogenes Theater d’Altstätten présente le Julian von der Flühe Trio. Il est désigné comme « Folk alpin »."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T17:18:41.047Z"
     },
     "guidle:A7eQXNs::87a846e78106975ffe9fd2e12c6665585d970f4c5cc0c2b3078d2fb85da75eb6": {
       "id": "guidle:A7eQXNs",
@@ -23217,6 +23259,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T09:29:51.782Z"
+    },
+    "guidle:AAHdbGG::6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc": {
+      "id": "guidle:AAHdbGG",
+      "sourceDescriptionHash": "6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc",
+      "description": "L’appuntamento musicale rende omaggio a Polo Hofer e appartiene alla categoria pop. Si svolge alla Mühle Hunziken di Rubigen, nel cantone di Berna.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale rende omaggio a Polo Hofer e appartiene alla categoria pop. Si svolge alla Mühle Hunziken di Rubigen, nel cantone di Berna.",
+        "en": "This music event pays tribute to Polo Hofer and belongs to the pop category. It takes place at Mühle Hunziken in Rubigen, in the canton of Bern.",
+        "de": "Die Musikveranstaltung ist Polo Hofer gewidmet und dem Popbereich zugeordnet. Sie findet in der Mühle Hunziken in Rubigen im Kanton Bern statt.",
+        "fr": "Ce rendez-vous musical rend hommage à Polo Hofer et relève de la catégorie pop. Il se déroule à la Mühle Hunziken, à Rubigen, dans le canton de Berne."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T17:18:56.086Z"
     },
     "guidle:AaHK3SF::5c37b628c2264cd02ad304c1f302fe4f7d87b916b22db70e1da141a973020d01": {
       "id": "guidle:AaHK3SF",
@@ -26745,6 +26801,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-15T13:18:27.681Z"
+    },
+    "guidle:ACu6FYi::c603c1903a3c34123b1baf5b9175c898d85cd64b4388b11bc3e33b0ccc12faca": {
+      "id": "guidle:ACu6FYi",
+      "sourceDescriptionHash": "c603c1903a3c34123b1baf5b9175c898d85cd64b4388b11bc3e33b0ccc12faca",
+      "description": "Il forum è dedicato agli strumenti a tastiera e coinvolge gli allievi e le allieve della relativa sezione. I partecipanti presentano un programma musicale vario.",
+      "descriptionByLocale": {
+        "it": "Il forum è dedicato agli strumenti a tastiera e coinvolge gli allievi e le allieve della relativa sezione. I partecipanti presentano un programma musicale vario.",
+        "en": "The forum focuses on keyboard instruments and features students from the corresponding department. They present a varied musical programme.",
+        "de": "Im Mittelpunkt des Forums stehen Tasteninstrumente und Beiträge der entsprechenden Fachschaft. Schülerinnen und Schüler gestalten ein abwechslungsreiches musikalisches Programm.",
+        "fr": "Le forum présente des contributions d’élèves de la section consacrée aux instruments à clavier. Leur programme musical est varié."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T17:23:08.328Z"
     },
     "guidle:ACUwRKi::df238f2a5e36dd69e7b7ae2ba40d622669971910bc73d2c555fdd9311d6e3938": {
       "id": "guidle:ACUwRKi",
@@ -35692,6 +35762,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T07:16:29.760Z"
     },
+    "guidle:AJpT4Sv::abf36fe7a08bf28ed44e5591ebe6bb6b93b9b5e9732a9a46779b19785cc9807c": {
+      "id": "guidle:AJpT4Sv",
+      "sourceDescriptionHash": "abf36fe7a08bf28ed44e5591ebe6bb6b93b9b5e9732a9a46779b19785cc9807c",
+      "description": "L’evento all’aperto presenta nuovi talenti alla Place Marc-Louis-Arlaud. Si svolge nell’arco di più giornate e il biglietto costa 10 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento all’aperto presenta nuovi talenti alla Place Marc-Louis-Arlaud. Si svolge nell’arco di più giornate e il biglietto costa 10 CHF.",
+        "en": "This open-air event presents new talent at Place Marc-Louis-Arlaud. It runs over several days, with admission priced at CHF 10.",
+        "de": "Das Open-Air stellt neue Talente an der Place Marc-Louis-Arlaud vor. Die Veranstaltung erstreckt sich über mehrere Tage; der Eintritt kostet 10 CHF.",
+        "fr": "L’événement en plein air présente de nouveaux talents à la Place Marc-Louis-Arlaud. Il se déroule sur plusieurs jours et l’entrée coûte 10 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T17:24:28.556Z"
+    },
     "guidle:AJPxTY3::a6b06e161dc27eb14223ebacd2ca99355b625e13122d90dd7007eb03f9aa12d3": {
       "id": "guidle:AJPxTY3",
       "sourceDescriptionHash": "a6b06e161dc27eb14223ebacd2ca99355b625e13122d90dd7007eb03f9aa12d3",
@@ -35775,6 +35859,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T12:15:22.234Z"
+    },
+    "guidle:AJRS4Rn::f15edfcb1e0735aae72acff812f7ec2978c9d1049131bdd270b4a7faf798d894": {
+      "id": "guidle:AJRS4Rn",
+      "sourceDescriptionHash": "f15edfcb1e0735aae72acff812f7ec2978c9d1049131bdd270b4a7faf798d894",
+      "description": "L’appuntamento al Monti-Winterquartier presenta Eliane in un repertorio pop con brani nuovi e successi riarrangiati. La serata combina musica interpretata con sensibilità e il racconto di esperienze personali, con il sostegno di una band.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento al Monti-Winterquartier presenta Eliane in un repertorio pop con brani nuovi e successi riarrangiati. La serata combina musica interpretata con sensibilità e il racconto di esperienze personali, con il sostegno di una band.",
+        "en": "At Monti-Winterquartier, Eliane presents a pop programme that includes new songs and rearranged hits. The performance also combines heartfelt music with personal stories and the support of a band.",
+        "de": "Im Monti-Winterquartier präsentiert Eliane ein Popprogramm mit neuen Liedern und neu arrangierten Hits. Der Auftritt verbindet gefühlvolle Musik und persönliche Geschichten mit der Begleitung durch eine Band.",
+        "fr": "Au Monti-Winterquartier, Eliane propose un programme pop comprenant de nouveaux morceaux et des succès réarrangés. Le spectacle associe une musique sensible à des récits personnels, avec l’accompagnement d’un groupe."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T17:19:05.283Z"
     },
     "guidle:AJRsRhn::6c647a4429fdff3045e32de0cea627cb2bc4ee113985b545ad3225a53c340f11": {
       "id": "guidle:AJRsRhn",
@@ -177966,15 +178064,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:A3c4xX1::096bd8760acc1b9313fa2b05996cb3dfd5a1c0ec7ffb98ab067a1946ca3493b6": {
-      "id": "guidle:A3c4xX1",
-      "sourceDescriptionHash": "096bd8760acc1b9313fa2b05996cb3dfd5a1c0ec7ffb98ab067a1946ca3493b6",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:23:06.276Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:A3k8NWy::6cf70d470d7377de6168311a038c239176e8421b20cb5348b891189876e9723e": {
       "id": "guidle:A3k8NWy",
       "sourceDescriptionHash": "6cf70d470d7377de6168311a038c239176e8421b20cb5348b891189876e9723e",
@@ -178026,15 +178115,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T16:27:14.635Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:A4hqKyu::a04289b58ddf4e19af469998c3e18f7cb25f825bcdb9175838b4dcf91459ee8d": {
-      "id": "guidle:A4hqKyu",
-      "sourceDescriptionHash": "a04289b58ddf4e19af469998c3e18f7cb25f825bcdb9175838b4dcf91459ee8d",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:25:21.896Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178105,8 +178185,8 @@
       "id": "guidle:A6Gvjis",
       "sourceDescriptionHash": "b1221e2229e150b5b03f6fd6eafd65fdaf7afd76b8dcfc951bbcc34d4e5f4e36",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:28:07.161Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T17:26:48.976Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178134,15 +178214,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T13:38:20.470Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:A7E8HCC::310d1952066ebe7ebd3378f64069a15b06b6a1063ea5c73933648eef88bc0fef": {
-      "id": "guidle:A7E8HCC",
-      "sourceDescriptionHash": "310d1952066ebe7ebd3378f64069a15b06b6a1063ea5c73933648eef88bc0fef",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:29:52.616Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178290,15 +178361,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AAHdbGG::6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc": {
-      "id": "guidle:AAHdbGG",
-      "sourceDescriptionHash": "6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:32:35.506Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AALXQwt::253214521be18c478ff3a7b02c4671c280b3754cc733983bbc4e00a79420ab04": {
       "id": "guidle:AALXQwt",
       "sourceDescriptionHash": "253214521be18c478ff3a7b02c4671c280b3754cc733983bbc4e00a79420ab04",
@@ -178366,8 +178428,8 @@
       "id": "guidle:AC2ZMAs",
       "sourceDescriptionHash": "e4f49f22ee5573c33523e4ddf454d5c9ab7a3007a0ba78cdc984146cdc7d5bcb",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:23:27.275Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T17:25:07.347Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178456,17 +178518,8 @@
       "id": "guidle:AcsJufY",
       "sourceDescriptionHash": "acd6202843912c5624fc2a9f8eada2985781bd7e966a16844881228c681d43c2",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:28:40.414Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:ACu6FYi::c603c1903a3c34123b1baf5b9175c898d85cd64b4388b11bc3e33b0ccc12faca": {
-      "id": "guidle:ACu6FYi",
-      "sourceDescriptionHash": "c603c1903a3c34123b1baf5b9175c898d85cd64b4388b11bc3e33b0ccc12faca",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:20:39.713Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T17:27:19.098Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178920,24 +178973,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AJpT4Sv::abf36fe7a08bf28ed44e5591ebe6bb6b93b9b5e9732a9a46779b19785cc9807c": {
-      "id": "guidle:AJpT4Sv",
-      "sourceDescriptionHash": "abf36fe7a08bf28ed44e5591ebe6bb6b93b9b5e9732a9a46779b19785cc9807c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:26:08.631Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AJRS4Rn::f15edfcb1e0735aae72acff812f7ec2978c9d1049131bdd270b4a7faf798d894": {
-      "id": "guidle:AJRS4Rn",
-      "sourceDescriptionHash": "f15edfcb1e0735aae72acff812f7ec2978c9d1049131bdd270b4a7faf798d894",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:20:53.871Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:Ak8h8SE::2e87498459e21f79fafe8a2fd34c787498ebb324ab265449e84770751dfdd1b1": {
       "id": "guidle:Ak8h8SE",
       "sourceDescriptionHash": "2e87498459e21f79fafe8a2fd34c787498ebb324ab265449e84770751dfdd1b1",
@@ -179131,8 +179166,8 @@
       "id": "guidle:AMdpPV8",
       "sourceDescriptionHash": "b5257e54620296d3cfa33170a7e59fc5bf6f63cf0afce2a317cbe4d0d6d216bc",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:24:11.294Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T17:25:49.090Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179689,8 +179724,8 @@
       "id": "guidle:AtAkWcv",
       "sourceDescriptionHash": "ac79ce197f7229b117c70d2b1868ffeeb38efc72ccc3c2a0a4f8481d3ec24538",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:26:47.489Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T17:22:02.123Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179707,8 +179742,8 @@
       "id": "guidle:ATEiv93",
       "sourceDescriptionHash": "cfba74f0f4b0974bcf18a8538728b12c7037e25d1adca1d51dae1b4608b1be68",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:22:36.611Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T17:22:36.257Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179752,8 +179787,8 @@
       "id": "guidle:ATMk5ep",
       "sourceDescriptionHash": "a1e55a1c95f3e7d2d76b001c1a84bb5bff2a1f5c671a5bd3949745d799207df3",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:23:34.256Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T17:23:44.973Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

@@ -110,6 +110,7 @@ import {
   runApplicationConciergeMatching,
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from './src/applicationConciergeMatching.js';
+import { handleConciergeServiceWritten, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
   handleAssistedApplicationOrderWritten,
@@ -2827,6 +2828,18 @@ export const notifyAssistedApplicationOrder = onDocumentWritten(
   },
 );
 
+// The parent bundle has its own notification ledger.
+export const notifyApplicationConciergeService = onDocumentWritten(
+  { region: 'europe-west6', memory: '256MiB', document: 'application_concierge_services/{serviceId}' },
+  async (event) => {
+    if (!event.data?.after?.exists) return;
+    await handleConciergeServiceWritten(
+      event.data.before?.exists ? event.data.before.data() : null,
+      event.data.after.data(), event.params.serviceId, { db: getAdminDb() },
+    );
+  },
+);
+
 // Automated second half of the assisted application (owner decisions
 // 2026-09-30, RC flag ASSISTED_APPLICATION_AUTOMATION, default off): a CV
 // that passes the type check starts the flow, which dispatches the GitHub
@@ -3128,6 +3141,7 @@ export const sweepAssistedApplicationNotifications = onSchedule(
   async () => {
     try {
       const summary = await runAssistedApplicationNotificationSweep({ db: getAdminDb() });
+      await sweepConciergePaidNotifications({ db: getAdminDb() });
       if (summary.intros > 0 || summary.reminders > 0 || summary.failed > 0) {
         console.log('[sweepAssistedApplicationNotifications]', summary);
       }

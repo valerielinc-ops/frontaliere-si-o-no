@@ -75,12 +75,14 @@ export function db() {
   return getFirestore();
 }
 
-export async function verifyCaller(req) {
+export async function verifyCaller(req, { checkRevoked = false } = {}) {
   const header = req.get('Authorization') || req.get('authorization') || '';
   const match = header.match(/^Bearer\s+(.+)$/i);
   if (!match) return null;
   try {
-    return await getAuth().verifyIdToken(match[1]);
+    return checkRevoked
+      ? await getAuth().verifyIdToken(match[1], true)
+      : await getAuth().verifyIdToken(match[1]);
   } catch {
     return null;
   }

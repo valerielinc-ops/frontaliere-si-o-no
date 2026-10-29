@@ -172,6 +172,20 @@ export default function AssistedApplicationUpload({
   const paymentCompletionTracked = useRef(false);
   const autoResumedOrder = useRef<string | null>(null);
   const paymentResumeInFlight = useRef(false);
+  const mounted = useRef(true);
+  const pendingCheckoutWindow = useRef<Window | null>(null);
+  const sumUpResponseIsActive = useRef<((payment: unknown) => boolean) | null>(null);
+  const paymentContext = useRef({ orderId, authUid: authUser?.uid || null });
+  paymentContext.current = { orderId, authUid: authUser?.uid || null };
+
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+      closePaymentWindow(pendingCheckoutWindow.current);
+      pendingCheckoutWindow.current = null;
+    };
+  }, []);
 
   const readOrder = useCallback(async (): Promise<AssistedApplicationOrder | null> => {
     const [{ getApp }, authModule, firestoreModule] = await Promise.all([
@@ -289,9 +303,17 @@ export default function AssistedApplicationUpload({
   const handleResumePayment = useCallback(async (source: 'automatic' | 'manual' = 'manual') => {
     if (paymentResumeInFlight.current) return;
     paymentResumeInFlight.current = true;
+    const expectedAuthUid = authUser?.uid || null;
+    const path = window.location.pathname;
+    const linkedOrder = new URLSearchParams(window.location.search).get('assisted_application_order_id');
+    const isActive = () => mounted.current && paymentContext.current.orderId === orderId
+      && paymentContext.current.authUid === expectedAuthUid
+      && window.location.pathname === path
+      && new URLSearchParams(window.location.search).get('assisted_application_order_id') === linkedOrder;
     // Only legacy Stripe orders need a separate browser window. SumUp mounts
     // in the application, including when recovery starts without a click.
     const checkoutWindow = order?.paymentProvider === 'stripe' ? openPaymentWindow() : null;
+    pendingCheckoutWindow.current = checkoutWindow;
     setPaymentResumeBusy(true);
     setError(null);
     trackAssistedApplicationEvent('checkout_resumed', {
@@ -306,13 +328,20 @@ export default function AssistedApplicationUpload({
       const auth = authModule.getAuth(await getApp());
       if (typeof auth.authStateReady === 'function') await auth.authStateReady();
       const currentUser = auth.currentUser || authUser;
+      if (!isActive()) { closePaymentWindow(checkoutWindow); return; }
       if (!currentUser?.getIdToken) {
         closePaymentWindow(checkoutWindow);
         setStatus('auth_required');
         onRequireAuth?.();
         return;
       }
+      if (paymentContext.current.authUid && paymentContext.current.authUid !== currentUser.uid) {
+        closePaymentWindow(checkoutWindow);
+        return;
+      }
       const result = await resumeAssistedApplicationPayment(orderId, currentUser);
+      if (!isActive() || auth.currentUser?.uid !== currentUser.uid) { closePaymentWindow(checkoutWindow); return; }
+      pendingCheckoutWindow.current = null;
       if (result.status === 'paid') {
         closePaymentWindow(checkoutWindow);
         await refreshOrder();
@@ -320,7 +349,10 @@ export default function AssistedApplicationUpload({
       }
       if (result.paymentProvider === 'sumup' && result.checkoutId) {
         closePaymentWindow(checkoutWindow);
-        setSumUpPayment({ checkoutId: result.checkoutId, orderId });
+        const payment = { checkoutId: result.checkoutId, orderId };
+        sumUpResponseIsActive.current = (candidate) => candidate === payment && isActive()
+          && auth.currentUser?.uid === currentUser.uid;
+        setSumUpPayment(payment);
         setSumUpPaymentError(null);
         return;
       }
@@ -334,12 +366,16 @@ export default function AssistedApplicationUpload({
         } catch {
           // Fall through to the same-tab redirect if the WindowProxy was revoked.
         }
-        if (!popupOpened) window.location.assign(result.url);
+        if (!popupOpened) {
+          closePaymentWindow(checkoutWindow);
+          window.location.assign(result.url);
+        }
         return;
       }
       throw new Error('payment_session_unavailable');
     } catch (resumeError) {
       closePaymentWindow(checkoutWindow);
+      if (!isActive()) return;
       const code = getAssistedApplicationPaymentRecoveryErrorCode(resumeError);
       const messageKey = code === 'job_unavailable'
         ? 'jobBoard.assisted.paymentJobUnavailable'
@@ -353,8 +389,11 @@ export default function AssistedApplicationUpload({
         resume_source: source,
       });
     } finally {
-      paymentResumeInFlight.current = false;
-      setPaymentResumeBusy(false);
+      if (pendingCheckoutWindow.current === checkoutWindow) pendingCheckoutWindow.current = null;
+      if (isActive()) {
+        paymentResumeInFlight.current = false;
+        setPaymentResumeBusy(false);
+      }
     }
   }, [order, orderId, authUser, onRequireAuth, refreshOrder, t]);
 
@@ -369,7 +408,9 @@ export default function AssistedApplicationUpload({
   }, [status, order, orderId, handleResumePayment]);
 
   const handleSumUpResponse = (type: string) => {
+    if (!sumUpResponseIsActive.current?.(sumUpPayment)) return;
     if (type === 'success') {
+      sumUpResponseIsActive.current = null;
       setSumUpPaymentBusy(true);
       setSumUpPaymentError(null);
       // The widget callback is not the source of truth: the webhook updates
@@ -388,6 +429,7 @@ export default function AssistedApplicationUpload({
 
   const closeSumUpPayment = () => {
     if (sumUpPaymentBusy) return;
+    sumUpResponseIsActive.current = null;
     setSumUpPayment(null);
     setSumUpPaymentError(null);
   };
