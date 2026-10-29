@@ -223,7 +223,16 @@ interface FuelItalyDoc {
 }
 
 interface FuelSwitzerlandDoc {
- municipalities: Array<{ municipality: string; province: string; swiss: MunicipalityFuelRow['swiss']; }>;
+ municipalities?: Array<{ municipality: string; province: string; swiss: MunicipalityFuelRow['swiss']; }>;
+ chunkCount?: number;
+ chunkSize?: number;
+ municipalityCount?: number;
+}
+
+interface FuelSwitzerlandChunkDoc {
+ municipalities?: FuelSwitzerlandDoc['municipalities'];
+ chunkIndex?: number;
+ chunkCount?: number;
 }
 
 const IS_TEST_ENV = import.meta.env.MODE === 'test';
@@ -294,8 +303,22 @@ async function fetchFromFirestore(): Promise<FuelPricesDataset> {
  for (const row of italyData.municipalities) {
  italyMap.set(row.municipality + ':' + row.province, row.italy);
  }
+ let swissMunicipalities = Array.isArray(swissData.municipalities) ? swissData.municipalities : [];
+ const borderChunkCount = Number(swissData.chunkCount ?? 0);
+ if (borderChunkCount > 0 && swissMunicipalities.length === 0) {
+  const borderChunkSnaps = await Promise.all(Array.from({ length: borderChunkCount }, (_, index) => getDoc(
+   doc(db, 'fuelPrices', `switzerland-${String(index).padStart(3, '0')}`),
+  )));
+  if (borderChunkSnaps.some((snap) => !snap.exists())) {
+   throw new Error('Fuel Switzerland comparator is missing one or more municipality chunks');
+  }
+  swissMunicipalities = borderChunkSnaps.flatMap((snap) => {
+   const data = snap.data() as FuelSwitzerlandChunkDoc;
+   return Array.isArray(data.municipalities) ? data.municipalities : [];
+  });
+ }
  const swissMap = new Map<string, MunicipalityFuelRow['swiss']>();
- for (const row of swissData.municipalities) {
+ for (const row of swissMunicipalities) {
  swissMap.set(row.municipality + ':' + row.province, row.swiss);
  }
 
