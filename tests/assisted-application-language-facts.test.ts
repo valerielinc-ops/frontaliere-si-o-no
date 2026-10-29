@@ -1,9 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { ensureRequiredQuestions } from '../functions/src/assistedApplicationAiDraftCore.js';
-import { hasLanguageContext, isLanguageAbilityQuestion, isLanguageContextLabel, isLanguageIntentQuestion, isLanguageNameOnly, languageCodeOf, languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
+import { hasLanguageContext, isLanguageAbilityQuestion, isLanguageContextLabel, isLanguageIntentQuestion, isLanguageNameOnly, languageCodeOf, languageCodesIn, languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 describe('language facts stay conservative when a CV entry or question is ambiguous', () => {
+  it('matches language names at string and Unicode letter boundaries', () => {
+    expect(languageCodesIn('German C1')).toEqual(['de']);
+    expect(languageCodesIn('λ German')).toEqual(['de']);
+    expect(languageCodesIn('λGerman')).toEqual([]);
+    expect(languageCodesIn('Germanλ')).toEqual([]);
+  });
+
   it('recognizes only exact language names and codes as language-only labels', () => {
     expect(isLanguageNameOnly('German')).toBe(true);
     expect(isLanguageNameOnly('de-CH')).toBe(true);
