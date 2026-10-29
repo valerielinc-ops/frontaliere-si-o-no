@@ -1,0 +1,215 @@
+name: Reattest crawler contract lineage
+
+# A promotion PR generates its portable artifacts before GitHub creates the
+# squash commit that lands them on main. The contract must therefore be
+# re-attested against the landed source revision in a follow-up PR. This
+# workflow is deliberately triggered by source/generator changes, not by its
+# own contract-only PR, so it cannot create an endless chain of re-attestations.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/crawler-group-*-logic.yml'
+      - '.github/workflows/translate-pending-logic.yml'
+      - 'functions/src/githubApiHeaders.js'
+      - 'scripts/assemble-jobs-dataset.mjs'
+      - 'scripts/check-crawler-generation-token.mjs'
+      - 'scripts/check-crawler-group-live-run.mjs'
+      - 'scripts/generate-crawler-group-workflows.mjs'
+      - 'scripts/ci/crawler-generation-roster.json'
+      - 'scripts/ci/crawler-retry-cmd.sh'
+      - 'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs'
+      - 'scripts/ci/translate-recovery-successor-guard.mjs'
+      - 'scripts/ci/validate-workflow-data.mjs'
+      - 'scripts/cleanup-jobs.mjs'
+      - 'scripts/lib/crawler-generation-*.mjs'
+  workflow_dispatch:
+    inputs:
+      source_commit:
+        description: 'Landed main commit to pin (empty uses this run SHA)'
+        required: false
+        default: ''
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: crawler-contract-reattest
+  cancel-in-progress: false
+
+jobs:
+  reattest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CONTRACT_PATH: .github/corpus-workflows/contract.json
+      REATTEST_BRANCH: automation/reattest-crawler-contract
+      SOURCE_COMMIT: ${{ inputs.source_commit || github.sha }}
+    steps:
+      - name: Checkout contract and reattestation helper
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          sparse-checkout: |
+            /.github/corpus-workflows/contract.json
+            /scripts/ci/reattest-crawler-contract.mjs
+            /scripts/ci/check-sibling-patterns.mjs
+            /scripts/ci/pr-body-check-gate.mjs
+            /scripts/ci/lib/false-positive-declaration.mjs
+            /scripts/ci/lib/hook-command-parser.mjs
+            /scripts/ci/lib/hook-exit-codes.mjs
+            /scripts/ci/lib/hook-stdin.mjs
+            /scripts/ci/lib/hook-target-cwd.mjs
+            /scripts/lib/pr-body-closes-check.mjs
+            /scripts/lib/pr-body-sections-check.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Checkout trusted GitHub identity helpers
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          path: .trusted-main
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /functions/src/githubApiHeaders.js
+            /scripts/ci/mint-app-token.mjs
+            /scripts/lib/githubApiHeaders.mjs
+            /scripts/lib/google-service-account-token.mjs
+            /scripts/load-rc-env.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Prepare Firebase credentials for PAT fallback
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo '::warning::FIREBASE_SERVICE_ACCOUNT_JSON assente; il fallback GITHUB_PAT non verrà caricato da Remote Config.'
+          fi
+
+      - name: Load trusted PAT fallback from Remote Config
+        continue-on-error: true
+        run: node .trusted-main/scripts/load-rc-env.mjs
+
+      - name: Mint trusted GitHub App token
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node .trusted-main/scripts/ci/mint-app-token.mjs
+
+      - name: Select trusted GitHub identity
+        env:
+          PUSH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PUSH_TOKEN:-}" ]; then
+            echo '::error::nessuna identità App/PAT con permessi di push e pull request disponibile.'
+            exit 1
+          fi
+          echo "::add-mask::$PUSH_TOKEN"
+          echo "GH_TOKEN=$PUSH_TOKEN" >> "$GITHUB_ENV"
+          git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Validate landed source revision
+        run: |
+          set -euo pipefail
+          if ! printf '%s' "$SOURCE_COMMIT" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo "::error::SOURCE_COMMIT is not a full commit SHA: $SOURCE_COMMIT"
+            exit 1
+          fi
+          if ! git cat-file -e "$SOURCE_COMMIT^{commit}" 2>/dev/null; then
+            git fetch --no-tags origin "$SOURCE_COMMIT"
+          fi
+          git cat-file -e "$SOURCE_COMMIT^{commit}"
+          git fetch --no-tags origin main
+          if ! git merge-base --is-ancestor "$SOURCE_COMMIT" origin/main; then
+            echo "::error::SOURCE_COMMIT is not an ancestor of origin/main"
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor "$SOURCE_COMMIT" HEAD; then
+            echo "::error::SOURCE_COMMIT is not an ancestor of the checked-out main revision"
+            exit 1
+          fi
+
+      - name: Open or update the reattestation PR
+        run: |
+          set -euo pipefail
+          current_source=$(node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync(process.env.CONTRACT_PATH, 'utf8')); process.stdout.write(String(c.sourceCommit || ''));" )
+          current_artifact_source=$(node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync(process.env.CONTRACT_PATH, 'utf8')); process.stdout.write(String(c.artifactObservation?.sourceCommit || ''));" )
+          if [ "$current_source" = "$SOURCE_COMMIT" ] && [ "$current_artifact_source" = "$SOURCE_COMMIT" ]; then
+            echo "Contract already attested to $SOURCE_COMMIT"
+            exit 0
+          fi
+
+          if git ls-remote --exit-code --heads origin "$REATTEST_BRANCH" >/dev/null 2>&1; then
+            git fetch --no-tags origin main "$REATTEST_BRANCH"
+            git switch -C "$REATTEST_BRANCH" "origin/$REATTEST_BRANCH"
+            git merge --no-edit origin/main
+          else
+            git fetch --no-tags origin main
+            git switch -c "$REATTEST_BRANCH" origin/main
+          fi
+
+          unexpected=$(git diff --name-only origin/main...HEAD | grep -v '^\.github/corpus-workflows/contract\.json$' || true)
+          if [ -n "$unexpected" ]; then
+            echo '::error::dedicated reattestation branch contains an unexpected path'
+            printf '%s\n' "$unexpected"
+            exit 1
+          fi
+
+          node scripts/ci/reattest-crawler-contract.mjs \
+            --path "$CONTRACT_PATH" \
+            --source-commit "$SOURCE_COMMIT" \
+            --write
+
+          if git diff --quiet -- "$CONTRACT_PATH"; then
+            echo 'Contract already matches the requested source revision after branch reconciliation.'
+            exit 0
+          fi
+
+          git config user.name 'frontaliere automation'
+          git config user.email 'frontaliere-automation@users.noreply.github.com'
+          git add -- "$CONTRACT_PATH"
+          git commit -m "ci: reattest crawler contract to landed main"
+          git push --set-upstream origin "$REATTEST_BRANCH"
+
+          body="$RUNNER_TEMP/reattest-pr-body.md"
+          cat > "$body" <<EOF
+          ## Implementato
+
+          - in questa PR: riattesta sourceCommit e artifactObservation.sourceCommit del contratto crawler al commit $SOURCE_COMMIT effettivamente atterrato su main.
+          - in questa PR: mantiene invariati artifact digest, roster e contenuto dei workflow; la PR corregge solo la provenienza post-squash che il drift check deve poter verificare.
+
+          ## Non implementato (ancora)
+
+          - by construction: nessun dato, shard o workflow generato viene rigenerato in questa PR; il controllo dei byte resta affidato ai digest già presenti e ai gate di lockstep. **Motivo:** questa automazione aggiorna solo la provenienza del contratto dopo lo squash. **Prossimo passo:** i digest e i gate di lockstep verificano i byte dopo il merge.
+          - per scelta: nessuna chiusura manuale di issue di tracking; la ricorrenza viene considerata risolta solo dopo una run del drift check verde. **Motivo:** la chiusura dell'issue è una decisione di ciclo, non una modifica al contratto. **Prossimo passo:** chiudere la ricorrenza dopo una run verde del drift check e del trasporto corpus.
+          EOF
+
+          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+
+          pr_number=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open \
+            --head "$REATTEST_BRANCH" --base main --json number --jq '.[0].number // ""')
+          if [ -n "$pr_number" ]; then
+            gh pr edit "$pr_number" --repo "$GITHUB_REPOSITORY" --body-file "$body"
+            echo "Updated reattestation PR #$pr_number"
+          else
+            gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$REATTEST_BRANCH" \
+              --title 'fix(ci): reattest crawler contract after squash merge' \
+              --body-file "$body"
+          fi

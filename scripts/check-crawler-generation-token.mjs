@@ -16,6 +16,7 @@ import { realpathSync } from 'node:fs';
  * di crawl: il 2026-09-27 cinque dispatch manuali con token
  * `backlog-100-20260927-group<NN>` hanno crawlato 27+14+29+27+27 membri e poi
  * marcato ciascuno exit 43 con `Missing CRAWLER_GENERATION_TOKEN`.
+ * This module is a crawler-contract source input; changes trigger reattestation.
  *
  * Exit: 0 token valido (stampato), 1 token assente o malformato.
  */

@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 
+// This validator is a crawler-contract source input; changes trigger reattestation.
 export const MAX_FUTURE_SKEW_MS = 5 * 60 * 1000;
 
 const ISO_RE = /^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/u;

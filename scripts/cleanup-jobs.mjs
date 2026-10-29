@@ -9,6 +9,7 @@
  * - Deletes only on strong signals (404/410, explicit "no longer available" phrases,
  *   career-portal-specific closure signals, redirect to generic listing page)
  * - Fail-open: network/auth/rate-limit errors never trigger deletions
+ * This script is a crawler-contract source input; changes trigger reattestation.
  */
 
 import fs from 'node:fs';

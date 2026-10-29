@@ -8,6 +8,7 @@
  * means the `X-GitHub-Api-Version` pin can never drift between call sites
  * (AGENTS.md Non-Negotiable #6). Pure ESM, no node imports, so every runtime
  * can load it.
+ * This module is a crawler-contract source input; changes trigger reattestation.
  */
 
 export const GITHUB_API_VERSION = '2022-11-28';

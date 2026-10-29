@@ -15,6 +15,7 @@ import { realpathSync } from 'node:fs';
  * This file is checked out from the site repository because the generated
  * corpus workflow already checks out the site's runtime before doing work.
  * It is dependency-free and performs only GET requests.
+ * This module is a crawler-contract source input; changes trigger reattestation.
  */
 
 import { createHash } from 'node:crypto';
