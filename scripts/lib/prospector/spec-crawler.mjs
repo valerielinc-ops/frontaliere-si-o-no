@@ -1829,6 +1829,14 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         currentPageCandidateCount = nextCandidates.length;
         nextUrl = findNextListingPageUrl(body, pageUrl);
       }
+      if (pagination.stopAfterDeclaredPageCount
+        && declaredPageCount !== null
+        && pages < declaredPageCount) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] listing incompleta: ${pages}/${declaredPageCount} `
+          + 'pagine dichiarate dalla fonte lette senza un link rel=next',
+        ), bySlug.size);
+      }
       const seedRows = bySlug.size - seedRowsBefore;
       const coverageRows = pagination.countDuplicateRowsForCoverage
         ? listingRowsForCoverage - seedCoverageRowsBefore

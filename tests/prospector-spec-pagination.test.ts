@@ -376,6 +376,22 @@ describe('spec.pagination', () => {
     });
   });
 
+  it('fallisce chiuso se il conteggio dichiarato supera le pagine raggiunte', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: `${listingPage({ ids: ['sa1'], page: 1 })}<script type="application/json">{"total_pages":2}</script>`,
+    };
+    await expect(collect(specWith({
+      pagination: {
+        maxPages: 10,
+        declaredPageCountPattern: '"total_pages"\\s*:\\s*(\\d+)',
+        stopAfterDeclaredPageCount: true,
+      },
+    }), pages)).rejects.toMatchObject({
+      specListingFailure: true,
+      message: expect.stringMatching(/listing incompleta: 1\/2 pagine dichiarate/),
+    });
+  });
+
   it('fallisce chiuso quando maxPages si esaurisce con un next ancora presente', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1'], page: 1, total: 3, next: `${ORIGIN}/?sf_paged=2` }),
