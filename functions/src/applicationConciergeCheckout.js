@@ -27,6 +27,7 @@ export const APPLICATION_CONCIERGE_CHECKOUT_REQUESTS_COLLECTION = 'application_c
 
 const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
 const VALID_LOCALES = new Set(['it', 'en', 'de', 'fr']);
+const CHECKOUT_CLAIM_TTL_MS = 10 * 60 * 1000;
 
 class ApplicationConciergeCheckoutConflictError extends Error {
   constructor() {
@@ -38,6 +39,11 @@ class ApplicationConciergeCheckoutConflictError extends Error {
 function boundedString(value, max) {
   const result = String(value ?? '').trim();
   return result && result.length <= max ? result : '';
+}
+
+function normalizedEmail(value) {
+  const result = boundedString(value, 320).toLowerCase();
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(result) ? result : '';
 }
 
 function sha256(value) {
@@ -83,6 +89,24 @@ function isResumeableService(service) {
     && !['expired', 'failed'].includes(String(service?.checkoutSessionStatus || '').toLowerCase());
 }
 
+function isRecoverableCheckout(service) {
+  const checkoutSessionStatus = String(service?.checkoutSessionStatus || '').toLowerCase();
+  return (service?.paymentStatus === 'pending'
+      && service?.serviceStatus === 'awaiting_payment'
+      && !['pending', 'completed'].includes(checkoutSessionStatus))
+    || (service?.paymentStatus === 'failed'
+      && service?.serviceStatus === 'payment_failed'
+      && service?.checkoutSessionStatus === 'expired');
+}
+
+function timestampMillis(value) {
+  if (value == null) return 0;
+  if (typeof value.toMillis === 'function') return Number(value.toMillis()) || 0;
+  if (typeof value.toDate === 'function') return value.toDate().getTime() || 0;
+  if (value instanceof Date) return value.getTime() || 0;
+  return Number(value) || 0;
+}
+
 function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, customerEmail }) {
   return {
     serviceId,
@@ -93,6 +117,8 @@ function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, c
     paymentStatus: 'pending',
     serviceStatus: 'awaiting_payment',
     checkoutSessionStatus: 'creating',
+    checkoutAttempt: 1,
+    checkoutClaimedAt: FieldValue.serverTimestamp(),
     renewal: false,
     maxPositions: APPLICATION_CONCIERGE_MAX_POSITIONS,
     acceptedPositionsCount: 0,
@@ -142,10 +168,18 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   const requestKey = validRequestKey(body.requestKey);
   const successUrl = boundedString(body.successUrl, 1000);
   const cancelUrl = boundedString(body.cancelUrl, 1000);
+  const resumeServiceId = boundedString(body.serviceId, 200);
+  let customerEmail = normalizedEmail(body.customerEmail) || normalizedEmail(decoded.email);
   const locale = VALID_LOCALES.has(body.locale) ? body.locale : 'it';
   if (!userId || !requestKey) return { status: 400, body: { ok: false, error: 'invalid_request_key' } };
+  if (body.serviceId && !/^[A-Za-z0-9_-]{1,200}$/.test(resumeServiceId)) {
+    return { status: 400, body: { ok: false, error: 'invalid_service_id' } };
+  }
   if (!validHttpsUrl(successUrl) || !validHttpsUrl(cancelUrl)) {
     return { status: 400, body: { ok: false, error: 'invalid_redirect_urls' } };
+  }
+  if (!customerEmail && !resumeServiceId) {
+    return { status: 400, body: { ok: false, error: 'application_concierge_email_required' } };
   }
 
   const configuredPaymentProvider = await getAssistedApplicationPaymentProvider();
@@ -158,9 +192,129 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   let checkoutAttempt = 1;
   let resumePaidServiceId = null;
 
+  if (resumeServiceId) {
+    const resumeServiceRef = serviceCollection.doc(resumeServiceId);
+    const resumeSnapshot = await resumeServiceRef.get();
+    const resumeService = resumeSnapshot.exists ? resumeSnapshot.data() || {} : null;
+    if (!resumeService || resumeService.userId !== userId) {
+      return { status: 404, body: { ok: false, error: 'application_concierge_service_not_found' } };
+    }
+    if (resumeService.paymentStatus === 'paid') {
+      return {
+        status: 200,
+        body: { ok: true, url: appendServiceId(successUrl, resumeServiceId), serviceId: resumeServiceId },
+      };
+    }
+    if (!isRecoverableCheckout(resumeService)) {
+      return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
+    }
+    customerEmail ||= normalizedEmail(resumeService.customerEmail) || normalizedEmail(resumeService.applicantEmail);
+    if (!customerEmail) {
+      return { status: 400, body: { ok: false, error: 'application_concierge_email_required' } };
+    }
+    if (resumeService.customerEmail !== customerEmail) {
+      await resumeServiceRef.set({ customerEmail, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    }
+
+    if (String(resumeService.checkoutSessionStatus || '').toLowerCase() === 'open') {
+      if (resumeService.paymentProvider === SUMUP_PAYMENT_PROVIDER && resumeService.sumupCheckoutId) {
+        return {
+          status: 200,
+          body: {
+            ok: true,
+            paymentProvider: SUMUP_PAYMENT_PROVIDER,
+            checkoutId: resumeService.sumupCheckoutId,
+            serviceId: resumeServiceId,
+          },
+        };
+      }
+      if (resumeService.stripeCheckoutSessionId) {
+        try {
+          const stripe = await getStripe();
+          const session = await stripe.checkout.sessions.retrieve(resumeService.stripeCheckoutSessionId);
+          if (session.status === 'open' && session.url) {
+            return { status: 200, body: { ok: true, url: session.url, serviceId: resumeServiceId } };
+          }
+          if (session.status === 'complete' || session.payment_status === 'paid') {
+            return {
+              status: 200,
+              body: { ok: true, url: appendServiceId(successUrl, resumeServiceId), serviceId: resumeServiceId },
+            };
+          }
+          if (session.status !== 'expired') {
+            return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
+          }
+        } catch {
+          return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
+        }
+      }
+    }
+  }
+
   try {
     await firestore.runTransaction(async (transaction) => {
       const existing = await transaction.get(requestRef);
+      if (resumeServiceId) {
+        const existingRecord = existing.exists ? existing.data() || {} : {};
+        if (existing.exists && (existingRecord.userId !== userId || existingRecord.serviceId !== resumeServiceId)) {
+          throw new ApplicationConciergeCheckoutConflictError();
+        }
+        serviceRef = serviceCollection.doc(resumeServiceId);
+        const existingServiceSnapshot = await transaction.get(serviceRef);
+        const existingService = existingServiceSnapshot.exists ? existingServiceSnapshot.data() || {} : null;
+        if (!existingServiceSnapshot.exists || existingService.userId !== userId) {
+          throw new ApplicationConciergeCheckoutConflictError();
+        }
+        if (existingService.paymentStatus === 'paid') {
+          requestRecord = existingRecord;
+          resumePaidServiceId = resumeServiceId;
+          return;
+        }
+        if (!isRecoverableCheckout(existingService)) {
+          throw new ApplicationConciergeCheckoutConflictError();
+        }
+        if (
+          String(existingService.checkoutSessionStatus || '').toLowerCase() === 'creating'
+          && Date.now() - timestampMillis(existingService.checkoutClaimedAt) < CHECKOUT_CLAIM_TTL_MS
+        ) {
+          throw new ApplicationConciergeCheckoutConflictError();
+        }
+        checkoutAttempt = Math.max(
+          Number(existingService.checkoutAttempt) || 0,
+          Number(existingRecord.checkoutAttempt) || 0,
+        ) + 1;
+        const paymentProvider = existingService.paymentProvider === SUMUP_PAYMENT_PROVIDER
+          ? SUMUP_PAYMENT_PROVIDER
+          : 'stripe';
+        requestRecord = {
+          requestKeyHash,
+          userId,
+          serviceId: resumeServiceId,
+          paymentProvider,
+          checkoutAttempt,
+          checkoutSessionStatus: 'creating',
+          createdAt: existingRecord.createdAt || FieldValue.serverTimestamp(),
+          updatedAt: FieldValue.serverTimestamp(),
+        };
+        transaction.set(requestRef, {
+          ...requestRecord,
+          checkoutUrl: FieldValue.delete(),
+          stripeCheckoutSessionId: FieldValue.delete(),
+          sumupCheckoutId: FieldValue.delete(),
+        }, { merge: true });
+        transaction.update(serviceRef, {
+          paymentStatus: 'pending',
+          serviceStatus: 'awaiting_payment',
+          customerEmail,
+          paymentFailureReason: null,
+          checkoutSessionStatus: 'creating',
+          checkoutAttempt,
+          checkoutClaimedAt: FieldValue.serverTimestamp(),
+          updatedAt: FieldValue.serverTimestamp(),
+        });
+        return;
+      }
+
       if (existing.exists) {
         const existingRecord = existing.data() || {};
         if (existingRecord.userId !== userId || !existingRecord.serviceId) {
@@ -178,12 +332,54 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           resumePaidServiceId = existingRecord.serviceId;
           return;
         }
+        if (
+          String(existingService.checkoutSessionStatus || '').toLowerCase() === 'creating'
+          && Date.now() - timestampMillis(existingService.checkoutClaimedAt) < CHECKOUT_CLAIM_TTL_MS
+        ) {
+          throw new ApplicationConciergeCheckoutConflictError();
+        }
         const canResumeSumUpCheckout = existingRecord.paymentProvider === SUMUP_PAYMENT_PROVIDER
           && boundedString(existingRecord.sumupCheckoutId, 200);
         if (isResumeableService(existingService) && (existingRecord.checkoutUrl || canResumeSumUpCheckout)) {
           requestRecord = existingRecord;
           serviceRef = existingServiceRef;
           checkoutAttempt = Number(existingRecord.checkoutAttempt) || 1;
+          transaction.update(serviceRef, {
+            customerEmail,
+            updatedAt: FieldValue.serverTimestamp(),
+          });
+          return;
+        }
+        if (existingService.paymentStatus === 'pending' && existingService.serviceStatus === 'awaiting_payment') {
+          serviceRef = existingServiceRef;
+          checkoutAttempt = Math.max(
+            Number(existingService.checkoutAttempt) || 0,
+            Number(existingRecord.checkoutAttempt) || 0,
+          ) + 1;
+          requestRecord = {
+            requestKeyHash,
+            userId,
+            serviceId: existingRecord.serviceId,
+            paymentProvider: existingService.paymentProvider === SUMUP_PAYMENT_PROVIDER ? SUMUP_PAYMENT_PROVIDER : 'stripe',
+            checkoutAttempt,
+            checkoutSessionStatus: 'creating',
+            createdAt: existingRecord.createdAt || FieldValue.serverTimestamp(),
+            updatedAt: FieldValue.serverTimestamp(),
+          };
+          transaction.set(requestRef, {
+            ...requestRecord,
+            checkoutUrl: FieldValue.delete(),
+            stripeCheckoutSessionId: FieldValue.delete(),
+            sumupCheckoutId: FieldValue.delete(),
+            updatedAt: FieldValue.serverTimestamp(),
+          }, { merge: true });
+          transaction.update(serviceRef, {
+            checkoutSessionStatus: 'creating',
+            customerEmail,
+            checkoutAttempt,
+            checkoutClaimedAt: FieldValue.serverTimestamp(),
+            updatedAt: FieldValue.serverTimestamp(),
+          });
           return;
         }
         checkoutAttempt = (Number(existingRecord.checkoutAttempt) || 1) + 1;
@@ -209,7 +405,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           paymentProvider: configuredPaymentProvider,
           locale,
           successUrl,
-          customerEmail: boundedString(decoded.email, 320),
+          customerEmail,
         }),
       );
     });
@@ -253,7 +449,6 @@ export async function handleCreateApplicationConciergeCheckout(req) {
 
   const serviceId = serviceRef.id;
   const paymentProvider = requestRecord?.paymentProvider || configuredPaymentProvider;
-  const customerEmail = boundedString(decoded.email, 320) || undefined;
   const successRedirect = appendServiceId(successUrl, serviceId);
   let checkoutUrl;
   if (paymentProvider === SUMUP_PAYMENT_PROVIDER) {
@@ -265,6 +460,8 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
       checkoutSessionStatus: 'open',
+      checkoutAttempt,
+      checkoutClaimedAt: null,
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
     await requestRef.set({
@@ -307,6 +504,8 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       paymentProvider: 'stripe',
       stripeCheckoutSessionId: session.id,
       checkoutSessionStatus: 'open',
+      checkoutAttempt,
+      checkoutClaimedAt: null,
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
     await requestRef.set({
@@ -328,7 +527,7 @@ function isFullChargeRefund(charge) {
   return Number.isFinite(amount) && amount > 0 && Number.isFinite(refunded) && refunded >= amount;
 }
 
-function shouldIgnoreWebhook(service, sessionId, paymentProvider) {
+function shouldIgnoreWebhook(service, sessionId, paymentProvider, eventType = '') {
   if (!service) return false;
   const expectedProvider = paymentProviderForOrder(service);
   if (expectedProvider !== paymentProvider) return true;
@@ -337,6 +536,12 @@ function shouldIgnoreWebhook(service, sessionId, paymentProvider) {
     200,
   );
   if (currentId && sessionId && currentId !== sessionId) return true;
+  const replacingExpiredCheckout = String(service.checkoutSessionStatus || '').toLowerCase() === 'creating'
+    && Date.now() - timestampMillis(service.checkoutClaimedAt) < CHECKOUT_CLAIM_TTL_MS;
+  if (
+    replacingExpiredCheckout
+    && ['checkout.session.expired', 'checkout.session.async_payment_failed'].includes(eventType)
+  ) return true;
   // A hosted checkout can contain multiple attempts. Keep paid/refunded
   // terminal, but allow a later successful retry to upgrade a failed attempt.
   return ['paid', 'refunded'].includes(String(service.paymentStatus || ''));
@@ -429,7 +634,7 @@ export async function handleApplicationConciergeWebhookEvent(
   await firestore.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(serviceRef);
     const service = snapshot.exists ? snapshot.data() || {} : null;
-    if (!snapshot.exists || shouldIgnoreWebhook(service, obj.id, paymentProvider)) return;
+    if (!snapshot.exists || shouldIgnoreWebhook(service, obj.id, paymentProvider, event.type)) return;
     transaction.set(serviceRef, update, { merge: true });
   });
   return true;
