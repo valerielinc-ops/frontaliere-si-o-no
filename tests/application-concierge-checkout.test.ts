@@ -407,3 +407,29 @@ describe('application concierge checkout', () => {
     }));
   });
 });
+
+
+describe('concierge SumUp callback during replacement', () => {
+  it.each(['unpaid', 'paid'])('rereads the lease and preserves a concurrent replacement for %s callbacks', async (payment_status) => {
+    const key = 'application_concierge_services/service-replacement';
+    mocks.store.set(key, { userId: 'candidate-42', paymentProvider: 'sumup', sumupCheckoutId: 'old',
+      paymentStatus: 'pending', serviceStatus: 'awaiting_payment', checkoutSessionStatus: 'open' });
+    const racingDb = { ...mocks.firestore,
+      async runTransaction(callback: (transaction: any) => Promise<unknown>) {
+        // The callback originally saw open; the transaction must observe the
+        // lease another request acquired before applying this payment event.
+        mocks.store.set(key, { ...mocks.store.get(key), checkoutSessionStatus: 'creating' });
+        return mocks.firestore.runTransaction(callback);
+      },
+    };
+    await handleApplicationConciergeWebhookEvent({
+      type: payment_status === 'paid' ? 'checkout.session.completed' : 'checkout.session.async_payment_failed',
+      data: { object: { id: 'old', amount_total: 3999, currency: 'eur', payment_status,
+        metadata: { product: 'application_concierge', paymentProvider: 'sumup', serviceId: 'service-replacement' },
+      } },
+    }, { db: () => racingDb, ts: '__webhook_timestamp__', nowMs: Date.now });
+    expect(mocks.store.get(key)).toMatchObject(payment_status === 'paid'
+      ? { checkoutSessionStatus: 'completed', paymentStatus: 'paid', serviceStatus: 'active' }
+      : { checkoutSessionStatus: 'creating', paymentStatus: 'pending', serviceStatus: 'awaiting_payment' });
+  });
+});

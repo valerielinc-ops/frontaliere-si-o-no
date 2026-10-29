@@ -8,6 +8,7 @@
  * incomplete SumUp credentials fail closed before a payment checkout is created.
  */
 
+import { sumUpCheckoutReference } from './sumupCheckoutReference.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS } from './assistedApplicationConstants.js';
 import { APPLICATION_CONCIERGE_PRICE_EUR_CENTS } from './applicationConciergeConstants.js';
@@ -178,10 +179,16 @@ async function findSumUpCheckoutByReference(
     && Math.round(Number(checkout?.amount) * 100) === amountCents
     && String(checkout?.currency || '').toUpperCase() === String(currency).toUpperCase()
     && boundedString(checkout?.id, 200)
-    && String(checkout?.status || '').toUpperCase() !== 'EXPIRED'
+    && ['PENDING', 'FAILED', 'PAID'].includes(String(checkout?.status || '').toUpperCase())
   ));
   if (!candidate) return null;
-  return sumUpRequest(`/v0.1/checkouts/${encodeURIComponent(candidate.id)}`, { apiKey });
+  const checkout = await sumUpRequest(`/v0.1/checkouts/${encodeURIComponent(candidate.id)}`, { apiKey });
+  if (checkout.id !== candidate.id
+    || checkout.checkout_reference !== checkoutReference
+    || Math.round(Number(checkout.amount) * 100) !== amountCents
+    || String(checkout.currency || '').toUpperCase() !== String(currency).toUpperCase()
+    || !['PENDING', 'FAILED', 'PAID'].includes(String(checkout.status || '').toUpperCase())) return null;
+  return checkout;
 }
 
 async function createSumUpCheckout(
@@ -239,11 +246,11 @@ export async function createSumUpHostedCheckout(
 }
 
 export async function createSumUpApplicationConciergeCheckout(
-  { serviceId, redirectUrl },
+  { serviceId, redirectUrl, checkoutAttempt = 1 },
   read = getRemoteConfigValue,
 ) {
   return createSumUpCheckout({
-    checkoutReference: serviceId,
+    checkoutReference: sumUpCheckoutReference(serviceId, checkoutAttempt),
     redirectUrl,
     amountCents: APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
     description: 'Servizio candidature assistite',
@@ -252,11 +259,11 @@ export async function createSumUpApplicationConciergeCheckout(
 }
 
 export async function createSumUpAssistedApplicationCheckout(
-  { orderId, redirectUrl, environment = SUMUP_ENVIRONMENTS.PRODUCTION },
+  { orderId, redirectUrl, checkoutAttempt = 1, environment = SUMUP_ENVIRONMENTS.PRODUCTION },
   read = getRemoteConfigValue,
 ) {
   return createSumUpCheckout({
-    checkoutReference: orderId,
+    checkoutReference: sumUpCheckoutReference(orderId, checkoutAttempt),
     redirectUrl,
     amountCents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
     description: 'Candidatura assistita',

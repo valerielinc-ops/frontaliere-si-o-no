@@ -43,6 +43,7 @@ import { fileURLToPath } from 'node:url';
 import {
   detectJobTitleLocaleDetails,
   isDescriptionSourceCopy,
+  jobTitleSourceLang,
   normalizeJobLocale,
   sourceLocaleTextCandidates,
 } from './lib/job-locale-utils.mjs';
@@ -1347,7 +1348,9 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
         // but if the needsRetranslation flag was cleared before sync, those slugs
         // would be lost. The master slug is job.slug (source language), not
         // hardcoded to IT — jobs may be crawled in EN, DE, or FR.
-        const sourceLang = normalizeJobLocale(crawlerJob.sourceLang) || 'it';
+        const bodySourceLang = normalizeJobLocale(crawlerJob.sourceLang) || 'it';
+        const titleSourceLang = jobTitleSourceLang(crawlerJob, bodySourceLang);
+        const sourceLang = field === 'descriptionByLocale' ? bodySourceLang : titleSourceLang;
         const masterSlug = String(crawlerJob.slug || '').trim();
         const isUnlocalizedSlug =
           field === 'slugByLocale' &&
@@ -1370,18 +1373,18 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
         // BUT: allow overwrite when the existing title is in the WRONG language
         // (e.g., Italian text "Assemblaggio / Imballo" sitting in the DE slot).
         if (field === 'titleByLocale' && crawlerJob.needsRetranslation && trimmedExisting && trimmedValue) {
-          const sourceTitle = String(crawlerJob.title || '').trim().toLowerCase();
+          const sourceTitle = String(crawlerJob.titleByLocale?.[titleSourceLang] || crawlerJob.title || '').trim().toLowerCase();
           const isSourceCopy = trimmedExisting.toLowerCase() === sourceTitle;
           // Check if existing title is in the wrong language (source-lang contamination)
           const detected = detectJobTitleLocaleDetails(trimmedExisting, locale);
-          const isWrongLanguage = detected.confidence >= 0.6 && detected.lang === sourceLang && locale !== sourceLang;
+          const isWrongLanguage = detected.confidence >= 0.6 && detected.lang === titleSourceLang && locale !== titleSourceLang;
           // Also check source-language words in wrong locale slots.
           // IMPORTANT: only match words from the ACTUAL source language, not words
           // that happen to appear in mixed-language titles.
           const lc = trimmedExisting.toLowerCase();
           const hasSourceWords =
-            (sourceLang === 'it' && locale !== 'it' && /\b(per il|per la|assemblaggio|imballo|collaudo|responsabile|impiegat)\b/i.test(lc)) ||
-            (sourceLang === 'de' && locale !== 'de' && /\b(und|für|mit fokus|der|die|fachspezialist)\b/i.test(lc));
+            (titleSourceLang === 'it' && locale !== 'it' && /\b(per il|per la|assemblaggio|imballo|collaudo|responsabile|impiegat)\b/i.test(lc)) ||
+            (titleSourceLang === 'de' && locale !== 'de' && /\b(und|für|mit fokus|der|die|fachspezialist)\b/i.test(lc));
           // A refusal or a request for the input («I need to see the actual
           // job title…») is not a translation to keep stable: isIncomplete
           // queued the job precisely for it.
@@ -1393,8 +1396,8 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
         }
         // GUARD: never overwrite a translated title with a source copy from the assembled data.
         // The shared crawler may produce source-copy titles for jobs it couldn't translate.
-        if (field === 'titleByLocale' && trimmedExisting && trimmedValue && locale !== sourceLang) {
-          const srcTitle = String(crawlerJob.title || '').trim().toLowerCase();
+        if (field === 'titleByLocale' && trimmedExisting && trimmedValue && locale !== titleSourceLang) {
+          const srcTitle = String(crawlerJob.titleByLocale?.[titleSourceLang] || crawlerJob.title || '').trim().toLowerCase();
           const assembledIsCopy = trimmedValue.toLowerCase() === srcTitle;
           const existingIsCopy = trimmedExisting.toLowerCase() === srcTitle;
           // The source title is still better than a model's refusal.
@@ -2551,8 +2554,9 @@ export async function runRelocalization(phase) {
     if (job.needsRetranslation) { categories.flagged++; continue; }
     const tbl = job.titleByLocale || {};
     const dbl = job.descriptionByLocale || {};
-    const src = (job.title || '').trim().toLowerCase();
     const sourceLang = normalizeJobLocale(job.sourceLang) || 'it';
+    const titleSourceLang = jobTitleSourceLang(job, sourceLang);
+    const src = String(tbl[titleSourceLang] || job.title || '').trim().toLowerCase();
     const sourceDescriptions = sourceLocaleTextCandidates({ ...job, sourceLang }, 'description');
     let categorized = false;
     for (const locale of LOCALES) {
@@ -2565,7 +2569,7 @@ export async function runRelocalization(phase) {
         categorized = true;
         break;
       }
-      if (t.toLowerCase() === src && locale !== sourceLang) { categories.sourceCopyTitle++; categorized = true; break; }
+      if (t.toLowerCase() === src && locale !== titleSourceLang) { categories.sourceCopyTitle++; categorized = true; break; }
     }
     if (!categorized) categories.contaminated++;
   }

@@ -8,6 +8,7 @@ import {
   normalizeJobLocale,
   titleContainsLlmReasoning,
 } from './job-locale-core.mjs';
+import { migrosServiceCounterTitleSourceLang } from './job-title-semantic-repair.mjs';
 
 export {
   DEFAULT_JOB_LOCALES,
@@ -851,4 +852,80 @@ export function pinnedTitleSourceLang(job) {
   if (original && original === lang && !DEFAULT_JOB_LOCALES.includes(original)) return original;
   if (job.source !== 'publisher-submitted') return null;
   return DEFAULT_JOB_LOCALES.includes(lang) ? lang : null;
+}
+
+/**
+ * Resolve the title source locale when the job carries evidence for one.
+ * `sourceLang` remains the description language; crawler jobs can have a title
+ * in another language. Explicit source pins and the source-backed Migros
+ * correction take precedence, followed by locale-map evidence and decisive
+ * title-word hints. Statistical language detection is too noisy to overrule a
+ * short title's stored locale. Returns null when the source locale is unknown.
+ */
+export function jobTitleSourceLangEvidence(job, fallback = '') {
+  if (!job || typeof job !== 'object') return null;
+  const semantic = migrosServiceCounterTitleSourceLang(job);
+  if (semantic) return semantic;
+  const pinned = pinnedTitleSourceLang(job);
+  if (pinned) return normalizeJobLocale(pinned) || String(pinned).trim().toLowerCase();
+
+  const declaredBodyLang = normalizeJobLocale(job.sourceLang);
+  const fallbackLang = normalizeJobLocale(fallback);
+  const bodyLang = DEFAULT_JOB_LOCALES.includes(declaredBodyLang)
+    ? declaredBodyLang
+    : (DEFAULT_JOB_LOCALES.includes(fallbackLang) ? fallbackLang : '');
+  const hasUnsupportedDeclaredLang = !!String(job.sourceLang || '').trim()
+    && !DEFAULT_JOB_LOCALES.includes(declaredBodyLang);
+  const title = String(job.title || '').trim();
+  const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
+    ? job.titleByLocale
+    : {};
+  if (title) {
+    const normalizedTitle = title.replace(/\s+/gu, ' ').toLowerCase();
+    const matchingLocales = [...new Set(Object.entries(titleByLocale)
+      .filter(([, value]) => String(value || '').trim().replace(/\s+/gu, ' ').toLowerCase() === normalizedTitle)
+      .map(([locale]) => normalizeJobLocale(locale))
+      .filter((locale) => DEFAULT_JOB_LOCALES.includes(locale)))];
+    // A unique locale-map slot carrying the flat title is stronger evidence
+    // than a statistical language guess on a short, mixed-language job title.
+    if (matchingLocales.length === 1) return matchingLocales[0];
+    // Repeated identical titles are ambiguous (common for international job
+    // names); keep the declared body locale instead of guessing from copies.
+    if (matchingLocales.length > 1) return bodyLang || null;
+
+    const detected = detectJobTitleLocaleDetails(title, bodyLang);
+    if (
+      detected.lang !== bodyLang
+      && detected.confidence >= TITLE_LANG_DECISION_CONFIDENCE
+      && detected.method.startsWith('title-hints')
+    ) return detected.lang;
+    return bodyLang || null;
+  }
+
+  const bodyTitle = bodyLang ? String(titleByLocale[bodyLang] || '').trim() : '';
+  if (bodyTitle) return bodyLang;
+  if (hasUnsupportedDeclaredLang && !bodyLang) return null;
+
+  for (const [locale, value] of Object.entries(titleByLocale)) {
+    const candidateLocale = normalizeJobLocale(locale);
+    if (!candidateLocale || candidateLocale === bodyLang) continue;
+    const candidate = String(value || '').trim();
+    if (!candidate) continue;
+    const detected = detectJobTitleLocaleDetails(candidate, bodyLang);
+    if (
+      detected.lang === candidateLocale
+      && detected.confidence >= TITLE_LANG_DECISION_CONFIDENCE
+      && detected.method.startsWith('title-hints')
+    ) {
+      return candidateLocale;
+    }
+  }
+  return bodyLang || null;
+}
+
+/** Resolve the title source locale, using the caller fallback and then `it`. */
+export function jobTitleSourceLang(job, fallback = '') {
+  return jobTitleSourceLangEvidence(job, fallback)
+    || normalizeJobLocale(fallback)
+    || 'it';
 }

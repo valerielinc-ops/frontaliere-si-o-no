@@ -5,6 +5,7 @@ import { isIncomplete, summarizeJobs, finalizeEntry, predicateVersionOrNull } fr
 import { detectLanguageWithConfidence } from './detect-language.mjs';
 import {
   isDescriptionSourceCopy,
+  jobTitleSourceLang,
   sourceLocaleTextCandidates,
   titleLooksUntranslated,
 } from './job-locale-utils.mjs';
@@ -105,7 +106,7 @@ function wrongLanguageRate(count, populationSlots) {
 }
 
 function measureWrongLanguageQuality(jobs) {
-  const titles = measureTitleLocales(jobs, titleLooksUntranslated, LOCALES, 0);
+  const titles = measureTitleLocales(jobs, titleLooksUntranslated, LOCALES, 0, jobTitleSourceLang);
   const descriptions = measureDescriptionLocales(jobs, detectLanguageWithConfidence, LOCALES);
   return {
     measured: true,

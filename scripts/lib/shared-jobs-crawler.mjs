@@ -37,7 +37,10 @@ import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
-import { detectJobTitleLang, detectJobTitleLocaleDetails, holdSourceLang, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
+import { detectJobTitleLang, detectJobTitleLocaleDetails, holdSourceLang, jobTitleSourceLang, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
+import {
+  repairMigrosServiceCounterTitleInPlace,
+} from './job-title-semantic-repair.mjs';
 import {
   heuristicTranslateJobTitle, safeUnsupportedSourceTitle, isUnsupportedSourceLang, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
   // FRO-231: slug utilities extracted from this file
@@ -2313,6 +2316,8 @@ export function ensureLocaleFields(job) {
   // incident: 76%/51% of already-translated jobs re-flagged every run).
   const _preTitleByLocale = (job.titleByLocale && typeof job.titleByLocale === 'object') ? { ...job.titleByLocale } : {};
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
+  out.titleByLocale = titleByLocale;
+  repairMigrosServiceCounterTitleInPlace(out);
   const descriptionByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') ? { ...out.descriptionByLocale } : {};
   const requirementsByLocale = (out.requirementsByLocale && typeof out.requirementsByLocale === 'object') ? { ...out.requirementsByLocale } : {};
   const slugByLocale = (out.slugByLocale && typeof out.slugByLocale === 'object') ? { ...out.slugByLocale } : {};
@@ -2341,8 +2346,14 @@ export function ensureLocaleFields(job) {
   // low-confidence re-detection that disagrees with the stored sourceLang must
   // not be allowed to move the slot (see holdSourceLang in job-locale-utils).
   const sourceLang = pinnedLang || holdSourceLang(out, `${bestTitle} ${bestDescription}`, 'en');
-  const titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle || bestTitle, sourceLang);
-  const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
+  const titleSourceLang = jobTitleSourceLang({ ...out, sourceLang, title: baseTitle }, sourceLang);
+  const mappedSourceTitle = normalizeSpace(titleByLocale[titleSourceLang] || '');
+  const flatTitleSourceLang = baseTitle
+    ? (pinnedLang || detectJobTitleLang(baseTitle, sourceLang))
+    : '';
+  const sourceTitle = baseTitle && (pinnedLang || !mappedSourceTitle || flatTitleSourceLang === titleSourceLang)
+    ? baseTitle
+    : mappedSourceTitle;
   const sourceLocaleIsPublished = LOCALES.includes(sourceLang);
 
   // Detect the language of the raw base description separately — it may differ
@@ -2571,8 +2582,8 @@ export function ensureLocaleFields(job) {
   // next AI translation attempt starts with a blank slate instead of being confused
   // by the corrupted previous translation (e.g. IT words in a DE title).
   {
-    const srcLang = out.sourceLang || 'it';
-    const srcTitle = normalizeSpace(out.titleByLocale?.[srcLang] || '');
+    const titleSrcLang = titleSourceLang;
+    const srcTitle = normalizeSpace(out.titleByLocale?.[titleSrcLang] || sourceTitle || '');
     const gateCompany = out.company || '';
     const gateLocation = out.addressLocality || out.location || '';
     for (const locale of LOCALES) {
@@ -2582,7 +2593,7 @@ export function ensureLocaleFields(job) {
       // re-flagging idempotent: a second pass over an already-flagged job is a
       // no-op, byte for byte.
       if (out.needsRetranslation) break;
-      if (locale === srcLang) continue; // Never clear or flag the source language
+      if (locale === titleSrcLang) continue; // Never clear or flag the source title language
       const title = normalizeSpace(out.titleByLocale?.[locale] || '');
       if (!title) continue;
       // Glued-together words (e.g. "Direttoredifiliale") are a static defect
@@ -2618,7 +2629,7 @@ export function ensureLocaleFields(job) {
         const verdict = titleLooksUntranslated({
           title,
           sourceTitle: srcTitle,
-          sourceLang: srcLang,
+          sourceLang: titleSrcLang,
           targetLocale: locale,
           company: gateCompany,
           location: gateLocation,
@@ -2699,8 +2710,8 @@ async function aiTranslateJobDescription({ description, locale, sourceLang = 'en
   return _aiTranslateJobDescriptionDCC({ description, locale, sourceLang, minChars }, _buildLocalizationCtx());
 }
 
-async function aiLocalizeJobContent({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }) {
-  return _aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales, minChars }, _buildLocalizationCtx());
+async function aiLocalizeJobContent({ title, company, location, description, requirements, sourceLang, titleSourceLang = sourceLang, maxLocales = 4, minChars = 120 }) {
+  return _aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, titleSourceLang, maxLocales, minChars }, _buildLocalizationCtx());
 }
 
 async function aiTranslateJobTitle({ title, locale, sourceLang = 'en' }) {
@@ -3665,10 +3676,11 @@ function stripCopyPasteLocales(job) {
   if (out.titleByLocale && typeof out.titleByLocale === 'object') {
     const tbl = { ...out.titleByLocale };
     const baseTitle = normalizeSpace(out.title || '');
-    const sourceTitleNorm = normalizeSpace(tbl[sourceLang] || baseTitle).toLowerCase();
+    const titleSourceLang = jobTitleSourceLang(out, sourceLang);
+    const sourceTitleNorm = normalizeSpace(tbl[titleSourceLang] || baseTitle).toLowerCase();
     if (sourceTitleNorm.length > 25) {
       for (const locale of LOCALES) {
-        if (locale === sourceLang) continue;
+        if (locale === titleSourceLang) continue;
         const localized = normalizeSpace(tbl[locale] || '');
         if (localized && localized.toLowerCase() === sourceTitleNorm) {
           tbl[locale] = '';
@@ -4149,21 +4161,23 @@ async function crawlWorkdayJobs(
           ) {
             aiLocalizationCalls += 1;
             // eslint-disable-next-line no-await-in-loop
+            const sourceLang = detailPayload.sourceLang || detectLang(descriptionSeed, 'en');
             const aiLocalized = await aiLocalizeJobContent({
               title,
               company: company.name,
               location,
               description: descriptionSeed,
               requirements: requirementsSeed,
-              sourceLang: detailPayload.sourceLang || detectLang(descriptionSeed, 'en'),
+              sourceLang,
+              titleSourceLang: jobTitleSourceLang({ title, company: company.name, sourceLang }, sourceLang),
             });
             if (aiLocalized) {
               for (const localeKey of Object.keys(aiLocalized)) {
                 const localizedTitle = aiLocalized[localeKey].title;
-                titleByLocale[localeKey] = hasUsableTitle(localizedTitle)
-                  ? String(localizedTitle).trim()
-                  : '';
-                descriptionByLocale[localeKey] = aiLocalized[localeKey].description;
+                if (hasUsableTitle(localizedTitle)) titleByLocale[localeKey] = String(localizedTitle).trim();
+                if (aiLocalized[localeKey].description) {
+                  descriptionByLocale[localeKey] = aiLocalized[localeKey].description;
+                }
                 requirementsByLocale[localeKey] = mergeRequirements(
                   requirementsByLocale[localeKey] || [],
                   aiLocalized[localeKey].requirements || []

@@ -294,6 +294,7 @@ describe('assisted-application payment recovery policy', () => {
     expect(mocks.createSumUpAssistedApplicationCheckout).toHaveBeenCalledWith({
       orderId: order.orderId,
       redirectUrl: expect.stringContaining(order.orderId),
+      checkoutAttempt: 2,
     });
     expect(db.store.assisted_applications[order.orderId].sumupCheckoutId).toBe('sumup-new');
   });
@@ -326,6 +327,51 @@ describe('assisted-application payment recovery policy', () => {
       ok: true, status: 'open', paymentProvider: 'stripe', orderId: order.orderId,
       url: 'https://checkout.stripe.com/test/',
     } });
+  });
+
+  it('does not replace a checkout already renewed by another request using the old snapshot', async () => {
+    const order = pendingOrder('order-concurrent', { paymentProvider: 'sumup', sumupCheckoutId: 'old' });
+    const db = makeDb({ assisted_applications: { [order.orderId]: order } });
+    const retrieveSumUp = vi.fn(async () => ({ id: 'old', checkout_reference: order.orderId, status: 'EXPIRED' }));
+    const options = { db, orderId: order.orderId, order, retrieveSumUp, nowMs: NOW };
+    expect(await recovery.inspectPendingAssistedApplicationPayment(options)).toMatchObject({ status: 'renewed' });
+    expect(await recovery.inspectPendingAssistedApplicationPayment(options)).toEqual({ status: 'in_progress' });
+    expect(mocks.createSumUpAssistedApplicationCheckout).toHaveBeenCalledOnce();
+    expect(db.store.assisted_applications[order.orderId].checkoutAttempt).toBe(2);
+  });
+
+  it.each(['paid', 'refunded'])('does not overwrite %s while publishing a renewed checkout', async (paymentStatus) => {
+    const order = pendingOrder('order-state-race', { paymentProvider: 'sumup', sumupCheckoutId: 'old' });
+    const db = makeDb({ assisted_applications: { [order.orderId]: order } });
+    const result = await recovery.inspectPendingAssistedApplicationPayment({ db, orderId: order.orderId, order, nowMs: NOW,
+      retrieveSumUp: vi.fn(async () => ({ id: 'old', checkout_reference: order.orderId, status: 'EXPIRED' })),
+      createSumUp: vi.fn(async () => {
+        db.store.assisted_applications[order.orderId].paymentStatus = paymentStatus;
+        return { id: 'new-unpublished' };
+      }),
+    });
+    expect(result.status).toBe(paymentStatus === 'paid' ? 'paid' : 'waiting_provider');
+    expect(db.store.assisted_applications[order.orderId]).toMatchObject({ paymentStatus, sumupCheckoutId: 'old' });
+  });
+
+  it('restores a failed ledger for the same retryable provider checkout without minting another session', async () => {
+    const order = pendingOrder('order-failed', { paymentProvider: 'sumup', sumupCheckoutId: 'same', paymentStatus: 'failed', paymentFailureReason: 'payment_not_confirmed' });
+    const db = makeDb({ assisted_applications: { [order.orderId]: order } });
+    expect(await recovery.inspectPendingAssistedApplicationPayment({ db, orderId: order.orderId, order,
+      retrieveSumUp: vi.fn(async () => ({ id: 'same', checkout_reference: order.orderId, status: 'FAILED' })),
+    })).toEqual({ status: 'open' });
+    expect(db.store.assisted_applications[order.orderId]).toMatchObject({ paymentStatus: 'pending', paymentFailureReason: null, sumupCheckoutId: 'same' });
+    expect(mocks.createSumUpAssistedApplicationCheckout).not.toHaveBeenCalled();
+  });
+
+  it.each(['PENDING', 'FAILED'])('reuses the current renewed checkout when its provider state is %s', async (status) => {
+    const order = pendingOrder('order-retry', { paymentProvider: 'sumup', sumupCheckoutId: 'current', checkoutAttempt: 2 });
+    const result = await recovery.inspectPendingAssistedApplicationPayment({
+      db: makeDb({ assisted_applications: { [order.orderId]: order } }), orderId: order.orderId, order,
+      retrieveSumUp: vi.fn(async () => ({ id: 'current', checkout_reference: 'order-retry~sumup~2', status })),
+    });
+    expect(result).toEqual({ status: 'open' });
+    expect(mocks.createSumUpAssistedApplicationCheckout).not.toHaveBeenCalled();
   });
 
   it('does not resume an order for a different Firebase user', async () => {

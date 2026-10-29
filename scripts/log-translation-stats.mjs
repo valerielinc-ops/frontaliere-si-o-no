@@ -73,6 +73,7 @@ import {
   titleOffence,
   descriptionOffence,
   genderFormOffence,
+  genderFormSourceLang,
   genderFormTargetResidual,
 } from './mark-mistranslated-jobs.mjs';
 import { QUEUE_AGE_BUCKET_KEYS, jobQueuedAtMs, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
@@ -82,6 +83,7 @@ import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import {
   isDescriptionSourceCopy,
+  jobTitleSourceLang,
   normalizeJobLocale,
   sourceLocaleTextCandidates,
 } from './lib/job-locale-utils.mjs';
@@ -406,8 +408,8 @@ export function formatGenderFormRate(residual, processed) {
  */
 export function classifyJob(job) {
   const tbl = job.titleByLocale || {};
-  const sourceTitle = (job.title || '').trim().toLowerCase();
-  const sourceLang = normalizeJobLocale(job.sourceLang) || 'it';
+  const sourceLang = jobTitleSourceLang(job);
+  const sourceTitle = String(tbl[sourceLang] || job.title || '').trim().toLowerCase();
   const incomplete = isIncompleteCanonical(job);
 
   let sourceCopyExcused = false;
@@ -605,7 +607,7 @@ export function summarizeJobs(
             c.genderFormCohortCandidates.push({
               id,
               beforeSourceTitleHash: sourceTitleHash(job),
-              beforeSourceLang: normalizeJobLocale(job.sourceLang),
+              beforeSourceLang: genderFormHit.locale,
             });
           }
         }
@@ -618,7 +620,7 @@ export function summarizeJobs(
     if (previouslyGenderFormSample && id) {
       const sampleRecord = previouslyGenderFormSample.get(id);
       const sameSourceTitle = sampleRecord?.beforeSourceTitleHash === sourceTitleHash(job);
-      const sourceLang = normalizeJobLocale(job.sourceLang);
+      const sourceLang = genderFormSourceLang(job);
       const sameGermanSource = normalizeJobLocale(sampleRecord?.beforeSourceLang) === sourceLang &&
         sourceLang === 'de';
       if (sampleRecord && sameSourceTitle && sameGermanSource && !incomplete && !flagged) {
