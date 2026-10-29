@@ -23,7 +23,7 @@ import { execFileSync, spawn } from 'node:child_process';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -1141,6 +1141,20 @@ describe('crawler generation state cleanup', () => {
     expect(body).toContain('timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
     expect(body).toContain('started_file="$RUNNER_TEMP/crawler-generation/group-02/bounded-crawler.started"');
     expect(body).toContain('terminal_exit=143');
+  });
+
+  it('splits the host-sensitive groups into a two-worker resource lane without quarantining members', () => {
+    expect(crawlerGroupMaxParallel(15)).toBe(2);
+    expect(crawlerGroupMaxParallel(16)).toBe(2);
+    expect(crawlerGroupMaxParallel(14)).toBe(CRAWLER_GROUP_MAX_PARALLEL);
+
+    const group15Body = buildCrawlerLaunchShellBody({
+      slug: 'host-sensitive',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    }, 15);
+    expect(group15Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-2}"`);
+    expect(group15Body).not.toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
   });
 
   it('keeps the timeout terminal when the worker publishes success after the deadline', () => {

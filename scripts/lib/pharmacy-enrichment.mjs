@@ -640,6 +640,15 @@ async function enrichGoogleProvider(records, pharmacies, provider, checkedAt, fe
       records[pharmacy.id].googlePlaceId = placeId;
       addExternalSource(records[pharmacy.id], source, checkedAt, []);
     } catch (error) {
+      const status = Number(error?.status ?? error?.response?.status);
+      if (status === 401 || status === 403) {
+        // A credential/project restriction is deterministic for the whole
+        // run. Stop before burning the remaining free-tier budget against the
+        // same invalid key; the owner deliberately keeps the key in place and
+        // can repair the restriction without a code-side rotation.
+        warnings.push(`googlePlaces: disabled for this run after HTTP ${status}; API key/project restriction requires owner action`);
+        return;
+      }
       warnings.push(`googlePlaces:${pharmacy.id}: ${error instanceof Error ? error.message : String(error)}`);
     }
   }

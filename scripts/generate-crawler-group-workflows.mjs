@@ -419,8 +419,21 @@ const CRAWLER_TARGET_TIMEOUT_MAX_MINUTES = CRAWLER_WORKER_WATCHDOG_MAX_MINUTES -
 // parsers, or AI translation. Starting every detached process together can
 // exhaust a hosted runner and surface as a bare SIGTERM/exit 143. Four active
 // crawler bodies leave headroom for the runner and still keep the measured
-// group wall-clock comfortably below the 340-minute job budget.
+// group wall-clock comfortably below the 340-minute job budget. Groups 15 and
+// 16 are explicitly placed in a two-body resource lane: this is a concurrency
+// split, not a quarantine, and every member remains scheduled and attributable.
 export const CRAWLER_GROUP_MAX_PARALLEL = 4;
+export const CRAWLER_GROUP_PARALLEL_CAPS = Object.freeze({
+  15: 2,
+  16: 2,
+});
+
+export function crawlerGroupMaxParallel(groupIndex) {
+  const configured = CRAWLER_GROUP_PARALLEL_CAPS[groupIndex];
+  return Number.isInteger(configured) && configured > 0
+    ? configured
+    : CRAWLER_GROUP_MAX_PARALLEL;
+}
 
 function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -1357,6 +1370,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
   const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE;
   const crawlExitFileName = memberCrawlExitFileName(crawlerId);
   const watchdogFileName = memberCrawlWatchdogFileName(crawlerId) ?? `${slug}.watchdog`;
+  const groupMaxParallel = crawlerGroupMaxParallel(groupIndex);
   const worker = [
     'set +e',
     `script_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.sh"`,
@@ -1428,7 +1442,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
       : []),
     dedicatedSlot
       ? 'max_parallel=1'
-      : `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,
+      : `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${groupMaxParallel}}"`,
     'if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then',
     '  echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"',
     '  terminal_exit="$(resolveCrawlerTerminalStatus 1)"',
@@ -2494,7 +2508,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
           CRAWLER_GENERATION_TOKEN: CRAWLER_GENERATION_TOKEN_EXPR,
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
           CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
-          CRAWLER_GROUP_MAX_PARALLEL: String(CRAWLER_GROUP_MAX_PARALLEL),
+          CRAWLER_GROUP_MAX_PARALLEL: String(crawlerGroupMaxParallel(groupIndex)),
           // The reconstructible LLM cache is runner-local and persisted by
           // actions/cache, never by the crawler's git commit path.
           AI_CACHE_PATH: CRAWLER_AI_CACHE_PATH,

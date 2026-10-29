@@ -4,6 +4,7 @@ import {
   buildTicinoCatalogueSnapshot,
   fetchTicinoPdfBuffer,
   fetchTicinoPdfDocument,
+  fetchTicinoOfctCatalogue,
 } from '../scripts/import-pharmacies-border.mjs';
 import { detectMissingSecondaryProvenance } from '../scripts/check-pharmacy-data-health.mjs';
 import {
@@ -13,6 +14,7 @@ import {
   discoverTicinoPharmacyPdfUrls,
   isTicinoPharmacyPdfUrl,
 } from '../scripts/lib/pharmacy-border-parser.mjs';
+import { OFCT_REGIONS } from '../scripts/lib/pharmacy-ticino-parser.mjs';
 
 describe('Ticino pharmacy PDF source fallback', () => {
   it('rehydrates availability metadata when carrying forward an older catalogue', () => {
@@ -186,5 +188,66 @@ describe('Ticino pharmacy PDF source fallback', () => {
       sourceUrl: newerUrl,
     });
     expect(calls).toEqual([TICINO_PHARMACY_PDF_URL, TICINO_PHARMACY_PDF_MIRROR_URL, newerUrl]);
+  });
+
+  it('fetches the four OFCT anagraphic regions sequentially as a secondary source', async () => {
+    const calls: string[] = [];
+    const fetchRegion = vi.fn(async (url: string) => {
+      calls.push(url);
+      return `<table id="tabella_lista_farmacie">
+        <tr><td>Farmacia</td><td>Indirizzo</td><td>Località</td><td>Telefono</td></tr>
+        <tr><td>${url.split('/')[3]}</td><td>Via Roma 1</td><td>6900  Lugano</td><td>+41 91 000 00 00</td></tr>
+      </table>`;
+    });
+
+    const result = await fetchTicinoOfctCatalogue(fetchRegion, { delayMs: 0 });
+
+    expect(calls).toEqual(OFCT_REGIONS.map((region) => region.url));
+    expect(result.rows).toHaveLength(OFCT_REGIONS.length);
+    expect(result.sourceRegions).toEqual(OFCT_REGIONS.map((region) => region.key));
+    expect(result.rows.every((row) => row.sourceUrl.startsWith('https://www.ofct.ch/'))).toBe(true);
+  });
+
+  it('merges OFCT recovery rows without dropping the preserved Locarnese portion', () => {
+    const previousPharmacies = Array.from({ length: 200 }, (_, index) => ({
+      id: `ti-previous-${index}`,
+      name: `Farmacia ${index}`,
+      address: `Via Roma ${index + 1}`,
+      postalCode: '6900',
+      city: 'Lugano',
+      slug: `farmacia-${index}-lugano`,
+      country: 'CH',
+      canton: 'Ticino',
+      sourceType: 'official',
+      sourceUrl: index === 199 ? 'https://www4.ti.ch/locarnese.pdf' : TICINO_PHARMACY_PDF_URL,
+    }));
+    const snapshot = buildTicinoCatalogueSnapshot({
+      parsed: { rows: [], warnings: [] },
+      previous: { pharmacies: previousPharmacies, _fetchedAt: '2026-10-28T12:00:00.000Z' },
+      fetchedAt: '2026-10-29T12:00:00.000Z',
+      sourceError: 'primary PDF timeout',
+      secondaryRows: [{
+        name: 'Farmacia 0',
+        address: 'Via Roma 1',
+        postalCode: '6900',
+        city: 'Lugano',
+        phone: '+41 91 000 00 00',
+        sourceUrl: 'https://www.ofct.ch/luganese/',
+      }],
+      secondarySourceRegions: ['luganese'],
+      secondarySourceUrls: ['https://www.ofct.ch/luganese/'],
+    });
+
+    expect(snapshot.pharmacies).toHaveLength(200);
+    expect(snapshot.pharmacies.find((pharmacy) => pharmacy.id === 'ti-previous-0')?.sourceUrl)
+      .toBe('https://www.ofct.ch/luganese/');
+    expect(snapshot.pharmacies.find((pharmacy) => pharmacy.id === 'ti-previous-0')?.phone)
+      .toBe('+41 91 000 00 00');
+    expect(snapshot.pharmacies.find((pharmacy) => pharmacy.id === 'ti-previous-199')?.sourceUrl)
+      .toBe('https://www4.ti.ch/locarnese.pdf');
+    expect(snapshot._preserved).toBe(true);
+    expect(snapshot._sourceRegions).toEqual(OFCT_REGIONS.map((region) => region.url));
+    expect(snapshot._sourceSecondary).toEqual(['https://www.ofct.ch/luganese/']);
+    expect(snapshot._fetchedAt).toBe('2026-10-28T12:00:00.000Z');
   });
 });

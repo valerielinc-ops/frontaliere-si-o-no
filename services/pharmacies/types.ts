@@ -236,6 +236,8 @@ export interface PharmacyDuty {
 export interface PharmacyCatalogueDataset {
   _source: string;
   _sourceRegions?: string[];
+  /** Successful secondary recovery pages used without replacing the primary source. */
+  _sourceSecondary?: string[];
   _fetchedAt: string | null;
   _pharmacyCount?: number;
   _errors: string[];

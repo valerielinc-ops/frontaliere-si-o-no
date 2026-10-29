@@ -1389,13 +1389,14 @@ describe('createWorkdaySwissParser — countryFacetParameter', () => {
 /**
  * The generator of «one PR per Workday tenant» was the facet NAME: a tenant
  * that calls its country facet `Country` / `Location_Country` answers HTTP 400
- * to the default `locationCountry`, the run fell back to the whole board, and
- * the zero could never be proven (the proof needs an ACCEPTED faceted query).
- * Ferring, KONE and Imerys each got a hand-written key. The factory now reads
- * the board's facets after that 400 and picks the key itself; a board such as
- * Temenos with no usable country facet falls back to its complete-board proof.
+ * or HTTP 422 to the default `locationCountry`, the run fell back to the whole
+ * board, and the zero could never be proven (the proof needs an ACCEPTED
+ * faceted query). Ferring, KONE and Imerys each got a hand-written key. The
+ * factory now reads the board's facets after either validation response and
+ * picks the key itself; a board such as Temenos with no usable country facet
+ * falls back to its complete-board proof.
  */
-describe('createWorkdaySwissParser — country facet discovery after HTTP 400', () => {
+describe('createWorkdaySwissParser — country facet discovery after HTTP 400/422', () => {
   const ORIGINAL_FETCH = global.fetch;
   const CH_ID = '187134fccb084a0ea9b4b95f23890dbe';
   afterEach(() => {
@@ -1422,9 +1423,9 @@ describe('createWorkdaySwissParser — country facet discovery after HTTP 400', 
 
   /**
    * A fake tenant. `accepts` maps each facet key the tenant knows to what the
-   * Swiss-faceted query returns; any other key answers HTTP 400. `appliedFacets:
-   * {}` (the board summary and the unfiltered refetch alike) returns the whole
-   * board with `facets`.
+   * Swiss-faceted query returns; any other key answers `rejectedStatus`.
+   * `appliedFacets: {}` (the board summary and the unfiltered refetch alike)
+   * returns the whole board with `facets`.
    */
   function mockTenant({
     accepts,
@@ -1432,12 +1433,14 @@ describe('createWorkdaySwissParser — country facet discovery after HTTP 400', 
     boardTotal = board.length,
     facets,
     listStatus = 200,
+    rejectedStatus = 400,
   }: {
     accepts: Record<string, any[]>;
     board: any[];
     boardTotal?: number;
     facets: any[];
     listStatus?: number;
+    rejectedStatus?: number;
   }) {
     const bodies: any[] = [];
     global.fetch = vi.fn(async (url: string, init: any = {}) => {
@@ -1452,7 +1455,7 @@ describe('createWorkdaySwissParser — country facet discovery after HTTP 400', 
         }
         const postings = accepts[keys[0]];
         if (!postings) {
-          return new Response(JSON.stringify({ errorCode: 'HTTP_400', httpStatus: 400 }), { status: 400 });
+          return new Response(JSON.stringify({ errorCode: `HTTP_${rejectedStatus}`, httpStatus: rejectedStatus }), { status: rejectedStatus });
         }
         return new Response(JSON.stringify({ total: postings.length, jobPostings: postings }), { status: 200 });
       }
@@ -1509,6 +1512,27 @@ describe('createWorkdaySwissParser — country facet discovery after HTTP 400', 
     ]);
     expect(jobs.map((job: any) => job.title)).toEqual([SWISS_POSTING.title]);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('recovers from a literal HTTP 422 facet validation response without losing the Swiss postings', async () => {
+    const bodies = mockTenant({
+      accepts: { Country: [SWISS_POSTING] },
+      board: [SWISS_POSTING, FOREIGN_POSTING],
+      facets: [
+        { facetParameter: 'jobFamilyGroup', values: [{ id: 'eng', descriptor: 'Engineering', count: 2 }] },
+        { facetParameter: 'Country', values: [FR, CH] },
+      ],
+      rejectedStatus: 422,
+    });
+
+    const jobs = await makeParser().fetchAllJobs();
+
+    expect(bodies.map((body) => body.appliedFacets)).toEqual([
+      { locationCountry: [CH_ID] },
+      {},
+      { Country: [CH_ID] },
+    ]);
+    expect(jobs.map((job: any) => job.title)).toEqual([SWISS_POSTING.title]);
   });
 
   it('falls back to the one known country facet without a Swiss value (Ferring shape) and stamps the proven zero', async () => {
