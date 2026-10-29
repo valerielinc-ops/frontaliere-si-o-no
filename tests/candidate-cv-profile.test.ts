@@ -681,3 +681,33 @@ describe('application concierge matching', () => {
   });
 });
 // End of focused CV workflow coverage.
+
+
+describe('CV section boundaries in extracted PDF text', () => {
+  it('keeps contact sidebars, certifications and privacy declarations out of matching evidence', () => {
+    const year = new Date().getUTCFullYear();
+    const profile = parseCandidateCvText([
+      'Example Candidate', 'Consulente commerciale', 'CAPACITÀ E', 'COMPETENZE',
+      '+41 00 000 00 00', 'candidate@example.com', 'Exampletown', 'Data di nascita',
+      `01/01/${year - 30}`, 'ESPERIENZE LAVORATIVE E PROFESSIONALI',
+      `${year - 3} - ${year}`, 'Consulente commerciale',
+      'Acquisizione e gestione clienti B2B e sviluppo del portafoglio commerciale',
+      'Autorizzo il trattamento dei dati personali contenuti nel mio CV',
+      'CERTIFICAZIONI', 'Attestato commerciale', 'TRATTAMENTO DATI',
+      `Acconsento al trattamento ai sensi del regolamento ${year - 10}/123`,
+      'ISTRUZIONE E FORMAZIONE', 'Diploma commerciale',
+      'Lingue: Inglese (B2), Francese (A2),', 'Tedesco (A2)',
+      'Digital skills: MS Office',
+    ].join('\n'));
+    expect(profile.skills).toEqual(['MS Office']);
+    expect(profile.languages).toEqual(['inglese', 'francese', 'tedesco']);
+    expect(profile.experienceSummary).toContain('Acquisizione e gestione clienti B2B e sviluppo del portafoglio commerciale');
+    expect(profile.searchText).not.toMatch(/candidate@example|Exampletown|Data di nascita|regolamento|Diploma commerciale/i);
+  });
+
+  it('retains skills before a personal field without absorbing the following sidebar', () => {
+    const profile = parseCandidateCvText('Example Candidate\nSkills\nSAP; CRM\nData di nascita\nExampletown\nWork Experience\nSales account');
+    expect(profile.skills).toEqual(['SAP', 'CRM']);
+    expect(profile.searchText).not.toContain('Exampletown');
+  });
+});
