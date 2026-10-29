@@ -36,10 +36,15 @@ import {
   sourceLocaleTextCandidates,
   sourceLocaleTextForTranslation,
 } from './lib/job-locale-utils.mjs';
+import {
+  buildTrafficPriority,
+  TRAFFIC_SOURCE_PATH,
+} from './lib/job-traffic-priority.mjs';
 import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
 const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 // Translation-quality gate lives in a shared leaf lib so every writer of the
@@ -70,11 +75,57 @@ const SLICE = (() => {
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 
+function readOptionalJson(p, fallback) {
+  try {
+    return readJson(p);
+  } catch {
+    return fallback;
+  }
+}
+
 /**
  * The slots of one slice that phase 2e repairs: a non-source locale whose
  * description is still a copy of the source (whitespace/entities aside).
  */
-export function collectDescriptionFixTasks(jobs) {
+export function orderDescriptionFixTasks(tasks, popularity = {}, { now = Date.now() } = {}) {
+  const list = Array.isArray(tasks) ? tasks : [];
+  const pair = (task) => `${task.sl}>${task.locale}`;
+  const entries = list.map((task) => ({
+    ...task.job,
+    __descriptionFixTask: task,
+  }));
+  const { order } = buildTrafficPriority(entries, popularity, {
+    lane: 'relocalize-pending-jobs',
+    now,
+  });
+
+  // Keep short runs of one language pair together so the Codex batcher can
+  // join them, but rotate pairs instead of draining the first pair wholesale.
+  // Before this, the caller's slice order was the policy: the finite Phase 2e
+  // budget was spent on the first companies alphabetically, while old
+  // source-copy descriptions in later slices stayed untouched. Six is the
+  // normal Phase 2e in-flight width (three Codex lanes × two descriptions), so
+  // it preserves useful batching without letting one pair monopolize a run.
+  const pairQueues = new Map();
+  for (const entry of order) {
+    const task = entry.__descriptionFixTask;
+    const key = pair(task);
+    const queue = pairQueues.get(key) || [];
+    queue.push(task);
+    pairQueues.set(key, queue);
+  }
+  const activePairs = [...pairQueues.keys()];
+  const ordered = [];
+  while (activePairs.length > 0) {
+    const key = activePairs.shift();
+    const queue = pairQueues.get(key);
+    ordered.push(...queue.splice(0, 6));
+    if (queue.length > 0) activePairs.push(key);
+  }
+  return ordered;
+}
+
+export function collectDescriptionFixTasks(jobs, { popularity = {}, now = Date.now() } = {}) {
   const tasks = [];
   for (const job of Array.isArray(jobs) ? jobs : []) {
     const sl = normalizeJobLocale(job?.sourceLang) || 'it';
@@ -92,13 +143,7 @@ export function collectDescriptionFixTasks(jobs) {
       tasks.push({ job, locale, sl, sourceDesc });
     }
   }
-  // Grouped by language pair, job order kept inside each pair: Codex joins
-  // only queued texts of the same pair, and in job order the descriptions in
-  // flight were split across it/en/fr (run 38937686046: 3.5 texts per call in
-  // phase 2e against 11.3 in phase 2b).
-  const pair = (task) => `${task.sl}>${task.locale}`;
-  const pairOrder = [...new Set(tasks.map(pair))];
-  return pairOrder.flatMap((key) => tasks.filter((task) => pair(task) === key));
+  return orderDescriptionFixTasks(tasks, popularity, { now });
 }
 
 const DESCRIPTION_FIX_CONCURRENCY_MAX = 8;
@@ -182,6 +227,7 @@ async function main() {
   let charsTranslated = 0;
   const budgetOk = () => (Date.now() - RUN_START_MS) < DESCRIPTION_FIX_DEADLINE_MS;
   let deadlineReached = false;
+  const popularity = readOptionalJson(path.join(ROOT, TRAFFIC_SOURCE_PATH), {});
 
   // Several descriptions run at once while Codex is up; the providers after it
   // stay one call at a time, as when this phase was sequential.
@@ -215,7 +261,7 @@ async function main() {
     if (jobs.length === 0) continue;
 
     let sliceChanged = false;
-    const tasks = collectDescriptionFixTasks(jobs);
+    const tasks = collectDescriptionFixTasks(jobs, { popularity });
 
     const translateTask = async ({ job, locale, sl, sourceDesc }) => {
       // Translate using free cascade

@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   collectDescriptionFixTasks,
   descriptionFixConcurrency,
+  orderDescriptionFixTasks,
   runDescriptionFixPool,
 } from '../scripts/fix-untranslated-descriptions.mjs';
 
@@ -136,6 +137,60 @@ describe('collectDescriptionFixTasks groups the slots by language pair', () => {
       'it:j1', 'it:j2', 'it:j3',
       'en:j1', 'en:j2', 'en:j3',
       'fr:j1', 'fr:j2', 'fr:j3',
+    ]);
+  });
+
+  it('uses the shared traffic/age priority inside each language pair', () => {
+    const singleLocaleJob = (n: number, extra: Record<string, string>) => ({
+      ...job(n),
+      descriptionByLocale: {
+        de: `${source} (${n})`,
+        it: `${source} (${n})`,
+        en: `Translated English description ${n}.`,
+        fr: `Description française traduite ${n}.`,
+      },
+      ...extra,
+    });
+    const jobs = [
+      ...[1, 2, 3, 4].map((n) => singleLocaleJob(n, {
+        slug: `popular-${n}`,
+        firstSeenAt: '2026-10-25T00:00:00.000Z',
+      })),
+      singleLocaleJob(5, {
+        slug: 'old-tail',
+        firstSeenAt: '2026-01-01T00:00:00.000Z',
+      }),
+    ];
+    const tasks = collectDescriptionFixTasks(jobs, {
+      popularity: {
+        'popular-1': 100,
+        'popular-2': 90,
+        'popular-3': 80,
+        'popular-4': 70,
+      },
+      now: Date.parse('2026-10-29T00:00:00.000Z'),
+    });
+
+    expect(tasks.slice(0, 4).map((task: { job: { id: string } }) => task.job.id)).toEqual([
+      'j1', 'j2', 'j3', 'j4',
+    ]);
+    expect(tasks[4].job.id).toBe('j5');
+  });
+
+  it('rotates pairs after a bounded Codex-sized chunk', () => {
+    const tasks = [
+      ...Array.from({ length: 8 }, (_, index) => ({
+        job: { id: `it-${index + 1}` },
+        sl: 'de',
+        locale: 'it',
+      })),
+      { job: { id: 'en-1' }, sl: 'de', locale: 'en' },
+    ];
+
+    expect(orderDescriptionFixTasks(tasks, {}).map((task) => task.job.id)).toEqual([
+      'it-1', 'it-2', 'it-3', 'it-4', 'it-5', 'it-6',
+      'en-1',
+      'it-7', 'it-8',
     ]);
   });
 });
