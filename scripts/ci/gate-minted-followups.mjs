@@ -100,6 +100,7 @@ import {
   parseFollowupItems,
   selectFirstOpenItem,
   splitFollowupItems,
+  stripEscapedDailyItemBoundary,
   followupItemId,
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
@@ -341,7 +342,10 @@ export function partitionDailyBucketItems(body, opts = {}) {
 /** Rebuild a daily body without changing stable IDs, source order, or item states. */
 export function rebuildDailyBody(head, valid) {
   const cleanHead = String(head || '').replace(/\s+$/, '');
-  const items = (valid || []).map((item) => typeof item === 'string' ? item : item.raw).join('\n\n');
+  const rawItems = (valid || []).map((item) => typeof item === 'string' ? item : item.raw);
+  const items = rawItems
+    .map((item, index) => index < rawItems.length - 1 ? stripEscapedDailyItemBoundary(item) : item)
+    .join('\n\n');
   return `${cleanHead}\n\n${items.replace(/^\s+/, '')}\n`;
 }
 

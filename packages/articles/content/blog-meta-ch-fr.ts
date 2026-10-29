@@ -8646,11 +8646,14 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'Le Conseil fédéral demande 165,4 millions de francs.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.norme-flessibilita-start-up.title': 'Conseil fédéral assouplit le temps de travail des start-up',
-    'blog.article.norme-flessibilita-start-up.excerpt': 'Le Conseil fédéral adopte de nouvelles dispositions spéciales pour les start-up et certains salariés; elles entreront en vigueur le 1er décembre 2026 et permettront davantage de flexibilité dans l’organisation du temps de travail sous des conditions précises.',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Nouvelles dispositions spéciales adoptées le 28 octobre 2026 Entrée en vigueur fixée au 1er décembre 2026 Dérogations ciblées pour certains salariés de start-up La révision',
     'blog.article.norme-flessibilita-start-up.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.sem-rinnovo-simic-paralisi.title': 'Le SEM risque la paralysie pour le renouvellement de SIMIC',
     'blog.article.sem-rinnovo-simic-paralisi.excerpt': 'Le SEM risque la paralysie sans ressources supplémentaires SIMIC : d\'environ 66 à 193 millions estimés en 2024 Le nouveau système ne sera pas opérationnel avant 2032',
     'blog.article.sem-rinnovo-simic-paralisi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.farmaci-riserve-finanziamento.title': 'Médicaments : les stocks obligatoires sous pression en Suisse',
+    'blog.article.farmaci-riserve-finanziamento.excerpt': 'En Suisse, les antibiotiques et les analgésiques font défaut depuis des années.',
+    'blog.article.farmaci-riserve-finanziamento.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

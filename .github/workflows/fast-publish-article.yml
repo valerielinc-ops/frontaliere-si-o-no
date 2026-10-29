@@ -216,13 +216,38 @@ jobs:
             --out /tmp/fast-publish/dist \
             --summary /tmp/fast-publish/summary.json
 
+      # The site and corpus carry adapted copies of the publisher. The summary
+      # receipt is the boundary proof that this run kept the site-side refusal
+      # policy and all publication-critical guards. Validate it before any CDN
+      # or R2/shard mutation; a missing receipt is unknown state, never a
+      # best-effort publish.
+      - name: Validate fast-publish twin parity receipt
+        id: verify_twin_parity
+        if: steps.render.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SUMMARY_PATH=/tmp/fast-publish/summary.json
+          jq -e '
+            .twinParity.schema == "fast-publish-twin-parity/v1" and
+            .twinParity.status == "site-adapted" and
+            .twinParity.counterpart.path == "scripts/publish-article-fast.mjs" and
+            .twinParity.sitePolicy.controlCharacters == "refuse" and
+            .twinParity.sitePolicy.corpusFreshness == "required" and
+            .twinParity.sitePolicy.imagePostcondition == "withhold" and
+            .twinParity.pipeline.hubOrder == ["landing", "archive", "topic-hubs", "cdn-offload"] and
+            .twinParity.pipeline.implementation == "renderHubsAndOffload" and
+            .twinParity.workflow.imageNamespaceLease == "required-v1" and
+            .twinParity.workflow.sectionLock == "required" and
+            .twinParity.observed.freshness == "passed"
+          ' "$SUMMARY_PATH" >/dev/null
+
       # NEVER blocks the publish. The hero image has a client-side
       # raw.githubusercontent fallback (services/seo/blogImageCdn.ts:81-97) and
       # the next full deploy re-syncs the whole CDN payload anyway, so a failed
       # PUT must degrade to "image 404s for social crawlers until the next
       # deploy", not to "the article never goes live at all".
       - name: Upload CDN assets (images)
-        if: steps.render.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.verify_twin_parity.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         run: |
           set -uo pipefail
@@ -250,7 +275,7 @@ jobs:
       # rendering concurrently.
       - name: Acquire article chunk section lock
         id: acquire_chunk_lock
-        if: steps.render.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.verify_twin_parity.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           ARTICLE_SECTION: ${{ inputs.section }}
           LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
@@ -310,6 +335,19 @@ jobs:
               --section "$INPUT_SECTION" \
               --out /tmp/fast-publish/dist \
               --summary /tmp/fast-publish/summary.json
+            jq -e '
+              .twinParity.schema == "fast-publish-twin-parity/v1" and
+              .twinParity.status == "site-adapted" and
+              .twinParity.counterpart.path == "scripts/publish-article-fast.mjs" and
+              .twinParity.sitePolicy.controlCharacters == "refuse" and
+              .twinParity.sitePolicy.corpusFreshness == "required" and
+              .twinParity.sitePolicy.imagePostcondition == "withhold" and
+              .twinParity.pipeline.hubOrder == ["landing", "archive", "topic-hubs", "cdn-offload"] and
+              .twinParity.pipeline.implementation == "renderHubsAndOffload" and
+              .twinParity.workflow.imageNamespaceLease == "required-v1" and
+              .twinParity.workflow.sectionLock == "required" and
+              .twinParity.observed.freshness == "passed"
+            ' /tmp/fast-publish/summary.json >/dev/null
             CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$PUBLISH_SHA" --main-sha "$MAIN_SHA")"
             if [ "$CURRENT" != "true" ]; then
               echo "::error::article chunk source refresh did not reach origin/main $MAIN_SHA"
@@ -358,6 +396,19 @@ jobs:
               --section "$INPUT_SECTION" \
               --out /tmp/fast-publish/dist \
               --summary /tmp/fast-publish/summary.json
+            jq -e '
+              .twinParity.schema == "fast-publish-twin-parity/v1" and
+              .twinParity.status == "site-adapted" and
+              .twinParity.counterpart.path == "scripts/publish-article-fast.mjs" and
+              .twinParity.sitePolicy.controlCharacters == "refuse" and
+              .twinParity.sitePolicy.corpusFreshness == "required" and
+              .twinParity.sitePolicy.imagePostcondition == "withhold" and
+              .twinParity.pipeline.hubOrder == ["landing", "archive", "topic-hubs", "cdn-offload"] and
+              .twinParity.pipeline.implementation == "renderHubsAndOffload" and
+              .twinParity.workflow.imageNamespaceLease == "required-v1" and
+              .twinParity.workflow.sectionLock == "required" and
+              .twinParity.observed.freshness == "passed"
+            ' /tmp/fast-publish/summary.json >/dev/null
             CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
             if [ "$CURRENT" != "true" ]; then
               echo "::error::article chunk source refresh did not reach origin/main $MAIN_SHA"

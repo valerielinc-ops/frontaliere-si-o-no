@@ -9,7 +9,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 
 import * as selectorMod from '../../scripts/lib/article-topic-selector.mjs';
 
@@ -21,6 +21,8 @@ const {
   rankAndSelectHeadlines,
   loadTodayPicksByCluster,
   persistTodayPicksByCluster,
+  loadExistingItTitles,
+  SITE_IT_META_PATH,
   loadExperimentalCounter,
   persistExperimentalCounter,
   shouldUseExperimentalTier,
@@ -28,6 +30,7 @@ const {
   EVERGREEN_REJECTED_SCHEMA_VERSION,
   EVERGREEN_POOL_NAME,
   EVERGREEN_STRIKE_TTL_MS,
+  EVERGREEN_REJECTED_MAX_IDS,
   computeEvergreenPoolEpoch,
   migrateEvergreenRejectedTracker,
   isEvergreenBanned,
@@ -62,6 +65,47 @@ describe('selector — Phase B+C constants', () => {
   });
   it('EXPERIMENTAL_RATIO_DEFAULT is 0.10', () => {
     expect(EXPERIMENTAL_RATIO_DEFAULT).toBeCloseTo(0.1);
+  });
+});
+
+describe('site-side adapted twin boundary', () => {
+  it('keeps the site meta default and accepts the transported layout explicitly', () => {
+    expect(SITE_IT_META_PATH).toBe('services/locales/blog-meta-it.ts');
+
+    const transportedMetaPath = join(workDir, 'content/blog-meta-it.ts');
+    mkdirSync(dirname(transportedMetaPath), { recursive: true });
+    writeFileSync(
+      transportedMetaPath,
+      String.raw`'blog.article.transport.title': 'L\'articolo trasportato'`,
+      'utf8',
+    );
+
+    expect(loadExistingItTitles(transportedMetaPath)).toEqual(["L'articolo trasportato"]);
+    expect(loadExistingItTitles(join(workDir, 'missing-meta.ts'))).toEqual([]);
+  });
+
+  it('applies only the corpus path adaptation without dropping the site ledger contract', () => {
+    const siteRoot = resolve(process.cwd());
+    const patchPath = join(siteRoot, '.github/transport/nanako-generator-rewire.patch');
+    const source = readFileSync(join(siteRoot, 'scripts/lib/article-topic-selector.mjs'), 'utf8');
+    const patchText = readFileSync(patchPath, 'utf8');
+    const start = patchText.indexOf('diff --git a/generator/scripts/lib/article-topic-selector.mjs');
+    const end = patchText.indexOf('\ndiff --git ', start + 1);
+    const selectorPatch = patchText.slice(start, end < 0 ? undefined : end);
+    const changedLines = selectorPatch
+      .split(/\r?\n/u)
+      .filter((line) => (/^[+-]/u.test(line) && !line.startsWith('+++') && !line.startsWith('---')));
+
+    expect(changedLines).toEqual([
+      "+import { corpusPath } from './corpus-paths.mjs';",
+      "-export const SITE_IT_META_PATH = 'services/locales/blog-meta-it.ts';",
+      "+export const SITE_IT_META_PATH = corpusPath('services/locales/blog-meta-it.ts');",
+    ]);
+    expect(source).toContain('export const EVERGREEN_REJECTED_SCHEMA_VERSION');
+    expect(source).toContain('function completeProvenance');
+    expect(source).toContain('TOPIC_GATE_URL_TTL_MS');
+    expect(source).toContain('EVERGREEN_REJECTED_MAX_IDS');
+    expect(source).toContain('invalid: true');
   });
 });
 
@@ -463,6 +507,36 @@ describe('evergreen-rejected tracker (#3138, schema v2)', () => {
     expect(evergreenRejectionKind(tracker, 'kw-flaky', context)).toBe('strike');
     expect(isEvergreenBanned(tracker, 'kw-ban', { ...context, poolEpoch: 'changed' })).toBe(false);
     expect(isEvergreenStruck(tracker, 'kw-flaky', { ...context, now: now + EVERGREEN_STRIKE_TTL_MS + 10 })).toBe(false);
+  });
+
+  it('keeps provenance records bounded by the v2 cap', () => {
+    let tracker = loadEvergreenRejectedTracker({ path: join(workDir, 'bounded.json') });
+    for (let i = 0; i < EVERGREEN_REJECTED_MAX_IDS + 2; i += 1) {
+      tracker = appendEvergreenRejected(tracker, `kw-${i}`, {
+        ...context,
+        poolEpoch: `epoch-${i}`,
+        now: Date.now() + i,
+      });
+    }
+    expect(tracker.bans).toHaveLength(EVERGREEN_REJECTED_MAX_IDS);
+    expect(tracker.bans[0].keyword).toBe('kw-2');
+    expect(tracker.bans.at(-1).keyword).toBe(`kw-${EVERGREEN_REJECTED_MAX_IDS + 1}`);
+    expect(tracker.bans.every((entry: any) => entry.section && entry.pool && entry.poolEpoch)).toBe(true);
+  });
+
+  it('fails closed when an adapted copy supplies a malformed v2 ledger', () => {
+    const p = join(workDir, 'malformed.json');
+    writeFileSync(p, JSON.stringify({
+      schemaVersion: EVERGREEN_REJECTED_SCHEMA_VERSION,
+      bans: [{ keyword: 'kw-unscoped', status: 'active', validityRule: 'confirmed-duplicate' }],
+      strikes: [],
+      legacy: [],
+      topicGateUrls: {},
+    }));
+
+    const tracker = loadEvergreenRejectedTracker({ path: p });
+    expect(tracker).toMatchObject({ invalid: true, schemaVersion: EVERGREEN_REJECTED_SCHEMA_VERSION });
+    expect(isEvergreenRejected(tracker, 'kw-unscoped', context)).toBe(true);
   });
 
   it('persists the latest update under an atomic lock and recovers a stale owner', () => {

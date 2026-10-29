@@ -7,6 +7,10 @@ import {
   isValoraJob,
   isTrustedDomain,
   resolveAddress,
+  VALORA_API_URL,
+  parseValoraApiResponse,
+  buildValoraApiListing,
+  parseValoraDate,
   extractAgencyTemplateHtml,
   dedupeRepostedValoraJobs,
 } from '../scripts/lib/valora-job-parser.mjs';
@@ -41,6 +45,108 @@ describe('Valora Group crawler parser', () => {
       expect(isValoraJob(null)).toBe(false);
       expect(isValoraJob(undefined)).toBe(false);
       expect(isValoraJob({})).toBe(false);
+    });
+  });
+
+  describe('first-party jobs API', () => {
+    const sourceDescription = '<p>Diese Stelle bietet eine verantwortungsvolle Aufgabe mit klaren Zielen, abwechslungsreichen Tätigkeiten und direktem Kundenkontakt. Sie arbeiten im Team, planen Ihre Einsätze sorgfältig, dokumentieren die täglichen Abläufe und unterstützen die Filialleitung bei Qualität, Sicherheit und Warenpräsentation. Wir bieten eine strukturierte Einarbeitung, faire Arbeitszeiten, interne Weiterbildung, moderne Arbeitsmittel, attraktive Sozialleistungen und langfristige Entwicklungsmöglichkeiten in einem schweizerischen Unternehmen.</p>';
+    const apiPayload = {
+      jobs: [
+        {
+          externalId: '21923',
+          jobTitle: 'Verkäuferin / Verkäufer k kiosk 30 Std.',
+          jobDescription: sourceDescription,
+          jobCategory: 'sales',
+          entryLevel: 'young_professionals',
+          employmentType: 'part_time',
+          publicationDate: '2026-10-26T00:00:00.000Z',
+          jobRegion: 'Bern',
+          jobCity: 'Bern',
+          jobZipCode: '3001',
+          jobStreet: 'Bahnhofplatz 10',
+          applyUrl: 'https://recruitingapp-2538.umantis.com/Vacancies/21923/Application/CheckLogin/1',
+          labels: { category: 'Verkauf', employmentType: 'Teilzeit' },
+        },
+        {
+          externalId: '12939',
+          jobTitle: 'Agenturpartnerin / Agenturpartner Kanton Graubünden',
+          jobDescription: sourceDescription,
+          jobCategory: 'sales',
+          entryLevel: 'franchise_and_agency_partner',
+          employmentType: 'full_time',
+          publicationDate: '2025-10-16T00:00:00.000Z',
+          jobRegion: 'Graubünden',
+          jobCity: null,
+          jobZipCode: '-',
+          jobStreet: '-',
+          applyUrl: 'https://recruitingapp-2538.umantis.com/Vacancies/12939/Application/CheckLogin/1',
+          labels: { category: 'Verkauf', employmentType: 'Vollzeit' },
+        },
+      ],
+      totalCount: 2,
+      page: 1,
+      totalPages: 1,
+    };
+
+    it('normalizes the current API envelope into canonical public listings', () => {
+      expect(VALORA_API_URL).toBe('https://career.valora.com/api/jobs');
+      const parsed = parseValoraApiResponse(JSON.stringify(apiPayload));
+      expect(parsed).toMatchObject({ totalCount: 2, page: 1, totalPages: 1 });
+      expect(parsed.listings).toHaveLength(2);
+      expect(parsed.listings[0]).toMatchObject({
+        id: '21923',
+        url: 'https://career.valora.com/en/job/21923/verkauferin-verkaufer-k-kiosk-30-std',
+        detail: {
+          shortLocation: 'Bern',
+          addrCity: 'Bern',
+          addrPostal: '3001',
+          addrStreet: 'Bahnhofplatz 10',
+          applyUrl: apiPayload.jobs[0].applyUrl,
+        },
+      });
+      expect(parsed.listings[1].detail).toMatchObject({
+        shortLocation: 'Graubünden',
+        addrCity: '',
+        addrPostal: '',
+        addrStreet: '',
+      });
+    });
+
+    it('accepts ISO and legacy display dates', () => {
+      expect(parseValoraDate('2026-10-26T00:00:00.000Z')).toBe('2026-10-26');
+      expect(parseValoraDate('26.10.2026')).toBe('2026-10-26');
+      expect(parseValoraDate('not-a-date')).toBe('');
+    });
+
+    it('fails closed on malformed API metadata or rows', () => {
+      expect(() => parseValoraApiResponse(JSON.stringify({ ...apiPayload, totalCount: 'unknown' })))
+        .toThrow(/pagination metadata/);
+      expect(() => buildValoraApiListing({ externalId: '21923' }))
+        .toThrow(/externalId or jobTitle/);
+      expect(() => buildValoraApiListing({
+        externalId: '21923',
+        jobTitle: 'Short source body',
+        jobDescription: '<p>Too short.</p>',
+      })).toThrow(/50-word floor/);
+    });
+
+    it('falls back to the public job URL for invalid application targets', () => {
+      const listing = buildValoraApiListing({
+        externalId: '21923',
+        jobTitle: 'Valid source body',
+        jobDescription: sourceDescription,
+        applyUrl: '-',
+      });
+      expect(listing.detail.applyUrl).toBe(listing.url);
+    });
+
+    it('accepts an explicitly empty API snapshot', () => {
+      expect(parseValoraApiResponse(JSON.stringify({
+        jobs: [],
+        totalCount: 0,
+        page: 1,
+        totalPages: 0,
+      }))).toMatchObject({ listings: [], totalCount: 0, page: 1, totalPages: 0 });
     });
   });
 

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "sbb-6769bfb11358",
-      "slug": "kundenberater-in-first-level-support-ffs-officine-ferrovie-federali-brig",
+      "slug": "consulente-clienti-per-il-supporto-di-primo-livello-ffs-officine-ferrovie-federali-brig",
       "slugByLocale": {
-        "it": "kundenberater-in-first-level-support-ffs-officine-ferrovie-federali-brig",
+        "it": "consulente-clienti-per-il-supporto-di-primo-livello-ffs-officine-ferrovie-federali-brig",
         "en": "kundenberater-in-first-level-support-ffs-officine-ferrovie-federali-brig",
         "de": "kundenberater-in-first-level-support-ffs-officine-ferrovie-federali-brig",
-        "fr": "kundenberater-in-first-level-support-ffs-officine-ferrovie-federali-brig"
+        "fr": "conseiller-ere-a-la-clientele-support-de-premier-niveau-ffs-officine-ferrovie-federali-brig"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -86,7 +86,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/kundenberater-in-first-level-support/99b007d9-e5eb-4a17-b1f9-7ed51ad4af29",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-29T09:26:38.144Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -104,7 +103,18 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3900",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/kundenberater-in-first-level-support/99b007d9-e5eb-4a17-b1f9-7ed51ad4af29",
-      "firstSeenAt": "2026-10-29T09:26:38.144Z"
+      "firstSeenAt": "2026-10-29T09:26:38.144Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-first-level-support-ffs-officine-ferrovie-federali-brig"
+        ],
+        "fr": [
+          "kundenberater-in-first-level-support-ffs-officine-ferrovie-federali-brig"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-first-level-support-ffs-officine-ferrovie-federali-brig"
+      ]
     },
     {
       "id": "sbb-f742db5fe37a",
@@ -6012,7 +6022,7 @@
       "slugByLocale": {
         "it": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne-8def9eb896",
         "en": "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
-        "de": "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
+        "de": "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
         "fr": "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -6079,7 +6089,7 @@
       "crawledAt": "2026-10-29T09:26:36.639Z",
       "previousSlugs": [
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+        "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6090,7 +6100,7 @@
         ],
         "de": [
           "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-          "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+          "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
         ]
       },
       "salaryMin": 73000,
@@ -8629,9 +8639,9 @@
       "slug": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
-        "en": "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "en": "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
         "de": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "fr": "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
+        "fr": "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -8700,8 +8710,8 @@
       "crawledAt": "2026-10-29T09:27:36.618Z",
       "previousSlugs": [
         "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
-        "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+        "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8709,11 +8719,11 @@
         ],
         "en": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten"
+          "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+          "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-10-10T09:25:30.948Z",
@@ -11307,9 +11317,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11370,8 +11380,8 @@
       "crawledAt": "2026-10-29T09:26:42.154Z",
       "previousSlugs": [
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+        "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11379,11 +11389,11 @@
         ],
         "en": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf"
+          "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+          "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
       "firstSeenAt": "2026-10-24T21:25:04.967Z",

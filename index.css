@@ -1732,6 +1732,26 @@ aside.seo-footer-block .seo-fb-section-body a:hover {
 .google-auto-placed ~ .google-auto-placed {
   min-height: 0;
 }
+
+/* Active job details are the one route where Google may choose an in-page
+   placement inside the article's `.space-y-5` flow. Keep that placement's
+   measured footprint stable even when it is not the first Auto Ad sibling;
+   the default mobile creative is 250px and the desktop detail replay measures
+   280px. This is deliberately scoped to the observed anchor, not a new global
+   floor. The empty/unfilled rules below still release the space, and the
+   data-ft-autoad-collapsed rule remains the terminal collapse path. */
+article[data-job-detail-content] {
+  --job-detail-inpage-ad-reserve: 250px;
+}
+article[data-job-detail-content] > .google-auto-placed {
+  min-height: var(--job-detail-inpage-ad-reserve);
+}
+@media (min-width: 768px) {
+  article[data-job-detail-content] {
+    --job-detail-inpage-ad-reserve: 280px;
+  }
+}
+
 /* Google sets `margin: 10px auto` inline on the auto-placed <ins>; the `auto`
    centres it horizontally (keep) but the 10px top/bottom left a ~20px band
    between the creative and the surrounding content. Zero the vertical margin so
@@ -1739,6 +1759,27 @@ aside.seo-footer-block .seo-fb-section-body a:hover {
 .google-auto-placed > ins {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+
+/* Border-wait leaf pages can receive an Auto Ad directly between the
+   breadcrumb and the static header. The first paint has no ad node yet, so a
+   reserve on `.google-auto-placed` alone arrives too late and the header moves
+   when Google inserts it (0.187 CLS on Chiasso-Brogeda, 2026-10-26). Keep the
+   measured 250px reserve on the breadcrumb until that exact route-scoped ad
+   sibling exists, then transfer the same space to the real ad container. This
+   keeps Auto Ads active and in flow; it only prevents the late insertion from
+   changing the geometry. */
+main.seo-static-content:has([data-bw-crossing]) {
+  --border-wait-top-ad-reserve: 250px;
+}
+main.seo-static-content:has([data-bw-crossing]) > article > nav[aria-label="Breadcrumb"] {
+  margin-block-end: var(--border-wait-top-ad-reserve);
+}
+main.seo-static-content:has([data-bw-crossing]) > article:has(> .google-auto-placed + header) > nav[aria-label="Breadcrumb"] {
+  margin-block-end: 0;
+}
+main.seo-static-content:has([data-bw-crossing]) > article > .google-auto-placed:has(+ header) {
+  min-height: var(--border-wait-top-ad-reserve);
 }
 
 /* The third outcome of an Auto Ad request, the one the two `:empty` /
@@ -1826,6 +1867,15 @@ ins.adsbygoogle[data-ft-static-ad-collapsed] {
     margin: 0;
     padding: 0;
   }
+}
+
+/* The route-scoped reserve above intentionally wins over the generic stacked
+   slot rule. Preserve the same explicit no-fill release semantics for the
+   anchored job-detail slots, while the stronger data-ft marker handles the
+   delayed silent-no-answer collapse. */
+article[data-job-detail-content] > .google-auto-placed:empty,
+article[data-job-detail-content] > .google-auto-placed:has(ins[data-ad-status="unfilled"]) {
+  min-height: 0;
 }
 
 /* P0.1.D — `main { contain: layout }` was reverted on 2026-05-08 because

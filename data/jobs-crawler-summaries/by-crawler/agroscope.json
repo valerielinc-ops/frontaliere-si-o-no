@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-29T09:16:52.463Z",
+  "generatedAt": "2026-10-29T14:34:13.371Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 8116,
-  "avgDurationMs": 8116,
+  "durationMs": 14492,
+  "avgDurationMs": 14492,
   "durationHistory": [
-    8116
+    14492
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -292,45 +292,6 @@
       }
     },
     {
-      "title": "Wissenschaftliche/r Mitarbeiter/in - Kartoffelzüchtung und Genomik",
-      "slug": "collaboratore-trice-scientifico-a-miglioramento-genetico-delle-patate-e-genomica-agroscope-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-kartoffelzuechtung-und-genomik/c13e4aa6-25a0-47dc-81b1-0b68a64e3a73",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20574",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-15T22:00:00Z",
-      "postedDate": "2026-10-15T22:00:00Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-15",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-9efb0299a49d",
-      "salaryMin": 95500,
-      "salaryMax": 159000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-16T09:17:10.716Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Postdoktorand/-in Ackerbauforschung",
       "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
       "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-ackerbauforschung/039aa536-beb5-4eb2-8508-9744b1dfb72a",
@@ -365,6 +326,45 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Wissenschaftliche/r Mitarbeiter/in - Kartoffelzüchtung und Genomik",
+      "slug": "collaboratore-trice-scientifico-a-miglioramento-genetico-delle-patate-e-genomica-agroscope-zurich",
+      "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-kartoffelzuechtung-und-genomik/c13e4aa6-25a0-47dc-81b1-0b68a64e3a73",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20574",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-15T22:00:00Z",
+      "postedDate": "2026-10-15T22:00:00Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-9efb0299a49d",
+      "salaryMin": 95500,
+      "salaryMax": 159000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-16T09:17:10.716Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -567,5 +567,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "ec655f196b6b4671f70530d83dc02de16dd47346"
 }

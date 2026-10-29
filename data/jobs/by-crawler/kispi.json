@@ -1494,7 +1494,7 @@
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
-        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -1552,7 +1552,7 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesie-padiatrie-m-w-d-kispi"
         ],
         "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+          "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
         ]
       },
       "previousSlugs": [
@@ -1562,7 +1562,7 @@
         "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
         "dipl-nursing-professional-dipl-nursing-professional-for-nds-hf-anesthesia-pediatrics-universitats-kinderspital-zurich",
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesie-padiatrie-m-w-d-kispi",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+        "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
       ],
       "firstSeenAt": "2026-05-19T22:39:00.246Z",
       "salaryMin": 91500,
@@ -2498,9 +2498,9 @@
     },
     {
       "id": "kispi-a0b2b8415424",
-      "slug": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+      "slug": "ampliamento-m-f-d-70-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+        "it": "ampliamento-m-f-d-70-universitats-kinderspital-zurich-zurich",
         "en": "disponentine-m-f-70-universitats-kinderspital-zurich-zurich",
         "de": "disponentin-m-w-70-kispi-zurich",
         "fr": "depontine-h-f-70-universitats-kinderspital-zurich-zurich"
@@ -2552,7 +2552,7 @@
         "dispatcher-m-f-70-universitats-kinderspital-zurich-zurich",
         "disponentin-m-w-d-70-kispi-zurich",
         "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
-        "ampliamento-m-f-d-70-universitats-kinderspital-zurich-zurich"
+        "disponentin-m-w-d-70-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2560,7 +2560,7 @@
           "dispatcher-m-f-70-universitats-kinderspital-zurich-zurich",
           "disponentin-m-w-d-70-kispi-zurich",
           "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
-          "ampliamento-m-f-d-70-universitats-kinderspital-zurich-zurich"
+          "disponentin-m-w-d-70-universitats-kinderspital-zurich"
         ],
         "en": [
           "disponentin-m-w-70-kispi-zurich"
@@ -4449,12 +4449,12 @@
     },
     {
       "id": "kispi-8113f65dfe8a",
-      "slug": "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-universitats-kinderspital-zurich-zurich",
+      "slug": "medico-senior-80-100-m-f-d-radiologia-pediatrica-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-kispi-zurich",
-        "it": "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-universitats-kinderspital-zurich-zurich",
-        "en": "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-universitats-kinderspital-zurich-zurich",
-        "fr": "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-universitats-kinderspital-zurich-zurich"
+        "it": "medico-senior-80-100-m-f-d-radiologia-pediatrica-universitats-kinderspital-zurich-zurich",
+        "en": "senior-physician-80-100-m-f-d-paediatric-radiology-universitats-kinderspital-zurich-zurich",
+        "fr": "medecin-senior-80-100-h-f-d-radiologie-pediatrique-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4502,11 +4502,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-kispi-zurich"
+          "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-kispi-zurich",
+          "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-universitats-kinderspital-zurich-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-universitats-kinderspital-zurich-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-universitats-kinderspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-kispi-zurich"
+        "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-kispi-zurich",
+        "oberarztin-oberarzt-80-100-m-w-d-kinderradiologie-universitats-kinderspital-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

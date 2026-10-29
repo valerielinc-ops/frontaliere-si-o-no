@@ -13605,7 +13605,7 @@ ${staticAnalyticsHtml}
  const lp = `${localePrefix[l]}/${sectionByLocale[l]}/`.replace(/\/+/g, '/');
  const sectionName = esc(localeCopy[l].sectionName);
  const nav = `<nav class="ft-n" aria-label="Navigazione principale"><a href="/" class="ft-nb">${navSvg} Frontaliere Ticino</a><a href="${lp}" class="ft-ns">${sectionName}</a></nav>`;
- const footer = `<footer class="ft-f">&copy; ${currentYear} <a href="/">Frontaliere Ticino</a> &mdash; <a href="${lp}">${sectionName}</a></footer>`;
+ const footer = `<footer class="ft-f" data-static-footer="true">&copy; ${currentYear} <a href="/">Frontaliere Ticino</a> &mdash; <a href="${lp}">${sectionName}</a></footer>`;
  return [l, { nav, footer, listingPath: lp }];
  }));
 
@@ -13627,15 +13627,21 @@ ${staticAnalyticsHtml}
  const shell = localeShells[locale];
  const metaDescription = clampMetaDescription(pageDesc, undefined, locale)
   || clampMetaDescription(expiredBannerCopy[locale]?.banner || expiredBannerCopy.it.banner, undefined, locale);
+ // The expired article is a static-first body. Keep its canonical pathname in
+ // the marker so App.tsx can remove it synchronously if the user soft-navigates
+ // to another route before a full document load.
+ const originEnd = selfUrl.indexOf('/', selfUrl.indexOf('//') + 2);
+ const expiredStaticPath = originEnd >= 0 ? selfUrl.slice(originEnd) : '/';
  // Single early-boot tag covers BOTH dark-mode and spa-action-redirect
  // (merged into stable /assets/early-boot.js via EARLY_BOOT_SCRIPT). The
  // previous template emitted two separate <script src> tags here; combining
  // them saves ~80 B/page across ~470k soft-landing+bridge pages (~36 MB).
  //
- // The static `<article class="ft-static-article">` class is preserved
- // because the in-page snapshot script (last line of <body>) reads from
- // `document.querySelector('.ft-static-article')` to seed
- // `window.__STATIC_BODY_HTML__` for JobOrphanView hydration.
+ // The static `<article class="ft-static-article">` stays inside the
+ // `main.seo-static-content` sibling, outside `#root`, so createRoot cannot
+ // replace the page the crawler and the first-paint user received. The
+ // in-page snapshot script still reads the article for compatibility with
+ // the JobOrphanView fallback path.
  //
  // The whole HTML string is passed through minifyHtml so the per-line
  // leading-whitespace overhead in this template literal is collapsed
@@ -13669,9 +13675,13 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root">
  ${shell.nav}
+ </div>
+ <main class="seo-static-content" data-expired-static-body="true" data-expired-static-path="${esc(expiredStaticPath)}" style="max-width:none;margin:0;padding:0;display:block">
  <article class="ft-static-article ft-expired-page">
  ${staticBody}
  </article>
+ </main>
+ <div id="footer-root">
  ${shell.footer}
  </div>
  <script>window.__STATIC_BODY_HTML__=(document.querySelector('.ft-static-article')||{}).innerHTML||'';</script>${spaBundleJs}

@@ -1,8 +1,83 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-29T09:18:18.922Z",
-  "runId": "40846903073",
+  "assembledAt": "2026-10-29T14:34:27.767Z",
+  "runId": "40889601367",
   "jobs": [
+    {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-29T14:34:21.367Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-14T15:17:38.323Z",
+      "postedDate": "2026-07-14T15:17:38.323Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "talan-838cc2a04384",
       "slug": "sviluppatore-abap-s-4hana-talan-geneva",
@@ -35,7 +110,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.654Z",
+      "crawledAt": "2026-10-29T14:34:21.367Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -111,7 +186,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.653Z",
+      "crawledAt": "2026-10-29T14:34:21.366Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -141,156 +216,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:26:00.523Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.651Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-14T15:17:38.323Z",
-      "postedDate": "2026-07-14T15:17:38.323Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-3d22739aef94",
-      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
-        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
-        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
-        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyst – Enterprise Data Management (EDM)",
-      "titleByLocale": {
-        "it": "Business Analista – Enterprise Data Management (EDM)",
-        "en": "Business Analyst – Enterprise Data Management (EDM)",
-        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
-        "fr": "Business Analyste – Enterprise Data Management (EDM)"
-      },
-      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
-        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
-        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
-        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.650Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-08T13:16:20.226Z",
-      "postedDate": "2026-09-08T13:16:20.226Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "jobReqId": "744000148235109",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:35:44.207Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -337,7 +262,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.648Z",
+      "crawledAt": "2026-10-29T14:34:21.365Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -398,81 +323,6 @@
       }
     },
     {
-      "id": "talan-61c9acf4f11b",
-      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
-        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
-        "de": "berater-expert-sap-crm-f-h-talan-geneva",
-        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Expert SAP CRM F/H",
-      "titleByLocale": {
-        "it": "Consulente Expert SAP CRM F/H",
-        "en": "Consultant Expert SAP CRM M/F",
-        "de": "Berater Expert SAP CRM F/H",
-        "fr": "Consultant Expert SAP CRM F/H"
-      },
-      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
-        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
-        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
-        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.647Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T09:11:46.418Z",
-      "postedDate": "2026-10-02T09:11:46.418Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "jobReqId": "744000153133249",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:10:26.715Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-9addce44f74f",
       "slug": "consulente-sap-basis-talan-geneva",
       "slugByLocale": {
@@ -504,7 +354,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.645Z",
+      "crawledAt": "2026-10-29T14:34:21.364Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -552,6 +402,156 @@
       }
     },
     {
+      "id": "talan-3d22739aef94",
+      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
+        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
+        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
+        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyst – Enterprise Data Management (EDM)",
+      "titleByLocale": {
+        "it": "Business Analista – Enterprise Data Management (EDM)",
+        "en": "Business Analyst – Enterprise Data Management (EDM)",
+        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
+        "fr": "Business Analyste – Enterprise Data Management (EDM)"
+      },
+      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
+      "descriptionByLocale": {
+        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
+        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
+        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
+        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-29T14:34:21.364Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-08T13:16:20.226Z",
+      "postedDate": "2026-09-08T13:16:20.226Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "jobReqId": "744000148235109",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:35:44.207Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-61c9acf4f11b",
+      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
+        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+        "de": "berater-expert-sap-crm-f-h-talan-geneva",
+        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Expert SAP CRM F/H",
+      "titleByLocale": {
+        "it": "Consulente Expert SAP CRM F/H",
+        "en": "Consultant Expert SAP CRM M/F",
+        "de": "Berater Expert SAP CRM F/H",
+        "fr": "Consultant Expert SAP CRM F/H"
+      },
+      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
+        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
+        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
+        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-29T14:34:21.363Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T09:11:46.418Z",
+      "postedDate": "2026-10-02T09:11:46.418Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "jobReqId": "744000153133249",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:10:26.715Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-77288cd4a877",
       "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
       "slugByLocale": {
@@ -582,7 +582,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.644Z",
+      "crawledAt": "2026-10-29T14:34:21.361Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -669,7 +669,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.641Z",
+      "crawledAt": "2026-10-29T14:34:21.360Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -747,7 +747,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.639Z",
+      "crawledAt": "2026-10-29T14:34:21.359Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -825,7 +825,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:18:10.631Z",
+      "crawledAt": "2026-10-29T14:34:21.356Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -949,7 +949,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

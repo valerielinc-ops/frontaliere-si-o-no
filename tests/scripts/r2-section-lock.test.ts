@@ -8,11 +8,13 @@ import {
   createR2Request,
   isLockExpired,
   isLockPayload,
+  isSafeLeaseTimestamp,
   lockKey,
   LOCK_LEASE_MS,
   LOCK_RENEW_INITIAL_DELAY_MS,
   LOCK_RENEW_INTERVAL_MS,
   normalizeS3MatchEtag,
+  parseSafeLeaseTimestamp,
   parseSections,
   releaseSectionLock,
   releaseSectionLocks,
@@ -71,6 +73,18 @@ function fakeR2() {
 const waitBriefly = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, Math.min(ms, 2)));
 
 describe('r2-section-lock', () => {
+  it('shares one non-negative safe lease timestamp contract with image locks', () => {
+    expect(isSafeLeaseTimestamp(0)).toBe(true);
+    expect(isSafeLeaseTimestamp(Number.MAX_SAFE_INTEGER)).toBe(true);
+    expect(isSafeLeaseTimestamp(-1)).toBe(false);
+    expect(isSafeLeaseTimestamp(0.5)).toBe(false);
+    expect(isSafeLeaseTimestamp(Number.MAX_SAFE_INTEGER + 1)).toBe(false);
+    expect(parseSafeLeaseTimestamp('0')).toBe(0);
+    expect(parseSafeLeaseTimestamp('1700000000000')).toBe(1_700_000_000_000);
+    expect(parseSafeLeaseTimestamp('1e3')).toBeNull();
+    expect(parseSafeLeaseTimestamp('9007199254740992')).toBeNull();
+  });
+
   it('accepts only known sections and normalizes multi-section lock order', () => {
     expect(parseSections('svizzera,frontaliere,svizzera')).toEqual(['frontaliere', 'svizzera']);
     expect(lockKey('frontaliere')).toBe('internal/ci/article-chunk-locks/frontaliere.json');

@@ -620,8 +620,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch",
         "it": "addetto-a-alle-vendite-textilabteilung-20-40-ikea-spreitenbach",
-        "en": "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch",
-        "fr": "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch"
+        "en": "sales-employee-textile-department-20-40-ikea-spreitenbach-aargau",
+        "fr": "collaborateur-trice-de-vente-au-departement-textile-20-40-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -666,9 +666,14 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch"
         ]
       },
@@ -695,9 +700,9 @@
       "slug": "collaborateur-trice-de-vente-30-ikea-aubonne",
       "slugByLocale": {
         "fr": "collaborateur-trice-de-vente-30-ikea-ch",
-        "it": "collaborateur-trice-de-vente-30-ikea-aubonne",
-        "en": "collaborateur-trice-de-vente-30-ikea-aubonne",
-        "de": "collaborateur-trice-de-vente-30-ikea-aubonne"
+        "it": "collaboratore-sales-manager-30-ikea-aubonne-vaud",
+        "en": "collaborator-sales-manager-30-ikea-aubonne-vaud",
+        "de": "mitarbeiter-vertriebsleiter-30-ikea-aubonne-vaud"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -744,21 +749,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-de-vente-30-ikea-ch",
-          "collaboratore-sales-manager-30-ikea-aubonne-vaud"
-        ],
-        "en": [
-          "collaborator-sales-manager-30-ikea-aubonne-vaud"
-        ],
-        "de": [
-          "mitarbeiter-vertriebsleiter-30-ikea-aubonne-vaud"
+          "collaborateur-trice-de-vente-30-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-de-vente-30-ikea-ch",
-        "collaboratore-sales-manager-30-ikea-aubonne-vaud",
-        "collaborator-sales-manager-30-ikea-aubonne-vaud",
-        "mitarbeiter-vertriebsleiter-30-ikea-aubonne-vaud"
+        "collaborateur-trice-de-vente-30-ikea-ch"
       ],
       "salaryMin": 18200,
       "salaryMax": 27500,
@@ -827,7 +822,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-logistik-nachtschicht-00-00-09-00-uhr-100-ikea-ch"
@@ -903,7 +897,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitabeiter-in-logistik-auffullteam-50-ikea-ch"
@@ -1079,11 +1072,11 @@
     },
     {
       "id": "ikea-c1824890a1d1",
-      "slug": "unit-facility-manager-100-ikea-ch",
+      "slug": "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino",
       "slugByLocale": {
         "en": "unit-facility-manager-100-ikea-ch",
         "fr": "chef-d-unite-des-installations-100-ikea-grancia-ticino",
-        "it": "unit-facility-manager-100-ikea-ch",
+        "it": "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino",
         "de": "unit-facility-manager-100-ikea-ch"
       },
       "company": "IKEA",
@@ -1129,7 +1122,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1143,7 +1135,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:12:18.397Z"
+      "firstSeenAt": "2026-10-23T09:12:18.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unit-facility-manager-100-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unit-facility-manager-100-ikea-ch"
+      ]
     },
     {
       "id": "ikea-defff7505a30",
@@ -1281,7 +1281,7 @@
           "store-graphic-communication-leader-80-100-ikea-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:13:03.347Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1379,7 +1379,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -1426,7 +1426,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1434,7 +1434,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",
@@ -1897,7 +1897,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch"
@@ -2920,7 +2919,7 @@
           "store-graphic-communication-leader-100-ikea-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-20T21:18:43.689Z",
       "salaryMin": 85500,
       "salaryMax": 129500,

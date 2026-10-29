@@ -8978,6 +8978,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   return (
    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle">{t('jobBoard.assisted.loading')}</div>}>
     <AssistedApplicationUpload
+     key={assistedApplicationOrderId}
      orderId={assistedApplicationOrderId}
      authUser={authUser}
      onRequireAuth={onRequireAuth}
@@ -11062,7 +11063,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {/* ── Center content (existing 12-col job-detail grid) ── */}
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
- <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
+ <article
+  className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5"
+  data-job-detail-content
+ >
  <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6" data-no-auto-ads="inside">
  <div className="flex items-start gap-3 sm:gap-4">
  <button

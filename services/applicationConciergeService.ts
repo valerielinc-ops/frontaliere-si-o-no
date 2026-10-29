@@ -171,3 +171,10 @@ export async function createApplicationConciergeProposal(
   if (!response.ok || !data?.ok) throw new Error(errorCode(data?.error));
   return data.service as ApplicationConciergeService;
 }
+
+/** Recover an anonymous checkout only after independent verified-email sign-in. */
+export async function recoverApplicationConciergePaymentSession(user: any, serviceId: string): Promise<string> {
+  const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'recoverPaymentSession' });
+  if (typeof data.authToken !== 'string' || !data.authToken) throw new Error('service_not_found');
+  return data.authToken;
+}

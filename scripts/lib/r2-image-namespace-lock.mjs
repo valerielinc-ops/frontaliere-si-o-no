@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 import { randomUUID } from 'node:crypto';
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
-import { createR2Request, normalizeS3MatchEtag } from './r2-section-lock.mjs';
+import {
+  createR2Request,
+  DECIMAL_SAFE_LEASE_TIMESTAMP_RE,
+  isSafeLeaseTimestamp,
+  normalizeS3MatchEtag,
+  parseSafeLeaseTimestamp,
+} from './r2-section-lock.mjs';
 
 export const IMAGE_NAMESPACES = Object.freeze(['blog', 'places']);
 export const IMAGE_LEASE_PROTOCOL_VERSION = 1;
@@ -12,7 +18,7 @@ export const IMAGE_LEASE_RELEASE_TIMEOUT_MS = 30_000;
 export const IMAGE_LOCK_RELEASE_RETRY_MS = 1_000;
 export const IMAGE_LOCK_POLL_MS = 5_000;
 export const IMAGE_LEASE_CONTEXT_ENV = 'FRONTALIERE_R2_IMAGE_LEASE_CONTEXT';
-export const DECIMAL_LEASE_TIMESTAMP_RE = /^(?:0|[1-9]\d*)$/u;
+export const DECIMAL_LEASE_TIMESTAMP_RE = DECIMAL_SAFE_LEASE_TIMESTAMP_RE;
 
 const CONTEXT_VERSION = 1;
 const IMAGE_LOCK_CLEANUP_ATTEMPTS = 4;
@@ -39,21 +45,16 @@ function positiveDuration(value, name) {
   return value;
 }
 
-function isNonNegativeSafeInteger(value) {
-  return Number.isSafeInteger(value) && value >= 0;
-}
-
 function safeTimestamp(value, name) {
-  if (!isNonNegativeSafeInteger(value)) {
+  if (!isSafeLeaseTimestamp(value)) {
     throw new Error(`[r2-image-namespace-lock] ${name} must be a non-negative safe integer millisecond timestamp`);
   }
   return value;
 }
 
 export function parseLeaseTimestamp(raw) {
-  if (typeof raw !== 'string' || !DECIMAL_LEASE_TIMESTAMP_RE.test(raw)) return null;
-  const timestamp = Number(raw);
-  return Number.isSafeInteger(timestamp) && timestamp >= 1 ? timestamp : null;
+  const timestamp = parseSafeLeaseTimestamp(raw);
+  return timestamp !== null && timestamp >= 1 ? timestamp : null;
 }
 
 export function parseImageNamespaces(value) {
@@ -95,9 +96,9 @@ export function isImageNamespaceLockPayload(value) {
       && value.owner.length > 0
       && typeof value.leaseId === 'string'
       && value.leaseId.length > 0
-      && isNonNegativeSafeInteger(value.acquiredAt)
-      && isNonNegativeSafeInteger(value.expiresAt)
-      && (value.releasedAt === undefined || isNonNegativeSafeInteger(value.releasedAt))
+      && isSafeLeaseTimestamp(value.acquiredAt)
+      && isSafeLeaseTimestamp(value.expiresAt)
+      && (value.releasedAt === undefined || isSafeLeaseTimestamp(value.releasedAt))
       && ((value.releasedAt === undefined && value.expiresAt > value.acquiredAt)
         || (value.releasedAt !== undefined
           && value.releasedAt >= value.acquiredAt
@@ -193,21 +194,21 @@ function parseLeaseContext(value) {
         || !IMAGE_NAMESPACES.includes(lease.namespace)
         || typeof lease.owner !== 'string' || lease.owner.length === 0
         || typeof lease.leaseId !== 'string' || lease.leaseId.length === 0
-        || !isNonNegativeSafeInteger(lease.expiresAt)) {
+        || !isSafeLeaseTimestamp(lease.expiresAt)) {
       throw new Error('[r2-image-namespace-lock] lease context contains an invalid lease');
     }
     const etag = lease.etag === undefined ? undefined : normalizeS3MatchEtag(lease.etag);
     if (lease.etag !== undefined && !etag) {
       throw new Error(`[r2-image-namespace-lock] lease context has no strong ETag for ${lease.namespace}`);
     }
-    if (lease.acquiredAt !== undefined && !isNonNegativeSafeInteger(lease.acquiredAt)) {
+    if (lease.acquiredAt !== undefined && !isSafeLeaseTimestamp(lease.acquiredAt)) {
       throw new Error('[r2-image-namespace-lock] lease context has an invalid acquiredAt');
     }
     return {
       namespace: lease.namespace,
       owner: lease.owner,
       leaseId: lease.leaseId,
-      ...(isNonNegativeSafeInteger(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
+      ...(isSafeLeaseTimestamp(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
       expiresAt: lease.expiresAt,
       ...(etag ? { etag } : {}),
     };
@@ -284,7 +285,7 @@ function tombstonePayload(payload, now, { rotateEtag = false } = {}) {
     now(),
     payload.acquiredAt,
     rotateEtag
-      && isNonNegativeSafeInteger(payload.releasedAt)
+      && isSafeLeaseTimestamp(payload.releasedAt)
       && payload.releasedAt < Number.MAX_SAFE_INTEGER
       ? payload.releasedAt + 1
       : 0,
@@ -378,7 +379,7 @@ export async function acquireImageNamespaceLock(
   positiveDuration(timeoutMs, 'acquire timeout');
   positiveDuration(pollMs, 'poll interval');
   positiveDuration(leaseMs, 'lease duration');
-  if (acquiredAtOverride !== undefined && !isNonNegativeSafeInteger(acquiredAtOverride)) {
+  if (acquiredAtOverride !== undefined && !isSafeLeaseTimestamp(acquiredAtOverride)) {
     throw new Error('[r2-image-namespace-lock] acquiredAt must be a non-negative safe integer millisecond timestamp');
   }
 
@@ -398,7 +399,7 @@ export async function acquireImageNamespaceLock(
     acquiredAt,
     expiresAt: acquiredAt + leaseMs,
   };
-  if (!isNonNegativeSafeInteger(lease.expiresAt) || lease.expiresAt <= acquiredAt) {
+  if (!isSafeLeaseTimestamp(lease.expiresAt) || lease.expiresAt <= acquiredAt) {
     throw new Error('[r2-image-namespace-lock] lease expiry must be a non-negative safe integer timestamp');
   }
 
@@ -586,9 +587,9 @@ export async function releaseImageNamespaceLock(
   const safeNow = () => safeTimestamp(now(), 'release clock');
   const normalized = {
     ...parsedLease,
-    ...(isNonNegativeSafeInteger(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
+    ...(isSafeLeaseTimestamp(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
   };
-  if (fenceMissingCandidate && !isNonNegativeSafeInteger(normalized.acquiredAt)) {
+  if (fenceMissingCandidate && !isSafeLeaseTimestamp(normalized.acquiredAt)) {
     throw new Error(`[r2-image-namespace-lock] candidate cleanup for ${parsedLease.namespace} requires acquiredAt`);
   }
   const namespace = normalized.namespace;
@@ -670,7 +671,7 @@ export async function releaseImageNamespaceLock(
 
     if (current) {
       if (leaseMatches(current, normalized)) {
-        if (isNonNegativeSafeInteger(current.payload.releasedAt)) return true;
+        if (isSafeLeaseTimestamp(current.payload.releasedAt)) return true;
         const matchEtag = current.etag ?? normalizeS3MatchEtag(normalized.etag);
         if (!matchEtag) {
           throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe release`);
@@ -730,7 +731,7 @@ export async function releaseImageNamespaceLock(
       { cause: lastError ?? reconciliationError },
     );
   }
-  if (latest && leaseMatches(latest, normalized) && isNonNegativeSafeInteger(latest.payload.releasedAt)) return true;
+  if (latest && leaseMatches(latest, normalized) && isSafeLeaseTimestamp(latest.payload.releasedAt)) return true;
   if (latest && !leaseMatches(latest, normalized)
       && !matchingStaleWriteCondition(latest, staleWriteConditions, safeNow, { allowMissingEtag: true })) return false;
   if (!latest && !fenceMissingCandidate) return false;
@@ -905,7 +906,7 @@ async function acquireFromCli(namespaces, request, env = process.env) {
     ? null
     : requestedAcquiredAt + IMAGE_LOCK_LEASE_MS;
   const pendingAcquiredAt = requestedExpiry !== null
-    && Number.isSafeInteger(requestedExpiry)
+    && isSafeLeaseTimestamp(requestedExpiry)
     && requestedExpiry > requestedAcquiredAt
     ? requestedAcquiredAt
     : safeTimestamp(Date.now(), 'acquiredAt');

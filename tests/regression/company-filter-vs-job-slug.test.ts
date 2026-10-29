@@ -120,10 +120,12 @@ describe('seededJobMatchesSlug', () => {
 
   beforeEach(() => {
     originalExpiredData = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+    document.body.innerHTML = '<main data-expired-static-body="true" data-expired-static-path="/"></main>';
   });
 
   afterEach(() => {
     (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__ = originalExpiredData;
+    document.body.innerHTML = '';
   });
 
   it('returns false when no seeded data is present', () => {

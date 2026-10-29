@@ -5,6 +5,7 @@ import { useLocale, useTranslation } from '@/services/i18n';
 import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
+import { signInWithCustomAuthToken } from '@/services/authService';
 import { ensureAssistedApplicationAuth } from '@/services/assistedApplicationCheckout';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
@@ -15,6 +16,7 @@ import {
   declineApplicationConciergeProposal,
   recordApplicationConciergeConsent,
   fetchApplicationConciergeService,
+  recoverApplicationConciergePaymentSession,
   getCandidateVisibleApplicationConciergeProposals,
   saveApplicationConciergeProfile,
   type ApplicationConciergeProposal,
@@ -120,12 +122,14 @@ export default function ApplicationConciergePortal({
   const [location, setLocation] = useState('');
   const [consent, setConsent] = useState(false);
   const conciergeViewTracked = useRef(false);
+  const autoResumedService = useRef<string | null>(null);
+  const checkoutInFlight = useRef(false);
 
   useEffect(() => {
-    if (!entry || serviceId || conciergeViewTracked.current) return;
+    if ((!entry && !serviceId) || authLoading || (serviceId && (loading || !service)) || conciergeViewTracked.current) return;
     conciergeViewTracked.current = true;
     Analytics.trackApplicationConciergeView();
-  }, [entry, serviceId]);
+  }, [entry, serviceId, authLoading, loading, service]);
 
   useEffect(() => {
     if (!authUser) return;
@@ -142,17 +146,28 @@ export default function ApplicationConciergePortal({
 
   const ensureUser = useCallback(async () => {
     if (currentUser?.getIdToken) return currentUser;
+    if (serviceId) return null;
     if (authLoading) return null;
     const user = await ensureAssistedApplicationAuth();
     if (user) setCurrentUser(user);
     return user;
-  }, [authLoading, currentUser]);
+  }, [authLoading, currentUser, serviceId]);
 
   const loadService = useCallback(async () => {
     if (!serviceId) return null;
     const user = await ensureUser();
     if (!user) return null;
-    const loaded = await fetchApplicationConciergeService(user, serviceId);
+    let loaded: ApplicationConciergeService;
+    try {
+      loaded = await fetchApplicationConciergeService(user, serviceId);
+    } catch (loadError) {
+      if (errorKey(loadError) !== 'service_not_found' || user.emailVerified !== true) throw loadError;
+      const token = await recoverApplicationConciergePaymentSession(user, serviceId);
+      const owner = await signInWithCustomAuthToken(token);
+      if (!owner) throw new Error('auth_required');
+      setCurrentUser(owner);
+      loaded = await fetchApplicationConciergeService(owner, serviceId);
+    }
     setService(loaded);
     setName((value) => value || loaded.applicantName || user.displayName || '');
     setEmail((value) => value || loaded.applicantEmail || loaded.customerEmail || user.email || '');
@@ -207,14 +222,16 @@ export default function ApplicationConciergePortal({
     return translated === key ? t('jobBoard.concierge.errors.generic') : translated;
   }, [error, t]);
 
-  const startCheckout = async (resumeServiceId: string | null = null) => {
-    if (busy === 'checkout') return;
-    const checkoutEmail = email.trim().toLowerCase();
+  const startCheckout = useCallback(async (resumeServiceId: string | null = null, automatic = false) => {
+    if (checkoutInFlight.current) return;
+    const checkoutEmail = (email || service?.customerEmail || service?.applicantEmail || '').trim().toLowerCase();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(checkoutEmail)) {
       setError('application_concierge_email_required');
       return;
     }
-    Analytics.trackApplicationConciergeCheckoutClick();
+    if (automatic) Analytics.trackApplicationConciergeCheckoutResume();
+    else Analytics.trackApplicationConciergeCheckoutClick();
+    checkoutInFlight.current = true;
     setBusy('checkout');
     setError(null);
     try {
@@ -223,7 +240,7 @@ export default function ApplicationConciergePortal({
         onRequireAuth?.();
         throw new Error('auth_required');
       }
-      if (sumUpPayment?.userId === user.uid) {
+      if (sumUpPayment?.userId === user.uid && (!resumeServiceId || sumUpPayment.serviceId === resumeServiceId)) {
         setSumUpPaymentError(null);
         setSumUpPaymentOpen(true);
         return;
@@ -232,6 +249,7 @@ export default function ApplicationConciergePortal({
       const base = new URL(window.location.href);
       base.searchParams.delete('application_concierge');
       base.searchParams.delete('application_concierge_service_id');
+      base.searchParams.delete('application_concierge_payment_return');
       const result = await createApplicationConciergeCheckout({
         successUrl: base.toString(),
         cancelUrl: base.toString(),
@@ -243,6 +261,7 @@ export default function ApplicationConciergePortal({
       if (result.paymentProvider === 'sumup') {
         const returnUrl = new URL(base.toString());
         returnUrl.searchParams.set('application_concierge_service_id', result.serviceId);
+        returnUrl.searchParams.set('application_concierge_payment_return', '1');
         setSumUpPayment({
           checkoutId: result.checkoutId,
           serviceId: result.serviceId,
@@ -257,16 +276,31 @@ export default function ApplicationConciergePortal({
     } catch (checkoutError) {
       setError(errorKey(checkoutError));
     } finally {
+      checkoutInFlight.current = false;
       setBusy(null);
     }
-  };
+  }, [email, service, ensureUser, onRequireAuth, sumUpPayment, locale]);
+
+  useEffect(() => {
+    const recoverable = service && (isPending(service)
+      || (service.paymentStatus === 'failed' && service.checkoutSessionStatus === 'expired'));
+    if (!serviceId || !recoverable || loading || authLoading || autoResumedService.current === serviceId) return;
+    if (['pending', 'completed'].includes(String(service.checkoutSessionStatus || '').toLowerCase())) return;
+    autoResumedService.current = serviceId;
+    if (new URLSearchParams(window.location.search).get('application_concierge_payment_return') === '1') return;
+    void startCheckout(serviceId, true);
+  }, [serviceId, service, loading, authLoading, startCheckout]);
 
   const handleSumUpResponse = (type: string) => {
     if (!sumUpPayment) return;
     if (type === 'success') {
       setSumUpPaymentBusy(true);
       // This callback only signals navigation; the verified webhook activates the service.
-      window.location.assign(sumUpPayment.successUrl);
+      if (serviceId === sumUpPayment.serviceId) {
+        setSumUpPaymentOpen(false);
+        setSumUpPaymentBusy(false);
+        void loadService().catch((loadError) => setError(errorKey(loadError)));
+      } else window.location.assign(sumUpPayment.successUrl);
       return;
     }
     if (type === 'fail' || type === 'error') {
@@ -388,6 +422,20 @@ export default function ApplicationConciergePortal({
       setBusy(null);
     }
   };
+
+  const paymentWidget = (sumUpPayment && sumUpPaymentOpen && (
+        <SumUpPaymentWidget
+          checkoutId={sumUpPayment.checkoutId}
+          locale={locale}
+          amountCents={APPLICATION_CONCIERGE_PRICE_EUR_CENTS}
+          title={t('jobBoard.concierge.paymentTitle')}
+          onResponse={handleSumUpResponse}
+          onError={() => setSumUpPaymentError(t('jobBoard.concierge.paymentError'))}
+          onClose={closeSumUpPayment}
+          error={sumUpPaymentError}
+          busy={sumUpPaymentBusy}
+        />
+      ));
 
   if (entry && !serviceId) {
     return (
@@ -537,24 +585,13 @@ export default function ApplicationConciergePortal({
             </div>
           </section>
         </div>
-      {sumUpPayment && sumUpPaymentOpen && (
-        <SumUpPaymentWidget
-          checkoutId={sumUpPayment.checkoutId}
-          locale={locale}
-          amountCents={APPLICATION_CONCIERGE_PRICE_EUR_CENTS}
-          title={t('jobBoard.concierge.paymentTitle')}
-          onResponse={handleSumUpResponse}
-          onError={() => setSumUpPaymentError(t('jobBoard.concierge.paymentError'))}
-          onClose={closeSumUpPayment}
-          error={sumUpPaymentError}
-          busy={sumUpPaymentBusy}
-        />
-      )}
+      {paymentWidget}
       </main>
     );
   }
 
   if (loading || authLoading) return <PortalShell><div className="flex items-center gap-2 text-sm text-subtle" role="status"><Loader2 size={17} className="animate-spin" aria-hidden="true" />{t('jobBoard.concierge.loading')}</div></PortalShell>;
+  if (!service && (!currentUser || currentUser.isAnonymous || error === 'service_not_found')) return <PortalShell><p className="text-sm text-body">{t('jobBoard.concierge.errors.auth_required')}</p><button type="button" className="mt-4 rounded-xl bg-accent px-4 py-3 font-semibold text-on-accent" onClick={onRequireAuth}>{t('jobBoard.authRequiredCta')}</button></PortalShell>;
   if (!service) return <PortalShell><p role="alert" className="text-sm text-danger">{displayError || t('jobBoard.concierge.errors.service_not_found')}</p></PortalShell>;
 
   const pending = isPending(service);
@@ -690,6 +727,7 @@ export default function ApplicationConciergePortal({
           </>
         )}
       </div>
+      {paymentWidget}
     </PortalShell>
   );
 }

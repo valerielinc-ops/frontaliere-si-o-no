@@ -4,6 +4,7 @@ import { CheckCircle2, CreditCard, Eye, FileText, Loader2, LockKeyhole, UploadCl
 import { useLocale, useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
+import { trackAssistedApplicationCompletionOnce } from '@/services/assistedApplicationCompletionTracking';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import {
@@ -38,6 +39,8 @@ interface AssistedApplicationOrder {
   paymentStatus?: 'pending' | 'paid' | 'failed' | 'refunded' | string;
   submissionStatus?: string;
   paymentFailureReason?: string | null;
+  paymentProvider?: string;
+  sumupCheckoutId?: string;
   consentVersion?: string | null;
   consentedAt?: unknown;
   cvStorageKey?: string | null;
@@ -167,6 +170,8 @@ export default function AssistedApplicationUpload({
   const [sumUpPaymentError, setSumUpPaymentError] = useState<string | null>(null);
   const cvInputRef = useRef<HTMLInputElement>(null);
   const paymentCompletionTracked = useRef(false);
+  const autoResumedOrder = useRef<string | null>(null);
+  const paymentResumeInFlight = useRef(false);
 
   const readOrder = useCallback(async (): Promise<AssistedApplicationOrder | null> => {
     const [{ getApp }, authModule, firestoreModule] = await Promise.all([
@@ -211,7 +216,7 @@ export default function AssistedApplicationUpload({
         setStatus('paid');
         if (!paymentCompletionTracked.current) {
           paymentCompletionTracked.current = true;
-          trackAssistedApplicationEvent('checkout_completed', {
+          trackAssistedApplicationCompletionOnce(orderId, {
             ...orderEventContext(data),
             price_eur_cents: Number(data.amountTotal ?? ASSISTED_APPLICATION_PRICE_EUR_CENTS),
           });
@@ -277,12 +282,18 @@ export default function AssistedApplicationUpload({
     );
   }, [orderId]);
 
-  const handleResumePayment = async () => {
-    if (paymentResumeBusy) return;
-    const checkoutWindow = openPaymentWindow();
+  const handleResumePayment = useCallback(async (source: 'automatic' | 'manual' = 'manual') => {
+    if (paymentResumeInFlight.current) return;
+    paymentResumeInFlight.current = true;
+    // Only legacy Stripe orders need a separate browser window. SumUp mounts
+    // in the application, including when recovery starts without a click.
+    const checkoutWindow = order?.paymentProvider === 'stripe' ? openPaymentWindow() : null;
     setPaymentResumeBusy(true);
     setError(null);
-    trackAssistedApplicationEvent('checkout_resumed', orderEventContext(order));
+    trackAssistedApplicationEvent('checkout_resumed', {
+      ...orderEventContext(order),
+      resume_source: source,
+    });
     try {
       const [{ getApp }, authModule] = await Promise.all([
         import('@/services/firebase'),
@@ -335,11 +346,23 @@ export default function AssistedApplicationUpload({
       trackAssistedApplicationEvent('checkout_failed', {
         ...orderEventContext(order),
         reason: code,
+        resume_source: source,
       });
     } finally {
+      paymentResumeInFlight.current = false;
       setPaymentResumeBusy(false);
     }
-  };
+  }, [order, orderId, authUser, onRequireAuth, refreshOrder, t]);
+
+  useEffect(() => {
+    const isSumUp = order?.paymentProvider === 'sumup'
+      || (!order?.paymentProvider && Boolean(order?.sumupCheckoutId));
+    if (status !== 'pending' || !isSumUp || autoResumedOrder.current === orderId) return;
+    // One attempt per order: polling and closing the widget must not reopen it.
+    // A failed attempt leaves the manual retry button available.
+    autoResumedOrder.current = orderId;
+    void handleResumePayment('automatic');
+  }, [status, order, orderId, handleResumePayment]);
 
   const handleSumUpResponse = (type: string) => {
     if (type === 'success') {

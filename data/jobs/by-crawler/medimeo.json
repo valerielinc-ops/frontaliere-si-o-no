@@ -86,12 +86,12 @@
     },
     {
       "id": "medimeo-385de944ddf1",
-      "slug": "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-stationare-krisenintervention-im-modernen-neubau-medimeo-ag-basel",
+      "slug": "medica-caposervizio-medico-caposervizio-in-psichiatria-e-psicoterapia-80-100-intervento-stazionario-in-caso-di-crisi-in",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-stationare-krisenintervention-im",
-        "it": "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-stationare-krisenintervention-im-modernen-neubau-medimeo-ag-basel",
-        "en": "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-stationare-krisenintervention-im",
-        "fr": "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-stationare-krisenintervention-im"
+        "it": "medica-caposervizio-medico-caposervizio-in-psichiatria-e-psicoterapia-80-100-intervento-stazionario-in-caso-di-crisi-in",
+        "en": "senior-physician-psychiatry-and-psychotherapy-80-100-inpatient-crisis-intervention-in-the-modern-new-building-medimeo-ag",
+        "fr": "medecin-senior-psychiatrie-et-psychotherapie-80-100-intervention-en-crise-dans-le-nouveau-batiment-moderne-medimeo-ag"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -135,14 +135,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-stationare-krisenintervention-im",
+          "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-stationare-krisenintervention-im-modernen-neubau-medimeo-ag-basel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-stationare-krisenintervention-im"
+        ],
+        "fr": [
           "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-stationare-krisenintervention-im"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-stationare-krisenintervention-im"
+        "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-stationare-krisenintervention-im",
+        "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-stationare-krisenintervention-im-modernen-neubau-medimeo-ag-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -162,12 +169,12 @@
     },
     {
       "id": "medimeo-2aa1f546758e",
-      "slug": "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch",
+      "slug": "medico-senior-senior-tossicodipendenza-psichiatria-80-100-nella-regione-di-basilea-medimeo-ag-region-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch",
-        "it": "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch",
-        "en": "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch",
-        "fr": "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch"
+        "it": "medico-senior-senior-tossicodipendenza-psichiatria-80-100-nella-regione-di-basilea-medimeo-ag-region-basel",
+        "en": "senior-physician-senior-physician-addiction-psychiatry-80-100-in-the-basel-region-medimeo-ag-region-basel",
+        "fr": "medecin-senior-medecin-senior-psychiatrie-de-la-toxicomanie-80-100-dans-la-region-de-bale-medimeo-ag-region-basel"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -225,16 +232,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-29T09:22:24.651Z"
+      "firstSeenAt": "2026-10-29T09:22:24.651Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-suchtpsychiatrie-80-100-in-der-region-basel-region-basel-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-dfaad4f51a38",
-      "slug": "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-e-wil-medimeo-ag-winterthur",
+      "slug": "medica-caposervizio-medico-caposervizio-in-psichiatria-ambulatoriale-80-100-senza-turni-di-guardia-tra-winterthur-e-wil",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-und-wil",
-        "it": "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-e-wil-medimeo-ag-winterthur",
-        "en": "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-und-wil",
-        "fr": "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-und-wil"
+        "it": "medica-caposervizio-medico-caposervizio-in-psichiatria-ambulatoriale-80-100-senza-turni-di-guardia-tra-winterthur-e-wil",
+        "en": "outpatient-psychiatry-80-100-without-services-between-winterthur-and-wil-medimeo-ag-winterthur-schaffhausen",
+        "fr": "psychiatrie-externe-80-100-sans-services-entre-winterthur-et-wil-medimeo-ag-winterthur-schaffhausen"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -278,14 +299,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-und-wil",
+          "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-e-wil-medimeo-ag-winterthur"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-und-wil"
+        ],
+        "fr": [
           "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-und-wil"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-und-wil"
+        "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-und-wil",
+        "oberarztin-oberarzt-psychiatrie-ambulant-80-100-ohne-dienste-zwischen-winterthur-e-wil-medimeo-ag-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -305,12 +333,12 @@
     },
     {
       "id": "medimeo-30d9b0ef6567",
-      "slug": "facharzt-facharztin-per-allgemeine-innere-medizin-komplementarmedizin-e-spannende-entwicklungschancen-medimeo-ag-bern",
+      "slug": "medico-specialista-medica-specialista-in-medicina-interna-generale-medicina-complementare-e-interessanti-opportunita-di",
       "slugByLocale": {
         "de": "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende",
-        "it": "facharzt-facharztin-per-allgemeine-innere-medizin-komplementarmedizin-e-spannende-entwicklungschancen-medimeo-ag-bern",
-        "en": "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende",
-        "fr": "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende"
+        "it": "medico-specialista-medica-specialista-in-medicina-interna-generale-medicina-complementare-e-interessanti-opportunita-di",
+        "en": "specialist-for-general-internal-medicine-complementary-medicine-and-exciting-development-opportunities-medimeo-ag-region",
+        "fr": "specialiste-en-medecine-interne-generale-medecine-complementaire-et-possibilites-de-developpement-passionnantes-medimeo"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -354,14 +382,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende",
+          "facharzt-facharztin-per-allgemeine-innere-medizin-komplementarmedizin-e-spannende-entwicklungschancen-medimeo-ag-bern"
+        ],
+        "en": [
+          "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende"
+        ],
+        "fr": [
           "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende"
         ]
       },
       "previousSlugs": [
-        "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende"
+        "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende",
+        "facharzt-facharztin-per-allgemeine-innere-medizin-komplementarmedizin-e-spannende-entwicklungschancen-medimeo-ag-bern"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,

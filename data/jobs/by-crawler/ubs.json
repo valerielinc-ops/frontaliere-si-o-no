@@ -8801,7 +8801,7 @@
         "it": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -8855,8 +8855,7 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "event-attendant-hourly-paid-ubs-geneve-2",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+        "event-attendant-hourly-paid-ubs-geneve-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8868,7 +8867,7 @@
         ],
         "fr": [
           "event-attendant-hourly-paid-ubs-geneve-2",
-          "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
@@ -9303,7 +9302,7 @@
       "slug": "client-advisor-retail-acacias-ubs-suisse-romande",
       "slugByLocale": {
         "it": "client-advisor-retail-acacias-ubs-suisse-romande",
-        "en": "client-advisor-retail-acacias-ubs-suisse-romande",
+        "en": "clients-of-the-market-ubs-suisse-romande",
         "de": "client-advisor-retail-acacias-ubs-suisse-romande",
         "fr": "client-advisor-retail-acacias-ubs-suisse-romande"
       },
@@ -9357,14 +9356,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-10-14T15:29:53.147Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "clients-of-the-market-ubs-suisse-romande"
-        ]
-      },
-      "previousSlugs": [
-        "clients-of-the-market-ubs-suisse-romande"
-      ],
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -10070,7 +10061,6 @@
         ]
       },
       "firstSeenAt": "2026-10-21T09:21:28.550Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -10613,7 +10603,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -10666,11 +10656,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -11998,7 +11992,7 @@
       "slug": "esperto-fiscale-ubs-zurich",
       "slugByLocale": {
         "it": "esperto-fiscale-ubs-zurich",
-        "en": "steuerexperte-ubs-zurich",
+        "en": "tax-expert-ubs-zurich",
         "de": "steuerexperte-ubs-zurich",
         "fr": "expert-fiscal-ubs-zurich"
       },
@@ -12052,15 +12046,14 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "steuerexperte-ubs-zurich",
-        "tax-expert-ubs-zurich"
+        "steuerexperte-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "steuerexperte-ubs-zurich"
         ],
         "en": [
-          "tax-expert-ubs-zurich"
+          "steuerexperte-ubs-zurich"
         ],
         "fr": [
           "steuerexperte-ubs-zurich"
@@ -12086,7 +12079,7 @@
       "id": "ubs-c99101f5bd4b",
       "slug": "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich",
       "slugByLocale": {
-        "it": "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich",
+        "it": "avvocato-avvocato-specialista-immobiliare-ubs-zurich",
         "en": "lawyer-lawyer-estate-specialist-ubs-zurich",
         "de": "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich",
         "fr": "specialiste-de-la-succession-avocat-avocat-ubs-zurich"
@@ -12139,14 +12132,6 @@
         "cities": "",
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
-      },
-      "previousSlugs": [
-        "avvocato-avvocato-specialista-immobiliare-ubs-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "avvocato-avvocato-specialista-immobiliare-ubs-zurich"
-        ]
       },
       "firstSeenAt": "2026-10-28T20:05:31.356Z",
       "salaryMin": 83000,
@@ -12224,7 +12209,6 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -12243,12 +12227,12 @@
     },
     {
       "id": "ubs-7ad26b10844b",
-      "slug": "client-account-manager-apac-china-ubs-zurich",
+      "slug": "gestione-account-cliente-apac-cina-ubs-zurich",
       "slugByLocale": {
         "en": "client-account-manager-apac-china-ubs-zurich",
-        "it": "client-account-manager-apac-china-ubs-zurich",
-        "de": "client-account-manager-apac-china-ubs-zurich",
-        "fr": "client-account-manager-apac-china-ubs-zurich"
+        "it": "gestione-account-cliente-apac-cina-ubs-zurich",
+        "de": "kundenkontomanager-apac-china-ubs-zurich",
+        "fr": "gestionnaire-de-compte-client-apac-chine-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12315,7 +12299,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-29T09:19:52.050Z"
+      "firstSeenAt": "2026-10-29T09:19:52.050Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-apac-china-ubs-zurich"
+        ],
+        "de": [
+          "client-account-manager-apac-china-ubs-zurich"
+        ],
+        "fr": [
+          "client-account-manager-apac-china-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-apac-china-ubs-zurich"
+      ]
     }
   ]
 }

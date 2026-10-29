@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
+  getRelatedSearchClusterFamilyKey,
   renderClusterPage,
   isClusterBelowFloor,
   selectRelatedClusterLinks,
@@ -28,6 +29,32 @@ function makeDist(): string {
 
 afterEach(() => {
   for (const dir of tmpDirs.splice(0)) rmSync(dir, { recursive: true, force: true });
+});
+
+describe('source-backed related-search hreflang families', () => {
+  it('uses the locale slug prefix and shared URL core as the family identity', () => {
+    const candidates = [
+      { locale: 'it', slug: 'ricerca-data-center-technician-lugano' },
+      { locale: 'en', slug: 'search-data-center-technician-lugano' },
+      { locale: 'de', slug: 'suche-data-center-technician-lugano' },
+      { locale: 'fr', slug: 'recherche-data-center-technician-lugano' },
+    ] as const;
+
+    expect(new Set(candidates.map(getRelatedSearchClusterFamilyKey))).toEqual(
+      new Set(['data-center-technician-lugano']),
+    );
+  });
+
+  it('fails closed for an invalid or cross-locale slug instead of guessing a family', () => {
+    expect(getRelatedSearchClusterFamilyKey({
+      locale: 'it',
+      slug: 'search-data-center-technician-lugano',
+    })).toBeNull();
+    expect(getRelatedSearchClusterFamilyKey({
+      locale: 'en',
+      slug: 'search-unknown/variant',
+    })).toBeNull();
+  });
 });
 
 describe('canton-aware cluster URL emission', () => {

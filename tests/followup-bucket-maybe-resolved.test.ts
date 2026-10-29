@@ -241,6 +241,26 @@ describe('Bucket follow-up illeggibili: maybe-resolved residuo con item open e b
       expect(ids(result.body)).toEqual(ids(bucket11003.body));
     });
 
+    it('legge e ricostruisce un separatore `\\n\\n` serializzato prima di un item FU stabile', () => {
+      const issue = dailyIssue(7, [], ['open', 'blocked', 'done']);
+      const heading = `### FU-${DAY}-003 — item 3`;
+      const serializedBreak = String.raw`\n\n`;
+      const malformedBody = issue.body.replace(`\n\n${heading}`, `${serializedBreak}${heading}`);
+
+      expect(parseFollowupItems(malformedBody).map((entry) => entry.id)).toEqual([
+        `FU-${DAY}-001`, `FU-${DAY}-002`, `FU-${DAY}-003`,
+      ]);
+      expect(bucketStructuralVeto({ title: issue.title, body: malformedBody })).toBeNull();
+
+      const result = canonicalDailyBucket({ title: issue.title, body: malformedBody });
+      expect(result.ok).toBe(true);
+      expect(result.body).not.toContain(`${serializedBreak}${heading}`);
+      expect(result.body).toContain(`\n\n${heading}`);
+      expect(parseFollowupItems(result.body).map((entry) => `${entry.id}:${entry.state}`)).toEqual([
+        `FU-${DAY}-001:open`, `FU-${DAY}-002:blocked`, `FU-${DAY}-003:done`,
+      ]);
+    });
+
     it('rifiuta di indovinare uno stato non leggibile o doppio', () => {
       const unknownState = dailyIssue(4, [], ['open']).body.replace('- State: open', '- State: forse fatto');
       expect(canonicalDailyBucket({ title: dailyIssue(4, [], ['open']).title, body: unknownState }))

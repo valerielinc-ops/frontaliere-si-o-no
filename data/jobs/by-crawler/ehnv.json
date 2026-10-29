@@ -1898,12 +1898,12 @@
     },
     {
       "id": "ehnv-4d190c1f77bf",
-      "slug": "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon",
+      "slug": "70-100-terapista-professionale-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
       "slugByLocale": {
         "fr": "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon",
-        "it": "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon",
-        "en": "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon",
-        "de": "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+        "it": "70-100-terapista-professionale-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
+        "en": "70-100-occupational-therapist-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
+        "de": "70-100-ergotherapeut-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -1962,16 +1962,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T09:30:01.174Z"
+      "firstSeenAt": "2026-10-29T09:30:01.174Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+        ],
+        "en": [
+          "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+        ],
+        "de": [
+          "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+      ]
     },
     {
       "id": "ehnv-570d858833ce",
-      "slug": "un-e-collaborateur-trice-des-admissions-a-50-100-ref-21-094-ehnv-yverdon-les-bains",
+      "slug": "a-50-100-ammissione-collaboratore-rif-21-094-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
       "slugByLocale": {
         "fr": "un-e-collaborateur-trice-des-admissions-a-50-100-ref-21-094-ehnv-yverdon-les-bains",
-        "it": "un-e-collaborateur-trice-des-admissions-a-50-100-ref-21-094-ehnv-yverdon-les-bains",
+        "it": "a-50-100-ammissione-collaboratore-rif-21-094-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
         "en": "un-e-collaborateur-trice-des-admissions-a-50-100-ref-21-094-ehnv-yverdon-les-bains",
-        "de": "un-e-collaborateur-trice-des-admissions-a-50-100-ref-21-094-ehnv-yverdon-les-bains"
+        "de": "ein-50-100-zulassungsmitarbeiter-ref-21-094-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -2030,7 +2044,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T09:30:00.581Z"
+      "firstSeenAt": "2026-10-29T09:30:00.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-collaborateur-trice-des-admissions-a-50-100-ref-21-094-ehnv-yverdon-les-bains"
+        ],
+        "de": [
+          "un-e-collaborateur-trice-des-admissions-a-50-100-ref-21-094-ehnv-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-collaborateur-trice-des-admissions-a-50-100-ref-21-094-ehnv-yverdon-les-bains"
+      ]
     }
   ]
 }

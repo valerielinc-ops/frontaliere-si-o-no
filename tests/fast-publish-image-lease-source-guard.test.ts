@@ -5,9 +5,16 @@ import { describe, expect, it } from 'vitest';
 import { IMAGE_LEASE_PROTOCOL_VERSION } from '../scripts/lib/r2-image-namespace-lock.mjs';
 
 const workflow = readFileSync(resolve(__dirname, '../.github/workflows/fast-publish-article.yml'), 'utf8');
+const publisher = readFileSync(resolve(__dirname, '../scripts/publish-article-fast.mjs'), 'utf8');
 const uploaderPath = resolve(__dirname, '../scripts/lib/upload-cdn-file.sh');
 
 describe('fast-publish image lease source guard', () => {
+  it('keeps the image lease in the adapted-twin receipt contract', () => {
+    expect(publisher).toContain("imageNamespaceLease: 'required-v1'");
+    expect(workflow).toContain('.twinParity.workflow.imageNamespaceLease == "required-v1"');
+    expect(workflow).toContain("steps.verify_twin_parity.outcome == 'success'");
+  });
+
   it('places the protocol gate after checkout and before rendering or upload', () => {
     const checkoutAt = workflow.indexOf('- name: Checkout');
     const guardAt = workflow.indexOf('- name: Require image namespace lease protocol v1');

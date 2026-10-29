@@ -218,9 +218,13 @@ describe('cancelVerdict — decided on data re-read right before the cancel', ()
 describe('unwedge-pages-deploy-queue.mjs — exit status of the real script', () => {
   const RUN = { id: 31118787881, status: 'waiting', head_branch: 'main', created_at: '2026-08-06T16:09:00Z', head_sha: 'abcdef12' };
   const LIST = '/actions/workflows/deploy-publish.yml/runs';
-  const wedged = (cancelStatus: number, run = RUN) => [
+  const wedged = (
+    cancelStatus: number,
+    run = RUN,
+    jobsBody = { jobs: [{ status: 'waiting', created_at: '2026-08-06T16:09:08Z' }] },
+  ) => [
     { match: LIST, body: { workflow_runs: [RUN] } },
-    { match: `/actions/runs/${RUN.id}/jobs`, body: { jobs: [{ status: 'waiting', created_at: '2026-08-06T16:09:08Z' }] } },
+    { match: `/actions/runs/${RUN.id}/jobs`, body: jobsBody },
     { match: `/actions/runs/${RUN.id}/pending_deployments`, body: [{ environment: { name: 'github-pages' } }] },
     { match: `/actions/runs/${RUN.id}/cancel`, method: 'POST', status: cancelStatus },
     { match: `/actions/runs/${RUN.id}`, body: run },
@@ -262,6 +266,30 @@ globalThis.fetch = async (url, init = {}) => {
       expect(r.stdout).toMatch(/::error::Could not read deploy-publish\.yml runs/);
       expect(r.stderr).not.toMatch(/CALL POST/);
     }
+  });
+
+  it('announces a malformed waiting row instead of treating it as an empty queue', () => {
+    const r = runScript([{
+      match: LIST,
+      body: { workflow_runs: [{ ...RUN, created_at: 'not-a-date' }] },
+    }]);
+    expect(r.status, r.stdout + r.stderr).toBe(1);
+    expect(r.stdout).toMatch(/::error::Could not read deploy-publish\.yml runs/);
+    expect(r.stderr).not.toMatch(/CALL POST/);
+  });
+
+  it('announces malformed fresh run evidence instead of exiting green', () => {
+    const r = runScript(wedged(202, { message: 'not found' }));
+    expect(r.status, r.stdout + r.stderr).toBe(1);
+    expect(r.stdout).toMatch(/::error::The pages-deploy queue may still be jammed/);
+    expect(r.stderr).not.toMatch(/CALL POST/);
+  });
+
+  it('announces missing gate-job evidence instead of exiting green', () => {
+    const r = runScript(wedged(202, RUN, { jobs: [] }));
+    expect(r.status, r.stdout + r.stderr).toBe(1);
+    expect(r.stdout).toMatch(/::error::The pages-deploy queue may still be jammed/);
+    expect(r.stderr).not.toMatch(/CALL POST/);
   });
 
   it('cancels a proven wedge once, after re-reading it', () => {

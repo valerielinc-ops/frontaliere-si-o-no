@@ -28943,6 +28943,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'farmaci-riserve-finanziamento',
+    category: 'novita',
+    date: '2026-10-29T09:02:50.918Z',
+    image: '/images/blog/article-farmaci-riserve-finanziamento.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

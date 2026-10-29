@@ -808,6 +808,18 @@ export function hasFalsifiableAcceptance(itemText) {
  */
 const FOLLOWUP_ITEM_HEADING_LINE_RE = /^(#{2,3})\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/i;
 
+// Alcuni body storici hanno serializzato il separatore fra due item come i
+// caratteri letterali `\\n\\n`, invece di due newline Markdown. Accettarlo in
+// modo generico trasformerebbe testo o codice in struttura; il caso sicuro è
+// solo la sequenza immediatamente seguita da un heading FU stabile.
+const ESCAPED_DAILY_ITEM_BOUNDARY_RE = /(?:\\n)+[ \t]*(?=#{2,3}\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\s*[—–-]\s*)/giu;
+const ESCAPED_DAILY_ITEM_SUFFIX_RE = /(?:\\n)+[ \t]*$/u;
+
+/** Rimuove il separatore serializzato dalla coda di un item già riconosciuto. */
+export function stripEscapedDailyItemBoundary(value) {
+  return String(value || '').replace(ESCAPED_DAILY_ITEM_SUFFIX_RE, '');
+}
+
 /**
  * Split Markdown into lines while marking fenced/quoted lines as protected.
  * Metadata and item headings are meaningful only on unprotected lines: a PR body
@@ -841,6 +853,31 @@ function markdownRecords(text) {
     enumerable: false,
   });
   return records;
+}
+
+/**
+ * Aggiunge record virtuali solo per heading FU stabili preceduti da `\\n`.
+ * Gli offset restano quelli del body originale, così gli aggiornamenti di stato
+ * continuano a sostituire il campo giusto senza riscrivere il resto dell'item.
+ */
+function itemHeadingRecords(text) {
+  const records = markdownRecords(text);
+  const expanded = [];
+  for (const record of records) {
+    expanded.push(record);
+    if (record.protected) continue;
+    for (const boundary of record.line.matchAll(ESCAPED_DAILY_ITEM_BOUNDARY_RE)) {
+      const offset = boundary.index + boundary[0].length;
+      const line = record.line.slice(offset);
+      if (!FOLLOWUP_ITEM_HEADING_LINE_RE.test(line)) continue;
+      expanded.push({
+        ...record,
+        line,
+        start: record.start + offset,
+      });
+    }
+  }
+  return expanded;
 }
 
 /** True when Markdown opens a fenced block and never closes it. */
@@ -931,7 +968,7 @@ export function parseFollowupItems(body) {
   const source = String(body || '');
   const unterminatedFence = hasUnterminatedMarkdownFence(source);
   const matches = [];
-  for (const record of markdownRecords(source)) {
+  for (const record of itemHeadingRecords(source)) {
     if (record.protected) continue;
     const match = FOLLOWUP_ITEM_HEADING_LINE_RE.exec(record.line);
     // Only stable IDs widen to H2. A generic H2 numbered section is not a follow-up item.

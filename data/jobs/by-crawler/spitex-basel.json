@@ -668,12 +668,12 @@
     },
     {
       "id": "spitex-basel-1ac97f0cd566",
-      "slug": "planerin-planer-spitex-basel-basel",
+      "slug": "planner-planner-spitex-basel-basel",
       "slugByLocale": {
         "de": "planerin-planer-spitex-basel-basel",
-        "it": "planerin-planer-spitex-basel-basel",
+        "it": "planner-planner-spitex-basel-basel",
         "en": "planerin-planer-spitex-basel-basel",
-        "fr": "planerin-planer-spitex-basel-basel"
+        "fr": "planificateur-planificateur-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -732,7 +732,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T09:21:12.837Z"
+      "firstSeenAt": "2026-10-29T09:21:12.837Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "planerin-planer-spitex-basel-basel"
+        ],
+        "fr": [
+          "planerin-planer-spitex-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "planerin-planer-spitex-basel-basel"
+      ]
     }
   ]
 }
