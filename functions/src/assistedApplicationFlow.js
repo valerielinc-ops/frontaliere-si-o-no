@@ -72,7 +72,6 @@ function transientRetry(flow, event, mode) {
 
 /** The owner's e-mail says which step stopped and after how many runs. */
 function takeoverEmail(flow, event, stage) {
-  if (reason === 'captcha_provider_unavailable' && next.portalAutoRetryAt) return null;
   return {
     type: 'email',
     kind: 'owner_takeover',
