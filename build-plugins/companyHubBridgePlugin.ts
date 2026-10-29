@@ -706,17 +706,23 @@ function renderUnmatchedPage(
   const sectionPath = `${BASE_URL}${sectionPathFromEntry(entry)}`.replace(/(?<!:)\/+/g, '/');
   const cantonSuggestions = findCompanyCantonSuggestions(entry, availability, currentCanton);
   const otherCantonBannerHtml = renderOtherCantonBanner(entry, currentCanton, cantonSuggestions);
+  // A stable legacy/companyKey slug can identify a different display variant
+  // from the current job.company label. Keep that route identity in the title
+  // so two empty-state filters for the same umbrella employer are distinct.
+  const displayNameForTitle = slugifyCompanyName(entry.displayName) === entry.companySlug
+    ? entry.displayName
+    : `${entry.displayName} (${humanizeSlug(entry.companySlug)})`;
   // An unmatched legacy company URL is still a valid canton filter: it means
   // that the employer is known elsewhere, but there is no active posting in
   // this section today. Keep that fact on the URL itself. Do not consolidate
   // it to `/aziende/<slug>/`, whose intent and job set are Switzerland-wide.
   const emptyTitle = locale === 'it'
-    ? `${entry.displayName}: nessun annuncio in ${cantonDisplay}`
+    ? `${displayNameForTitle}: nessun annuncio in ${cantonDisplay}`
     : locale === 'en'
-      ? `${entry.displayName}: no jobs in ${cantonDisplay}`
+      ? `${displayNameForTitle}: no jobs in ${cantonDisplay}`
       : locale === 'de'
-        ? `${entry.displayName}: keine Stellen im ${cantonDisplay}`
-        : `${entry.displayName} : aucune offre dans le ${cantonDisplay}`;
+        ? `${displayNameForTitle}: keine Stellen im ${cantonDisplay}`
+        : `${displayNameForTitle} : aucune offre dans le ${cantonDisplay}`;
   const emptyDescription = locale === 'it'
     ? `Al momento non risultano annunci attivi di ${entry.displayName} in ${cantonDisplay}. Questa pagina mantiene il filtro cantonale e viene aggiornata con il job board.`
     : locale === 'en'

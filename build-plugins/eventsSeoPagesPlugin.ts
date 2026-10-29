@@ -4068,6 +4068,41 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
     }
   }
 
+  // The shell can drop a locale-specific event suffix to stay inside the SERP
+  // title budget, leaving an identical title on two translated URLs. Compare
+  // the title after shell normalization, then keep the first locale's title
+  // and add a readable locale label to the other colliding variants.
+  const localeLabels: Record<Locale, string> = {
+    it: 'Italiano',
+    en: 'English',
+    de: 'Deutsch',
+    fr: 'Français',
+  };
+  for (const event of events) {
+    const localesByTitle = new Map<string, Set<Locale>>();
+    for (const locale of LOCALES) {
+      const comune = event.comune || OTHER_EVENTS_COMUNE_KEY;
+      const rawTitle = eventDetailTitleProbe(event, locale, comune);
+      const emittedTitle = normalizeShellTitle(rawTitle, (value) => esc(value).length);
+      const key = emittedTitle.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
+      const locales = localesByTitle.get(key) ?? new Set<Locale>();
+      locales.add(locale);
+      localesByTitle.set(key, locales);
+    }
+
+    for (const locales of localesByTitle.values()) {
+      if (locales.size < 2) continue;
+      const primaryLocale = locales.has('it') ? 'it' : LOCALES.find((locale) => locales.has(locale));
+      if (!primaryLocale) continue;
+      for (const locale of locales) {
+        if (locale === primaryLocale) continue;
+        const key = `${locale}|${event.id}`;
+        const existing = out.get(key);
+        out.set(key, [localeLabels[locale], existing].filter(Boolean).join(' · '));
+      }
+    }
+  }
+
   return out;
 }
 
