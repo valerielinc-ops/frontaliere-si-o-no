@@ -32,6 +32,7 @@ import {
 import { portalAnswerForApplication, portalOptionMap } from '../scripts/assisted-application/lib/portal/question-key.mjs';
 import { mergeRequiredDocuments } from '../functions/src/assistedApplicationExtraDocuments.js';
 import { interviewPrepUserText } from '../functions/src/assistedApplicationInterviewPrep.js';
+import { parseAltenDetailHtml } from '../scripts/lib/alten-job-parser.mjs';
 
 // career-ops comparison of 2026-10-01: what the portal runner still lacked.
 describe('portal runner hardening (career-ops apply.md)', () => {
@@ -206,6 +207,24 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
     expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('match');
     expect(formPostingMatch('Project Manager — Other Employer\nSend application', job, { postingMatched: true, postingEntry: true })).toBe('mismatch');
+  });
+
+  it('keeps ALTEN posting provenance when the apply link has a trailing slash and query', () => {
+    const postingUrl = 'https://www.alten.ch/jobs/903-pipe-project-manager-it/';
+    const parsed = parseAltenDetailHtml(`
+      <div class="wp-block-jobboard-offer">
+        <h1>Project Manager - IT &amp; Banking</h1>
+        <a href="/jobs/903-pipe-project-manager-it/apply/?locale=de">APPLY</a>
+      </div>`, postingUrl);
+    const applyUrl = parsed.applyUrl;
+    const enteredFromMatchingPosting = isVerifiedPostingEntry({ applyUrl, postingUrl });
+    const form = 'Application Tracking System\nProject Manager - IT & Banking\nPersonal information\nSend application';
+
+    expect(applyUrl).toBe('https://www.alten.ch/jobs/903-pipe-project-manager-it/apply/?locale=de');
+    expect(enteredFromMatchingPosting).toBe(true);
+    expect(formPostingMatch(form, {
+      company: 'ALTEN Switzerland', title: 'Project Manager - IT & Banking',
+    }, { postingMatched: enteredFromMatchingPosting, postingEntry: enteredFromMatchingPosting, pageUrl: applyUrl })).toBe('match');
   });
 
   it('hands an unresolved initial anti-bot page to CAPTCHA, not posting mismatch', () => {

@@ -141,6 +141,23 @@ describe('alten-job-parser', () => {
     expect(parsed.slug).toContain('sviluppatore-full-stack-net');
   });
 
+  it.each([
+    '/jobs/903-pipe-project-manager-it/apply/',
+    '/jobs/903-pipe-project-manager-it/apply?locale=de',
+  ])('resolves the same ALTEN posting apply route when the link is %s', (href) => {
+    const detailUrl = 'https://www.alten.ch/jobs/903-pipe-project-manager-it/';
+    const html = `
+      <div class="wp-block-jobboard-offer">
+        <h1>Project Manager</h1>
+        <a href="/jobs/904-other-job/apply">Other job</a>
+        <a href="${href}">APPLY</a>
+      </div>`;
+
+    const parsed = parseAltenDetailHtml(html, detailUrl);
+
+    expect(parsed.applyUrl).toBe(new URL(href, detailUrl).href);
+  });
+
   // Regression for #1451 / verification of #1457: the location cut must preserve
   // the abbreviation period in Swiss city names beginning with "St." (St. Moritz,
   // St. Gallen). A blanket "." split truncated these to "St", which then failed
