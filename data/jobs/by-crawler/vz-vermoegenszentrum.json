@@ -3636,7 +3636,7 @@
         "it": "collaboratore-trice-in-operations-bvg-con-fachverantwortung-vz-vermogenszentrum-zurich",
         "en": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich",
         "de": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-        "fr": "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
+        "fr": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3691,14 +3691,14 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-        "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
+        "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
+          "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-10-12T21:25:51.084Z",
@@ -5754,7 +5754,7 @@
       "id": "vz-vermoegenszentrum-4da8d7ab131e",
       "slug": "investment-consulente-vz-vermogenszentrum-lausanne",
       "slugByLocale": {
-        "it": "investment-consulente-vz-vermogenszentrum-lausanne",
+        "it": "investment-advisor-vz-vermogenszentrum-lausanne",
         "en": "investment-advisor-vz-vermogenszentrum-lausanne",
         "de": "investment-berater-vz-vermogenszentrum-lausanne-vaud",
         "fr": "investment-advisor-vz-vermoegenszentrum-ch"
@@ -5818,13 +5818,11 @@
         ]
       },
       "previousSlugs": [
-        "investment-advisor-vz-vermoegenszentrum-ch",
-        "investment-advisor-vz-vermogenszentrum-lausanne"
+        "investment-advisor-vz-vermoegenszentrum-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-advisor-vz-vermoegenszentrum-ch",
-          "investment-advisor-vz-vermogenszentrum-lausanne"
+          "investment-advisor-vz-vermoegenszentrum-ch"
         ],
         "de": [
           "investment-advisor-vz-vermoegenszentrum-ch"

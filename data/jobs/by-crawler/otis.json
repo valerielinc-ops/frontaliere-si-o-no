@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "servizio-leader-di-gruppo-otis-sa-romanel-sur-lausanne",
         "en": "group-leader-service-otis-romanel-sur-lausanne",
-        "de": "group-leader-service-otis-sa-romanel-sur-lausanne",
+        "de": "gruppenleiterdienst-otis-sa-romanel-sur-lausanne",
         "fr": "group-leader-service-otis-romanel-sur-lausanne"
       },
       "company": "Otis SA",
@@ -51,7 +51,7 @@
       "crawledAt": "2026-10-29T09:48:47.131Z",
       "previousSlugs": [
         "group-leader-service-otis-romanel-sur-lausanne",
-        "gruppenleiterdienst-otis-sa-romanel-sur-lausanne"
+        "group-leader-service-otis-sa-romanel-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -59,7 +59,7 @@
         ],
         "de": [
           "group-leader-service-otis-romanel-sur-lausanne",
-          "gruppenleiterdienst-otis-sa-romanel-sur-lausanne"
+          "group-leader-service-otis-sa-romanel-sur-lausanne"
         ]
       },
       "needsRetranslation": true,
@@ -86,7 +86,7 @@
       "slugByLocale": {
         "it": "montatore-di-ascensori-modernizzazione-m-f-d-otis-sa-oberburen",
         "en": "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen",
-        "de": "aufzugsmonteur-modernisierung-m-w-d-otis-sa-oberburen",
+        "de": "smonteurmodern-m-w-d-otis-sa-oberburen",
         "fr": "monteur-d-ascenseurs-modernisation-h-f-d-otis-sa-oberburen"
       },
       "company": "Otis SA",
@@ -128,7 +128,7 @@
       "crawledAt": "2026-10-29T09:48:46.824Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen",
-        "smonteurmodern-m-w-d-otis-sa-oberburen"
+        "aufzugsmonteur-modernisierung-m-w-d-otis-sa-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -136,7 +136,7 @@
         ],
         "de": [
           "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen",
-          "smonteurmodern-m-w-d-otis-sa-oberburen"
+          "aufzugsmonteur-modernisierung-m-w-d-otis-sa-oberburen"
         ],
         "fr": [
           "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen"
@@ -1376,7 +1376,7 @@
         "it": "servicetechniker-m-w-d-otis-sa-wallisellen",
         "en": "servicetechniker-m-w-d-otis-wallisellen",
         "de": "wartungstechniker-m-w-d-otis-sa-wallisellen",
-        "fr": "servicetechniker-m-w-d-otis-sa-wallisellen"
+        "fr": "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -1416,8 +1416,7 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-29T09:48:40.842Z",
       "previousSlugs": [
-        "servicetechniker-m-w-d-otis-wallisellen",
-        "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
+        "servicetechniker-m-w-d-otis-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1427,8 +1426,7 @@
           "servicetechniker-m-w-d-otis-wallisellen"
         ],
         "fr": [
-          "servicetechniker-m-w-d-otis-wallisellen",
-          "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
+          "servicetechniker-m-w-d-otis-wallisellen"
         ]
       },
       "firstSeenAt": "2026-10-19T09:31:33.158Z",

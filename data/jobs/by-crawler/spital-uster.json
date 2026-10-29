@@ -1375,7 +1375,7 @@
       "slugByLocale": {
         "it": "assistente-medico-pratico-in-20-pratica-di-emergenza-spital-uster-uster",
         "en": "medical-practical-assistant-in-20-emergency-practice-spital-uster-uster",
-        "de": "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch",
+        "de": "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch-pk61jg",
         "fr": "assistant-medical-pratique-en-20-pratique-d-urgence-spital-uster-uster"
       },
       "company": "Spital Uster",
@@ -1425,6 +1425,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch"
+        ],
+        "de": [
           "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch"
         ]
       },
@@ -4210,7 +4213,6 @@
         ]
       },
       "department": "Spezialpflege",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-60-100-endoskopie-spital-uster-ch"
@@ -4437,7 +4439,6 @@
         "de": []
       },
       "department": "Administration/Management/Stab",
-      "needsRetranslation": true,
       "salaryMin": 18300,
       "salaryMax": 25600,
       "salarySource": "estimated",

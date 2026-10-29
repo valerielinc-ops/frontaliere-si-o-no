@@ -474,9 +474,9 @@
       },
       "slugByLocale": {
         "it": "meccanica-w-m-d-agie-charmilles-sa-biel-bienne",
-        "en": "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne",
+        "en": "polymechanics-w-m-d-agie-charmilles-sa-biel-bienne",
         "de": "polymechaniker-w-m-d-agie-charmilles-biel-bienne",
-        "fr": "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne"
+        "fr": "polymecanique-m-j-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-0852c2cbfb49",
       "previousSlugsByLocale": {
@@ -484,14 +484,17 @@
           "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
         ],
         "en": [
-          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+          "polymechaniker-w-m-d-agie-charmilles-biel-bienne",
+          "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne"
         ],
         "fr": [
-          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+          "polymechaniker-w-m-d-agie-charmilles-biel-bienne",
+          "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+        "polymechaniker-w-m-d-agie-charmilles-biel-bienne",
+        "polymechaniker-m-w-d-agie-charmilles-sa-biel-bienne"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -628,7 +631,7 @@
         "it": "controller-d-w-m-agie-charmilles-losone",
         "en": "controller-d-w-m-agie-charmilles-losone",
         "de": "controller-d-w-m-agie-charmilles-losone",
-        "fr": "controller-d-w-m-agie-charmilles-sa-losone"
+        "fr": "controleur-j-m-m-agie-charmilles-sa-losone"
       },
       "id": "agie-charmilles-607c0a2940f5",
       "salaryMin": 58000,
@@ -650,7 +653,7 @@
       "firstSeenAt": "2026-10-08T09:24:04.427Z",
       "previousSlugsByLocale": {
         "fr": [
-          "controleur-j-m-m-agie-charmilles-sa-losone"
+          "controller-d-w-m-agie-charmilles-sa-losone"
         ],
         "it": [
           "controller-d-w-m-agie-charmilles-losone-xi5hmt"
@@ -658,7 +661,7 @@
       },
       "previousSlugs": [
         "controller-d-w-m-agie-charmilles-losone-xi5hmt",
-        "controleur-j-m-m-agie-charmilles-sa-losone"
+        "controller-d-w-m-agie-charmilles-sa-losone"
       ]
     },
     {
@@ -703,7 +706,7 @@
         "it": "controllore-d-f-m-agie-charmilles-sa-losone",
         "en": "controller-d-f-m-agie-charmilles-losone",
         "de": "regler-d-f-m-agie-charmilles-sa-losone",
-        "fr": "controller-d-f-m-agie-charmilles-sa-losone"
+        "fr": "controleur-d-f-m-agie-charmilles-sa-losone"
       },
       "id": "agie-charmilles-40c5f88f86f8",
       "salaryMin": 58000,
@@ -725,8 +728,8 @@
       "firstSeenAt": "2026-10-21T09:26:05.207Z",
       "previousSlugsByLocale": {
         "fr": [
-          "controleur-d-f-m-agie-charmilles-sa-losone",
-          "controller-d-f-m-agie-charmilles-losone"
+          "controller-d-f-m-agie-charmilles-losone",
+          "controller-d-f-m-agie-charmilles-sa-losone"
         ],
         "it": [
           "controller-d-f-m-agie-charmilles-losone"
@@ -737,7 +740,7 @@
       },
       "previousSlugs": [
         "controller-d-f-m-agie-charmilles-losone",
-        "controleur-d-f-m-agie-charmilles-sa-losone"
+        "controller-d-f-m-agie-charmilles-sa-losone"
       ]
     },
     {
@@ -2279,7 +2282,8 @@
       "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-operativer-einkaufer-wmd",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "3550"
+      "postalCode": "3550",
+      "needsRetranslation": true
     },
     {
       "title": "Field Service Expert (d/w/m)",
