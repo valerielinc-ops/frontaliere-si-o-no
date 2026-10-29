@@ -109350,7 +109350,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmaci-riserve-finanziamento': {
     title: 'Farmaci: scorte obbligatorie sotto pressione in Svizzera',
-    description: 'In Svizzera mancano da anni antibiotici e antidolorifici. Dal 2022 le scorte sono state liberate oltre 100 volte l\'anno. A Burgdorf si è discusso',
+    description: 'In Svizzera mancano da anni antibiotici e antidolorifici. Dal 2022 le scorte sono state liberate oltre 100 volte l\'anno. A Burgdorf si è discusso di riserve, costi e approvvigionamento.',
     keywords: 'frontalieri, ticino, svizzera, italia, farmaci, scorte, obbligatorie, sotto',
     ogTitle: 'Farmaci svizzeri, scorte obbligatorie sotto pressione',
     ogDescription: 'In Svizzera mancano da anni antibiotici e antidolorifici.',
@@ -109359,7 +109359,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmaci: scorte obbligatorie sotto pressione in Svizzera",
-      "description": "In Svizzera mancano da anni antibiotici e antidolorifici. Dal 2022 le scorte sono state liberate oltre 100 volte l'anno. A Burgdorf si è discusso",
+      "description": "In Svizzera mancano da anni antibiotici e antidolorifici. Dal 2022 le scorte sono state liberate oltre 100 volte l'anno. A Burgdorf si è discusso di riserve, costi e approvvigionamento.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
