@@ -129,6 +129,8 @@ describe('candidate edits', () => {
       expect(candidateQuestionAnswerKey(next)).toBe(candidateQuestionAnswerKey(first));
       expect(candidateAnswersForQuestions([next], {}, memory).new).toBe('100');
     }
+    const percentMemory = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: '100%' } });
+    expect(candidateAnswersForQuestions([{ ...first, id: 'numeric' }], {}, percentMemory).numeric).toBe('100');
     expect(candidateAnswersForQuestions([{ ...first, id: 'restricted', validation: { min: 0, max: 80 } }], {}, memory).restricted).toBeUndefined();
     expect(candidateAnswersForQuestions([{ ...first, id: 'options', type: 'choice', options: ['50', '80'] }], {}, memory).options).toBeUndefined();
   });

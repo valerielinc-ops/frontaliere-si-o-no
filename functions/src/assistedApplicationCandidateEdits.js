@@ -151,7 +151,11 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
     const remembered = Object.hasOwn(memory || {}, key) ? memory[key] : undefined;
     if (Object.hasOwn(memory || {}, key) && !hasQuestionAnswer(remembered)) continue;
     const source = currentValues.get(key)?.value ?? remembered;
-    if (hasQuestionAnswer(source) && answerFitsQuestion(source, question)) result[question.id] = source;
+    if (hasQuestionAnswer(source) && answerFitsQuestion(source, question)) {
+      result[question.id] = key === WORKLOAD_PREFERENCE_KEY && question.type === 'number'
+        ? String(Number(String(source).replace('%', '').trim().replace(',', '.')))
+        : source;
+    }
   }
   return result;
 }
