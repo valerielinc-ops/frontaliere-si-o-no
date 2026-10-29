@@ -160,7 +160,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il netto dipende da tariffa, contributi, situazione familiare, cambio e regime fiscale italiano eventualmente applicabile. Usa il simulatore con i tuoi dati e verifica il risultato con le tabelle cantonali e la normativa italiana." } },
  { "@type": "Question", "name": "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
  { "@type": "Question", "name": "Come funziona la pensione per i frontalieri svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "Il sistema distingue previdenza statale AVS, professionale LPP e individuale volontaria. Requisiti e prestazioni vanno verificati presso gli enti competenti. Il terzo pilastro non comporta una deduzione automatica per tutti i frontalieri. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione." } },
+ { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
  { "@type": "Question", "name": "Qual è il modo migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Wise (ex TransferWise) e Revolut offrono i tassi migliori con markup dello 0,25-0,5% sul tasso interbancario. Le banche tradizionali (UBS, PostFinance) applicano markup del 2-3%. Per un frontaliere che cambia CHF 5.000/mese, Wise fa risparmiare circa CHF 100-150/mese rispetto alla banca tradizionale, ovvero CHF 1.200-1.800/anno." } },
  { "@type": "Question", "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri fiscali il salario svizzero è imponibile anche in Italia, con credito per le imposte svizzere. I vecchi qualificati dall’articolo 9 sono esenti sul salario coperto dal regime, ma possono avere obblighi italiani per altri redditi o monitoraggio. Lo status dipende dai requisiti fiscali e dall’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, non soltanto dall’ultima assunzione. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (USTAT, I trimestre 2026). I frontalieri rappresentano circa il 32% della forza lavoro cantonale. Negli ultimi due anni il numero è in lieve calo (-0,5% su base annua nel I trimestre 2026, USTAT). I settori principali sono manifattura, costruzioni, finanza, sanità, ospitalità e IT." } },
@@ -327,7 +327,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
- { '@type': 'Question', name: "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione." } },
+ { '@type': 'Question', name: "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
  { '@type': 'Question', name: "Chi può usufruire della franchigia €10.000?", acceptedAnswer: { '@type': 'Answer', text: "La franchigia di 10.000 euro riguarda i redditi di lavoro dipendente prestato continuativamente e come oggetto esclusivo del rapporto in zone di frontiera o paesi limitrofi da residenti italiani, alle condizioni dell’articolo 4 della legge 83/2023. Non è limitata ai soli comuni entro 20 km. I vecchi frontalieri qualificati non ne hanno bisogno per il salario già esente da imposizione italiana ai sensi dell’articolo 9. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
  { '@type': 'Question', name: "Come si applica in pratica la franchigia in dichiarazione?", acceptedAnswer: { '@type': 'Answer', text: "L'applicazione in dichiarazione dipende dalla categoria di reddito e dai requisiti previsti dall'articolo 4 della legge 83/2023. Verifica il quadro e le modalità con le istruzioni dell'Agenzia delle Entrate o con un professionista." } },
  { '@type': 'Question', name: "La franchigia vale anche per la tredicesima e i bonus?", acceptedAnswer: { '@type': 'Answer', text: "La deduzione si applica al reddito qualificato secondo la legge italiana; per includere tredicesima, bonus o altre voci occorre verificare come rientrano nel reddito di lavoro dipendente e nell'imponibile dichiarato." } },
@@ -609,7 +609,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  description: 'Calcola lo stipendio netto da frontaliere in Svizzera: imposta alla fonte, AVS, LPP, IRPEF e franchigia di 10.000 €. Simulatore gratuito aggiornato al 2026.',
  keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
  ogTitle: 'Calcolo stipendio netto Svizzera 2026',
- ogDescription: "Simula il reddito netto includendo imposta alla fonte, contributi e trattamento italiano quando applicabile; la deduzione di 10.000 € dipende dai requisiti di legge.",
+ ogDescription: 'Simula il reddito netto includendo imposta alla fonte, contributi e trattamento italiano quando applicabile; la deduzione di 10.000 € dipende dai requisiti di legge.',
  canonicalPath: '/calcola-stipendio/',
  structuredData: [
  {
@@ -1000,7 +1000,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione."
+ "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  }
  },
  {
@@ -1032,7 +1032,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Qual è la franchigia per nuovi frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione."
+ "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  }
  },
  {
@@ -3866,7 +3866,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione."
+ "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  }
  },
  {
