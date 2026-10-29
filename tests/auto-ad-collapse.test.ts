@@ -139,6 +139,23 @@ describe('the CSS half and the JS half cannot drift', () => {
     expect(rule.slice(0, rule.indexOf('}'))).toMatch(/overflow:\s*hidden\s*!important/);
   });
 
+  it('keeps the measured in-page reserve scoped to the active job-detail anchor', () => {
+    const css = readFileSync(resolve(ROOT, 'index.css'), 'utf8');
+    const jobBoard = readFileSync(resolve(ROOT, 'components', 'community', 'JobBoard.tsx'), 'utf8');
+
+    expect(jobBoard).toContain('data-job-detail-content');
+    expect(css).toMatch(/article\[data-job-detail-content\]\s*\{[\s\S]*--job-detail-inpage-ad-reserve:\s*250px;/u);
+    expect(css).toContain(
+      'article[data-job-detail-content] > .google-auto-placed {\n  min-height: var(--job-detail-inpage-ad-reserve);',
+    );
+    expect(css).toContain(
+      'article[data-job-detail-content] > .google-auto-placed:empty,',
+    );
+    expect(css).toContain(
+      'article[data-job-detail-content] > .google-auto-placed:has(ins[data-ad-status="unfilled"])',
+    );
+  });
+
   it('all three ad stacks spend the SAME fill budget', () => {
     // The silent no-answer case is not an AdSense quirk — it is what any ad
     // stack does when it is blocked. All three reserve space, so all three
