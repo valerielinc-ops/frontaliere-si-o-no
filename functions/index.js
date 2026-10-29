@@ -111,7 +111,7 @@ import {
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from './src/applicationConciergeMatching.js';
 import { inheritConciergeRenewalMaterials } from './src/applicationConciergeRenewalMaterials.js';
-import { runConciergeLifecycleSweep } from './src/applicationConciergeLifecycle.js';
+import { runConciergeLifecycleSweep, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
 import { handleConciergeServiceWritten, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
@@ -2921,15 +2921,21 @@ export const refreshCandidateCvProfile = onCall(
 // profile, then scan the published Swiss job index and create explainable
 // proposals. Every proposal remains pending until the candidate accepts it.
 export const processApplicationConciergeCv = onDocumentWritten(
-  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 120, document: 'application_concierge_services/{serviceId}' },
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 540, document: 'application_concierge_services/{serviceId}' },
   async (event) => {
     const after = event.data?.after;
     if (!after?.exists) return;
     const before = event.data?.before?.exists ? event.data.before.data() : null;
     const data = after.data() || {};
-    if (!shouldRunApplicationConciergeMatchingForServiceUpdate(before, data)) return;
+    const periodicRefresh = data.proposalRefreshRequestedBy === 'lifecycle' && data.proposalRefreshRequestId
+      && data.proposalRefreshRequestId !== before?.proposalRefreshRequestId;
+    if (!periodicRefresh && !shouldRunApplicationConciergeMatchingForServiceUpdate(before, data)) return;
     try {
       const db = getAdminDb();
+      if (periodicRefresh) {
+        await runConciergeProposalRefresh({ db, serviceId: event.params.serviceId, requestId: data.proposalRefreshRequestId });
+        return;
+      }
       const cvChanged = data.cvStorageKey !== before?.cvStorageKey;
       if (cvChanged) {
         const profile = await enrichCandidateProfileFromCv({

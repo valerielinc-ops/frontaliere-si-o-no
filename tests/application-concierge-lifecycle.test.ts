@@ -55,10 +55,19 @@ const match = vi.fn(async ({ serviceId }: any) => {
   await ref(`application_concierge_services/${serviceId}`).set({ matchingCompletedAt: new Date(now), matchingStatus: 'complete' });
   return { status: 'complete' };
 });
-const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, match, send, unsubscribeSecret: 'test-only-secret', ...options });
+const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, match, send, unsubscribeSecret: 'test-only-secret', enqueueOnly: false, ...options });
 beforeEach(() => { records = new Map(); queue = Promise.resolve(); deliveries.length = 0; vi.clearAllMocks(); });
 
 describe('concierge refresh and notification lifecycle', () => {
+  it('queues due services separately instead of doing their AI work in the hourly sweep', async () => {
+    records.set('application_concierge_services/service', active());
+    const result = await sweep({ enqueueOnly: true });
+    expect(result.queuedRefreshes).toBe(1);
+    expect(match).not.toHaveBeenCalled();
+    expect(records.get('application_concierge_services/service').proposalRefreshRequestId).toEqual(expect.any(String));
+    await sweep({ enqueueOnly: true });
+    expect(match).not.toHaveBeenCalled();
+  });
   it('claims one refresh across concurrent sweeps and sends one genuinely-new-jobs notice', async () => {
     records.set('application_concierge_services/service', active());
     await Promise.all([sweep(), sweep()]);

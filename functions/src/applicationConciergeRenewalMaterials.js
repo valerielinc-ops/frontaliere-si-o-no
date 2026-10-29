@@ -10,7 +10,7 @@ export async function inheritConciergeRenewalMaterials({ db, serviceId, bucket =
   const target = (await ref.get()).data();
   if (!serviceIsActive(target, nowMs) || !target.renewalOfServiceId || target.cvStorageKey || target.renewalMaterialsCopiedAt || target.retentionPurgedAt || !target.renewalConsentVersion) return { copied: false };
   const source = (await db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(target.renewalOfServiceId).get()).data();
-  if (!source?.cvStorageKey || source.userId !== target.userId || !source.consentVersion || !source.consentedAt) return { copied: false };
+  if (!String(source?.cvStorageKey || '').startsWith(`application-concierge-uploads/${target.renewalOfServiceId}/`) || source.userId !== target.userId || !source.consentVersion || !source.consentedAt) return { copied: false };
   const storage = bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
   const extension = /\.(pdf|docx|doc)$/i.exec(source.cvStorageKey)?.[1]?.toLowerCase() || 'pdf';
   const key = `application-concierge-uploads/${serviceId}/renewal-${randomUUID()}.${extension}`;
