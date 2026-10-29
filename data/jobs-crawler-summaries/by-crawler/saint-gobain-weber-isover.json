@@ -1,7 +1,7 @@
 {
   "key": "saint-gobain-weber-isover",
   "label": "Saint-Gobain Weber/Isover Suisse",
-  "generatedAt": "2026-10-29T09:48:35.758Z",
+  "generatedAt": "2026-10-29T21:47:20.372Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7870,
-  "avgDurationMs": 7870,
+  "durationMs": 6966,
+  "avgDurationMs": 6966,
   "durationHistory": [
-    7870
+    6966
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/4c52349a-75f6-4f9c-87ca-db1a9bf5a083/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:48:21.502Z",
+      "crawledAt": "2026-10-29T21:47:08.726Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/83a8c5e4-a3ce-40f6-8976-e560026801cf/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:48:19.978Z",
+      "crawledAt": "2026-10-29T21:47:07.970Z",
       "addressLocality": "Switzerland",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/3301bd1b-1683-4a2e-be34-85e6bac8fef9/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:48:18.853Z",
+      "crawledAt": "2026-10-29T21:47:07.024Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,5 +155,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }
