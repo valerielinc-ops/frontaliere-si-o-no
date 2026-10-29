@@ -3,7 +3,7 @@
  */
 const CREW_TITLE = /^crew$/i;
 const BAD_CREW = /^(?:United Nations|Nazioni Unite|Vereinte Nationen|Nations Unies|Besatzung)$/i;
-const MIGROS_SERVICE_COUNTER_TITLE = /\bVerkäufer(?:[*:/]?in)?\s+Metzgerei\s+bedient\b/iu;
+const MIGROS_SERVICE_COUNTER_TITLE = /^Verkäufer(?:[*:/]?in)?\s+Metzgerei\s+bedient$/iu;
 const MIGROS_SERVICE_COUNTER_TRANSLATIONS = {
   it: 'Addetto/a alla vendita al banco macelleria',
   en: 'Meat Counter Sales Assistant',
@@ -32,19 +32,20 @@ export function repairJobTitleSemanticsInPlace(job) {
 }
 
 /**
- * "Metzgerei bedient" means a staffed butcher's counter. Require both the
+ * "Metzgerei bedient" means a staffed butcher's counter. Require the complete
  * original German title and Migros employer evidence before canonicalizing its
- * locale slots; a title-only match could affect an unrelated employer.
+ * locale slots. Qualified variants (for example "Stv." or a workload suffix)
+ * are deliberately left alone so their extra meaning cannot be discarded.
  */
 export function repairMigrosServiceCounterTitleInPlace(job) {
   if (!job || typeof job !== 'object') return 0;
   const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
   if (sourceLang && !sourceLang.startsWith('de')) return 0;
   if (!isMigrosEmployer(job)) return 0;
-  const sourceTitle = [job.title, job.titleByLocale?.de]
+  const sourceTitles = [job.title, job.titleByLocale?.de]
     .map((value) => String(value || '').trim())
-    .find((value) => MIGROS_SERVICE_COUNTER_TITLE.test(value));
-  if (!sourceTitle) return 0;
+    .filter(Boolean);
+  if (!sourceTitles.length || sourceTitles.some((value) => !MIGROS_SERVICE_COUNTER_TITLE.test(value))) return 0;
 
   const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
     ? job.titleByLocale
