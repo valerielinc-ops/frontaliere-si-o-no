@@ -3773,7 +3773,14 @@ function eventDetailMetaTitle(
   for (let max = EVENT_DETAIL_META_TITLE_MAX_CHARS; esc(out).length > EVENT_DETAIL_META_TITLE_MAX_CHARS && max > 0; max -= 1) {
     out = truncateHeadline(composed, max);
   }
-  return out;
+  if (esc(normalizeShellTitle(out, (value) => esc(value).length)).length <= TITLE_TARGET_CHARS) return out;
+  for (let max = EVENT_DETAIL_META_TITLE_MAX_CHARS - 1; max > 0; max -= 1) {
+    const candidate = truncateHeadline(out, max);
+    if (esc(normalizeShellTitle(candidate, (value) => esc(value).length)).length <= TITLE_TARGET_CHARS) {
+      return candidate;
+    }
+  }
+  throw new Error('Unable to fit an event detail title within the 60-character shell-normalized limit');
 }
 
 /** Compact, locale-aware date token for event headings and SERP titles.
