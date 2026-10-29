@@ -40,8 +40,9 @@ const mocks = vi.hoisted(() => {
   };
 
   const stripeCheckoutSessionsCreate = vi.fn();
+  const stripeCheckoutSessionsRetrieve = vi.fn();
   const createSumUpApplicationConciergeCheckout = vi.fn();
-  const stripe = { checkout: { sessions: { create: stripeCheckoutSessionsCreate } } };
+  const stripe = { checkout: { sessions: { create: stripeCheckoutSessionsCreate, retrieve: stripeCheckoutSessionsRetrieve } } };
   return {
     store,
     firestore,
@@ -52,10 +53,12 @@ const mocks = vi.hoisted(() => {
     createSumUpHostedCheckout: vi.fn(),
     createSumUpApplicationConciergeCheckout,
     stripeCheckoutSessionsCreate,
+    stripeCheckoutSessionsRetrieve,
     reset() {
       store.clear();
       sequence = 0;
       stripeCheckoutSessionsCreate.mockReset();
+      stripeCheckoutSessionsRetrieve.mockReset();
       createSumUpApplicationConciergeCheckout.mockReset();
     },
   };
@@ -64,6 +67,7 @@ const mocks = vi.hoisted(() => {
 vi.mock('firebase-admin/firestore', () => ({
   FieldValue: {
     serverTimestamp: () => '__server_timestamp__',
+    delete: () => '__delete_field__',
   },
   Timestamp: {
     fromMillis: (millis: number) => ({
@@ -157,6 +161,30 @@ describe('application concierge checkout', () => {
       paymentStatus: 'pending',
       serviceStatus: 'awaiting_payment',
     }));
+  });
+
+  it('renews a legacy Stripe checkout that expired while the ledger still says open', async () => {
+    const serviceId = 'legacy-service';
+    mocks.store.set(`application_concierge_services/${serviceId}`, {
+      userId: 'candidate-42', paymentProvider: 'stripe', paymentStatus: 'pending',
+      serviceStatus: 'awaiting_payment', checkoutSessionStatus: 'open',
+      stripeCheckoutSessionId: 'cs_expired', customerEmail: 'candidate@example.test', checkoutAttempt: 1,
+    });
+    mocks.getAssistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    mocks.stripeCheckoutSessionsRetrieve.mockResolvedValue({ id: 'cs_expired', status: 'expired', payment_status: 'unpaid' });
+    const base = request();
+    const result = await handleCreateApplicationConciergeCheckout(request({ body: { ...base.body, serviceId } }));
+    expect(result).toMatchObject({ status: 200, body: {
+      ok: true, serviceId, url: 'https://checkout.stripe.com/cs_concierge_1',
+    } });
+    expect(mocks.stripeCheckoutSessionsRetrieve).toHaveBeenCalledWith('cs_expired');
+    expect(mocks.stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
+      line_items: [expect.objectContaining({ price_data: expect.objectContaining({ unit_amount: 3999 }) })],
+    }), expect.anything());
+    expect(mocks.createSumUpApplicationConciergeCheckout).not.toHaveBeenCalled();
+    expect(mocks.store.get(`application_concierge_services/${serviceId}`)).toMatchObject({
+      paymentProvider: 'stripe', checkoutAttempt: 2, checkoutSessionStatus: 'open', stripeCheckoutSessionId: 'cs_concierge_1',
+    });
   });
 
   it('creates an embedded SumUp checkout for the concierge price', async () => {
