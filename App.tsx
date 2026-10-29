@@ -609,6 +609,7 @@ const App: React.FC = () => {
  // otherwise the archived offer could reappear below a later SPA route.
  useLayoutEffect(() => {
    const currentPath = contextualPath;
+   const expiredStaticBodyFound = document.querySelector('main[data-expired-static-body]') !== null;
    for (const staticBody of document.querySelectorAll<HTMLElement>('main[data-expired-static-body]')) {
      if (!staticOverlay || staticBody.dataset.expiredStaticPath !== currentPath) {
        staticBody.remove();
@@ -622,7 +623,7 @@ const App: React.FC = () => {
    // The no-JS footer is kept in the static HTML for crawlers and disabled-JS
    // visitors. React owns the same flow slot after mount, so discard only the
    // marked static copy before the portal paints its live footer.
-   if (staticOverlay) {
+   if (staticOverlay || expiredStaticBodyFound) {
      for (const staticFooter of document.querySelectorAll<HTMLElement>('#footer-root > footer[data-static-footer]')) {
        staticFooter.remove();
      }

@@ -19,7 +19,7 @@ import {
   parseJobRouteSearchFilter,
   shouldRestoreJobBoardListState,
 } from '@/components/community/JobBoard.tsx';
-import { seededJobMatchesSlug } from '@/hooks/useExpiredJob';
+import { hasSeededExpiredData, seededJobMatchesSlug } from '@/hooks/useExpiredJob';
 import type { JobListing } from '@/components/community/JobBoard.tsx';
 
 // Minimal job fixture satisfying the JobListing shape
@@ -151,6 +151,16 @@ describe('seededJobMatchesSlug', () => {
       company: 'Azienda Multiservizi Bellinzona AMB',
     };
     expect(seededJobMatchesSlug('azienda-migros')).toBe(false);
+  });
+
+  it('returns false after the emitted static body is gone, even for the same slug', () => {
+    (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__ = {
+      slug: 'azienda-multiservizi-bellinzona-amb',
+      title: 'Addetto magazzino',
+    };
+    document.body.innerHTML = '';
+    expect(seededJobMatchesSlug('azienda-multiservizi-bellinzona-amb')).toBe(false);
+    expect(hasSeededExpiredData()).toBe(false);
   });
 
   it('returns true when seeded slug matches via slugByLocale', () => {

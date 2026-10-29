@@ -21,6 +21,7 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render } from '@testing-library/react';
+import React from 'react';
 import App from '@/App';
 
 vi.mock('@/hooks/seoHelpers', () => ({
@@ -42,6 +43,7 @@ vi.mock('@/services/router', () => ({
   isArticleSectionRoute: vi.fn(() => false),
   buildAllLocalePaths: vi.fn(() => ({ it: '/', en: '/en/', de: '/de/', fr: '/fr/' })),
   getSeoSection: vi.fn(() => 'home'),
+  isApplicationConciergePath: vi.fn(() => false),
   updatePathForLocale: vi.fn(),
   scrollToAnchor: vi.fn(() => false),
   getHashSection: vi.fn((_keys: readonly string[], fallback: string) => fallback),
@@ -49,6 +51,14 @@ vi.mock('@/services/router', () => ({
   resolveBlogSlug: vi.fn(() => undefined),
   ALL_GLOSSARY_TERM_IDS: [],
   ALL_BORDER_CROSSING_IDS: [],
+}));
+
+vi.mock('@/components/community/JobBoard', () => ({
+  default: () => React.createElement('main', { id: 'main-content' }, 'hydrated job board'),
+}));
+
+vi.mock('@/components/shared/GptJobBoardBootstrap', () => ({
+  default: () => null,
 }));
 
 vi.mock('@/services/recaptchaService', () => ({
@@ -240,5 +250,35 @@ describe('Regression: footer position on staticOverlay SEO pages (Bug A portal f
     window.history.replaceState(null, '', '/guida/contratti-di-lavoro/');
     rerender(<App />);
     expect(staticMain.isConnected).toBe(false);
+  });
+
+  it('hands the expired static fallback to the hydrated job-board route', () => {
+    const expiredPath = '/cerca-lavoro-ticino/crew-mcdonalds-switzerland-morbio-inferiore-p8-319611-6/';
+    window.history.replaceState(null, '', expiredPath);
+    mockParsePath.mockImplementation(() => ({
+      route: {
+        activeTab: 'job-board' as const,
+        jobBoardCanton: 'TI' as const,
+        jobSlug: 'crew-mcdonalds-switzerland-morbio-inferiore-p8-319611-6',
+      },
+      locale: 'it' as const,
+    }));
+
+    const staticMain = document.createElement('main');
+    staticMain.className = 'seo-static-content';
+    staticMain.dataset.expiredStaticBody = 'true';
+    staticMain.dataset.expiredStaticPath = expiredPath;
+    document.body.insertBefore(staticMain, footerRootDiv);
+
+    const staticFooter = document.createElement('footer');
+    staticFooter.dataset.staticFooter = 'true';
+    footerRootDiv.appendChild(staticFooter);
+
+    render(<App />, { container: rootDiv });
+
+    expect(staticMain.isConnected).toBe(false);
+    expect(staticFooter.isConnected).toBe(false);
+    expect(rootDiv.querySelector('#main-content')).not.toBeNull();
+    expect(footerRootDiv.querySelector('footer:not([data-static-footer])')).not.toBeNull();
   });
 });

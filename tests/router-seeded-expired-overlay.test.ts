@@ -25,17 +25,17 @@ afterEach(() => {
   window.history.replaceState(null, '', '/');
 });
 
-describe('router — seeded expired-job static overlay', () => {
-  it('keeps the legacy Ticino expired body outside the hydrated SPA main', async () => {
+describe('router — seeded expired-job hydration handoff', () => {
+  it('routes the matching expired seed through the hydrated JobExpiredView', async () => {
     const { parsePath } = await loadRouterWithExpiredSeed();
     const parsed = parsePath(EXPIRED_PATH);
 
     expect(parsed.route).toMatchObject({
       activeTab: 'job-board',
       jobBoardCanton: 'TI',
-      staticOverlay: true,
+      jobSlug: EXPIRED_SLUG,
     });
-    expect(parsed.route.jobSlug).toBeUndefined();
+    expect(parsed.route.staticOverlay).toBeFalsy();
     expect(parsed.notFoundPath).toBeUndefined();
   });
 
