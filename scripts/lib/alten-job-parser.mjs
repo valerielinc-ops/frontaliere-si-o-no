@@ -10,6 +10,72 @@ function compact(text = '') {
   return String(text || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+const ALTEN_LOCALE_PATH_RE = /^(?:it|en|de|fr)(?:-[a-z]{2})?$/i;
+
+function altenRouteSegments(pathname = '') {
+  const rawSegments = String(pathname || '').split('/');
+  const start = rawSegments[0] === '' ? 1 : 0;
+  const end = rawSegments.at(-1) === '' ? -1 : rawSegments.length;
+  const segments = rawSegments.slice(start, end);
+  return segments.some((segment) => segment === '') ? null : segments;
+}
+
+function altenJobRoute(pathname, isApply) {
+  const segments = altenRouteSegments(pathname);
+  if (!segments) return null;
+  if (isApply && segments.pop()?.toLowerCase() !== 'apply') return null;
+  if (segments.length < 2 || segments.at(-2)?.toLowerCase() !== 'jobs') return null;
+  const slug = segments.at(-1);
+  return slug ? { prefix: segments.slice(0, -2), slug } : null;
+}
+
+function sameAltenRoutePrefix(first, second) {
+  if (first.length === second.length && first.every((segment, index) => segment === second[index])) return true;
+  const withoutLeadingLocale = (prefix) => ALTEN_LOCALE_PATH_RE.test(prefix[0] || '')
+    ? prefix.slice(1)
+    : prefix;
+  const firstBase = withoutLeadingLocale(first);
+  const secondBase = withoutLeadingLocale(second);
+  return Boolean(firstBase && secondBase)
+    && firstBase.length === secondBase.length
+    && firstBase.every((segment, index) => segment === secondBase[index]);
+}
+
+/**
+ * ALTEN has emitted both `/apply` and `/apply/`, sometimes with a locale
+ * query. Select only an apply route for this detail page: a generic first
+ * `Apply` link or another job's route must not become the posting's target.
+ */
+function altenApplyHref(document, pageUrl) {
+  let detail;
+  try {
+    detail = new URL(String(pageUrl || ''));
+  } catch {
+    return '';
+  }
+  const detailRoute = altenJobRoute(detail.pathname, false);
+  if (!detailRoute) return '';
+
+  const matches = new Map();
+  for (const anchor of Array.from(document.querySelectorAll('a[href]'))) {
+    const rawHref = String(anchor.getAttribute('href') || '').trim();
+    if (!rawHref) continue;
+    let target;
+    try {
+      target = new URL(rawHref, detail);
+    } catch {
+      continue;
+    }
+    if (target.origin !== detail.origin) continue;
+    const targetRoute = altenJobRoute(target.pathname, true);
+    if (!targetRoute
+      || targetRoute.slug !== detailRoute.slug
+      || !sameAltenRoutePrefix(targetRoute.prefix, detailRoute.prefix)) continue;
+    matches.set(target.href, target.href);
+  }
+  return matches.size === 1 ? matches.keys().next().value : '';
+}
+
 function slugify(value = '') {
   return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
@@ -145,7 +211,7 @@ export function parseAltenDetailHtml(html = '', pageUrl = '') {
   const document = dom.window.document;
   const root = document.querySelector('.wp-block-jobboard-offer') || document.querySelector('.entry-content') || document.body;
   const title = compact(document.querySelector('h1')?.textContent || document.querySelector('h2.wp-block-post-title')?.textContent || '');
-  const applyUrl = document.querySelector('a[href$="/apply"]')?.getAttribute('href') || '';
+  const applyUrl = altenApplyHref(document, pageUrl);
   // Strip the leading "Location" label and ANY trailing prose:
   //   1. `[class*="location"]` selector (loose) sometimes matches the
   //      requirements <p> when ALTEN inlines "Location: Zürich, Switzerland."
