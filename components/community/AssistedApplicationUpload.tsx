@@ -4,6 +4,7 @@ import { CheckCircle2, CreditCard, Eye, FileText, Loader2, LockKeyhole, UploadCl
 import { useLocale, useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
+import { trackAssistedApplicationCompletionOnce } from '@/services/assistedApplicationCompletionTracking';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import {
@@ -215,7 +216,7 @@ export default function AssistedApplicationUpload({
         setStatus('paid');
         if (!paymentCompletionTracked.current) {
           paymentCompletionTracked.current = true;
-          trackAssistedApplicationEvent('checkout_completed', {
+          trackAssistedApplicationCompletionOnce(orderId, {
             ...orderEventContext(data),
             price_eur_cents: Number(data.amountTotal ?? ASSISTED_APPLICATION_PRICE_EUR_CENTS),
           });
