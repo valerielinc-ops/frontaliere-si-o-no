@@ -4,20 +4,20 @@
   "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "0eb2c88a7a8f40003d09d8a04b3ecfc2385a78ff",
+  "sourceCommit": "4d45eb37fcb26b3084437061d4f19f86b5a870d4",
   "artifactObservation": {
     "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
     "sourceRef": "main",
-    "sourceCommit": "0eb2c88a7a8f40003d09d8a04b3ecfc2385a78ff"
+    "sourceCommit": "4d45eb37fcb26b3084437061d4f19f86b5a870d4"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 659,
+  "crawlerCount": 660,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:2a8739bd295795c8b4214e205c75ad8b66f4991ccef229a96ad14c618da7594c",
+    "rosterDigest": "sha256:45a23855d7e5a01bae186af942fa6b61e358df599a7be26923113410997df61d",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -236,6 +236,7 @@
     "scripts/update-fmi-jobs.mjs",
     "scripts/update-fondation-domus-jobs.mjs",
     "scripts/update-fondation-soins-lausanne-jobs.mjs",
+    "scripts/update-fondazione-san-gottardo-jobs.mjs",
     "scripts/update-forel-klinik-jobs.mjs",
     "scripts/update-franklin-university-jobs.mjs",
     "scripts/update-fusalp-jobs.mjs",
@@ -693,8 +694,8 @@
     {
       "file": "crawler-group-02.yml",
       "sourceLogic": "crawler-group-02-logic.yml",
-      "sourceSha256": "0933549e0f2c9ba79240bc7917bcb58d89f5e952d0fbdc9195b65935291aa423",
-      "artifactSha256": "e174400525e151034a9c1d503d0c2d4ea191073924d813780a6158bfbbc22ccc",
+      "sourceSha256": "734498b4aa196ba063fb6be653dde6bf752f306ff23c4ec530a9490ecabea3db",
+      "artifactSha256": "a87fe697958806c397e988a2e1e2f3813d0ba7122d311cfd911811745166cb6f",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "roche",
@@ -725,7 +726,8 @@
         "fart",
         "mcm-group",
         "grischapersonal",
-        "oscam"
+        "oscam",
+        "fondazione-san-gottardo"
       ]
     },
     {

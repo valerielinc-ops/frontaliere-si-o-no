@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 659,
+  "crawlerCount": 660,
   "groups": {
     "10": [
       "atec-personal",
@@ -465,6 +465,7 @@
       "chicco-doro",
       "cordenpharma",
       "fart",
+      "fondazione-san-gottardo",
       "galenica",
       "globus",
       "grischapersonal",
@@ -927,6 +928,7 @@
     "fnz": "data/jobs/by-crawler/fnz.json",
     "fondation-domus": "data/jobs/by-crawler/fondation-domus.json",
     "fondation-soins-lausanne": "data/jobs/by-crawler/fondation-soins-lausanne.json",
+    "fondazione-san-gottardo": "data/jobs/by-crawler/fondazione-san-gottardo.json",
     "forel-klinik": "data/jobs/by-crawler/forel-klinik.json",
     "franklin-university": "data/jobs/by-crawler/franklin-university.json",
     "fusalp": "data/jobs/by-crawler/fusalp.json",
@@ -1372,5 +1374,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:2a8739bd295795c8b4214e205c75ad8b66f4991ccef229a96ad14c618da7594c"
+  "digest": "sha256:45a23855d7e5a01bae186af942fa6b61e358df599a7be26923113410997df61d"
 }
