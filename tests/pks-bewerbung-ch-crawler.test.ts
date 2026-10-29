@@ -24,8 +24,15 @@ describe('pks-bewerbung crawler parser', () => {
       expect(isPksBewerbungChJob({ company: 'pks-bewerbung' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isPksBewerbungChJob({ url: 'https://pks-personal.ch/jobs/123' })).toBe(true);
+    it('does not infer ownership from the shared source domain', () => {
+      expect(isPksBewerbungChJob({ url: 'https://pks-personal.ch/jobs/123' })).toBe(false);
+    });
+
+    it('rejects the other PKS source key even on the shared source domain', () => {
+      expect(isPksBewerbungChJob({
+        url: 'https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php',
+        companyKey: 'elektriker-elektromonteur-jobs-ch',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

@@ -11,14 +11,15 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { canonicalizeJobUrl, detectLang } from './dedicated-crawler-common.mjs';
+import { normalizeKey } from './company-key.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import {
   resolveSourceBackedSwissGeography,
-  sourceBackedSwissGeographyFields,
+  sourceBackedSwissJobAddressFields,
 } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -46,19 +47,18 @@ function normalizeSpace(s = '') {
  * Used by the template to filter this company's jobs from the global dataset.
  */
 export function isPksBewerbungChJob(job) {
-  const key = normalize(job?.companyKey || job?.company || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+  const declaredCompanyKey = normalizeKey(job?.companyKey || '');
+  if (declaredCompanyKey) {
+    return declaredCompanyKey === PKS_BEWERBUNG_CH_KEY
+      || declaredCompanyKey.startsWith(`${PKS_BEWERBUNG_CH_KEY}-`);
+  }
+  const key = normalizeKey(job?.company || '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === PKS_BEWERBUNG_CH_KEY ||
     key.startsWith('pks-bewerbung-ch-') ||
-    company.includes('pks-bewerbung') ||
-    url.includes('pks-personal.ch')
+    company.includes('pks-bewerbung')
   );
 }
 
@@ -154,9 +154,7 @@ export async function fetchAllPksBewerbungChJobs() {
     };
     const resolvedGeography = resolveSourceBackedSwissGeography(listing);
     const geography = resolvedGeography
-      && (typeof sourceBackedSwissGeographyFields === 'function'
-        ? sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography)
-        : resolvedGeography);
+      && sourceBackedSwissJobAddressFields(sourceGeographyEvidence, resolvedGeography);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
@@ -175,7 +173,8 @@ export async function fetchAllPksBewerbungChJobs() {
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
-    const publicUrl = listing.url;
+    const rawUrl = String(listing.url || '').trim();
+    const publicUrl = canonicalizeJobUrl(rawUrl) || rawUrl;
     const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'de');
@@ -208,8 +207,8 @@ export async function fetchAllPksBewerbungChJobs() {
       addressRegion: normalizeSpace(addressRegion || canton),
       addressCountry: normalizeSpace(addressCountry || 'CH'),
       country: normalizeSpace(addressCountry || 'CH'),
-      ...(postalCode ? { postalCode: normalizeSpace(postalCode) } : {}),
-      ...(streetAddress ? { streetAddress: normalizeSpace(streetAddress) } : {}),
+      postalCode: normalizeSpace(postalCode),
+      streetAddress: normalizeSpace(streetAddress),
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'
