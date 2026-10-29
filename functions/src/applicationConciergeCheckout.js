@@ -300,7 +300,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
             || (session.metadata?.product && session.metadata.product !== APPLICATION_CONCIERGE_PRODUCT)) {
             return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
           }
-          if (session.status === 'open' && session.url) {
+          if (session.status === 'open' && session.payment_status !== 'paid' && session.url) {
             return { status: 200, body: { ok: true, url: session.url, serviceId: resumeServiceId } };
           }
           if (session.status === 'complete' || session.payment_status === 'paid') {

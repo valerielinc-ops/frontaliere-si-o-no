@@ -332,9 +332,9 @@ describe('application concierge checkout', () => {
     expect(mocks.store.get(order.key)).toMatchObject({ sumupCheckoutId: 'sumup-old', checkoutAttempt: 3 });
   });
 
-  it.each(['paid', 'unpaid'])('reconciles a completed Stripe session with payment status %s', async (payment_status) => {
+  it.each([['complete', 'paid'], ['complete', 'unpaid'], ['open', 'paid']])('reconciles Stripe status %s with payment status %s', async (status, payment_status) => {
     const order = pendingService('stripe');
-    mocks.stripeCheckoutSessionsRetrieve.mockResolvedValue({ id: 'cs_old', status: 'complete', payment_status,
+    mocks.stripeCheckoutSessionsRetrieve.mockResolvedValue({ id: 'cs_old', status, payment_status, url: 'https://checkout.stripe.com/cs_old',
       amount_total: 3999, currency: 'eur', metadata: { product: 'application_concierge', serviceId: order.serviceId } });
     const result = await handleCreateApplicationConciergeCheckout(order.request());
     expect(result).toMatchObject({ status: 200, body: { url: expect.stringContaining(order.serviceId) } });
