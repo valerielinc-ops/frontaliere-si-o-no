@@ -665,6 +665,11 @@ export async function handleApplicationConciergeWebhookEvent(
     const snapshot = await transaction.get(serviceRef);
     const service = snapshot.exists ? snapshot.data() || {} : null;
     if (!snapshot.exists || shouldIgnoreWebhook(service, obj.id, paymentProvider, event.type)) return;
+    // Check again inside the transaction: a replacement may have been
+    // reserved after the SumUp callback's initial read, even with a stale TTL.
+    if (paymentProvider === SUMUP_PAYMENT_PROVIDER
+      && String(service.checkoutSessionStatus || '').toLowerCase() === 'creating'
+      && paymentStatus !== 'paid') return;
     transaction.set(serviceRef, update, { merge: true });
   });
   return true;
