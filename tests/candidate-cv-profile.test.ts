@@ -726,6 +726,9 @@ describe('dated historical positions as matching evidence', () => {
     ].join('\n'));
     expect(profile.previousPositions).toEqual(['Consulente HR', 'Consulente commerciale Legale', 'Sales account']);
     expect(scoreJobForProfile({ title: 'Sales Representative B2B', category: 'sales' }, profile).score).toBeGreaterThan(0);
+    expect(scoreJobForProfile({ title: 'Consulente del personale nel settore delle finiture' }, profile).score).toBeGreaterThan(0);
+    expect(scoreJobForProfile({ title: 'Responsabile manutenzione e assistenza post-vendita tecnica edile' }, profile).score).toBe(0);
+    expect(scoreJobForProfile({ title: 'Salesforce Developer' }, profile).score).toBe(0);
     expect(scoreJobForProfile({ title: 'Senior Manager Business Tax Advisory Tax Legal', category: 'tax' }, profile).score).toBe(0);
     expect(scoreJobForProfile({ title: 'Intern Transfer Pricing Tax Legal', category: 'tax' }, profile).score).toBe(0);
   });

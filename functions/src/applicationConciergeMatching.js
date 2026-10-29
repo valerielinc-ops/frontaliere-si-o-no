@@ -43,12 +43,16 @@ const STOP_WORDS = new Set([
 ]);
 const SHORT_TECH_TOKENS = new Set(['it', 'ict', 'cio', 'sap', 'aws', 'gcp', 'erp', 'crm', 'sql', 'api', 'qa', 'hr', 'ai', 'ml']);
 const ROLE_SIGNAL_POINTS = Object.freeze({
+  commercial_sales: 22,
+  recruiting: 22,
   technology_management: 28,
   enterprise_applications: 16,
   application_management: 28,
   technology_strategy: 14,
 });
 const ROLE_SIGNAL_LABELS = Object.freeze({
+  commercial_sales: 'vendite e sviluppo commerciale',
+  recruiting: 'selezione del personale',
   technology_management: 'gestione IT',
   enterprise_applications: 'applicazioni aziendali',
   application_management: 'gestione applicazioni',
@@ -170,6 +174,8 @@ function roleSignals(value) {
   const hasApplications = /\b(?:application|applications|applicativo|applicativi|applicative|business systems|enterprise systems)\b/.test(text);
   const hasStrategy = /\b(?:strategy|strategic|operating model|governance|portfolio)\b/.test(text);
   const signals = new Set();
+  if (/\b(?:sales|commerciale|commerciali|venditore|venditrice|consulente vendita|addett[oa] vendite|account executive|business development|vertrieb)\b/.test(text)) signals.add('commercial_sales');
+  if (/\b(?:hr|human resources|risorse umane|recruiter|recruiting|consulente del personale|personalberater)\b/.test(text)) signals.add('recruiting');
   if (hasTechnology && hasManagement) signals.add('technology_management');
   if (hasTechnology && hasApplications) signals.add('enterprise_applications');
   if (hasApplications && hasManagement) signals.add('application_management');
