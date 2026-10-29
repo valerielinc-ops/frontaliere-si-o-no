@@ -979,12 +979,12 @@
     },
     {
       "id": "stellentreff-f70c866181aa",
-      "slug": "zimmermann-zimmerin-service-frauenfeld-thurgau-stellentreff-ch",
+      "slug": "carpentiere-carpentiera-servizio-stellentreff-ag-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-service-frauenfeld-thurgau-stellentreff-ch",
-        "it": "zimmermann-zimmerin-service-frauenfeld-thurgau-stellentreff-ch",
-        "en": "zimmermann-zimmerin-service-frauenfeld-thurgau-stellentreff-ch",
-        "fr": "zimmermann-zimmerin-service-frauenfeld-thurgau-stellentreff-ch"
+        "it": "carpentiere-carpentiera-servizio-stellentreff-ag-frauenfeld-thurgau",
+        "en": "carpenter-service-stellentreff-ag-frauenfeld-thurgau",
+        "fr": "charpentier-charpentiere-service-stellentreff-ag-frauenfeld-thurgau"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -1043,7 +1043,21 @@
       },
       "postalCode": "8500",
       "firstSeenAt": "2026-10-28T22:24:35.050Z",
-      "translationHoldSince": "2026-10-28T22:24:58.798Z"
+      "translationHoldReleasedAt": "2026-10-29T02:19:54.765Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-zimmerin-service-frauenfeld-thurgau-stellentreff-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-service-frauenfeld-thurgau-stellentreff-ch"
+        ],
+        "fr": [
+          "zimmermann-zimmerin-service-frauenfeld-thurgau-stellentreff-ch"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-zimmerin-service-frauenfeld-thurgau-stellentreff-ch"
+      ]
     },
     {
       "id": "stellentreff-9131a39cba76",
@@ -4924,12 +4938,12 @@
     },
     {
       "id": "stellentreff-a66c776245ff",
-      "slug": "schreiner-in-per-anspruchsvollen-innenausbau-stellentreff-ag-luzern",
+      "slug": "falegname-per-lavori-di-finitura-d-interni-di-alto-livello-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
         "de": "schreiner-in-fur-anspruchsvollen-innenausbau-luzern-luzern-stellentreff-ch",
-        "it": "schreiner-in-per-anspruchsvollen-innenausbau-stellentreff-ag-luzern",
-        "en": "schreiner-in-fur-anspruchsvollen-innenausbau-luzern-luzern-stellentreff-ch",
-        "fr": "schreiner-in-fur-anspruchsvollen-innenausbau-luzern-luzern-stellentreff-ch"
+        "it": "falegname-per-lavori-di-finitura-d-interni-di-alto-livello-stellentreff-ag-luzern-luzern",
+        "en": "carpenter-for-demanding-interior-fit-outs-stellentreff-ag-luzern-luzern",
+        "fr": "menuisier-ere-pour-des-amenagements-interieurs-exigeants-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -4976,25 +4990,27 @@
       "previousSlugs": [
         "falegname-a-per-la-realizzazione-di-interni-complessi-stellentreff-ag-luzern-luzern",
         "carpenter-for-demanding-interior-finishing-stellentreff-ag-luzern-luzern",
-        "menuisier-ere-pour-des-amenagements-interieurs-exigeants-stellentreff-ag-luzern-luzern",
         "carpentiere-per-un-design-di-interni-esigenti-stellentreff-ag-luzern-luzern",
         "carpenters-for-demanding-interior-design-stellentreff-ag-luzern-luzern",
         "charpentiers-pour-un-design-d-interieur-exigeant-stellentreff-ag-luzern-luzern",
-        "schreiner-in-fur-anspruchsvollen-innenausbau-luzern-luzern-stellentreff-ch"
+        "schreiner-in-fur-anspruchsvollen-innenausbau-luzern-luzern-stellentreff-ch",
+        "schreiner-in-per-anspruchsvollen-innenausbau-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "falegname-a-per-la-realizzazione-di-interni-complessi-stellentreff-ag-luzern-luzern",
           "carpentiere-per-un-design-di-interni-esigenti-stellentreff-ag-luzern-luzern",
-          "schreiner-in-fur-anspruchsvollen-innenausbau-luzern-luzern-stellentreff-ch"
+          "schreiner-in-fur-anspruchsvollen-innenausbau-luzern-luzern-stellentreff-ch",
+          "schreiner-in-per-anspruchsvollen-innenausbau-stellentreff-ag-luzern"
         ],
         "en": [
           "carpenter-for-demanding-interior-finishing-stellentreff-ag-luzern-luzern",
-          "carpenters-for-demanding-interior-design-stellentreff-ag-luzern-luzern"
+          "carpenters-for-demanding-interior-design-stellentreff-ag-luzern-luzern",
+          "schreiner-in-fur-anspruchsvollen-innenausbau-luzern-luzern-stellentreff-ch"
         ],
         "fr": [
-          "menuisier-ere-pour-des-amenagements-interieurs-exigeants-stellentreff-ag-luzern-luzern",
-          "charpentiers-pour-un-design-d-interieur-exigeant-stellentreff-ag-luzern-luzern"
+          "charpentiers-pour-un-design-d-interieur-exigeant-stellentreff-ag-luzern-luzern",
+          "schreiner-in-fur-anspruchsvollen-innenausbau-luzern-luzern-stellentreff-ch"
         ]
       },
       "salaryMin": 69500,
@@ -8825,7 +8841,7 @@
         "it": "produktionsmechaniker-in-con-hydraulik-e-pneumatik-stellentreff-ag-hochdorf",
         "en": "production-mechanic-with-hydraulics-and-pneumatics-stellentreff-ag-hochdorf-luzern",
         "de": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-hochdorf-luzern-stellentreff-ch",
-        "fr": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-hochdorf"
+        "fr": "mecanique-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-hochdorf-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -8869,7 +8885,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-hochdorf-luzern-stellentreff-ch",
-        "mecanique-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-hochdorf-luzern"
+        "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-hochdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8880,7 +8896,7 @@
         ],
         "fr": [
           "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-hochdorf-luzern-stellentreff-ch",
-          "mecanique-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-hochdorf-luzern"
+          "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-hochdorf"
         ]
       },
       "firstSeenAt": "2026-09-28T21:42:32.518Z",
@@ -8906,7 +8922,7 @@
         "it": "meccanico-di-produzione-con-idraulica-e-pneumatica-stellentreff-ag-luzern-luzern",
         "en": "production-mechanic-with-hydraulics-and-pneumatics-stellentreff-ag-luzern-luzern",
         "de": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-stellentreff-ch",
-        "fr": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
+        "fr": "mecanicien-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -8950,8 +8966,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-stellentreff-ch",
-        "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern",
-        "mecanicien-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-luzern-luzern"
+        "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8961,7 +8976,7 @@
           "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
         ],
         "fr": [
-          "mecanicien-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-luzern-luzern"
+          "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
         ]
       },
       "salaryMin": 69500,
@@ -28443,7 +28458,7 @@
         "it": "giardinieri-avanzi-con-responsabilita-di-leadership-stellentreff-ag-zug-zug",
         "en": "gardeners-foremen-with-leadership-responsibility-stellentreff-ag-zug-zug",
         "de": "gartner-in-8211-vorarbeiter-in-mit-fuhrungsverantwortung-zug-zug-stellentreff-ch",
-        "fr": "jardinier-ere-chef-fe-d-equipe-avec-responsabilites-d-encadrement-stellentreff-ag-zug"
+        "fr": "jardiniers-contremaitres-a-responsabilite-de-direction-stellentreff-ag-zug-zug"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -28488,7 +28503,7 @@
       "previousSlugs": [
         "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-zug-zug-stellentreff-ch",
         "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-stellentreff-ag-zug",
-        "jardiniers-contremaitres-a-responsabilite-de-direction-stellentreff-ag-zug-zug"
+        "jardinier-ere-chef-fe-d-equipe-avec-responsabilites-d-encadrement-stellentreff-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -28499,7 +28514,7 @@
         ],
         "fr": [
           "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-stellentreff-ag-zug",
-          "jardiniers-contremaitres-a-responsabilite-de-direction-stellentreff-ag-zug-zug"
+          "jardinier-ere-chef-fe-d-equipe-avec-responsabilites-d-encadrement-stellentreff-ag-zug"
         ]
       },
       "salaryMin": 69500,
@@ -35300,9 +35315,9 @@
       "slug": "driver-del-treno-automatico-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
         "it": "driver-del-treno-automatico-stellentreff-ag-luzern-luzern",
-        "en": "automated-driver-with-driver-training-stellentreff-ag-luzern",
+        "en": "automatic-train-drivers-stellentreff-ag-luzern-luzern",
         "de": "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-luzern-luzern-stellentreff-ch",
-        "fr": "automaticien-ne-avec-formation-de-conducteur-trice-de-train-stellentreff-ag-luzern"
+        "fr": "conducteurs-automatiques-de-trains-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -35347,8 +35362,8 @@
       "previousSlugs": [
         "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-luzern-luzern-stellentreff-ch",
         "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-stellentreff-ag-luzern",
-        "automatic-train-drivers-stellentreff-ag-luzern-luzern",
-        "conducteurs-automatiques-de-trains-stellentreff-ag-luzern-luzern"
+        "automated-driver-with-driver-training-stellentreff-ag-luzern",
+        "automaticien-ne-avec-formation-de-conducteur-trice-de-train-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -35356,11 +35371,11 @@
         ],
         "en": [
           "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-stellentreff-ag-luzern",
-          "automatic-train-drivers-stellentreff-ag-luzern-luzern"
+          "automated-driver-with-driver-training-stellentreff-ag-luzern"
         ],
         "fr": [
           "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-stellentreff-ag-luzern",
-          "conducteurs-automatiques-de-trains-stellentreff-ag-luzern-luzern"
+          "automaticien-ne-avec-formation-de-conducteur-trice-de-train-stellentreff-ag-luzern"
         ]
       },
       "salaryMin": 69500,
@@ -40546,12 +40561,12 @@
     },
     {
       "id": "stellentreff-982e4131f4b0",
-      "slug": "maler-in-per-neu-e-umbauten-stellentreff-ag-luzern",
+      "slug": "pittore-pittrice-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-neu-und-umbauten-luzern-luzern-stellentreff-ch",
-        "it": "maler-in-per-neu-e-umbauten-stellentreff-ag-luzern",
-        "en": "maler-in-fur-neu-und-umbauten-luzern-luzern-stellentreff-ch",
-        "fr": "maler-in-fur-neu-und-umbauten-luzern-luzern-stellentreff-ch"
+        "it": "pittore-pittrice-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-luzern-luzern",
+        "en": "painter-for-new-builds-and-renovations-stellentreff-ag-luzern-luzern",
+        "fr": "peintre-pour-constructions-neuves-et-transformations-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -40597,31 +40612,31 @@
       },
       "previousSlugs": [
         "pittore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-luzern-luzern",
-        "peintre-pour-constructions-neuves-et-transformations-stellentreff-ag-luzern-luzern",
         "maler-in-fur-neu-und-umbauten-stellentreff-ag-luzern",
         "imbianchino-a-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-luzern-luzern",
-        "painter-for-new-builds-and-renovations-stellentreff-ag-luzern-luzern",
         "peintre-pour-constructions-neuves-et-renovations-stellentreff-ag-luzern-luzern",
         "painter-for-new-builds-and-conversions-stellentreff-ag-luzern-luzern",
         "peintre-pour-les-nouvelles-constructions-et-les-transformations-stellentreff-ag-luzern-luzern",
-        "maler-in-fur-neu-und-umbauten-luzern-luzern-stellentreff-ch"
+        "maler-in-fur-neu-und-umbauten-luzern-luzern-stellentreff-ch",
+        "maler-in-per-neu-e-umbauten-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pittore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-luzern-luzern",
           "imbianchino-a-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-luzern-luzern",
-          "maler-in-fur-neu-und-umbauten-luzern-luzern-stellentreff-ch"
+          "maler-in-fur-neu-und-umbauten-luzern-luzern-stellentreff-ch",
+          "maler-in-per-neu-e-umbauten-stellentreff-ag-luzern"
         ],
         "en": [
           "maler-in-fur-neu-und-umbauten-stellentreff-ag-luzern",
-          "painter-for-new-builds-and-renovations-stellentreff-ag-luzern-luzern",
-          "painter-for-new-builds-and-conversions-stellentreff-ag-luzern-luzern"
+          "painter-for-new-builds-and-conversions-stellentreff-ag-luzern-luzern",
+          "maler-in-fur-neu-und-umbauten-luzern-luzern-stellentreff-ch"
         ],
         "fr": [
-          "peintre-pour-constructions-neuves-et-transformations-stellentreff-ag-luzern-luzern",
           "maler-in-fur-neu-und-umbauten-stellentreff-ag-luzern",
           "peintre-pour-constructions-neuves-et-renovations-stellentreff-ag-luzern-luzern",
-          "peintre-pour-les-nouvelles-constructions-et-les-transformations-stellentreff-ag-luzern-luzern"
+          "peintre-pour-les-nouvelles-constructions-et-les-transformations-stellentreff-ag-luzern-luzern",
+          "maler-in-fur-neu-und-umbauten-luzern-luzern-stellentreff-ch"
         ]
       },
       "salaryMin": 69500,
@@ -41539,8 +41554,8 @@
       "slugByLocale": {
         "de": "malerpraktiker-in-fur-neu-und-umbauprojekte-willisau-luzern-stellentreff-ch",
         "it": "malerpraktiker-in-per-neu-e-umbauprojekte-stellentreff-ag-willisau",
-        "en": "malerpraktiker-in-per-neu-e-umbauprojekte-stellentreff-ag-willisau",
-        "fr": "malerpraktiker-in-per-neu-e-umbauprojekte-stellentreff-ag-willisau"
+        "en": "painter-for-new-build-and-renovation-projects-stellentreff-ag-willisau-luzern",
+        "fr": "praticien-ne-en-peinture-pour-des-projets-de-construction-neuve-et-de-renovation-stellentreff-ag-willisau-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -61427,7 +61442,7 @@
         "it": "pittore-con-impegni-di-ristrutturazione-stellentreff-ag-luzern-luzern",
         "en": "painter-with-demanding-renovation-projects-stellentreff-ag-luzern-luzern",
         "de": "maler-in-mit-anspruchsvollen-renovationsprojekten-luzern-luzern-stellentreff-ch",
-        "fr": "maler-in-mit-anspruchsvollen-renovationsprojekten-stellentreff-ag-luzern"
+        "fr": "peintre-avec-des-projets-de-renovation-exigeants-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -61471,7 +61486,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-mit-anspruchsvollen-renovationsprojekten-luzern-luzern-stellentreff-ch",
-        "peintre-avec-des-projets-de-renovation-exigeants-stellentreff-ag-luzern-luzern"
+        "maler-in-mit-anspruchsvollen-renovationsprojekten-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -61482,7 +61497,7 @@
         ],
         "fr": [
           "maler-in-mit-anspruchsvollen-renovationsprojekten-luzern-luzern-stellentreff-ch",
-          "peintre-avec-des-projets-de-renovation-exigeants-stellentreff-ag-luzern-luzern"
+          "maler-in-mit-anspruchsvollen-renovationsprojekten-stellentreff-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-10-07T09:44:41.997Z",
@@ -64675,12 +64690,12 @@
     },
     {
       "id": "stellentreff-9c9aff779ac5",
-      "slug": "schreinerpraktiker-in-mit-schweissarbeiten-schaffhausen-schaffhausen-stellentreff-ch",
+      "slug": "praticante-falegname-con-lavori-di-saldatura-stellentreff-ag-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "schreinerpraktiker-in-mit-schweissarbeiten-schaffhausen-schaffhausen-stellentreff-ch",
-        "it": "schreinerpraktiker-in-mit-schweissarbeiten-schaffhausen-schaffhausen-stellentreff-ch",
-        "en": "schreinerpraktiker-in-mit-schweissarbeiten-schaffhausen-schaffhausen-stellentreff-ch",
-        "fr": "schreinerpraktiker-in-mit-schweissarbeiten-schaffhausen-schaffhausen-stellentreff-ch"
+        "it": "praticante-falegname-con-lavori-di-saldatura-stellentreff-ag-schaffhausen-schaffhausen",
+        "en": "carpenter-s-assistant-with-welding-work-stellentreff-ag-schaffhausen-schaffhausen",
+        "fr": "praticien-ne-en-menuiserie-avec-travaux-de-soudage-stellentreff-ag-schaffhausen-schaffhausen"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -64739,7 +64754,21 @@
       },
       "postalCode": "8200",
       "firstSeenAt": "2026-10-28T22:24:34.751Z",
-      "translationHoldSince": "2026-10-28T22:24:58.798Z"
+      "translationHoldReleasedAt": "2026-10-29T02:19:54.765Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreinerpraktiker-in-mit-schweissarbeiten-schaffhausen-schaffhausen-stellentreff-ch"
+        ],
+        "en": [
+          "schreinerpraktiker-in-mit-schweissarbeiten-schaffhausen-schaffhausen-stellentreff-ch"
+        ],
+        "fr": [
+          "schreinerpraktiker-in-mit-schweissarbeiten-schaffhausen-schaffhausen-stellentreff-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreinerpraktiker-in-mit-schweissarbeiten-schaffhausen-schaffhausen-stellentreff-ch"
+      ]
     },
     {
       "id": "stellentreff-80159b136f91",
@@ -64915,12 +64944,12 @@
     },
     {
       "id": "stellentreff-bf81c5b5a6e7",
-      "slug": "logistiker-in-per-wareneingang-con-palettenrolli-stellentreff-ag-sursee",
+      "slug": "addetto-a-alla-logistica-per-il-ricevimento-merci-con-transpallet-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
         "de": "logistiker-in-fur-wareneingang-mit-palettenrolli-sursee-luzern-stellentreff-ch",
-        "it": "logistiker-in-per-wareneingang-con-palettenrolli-stellentreff-ag-sursee",
-        "en": "logistiker-in-fur-wareneingang-mit-palettenrolli-sursee-luzern-stellentreff-ch",
-        "fr": "logistiker-in-fur-wareneingang-mit-palettenrolli-sursee-luzern-stellentreff-ch"
+        "it": "addetto-a-alla-logistica-per-il-ricevimento-merci-con-transpallet-stellentreff-ag-sursee-luzern",
+        "en": "logistics-worker-for-incoming-goods-with-pallet-truck-stellentreff-ag-sursee-luzern",
+        "fr": "logisticien-ne-pour-la-reception-des-marchandises-avec-transpalette-stellentreff-ag-sursee-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -64966,11 +64995,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-fur-wareneingang-mit-palettenrolli-sursee-luzern-stellentreff-ch",
+          "logistiker-in-per-wareneingang-con-palettenrolli-stellentreff-ag-sursee"
+        ],
+        "en": [
+          "logistiker-in-fur-wareneingang-mit-palettenrolli-sursee-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "logistiker-in-fur-wareneingang-mit-palettenrolli-sursee-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-fur-wareneingang-mit-palettenrolli-sursee-luzern-stellentreff-ch"
+        "logistiker-in-fur-wareneingang-mit-palettenrolli-sursee-luzern-stellentreff-ch",
+        "logistiker-in-per-wareneingang-con-palettenrolli-stellentreff-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -64987,16 +65024,16 @@
       },
       "postalCode": "6210",
       "firstSeenAt": "2026-10-28T22:24:34.750Z",
-      "translationHoldSince": "2026-10-28T22:24:58.798Z"
+      "translationHoldReleasedAt": "2026-10-29T02:19:54.765Z"
     },
     {
       "id": "stellentreff-2f5f81f61778",
-      "slug": "schreiner-in-per-innenausbau-e-laborbau-stellentreff-ag-zurich",
+      "slug": "falegname-per-allestimenti-interni-e-costruzione-di-laboratori-stellentreff-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-innenausbau-und-laborbau-zurich-zurich-stellentreff-ch",
-        "it": "schreiner-in-per-innenausbau-e-laborbau-stellentreff-ag-zurich",
-        "en": "schreiner-in-fur-innenausbau-und-laborbau-zurich-zurich-stellentreff-ch",
-        "fr": "schreiner-in-fur-innenausbau-und-laborbau-zurich-zurich-stellentreff-ch"
+        "it": "falegname-per-allestimenti-interni-e-costruzione-di-laboratori-stellentreff-ag-zurich-zurich",
+        "en": "carpenter-for-interior-finishing-and-laboratory-construction-stellentreff-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-l-amenagement-interieur-et-la-construction-de-laboratoires-stellentreff-ag-zurich-zurich"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -65042,11 +65079,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-innenausbau-und-laborbau-zurich-zurich-stellentreff-ch",
+          "schreiner-in-per-innenausbau-e-laborbau-stellentreff-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-innenausbau-und-laborbau-zurich-zurich-stellentreff-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-innenausbau-und-laborbau-zurich-zurich-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-und-laborbau-zurich-zurich-stellentreff-ch"
+        "schreiner-in-fur-innenausbau-und-laborbau-zurich-zurich-stellentreff-ch",
+        "schreiner-in-per-innenausbau-e-laborbau-stellentreff-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -65063,16 +65108,16 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-28T22:24:34.751Z",
-      "translationHoldSince": "2026-10-28T22:24:58.798Z"
+      "translationHoldReleasedAt": "2026-10-29T02:19:54.765Z"
     },
     {
       "id": "stellentreff-4e2a7e7b232a",
-      "slug": "schreiner-in-per-montage-von-sitzbanken-e-garderoben-stellentreff-ag-schaffhausen",
+      "slug": "falegname-per-il-montaggio-di-panche-e-guardaroba-stellentreff-ag-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "schreiner-in-fur-montage-von-sitzbanken-und-garderoben-schaffhausen-schaffhausen",
-        "it": "schreiner-in-per-montage-von-sitzbanken-e-garderoben-stellentreff-ag-schaffhausen",
-        "en": "schreiner-in-fur-montage-von-sitzbanken-und-garderoben-schaffhausen-schaffhausen",
-        "fr": "schreiner-in-fur-montage-von-sitzbanken-und-garderoben-schaffhausen-schaffhausen"
+        "it": "falegname-per-il-montaggio-di-panche-e-guardaroba-stellentreff-ag-schaffhausen-schaffhausen",
+        "en": "carpenter-for-assembling-benches-and-cloakrooms-stellentreff-ag-schaffhausen-schaffhausen",
+        "fr": "menuisier-menuisiere-pour-le-montage-de-bancs-et-de-vestiaires-stellentreff-ag-schaffhausen-schaffhausen"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -65118,11 +65163,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-montage-von-sitzbanken-und-garderoben-schaffhausen-schaffhausen",
+          "schreiner-in-per-montage-von-sitzbanken-e-garderoben-stellentreff-ag-schaffhausen"
+        ],
+        "en": [
+          "schreiner-in-fur-montage-von-sitzbanken-und-garderoben-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "schreiner-in-fur-montage-von-sitzbanken-und-garderoben-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-montage-von-sitzbanken-und-garderoben-schaffhausen-schaffhausen"
+        "schreiner-in-fur-montage-von-sitzbanken-und-garderoben-schaffhausen-schaffhausen",
+        "schreiner-in-per-montage-von-sitzbanken-e-garderoben-stellentreff-ag-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -65139,16 +65192,16 @@
       },
       "postalCode": "8200",
       "firstSeenAt": "2026-10-28T22:24:34.751Z",
-      "translationHoldSince": "2026-10-28T22:24:58.798Z"
+      "translationHoldReleasedAt": "2026-10-29T02:19:54.765Z"
     },
     {
       "id": "stellentreff-268a51f848ae",
-      "slug": "schreiner-in-per-service-e-reparaturarbeiten-stellentreff-ag-sursee",
+      "slug": "falegname-per-lavori-di-assistenza-e-riparazione-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
         "de": "schreiner-in-fur-service-und-reparaturarbeiten-sursee-luzern-stellentreff-ch",
-        "it": "schreiner-in-per-service-e-reparaturarbeiten-stellentreff-ag-sursee",
-        "en": "schreiner-in-fur-service-und-reparaturarbeiten-sursee-luzern-stellentreff-ch",
-        "fr": "schreiner-in-fur-service-und-reparaturarbeiten-sursee-luzern-stellentreff-ch"
+        "it": "falegname-per-lavori-di-assistenza-e-riparazione-stellentreff-ag-sursee-luzern",
+        "en": "carpenter-for-service-and-repair-work-stellentreff-ag-sursee-luzern",
+        "fr": "menuisier-menuisiere-pour-des-travaux-de-service-et-de-reparation-stellentreff-ag-sursee-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -65194,11 +65247,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-service-und-reparaturarbeiten-sursee-luzern-stellentreff-ch",
+          "schreiner-in-per-service-e-reparaturarbeiten-stellentreff-ag-sursee"
+        ],
+        "en": [
+          "schreiner-in-fur-service-und-reparaturarbeiten-sursee-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-service-und-reparaturarbeiten-sursee-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-service-und-reparaturarbeiten-sursee-luzern-stellentreff-ch"
+        "schreiner-in-fur-service-und-reparaturarbeiten-sursee-luzern-stellentreff-ch",
+        "schreiner-in-per-service-e-reparaturarbeiten-stellentreff-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -65215,7 +65276,7 @@
       },
       "postalCode": "6210",
       "firstSeenAt": "2026-10-28T22:24:34.751Z",
-      "translationHoldSince": "2026-10-28T22:24:58.798Z"
+      "translationHoldReleasedAt": "2026-10-29T02:19:54.765Z"
     },
     {
       "id": "stellentreff-3a42e32a6928",
@@ -65301,12 +65362,12 @@
     },
     {
       "id": "stellentreff-cb32e749a205",
-      "slug": "maler-in-per-vielseitige-fassadenarbeiten-stellentreff-ag-frauenfeld",
+      "slug": "pittore-trice-per-lavori-versatili-sulle-facciate-stellentreff-ag-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "maler-in-fur-vielseitige-fassadenarbeiten-frauenfeld-thurgau-stellentreff-ch",
-        "it": "maler-in-per-vielseitige-fassadenarbeiten-stellentreff-ag-frauenfeld",
-        "en": "maler-in-fur-vielseitige-fassadenarbeiten-frauenfeld-thurgau-stellentreff-ch",
-        "fr": "maler-in-fur-vielseitige-fassadenarbeiten-frauenfeld-thurgau-stellentreff-ch"
+        "it": "pittore-trice-per-lavori-versatili-sulle-facciate-stellentreff-ag-frauenfeld-thurgau",
+        "en": "painter-for-varied-facade-work-stellentreff-ag-frauenfeld-thurgau",
+        "fr": "peintre-pour-des-travaux-de-facade-varies-stellentreff-ag-frauenfeld-thurgau"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -65352,11 +65413,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-vielseitige-fassadenarbeiten-frauenfeld-thurgau-stellentreff-ch",
+          "maler-in-per-vielseitige-fassadenarbeiten-stellentreff-ag-frauenfeld"
+        ],
+        "en": [
+          "maler-in-fur-vielseitige-fassadenarbeiten-frauenfeld-thurgau-stellentreff-ch"
+        ],
+        "fr": [
           "maler-in-fur-vielseitige-fassadenarbeiten-frauenfeld-thurgau-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-vielseitige-fassadenarbeiten-frauenfeld-thurgau-stellentreff-ch"
+        "maler-in-fur-vielseitige-fassadenarbeiten-frauenfeld-thurgau-stellentreff-ch",
+        "maler-in-per-vielseitige-fassadenarbeiten-stellentreff-ag-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -65373,7 +65442,7 @@
       },
       "postalCode": "8500",
       "firstSeenAt": "2026-10-13T21:38:49.015Z",
-      "translationHoldSince": "2026-10-28T22:24:58.798Z"
+      "translationHoldReleasedAt": "2026-10-29T02:19:54.765Z"
     },
     {
       "id": "stellentreff-dc9868169ca7",
@@ -65459,12 +65528,12 @@
     },
     {
       "id": "stellentreff-2809cf132610",
-      "slug": "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-stellentreff-ag-winterthur",
+      "slug": "carpentiere-carpentiera-operaio-a-ausiliario-a-lavori-versatili-di-carpenteria-in-legno-stellentreff-ag-winterthur",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-stellentreff-ag-winterthur",
-        "it": "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-stellentreff-ag-winterthur",
-        "en": "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-stellentreff-ag-winterthur",
-        "fr": "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-stellentreff-ag-winterthur"
+        "it": "carpentiere-carpentiera-operaio-a-ausiliario-a-lavori-versatili-di-carpenteria-in-legno-stellentreff-ag-winterthur",
+        "en": "carpenter-laborer-helper-versatile-timber-construction-work-stellentreff-ag-winterthur-zurich",
+        "fr": "charpentier-charpentiere-ouvrier-ouvriere-auxiliaire-travaux-varies-de-construction-en-bois-stellentreff-ag-winterthur"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -65523,7 +65592,21 @@
       },
       "postalCode": "8400",
       "firstSeenAt": "2026-10-28T22:24:34.750Z",
-      "translationHoldSince": "2026-10-28T22:24:58.798Z"
+      "translationHoldReleasedAt": "2026-10-29T02:19:54.765Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-stellentreff-ag-winterthur"
+        ],
+        "en": [
+          "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-stellentreff-ag-winterthur"
+        ],
+        "fr": [
+          "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-stellentreff-ag-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-zimmerin-hilfsarbeiter-in-vielseitige-holzbauarbeiten-stellentreff-ag-winterthur"
+      ]
     },
     {
       "id": "stellentreff-00c9f1b84644",
@@ -68228,7 +68311,7 @@
         "it": "elettricisti-per-il-montaggio-lavorando-in-modo-indipendente-stellentreff-ag-luzern-luzern",
         "en": "electricians-for-assembly-working-independently-stellentreff-ag-luzern-luzern",
         "de": "montage-elektriker-in-mit-selbststandiger-arbeitsweise-luzern-luzern-stellentreff-ch",
-        "fr": "electricien-ne-de-montage-avec-une-methode-de-travail-autonome-stellentreff-ag-luzern"
+        "fr": "electriciens-pour-assemblage-travaillant-independamment-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -68273,7 +68356,7 @@
       "previousSlugs": [
         "montage-elektriker-in-mit-selbststandiger-arbeitsweise-luzern-luzern-stellentreff-ch",
         "montage-elektriker-in-mit-selbststandiger-arbeitsweise-stellentreff-ag-luzern",
-        "electriciens-pour-assemblage-travaillant-independamment-stellentreff-ag-luzern-luzern"
+        "electricien-ne-de-montage-avec-une-methode-de-travail-autonome-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -68284,7 +68367,7 @@
         ],
         "fr": [
           "montage-elektriker-in-mit-selbststandiger-arbeitsweise-stellentreff-ag-luzern",
-          "electriciens-pour-assemblage-travaillant-independamment-stellentreff-ag-luzern-luzern"
+          "electricien-ne-de-montage-avec-une-methode-de-travail-autonome-stellentreff-ag-luzern"
         ]
       },
       "salaryMin": 78500,

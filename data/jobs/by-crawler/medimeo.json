@@ -84,12 +84,12 @@
     },
     {
       "id": "medimeo-cd2379a2c4eb",
-      "slug": "facharztin-facharzt-allgemeine-innere-medizin-bzw-allgemeinmedizin-80-100-hausarzt-mit",
+      "slug": "medica-specialista-medico-specialista-in-medicina-interna-generale-o-medicina-generale-80-100-medico-di-famiglia-con",
       "slugByLocale": {
-        "it": "facharztin-facharzt-allgemeine-innere-medizin-bzw-allgemeinmedizin-80-100-hausarzt-mit",
-        "en": "facharztin-facharzt-allgemeine-innere-medizin-bzw-allgemeinmedizin-80-100-hausarzt-mit",
+        "it": "medica-specialista-medico-specialista-in-medicina-interna-generale-o-medicina-generale-80-100-medico-di-famiglia-con",
+        "en": "specialist-specialist-general-internal-medicine-or-general-medicine-80-100-family-doctor-with-scheduled-times-in-the",
         "de": "facharztin-facharzt-allgemeine-innere-medizin-bzw-allgemeinmedizin-80-100-hausarzt-mit",
-        "fr": "facharztin-facharzt-allgemeine-innere-medizin-bzw-allgemeinmedizin-80-100-hausarzt-mit"
+        "fr": "specialiste-specialiste-general-medecine-interne-ou-medecine-generale-80-100-medecin-de-famille-avec-les-heures-prevues"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -145,16 +145,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-allgemeine-innere-medizin-bzw-allgemeinmedizin-80-100-hausarzt-mit"
+        ],
+        "en": [
+          "facharztin-facharzt-allgemeine-innere-medizin-bzw-allgemeinmedizin-80-100-hausarzt-mit"
+        ],
+        "fr": [
+          "facharztin-facharzt-allgemeine-innere-medizin-bzw-allgemeinmedizin-80-100-hausarzt-mit"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-allgemeine-innere-medizin-bzw-allgemeinmedizin-80-100-hausarzt-mit"
+      ]
     },
     {
       "id": "medimeo-9627bab74c05",
-      "slug": "facharzt-allgemeine-innere-medizin-allgemeinmedizin-60-100-stadt-schaffhausen-direkt-an",
+      "slug": "specialista-generale-medicina-interna-medicina-generale-60-100-citta-di-sciaffusa-direttamente-al-confine-con-la",
       "slugByLocale": {
-        "it": "facharzt-allgemeine-innere-medizin-allgemeinmedizin-60-100-stadt-schaffhausen-direkt-an",
-        "en": "facharzt-allgemeine-innere-medizin-allgemeinmedizin-60-100-stadt-schaffhausen-direkt-an",
+        "it": "specialista-generale-medicina-interna-medicina-generale-60-100-citta-di-sciaffusa-direttamente-al-confine-con-la",
+        "en": "specialist-general-internal-medicine-general-medicine-60-100-city-of-schaffhausen-directly-on-the-border-with-germany",
         "de": "facharzt-allgemeine-innere-medizin-allgemeinmedizin-60-100-stadt-schaffhausen-direkt-an",
-        "fr": "facharzt-allgemeine-innere-medizin-allgemeinmedizin-60-100-stadt-schaffhausen-direkt-an"
+        "fr": "specialiste-general-medecine-interne-medecine-generale-60-100-ville-de-schaffhausen-directement-a-la-frontiere-avec-l"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -210,16 +224,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-allgemeine-innere-medizin-allgemeinmedizin-60-100-stadt-schaffhausen-direkt-an"
+        ],
+        "en": [
+          "facharzt-allgemeine-innere-medizin-allgemeinmedizin-60-100-stadt-schaffhausen-direkt-an"
+        ],
+        "fr": [
+          "facharzt-allgemeine-innere-medizin-allgemeinmedizin-60-100-stadt-schaffhausen-direkt-an"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-allgemeine-innere-medizin-allgemeinmedizin-60-100-stadt-schaffhausen-direkt-an"
+      ]
     },
     {
       "id": "medimeo-4cb8cc84f504",
-      "slug": "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-ambulante-erwachsenen-e-alterspsychiatrie-con-option-auf-den-schwerpunkttitel-medimeo-ag-basel",
+      "slug": "medica-senior-medico-senior-psichiatria-e-psicoterapia-80-100-psichiatria-ambulatoriale-dell-eta-adulta-e-della-terza",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-ambulante-erwachsenen-e-alterspsychiatrie-con-option-auf-den-schwerpunkttitel-medimeo-ag-basel",
-        "en": "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-ambulante-erwachsenen-und",
+        "it": "medica-senior-medico-senior-psichiatria-e-psicoterapia-80-100-psichiatria-ambulatoriale-dell-eta-adulta-e-della-terza",
+        "en": "senior-physician-psychiatry-and-psychotherapy-80-100-outpatient-adult-and-old-age-psychiatry-with-option-on-the-focus",
         "de": "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-ambulante-erwachsenen-und",
-        "fr": "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-ambulante-erwachsenen-und"
+        "fr": "medecin-senior-psychiatrie-et-psychotherapie-80-100-patient-externe-psychiatrie-adulte-et-vieillesse-avec-option-sur-le"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -262,10 +290,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-ambulante-erwachsenen-und"
+        "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-ambulante-erwachsenen-und",
+        "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-ambulante-erwachsenen-e-alterspsychiatrie-con-option-auf-den-schwerpunkttitel-medimeo-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-ambulante-erwachsenen-und",
+          "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-ambulante-erwachsenen-e-alterspsychiatrie-con-option-auf-den-schwerpunkttitel-medimeo-ag-basel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-ambulante-erwachsenen-und"
+        ],
+        "fr": [
           "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-ambulante-erwachsenen-und"
         ]
       },
@@ -287,12 +323,12 @@
     },
     {
       "id": "medimeo-2b12ef9640df",
-      "slug": "leitende-arztin-leitender-arzt-psychiatrie-e-psychotherapie-80-100-medimeo-ag-bern",
+      "slug": "medica-responsabile-medico-responsabile-psichiatria-e-psicoterapia-80-100-medimeo-ag-region-bern-berner-oberland",
       "slugByLocale": {
-        "it": "leitende-arztin-leitender-arzt-psychiatrie-e-psychotherapie-80-100-medimeo-ag-bern",
-        "en": "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-80-100-region-bern-berner",
+        "it": "medica-responsabile-medico-responsabile-psichiatria-e-psicoterapia-80-100-medimeo-ag-region-bern-berner-oberland",
+        "en": "senior-physician-senior-physician-psychiatry-and-psychotherapy-80-100-medimeo-ag-region-bern-berner-oberland-emmental",
         "de": "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-80-100-region-bern-berner",
-        "fr": "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-80-100-region-bern-berner"
+        "fr": "medecin-principal-medecin-principal-psychiatrie-et-psychotherapie-80-100-medimeo-ag-region-bern-berner-oberland-emmental"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -335,10 +371,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-80-100-region-bern-berner"
+        "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-80-100-region-bern-berner",
+        "leitende-arztin-leitender-arzt-psychiatrie-e-psychotherapie-80-100-medimeo-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-80-100-region-bern-berner",
+          "leitende-arztin-leitender-arzt-psychiatrie-e-psychotherapie-80-100-medimeo-ag-bern"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-80-100-region-bern-berner"
+        ],
+        "fr": [
           "leitende-arztin-leitender-arzt-psychiatrie-und-psychotherapie-80-100-region-bern-berner"
         ]
       },

@@ -959,12 +959,12 @@
     },
     {
       "id": "sodexo-1efc2df3e0db",
-      "slug": "rezeptionist-in-100-m-w-d-sodexo-zurich-flughafen",
+      "slug": "receptionist-100-m-f-d-sodexo-suisse-sa-zurich-flughafen",
       "slugByLocale": {
-        "it": "rezeptionist-in-100-m-w-d-sodexo-zurich-flughafen",
+        "it": "receptionist-100-m-f-d-sodexo-suisse-sa-zurich-flughafen",
         "en": "rezeptionist-in-100-m-w-d-sodexo-zurich-flughafen",
         "de": "rezeptionist-in-100-m-w-d-sodexo-zurich-flughafen",
-        "fr": "rezeptionist-in-100-m-w-d-sodexo-zurich-flughafen"
+        "fr": "receptionniste-100-h-f-d-sodexo-suisse-sa-zurich-flughafen"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -1021,7 +1021,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rezeptionist-in-100-m-w-d-sodexo-zurich-flughafen"
+        ],
+        "fr": [
+          "rezeptionist-in-100-m-w-d-sodexo-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "rezeptionist-in-100-m-w-d-sodexo-zurich-flughafen"
+      ]
     }
   ]
 }

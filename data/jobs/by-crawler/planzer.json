@@ -729,12 +729,12 @@
     },
     {
       "id": "planzer-636f95dfeb5c",
-      "slug": "chauffeur-kat-b-gdp-m-w-d-planzer-domat-ems",
+      "slug": "chauffeur-cat-b-pil-m-f-d-planzer-domat-ems",
       "slugByLocale": {
         "de": "chauffeur-kat-b-gdp-m-w-d-planzer-domat-ems",
-        "it": "chauffeur-kat-b-gdp-m-w-d-planzer-domat-ems",
+        "it": "chauffeur-cat-b-pil-m-f-d-planzer-domat-ems",
         "en": "chauffeur-kat-b-gdp-m-w-d-planzer-domat-ems",
-        "fr": "chauffeur-kat-b-gdp-m-w-d-planzer-domat-ems"
+        "fr": "chauffeur-cat-b-pib-h-f-d-planzer-domat-ems"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -792,7 +792,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T21:20:08.844Z"
+      "firstSeenAt": "2026-10-28T21:20:08.844Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-b-gdp-m-w-d-planzer-domat-ems"
+        ],
+        "fr": [
+          "chauffeur-kat-b-gdp-m-w-d-planzer-domat-ems"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-b-gdp-m-w-d-planzer-domat-ems"
+      ]
     },
     {
       "id": "planzer-d326c21ccbfa",

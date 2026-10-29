@@ -3711,9 +3711,9 @@
     },
     {
       "id": "upd-0154c61f0ee5",
-      "slug": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
         "en": "assistant-psychologist-assistant-psychologist-ii-outpatient-crisis-intervention-universitare-psychiatrische-dienste-bern",
         "de": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
         "fr": "psychologue-adjoint-psychologue-adjoint-ii-intervention-de-crise-ambulatoire-universitare-psychiatrische-dienste-bern"
@@ -3762,12 +3762,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-        "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+        "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-          "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+          "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern"
@@ -8498,12 +8498,12 @@
     },
     {
       "id": "upd-0db9e7058308",
-      "slug": "dipl-pflegefachperson-o-fachperson-gesundheit-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "infermiere-a-diplomato-a-o-operatore-trice-sociosanitario-a-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-o-fachperson-gesundheit-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-oder-fachperson-gesundheit-upd-bern",
+        "it": "infermiere-a-diplomato-a-o-operatore-trice-sociosanitario-a-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-health-care-professional-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "dipl-pflegefachperson-oder-fachperson-gesundheit-upd-bern",
-        "fr": "dipl-pflegefachperson-oder-fachperson-gesundheit-upd-bern"
+        "fr": "dipl-professionnels-de-la-sante-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8549,11 +8549,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-upd-bern",
+          "dipl-pflegefachperson-o-fachperson-gesundheit-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-upd-bern"
+        ],
+        "fr": [
           "dipl-pflegefachperson-oder-fachperson-gesundheit-upd-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-oder-fachperson-gesundheit-upd-bern"
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-upd-bern",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8652,12 +8660,12 @@
     },
     {
       "id": "upd-5e945a6175c5",
-      "slug": "sachbearbeitung-frontoffice-upd-bern",
+      "slug": "servizi-di-front-office-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "it": "sachbearbeitung-frontoffice-upd-bern",
-        "en": "sachbearbeitung-frontoffice-upd-bern",
+        "it": "servizi-di-front-office-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "facilities-of-front-office-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "sachbearbeitung-frontoffice-upd-bern",
-        "fr": "sachbearbeitung-frontoffice-upd-bern"
+        "fr": "equipements-du-front-office-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8714,7 +8722,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:05:38.722Z"
+      "firstSeenAt": "2026-10-28T20:05:38.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-frontoffice-upd-bern"
+        ],
+        "en": [
+          "sachbearbeitung-frontoffice-upd-bern"
+        ],
+        "fr": [
+          "sachbearbeitung-frontoffice-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-frontoffice-upd-bern"
+      ]
     },
     {
       "id": "upd-34931edb41fb",

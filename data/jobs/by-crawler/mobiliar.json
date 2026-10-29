@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-5975298a57ce",
-      "slug": "senior-underwriter-personenversicherungen-w-m-d-mobiliar-ch",
+      "slug": "senior-underwriter-assicurazione-personale-m-f-d-die-mobiliar-zurich",
       "slugByLocale": {
-        "it": "senior-underwriter-personenversicherungen-w-m-d-mobiliar-ch",
-        "en": "senior-underwriter-personenversicherungen-w-m-d-mobiliar-ch",
+        "it": "senior-underwriter-assicurazione-personale-m-f-d-die-mobiliar-zurich",
+        "en": "senior-underwriter-personal-insurance-m-f-d-die-mobiliar-zurich",
         "de": "senior-underwriter-personenversicherungen-w-m-d-mobiliar-ch",
-        "fr": "senior-underwriter-personenversicherungen-w-m-d-mobiliar-ch"
+        "fr": "assurance-personnelle-de-l-assureur-principal-h-f-d-die-mobiliar-zurich"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -81,7 +81,21 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-underwriter-personenversicherungen-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "senior-underwriter-personenversicherungen-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "senior-underwriter-personenversicherungen-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-underwriter-personenversicherungen-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-21b55a182c40",
@@ -281,11 +295,11 @@
     },
     {
       "id": "mobiliar-779f4cebde93",
-      "slug": "specialiste-prevoyance-et-hypotheques-f-h-d-agence-generale-de-bienne-mobiliar-ch",
+      "slug": "specialista-in-previdenza-e-ipoteche-m-f-d-agenzia-generale-di-bienne-die-mobiliar-biel",
       "slugByLocale": {
-        "it": "specialiste-prevoyance-et-hypotheques-f-h-d-agence-generale-de-bienne-mobiliar-ch",
-        "en": "specialiste-prevoyance-et-hypotheques-f-h-d-agence-generale-de-bienne-mobiliar-ch",
-        "de": "specialiste-prevoyance-et-hypotheques-f-h-d-agence-generale-de-bienne-mobiliar-ch",
+        "it": "specialista-in-previdenza-e-ipoteche-m-f-d-agenzia-generale-di-bienne-die-mobiliar-biel",
+        "en": "provident-and-mortgage-specialist-m-f-d-general-agency-of-bienne-die-mobiliar-biel",
+        "de": "provident-und-hypothek-spezialist-m-w-d-generalagentur-von-bienne-die-mobiliar-biel",
         "fr": "specialiste-prevoyance-et-hypotheques-f-h-d-agence-generale-de-bienne-mobiliar-ch"
       },
       "company": "die Mobiliar",
@@ -343,7 +357,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-prevoyance-et-hypotheques-f-h-d-agence-generale-de-bienne-mobiliar-ch"
+        ],
+        "en": [
+          "specialiste-prevoyance-et-hypotheques-f-h-d-agence-generale-de-bienne-mobiliar-ch"
+        ],
+        "de": [
+          "specialiste-prevoyance-et-hypotheques-f-h-d-agence-generale-de-bienne-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-prevoyance-et-hypotheques-f-h-d-agence-generale-de-bienne-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-1c0d58d17b12",
@@ -2543,7 +2571,7 @@
       "slug": "servizio-di-campo-esperto-di-veicoli-m-f-d-die-mobiliar-xpertcenter-ag",
       "slugByLocale": {
         "it": "servizio-di-campo-esperto-di-veicoli-m-f-d-die-mobiliar-xpertcenter-ag",
-        "en": "fahrzeugexperte-aussendienst-m-w-d-die-mobiliar-xpertcenter-ag",
+        "en": "vehicle-expert-field-service-m-f-d-die-mobiliar-xpertcenter-ag",
         "de": "fahrzeugexperte-aussendienst-w-m-d-mobiliar-ch",
         "fr": "service-sur-le-terrain-expert-du-vehicule-h-f-d-die-mobiliar-xpertcenter-ag"
       },
@@ -2607,7 +2635,7 @@
       "previousSlugs": [
         "fahrzeugexperte-aussendienst-w-m-d-mobiliar-ch",
         "fahrzeugexperte-aussendienst-w-m-d-die-mobiliar-xpertcenter-ag",
-        "vehicle-expert-field-service-m-f-d-die-mobiliar-xpertcenter-ag"
+        "fahrzeugexperte-aussendienst-m-w-d-die-mobiliar-xpertcenter-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2616,7 +2644,7 @@
         ],
         "en": [
           "fahrzeugexperte-aussendienst-w-m-d-die-mobiliar-xpertcenter-ag",
-          "vehicle-expert-field-service-m-f-d-die-mobiliar-xpertcenter-ag"
+          "fahrzeugexperte-aussendienst-m-w-d-die-mobiliar-xpertcenter-ag"
         ],
         "fr": [
           "fahrzeugexperte-aussendienst-w-m-d-die-mobiliar-xpertcenter-ag"
@@ -7416,9 +7444,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7482,17 +7510,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

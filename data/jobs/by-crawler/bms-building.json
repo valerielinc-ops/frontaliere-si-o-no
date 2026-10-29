@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bms-building-055be49d0e19",
-      "slug": "verkaufsstellenleitung-sanitar-w-m-d-100-bms-building-ch",
+      "slug": "gestione-ufficio-vendita-sanitary-m-f-d-100-bms-building-materials-wil",
       "slugByLocale": {
-        "it": "verkaufsstellenleitung-sanitar-w-m-d-100-bms-building-ch",
-        "en": "verkaufsstellenleitung-sanitar-w-m-d-100-bms-building-ch",
+        "it": "gestione-ufficio-vendita-sanitary-m-f-d-100-bms-building-materials-wil",
+        "en": "sales-office-management-sanitary-m-f-d-100-bms-building-materials-wil",
         "de": "verkaufsstellenleitung-sanitar-w-m-d-100-bms-building-ch",
-        "fr": "verkaufsstellenleitung-sanitar-w-m-d-100-bms-building-ch"
+        "fr": "gestion-des-bureaux-de-vente-sanitaire-h-f-d-100-bms-building-materials-wil"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -94,15 +94,29 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsstellenleitung-sanitar-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "verkaufsstellenleitung-sanitar-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "verkaufsstellenleitung-sanitar-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsstellenleitung-sanitar-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-ac817ea5f0c7",
-      "slug": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
+      "slug": "consulente-di-vendita-interno-per-materiali-di-ingegneria-civile-al-100-m-f-d-bms-building-materials-bulle",
       "slugByLocale": {
-        "it": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
-        "en": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
-        "de": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
+        "it": "consulente-di-vendita-interno-per-materiali-di-ingegneria-civile-al-100-m-f-d-bms-building-materials-bulle",
+        "en": "internal-sales-advisor-material-100-civil-engineering-m-f-d-bms-building-materials-bulle",
+        "de": "interne-vertriebsberater-material-100-bauingenieurwesen-m-w-d-bms-building-materials-bulle",
         "fr": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
       },
       "company": "BMS Building Materials",
@@ -178,17 +192,21 @@
       "previousSlugs": [
         "materiale-consulente-di-vendita-interno-100-ingegneria-civile-m-f-d-bms-building-materials-bulle",
         "internal-sales-advisor-materials-100-civil-engineering-m-f-d-bms-building-materials-bulle",
-        "interne-verkaufsberater-materialien-100-bauingenieurwesen-m-w-d-bms-building-materials-bulle"
+        "interne-verkaufsberater-materialien-100-bauingenieurwesen-m-w-d-bms-building-materials-bulle",
+        "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "materiale-consulente-di-vendita-interno-100-ingegneria-civile-m-f-d-bms-building-materials-bulle"
+          "materiale-consulente-di-vendita-interno-100-ingegneria-civile-m-f-d-bms-building-materials-bulle",
+          "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
         ],
         "en": [
-          "internal-sales-advisor-materials-100-civil-engineering-m-f-d-bms-building-materials-bulle"
+          "internal-sales-advisor-materials-100-civil-engineering-m-f-d-bms-building-materials-bulle",
+          "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
         ],
         "de": [
-          "interne-verkaufsberater-materialien-100-bauingenieurwesen-m-w-d-bms-building-materials-bulle"
+          "interne-verkaufsberater-materialien-100-bauingenieurwesen-m-w-d-bms-building-materials-bulle",
+          "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-10-05T21:27:46.998Z",

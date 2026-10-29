@@ -467,9 +467,9 @@
     },
     {
       "id": "pictet-20eba102f671",
-      "slug": "telephonist-pictet-group-geneva",
+      "slug": "telefonia-pictet-group-geneva",
       "slugByLocale": {
-        "it": "telephonist-pictet-group-geneva",
+        "it": "telefonia-pictet-group-geneva",
         "en": "telephoneist-pictet-group-geneva",
         "de": "telefonisten-pictet-group-geneva",
         "fr": "telephonist-pictet-geneva"
@@ -517,12 +517,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "telephonist-pictet-geneva",
-        "telefonia-pictet-group-geneva"
+        "telephonist-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "telephonist-pictet-geneva",
-          "telefonia-pictet-group-geneva"
+          "telephonist-pictet-group-geneva"
         ],
         "en": [
           "telephonist-pictet-geneva"
@@ -549,11 +549,11 @@
     },
     {
       "id": "pictet-f7a17a34c9b7",
-      "slug": "technical-architect-pictet-geneva",
+      "slug": "architetto-tecnico-pictet-group-geneva",
       "slugByLocale": {
-        "it": "technical-architect-pictet-geneva",
+        "it": "architetto-tecnico-pictet-group-geneva",
         "en": "technical-architect-pictet-geneva",
-        "de": "technical-architect-pictet-geneva",
+        "de": "technischer-architekt-pictet-group-geneva",
         "fr": "technical-architecte-pictet-group-geneva"
       },
       "company": "Pictet Group",
@@ -611,7 +611,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-architect-pictet-geneva"
+        ],
+        "de": [
+          "technical-architect-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "technical-architect-pictet-geneva"
+      ]
     }
   ]
 }

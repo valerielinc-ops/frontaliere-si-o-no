@@ -1449,7 +1449,7 @@
     },
     {
       "id": "company-pe41b6",
-      "slug": "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau-pe41b6",
+      "slug": "80-100-progettazione-del-sistema-di-conversione-dc-dc-di-piombo-abb-svizzera-sede-ticino-baden-daettwil-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "(80 - 100%) Lead DC-DC Converter System Design",
       "location": "Baden-Daettwil, Aargau",
@@ -1492,10 +1492,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau-pe41b6",
+        "it": "80-100-progettazione-del-sistema-di-conversione-dc-dc-di-piombo-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "en": "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau-pe41b6",
-        "de": "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau-pe41b6",
-        "fr": "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau-pe41b6"
+        "de": "80-100-leitung-des-dc-dc-wandler-systemdesigns-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "fr": "80-100-conception-du-systeme-de-convertisseur-dc-dc-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1510,11 +1510,19 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+          "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau-pe41b6"
+        ],
+        "de": [
+          "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau-pe41b6"
+        ],
+        "fr": [
+          "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau-pe41b6"
         ]
       },
       "previousSlugs": [
-        "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+        "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "80-100-lead-dc-converter-system-design-abb-svizzera-sede-ticino-baden-daettwil-aargau-pe41b6"
       ],
       "salaryMin": 99500,
       "salaryMax": 169500,

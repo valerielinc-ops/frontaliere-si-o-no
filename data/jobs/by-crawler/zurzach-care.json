@@ -1153,7 +1153,7 @@
         "it": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
         "en": "certified-nurse-nurse-specialist-60-80-department-of-cardiology-zurzach-care-bad-zurzach",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "fr": "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
+        "fr": "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -1210,13 +1210,13 @@
         ],
         "fr": [
           "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-          "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+          "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
         ]
       },
       "previousSlugs": [
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach",
-        "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+        "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
       ],
       "firstSeenAt": "2026-10-08T21:15:07.730Z",
       "salaryMin": 70400,
@@ -5546,9 +5546,9 @@
       "slug": "sachbearbeiterin-sachbearbeiter-empfang-e-terminplanung-40-ferienvertretung-100-zurzach-care-basel",
       "slugByLocale": {
         "it": "sachbearbeiterin-sachbearbeiter-empfang-e-terminplanung-40-ferienvertretung-100-zurzach-care-basel",
-        "en": "sachbearbeiterin-sachbearbeiter-empfang-und-terminplanung-40-ferienvertretung-100-zurzach",
+        "en": "reception-and-scheduling-40-holiday-representation-100-zurzach-care-basel",
         "de": "sachbearbeiterin-sachbearbeiter-empfang-und-terminplanung-40-ferienvertretung-100-zurzach",
-        "fr": "sachbearbeiterin-sachbearbeiter-empfang-und-terminplanung-40-ferienvertretung-100-zurzach"
+        "fr": "reception-et-programmation-40-representation-de-jour-100-zurzach-care-basel"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5597,6 +5597,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-sachbearbeiter-empfang-und-terminplanung-40-ferienvertretung-100-zurzach"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-empfang-und-terminplanung-40-ferienvertretung-100-zurzach"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-empfang-und-terminplanung-40-ferienvertretung-100-zurzach"
         ]
       },
       "firstSeenAt": "2026-10-28T20:05:41.398Z",
@@ -5616,12 +5622,12 @@
     },
     {
       "id": "zurzach-care-95218a85e7ef",
-      "slug": "facharztin-facharzt-neurologie-60-100-mit-interesse-an-schlafmedizin-zurzach-care-baden",
+      "slug": "medica-specialista-medico-specialista-in-neurologia-60-100-con-interesse-per-la-medicina-del-sonno-zurzach-care-baden",
       "slugByLocale": {
-        "it": "facharztin-facharzt-neurologie-60-100-mit-interesse-an-schlafmedizin-zurzach-care-baden",
-        "en": "facharztin-facharzt-neurologie-60-100-mit-interesse-an-schlafmedizin-zurzach-care-baden",
+        "it": "medica-specialista-medico-specialista-in-neurologia-60-100-con-interesse-per-la-medicina-del-sonno-zurzach-care-baden",
+        "en": "specialist-neurology-60-100-with-interest-in-sleep-medicine-zurzach-care-baden",
         "de": "facharztin-facharzt-neurologie-60-100-mit-interesse-an-schlafmedizin-zurzach-care-baden",
-        "fr": "facharztin-facharzt-neurologie-60-100-mit-interesse-an-schlafmedizin-zurzach-care-baden"
+        "fr": "neurologie-specialisee-60-100-avec-interet-pour-la-medecine-du-sommeil-zurzach-care-baden"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5677,7 +5683,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-neurologie-60-100-mit-interesse-an-schlafmedizin-zurzach-care-baden"
+        ],
+        "en": [
+          "facharztin-facharzt-neurologie-60-100-mit-interesse-an-schlafmedizin-zurzach-care-baden"
+        ],
+        "fr": [
+          "facharztin-facharzt-neurologie-60-100-mit-interesse-an-schlafmedizin-zurzach-care-baden"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-neurologie-60-100-mit-interesse-an-schlafmedizin-zurzach-care-baden"
+      ]
     },
     {
       "id": "zurzach-care-c6f31689beff",

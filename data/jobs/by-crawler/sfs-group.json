@@ -495,7 +495,7 @@
         "it": "responsabile-prodotto-parapioggia-m-f-d-80-sfs-group-heerbrugg",
         "en": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
         "de": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
-        "fr": "responsable-produit-facades-ventilees-m-w-d-80-sfs-group-heerbrugg"
+        "fr": "gestionnaire-de-produits-rainscreen-h-f-d-80-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -543,14 +543,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
-        "gestionnaire-de-produits-rainscreen-h-f-d-80-sfs-group-heerbrugg"
+        "responsable-produit-facades-ventilees-m-w-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
         ],
         "fr": [
-          "gestionnaire-de-produits-rainscreen-h-f-d-80-sfs-group-heerbrugg"
+          "responsable-produit-facades-ventilees-m-w-d-80-sfs-group-heerbrugg"
         ]
       },
       "needsRetranslation": true,
@@ -1339,12 +1339,12 @@
     },
     {
       "id": "sfs-group-d69638cd58f9",
-      "slug": "anwendungstechniker-in-zerspanen-e-spannen-m-w-d-sfs-group-heerbrugg",
+      "slug": "tecnico-a-applicativo-a-per-la-lavorazione-ad-asportazione-di-truciolo-e-il-serraggio-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "de": "anwendungstechniker-in-zerspanen-und-spannen-m-f-d-sfs-group-heerbrugg",
-        "it": "anwendungstechniker-in-zerspanen-e-spannen-m-w-d-sfs-group-heerbrugg",
-        "en": "anwendungstechniker-in-zerspanen-und-spannen-m-f-d-sfs-group-heerbrugg",
-        "fr": "anwendungstechniker-in-zerspanen-und-spannen-m-f-d-sfs-group-heerbrugg"
+        "it": "tecnico-a-applicativo-a-per-la-lavorazione-ad-asportazione-di-truciolo-e-il-serraggio-m-f-d-sfs-group-heerbrugg",
+        "en": "application-engineer-for-machining-and-clamping-m-f-d-sfs-group-heerbrugg",
+        "fr": "technicien-ne-d-application-en-usinage-et-serrage-h-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -1392,11 +1392,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "anwendungstechniker-in-zerspanen-und-spannen-m-f-d-sfs-group-heerbrugg",
+          "anwendungstechniker-in-zerspanen-e-spannen-m-w-d-sfs-group-heerbrugg"
+        ],
+        "en": [
+          "anwendungstechniker-in-zerspanen-und-spannen-m-f-d-sfs-group-heerbrugg"
+        ],
+        "fr": [
           "anwendungstechniker-in-zerspanen-und-spannen-m-f-d-sfs-group-heerbrugg"
         ]
       },
       "previousSlugs": [
-        "anwendungstechniker-in-zerspanen-und-spannen-m-f-d-sfs-group-heerbrugg"
+        "anwendungstechniker-in-zerspanen-und-spannen-m-f-d-sfs-group-heerbrugg",
+        "anwendungstechniker-in-zerspanen-e-spannen-m-w-d-sfs-group-heerbrugg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

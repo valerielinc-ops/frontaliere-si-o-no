@@ -2373,12 +2373,12 @@
     },
     {
       "id": "spital-zofingen-2e4e5af5f4dc",
-      "slug": "leitung-aktivierung-aktivierungstherapie-spital-zofingen-zofingen",
+      "slug": "attivazione-testa-terapia-di-attivazione-spital-zofingen-zofingen",
       "slugByLocale": {
-        "it": "leitung-aktivierung-aktivierungstherapie-spital-zofingen-zofingen",
-        "en": "leitung-aktivierung-aktivierungstherapie-spital-zofingen-zofingen",
+        "it": "attivazione-testa-terapia-di-attivazione-spital-zofingen-zofingen",
+        "en": "head-activation-activation-therapy-spital-zofingen-zofingen",
         "de": "leitung-aktivierung-aktivierungstherapie-spital-zofingen-zofingen",
-        "fr": "leitung-aktivierung-aktivierungstherapie-spital-zofingen-zofingen"
+        "fr": "activation-de-la-tete-traitement-d-activation-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2434,7 +2434,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-aktivierung-aktivierungstherapie-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "leitung-aktivierung-aktivierungstherapie-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "leitung-aktivierung-aktivierungstherapie-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-aktivierung-aktivierungstherapie-spital-zofingen-zofingen"
+      ]
     }
   ]
 }

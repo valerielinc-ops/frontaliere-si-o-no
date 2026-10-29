@@ -5,11 +5,11 @@
   "jobs": [
     {
       "id": "postauto-3302f6910570",
-      "slug": "conductrice-conducteur-carpostal-transport-scolaire-postauto-echallens",
+      "slug": "driver-carpostal-school-transport-postauto-ag-echallens",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-transport-scolaire-postauto-echallens",
+        "it": "driver-carpostal-school-transport-postauto-ag-echallens",
         "en": "conductrice-conducteur-carpostal-transport-scolaire-postauto-echallens",
-        "de": "conductrice-conducteur-carpostal-transport-scolaire-postauto-echallens",
+        "de": "fahrer-carpostal-schultransport-postauto-ag-echallens",
         "fr": "conductrice-conducteur-carpostal-transport-scolaire-postauto-echallens"
       },
       "company": "PostAuto AG",
@@ -70,7 +70,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:18:26.083Z"
+      "firstSeenAt": "2026-10-28T20:18:26.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-transport-scolaire-postauto-echallens"
+        ],
+        "de": [
+          "conductrice-conducteur-carpostal-transport-scolaire-postauto-echallens"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-transport-scolaire-postauto-echallens"
+      ]
     },
     {
       "id": "postauto-a4fa6ba07499",

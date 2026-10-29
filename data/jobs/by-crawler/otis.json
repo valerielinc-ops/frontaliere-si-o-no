@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "otis-a5e88cbff8ba",
-      "slug": "group-leader-service-otis-romanel-sur-lausanne",
+      "slug": "servizio-leader-di-gruppo-otis-sa-romanel-sur-lausanne",
       "slugByLocale": {
         "fr": "group-leader-service-otis-romanel-sur-lausanne",
-        "it": "group-leader-service-otis-romanel-sur-lausanne",
+        "it": "servizio-leader-di-gruppo-otis-sa-romanel-sur-lausanne",
         "en": "group-leader-service-otis-romanel-sur-lausanne",
-        "de": "group-leader-service-otis-romanel-sur-lausanne"
+        "de": "gruppenleiterdienst-otis-sa-romanel-sur-lausanne"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -65,7 +65,18 @@
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Group-Leader-Service_20170756-1",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-28T21:49:36.129Z"
+      "firstSeenAt": "2026-10-28T21:49:36.129Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-leader-service-otis-romanel-sur-lausanne"
+        ],
+        "de": [
+          "group-leader-service-otis-romanel-sur-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "group-leader-service-otis-romanel-sur-lausanne"
+      ]
     },
     {
       "id": "otis-42245e243134",
@@ -379,8 +390,8 @@
       "slugByLocale": {
         "it": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "en": "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "de": "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-        "fr": "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
+        "de": "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+        "fr": "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -422,19 +433,18 @@
       "previousSlugs": [
         "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
         "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-        "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+        "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsreparateur-in-service-m-w-d-otis-belp"
         ],
         "de": [
-          "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "aufzugsreparateur-in-service-m-w-d-otis-sa-belp"
         ],
         "fr": [
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:43.487Z",

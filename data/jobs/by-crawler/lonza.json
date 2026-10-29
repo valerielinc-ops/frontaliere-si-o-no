@@ -9884,7 +9884,7 @@
         "it": "scienziato-senior-qc-lonza-visp",
         "en": "senior-scientist-qc-lonza-visp",
         "de": "senior-scientist-qc-lonza-ch",
-        "fr": "scientifique-senior-controle-qualite-lonza-visp"
+        "fr": "chercheur-principal-qc-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -9928,7 +9928,7 @@
       "jobReqId": "R79913",
       "previousSlugs": [
         "senior-scientist-qc-lonza-ch",
-        "chercheur-principal-qc-lonza-visp"
+        "scientifique-senior-controle-qualite-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9936,7 +9936,7 @@
         ],
         "fr": [
           "senior-scientist-qc-lonza-ch",
-          "chercheur-principal-qc-lonza-visp"
+          "scientifique-senior-controle-qualite-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-09-01T14:27:30.004Z",
@@ -13518,10 +13518,10 @@
       "id": "lonza-f22b92697afe",
       "slug": "associate-direttore-treasury-lonza-basel",
       "slugByLocale": {
-        "it": "associate-direttore-treasury-lonza-basel",
+        "it": "tesoriere-aggiunto-lonza-basel",
         "en": "deputy-treasurer-lonza-ch",
-        "de": "associate-direktor-treasury-lonza-basel",
-        "fr": "associate-directeur-treasury-lonza-basel"
+        "de": "stellvertretender-schatzmeister-lonza-basel",
+        "fr": "tresorier-adjoint-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -13566,16 +13566,15 @@
       "previousSlugsByLocale": {
         "it": [
           "deputy-treasurer-lonza-ch",
-          "tesoriere-aggiunto-lonza-basel",
           "associate-director-treasury-lonza-ch"
         ],
         "de": [
           "deputy-treasurer-lonza-ch",
-          "stellvertretender-schatzmeister-lonza-basel"
+          "associate-direktor-treasury-lonza-basel"
         ],
         "fr": [
           "deputy-treasurer-lonza-ch",
-          "tresorier-adjoint-lonza-basel"
+          "associate-directeur-treasury-lonza-basel"
         ],
         "en": [
           "associate-director-treasury-lonza-ch"
@@ -13583,10 +13582,9 @@
       },
       "previousSlugs": [
         "deputy-treasurer-lonza-ch",
-        "tesoriere-aggiunto-lonza-basel",
-        "stellvertretender-schatzmeister-lonza-basel",
-        "tresorier-adjoint-lonza-basel",
-        "associate-director-treasury-lonza-ch"
+        "associate-director-treasury-lonza-ch",
+        "associate-direktor-treasury-lonza-basel",
+        "associate-directeur-treasury-lonza-basel"
       ],
       "firstSeenAt": "2026-10-07T21:18:41.409Z",
       "salaryMin": 85500,
@@ -14620,9 +14618,9 @@
       "slug": "anlagen-e-apparatebauer-rohrleitungsbau-cfc-schlosser-80-100-m-w-d-lonza-visp",
       "slugByLocale": {
         "it": "anlagen-e-apparatebauer-rohrleitungsbau-cfc-schlosser-80-100-m-w-d-lonza-visp",
-        "en": "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch",
+        "en": "plant-and-apparatus-builder-pipeline-construction-efz-metalworker-80-100-m-f-d-lonza-visp",
         "de": "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch",
-        "fr": "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch"
+        "fr": "constructeur-rice-d-installations-et-d-appareils-construction-de-conduites-cfc-serrurier-ere-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14670,6 +14668,12 @@
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-10-28T20:11:06.775Z",
@@ -14691,10 +14695,10 @@
     },
     {
       "id": "lonza-bcd1241ad84d",
-      "slug": "operator-visuelle-inspektion-m-w-d-80-100-lonza-ch",
+      "slug": "controllo-visivo-operatore-m-f-d-80-100-lonza-stein",
       "slugByLocale": {
-        "it": "operator-visuelle-inspektion-m-w-d-80-100-lonza-ch",
-        "en": "operator-visuelle-inspektion-m-w-d-80-100-lonza-ch",
+        "it": "controllo-visivo-operatore-m-f-d-80-100-lonza-stein",
+        "en": "operator-visual-inspection-m-f-d-80-100-lonza-stein",
         "de": "operator-visuelle-inspektion-m-w-d-80-100-lonza-ch",
         "fr": "operateur-visuelle-inspektion-m-w-d-80-100-lonza-stein"
       },
@@ -14753,16 +14757,27 @@
         }
       },
       "postalCode": "4332",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "operator-visuelle-inspektion-m-w-d-80-100-lonza-ch"
+        ],
+        "en": [
+          "operator-visuelle-inspektion-m-w-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operator-visuelle-inspektion-m-w-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-362b75fbfd57",
-      "slug": "process-expert-aseptic-filling-80-100-lonza-ch",
+      "slug": "process-expert-riempimento-asettico-80-100-lonza-stein",
       "slugByLocale": {
-        "it": "process-expert-aseptic-filling-80-100-lonza-ch",
+        "it": "process-expert-riempimento-asettico-80-100-lonza-stein",
         "en": "process-expert-aseptic-filling-80-100-lonza-ch",
-        "de": "process-expert-aseptic-filling-80-100-lonza-ch",
-        "fr": "process-expert-aseptic-filling-80-100-lonza-ch"
+        "de": "prozessexperte-aseptische-abfullung-80-100-lonza-stein",
+        "fr": "expert-en-process-remplissage-aseptique-80-100-lonza-stein"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14819,7 +14834,21 @@
         }
       },
       "postalCode": "4332",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "process-expert-aseptic-filling-80-100-lonza-ch"
+        ],
+        "de": [
+          "process-expert-aseptic-filling-80-100-lonza-ch"
+        ],
+        "fr": [
+          "process-expert-aseptic-filling-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "process-expert-aseptic-filling-80-100-lonza-ch"
+      ]
     }
   ]
 }

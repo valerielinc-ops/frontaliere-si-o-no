@@ -234,12 +234,12 @@
     },
     {
       "id": "medtronic-d54be1978260",
-      "slug": "associate-occupational-nurse-medtronic-ch",
+      "slug": "infermiera-occupazionale-associata-medtronic-lausanne",
       "slugByLocale": {
-        "it": "associate-occupational-nurse-medtronic-ch",
+        "it": "infermiera-occupazionale-associata-medtronic-lausanne",
         "en": "associate-occupational-nurse-medtronic-ch",
-        "de": "associate-occupational-nurse-medtronic-ch",
-        "fr": "associate-occupational-nurse-medtronic-ch"
+        "de": "assistenzkraft-fur-arbeitsmedizinische-pflege-medtronic-lausanne",
+        "fr": "infirmiere-professionnelle-associee-medtronic-lausanne"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -300,20 +300,24 @@
         "infermiera-occupazionale-associata-medtronic-lausanne",
         "die-assoziierte-krankenschwester-medtronic-lausanne",
         "infirmiere-professionnelle-associee-medtronic-lausanne",
-        "infermiera-occupazionale-associata-medtronic-neuhausen"
+        "infermiera-occupazionale-associata-medtronic-neuhausen",
+        "associate-occupational-nurse-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermiera-occupazionale-associata-medtronic-lausanne",
           "die-assoziierte-krankenschwester-medtronic-lausanne",
           "infirmiere-professionnelle-associee-medtronic-lausanne",
-          "infermiera-occupazionale-associata-medtronic-neuhausen"
+          "infermiera-occupazionale-associata-medtronic-neuhausen",
+          "associate-occupational-nurse-medtronic-ch"
         ],
         "de": [
-          "die-assoziierte-krankenschwester-medtronic-lausanne"
+          "die-assoziierte-krankenschwester-medtronic-lausanne",
+          "associate-occupational-nurse-medtronic-ch"
         ],
         "fr": [
-          "infirmiere-professionnelle-associee-medtronic-lausanne"
+          "infirmiere-professionnelle-associee-medtronic-lausanne",
+          "associate-occupational-nurse-medtronic-ch"
         ]
       }
     },
@@ -323,8 +327,8 @@
       "slugByLocale": {
         "it": "gestione-dell-ingegneria-medtronic-lausanne",
         "en": "engineering-manager-medtronic-ch",
-        "de": "engineering-manager-medtronic-lausanne",
-        "fr": "engineering-manager-medtronic-lausanne"
+        "de": "ingenieurleiter-medtronic-lausanne",
+        "fr": "directeur-technique-medtronic-lausanne"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -369,18 +373,17 @@
       "jobReqId": "R76925",
       "previousSlugs": [
         "engineering-manager-medtronic-ch",
-        "ingenieurleiter-medtronic-lausanne",
-        "directeur-technique-medtronic-lausanne"
+        "engineering-manager-medtronic-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineering-manager-medtronic-ch"
         ],
         "de": [
-          "ingenieurleiter-medtronic-lausanne"
+          "engineering-manager-medtronic-lausanne"
         ],
         "fr": [
-          "directeur-technique-medtronic-lausanne"
+          "engineering-manager-medtronic-lausanne"
         ]
       },
       "firstSeenAt": "2026-10-05T09:16:39.040Z",

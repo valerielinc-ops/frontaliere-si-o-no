@@ -1212,9 +1212,9 @@
       "slug": "operatore-macchina-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
         "it": "operatore-macchina-m-f-d-endress-hauser-reinach",
-        "en": "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach",
+        "en": "machine-operator-m-f-d-endress-hauser-reinach",
         "de": "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-        "fr": "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
+        "fr": "operateur-de-machine-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1261,8 +1261,8 @@
       "previousSlugs": [
         "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach",
         "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-        "machine-operator-m-f-d-endress-hauser-reinach",
-        "operateur-de-machine-h-f-d-endress-hauser-reinach"
+        "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach",
+        "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1270,14 +1270,14 @@
         ],
         "en": [
           "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-          "machine-operator-m-f-d-endress-hauser-reinach"
+          "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach"
         ],
         "de": [
           "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach"
         ],
         "fr": [
           "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-          "operateur-de-machine-h-f-d-endress-hauser-reinach"
+          "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
         ]
       },
       "firstSeenAt": "2026-10-20T15:11:02.473Z",
@@ -2270,7 +2270,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "schnuppertage-informatiker-in-endress-hauser-reinach",
+        "en": "computer-science-experts-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -2317,15 +2317,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertage-informatiker-in-endress-hauser-reinach",
-        "computer-science-experts-endress-hauser-reinach"
+        "schnuppertage-informatiker-in-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "computer-science-experts-endress-hauser-reinach"
+          "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
@@ -2528,7 +2527,7 @@
       "slug": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
       "slugByLocale": {
         "it": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
-        "en": "schnuppertag-automatiker-in-endress-hauser-reinach",
+        "en": "taster-day-automation-technician-endress-hauser-reinach",
         "de": "schnuppertag-automatiker-in-endress-hauser-reinach",
         "fr": "journee-d-essai-de-l-automaticien-ne-endress-hauser-reinach"
       },
@@ -2574,15 +2573,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertag-automatiker-in-endress-hauser-reinach",
-        "taster-day-automation-technician-endress-hauser-reinach"
+        "schnuppertag-automatiker-in-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertag-automatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "taster-day-automation-technician-endress-hauser-reinach"
+          "schnuppertag-automatiker-in-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertag-automatiker-in-endress-hauser-reinach"

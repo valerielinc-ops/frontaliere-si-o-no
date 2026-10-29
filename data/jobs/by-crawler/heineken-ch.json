@@ -8,7 +8,7 @@
       "jobReqId": "149312",
       "slug": "autista-c-e-heineken-switzerland-fahrweid",
       "slugByLocale": {
-        "it": "autista-c-e-heineken-switzerland-fahrweid",
+        "it": "chauffeur-c-e-heineken-switzerland-fahrweid",
         "en": "driver-c-e-heineken-switzerland-fahrweid",
         "de": "chauffeur-c-e-heineken-ch-fahrweid",
         "fr": "conducteur-de-categorie-c-e-heineken-switzerland-fahrweid"
@@ -54,14 +54,12 @@
       "crawledAt": "2026-10-28T22:37:10.651Z",
       "previousSlugs": [
         "chauffeur-c-e-heineken-ch-fahrweid",
-        "c-c-e-heineken-switzerland-fahrweid",
-        "chauffeur-c-e-heineken-switzerland-fahrweid"
+        "c-c-e-heineken-switzerland-fahrweid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-c-e-heineken-ch-fahrweid",
-          "c-c-e-heineken-switzerland-fahrweid",
-          "chauffeur-c-e-heineken-switzerland-fahrweid"
+          "c-c-e-heineken-switzerland-fahrweid"
         ],
         "en": [
           "c-c-e-heineken-switzerland-fahrweid"
@@ -676,7 +674,7 @@
         "de": "mitarbeiter-backoffice-event-support-m-w-d-40-heineken-ch-luzern",
         "it": "collaboratore-trice-backoffice-event-support-m-w-d-40-heineken-switzerland-luzern",
         "en": "mitarbeiter-backoffice-event-support-m-w-d-40-heineken-ch-luzern",
-        "fr": "mitarbeiter-backoffice-event-support-m-w-d-40-heineken-ch-luzern"
+        "fr": "evenement-et-soutien-du-backoffice-des-employes-h-f-d-40-heineken-switzerland-luzern"
       },
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
@@ -719,6 +717,9 @@
       "crawledAt": "2026-10-28T22:36:06.655Z",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-backoffice-event-support-m-w-d-40-heineken-ch-luzern"
+        ],
+        "fr": [
           "mitarbeiter-backoffice-event-support-m-w-d-40-heineken-ch-luzern"
         ]
       },

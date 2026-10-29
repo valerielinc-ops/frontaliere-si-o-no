@@ -3104,12 +3104,12 @@
     },
     {
       "id": "buergenstock-hotels-0a796193286d",
-      "slug": "housekeeping-manager-100-m-w-d-buergenstock-hotels-obburgen",
+      "slug": "gestione-delle-pulizie-100-m-f-d-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "housekeeping-manager-100-m-w-d-buergenstock-hotels-obburgen",
+        "it": "gestione-delle-pulizie-100-m-f-d-burgenstock-hotels-ag-obburgen",
         "en": "housekeeping-manager-100-m-w-d-buergenstock-hotels-obburgen",
         "de": "housekeeping-manager-100-m-w-d-buergenstock-hotels-obburgen",
-        "fr": "housekeeping-manager-100-m-w-d-buergenstock-hotels-obburgen"
+        "fr": "gestionnaire-d-entretien-100-h-f-d-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3165,7 +3165,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:35:31.609Z"
+      "firstSeenAt": "2026-10-28T20:35:31.609Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-manager-100-m-w-d-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "housekeeping-manager-100-m-w-d-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-manager-100-m-w-d-buergenstock-hotels-obburgen"
+      ]
     }
   ]
 }

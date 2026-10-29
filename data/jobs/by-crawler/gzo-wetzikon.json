@@ -2110,12 +2110,12 @@
     },
     {
       "id": "gzo-wetzikon-998d88ac8f2b",
-      "slug": "dipl-physiotherapeut-in-mit-spezialisierung-beckenbodentherapie-20-60-gzo-wetzikon-ch",
+      "slug": "fisioterapista-diplomato-a-con-specializzazione-in-terapia-del-pavimento-pelvico-20-60-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
-        "it": "dipl-physiotherapeut-in-mit-spezialisierung-beckenbodentherapie-20-60-gzo-wetzikon-ch",
-        "en": "dipl-physiotherapeut-in-mit-spezialisierung-beckenbodentherapie-20-60-gzo-wetzikon-ch",
+        "it": "fisioterapista-diplomato-a-con-specializzazione-in-terapia-del-pavimento-pelvico-20-60-gzo-spital-wetzikon-wetzikon",
+        "en": "qualified-physiotherapist-specializing-in-pelvic-floor-therapy-20-60-gzo-spital-wetzikon-wetzikon",
         "de": "dipl-physiotherapeut-in-mit-spezialisierung-beckenbodentherapie-20-60-gzo-wetzikon-ch",
-        "fr": "dipl-physiotherapeut-in-mit-spezialisierung-beckenbodentherapie-20-60-gzo-wetzikon-ch"
+        "fr": "physiotherapeute-diplome-e-specialise-e-en-therapie-du-plancher-pelvien-20-60-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -2174,7 +2174,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-physiotherapeut-in-mit-spezialisierung-beckenbodentherapie-20-60-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-mit-spezialisierung-beckenbodentherapie-20-60-gzo-wetzikon-ch"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-mit-spezialisierung-beckenbodentherapie-20-60-gzo-wetzikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-physiotherapeut-in-mit-spezialisierung-beckenbodentherapie-20-60-gzo-wetzikon-ch"
+      ]
     }
   ]
 }

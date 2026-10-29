@@ -4429,12 +4429,12 @@
     },
     {
       "id": "hopital-du-valais-c4c1569e4abb",
-      "slug": "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques-hopital-du-valais-monthey",
+      "slug": "chief-medical-officer-assistente-clinica-100-per-psichiatric-expertise-service-hopital-du-valais-monthey",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques",
-        "it": "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques-hopital-du-valais-monthey",
-        "en": "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques",
-        "de": "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques"
+        "it": "chief-medical-officer-assistente-clinica-100-per-psichiatric-expertise-service-hopital-du-valais-monthey",
+        "en": "chief-medical-officer-assistant-clinic-100-for-psychiatric-expertise-service-hopital-du-valais-monthey",
+        "de": "chief-medical-officer-assistenzklinik-100-fur-psychiatrischen-expertise-service-hopital-du-valais-monthey"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4481,11 +4481,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques",
+          "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques-hopital-du-valais-monthey"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques"
+        ],
+        "de": [
           "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques"
         ]
       },
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques"
+        "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques",
+        "medecin-chef-fe-de-clinique-adjoint-e-100-pour-le-service-d-expertises-psychiatriques-hopital-du-valais-monthey"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -4506,12 +4514,12 @@
     },
     {
       "id": "hopital-du-valais-4e83078ad963",
-      "slug": "responsable-de-l-unite-projets-et-soutien-aux-systemes-d-information-a-80-hopital-du",
+      "slug": "unita-di-progetto-e-di-supporto-responsabile-dell-80-dei-sistemi-informativi-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "responsable-de-l-unite-projets-et-soutien-aux-systemes-d-information-a-80-hopital-du",
-        "it": "responsable-de-l-unite-projets-et-soutien-aux-systemes-d-information-a-80-hopital-du",
-        "en": "responsable-de-l-unite-projets-et-soutien-aux-systemes-d-information-a-80-hopital-du",
-        "de": "responsable-de-l-unite-projets-et-soutien-aux-systemes-d-information-a-80-hopital-du"
+        "it": "unita-di-progetto-e-di-supporto-responsabile-dell-80-dei-sistemi-informativi-hopital-du-valais-sion",
+        "en": "project-and-support-unit-responsible-for-80-information-systems-hopital-du-valais-sion",
+        "de": "projekt-und-supporteinheit-verantwortlich-fur-80-information-systems-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4571,16 +4579,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-28T21:25:14.286Z"
+      "firstSeenAt": "2026-10-28T21:25:14.286Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-l-unite-projets-et-soutien-aux-systemes-d-information-a-80-hopital-du"
+        ],
+        "en": [
+          "responsable-de-l-unite-projets-et-soutien-aux-systemes-d-information-a-80-hopital-du"
+        ],
+        "de": [
+          "responsable-de-l-unite-projets-et-soutien-aux-systemes-d-information-a-80-hopital-du"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-l-unite-projets-et-soutien-aux-systemes-d-information-a-80-hopital-du"
+      ]
     },
     {
       "id": "hopital-du-valais-e8d615fb3d46",
-      "slug": "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l-adolescent-hopital-du-valais-sion",
+      "slug": "100-assistente-medico-per-la-psichiatria-psicoterapia-infantile-e-adolescente-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l",
-        "it": "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l-adolescent-hopital-du-valais-sion",
-        "en": "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l",
-        "de": "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l"
+        "it": "100-assistente-medico-per-la-psichiatria-psicoterapia-infantile-e-adolescente-hopital-du-valais-sion",
+        "en": "100-assistant-physician-for-psychiatry-child-and-adolescent-psychotherapy-hopital-du-valais-sion",
+        "de": "100-assistenzarzt-fur-psychiatrie-kinder-und-jugendpsychotherapie-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4627,11 +4649,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l",
+          "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l-adolescent-hopital-du-valais-sion"
+        ],
+        "en": [
+          "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l"
+        ],
+        "de": [
           "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l"
+        "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l",
+        "medecin-adjoint-e-a-100-pour-le-service-de-psychiatrie-psychotherapie-de-l-enfant-et-de-l-adolescent-hopital-du-valais-sion"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

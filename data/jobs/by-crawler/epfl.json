@@ -6261,12 +6261,12 @@
     },
     {
       "id": "epfl-e2f4bbba6971",
-      "slug": "postdoctoral-position-in-mathematics-epfl-lausanne",
+      "slug": "posizione-post-dottorale-in-matematica-epfl-lausanne",
       "slugByLocale": {
         "en": "postdoctoral-position-in-mathematics-epfl-lausanne",
-        "it": "postdoctoral-position-in-mathematics-epfl-lausanne",
-        "de": "postdoctoral-position-in-mathematics-epfl-lausanne",
-        "fr": "postdoctoral-position-in-mathematics-epfl-lausanne"
+        "it": "posizione-post-dottorale-in-matematica-epfl-lausanne",
+        "de": "postdoc-stelle-in-mathematik-epfl-lausanne",
+        "fr": "poste-postdoctoral-en-mathematiques-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6325,16 +6325,30 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-28T20:05:23.066Z"
+      "firstSeenAt": "2026-10-28T20:05:23.066Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-mathematics-epfl-lausanne"
+        ],
+        "de": [
+          "postdoctoral-position-in-mathematics-epfl-lausanne"
+        ],
+        "fr": [
+          "postdoctoral-position-in-mathematics-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-mathematics-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-5703ee19921e",
-      "slug": "apprenti-e-informaticien-ne-ou-operateur-trice-en-informatique-epfl-lausanne",
+      "slug": "scienza-informatica-e-tecnologia-epfl-lausanne",
       "slugByLocale": {
         "fr": "apprenti-e-informaticien-ne-ou-operateur-trice-en-informatique-epfl-lausanne",
-        "it": "apprenti-e-informaticien-ne-ou-operateur-trice-en-informatique-epfl-lausanne",
-        "en": "apprenti-e-informaticien-ne-ou-operateur-trice-en-informatique-epfl-lausanne",
-        "de": "apprenti-e-informaticien-ne-ou-operateur-trice-en-informatique-epfl-lausanne"
+        "it": "scienza-informatica-e-tecnologia-epfl-lausanne",
+        "en": "computer-science-and-technology-epfl-lausanne",
+        "de": "informatik-und-technologie-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6393,7 +6407,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-28T20:05:22.437Z"
+      "firstSeenAt": "2026-10-28T20:05:22.437Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-informaticien-ne-ou-operateur-trice-en-informatique-epfl-lausanne"
+        ],
+        "en": [
+          "apprenti-e-informaticien-ne-ou-operateur-trice-en-informatique-epfl-lausanne"
+        ],
+        "de": [
+          "apprenti-e-informaticien-ne-ou-operateur-trice-en-informatique-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-informaticien-ne-ou-operateur-trice-en-informatique-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-7842aea044e0",

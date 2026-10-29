@@ -8,7 +8,7 @@
       "slug": "elettricista-di-impianti-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "it": "elettricista-di-impianti-lindt-sprungli-kilchberg",
-        "en": "betriebselektriker-in-lindt-sprungli-kilchberg",
+        "en": "business-electrician-lindt-sprungli-kilchberg",
         "de": "betriebselektriker-in-lindt-spruengli-kilchberg",
         "fr": "electricien-d-affaires-lindt-sprungli-kilchberg"
       },
@@ -57,8 +57,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "betriebselektriker-in-lindt-spruengli-kilchberg",
-        "betriebselektriker-in-lindt-sprungli-kilchberg",
-        "business-electrician-lindt-sprungli-kilchberg"
+        "betriebselektriker-in-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,7 +65,7 @@
           "betriebselektriker-in-lindt-sprungli-kilchberg"
         ],
         "en": [
-          "business-electrician-lindt-sprungli-kilchberg"
+          "betriebselektriker-in-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "betriebselektriker-in-lindt-sprungli-kilchberg"
@@ -93,7 +92,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
+        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -151,7 +150,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "unerbetene-anwendung-lindt-sprungli-kilchberg"
+        "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -173,7 +172,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "unerbetene-anwendung-lindt-sprungli-kilchberg"
+          "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -1344,12 +1343,12 @@
     },
     {
       "id": "lindt-spruengli-ddc1d6d88cac",
-      "slug": "buyer-packaging-100-lindt-spruengli-kilchberg",
+      "slug": "imballaggio-100-lindt-sprungli-kilchberg",
       "slugByLocale": {
-        "it": "buyer-packaging-100-lindt-spruengli-kilchberg",
+        "it": "imballaggio-100-lindt-sprungli-kilchberg",
         "en": "buyer-packaging-100-lindt-spruengli-kilchberg",
         "de": "buyer-packaging-100-lindt-spruengli-kilchberg",
-        "fr": "buyer-packaging-100-lindt-spruengli-kilchberg"
+        "fr": "emballage-de-l-acheteur-100-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1408,7 +1407,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:10:49.151Z"
+      "firstSeenAt": "2026-10-28T20:10:49.151Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "buyer-packaging-100-lindt-spruengli-kilchberg"
+        ],
+        "fr": [
+          "buyer-packaging-100-lindt-spruengli-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "buyer-packaging-100-lindt-spruengli-kilchberg"
+      ]
     },
     {
       "id": "lindt-spruengli-6687ea69e69a",

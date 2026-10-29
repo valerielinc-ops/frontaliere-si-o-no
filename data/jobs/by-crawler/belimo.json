@@ -167,12 +167,12 @@
     },
     {
       "id": "belimo-9b9248674ef3",
-      "slug": "instandhaltungsfachmann-frau-wochenendschicht-belimo-hinwil",
+      "slug": "tecnico-a-di-manutenzione-turno-del-fine-settimana-belimo-hinwil",
       "slugByLocale": {
-        "it": "instandhaltungsfachmann-frau-wochenendschicht-belimo-hinwil",
-        "en": "instandhaltungsfachmann-frau-wochenendschicht-belimo-hinwil",
+        "it": "tecnico-a-di-manutenzione-turno-del-fine-settimana-belimo-hinwil",
+        "en": "maintenance-technician-m-f-weekend-shift-belimo-hinwil",
         "de": "instandhaltungsfachmann-frau-wochenendschicht-belimo-hinwil",
-        "fr": "instandhaltungsfachmann-frau-wochenendschicht-belimo-hinwil"
+        "fr": "specialiste-de-la-maintenance-equipe-du-week-end-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -230,7 +230,21 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhaltungsfachmann-frau-wochenendschicht-belimo-hinwil"
+        ],
+        "en": [
+          "instandhaltungsfachmann-frau-wochenendschicht-belimo-hinwil"
+        ],
+        "fr": [
+          "instandhaltungsfachmann-frau-wochenendschicht-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "instandhaltungsfachmann-frau-wochenendschicht-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-6b138b852ec3",
@@ -1358,12 +1372,12 @@
     },
     {
       "id": "belimo-83e101034488",
-      "slug": "system-engineer-cloud-technologies-80-100-belimo-hinwil",
+      "slug": "ingegnere-di-sistemi-per-tecnologie-cloud-80-100-belimo-hinwil",
       "slugByLocale": {
-        "it": "system-engineer-cloud-technologies-80-100-belimo-hinwil",
+        "it": "ingegnere-di-sistemi-per-tecnologie-cloud-80-100-belimo-hinwil",
         "en": "system-engineer-cloud-technologies-80-100-belimo-hinwil",
         "de": "system-engineer-cloud-technologies-80-100-belimo-hinwil",
-        "fr": "system-engineer-cloud-technologies-80-100-belimo-hinwil"
+        "fr": "ingenieur-systemes-technologies-cloud-80-100-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -1423,7 +1437,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-cloud-technologies-80-100-belimo-hinwil"
+        ],
+        "fr": [
+          "system-engineer-cloud-technologies-80-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-cloud-technologies-80-100-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-88592d98973d",

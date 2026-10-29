@@ -469,12 +469,12 @@
     },
     {
       "id": "schulthess-klinik-ef203133631f",
-      "slug": "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich",
+      "slug": "reumatologia-medico-senior-schulthess-klinik-zurich",
       "slugByLocale": {
-        "it": "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich",
-        "en": "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich",
+        "it": "reumatologia-medico-senior-schulthess-klinik-zurich",
+        "en": "senior-physician-rheumatology-schulthess-klinik-zurich",
         "de": "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich",
-        "fr": "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
+        "fr": "rhumatologie-chez-le-medecin-principal-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -531,7 +531,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-rheumatologie-schulthess-klinik-zurich"
+      ]
     }
   ]
 }

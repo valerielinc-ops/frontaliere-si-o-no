@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "de": "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel",
+        "de": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
         "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -60,11 +60,12 @@
           "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
         ],
         "de": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+          "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
         ]
       },
       "previousSlugs": [
-        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+        "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
       ],
       "firstSeenAt": "2026-08-23T09:42:52.269Z",
       "salaryMin": 109000,
@@ -1109,12 +1110,12 @@
     },
     {
       "id": "jsafrasarasin-f63b673fde74",
-      "slug": "project-manager-with-focus-on-sustainability-regulations-jsafrasarasin-ch",
+      "slug": "project-manager-con-focus-sui-regolamenti-di-sostenibilita-j-safra-sarasin-zurich-ch",
       "slugByLocale": {
-        "it": "project-manager-with-focus-on-sustainability-regulations-jsafrasarasin-ch",
+        "it": "project-manager-con-focus-sui-regolamenti-di-sostenibilita-j-safra-sarasin-zurich-ch",
         "en": "project-manager-with-focus-on-sustainability-regulations-jsafrasarasin-ch",
-        "de": "project-manager-with-focus-on-sustainability-regulations-jsafrasarasin-ch",
-        "fr": "project-manager-with-focus-on-sustainability-regulations-jsafrasarasin-ch"
+        "de": "projektleiter-mit-fokus-auf-nachhaltigkeitsvorschriften-j-safra-sarasin-zurich-ch",
+        "fr": "gestionnaire-de-projet-l-accent-etant-mis-sur-le-reglement-sur-la-durabilite-j-safra-sarasin-zurich-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -1170,7 +1171,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-with-focus-on-sustainability-regulations-jsafrasarasin-ch"
+        ],
+        "de": [
+          "project-manager-with-focus-on-sustainability-regulations-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "project-manager-with-focus-on-sustainability-regulations-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-with-focus-on-sustainability-regulations-jsafrasarasin-ch"
+      ]
     }
   ]
 }

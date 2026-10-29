@@ -434,8 +434,8 @@
       "slugByLocale": {
         "it": "fi-administration-business-support-rif-1116-1136-corner-banca-lugano-55d7c64e0b",
         "en": "fi-administration-e-business-support-100-ref-1116-1136-1138-corner-banca-lugano",
-        "de": "fi-administration-e-business-support-100-ref-1116-1136-1138-corner-banca-lugano",
-        "fr": "fi-administration-e-business-support-100-ref-1116-1136-1138-corner-banca-lugano"
+        "de": "fi-verwaltung-und-unternehmensunterstutzung-ref-1116-1136-corner-banca-lugano-252124",
+        "fr": "fi-administration-et-soutien-aux-entreprises-ref-1116-1136-corner-banca-lugano-252124"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -523,7 +523,8 @@
         "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-2",
         "fi-administration-business-support-rif-1116-1136-corner-banca-lugano-71904b4c32",
         "fi-verwaltung-und-unternehmensunterstutzung-ref-1116-1136-corner-banca-lugano",
-        "fi-administration-et-soutien-aux-entreprises-ref-1116-1136-corner-banca-lugano"
+        "fi-administration-et-soutien-aux-entreprises-ref-1116-1136-corner-banca-lugano",
+        "fi-administration-e-business-support-100-ref-1116-1136-1138-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -535,10 +536,12 @@
           "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano"
         ],
         "de": [
-          "fi-verwaltung-und-unternehmensunterstutzung-ref-1116-1136-corner-banca-lugano"
+          "fi-verwaltung-und-unternehmensunterstutzung-ref-1116-1136-corner-banca-lugano",
+          "fi-administration-e-business-support-100-ref-1116-1136-1138-corner-banca-lugano"
         ],
         "fr": [
-          "fi-administration-et-soutien-aux-entreprises-ref-1116-1136-corner-banca-lugano"
+          "fi-administration-et-soutien-aux-entreprises-ref-1116-1136-corner-banca-lugano",
+          "fi-administration-e-business-support-100-ref-1116-1136-1138-corner-banca-lugano"
         ]
       }
     },

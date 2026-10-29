@@ -805,12 +805,12 @@
     },
     {
       "id": "seiro-5fae1b63f22e",
-      "slug": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
+      "slug": "oculista-oftalmologo-bern-seiro-seiro-gmbh-bern-bern",
       "slugByLocale": {
         "de": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
-        "it": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
-        "en": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
-        "fr": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        "it": "oculista-oftalmologo-bern-seiro-seiro-gmbh-bern-bern",
+        "en": "ophthalmologist-ophthalmologist-bern-seiro-seiro-gmbh-bern-bern",
+        "fr": "ophtalmologiste-ophtalmologue-bern-seiro-seiro-gmbh-bern-bern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -869,7 +869,21 @@
         }
       },
       "firstSeenAt": "2026-10-23T09:46:36.118Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "en": [
+          "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "fr": [
+          "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+      ]
     },
     {
       "id": "seiro-979a7626d86d",

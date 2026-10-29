@@ -2581,9 +2581,9 @@
     },
     {
       "id": "cern-79a4241e9a19",
-      "slug": "electrical-design-technician-en-el-ddo-2026-218-grae-cern-geneva-geneva-switzerland",
+      "slug": "tecnologia-di-progettazione-elettrica-en-el-ddo-2026-218-grae-cern-geneva-geneva-switzerland",
       "slugByLocale": {
-        "it": "electrical-design-technician-en-el-ddo-2026-218-grae-cern-geneva-geneva-switzerland",
+        "it": "tecnologia-di-progettazione-elettrica-en-el-ddo-2026-218-grae-cern-geneva-geneva-switzerland",
         "en": "electrical-design-technician-en-el-ddo-2026-218-grae-cern-geneva-geneva-switzerland",
         "de": "electrical-design-techniker-en-el-ddo-2026-218-grae-cern-geneva",
         "fr": "electrical-design-technicien-en-el-ddo-2026-218-grae-cern-geneva"
@@ -2644,7 +2644,15 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "electrical-design-technician-en-el-ddo-2026-218-grae-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "electrical-design-technician-en-el-ddo-2026-218-grae-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-86ba4bee6c8c",

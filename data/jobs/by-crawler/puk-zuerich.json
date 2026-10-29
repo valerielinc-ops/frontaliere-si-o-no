@@ -1218,12 +1218,12 @@
     },
     {
       "id": "puk-zuerich-7a332534da92",
-      "slug": "oberarztin-oberarzt-station-c2-per-affektive-storungen-psychiatrische-universitatsklinik-zurich",
+      "slug": "medica-dirigente-medico-dirigente-reparto-c2-per-disturbi-affettivi-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-station-c2-per-affektive-storungen-psychiatrische-universitatsklinik-zurich",
-        "en": "oberarztin-oberarzt-station-c2-fur-affektive-storungen-puk-zuerich-zurich",
+        "it": "medica-dirigente-medico-dirigente-reparto-c2-per-disturbi-affettivi-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "senior-physician-station-c2-for-affective-disorders-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "oberarztin-oberarzt-station-c2-fur-affektive-storungen-puk-zuerich-zurich",
-        "fr": "oberarztin-oberarzt-station-c2-fur-affektive-storungen-puk-zuerich-zurich"
+        "fr": "medecin-principal-station-c2-pour-troubles-affectifs-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -1271,10 +1271,18 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "oberarztin-oberarzt-station-c2-fur-affektive-storungen-puk-zuerich-zurich"
+        "oberarztin-oberarzt-station-c2-fur-affektive-storungen-puk-zuerich-zurich",
+        "oberarztin-oberarzt-station-c2-per-affektive-storungen-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-station-c2-fur-affektive-storungen-puk-zuerich-zurich",
+          "oberarztin-oberarzt-station-c2-per-affektive-storungen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-station-c2-fur-affektive-storungen-puk-zuerich-zurich"
+        ],
+        "fr": [
           "oberarztin-oberarzt-station-c2-fur-affektive-storungen-puk-zuerich-zurich"
         ]
       },
@@ -1390,12 +1398,12 @@
     },
     {
       "id": "puk-zuerich-1b6eecfadb2d",
-      "slug": "oberarztin-oberarzt-psychotherapie-station-c0-per-frauen-psychiatrische-universitatsklinik-zurich",
+      "slug": "medica-dirigente-medico-dirigente-reparto-di-psicoterapia-c0-per-donne-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-psychotherapie-station-c0-per-frauen-psychiatrische-universitatsklinik-zurich",
-        "en": "oberarztin-oberarzt-psychotherapie-station-c0-fur-frauen-puk-zuerich-zurich",
+        "it": "medica-dirigente-medico-dirigente-reparto-di-psicoterapia-c0-per-donne-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "senior-physician-psychotherapy-station-c0-for-women-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "oberarztin-oberarzt-psychotherapie-station-c0-fur-frauen-puk-zuerich-zurich",
-        "fr": "oberarztin-oberarzt-psychotherapie-station-c0-fur-frauen-puk-zuerich-zurich"
+        "fr": "medecin-principal-station-de-psychotherapie-c0-pour-femmes-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -1443,10 +1451,18 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "oberarztin-oberarzt-psychotherapie-station-c0-fur-frauen-puk-zuerich-zurich"
+        "oberarztin-oberarzt-psychotherapie-station-c0-fur-frauen-puk-zuerich-zurich",
+        "oberarztin-oberarzt-psychotherapie-station-c0-per-frauen-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-psychotherapie-station-c0-fur-frauen-puk-zuerich-zurich",
+          "oberarztin-oberarzt-psychotherapie-station-c0-per-frauen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychotherapie-station-c0-fur-frauen-puk-zuerich-zurich"
+        ],
+        "fr": [
           "oberarztin-oberarzt-psychotherapie-station-c0-fur-frauen-puk-zuerich-zurich"
         ]
       },
@@ -3134,7 +3150,7 @@
       "slug": "cuocere-cucinare-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "it": "cuocere-cucinare-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "kochin-koch-psychiatrische-universitatsklinik-zurich",
+        "en": "cook-cook-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "kochin-koch-puk-zuerich-zurich",
         "fr": "cuisiniere-psychiatrische-universitatsklinik-zurich-zurich"
       },
@@ -3186,7 +3202,7 @@
       "previousSlugs": [
         "kochin-koch-puk-zuerich-zurich",
         "kochin-koch-psychiatrische-universitatsklinik-zurich-zurich",
-        "cook-cook-psychiatrische-universitatsklinik-zurich-zurich"
+        "kochin-koch-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3194,7 +3210,7 @@
         ],
         "en": [
           "kochin-koch-psychiatrische-universitatsklinik-zurich-zurich",
-          "cook-cook-psychiatrische-universitatsklinik-zurich-zurich"
+          "kochin-koch-psychiatrische-universitatsklinik-zurich"
         ],
         "fr": [
           "kochin-koch-puk-zuerich-zurich"
@@ -4426,12 +4442,12 @@
     },
     {
       "id": "puk-zuerich-d1b7a7eefe6a",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau",
+      "slug": "dipl-infermiera-infermiera-stazione-di-misura-psychiatrische-universitatsklinik-zurich-rheinau",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau",
-        "en": "dipl-pflegefachfrau-pflegefachmann-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau",
+        "it": "dipl-infermiera-infermiera-stazione-di-misura-psychiatrische-universitatsklinik-zurich-rheinau",
+        "en": "dipl-nurse-nurse-specialist-station-of-measurement-psychiatrische-universitatsklinik-zurich-rheinau",
         "de": "dipl-pflegefachfrau-pflegefachmann-massnahmestation-puk-zuerich-rheinau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau"
+        "fr": "dipl-infirmiere-infirmiere-specialiste-poste-de-mesure-psychiatrische-universitatsklinik-zurich-rheinau"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4479,11 +4495,19 @@
       "pensumMax": 70,
       "pensum": "70%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-massnahmestation-puk-zuerich-rheinau"
+        "dipl-pflegefachfrau-pflegefachmann-massnahmestation-puk-zuerich-rheinau",
+        "dipl-pflegefachfrau-pflegefachmann-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-massnahmestation-puk-zuerich-rheinau"
+          "dipl-pflegefachfrau-pflegefachmann-massnahmestation-puk-zuerich-rheinau",
+          "dipl-pflegefachfrau-pflegefachmann-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-massnahmestation-psychiatrische-universitatsklinik-zurich-rheinau"
         ]
       },
       "firstSeenAt": "2026-10-28T20:05:29.226Z",
@@ -6028,12 +6052,12 @@
     },
     {
       "id": "puk-zuerich-7934e20371f5",
-      "slug": "assistentin-assistent-leitungen-pflege-e-kompetenzzentrum-psychiatrische-universitatsklinik-zurich",
+      "slug": "assistente-alle-direzioni-dell-assistenza-infermieristica-e-del-centro-di-competenza-psychiatrische-universitatsklinik",
       "slugByLocale": {
-        "it": "assistentin-assistent-leitungen-pflege-e-kompetenzzentrum-psychiatrische-universitatsklinik-zurich",
-        "en": "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-psychiatrische-universitatsklinik-zurich-zurich",
+        "it": "assistente-alle-direzioni-dell-assistenza-infermieristica-e-del-centro-di-competenza-psychiatrische-universitatsklinik",
+        "en": "assistant-assistant-lines-care-and-competence-center-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-puk-zuerich-zurich",
-        "fr": "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-psychiatrische-universitatsklinik-zurich-zurich"
+        "fr": "assistant-assistant-lignes-centre-de-soins-et-de-competences-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -6081,11 +6105,20 @@
       "pensumMax": 90,
       "pensum": "90%",
       "previousSlugs": [
-        "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-puk-zuerich-zurich"
+        "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-puk-zuerich-zurich",
+        "assistentin-assistent-leitungen-pflege-e-kompetenzzentrum-psychiatrische-universitatsklinik-zurich",
+        "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-puk-zuerich-zurich"
+          "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-puk-zuerich-zurich",
+          "assistentin-assistent-leitungen-pflege-e-kompetenzzentrum-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "assistentin-assistent-leitungen-pflege-und-kompetenzzentrum-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-28T20:05:18.812Z",
@@ -6188,12 +6221,12 @@
     },
     {
       "id": "puk-zuerich-c28e079b7d62",
-      "slug": "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-e-3-ausbildungsjahr-psychiatrische-universitatsklinik-zurich",
+      "slug": "terapista-di-attivazione-terapista-di-attivazione-in-formazione-solo-2-e-3-anno-di-formazione-psychiatrische",
       "slugByLocale": {
-        "it": "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-e-3-ausbildungsjahr-psychiatrische-universitatsklinik-zurich",
-        "en": "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-und-3-ausbildungsjahr",
+        "it": "terapista-di-attivazione-terapista-di-attivazione-in-formazione-solo-2-e-3-anno-di-formazione-psychiatrische",
+        "en": "activation-therapist-in-training-only-2nd-and-3rd-year-of-training-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-und-3-ausbildungsjahr",
-        "fr": "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-und-3-ausbildungsjahr"
+        "fr": "activation-therapeute-en-formation-seulement-2eme-et-3eme-annee-de-formation-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -6241,10 +6274,18 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-und-3-ausbildungsjahr"
+        "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-und-3-ausbildungsjahr",
+        "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-e-3-ausbildungsjahr-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-und-3-ausbildungsjahr",
+          "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-e-3-ausbildungsjahr-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-und-3-ausbildungsjahr"
+        ],
+        "fr": [
           "aktivierungstherapeutin-aktivierungstherapeut-in-ausbildung-nur-2-und-3-ausbildungsjahr"
         ]
       },
@@ -6352,7 +6393,7 @@
         "it": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "en": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "de": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "fr": "infirmiere-en-medecine-avancee-apn-age-de-la-syiatrie-service-de-consiliar-et-de-liaison-psychiatrische"
+        "fr": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -6468,7 +6509,7 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
         "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+        "infirmiere-en-medecine-avancee-apn-age-de-la-syiatrie-service-de-consiliar-et-de-liaison-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6506,7 +6547,7 @@
           "infirmiere-praticienne-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
           "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+          "infirmiere-en-medecine-avancee-apn-age-de-la-syiatrie-service-de-consiliar-et-de-liaison-psychiatrische"
         ]
       },
       "firstSeenAt": "2026-09-25T14:42:33.839Z",

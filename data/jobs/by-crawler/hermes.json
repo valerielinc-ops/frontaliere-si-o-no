@@ -245,11 +245,11 @@
     },
     {
       "id": "hermes-c2ddb8c5dcfa",
-      "slug": "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch",
+      "slug": "cdm-gestione-del-controllo-interno-e-amministrazione-m-f-hermes-brugg-be-bern-switzerland",
       "slugByLocale": {
-        "it": "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch",
-        "en": "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch",
-        "de": "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch",
+        "it": "cdm-gestione-del-controllo-interno-e-amministrazione-m-f-hermes-brugg-be-bern-switzerland",
+        "en": "cdm-internal-control-and-administration-manager-m-f-hermes-brugg-be-bern-switzerland",
+        "de": "cdm-manager-fur-interne-kontrolle-und-verwaltung-m-w-hermes-brugg-be-bern-switzerland",
         "fr": "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch"
       },
       "company": "Hermès",
@@ -307,7 +307,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch"
+        ],
+        "en": [
+          "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch"
+        ],
+        "de": [
+          "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch"
+      ]
     }
   ]
 }

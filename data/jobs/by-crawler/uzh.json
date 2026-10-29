@@ -8791,12 +8791,12 @@
     },
     {
       "id": "uzh-0138dfc6eb64",
-      "slug": "student-assistant-plasmid-competition-project-uzh-zurich",
+      "slug": "assistente-studentesco-plasmid-competition-project-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "student-assistant-plasmid-competition-project-uzh-zurich",
+        "it": "assistente-studentesco-plasmid-competition-project-universitat-zurich-zurich",
         "en": "student-assistant-plasmid-competition-project-uzh-zurich",
         "de": "student-assistent-plasmid-competition-project-universitat-zurich-zurich",
-        "fr": "student-assistant-plasmid-competition-project-uzh-zurich"
+        "fr": "assistant-etudiant-projet-de-concours-de-plasmide-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8853,7 +8853,18 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "student-assistant-plasmid-competition-project-uzh-zurich"
+        ],
+        "fr": [
+          "student-assistant-plasmid-competition-project-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "student-assistant-plasmid-competition-project-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-48ceed3fc4b2",
@@ -8941,9 +8952,9 @@
       "slug": "studentische-hilfsassistenz-per-das-projekt-development-of-adolescents-metacognitive-control-skills-universitat-zurich",
       "slugByLocale": {
         "it": "studentische-hilfsassistenz-per-das-projekt-development-of-adolescents-metacognitive-control-skills-universitat-zurich",
-        "en": "studentische-hilfsassistenz-fur-das-projekt-34-development-of-adolescents-39-metacognitive",
+        "en": "student-assistant-for-the-project-development-of-adolescents-metacognitive-control-skills-universitat-zurich-zurich",
         "de": "studentische-hilfsassistenz-fur-das-projekt-34-development-of-adolescents-39-metacognitive",
-        "fr": "studentische-hilfsassistenz-fur-das-projekt-34-development-of-adolescents-39-metacognitive"
+        "fr": "assistant-etudiant-pour-le-projet-developpement-des-competences-en-controle-metacognitif-des-adolescents-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8993,6 +9004,12 @@
       "previousSlugsByLocale": {
         "it": [
           "studentische-hilfsassistenz-fur-das-projekt-34-development-of-adolescents-39-metacognitive"
+        ],
+        "en": [
+          "studentische-hilfsassistenz-fur-das-projekt-34-development-of-adolescents-39-metacognitive"
+        ],
+        "fr": [
+          "studentische-hilfsassistenz-fur-das-projekt-34-development-of-adolescents-39-metacognitive"
         ]
       },
       "firstSeenAt": "2026-10-28T20:05:21.302Z",
@@ -9017,7 +9034,7 @@
         "it": "phd-position-in-34-large-scale-in-situ-experiments-on-glacier-ice-rheology-and",
         "en": "phd-position-in-34-large-scale-in-situ-experiments-on-glacier-ice-rheology-and",
         "de": "phd-position-in-34-large-scale-in-situ-experiments-on-glacier-ice-rheology-and",
-        "fr": "phd-position-in-34-large-scale-in-situ-experiments-on-glacier-ice-rheology-and"
+        "fr": "doctorat-en-experiences-a-grande-echelle-in-situ-sur-la-rheologie-des-glaces-et-la-thermodynamique-financee-pendant-4"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",

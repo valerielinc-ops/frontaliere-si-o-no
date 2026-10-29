@@ -701,12 +701,12 @@
     },
     {
       "id": "bachtelen-58298d2a2c1c",
-      "slug": "sozialpadagog-in-hf-fh-o-fachperson-betreuung-specializzazione-kinder-70-80-stiftung-bachtelen-hagendorf",
+      "slug": "educatore-trice-sociale-sss-sup-o-operatore-trice-socioassistenziale-indirizzo-infanzia-70-80-stiftung-bachtelen",
       "slugByLocale": {
         "de": "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen",
-        "it": "sozialpadagog-in-hf-fh-o-fachperson-betreuung-specializzazione-kinder-70-80-stiftung-bachtelen-hagendorf",
-        "en": "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen",
-        "fr": "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen"
+        "it": "educatore-trice-sociale-sss-sup-o-operatore-trice-socioassistenziale-indirizzo-infanzia-70-80-stiftung-bachtelen",
+        "en": "social-pedagogue-hf-fh-or-childcare-specialist-specializing-in-children-70-80-stiftung-bachtelen-hagendorf",
+        "fr": "educateur-trice-social-e-es-hes-ou-assistant-e-socio-educatif-ve-orientation-enfants-70-80-stiftung-bachtelen-hagendorf"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -751,11 +751,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen",
+          "sozialpadagog-in-hf-fh-o-fachperson-betreuung-specializzazione-kinder-70-80-stiftung-bachtelen-hagendorf"
+        ],
+        "en": [
+          "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen"
+        ],
+        "fr": [
           "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen"
         ]
       },
       "previousSlugs": [
-        "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen"
+        "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen",
+        "sozialpadagog-in-hf-fh-o-fachperson-betreuung-specializzazione-kinder-70-80-stiftung-bachtelen-hagendorf"
       ],
       "salaryMin": 58400,
       "salaryMax": 99600,

@@ -2920,11 +2920,11 @@
     },
     {
       "id": "ardentis-2f4a6a5a109c",
-      "slug": "hygieniste-dentaire-clinique-de-vevey-40-ardentis-vevey",
+      "slug": "igienist-dentale-vevey-clinic-40-ardentis-vevey",
       "slugByLocale": {
-        "it": "hygieniste-dentaire-clinique-de-vevey-40-ardentis-vevey",
-        "en": "hygieniste-dentaire-clinique-de-vevey-40-ardentis-vevey",
-        "de": "hygieniste-dentaire-clinique-de-vevey-40-ardentis-vevey",
+        "it": "igienist-dentale-vevey-clinic-40-ardentis-vevey",
+        "en": "dental-hygienist-vevey-clinic-40-ardentis-vevey",
+        "de": "zahnhygieniker-vevey-clinic-40-ardentis-vevey",
         "fr": "hygieniste-dentaire-clinique-de-vevey-40-ardentis-vevey"
       },
       "company": "Ardentis",
@@ -2982,7 +2982,21 @@
           "maxValue": 48200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hygieniste-dentaire-clinique-de-vevey-40-ardentis-vevey"
+        ],
+        "en": [
+          "hygieniste-dentaire-clinique-de-vevey-40-ardentis-vevey"
+        ],
+        "de": [
+          "hygieniste-dentaire-clinique-de-vevey-40-ardentis-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "hygieniste-dentaire-clinique-de-vevey-40-ardentis-vevey"
+      ]
     },
     {
       "id": "ardentis-030580d08f06",
@@ -3067,10 +3081,10 @@
     },
     {
       "id": "ardentis-f8f05d083c1f",
-      "slug": "assistant-e-dentaire-90-clinique-de-lausanne-maupas-ardentis-lausanne",
+      "slug": "assistente-dentale-90-clinic-lausanne-maupas-ardentis-lausanne",
       "slugByLocale": {
-        "it": "assistant-e-dentaire-90-clinique-de-lausanne-maupas-ardentis-lausanne",
-        "en": "assistant-e-dentaire-90-clinique-de-lausanne-maupas-ardentis-lausanne",
+        "it": "assistente-dentale-90-clinic-lausanne-maupas-ardentis-lausanne",
+        "en": "dental-assistant-90-clinic-lausanne-maupas-ardentis-lausanne",
         "de": "assistant-e-dentaire-90-clinique-de-lausanne-maupas-ardentis-lausanne",
         "fr": "assistant-e-dentaire-90-clinique-de-lausanne-maupas-ardentis-lausanne"
       },
@@ -3129,14 +3143,25 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-dentaire-90-clinique-de-lausanne-maupas-ardentis-lausanne"
+        ],
+        "en": [
+          "assistant-e-dentaire-90-clinique-de-lausanne-maupas-ardentis-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-dentaire-90-clinique-de-lausanne-maupas-ardentis-lausanne"
+      ]
     },
     {
       "id": "ardentis-d0678dc90ce8",
-      "slug": "assistant-e-dentaire-clinique-de-bulle-ardentis-bulle",
+      "slug": "assistente-dentale-bulle-clinic-ardentis-bulle",
       "slugByLocale": {
-        "it": "assistant-e-dentaire-clinique-de-bulle-ardentis-bulle",
-        "en": "assistant-e-dentaire-clinique-de-bulle-ardentis-bulle",
+        "it": "assistente-dentale-bulle-clinic-ardentis-bulle",
+        "en": "dental-assistant-bulle-clinic-ardentis-bulle",
         "de": "assistent-e-dentaire-clinique-de-bulle-ardentis-bulle",
         "fr": "assistant-e-dentaire-clinique-de-bulle-ardentis-bulle"
       },
@@ -3195,15 +3220,26 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-dentaire-clinique-de-bulle-ardentis-bulle"
+        ],
+        "en": [
+          "assistant-e-dentaire-clinique-de-bulle-ardentis-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-dentaire-clinique-de-bulle-ardentis-bulle"
+      ]
     },
     {
       "id": "ardentis-9d348df39887",
-      "slug": "hygieniste-dentaire-clinique-d-yverdon-ardentis-yverdon-les-bains",
+      "slug": "igienist-dentale-yverdon-clinic-ardentis-yverdon-les-bains",
       "slugByLocale": {
-        "it": "hygieniste-dentaire-clinique-d-yverdon-ardentis-yverdon-les-bains",
-        "en": "hygieniste-dentaire-clinique-d-yverdon-ardentis-yverdon-les-bains",
-        "de": "hygieniste-dentaire-clinique-d-yverdon-ardentis-yverdon-les-bains",
+        "it": "igienist-dentale-yverdon-clinic-ardentis-yverdon-les-bains",
+        "en": "dental-hygienist-yverdon-clinic-ardentis-yverdon-les-bains",
+        "de": "zahnhygieniker-yverdon-clinic-ardentis-yverdon-les-bains",
         "fr": "hygieniste-dentaire-clinique-d-yverdon-ardentis-yverdon-les-bains"
       },
       "company": "Ardentis",
@@ -3261,7 +3297,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hygieniste-dentaire-clinique-d-yverdon-ardentis-yverdon-les-bains"
+        ],
+        "en": [
+          "hygieniste-dentaire-clinique-d-yverdon-ardentis-yverdon-les-bains"
+        ],
+        "de": [
+          "hygieniste-dentaire-clinique-d-yverdon-ardentis-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "hygieniste-dentaire-clinique-d-yverdon-ardentis-yverdon-les-bains"
+      ]
     }
   ]
 }

@@ -172,11 +172,11 @@
     },
     {
       "id": "epi-geneve-cd6d2b7da18b",
-      "slug": "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge",
+      "slug": "assistente-socio-educativo-residenza-sarde-70-3-mesi-hom-etablissements-publics-pour-l-integration-carouge-ge",
       "slugByLocale": {
-        "it": "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge",
-        "en": "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge",
-        "de": "un-e-assistent-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-etablissements-publics-pour-l-integration",
+        "it": "assistente-socio-educativo-residenza-sarde-70-3-mesi-hom-etablissements-publics-pour-l-integration-carouge-ge",
+        "en": "a-socio-educational-assistant-sarde-residence-70-3-month-hom-etablissements-publics-pour-l-integration-carouge-ge",
+        "de": "eine-sozialpadagogische-assistenzperson-residenz-sarde-70-befristeter-arbeitsvertrag-von-3-monaten-etablissements",
         "fr": "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge"
       },
       "company": "Établissements publics pour l'intégration",
@@ -235,7 +235,22 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge"
+        ],
+        "en": [
+          "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge"
+        ],
+        "de": [
+          "un-e-assistent-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-etablissements-publics-pour-l-integration"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge",
+        "un-e-assistent-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-etablissements-publics-pour-l-integration"
+      ]
     },
     {
       "id": "epi-geneve-61cc39efe1cf",

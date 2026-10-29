@@ -3647,8 +3647,8 @@
       "slugByLocale": {
         "it": "2027-graduate-talent-program-modeling-insights-zh-ubs-zurich",
         "en": "2027-graduate-talent-program-modeling-insights-zh-ubs-zurich",
-        "de": "2027-graduate-talent-program-modeling-insights-zh-ubs-zurich",
-        "fr": "2027-graduate-talent-program-modeling-insights-zh-ubs-zurich"
+        "de": "2027-graduate-talentprogramm-modellierung-erkenntnisse-zh-ubs-zurich",
+        "fr": "2027-programme-des-talents-diplomes-modelisation-insights-zh-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3722,7 +3722,7 @@
         "it": "2027-internship-digital-adoption-enablement-zurich-ubs-zurich",
         "en": "2027-internship-digital-adoption-enablement-zurich-ubs-zurich",
         "de": "2027-internship-digital-adoption-enablement-zurich-ubs-zurich",
-        "fr": "2027-internship-digital-adoption-enablement-zurich-ubs-zurich"
+        "fr": "2027-stage-adoption-numerique-et-activation-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10677,7 +10677,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -10730,11 +10730,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -11792,12 +11796,12 @@
     },
     {
       "id": "ubs-446a77bb2610",
-      "slug": "succession-planner-in-wealth-management-ubs-zurich",
+      "slug": "pianificatore-pianificatrice-della-successione-nella-gestione-patrimoniale-ubs-zurich",
       "slugByLocale": {
-        "it": "succession-planner-in-wealth-management-ubs-zurich",
+        "it": "pianificatore-pianificatrice-della-successione-nella-gestione-patrimoniale-ubs-zurich",
         "en": "succession-planner-in-wealth-management-ubs-zurich",
         "de": "succession-planner-in-wealth-management-ubs-zurich",
-        "fr": "succession-planner-in-wealth-management-ubs-zurich"
+        "fr": "planificateur-trice-de-succession-en-gestion-de-fortune-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11863,16 +11867,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "succession-planner-in-wealth-management-ubs-zurich"
+        ],
+        "fr": [
+          "succession-planner-in-wealth-management-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "succession-planner-in-wealth-management-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-a08e120445ee",
-      "slug": "steuerexperte-ubs-zurich",
+      "slug": "esperto-fiscale-ubs-zurich",
       "slugByLocale": {
-        "it": "steuerexperte-ubs-zurich",
-        "en": "steuerexperte-ubs-zurich",
+        "it": "esperto-fiscale-ubs-zurich",
+        "en": "tax-expert-ubs-zurich",
         "de": "steuerexperte-ubs-zurich",
-        "fr": "steuerexperte-ubs-zurich"
+        "fr": "expert-fiscal-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11937,16 +11952,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerexperte-ubs-zurich"
+        ],
+        "en": [
+          "steuerexperte-ubs-zurich"
+        ],
+        "fr": [
+          "steuerexperte-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "steuerexperte-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-c99101f5bd4b",
-      "slug": "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich",
+      "slug": "avvocato-avvocato-specialista-immobiliare-ubs-zurich",
       "slugByLocale": {
-        "it": "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich",
-        "en": "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich",
+        "it": "avvocato-avvocato-specialista-immobiliare-ubs-zurich",
+        "en": "lawyer-lawyer-estate-specialist-ubs-zurich",
         "de": "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich",
-        "fr": "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich"
+        "fr": "specialiste-de-la-succession-avocat-avocat-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12011,7 +12040,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich"
+        ],
+        "en": [
+          "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich"
+        ],
+        "fr": [
+          "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "rechtsanwalt-rechtsanwaltin-nachlassspezialist-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-212381ff14c8",

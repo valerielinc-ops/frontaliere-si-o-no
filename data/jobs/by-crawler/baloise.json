@@ -665,12 +665,12 @@
     },
     {
       "id": "baloise-bd0bf4e42973",
-      "slug": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn",
+      "slug": "advisor-m-f-d-corporate-clients-bank-60-baloise-solothurn",
       "slugByLocale": {
         "de": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn",
-        "it": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn",
+        "it": "advisor-m-f-d-corporate-clients-bank-60-baloise-solothurn",
         "en": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn",
-        "fr": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn"
+        "fr": "conseiller-h-f-d-banque-de-clients-corporatifs-60-baloise-solothurn"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -727,7 +727,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T21:38:36.612Z"
+      "firstSeenAt": "2026-10-28T21:38:36.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn"
+        ],
+        "fr": [
+          "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn"
+      ]
     }
   ]
 }

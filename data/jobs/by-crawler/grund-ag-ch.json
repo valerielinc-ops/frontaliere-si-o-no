@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "grund-ag-ch-d07ce0e95f63",
-      "slug": "apprendistato-come-automobil-mechatroniker-in-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen",
+      "slug": "posto-di-apprendistato-come-meccatronico-a-d-automobili-afc-veicoli-commerciali-grund-ag-fahrzeuge-triengen-lu",
       "slugByLocale": {
-        "it": "apprendistato-come-automobil-mechatroniker-in-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen",
-        "en": "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
+        "it": "posto-di-apprendistato-come-meccatronico-a-d-automobili-afc-veicoli-commerciali-grund-ag-fahrzeuge-triengen-lu",
+        "en": "apprenticeship-as-automotive-mechatronics-technician-efz-commercial-vehicles-grund-ag-fahrzeuge-triengen-lu",
         "de": "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
-        "fr": "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
+        "fr": "place-d-apprentissage-de-mecatronicien-ne-d-automobiles-cfc-vehicules-utilitaires-grund-ag-fahrzeuge-triengen-lu"
       },
       "company": "Grund AG Fahrzeuge",
       "companyKey": "grund-ag-ch",
@@ -56,11 +56,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
+          "apprendistato-come-automobil-mechatroniker-in-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen"
+        ],
+        "en": [
+          "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
+        ],
+        "fr": [
           "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
+        "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
+        "apprendistato-come-automobil-mechatroniker-in-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen"
       ],
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -79,12 +87,12 @@
     },
     {
       "id": "grund-ag-ch-96bbd0d8e49e",
-      "slug": "apprendistato-come-automobil-fachmann-frau-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen",
+      "slug": "posto-di-apprendistato-come-meccanico-a-d-automobili-efz-veicoli-commerciali-grund-ag-fahrzeuge-triengen-lu",
       "slugByLocale": {
-        "it": "apprendistato-come-automobil-fachmann-frau-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen",
-        "en": "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
+        "it": "posto-di-apprendistato-come-meccanico-a-d-automobili-efz-veicoli-commerciali-grund-ag-fahrzeuge-triengen-lu",
+        "en": "apprenticeship-as-automotive-specialist-efz-commercial-vehicles-grund-ag-fahrzeuge-triengen-lu",
         "de": "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
-        "fr": "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
+        "fr": "place-d-apprentissage-de-mecanicien-ne-en-maintenance-d-automobiles-cfc-vehicules-utilitaires-grund-ag-fahrzeuge"
       },
       "company": "Grund AG Fahrzeuge",
       "companyKey": "grund-ag-ch",
@@ -130,11 +138,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
+          "apprendistato-come-automobil-fachmann-frau-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen"
+        ],
+        "en": [
+          "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
+        ],
+        "fr": [
           "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
+        "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch",
+        "apprendistato-come-automobil-fachmann-frau-cfc-nutzfahrzeuge-grund-ag-fahrzeuge-triengen"
       ],
       "salaryMin": 58500,
       "salaryMax": 89000,

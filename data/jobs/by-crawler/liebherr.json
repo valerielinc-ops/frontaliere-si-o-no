@@ -5,11 +5,11 @@
   "jobs": [
     {
       "id": "liebherr-c637954357d3",
-      "slug": "young-talent-technical-development-m-f-x-liebherr-bulle",
+      "slug": "giovani-talenti-sviluppo-tecnico-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "young-talent-technical-development-m-f-x-liebherr-bulle",
+        "it": "giovani-talenti-sviluppo-tecnico-m-f-x-liebherr-bulle",
         "en": "young-talent-technical-development-m-f-x-liebherr-bulle",
-        "de": "young-talent-technical-development-m-f-x-liebherr-bulle",
+        "de": "junge-talente-technische-entwicklung-m-w-x-liebherr-bulle",
         "fr": "young-talent-technical-development-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -70,7 +70,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-talent-technical-development-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "young-talent-technical-development-m-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "young-talent-technical-development-m-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-585cbcd81644",
@@ -322,7 +333,7 @@
       "slugByLocale": {
         "it": "giovani-talenti-sottosistemi-ingegneria-m-f-x-liebherr-bulle",
         "en": "young-talent-subsystems-engineering-m-f-x-liebherr-bulle",
-        "de": "nachwuchstalent-subsystemtechnik-m-w-d-liebherr-bulle",
+        "de": "junge-talente-subsystems-engineering-m-w-x-liebherr-bulle",
         "fr": "young-talent-subsystems-engineering-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -371,7 +382,7 @@
       "previousSlugs": [
         "young-talent-subsystems-engineering-m-f-x-liebherr-bulle",
         "young-talent-subsystemtechnik-m-w-d-liebherr-bulle",
-        "junge-talente-subsystems-engineering-m-w-x-liebherr-bulle"
+        "nachwuchstalent-subsystemtechnik-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -380,7 +391,7 @@
         "de": [
           "young-talent-subsystems-engineering-m-f-x-liebherr-bulle",
           "young-talent-subsystemtechnik-m-w-d-liebherr-bulle",
-          "junge-talente-subsystems-engineering-m-w-x-liebherr-bulle"
+          "nachwuchstalent-subsystemtechnik-m-w-d-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -580,7 +591,7 @@
         "it": "assistente-alle-vendite-l-f-d-liebherr-nussbaumen",
         "en": "sales-assistant-m-f-d-liebherr-nussbaumen",
         "de": "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "fr": "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
+        "fr": "assistant-commercial-m-f-d-liebherr-nussbaumen"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -627,7 +638,7 @@
       "liebherrSourceJobId": "82726",
       "previousSlugs": [
         "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "assistant-commercial-m-f-d-liebherr-nussbaumen"
+        "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -638,7 +649,7 @@
         ],
         "fr": [
           "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-          "assistant-commercial-m-f-d-liebherr-nussbaumen"
+          "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.388Z",
@@ -749,7 +760,7 @@
       "slugByLocale": {
         "it": "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens",
         "en": "earthmoving-construction-machinery-mechanic-liebherr-daillens",
-        "de": "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens",
+        "de": "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens",
         "fr": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -799,7 +810,7 @@
         "macchinari-meccanizzati-liebherr-daillens",
         "mechanic-earthworks-machinery-liebherr-daillens",
         "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-        "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
+        "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -812,7 +823,7 @@
         ],
         "de": [
           "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-          "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
+          "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-16T15:09:06.399Z",
@@ -2157,7 +2168,7 @@
       "slugByLocale": {
         "it": "attrezzature-di-consulenza-tecnica-earthmoving-m-f-liebherr-daillens",
         "en": "technical-advisor-equipment-earthmoving-m-f-liebherr-daillens",
-        "de": "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens",
+        "de": "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens",
         "fr": "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -2206,7 +2217,7 @@
       "previousSlugs": [
         "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
         "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-        "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
+        "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2218,7 +2229,7 @@
         "de": [
           "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
           "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-          "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
+          "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-09-08T13:53:09.548Z",
@@ -2346,7 +2357,7 @@
       "slugByLocale": {
         "it": "tecnico-di-gru-a-torre-h-f-liebherr-daillens",
         "en": "tower-crane-technician-h-f-liebherr-daillens",
-        "de": "turmkrantechniker-m-w-d-liebherr-daillens",
+        "de": "drehkrantechniker-h-f-liebherr-daillens",
         "fr": "technicien-grues-a-tour-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -2396,7 +2407,7 @@
         "turmkrantechniker-h-f-liebherr-daillens",
         "technicien-grues-a-tour-h-f-liebherr-daillens",
         "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-        "drehkrantechniker-h-f-liebherr-daillens"
+        "turmkrantechniker-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2409,7 +2420,7 @@
         "de": [
           "turmkrantechniker-h-f-liebherr-daillens",
           "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-          "drehkrantechniker-h-f-liebherr-daillens"
+          "turmkrantechniker-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.412Z",
@@ -3372,7 +3383,7 @@
       "slugByLocale": {
         "it": "ingegnere-dei-sistemi-di-controllo-m-f-x-liebherr-bulle",
         "en": "control-systems-engineer-m-f-x-liebherr-bulle",
-        "de": "control-systems-ingenieur-m-w-d-liebherr-bulle",
+        "de": "regelungssystemingenieur-m-f-x-liebherr-bulle",
         "fr": "ingenieur-systemes-de-controle-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -3422,7 +3433,7 @@
         "control-systems-ingegnere-m-f-x-liebherr-bulle",
         "control-systems-ingenieur-m-f-x-liebherr-bulle",
         "control-systems-engineer-m-f-x-liebherr-bulle",
-        "regelungssystemingenieur-m-f-x-liebherr-bulle"
+        "control-systems-ingenieur-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3430,7 +3441,7 @@
           "control-systems-engineer-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "regelungssystemingenieur-m-f-x-liebherr-bulle"
+          "control-systems-ingenieur-m-w-d-liebherr-bulle"
         ],
         "fr": [
           "control-systems-ingenieur-m-f-x-liebherr-bulle"
@@ -4312,7 +4323,7 @@
       "slugByLocale": {
         "it": "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen",
         "en": "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
-        "de": "transferpreise-arbeitsstudent-60-80-liebherr-nussbaumen",
+        "de": "verrechnungspreis-werkstudent-60-80-liebherr-nussbaumen",
         "fr": "prix-de-transfert-etudiant-travailleur-60-80-liebherr-nussbaumen"
       },
       "company": "Liebherr",
@@ -4374,7 +4385,7 @@
         "prix-de-transfert-etudiant-travailleur-60-80-liebherr-nussbaumen-05e489",
         "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen-c2xu2w",
         "transfer-to-the-university-of-dublin-60-80-liebherr-nussbaumen",
-        "verrechnungspreis-werkstudent-60-80-liebherr-nussbaumen"
+        "transferpreise-arbeitsstudent-60-80-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4391,7 +4402,7 @@
         "de": [
           "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2",
           "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
-          "verrechnungspreis-werkstudent-60-80-liebherr-nussbaumen"
+          "transferpreise-arbeitsstudent-60-80-liebherr-nussbaumen"
         ],
         "fr": [
           "prix-de-transfert-etudiant-travailleur-60-80-liebherr-nussbaumen-05e489",
@@ -5277,9 +5288,9 @@
       "id": "liebherr-a2ee910fd683",
       "slug": "domanda-non-richiesta-liebherr-bulle",
       "slugByLocale": {
-        "it": "domanda-non-richiesta-liebherr-bulle",
+        "it": "applicazione-speculativa-liebherr-bulle",
         "en": "speculative-application-liebherr-bulle",
-        "de": "initativbewerbung-liebherr-bulle",
+        "de": "spekulative-anwendung-liebherr-bulle",
         "fr": "candidature-spontanee-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -5347,7 +5358,7 @@
         "de": [
           "spontane-anwendung-liebherr-bulle",
           "unerbetene-anwendung-liebherr-bulle",
-          "spekulative-anwendung-liebherr-bulle"
+          "initativbewerbung-liebherr-bulle"
         ],
         "it": [
           "initiativebewerbung-liebherr-bulle",
@@ -5355,8 +5366,7 @@
           "applicazione-spontanea-liebherr-bulle",
           "applicazione-non-richiesta-liebherr-bulle",
           "candidature-spontanee-liebherr-bulle",
-          "speculative-application-liebherr-bulle",
-          "applicazione-speculativa-liebherr-bulle"
+          "speculative-application-liebherr-bulle"
         ],
         "en": [
           "initiativbewerbung-liebherr-bulle",
@@ -5379,8 +5389,7 @@
         "applicazione-speculativa-liebherr-bulle",
         "unsolicited-application-liebherr-bulle",
         "candidature-non-sollicitee-liebherr-bulle",
-        "speculative-application-liebherr-bulle",
-        "spekulative-anwendung-liebherr-bulle"
+        "speculative-application-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-10T09:03:08.375Z",
       "salaryMin": 68500,
@@ -5487,7 +5496,7 @@
         "it": "responsabile-della-sicurezza-dei-dati-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-data-security-m-w-d-liebherr-bulle",
         "de": "leiter-der-datensicherheit-m-w-d-liebherr-bulle",
-        "fr": "responsable-data-security-m-w-d-liebherr-bulle"
+        "fr": "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5535,7 +5544,7 @@
       "previousSlugs": [
         "responsabile-data-security-m-w-d-liebherr-bulle",
         "head-of-data-security-m-w-d-liebherr-bulle",
-        "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
+        "responsable-data-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5543,7 +5552,7 @@
           "head-of-data-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
+          "responsable-data-security-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.373Z",
@@ -6168,7 +6177,7 @@
         "it": "responsabile-della-sicurezza-del-prodotto-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-product-security-m-w-d-liebherr-bulle",
         "de": "leiter-produktsicherheit-m-w-d-liebherr-bulle",
-        "fr": "responsable-product-security-m-w-d-liebherr-bulle"
+        "fr": "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6216,7 +6225,7 @@
       "previousSlugs": [
         "responsabile-product-security-m-w-d-liebherr-bulle",
         "head-of-product-security-m-w-d-liebherr-bulle",
-        "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
+        "responsable-product-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6224,7 +6233,7 @@
           "head-of-product-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
+          "responsable-product-security-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.378Z",

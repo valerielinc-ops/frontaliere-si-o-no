@@ -2577,9 +2577,9 @@
     },
     {
       "id": "accor-7f1c5935e05a",
-      "slug": "f-b-assistant-100-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-7f1c5935",
+      "slug": "assistente-f-b-100-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-7f1c5935",
       "slugByLocale": {
-        "it": "f-b-assistant-100-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-7f1c5935",
+        "it": "assistente-f-b-100-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-7f1c5935",
         "en": "f-b-assistant-100-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-7f1c5935",
         "de": "f-b-assistent-100-f-m-d-ibis-budget-zurich-7f1c5935",
         "fr": "f-b-assistant-100-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-7f1c5935"
@@ -2639,7 +2639,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-28T20:38:43.203Z"
+      "firstSeenAt": "2026-10-28T20:38:43.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-assistant-100-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-7f1c5935"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-assistant-100-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-7f1c5935"
+      ]
     }
   ]
 }

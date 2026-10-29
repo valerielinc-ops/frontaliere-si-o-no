@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-zollikerberg-96974f5e909f",
-      "slug": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park",
+      "slug": "residence-neumunster-park-dipl-infermieristica-professionale-dipl-professionista-della-cura-residence-neumunster-park",
       "slugByLocale": {
-        "it": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park",
-        "en": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park",
+        "it": "residence-neumunster-park-dipl-infermieristica-professionale-dipl-professionista-della-cura-residence-neumunster-park",
+        "en": "residence-neumunster-park-dipl-nursing-professional-dipl-care-professional-residence-neumunster-park-spital-zollikerberg",
         "de": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park",
-        "fr": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+        "fr": "residence-neumunster-park-dipl-professionnels-des-soins-infirmiers-dipl-professionnel-de-soins-residence-neumunster-park"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -67,16 +67,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+        ],
+        "en": [
+          "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+        ],
+        "fr": [
+          "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+        ]
+      },
+      "previousSlugs": [
+        "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+      ]
     },
     {
       "id": "spital-zollikerberg-4ede53c0f126",
-      "slug": "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg",
+      "slug": "expert-expert-care-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg",
+        "it": "expert-expert-care-spital-zollikerberg-zollikerberg",
         "en": "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg",
         "de": "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg",
-        "fr": "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg"
+        "fr": "soins-d-experts-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -132,16 +146,27 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-pflege-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-bcd0ac6372cf",
-      "slug": "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
+      "slug": "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-1",
       "slugByLocale": {
-        "it": "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
-        "en": "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
+        "it": "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-1",
+        "en": "vocational-trainer-vocational-trainer-professional-health-specialist-at-the-interdisciplinary-private-station-1-spital",
         "de": "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
-        "fr": "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren"
+        "fr": "entraineur-professionnel-entraineur-professionnel-specialiste-de-la-sante-a-la-station-privee-interdisciplinaire-1"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -197,16 +222,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren"
+        ],
+        "en": [
+          "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren"
+        ],
+        "fr": [
+          "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren"
+      ]
     },
     {
       "id": "spital-zollikerberg-c606f47ca1ea",
       "slug": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-e-akutgeriatrie-spital-zollikerberg",
       "slugByLocale": {
         "it": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-e-akutgeriatrie-spital-zollikerberg",
-        "en": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital",
+        "en": "specialist-nursing-focus-on-internal-medicine-and-acute-geriatrics-spital-zollikerberg-zollikerberg",
         "de": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital",
-        "fr": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital"
+        "fr": "soins-infirmiers-specialises-focus-sur-la-medecine-interne-et-la-geriatrie-aigue-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -255,6 +294,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital"
+        ],
+        "en": [
+          "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital"
+        ],
+        "fr": [
+          "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital"
         ]
       },
       "firstSeenAt": "2026-10-28T20:00:59.091Z",
@@ -274,12 +319,12 @@
     },
     {
       "id": "spital-zollikerberg-daf6bc864081",
-      "slug": "dipl-diabetesberater-dipl-diabetesberaterin-50-spital-zollikerberg-zollikerberg",
+      "slug": "dipl-consulente-di-diabete-dipl-consulente-di-diabete-50-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "dipl-diabetesberater-dipl-diabetesberaterin-50-spital-zollikerberg-zollikerberg",
-        "en": "dipl-diabetesberater-dipl-diabetesberaterin-50-spital-zollikerberg-zollikerberg",
+        "it": "dipl-consulente-di-diabete-dipl-consulente-di-diabete-50-spital-zollikerberg-zollikerberg",
+        "en": "dipl-diabetes-consultant-dipl-diabetes-consultant-50-spital-zollikerberg-zollikerberg",
         "de": "dipl-diabetesberater-dipl-diabetesberaterin-50-spital-zollikerberg-zollikerberg",
-        "fr": "dipl-diabetesberater-dipl-diabetesberaterin-50-spital-zollikerberg-zollikerberg"
+        "fr": "dipl-conseiller-en-diabete-dipl-consultant-en-diabete-50-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -335,16 +380,30 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-diabetesberater-dipl-diabetesberaterin-50-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "dipl-diabetesberater-dipl-diabetesberaterin-50-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "dipl-diabetesberater-dipl-diabetesberaterin-50-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-diabetesberater-dipl-diabetesberaterin-50-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-4a9a6bb6dec8",
-      "slug": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
+      "slug": "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
+        "it": "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg",
         "en": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
         "de": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
-        "fr": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
+        "fr": "dipl-expert-dipl-expert-soins-d-urgence-nds-hf-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -400,7 +459,18 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
+      ]
     }
   ]
 }

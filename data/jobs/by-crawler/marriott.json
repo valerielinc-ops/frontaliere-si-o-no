@@ -837,12 +837,12 @@
     },
     {
       "id": "marriott-304267b0710f",
-      "slug": "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "agente-di-stile-assistente-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
+        "it": "agente-di-stile-assistente-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
         "de": "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "agent-de-style-prepose-a-la-salle-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -907,7 +907,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "WALLI"
+      "addressRegion": "WALLI",
+      "previousSlugsByLocale": {
+        "it": [
+          "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-b2ed74739a7d",

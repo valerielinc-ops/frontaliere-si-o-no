@@ -1348,12 +1348,12 @@
     },
     {
       "id": "spitex-ch-244cdc777569",
-      "slug": "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck",
+      "slug": "operatore-trice-sociosanitario-a-afc-50-70-spitex-am-alten-rhein-rheineck",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck",
-        "en": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
+        "it": "operatore-trice-sociosanitario-a-afc-50-70-spitex-am-alten-rhein-rheineck",
+        "en": "health-professional-efz-50-70-spitex-am-alten-rhein-rheineck",
         "de": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
-        "fr": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
+        "fr": "professionnels-de-la-sante-efz-50-70-spitex-am-alten-rhein-rheineck"
       },
       "company": "Spitex Am Alten Rhein",
       "companyKey": "spitex-ch",
@@ -1398,10 +1398,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
+        "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
+        "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
+          "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
+        ],
+        "fr": [
           "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
         ]
       },
@@ -1503,12 +1511,12 @@
     },
     {
       "id": "spitex-ch-f5af57cf2a4c",
-      "slug": "fachfrau-o-fachmann-gesundheit-cfc-spitex-regio-tannzapfenland-sirnach",
+      "slug": "operatrice-o-operatore-sociosanitario-afc-spitex-regio-tannzapfenland-sirnach",
       "slugByLocale": {
         "de": "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach",
-        "it": "fachfrau-o-fachmann-gesundheit-cfc-spitex-regio-tannzapfenland-sirnach",
-        "en": "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach",
-        "fr": "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach"
+        "it": "operatrice-o-operatore-sociosanitario-afc-spitex-regio-tannzapfenland-sirnach",
+        "en": "health-professional-efz-spitex-regio-tannzapfenland-sirnach",
+        "fr": "professionnels-de-la-sante-efz-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -1559,20 +1567,24 @@
           "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach",
           "operatrice-o-operatore-sociosanitario-afc-spitex-regio-tannzapfenland-sirnach",
           "health-professional-efz-spitex-regio-tannzapfenland-sirnach",
-          "professionnels-de-la-sante-efz-spitex-regio-tannzapfenland-sirnach"
+          "professionnels-de-la-sante-efz-spitex-regio-tannzapfenland-sirnach",
+          "fachfrau-o-fachmann-gesundheit-cfc-spitex-regio-tannzapfenland-sirnach"
         ],
         "en": [
-          "health-professional-efz-spitex-regio-tannzapfenland-sirnach"
+          "health-professional-efz-spitex-regio-tannzapfenland-sirnach",
+          "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach"
         ],
         "fr": [
-          "professionnels-de-la-sante-efz-spitex-regio-tannzapfenland-sirnach"
+          "professionnels-de-la-sante-efz-spitex-regio-tannzapfenland-sirnach",
+          "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach"
         ]
       },
       "previousSlugs": [
         "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach",
         "operatrice-o-operatore-sociosanitario-afc-spitex-regio-tannzapfenland-sirnach",
         "health-professional-efz-spitex-regio-tannzapfenland-sirnach",
-        "professionnels-de-la-sante-efz-spitex-regio-tannzapfenland-sirnach"
+        "professionnels-de-la-sante-efz-spitex-regio-tannzapfenland-sirnach",
+        "fachfrau-o-fachmann-gesundheit-cfc-spitex-regio-tannzapfenland-sirnach"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,

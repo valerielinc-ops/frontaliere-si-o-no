@@ -2988,12 +2988,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-c7ecafcb5fc7",
-      "slug": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "assistente-tecnico-a-alla-sterilizzazione-m-f-d-gesundheitszentrum-fricktal-rheinfelden-59716b",
       "slugByLocale": {
-        "it": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "assistente-tecnico-a-alla-sterilizzazione-m-f-d-gesundheitszentrum-fricktal-rheinfelden-59716b",
+        "en": "technical-sterilization-assistant-m-f-d-gesundheitszentrum-fricktal-rheinfelden-59716b",
         "de": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "assistant-e-technique-en-sterilisation-h-f-d-gesundheitszentrum-fricktal-rheinfelden-59716b"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -3049,16 +3049,30 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-b4a471395959",
-      "slug": "diabetesfachberater-in-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "consulente-specializzato-a-in-diabete-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "diabetesfachberater-in-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "diabetesfachberater-in-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "consulente-specializzato-a-in-diabete-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "diabetes-specialist-advisor-gesundheitszentrum-fricktal-rheinfelden",
         "de": "diabetesfachberater-in-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "diabetesfachberater-in-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "conseiller-ere-specialise-e-en-diabetologie-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -3114,7 +3128,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diabetesfachberater-in-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "diabetesfachberater-in-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "diabetesfachberater-in-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "diabetesfachberater-in-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     }
   ]
 }

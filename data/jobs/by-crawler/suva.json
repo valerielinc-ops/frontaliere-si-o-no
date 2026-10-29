@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "suva-0907c65a1873",
-      "slug": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-st-gallen-sankt-gallen-9000",
+      "slug": "psichiatria-specialistica-tutti-i-sessi-80-100-suva-san-gallo",
       "slugByLocale": {
-        "it": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-st-gallen-sankt-gallen-9000",
-        "en": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-st-gallen-sankt-gallen-9000",
+        "it": "psichiatria-specialistica-tutti-i-sessi-80-100-suva-san-gallo",
+        "en": "specialist-psychiatry-all-genders-80-100-suva-san-gallo",
         "de": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-st-gallen-sankt-gallen-9000",
-        "fr": "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-st-gallen-sankt-gallen-9000"
+        "fr": "psychiatrie-specialisee-tous-les-sexes-80-100-suva-san-gallo"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -66,7 +66,21 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-10-28T20:05:20.887Z"
+      "firstSeenAt": "2026-10-28T20:05:20.887Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-st-gallen-sankt-gallen-9000"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-st-gallen-sankt-gallen-9000"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-st-gallen-sankt-gallen-9000"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-st-gallen-sankt-gallen-9000"
+      ]
     },
     {
       "id": "suva-5c3825d9271e",
@@ -313,12 +327,12 @@
     },
     {
       "id": "suva-b333a88cb0ab",
-      "slug": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen-9000-schweiz",
+      "slug": "specialista-del-team-sinistri-dell-assicurazione-militare-60-100-a-tempo-determinato-suva-st-gallen-sankt-gallen-9000",
       "slugByLocale": {
-        "it": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen-9000-schweiz",
-        "en": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen",
+        "it": "specialista-del-team-sinistri-dell-assicurazione-militare-60-100-a-tempo-determinato-suva-st-gallen-sankt-gallen-9000",
+        "en": "specialist-military-insurance-claims-team-60-100-fixed-term-suva-st-gallen-sankt-gallen-9000-schweiz",
         "de": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen",
-        "fr": "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen"
+        "fr": "specialiste-de-l-equipe-des-sinistres-de-l-assurance-militaire-60-100-a-duree-determinee-suva-st-gallen-sankt-gallen"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -362,11 +376,19 @@
       "sfJobId": "1452079833",
       "previousSlugsByLocale": {
         "it": [
+          "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen",
+          "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen-9000-schweiz"
+        ],
+        "en": [
+          "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen"
+        ],
+        "fr": [
           "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen"
         ]
       },
       "previousSlugs": [
-        "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen"
+        "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen",
+        "spezialist-in-schadenteam-militarversicherung-60-100-befristet-suva-st-gallen-sankt-gallen-9000-schweiz"
       ],
       "salaryMin": 62000,
       "salaryMax": 103000,
@@ -639,12 +661,12 @@
     },
     {
       "id": "suva-68e4bda37480",
-      "slug": "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz",
+      "slug": "responsabile-dei-contenuti-aziendali-80-100-suva-luzern-luzern-6004-schweiz",
       "slugByLocale": {
-        "it": "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz",
+        "it": "responsabile-dei-contenuti-aziendali-80-100-suva-luzern-luzern-6004-schweiz",
         "en": "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz",
         "de": "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz",
-        "fr": "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz"
+        "fr": "responsable-du-contenu-commercial-80-100-suva-luzern-luzern-6004-schweiz"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -700,7 +722,18 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-10-28T20:05:13.089Z"
+      "firstSeenAt": "2026-10-28T20:05:13.089Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz"
+        ],
+        "fr": [
+          "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz"
+        ]
+      },
+      "previousSlugs": [
+        "business-content-manager-in-80-100-suva-luzern-luzern-6004-schweiz"
+      ]
     },
     {
       "id": "suva-6a1059f448e5",

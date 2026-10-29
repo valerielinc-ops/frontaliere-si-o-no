@@ -5535,7 +5535,7 @@
         "it": "vicepresidente-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "konrektorin-konrektor-kanton-basel-landschaft-liestal",
-        "fr": "konrektorin-konrektor-kanton-basel-landschaft-liestal"
+        "fr": "vice-president-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5589,6 +5589,9 @@
         ],
         "en": [
           "vice-president-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "konrektorin-konrektor-kanton-basel-landschaft-liestal"
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:25.105Z",
@@ -6328,12 +6331,12 @@
     },
     {
       "id": "kanton-basel-landschaft-fe908fc54868",
-      "slug": "assistentin-assistent-der-schulleitung-kanton-basel-landschaft-allschwil",
+      "slug": "assistente-assistente-della-gestione-scolastica-kantonale-verwaltung-basel-landschaft-allschwil",
       "slugByLocale": {
-        "it": "assistentin-assistent-der-schulleitung-kanton-basel-landschaft-allschwil",
-        "en": "assistentin-assistent-der-schulleitung-kanton-basel-landschaft-allschwil",
+        "it": "assistente-assistente-della-gestione-scolastica-kantonale-verwaltung-basel-landschaft-allschwil",
+        "en": "assistant-assistant-of-school-management-kantonale-verwaltung-basel-landschaft-allschwil",
         "de": "assistentin-assistent-der-schulleitung-kanton-basel-landschaft-allschwil",
-        "fr": "assistentin-assistent-der-schulleitung-kanton-basel-landschaft-allschwil"
+        "fr": "assistant-assistant-de-gestion-scolaire-kantonale-verwaltung-basel-landschaft-allschwil"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6390,14 +6393,28 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistentin-assistent-der-schulleitung-kanton-basel-landschaft-allschwil"
+        ],
+        "en": [
+          "assistentin-assistent-der-schulleitung-kanton-basel-landschaft-allschwil"
+        ],
+        "fr": [
+          "assistentin-assistent-der-schulleitung-kanton-basel-landschaft-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "assistentin-assistent-der-schulleitung-kanton-basel-landschaft-allschwil"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-5d32ddd1824d",
-      "slug": "lehrperson-textiles-gestalten-kanton-basel-landschaft-reinach",
+      "slug": "tessili-per-la-progettazione-degli-insegnanti-kantonale-verwaltung-basel-landschaft-reinach",
       "slugByLocale": {
-        "it": "lehrperson-textiles-gestalten-kanton-basel-landschaft-reinach",
-        "en": "lehrperson-textiles-gestalten-kanton-basel-landschaft-reinach",
+        "it": "tessili-per-la-progettazione-degli-insegnanti-kantonale-verwaltung-basel-landschaft-reinach",
+        "en": "teacher-designing-textiles-kantonale-verwaltung-basel-landschaft-reinach",
         "de": "lehrperson-textiles-gestalten-kanton-basel-landschaft-reinach",
         "fr": "lehrperson-textiles-gestalten-kantonale-verwaltung-basel-landschaft-reinach"
       },
@@ -6457,7 +6474,18 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-textiles-gestalten-kanton-basel-landschaft-reinach"
+        ],
+        "en": [
+          "lehrperson-textiles-gestalten-kanton-basel-landschaft-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-textiles-gestalten-kanton-basel-landschaft-reinach"
+      ]
     }
   ]
 }

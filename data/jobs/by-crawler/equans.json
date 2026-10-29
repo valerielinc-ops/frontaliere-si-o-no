@@ -2347,9 +2347,9 @@
     },
     {
       "id": "equans-6d4a1701f6ad",
-      "slug": "sanitarinstallateur-in-equans-switzerland-bern",
+      "slug": "installatore-trice-di-sanitari-equans-switzerland-bern",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-equans-switzerland-bern",
+        "it": "installatore-trice-di-sanitari-equans-switzerland-bern",
         "en": "plumbing-engineer-equans-switzerland-bern",
         "de": "sanitarinstallateur-in-equans-bern",
         "fr": "installateur-trice-sanitaire-cfc-equans-switzerland-bern"
@@ -2398,12 +2398,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitarinstallateur-in-equans-bern",
-        "installatore-trice-di-sanitari-equans-switzerland-bern"
+        "sanitarinstallateur-in-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateur-in-equans-bern",
-          "installatore-trice-di-sanitari-equans-switzerland-bern"
+          "sanitarinstallateur-in-equans-switzerland-bern"
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:24.028Z",
@@ -5527,7 +5527,7 @@
         "it": "tecnico-a-di-servizio-elektro-equans-switzerland-brig-glis",
         "en": "service-technician-elektro-equans-switzerland-brig-glis",
         "de": "servicetechniker-in-elektro-equans-brig-glis",
-        "fr": "servicetechniker-in-elektro-equans-switzerland-brig-glis"
+        "fr": "technicien-ne-de-service-en-electricite-equans-switzerland-brig-glis"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -5574,7 +5574,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-elektro-equans-brig-glis",
-        "technicien-ne-de-service-en-electricite-equans-switzerland-brig-glis"
+        "servicetechniker-in-elektro-equans-switzerland-brig-glis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5585,7 +5585,7 @@
         ],
         "fr": [
           "servicetechniker-in-elektro-equans-brig-glis",
-          "technicien-ne-de-service-en-electricite-equans-switzerland-brig-glis"
+          "servicetechniker-in-elektro-equans-switzerland-brig-glis"
         ]
       },
       "firstSeenAt": "2026-10-19T09:16:12.904Z",
@@ -7936,7 +7936,7 @@
         "it": "tecnico-a-di-assistenza-per-la-refrigerazione-equans-switzerland-bern",
         "en": "refrigeration-service-technician-equans-switzerland-bern",
         "de": "servicetechniker-in-kalte-equans-bern",
-        "fr": "servicetechniker-in-kalte-equans-switzerland-bern"
+        "fr": "technicien-ne-de-service-en-froid-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7983,8 +7983,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-kalte-equans-bern",
-        "servicetechniker-in-kalte-equans-switzerland-bern",
-        "technicien-ne-de-service-en-froid-equans-switzerland-bern"
+        "servicetechniker-in-kalte-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7996,7 +7995,7 @@
         ],
         "fr": [
           "servicetechniker-in-kalte-equans-bern",
-          "technicien-ne-de-service-en-froid-equans-switzerland-bern"
+          "servicetechniker-in-kalte-equans-switzerland-bern"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.158Z",
@@ -8575,12 +8574,12 @@
     },
     {
       "id": "equans-2044bed4462e",
-      "slug": "technische-r-sachbearbeiter-in-verkaufsinnendienst-schaltanlagenbau-equans-spreitenbach",
+      "slug": "impiegato-a-tecnico-a-per-il-servizio-interno-vendite-nella-costruzione-di-quadri-elettrici-equans-switzerland",
       "slugByLocale": {
-        "it": "technische-r-sachbearbeiter-in-verkaufsinnendienst-schaltanlagenbau-equans-spreitenbach",
-        "en": "technische-r-sachbearbeiter-in-verkaufsinnendienst-schaltanlagenbau-equans-spreitenbach",
+        "it": "impiegato-a-tecnico-a-per-il-servizio-interno-vendite-nella-costruzione-di-quadri-elettrici-equans-switzerland",
+        "en": "technical-sales-support-specialist-switchgear-construction-equans-switzerland-spreitenbach",
         "de": "technische-r-sachbearbeiter-in-verkaufsinnendienst-schaltanlagenbau-equans-spreitenbach",
-        "fr": "technische-r-sachbearbeiter-in-verkaufsinnendienst-schaltanlagenbau-equans-spreitenbach"
+        "fr": "collaborateur-trice-technique-au-service-interne-des-ventes-dans-la-construction-de-tableaux-electriques-equans"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8638,16 +8637,30 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-sachbearbeiter-in-verkaufsinnendienst-schaltanlagenbau-equans-spreitenbach"
+        ],
+        "en": [
+          "technische-r-sachbearbeiter-in-verkaufsinnendienst-schaltanlagenbau-equans-spreitenbach"
+        ],
+        "fr": [
+          "technische-r-sachbearbeiter-in-verkaufsinnendienst-schaltanlagenbau-equans-spreitenbach"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-sachbearbeiter-in-verkaufsinnendienst-schaltanlagenbau-equans-spreitenbach"
+      ]
     },
     {
       "id": "equans-e729fa50dbb7",
-      "slug": "senior-sales-kalkulator-pricing-manager-technik-tgm-equans-schlieren",
+      "slug": "senior-calcolatore-di-vendita-gestione-dei-prezzi-tecnologia-tgm-equans-switzerland-schlieren",
       "slugByLocale": {
-        "it": "senior-sales-kalkulator-pricing-manager-technik-tgm-equans-schlieren",
+        "it": "senior-calcolatore-di-vendita-gestione-dei-prezzi-tecnologia-tgm-equans-switzerland-schlieren",
         "en": "senior-sales-kalkulator-pricing-manager-technik-tgm-equans-schlieren",
         "de": "senior-sales-kalkulator-pricing-manager-technik-tgm-equans-schlieren",
-        "fr": "senior-sales-kalkulator-pricing-manager-technik-tgm-equans-schlieren"
+        "fr": "aine-calculatrice-des-ventes-gestionnaire-des-prix-technologie-tgm-equans-switzerland-schlieren"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8705,16 +8718,27 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-sales-kalkulator-pricing-manager-technik-tgm-equans-schlieren"
+        ],
+        "fr": [
+          "senior-sales-kalkulator-pricing-manager-technik-tgm-equans-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "senior-sales-kalkulator-pricing-manager-technik-tgm-equans-schlieren"
+      ]
     },
     {
       "id": "equans-155b391a6543",
-      "slug": "senior-sales-kalkulator-pricing-manager-reinigung-igm-equans-schlieren",
+      "slug": "senior-calcolatore-di-vendita-gestione-dei-prezzi-pulizia-igm-equans-switzerland-schlieren",
       "slugByLocale": {
-        "it": "senior-sales-kalkulator-pricing-manager-reinigung-igm-equans-schlieren",
+        "it": "senior-calcolatore-di-vendita-gestione-dei-prezzi-pulizia-igm-equans-switzerland-schlieren",
         "en": "senior-sales-kalkulator-pricing-manager-reinigung-igm-equans-schlieren",
         "de": "senior-sales-kalkulator-pricing-manager-reinigung-igm-equans-schlieren",
-        "fr": "senior-sales-kalkulator-pricing-manager-reinigung-igm-equans-schlieren"
+        "fr": "aine-calculatrice-des-ventes-gestionnaire-des-prix-nettoyage-igm-equans-switzerland-schlieren"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8772,15 +8796,26 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-sales-kalkulator-pricing-manager-reinigung-igm-equans-schlieren"
+        ],
+        "fr": [
+          "senior-sales-kalkulator-pricing-manager-reinigung-igm-equans-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "senior-sales-kalkulator-pricing-manager-reinigung-igm-equans-schlieren"
+      ]
     },
     {
       "id": "equans-59df07cf70ca",
-      "slug": "technicien-frigoriste-ne-fr-equans-prilly",
+      "slug": "frigosto-tecnico-ne-fr-equans-switzerland-prilly",
       "slugByLocale": {
-        "it": "technicien-frigoriste-ne-fr-equans-prilly",
-        "en": "technicien-frigoriste-ne-fr-equans-prilly",
-        "de": "technicien-frigoriste-ne-fr-equans-prilly",
+        "it": "frigosto-tecnico-ne-fr-equans-switzerland-prilly",
+        "en": "technician-frigorist-ne-fr-equans-switzerland-prilly",
+        "de": "techniker-frigorist-ne-fr-equans-switzerland-prilly",
         "fr": "technicien-frigoriste-ne-fr-equans-prilly"
       },
       "company": "Equans Switzerland",
@@ -8838,7 +8873,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-frigoriste-ne-fr-equans-prilly"
+        ],
+        "en": [
+          "technicien-frigoriste-ne-fr-equans-prilly"
+        ],
+        "de": [
+          "technicien-frigoriste-ne-fr-equans-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-frigoriste-ne-fr-equans-prilly"
+      ]
     }
   ]
 }

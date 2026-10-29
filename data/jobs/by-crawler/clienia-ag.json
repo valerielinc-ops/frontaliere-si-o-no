@@ -277,7 +277,7 @@
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -358,7 +358,8 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+        "qualified-nurse-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -368,7 +369,7 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
+          "qualified-nurse-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -748,7 +749,7 @@
       "slug": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
-        "en": "graduated-day-care-professional-60-100-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich",
         "fr": "infirmiere-diplomee-en-service-de-jour-70-80-clienia-ag-pfaffikon-zh"
       },
@@ -832,7 +833,7 @@
         "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
         "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
+        "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -842,7 +843,7 @@
           "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
+          "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-im-tagesdienst-70-80-clienia-ag-pfaffikon"
@@ -7291,12 +7292,12 @@
     },
     {
       "id": "clienia-ag-ebf275452938",
-      "slug": "stv-teamleitung-hotellerie-w-m-d-80-clienia-ag-zurich",
+      "slug": "vice-responsabile-del-team-alberghiero-m-f-d-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "stv-teamleitung-hotellerie-w-m-d-80-clienia-ag-zurich",
-        "en": "stv-teamleitung-hotellerie-w-m-d-80-clienia-ag-zurich",
+        "it": "vice-responsabile-del-team-alberghiero-m-f-d-80-clienia-ag-pfaffikon-zh",
+        "en": "deputy-team-lead-hospitality-m-f-d-80-clienia-ag-pfaffikon-zh",
         "de": "stv-teamleitung-hotellerie-w-m-d-80-clienia-ag-zurich",
-        "fr": "stv-teamleitung-hotellerie-w-m-d-80-clienia-ag-zurich"
+        "fr": "responsable-adjoint-e-de-l-equipe-hotellerie-h-f-d-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7352,7 +7353,21 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleitung-hotellerie-w-m-d-80-clienia-ag-zurich"
+        ],
+        "en": [
+          "stv-teamleitung-hotellerie-w-m-d-80-clienia-ag-zurich"
+        ],
+        "fr": [
+          "stv-teamleitung-hotellerie-w-m-d-80-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleitung-hotellerie-w-m-d-80-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-26af4457e82a",
@@ -7439,12 +7454,12 @@
     },
     {
       "id": "clienia-ag-57bddf94b3ad",
-      "slug": "oberarztin-oberarzt-fmh-allgemeine-innere-medizin-60-80-clienia-ag-zurich",
+      "slug": "medico-senior-fmh-medicina-interna-generale-60-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-fmh-allgemeine-innere-medizin-60-80-clienia-ag-zurich",
-        "en": "oberarztin-oberarzt-fmh-allgemeine-innere-medizin-60-80-clienia-ag-zurich",
+        "it": "medico-senior-fmh-medicina-interna-generale-60-80-clienia-ag-pfaffikon-zh",
+        "en": "senior-physician-fmh-general-internal-medicine-60-80-clienia-ag-pfaffikon-zh",
         "de": "oberarztin-oberarzt-fmh-allgemeine-innere-medizin-60-80-clienia-ag-zurich",
-        "fr": "oberarztin-oberarzt-fmh-allgemeine-innere-medizin-60-80-clienia-ag-zurich"
+        "fr": "medecin-principal-fmh-medecine-generale-interne-60-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7500,16 +7515,30 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-fmh-allgemeine-innere-medizin-60-80-clienia-ag-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-fmh-allgemeine-innere-medizin-60-80-clienia-ag-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-fmh-allgemeine-innere-medizin-60-80-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-fmh-allgemeine-innere-medizin-60-80-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-a9835ace3bf3",
-      "slug": "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-pfaffikon",
+      "slug": "docente-di-scuola-secondaria-insegnante-di-sostegno-con-specializzazione-in-sport-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-pfaffikon",
-        "en": "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-pfaffikon",
+        "it": "docente-di-scuola-secondaria-insegnante-di-sostegno-con-specializzazione-in-sport-80-clienia-ag-pfaffikon-zh",
+        "en": "secondary-teacher-shp-with-sport-in-profile-80-clienia-ag-pfaffikon-zh",
         "de": "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-zurich",
-        "fr": "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-pfaffikon"
+        "fr": "professeur-de-secondaire-shp-de-profil-sportif-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7553,11 +7582,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-zurich"
+        "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-zurich",
+        "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-zurich"
+          "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-zurich",
+          "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "sekundarlehrperson-shp-mit-sport-im-profil-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-10-28T20:32:58.569Z",

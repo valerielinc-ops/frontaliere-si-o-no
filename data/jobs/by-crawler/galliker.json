@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "galliker-73b6567f7471",
-      "slug": "logistiker-m-w-d-staad-galliker-transport-ag-staad",
+      "slug": "logisticista-m-f-d-staad-galliker-transport-ag-staad",
       "slugByLocale": {
-        "it": "logistiker-m-w-d-staad-galliker-transport-ag-staad",
-        "en": "logistiker-m-w-d-staad-galliker-transport-ag-staad",
+        "it": "logisticista-m-f-d-staad-galliker-transport-ag-staad",
+        "en": "logistician-m-f-d-staad-galliker-transport-ag-staad",
         "de": "logistiker-m-w-d-staad-galliker-staad",
-        "fr": "logistiker-m-w-d-staad-galliker-transport-ag-staad"
+        "fr": "logisticien-h-f-d-staad-galliker-transport-ag-staad"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -56,11 +56,19 @@
       "requirementsByLocale": {},
       "externalId": "0155",
       "previousSlugs": [
-        "logistiker-m-w-d-staad-galliker-staad"
+        "logistiker-m-w-d-staad-galliker-staad",
+        "logistiker-m-w-d-staad-galliker-transport-ag-staad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-m-w-d-staad-galliker-staad"
+          "logistiker-m-w-d-staad-galliker-staad",
+          "logistiker-m-w-d-staad-galliker-transport-ag-staad"
+        ],
+        "en": [
+          "logistiker-m-w-d-staad-galliker-transport-ag-staad"
+        ],
+        "fr": [
+          "logistiker-m-w-d-staad-galliker-transport-ag-staad"
         ]
       },
       "firstSeenAt": "2026-10-28T20:06:30.318Z",
@@ -1034,7 +1042,7 @@
       "slug": "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "it": "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
-        "en": "betriebselektriker-a-galliker-transport-ag-altishofen",
+        "en": "business-electricians-a-galliker-transport-ag-altishofen",
         "de": "betriebselektriker-a-galliker-altishofen",
         "fr": "electriciens-d-affaires-a-galliker-transport-ag-altishofen"
       },
@@ -1083,14 +1091,14 @@
       "externalId": "0382",
       "previousSlugs": [
         "betriebselektriker-a-galliker-altishofen",
-        "business-electricians-a-galliker-transport-ag-altishofen"
+        "betriebselektriker-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-a-galliker-altishofen"
         ],
         "en": [
-          "business-electricians-a-galliker-transport-ag-altishofen"
+          "betriebselektriker-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:03.309Z",
@@ -2321,7 +2329,7 @@
         "it": "carrosseriespengler-pw-a-galliker-transport-ag-altishofen",
         "en": "carrosseriespengler-pw-a-galliker-transport-ag-altishofen",
         "de": "carrosseriespengler-pw-a-galliker-altishofen",
-        "fr": "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
+        "fr": "carrosseriespengler-pw-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -2371,7 +2379,8 @@
         "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
         "carrossier-pw-a-galliker-transport-ag-altishofen",
         "carrosseriespengler-pw-a-galliker-altishofen",
-        "pw-a-galliker-transport-ag-altishofen"
+        "pw-a-galliker-transport-ag-altishofen",
+        "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2384,7 +2393,8 @@
         ],
         "fr": [
           "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
-          "carrossier-pw-a-galliker-transport-ag-altishofen"
+          "carrossier-pw-a-galliker-transport-ag-altishofen",
+          "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:04.864Z",
@@ -3169,7 +3179,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logisticien-a-galliker-transport-ag-altishofen"
+        "fr": "logistique-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3217,7 +3227,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logistique-a-galliker-transport-ag-altishofen"
+        "logisticien-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3229,7 +3239,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logistique-a-galliker-transport-ag-altishofen"
+          "logisticien-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -3483,7 +3493,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3530,14 +3540,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "soins-de-sante-a-galliker-transport-ag-altishofen"
+          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",

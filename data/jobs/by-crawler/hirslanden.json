@@ -24671,12 +24671,12 @@
     {
       "id": "hirslanden-80ba3ba84b34",
       "externalId": "1451151633",
-      "slug": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital",
+      "slug": "assistente-infermieristico-a-80-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital",
-        "it": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital",
-        "en": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital",
-        "fr": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+        "it": "assistente-infermieristico-a-80-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "nursing-assistant-a-80-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "assistant-infirmier-a-80-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -24732,7 +24732,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:03:58.328Z"
+      "firstSeenAt": "2026-10-28T20:03:58.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
+          "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+      ]
     },
     {
       "id": "hirslanden-ca7559667994",
@@ -25087,12 +25101,12 @@
     {
       "id": "hirslanden-f17734c3553f",
       "externalId": "1451695233",
-      "slug": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital-2",
+      "slug": "assistente-infermieristico-a-80-hirslanden-klinik-hirslanden-salem-spital-9aabb4",
       "slugByLocale": {
         "de": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital",
-        "it": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital-2",
-        "en": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital-2",
-        "fr": "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital-2"
+        "it": "assistente-infermieristico-a-80-hirslanden-klinik-hirslanden-salem-spital-9aabb4",
+        "en": "nursing-assistant-a-80-hirslanden-klinik-hirslanden-salem-spital-9aabb4",
+        "fr": "assistant-infirmier-a-80-hirslanden-klinik-hirslanden-salem-spital-9aabb4"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25151,22 +25165,30 @@
       "firstSeenAt": "2026-10-28T20:03:53.553Z",
       "previousSlugsByLocale": {
         "it": [
-          "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+          "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital",
+          "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital-2"
+        ],
+        "en": [
+          "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital-2"
+        ],
+        "fr": [
+          "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital-2"
         ]
       },
       "previousSlugs": [
-        "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+        "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital",
+        "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital-2"
       ]
     },
     {
       "id": "hirslanden-cd3e5355943b",
       "externalId": "1451649033",
-      "slug": "fachfrau-fachmann-gesundheit-a-80-hirslanden-hirslanden-salem-spital",
+      "slug": "salute-professionale-a-80-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-a-80-hirslanden-hirslanden-salem-spital",
-        "it": "fachfrau-fachmann-gesundheit-a-80-hirslanden-hirslanden-salem-spital",
-        "en": "fachfrau-fachmann-gesundheit-a-80-hirslanden-hirslanden-salem-spital",
-        "fr": "fachfrau-fachmann-gesundheit-a-80-hirslanden-hirslanden-salem-spital"
+        "it": "salute-professionale-a-80-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "professional-health-a-80-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "sante-professionnelle-a-80-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25222,7 +25244,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:03:52.621Z"
+      "firstSeenAt": "2026-10-28T20:03:52.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-a-80-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-a-80-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-a-80-hirslanden-hirslanden-salem-spital"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-a-80-hirslanden-hirslanden-salem-spital"
+      ]
     },
     {
       "id": "hirslanden-639e594c4dd3",
@@ -26117,12 +26153,12 @@
     {
       "id": "hirslanden-808d9e7ac1e4",
       "externalId": "1452235733",
-      "slug": "infirmier-ere-en-dialyse-a-100-hirslanden-hirslanden-clinique-cecil",
+      "slug": "infermiere-dialisi-al-100-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "fr": "infirmier-ere-en-dialyse-a-100-hirslanden-hirslanden-clinique-cecil",
-        "it": "infirmier-ere-en-dialyse-a-100-hirslanden-hirslanden-clinique-cecil",
-        "en": "infirmier-ere-en-dialyse-a-100-hirslanden-hirslanden-clinique-cecil",
-        "de": "infirmier-ere-en-dialyse-a-100-hirslanden-hirslanden-clinique-cecil"
+        "it": "infermiere-dialisi-al-100-hirslanden-klinik-hirslanden-clinique-cecil",
+        "en": "100-dialysis-nurse-hirslanden-klinik-hirslanden-clinique-cecil",
+        "de": "100-dialyse-krankenschwester-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26178,17 +26214,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:03:38.628Z"
+      "firstSeenAt": "2026-10-28T20:03:38.628Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-dialyse-a-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "en": [
+          "infirmier-ere-en-dialyse-a-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "infirmier-ere-en-dialyse-a-100-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-dialyse-a-100-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-0cd28e699468",
       "externalId": "1452057133",
-      "slug": "arztsekretarin-arztsekretar-physiotherapie-a-80-100-hirslanden-st-anna-im-bahnhof",
+      "slug": "segreteria-medica-segreteria-medica-fisioterapia-a-80-100-hirslanden-klinik-st-anna-im-bahnhof",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-physiotherapie-a-80-100-hirslanden-st-anna-im-bahnhof",
-        "it": "arztsekretarin-arztsekretar-physiotherapie-a-80-100-hirslanden-st-anna-im-bahnhof",
-        "en": "arztsekretarin-arztsekretar-physiotherapie-a-80-100-hirslanden-st-anna-im-bahnhof",
-        "fr": "arztsekretarin-arztsekretar-physiotherapie-a-80-100-hirslanden-st-anna-im-bahnhof"
+        "it": "segreteria-medica-segreteria-medica-fisioterapia-a-80-100-hirslanden-klinik-st-anna-im-bahnhof",
+        "en": "medical-secretary-medical-secretary-physiotherapy-a-80-100-hirslanden-klinik-st-anna-im-bahnhof",
+        "fr": "secretaire-medical-secretaire-medical-physiotherapie-a-80-100-hirslanden-klinik-st-anna-im-bahnhof"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26244,17 +26294,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:03:35.517Z"
+      "firstSeenAt": "2026-10-28T20:03:35.517Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-physiotherapie-a-80-100-hirslanden-st-anna-im-bahnhof"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-physiotherapie-a-80-100-hirslanden-st-anna-im-bahnhof"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-physiotherapie-a-80-100-hirslanden-st-anna-im-bahnhof"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-physiotherapie-a-80-100-hirslanden-st-anna-im-bahnhof"
+      ]
     },
     {
       "id": "hirslanden-838dbc937e0c",
       "externalId": "1452028733",
-      "slug": "facharztin-facharzt-rheumatologie-a-40-60-hirslanden-st-anna-im-bahnhof",
+      "slug": "reumatologia-specialistica-a-40-60-hirslanden-klinik-st-anna-im-bahnhof",
       "slugByLocale": {
         "de": "facharztin-facharzt-rheumatologie-a-40-60-hirslanden-st-anna-im-bahnhof",
-        "it": "facharztin-facharzt-rheumatologie-a-40-60-hirslanden-st-anna-im-bahnhof",
-        "en": "facharztin-facharzt-rheumatologie-a-40-60-hirslanden-st-anna-im-bahnhof",
-        "fr": "facharztin-facharzt-rheumatologie-a-40-60-hirslanden-st-anna-im-bahnhof"
+        "it": "reumatologia-specialistica-a-40-60-hirslanden-klinik-st-anna-im-bahnhof",
+        "en": "specialist-rheumatology-a-40-60-hirslanden-klinik-st-anna-im-bahnhof",
+        "fr": "specialiste-en-rhumatologie-a-40-60-hirslanden-klinik-st-anna-im-bahnhof"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26310,7 +26374,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:03:34.497Z"
+      "firstSeenAt": "2026-10-28T20:03:34.497Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-rheumatologie-a-40-60-hirslanden-st-anna-im-bahnhof"
+        ],
+        "en": [
+          "facharztin-facharzt-rheumatologie-a-40-60-hirslanden-st-anna-im-bahnhof"
+        ],
+        "fr": [
+          "facharztin-facharzt-rheumatologie-a-40-60-hirslanden-st-anna-im-bahnhof"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-rheumatologie-a-40-60-hirslanden-st-anna-im-bahnhof"
+      ]
     },
     {
       "id": "hirslanden-6a3124c81e13",

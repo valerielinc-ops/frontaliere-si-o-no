@@ -1457,7 +1457,7 @@
         "it": "assistant-categoria-gestione-latticini-prodotti-per-pane-transgourmet-moosseedorf",
         "en": "assistant-category-management-dairy-bread-products-transgourmet-moosseedorf",
         "de": "assistant-category-management-molkerei-backwaren-transgourmet-moosseedorf",
-        "fr": "assistant-category-management-molkerei-backwaren-transgourmet-moosseedorf"
+        "fr": "gestion-de-la-categorie-adjointe-produits-laitiers-et-pains-transgourmet-moosseedorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1518,8 +1518,7 @@
         ]
       },
       "previousSlugs": [
-        "assistant-category-management-molkerei-backwaren-transgourmet-moosseedorf",
-        "gestion-de-la-categorie-adjointe-produits-laitiers-et-pains-transgourmet-moosseedorf"
+        "assistant-category-management-molkerei-backwaren-transgourmet-moosseedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1529,7 +1528,7 @@
           "assistant-category-management-molkerei-backwaren-transgourmet-moosseedorf"
         ],
         "fr": [
-          "gestion-de-la-categorie-adjointe-produits-laitiers-et-pains-transgourmet-moosseedorf"
+          "assistant-category-management-molkerei-backwaren-transgourmet-moosseedorf"
         ]
       },
       "firstSeenAt": "2026-10-15T21:22:34.403Z",
@@ -1835,12 +1834,12 @@
     },
     {
       "id": "transgourmet-99a4d6ab-d5e",
-      "slug": "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens",
+      "slug": "responsabile-di-reparto-amministrazione-hr-transgourmet-kriens",
       "slugByLocale": {
         "de": "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens",
-        "it": "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens",
-        "en": "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens",
-        "fr": "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens"
+        "it": "responsabile-di-reparto-amministrazione-hr-transgourmet-kriens",
+        "en": "head-of-department-head-of-department-administration-hr-transgourmet-kriens",
+        "fr": "responsable-de-departement-administration-hr-transgourmet-kriens"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1911,7 +1910,21 @@
         }
       },
       "postalCode": "6010",
-      "firstSeenAt": "2026-10-28T21:19:29.931Z"
+      "firstSeenAt": "2026-10-28T21:19:29.931Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens"
+        ],
+        "en": [
+          "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens"
+        ],
+        "fr": [
+          "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiterin-abteilungsleiter-administration-hr-transgourmet-kriens"
+      ]
     }
   ]
 }

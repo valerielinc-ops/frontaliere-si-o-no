@@ -2248,12 +2248,12 @@
     },
     {
       "id": "swica-2c0c77256b98",
-      "slug": "sachbearbeiter-gesundheit-alle-swica-zurich-2",
+      "slug": "responsabile-del-caso-sanitario-tutti-swica-gesundheitsorganisation-zurich-32a1da",
       "slugByLocale": {
-        "it": "sachbearbeiter-gesundheit-alle-swica-zurich-2",
-        "en": "sachbearbeiter-gesundheit-alle-swica-zurich-2",
+        "it": "responsabile-del-caso-sanitario-tutti-swica-gesundheitsorganisation-zurich-32a1da",
+        "en": "health-case-officer-all-swica-gesundheitsorganisation-zurich-32a1da",
         "de": "sachbearbeiter-gesundheit-alle-swica-zurich",
-        "fr": "sachbearbeiter-gesundheit-alle-swica-zurich-2"
+        "fr": "agent-de-sante-tous-swica-gesundheitsorganisation-zurich-32a1da"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2313,11 +2313,19 @@
       "firstSeenAt": "2026-10-14T21:24:28.184Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-gesundheit-alle-swica-zurich"
+          "sachbearbeiter-gesundheit-alle-swica-zurich",
+          "sachbearbeiter-gesundheit-alle-swica-zurich-2"
+        ],
+        "en": [
+          "sachbearbeiter-gesundheit-alle-swica-zurich-2"
+        ],
+        "fr": [
+          "sachbearbeiter-gesundheit-alle-swica-zurich-2"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-gesundheit-alle-swica-zurich"
+        "sachbearbeiter-gesundheit-alle-swica-zurich",
+        "sachbearbeiter-gesundheit-alle-swica-zurich-2"
       ]
     }
   ]

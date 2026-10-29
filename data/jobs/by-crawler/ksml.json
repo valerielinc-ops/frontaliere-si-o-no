@@ -2312,8 +2312,8 @@
       "slugByLocale": {
         "de": "teilpensenlehrperson-in-zwei-7-klassen-17-lektionen-60-7-im-modell-4-anstellung-befristet-40604",
         "it": "teilpensenlehrperson-in-zwei-7-klassen-17-lektionen-60-7-im-modell-4-anstellung-befristet-bis-31-07-2027-weiterfuhrung-ev-moglich-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-l",
-        "en": "teilpensenlehrperson-in-zwei-7-klassen-17-lektionen-60-7-im-modell-4-anstellung-befristet-40604",
-        "fr": "teilpensenlehrperson-in-zwei-7-klassen-17-lektionen-60-7-im-modell-4-anstellung-befristet-40604"
+        "en": "participant-in-two-7th-classes-17-lessons-60-7-in-model-4-employment-limited-to-31-07-2027-continuation-possible-40604",
+        "fr": "participant-dans-deux-7e-classes-17-lecons-60-7-dans-le-modele-4-emploi-limite-a-31-07-2027-continuation-possible-40604"
       },
       "slugDisambiguator": "40604",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -2360,6 +2360,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "teilpensenlehrperson-in-zwei-7-klassen-17-lektionen-60-7-im-modell-4-anstellung-befristet-40604"
+        ],
+        "en": [
+          "teilpensenlehrperson-in-zwei-7-klassen-17-lektionen-60-7-im-modell-4-anstellung-befristet-40604"
+        ],
+        "fr": [
           "teilpensenlehrperson-in-zwei-7-klassen-17-lektionen-60-7-im-modell-4-anstellung-befristet-40604"
         ]
       },
@@ -6210,8 +6216,8 @@
       "slug": "rectrice-adjointe-recteur-adjoint-40-60-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bienne",
       "slugByLocale": {
         "it": "rectrice-adjointe-recteur-adjoint-40-60-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bienne",
-        "en": "rectrice-adjointe-recteur-adjoint-40-60-gymnase-de-bienne-et-du-jura-bernois-bienne-40555",
-        "de": "rectrice-adjointe-recteur-adjoint-40-60-gymnase-de-bienne-et-du-jura-bernois-bienne-40555",
+        "en": "assistant-rector-assistant-rector-40-60-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bienne-40555",
+        "de": "assistenzrektor-assistenzrektor-40-60-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bienne-40555",
         "fr": "rectrice-adjointe-recteur-adjoint-40-60-gymnase-de-bienne-et-du-jura-bernois-bienne-40555"
       },
       "slugDisambiguator": "40555",
@@ -6263,6 +6269,12 @@
         ],
         "fr": [
           "rectrice-adjointe-recteur-adjoint-40-60-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bienne-40555"
+        ],
+        "en": [
+          "rectrice-adjointe-recteur-adjoint-40-60-gymnase-de-bienne-et-du-jura-bernois-bienne-40555"
+        ],
+        "de": [
+          "rectrice-adjointe-recteur-adjoint-40-60-gymnase-de-bienne-et-du-jura-bernois-bienne-40555"
         ]
       },
       "previousSlugs": [
@@ -11266,8 +11278,8 @@
       "slugByLocale": {
         "de": "konrektor-in-leiter-in-abteilung-wirtschafts-und-rechtswissenschaften-60-70-exkl-40579",
         "it": "konrektor-in-responsabile-abteilung-wirtschafts-e-rechtswissenschaften-60-70-exkl-unterricht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-        "en": "konrektor-in-leiter-in-abteilung-wirtschafts-und-rechtswissenschaften-60-70-exkl-40579",
-        "fr": "konrektor-in-leiter-in-abteilung-wirtschafts-und-rechtswissenschaften-60-70-exkl-40579"
+        "en": "deputy-principal-head-of-the-department-of-economics-and-legal-studies-60-70-excluding-teaching-ksml-kantonaler-40579",
+        "fr": "vice-recteur-trice-responsable-du-departement-des-sciences-economiques-et-juridiques-60-70-hors-enseignement-ksml-40579"
       },
       "slugDisambiguator": "40579",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -11315,6 +11327,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "konrektor-in-leiter-in-abteilung-wirtschafts-und-rechtswissenschaften-60-70-exkl-40579"
+        ],
+        "en": [
+          "konrektor-in-leiter-in-abteilung-wirtschafts-und-rechtswissenschaften-60-70-exkl-40579"
+        ],
+        "fr": [
           "konrektor-in-leiter-in-abteilung-wirtschafts-und-rechtswissenschaften-60-70-exkl-40579"
         ]
       },
@@ -12169,8 +12187,8 @@
       "slugByLocale": {
         "de": "kindergartenlehrperson-ab-16-11-2026-oder-nach-vereinbarung-18-67-lektionen-40600",
         "it": "kindergartenlehrperson-ab-16-11-2026-o-nach-vereinbarung-18-67-lektionen-unterrichtstage-montag-dienstag-e-mittwoch-unterrichtstage-verhandelbar-ksml-kantonaler-stellenmarkt-fur-le",
-        "en": "kindergartenlehrperson-ab-16-11-2026-oder-nach-vereinbarung-18-67-lektionen-40600",
-        "fr": "kindergartenlehrperson-ab-16-11-2026-oder-nach-vereinbarung-18-67-lektionen-40600"
+        "en": "kindergarten-teacher-from-16-11-2026-or-by-arrangement-18-67-lessons-lessons-monday-tuesday-and-wednesday-lessons-40600",
+        "fr": "professeur-de-maternelle-du-16-11-2026-ou-par-arrangement-18-67-lecons-lecons-lundi-mardi-et-mercredi-lecons-40600"
       },
       "slugDisambiguator": "40600",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -12217,6 +12235,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "kindergartenlehrperson-ab-16-11-2026-oder-nach-vereinbarung-18-67-lektionen-40600"
+        ],
+        "en": [
+          "kindergartenlehrperson-ab-16-11-2026-oder-nach-vereinbarung-18-67-lektionen-40600"
+        ],
+        "fr": [
           "kindergartenlehrperson-ab-16-11-2026-oder-nach-vereinbarung-18-67-lektionen-40600"
         ]
       },
@@ -15639,8 +15663,8 @@
       "slugByLocale": {
         "de": "co-schulleiterin-schulleiter-40-und-optional-tagesschulleiterin-tagesschulleiter-10-40594",
         "it": "co-schulleiterin-schulleiter-40-e-optional-tagesschulleiterin-tagesschulleiter-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lenk",
-        "en": "co-schulleiterin-schulleiter-40-und-optional-tagesschulleiterin-tagesschulleiter-10-40594",
-        "fr": "co-schulleiterin-schulleiter-40-und-optional-tagesschulleiterin-tagesschulleiter-10-40594"
+        "en": "co-director-40-and-optional-day-school-principal-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40594",
+        "fr": "codirecteur-40-et-directeur-facultatif-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lenk-40594"
       },
       "slugDisambiguator": "40594",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -15687,6 +15711,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "co-schulleiterin-schulleiter-40-und-optional-tagesschulleiterin-tagesschulleiter-10-40594"
+        ],
+        "en": [
+          "co-schulleiterin-schulleiter-40-und-optional-tagesschulleiterin-tagesschulleiter-10-40594"
+        ],
+        "fr": [
           "co-schulleiterin-schulleiter-40-und-optional-tagesschulleiterin-tagesschulleiter-10-40594"
         ]
       },
@@ -15869,7 +15899,7 @@
       "slug": "insegnante-di-classe-a-livello-di-base-da-22-a-24-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
       "slugByLocale": {
         "it": "insegnante-di-classe-a-livello-di-base-da-22-a-24-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
-        "en": "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mutten",
+        "en": "co-class-teacher-at-the-basic-level-22-to-24-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
         "de": "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-schule-signau-mutten-40533",
         "fr": "co-enseignant-au-niveau-de-base-22-a-24-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40533"
       },
@@ -15919,8 +15949,7 @@
       "previousSlugs": [
         "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-schule-signau-mutten-40533",
         "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mutten",
-        "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
-        "co-class-teacher-at-the-basic-level-22-to-24-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
+        "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15929,7 +15958,7 @@
         ],
         "en": [
           "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
-          "co-class-teacher-at-the-basic-level-22-to-24-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
+          "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mutten"
         ],
         "fr": [
           "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
@@ -16619,12 +16648,12 @@
     },
     {
       "id": "ksml-84650cf2cae7",
-      "slug": "9-lektionen-primarschule-worben-40602",
+      "slug": "9-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worben-40602",
       "slugByLocale": {
-        "it": "9-lektionen-primarschule-worben-40602",
-        "en": "9-lektionen-primarschule-worben-40602",
+        "it": "9-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worben-40602",
+        "en": "9-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worben-40602",
         "de": "9-lektionen-primarschule-worben-40602",
-        "fr": "9-lektionen-primarschule-worben-40602"
+        "fr": "9-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worben-40602"
       },
       "slugDisambiguator": "40602",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -16686,10 +16715,20 @@
       "previousSlugsByLocale": {
         "de": [
           "9-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worben-40602"
+        ],
+        "it": [
+          "9-lektionen-primarschule-worben-40602"
+        ],
+        "en": [
+          "9-lektionen-primarschule-worben-40602"
+        ],
+        "fr": [
+          "9-lektionen-primarschule-worben-40602"
         ]
       },
       "previousSlugs": [
-        "9-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worben-40602"
+        "9-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worben-40602",
+        "9-lektionen-primarschule-worben-40602"
       ]
     },
     {
@@ -17829,12 +17868,12 @@
     },
     {
       "id": "ksml-3b8560a04202",
-      "slug": "5-klasse-9-lektionen-engagierte-lehrperson-mit-heilpadagogischem-flair-shp-gesucht-40601",
+      "slug": "5-classe-9-lezioni-cercasi-insegnante-motivato-a-con-affinita-per-la-pedagogia-speciale-shp-ksml-kantonaler-40601",
       "slugByLocale": {
         "de": "5-klasse-9-lektionen-engagierte-lehrperson-mit-heilpadagogischem-flair-shp-gesucht-40601",
-        "it": "5-klasse-9-lektionen-engagierte-lehrperson-mit-heilpadagogischem-flair-shp-gesucht-40601",
-        "en": "5-klasse-9-lektionen-engagierte-lehrperson-mit-heilpadagogischem-flair-shp-gesucht-40601",
-        "fr": "5-klasse-9-lektionen-engagierte-lehrperson-mit-heilpadagogischem-flair-shp-gesucht-40601"
+        "it": "5-classe-9-lezioni-cercasi-insegnante-motivato-a-con-affinita-per-la-pedagogia-speciale-shp-ksml-kantonaler-40601",
+        "en": "5th-grade-9-lessons-dedicated-teacher-with-curative-flair-shp-sought-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40601",
+        "fr": "5eme-annee-9-lecons-enseignant-dedie-avec-style-curatif-shp-recherche-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40601"
       },
       "slugDisambiguator": "40601",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -17892,7 +17931,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T21:39:39.558Z"
+      "firstSeenAt": "2026-10-28T21:39:39.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "5-klasse-9-lektionen-engagierte-lehrperson-mit-heilpadagogischem-flair-shp-gesucht-40601"
+        ],
+        "en": [
+          "5-klasse-9-lektionen-engagierte-lehrperson-mit-heilpadagogischem-flair-shp-gesucht-40601"
+        ],
+        "fr": [
+          "5-klasse-9-lektionen-engagierte-lehrperson-mit-heilpadagogischem-flair-shp-gesucht-40601"
+        ]
+      },
+      "previousSlugs": [
+        "5-klasse-9-lektionen-engagierte-lehrperson-mit-heilpadagogischem-flair-shp-gesucht-40601"
+      ]
     },
     {
       "id": "ksml-bdc0e1a4627c",
@@ -18895,7 +18948,7 @@
       "id": "ksml-bdd13fb6330d",
       "slug": "docente-di-livello-base-13-2-lezioni-dic-gen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
       "slugByLocale": {
-        "it": "docente-di-livello-base-13-2-lezioni-dic-gen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "it": "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570",
         "en": "lehrperson-basisstufe-13-2-l-dez-jan-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570",
         "de": "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
         "fr": "professeur-de-base-13-2-l-dez-jan-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570"
@@ -18945,14 +18998,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
-        "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-        "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570"
+        "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
-          "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-          "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570"
+          "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
         ],
         "fr": [
           "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570"

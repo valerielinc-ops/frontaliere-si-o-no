@@ -181,7 +181,7 @@
       "slug": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
-        "en": "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
+        "en": "psychiatric-nurse-spitaler-fmi-ag-unterseen",
         "de": "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
         "fr": "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
       },
@@ -235,7 +235,7 @@
         "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
         "psycholog-in-psychiatrie-80-fmi-unterseen",
         "psychologue-en-psychiatrie-80-spitaler-fmi-ag-unterseen",
-        "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+        "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -248,7 +248,7 @@
         ],
         "en": [
           "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
-          "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+          "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "psycholog-in-psychiatrie-80-fmi-unterseen"
@@ -5487,12 +5487,12 @@
     },
     {
       "id": "fmi-b6118f5ec11b",
-      "slug": "leitende-arztin-leitender-arzt-nephrologie-60-100-fmi-unterseen",
+      "slug": "principale-medico-principale-medico-nefrologico-60-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
-        "it": "leitende-arztin-leitender-arzt-nephrologie-60-100-fmi-unterseen",
-        "en": "leitende-arztin-leitender-arzt-nephrologie-60-100-fmi-unterseen",
+        "it": "principale-medico-principale-medico-nefrologico-60-100-spitaler-fmi-ag-unterseen",
+        "en": "principal-physician-principal-physician-nephrology-60-100-spitaler-fmi-ag-unterseen",
         "de": "leitende-arztin-leitender-arzt-nephrologie-60-100-fmi-unterseen",
-        "fr": "leitende-arztin-leitender-arzt-nephrologie-60-100-fmi-unterseen"
+        "fr": "medecin-principal-medecin-principal-nephrologie-60-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5548,7 +5548,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-nephrologie-60-100-fmi-unterseen"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-nephrologie-60-100-fmi-unterseen"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-nephrologie-60-100-fmi-unterseen"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-nephrologie-60-100-fmi-unterseen"
+      ]
     }
   ]
 }

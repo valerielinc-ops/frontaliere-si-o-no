@@ -1454,7 +1454,7 @@
       "slugByLocale": {
         "it": "infermiera-crans-montana-80-hug-crans-montana",
         "en": "nurse-crans-montana-80-hug-crans-montana",
-        "de": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
+        "de": "krankenschwester-crans-montana-80-hug-crans-montana",
         "fr": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
@@ -1499,8 +1499,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "krankenschwester-crans-montana-80-hug-crans-montana"
+        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1510,7 +1509,7 @@
           "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ],
         "de": [
-          "krankenschwester-crans-montana-80-hug-crans-montana"
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ]
       },
       "needsRetranslation": true,
@@ -3753,7 +3752,7 @@
       "slug": "psicologo-psicoterapeuta-40-hug-geneve-1a20c2304e",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-40-hug-geneve-1a20c2304e",
-        "en": "psychologue-psychotherapeute-40-hug-geneve",
+        "en": "psychologist-psychotherapist-40-hug-geneve",
         "de": "psychologe-psychotherapeut-40-hug-geneve",
         "fr": "psychologue-psychotherapeute-40-hug-geneve"
       },
@@ -3800,8 +3799,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologue-psychotherapeute-40-hug-geneve",
-        "psicologo-psicoterapeuta-40-hug-geneve",
-        "psychologist-psychotherapist-40-hug-geneve"
+        "psicologo-psicoterapeuta-40-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3809,7 +3807,7 @@
           "psicologo-psicoterapeuta-40-hug-geneve"
         ],
         "en": [
-          "psychologist-psychotherapist-40-hug-geneve"
+          "psychologue-psychotherapeute-40-hug-geneve"
         ]
       },
       "needsRetranslation": true,

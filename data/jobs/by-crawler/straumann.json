@@ -8,7 +8,7 @@
       "slug": "process-ingegnere-straumann-villeret",
       "slugByLocale": {
         "it": "process-ingegnere-straumann-villeret",
-        "en": "process-engineer-straumann-villeret",
+        "en": "engineering-process-straumann-villeret",
         "de": "process-ingenieur-straumann-villeret",
         "fr": "process-engineer-straumann-ch"
       },
@@ -54,7 +54,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "process-engineer-straumann-ch"
+        "process-engineer-straumann-ch",
+        "process-engineer-straumann-villeret"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -62,6 +63,9 @@
         ],
         "de": [
           "process-engineer-straumann-ch"
+        ],
+        "en": [
+          "process-engineer-straumann-villeret"
         ]
       },
       "firstSeenAt": "2026-10-28T20:03:36.968Z",
