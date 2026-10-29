@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
 import test from 'node:test';
 import {
   reattestCrawlerContract,
@@ -8,6 +10,23 @@ import {
 
 const OLD_SHA = '1'.repeat(40);
 const NEW_SHA = '2'.repeat(40);
+const WORKFLOW_PATH = path.resolve(
+  path.dirname(new URL(import.meta.url).pathname),
+  '../.github/workflows/reattest-crawler-contract.yml',
+);
+const SOURCE_INPUTS = [
+  'functions/src/githubApiHeaders.js',
+  'scripts/assemble-jobs-dataset.mjs',
+  'scripts/check-crawler-generation-token.mjs',
+  'scripts/check-crawler-group-live-run.mjs',
+  'scripts/generate-crawler-group-workflows.mjs',
+  'scripts/ci/crawler-generation-roster.json',
+  'scripts/ci/crawler-retry-cmd.sh',
+  'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs',
+  'scripts/ci/translate-recovery-successor-guard.mjs',
+  'scripts/ci/validate-workflow-data.mjs',
+  'scripts/cleanup-jobs.mjs',
+];
 
 function fixture() {
   return {
@@ -52,4 +71,16 @@ test('rejects malformed source commits and malformed observations', () => {
     () => reattestCrawlerContract({ ...fixture(), artifactObservation: null }, NEW_SHA),
     /artifactObservation must be a JSON object/,
   );
+});
+
+test('workflow reattests every contract source input', () => {
+  const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
+
+  for (const sourceInput of SOURCE_INPUTS) {
+    assert.match(
+      workflow,
+      new RegExp(`^\\s*- ['"]?${sourceInput.replaceAll('.', '\\.')}`, 'mu'),
+      `missing reattestation trigger for ${sourceInput}`,
+    );
+  }
 });
