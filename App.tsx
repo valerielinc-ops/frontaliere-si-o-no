@@ -604,15 +604,25 @@ const App: React.FC = () => {
 
  // Expired soft-landings use the same outside-#root contract as the other
  // static SEO pages, but keep a dedicated marker because their body is an
- // article nested inside the static main. Remove it before paint when the
- // visitor soft-navigates away (or when a different static page is reached),
- // otherwise the archived offer could reappear below a later SPA route.
+ // article nested inside the static main. Keep the matching initial body
+ // mounted (and hidden by the generic handoff above) until the expired-job
+ // hook has had a chance to consume window.__EXPIRED_JOB_DATA__; remove it
+ // before paint when the visitor soft-navigates away (or when a different
+ // static page is reached), otherwise the archived offer could reappear below
+ // a later SPA route.
  useLayoutEffect(() => {
    const currentPath = contextualPath;
    const expiredStaticBodyFound = document.querySelector('main[data-expired-static-body]') !== null;
    for (const staticBody of document.querySelectorAll<HTMLElement>('main[data-expired-static-body]')) {
-     if (!staticOverlay || staticBody.dataset.expiredStaticPath !== currentPath) {
+     if (staticBody.dataset.expiredStaticPath !== currentPath) {
        staticBody.remove();
+     } else if (!staticOverlay) {
+       // Do not remove the initial static body before useExpiredJob's passive
+       // effect reads the build seed. The body is already hidden by the
+       // generic static-main handoff, so keeping this DOM node has no visual
+       // cost and lets the seed guard distinguish initial load from back/away
+       // navigation. A later path change removes it synchronously.
+       staticBody.style.setProperty('display', 'none', 'important');
      } else {
        // The generic static-main handoff removes its inline display property;
        // expired pages intentionally restore block layout because their child

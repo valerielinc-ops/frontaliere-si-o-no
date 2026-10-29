@@ -276,9 +276,17 @@ describe('Regression: footer position on staticOverlay SEO pages (Bug A portal f
 
     render(<App />, { container: rootDiv });
 
-    expect(staticMain.isConnected).toBe(false);
+    // Keep the initial static body mounted but hidden until useExpiredJob can
+    // consume window.__EXPIRED_JOB_DATA__; soft-navigation cleanup is tested
+    // below and still removes it synchronously when the pathname changes.
+    expect(staticMain.isConnected).toBe(true);
+    expect(staticMain.style.display).toBe('none');
     expect(staticFooter.isConnected).toBe(false);
     expect(rootDiv.querySelector('#main-content')).not.toBeNull();
     expect(footerRootDiv.querySelector('footer:not([data-static-footer])')).not.toBeNull();
+
+    window.history.replaceState(null, '', '/guida/contratti-di-lavoro/');
+    rerender(<App />);
+    expect(staticMain.isConnected).toBe(false);
   });
 });
