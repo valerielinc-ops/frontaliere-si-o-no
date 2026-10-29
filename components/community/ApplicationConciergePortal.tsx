@@ -207,8 +207,13 @@ export default function ApplicationConciergePortal({
     return translated === key ? t('jobBoard.concierge.errors.generic') : translated;
   }, [error, t]);
 
-  const startCheckout = async () => {
+  const startCheckout = async (resumeServiceId: string | null = null) => {
     if (busy === 'checkout') return;
+    const checkoutEmail = email.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(checkoutEmail)) {
+      setError('application_concierge_email_required');
+      return;
+    }
     Analytics.trackApplicationConciergeCheckoutClick();
     setBusy('checkout');
     setError(null);
@@ -232,6 +237,8 @@ export default function ApplicationConciergePortal({
         cancelUrl: base.toString(),
         locale,
         requestKey: requestKeyForUser(String(user.uid)),
+        customerEmail: checkoutEmail,
+        ...(resumeServiceId ? { serviceId: resumeServiceId } : {}),
       }, user);
       if (result.paymentProvider === 'sumup') {
         const returnUrl = new URL(base.toString());
@@ -407,6 +414,25 @@ export default function ApplicationConciergePortal({
                   <Info icon={<BriefcaseBusiness size={17} />} label={t('jobBoard.concierge.quota')} />
                   <Info icon={<ShieldCheck size={17} />} label={t('jobBoard.concierge.noRenewal')} />
                 </div>
+                <label className="mt-8 block max-w-md text-sm font-semibold text-body">
+                  {t('jobBoard.concierge.email')}
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                      setError((current) => current === 'application_concierge_email_required' ? null : current);
+                    }}
+                    required
+                    maxLength={320}
+                    autoComplete="email"
+                    aria-describedby="concierge-checkout-email-hint"
+                    className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm font-normal text-heading"
+                  />
+                  <span id="concierge-checkout-email-hint" className="mt-2 block text-xs font-normal leading-5 text-subtle">
+                    {t('jobBoard.concierge.checkoutEmailHint')}
+                  </span>
+                </label>
                 <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
                   <button
                     type="button"
@@ -532,6 +558,9 @@ export default function ApplicationConciergePortal({
   if (!service) return <PortalShell><p role="alert" className="text-sm text-danger">{displayError || t('jobBoard.concierge.errors.service_not_found')}</p></PortalShell>;
 
   const pending = isPending(service);
+  const retryablePayment = service.paymentStatus === 'failed' && service.checkoutSessionStatus === 'expired';
+  const canResumePayment = retryablePayment
+    || (pending && !['pending', 'completed'].includes(String(service.checkoutSessionStatus || '').toLowerCase()));
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
   const visibleProposals = getCandidateVisibleApplicationConciergeProposals(service.proposals);
 
@@ -554,8 +583,50 @@ export default function ApplicationConciergePortal({
             <div><p className="text-xs font-semibold uppercase tracking-wide text-accent">{t('jobBoard.concierge.remaining')}</p><p className="text-xl font-bold tabular-nums text-heading">{service.remainingPositions}<span className="text-sm font-medium text-subtle">/{service.maxPositions}</span></p></div>
           </div>
         </header>
-        {pending && <Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.paymentPending')} />}
-        {service.paymentStatus === 'failed' && <Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.paymentFailed')} />}
+        {canResumePayment && (
+          <div
+            role={retryablePayment ? 'alert' : 'status'}
+            className="flex flex-col gap-3 rounded-xl border border-info-border bg-info-subtle p-4 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div className="flex items-start gap-2 text-sm leading-6 text-info">
+              {pending ? <Clock3 size={17} className="mt-1 shrink-0" aria-hidden="true" /> : <XCircle size={17} className="mt-1 shrink-0" aria-hidden="true" />}
+              <span>{pending ? t('jobBoard.concierge.paymentPending') : t('jobBoard.concierge.paymentFailed')}</span>
+            </div>
+            {!email.trim() && (
+              <label className="block w-full text-sm font-semibold text-body sm:max-w-xs">
+                {t('jobBoard.concierge.email')}
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(event) => {
+                    setEmail(event.target.value);
+                    setError((current) => current === 'application_concierge_email_required' ? null : current);
+                  }}
+                  required
+                  maxLength={320}
+                  autoComplete="email"
+                  className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm font-normal text-heading"
+                />
+                <span className="mt-2 block text-xs font-normal leading-5 text-subtle">
+                  {t('jobBoard.concierge.checkoutEmailHint')}
+                </span>
+              </label>
+            )}
+            <button
+              type="button"
+              onClick={() => { void startCheckout(serviceId); }}
+              disabled={busy === 'checkout'}
+              aria-busy={busy === 'checkout'}
+              className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-bold text-on-accent transition-colors hover:bg-accent-strong disabled:cursor-wait disabled:opacity-60"
+            >
+              {busy === 'checkout' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}
+              {t('jobBoard.concierge.resumePayment')} · {formattedPrice}
+              <ArrowRight size={16} aria-hidden="true" />
+            </button>
+          </div>
+        )}
+        {pending && !canResumePayment && <Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.paymentPending')} />}
+        {service.paymentStatus === 'failed' && !retryablePayment && <Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.paymentFailed')} />}
         {expired && <Notice icon={<Clock3 size={17} />} tone="warning" text={t('jobBoard.concierge.expired')} />}
         {message && <Notice icon={<CheckCircle2 size={17} />} tone="success" text={message} />}
         {displayError && <p role="alert" className="rounded-xl border border-danger-border bg-danger-subtle p-3 text-sm text-danger">{displayError}</p>}
@@ -668,5 +739,5 @@ function Notice({ icon, text, tone = 'info' }: { icon: ReactNode; text: string; 
 
 function ProposalCard({ proposal, disabled, canAccept, busy, onDecision, t }: { proposal: ApplicationConciergeProposal; disabled: boolean; canAccept: boolean; busy: string | null; onDecision: (proposal: ApplicationConciergeProposal, decision: 'accept' | 'decline') => void; t: (key: string, params?: Record<string, string>) => string }) {
   const proposed = proposal.status === 'proposed';
-  return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border"><div className="flex items-start gap-3"><div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div><div className="min-w-0 flex-1"><h3 className="font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>{proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div><span className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-bold ${proposed ? 'bg-warning-subtle text-warning' : proposal.status === 'accepted' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>{t(`jobBoard.concierge.proposalStatus.${proposal.status}`)}</span></div>{proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map((reason) => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}{proposed && <div className="mt-4 flex flex-wrap items-center gap-2"><a href={normalizeExternalJobDetailUrl(proposal.jobUrl)} target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a><button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button><button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{busy === `decline:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.decline')}</button></div>}{proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}</article>;
+  return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border"><div className="flex items-start gap-3"><div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div><div className="min-w-0 flex-1"><h3 className="font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>{proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div><span className={`shrink-0 rounded-full px-2 py-1 text-xs font-bold ${proposed ? 'bg-warning-subtle text-warning' : proposal.status === 'accepted' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>{t(`jobBoard.concierge.proposalStatus.${proposal.status}`)}</span></div>{proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map((reason) => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}{proposed && <div className="mt-4 flex flex-wrap items-center gap-2"><a href={normalizeExternalJobDetailUrl(proposal.jobUrl)} target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a><button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button><button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{busy === `decline:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.decline')}</button></div>}{proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}</article>;
 }

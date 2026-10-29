@@ -23,6 +23,7 @@ export interface ApplicationConciergeProposal {
 export interface ApplicationConciergeService {
   serviceId: string;
   paymentStatus: string;
+  checkoutSessionStatus?: string;
   serviceStatus: string;
   renewal: boolean;
   maxPositions: number;
