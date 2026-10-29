@@ -18,6 +18,7 @@
  */
 
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { SERVER_TEXT_FALLBACKS as OPENAI_FALLBACKS, serverTextFallbackBody } from './serverAiFallbacks.js';
 import { tryCodexFallback } from './codexFallback.js';
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
@@ -31,13 +32,9 @@ const PROVIDER_TIMEOUT_MS = 18000;
 
 // Free OpenAI-compatible fallbacks, tried in order when Gemini fails. Keys are
 // already present in Remote Config (hydrated into CI via load-rc-env.mjs).
-// Diversity across providers matters: a per-key 429 on one provider must not
-// take down its sibling, so Groq → NVIDIA → Groq orders by provider, not model.
-const OPENAI_FALLBACKS = [
-  { rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'llama-3.3-70b-versatile', label: 'groq-70b' },
-  { rcKey: 'NVIDIA_API_KEY', base: 'https://integrate.api.nvidia.com/v1/chat/completions', model: 'meta/llama-3.1-70b-instruct', label: 'nvidia-70b' },
-  { rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'llama-3.1-8b-instant', label: 'groq-8b' },
-];
+// The shared catalog uses current Groq models with independent model budgets.
+// NVIDIA’s previous hosted model is retired (HTTP 410); do not retry that dead ID.
+
 
 /** Single-shot Gemini call. Returns trimmed text on success, throws on failure. */
 async function callGemini({ apiKey, model, systemPrompt, userPrompt, maxTokens, temperature }) {
@@ -76,7 +73,7 @@ async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPro
   const res = await fetch(base, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({ model, messages, max_tokens: maxTokens, temperature }),
+    body: JSON.stringify(serverTextFallbackBody({ model, messages, maxTokens, temperature })),
     signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
   });
 
