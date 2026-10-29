@@ -139,10 +139,8 @@ describe('job-board emitted output', () => {
       expect(doc.querySelector('[data-job-description-full] ul li')?.textContent, route).toBe('Gestire il dossier completo');
       expect(doc.querySelector('[data-job-description-full] strong')?.textContent, route).toBe('Laurea riconosciuta');
       expect(doc.querySelector('#job-auth-gate, [data-job-description-preview]'), route).toBeNull();
-      if (route !== expiredPath) {
-        expect(doc.body.textContent).toContain('Requisito originale 14');
-        expect([...doc.querySelectorAll('li')].some((item) => item.textContent?.trim() === 'Go')).toBe(true);
-      }
+      expect(doc.body.textContent).toContain('Requisito originale 14');
+      expect([...doc.querySelectorAll('li')].some((item) => item.textContent?.trim() === 'Go')).toBe(true);
       for (const name of ['description', 'robots', 'twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']) {
         expect(doc.querySelector(`meta[name="${name}"]`)?.getAttribute('content'), `${route} ${name}`).toBeTruthy();
       }

@@ -90,6 +90,17 @@ describe('Offer status gated behind auth (logged-out)', () => {
   expect(screen.getByText(new RegExp(tail))).toBeInTheDocument();
  });
 
+ it('preserves every separate archived requirement only after access', () => {
+  const requirements = ['IT', 'Go', ...Array.from({ length: 16 }, (_, i) => `Competenza archiviata ${i}`)];
+  const job = { ...expiredJob, descriptionByLocale: {}, description: 'Descrizione originale senza traduzioni.', requirements };
+  const { container, rerender } = render(<JobExpiredView job={job} hasAccess={false} />);
+  expect(container.textContent).not.toContain('Competenza archiviata 15');
+  rerender(<JobExpiredView job={job} hasAccess />);
+  expect(container.textContent).toContain('Descrizione originale senza traduzioni.');
+  expect(container.textContent).toContain('Competenza archiviata 15');
+  expect([...container.querySelectorAll('li')].some((item) => item.textContent?.trim() === 'Go')).toBe(true);
+ });
+
  it.each(['Googlebot', 'Google-InspectionTool/1.0', 'GoogleOther', 'bingbot', 'SemrushBot', 'AhrefsBot'])('shows complete semantic expired content without a gate to %s', (userAgent) => {
   vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue(userAgent);
   const prefix = 'Descrizione del lavoro in ambito sanitario. '.repeat(20);

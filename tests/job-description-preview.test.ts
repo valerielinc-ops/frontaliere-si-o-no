@@ -49,8 +49,8 @@ describe('anonymous job description budget', () => {
   it('uses the complete renderer in all static detail writers and keeps application links functional', () => {
     const source = readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     expect(source).toContain('renderJobDescriptionContent(localizedDescriptionRaw, locale, fullRequirements)');
-    expect(source).toContain('renderJobDescriptionContent(jobDescription, locale)');
-    expect(source).toContain('renderJobDescriptionContent(description, locale)');
+    expect(source).toContain('renderJobDescriptionContent(jobDescription, locale, jobRequirements)');
+    expect(source).toContain('renderJobDescriptionContent(description, locale, archive?.requirements || [])');
     expect(source).not.toContain("'#job-auth-gate'");
     expect(source).not.toContain('buildBridgeThinHtml(');
     expect(source).toContain("hasRealTitle ? 'full' : __slDecision.action");

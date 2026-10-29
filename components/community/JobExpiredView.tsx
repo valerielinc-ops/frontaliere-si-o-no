@@ -46,7 +46,7 @@ import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { jobDescriptionPlainText, jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
-import { jobDescriptionTextToHtml } from '@/build-plugins/shared/jobDescription/toHtml';
+import { renderJobDescriptionContent } from '@/build-plugins/shared/jobDescriptionContent';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
 
@@ -209,7 +209,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  lead: t('jobBoard.copyAttribution.lead'),
  analyticsValue: `${job.company}_${localizedTitle}`,
  });
- const description = job.descriptionByLocale?.[locale] ?? '';
+ const description = job.descriptionByLocale?.[locale] || job.descriptionByLocale?.it || job.description || '';
+ const requirements = job.requirementsByLocale?.[locale] || job.requirements || [];
  const descriptionPlain = jobDescriptionPlainText(description);
  const descriptionPreview = jobDescriptionPreview(description);
  // The full description is crawler/ATS HTML. It used to be injected raw, so a
@@ -217,7 +218,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  // ran on this page. Render it with the same serializer as the static job
  // pages: markdown → AST, HTML → allowlist sanitizer
  // (build-plugins/shared/jobDescription/sanitizeHtml.ts).
- const descriptionHtml = jobDescriptionTextToHtml(description);
+ const descriptionHtml = renderJobDescriptionContent(description, locale, Array.isArray(requirements) ? requirements : []);
 
  const expiredDate = job.expiredAt
  ? new Date(job.expiredAt).toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
@@ -779,7 +780,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  )}
  </div>
 
- {descriptionPlain && (
+ {(descriptionPlain || requirements.length > 0) && (
  <div className="prose prose-sm dark:prose-invert max-w-none text-body" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
  )}
 

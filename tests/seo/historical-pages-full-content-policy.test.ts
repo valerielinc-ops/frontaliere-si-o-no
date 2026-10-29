@@ -27,7 +27,7 @@ describe('historical job page content policy', () => {
     const archivedDescription = `## Mansioni\n\n${'contenuto archiviato '.repeat(180)}\n\nCoda originale oltre il vecchio limite`;
     const rendered = renderJobDescriptionContent(archivedDescription, 'it');
 
-    expect(source).toContain('staticBodyParts.push(renderJobDescriptionContent(jobDescription, locale))');
+    expect(source).toContain('staticBodyParts.push(renderJobDescriptionContent(jobDescription, locale, jobRequirements))');
     expect(source).not.toContain('descText.slice(0, 2000)');
     expect(rendered).toContain('Coda originale oltre il vecchio limite');
     expect(rendered).toContain('<h2>Mansioni</h2>');

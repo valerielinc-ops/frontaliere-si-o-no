@@ -4217,11 +4217,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Build the canonical JobPosting schema via the shared builder — required
  // fields and the site's complete non-critical contract always. Extra
  // editorial fields (responsibilities, skills, etc.) are merged on top.
+ const fullJobDescriptionHtml = renderJobDescriptionContent(localizedDescriptionRaw, locale, fullRequirements);
  const canonicalJobInput: JobInput = {
  id: job.id,
  slug: job.slug,
  title: localizedTitle,
- description: capJsonLdDescription(finalJobPostingDescription),
+ description: capJsonLdDescription(localizedDescriptionRaw.trim() || fullRequirements.length ? fullJobDescriptionHtml : finalJobPostingDescription),
  company: job.company,
  companyKey: job.companyKey,
  companyWebsite: companyWebsite(job),
@@ -4351,7 +4352,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // that reuse ROBOTS_INDEX_ENHANCED unconditionally, this per-job page's
  // indexability must be gated on the actual rendered summary/description/
  // FAQ content, same pattern as jobRecencyPagesPlugin.ts's recencyRobotsTag.
- const jobBodyHtml = `${renderJobDescriptionContent(localizedDescriptionRaw, locale, fullRequirements)}${jobFaqHtml}`;
+ const jobBodyHtml = `${fullJobDescriptionHtml}${jobFaqHtml}`;
  const contentRobotsTag = localizedDescription
   ? robotsMetaEnhancedForContent(jobBodyHtml)
   : ROBOTS_NOINDEX_FOLLOW;
@@ -4421,7 +4422,7 @@ ${staticAnalyticsHtml}
  </div>
  </section>
  <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
- ${renderJobDescriptionContent(localizedDescriptionRaw, locale, fullRequirements)}
+ ${fullJobDescriptionHtml}
  <a href="${referralUrl(job.applyUrl || job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
  ${jobFaqHtml}
  </article>
@@ -13291,7 +13292,8 @@ ${staticAnalyticsHtml}
  // expired indexes are released below. If the active bridge later succeeds it
  // overwrites this fallback; if it does not, the historical URL still gets the
  // same useful archive content instead of a generic noindex tombstone.
- type HistoricalArchiveFallback = {
+ type HistoricalArchiveFallback = JobInput & {
+  requirements?: string[];
   recordedIdentity?: boolean;
   title?: string;
   company?: string;
@@ -13974,6 +13976,19 @@ ${staticAnalyticsHtml}
    expiredAt: jobExpiredAt,
    datePosted: jobDatePosted,
    description: fallbackDescription,
+   requirements: hasRealTitle ? (ejData?.requirementsByLocale?.[locale] || ejData?.requirements || gscInfo?.requirementsByLocale?.[locale] || gscInfo?.requirements || []) : [],
+   postingDateSource: ejData?.postingDateSource || gscInfo?.postingDateSource,
+   companyKey: ejData?.companyKey || gscInfo?.companyKey,
+   companyWebsite: ejData?.companyWebsite,
+   companyDomain: ejData?.companyDomain,
+   employmentType: ejData?.employmentType,
+   contractType: ejData?.contractType,
+   salaryMin: ejData?.salaryMin,
+   salaryMax: ejData?.salaryMax,
+   salaryCurrency: ejData?.salaryCurrency || ejData?.currency,
+   salarySource: ejData?.salarySource,
+   postalCode: ejData?.postalCode,
+   streetAddress: ejData?.streetAddress,
   });
  }
  // Hoisted dedup pre-check: when a previous (most-recent) slug already
@@ -14118,7 +14133,11 @@ ${staticAnalyticsHtml}
  // slug still scopes canonical/schema guards after hydration. A tracking key
  // can differ from the locale path it owns; it is not posting evidence.
  const routeSlug = relPath.replace(/\/+$/, '').split('/').pop() || slug;
+ const rawJobRequirements = hasRealTitle ? ejData?.requirementsByLocale?.[locale] || ejData?.requirements || gscInfo?.requirementsByLocale?.[locale] || gscInfo?.requirements : [];
+ const jobRequirements: string[] = Array.isArray(rawJobRequirements) ? rawJobRequirements.map((item: unknown) => String(item ?? '').trim()).filter(Boolean) : [];
  const expiredDataObj: Record<string, unknown> = { slug: hasRealTitle ? slug : routeSlug };
+ if (jobRequirements.length) expiredDataObj.requirements = jobRequirements;
+ if (hasRealTitle && ejData?.description) expiredDataObj.description = ejData.description;
  if (expiredTitle) expiredDataObj.title = expiredTitle;
  if (Object.keys(expiredTitleByLocale).length > 0) expiredDataObj.titleByLocale = expiredTitleByLocale;
  if (expiredCompany) expiredDataObj.company = expiredCompany;
@@ -14270,8 +14289,8 @@ ${staticAnalyticsHtml}
 
  // Static archives retain the full original description, just like active details.
  staticBodyParts.push('<div class="ft-expired-description">');
- if (jobDescription.trim()) {
- staticBodyParts.push(renderJobDescriptionContent(jobDescription, locale));
+ if (jobDescription.trim() || jobRequirements.length) {
+ staticBodyParts.push(renderJobDescriptionContent(jobDescription, locale, jobRequirements));
  }
  staticBodyParts.push('</div>');
 
@@ -14473,7 +14492,7 @@ ${staticAnalyticsHtml}
  id: ejData?.id,
  slug,
  title: realTitle,
- description: jobDescription,
+ description: renderJobDescriptionContent(jobDescription, locale, jobRequirements),
  company: realCompany,
  companyKey: ejData?.companyKey || slugInfo?.companyKey,
  companySlug: ejData?.companySlug || ejData?.companyKey || slugInfo?.companyKey,
@@ -14494,10 +14513,10 @@ ${staticAnalyticsHtml}
  contractType: ejData?.contractType,
  salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
  salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
- salaryCurrency: ejData?.salaryCurrency,
+ salaryCurrency: ejData?.salaryCurrency || ejData?.currency,
  salarySource: ejData?.salarySource,
  category: ejData?.category,
- sector: ejData?.category,
+ sector: ejData?.sector || ejData?.category,
  url: undefined,
  };
  const expiredSchema = buildArchivedJobPosting(expiredInput, copy.banner, {
@@ -15839,7 +15858,7 @@ ${staticAnalyticsHtml}
   });
   const pageTitle = esc(finalizeJobBoardTitle(pageTitleRaw));
   const description = stripLeadingSectionLabel(String(archive?.description || ''));
-  const descriptionHtml = description.trim() ? renderJobDescriptionContent(description, locale) : '';
+  const descriptionHtml = description.trim() || archive?.requirements?.length ? renderJobDescriptionContent(description, locale, archive?.requirements || []) : '';
   const detailItems = [
    company ? `<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Arbeitgeber' : 'Employeur'}:</strong> ${esc(company)}</li>` : '',
    `<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(titleRaw)}</li>`,
@@ -15869,6 +15888,7 @@ ${staticAnalyticsHtml}
    company,
    location,
    descriptionByLocale: recordedIdentity && description ? { [locale]: description } : undefined,
+   requirements: recordedIdentity ? archive?.requirements : undefined,
    expiredAt: recordedIdentity ? archive?.expiredAt : undefined,
   });
   const breadcrumb = inlineScriptJson({
@@ -15886,7 +15906,7 @@ ${staticAnalyticsHtml}
    url: historicalUrl, inLanguage: locale,
   });
   const archivedPosting = recordedIdentity ? buildArchivedJobPosting({
-   ...archive, slug: slugKey, title: titleRaw, company, description,
+   ...archive, slug: slugKey, title: titleRaw, company, description: renderJobDescriptionContent(description, locale, archive?.requirements || []),
    addressLocality: location || undefined, addressRegion: canton,
   }, notice, { locale, url: historicalUrl, baseUrl: BASE_URL, knownSlugs: knownEmployerProfileSlugs }) : null;
   const archivePostingLd = archivedPosting ? `<script type="application/ld+json">${inlineScriptJson(archivedPosting)}</script>` : '';
