@@ -37,6 +37,11 @@ describe('qualification before proposal publication', () => {
     expect(f.generate.mock.calls[1][1].length).toBeGreaterThan(8000);
     expect(f.readPosting).toHaveBeenCalledWith(expect.anything(), { maxPostingChars: 30_000 });
   });
+  it('does not accept evidence for another language even if the model says met', () => {
+    const result = conciergeProposalEligibility(requirements, { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'good' }, { profile: rawProfile });
+    expect(result.status).not.toBe('compatible');
+    expect(result.gaps).toContainEqual(expect.objectContaining({ status: 'missing' }));
+  });
   it('does not treat a silent CV or unverified evidence as a positive match', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'German C2' }], verdict: 'good', questions: [] });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });

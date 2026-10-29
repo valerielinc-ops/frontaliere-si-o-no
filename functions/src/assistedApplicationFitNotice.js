@@ -14,6 +14,8 @@
  * the fact warnings.
  */
 
+import { languageCodesIn, explicitLanguageEntry, hasCompleteLanguageList } from './lib/languageFacts.js';
+
 export const DECISIVE_REQUIREMENT_IMPORTANCES = ['critical', 'high'];
 const DECISIVE = DECISIVE_REQUIREMENT_IMPORTANCES;
 const OPEN = ['missing', 'partial'];
@@ -60,7 +62,7 @@ export function fitNoticeWording(fit, { questions = false, edit = true } = {}) {
 
 
 /** The proposal funnel uses the same decisive rows as review, and requires verified positive evidence. */
-export function conciergeProposalEligibility(requirements, match) {
+export function conciergeProposalEligibility(requirements, match, { profile = null, answers = {} } = {}) {
   const rows = Array.isArray(requirements?.requirements) ? requirements.requirements : [];
   if (!rows.length || !Array.isArray(match?.matches)) return { status: 'unverified', gaps: [] };
   const found = new Map();
@@ -77,6 +79,25 @@ export function conciergeProposalEligibility(requirements, match) {
     }
     return [];
   });
+  // A one-language must-have cannot be satisfied by evidence about a different language.
+  // Multi-language alternatives and combined clauses remain with the two-pass evaluator.
+  for (const [index, row] of rows.entries()) {
+    if (!profile || !DECISIVE.includes(row.importance)) continue;
+    const codes = languageCodesIn(row.quote || '');
+    if (codes.length !== 1) continue;
+    const code = codes[0];
+    const entry = explicitLanguageEntry(profile, code);
+    const remembered = answers[`language_${code}_any_proficiency`];
+    const level = String(remembered || entry?.level || '');
+    const rank = value => ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(String(value).toUpperCase().match(/\b[ABC][12]\b/)?.[0]);
+    const requested = rank(row.quote);
+    const fluent = /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(row.quote || '');
+    const minimum = requested >= 0 ? requested : fluent ? 4 : -1;
+    const knownAbsent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
+    if (knownAbsent || (!entry && !remembered) || (minimum >= 0 && (rank(level) < minimum))) {
+      if (!gaps.some(gap => gap.index === index)) gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown' });
+    }
+  }
   const notice = fitNoticeOf({ requirements: rows, matches: match.matches, verdict: match.verdict });
   if (gaps.length || notice) {
     return { status: match.verdict === 'poor' ? 'incompatible' : 'clarification_required', gaps, questions: match.questions || [] };

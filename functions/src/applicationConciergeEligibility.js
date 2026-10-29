@@ -72,7 +72,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const matchRaw = await generate(matchSystemPrompt(service.locale), matchUserText({ profile, requirements, answers,
       postingExcerpt: posting.text, sourceText: cvText }), MATCH_SCHEMA);
     const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${JSON.stringify(answers)}`);
-    const result = conciergeProposalEligibility(requirements, match);
+    const result = conciergeProposalEligibility(requirements, match, { profile, answers });
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
     if (result.status !== 'unverified') await ref.set({ fingerprint, cvHash, answerHash, postingHash, promptVersion: PROMPT_VERSION,
       version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });
