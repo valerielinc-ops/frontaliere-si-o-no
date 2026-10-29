@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 957,
+      "5": 959,
       "6": 5061
     },
-    "publishedCovers": 7700,
+    "publishedCovers": 7702,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -211443,6 +211443,72 @@
         "provider": "openai-codex",
         "assetId": "article-soletta-stipendi-pubblici-2027",
         "imageUrl": "/images/blog/article-soletta-stipendi-pubblici-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bus-sostitutivi-grigioni": {
+      "cover": "/images/blog/article-bus-sostitutivi-grigioni.webp",
+      "hash": "6cdbe0d590d4be0e56647ab01e423d5f8ea23a1b82f23416d6032638c857a3b2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "bus-sostitutivi-grigioni",
+          "category": "pratico",
+          "date": "2026-10-29T15:42:15.733Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bus-sostitutivi-grigioni.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-29",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bus-sostitutivi-grigioni",
+        "imageUrl": "/images/blog/article-bus-sostitutivi-grigioni.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-saphir-idrogeno-verde-axpo": {
+      "cover": "/images/blog/article-saphir-idrogeno-verde-axpo.webp",
+      "hash": "833240a27fe222c8ce70937b61369ca234b0e8b7f4b35e1dd05cc217de8bac9e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "saphir-idrogeno-verde-axpo",
+          "category": "novita",
+          "date": "2026-10-29T17:53:51.044Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-saphir-idrogeno-verde-axpo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-29",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-saphir-idrogeno-verde-axpo",
+        "imageUrl": "/images/blog/article-saphir-idrogeno-verde-axpo.webp",
         "evidence": "generated-engine-record"
       }
     }
