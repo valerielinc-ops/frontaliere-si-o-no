@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-29T16:15:20.841Z",
-  "runId": "40907336502",
+  "assembledAt": "2026-10-29T21:30:41.508Z",
+  "runId": "40955348892",
   "jobs": [
     {
       "id": "spital-sts-16556a0f6a53",
@@ -35,7 +35,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:15.355Z",
+      "crawledAt": "2026-10-29T21:30:34.947Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:14.818Z",
+      "crawledAt": "2026-10-29T21:30:34.537Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ebd8ce3-5397-446f-879b-00878d7b3e8a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:14.259Z",
+      "crawledAt": "2026-10-29T21:30:34.129Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/16756454-c7a4-4597-95b1-07a55ff3bd39/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:13.740Z",
+      "crawledAt": "2026-10-29T21:30:33.681Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/86f24237-a339-46ca-baf6-0e076f12a645/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:13.210Z",
+      "crawledAt": "2026-10-29T21:30:33.215Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -409,7 +409,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2d87aba8-03a5-4d9e-a9ac-09488ee5f8bc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:12.688Z",
+      "crawledAt": "2026-10-29T21:30:32.729Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -489,7 +489,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/933e431f-6eef-4f55-9c1f-32a157b02780/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:09.697Z",
+      "crawledAt": "2026-10-29T21:30:32.293Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -571,7 +571,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6e2ea497-b235-49f8-a54c-363a2f2316c6/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:03.014Z",
+      "crawledAt": "2026-10-29T21:30:31.751Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -654,7 +654,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2c3071b4-a896-4d30-9a35-143f25e4a165/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:02.574Z",
+      "crawledAt": "2026-10-29T21:30:31.313Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -704,12 +704,12 @@
     },
     {
       "id": "spital-sts-30d34fd0ee30",
-      "slug": "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun",
+      "slug": "assistente-di-studio-medico-in-chirurgia-della-colonna-vertebrale-spital-sts-thun",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun",
-        "en": "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun",
+        "it": "assistente-di-studio-medico-in-chirurgia-della-colonna-vertebrale-spital-sts-thun",
+        "en": "medical-practice-assistant-spinal-surgery-spital-sts-thun",
         "de": "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun",
-        "fr": "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
+        "fr": "assistant-e-medical-e-en-chirurgie-de-la-colonne-vertebrale-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -733,7 +733,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/43b3d697-4c2f-4060-9aaf-c973a4a2d803/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T16:15:02.126Z",
+      "crawledAt": "2026-10-29T21:30:30.897Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -753,6 +753,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-29T14:55:43.918Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
+        ],
+        "en": [
+          "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
+        ],
+        "fr": [
+          "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -766,83 +780,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spital-sts-31893623eded",
-      "slug": "operatore-trice-sociosanitario-a-medicina-ortopedia-spital-sts-thun",
-      "slugByLocale": {
-        "it": "operatore-trice-sociosanitario-a-medicina-ortopedia-spital-sts-thun",
-        "en": "specialist-health-medicine-orthopaedics-spital-sts-thun",
-        "de": "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
-        "fr": "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Fachfrau /-mann Gesundheit Medizin / Orthopädie",
-      "titleByLocale": {
-        "it": "Operatore/trice sociosanitario/a Medicina / Ortopedia",
-        "en": "Specialist Health Medicine / Orthopaedics",
-        "de": "Fachfrau /-mann Gesundheit Medizin / Orthopädie",
-        "fr": "Spécialiste en médecine de la santé / orthopédie"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nEs erwartet dich ein spannendes und anspruchsvolles Aufgabengebiet auf einer medizinischen Bettenstation. Uns ist eine professionelle und kundenorientierte Betreuung der Patientinnen und Patienten wichtig. Das patientenzentrierte Pflegesystem in enger Zusammenarbeit mit unseren Coaches prägt unseren Pflegeprozess und ermöglicht eine individuelle und qualitativ hochstehende Betreuung unserer Patientinnen und Patienten. Der Umgang mit dem Pflegewagen, mit der elektronischen Pflegedokumentation (Phoenix), dem Medikamentendistributionssystem (Pyxis) und dem elektronischen Patientensicherheitssystem (IDEFIS) begleitet dich im täglichen Arbeitsprozess.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Spannendes und anspruchsvolles Aufgabengebiet\n\n• Motiviertes und eingespieltes Team\n\n• Individuelle Entwicklungsmöglichkeiten\n\n• Interdisziplinäre Zusammenarbeit\n\n• Wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Fachfrau/-mann Gesundheit EFZ\n\n• Idealerweise mit Erfahrung im Akutbereich\n\n• Freude an der Arbeit im medizinischen und orthopädischen Bereich\n\n• Aufgestellte und engagierte Persönlichkeit\n\n• Sehr gute Kenntnisse der deutschen Sprache in Wort und Schrift",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nUn compito emozionante e impegnativo vi aspetta su una stazione di letto medico. La cura professionale e orientata al cliente è importante per noi. Il sistema di assistenza incentrato sul paziente in stretta collaborazione con i nostri allenatori forma il nostro processo di cura e consente la cura individuale e di alta qualità dei nostri pazienti. La gestione dell'auto cura, la documentazione di assistenza elettronica (Phoenix), il sistema di distribuzione della droga (Pyxis) e il sistema di sicurezza del paziente elettronico (IDEFIS) vi accompagna nel processo di lavoro quotidiano.\n\nEntrata immediata o di accordo\n\nTi sta aspettando.\n\n• Area di lavoro emozionante e impegnativa\n\n• Team motivato ed esperto\n\n• Opportunità di sviluppo individuali\n\n• Cooperazione interdisciplinare\n\n• Modello selezionato per le vacanze e i fondi pensione\n\nDiventa parte del nostro team\n\n• Salute specialistica EFZ\n\n• Idealmente con esperienza nel campo acuto\n\n• Gioia di lavoro nel campo medico e ortopedico\n\n• Personalità fondata e impegnata\n\n• Molto buona conoscenza della lingua tedesca in parola e scrittura",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nAn exciting and demanding task awaits you on a medical bed station. Professional and customer-oriented patient care is important to us. The patient-centered care system in close cooperation with our coaches shapes our care process and enables individual and high-quality care of our patients. The handling of the care car, the electronic care documentation (Phoenix), the drug distribution system (Pyxis) and the electronic patient safety system (IDEFIS) accompanies you in the daily work process.\n\nEntry by immediate or by agreement\n\nThis is waiting for you\n\n• Exciting and demanding task area\n\n• Motivated and experienced team\n\n• Individual development opportunities\n\n• Interdisciplinary cooperation\n\n• Selectable holiday and pension fund model\n\nBecome part of our team\n\n• Specialist health EFZ\n\n• Ideally with experience in the acute field\n\n• Joy of working in the medical and orthopaedic field\n\n• Established and committed personality\n\n• Very good knowledge of the German language in word and writing",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nEs erwartet dich ein spannendes und anspruchsvolles Aufgabengebiet auf einer medizinischen Bettenstation. Uns ist eine professionelle und kundenorientierte Betreuung der Patientinnen und Patienten wichtig. Das patientenzentrierte Pflegesystem in enger Zusammenarbeit mit unseren Coaches prägt unseren Pflegeprozess und ermöglicht eine individuelle und qualitativ hochstehende Betreuung unserer Patientinnen und Patienten. Der Umgang mit dem Pflegewagen, mit der elektronischen Pflegedokumentation (Phoenix), dem Medikamentendistributionssystem (Pyxis) und dem elektronischen Patientensicherheitssystem (IDEFIS) begleitet dich im täglichen Arbeitsprozess.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Spannendes und anspruchsvolles Aufgabengebiet\n\n• Motiviertes und eingespieltes Team\n\n• Individuelle Entwicklungsmöglichkeiten\n\n• Interdisziplinäre Zusammenarbeit\n\n• Wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Fachfrau/-mann Gesundheit EFZ\n\n• Idealerweise mit Erfahrung im Akutbereich\n\n• Freude an der Arbeit im medizinischen und orthopädischen Bereich\n\n• Aufgestellte und engagierte Persönlichkeit\n\n• Sehr gute Kenntnisse der deutschen Sprache in Wort und Schrift",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nUne tâche passionnante et exigeante vous attend sur un lit médical. Les soins professionnels et axés sur le client sont importants pour nous. Le système de soins centrés sur le patient, en étroite collaboration avec nos entraîneurs, façonne notre processus de soins et permet des soins individuels et de haute qualité pour nos patients. La manipulation de la voiture de soins, la documentation de soins électroniques (Phoenix), le système de distribution de médicaments (Pyxis) et le système électronique de sécurité des patients (IDEFIS) vous accompagnent dans le processus de travail quotidien.\n\nEntrée immédiate ou par accord\n\nÇa vous attend.\n\n• Domaine de travail passionnant et exigeant\n\n• Équipe motivée et expérimentée\n\n• Possibilités individuelles de développement\n\n• Coopération interdisciplinaire\n\n• Modèle de caisse de vacances et de retraite sélectionnable\n\nDevenez membre de notre équipe\n\n• Spécialiste de la santé EFZ\n\n• Idéalement avec l'expérience dans le domaine aigu\n\n• Joy de travailler dans le domaine médical et orthopédique\n\n• Personnalité établie et engagée\n\n• Très bonne connaissance de la langue allemande en paroles et en écriture"
-      },
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/7d1c6902-2bd5-493b-acf6-44d3ec72c4c3/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:01.333Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/7d1c6902-2bd5-493b-acf6-44d3ec72c4c3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
-        "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
-          "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T21:27:04.490Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

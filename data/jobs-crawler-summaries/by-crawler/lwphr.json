@@ -1,61 +1,21 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-29T16:16:28.540Z",
+  "generatedAt": "2026-10-29T21:29:48.531Z",
   "total": 18,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 17,
-  "durationMs": 4742,
-  "avgDurationMs": 4742,
+  "unchangedCount": 18,
+  "durationMs": 5177,
+  "avgDurationMs": 5177,
   "durationHistory": [
-    4742
+    5177
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "​RELATIONSHIP MANAGERS O PRIVATE BANKERS",
-      "slug": "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-ticino",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/relationship_managers_o_private_bankers.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "it",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "lwphr-829c46db14ab",
-      "firstSeenAt": "2026-04-13T22:04:42.089Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "7500",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -260,6 +220,45 @@
         "richness": 20,
         "translation": 25,
         "completeness": 13
+      }
+    },
+    {
+      "title": "​RELATIONSHIP MANAGERS O PRIVATE BANKERS",
+      "slug": "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-ticino",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/relationship_managers_o_private_bankers.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "lwphr-829c46db14ab",
+      "firstSeenAt": "2026-04-13T22:04:42.089Z",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "7500",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -649,5 +648,5 @@
       }
     }
   ],
-  "codeCommit": "a102718e52077fc28f8b6c0f43e0b34a14b2336f"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }
