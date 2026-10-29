@@ -3287,7 +3287,9 @@ const App: React.FC = () => {
    || isApplicationConciergePath(window.location.pathname);
  })()) ? (
  <ApplicationConciergePortal
-  key={`${authUser?.uid ?? 'anonymous'}:${typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') || 'entry' : 'entry'}`}
+  key={typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('application_concierge_service_id')
+    ? `${authUser?.uid ?? 'anonymous'}:${new URLSearchParams(window.location.search).get('application_concierge_service_id')}:${window.location.pathname}`
+    : `application-concierge-entry:${typeof window !== 'undefined' ? window.location.pathname : '/'}`}
   serviceId={typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') : null}
   entry={typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('application_concierge') === '1' || isApplicationConciergePath(window.location.pathname))}
   authUser={authUser}

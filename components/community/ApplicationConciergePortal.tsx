@@ -129,6 +129,24 @@ export default function ApplicationConciergePortal({
   const conciergeViewTracked = useRef(false);
   const autoResumedService = useRef<string | null>(null);
   const checkoutInFlight = useRef(false);
+  const mounted = useRef(true);
+  const sumUpResponseIsActive = useRef<((payment: unknown) => boolean) | null>(null);
+  const currentOwnerUid = useRef<string | null>(authUser?.uid || null);
+  const lastAuthUid = useRef<string | null>(authUser?.uid || null);
+  const checkoutContext = useRef({ serviceId, authUid: authUser?.uid || null, version: 0 });
+  const nextAuthUid = authUser?.uid || null;
+  if (checkoutContext.current.serviceId !== serviceId
+    || (checkoutContext.current.authUid && checkoutContext.current.authUid !== nextAuthUid)
+    || (nextAuthUid && currentOwnerUid.current && nextAuthUid !== currentOwnerUid.current)) {
+    checkoutContext.current.version += 1;
+  }
+  checkoutContext.current.serviceId = serviceId;
+  checkoutContext.current.authUid = nextAuthUid;
+
+  useEffect(() => {
+    mounted.current = true;
+    return () => { mounted.current = false; };
+  }, []);
 
   useEffect(() => {
     if ((!entry && !serviceId) || authLoading || (serviceId && (loading || !service)) || conciergeViewTracked.current) return;
@@ -137,8 +155,28 @@ export default function ApplicationConciergePortal({
   }, [entry, serviceId, authLoading, loading, service]);
 
   useEffect(() => {
+    const nextUid = authUser?.uid || null;
+    const previousUid = lastAuthUid.current || currentOwnerUid.current;
+    lastAuthUid.current = nextUid;
+    // Keep the typed email and request alive across the expected first
+    // anonymous sign-in; clear the previous owner's form on logout/switch.
+    if (previousUid && previousUid !== nextUid) {
+      checkoutInFlight.current = false;
+      setBusy(null);
+      setSumUpPayment(null);
+      sumUpResponseIsActive.current = null;
+      setSumUpPaymentOpen(false);
+      setSumUpPaymentBusy(false);
+      setSumUpPaymentError(null);
+      setError(null);
+      setName(String(authUser?.displayName || ''));
+      setEmail(String(authUser?.email || ''));
+    }
+    if (authUser || lastAuthUid.current !== previousUid) {
+      currentOwnerUid.current = nextUid;
+      setCurrentUser(authUser);
+    }
     if (!authUser) return;
-    setCurrentUser(authUser);
     setName((value) => value || String(authUser.displayName || ''));
     setEmail((value) => value || String(authUser.email || ''));
   }, [authUser]);
@@ -153,9 +191,9 @@ export default function ApplicationConciergePortal({
     if (currentUser?.getIdToken) return currentUser;
     if (serviceId) return null;
     if (authLoading) return null;
-    const user = await ensureAssistedApplicationAuth();
-    if (user) setCurrentUser(user);
-    return user;
+    // The checkout caller accepts this identity only after its active-context
+    // and authoritative SDK checks; late auth must not overwrite a new owner.
+    return ensureAssistedApplicationAuth();
   }, [authLoading, currentUser, serviceId]);
 
   const loadService = useCallback(async () => {
@@ -229,6 +267,15 @@ export default function ApplicationConciergePortal({
 
   const startCheckout = useCallback(async (resumeServiceId: string | null = null, automatic = false) => {
     if (checkoutInFlight.current) return;
+    const contextVersion = checkoutContext.current.version;
+    const path = window.location.pathname;
+    const linkedService = new URLSearchParams(window.location.search).get('application_concierge_service_id');
+    const isActive = (ownerUid?: string) => mounted.current
+      && checkoutContext.current.version === contextVersion
+      && checkoutContext.current.serviceId === serviceId
+      && window.location.pathname === path
+      && new URLSearchParams(window.location.search).get('application_concierge_service_id') === linkedService
+      && (!ownerUid || currentOwnerUid.current === ownerUid);
     const checkoutEmail = (email || service?.customerEmail || service?.applicantEmail || '').trim().toLowerCase();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(checkoutEmail)) {
       setError('application_concierge_email_required');
@@ -241,10 +288,19 @@ export default function ApplicationConciergePortal({
     setError(null);
     try {
       const user = await ensureUser();
+      if (!isActive()) return;
       if (!user?.getIdToken) {
         onRequireAuth?.();
         throw new Error('auth_required');
       }
+      const [{ getApp }, { getAuth }] = await Promise.all([import('@/services/firebase'), import('firebase/auth')]);
+      const auth = getAuth(await getApp());
+      if (!isActive() || auth.currentUser?.uid !== user.uid
+        || (checkoutContext.current.authUid && checkoutContext.current.authUid !== user.uid)) return;
+      currentOwnerUid.current = String(user.uid);
+      setCurrentUser(user);
+      const isCurrentOwner = () => isActive(String(user.uid)) && auth.currentUser?.uid === user.uid;
+      if (!isCurrentOwner()) return;
       // Cached widget state is presentation only; every reopen must verify
       // the provider session before exposing another payment form.
       const effectiveServiceId = resumeServiceId
@@ -264,28 +320,31 @@ export default function ApplicationConciergePortal({
         customerEmail: checkoutEmail,
         ...(effectiveServiceId ? { serviceId: effectiveServiceId } : {}),
       }, user);
+      if (!isCurrentOwner()) return;
       if (result.paymentProvider === 'sumup') {
         const returnUrl = new URL(base.toString());
         returnUrl.searchParams.set('application_concierge_service_id', result.serviceId);
         returnUrl.searchParams.set('application_concierge_payment_return', '1');
-        setSumUpPayment({
-          checkoutId: result.checkoutId,
-          serviceId: result.serviceId,
-          userId: String(user.uid),
-          successUrl: returnUrl.toString(),
-        });
+        const payment = {
+          checkoutId: result.checkoutId, serviceId: result.serviceId,
+          userId: String(user.uid), successUrl: returnUrl.toString(),
+        };
+        sumUpResponseIsActive.current = (candidate) => candidate === payment && isCurrentOwner();
+        setSumUpPayment(payment);
         setSumUpPaymentError(null);
         setSumUpPaymentOpen(true);
         return;
       }
       window.location.assign(result.url);
     } catch (checkoutError) {
-      setError(errorKey(checkoutError));
+      if (isActive()) setError(errorKey(checkoutError));
     } finally {
-      checkoutInFlight.current = false;
-      setBusy(null);
+      if (isActive()) {
+        checkoutInFlight.current = false;
+        setBusy(null);
+      }
     }
-  }, [email, service, ensureUser, onRequireAuth, sumUpPayment, locale]);
+  }, [email, service, serviceId, ensureUser, onRequireAuth, sumUpPayment, locale]);
 
   useEffect(() => {
     const recoverable = service && (isPending(service) || isRetryablePayment(service));
@@ -297,8 +356,9 @@ export default function ApplicationConciergePortal({
   }, [serviceId, service, loading, authLoading, startCheckout]);
 
   const handleSumUpResponse = (type: string) => {
-    if (!sumUpPayment) return;
+    if (!sumUpPayment || !sumUpResponseIsActive.current?.(sumUpPayment)) return;
     if (type === 'success') {
+      sumUpResponseIsActive.current = null;
       setSumUpPaymentBusy(true);
       // This callback only signals navigation; the verified webhook activates the service.
       if (serviceId === sumUpPayment.serviceId) {
@@ -316,6 +376,7 @@ export default function ApplicationConciergePortal({
 
   const closeSumUpPayment = () => {
     if (sumUpPaymentBusy) return;
+    sumUpResponseIsActive.current = null;
     setSumUpPaymentOpen(false);
   };
 

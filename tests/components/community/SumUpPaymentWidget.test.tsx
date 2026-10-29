@@ -26,7 +26,7 @@ vi.mock('@/services/firebase', () => firebaseMocks);
 
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 
-const mount = vi.fn(() => ({ unmount: vi.fn() }));
+const mount = vi.fn((_options: { onResponse: (type: string, body: unknown) => void }) => ({ unmount: vi.fn() }));
 
 const renderWidget = (overrides: Partial<ComponentProps<typeof SumUpPaymentWidget>> = {}) => {
   const props: ComponentProps<typeof SumUpPaymentWidget> = {
@@ -100,6 +100,33 @@ describe('SumUpPaymentWidget', () => {
         merchantName: 'Frontaliere Ticino',
       },
     }));
+  });
+
+  it('discards an old SDK callback instead of forwarding it to the replacement checkout handler', async () => {
+    const firstResponse = vi.fn();
+    const nextResponse = vi.fn();
+    const onError = vi.fn();
+    const onClose = vi.fn();
+    const view = render(<SumUpPaymentWidget checkoutId="first" locale="it" onResponse={firstResponse} onError={onError} onClose={onClose} />);
+    await act(async () => {});
+    const oldSdkResponse = mount.mock.calls[0][0].onResponse;
+    view.rerender(<SumUpPaymentWidget checkoutId="next" locale="it" onResponse={nextResponse} onError={onError} onClose={onClose} />);
+    await act(async () => {});
+    act(() => oldSdkResponse('success', { checkout: 'first' }));
+    expect(firstResponse).not.toHaveBeenCalled();
+    expect(nextResponse).not.toHaveBeenCalled();
+    act(() => mount.mock.calls[1][0].onResponse('success', { checkout: 'next' }));
+    expect(nextResponse).toHaveBeenCalledExactlyOnceWith('success', { checkout: 'next' });
+  });
+
+  it('ignores SDK responses after unmount', async () => {
+    const response = vi.fn();
+    const view = render(<SumUpPaymentWidget checkoutId="removed" locale="it" onResponse={response} onError={vi.fn()} onClose={vi.fn()} />);
+    await act(async () => {});
+    const oldSdkResponse = mount.mock.calls[0][0].onResponse;
+    view.unmount();
+    act(() => oldSdkResponse('success', { checkout: 'removed' }));
+    expect(response).not.toHaveBeenCalled();
   });
 
   it('closes from the backdrop but keeps the checkout locked while busy', () => {
