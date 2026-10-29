@@ -1,16 +1,16 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-10-29T09:14:09.675Z",
+  "generatedAt": "2026-10-29T21:08:26.893Z",
   "total": 2,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8734,
-  "avgDurationMs": 8734,
+  "durationMs": 9034,
+  "avgDurationMs": 9034,
   "durationHistory": [
-    8734
+    9034
   ],
   "newJobs": [
     {
@@ -36,7 +36,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T09:14:01.703Z",
+      "crawledAt": "2026-10-29T21:08:14.853Z",
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
@@ -84,7 +84,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T09:13:56.356Z",
+      "crawledAt": "2026-10-29T21:08:09.337Z",
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
@@ -105,5 +105,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "7995f4cde11a1c38f3cd16da462f27ee83cb1cc2"
 }
