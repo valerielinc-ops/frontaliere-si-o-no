@@ -8,7 +8,10 @@ const BORDER_IMPORTER = resolve(import.meta.dirname, '../scripts/import-pharmaci
 describe('pharmacy atomic refresh workflow', () => {
   it('retries transient official-source failures without weakening the importer gates', () => {
     const source = readFileSync(BORDER_IMPORTER, 'utf8');
-    expect(source).toContain("import { httpFetchWithRetry, isRetryBudgetExhausted, transportErrorKind } from './lib/transient-fetch.mjs';");
+    expect(source).toContain("httpFetchWithRetry,");
+    expect(source).toContain("isConnectionLevelFetchError,");
+    expect(source).toContain("isRetryBudgetExhausted,");
+    expect(source).toContain("transportErrorKind,");
     expect(source).toContain('response = await httpFetchWithRetry(url,');
     expect(source).toContain("const wrapped = new Error(`Failed to fetch ${url} (${kind}): ${message}`, { cause: error });");
     expect(source).toContain('if (!response.ok) {');

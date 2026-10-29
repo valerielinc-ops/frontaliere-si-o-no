@@ -106,7 +106,7 @@ const OFFICIAL_RECORD_FIELD_ALLOWLIST = Object.freeze({
   'italy-border': new Set(['coordinates']),
 });
 const OFFICIAL_RECORD_SOURCE_HOSTS = Object.freeze({
-  'ticino-complete': new Set(['www.ofct.ch', 'www4.ti.ch']),
+  'ticino-complete': new Set(['www.ofct.ch', 'www4.ti.ch', 'm4.ti.ch']),
   'italy-border': new Set(['www.dati.salute.gov.it']),
 });
 
