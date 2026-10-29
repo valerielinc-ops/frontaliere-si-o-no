@@ -476,13 +476,13 @@ async function handleCandidateGet(db, req, uid) {
 export async function handleApplicationConcierge(req) {
   const method = String(req.method || 'GET').toUpperCase();
   if (method !== 'GET' && method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
-  const decoded = await verifyCaller(req);
+  const action = method === 'POST' ? boundedString(req.body?.action, 40) : '';
+  const decoded = await verifyCaller(req, { checkRevoked: action === 'recoverPaymentSession' });
   if (!decoded?.uid) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
   const db = getAdminDb();
   try {
     if (method === 'GET') return await handleCandidateGet(db, req, decoded.uid);
     const serviceId = serviceIdFromRequest(req);
-    const action = boundedString(req.body?.action, 40);
     if (action === 'recoverPaymentSession') {
       if (!validId(serviceId)) throw new ApplicationConciergeError('service_not_found', 404);
       const snapshot = await serviceRefFor(db, serviceId).get();

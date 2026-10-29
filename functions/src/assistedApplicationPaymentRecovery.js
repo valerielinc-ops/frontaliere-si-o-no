@@ -303,19 +303,29 @@ async function renewStripeCheckout({ db, orderId, order, stripe, nowMs }) {
     }, { idempotencyKey: reservation.stripeRequestKey });
     const sessionId = boundedString(session?.id, 200);
     if (!sessionId) throw new Error('stripe_recovery_session_missing');
-    await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId).set({
-      paymentProvider: 'stripe',
-      paymentStatus: 'pending',
-      submissionStatus: 'awaiting_payment',
-      stripeCheckoutSessionId: sessionId,
-      stripeRequestKey: reservation.stripeRequestKey,
-      checkoutAttempt: reservation.checkoutAttempt,
-      checkoutExpiresAt: Number.isSafeInteger(Number(session.expires_at)) ? Number(session.expires_at) : null,
-      checkoutSessionStatus: 'open',
-      paymentFailureReason: null,
-      updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-    return { status: 'renewed', session };
+    const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+    return await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(ref);
+      const current = snapshot.exists ? snapshot.data() || {} : {};
+      if (current.paymentStatus === 'paid') return { status: 'paid' };
+      if (current.paymentStatus === 'refunded') return { status: 'waiting_provider', reason: 'payment_refunded' };
+      if (paymentProviderFor(current) !== 'stripe' || current.checkoutSessionStatus !== 'creating'
+        || current.checkoutAttempt !== reservation.checkoutAttempt
+        || checkoutIdFor(current) !== checkoutIdFor(order)) return { status: 'in_progress' };
+      transaction.set(ref, {
+        paymentProvider: 'stripe',
+        paymentStatus: 'pending',
+        submissionStatus: 'awaiting_payment',
+        stripeCheckoutSessionId: sessionId,
+        stripeRequestKey: reservation.stripeRequestKey,
+        checkoutAttempt: reservation.checkoutAttempt,
+        checkoutExpiresAt: Number.isSafeInteger(Number(session.expires_at)) ? Number(session.expires_at) : null,
+        checkoutSessionStatus: 'open',
+        paymentFailureReason: null,
+        updatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+      return { status: 'renewed', session };
+    });
   } catch (error) {
     console.error('[assistedApplicationPaymentRecovery] Stripe renewal failed', orderId, error instanceof Error ? error.message : String(error));
     return { status: 'error', reason: 'stripe_session_creation_failed' };
@@ -413,14 +423,21 @@ export async function inspectPendingAssistedApplicationPayment({
   if (stripeSessionHasPaidAmount(session, orderId)) {
     return reconcileStripePaid({ db, orderId, order, session, applyStripe });
   }
+  if (session?.payment_status === 'paid') {
+    return { status: 'waiting_provider', reason: 'stripe_paid_checkout_mismatch' };
+  }
+  // A closed asynchronous checkout can outlive its original pay-by date.
+  // Wait for the bank outcome unless its failure has already been confirmed.
+  const confirmedFailure = order.paymentStatus === 'failed'
+    && order.paymentFailureReason === 'payment_not_confirmed';
+  if ((session?.status === 'complete' && !confirmedFailure) || session?.payment_status === 'processing') {
+    return { status: 'waiting_provider', reason: 'stripe_payment_processing' };
+  }
   const expiresAt = Number(session?.expires_at);
   const expired = session?.status === 'expired'
     || (Number.isSafeInteger(expiresAt) && expiresAt * 1000 <= nowMs);
   if (session?.status === 'open' && !expired && session?.payment_status !== 'paid') return { status: 'open', session };
   if (expired) return renewStripeCheckout({ db, orderId, order, stripe: stripeClient, nowMs });
-  if (session?.status === 'complete' || session?.payment_status === 'processing') {
-    return { status: 'waiting_provider', reason: 'stripe_payment_processing' };
-  }
   return { status: 'waiting_provider', reason: 'stripe_payment_not_confirmed' };
 }
 

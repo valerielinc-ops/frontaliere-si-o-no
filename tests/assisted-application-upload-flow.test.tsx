@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import itCore from '@/services/locales/it-core';
 import AssistedApplicationUpload from '@/components/community/AssistedApplicationUpload';
@@ -261,6 +261,31 @@ describe('assisted application consent and CV upload flow', () => {
     await user.click(screen.getByRole('button', { name: itCore['jobBoard.assisted.pendingCta'] }));
     await screen.findByRole('dialog', { name: 'SumUp' });
     expect(mocks.openWindow).not.toHaveBeenCalled();
+  });
+
+  it.each(['unmount', 'order-change', 'sdk-owner-change'])('does not transfer a delayed Stripe popup after %s', async (change) => {
+    orderData = paidOrder({ paymentStatus: 'pending', submissionStatus: 'awaiting_payment', paymentProvider: 'stripe' });
+    const popup = { closed: false, opener: null, location: { replace: vi.fn() }, close: vi.fn() };
+    mocks.openWindow.mockReturnValue(popup);
+    let resolveFetch!: (value: any) => void;
+    const pending = new Promise((resolve) => { resolveFetch = resolve; });
+    mocks.fetch.mockReturnValueOnce(pending);
+    const view = render(<AssistedApplicationUpload key="first" orderId={ORDER_ID} />);
+    fireEvent.click(await screen.findByRole('button', { name: itCore['jobBoard.assisted.pendingCta'] }));
+    await waitFor(() => expect(mocks.fetch).toHaveBeenCalledOnce());
+    if (change === 'unmount') view.unmount();
+    else if (change === 'order-change') view.rerender(<AssistedApplicationUpload key="second" orderId="another-order" />);
+    else {
+      const auth = mocks.getAuth.mock.results.at(-1)?.value;
+      auth.currentUser = { uid: 'another-user', getIdToken: async () => 'another-token' };
+    }
+    await act(async () => {
+      resolveFetch({ ok: true, status: 200, json: async () => ({ ok: true, status: 'open', paymentProvider: 'stripe',
+        url: 'https://checkout.stripe.com/test/', orderId: ORDER_ID }) });
+      await pending;
+    });
+    expect(popup.location.replace).not.toHaveBeenCalled();
+    expect(popup.close).toHaveBeenCalled();
   });
 
   it('opens Stripe Checkout in a user-initiated popup and keeps the page as fallback', async () => {
