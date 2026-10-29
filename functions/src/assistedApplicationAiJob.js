@@ -431,10 +431,12 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
       const response = await fetchPublicPage(fetchImpl, order.jobUrl, resolve);
       const contentType = String(response?.headers?.get?.('content-type') || '');
       if (response?.ok && contentType.includes('html')) {
-        const html = (await response.text()).slice(0, MAX_PAGE_BYTES);
+        const pageHtml = await response.text();
+        const pageTruncated = pageHtml.length > MAX_PAGE_BYTES;
+        const html = pageHtml.slice(0, MAX_PAGE_BYTES);
         const fullText = htmlToText(html);
         const text = fullText.slice(0, maxPostingChars);
-        if (text.length > 200) return { ...empty, text, textTruncated: fullText.length > maxPostingChars, source: 'job_page' };
+        if (text.length > 200) return { ...empty, text, textTruncated: pageTruncated || fullText.length > maxPostingChars, source: 'job_page' };
       }
     } catch (error) {
       console.warn('[assistedApplicationAi] job page fetch failed', error instanceof Error ? error.message : String(error));

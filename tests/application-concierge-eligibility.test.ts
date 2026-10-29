@@ -81,6 +81,26 @@ describe('qualification before proposal publication', () => {
     expect(await check({ id: 'long-posting' })).toMatchObject({ status: 'unverified', reason: 'posting_incomplete' });
     expect(f.generate).toHaveBeenCalledTimes(1);
   });
+  it('rejects an HTML response cut before conversion even when its visible prefix fits the posting budget', async () => {
+    const { fetchJobPosting } = await import('../functions/src/assistedApplicationAiJob.js');
+    const prefix = `<p>${'IT operations and infrastructure experience. '.repeat(20)}</p>`;
+    const html = `${prefix}<!--${' '.repeat(1_500_000)}--><p>Critical licence required at the end.</p>`;
+    const read = (page: string) => fetchJobPosting({ jobUrl: 'https://example.test/role' }, {
+      maxPostingChars: 30_000,
+      resolve: async () => [{ address: '93.184.216.34', family: 4 }],
+      fetchImpl: async () => new Response(page, { headers: { 'content-type': 'text/html' } }),
+    });
+    const posting = await read(html);
+    expect(posting.text.length).toBeLessThan(30_000);
+    expect(posting.text).not.toContain('Critical licence');
+    expect(posting.textTruncated).toBe(true);
+    expect((await read(prefix)).textTruncated).toBe(false);
+    const f = fixture({ matches: [], verdict: 'strong' });
+    f.readPosting.mockResolvedValue(posting);
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    expect(await check({ id: 'oversized-html' })).toMatchObject({ status: 'unverified', reason: 'posting_incomplete' });
+    expect(f.generate).toHaveBeenCalledTimes(1);
+  });
   it('normalizes indexed job fields and isolates cache entries and fingerprints by prompt metadata', async () => {
     const f = fixture({ matches: [], verdict: 'strong', questions: [] });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
