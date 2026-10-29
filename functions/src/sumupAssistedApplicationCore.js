@@ -198,6 +198,7 @@ async function createSumUpCheckout(
     amountCents = ASSISTED_APPLICATION_PRICE_EUR_CENTS,
     description = 'Candidatura assistita',
     hostedCheckout = false,
+    validUntil = null,
     environment = SUMUP_ENVIRONMENTS.PRODUCTION,
   },
   read = getRemoteConfigValue,
@@ -220,6 +221,7 @@ async function createSumUpCheckout(
         currency: 'EUR',
         description: boundedString(description, 200) || 'Candidatura assistita',
         merchant_code: merchantCode,
+        ...(validUntil ? { valid_until: new Date(validUntil).toISOString() } : {}),
         ...(redirectUrl ? { redirect_url: redirectUrl } : {}),
         return_url: webhookUrl,
         ...(hostedCheckout ? { hosted_checkout: { enabled: true } } : {}),
@@ -246,15 +248,16 @@ export async function createSumUpHostedCheckout(
 }
 
 export async function createSumUpApplicationConciergeCheckout(
-  { serviceId, redirectUrl, checkoutAttempt = 1 },
+  { serviceId, redirectUrl, checkoutAttempt = 1, amountCents = APPLICATION_CONCIERGE_PRICE_EUR_CENTS, validUntil = null },
   read = getRemoteConfigValue,
 ) {
   return createSumUpCheckout({
     checkoutReference: sumUpCheckoutReference(serviceId, checkoutAttempt),
     redirectUrl,
-    amountCents: APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
+    amountCents,
     description: 'Servizio candidature assistite',
     hostedCheckout: false,
+    validUntil,
   }, read);
 }
 
