@@ -1600,6 +1600,9 @@ describe('employer citations versus candidate facts', () => {
       'La società “Beta SA” è attiva da 50 anni.',
       'La società (Beta SA) è attiva da 50 anni.',
       'La società, Beta SA, è attiva da 50 anni.',
+      'La Société Beta SA est active depuis 50 ans.',
+      'Das Unternehmen Beta SA ist seit 50 Jahren tätig.',
+      'The Company Beta SA has been active for 50 years.',
     ]) {
       expect(checkDraftFacts({ coverLetter }, {
         ...sources, order, posting: 'La società Alfa SA è attiva da 50 anni.',
