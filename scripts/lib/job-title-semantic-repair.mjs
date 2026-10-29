@@ -1,25 +1,58 @@
-/** Source-backed correction of restaurant title and employer-brand mistranslations.
+/** Source-backed correction of known job-title and employer-brand mistranslations.
  * Only known corruptions are rewritten; identities and URLs are never derived here.
  */
 const CREW_TITLE = /^crew$/i;
 const BAD_CREW = /^(?:United Nations|Nazioni Unite|Vereinte Nationen|Nations Unies|Besatzung)$/i;
+const MIGROS_SERVICE_COUNTER_TITLE = /\bVerkäufer(?:[*:/]?in)?\s+Metzgerei\s+bedient\b/iu;
+const MIGROS_SERVICE_COUNTER_TRANSLATIONS = {
+  it: 'Addetto/a alla vendita al banco macelleria',
+  en: 'Meat Counter Sales Assistant',
+  fr: 'Vendeur·euse au comptoir de boucherie',
+};
 
 export function repairJobTitleSemanticsInPlace(job) {
   if (!job || typeof job !== 'object') return 0;
+  let changed = repairMigrosServiceCounterTitleInPlace(job);
   // sourceLang describes the body; a borrowed source title may have a different
   // effective language. An original Crew must not be hidden by that locale slot.
   const originalTitle = String(job.title || '').trim();
   const sourceTitle = CREW_TITLE.test(originalTitle) ? originalTitle
     : String(job.titleByLocale?.[job.sourceLang] || originalTitle).trim();
-  if (!CREW_TITLE.test(sourceTitle)) return 0;
+  if (!CREW_TITLE.test(sourceTitle)) return changed;
   // Require employer evidence, not the translated title itself. A real UN role
   // or an airline's Crew/Besatzung has no restaurant employer anchor.
-  if (!isMcDonaldsEmployer(job)) return 0;
-  let changed = 0;
+  if (!isMcDonaldsEmployer(job)) return changed;
   if (BAD_CREW.test(String(job.title || '').trim())) { job.title = sourceTitle; changed++; }
   for (const [locale, title] of Object.entries(job.titleByLocale || {})) {
     if (typeof title !== 'string' || !BAD_CREW.test(title.trim())) continue;
     job.titleByLocale[locale] = sourceTitle;
+    changed++;
+  }
+  return changed;
+}
+
+/**
+ * "Metzgerei bedient" means a staffed butcher's counter. Require both the
+ * original German title and Migros employer evidence before canonicalizing its
+ * locale slots; a title-only match could affect an unrelated employer.
+ */
+export function repairMigrosServiceCounterTitleInPlace(job) {
+  if (!job || typeof job !== 'object') return 0;
+  const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
+  if (sourceLang && !sourceLang.startsWith('de')) return 0;
+  if (!isMigrosEmployer(job)) return 0;
+  const sourceTitle = [job.title, job.titleByLocale?.de]
+    .map((value) => String(value || '').trim())
+    .find((value) => MIGROS_SERVICE_COUNTER_TITLE.test(value));
+  if (!sourceTitle) return 0;
+
+  const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
+    ? job.titleByLocale
+    : (job.titleByLocale = {});
+  let changed = 0;
+  for (const [locale, translation] of Object.entries(MIGROS_SERVICE_COUNTER_TRANSLATIONS)) {
+    if (titleByLocale[locale] === translation) continue;
+    titleByLocale[locale] = translation;
     changed++;
   }
   return changed;
@@ -52,6 +85,13 @@ function isMcDonaldsEmployer(job) {
   try { employerHost = new URL(job.url).hostname; } catch {}
   return /\bmcdonald[’']?s\b/i.test(String(job.company || ''))
     || employerHost === 'jobs.mcdonalds.ch';
+}
+
+function isMigrosEmployer(job) {
+  let employerHost = '';
+  try { employerHost = new URL(job.url).hostname; } catch {}
+  return /\bmigros\b/i.test(String(job.company || ''))
+    || /(?:^|\.)jobs\.migros\.ch$/i.test(employerHost);
 }
 
 function replaceBrandInProse(text, pattern, brand) {
