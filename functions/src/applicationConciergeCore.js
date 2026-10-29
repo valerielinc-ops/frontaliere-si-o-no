@@ -351,7 +351,9 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
   if (!proposalSnapshot.exists) throw new ApplicationConciergeError('proposal_not_found', 404);
   const proposal = proposalSnapshot.data() || {};
   if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
-  if (proposal.eligibilityStatus !== 'compatible') throw new ApplicationConciergeError('proposal_requires_verification', 409);
+  if (proposal.eligibilityStatus !== 'compatible' || proposal.eligibilityCvStorageKey !== service.cvStorageKey) {
+    throw new ApplicationConciergeError('proposal_requires_verification', 409);
+  }
 
   const childRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc();
   const extension = extensionForCvKey(sourceKey);
@@ -375,7 +377,11 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
       if (!currentProposalSnapshot.exists || currentProposal.status !== 'proposed') {
         throw new ApplicationConciergeError('proposal_already_decided', 409);
       }
-      if (currentProposal.eligibilityStatus !== 'compatible') throw new ApplicationConciergeError('proposal_requires_verification', 409);
+      if (currentProposal.eligibilityStatus !== 'compatible'
+        || currentProposal.eligibilityCvStorageKey !== currentService.cvStorageKey
+        || currentService.cvStorageKey !== service.cvStorageKey) {
+        throw new ApplicationConciergeError('proposal_requires_verification', 409);
+      }
       const accepted = acceptedPositionsCount(currentService);
       const maxPositions = Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
       if (accepted >= maxPositions) throw new ApplicationConciergeError('position_limit_reached', 409);
@@ -558,6 +564,7 @@ async function createProposal(db, raw, adminEmail) {
     ...job,
     status: 'proposed',
     eligibilityStatus: qualification.status, eligibilityCacheId: qualification.cacheId, eligibilityFingerprint: qualification.fingerprint,
+    eligibilityCvStorageKey: service.cvStorageKey,
     eligibilityCheckedAt: Timestamp.now(),
     createdBy: adminEmail,
     createdAt: FieldValue.serverTimestamp(),

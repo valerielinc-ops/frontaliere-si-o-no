@@ -4,6 +4,7 @@ const mocks = vi.hoisted(() => {
   const documents = new Map<string, Record<string, unknown>>();
   const files = new Set<string>();
   let childSequence = 0;
+  let copyHook: (() => void) | null = null;
 
   function pathKey(path: string) {
     return path.replace(/^\/+|\/+$/g, '');
@@ -92,6 +93,7 @@ const mocks = vi.hoisted(() => {
         },
         async copy(target: { path: string }) {
           files.add(target.path);
+          copyHook?.();
         },
         async delete() {
           files.delete(path);
@@ -105,6 +107,7 @@ const mocks = vi.hoisted(() => {
     getUser: vi.fn(async (uid: string) => ({ uid })),
     documents,
     files,
+    setCopyHook(hook: (() => void) | null) { copyHook = hook; },
     firestore,
     bucket,
     getAdminDb: vi.fn(() => firestore),
@@ -115,6 +118,7 @@ const mocks = vi.hoisted(() => {
       documents.clear();
       files.clear();
       childSequence = 0;
+      copyHook = null;
     },
   };
 });
@@ -189,6 +193,7 @@ function seedService() {
     applyMode: 'portal',
     status: 'proposed',
     eligibilityStatus: 'compatible',
+    eligibilityCvStorageKey: 'application-concierge-uploads/service-1/cv.pdf',
   });
   mocks.files.add('application-concierge-uploads/service-1/cv.pdf');
 }
@@ -295,6 +300,38 @@ describe('application concierge candidate API', () => {
       jobId: 'job-1',
     }));
     expect([...mocks.files].some((path) => path.startsWith('assisted-application-uploads/child-1/'))).toBe(true);
+  });
+
+  it('rejects a compatible verdict tied to an older CV before copying it', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.cvStorageKey = 'application-concierge-uploads/service-1/new-cv.pdf';
+    mocks.files.add(service.cvStorageKey as string);
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
+    expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
+    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+  });
+
+  it('rejects an acceptance when the service CV changes while the proposal CV is being copied', async () => {
+    mocks.setCopyHook(() => {
+      mocks.documents.get('application_concierge_services/service-1')!.cvStorageKey = 'application-concierge-uploads/service-1/new-cv.pdf';
+    });
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
+    expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
+    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
   });
 
   it('does not create a child application for a declined proposal', async () => {
