@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** Exact catalog check for the Functions fallbacks, separate from the article engine fleet. */
-import { pathToFileURL } from 'node:url';
 import { SERVER_TEXT_FALLBACKS } from '../functions/src/serverAiFallbacks.js';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 export async function checkServerAiFallbacks({ env = process.env, fetchImpl = fetch } = {}) {
   const providers = [...new Set(SERVER_TEXT_FALLBACKS.map(provider => provider.rcKey))];
@@ -26,7 +26,7 @@ export async function checkServerAiFallbacks({ env = process.env, fetchImpl = fe
   return { ok: results.every(result => ['available', 'not_configured'].includes(result.status)), providers: results };
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   const result = await checkServerAiFallbacks();
   process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
   if (!result.ok) process.exitCode = 1;
