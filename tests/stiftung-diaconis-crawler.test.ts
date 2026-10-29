@@ -151,6 +151,29 @@ describe('Stiftung Diaconis crawler parser', () => {
     it('returns empty array when no abacuscity anchors present', () => {
       expect(parseListing('<a href="https://other.example/x">foo</a>')).toEqual([]);
     });
+
+    it('normalizes relative and single-quoted portal links', () => {
+      const rows = parseListing(`
+        <a class="job-link" href="/de/job_1_130/Dipl.-Pflegefachfrau">Nachtdienst</a>
+        <a href='/de/job_1_103/Poolmitarbeiter-in-Pflege'>Poolmitarbeiter/in Pflege</a>
+      `);
+      expect(rows).toEqual([
+        {
+          url: 'https://diaconis.abacuscity.ch/de/job_1_130/Dipl.-Pflegefachfrau',
+          jobId: '130',
+          title: 'Nachtdienst',
+        },
+        {
+          url: 'https://diaconis.abacuscity.ch/de/job_1_103/Poolmitarbeiter-in-Pflege',
+          jobId: '103',
+          title: 'Poolmitarbeiter/in Pflege',
+        },
+      ]);
+    });
+
+    it('rejects same-shaped links outside the trusted portal host', () => {
+      expect(parseListing('<a href="https://example.com/de/job_1_130/Nachtdienst">Nachtdienst</a>')).toEqual([]);
+    });
   });
 
   describe('parseDetailDescription', () => {
