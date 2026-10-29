@@ -19,7 +19,8 @@ export function employerReferenceSpans(text, employerName = '') {
 }
 
 const COMPANY_NOUN = /(?<![\p{L}\p{N}])(?:società|societa|azienda|gruppo|company|unternehmen|entreprise|société)(?![\p{L}\p{N}])/iu;
-const COMPANY_NAME_AFTER_NOUN = /^[\s:,(“"«]+((?:[\p{Lu}][\p{L}\p{M}\p{N}&'’.-]*)(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}&'’.-]*){0,2})/u;
+const COMPANY_NAME_AFTER_NOUN = /^[\s:,(“"«]+((?:[\p{L}][\p{L}\p{M}\p{N}&'’.-]*)(?:\s+[\p{L}][\p{L}\p{M}\p{N}&'’.-]*){0,2})/u;
+const COMPANY_LEGAL_SUFFIX = /\b(?:SA|AG|GmbH|Sàrl|Sarl|Ltd|Inc|SAS|Srl)\b/iu;
 const PERSONAL_OR_NEGATED = /\b(?:ho|avevo|mio|mia|miei|mie|nostro|nostra|my|our|i have|i had|ich habe|mein\w*|j['’]ai|mon|mes|non|not|never|nicht|kein\w*|pas|candidate|candidat\w*|richiest\w*|required|must|you|votre|vostri)\b/iu;
 const THIRD_PARTY_SUBJECT = /\b(?:partner|clienti?|customers?|suppliers?|fornitor\w*|altra|other|autre)\b/iu;
 const COMPANY_YEARS = /\b(?:(?:da|for|seit|depuis|von)\s+)?(?:(?:oltre|over|more than|über|plus de)\s+)?(\d+)\s+(?:anni|years|jahren|jahre|ans)\b/giu;
@@ -44,7 +45,8 @@ function sameCanonicalEmployer(sentence, employerName) {
   const nouns = new RegExp(COMPANY_NOUN.source, 'giu');
   const names = [...String(sentence).matchAll(nouns)].flatMap((match) => {
     const afterNoun = String(sentence).slice(match.index + match[0].length);
-    return afterNoun.match(COMPANY_NAME_AFTER_NOUN)?.slice(1) || [];
+    const name = afterNoun.match(COMPANY_NAME_AFTER_NOUN)?.[1];
+    return name && (/\p{Lu}/u.test(name) || /[\p{Ll}][\p{Lu}]/u.test(name) || COMPANY_LEGAL_SUFFIX.test(name)) ? [name] : [];
   });
   return names.every((name) => normalize(name) === canonical || (aliases.has(name) && normalize(name) === normalize(name.toUpperCase())));
 }
