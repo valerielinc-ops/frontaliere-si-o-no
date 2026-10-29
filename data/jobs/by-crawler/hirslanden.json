@@ -26974,12 +26974,12 @@
     {
       "id": "hirslanden-f7aab3b30ab8",
       "externalId": "1452641033",
-      "slug": "infirmier-ere-anesthesiste-cdd-a-100-hirslanden-hirslanden-clinique-cecil",
+      "slug": "infermiera-anestetista-100-cdd-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "fr": "infirmier-ere-anesthesiste-cdd-a-100-hirslanden-hirslanden-clinique-cecil",
-        "it": "infirmier-ere-anesthesiste-cdd-a-100-hirslanden-hirslanden-clinique-cecil",
-        "en": "infirmier-ere-anesthesiste-cdd-a-100-hirslanden-hirslanden-clinique-cecil",
-        "de": "infirmier-ere-anesthesiste-cdd-a-100-hirslanden-hirslanden-clinique-cecil"
+        "it": "infermiera-anestetista-100-cdd-hirslanden-klinik-hirslanden-clinique-cecil",
+        "en": "nurse-anesthetist-100-cdd-hirslanden-klinik-hirslanden-clinique-cecil",
+        "de": "krankenschwester-anasthesist-100-cdd-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27035,17 +27035,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T16:17:01.164Z"
+      "firstSeenAt": "2026-10-29T16:17:01.164Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-anesthesiste-cdd-a-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "en": [
+          "infirmier-ere-anesthesiste-cdd-a-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "infirmier-ere-anesthesiste-cdd-a-100-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-anesthesiste-cdd-a-100-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-e854758aee4d",
       "externalId": "1452642233",
-      "slug": "fachfrau-fachmann-efz-a-50-100-schwerpunkt-herz-gefass-hirslanden-hirslanden-klinik-im",
+      "slug": "specialista-specialista-efz-a-50-100-specializzazione-cuore-vasi-hirslanden-klinik-hirslanden-klinik-im-park",
       "slugByLocale": {
         "de": "fachfrau-fachmann-efz-a-50-100-schwerpunkt-herz-gefass-hirslanden-hirslanden-klinik-im",
-        "it": "fachfrau-fachmann-efz-a-50-100-schwerpunkt-herz-gefass-hirslanden-hirslanden-klinik-im",
-        "en": "fachfrau-fachmann-efz-a-50-100-schwerpunkt-herz-gefass-hirslanden-hirslanden-klinik-im",
-        "fr": "fachfrau-fachmann-efz-a-50-100-schwerpunkt-herz-gefass-hirslanden-hirslanden-klinik-im"
+        "it": "specialista-specialista-efz-a-50-100-specializzazione-cuore-vasi-hirslanden-klinik-hirslanden-klinik-im-park",
+        "en": "professional-professional-efz-a-50-100-focus-heart-vessel-hirslanden-klinik-hirslanden-klinik-im-park",
+        "fr": "professionnel-professionnel-efz-a-50-100-coeur-focalise-bateau-hirslanden-klinik-hirslanden-klinik-im-park"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27101,17 +27115,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T16:17:00.140Z"
+      "firstSeenAt": "2026-10-29T16:17:00.140Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-efz-a-50-100-schwerpunkt-herz-gefass-hirslanden-hirslanden-klinik-im"
+        ],
+        "en": [
+          "fachfrau-fachmann-efz-a-50-100-schwerpunkt-herz-gefass-hirslanden-hirslanden-klinik-im"
+        ],
+        "fr": [
+          "fachfrau-fachmann-efz-a-50-100-schwerpunkt-herz-gefass-hirslanden-hirslanden-klinik-im"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-efz-a-50-100-schwerpunkt-herz-gefass-hirslanden-hirslanden-klinik-im"
+      ]
     },
     {
       "id": "hirslanden-abacce52b7eb",
       "externalId": "1452602733",
-      "slug": "assistenzarztin-assistenzarzt-a-hamatologie-onkologie-80-100-hirslanden-hirslanden-klinik",
+      "slug": "assistente-medico-a-ematologia-oncologia-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-a-hamatologie-onkologie-80-100-hirslanden-hirslanden-klinik",
-        "it": "assistenzarztin-assistenzarzt-a-hamatologie-onkologie-80-100-hirslanden-hirslanden-klinik",
-        "en": "assistenzarztin-assistenzarzt-a-hamatologie-onkologie-80-100-hirslanden-hirslanden-klinik",
-        "fr": "assistenzarztin-assistenzarzt-a-hamatologie-onkologie-80-100-hirslanden-hirslanden-klinik"
+        "it": "assistente-medico-a-ematologia-oncologia-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "en": "assistant-doctor-a-hematology-oncology-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "medecin-adjoint-a-hematologie-et-oncologie-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27167,7 +27195,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-a-hamatologie-onkologie-80-100-hirslanden-hirslanden-klinik"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-a-hamatologie-onkologie-80-100-hirslanden-hirslanden-klinik"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-a-hamatologie-onkologie-80-100-hirslanden-hirslanden-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-a-hamatologie-onkologie-80-100-hirslanden-hirslanden-klinik"
+      ]
     },
     {
       "id": "hirslanden-afee228c4e22",
@@ -27177,7 +27219,7 @@
         "de": "dipl-hebamme-a-80-100-hirslanden-hirslanden-klinik-hirslanden",
         "it": "dipl-hebamme-a-80-100-hirslanden-hirslanden-klinik-hirslanden",
         "en": "dipl-hebamme-a-80-100-hirslanden-hirslanden-klinik-hirslanden",
-        "fr": "dipl-hebamme-a-80-100-hirslanden-hirslanden-klinik-hirslanden"
+        "fr": "dipl-sage-femme-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27238,12 +27280,12 @@
     {
       "id": "hirslanden-f44cb42dacf9",
       "externalId": "1452542133",
-      "slug": "assistant-e-medical-e-a-60-hirslanden-hirslanden-clinique-cecil",
+      "slug": "assistente-medico-al-60-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-a-60-hirslanden-hirslanden-clinique-cecil",
-        "it": "assistant-e-medical-e-a-60-hirslanden-hirslanden-clinique-cecil",
+        "it": "assistente-medico-al-60-hirslanden-klinik-hirslanden-clinique-cecil",
         "en": "assistant-e-medical-e-a-60-hirslanden-hirslanden-clinique-cecil",
-        "de": "assistant-e-medical-e-a-60-hirslanden-hirslanden-clinique-cecil"
+        "de": "assistent-e-medical-e-a-60-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27299,17 +27341,28 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-60-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "assistant-e-medical-e-a-60-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-60-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-f02776477a3a",
       "externalId": "1452473333",
-      "slug": "cuisinier-cuisiniere-en-cdm-a-100-hirslanden-hirslanden-clinique-des-grange",
+      "slug": "cuocere-100-cdm-hirslanden-klinik-hirslanden-clinique-des-grange",
       "slugByLocale": {
         "fr": "cuisinier-cuisiniere-en-cdm-a-100-hirslanden-hirslanden-clinique-des-grange",
-        "it": "cuisinier-cuisiniere-en-cdm-a-100-hirslanden-hirslanden-clinique-des-grange",
-        "en": "cuisinier-cuisiniere-en-cdm-a-100-hirslanden-hirslanden-clinique-des-grange",
-        "de": "cuisinier-cuisiniere-en-cdm-a-100-hirslanden-hirslanden-clinique-des-grange"
+        "it": "cuocere-100-cdm-hirslanden-klinik-hirslanden-clinique-des-grange",
+        "en": "cooker-100-cdm-cooker-hirslanden-klinik-hirslanden-clinique-des-grange",
+        "de": "kocher-100-cdm-kocher-hirslanden-klinik-hirslanden-clinique-des-grange"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27365,7 +27418,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-cuisiniere-en-cdm-a-100-hirslanden-hirslanden-clinique-des-grange"
+        ],
+        "en": [
+          "cuisinier-cuisiniere-en-cdm-a-100-hirslanden-hirslanden-clinique-des-grange"
+        ],
+        "de": [
+          "cuisinier-cuisiniere-en-cdm-a-100-hirslanden-hirslanden-clinique-des-grange"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-cuisiniere-en-cdm-a-100-hirslanden-hirslanden-clinique-des-grange"
+      ]
     },
     {
       "id": "hirslanden-0a44159c920f",

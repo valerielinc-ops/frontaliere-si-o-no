@@ -2346,7 +2346,7 @@
       "slug": "segreteria-medica-a-klinik-barmelweid-barmelweid-b47216",
       "slugByLocale": {
         "it": "segreteria-medica-a-klinik-barmelweid-barmelweid-b47216",
-        "en": "arztsekretarin-arztsekretar-a-klinik-barmelweid",
+        "en": "medical-secretary-a-klinik-barmelweid-barmelweid",
         "de": "arztsekretarin-arztsekretar-a-klinik-barmelweid-barmelweid",
         "fr": "secretaire-medical-a-klinik-barmelweid-barmelweid-b47216"
       },
@@ -2397,7 +2397,7 @@
         "arztsekretarin-arztsekretar-a-klinik-barmelweid-barmelweid-nsqakk",
         "medical-secretary-a-klinik-barmelweid-barmelweid-b47216",
         "arztsekretarin-arztsekretar-a-klinik-barmelweid-barmelweid",
-        "medical-secretary-a-klinik-barmelweid-barmelweid"
+        "arztsekretarin-arztsekretar-a-klinik-barmelweid"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2409,7 +2409,7 @@
         "en": [
           "medical-secretary-a-klinik-barmelweid-barmelweid-b47216",
           "arztsekretarin-arztsekretar-a-klinik-barmelweid-barmelweid",
-          "medical-secretary-a-klinik-barmelweid-barmelweid"
+          "arztsekretarin-arztsekretar-a-klinik-barmelweid"
         ],
         "fr": [
           "secretaire-medical-a-klinik-barmelweid-barmelweid"
@@ -2805,12 +2805,12 @@
     },
     {
       "id": "klinik-barmelweid-9cb33e50a926",
-      "slug": "leiterin-leiter-diagnostik-a-klinik-barmelweid",
+      "slug": "testa-di-diagnostica-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
-        "it": "leiterin-leiter-diagnostik-a-klinik-barmelweid",
-        "en": "leiterin-leiter-diagnostik-a-klinik-barmelweid-barmelweid",
         "de": "leiterin-leiter-diagnostik-a-klinik-barmelweid-barmelweid",
-        "fr": "leiterin-leiter-diagnostik-a-klinik-barmelweid-barmelweid"
+        "it": "testa-di-diagnostica-a-klinik-barmelweid-barmelweid",
+        "en": "head-of-diagnostics-a-klinik-barmelweid-barmelweid",
+        "fr": "responsable-du-diagnostic-a-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -2855,11 +2855,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-diagnostik-a-klinik-barmelweid-barmelweid",
+          "leiterin-leiter-diagnostik-a-klinik-barmelweid"
+        ],
+        "en": [
+          "leiterin-leiter-diagnostik-a-klinik-barmelweid-barmelweid"
+        ],
+        "fr": [
           "leiterin-leiter-diagnostik-a-klinik-barmelweid-barmelweid"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-diagnostik-a-klinik-barmelweid-barmelweid"
+        "leiterin-leiter-diagnostik-a-klinik-barmelweid-barmelweid",
+        "leiterin-leiter-diagnostik-a-klinik-barmelweid"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,

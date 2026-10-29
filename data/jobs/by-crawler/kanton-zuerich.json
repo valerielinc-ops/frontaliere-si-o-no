@@ -3582,7 +3582,7 @@
       "slugByLocale": {
         "it": "m365-digital-workplace-consulente-kantonale-verwaltung-zurich-zurich",
         "en": "m65-digital-workplace-lanyard-kantonale-verwaltung-zurich-zurich",
-        "de": "m365-digital-workplace-consultant-kanton-zuerich-zurich",
+        "de": "m365-digital-workplace-berater-kantonale-verwaltung-zurich-zurich",
         "fr": "m365-conseiller-en-milieu-de-travail-numerique-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -3640,6 +3640,9 @@
         ],
         "en": [
           "m365-digital-workplace-consultant-kantonale-verwaltung-zurich-zurich"
+        ],
+        "de": [
+          "m365-digital-workplace-consultant-kanton-zuerich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-09T09:40:22.321Z",
@@ -12317,12 +12320,12 @@
     },
     {
       "id": "kanton-zuerich-9e81bbd1e559",
-      "slug": "apprendistato-automobilmechatroniker-in-kantonale-verwaltung-zurich-bulach",
+      "slug": "posto-di-apprendistato-come-meccatronico-a-d-automobili-kantonale-verwaltung-zurich-bulach",
       "slugByLocale": {
-        "it": "apprendistato-automobilmechatroniker-in-kantonale-verwaltung-zurich-bulach",
-        "en": "lehrstelle-automobilmechatroniker-in-kantonale-verwaltung-zurich-bulach",
         "de": "lehrstelle-automobilmechatroniker-in-kanton-zuerich-bulach",
-        "fr": "lehrstelle-automobilmechatroniker-in-kantonale-verwaltung-zurich-bulach"
+        "it": "posto-di-apprendistato-come-meccatronico-a-d-automobili-kantonale-verwaltung-zurich-bulach",
+        "en": "apprenticeship-as-an-automotive-mechatronics-technician-kantonale-verwaltung-zurich-bulach",
+        "fr": "place-d-apprentissage-de-mecatronicien-ne-d-automobiles-kantonale-verwaltung-zurich-bulach"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12371,11 +12374,20 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-automobilmechatroniker-in-kanton-zuerich-bulach"
+          "lehrstelle-automobilmechatroniker-in-kanton-zuerich-bulach",
+          "apprendistato-automobilmechatroniker-in-kantonale-verwaltung-zurich-bulach"
+        ],
+        "en": [
+          "lehrstelle-automobilmechatroniker-in-kantonale-verwaltung-zurich-bulach"
+        ],
+        "fr": [
+          "lehrstelle-automobilmechatroniker-in-kantonale-verwaltung-zurich-bulach"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-automobilmechatroniker-in-kanton-zuerich-bulach"
+        "lehrstelle-automobilmechatroniker-in-kanton-zuerich-bulach",
+        "apprendistato-automobilmechatroniker-in-kantonale-verwaltung-zurich-bulach",
+        "lehrstelle-automobilmechatroniker-in-kantonale-verwaltung-zurich-bulach"
       ],
       "salaryMin": 53500,
       "salaryMax": 98500,
@@ -12395,9 +12407,9 @@
       "id": "kanton-zuerich-173d38435236",
       "slug": "servizi-e-sicurezza-di-gestione-della-divisione-kantonale-verwaltung-zurich-lindau",
       "slugByLocale": {
+        "de": "spartenleitung-facility-services-sicherheit-kanton-zuerich-lindau",
         "it": "servizi-e-sicurezza-di-gestione-della-divisione-kantonale-verwaltung-zurich-lindau",
         "en": "division-management-facility-services-security-kantonale-verwaltung-zurich-lindau",
-        "de": "spartenleitung-facility-services-sicherheit-kanton-zuerich-lindau",
         "fr": "services-de-gestion-de-la-division-et-securite-kantonale-verwaltung-zurich-lindau"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -12476,12 +12488,12 @@
     },
     {
       "id": "kanton-zuerich-ed92cd94bcc2",
-      "slug": "sektionsleiter-in-grundwasser-e-wasserversorgung-kantonale-verwaltung-zurich",
+      "slug": "responsabile-della-sezione-acque-sotterranee-e-approvvigionamento-idrico-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "sektionsleiter-in-grundwasser-e-wasserversorgung-kantonale-verwaltung-zurich",
-        "en": "sektionsleiter-in-grundwasser-und-wasserversorgung-kantonale-verwaltung-zurich-zurich",
         "de": "sektionsleiter-in-grundwasser-und-wasserversorgung-kanton-zuerich-zurich",
-        "fr": "sektionsleiter-in-grundwasser-und-wasserversorgung-kantonale-verwaltung-zurich-zurich"
+        "it": "responsabile-della-sezione-acque-sotterranee-e-approvvigionamento-idrico-kantonale-verwaltung-zurich-zurich",
+        "en": "head-of-the-groundwater-and-water-supply-section-kantonale-verwaltung-zurich-zurich",
+        "fr": "responsable-de-section-eaux-souterraines-et-approvisionnement-en-eau-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12530,11 +12542,20 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "sektionsleiter-in-grundwasser-und-wasserversorgung-kanton-zuerich-zurich"
+          "sektionsleiter-in-grundwasser-und-wasserversorgung-kanton-zuerich-zurich",
+          "sektionsleiter-in-grundwasser-e-wasserversorgung-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "sektionsleiter-in-grundwasser-und-wasserversorgung-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "sektionsleiter-in-grundwasser-und-wasserversorgung-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sektionsleiter-in-grundwasser-und-wasserversorgung-kanton-zuerich-zurich"
+        "sektionsleiter-in-grundwasser-und-wasserversorgung-kanton-zuerich-zurich",
+        "sektionsleiter-in-grundwasser-e-wasserversorgung-kantonale-verwaltung-zurich",
+        "sektionsleiter-in-grundwasser-und-wasserversorgung-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -12553,12 +12574,12 @@
     },
     {
       "id": "kanton-zuerich-aca543e2fa79",
-      "slug": "beratungsperson-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau",
+      "slug": "consulente-per-l-industria-lattiero-casearia-kantonale-verwaltung-zurich-lindau",
       "slugByLocale": {
-        "it": "beratungsperson-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau",
-        "en": "beratungsperson-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau",
         "de": "beratungsperson-tierhaltung-milchwirtschaft-kanton-zuerich-lindau",
-        "fr": "beratungsperson-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau"
+        "it": "consulente-per-l-industria-lattiero-casearia-kantonale-verwaltung-zurich-lindau",
+        "en": "animal-husbandry-and-dairy-industry-consultant-kantonale-verwaltung-zurich-lindau",
+        "fr": "consultant-en-elevage-et-industrie-laitiere-kantonale-verwaltung-zurich-lindau"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12607,11 +12628,19 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "beratungsperson-tierhaltung-milchwirtschaft-kanton-zuerich-lindau"
+          "beratungsperson-tierhaltung-milchwirtschaft-kanton-zuerich-lindau",
+          "beratungsperson-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau"
+        ],
+        "en": [
+          "beratungsperson-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau"
+        ],
+        "fr": [
+          "beratungsperson-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau"
         ]
       },
       "previousSlugs": [
-        "beratungsperson-tierhaltung-milchwirtschaft-kanton-zuerich-lindau"
+        "beratungsperson-tierhaltung-milchwirtschaft-kanton-zuerich-lindau",
+        "beratungsperson-tierhaltung-milchwirtschaft-kantonale-verwaltung-zurich-lindau"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12630,12 +12659,12 @@
     },
     {
       "id": "kanton-zuerich-c8a6c37b8834",
-      "slug": "collaboratore-trice-empfang-kantonale-verwaltung-zurich",
+      "slug": "addetto-a-alla-reception-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-kanton-zuerich-zurich",
-        "it": "collaboratore-trice-empfang-kantonale-verwaltung-zurich",
-        "en": "mitarbeiter-in-empfang-kantonale-verwaltung-zurich-zurich",
-        "fr": "mitarbeiter-in-empfang-kantonale-verwaltung-zurich-zurich"
+        "it": "addetto-a-alla-reception-kantonale-verwaltung-zurich-zurich",
+        "en": "reception-staff-member-kantonale-verwaltung-zurich-zurich",
+        "fr": "collaborateur-rice-a-l-accueil-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12685,11 +12714,20 @@
       "pensum": "65%",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-empfang-kanton-zuerich-zurich"
+          "mitarbeiter-in-empfang-kanton-zuerich-zurich",
+          "collaboratore-trice-empfang-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-empfang-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-empfang-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-empfang-kanton-zuerich-zurich"
+        "mitarbeiter-in-empfang-kanton-zuerich-zurich",
+        "collaboratore-trice-empfang-kantonale-verwaltung-zurich",
+        "mitarbeiter-in-empfang-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12708,12 +12746,12 @@
     },
     {
       "id": "kanton-zuerich-9df62e60b020",
-      "slug": "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kantonale-verwaltung-zurich-kleinandelfingen",
+      "slug": "addetto-a-alla-polizia-edilizia-presso-l-ispettorato-stradale-kantonale-verwaltung-zurich-kleinandelfingen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kantonale-verwaltung-zurich-kleinandelfingen",
-        "en": "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kantonale-verwaltung-zurich-kleinandelfingen",
         "de": "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kanton-zuerich-kleinandelfingen",
-        "fr": "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kantonale-verwaltung-zurich-kleinandelfingen"
+        "it": "addetto-a-alla-polizia-edilizia-presso-l-ispettorato-stradale-kantonale-verwaltung-zurich-kleinandelfingen",
+        "en": "administrative-officer-building-control-at-the-road-inspectorate-kantonale-verwaltung-zurich-kleinandelfingen",
+        "fr": "collaborateur-rice-administratif-ve-de-la-police-des-constructions-a-l-inspection-des-routes-kantonale-verwaltung-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12762,11 +12800,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kanton-zuerich-kleinandelfingen"
+          "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kanton-zuerich-kleinandelfingen",
+          "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kantonale-verwaltung-zurich-kleinandelfingen"
+        ],
+        "en": [
+          "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kantonale-verwaltung-zurich-kleinandelfingen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kantonale-verwaltung-zurich-kleinandelfingen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kanton-zuerich-kleinandelfingen"
+        "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kanton-zuerich-kleinandelfingen",
+        "sachbearbeiter-in-baupolizei-im-strasseninspektorat-kantonale-verwaltung-zurich-kleinandelfingen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12787,9 +12833,9 @@
       "id": "kanton-zuerich-330757ab92cb",
       "slug": "forestale-del-centro-forestale-del-distretto-di-winterthur-kantonale-verwaltung-zurich-winterthur-wulflingen",
       "slugByLocale": {
+        "de": "zentrumsforster-in-forstkreiszentrum-winterthur-kanton-zuerich-winterthur-wulflingen",
         "it": "forestale-del-centro-forestale-del-distretto-di-winterthur-kantonale-verwaltung-zurich-winterthur-wulflingen",
         "en": "centre-forester-winterthur-forestry-district-centre-kantonale-verwaltung-zurich-winterthur-wulflingen",
-        "de": "zentrumsforster-in-forstkreiszentrum-winterthur-kanton-zuerich-winterthur-wulflingen",
         "fr": "forestier-ere-du-centre-forestier-de-winterthur-kantonale-verwaltung-zurich-winterthur-wulflingen"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -12870,12 +12916,12 @@
     },
     {
       "id": "kanton-zuerich-76ab542785ad",
-      "slug": "verwaltungssekretar-in-kantonale-verwaltung-zurich-8005",
+      "slug": "segretario-a-amministrativo-a-kantonale-verwaltung-zurich-8005",
       "slugByLocale": {
-        "it": "verwaltungssekretar-in-kantonale-verwaltung-zurich-8005",
-        "en": "verwaltungssekretar-in-kantonale-verwaltung-zurich-8005",
         "de": "verwaltungssekretar-in-kanton-zuerich-8005",
-        "fr": "verwaltungssekretar-in-kantonale-verwaltung-zurich-8005"
+        "it": "segretario-a-amministrativo-a-kantonale-verwaltung-zurich-8005",
+        "en": "administrative-secretary-kantonale-verwaltung-zurich-8005",
+        "fr": "secretaire-administratif-ve-kantonale-verwaltung-zurich-8005"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12924,11 +12970,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungssekretar-in-kanton-zuerich-8005"
+          "verwaltungssekretar-in-kanton-zuerich-8005",
+          "verwaltungssekretar-in-kantonale-verwaltung-zurich-8005"
+        ],
+        "en": [
+          "verwaltungssekretar-in-kantonale-verwaltung-zurich-8005"
+        ],
+        "fr": [
+          "verwaltungssekretar-in-kantonale-verwaltung-zurich-8005"
         ]
       },
       "previousSlugs": [
-        "verwaltungssekretar-in-kanton-zuerich-8005"
+        "verwaltungssekretar-in-kanton-zuerich-8005",
+        "verwaltungssekretar-in-kantonale-verwaltung-zurich-8005"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12947,12 +13001,12 @@
     },
     {
       "id": "kanton-zuerich-27a1205b44e2",
-      "slug": "rechnungssekretar-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "segretario-a-contabile-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "rechnungssekretar-in-kantonale-verwaltung-zurich-zurich",
-        "en": "rechnungssekretar-in-kantonale-verwaltung-zurich-zurich",
         "de": "rechnungssekretar-in-kanton-zuerich-zurich",
-        "fr": "rechnungssekretar-in-kantonale-verwaltung-zurich-zurich"
+        "it": "segretario-a-contabile-kantonale-verwaltung-zurich-zurich",
+        "en": "invoice-secretary-kantonale-verwaltung-zurich-zurich",
+        "fr": "secretaire-de-facturation-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13001,11 +13055,19 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
-          "rechnungssekretar-in-kanton-zuerich-zurich"
+          "rechnungssekretar-in-kanton-zuerich-zurich",
+          "rechnungssekretar-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "rechnungssekretar-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "rechnungssekretar-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "rechnungssekretar-in-kanton-zuerich-zurich"
+        "rechnungssekretar-in-kanton-zuerich-zurich",
+        "rechnungssekretar-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13024,12 +13086,12 @@
     },
     {
       "id": "kanton-zuerich-ec7c0242eeaa",
-      "slug": "sachbearbeiter-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "impiegato-a-amministrativo-a-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kantonale-verwaltung-zurich-zurich",
-        "en": "sachbearbeiter-in-kantonale-verwaltung-zurich-zurich",
         "de": "sachbearbeiter-in-kanton-zuerich-zurich",
-        "fr": "sachbearbeiter-in-kantonale-verwaltung-zurich-zurich"
+        "it": "impiegato-a-amministrativo-a-kantonale-verwaltung-zurich-zurich",
+        "en": "administrative-specialist-kantonale-verwaltung-zurich-zurich",
+        "fr": "collaborateur-rice-administratif-ve-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13078,11 +13140,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-kanton-zuerich-zurich"
+          "sachbearbeiter-in-kanton-zuerich-zurich",
+          "sachbearbeiter-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-kanton-zuerich-zurich"
+        "sachbearbeiter-in-kanton-zuerich-zurich",
+        "sachbearbeiter-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

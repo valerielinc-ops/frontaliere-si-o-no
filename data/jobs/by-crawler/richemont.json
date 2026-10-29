@@ -3489,7 +3489,7 @@
         "it": "tirocinante-nel-settore-dell-ospitalita-richemont-villars-sur-glane",
         "en": "hospitality-trainee-richemont-villars-sur-glane",
         "de": "hospitality-auszubildender-richemont-villars-sur-glane",
-        "fr": "hospitality-trainee-richemont-villars-sur-glane"
+        "fr": "hospitality-apprenti-richemont-villars-sur-glane"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -3532,20 +3532,19 @@
       "jobReqId": "jr134909",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "hospitality-apprenti-richemont-villars-sur-glane",
-        "ospitalita-richemont-villars-sur-glane",
-        "hospitality-trainee-richemont-villars-sur-glane"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "ospitalita-richemont-villars-sur-glane",
           "hospitality-trainee-richemont-villars-sur-glane"
         ],
         "fr": [
-          "hospitality-apprenti-richemont-villars-sur-glane"
+          "hospitality-trainee-richemont-villars-sur-glane"
         ]
       },
+      "previousSlugs": [
+        "ospitalita-richemont-villars-sur-glane",
+        "hospitality-trainee-richemont-villars-sur-glane"
+      ],
       "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -710,10 +710,10 @@
       "id": "ksml-d1d1101b1b5d",
       "slug": "wir-suchen-eine-if-lehrperson-per-la-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-inkwil",
       "slugByLocale": {
-        "it": "wir-suchen-eine-if-lehrperson-per-la-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-inkwil",
-        "en": "wir-suchen-eine-if-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40618",
         "de": "wir-suchen-eine-if-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40618",
-        "fr": "wir-suchen-eine-if-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40618"
+        "it": "wir-suchen-eine-if-lehrperson-per-la-5-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-inkwil",
+        "en": "we-are-looking-for-an-if-teacher-for-the-5-6-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40618",
+        "fr": "nous-recherchons-un-professeur-if-pour-le-5-6-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40618"
       },
       "slugDisambiguator": "40618",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -760,6 +760,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "wir-suchen-eine-if-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40618"
+        ],
+        "en": [
+          "wir-suchen-eine-if-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40618"
+        ],
+        "fr": [
           "wir-suchen-eine-if-lehrperson-fur-die-5-6-klasse-schule-aare-oenz-inkwil-40618"
         ]
       },
@@ -1226,9 +1232,9 @@
       "id": "ksml-497dca512329",
       "slug": "unterstutzung-come-teamteachingslehrperson-o-klassenhilfe-per-mind-mittwochmorgen-gesucht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lengnau",
       "slugByLocale": {
+        "de": "unterstutzung-als-teamteachingslehrperson-oder-klassenhilfe-fur-mind-mittwochmorgen-40620",
         "it": "unterstutzung-come-teamteachingslehrperson-o-klassenhilfe-per-mind-mittwochmorgen-gesucht-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lengnau",
         "en": "support-as-a-team-teaching-instructor-or-class-help-for-min-looking-for-wednesday-morning-ksml-kantonaler-40620",
-        "de": "unterstutzung-als-teamteachingslehrperson-oder-klassenhilfe-fur-mind-mittwochmorgen-40620",
         "fr": "soutien-en-tant-qu-instructeur-d-equipe-ou-aide-de-classe-pour-min-je-cherche-mercredi-matin-ksml-kantonaler-40620"
       },
       "slugDisambiguator": "40620",
@@ -14626,11 +14632,11 @@
     },
     {
       "id": "ksml-ed0466bcc62a",
-      "slug": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
+      "slug": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
       "slugByLocale": {
-        "it": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
-        "en": "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
         "de": "fachperson-logopadie-schule-signau-signau-40617",
+        "it": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
+        "en": "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
         "fr": "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
       },
       "slugDisambiguator": "40617",
@@ -14679,7 +14685,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-logopadie-schule-signau-signau-40616",
-          "fachperson-logopadie-schule-signau-signau-40617"
+          "fachperson-logopadie-schule-signau-signau-40617",
+          "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
         ],
         "de": [
           "fachperson-logopadie-schule-signau-signau-40616"
@@ -14693,7 +14700,8 @@
       },
       "previousSlugs": [
         "fachperson-logopadie-schule-signau-signau-40616",
-        "fachperson-logopadie-schule-signau-signau-40617"
+        "fachperson-logopadie-schule-signau-signau-40617",
+        "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,

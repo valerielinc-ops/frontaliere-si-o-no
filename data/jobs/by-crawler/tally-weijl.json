@@ -2245,7 +2245,7 @@
       "slugByLocale": {
         "it": "hr-administration-assistant-60-basel-tally-weijl-basel-2",
         "en": "hr-administration-assistant-60-basel-tally-weijl-basel-2",
-        "de": "hr-administration-assistant-60-basel-tally-weijl-basel-bh58cq",
+        "de": "personalwesen-administration-assistent-60-basel-tally-weijl-basel-feb5ba",
         "fr": "assistant-d-administration-des-ressources-humaines-60-bale-tally-weijl-basel"
       },
       "company": "TALLY WEiJL",
@@ -2290,14 +2290,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-administration-assistant-60-basel-tally-weijl-basel",
-        "assistant-a-l-administration-des-ressources-humaines-60-bale-tally-weijl-basel"
+        "assistant-a-l-administration-des-ressources-humaines-60-bale-tally-weijl-basel",
+        "hr-administration-assistant-60-basel-tally-weijl-basel-bh58cq"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-administration-assistant-60-basel-tally-weijl-basel"
         ],
         "de": [
-          "hr-administration-assistant-60-basel-tally-weijl-basel"
+          "hr-administration-assistant-60-basel-tally-weijl-basel",
+          "hr-administration-assistant-60-basel-tally-weijl-basel-bh58cq"
         ],
         "fr": [
           "assistant-a-l-administration-des-ressources-humaines-60-bale-tally-weijl-basel"
@@ -2516,14 +2518,14 @@
         "fitting-models-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "fitting-models-tally-weijl-basel"
-        ],
         "de": [
           "fitting-modelle-tally-weijl-basel"
         ],
         "fr": [
           "modeles-d-ajustement-tally-weijl-basel"
+        ],
+        "it": [
+          "fitting-models-tally-weijl-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",

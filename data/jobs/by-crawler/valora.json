@@ -7,9 +7,9 @@
       "id": "valora-8f50a504dbf4",
       "slug": "agenzia-partner-agenzia-partner-canton-grigioni-valora-group-graubunden",
       "slugByLocale": {
+        "de": "agenturpartnerin-agenturpartner-kanton-graubunden-valora-graubunden",
         "it": "agenzia-partner-agenzia-partner-canton-grigioni-valora-group-graubunden",
         "en": "agency-partner-agency-partner-canton-of-graubunden-valora-group-graubunden",
-        "de": "agenturpartnerin-agenturpartner-kanton-graubunden-valora-graubunden",
         "fr": "agence-partenaire-agence-partenaire-canton-des-grisons-valora-group-graubunden"
       },
       "company": "Valora Group",
@@ -88,9 +88,9 @@
       "id": "valora-6a0957a0862b",
       "slug": "agenzia-partner-agenzia-partner-prattigau-valora-group-graubunden",
       "slugByLocale": {
+        "de": "agenturpartnerin-agenturpartner-prattigau-valora-graubunden",
         "it": "agenzia-partner-agenzia-partner-prattigau-valora-group-graubunden",
         "en": "agency-partner-agency-partner-prattigau-valora-group-graubunden",
-        "de": "agenturpartnerin-agenturpartner-prattigau-valora-graubunden",
         "fr": "partenaire-de-l-agence-partenaire-de-l-agence-prattigau-valora-group-graubunden"
       },
       "company": "Valora Group",
@@ -170,9 +170,9 @@
       "id": "valora-4a44c445edc3",
       "slug": "venditore-seller-k-kiosk-15-ore-valora-group-uetendorf",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
         "it": "venditore-seller-k-kiosk-15-ore-valora-group-uetendorf",
         "en": "seller-seller-k-kiosk-15-hours-valora-group-uetendorf",
-        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
         "fr": "kiosque-vendeur-vendeur-k-15-heures-valora-group-uetendorf"
       },
       "company": "Valora Group",
@@ -326,9 +326,9 @@
       "id": "valora-ce17f1796dff",
       "slug": "venditore-venditore-k-kiosk-15-ore-valora-group-kandersteg",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg",
         "it": "venditore-venditore-k-kiosk-15-ore-valora-group-kandersteg",
         "en": "seller-seller-k-kiosk-15-hours-valora-group-kandersteg",
-        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg",
         "fr": "vendeur-vendeur-k-kiosque-15-heures-valora-group-kandersteg"
       },
       "company": "Valora Group",
@@ -405,11 +405,11 @@
     },
     {
       "id": "valora-7eba695eaaa9",
-      "slug": "agenturpartnerin-agenturpartner-kanton-solothurn-valora-group-solothurn-abac75c41f",
+      "slug": "agenzia-partner-canton-solothurn-valora-group-solothurn",
       "slugByLocale": {
-        "it": "agenturpartnerin-agenturpartner-kanton-solothurn-valora-group-solothurn-abac75c41f",
-        "en": "agency-partner-agency-partner-canton-solothurn-valora-group-solothurn",
         "de": "agenturpartnerin-agenturpartner-kanton-solothurn-valora-solothurn",
+        "it": "agenzia-partner-canton-solothurn-valora-group-solothurn",
+        "en": "agency-partner-agency-partner-canton-solothurn-valora-group-solothurn",
         "fr": "agence-partenaire-agence-partenaire-canton-soleure-valora-group-solothurn"
       },
       "company": "Valora Group",
@@ -470,11 +470,13 @@
       },
       "firstSeenAt": "2026-07-04T12:43:13.468Z",
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-kanton-solothurn-valora-solothurn"
+        "agenturpartnerin-agenturpartner-kanton-solothurn-valora-solothurn",
+        "agenturpartnerin-agenturpartner-kanton-solothurn-valora-group-solothurn-abac75c41f"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-kanton-solothurn-valora-solothurn"
+          "agenturpartnerin-agenturpartner-kanton-solothurn-valora-solothurn",
+          "agenturpartnerin-agenturpartner-kanton-solothurn-valora-group-solothurn-abac75c41f"
         ],
         "en": [
           "agenturpartnerin-agenturpartner-kanton-solothurn-valora-solothurn"
@@ -488,9 +490,9 @@
       "id": "valora-df078854e6de",
       "slug": "agenzia-partner-cantone-di-berna-valora-group-bern",
       "slugByLocale": {
+        "de": "agenturpartnerin-agenturpartner-kanton-bern-valora-bern",
         "it": "agenzia-partner-cantone-di-berna-valora-group-bern",
         "en": "agency-partner-agency-partner-canton-of-bern-valora-group-bern",
-        "de": "agenturpartnerin-agenturpartner-kanton-bern-valora-bern",
         "fr": "agence-partenaire-agence-partenaire-canton-de-berne-valora-group-bern"
       },
       "company": "Valora Group",
@@ -569,9 +571,9 @@
       "id": "valora-99fef9aece64",
       "slug": "expansion-lease-svizzera-valora-group-muttenz",
       "slugByLocale": {
+        "de": "lead-expansion-lease-switzerland-valora-muttenz",
         "it": "expansion-lease-svizzera-valora-group-muttenz",
         "en": "lead-expansion-lease-switzerland-valora-muttenz",
-        "de": "lead-expansion-lease-switzerland-valora-muttenz",
         "fr": "expansion-et-location-de-plomb-suisse-valora-group-muttenz"
       },
       "company": "Valora Group",
@@ -648,9 +650,9 @@
       "id": "valora-838498389dab",
       "slug": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
         "it": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
         "en": "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
-        "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
         "fr": "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern"
       },
       "company": "Valora Group",
@@ -729,9 +731,9 @@
       "id": "valora-21c16d038758",
       "slug": "venditore-venditore-k-kiosk-8-ore-valora-group-bern",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
         "it": "venditore-venditore-k-kiosk-8-ore-valora-group-bern",
         "en": "seller-seller-k-kiosk-8-hours-valora-group-bern",
-        "de": "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
         "fr": "vendeur-vendeur-k-kiosque-8-heures-valora-group-bern"
       },
       "company": "Valora Group",
@@ -810,9 +812,9 @@
       "id": "valora-dc72b28c60d7",
       "slug": "agenzia-partner-agenzia-partner-regione-berner-oberland-valora-group-bern",
       "slugByLocale": {
+        "de": "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern",
         "it": "agenzia-partner-agenzia-partner-regione-berner-oberland-valora-group-bern",
         "en": "agency-partner-agency-partner-region-berner-oberland-valora-group-bern",
-        "de": "agenturpartnerin-agenturpartner-region-berner-oberland-valora-bern",
         "fr": "agence-partenaire-agence-partenaire-region-berner-oberland-valora-group-bern"
       },
       "company": "Valora Group",
@@ -891,9 +893,9 @@
       "id": "valora-200a03da96ed",
       "slug": "agenzia-partner-agenzia-partner-regione-oberwallis-valora-group-wallis",
       "slugByLocale": {
+        "de": "agenturpartnerin-agenturpartner-region-oberwallis-valora-wallis",
         "it": "agenzia-partner-agenzia-partner-regione-oberwallis-valora-group-wallis",
         "en": "agency-partner-agency-partner-region-oberwallis-valora-group-wallis",
-        "de": "agenturpartnerin-agenturpartner-region-oberwallis-valora-wallis",
         "fr": "agence-partenaire-agence-partenaire-region-oberwallis-valora-group-wallis"
       },
       "company": "Valora Group",
@@ -972,9 +974,9 @@
       "id": "valora-63d0961b39a4",
       "slug": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
       "slugByLocale": {
+        "de": "agenturpartnerin-agenturpartner-imboden-valora-graubunden",
         "it": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
         "en": "agency-partner-agency-partner-imboden-valora-group-graubunden",
-        "de": "agenturpartnerin-agenturpartner-imboden-valora-graubunden",
         "fr": "partenaire-de-l-agence-partenaire-de-l-agence-imboden-valora-group-graubunden"
       },
       "company": "Valora Group",
@@ -1053,9 +1055,9 @@
       "id": "valora-5f5df4bc0d09",
       "slug": "agenzia-partner-agenzia-partner-sarganserland-valora-group-st-gallen",
       "slugByLocale": {
+        "de": "agenturpartnerin-agenturpartner-sarganserland-valora-st-gallen",
         "it": "agenzia-partner-agenzia-partner-sarganserland-valora-group-st-gallen",
         "en": "agency-partner-agency-partner-sarganserland-valora-group-st-gallen",
-        "de": "agenturpartnerin-agenturpartner-sarganserland-valora-st-gallen",
         "fr": "agence-partenaire-agence-partenaire-sarganserland-valora-group-st-gallen"
       },
       "company": "Valora Group",
@@ -1134,9 +1136,9 @@
       "id": "valora-1eb56a420a9f",
       "slug": "agenzia-partner-canton-st-gallen-valora-group-st-gallen",
       "slugByLocale": {
+        "de": "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-st-gallen",
         "it": "agenzia-partner-canton-st-gallen-valora-group-st-gallen",
         "en": "agency-partner-agency-partner-canton-of-st-gallen-valora-group-st-gallen",
-        "de": "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-st-gallen",
         "fr": "agence-partenaire-agence-partenaire-canton-de-st-gallen-valora-group-st-gallen"
       },
       "company": "Valora Group",
@@ -1213,11 +1215,11 @@
     },
     {
       "id": "valora-b897abf0f281",
-      "slug": "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-group-basel-f37ed0dc15",
+      "slug": "agenzia-partner-cantone-basilea-stadt-baselland-valora-group-basel",
       "slugByLocale": {
-        "it": "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-group-basel-f37ed0dc15",
-        "en": "agency-partner-agency-partner-canton-of-basel-stadt-baselland-valora-group-basel",
         "de": "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-basel",
+        "it": "agenzia-partner-cantone-basilea-stadt-baselland-valora-group-basel",
+        "en": "agency-partner-agency-partner-canton-of-basel-stadt-baselland-valora-group-basel",
         "fr": "partenaire-de-l-agence-partenaire-de-l-agence-canton-de-bale-stadt-baslland-valora-group-basel"
       },
       "company": "Valora Group",
@@ -1278,11 +1280,13 @@
       },
       "firstSeenAt": "2026-07-04T12:43:13.466Z",
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-basel"
+        "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-basel",
+        "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-group-basel-f37ed0dc15"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-basel"
+          "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-basel",
+          "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-group-basel-f37ed0dc15"
         ],
         "en": [
           "agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland-valora-basel"
@@ -1296,9 +1300,9 @@
       "id": "valora-bc2197ece47f",
       "slug": "agenzie-di-partner-commerciali-m-f-d-valora-group-muttenz",
       "slugByLocale": {
+        "de": "business-partner-agenturen-w-m-d-valora-muttenz",
         "it": "agenzie-di-partner-commerciali-m-f-d-valora-group-muttenz",
         "en": "business-partner-agencies-m-f-d-valora-group-muttenz",
-        "de": "business-partner-agenturen-w-m-d-valora-muttenz",
         "fr": "agences-partenaires-d-affaires-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
@@ -1377,9 +1381,9 @@
       "id": "valora-10c00df6ea1d",
       "slug": "it-program-manager-w-m-d-valora-muttenz",
       "slugByLocale": {
+        "de": "it-program-manager-w-m-d-valora-muttenz",
         "it": "it-program-manager-w-m-d-valora-muttenz",
         "en": "it-program-manager-w-m-d-valora-muttenz",
-        "de": "it-program-manager-w-m-d-valora-muttenz",
         "fr": "gestionnaire-de-programme-informatique-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
@@ -1444,9 +1448,9 @@
       "id": "valora-31a920319a0b",
       "slug": "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
         "it": "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
         "en": "seller-seller-k-kiosk-10-hours-valora-group-uetendorf",
-        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
         "fr": "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf"
       },
       "company": "Valora Group",
@@ -1523,12 +1527,12 @@
     },
     {
       "id": "valora-56c811114c00",
-      "slug": "venditrice-venditrice-con-20-ore-valora-group-wangen-a-d-aare",
+      "slug": "venditrice-venditrice-con-20-ore-valora-group-wangen-a",
       "slugByLocale": {
-        "it": "venditrice-venditrice-con-20-ore-valora-group-wangen-a-d-aare",
-        "en": "saleswoman-saleswoman-with-20-hrs-valora-group-wangen-a-d-aare",
         "de": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
-        "fr": "vendeur-avec-20-heures-valora-group-wangen-a-d-aare"
+        "it": "venditrice-venditrice-con-20-ore-valora-group-wangen-a",
+        "en": "saleswoman-saleswoman-with-20-hrs-valora-group-wangen-a",
+        "fr": "vendeur-avec-20-heures-valora-group-wangen-a"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1589,17 +1593,23 @@
       "firstSeenAt": "2026-10-29T14:33:01.438Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+          "venditrice-venditrice-con-20-ore-valora-group-wangen-a-d-aare"
         ],
         "en": [
-          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+          "saleswoman-saleswoman-with-20-hrs-valora-group-wangen-a-d-aare"
         ],
         "fr": [
-          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+          "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+          "vendeur-avec-20-heures-valora-group-wangen-a-d-aare"
         ]
       },
       "previousSlugs": [
-        "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+        "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+        "venditrice-venditrice-con-20-ore-valora-group-wangen-a-d-aare",
+        "saleswoman-saleswoman-with-20-hrs-valora-group-wangen-a-d-aare",
+        "vendeur-avec-20-heures-valora-group-wangen-a-d-aare"
       ]
     },
     {
@@ -1682,12 +1692,12 @@
     },
     {
       "id": "valora-021776e11c83",
-      "slug": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2",
+      "slug": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern-235206",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-tj2drk",
-        "it": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2",
-        "en": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2",
-        "fr": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
+        "it": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern-235206",
+        "en": "seller-seller-k-kiosk-8-6-hours-valora-group-bern-235206",
+        "fr": "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern-235206"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1748,23 +1758,31 @@
       "firstSeenAt": "2026-09-10T23:06:13.972Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
         ],
         "de": [
           "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
         ]
       },
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
+        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
       ]
     },
     {
       "id": "valora-fd357794fc88",
       "slug": "amministratore-delegato-amministratore-delegato-k-kiosk-100-valora-group-kandersteg",
       "slugByLocale": {
+        "de": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg",
         "it": "amministratore-delegato-amministratore-delegato-k-kiosk-100-valora-group-kandersteg",
         "en": "managing-director-managing-director-k-kiosk-100-valora-group-kandersteg",
-        "de": "geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100-valora-kandersteg",
         "fr": "directeur-general-directeur-general-k-kiosque-100-valora-group-kandersteg"
       },
       "company": "Valora Group",
@@ -1843,9 +1861,9 @@
       "id": "valora-b9460543cc52",
       "slug": "acquirente-strategico-m-f-d-valora-group-muttenz",
       "slugByLocale": {
+        "de": "strategischer-einkaufer-w-m-d-valora-muttenz",
         "it": "acquirente-strategico-m-f-d-valora-group-muttenz",
         "en": "strategic-buyer-m-f-d-valora-group-muttenz",
-        "de": "strategischer-einkaufer-w-m-d-valora-muttenz",
         "fr": "acheteur-strategique-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
@@ -1924,9 +1942,9 @@
       "id": "valora-53fb612f44c6",
       "slug": "controllo-del-personale-80-m-f-d-valora-group-muttenz",
       "slugByLocale": {
+        "de": "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz",
         "it": "controllo-del-personale-80-m-f-d-valora-group-muttenz",
         "en": "personnel-audit-80-m-f-d-valora-group-muttenz",
-        "de": "sachbearbeiter-rechnungsprufung-80-w-m-d-valora-muttenz",
         "fr": "verification-du-personnel-80-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
@@ -2005,9 +2023,9 @@
       "id": "valora-766be938f5e9",
       "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-thun",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-thun",
         "it": "venditore-venditore-k-kiosk-10-ore-valora-group-thun",
         "en": "seller-seller-k-kiosk-10-hours-valora-group-thun",
-        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-thun",
         "fr": "vendeur-vendeur-k-kiosque-10-heures-valora-group-thun"
       },
       "company": "Valora Group",
@@ -2086,9 +2104,9 @@
       "id": "valora-ae5803ddcaae",
       "slug": "venditore-venditore-k-chiosco-50-valora-group-brienz",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-50-valora-brienz",
         "it": "venditore-venditore-k-chiosco-50-valora-group-brienz",
         "en": "seller-seller-k-kiosk-50-valora-group-brienz",
-        "de": "verkauferin-verkaufer-k-kiosk-50-valora-brienz",
         "fr": "vendeur-vendeur-k-kiosque-50-valora-group-brienz"
       },
       "company": "Valora Group",
@@ -2167,9 +2185,9 @@
       "id": "valora-4d65544301b8",
       "slug": "controllo-del-personale-100-m-f-d-valora-group-muttenz",
       "slugByLocale": {
+        "de": "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz",
         "it": "controllo-del-personale-100-m-f-d-valora-group-muttenz",
         "en": "personnel-audit-100-m-f-d-valora-group-muttenz",
-        "de": "sachbearbeiter-rechnungsprufung-100-w-m-d-valora-muttenz",
         "fr": "verification-du-personnel-100-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
@@ -2324,12 +2342,12 @@
     },
     {
       "id": "valora-15fe425ea82d",
-      "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2",
+      "slug": "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf-67dd1a",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-tj2cci",
-        "it": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2",
-        "en": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2",
-        "fr": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        "it": "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf-67dd1a",
+        "en": "seller-seller-k-kiosk-10-hours-valora-group-uetendorf-67dd1a",
+        "fr": "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf-67dd1a"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2390,24 +2408,32 @@
       "firstSeenAt": "2026-10-09T09:15:09.214Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
         ],
         "de": [
           "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
         ]
       },
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
       ]
     },
     {
       "id": "valora-f7d602042fe5",
-      "slug": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2",
+      "slug": "venditore-seller-k-kiosk-15-ore-valora-group-uetendorf-a8ed3e",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-tj2cck",
-        "it": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2",
-        "en": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2",
-        "fr": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
+        "it": "venditore-seller-k-kiosk-15-ore-valora-group-uetendorf-a8ed3e",
+        "en": "seller-seller-k-kiosk-15-hours-valora-group-uetendorf-a8ed3e",
+        "fr": "kiosque-vendeur-vendeur-k-15-heures-valora-group-uetendorf-a8ed3e"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2468,23 +2494,31 @@
       "firstSeenAt": "2026-07-04T12:43:13.456Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
         ],
         "de": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
         ]
       },
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
       ]
     },
     {
       "id": "valora-857477338b6a",
       "slug": "venditore-venditore-press-books-21-5-ore-valora-group-basel",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-press-books-21-5-std-valora-basel",
         "it": "venditore-venditore-press-books-21-5-ore-valora-group-basel",
         "en": "seller-seller-press-books-21-5-hours-valora-group-basel",
-        "de": "verkauferin-verkaufer-press-books-21-5-std-valora-basel",
         "fr": "vendeur-vendeur-presse-livres-21-5-heures-valora-group-basel"
       },
       "company": "Valora Group",
@@ -2563,9 +2597,9 @@
       "id": "valora-9b69b4f1f502",
       "slug": "venditore-venditore-press-books-21-5-ore-valora-group-bern",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-press-books-21-5-std-valora-bern",
         "it": "venditore-venditore-press-books-21-5-ore-valora-group-bern",
         "en": "seller-seller-press-books-21-5-hours-valora-group-bern",
-        "de": "verkauferin-verkaufer-press-books-21-5-std-valora-bern",
         "fr": "vendeur-vendeur-presse-livres-21-5-heures-valora-group-bern"
       },
       "company": "Valora Group",
@@ -2644,9 +2678,9 @@
       "id": "valora-1270bf24c4aa",
       "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
         "it": "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
         "en": "seller-seller-k-kiosk-10-hours-valora-group-bern",
-        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
         "fr": "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern"
       },
       "company": "Valora Group",
@@ -2725,9 +2759,9 @@
       "id": "valora-96cd9200b81a",
       "slug": "venditore-seller-backwerk-24-6-h-valora-group-zurich",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
         "it": "venditore-seller-backwerk-24-6-h-valora-group-zurich",
         "en": "seller-seller-backwerk-24-6-h-valora-group-zurich",
-        "de": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
         "fr": "vendeur-vendeur-retourwerk-24-6-h-valora-group-zurich"
       },
       "company": "Valora Group",
@@ -2806,9 +2840,9 @@
       "id": "valora-7738d82372ce",
       "slug": "venditore-venditore-press-books-22-ore-valora-group-bern",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-press-books-22-std-valora-bern",
         "it": "venditore-venditore-press-books-22-ore-valora-group-bern",
         "en": "seller-seller-press-books-22-hours-valora-group-bern",
-        "de": "verkauferin-verkaufer-press-books-22-std-valora-bern",
         "fr": "vendeur-vendeur-presse-livres-22-heures-valora-group-bern"
       },
       "company": "Valora Group",
@@ -2887,9 +2921,9 @@
       "id": "valora-5fa3ab74bc6f",
       "slug": "venditore-venditore-k-kiosk-30-ore-valora-group-bern",
       "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-30-std-valora-bern",
         "it": "venditore-venditore-k-kiosk-30-ore-valora-group-bern",
         "en": "seller-seller-k-kiosk-30-hours-valora-group-bern",
-        "de": "verkauferin-verkaufer-k-kiosk-30-std-valora-bern",
         "fr": "vendeur-vendeur-k-kiosque-30-heures-valora-group-bern"
       },
       "company": "Valora Group",
@@ -3202,7 +3236,7 @@
         "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
         "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3262,14 +3296,14 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+          "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
-        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+        "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
       "salaryMin": 69500,

@@ -2443,7 +2443,7 @@
       "slugByLocale": {
         "it": "servizio-clienti-representative-100-luzern-emil-frey-luzern",
         "en": "customer-service-representative-100-luzern-emil-frey-luzern",
-        "de": "customer-service-representative-100-luzern-emil-frey-luzern",
+        "de": "kundendienst-representative-100-luzern-emil-frey-luzern",
         "fr": "customer-service-representative-100-luzern-emil-frey-luzern"
       },
       "company": "Emil Frey",
@@ -2493,6 +2493,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "customer-service-representative-100-luzern-emil-frey-luzern"
+        ],
+        "de": [
           "customer-service-representative-100-luzern-emil-frey-luzern"
         ]
       },

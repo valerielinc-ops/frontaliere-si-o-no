@@ -374,7 +374,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-m-f-80-boutique-omega-berna-omega-sa-berne",
         "en": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
-        "de": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
+        "de": "verkaufsberater-m-w-80-omega-boutique-bern-omega-sa-berne",
         "fr": "conseiller-ere-de-vente-h-f-a-80-boutique-omega-berne-omega-sa-berne"
       },
       "company": "OMEGA SA",
@@ -440,6 +440,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sales-representative-m-w-80-omega-boutique-bern-omega-berne"
+        ],
+        "de": [
           "sales-representative-m-w-80-omega-boutique-bern-omega-berne"
         ]
       },

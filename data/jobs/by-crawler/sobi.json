@@ -396,7 +396,7 @@
       "slugByLocale": {
         "it": "gestore-di-accesso-al-mercato-sobi-zug",
         "en": "market-access-manager-sobi-zug",
-        "de": "manager-in-fur-marktzugang-sobi-zug",
+        "de": "marktzugangsmanager-sobi-zug",
         "fr": "gestionnaire-d-acces-au-marche-sobi-zug"
       },
       "company": "Sobi",
@@ -443,14 +443,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "market-access-manager-sobi-zug",
-        "marktzugangsmanager-sobi-zug"
+        "manager-in-fur-marktzugang-sobi-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "market-access-manager-sobi-zug"
         ],
         "de": [
-          "marktzugangsmanager-sobi-zug"
+          "manager-in-fur-marktzugang-sobi-zug"
         ]
       },
       "firstSeenAt": "2026-10-08T22:13:39.403Z",

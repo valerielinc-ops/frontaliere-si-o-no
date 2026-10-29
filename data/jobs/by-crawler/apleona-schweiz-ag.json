@@ -90,7 +90,7 @@
       "id": "apleona-schweiz-ag-56e325e47013",
       "slug": "senior-finanza-specialista-m-w-d-apleona-schweiz-ag-wallisellen",
       "slugByLocale": {
-        "de": "senior-finance-specialist-m-w-d-apleona-schweiz-ag-wallisellen",
+        "de": "senior-finanzen-spezialist-m-w-d-apleona-schweiz-ag-wallisellen",
         "it": "senior-finanza-specialista-m-w-d-apleona-schweiz-ag-wallisellen",
         "en": "senior-finance-specialist-m-w-d-apleona-schweiz-ag-wallisellen",
         "fr": "senior-finance-specialist-m-w-d-apleona-schweiz-ag-wallisellen"
@@ -140,6 +140,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-finance-specialist-m-w-d-apleona-schweiz-ag-wallisellen"
+        ],
+        "de": [
           "senior-finance-specialist-m-w-d-apleona-schweiz-ag-wallisellen"
         ]
       },
@@ -720,12 +723,12 @@
     },
     {
       "id": "apleona-schweiz-ag-bf719bfb4666",
-      "slug": "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung",
+      "slug": "housekeeper-100-m-f-d-apleona-schweiz-ag-zurich-und-umgebung",
       "slugByLocale": {
         "de": "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung",
-        "it": "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung",
+        "it": "housekeeper-100-m-f-d-apleona-schweiz-ag-zurich-und-umgebung",
         "en": "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung",
-        "fr": "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung"
+        "fr": "menageuse-100-h-f-d-apleona-schweiz-ag-zurich-und-umgebung"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -781,7 +784,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-29T14:40:55.486Z"
+      "firstSeenAt": "2026-10-29T14:40:55.486Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung"
+        ],
+        "fr": [
+          "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-d0c055535b68",

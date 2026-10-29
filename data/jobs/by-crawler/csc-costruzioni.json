@@ -5,7 +5,7 @@
   "jobs": [
     {
       "id": "company-j2eigp",
-      "slug": "senior-planning-manager-csc-costruzioni-sa-lugano-j2eigp",
+      "slug": "responsabile-pianificazione-senior-csc-costruzioni-sa-lugano",
       "company": "CSC Costruzioni SA",
       "title": "Senior Planning Manager",
       "location": "Lugano",
@@ -59,20 +59,27 @@
         "de": []
       },
       "slugByLocale": {
-        "it": "senior-planning-manager-csc-costruzioni-sa-lugano-j2eigp",
+        "it": "responsabile-pianificazione-senior-csc-costruzioni-sa-lugano",
         "en": "senior-planning-manager-csc-costruzioni-sa-lugano-j2eigp",
-        "de": "senior-planungsmanager-csc-costruzioni-sa-lugano-j2eigp",
+        "de": "senior-planungsmanager-csc-costruzioni-sa-lugano",
         "fr": "senior-planning-manager-csc-costruzioni-sa-lugano-j2eigp"
       },
       "sourceLang": "fr",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "senior-planning-manager-csc-costruzioni-sa-lugano"
+          "senior-planning-manager-csc-costruzioni-sa-lugano",
+          "senior-planning-manager-csc-costruzioni-sa-lugano-j2eigp"
+        ],
+        "de": [
+          "senior-planning-manager-csc-costruzioni-sa-lugano-j2eigp",
+          "senior-planungsmanager-csc-costruzioni-sa-lugano-j2eigp"
         ]
       },
       "previousSlugs": [
-        "senior-planning-manager-csc-costruzioni-sa-lugano"
+        "senior-planning-manager-csc-costruzioni-sa-lugano",
+        "senior-planning-manager-csc-costruzioni-sa-lugano-j2eigp",
+        "senior-planungsmanager-csc-costruzioni-sa-lugano-j2eigp"
       ],
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -147,7 +154,7 @@
       },
       "slugByLocale": {
         "it": "accountant-di-cantiere-csc-costruzioni-sa-lugano-0vwqmw",
-        "en": "construction-accountant-csc-costruzioni-sa-lugano-0vwqmw",
+        "en": "construction-accountant-csc-costruzioni-sa-lugano",
         "de": "buchhalter-di-cantiere-csc-costruzioni-sa-lugano-0vwqmw",
         "fr": "comptable-di-cantiere-csc-costruzioni-sa-lugano-0vwqmw"
       },
@@ -155,10 +162,14 @@
       "previousSlugsByLocale": {
         "it": [
           "accountant-di-cantiere-csc-costruzioni-sa-lugano"
+        ],
+        "en": [
+          "construction-accountant-csc-costruzioni-sa-lugano-0vwqmw"
         ]
       },
       "previousSlugs": [
-        "accountant-di-cantiere-csc-costruzioni-sa-lugano"
+        "accountant-di-cantiere-csc-costruzioni-sa-lugano",
+        "construction-accountant-csc-costruzioni-sa-lugano-0vwqmw"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -180,7 +191,7 @@
     },
     {
       "id": "company-fmdin5",
-      "slug": "quality-assistant-mep-csc-costruzioni-sa-lugano-fmdin5",
+      "slug": "assistente-di-qualita-mep-csc-costruzioni-sa-lugano",
       "company": "CSC Costruzioni SA",
       "title": "Quality Assistant - MEP",
       "location": "Lugano",
@@ -230,7 +241,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "quality-assistant-mep-csc-costruzioni-sa-lugano-fmdin5",
+        "it": "assistente-di-qualita-mep-csc-costruzioni-sa-lugano",
         "en": "quality-assistant-mep-csc-costruzioni-sa-lugano-fmdin5",
         "de": "qualitat-assistent-mep-csc-costruzioni-sa-lugano-fmdin5",
         "fr": "qualite-assistant-mep-csc-costruzioni-sa-lugano-fmdin5"
@@ -238,11 +249,13 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "quality-assistant-mep-csc-costruzioni-sa-lugano"
+          "quality-assistant-mep-csc-costruzioni-sa-lugano",
+          "quality-assistant-mep-csc-costruzioni-sa-lugano-fmdin5"
         ]
       },
       "previousSlugs": [
-        "quality-assistant-mep-csc-costruzioni-sa-lugano"
+        "quality-assistant-mep-csc-costruzioni-sa-lugano",
+        "quality-assistant-mep-csc-costruzioni-sa-lugano-fmdin5"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -509,7 +522,7 @@
     },
     {
       "id": "company-19cm1t",
-      "slug": "design-manager-mechanical-csc-costruzioni-sa-lugano-19cm1t",
+      "slug": "design-manager-meccanico-csc-costruzioni-sa-lugano",
       "company": "CSC Costruzioni SA",
       "title": "Design Manager Mechanical",
       "location": "Lugano",
@@ -561,19 +574,31 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "design-manager-mechanical-csc-costruzioni-sa-lugano-19cm1t",
+        "it": "design-manager-meccanico-csc-costruzioni-sa-lugano",
         "en": "design-manager-mechanical-csc-costruzioni-sa-lugano-19cm1t",
-        "de": "design-manager-mechanisch-csc-costruzioni-sa-lugano-19cm1t",
-        "fr": "gestionnaire-de-conception-mecanique-csc-costruzioni-sa-lugano-19cm1t"
+        "de": "design-manager-mechanisch-csc-costruzioni-sa-lugano",
+        "fr": "gestionnaire-de-conception-mecanique-csc-costruzioni-sa-lugano"
       },
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "design-manager-mechanical-csc-costruzioni-sa-lugano"
+          "design-manager-mechanical-csc-costruzioni-sa-lugano",
+          "design-manager-mechanical-csc-costruzioni-sa-lugano-19cm1t"
+        ],
+        "de": [
+          "design-manager-mechanical-csc-costruzioni-sa-lugano-19cm1t",
+          "design-manager-mechanisch-csc-costruzioni-sa-lugano-19cm1t"
+        ],
+        "fr": [
+          "design-manager-mechanical-csc-costruzioni-sa-lugano-19cm1t",
+          "gestionnaire-de-conception-mecanique-csc-costruzioni-sa-lugano-19cm1t"
         ]
       },
       "previousSlugs": [
-        "design-manager-mechanical-csc-costruzioni-sa-lugano"
+        "design-manager-mechanical-csc-costruzioni-sa-lugano",
+        "design-manager-mechanical-csc-costruzioni-sa-lugano-19cm1t",
+        "design-manager-mechanisch-csc-costruzioni-sa-lugano-19cm1t",
+        "gestionnaire-de-conception-mecanique-csc-costruzioni-sa-lugano-19cm1t"
       ],
       "salaryMin": 142000,
       "salaryMax": 249500,

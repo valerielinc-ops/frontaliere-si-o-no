@@ -8,7 +8,7 @@
       "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
-        "en": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+        "en": "occupational-therapist-psychiatrie-st-gallen-pfafers",
         "de": "ergotherapeutin-ergotherapeut-psgn-pfafers",
         "fr": "ergotherapeute-psychiatrie-st-gallen-pfafers"
       },
@@ -56,8 +56,7 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-psgn-pfafers",
         "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
-        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers-br3wqb",
-        "occupational-therapist-psychiatrie-st-gallen-pfafers"
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers-br3wqb"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,7 +65,8 @@
         ],
         "en": [
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers-br3wqb",
-          "occupational-therapist-psychiatrie-st-gallen-pfafers"
+          "occupational-therapist-psychiatrie-st-gallen-pfafers",
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ],
         "fr": [
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
@@ -92,7 +92,7 @@
       "slug": "terapeuta-dello-sport-terapeuta-dello-sport-psychiatrie-st-gallen-wil",
       "slugByLocale": {
         "it": "terapeuta-dello-sport-terapeuta-dello-sport-psychiatrie-st-gallen-wil",
-        "en": "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil",
+        "en": "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil",
         "de": "sporttherapeutin-sporttherapeut-psgn-wil",
         "fr": "therapeute-sportotherapeute-psychiatrie-st-gallen-wil"
       },
@@ -139,8 +139,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sporttherapeutin-sporttherapeut-psgn-wil",
-        "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil",
-        "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil"
+        "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -148,7 +147,7 @@
           "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
         ],
         "en": [
-          "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil"
+          "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
         ],
         "fr": [
           "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
@@ -663,7 +662,7 @@
       "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers-8cdf98",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers-8cdf98",
-        "en": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+        "en": "occupational-therapist-psychiatrie-st-gallen-pfafers-8cdf98",
         "de": "ergotherapeutin-ergotherapeut-psgn-pfafers",
         "fr": "ergotherapeute-psychiatrie-st-gallen-pfafers-8cdf98"
       },
@@ -711,8 +710,7 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-psgn-pfafers",
         "ergotherapeutin-ergotherapeut-psgn-pfafers-2",
-        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
-        "occupational-therapist-psychiatrie-st-gallen-pfafers-8cdf98"
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -721,7 +719,7 @@
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ],
         "en": [
-          "occupational-therapist-psychiatrie-st-gallen-pfafers-8cdf98"
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ],
         "fr": [
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
@@ -744,12 +742,12 @@
     },
     {
       "id": "psgn-36a9c4ccf6ed",
-      "slug": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
+      "slug": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers-f7a3ea",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
-        "en": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
         "de": "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
-        "fr": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        "it": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers-f7a3ea",
+        "en": "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers-f7a3ea",
+        "fr": "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-f7a3ea"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -795,12 +793,20 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
-          "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-2"
+          "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-2",
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
-        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-2"
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-2",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

@@ -1815,12 +1815,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-60919c31d667",
-      "slug": "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich",
+      "slug": "professionista-dell-automazione-dei-processi-e-dell-ia-servizi-finanziari-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich",
+        "it": "professionista-dell-automazione-dei-processi-e-dell-ia-servizi-finanziari-vz-vermogenszentrum-zurich-zurich",
         "en": "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich",
         "de": "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch",
-        "fr": "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich"
+        "fr": "professionnel-de-l-automatisation-des-processus-et-de-l-ia-services-financiers-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1882,11 +1882,16 @@
         ]
       },
       "previousSlugs": [
-        "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch"
+        "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch",
+        "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch"
+          "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch",
+          "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:10.050Z",
@@ -5674,9 +5679,9 @@
     },
     {
       "id": "vz-vermoegenszentrum-4da8d7ab131e",
-      "slug": "investment-advisor-vz-vermogenszentrum-lausanne",
+      "slug": "investment-consulente-vz-vermogenszentrum-lausanne-vaud",
       "slugByLocale": {
-        "it": "investment-advisor-vz-vermogenszentrum-lausanne",
+        "it": "investment-consulente-vz-vermogenszentrum-lausanne-vaud",
         "en": "investment-advisor-vz-vermogenszentrum-lausanne",
         "de": "investment-berater-vz-vermogenszentrum-lausanne-vaud",
         "fr": "investment-advisor-vz-vermoegenszentrum-ch"
@@ -5741,12 +5746,14 @@
       },
       "previousSlugs": [
         "investment-advisor-vz-vermoegenszentrum-ch",
-        "investment-consulente-vz-vermogenszentrum-lausanne"
+        "investment-consulente-vz-vermogenszentrum-lausanne",
+        "investment-advisor-vz-vermogenszentrum-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "investment-advisor-vz-vermoegenszentrum-ch",
-          "investment-consulente-vz-vermogenszentrum-lausanne"
+          "investment-consulente-vz-vermogenszentrum-lausanne",
+          "investment-advisor-vz-vermogenszentrum-lausanne"
         ],
         "de": [
           "investment-advisor-vz-vermoegenszentrum-ch"

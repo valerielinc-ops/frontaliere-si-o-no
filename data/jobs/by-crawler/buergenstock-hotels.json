@@ -1789,7 +1789,7 @@
       "slugByLocale": {
         "it": "gestore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "floor-fair-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "de": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+        "de": "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "fr": "floor-superviseur-100-w-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
@@ -1838,6 +1838,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "de": [
           "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
         ]
       },

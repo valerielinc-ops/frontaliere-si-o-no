@@ -5,9 +5,9 @@
   "jobs": [
     {
       "id": "cippatrasporti-c38396f76831",
-      "slug": "customer-service-transport-specialist-cippatrasporti-ch",
+      "slug": "servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso",
       "slugByLocale": {
-        "it": "customer-service-transport-specialist-cippatrasporti-ch",
+        "it": "servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso",
         "en": "customer-service-transport-specialist-cippa-trasporti-sa-lugano",
         "de": "kundendienst-transport-spezialist-cippa-trasporti-sa-lugano",
         "fr": "service-client-transport-specialiste-cippa-trasporti-sa-chiasso"
@@ -52,13 +52,14 @@
       "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
-        "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano"
+        "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
+        "customer-service-transport-specialist-cippatrasporti-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano"
+          "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
+          "customer-service-transport-specialist-cippatrasporti-ch"
         ]
       },
       "firstSeenAt": "2026-08-24T10:37:33.453Z",
@@ -75,7 +76,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6830"
+      "postalCode": "6830",
+      "needsRetranslation": true
     },
     {
       "id": "cippatrasporti-5dd16ddc181a",

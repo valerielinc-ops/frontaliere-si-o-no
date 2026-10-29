@@ -6278,12 +6278,12 @@
     },
     {
       "id": "epfl-95262d481aa8",
-      "slug": "assistant-e-administratif-ve-40-epfl-lausanne",
+      "slug": "assistente-amministrativo-ve-40-epfl-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-administratif-ve-40-epfl-lausanne",
-        "it": "assistant-e-administratif-ve-40-epfl-lausanne",
-        "en": "assistant-e-administratif-ve-40-epfl-lausanne",
-        "de": "assistant-e-administratif-ve-40-epfl-lausanne"
+        "it": "assistente-amministrativo-ve-40-epfl-lausanne",
+        "en": "administrative-assistant-ve-40-epfl-lausanne",
+        "de": "assistent-e-administratif-ve-40-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6342,7 +6342,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-29T14:28:42.036Z"
+      "firstSeenAt": "2026-10-29T14:28:42.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-40-epfl-lausanne"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-40-epfl-lausanne"
+        ],
+        "de": [
+          "assistant-e-administratif-ve-40-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-40-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-2cbb5546ab83",
@@ -6510,12 +6524,12 @@
     },
     {
       "id": "epfl-616bc2b21170",
-      "slug": "postdoctoral-researcher-in-physics-grounded-agentic-ai-for-power-system-resilience-across",
+      "slug": "ricercatore-post-dottorato-in-fisica-grounded-ai-agentic-per-la-resilienza-power-system-across-timescales-epfl-lausanne",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-physics-grounded-agentic-ai-for-power-system-resilience-across",
-        "it": "postdoctoral-researcher-in-physics-grounded-agentic-ai-for-power-system-resilience-across",
-        "de": "postdoctoral-researcher-in-physics-grounded-agentic-ai-for-power-system-resilience-across",
-        "fr": "postdoctoral-researcher-in-physics-grounded-agentic-ai-for-power-system-resilience-across"
+        "it": "ricercatore-post-dottorato-in-fisica-grounded-ai-agentic-per-la-resilienza-power-system-across-timescales-epfl-lausanne",
+        "de": "postdoktorand-in-physik-grounded-agentic-ai-fur-power-system-resilienz-uber-zeitskalen-hinweg-epfl-lausanne",
+        "fr": "chercheur-postdoctoral-en-ia-agentique-grounded-physique-pour-la-resilience-du-systeme-de-puissance-a-travers-les-temps"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6574,7 +6588,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-29T14:28:40.274Z"
+      "firstSeenAt": "2026-10-29T14:28:40.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-physics-grounded-agentic-ai-for-power-system-resilience-across"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-physics-grounded-agentic-ai-for-power-system-resilience-across"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-physics-grounded-agentic-ai-for-power-system-resilience-across"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-physics-grounded-agentic-ai-for-power-system-resilience-across"
+      ]
     },
     {
       "id": "epfl-98412849b5c5",

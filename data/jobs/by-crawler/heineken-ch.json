@@ -527,7 +527,7 @@
       "slugByLocale": {
         "it": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
         "en": "technician-dbo-m-w-d-heineken-ch-denges",
-        "de": "technician-dbo-m-w-d-heineken-ch-denges",
+        "de": "techniker-dbo-m-w-d-heineken-switzerland-denges",
         "fr": "technicien-dbo-m-w-d-heineken-switzerland-denges"
       },
       "company": "Heineken Switzerland",
@@ -574,6 +574,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "technician-dbo-m-w-d-heineken-ch-denges"
+        ],
+        "de": [
           "technician-dbo-m-w-d-heineken-ch-denges"
         ]
       },

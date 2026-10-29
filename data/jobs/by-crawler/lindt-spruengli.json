@@ -92,7 +92,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
+        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -150,7 +150,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "unerbetene-anwendung-lindt-sprungli-kilchberg"
+        "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -172,7 +172,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "unerbetene-anwendung-lindt-sprungli-kilchberg"
+          "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -1349,7 +1349,7 @@
       "slugByLocale": {
         "it": "lindt-chocolate-consulente-20-40-lindt-sprungli-landquart",
         "en": "lindt-chocolate-advisor-20-40-lindt-sprungli-landquart",
-        "de": "lindt-chocolate-advisor-20-40-lindt-spruengli-landquart",
+        "de": "lindt-chocolate-berater-20-40-lindt-sprungli-landquart",
         "fr": "lindt-chocolate-conseiller-20-40-lindt-sprungli-landquart"
       },
       "company": "Lindt & Sprüngli",
@@ -1404,10 +1404,12 @@
         ],
         "fr": [
           "lindt-chocolate-advisor-20-40-lindt-spruengli-landquart"
+        ],
+        "de": [
+          "lindt-chocolate-advisor-20-40-lindt-spruengli-landquart"
         ]
       },
       "firstSeenAt": "2026-10-28T20:10:48.463Z",
-      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800,
       "salarySource": "estimated",
@@ -1420,7 +1422,8 @@
           "maxValue": 34800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lindt-spruengli-dd50f73215a8",
@@ -1428,7 +1431,7 @@
       "slugByLocale": {
         "it": "lindt-chocolate-consulente-40-60-lindt-sprungli-landquart",
         "en": "lindt-chocolate-advisor-40-60-lindt-sprungli-landquart",
-        "de": "lindt-chocolate-advisor-40-60-lindt-spruengli-landquart",
+        "de": "lindt-chocolate-berater-40-60-lindt-sprungli-landquart",
         "fr": "lindt-chocolate-conseiller-40-60-lindt-sprungli-landquart"
       },
       "company": "Lindt & Sprüngli",
@@ -1483,10 +1486,12 @@
         ],
         "fr": [
           "lindt-chocolate-advisor-40-60-lindt-spruengli-landquart"
+        ],
+        "de": [
+          "lindt-chocolate-advisor-40-60-lindt-spruengli-landquart"
         ]
       },
       "firstSeenAt": "2026-10-28T20:10:47.747Z",
-      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "salarySource": "estimated",
@@ -1499,7 +1504,8 @@
           "maxValue": 52200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
