@@ -423,14 +423,21 @@ export async function inspectPendingAssistedApplicationPayment({
   if (stripeSessionHasPaidAmount(session, orderId)) {
     return reconcileStripePaid({ db, orderId, order, session, applyStripe });
   }
+  if (session?.payment_status === 'paid') {
+    return { status: 'waiting_provider', reason: 'stripe_paid_checkout_mismatch' };
+  }
+  // A closed asynchronous checkout can outlive its original pay-by date.
+  // Wait for the bank outcome unless its failure has already been confirmed.
+  const confirmedFailure = order.paymentStatus === 'failed'
+    && order.paymentFailureReason === 'payment_not_confirmed';
+  if ((session?.status === 'complete' && !confirmedFailure) || session?.payment_status === 'processing') {
+    return { status: 'waiting_provider', reason: 'stripe_payment_processing' };
+  }
   const expiresAt = Number(session?.expires_at);
   const expired = session?.status === 'expired'
     || (Number.isSafeInteger(expiresAt) && expiresAt * 1000 <= nowMs);
   if (session?.status === 'open' && !expired && session?.payment_status !== 'paid') return { status: 'open', session };
   if (expired) return renewStripeCheckout({ db, orderId, order, stripe: stripeClient, nowMs });
-  if (session?.status === 'complete' || session?.payment_status === 'processing') {
-    return { status: 'waiting_provider', reason: 'stripe_payment_processing' };
-  }
   return { status: 'waiting_provider', reason: 'stripe_payment_not_confirmed' };
 }
 

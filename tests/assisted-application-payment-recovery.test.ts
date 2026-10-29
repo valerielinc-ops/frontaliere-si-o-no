@@ -329,6 +329,55 @@ describe('assisted-application payment recovery policy', () => {
     } });
   });
 
+  it('waits for an asynchronous completed Stripe checkout even after its original expiry', async () => {
+    const order = pendingOrder('stripe-delayed-processing');
+    const db = makeDb({ assisted_applications: { [order.orderId]: order } });
+    const create = vi.fn();
+    const result = await recovery.inspectPendingAssistedApplicationPayment({ db, orderId: order.orderId, order, nowMs: NOW,
+      stripe: { checkout: { sessions: { create, retrieve: vi.fn(async () => ({
+        id: order.stripeCheckoutSessionId, status: 'complete', payment_status: 'unpaid', amount_total: 199,
+        currency: 'eur', expires_at: Math.floor(NOW / 1000) - 60,
+      })) } } },
+    });
+    expect(result).toEqual({ status: 'waiting_provider', reason: 'stripe_payment_processing' });
+    expect(create).not.toHaveBeenCalled();
+    expect(db.store.assisted_applications[order.orderId].checkoutAttempt).toBeUndefined();
+  });
+
+  it('renews a completed Stripe checkout after a confirmed asynchronous failure and expiry', async () => {
+    const order = pendingOrder('stripe-delayed-failed', {
+      paymentStatus: 'failed', paymentFailureReason: 'payment_not_confirmed',
+    });
+    const db = makeDb({ assisted_applications: { [order.orderId]: order } });
+    const create = vi.fn(async () => ({ id: 'cs-delayed-replacement', url: 'https://checkout.stripe.com/replacement', expires_at: Math.floor(NOW / 1000) + 3600 }));
+    const result = await recovery.inspectPendingAssistedApplicationPayment({ db, orderId: order.orderId, order, nowMs: NOW,
+      stripe: { checkout: { sessions: { create, retrieve: vi.fn(async () => ({
+        id: order.stripeCheckoutSessionId, status: 'complete', payment_status: 'unpaid', amount_total: 199,
+        currency: 'eur', expires_at: Math.floor(NOW / 1000) - 60,
+      })) } } },
+    });
+    expect(result).toMatchObject({ status: 'renewed', session: { id: 'cs-delayed-replacement' } });
+    expect(create).toHaveBeenCalledOnce();
+    expect(db.store.assisted_applications[order.orderId]).toMatchObject({ paymentStatus: 'pending', checkoutAttempt: 2 });
+  });
+
+  it('does not renew an expired paid Stripe checkout with an unverified amount', async () => {
+    const order = pendingOrder('stripe-paid-mismatch', {
+      paymentStatus: 'failed', paymentFailureReason: 'payment_not_confirmed',
+    });
+    const db = makeDb({ assisted_applications: { [order.orderId]: order } });
+    const create = vi.fn();
+    const result = await recovery.inspectPendingAssistedApplicationPayment({ db, orderId: order.orderId, order, nowMs: NOW,
+      stripe: { checkout: { sessions: { create, retrieve: vi.fn(async () => ({
+        id: order.stripeCheckoutSessionId, status: 'complete', payment_status: 'paid', amount_total: 99,
+        currency: 'eur', expires_at: Math.floor(NOW / 1000) - 60,
+      })) } } },
+    });
+    expect(result).toEqual({ status: 'waiting_provider', reason: 'stripe_paid_checkout_mismatch' });
+    expect(create).not.toHaveBeenCalled();
+    expect(db.store.assisted_applications[order.orderId].checkoutAttempt).toBeUndefined();
+  });
+
   it('keeps legacy Stripe orders without an explicit provider recoverable', async () => {
     const order = pendingOrder('stripe-legacy-publish');
     delete order.paymentProvider;
