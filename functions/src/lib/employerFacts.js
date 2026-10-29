@@ -73,6 +73,11 @@ function namesCanonicalEmployer(sentence, employerName) {
   const aliases = String(employerName).match(/\b[A-Z][A-Z0-9]{2,}\b/g) || [];
   return aliases.some((alias) => new RegExp(`(?<![\\p{L}\\p{N}])${escaped(alias)}(?![\\p{L}\\p{N}])`, 'iu').test(sentence));
 }
+function postingHasExplicitEmployerName(sentence, employerName) {
+  return namesCanonicalEmployer(sentence, employerName)
+    || explicitCompanyNames(sentence).length > 0
+    || hasOtherClosedEmployer(sentence, employerName);
+}
 function hasOtherClosedEmployer(sentence, employerName) {
   const names = /(?:\p{Lu}[\p{L}\p{N}'’.-]*\s+){1,5}(?:SA|AG|GmbH|Sagl|Srl|SRL|SpA|Ltd|Inc|LLC)(?![\p{L}\p{N}])/gu;
   return [...sentence.matchAll(names)].some(match => !containsCanonicalIdentity(match[0], employerName));
@@ -82,10 +87,9 @@ function hasOtherClosedEmployer(sentence, employerName) {
 export function quotedEmployerAge(text, index, posting = '', employerName = '') {
   const age = companyAges(text).find((item) => index >= item.index && index < item.index + item.length);
   return Boolean(employerName && age && sameCanonicalEmployer(age.sentence, employerName)
-    && namesCanonicalEmployer(age.sentence, employerName)
     && !hasOtherClosedEmployer(age.sentence, employerName)
     && companyAges(posting).some((item) => item.value === age.value
-      && namesCanonicalEmployer(item.sentence, employerName)
+      && (!postingHasExplicitEmployerName(item.sentence, employerName) || namesCanonicalEmployer(age.sentence, employerName))
       && !hasOtherClosedEmployer(item.sentence, employerName)
       && sameCanonicalEmployer(item.sentence, employerName)));
 }

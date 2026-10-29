@@ -1629,7 +1629,7 @@ describe('employer age identity binding', () => {
     expect(checkDraftFacts({ coverLetter: 'La società Alfa SA ha 10 anni.' }, sources).unsupported).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'number', token: '10' })]));
     expect(checkDraftFacts({ coverLetter: 'La società Beta SA ha 10 anni.' }, { ...sources, posting: 'Alfa SA è una società giovane. Beta SA è una società attiva da 10 anni.' }).ok).toBe(false);
     expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Alfa SA è una società attiva da 10 anni.' }).ok).toBe(false);
-    expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Una società ha 10 anni.' }).ok).toBe(false);
+    expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Una società ha 10 anni.' }).ok).toBe(true);
     expect(checkDraftFacts({ coverLetter: 'La società Alfa SA è attiva da 10 anni.' }, { ...sources, posting: 'Alfa SA è una società attiva da 10 anni.' }).ok).toBe(true);
   });
 });
