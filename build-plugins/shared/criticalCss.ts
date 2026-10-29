@@ -1,4 +1,8 @@
 import { BASE_URL, readPublicAsset } from '../constants';
+import {
+  DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT,
+  MULTIPLEX_DESKTOP_MIN_WIDTH,
+} from '../../services/adsenseSlots';
 import { deriveSeoStaticFirstPaintReserve } from './seoStaticFirstPaintReserve';
 
 /**
@@ -173,6 +177,16 @@ const STATIC_AD_COLLAPSE_SELECTOR =
 export const STATIC_AD_COLLAPSE_CSS =
   `${STATIC_AD_COLLAPSE_SELECTOR}{min-height:0!important;max-height:0!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:block!important}` +
   `:where(div,li,section):has(> ${STATIC_AD_SELECTOR}[data-ft-static-ad-collapsed]:only-child){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}`;
+
+/**
+ * The drive-by slot's inline 1100px reserve is the mobile/SSR floor. On wide
+ * desktop the same slow company/fuel creative can occupy 1534px; reserve that
+ * measured wrapper height before the iframe arrives so a late fill cannot grow
+ * the static SEO page. The collapse rule above still zeroes this wrapper after
+ * an offscreen no-fill, so the ad remains enabled and revenue-capable.
+ */
+export const DRIVEBY_AD_RESERVE_CSS =
+  `@media(min-width:${MULTIPLEX_DESKTOP_MIN_WIDTH}px){.ft-driveby-ad{min-height:${DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT}px}}`;
 
 /**
  * Static SEO landing layout, mirrored from the ASYNC `seo-static.css`
@@ -942,6 +956,7 @@ export const CRITICAL_CSS =
   SEO_STATIC_SHEET_RESERVE_CSS +
   RAIL_RESERVE_CSS +
   STATIC_AD_COLLAPSE_CSS +
+  DRIVEBY_AD_RESERVE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
   JOB_BOARD_STATIC_HANDOFF_RESERVE_CSS +
   JOB_BOARD_HUB_STATIC_HANDOFF_CSS +

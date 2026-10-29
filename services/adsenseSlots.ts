@@ -147,8 +147,9 @@ export const AD_SLOTS = {
   *
   *  Dedicated unit so the drive-by RPM lift can be measured in isolation
   *  instead of aggregated with the homepage placement (issue #1911 item 1).
-  *  Console unit `FT_DRIVEBY_ATF_DISPLAY` is `7200533787`. The rendered
-  *  format and reserve remain unchanged for this ID migration. */
+  *  Console unit `FT_DRIVEBY_ATF_DISPLAY` is `7200533787`. The 1100px
+  *  inline/SSR floor remains unchanged; the wide-screen wrapper reserve is
+  *  defined below from the measured slow-fill creative height. */
  FT_DRIVEBY_ATF_DISPLAY: {
  slot: '7200533787',
  format: 'autorelaxed',
@@ -373,6 +374,14 @@ export const MULTIPLEX_DESKTOP_MIN_WIDTH = 1280;
  *  ~550-650px on desktop (wider grid → more ad rows), so the registry's
  *  mobile/SSR floor is lifted to this on wide viewports. */
 export const MULTIPLEX_DESKTOP_MIN_HEIGHT = 600;
+
+/**
+ * Wide-screen reserve for the shared static drive-by wrapper. A slow company /
+ * fuel creative was measured at 1534px after the slot's 1100px inline floor
+ * had already painted; keeping that measurement in one constant lets the
+ * critical CSS reserve the final box without changing the mobile floor.
+ */
+export const DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT = 1534;
 
 /** Response observation budget. Manual slots report waiting_response after
  * this deadline and keep watching for late fills; only explicit failures are

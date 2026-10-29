@@ -2,10 +2,18 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-import { ADSENSE_LOADER_CONTENT } from '@/build-plugins/constants';
+import { ADSENSE_LOADER_CONTENT, DRIVEBY_AD_SNIPPET } from '@/build-plugins/constants';
 import { adSlotHtml } from '@/build-plugins/lib/adSlotHtml';
-import { STATIC_AD_COLLAPSE_CSS } from '@/build-plugins/shared/criticalCss';
-import { AD_FILL_TIMEOUT_MS } from '@/services/adsenseSlots';
+import {
+  CRITICAL_CSS,
+  DRIVEBY_AD_RESERVE_CSS,
+  STATIC_AD_COLLAPSE_CSS,
+} from '@/build-plugins/shared/criticalCss';
+import {
+  AD_FILL_TIMEOUT_MS,
+  DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT,
+  MULTIPLEX_DESKTOP_MIN_WIDTH,
+} from '@/services/adsenseSlots';
 
 const ROOT = resolve(__dirname, '..');
 
@@ -15,6 +23,14 @@ describe('static AdSense layout recovery', () => {
 
     expect(html).toContain('data-ft-static-ad="true"');
     expect(html).toContain('min-height:1100px');
+  });
+
+  it('reserves the measured wide-screen drive-by fill in the critical sheet', () => {
+    expect(DRIVEBY_AD_SNIPPET).toContain('class="my-6 ft-driveby-ad"');
+    expect(DRIVEBY_AD_RESERVE_CSS).toBe(
+      `@media(min-width:${MULTIPLEX_DESKTOP_MIN_WIDTH}px){.ft-driveby-ad{min-height:${DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT}px}}`,
+    );
+    expect(CRITICAL_CSS).toContain(DRIVEBY_AD_RESERVE_CSS);
   });
 
   it('marks the article near-ATF slot with its measured experiment metadata', () => {

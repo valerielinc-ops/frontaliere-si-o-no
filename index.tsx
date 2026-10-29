@@ -201,6 +201,17 @@ const bootstrapApp = async () => {
  // `.catch` keeps this preload non-essential: a chunk failure must not block
  // mount (App's lazy boundary + ChunkLoadErrorBoundary still handle render).
  homeCritical ? import('@/components/tabs/CalcolatoreTabContent').catch(() => null) : Promise.resolve(null),
+ // CalcolatoreTabContent keeps the desktop form in its own lazy leaf. Start
+ // that request with the parent so the first interactive/LCP card does not
+ // wait for a second dynamic-import waterfall after React mounts.
+ homeCritical ? import('@/components/calculator/InputCard').catch(() => null) : Promise.resolve(null),
+ // The root job-board hub is already painted in the static shell on desktop,
+ // but App renders JobBoard through a lazy boundary during takeover. Preload
+ // that same leaf while the shell remains visible so the takeover can resolve
+ // without replacing the first visible page with LazyFallback.
+ hasJobBoardPreRenderedPaintContent()
+   ? import('@/components/community/JobBoard').catch(() => null)
+   : Promise.resolve(null),
  ]);
 
  if (homeCritical && i18n) {
