@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({ prepareConciergeEligibility: vi.fn(async () => async () => ({ status: 'compatible' })) }));
+vi.mock('../functions/src/applicationConciergeEligibility.js', async original => ({ ...await original<typeof import('../functions/src/applicationConciergeEligibility.js')>(), prepareConciergeEligibility: vi.fn(async () => async () => ({ status: 'compatible' })) }));
 import { parseCandidateCvText } from '../functions/src/candidateCvProfile.js';
 import {
   proposalDocumentId,

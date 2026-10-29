@@ -14,6 +14,9 @@ export interface ApplicationConciergeProposal {
   acceptedAt?: string | null;
   declinedAt?: string | null;
   childApplicationId?: string | null;
+  childApplicationState?: string | null;
+  childSubmissionStatus?: string | null;
+  childCandidateStatus?: string | null;
   matchScore?: number | null;
   matchReasons?: string[];
   matchedAt?: string | null;
@@ -180,4 +183,12 @@ export async function recoverApplicationConciergePaymentSession(user: any, servi
   const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'recoverPaymentSession' });
   if (typeof data.authToken !== 'string' || !data.authToken) throw new Error('service_not_found');
   return data.authToken;
+}
+
+
+/** A short-lived review token stays in memory, never in the service/job-detail URL. */
+export async function openApplicationConciergeChildReview(user: any, serviceId: string, proposalId: string): Promise<string> {
+  const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'openChildReview', proposalId });
+  if (typeof data.token !== 'string' || !data.token) throw new Error('application_concierge_request_failed');
+  return data.token;
 }
