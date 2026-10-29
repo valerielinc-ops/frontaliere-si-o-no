@@ -697,11 +697,39 @@ export function advanceName(name) {
   return ADVANCE_RE.test(text) && !NOT_ADVANCE_RE.test(text) && !FINAL_RE.test(text) && !SUBMIT_RE.test(text);
 }
 
+/** Restore DOM provenance omitted by the fallback response schema. */
+export function withAgentFieldProvenance(raw, fields = []) {
+  // Talentsoft puts a live character counter inside the address label.
+  // Its count changes while typing; numeric question text without a
+  // character unit is substantive and must remain distinct.
+  const labelKey = (value) => questionFromLabel(value)
+    .replace(/\b\d+\s*\/\s*\d+\s*(?:zeichen|characters?|chars|caratteri|caractères)\b/gi, '')
+    .replace(/\s+/g, ' ').trim().toLowerCase();
+  const enrich = (item, isQuestion) => {
+    const label = labelKey(isQuestion ? item.applicationQuestion || item.question : item.question);
+    if (!label) return item;
+    const matches = fields.filter((field) => labelKey(field.label) === label);
+    // Repeated labels may belong to different people or addresses.
+    if (matches.length !== 1) return item;
+    const field = matches[0];
+    return {
+      ...item,
+      ...(field.section ? { section: boundedPortalContext(field.section) } : {}),
+      ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}),
+    };
+  };
+  return {
+    ...raw,
+    actions: (raw.actions || []).map((item) => enrich(item, false)),
+    questions: (raw.questions || []).map((item) => enrich(item, true)),
+  };
+}
+
 /**
  * Completes the current page with Codex on the accessibility snapshot.
  * @returns {Promise<{status:'done'|'needs_candidate'|'stuck'|'unavailable', questions?:Array, advanceRef?:string, moved?:boolean, reason?:string, calls:number, evidence:object}>}
  */
-export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [], maxRounds = AGENT_ROUNDS, log = () => {} }) {
+export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [], maxRounds = AGENT_ROUNDS, fields = [], log = () => {} }) {
   const evidence = { hint, rounds: [] };
   const history = [];
   const startUrl = page.url();
@@ -727,7 +755,7 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
       evidence.rounds.push({ round, status: 'stuck', reason, actions: [] });
       return end({ status: 'stuck', reason, calls: round });
     }
-    const step = guardAgentStep(raw, candidate, grounded);
+    const step = guardAgentStep(withAgentFieldProvenance(raw, fields), candidate, grounded);
     const record = { round, status: step.status, reason: step.reason, actions: [], ...(step.truncated ? { truncated: true } : {}) };
     evidence.rounds.push(record);
     log(`portal agent round ${round}: ${step.status} (${step.actions.length} actions)`);
