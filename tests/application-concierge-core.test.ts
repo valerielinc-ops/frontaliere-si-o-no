@@ -101,6 +101,8 @@ const mocks = vi.hoisted(() => {
   };
 
   return {
+    createCustomToken: vi.fn(async () => 'owner-token'),
+    getUser: vi.fn(async (uid: string) => ({ uid })),
     documents,
     files,
     firestore,
@@ -116,6 +118,8 @@ const mocks = vi.hoisted(() => {
     },
   };
 });
+
+vi.mock('firebase-admin/auth', () => ({ getAuth: () => ({ createCustomToken: mocks.createCustomToken, getUser: mocks.getUser }) }));
 
 vi.mock('firebase-admin/firestore', () => ({
   FieldValue: {
@@ -190,6 +194,44 @@ function seedService() {
 beforeEach(() => {
   mocks.reset();
   seedService();
+});
+
+describe('historic concierge payment link session recovery', () => {
+  it.each([
+    { email_verified: false, email: 'candidate@example.test', allowed: false },
+    { email_verified: true, email: 'other@example.test', allowed: false },
+    { email_verified: true, email: 'candidate@example.test', allowed: true },
+  ])('requires verified recipient email: %j', async ({ allowed, ...claims }) => {
+    mocks.documents.set('application_concierge_services/service-recover', {
+      userId: 'anonymous-owner', customerEmail: 'candidate@example.test',
+      paymentStatus: 'pending', serviceStatus: 'awaiting_payment',
+    });
+    mocks.verifyCaller.mockResolvedValueOnce({ uid: 'signed-in-user', ...claims } as any);
+    const result = await handleApplicationConcierge({ method: 'POST', body: {
+      action: 'recoverPaymentSession', serviceId: 'service-recover',
+    } });
+    expect(result.status).toBe(allowed ? 200 : 404);
+    if (allowed) {
+      expect(result.body.authToken).toBe('owner-token');
+      expect(mocks.createCustomToken).toHaveBeenCalledWith('anonymous-owner');
+    } else expect(result.body.authToken).toBeUndefined();
+  });
+});
+
+describe('verified concierge recipient cannot impersonate registered owner', () => {
+  it.each([{ email: 'owner@example.test' }, { disabled: true }])('rejects unsafe owner: %j', async (owner) => {
+    mocks.documents.set('application_concierge_services/service-recover', {
+      userId: 'registered-owner', customerEmail: 'candidate@example.test',
+      paymentStatus: 'pending', serviceStatus: 'awaiting_payment',
+    });
+    mocks.verifyCaller.mockResolvedValueOnce({ uid: 'recipient', email: 'candidate@example.test', email_verified: true } as any);
+    mocks.getUser.mockResolvedValueOnce({ uid: 'registered-owner', ...owner } as any);
+    const result = await handleApplicationConcierge({ method: 'POST', body: {
+      action: 'recoverPaymentSession', serviceId: 'service-recover',
+    } });
+    expect(result.status).toBe(404);
+    expect(result.body.authToken).toBeUndefined();
+  });
 });
 
 describe('application concierge candidate API', () => {

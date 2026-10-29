@@ -1022,8 +1022,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-service-m-w-d-80-hochgebirgsklinik-davos-ch",
         "it": "collaboratore-trice-service-m-w-d-80-hochgebirgsklinik-davos",
-        "en": "mitarbeiter-service-m-w-d-80-hochgebirgsklinik-davos-ch",
-        "fr": "mitarbeiter-service-m-w-d-80-hochgebirgsklinik-davos-ch"
+        "en": "employee-service-m-f-d-80-hochgebirgsklinik-davos-davos",
+        "fr": "service-aux-employes-h-f-d-80-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1077,6 +1077,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-service-m-w-d-80-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "mitarbeiter-service-m-w-d-80-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "mitarbeiter-service-m-w-d-80-hochgebirgsklinik-davos-ch"
         ]
       },
       "previousSlugs": [
@@ -1100,12 +1106,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-133fb3c5884c",
-      "slug": "assistenzarzt-innere-medizin-psychosomatik-m-w-d-100-hochgebirgsklinik-davos-ch",
+      "slug": "assistente-medico-medicina-interna-psicosomatica-m-f-d-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "assistenzarzt-innere-medizin-psychosomatik-m-w-d-100-hochgebirgsklinik-davos-ch",
-        "it": "assistenzarzt-innere-medizin-psychosomatik-m-w-d-100-hochgebirgsklinik-davos-ch",
-        "en": "assistenzarzt-innere-medizin-psychosomatik-m-w-d-100-hochgebirgsklinik-davos-ch",
-        "fr": "assistenzarzt-innere-medizin-psychosomatik-m-w-d-100-hochgebirgsklinik-davos-ch"
+        "it": "assistente-medico-medicina-interna-psicosomatica-m-f-d-100-hochgebirgsklinik-davos-davos",
+        "en": "assistant-physician-internal-medicine-psychosomatics-m-f-d-100-hochgebirgsklinik-davos-davos",
+        "fr": "medecin-adjoint-medecine-interne-psychosomatique-h-f-d-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1170,7 +1176,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-29T09:28:07.297Z"
+      "firstSeenAt": "2026-10-29T09:28:07.297Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-innere-medizin-psychosomatik-m-w-d-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "assistenzarzt-innere-medizin-psychosomatik-m-w-d-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "assistenzarzt-innere-medizin-psychosomatik-m-w-d-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-innere-medizin-psychosomatik-m-w-d-100-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-55dbfb81a41b",

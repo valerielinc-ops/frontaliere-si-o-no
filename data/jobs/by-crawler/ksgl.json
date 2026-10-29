@@ -1591,8 +1591,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus",
         "it": "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus",
-        "en": "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus",
-        "fr": "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus"
+        "en": "dipl-nursing-professional-hf-or-dipl-midwife-fh-at-the-family-department-kantonsspital-glarus-ksgl-glarus",
+        "fr": "dipl-soins-infirmiers-professionnels-hf-ou-dipl-la-sage-femme-fh-au-departement-de-la-famille-kantonsspital-glarus-ksgl"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1639,6 +1639,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus"
         ]
       },

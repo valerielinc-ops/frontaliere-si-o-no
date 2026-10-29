@@ -8,6 +8,13 @@
     "https://physioswiss.ch/stelleninserate/"
   ],
   "detailTemplate": "/stelleninserate/*/*/",
+  "rescueOnEmptyListing": true,
+  "pagination": {
+    "maxPages": 30,
+    "declaredTotalPattern": "\\\"total_rows\\\"\\s*:\\s*([\\d'’.,]+)",
+    "declaredPageCountPattern": "\\\"total_pages\\\"\\s*:\\s*(\\d+)",
+    "stopAfterDeclaredPageCount": true
+  },
   "sampleVacancyCount": 10,
   "sampleTitles": [
     "Stellenanzeige Physiotherapeut/in 60-100% öffnen.",

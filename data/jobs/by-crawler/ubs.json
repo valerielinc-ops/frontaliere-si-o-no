@@ -10603,7 +10603,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -10656,11 +10656,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -12223,12 +12227,12 @@
     },
     {
       "id": "ubs-7ad26b10844b",
-      "slug": "client-account-manager-apac-china-ubs-zurich",
+      "slug": "gestione-account-cliente-apac-cina-ubs-zurich",
       "slugByLocale": {
         "en": "client-account-manager-apac-china-ubs-zurich",
-        "it": "client-account-manager-apac-china-ubs-zurich",
-        "de": "client-account-manager-apac-china-ubs-zurich",
-        "fr": "client-account-manager-apac-china-ubs-zurich"
+        "it": "gestione-account-cliente-apac-cina-ubs-zurich",
+        "de": "kundenkontomanager-apac-china-ubs-zurich",
+        "fr": "gestionnaire-de-compte-client-apac-chine-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12295,7 +12299,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-29T09:19:52.050Z"
+      "firstSeenAt": "2026-10-29T09:19:52.050Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-apac-china-ubs-zurich"
+        ],
+        "de": [
+          "client-account-manager-apac-china-ubs-zurich"
+        ],
+        "fr": [
+          "client-account-manager-apac-china-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-apac-china-ubs-zurich"
+      ]
     }
   ]
 }

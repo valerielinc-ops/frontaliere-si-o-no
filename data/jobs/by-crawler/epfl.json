@@ -6516,12 +6516,12 @@
     },
     {
       "id": "epfl-98412849b5c5",
-      "slug": "rf-systems-engineer-emc-specialist-epfl-lausanne",
+      "slug": "rf-systems-ingegnere-emc-specialista-epfl-lausanne",
       "slugByLocale": {
         "en": "rf-systems-engineer-emc-specialist-epfl-lausanne",
-        "it": "rf-systems-engineer-emc-specialist-epfl-lausanne",
-        "de": "rf-systems-engineer-emc-specialist-epfl-lausanne",
-        "fr": "rf-systems-engineer-emc-specialist-epfl-lausanne"
+        "it": "rf-systems-ingegnere-emc-specialista-epfl-lausanne",
+        "de": "rf-systems-ingenieur-emc-spezialist-epfl-lausanne",
+        "fr": "rf-systems-ingenieur-emc-specialiste-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6582,7 +6582,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-29T09:29:30.262Z"
+      "firstSeenAt": "2026-10-29T09:29:30.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rf-systems-engineer-emc-specialist-epfl-lausanne"
+        ],
+        "de": [
+          "rf-systems-engineer-emc-specialist-epfl-lausanne"
+        ],
+        "fr": [
+          "rf-systems-engineer-emc-specialist-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "rf-systems-engineer-emc-specialist-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-619f4bf196b3",

@@ -618,12 +618,12 @@
     },
     {
       "id": "kispi-sg-873a5971b62a",
-      "slug": "oberarztin-oberarzt-padiatrische-gastroenterologie-e-hepatologie-con-perspektive-co-leitung-60-80-ostschweizer-kinderspital-st-gallen",
+      "slug": "medico-a-capoclinica-di-gastroenterologia-ed-epatologia-pediatrica-con-prospettiva-di-co-direzione-60-80-ostschweizer",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-padiatrische-gastroenterologie-und-hepatologie-mit-perspektive-co",
-        "it": "oberarztin-oberarzt-padiatrische-gastroenterologie-e-hepatologie-con-perspektive-co-leitung-60-80-ostschweizer-kinderspital-st-gallen",
-        "en": "oberarztin-oberarzt-padiatrische-gastroenterologie-und-hepatologie-mit-perspektive-co",
-        "fr": "oberarztin-oberarzt-padiatrische-gastroenterologie-und-hepatologie-mit-perspektive-co"
+        "it": "medico-a-capoclinica-di-gastroenterologia-ed-epatologia-pediatrica-con-prospettiva-di-co-direzione-60-80-ostschweizer",
+        "en": "senior-physician-pediatric-gastroenterology-and-hepatology-with-perspective-co-direction-60-80-ostschweizer-kinderspital",
+        "fr": "gastroenterologie-pediatrique-et-hepatologie-avec-codirection-perspective-60-80-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -670,11 +670,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-padiatrische-gastroenterologie-und-hepatologie-mit-perspektive-co",
+          "oberarztin-oberarzt-padiatrische-gastroenterologie-e-hepatologie-con-perspektive-co-leitung-60-80-ostschweizer-kinderspital-st-gallen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-padiatrische-gastroenterologie-und-hepatologie-mit-perspektive-co"
+        ],
+        "fr": [
           "oberarztin-oberarzt-padiatrische-gastroenterologie-und-hepatologie-mit-perspektive-co"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-padiatrische-gastroenterologie-und-hepatologie-mit-perspektive-co"
+        "oberarztin-oberarzt-padiatrische-gastroenterologie-und-hepatologie-mit-perspektive-co",
+        "oberarztin-oberarzt-padiatrische-gastroenterologie-e-hepatologie-con-perspektive-co-leitung-60-80-ostschweizer-kinderspital-st-gallen"
       ],
       "salaryMin": 65200,
       "salaryMax": 91200,

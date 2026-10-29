@@ -3454,9 +3454,9 @@
     },
     {
       "id": "upd-0154c61f0ee5",
-      "slug": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
         "en": "assistant-psychologist-assistant-psychologist-ii-outpatient-crisis-intervention-universitare-psychiatrische-dienste-bern",
         "de": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
         "fr": "psychologue-adjoint-psychologue-adjoint-ii-intervention-de-crise-ambulatoire-universitare-psychiatrische-dienste-bern"
@@ -3505,12 +3505,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-        "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+        "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-          "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+          "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern"
@@ -8149,12 +8149,12 @@
     },
     {
       "id": "upd-aa3e8eca1653",
-      "slug": "mitarbeiterin-collaboratore-trice-berufliche-integration-universitare-psychiatrische-dienste-bern-upd-koniz",
+      "slug": "addetta-addetto-all-integrazione-professionale-universitare-psychiatrische-dienste-bern-upd-koniz",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-berufliche-integration-upd-koniz",
-        "it": "mitarbeiterin-collaboratore-trice-berufliche-integration-universitare-psychiatrische-dienste-bern-upd-koniz",
-        "en": "mitarbeiterin-mitarbeiter-berufliche-integration-upd-koniz",
-        "fr": "mitarbeiterin-mitarbeiter-berufliche-integration-upd-koniz"
+        "it": "addetta-addetto-all-integrazione-professionale-universitare-psychiatrische-dienste-bern-upd-koniz",
+        "en": "employee-employee-professional-integration-universitare-psychiatrische-dienste-bern-upd-koniz",
+        "fr": "integration-professionnelle-des-employes-universitare-psychiatrische-dienste-bern-upd-koniz"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8202,11 +8202,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-berufliche-integration-upd-koniz",
+          "mitarbeiterin-collaboratore-trice-berufliche-integration-universitare-psychiatrische-dienste-bern-upd-koniz"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-berufliche-integration-upd-koniz"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-berufliche-integration-upd-koniz"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-berufliche-integration-upd-koniz"
+        "mitarbeiterin-mitarbeiter-berufliche-integration-upd-koniz",
+        "mitarbeiterin-collaboratore-trice-berufliche-integration-universitare-psychiatrische-dienste-bern-upd-koniz"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

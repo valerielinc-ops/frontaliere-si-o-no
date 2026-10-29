@@ -167,7 +167,7 @@ const FrontaliereWizard = lazyRetry(() => import('@/components/guide/Frontaliere
 const TredicesimalCalculator = lazyRetry(() => import('@/components/calculator/TredicesimalCalculator'));
 const WeeklyDigest = lazyRetry(() => import('@/components/community/WeeklyDigest'));
 const ToolOfTheWeek = lazyRetry(() => import('@/components/community/ToolOfTheWeek'));
-const AiChatbot = lazyRetry(() => import('@/components/shared/AiChatbot'));
+const JobSearchFloatingButton = lazyRetry(() => import('@/components/shared/JobSearchFloatingButton'));
 const NotFoundSuggestions = lazyRetry(() => import('@/components/shared/NotFoundSuggestions'));
 const SeoDailyBanner = lazyRetry(() => import('@/components/shared/SeoDailyBanner'));
 const QuickLinksGrid = lazyRetry(() => import('@/components/shared/QuickLinksGrid'));
@@ -365,17 +365,6 @@ function safeCompanyFollowPath(value: unknown): string | null {
   return null;
  }
 }
-
-/**
- * The assistant's fallback Google button (the one App.tsx hands to the chat as
- * `onSignIn` when the GIS button is not ready). Its own cta keeps it apart from
- * the rendered button's `ai_chatbot_social`; the component names the surface,
- * so the registration records `ai_chatbot` rather than an anonymous login.
- */
-const AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION = Object.freeze({
- cta: 'ai_chatbot_fallback_google',
- component: 'AiChatbot',
-});
 
 const App: React.FC = () => {
  const { t, locale } = useTranslation();
@@ -613,6 +602,33 @@ const App: React.FC = () => {
    }
  }, [activeTab, staticSnapshotOwnsBody, staticOverlay]);
 
+ // Expired soft-landings use the same outside-#root contract as the other
+ // static SEO pages, but keep a dedicated marker because their body is an
+ // article nested inside the static main. Remove it before paint when the
+ // visitor soft-navigates away (or when a different static page is reached),
+ // otherwise the archived offer could reappear below a later SPA route.
+ useLayoutEffect(() => {
+   const currentPath = contextualPath;
+   for (const staticBody of document.querySelectorAll<HTMLElement>('main[data-expired-static-body]')) {
+     if (!staticOverlay || staticBody.dataset.expiredStaticPath !== currentPath) {
+       staticBody.remove();
+     } else {
+       // The generic static-main handoff removes its inline display property;
+       // expired pages intentionally restore block layout because their child
+       // article owns the original full-width shell geometry.
+       staticBody.style.setProperty('display', 'block');
+     }
+   }
+   // The no-JS footer is kept in the static HTML for crawlers and disabled-JS
+   // visitors. React owns the same flow slot after mount, so discard only the
+   // marked static copy before the portal paints its live footer.
+   if (staticOverlay) {
+     for (const staticFooter of document.querySelectorAll<HTMLElement>('#footer-root > footer[data-static-footer]')) {
+       staticFooter.remove();
+     }
+   }
+ }, [contextualPath, staticOverlay]);
+
  // Static sub-nav deduplication: build plugins (staticPagesPlugin via
  // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`
  // as a BODY-DIRECT sibling of `main.seo-static-content` so the sub-nav is on
@@ -777,6 +793,7 @@ const App: React.FC = () => {
  // Normalize the recipient email read by the shared parser.
  const email = normalizeNewsletterEmail(rawEmail);
  const assistedApplicationOrderId = url.searchParams.get('assisted_application_order_id');
+ const applicationConciergeServiceId = url.searchParams.get('application_concierge_service_id');
 
  if (!autologinCode && !legacyAuthToken) return;
  if (!email || !email.includes('@')) return;
@@ -790,7 +807,7 @@ const App: React.FC = () => {
  if (autologinCode) {
  // New flow: exchange HMAC code for a fresh custom token via Cloud Function
  const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
- const result = await exchangeNewsletterAuthCode(email, autologinCode, assistedApplicationOrderId);
+ const result = await exchangeNewsletterAuthCode(email, autologinCode, assistedApplicationOrderId, applicationConciergeServiceId);
  if (result.success && result.authToken) {
  user = await signInWithCustomAuthToken(result.authToken);
  }
@@ -1588,28 +1605,6 @@ const App: React.FC = () => {
  cancelled = true;
  };
  }, [activeTab, authLoading, authUser, isPrivilegedAdmin, locale]);
-
- const chatbotGoogleSignIn = async (): Promise<any | null> => {
- // The assistant's fallback button: attributed to the assistant, so its
- // registration names the surface it came from.
- return googleSignIn(AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION);
- };
-
- const chatbotFacebookSignIn = async (): Promise<any | null> => {
- return facebookSignIn();
- };
-
- const chatbotContinueWithEmail = async (email: string): Promise<boolean> => {
- // The chatbot email gate grants access to the conversation only. It is not a
- // newsletter form and must not create a subscriber record as a side effect.
- const ok = Boolean(email && email.includes('@'));
- if (ok) {
- Analytics.trackUIInteraction('chatbot', 'auth_gate', 'email_access', 'success');
- } else {
- Analytics.trackUIInteraction('chatbot', 'auth_gate', 'email_access', 'error');
- }
- return ok;
- };
 
  // Google One Tap: prompt on first user interaction when not signed in.
  // Triggered by pointer/keyboard/scroll instead of a fixed timer so that:
@@ -3292,12 +3287,12 @@ const App: React.FC = () => {
    || isApplicationConciergePath(window.location.pathname);
  })()) ? (
  <ApplicationConciergePortal
-  key={authUser?.uid ?? 'anonymous'}
+  key={`${authUser?.uid ?? 'anonymous'}:${typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') || 'entry' : 'entry'}`}
   serviceId={typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') : null}
   entry={typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('application_concierge') === '1' || isApplicationConciergePath(window.location.pathname))}
   authUser={authUser}
-  authLoading={authLoading}
-  onRequireAuth={() => navigateTo('profile' as any)}
+  authLoading={authLoading || newsletterAutologinInFlight}
+  onRequireAuth={() => void googleSignIn()}
  />
  ) : <JobBoard
  key={authUser?.uid ?? 'anonymous'}
@@ -4403,18 +4398,8 @@ const App: React.FC = () => {
  />
  </SafeLazy>
  )}
- <SafeLazy boundary="ai-chatbot">
- {/* Hide the floating AI assistant on the job-detail page: its bottom-right
- bubble overlaps the job-alert prompt toast and the apply CTA. */}
- {!(activeTab === 'job-board' && jobSlug) && (
- <AiChatbot
- isLoggedIn={!!authUser}
- onSignIn={chatbotGoogleSignIn}
- onSignInFacebook={chatbotFacebookSignIn}
- onContinueWithEmail={chatbotContinueWithEmail}
- hideOnMobile={activeTab === 'blog'}
- />
- )}
+ <SafeLazy boundary="job-search-floating-button">
+ <JobSearchFloatingButton />
  </SafeLazy>
  </div>
  </NavigationContext.Provider>

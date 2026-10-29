@@ -17759,12 +17759,12 @@
     },
     {
       "id": "jumbo-56e19972-05a",
-      "slug": "verkaufsberater-in-deco-jumbo-unterentfelden",
+      "slug": "consulente-di-vendita-deco-jumbo-unterentfelden",
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-unterentfelden",
-        "it": "verkaufsberater-in-deco-jumbo-unterentfelden",
-        "en": "verkaufsberater-in-deco-jumbo-unterentfelden",
-        "fr": "verkaufsberater-in-deco-jumbo-unterentfelden"
+        "it": "consulente-di-vendita-deco-jumbo-unterentfelden",
+        "en": "sales-advisor-deco-jumbo-unterentfelden",
+        "fr": "conseiller-ere-de-vente-deco-jumbo-unterentfelden"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17837,16 +17837,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T09:26:13.470Z"
+      "firstSeenAt": "2026-10-29T09:26:13.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-deco-jumbo-unterentfelden"
+        ],
+        "en": [
+          "verkaufsberater-in-deco-jumbo-unterentfelden"
+        ],
+        "fr": [
+          "verkaufsberater-in-deco-jumbo-unterentfelden"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-unterentfelden"
+      ]
     },
     {
       "id": "jumbo-e2c75c8b-2b6",
-      "slug": "lagerist-in-jumbo-wurenlingen",
+      "slug": "magazziniere-a-jumbo-wurenlingen",
       "slugByLocale": {
         "de": "lagerist-in-jumbo-wurenlingen",
-        "it": "lagerist-in-jumbo-wurenlingen",
-        "en": "lagerist-in-jumbo-wurenlingen",
-        "fr": "lagerist-in-jumbo-wurenlingen"
+        "it": "magazziniere-a-jumbo-wurenlingen",
+        "en": "warehouse-worker-jumbo-wurenlingen",
+        "fr": "magasinier-ere-jumbo-wurenlingen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17917,7 +17931,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T09:26:13.469Z"
+      "firstSeenAt": "2026-10-29T09:26:13.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerist-in-jumbo-wurenlingen"
+        ],
+        "en": [
+          "lagerist-in-jumbo-wurenlingen"
+        ],
+        "fr": [
+          "lagerist-in-jumbo-wurenlingen"
+        ]
+      },
+      "previousSlugs": [
+        "lagerist-in-jumbo-wurenlingen"
+      ]
     },
     {
       "id": "jumbo-8e74def9-0e1",

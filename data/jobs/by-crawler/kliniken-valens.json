@@ -786,7 +786,7 @@
       "slug": "farmacia-specialistica-m-f-a-30-60-kliniken-valens-zurich",
       "slugByLocale": {
         "it": "farmacia-specialistica-m-f-a-30-60-kliniken-valens-zurich",
-        "en": "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich",
+        "en": "specialist-pharmacy-m-f-a-30-60-kliniken-valens-zurich",
         "de": "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich",
         "fr": "pharmacie-specialisee-m-f-a-30-60-kliniken-valens-zurich"
       },
@@ -839,8 +839,7 @@
         "specialista-farmaceutico-m-f-a-50-60-kliniken-valens-walzenhausen",
         "professional-pharmacy-m-f-a-50-60-kliniken-valens-walzenhausen",
         "pharmacy-specialist-m-f-a-50-60-kliniken-valens-walzenhausen",
-        "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich",
-        "specialist-pharmacy-m-f-a-30-60-kliniken-valens-zurich"
+        "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -853,7 +852,7 @@
           "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich"
         ],
         "en": [
-          "specialist-pharmacy-m-f-a-30-60-kliniken-valens-zurich"
+          "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich"
         ],
         "de": [
           "fachfrau-mann-apotheke-m-w-a-50-60-kliniken-valens-walzenhausen"
@@ -1384,7 +1383,7 @@
       "id": "kliniken-valens-f0aeffab6ffd",
       "slug": "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-70-90-kliniken-valens-gais",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-70-90-kliniken-valens-gais",
+        "it": "infermiere-a-psicosomatica-psichiatria-m-f-a-70-90-kliniken-valens-gais",
         "en": "dipl-nurse-psychosomatics-psychiatry-m-f-a-70-90-kliniken-valens-gais",
         "de": "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-70-90-kliniken-valens-gais",
         "fr": "infirmiere-infirmiere-diplomee-en-psychosomatique-psychiatrie-h-f-a-70-90-kliniken-valens-gais"
@@ -1433,14 +1432,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-06T09:33:51.190Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "infermiere-a-psicosomatica-psichiatria-m-f-a-70-90-kliniken-valens-gais"
-        ]
-      },
-      "previousSlugs": [
-        "infermiere-a-psicosomatica-psichiatria-m-f-a-70-90-kliniken-valens-gais"
-      ],
       "salaryMin": 72900,
       "salaryMax": 101700,
       "salarySource": "estimated",
@@ -2917,9 +2908,9 @@
       "slug": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
       "slugByLocale": {
         "it": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
-        "en": "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
+        "en": "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
         "de": "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
-        "fr": "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
+        "fr": "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -2967,7 +2958,9 @@
         "specialista-nel-settore-alberghiero-m-f-a-80-kliniken-valens-wald",
         "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
         "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald",
-        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
+        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
+        "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
+        "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2977,10 +2970,10 @@
           "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
         ],
         "en": [
-          "professional-hotel-industry-m-f-a-80-kliniken-valens-wald"
+          "hospitality-specialist-m-f-a-80-kliniken-valens-wald"
         ],
         "fr": [
-          "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
+          "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
         ]
       },
       "firstSeenAt": "2026-09-10T23:18:08.923Z",
@@ -3773,7 +3766,7 @@
       "id": "kliniken-valens-2623e3cb87d2",
       "slug": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
       "slugByLocale": {
-        "it": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
+        "it": "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans",
         "en": "tariff-specialist-m-f-a-40-60-kliniken-valens-sargans",
         "de": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
         "fr": "specialiste-des-tarifs-h-f-a-40-60-kliniken-valens-sargans"
@@ -3839,15 +3832,11 @@
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans",
-        "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans"
+        "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans"
       ],
       "previousSlugsByLocale": {
         "de": [
           "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans"
-        ],
-        "it": [
-          "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.781Z",
@@ -4859,7 +4848,7 @@
       "id": "kliniken-valens-8dfeda9338f3",
       "slug": "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen",
       "slugByLocale": {
-        "it": "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen",
+        "it": "consulente-in-specializzato-diabete-m-f-a-50-70-kliniken-valens-st-gallen",
         "en": "diabetes-specialist-advisor-m-f-a-50-70-kliniken-valens-st-gallen",
         "de": "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen",
         "fr": "conseiller-ere-specialise-e-en-diabete-m-f-a-50-70-kliniken-valens-st-gallen"
@@ -4936,13 +4925,11 @@
         ]
       },
       "previousSlugs": [
-        "consulente-specializzato-di-diabete-in-m-f-a-50-70-kliniken-valens-st-gallen",
-        "consulente-in-specializzato-diabete-m-f-a-50-70-kliniken-valens-st-gallen"
+        "consulente-specializzato-di-diabete-in-m-f-a-50-70-kliniken-valens-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-specializzato-di-diabete-in-m-f-a-50-70-kliniken-valens-st-gallen",
-          "consulente-in-specializzato-diabete-m-f-a-50-70-kliniken-valens-st-gallen"
+          "consulente-specializzato-di-diabete-in-m-f-a-50-70-kliniken-valens-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.788Z",
@@ -6404,9 +6391,9 @@
     },
     {
       "id": "kliniken-valens-ee8f029934ea",
-      "slug": "rehaplaner-in-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
+      "slug": "pianificatore-trice-della-riabilitazione-e-assistente-di-studio-medico-m-f-a-40-60-kliniken-valens-zurich",
       "slugByLocale": {
-        "it": "rehaplaner-in-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
+        "it": "pianificatore-trice-della-riabilitazione-e-assistente-di-studio-medico-m-f-a-40-60-kliniken-valens-zurich",
         "en": "rehabilitation-planner-outpatient-clinic-assistant-m-w-a-40-60-kliniken-valens-zurich",
         "de": "rehaplaner-in-amp-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
         "fr": "planificateur-trice-de-readaptation-assistant-e-medical-e-h-f-a-40-60-kliniken-valens-zurich"
@@ -6455,12 +6442,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "rehaplaner-in-amp-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
-        "pianificatore-trice-della-riabilitazione-e-assistente-di-studio-medico-m-f-a-40-60-kliniken-valens-zurich"
+        "rehaplaner-in-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rehaplaner-in-amp-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
-          "pianificatore-trice-della-riabilitazione-e-assistente-di-studio-medico-m-f-a-40-60-kliniken-valens-zurich"
+          "rehaplaner-in-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich"
         ],
         "en": [
           "rehaplaner-in-amp-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich"
@@ -6574,9 +6561,9 @@
     },
     {
       "id": "kliniken-valens-f7292a2c4c11",
-      "slug": "direktionsassistent-in-m-w-a-50-60-kliniken-valens",
+      "slug": "assistente-di-direzione-m-f-a-50-60-kliniken-valens-valens",
       "slugByLocale": {
-        "it": "direktionsassistent-in-m-w-a-50-60-kliniken-valens",
+        "it": "assistente-di-direzione-m-f-a-50-60-kliniken-valens-valens",
         "en": "executive-assistant-m-f-a-50-60-kliniken-valens-valens",
         "de": "direktionsassistent-in-m-w-a-50-60-kliniken-valens-valens",
         "fr": "assistant-e-de-direction-h-f-autre-50-60-kliniken-valens-valens"
@@ -6625,12 +6612,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "direktionsassistent-in-m-w-a-50-60-kliniken-valens-valens",
-        "assistente-di-direzione-m-f-a-50-60-kliniken-valens-valens"
+        "direktionsassistent-in-m-w-a-50-60-kliniken-valens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "direktionsassistent-in-m-w-a-50-60-kliniken-valens-valens",
-          "assistente-di-direzione-m-f-a-50-60-kliniken-valens-valens"
+          "direktionsassistent-in-m-w-a-50-60-kliniken-valens"
         ],
         "en": [
           "direktionsassistent-in-m-w-a-50-60-kliniken-valens-valens"
@@ -7689,12 +7676,12 @@
     },
     {
       "id": "kliniken-valens-f26050fa7eef",
-      "slug": "vorpraktikum-therapien-m-w-a-100-ab-januar-2027-wieder-freie-platze-kliniken-valens",
+      "slug": "terapie-pre-internship-m-f-a-100-da-gennaio-2027-di-nuovo-luoghi-liberi-kliniken-valens-walzenhausen",
       "slugByLocale": {
         "de": "vorpraktikum-therapien-m-w-a-100-ab-januar-2027-wieder-freie-platze-kliniken-valens",
-        "it": "vorpraktikum-therapien-m-w-a-100-ab-januar-2027-wieder-freie-platze-kliniken-valens",
-        "en": "vorpraktikum-therapien-m-w-a-100-ab-januar-2027-wieder-freie-platze-kliniken-valens",
-        "fr": "vorpraktikum-therapien-m-w-a-100-ab-januar-2027-wieder-freie-platze-kliniken-valens"
+        "it": "terapie-pre-internship-m-f-a-100-da-gennaio-2027-di-nuovo-luoghi-liberi-kliniken-valens-walzenhausen",
+        "en": "pre-internship-therapies-m-f-a-100-from-january-2027-again-free-places-kliniken-valens-walzenhausen",
+        "fr": "therapies-pre-internes-m-f-a-100-a-partir-de-janvier-2027-de-nouveau-places-libres-kliniken-valens-walzenhausen"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -7753,7 +7740,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T09:35:50.892Z"
+      "firstSeenAt": "2026-10-29T09:35:50.892Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorpraktikum-therapien-m-w-a-100-ab-januar-2027-wieder-freie-platze-kliniken-valens"
+        ],
+        "en": [
+          "vorpraktikum-therapien-m-w-a-100-ab-januar-2027-wieder-freie-platze-kliniken-valens"
+        ],
+        "fr": [
+          "vorpraktikum-therapien-m-w-a-100-ab-januar-2027-wieder-freie-platze-kliniken-valens"
+        ]
+      },
+      "previousSlugs": [
+        "vorpraktikum-therapien-m-w-a-100-ab-januar-2027-wieder-freie-platze-kliniken-valens"
+      ]
     },
     {
       "id": "kliniken-valens-3340bda2e578",
@@ -7861,12 +7862,12 @@
     },
     {
       "id": "kliniken-valens-3c023cc77605",
-      "slug": "idem-freiwilligenengagement-kliniken-valens-st-gallen",
+      "slug": "idem-impegno-volontario-kliniken-valens-st-gallen",
       "slugByLocale": {
         "de": "idem-freiwilligenengagement-kliniken-valens-st-gallen",
-        "it": "idem-freiwilligenengagement-kliniken-valens-st-gallen",
-        "en": "idem-freiwilligenengagement-kliniken-valens-st-gallen",
-        "fr": "idem-freiwilligenengagement-kliniken-valens-st-gallen"
+        "it": "idem-impegno-volontario-kliniken-valens-st-gallen",
+        "en": "idem-voluntary-engagement-kliniken-valens-st-gallen",
+        "fr": "idem-engagement-volontaire-kliniken-valens-st-gallen"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -7925,7 +7926,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T09:35:50.889Z"
+      "firstSeenAt": "2026-10-29T09:35:50.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "idem-freiwilligenengagement-kliniken-valens-st-gallen"
+        ],
+        "en": [
+          "idem-freiwilligenengagement-kliniken-valens-st-gallen"
+        ],
+        "fr": [
+          "idem-freiwilligenengagement-kliniken-valens-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "idem-freiwilligenengagement-kliniken-valens-st-gallen"
+      ]
     },
     {
       "id": "kliniken-valens-acf698f89bbf",
@@ -8007,12 +8022,12 @@
     },
     {
       "id": "kliniken-valens-481e8eca72c4",
-      "slug": "pflegehelfer-in-srk-m-w-a-50-100-kliniken-valens-davos-clavdel",
+      "slug": "ausiliario-a-di-cura-srk-m-f-a-50-100-kliniken-valens-davos-clavdel",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-m-w-a-50-100-kliniken-valens-davos-clavdel",
-        "it": "pflegehelfer-in-srk-m-w-a-50-100-kliniken-valens-davos-clavdel",
-        "en": "pflegehelfer-in-srk-m-w-a-50-100-kliniken-valens-davos-clavdel",
-        "fr": "pflegehelfer-in-srk-m-w-a-50-100-kliniken-valens-davos-clavdel"
+        "it": "ausiliario-a-di-cura-srk-m-f-a-50-100-kliniken-valens-davos-clavdel",
+        "en": "nursing-assistant-srk-m-f-a-50-100-kliniken-valens-davos-clavdel",
+        "fr": "auxiliaire-de-sante-srk-h-f-a-50-100-kliniken-valens-davos-clavdel"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8070,7 +8085,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-m-w-a-50-100-kliniken-valens-davos-clavdel"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-m-w-a-50-100-kliniken-valens-davos-clavdel"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-m-w-a-50-100-kliniken-valens-davos-clavdel"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-m-w-a-50-100-kliniken-valens-davos-clavdel"
+      ]
     }
   ]
 }

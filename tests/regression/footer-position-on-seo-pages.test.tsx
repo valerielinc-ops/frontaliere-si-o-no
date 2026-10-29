@@ -208,4 +208,37 @@ describe('Regression: footer position on staticOverlay SEO pages (Bug A portal f
       '<footer> must NOT be in #footer-root on non-staticOverlay pages'
     ).toBe(false);
   });
+
+  it('keeps the expired static article block-shaped and removes only the no-JS footer copy', () => {
+    const expiredPath = '/cerca-lavoro-ticino/crew-mcdonalds-switzerland-morbio-inferiore-p8-319611-6/';
+    window.history.replaceState(null, '', expiredPath);
+    mockParsePath.mockImplementation(() => ({
+      route: { activeTab: 'job-board' as const, jobBoardCanton: 'TI' as const, staticOverlay: true },
+      locale: 'it' as const,
+    }));
+
+    const staticMain = document.createElement('main');
+    staticMain.className = 'seo-static-content';
+    staticMain.dataset.expiredStaticBody = 'true';
+    staticMain.dataset.expiredStaticPath = expiredPath;
+    staticMain.style.cssText = 'max-width:none;margin:0;padding:0;display:block';
+    document.body.insertBefore(staticMain, footerRootDiv);
+
+    const staticFooter = document.createElement('footer');
+    staticFooter.dataset.staticFooter = 'true';
+    footerRootDiv.appendChild(staticFooter);
+
+    const { rerender } = render(<App />, { container: rootDiv });
+
+    expect(staticMain.isConnected).toBe(true);
+    expect(staticMain.style.display).toBe('block');
+    expect(staticFooter.isConnected).toBe(false);
+    expect(footerRootDiv.querySelector('footer:not([data-static-footer])')).not.toBeNull();
+
+    // A soft navigation can keep staticOverlay=true while the pathname changes.
+    // The cleanup must still run before the destination paints.
+    window.history.replaceState(null, '', '/guida/contratti-di-lavoro/');
+    rerender(<App />);
+    expect(staticMain.isConnected).toBe(false);
+  });
 });

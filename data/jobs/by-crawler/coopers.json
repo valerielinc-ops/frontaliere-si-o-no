@@ -3836,12 +3836,12 @@
     },
     {
       "id": "coopers-7cf39ec2b813",
-      "slug": "computerized-system-qa-manager-m-w-d-coopers-wallis",
+      "slug": "gestione-computerizzata-del-sistema-qa-manager-m-f-d-coopers-group-ag-wallis",
       "slugByLocale": {
         "en": "computerized-system-qa-manager-m-w-d-coopers-wallis",
-        "it": "computerized-system-qa-manager-m-w-d-coopers-wallis",
-        "de": "computerized-system-qa-manager-m-w-d-coopers-wallis",
-        "fr": "computerized-system-qa-manager-m-w-d-coopers-wallis"
+        "it": "gestione-computerizzata-del-sistema-qa-manager-m-f-d-coopers-group-ag-wallis",
+        "de": "qa-manager-des-computersystems-m-w-d-coopers-group-ag-wallis",
+        "fr": "systeme-informatise-qa-manager-h-f-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3913,7 +3913,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-10-29T09:29:12.273Z"
+      "firstSeenAt": "2026-10-29T09:29:12.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "computerized-system-qa-manager-m-w-d-coopers-wallis"
+        ],
+        "de": [
+          "computerized-system-qa-manager-m-w-d-coopers-wallis"
+        ],
+        "fr": [
+          "computerized-system-qa-manager-m-w-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "computerized-system-qa-manager-m-w-d-coopers-wallis"
+      ]
     },
     {
       "id": "coopers-52cb4b048a24",

@@ -1374,7 +1374,7 @@
       "slugByLocale": {
         "it": "infermiera-crans-montana-80-hug-crans-montana",
         "en": "nurse-crans-montana-80-hug-crans-montana",
-        "de": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
+        "de": "krankenschwester-crans-montana-80-hug-crans-montana",
         "fr": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
@@ -1419,8 +1419,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "krankenschwester-crans-montana-80-hug-crans-montana"
+        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1430,7 +1429,7 @@
           "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ],
         "de": [
-          "krankenschwester-crans-montana-80-hug-crans-montana"
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ]
       },
       "needsRetranslation": true,
@@ -3669,12 +3668,12 @@
     },
     {
       "id": "hug-e7adc60548fb",
-      "slug": "medecin-adjointe-ou-adjoint-a-l-unite-de-cardio-pediatrie-100-hug-geneve",
+      "slug": "assistente-medico-o-assistente-dell-unita-cardio-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-adjointe-ou-adjoint-a-l-unite-de-cardio-pediatrie-100-hug-geneve",
-        "it": "medecin-adjointe-ou-adjoint-a-l-unite-de-cardio-pediatrie-100-hug-geneve",
-        "en": "medecin-adjointe-ou-adjoint-a-l-unite-de-cardio-pediatrie-100-hug-geneve",
-        "de": "medecin-adjointe-ou-adjoint-a-l-unite-de-cardio-pediatrie-100-hug-geneve"
+        "it": "assistente-medico-o-assistente-dell-unita-cardio-pediatrica-100-hug-geneve",
+        "en": "assistant-physician-or-assistant-to-the-cardio-pediatric-unit-100-hug-geneve",
+        "de": "assistenzarzt-oder-assistent-der-kardiopadiatrischen-einheit-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3733,16 +3732,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-29T09:27:42.408Z"
+      "firstSeenAt": "2026-10-29T09:27:42.408Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-adjointe-ou-adjoint-a-l-unite-de-cardio-pediatrie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-adjointe-ou-adjoint-a-l-unite-de-cardio-pediatrie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-adjointe-ou-adjoint-a-l-unite-de-cardio-pediatrie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-adjointe-ou-adjoint-a-l-unite-de-cardio-pediatrie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-a3653e445cc6",
-      "slug": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve",
+      "slug": "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve",
-        "it": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve",
-        "en": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve",
-        "de": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+        "it": "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-al-100-hug-geneve",
+        "en": "medical-or-medical-secretary-for-anaesthesiology-consultation-80-to-100-hug-geneve",
+        "de": "medizinische-oder-medizinische-sekretarin-fur-anasthesiologische-beratung-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3801,7 +3814,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-29T09:27:42.406Z"
+      "firstSeenAt": "2026-10-29T09:27:42.406Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-13eebbff8c74",
@@ -3885,7 +3912,7 @@
       "slug": "psicologo-psicoterapeuta-40-hug-geneve-1a20c2304e",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-40-hug-geneve-1a20c2304e",
-        "en": "psychologue-psychotherapeute-40-hug-geneve",
+        "en": "psychologist-psychotherapist-40-hug-geneve",
         "de": "psychologe-psychotherapeut-40-hug-geneve",
         "fr": "psychologue-psychotherapeute-40-hug-geneve"
       },
@@ -3932,8 +3959,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologue-psychotherapeute-40-hug-geneve",
-        "psicologo-psicoterapeuta-40-hug-geneve",
-        "psychologist-psychotherapist-40-hug-geneve"
+        "psicologo-psicoterapeuta-40-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3941,7 +3967,7 @@
           "psicologo-psicoterapeuta-40-hug-geneve"
         ],
         "en": [
-          "psychologist-psychotherapist-40-hug-geneve"
+          "psychologue-psychotherapeute-40-hug-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -3963,12 +3989,12 @@
     },
     {
       "id": "hug-f0333ac4603c",
-      "slug": "responsable-administrative-et-financiere-adjoint-ou-adjointe-100-hug-geneve",
+      "slug": "agente-amministrativo-e-finanziario-aggiunto-100-hug-geneve",
       "slugByLocale": {
         "fr": "responsable-administrative-et-financiere-adjoint-ou-adjointe-100-hug-geneve",
-        "it": "responsable-administrative-et-financiere-adjoint-ou-adjointe-100-hug-geneve",
-        "en": "responsable-administrative-et-financiere-adjoint-ou-adjointe-100-hug-geneve",
-        "de": "responsable-administrative-et-financiere-adjoint-ou-adjointe-100-hug-geneve"
+        "it": "agente-amministrativo-e-finanziario-aggiunto-100-hug-geneve",
+        "en": "deputy-or-deputy-administrative-and-financial-officer-100-hug-geneve",
+        "de": "stellvertretender-oder-stellvertretender-verwaltungs-und-finanzbeamter-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4027,7 +4053,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-29T09:27:42.397Z"
+      "firstSeenAt": "2026-10-29T09:27:42.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-administrative-et-financiere-adjoint-ou-adjointe-100-hug-geneve"
+        ],
+        "en": [
+          "responsable-administrative-et-financiere-adjoint-ou-adjointe-100-hug-geneve"
+        ],
+        "de": [
+          "responsable-administrative-et-financiere-adjoint-ou-adjointe-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-administrative-et-financiere-adjoint-ou-adjointe-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-9d0216ce49f8",

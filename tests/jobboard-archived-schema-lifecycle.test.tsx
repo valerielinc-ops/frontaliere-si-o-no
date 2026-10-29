@@ -54,6 +54,7 @@ function runEffect(slug?: string, locationFilter: string | null = null) {
 
 beforeEach(() => {
   document.head.innerHTML = '<script id="archived-posting" type="application/ld+json">{"@type":"JobPosting","validThrough":"2026-09-24T00:00:00Z"}</script><script id="archive-page" type="application/ld+json">{"@type":"WebPage"}</script>';
+  document.body.innerHTML = '<main data-expired-static-body="true" data-expired-static-path="/"></main>';
 });
 afterEach(() => {
   document.head.innerHTML = '';

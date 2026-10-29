@@ -1239,7 +1239,7 @@
       "slug": "product-owner-per-uno-stage-universitario-postfinance-bern",
       "slugByLocale": {
         "it": "product-owner-per-uno-stage-universitario-postfinance-bern",
-        "en": "hochschulpraktikum-product-owner-in-postfinance-bern",
+        "en": "university-internship-productowner-postfinance-bern",
         "de": "hochschulpraktikum-product-owner-in-postfinance",
         "fr": "stage-universitaire-product-owner-postfinance-bern"
       },
@@ -1267,7 +1267,7 @@
       "id": "postfinance-179a5e27e8e9",
       "previousSlugs": [
         "hochschulpraktikum-product-owner-in-postfinance",
-        "university-internship-productowner-postfinance-bern"
+        "hochschulpraktikum-product-owner-in-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1275,7 +1275,7 @@
         ],
         "en": [
           "hochschulpraktikum-product-owner-in-postfinance",
-          "university-internship-productowner-postfinance-bern"
+          "hochschulpraktikum-product-owner-in-postfinance-bern"
         ],
         "fr": [
           "hochschulpraktikum-product-owner-in-postfinance"
@@ -1406,12 +1406,12 @@
         "en": "Specialist for Interbank Payment Reconciliations",
         "fr": "Collaborateur·rice chargé·e des rapprochements du trafic des paiements interbancaires"
       },
-      "slug": "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance",
+      "slug": "addetto-a-alle-riconciliazioni-del-traffico-dei-pagamenti-interbancari-postfinance-bern",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance",
-        "en": "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance",
         "de": "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance",
-        "fr": "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance"
+        "it": "addetto-a-alle-riconciliazioni-del-traffico-dei-pagamenti-interbancari-postfinance-bern",
+        "en": "specialist-for-interbank-payment-reconciliations-postfinance-bern",
+        "fr": "collaborateur-rice-charge-e-des-rapprochements-du-trafic-des-paiements-interbancaires-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1452,7 +1452,21 @@
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-29T10:22:23.087Z"
+      "firstSeenAt": "2026-10-29T10:22:23.087Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance"
+        ],
+        "en": [
+          "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance"
+        ],
+        "fr": [
+          "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-abstimmungen-interbanken-zahlungsverkehr-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Senior-Third-Party-Risk-Manager-%28mwd%29/74953-de_DE",
