@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-29T20:25:23.660Z",
+  "generatedAt": "2026-10-29T21:21:45.115Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -25598,6 +25598,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T11:14:18.987Z"
     },
+    "guidle:AC2ZMAs::e4f49f22ee5573c33523e4ddf454d5c9ab7a3007a0ba78cdc984146cdc7d5bcb": {
+      "id": "guidle:AC2ZMAs",
+      "sourceDescriptionHash": "e4f49f22ee5573c33523e4ddf454d5c9ab7a3007a0ba78cdc984146cdc7d5bcb",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Audimax Saal Stoll VITA Stiftung Waldshut; categoria: Percussioni / batteria; organizzatore: Guidle; data: 2027-06-06; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Audimax Saal Stoll VITA Stiftung Waldshut; categoria: Percussioni / batteria; organizzatore: Guidle; data: 2027-06-06; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Audimax Saal Stoll VITA Stiftung Waldshut; category: Percussioni / batteria; organiser: Guidle; date: 2027-06-06; time: 19:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Audimax Saal Stoll VITA Stiftung Waldshut; kategorie: Percussioni / batteria; veranstalter: Guidle; datum: 2027-06-06; uhrzeit: 19:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Audimax Saal Stoll VITA Stiftung Waldshut; catégorie: Percussioni / batteria; organisateur: Guidle; date: 2027-06-06; heure: 19:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T21:15:45.040Z"
+    },
     "guidle:Ac3C9NJ::ab7f41e0b279952e0ed3b5c7cc859dc5da66a5c2af2be91dddc5cd7b635469cf": {
       "id": "guidle:Ac3C9NJ",
       "sourceDescriptionHash": "ab7f41e0b279952e0ed3b5c7cc859dc5da66a5c2af2be91dddc5cd7b635469cf",
@@ -32612,6 +32626,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-23T13:29:24.437Z"
     },
+    "guidle:AGsdRQ5::bdc8abdce530e3e908ef75e846fa03c3626362cb57deaa70be6787816ff4333b": {
+      "id": "guidle:AGsdRQ5",
+      "sourceDescriptionHash": "bdc8abdce530e3e908ef75e846fa03c3626362cb57deaa70be6787816ff4333b",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Graf-Zeppelin-Haus; categoria: Altri musica; organizzatore: Guidle; data: 2027-05-09; ora: 11:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Graf-Zeppelin-Haus; categoria: Altri musica; organizzatore: Guidle; data: 2027-05-09; ora: 11:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Graf-Zeppelin-Haus; category: Altri musica; organiser: Guidle; date: 2027-05-09; time: 11:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Graf-Zeppelin-Haus; kategorie: Altri musica; veranstalter: Guidle; datum: 2027-05-09; uhrzeit: 11:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Graf-Zeppelin-Haus; catégorie: Altri musica; organisateur: Guidle; date: 2027-05-09; heure: 11:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T21:17:04.272Z"
+    },
     "guidle:AGsesfB::8f68b53626a7396c9c7c4c1035d5daf6de3a4101dcdd95fa876eb8baf0d6c3c1": {
       "id": "guidle:AGsesfB",
       "sourceDescriptionHash": "8f68b53626a7396c9c7c4c1035d5daf6de3a4101dcdd95fa876eb8baf0d6c3c1",
@@ -39051,6 +39079,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T08:30:37.013Z"
+    },
+    "guidle:AMdpPV8::b5257e54620296d3cfa33170a7e59fc5bf6f63cf0afce2a317cbe4d0d6d216bc": {
+      "id": "guidle:AMdpPV8",
+      "sourceDescriptionHash": "b5257e54620296d3cfa33170a7e59fc5bf6f63cf0afce2a317cbe4d0d6d216bc",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zeughaus Kultur; cantone: VS; categoria: Nuova musica folklorica; organizzatore: Guidle; data: 2027-05-30; ora: 17:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zeughaus Kultur; cantone: VS; categoria: Nuova musica folklorica; organizzatore: Guidle; data: 2027-05-30; ora: 17:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Zeughaus Kultur; canton: VS; category: Nuova musica folklorica; organiser: Guidle; date: 2027-05-30; time: 17:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Zeughaus Kultur; kanton: VS; kategorie: Nuova musica folklorica; veranstalter: Guidle; datum: 2027-05-30; uhrzeit: 17:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Zeughaus Kultur; canton: VS; catégorie: Nuova musica folklorica; organisateur: Guidle; date: 2027-05-30; heure: 17:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T21:15:45.030Z"
     },
     "guidle:Ame5Cua::cf56e9246d5383ec9798beb50d489521dd91a293b1c06fe370b633cb3e44eac2": {
       "id": "guidle:Ame5Cua",
@@ -178622,15 +178664,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AC2ZMAs::e4f49f22ee5573c33523e4ddf454d5c9ab7a3007a0ba78cdc984146cdc7d5bcb": {
-      "id": "guidle:AC2ZMAs",
-      "sourceDescriptionHash": "e4f49f22ee5573c33523e4ddf454d5c9ab7a3007a0ba78cdc984146cdc7d5bcb",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-29T20:18:55.867Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AC54AMx::023188da9aafd2adfd6e61034e2050222c33572702dcd8cbacbf6c33f8fe7581": {
       "id": "guidle:AC54AMx",
       "sourceDescriptionHash": "023188da9aafd2adfd6e61034e2050222c33572702dcd8cbacbf6c33f8fe7581",
@@ -178970,15 +179003,6 @@
       "code": "source-ngram-8",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T13:34:02.595Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AGsdRQ5::bdc8abdce530e3e908ef75e846fa03c3626362cb57deaa70be6787816ff4333b": {
-      "id": "guidle:AGsdRQ5",
-      "sourceDescriptionHash": "bdc8abdce530e3e908ef75e846fa03c3626362cb57deaa70be6787816ff4333b",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-29T18:22:33.643Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179348,15 +179372,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T11:47:38.855Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AMdpPV8::b5257e54620296d3cfa33170a7e59fc5bf6f63cf0afce2a317cbe4d0d6d216bc": {
-      "id": "guidle:AMdpPV8",
-      "sourceDescriptionHash": "b5257e54620296d3cfa33170a7e59fc5bf6f63cf0afce2a317cbe4d0d6d216bc",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-29T20:19:40.920Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
