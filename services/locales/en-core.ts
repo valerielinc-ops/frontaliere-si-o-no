@@ -959,6 +959,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.paymentJobUnavailable': 'This listing is no longer available. No new payment was started.',
  'jobBoard.assisted.paymentFailed': 'Payment was not confirmed. Do not upload data; try again from the listing link.',
  'jobBoard.assisted.checkoutError': 'We could not start the payment. Please try again shortly.',
+ 'jobBoard.assisted.fitBlocked': 'Before payment, we found an essential requirement that your CV does not show:',
  'jobBoard.assisted.paidConfirmed': 'Payment confirmed. You can now send the CV and details needed for this listing.',
  'jobBoard.assisted.submittedTitle': 'Application received',
  'jobBoard.assisted.submittedBody': 'We received your CV and specific mandate. We automatically prepare the application and email it to you for approval: you have 12 hours to correct it, then we send it to the company, with nothing for you to do.',

@@ -2138,7 +2138,9 @@ export const createAssistedApplicationCheckout = onRequest(
   {
     region: 'europe-west6',
     memory: '256MiB',
-    timeoutSeconds: 30,
+    // A ready-CV fit preflight reads the full posting and may use the same
+    // bounded provider chain as concierge matching before opening checkout.
+    timeoutSeconds: 120,
     cors: [
       'https://frontaliereticino.ch',
       'https://www.frontaliereticino.ch',

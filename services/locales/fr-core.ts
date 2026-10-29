@@ -936,6 +936,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.paymentJobUnavailable': 'Cette offre n’est plus disponible. Aucun nouveau paiement n’a été lancé.',
  'jobBoard.assisted.paymentFailed': 'Le paiement n’a pas été confirmé. Ne téléversez pas de données et réessayez depuis le lien de l’offre.',
  'jobBoard.assisted.checkoutError': 'Impossible de démarrer le paiement. Réessayez dans un instant.',
+ 'jobBoard.assisted.fitBlocked': 'Avant le paiement, nous avons trouvé une exigence essentielle que votre CV ne démontre pas :',
  'jobBoard.assisted.paidConfirmed': 'Paiement confirmé. Vous pouvez maintenant envoyer le CV et les informations nécessaires pour cette offre.',
  'jobBoard.assisted.submittedTitle': 'Candidature prise en charge',
  'jobBoard.assisted.submittedBody': 'Nous avons reçu votre CV et votre mandat spécifique. Nous préparons automatiquement la candidature et vous l’envoyons par e-mail pour validation : vous avez 12 heures pour la corriger, puis nous l’envoyons à l’entreprise, sans rien à faire de votre côté.',

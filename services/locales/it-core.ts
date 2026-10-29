@@ -1002,6 +1002,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.paymentJobUnavailable': 'Questo annuncio non è più disponibile. Non è stato avviato un nuovo pagamento.',
  'jobBoard.assisted.paymentFailed': 'Il pagamento non è stato confermato. Non caricare dati e riprova dal link dell’annuncio.',
  'jobBoard.assisted.checkoutError': 'Non siamo riusciti ad avviare il pagamento. Riprova tra poco.',
+ 'jobBoard.assisted.fitBlocked': 'Prima del pagamento abbiamo trovato un requisito decisivo che il CV non dimostra:',
  'jobBoard.assisted.paidConfirmed': 'Pagamento confermato. Ora puoi inviare il CV e i dati necessari per questo annuncio.',
  'jobBoard.assisted.submittedTitle': 'Candidatura presa in carico',
  'jobBoard.assisted.submittedBody': 'Abbiamo ricevuto il CV e il mandato specifico. Prepariamo in automatico la candidatura e te la mandiamo per email da approvare: hai 12 ore per correggerla, poi la inviamo noi all’azienda, senza che tu debba fare nulla.',

@@ -1,4 +1,5 @@
 import { useConciergeProposalAction } from '@/hooks/useConciergeProposalAction';
+import { conciergeServiceHref } from '@/services/applicationConciergeNavigation';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { jobDisplayTitle, jobSearchTitleText } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
@@ -278,6 +279,7 @@ import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
  getAssistedApplicationCheckoutErrorCode,
+ type AssistedApplicationCheckoutError,
  type AssistedApplicationCheckoutResult,
 } from '@/services/assistedApplicationCheckout';
 import { readReviewToken } from '@/services/assistedApplicationReviewService';
@@ -8063,8 +8065,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
    window.location.assign(result.url);
   } catch (error) {
    setAssistedCheckoutBusy(false);
-   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
    const errorCode = getAssistedApplicationCheckoutErrorCode(error);
+   const checkoutError = error as AssistedApplicationCheckoutError;
+   if (errorCode === 'application_concierge_proposal_already_accepted'
+    && checkoutError.details?.serviceId
+    && checkoutError.details.childApplicationId) {
+    window.location.assign(conciergeServiceHref(checkoutError.details.serviceId, locale, checkoutError.details.childApplicationId));
+    return;
+   }
+   const missingRequirement = errorCode === 'assisted_application_incompatible'
+    ? checkoutError.details?.gaps?.[0]?.requirement || checkoutError.details?.gaps?.[0]?.quote
+    : '';
+   setAssistedCheckoutError(missingRequirement
+    ? `${t('jobBoard.assisted.fitBlocked')} ${missingRequirement}`
+    : t('jobBoard.assisted.checkoutError'));
    const failureReason = errorCode === 'assisted_application_auth_required'
     ? 'auth_required'
     : 'session_creation_failed';

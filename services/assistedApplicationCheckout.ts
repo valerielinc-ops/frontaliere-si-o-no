@@ -64,9 +64,23 @@ export type AssistedApplicationCheckoutResult =
   | AssistedApplicationCheckoutStripeResult
   | AssistedApplicationCheckoutSumUpResult;
 
+export interface AssistedApplicationFitGap {
+  requirement?: string;
+  quote?: string;
+  status?: string;
+}
+
+export interface AssistedApplicationCheckoutDetails {
+  gaps?: AssistedApplicationFitGap[];
+  serviceId?: string;
+  proposalId?: string;
+  childApplicationId?: string;
+}
+
 export interface AssistedApplicationCheckoutError extends Error {
   code?: string;
   status?: number;
+  details?: AssistedApplicationCheckoutDetails;
 }
 
 const SAFE_ERROR_CODE_RE = /^[a-z][a-z0-9_.:/-]{0,63}$/;
@@ -89,11 +103,41 @@ export function getAssistedApplicationCheckoutErrorCode(error: unknown): string 
   return httpErrorCode((error as AssistedApplicationCheckoutError | null)?.status) || 'unknown';
 }
 
-function checkoutError(code: string, status?: number): AssistedApplicationCheckoutError {
+function checkoutError(code: string, status?: number, details?: AssistedApplicationCheckoutDetails): AssistedApplicationCheckoutError {
   const error = new Error(code) as AssistedApplicationCheckoutError;
   error.code = code;
   if (Number.isInteger(status) && status !== undefined && status >= 100 && status <= 599) error.status = status;
+  if (details && Object.keys(details).length > 0) error.details = details;
   return error;
+}
+
+function boundedCheckoutDetail(value: unknown, max: number): string | undefined {
+  const text = typeof value === 'string' ? value.trim().slice(0, max) : '';
+  return text || undefined;
+}
+
+function checkoutDetails(value: unknown): AssistedApplicationCheckoutDetails {
+  const raw = value && typeof value === 'object' ? value as Record<string, unknown> : {};
+  const gaps = Array.isArray(raw.gaps)
+    ? raw.gaps.slice(0, 3).map((gap) => {
+      const item = gap && typeof gap === 'object' ? gap as Record<string, unknown> : {};
+      return {
+        requirement: boundedCheckoutDetail(item.requirement, 200),
+        quote: boundedCheckoutDetail(item.quote, 300),
+        status: boundedCheckoutDetail(item.status, 20),
+      };
+    }).filter((gap) => gap.requirement || gap.quote)
+    : [];
+  const validId = (candidate: unknown) => {
+    const value = boundedCheckoutDetail(candidate, 200);
+    return value && /^[A-Za-z0-9_-]{1,200}$/.test(value) ? value : undefined;
+  };
+  return {
+    ...(gaps.length ? { gaps } : {}),
+    ...(validId(raw.serviceId) ? { serviceId: validId(raw.serviceId) } : {}),
+    ...(validId(raw.proposalId) ? { proposalId: validId(raw.proposalId) } : {}),
+    ...(validId(raw.childApplicationId) ? { childApplicationId: validId(raw.childApplicationId) } : {}),
+  };
 }
 
 const REQUEST_KEY_STORAGE_PREFIX = 'frontaliere_assisted_application_checkout_v2';
@@ -242,7 +286,7 @@ export async function createAssistedApplicationCheckout(
     && data.url.length > 0;
   if (!response.ok || !data?.ok || !data?.orderId || (!isSumUpWidgetResponse && !isRedirectResponse)) {
     const code = safeErrorCode(data?.error) || (httpErrorCode(response.status) || 'invalid_response');
-    throw checkoutError(code, response.status);
+    throw checkoutError(code, response.status, checkoutDetails(data));
   }
   return data as AssistedApplicationCheckoutResult;
 }

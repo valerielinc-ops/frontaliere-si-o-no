@@ -962,6 +962,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.paymentJobUnavailable': 'Diese Stelle ist nicht mehr verfügbar. Es wurde keine neue Zahlung gestartet.',
  'jobBoard.assisted.paymentFailed': 'Die Zahlung wurde nicht bestätigt. Lade keine Daten hoch und versuche es über den Link der Stelle erneut.',
  'jobBoard.assisted.checkoutError': 'Die Zahlung konnte nicht gestartet werden. Bitte versuche es in Kürze erneut.',
+ 'jobBoard.assisted.fitBlocked': 'Vor der Zahlung haben wir eine entscheidende Anforderung gefunden, die dein Lebenslauf nicht belegt:',
  'jobBoard.assisted.paidConfirmed': 'Zahlung bestätigt. Du kannst jetzt den Lebenslauf und die nötigen Angaben für diese Stelle senden.',
  'jobBoard.assisted.submittedTitle': 'Bewerbung übernommen',
  'jobBoard.assisted.submittedBody': 'Wir haben deinen Lebenslauf und den konkreten Auftrag erhalten. Wir bereiten die Bewerbung automatisch vor und schicken sie dir per E-Mail zur Freigabe: Du hast 12 Stunden für Korrekturen, danach senden wir sie an das Unternehmen, ohne dass du etwas tun musst.',
