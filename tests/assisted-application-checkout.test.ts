@@ -82,6 +82,8 @@ const assistedApplicationPaymentProvider = vi.fn(async () => 'stripe');
 const sumUpCheckoutCreate = vi.fn(async () => ({
   id: 'sumup_checkout_1',
 }));
+const retrieveSumUpCheckoutMock = vi.fn();
+const applySumUpCheckoutMock = vi.fn();
 
 vi.mock('stripe', () => {
   class MockStripe {
@@ -100,6 +102,10 @@ vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
   getAssistedApplicationPaymentProvider: (...args: unknown[]) => assistedApplicationPaymentProvider(...args),
   createSumUpAssistedApplicationCheckout: (...args: unknown[]) => sumUpCheckoutCreate(...args),
   SUMUP_PAYMENT_PROVIDER: 'sumup',
+  retrieveSumUpCheckout: (...args: unknown[]) => retrieveSumUpCheckoutMock(...args),
+}));
+vi.mock('../functions/src/assistedApplicationSumupWebhook.js', () => ({
+  applyAssistedApplicationSumUpCheckout: (...args: unknown[]) => applySumUpCheckoutMock(...args),
 }));
 
 function request(overrides: Record<string, unknown> = {}) {
@@ -155,15 +161,25 @@ beforeEach(() => {
     url: 'https://checkout.stripe.com/cs_assisted_1',
     expires_at: 4102444800,
   }));
-  stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
-    id: 'cs_assisted_1',
-    status: 'open',
-    expires_at: 4102444800,
+  stripeCheckoutSessionsRetrieve.mockImplementation(async (id?: string) => ({
+    id: id || 'cs_assisted_1', status: 'open', payment_status: 'unpaid', amount_total: 199, currency: 'eur',
+    url: 'https://checkout.stripe.com/' + (id || 'cs_assisted_1'), expires_at: Math.floor(Date.now() / 1000) + 3600,
   }));
   assistedApplicationPaymentProvider.mockResolvedValue('stripe');
   sumUpCheckoutCreate.mockImplementation(async () => ({
     id: 'sumup_checkout_1',
   }));
+  retrieveSumUpCheckoutMock.mockImplementation(async (id: string) => {
+    const entry = Object.entries(store.assisted_applications || {}).find(([, row]) => row.sumupCheckoutId === id);
+    return { id, checkout_reference: entry?.[0], amount: 1.99, currency: 'EUR', status: 'PENDING' };
+  });
+  applySumUpCheckoutMock.mockImplementation(async (checkout: { id: string; checkout_reference: string }) => {
+    const row = store.assisted_applications[checkout.checkout_reference];
+    if (row?.sumupCheckoutId === checkout.id && row.paymentStatus !== 'refunded') {
+      Object.assign(row, { paymentStatus: 'paid', checkoutSessionStatus: 'completed' });
+    }
+    return { paymentStatus: row?.paymentStatus };
+  });
 });
 
 describe('handleCreateAssistedApplicationCheckout', () => {
@@ -230,6 +246,150 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     expect(await handleCreateAssistedApplicationCheckout(request())).toEqual({ status: 409,
       body: { ok: false, error: 'assisted_application_request_conflict' } });
     expect(Object.values(store.assisted_application_checkout_requests)[0].checkoutSessionStatus).toBe('creating');
+  });
+
+  it.each(['PENDING', 'FAILED'])('reuses a known SumUp failure when server truth is %s without a second payable', async (status) => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    Object.assign(store.assisted_applications[first.body.orderId], { paymentStatus: 'failed',
+      paymentFailureReason: 'payment_not_confirmed', checkoutSessionStatus: 'failed' });
+    retrieveSumUpCheckoutMock.mockResolvedValue({ id: 'sumup_checkout_1', checkout_reference: first.body.orderId,
+      amount: 1.99, currency: 'EUR', status });
+    const retry = await handleCreateAssistedApplicationCheckout(request());
+    expect(retry).toEqual(first);
+    expect(sumUpCheckoutCreate).toHaveBeenCalledOnce();
+    expect(Object.keys(store.assisted_applications)).toHaveLength(1);
+    expect(store.assisted_applications[first.body.orderId]).toMatchObject({ paymentStatus: 'pending', checkoutSessionStatus: 'open', paymentFailureReason: null });
+  });
+
+  it('returns a client-compatible paid redirect after verifying a cached SumUp checkout', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    retrieveSumUpCheckoutMock.mockResolvedValue({ id: 'sumup_checkout_1', checkout_reference: first.body.orderId,
+      amount: 1.99, currency: 'EUR', status: 'PAID' });
+    const response = await handleCreateAssistedApplicationCheckout(request());
+    expect(response.status).toBe(200);
+    expect(response.body).not.toHaveProperty('checkoutId');
+    expect(sumUpCheckoutCreate).toHaveBeenCalledOnce();
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: true, status: response.status, json: async () => response.body } as Response);
+    try {
+      const { createAssistedApplicationCheckout } = await import('../services/assistedApplicationCheckout');
+      expect(await createAssistedApplicationCheckout(request().body as any, { uid: 'user-42', getIdToken: async () => 'good-token' }))
+        .toMatchObject({ url: expect.stringContaining('assisted_application_order_id=order-1'), orderId: first.body.orderId });
+    } finally { fetchSpy.mockRestore(); }
+  });
+
+  it('rotates a cached SumUp checkout only when the provider confirms EXPIRED', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    retrieveSumUpCheckoutMock.mockResolvedValue({ id: 'sumup_checkout_1', checkout_reference: first.body.orderId,
+      amount: 1.99, currency: 'EUR', status: 'EXPIRED' });
+    sumUpCheckoutCreate.mockResolvedValueOnce({ id: 'sumup_checkout_2' });
+    expect(await handleCreateAssistedApplicationCheckout(request())).toMatchObject({ status: 200, body: {
+      orderId: 'order-2', checkoutId: 'sumup_checkout_2', paymentProvider: 'sumup',
+    } });
+    expect(sumUpCheckoutCreate).toHaveBeenCalledTimes(2);
+  });
+
+  it.each(['CANCELLED', 'UNKNOWN'])('does not create another payable for unknown cached provider state %s', async (status) => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    retrieveSumUpCheckoutMock.mockResolvedValue({ id: 'sumup_checkout_1', checkout_reference: first.body.orderId,
+      amount: 1.99, currency: 'EUR', status });
+    expect(await handleCreateAssistedApplicationCheckout(request())).toMatchObject({ status: 409, body: { ok: false } });
+    expect(sumUpCheckoutCreate).toHaveBeenCalledOnce();
+    expect(Object.keys(store.assisted_applications)).toHaveLength(1);
+  });
+
+  it('refreshes the landing-page cache after recovery replaced the SumUp provider ID', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    Object.assign(store.assisted_applications[first.body.orderId], { sumupCheckoutId: 'renewed', checkoutAttempt: 2 });
+    retrieveSumUpCheckoutMock.mockResolvedValue({ id: 'renewed', checkout_reference: first.body.orderId + '~sumup~2', amount: 1.99, currency: 'EUR', status: 'PENDING' });
+    expect(await handleCreateAssistedApplicationCheckout(request())).toMatchObject({ body: { orderId: first.body.orderId, checkoutId: 'renewed' } });
+    expect(Object.values(store.assisted_application_checkout_requests)[0]).toMatchObject({ sumupCheckoutId: 'renewed', checkoutAttempt: 2 });
+    expect(sumUpCheckoutCreate).toHaveBeenCalledOnce();
+  });
+
+  it('honours authoritative Stripe OPEN even when the cached expiry is stale and the legacy key is absent', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    const order = store.assisted_applications[first.body.orderId];
+    const record = Object.values(store.assisted_application_checkout_requests)[0];
+    order.checkoutExpiresAt = Math.floor(Date.now() / 1000) - 60;
+    record.checkoutExpiresAt = order.checkoutExpiresAt;
+    delete order.stripeRequestKey;
+    delete record.stripeRequestKey;
+    delete order.checkoutAttempt;
+    record.checkoutAttempt = 2;
+    expect(await handleCreateAssistedApplicationCheckout(request())).toEqual(first);
+    expect(stripeCheckoutSessionsRetrieve).toHaveBeenCalledWith('cs_assisted_1');
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledOnce();
+    const fresh = Object.values(store.assisted_application_checkout_requests)[0];
+    expect(typeof fresh.stripeRequestKey).toBe('string');
+    expect(fresh.checkoutAttempt).toBe(2);
+    expect(fresh.stripeRequestKey).toMatch(/:2$/);
+    expect(Object.values(fresh)).not.toContain(undefined);
+    expect(Number(store.assisted_applications[first.body.orderId].checkoutExpiresAt)).toBeGreaterThan(Math.floor(Date.now() / 1000));
+  });
+
+  it('refreshes a Stripe cached URL from the current provider ID after recovery', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    Object.assign(store.assisted_applications[first.body.orderId], { stripeCheckoutSessionId: 'cs_recovered', checkoutAttempt: 2,
+      stripeRequestKey: 'recovered-key' });
+    expect(await handleCreateAssistedApplicationCheckout(request())).toMatchObject({ body: {
+      orderId: first.body.orderId, url: 'https://checkout.stripe.com/cs_recovered',
+    } });
+    expect(Object.values(store.assisted_application_checkout_requests)[0]).toMatchObject({ stripeCheckoutSessionId: 'cs_recovered',
+      checkoutUrl: 'https://checkout.stripe.com/cs_recovered', checkoutAttempt: 2, stripeRequestKey: 'recovered-key' });
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledOnce();
+  });
+
+  it('reconciles a cached Stripe payment and returns the actual client paid redirect', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    stripeCheckoutSessionsRetrieve.mockImplementationOnce(async () => ({ id: 'cs_assisted_1', status: 'complete', payment_status: 'paid',
+      amount_total: 199, currency: 'eur', expires_at: Math.floor(Date.now() / 1000) + 3600 }));
+    const response = await handleCreateAssistedApplicationCheckout(request());
+    expect(response.status).toBe(200);
+    expect(response.body).not.toHaveProperty('checkoutId');
+    expect(response.body).toMatchObject({ orderId: first.body.orderId, url: expect.stringContaining('assisted_application_order_id=order-1') });
+    expect(store.assisted_applications[first.body.orderId].paymentStatus).toBe('paid');
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledOnce();
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: true, status: response.status, json: async () => response.body } as Response);
+    try {
+      const { createAssistedApplicationCheckout } = await import('../services/assistedApplicationCheckout');
+      expect(await createAssistedApplicationCheckout(request().body as any, { uid: 'user-42', getIdToken: async () => 'good-token' }))
+        .toMatchObject({ orderId: first.body.orderId, url: response.body.url });
+    } finally { fetchSpy.mockRestore(); }
+  });
+
+  it.each(['stripe', 'sumup'])('rejects a %s cache that is no longer bound to the authoritative order ID', async (provider) => {
+    assistedApplicationPaymentProvider.mockResolvedValue(provider);
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    store.assisted_applications[first.body.orderId][provider === 'sumup' ? 'sumupCheckoutId' : 'stripeCheckoutSessionId'] = null;
+    expect(await handleCreateAssistedApplicationCheckout(request())).toMatchObject({ status: 409, body: { ok: false } });
+    expect(stripeCheckoutSessionsCreate.mock.calls.length + sumUpCheckoutCreate.mock.calls.length).toBe(1);
+  });
+
+  it.each(['stripe', 'sumup'])('does not trust a cached %s checkout with the wrong provider amount', async (provider) => {
+    assistedApplicationPaymentProvider.mockResolvedValue(provider);
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    if (provider === 'sumup') retrieveSumUpCheckoutMock.mockResolvedValue({ id: 'sumup_checkout_1', checkout_reference: first.body.orderId,
+      amount: 1, currency: 'EUR', status: 'PENDING' });
+    else stripeCheckoutSessionsRetrieve.mockImplementationOnce(async () => ({ id: 'cs_assisted_1', status: 'open', payment_status: 'unpaid',
+      url: 'https://checkout.stripe.com/cs_assisted_1', amount_total: 100, currency: 'eur', expires_at: Math.floor(Date.now() / 1000) + 3600 }));
+    expect(await handleCreateAssistedApplicationCheckout(request())).toMatchObject({ status: 502, body: { ok: false } });
+    expect(stripeCheckoutSessionsCreate.mock.calls.length + sumUpCheckoutCreate.mock.calls.length).toBe(1);
+    expect(Object.keys(store.assisted_applications)).toHaveLength(1);
   });
 
   it('rejects crawler and automation user-agents before authentication or Stripe', async () => {
@@ -497,6 +657,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       },
     }, { db: firestore, ts: '__webhook_timestamp__' });
 
+    stripeCheckoutSessionsRetrieve.mockResolvedValueOnce({ id: 'cs_assisted_1', status: 'expired', expires_at: Math.floor(Date.now() / 1000) - 60 });
     stripeCheckoutSessionsCreate.mockImplementationOnce(async () => ({
       id: 'cs_assisted_2',
       url: 'https://checkout.stripe.com/cs_assisted_2',
@@ -549,6 +710,8 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       },
     }, { db: firestore, ts: '__webhook_timestamp__' });
 
+    stripeCheckoutSessionsRetrieve.mockImplementationOnce(async () => ({ id: 'cs_assisted_1', status: 'complete', payment_status: 'unpaid',
+      amount_total: 199, currency: 'eur', expires_at: Math.floor(Date.now() / 1000) + 3600 }));
     stripeCheckoutSessionsCreate.mockImplementationOnce(async () => ({
       id: 'cs_assisted_2',
       url: 'https://checkout.stripe.com/cs_assisted_2',
