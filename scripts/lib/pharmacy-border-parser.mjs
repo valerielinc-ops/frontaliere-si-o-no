@@ -834,14 +834,11 @@ export function mergeTicinoSecondaryRecords(rows, {
     sourceUrl,
   });
   const refreshedById = new Map(refreshed.map((record) => [record.id, record]));
+  // A secondary page is a recovery/corroboration source, not a complete
+  // catalogue. Never publish an OFCT row that cannot be reconciled to the
+  // known-complete snapshot: an unknown identity could be a duplicate, a
+  // stale regional entry, or a parser drift artefact.
   const merged = baseline.map((record) => refreshedById.get(record.id) || record);
-  const knownIds = new Set(merged.map((record) => record.id));
-  for (const record of refreshed) {
-    if (!knownIds.has(record.id)) {
-      merged.push(record);
-      knownIds.add(record.id);
-    }
-  }
   return merged.sort((a, b) => `${a.city} ${a.name}`.localeCompare(`${b.city} ${b.name}`, 'it'));
 }
 

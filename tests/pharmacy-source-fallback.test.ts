@@ -250,4 +250,37 @@ describe('Ticino pharmacy PDF source fallback', () => {
     expect(snapshot._sourceSecondary).toEqual(['https://www.ofct.ch/luganese/']);
     expect(snapshot._fetchedAt).toBe('2026-10-28T12:00:00.000Z');
   });
+
+  it('does not publish OFCT rows that cannot be reconciled to the complete snapshot', () => {
+    const previousPharmacies = Array.from({ length: 200 }, (_, index) => ({
+      id: `ti-previous-${index}`,
+      name: `Farmacia ${index}`,
+      address: `Via Roma ${index + 1}`,
+      postalCode: '6900',
+      city: 'Lugano',
+      slug: `farmacia-${index}-lugano`,
+      country: 'CH',
+      canton: 'Ticino',
+      sourceType: 'official',
+      sourceUrl: TICINO_PHARMACY_PDF_URL,
+    }));
+
+    const snapshot = buildTicinoCatalogueSnapshot({
+      parsed: { rows: [], warnings: [] },
+      previous: { pharmacies: previousPharmacies, _fetchedAt: '2026-10-28T12:00:00.000Z' },
+      fetchedAt: '2026-10-29T12:00:00.000Z',
+      sourceError: 'primary PDF timeout',
+      secondaryRows: [{
+        name: 'Farmacia non riconciliata',
+        address: 'Via Nuova 99',
+        postalCode: '6900',
+        city: 'Lugano',
+        sourceUrl: 'https://www.ofct.ch/luganese/',
+      }],
+      secondarySourceUrls: ['https://www.ofct.ch/luganese/'],
+    });
+
+    expect(snapshot.pharmacies).toHaveLength(previousPharmacies.length);
+    expect(snapshot.pharmacies.some((pharmacy) => pharmacy.name === 'Farmacia non riconciliata')).toBe(false);
+  });
 });
