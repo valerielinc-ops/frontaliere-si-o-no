@@ -479,9 +479,9 @@ async function handleCandidateGet(db, req, uid) {
     const services = await Promise.all((snapshot.docs || [])
       .filter((doc) => (doc.data() || {}).userId === uid)
       .map(async (doc) => {
-        const serviceRef = doc.ref || doc;
-        const proposals = await serviceRef.collection('proposals').get();
-        return serializeApplicationConciergeService(doc, proposals.docs || []);
+        const fresh = await loadService(db, doc.id);
+        assertCandidateOwns(fresh.snapshot.data() || {}, uid);
+        return serializeApplicationConciergeService(fresh.snapshot, fresh.proposals);
       }));
     services.sort((left, right) => String(right.createdAt || '').localeCompare(String(left.createdAt || '')));
     return { status: 200, body: { ok: true, services } };
@@ -619,8 +619,8 @@ export async function handleManageApplicationConcierge(req) {
     }
     const snapshot = await db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).get();
     const services = await Promise.all((snapshot.docs || []).map(async (doc) => {
-      const proposals = await doc.ref.collection('proposals').get();
-      return serializeApplicationConciergeService(doc, proposals.docs || [], { admin: true });
+      const fresh = await loadService(db, doc.id);
+      return serializeApplicationConciergeService(fresh.snapshot, fresh.proposals, { admin: true });
     }));
     services.sort((left, right) => String(right.createdAt || '').localeCompare(String(left.createdAt || '')));
     return { status: 200, body: { ok: true, services } };
