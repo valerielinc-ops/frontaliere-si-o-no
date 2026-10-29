@@ -392,6 +392,19 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     expect(Object.keys(store.assisted_applications)).toHaveLength(1);
   });
 
+  it('keeps the existing provider-expiry guard when Stripe still reports OPEN after its own deadline', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    await handleCreateAssistedApplicationCheckout(request());
+    stripeCheckoutSessionsRetrieve.mockImplementationOnce(async () => ({ id: 'cs_assisted_1', status: 'open', payment_status: 'unpaid',
+      amount_total: 199, currency: 'eur', url: 'https://checkout.stripe.com/cs_assisted_1', expires_at: Math.floor(Date.now() / 1000) - 60 }));
+    stripeCheckoutSessionsCreate.mockImplementationOnce(async () => ({ id: 'cs_replacement', url: 'https://checkout.stripe.com/cs_replacement',
+      expires_at: Math.floor(Date.now() / 1000) + 3600 }));
+    expect(await handleCreateAssistedApplicationCheckout(request())).toMatchObject({ status: 200, body: {
+      orderId: 'order-2', url: 'https://checkout.stripe.com/cs_replacement',
+    } });
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(2);
+  });
+
   it('rejects crawler and automation user-agents before authentication or Stripe', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
     const userAgents = ['Googlebot/2.1', 'Mozilla/5.0 HeadlessChrome/140.0.0.0'];

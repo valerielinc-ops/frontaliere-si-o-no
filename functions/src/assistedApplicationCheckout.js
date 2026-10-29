@@ -420,7 +420,10 @@ export async function handleCreateAssistedApplicationCheckout(req) {
             || (session.metadata?.product && session.metadata.product !== ASSISTED_APPLICATION_PRODUCT)) {
             return { status: 502, body: { ok: false, error: 'assisted_application_checkout_unavailable' } };
           }
-          const status = String(session.status || '').toLowerCase();
+          const providerStatus = String(session.status || '').toLowerCase();
+          const providerExpiresAt = checkoutExpirySeconds(session.expires_at);
+          const status = providerStatus === 'open' && session.payment_status !== 'paid'
+            && providerExpiresAt !== null && providerExpiresAt * 1000 <= Date.now() ? 'expired' : providerStatus;
           if (status !== 'expired' && (Number(session.amount_total) !== ASSISTED_APPLICATION_PRICE_CENTS
             || String(session.currency || '').toLowerCase() !== ASSISTED_APPLICATION_CURRENCY)) {
             return { status: 502, body: { ok: false, error: 'assisted_application_checkout_unavailable' } };
@@ -449,7 +452,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
           }
           verifiedStripeCheckout = { id: session.id, orderId: existingRecord.orderId,
             status: status === 'complete' ? 'failed' : status, url: session.url,
-            expiresAt: checkoutExpirySeconds(session.expires_at) };
+            expiresAt: providerExpiresAt };
         }
         const checkoutExpired = verifiedSumUpCheckout?.orderId === existingRecord.orderId
           ? verifiedSumUpCheckout.status === 'EXPIRED'
