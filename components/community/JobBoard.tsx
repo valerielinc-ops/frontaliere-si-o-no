@@ -6603,6 +6603,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  url: canonicalUrl,
  baseUrl: window.location.origin,
  });
+ if (!schema) return null;
  return {
  ...schema,
  ...buildJobPostingEditorialFields(description, job.requirementsByLocale?.[locale] || job.requirements || [], locale),
