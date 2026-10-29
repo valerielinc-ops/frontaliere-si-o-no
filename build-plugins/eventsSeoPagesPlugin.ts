@@ -4068,38 +4068,71 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
     }
   }
 
-  // The shell can drop a locale-specific event suffix to stay inside the SERP
-  // title budget, leaving an identical title on two translated URLs. Compare
-  // the title after shell normalization, then keep the first locale's title
-  // and add a readable locale label to the other colliding variants.
+  // A locale-specific suffix can disappear when the shell enforces its title
+  // budget. Check every event/locale pair together after that normalization:
+  // grouping only by locale misses collisions between different events in
+  // different locales.
   const localeLabels: Record<Locale, string> = {
     it: 'Italiano',
     en: 'English',
     de: 'Deutsch',
     fr: 'Français',
   };
-  for (const event of events) {
-    const localesByTitle = new Map<string, Set<Locale>>();
-    for (const locale of LOCALES) {
-      const comune = event.comune || OTHER_EVENTS_COMUNE_KEY;
-      const rawTitle = eventDetailTitleProbe(event, locale, comune);
-      const emittedTitle = normalizeShellTitle(rawTitle, (value) => esc(value).length);
-      const key = emittedTitle.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
-      const locales = localesByTitle.get(key) ?? new Set<Locale>();
-      locales.add(locale);
-      localesByTitle.set(key, locales);
-    }
+  const titleKey = (title: string) => title.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
+  const emittedTitle = (event: SiteEvent, locale: Locale, disambiguator: string) => {
+    const comune = event.comune || OTHER_EVENTS_COMUNE_KEY;
+    const rawTitle = eventDetailTitleProbe(event, locale, comune, disambiguator);
+    return normalizeShellTitle(rawTitle, (value) => esc(value).length);
+  };
+  const claimedTitles = new Set<string>();
+  // Locale-major order keeps the Italian title as the stable primary when a
+  // translated title collapses to the same shell-normalized string.
+  for (const locale of LOCALES) {
+    if (!shouldEmitLocale(locale)) continue;
+    for (const event of events) {
+      const key = `${locale}|${event.id}`;
+      const existing = out.get(key) || '';
+      let chosenTitle = emittedTitle(event, locale, existing);
+      let chosenKey = titleKey(chosenTitle);
+      if (claimedTitles.has(chosenKey)) {
+        const factualToken = pickEventDetailTitleDisambiguator(event, locale);
+        const routeToken = `rif. ${stableTitleToken(event.id)}`;
+        const candidates = [
+          [localeLabels[locale], existing].filter(Boolean).join(' · '),
+          [localeLabels[locale], factualToken].filter(Boolean).join(' · '),
+          existing,
+          factualToken,
+          routeToken,
+          `${localeLabels[locale]} · ${routeToken}`,
+        ].filter((candidate, index, all) => candidate && all.indexOf(candidate) === index);
 
-    for (const locales of localesByTitle.values()) {
-      if (locales.size < 2) continue;
-      const primaryLocale = locales.has('it') ? 'it' : LOCALES.find((locale) => locales.has(locale));
-      if (!primaryLocale) continue;
-      for (const locale of locales) {
-        if (locale === primaryLocale) continue;
-        const key = `${locale}|${event.id}`;
-        const existing = out.get(key);
-        out.set(key, [localeLabels[locale], existing].filter(Boolean).join(' · '));
+        let resolved = false;
+        for (const candidate of candidates) {
+          const candidateTitle = emittedTitle(event, locale, candidate);
+          const candidateKey = titleKey(candidateTitle);
+          if (claimedTitles.has(candidateKey)) continue;
+          out.set(key, candidate);
+          chosenTitle = candidateTitle;
+          chosenKey = candidateKey;
+          resolved = true;
+          break;
+        }
+
+        if (!resolved) {
+          const token = stableTitleToken(event.id);
+          for (let ordinal = 2; ; ordinal += 1) {
+            const candidate = `${localeLabels[locale]} · rif. ${token}-${ordinal}`;
+            const candidateTitle = emittedTitle(event, locale, candidate);
+            const candidateKey = titleKey(candidateTitle);
+            if (claimedTitles.has(candidateKey)) continue;
+            out.set(key, candidate);
+            chosenTitle = candidateTitle;
+            chosenKey = candidateKey;
+            break;
+          }
+        }
       }
+      claimedTitles.add(chosenKey);
     }
   }
 

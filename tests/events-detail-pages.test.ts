@@ -546,6 +546,52 @@ describe('renderEventDetailPage', () => {
     expect(titles.some((title) => title.includes('COMPLET'))).toBe(true);
   });
 
+  it('disambiguates shell-normalized title collisions across different events and locales', () => {
+    const sharedTitle = 'International cultural festival with a long headline';
+    const comune = 'Comune dei Grigioni con nome molto lungo';
+    const events = [
+      {
+        ...EVENT,
+        id: 'myswitzerland:cross-locale-it',
+        title: 'Italian fallback title',
+        titleByLocale: { it: sharedTitle, en: 'Different English title' },
+        startDate: '2026-10-21',
+        comune,
+        canton: 'GR',
+      },
+      {
+        ...EVENT,
+        id: 'myswitzerland:cross-locale-en',
+        title: 'English fallback title',
+        titleByLocale: { it: 'Different Italian title', en: sharedTitle },
+        startDate: '2026-10-21',
+        comune,
+        canton: 'GR',
+      },
+    ];
+    const disambiguators = buildEventDetailTitleDisambiguators(events as never);
+    const titles = [
+      { event: events[0], locale: 'it' as const },
+      { event: events[1], locale: 'en' as const },
+    ].map(({ event, locale }) => {
+      const rendered = renderEventDetailPage({
+        locale,
+        event: event as never,
+        comune,
+        eventSlug: slugifyEvent(event),
+        sameComuneEvents: events as never,
+        dateStamp: '2026-10-23',
+        distDir,
+        detailHref: (() => null) as never,
+        metaTitleDisambiguator: disambiguators.get(`${locale}|${event.id}`),
+      });
+      return /<title>([^<]*)<\/title>/.exec(rendered.html)?.[1] ?? '';
+    });
+
+    expect(titles[0]).not.toBe(titles[1]);
+    expect(titles.every((title) => title.length <= 60)).toBe(true);
+  });
+
   it('probes a deterministic ordinal when both disambiguator candidates are claimed', () => {
     const collisionTitle = 'Night';
     // These two route ids intentionally share the deterministic 32-bit token
