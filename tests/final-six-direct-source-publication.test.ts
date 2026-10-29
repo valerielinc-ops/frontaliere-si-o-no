@@ -23,23 +23,26 @@ const providers = [
   { name: 'SRG', run: fetchAllSrgSsrJobs, calls: 2, response: (url: string, raw: string, other = false) => url === srgUrl ? ld(raw, other ? srgUrl + '-other' : srgUrl) : `<a href="${srgUrl}"><h1>${title}</h1></a><small>100%, Zürich</small>` },
   { name: 'Suva', run: fetchAllSuvaJobs, calls: 2, response: (url: string, raw: string) => url === suvaUrl ? `<meta property="og:title" content="${title}"><meta itemprop="datePosted" content="${raw}"><meta itemprop="dateModified" content="${past}"><span itemprop="description">${body}</span>` : `<urlset><url><loc>${suvaUrl}</loc><lastmod>${past}</lastmod></url></urlset>` },
   { name: 'Swica', run: fetchAllSwicaJobs, calls: 3, response: (url: string, raw: string, other = false) => url === swicaUrl ? ld(raw, other ? swicaUrl + '-other' : swicaUrl) : `<a href="${swicaUrl}">${title}</a>` },
-  { name: 'Valora', run: fetchAllValoraJobs, calls: 1, response: (_url: string, raw: string) => JSON.stringify({
-    jobs: [{
-      externalId: '12345',
-      jobTitle: title,
-      jobDescription: body,
-      publicationDate: raw,
-      jobCity: 'Muttenz',
-      jobRegion: 'Basel-Landschaft',
-      jobZipCode: '4132',
-      jobStreet: 'Hofackerstrasse 40',
-      applyUrl: valoraUrl,
-      labels: { category: 'Engineering', employmentType: 'Full Time' },
-    }],
-    totalCount: 1,
-    page: 1,
-    totalPages: 1,
-  }) },
+  { name: 'Valora', run: fetchAllValoraJobs, calls: 1, response: (url: string, raw: string) => {
+    if (!url.startsWith('https://career.valora.com/api/jobs')) return '<p>1 entries</p>';
+    return JSON.stringify({
+      jobs: [{
+        externalId: '12345',
+        jobTitle: title,
+        jobDescription: `<p>${body}</p>`,
+        publicationDate: raw,
+        jobCity: 'Muttenz',
+        jobRegion: 'Basel-Landschaft',
+        jobZipCode: '4132',
+        jobStreet: 'Hofackerstrasse 40',
+        applyUrl: `${valoraUrl}/apply`,
+        labels: { category: 'Engineering', employmentType: 'Vollzeit' },
+      }],
+      totalCount: 1,
+      page: 1,
+      totalPages: 1,
+    });
+  } },
   { name: 'Victorinox', run: fetchAllVictorinoxJobs, calls: 3, response: (url: string, raw: string, other = false) => url === victorUrl ? `${ld(raw, other ? victorUrl + '-other' : victorUrl)}<main><div id="contenu-ficheoffre" class="offer-detail"><p>${body}</p></div></main>` : `<li class="ts-offer-list-item offer" onclick="location.href='${victorUrl}';"><a class="ts-offer-list-item__title-link" title="${title} (Ref. : 12345) - Product">${title}</a><ul class="ts-offer-list-item__description"><li>Ref. : 12345</li><li>Zermatt</li></ul></li>` },
   { name: 'Zermatt', run: withSourceLangRelabelFlags(fetchAllZermattBergbahnenJobs, ZERMATT_BERGBAHNEN_KEY), calls: 2, response: (url: string, raw: string, other = false) => url === zermattUrl ? `${ld(raw, other ? zermattUrl + '-other' : zermattUrl)}<section class="wysiwyg-usp-area"><p>${body}</p></section>` : JSON.stringify({ success: true, html: `<div class="card-item__body"><h3><a href="${zermattUrl}">${title}</a></h3></div>` }) },
 ];
