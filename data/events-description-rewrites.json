@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-29T15:29:49.223Z",
+  "generatedAt": "2026-10-29T16:29:32.701Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -8559,6 +8559,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T19:17:29.806Z"
+    },
+    "ge-agenda:giff-projection-mariage-moussons::4841c9b076b7654b299a3998174773684b93f79aa5c75a81c891de85065f84aa": {
+      "id": "ge-agenda:giff-projection-mariage-moussons",
+      "sourceDescriptionHash": "4841c9b076b7654b299a3998174773684b93f79aa5c75a81c891de85065f84aa",
+      "description": "Il programma propone, nell’ambito del festival, la proiezione di un film del 2001 legato a Mira Nair. La pellicola dura 114 minuti, presenta dialoghi in hindi e inglese e sottotitoli in francese e inglese; l’appuntamento è a Ginevra e il biglietto costa 8 CHF.",
+      "descriptionByLocale": {
+        "it": "Il programma propone, nell’ambito del festival, la proiezione di un film del 2001 legato a Mira Nair. La pellicola dura 114 minuti, presenta dialoghi in hindi e inglese e sottotitoli in francese e inglese; l’appuntamento è a Ginevra e il biglietto costa 8 CHF.",
+        "en": "The festival programme includes a screening of a 2001 film associated with Mira Nair. The film runs for 114 minutes, uses Hindi and English dialogue, and has French and English subtitles; the event takes place in Geneva and admission costs CHF 8.",
+        "de": "Das Festivalprogramm umfasst die Vorführung eines Films aus dem Jahr 2001, der mit Mira Nair verbunden ist. Der Film dauert 114 Minuten, liegt in Hindi und Englisch vor und hat französische und englische Untertitel; die Veranstaltung findet in Genf statt und der Eintritt kostet 8 CHF.",
+        "fr": "Le programme du festival propose la projection d’un film de 2001 associé à Mira Nair. L’œuvre dure 114 minutes, comporte des dialogues en hindi et en anglais ainsi que des sous-titres français et anglais; la séance a lieu à Genève et l’entrée coûte 8 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T16:20:28.950Z"
     },
     "ge-agenda:giff-projection-nourrices::c9df64fe23c11484e2662c0f8e37f1964f0487d58f5b0fbf6b2e48e1c04fe879": {
       "id": "ge-agenda:giff-projection-nourrices",
@@ -44665,6 +44679,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T15:18:57.310Z"
+    },
+    "guidle:ARmDauv::ede2adc3cb72dadf5ced52896e5e7cf31659365da10c31004238d48fd41e2df0": {
+      "id": "guidle:ARmDauv",
+      "sourceDescriptionHash": "ede2adc3cb72dadf5ced52896e5e7cf31659365da10c31004238d48fd41e2df0",
+      "description": "Il programma propone uno spettacolo pop di ambientazione interplanetaria del Landestheater Schwaben. L’evento si svolge al Bahnhof Fischbach, a Fischbach.",
+      "descriptionByLocale": {
+        "it": "Il programma propone uno spettacolo pop di ambientazione interplanetaria del Landestheater Schwaben. L’evento si svolge al Bahnhof Fischbach, a Fischbach.",
+        "en": "This event presents an interplanetary pop revue by Landestheater Schwaben. It takes place at Bahnhof Fischbach in Fischbach.",
+        "de": "Auf dem Programm steht eine interplanetarisch ausgerichtete Pop-Revue des Landestheaters Schwaben. Die Veranstaltung findet im Bahnhof Fischbach in Fischbach statt.",
+        "fr": "Le rendez-vous propose une revue pop à dimension interplanétaire du Landestheater Schwaben. Il se tient au Bahnhof Fischbach, à Fischbach."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T16:25:11.279Z"
     },
     "guidle:ArMVGkk::36e9c109ad071909bdff0dc4e4ba6dec7c560885becfe6e3a43930d5fcc79086": {
       "id": "guidle:ArMVGkk",
@@ -177384,8 +177412,8 @@
       "id": "ge-agenda:filmar-america-latina-ceremonie-ouverture",
       "sourceDescriptionHash": "899163b8f06e05d5a13adcf81f4d787daf67c0442d7f98cf87caa88e4a6882b0",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:19:12.224Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T16:19:50.332Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -177425,15 +177453,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:giff-projection-mariage-moussons::4841c9b076b7654b299a3998174773684b93f79aa5c75a81c891de85065f84aa": {
-      "id": "ge-agenda:giff-projection-mariage-moussons",
-      "sourceDescriptionHash": "4841c9b076b7654b299a3998174773684b93f79aa5c75a81c891de85065f84aa",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:20:22.313Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:giff-projection-tiene-morir-mucha-gente::803a7222f5f817b3ee7de30ac87055392dda04875f2a14f84209b5187d464787": {
       "id": "ge-agenda:giff-projection-tiene-morir-mucha-gente",
       "sourceDescriptionHash": "803a7222f5f817b3ee7de30ac87055392dda04875f2a14f84209b5187d464787",
@@ -177456,8 +177475,8 @@
       "id": "ge-agenda:giff-talks-what-nexus",
       "sourceDescriptionHash": "425c2afe00bdc854c01fb699800875e4b8c8a7f288864c1e9f430510089e99b1",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:19:47.982Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T16:20:17.892Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178203,8 +178222,8 @@
       "id": "guidle:A8TWM49",
       "sourceDescriptionHash": "08e5b9957ded5db738fc493081e5c593d754dada19b8980e0da5ad05799385ea",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:21:25.424Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T16:23:58.232Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178266,8 +178285,8 @@
       "id": "guidle:AAfFuC8",
       "sourceDescriptionHash": "6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:18:51.655Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T16:19:39.527Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179522,15 +179541,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:ARmDauv::ede2adc3cb72dadf5ced52896e5e7cf31659365da10c31004238d48fd41e2df0": {
-      "id": "guidle:ARmDauv",
-      "sourceDescriptionHash": "ede2adc3cb72dadf5ced52896e5e7cf31659365da10c31004238d48fd41e2df0",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:19:57.825Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ArmyKSQ::a2b2bb3622d4098e9347c0687fad322723befa7d3bf6049ff41295318df4dd6a": {
       "id": "guidle:ArmyKSQ",
       "sourceDescriptionHash": "a2b2bb3622d4098e9347c0687fad322723befa7d3bf6049ff41295318df4dd6a",
@@ -179796,8 +179806,8 @@
       "id": "guidle:Aue7i6E",
       "sourceDescriptionHash": "c67bba8b3efd577b88f014e23a1301d5218813c78e96be009afdc2aa98dcd6b6",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:27:56.346Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T16:20:14.114Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -180093,8 +180103,8 @@
       "id": "guidle:AxaG7Tj",
       "sourceDescriptionHash": "2b7e6db091ec67997e391b15fc1dd4e35e0b2a0cd140735cfb9686942ed59d2d",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T14:21:20.225Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T16:24:33.996Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -184187,9 +184197,9 @@
     "myswitzerland:ccf2d3cddd0e42618e13ce32e6374d06::c2cd6f735f0a7eafae0245ca129c5923b0d842c2bd9b0150d806fea4ae0ef300": {
       "id": "myswitzerland:ccf2d3cddd0e42618e13ce32e6374d06",
       "sourceDescriptionHash": "c2cd6f735f0a7eafae0245ca129c5923b0d842c2bd9b0150d806fea4ae0ef300",
-      "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:24:28.382Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T16:21:16.692Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -184269,8 +184279,8 @@
       "id": "myswitzerland:cf86338b578e480e8ebbfeb689279699",
       "sourceDescriptionHash": "f5ec759129383250b313880326f114be0935479fd3e05141e4459f69da691a5f",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:25:31.264Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T16:21:48.805Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186329,9 +186339,9 @@
     "tio-agenda:64757::e098bda0848ade9bf98c17db25f6c82c88b9677165f8f4184ba8855507fad133": {
       "id": "tio-agenda:64757",
       "sourceDescriptionHash": "e098bda0848ade9bf98c17db25f6c82c88b9677165f8f4184ba8855507fad133",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-29T13:26:12.108Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-29T16:19:17.963Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
