@@ -1,6 +1,7 @@
 /** Full-posting qualification before a concierge proposal is published. All caches are owner-private. */
 import { createHash } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
+import { timestampMillis } from './applicationConciergeConstants.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { generateServerText } from './geminiGenerate.js';
 import { detectCvFileType, ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
@@ -38,6 +39,8 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   const cvText = type ? await extractCvText(bytes, type) : '';
   if (cvText.length < 80 || cvText.length > 60_000) throw new Error('eligibility_cv_unreadable');
   const cache = serviceRef.collection('eligibility');
+  const purgeAt = new Date((timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt) || Date.now()) + 90 * 86400000);
+  await serviceRef.set({ eligibilityPurgeAt: purgeAt }, { merge: true });
   const profileRef = cache.doc('profile');
   const previousProfile = (await profileRef.get()).data();
   let profile;
@@ -90,4 +93,22 @@ export async function vettedConciergeDraftInputs({ db, order, cvBuffer, postingT
     || cached.fingerprint !== proposal.eligibilityFingerprint || cached.cvHash !== eligibilityHash(cvBuffer)
     || cached.postingHash !== sourceHash(postingText) || cached.answerHash !== answerHash) return null;
   return cached;
+}
+
+
+/** Remove private qualification caches after the existing 90-day application data window. */
+export async function purgeConciergeEligibility({ db, nowMs = Date.now() }) {
+  const services = await db.collection('application_concierge_services').where('eligibilityPurgeAt', '<=', new Date(nowMs)).limit(100).get();
+  let deleted = 0;
+  for (const service of services.docs || []) {
+    const cache = await service.ref.collection('eligibility').get();
+    for (let start = 0; start < cache.docs.length; start += 400) {
+      const batch = db.batch();
+      for (const document of cache.docs.slice(start, start + 400)) batch.delete(document.ref);
+      await batch.commit();
+      deleted += Math.min(400, cache.docs.length - start);
+    }
+    await service.ref.set({ eligibilityPurgeAt: FieldValue.delete(), eligibilityPurgedAt: FieldValue.serverTimestamp() }, { merge: true });
+  }
+  return { deleted };
 }

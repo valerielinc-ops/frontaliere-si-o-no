@@ -1,3 +1,4 @@
+import { purgeConciergeEligibility } from './src/applicationConciergeEligibility.js';
 import { HttpsError, onCall, onRequest } from 'firebase-functions/v2/https';
 import { handleJobsSourceRelay } from './src/jobsSourceRelay.js';
 import {
@@ -2912,6 +2913,11 @@ export const refreshCandidateCvProfile = onCall(
 // Uploading a CV starts the candidate-specific workflow: enrich the private
 // profile, then scan the published Swiss job index and create explainable
 // proposals. Every proposal remains pending until the candidate accepts it.
+export const sweepApplicationConciergeEligibility = onSchedule(
+  { region: 'europe-west6', schedule: 'every 24 hours', memory: '256MiB', timeoutSeconds: 300 },
+  async () => { await purgeConciergeEligibility({ db: getAdminDb() }); },
+);
+
 export const processApplicationConciergeCv = onDocumentWritten(
   { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 540, document: 'application_concierge_services/{serviceId}' },
   async (event) => {
