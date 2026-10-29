@@ -79,6 +79,7 @@
  * (drafts written before it) are not judged on it.
  */
 
+import { employerReferenceSpans, quotedEmployerAge } from './lib/employerFacts.js';
 import { gapReader } from './lib/honestGap.js';
 import { EXPECTATION_RE, HELD_PERMITS, citizenshipMentions, permitMentions } from './lib/permitStatus.js';
 import { mentionsVocabularyTool, vocabularyTools } from './lib/toolVocabulary.js';
@@ -405,6 +406,7 @@ function withoutContactData(text) {
  *     order line), their contact data aside; without them any source backs a number, as before.
  *   echoSources: the posting, for the advisory on capitalised words echoed from it.
  *   entitySources: the texts that may name an employer (candidate, order, posting); default: all sources.
+ *   employerName: canonical employer identity for contextual acronym references only.
  *   nameSources: names the text may quote whole, one per line (the company, the job title, the place):
  *     inside such a name a tool is not a claim ("Kubernetes Engineer" in "come Kubernetes Engineer"),
  *     but a name never backs a claim made outside it ("uso Kubernetes" stays the candidate's claim).
@@ -412,7 +414,7 @@ function withoutContactData(text) {
  *     no job title (an apprenticeship's subject, «Candidatura per un posto di tirocinio come …»: its
  *     «tirocinio» is not a title the candidate held).
  */
-export function buildFactIndex(sources, { claimSources, numberSources, echoSources, entitySources, nameSources, quotedNameSources } = {}) {
+export function buildFactIndex(sources, { claimSources, numberSources, echoSources, entitySources, nameSources, quotedNameSources, employerName } = {}) {
   const text = join(sources);
   const emails = new Set([...text.matchAll(EMAIL_RE)].map((match) => match[0].toLowerCase()));
   const urls = new Set([...text.matchAll(URL_RE)].map((match) => normalizeUrl(match[0])));
@@ -437,6 +439,8 @@ export function buildFactIndex(sources, { claimSources, numberSources, echoSourc
     // The candidate's own phone numbers that PHONE_RE does not read ("079 123 45 67"), and links.
     contactPhones: contacts ? contacts.phones : null,
     contactLinks: contacts ? contacts.links : null,
+    employerName: String(employerName || ''),
+    employerPosting: join(echoSources),
     echoWords: echoSources ? wordsOf(join(echoSources)) : null,
     entityText: ` ${foldText(join(entitySources || sources)).replace(/[^\p{L}\p{N}]+/gu, ' ')} `,
   };
@@ -603,6 +607,9 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
     // The company, the job title and the place quoted whole are names, not claims.
     const nameSpans = (index.names || []).flatMap((name) => [...text.matchAll(nameRegExp(name))]
       .map((match) => [match.index, match[0].length]));
+    const employerSpans = employerReferenceSpans(text, index.employerName);
+    nameSpans.push(...employerSpans);
+    for (const [at, length] of employerSpans) advise(field, 'employer_reference', text.slice(at, at + length), contextAround(text, at, length));
     const claims = checksClaims ? claimTokens(text).filter((claim) => !within(nameSpans, claim.index)) : [];
     // The digits of a tool's name ("ISO 13485", "Office 365") are judged with the tool, not as a figure.
     const toolSpans = claims.map((claim) => [claim.index, claim.length]);
@@ -622,7 +629,7 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
       if (!digits) continue;
       const parts = token.split(/[^\d]+/).filter(Boolean);
       const supported = index.claimNumbers && claimField
-        ? inSet(index.claimNumbers, digits, parts) || (inSet(index.numbers, digits, parts) && quotesRequirement(text, match.index))
+        ? inSet(index.claimNumbers, digits, parts) || (inSet(index.numbers, digits, parts) && (quotesRequirement(text, match.index) || quotedEmployerAge(text, match.index, index.employerPosting, index.employerName)))
         : inSet(index.numbers, digits, parts);
       if (!supported) flag(field, 'number', token, contextAround(text, match.index, match[0].length));
     }
