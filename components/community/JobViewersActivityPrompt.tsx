@@ -196,6 +196,7 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
   return createPortal(
     <div
       data-testid="job-viewers-activity-toast"
+      data-bottom-overlay="job-viewers-activity"
       role="status"
       aria-label={message}
       aria-live="polite"
