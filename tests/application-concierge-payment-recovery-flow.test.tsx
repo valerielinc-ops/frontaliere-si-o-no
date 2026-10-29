@@ -248,3 +248,25 @@ it('links an accepted application needing answers to its owned service detail', 
   expect(link.getAttribute('href')).not.toContain('assisted_application_review');
   expect(mocks.checkout).not.toHaveBeenCalled();
 });
+
+describe('concierge qualification feedback', () => {
+  it.each([
+    [7, 0, 'verificationPending'],
+    [0, 3, 'qualificationNeedsDetails'],
+  ])('does not present incomplete qualification as no jobs (%s, %s)', async (unverified, clarification, key) => {
+    mocks.fetchService.mockResolvedValue({ ...service, paymentStatus: 'paid', serviceStatus: 'active',
+      matchingStatus: 'complete', matchingUnverifiedCount: unverified, matchingClarificationCount: clarification });
+    render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+    expect(await screen.findByText(`jobBoard.concierge.${key}`)).toBeTruthy();
+    expect(screen.queryByText('jobBoard.concierge.noProposals')).toBeNull();
+    expect(mocks.checkout).not.toHaveBeenCalled();
+  });
+  it.each(['expired', 'capped'])('does not promise automatic verification for a %s service', async mode => {
+    mocks.fetchService.mockResolvedValue({ ...service, paymentStatus: 'paid', serviceStatus: mode === 'expired' ? 'expired' : 'active',
+      remainingPositions: mode === 'capped' ? 0 : 10, matchingStatus: 'complete', matchingUnverifiedCount: 7, matchingClarificationCount: 3 });
+    render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+    await screen.findByText('jobBoard.concierge.portalTitle');
+    expect(screen.queryByText('jobBoard.concierge.verificationPending')).toBeNull();
+    expect(screen.queryByText('jobBoard.concierge.qualificationNeedsDetails')).toBeNull();
+  });
+});

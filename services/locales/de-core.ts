@@ -916,6 +916,8 @@ const deCore: Record<string, string> = {
  'jobBoard.concierge.matchingRunning': 'Wir suchen passende Stellen für deinen Lebenslauf…',
  'jobBoard.concierge.matchingRunningHint': 'Mit dem Upload wurde die Suche gestartet. Vorschläge erscheinen hier, sobald die Prüfung abgeschlossen ist.',
  'jobBoard.concierge.matchingNeedsReview': 'Wir haben den Lebenslauf erhalten, aber vor automatischen Vorschlägen ist eine Prüfung nötig.',
+ 'jobBoard.concierge.verificationPending': 'Einige Stellen müssen noch geprüft werden. Wir versuchen es automatisch erneut. Stellen mit unbestätigten Anforderungen schlagen wir nicht als passend vor.',
+ 'jobBoard.concierge.qualificationNeedsDetails': 'Bei einigen Stellen bestätigt dein Lebenslauf nicht alle wesentlichen Anforderungen. Du kannst relevante Erfahrungen und Kenntnisse ergänzen, um die Auswahl zu verbessern.',
  'jobBoard.concierge.matchingFailed': 'Die automatische Suche konnte nicht abgeschlossen werden. Dein Dienst bleibt aktiv; wir versuchen es erneut oder prüfen das Profil manuell.',
  'jobBoard.concierge.matchScore': 'Geschätzte Übereinstimmung',
  'jobBoard.assisted.disclaimer': "Mit dem Fortfahren akzeptierst du die Nutzungsbedingungen (Abschnitt 6, unterstützte Bewerbung) und nimmst die Datenschutzerklärung zur Kenntnis. Den konkreten Auftrag erteilst du vor dem Hochladen des Lebenslaufs; nichts ist vorausgewählt.",

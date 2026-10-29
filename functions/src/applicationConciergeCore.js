@@ -186,6 +186,8 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     cvProfileStatus: optionalString(data.cvProfileStatus, 40),
     matchingStatus: optionalString(data.matchingStatus, 40),
     matchingJobCount: Number.isFinite(Number(data.matchingJobCount)) ? Number(data.matchingJobCount) : null,
+    matchingUnverifiedCount: Number.isFinite(Number(data.matchingUnverifiedCount)) ? Math.max(0, Math.floor(Number(data.matchingUnverifiedCount))) : 0,
+    matchingClarificationCount: Number.isFinite(Number(data.matchingClarificationCount)) ? Math.max(0, Math.floor(Number(data.matchingClarificationCount))) : 0,
     matchingStartedAt: timestampToIso(data.matchingStartedAt),
     matchingCompletedAt: timestampToIso(data.matchingCompletedAt),
     matchingError: optionalString(data.matchingError, 80),

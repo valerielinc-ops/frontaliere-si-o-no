@@ -714,6 +714,9 @@ export default function ApplicationConciergePortal({
   const matchingActive = MATCHING_STATES.has(matchingStatus);
   const matchingNeedsReview = matchingStatus === 'needs_review';
   const matchingFailed = matchingStatus === 'failed';
+  const canVerifyMore = !expired && service.remainingPositions > 0 && matchingStatus === 'complete';
+  const verificationPending = canVerifyMore && Number(service.matchingUnverifiedCount) > 0;
+  const qualificationNeedsDetails = canVerifyMore && Number(service.matchingClarificationCount) > 0;
 
   return (
     <PortalShell wide>
@@ -846,8 +849,10 @@ export default function ApplicationConciergePortal({
                 {matchingActive && <div className="mt-5 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status"><div className="flex items-center gap-2 text-sm font-semibold text-info"><Loader2 size={16} className="animate-spin" aria-hidden="true" />{t('jobBoard.concierge.matchingRunning')}</div><p className="mt-1 text-xs leading-5 text-body">{t('jobBoard.concierge.matchingRunningHint')}</p><div className="mt-4 space-y-2" aria-hidden="true"><div className="h-16 animate-pulse rounded-lg bg-surface" /><div className="h-16 animate-pulse rounded-lg bg-surface" /></div></div>}
                 {matchingNeedsReview && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.matchingNeedsReview')} /></div>}
                 {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
+                {verificationPending && <div className="mt-5"><Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.verificationPending')} /></div>}
+                {qualificationNeedsDetails && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.qualificationNeedsDetails')} /></div>}
                 <div className="mt-5 space-y-3">
-                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
+                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && !verificationPending && !qualificationNeedsDetails && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
                   {visibleProposals.map((proposal) => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
                 </div>
               </section>
