@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T16:30:56.094Z",
+  "generatedAt": "2026-10-29T17:32:14.635Z",
   "totalEvents": 15614,
   "events": [
     {
@@ -673290,7 +673290,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto riunisce formazioni che suonano arpa, chitarra, percussioni e strumenti a fiato in legno. Il programma della scuola di musica accompagna l’inizio della primavera e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Il concerto riunisce formazioni che suonano arpa, chitarra, percussioni e strumenti a fiato in legno. Il programma della scuola di musica accompagna l’inizio della primavera e l’ingresso è gratuito.",
+        "en": "The concert features ensembles using harp, guitar, percussion and woodwind instruments. The music school’s varied programme welcomes the spring season, and admission is free.",
+        "de": "Bei diesem Konzert treten Ensembles mit Harfe, Gitarre, Perkussion und Holzblasinstrumenten auf. Das abwechslungsreiche Programm der Musikschule steht im Zeichen des Frühlings, der Eintritt ist frei.",
+        "fr": "Le concert réunit des ensembles utilisant la harpe, la guitare, les percussions et des instruments à vent en bois. Le programme varié de l’école de musique accompagne l’arrivée du printemps et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:84a8fae0b75641209d34bde0ffc68755",
@@ -687448,7 +687456,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di musica folk al Diogenes Theater di Altstätten presenta il Julian von der Flühe Trio. La manifestazione è indicata con la denominazione Alpine Folk.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica folk al Diogenes Theater di Altstätten presenta il Julian von der Flühe Trio. La manifestazione è indicata con la denominazione Alpine Folk.",
+        "en": "The folk-music event at Diogenes Theater in Altstätten features the Julian von der Flühe Trio. It is listed under the Alpine Folk designation.",
+        "de": "Die Folk-Veranstaltung im Diogenes Theater in Altstätten präsentiert das Julian von der Flühe Trio. Sie ist als «Alpenvolk» bezeichnet.",
+        "fr": "Le rendez-vous de musique folk au Diogenes Theater d’Altstätten présente le Julian von der Flühe Trio. Il est désigné comme « Folk alpin »."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Aqkb3cm",
@@ -703690,7 +703706,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento al Monti-Winterquartier presenta Eliane in un repertorio pop con brani nuovi e successi riarrangiati. La serata combina musica interpretata con sensibilità e il racconto di esperienze personali, con il sostegno di una band.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento al Monti-Winterquartier presenta Eliane in un repertorio pop con brani nuovi e successi riarrangiati. La serata combina musica interpretata con sensibilità e il racconto di esperienze personali, con il sostegno di una band.",
+        "en": "At Monti-Winterquartier, Eliane presents a pop programme that includes new songs and rearranged hits. The performance also combines heartfelt music with personal stories and the support of a band.",
+        "de": "Im Monti-Winterquartier präsentiert Eliane ein Popprogramm mit neuen Liedern und neu arrangierten Hits. Der Auftritt verbindet gefühlvolle Musik und persönliche Geschichten mit der Begleitung durch eine Band.",
+        "fr": "Au Monti-Winterquartier, Eliane propose un programme pop comprenant de nouveaux morceaux et des succès réarrangés. Le spectacle associe une musique sensible à des récits personnels, avec l’accompagnement d’un groupe."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AZDxZ4m",
@@ -704598,7 +704622,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento musicale rende omaggio a Polo Hofer e appartiene alla categoria pop. Si svolge alla Mühle Hunziken di Rubigen, nel cantone di Berna.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale rende omaggio a Polo Hofer e appartiene alla categoria pop. Si svolge alla Mühle Hunziken di Rubigen, nel cantone di Berna.",
+        "en": "This music event pays tribute to Polo Hofer and belongs to the pop category. It takes place at Mühle Hunziken in Rubigen, in the canton of Bern.",
+        "de": "Die Musikveranstaltung ist Polo Hofer gewidmet und dem Popbereich zugeordnet. Sie findet in der Mühle Hunziken in Rubigen im Kanton Bern statt.",
+        "fr": "Ce rendez-vous musical rend hommage à Polo Hofer et relève de la catégorie pop. Il se déroule à la Mühle Hunziken, à Rubigen, dans le canton de Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AeBGRfX",
@@ -711970,7 +712002,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il forum è dedicato agli strumenti a tastiera e coinvolge gli allievi e le allieve della relativa sezione. I partecipanti presentano un programma musicale vario.",
+      "descriptionByLocale": {
+        "it": "Il forum è dedicato agli strumenti a tastiera e coinvolge gli allievi e le allieve della relativa sezione. I partecipanti presentano un programma musicale vario.",
+        "en": "The forum focuses on keyboard instruments and features students from the corresponding department. They present a varied musical programme.",
+        "de": "Im Mittelpunkt des Forums stehen Tasteninstrumente und Beiträge der entsprechenden Fachschaft. Schülerinnen und Schüler gestalten ein abwechslungsreiches musikalisches Programm.",
+        "fr": "Le forum présente des contributions d’élèves de la section consacrée aux instruments à clavier. Leur programme musical est varié."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2cda995e5637408b86be5adfaa564331",
@@ -715441,7 +715481,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento all’aperto presenta nuovi talenti alla Place Marc-Louis-Arlaud. Si svolge nell’arco di più giornate e il biglietto costa 10 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento all’aperto presenta nuovi talenti alla Place Marc-Louis-Arlaud. Si svolge nell’arco di più giornate e il biglietto costa 10 CHF.",
+        "en": "This open-air event presents new talent at Place Marc-Louis-Arlaud. It runs over several days, with admission priced at CHF 10.",
+        "de": "Das Open-Air stellt neue Talente an der Place Marc-Louis-Arlaud vor. Die Veranstaltung erstreckt sich über mehrere Tage; der Eintritt kostet 10 CHF.",
+        "fr": "L’événement en plein air présente de nouveaux talents à la Place Marc-Louis-Arlaud. Il se déroule sur plusieurs jours et l’entrée coûte 10 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c6525d3274194a9ba515aa2df33c2346",
@@ -717516,7 +717564,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma presenta l’oratorio «Elias» di Mendelssohn, un’opera di musica sacra. L’esecuzione si tiene alla Kirche St. Martin.",
+      "descriptionByLocale": {
+        "it": "Il programma presenta l’oratorio «Elias» di Mendelssohn, un’opera di musica sacra. L’esecuzione si tiene alla Kirche St. Martin.",
+        "en": "The programme features Mendelssohn’s oratorio “Elias”, a work of church music. It is performed at Kirche St. Martin.",
+        "de": "Das Konzert stellt Mendelssohns Oratorium „Elias“ aus dem Bereich der Kirchenmusik vor. Veranstaltungsort ist die Kirche St. Martin.",
+        "fr": "Le programme comprend l’oratorio «Elias» de Mendelssohn, une œuvre de musique sacrée. Il est présenté à la Kirche St. Martin."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0b1dea0462624ae387fe971f77af6d54",
