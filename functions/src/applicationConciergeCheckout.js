@@ -209,6 +209,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     if (source.renewedByServiceId) return { status: 200, body: { ok: true, url: appendServiceId(successUrl, source.renewedByServiceId), serviceId: source.renewedByServiceId } };
     renewalOffer = conciergeRenewalOffer(source);
     if (!renewalOffer) return { status: 409, body: { ok: false, error: 'application_concierge_renewal_not_available' } };
+    if (Number(body.expectedAmountTotal) !== renewalOffer.amountTotal) return { status: 409, body: { ok: false, error: 'application_concierge_renewal_price_changed' } };
   }
   // One checkout per source service prevents duplicate renewal purchases from repeated clicks.
   const requestKeyHash = sha256(renewalOfServiceId ? `${userId}:renewal:${renewalOfServiceId}` : `${userId}:${requestKey}`);
@@ -428,7 +429,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       if (renewalOfServiceId) {
         const source = (await transaction.get(serviceCollection.doc(renewalOfServiceId))).data();
         const currentOffer = conciergeRenewalOffer(source);
-        if (source?.userId !== userId || !currentOffer) throw new ApplicationConciergeCheckoutConflictError();
+        if (source?.userId !== userId || !currentOffer || Number(body.expectedAmountTotal) !== currentOffer.amountTotal) throw new ApplicationConciergeCheckoutConflictError();
         renewalOffer = currentOffer;
       }
       serviceRef = serviceCollection.doc();
