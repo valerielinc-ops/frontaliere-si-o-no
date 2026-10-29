@@ -25,7 +25,8 @@ const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
  '#loading-shell, main.seo-static-content, main.cluster-seo-prose',
 );
 
-const JOB_BOARD_STATIC_CONTENT_SELECTOR = 'main.seo-static-content.job-board-static-hub';
+const JOB_BOARD_STATIC_CONTENT_SELECTOR =
+ 'main.seo-static-content.job-board-static-hub, main.seo-static-content[data-sector-hub]';
 
 const hasJobBoardPreRenderedPaintContent = (): boolean =>
  !!document.querySelector(JOB_BOARD_STATIC_CONTENT_SELECTOR);
@@ -118,14 +119,16 @@ const bootstrapApp = async () => {
  const shouldWaitForJobBoardStaticLcp =
    hasJobBoardPreRenderedPaintContent() && shouldWaitForJobBoardLcp(window.innerWidth);
  if (shouldWaitForJobBoardStaticLcp) {
-   // The job-board static main is emitted inside #root and is the intended
-   // first LCP candidate on sub-desktop viewports. Let that candidate settle
-   // before the large React runtime can replace the root; otherwise slow mobile
-   // runs record the post-takeover JobBoard render instead. On desktop, keep the
-   // existing FCP handoff: waiting for static LCP leaves more time for ad/third-
-   // party layout writes inside the fallback before React replaces it, which
-   // regressed field CLS on this route (#15770). The selector excludes CMP UI
-   // and the bounded fallback remains in place when LCP cannot be observed.
+   // The job-board static main is the intended first LCP candidate on
+   // sub-desktop viewports. Root hubs are emitted inside #root, while sector
+   // hubs remain outside it; both need to settle before the large React runtime
+   // can compete with the static page. Otherwise slow mobile runs record the
+   // post-takeover JobBoard render or a late static-layout shift. On desktop,
+   // keep the existing FCP handoff: waiting for static LCP leaves more time for
+   // ad/third-party layout writes inside the fallback before React replaces it,
+   // which regressed field CLS on this route (#15770). The selector excludes
+   // CMP UI and the bounded fallback remains in place when LCP cannot be
+   // observed.
    await waitForInitialPaintOpportunity({
      waitForLargestContentfulPaint: true,
      largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR,
