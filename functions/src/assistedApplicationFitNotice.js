@@ -89,10 +89,17 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     const entry = explicitLanguageEntry(profile, code);
     const remembered = answers[`language_${code}_any_proficiency`];
     const level = String(remembered || entry?.level || '');
-    const rank = value => ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(String(value).toUpperCase().match(/\b[ABC][12]\b/)?.[0]);
+    const rank = value => {
+      const label = String(value);
+      const cefr = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(label.toUpperCase().match(/\b[ABC][12]\b/)?.[0]);
+      if (cefr >= 0) return cefr;
+      if (/\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(label)) return 5;
+      return /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(label) ? 4 : -1;
+    };
     const requested = rank(row.quote);
     const fluent = /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(row.quote || '');
-    const minimum = requested >= 0 ? requested : fluent ? 4 : -1;
+    const native = /\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(row.quote || '');
+    const minimum = requested >= 0 ? requested : native ? 5 : fluent ? 4 : -1;
     const knownAbsent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
     if (knownAbsent || (!entry && !remembered) || (minimum >= 0 && (rank(level) < minimum))) {
       if (!gaps.some(gap => gap.index === index)) gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown' });
