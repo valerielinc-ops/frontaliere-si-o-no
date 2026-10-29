@@ -1,3 +1,4 @@
+import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
@@ -188,7 +189,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  const [linkedInBusy, setLinkedInBusy] = useState(false);
 
  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
- const alreadySignedIn = hasAccessProp || !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY);
+ const alreadySignedIn = isCrawlerVisitorAgent(navigator.userAgent || '') || hasAccessProp || !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY);
  const jobGate = useJobGateExperiment(shouldBypassJobGateExperiment() || alreadySignedIn);
  const gateVariant = jobGate.enrolled ? jobGate.arm : 'control';
  const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : AUTHGATE_HEADLINE_EXPERIMENT_ID;

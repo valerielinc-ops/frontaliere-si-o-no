@@ -1,3 +1,4 @@
+import JobBridgeView from '@/components/community/JobBridgeView';
 /**
  * Offer status is gated behind the auth-gate.
  *
@@ -110,6 +111,13 @@ describe('Offer status gated behind auth (logged-out)', () => {
    expect(screen.getByText('Requisiti storici completi')).toBeInTheDocument();
    expect(screen.getByText('Requisiti storici completi').closest('details')).toHaveAttribute('open');
   } finally { delete seeded.__STATIC_BODY_HTML__; }
+ });
+
+ it('keeps the bridge sign-in block away from SEO crawlers', () => {
+  vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue('bingbot');
+  const { container } = render(<JobBridgeView targetSlug="current-job" jobData={{ title: 'Original vacancy', company: 'Acme SA' }} hasAccess={false} />);
+  expect(container.querySelector('#job-auth-gate')).toBeNull();
+  expect(screen.getByRole('heading', { level: 1, name: 'Original vacancy' })).toBeInTheDocument();
  });
 
  it('JobOrphanView hides "no longer available" banner until sign-in', () => {
