@@ -27,6 +27,19 @@ export const GRAPHQL_ENDPOINT = 'https://api.cloudflare.com/client/v4/graphql';
 export const REST_BASE = 'https://api.cloudflare.com/client/v4';
 export const DEFAULT_ZONE_NAME = 'frontaliereticino.ch';
 
+const DEFAULT_CF_ANALYTICS_TIMEOUT_MS = 30_000;
+const MAX_CF_ANALYTICS_TIMEOUT_MS = 120_000;
+
+function boundedTimeoutMs(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric) || numeric <= 0) return DEFAULT_CF_ANALYTICS_TIMEOUT_MS;
+  return Math.min(Math.max(1, numeric), MAX_CF_ANALYTICS_TIMEOUT_MS);
+}
+
+export const CF_ANALYTICS_TIMEOUT_MS = boundedTimeoutMs(
+  process.env.CF_ANALYTICS_TIMEOUT_MS || DEFAULT_CF_ANALYTICS_TIMEOUT_MS,
+);
+
 // Stay safely under the free-plan 1-day-per-query cap (clock skew once tripped
 // "1d96ms > 1d").
 export const MAX_HOURS = 23.9;
@@ -40,16 +53,26 @@ export const CF_ANALYTICS_MAX_ROWS = 10_000;
  * request in their cycle budget; existing consumers keep the global fetch
  * default.
  */
-export async function cfGraphQL(token, query, variables, fetchImpl = fetch) {
-  const res = await fetchImpl(GRAPHQL_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
+export async function cfGraphQL(
+  token,
+  query,
+  variables,
+  fetchImpl = fetch,
+  timeoutMs = CF_ANALYTICS_TIMEOUT_MS,
+) {
+  const { res, json } = await fetchJsonWithDeadline(
+    GRAPHQL_ENDPOINT,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query, variables }),
     },
-    body: JSON.stringify({ query, variables }),
-  });
-  const json = await res.json().catch(() => null);
+    fetchImpl,
+    timeoutMs,
+  );
   if (!json) throw new Error(`Cloudflare GraphQL returned non-JSON (HTTP ${res.status}).`);
   if (json.errors && json.errors.length) {
     throw new Error(`Cloudflare GraphQL error: ${json.errors.map((e) => e.message).join('; ')}`);
@@ -58,17 +81,70 @@ export async function cfGraphQL(token, query, variables, fetchImpl = fetch) {
 }
 
 /**
+ * Fetch JSON with one deadline covering both response headers and body.
+ * `fetchImpl` remains injectable so consumers can test without Cloudflare.
+ */
+async function fetchJsonWithDeadline(url, init, fetchImpl, timeoutMs) {
+  const effectiveTimeoutMs = boundedTimeoutMs(timeoutMs);
+  const controller = new AbortController();
+  let timedOut = false;
+  let timer;
+  const timeoutError = () => {
+    const error = new Error(`Cloudflare API ${url} timed out after ${effectiveTimeoutMs}ms`);
+    error.name = 'TimeoutError';
+    error.code = 'CF_ANALYTICS_TIMEOUT';
+    return error;
+  };
+  const deadline = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      timedOut = true;
+      controller.abort();
+      reject(timeoutError());
+    }, effectiveTimeoutMs);
+  });
+  try {
+    const res = await Promise.race([
+      fetchImpl(url, { ...init, signal: controller.signal }),
+      deadline,
+    ]);
+    const json = await Promise.race([res.json().catch(() => null), deadline]);
+    return { res, json };
+  } catch (error) {
+    if (timedOut) throw timeoutError();
+    throw error;
+  } finally {
+    clearTimeout(timer);
+    controller.abort();
+  }
+}
+
+/**
  * Resolve a zone id from its name (or return the override if provided).
  * @param {typeof fetch} [fetchImpl=fetch] network implementation
  */
-export async function resolveZoneId(token, zoneName = DEFAULT_ZONE_NAME, zoneIdOverride, fetchImpl = fetch) {
+export async function resolveZoneId(
+  token,
+  zoneName = DEFAULT_ZONE_NAME,
+  zoneIdOverride,
+  fetchImpl = fetch,
+  timeoutMs = CF_ANALYTICS_TIMEOUT_MS,
+) {
   if (zoneIdOverride) return zoneIdOverride;
-  const res = await fetchImpl(`${REST_BASE}/zones?name=${encodeURIComponent(zoneName)}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  const json = await res.json().catch(() => null);
+  const { res, json } = await fetchJsonWithDeadline(
+    `${REST_BASE}/zones?name=${encodeURIComponent(zoneName)}`,
+    { headers: { Authorization: `Bearer ${token}` } },
+    fetchImpl,
+    timeoutMs,
+  );
+  const httpStatus = Number.isInteger(res?.status) ? `HTTP ${res.status}` : 'HTTP status sconosciuto';
+  if (!json) {
+    throw new Error(`Cloudflare zone lookup returned non-JSON (${httpStatus}).`);
+  }
   if (!json || !json.success || !json.result?.length) {
-    throw new Error(`Could not resolve Cloudflare zone id for ${zoneName} (check token scope).`);
+    const apiErrors = Array.isArray(json.errors) && json.errors.length > 0
+      ? `: ${json.errors.map((error) => error?.message || JSON.stringify(error)).join('; ')}`
+      : '';
+    throw new Error(`Could not resolve Cloudflare zone id for ${zoneName} (${httpStatus}; check token scope${apiErrors}).`);
   }
   return json.result[0].id;
 }

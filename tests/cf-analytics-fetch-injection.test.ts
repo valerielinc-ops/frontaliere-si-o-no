@@ -1,14 +1,15 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import {
+  cfGraphQL,
   fetchErrorDiagnostics,
   fetchErrorPaths,
   resolveZoneId,
   sweepErrorPathsWindowed,
 } from '../scripts/lib/cf-analytics.mjs';
 
-const response = (body: unknown) => ({
-  status: 200,
+const response = (body: unknown, status = 200) => ({
+  status,
   json: async () => body,
 });
 
@@ -24,6 +25,31 @@ describe('Cloudflare analytics fetch injection', () => {
 
     await expect(resolveZoneId('token', 'example.test', undefined, asFetch(fetchImpl))).resolves.toBe('zone-1');
     expect(fetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('bounds a GraphQL request that never returns response headers', async () => {
+    const fetchImpl = vi.fn(() => new Promise(() => {}));
+
+    await expect(cfGraphQL('token', 'query', {}, asFetch(fetchImpl), 10)).rejects.toMatchObject({
+      name: 'TimeoutError',
+      code: 'CF_ANALYTICS_TIMEOUT',
+    });
+    expect(fetchImpl).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.objectContaining({ signal: expect.anything() }),
+    );
+  });
+
+  it('bounds zone resolution while the response body is still pending', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      status: 200,
+      json: async () => new Promise(() => {}),
+    }));
+
+    await expect(resolveZoneId('token', 'example.test', undefined, asFetch(fetchImpl), 10)).rejects.toMatchObject({
+      name: 'TimeoutError',
+      code: 'CF_ANALYTICS_TIMEOUT',
+    });
   });
 
   it('routes GraphQL paths and diagnostics through the caller fetch implementation', async () => {
