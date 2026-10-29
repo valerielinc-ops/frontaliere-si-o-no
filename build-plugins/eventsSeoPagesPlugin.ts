@@ -3719,16 +3719,52 @@ function eventDetailMetaTitle(
   // Preserve the disambiguator in overflow cases. Truncating the complete
   // composition from the right can erase an ordinal while probing long
   // place/date suffixes, causing distinct candidates to normalize alike.
-  const fallbackSuffix = `${metadataQualifier}${qualifier}`;
-  if (metadataQualifier && esc(fallbackSuffix).length < EVENT_DETAIL_META_TITLE_MAX_CHARS) {
-    const titleBudget = EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(fallbackSuffix).length;
-    let fallbackTitle = completeTitle;
-    for (let max = titleBudget; esc(fallbackTitle).length > titleBudget && max > 0; max -= 1) {
-      fallbackTitle = truncateHeadline(completeTitle, max);
+  // Keep a locality token and date when they fit, then verify the shell's
+  // actual output too because it may add the site brand.
+  if (metadataQualifier) {
+    const barePlaceSuffix = suffixes[suffixes.length - 1] || '';
+    const locality = barePlaceSuffix.replace(/^\s*[—–-]\s*/u, '').trim();
+    const localityWords = locality.split(/\s+/u).filter(Boolean);
+    const localityVariants = [
+      locality,
+      localityWords.slice(-2).join(' '),
+      localityWords.slice(-1).join(' '),
+      '',
+    ].filter((value, index, all) => all.indexOf(value) === index);
+    const dateVariants = dateToken ? [dateToken, ''] : [''];
+    const qualifierVariants = qualifier ? [qualifier, ''] : [''];
+    const fallbackSuffixes: string[] = suffixCandidates.map(({ suffix }) => suffix);
+    for (const date of dateVariants) {
+      for (const place of localityVariants) {
+        for (const titleQualifier of qualifierVariants) {
+          fallbackSuffixes.push(
+            `${metadataQualifier}${titleQualifier}${place ? ` — ${place}` : ''}${date ? ` · ${date}` : ''}`,
+          );
+        }
+      }
     }
-    if (esc(fallbackTitle).length > titleBudget) fallbackTitle = '';
-    const fallback = `${fallbackTitle}${fallbackSuffix}`;
-    if (esc(fallback).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return fallback;
+
+    for (const fallbackSuffix of fallbackSuffixes.filter((value, index, all) => all.indexOf(value) === index)) {
+      const titleBudget = EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(fallbackSuffix).length;
+      if (titleBudget < 0) continue;
+      const titleCandidates: string[] = [];
+      if (esc(completeTitle).length <= titleBudget) {
+        titleCandidates.push(completeTitle);
+      } else {
+        for (let max = titleBudget; max > 0; max -= 1) {
+          const candidate = truncateHeadline(completeTitle, max);
+          if (!titleCandidates.includes(candidate)) titleCandidates.push(candidate);
+        }
+      }
+      titleCandidates.push('');
+
+      for (const fallbackTitle of titleCandidates) {
+        const fallback = `${fallbackTitle}${fallbackSuffix}`;
+        if (esc(fallback).length > EVENT_DETAIL_META_TITLE_MAX_CHARS) continue;
+        const shellFallback = normalizeShellTitle(fallback, (value) => esc(value).length);
+        if (esc(shellFallback).length <= TITLE_TARGET_CHARS) return fallback;
+      }
+    }
   }
   // Unreachable for gazetteer/canton-label comuni (the bare ` — ${comune}`
   // candidate always leaves budget); guards pathological place names so the
