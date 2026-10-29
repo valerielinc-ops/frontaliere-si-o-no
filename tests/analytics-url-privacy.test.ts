@@ -74,7 +74,7 @@ describe('email-link telemetry URL privacy', () => {
    setTimeout: () => {},
   };
   context.window = context;
-  runInNewContext(html.slice(start, end), context);
+  runInNewContext('(function(){' + html.slice(start, end) + '})();', context);
   const config = context.dataLayer.map((entry: IArguments) => Array.from(entry)).find((entry: any[]) => entry[0] === 'config')[2];
   expect(config.page_location).not.toContain('secret-code');
   expect(config.page_referrer).not.toContain('candidate');
