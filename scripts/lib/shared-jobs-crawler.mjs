@@ -3002,6 +3002,15 @@ function fetchRetryDelayMs(attempt) {
   return Math.min(5000, expo + jitter);
 }
 
+async function isTrustedMorssResponse(url, response) {
+  if (!isTichDetailUrl(url)) return true;
+  const body = await response.clone().text().catch(() => '');
+  if (isTichDetailHtmlForUrl(body, url)) return true;
+  console.warn(`⚠️ Morss Ti.CH detail response failed the identity check for ${url} — falling back to direct fetch.`);
+  try { await response.body?.cancel(); } catch {}
+  return false;
+}
+
 async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userAgent, timeoutMs } = {}) {
   const upperMethod = normalizeSpace(method || 'GET').toUpperCase();
   const canRetry = (upperMethod === 'GET' || upperMethod === 'HEAD') && !body;
@@ -3031,18 +3040,8 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
         attempts: 2,
         retryDelayMs: 800,
       });
-      if (morssRes?.ok) {
-        const morssBody = await morssRes.text();
-        if (!isTichDetailUrl(url) || isTichDetailHtmlForUrl(morssBody, url)) {
-          return new Response(morssBody, {
-            status: morssRes.status,
-            headers: Object.fromEntries(morssRes.headers.entries()),
-          });
-        }
-        console.warn(`⚠️ Morss proxy returned a non-matching Ti.CH detail page for ${url} — falling back to the existing fetch chain.`);
-      } else {
-        console.warn(`⚠️ Morss proxy exhausted for ${url} — falling back to direct fetch.`);
-      }
+      if (morssRes?.ok && await isTrustedMorssResponse(url, morssRes)) return morssRes;
+      if (!morssRes?.ok) console.warn(`⚠️ Morss proxy exhausted for ${url} — falling back to direct fetch.`);
     }
   }
   if (hostMatchesProxyList(url, process.env.JOBS_CRAWLER_FETCH_PROXY)) {
