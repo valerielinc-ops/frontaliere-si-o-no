@@ -227,6 +227,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'everest-re': cLogo('everestre.com'),
  // #6504 residual: the official site exposes only a small favicon; this is
  // the published Imerys mark from the company-origin Commons file.
+ 'fondazione-san-gottardo': cLogo('fsangottardo.ch'),
  'grund-ag-ch': 'https://grund-ag.ch/wp-content/uploads/2022/11/cropped-FAVICON-192x192.png',
  'hanseisenring': 'https://hanseisenring.ch/favicon-96x96.png',
  'imerys': 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png',

@@ -123,6 +123,7 @@ export const COMPANY_HQ = {
   'engelvoelkers':                { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'eoc':                          { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
   'fart':                         { city: 'Locarno',            canton: 'TI', postalCode: '6601', addressRegion: 'TI' },
+  'fondazione-san-gottardo':      { city: 'Lopagno',             canton: 'TI', postalCode: '6956', addressRegion: 'TI' },
   'goline':                       { city: 'Stabio',             canton: 'TI', postalCode: '6934', addressRegion: 'TI' },
   'has-healthcare':               { city: 'Biasca',             canton: 'TI', postalCode: '6710', addressRegion: 'TI' },
   'helsinn':                      { city: 'Lugano',             canton: 'TI', postalCode: '6912', addressRegion: 'TI' },
