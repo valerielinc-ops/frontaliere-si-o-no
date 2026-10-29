@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
@@ -663,5 +663,42 @@ describe('portal field extraction', () => {
     const applyButton = page.buttons.find((button: any) => button.text === 'Apply');
     expect(applyButton).toMatchObject({ text: 'Apply' });
     expect(applyButton).not.toHaveProperty('chrome');
+  });
+});
+
+
+describe('Turnstile in closed shadow roots', () => {
+  function widget({ answered = false, hidden = false, otherAnswered = false } = {}) {
+    const { window } = new JSDOM('<div class="cf-turnstile"><div id="mount"></div><input name="cf-turnstile-response"></div><div class="cf-turnstile"><input name="cf-turnstile-response"></div>');
+    const document = window.document;
+    const host = document.getElementById('mount')!;
+    const root = host.attachShadow({ mode: 'closed' });
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://challenges.cloudflare.com/cdn-cgi/challenge-platform/turnstile/if/ov2/av0/test';
+    iframe.getBoundingClientRect = () => ({ width: 300, height: 65 } as DOMRect);
+    if (hidden) iframe.style.display = 'none';
+    root.appendChild(iframe);
+    const inputs = document.querySelectorAll('input');
+    inputs[0].value = answered ? 'answered-token' : '';
+    inputs[1].value = otherAnswered ? 'other-token' : '';
+    return { document, iframe };
+  }
+
+  it('detects a visible unsolved challenge missing from the document iframe census', () => {
+    const { document, iframe } = widget();
+    expect(document.querySelectorAll('iframe')).toHaveLength(0);
+    expect(unresolvedTurnstileFrame(iframe)).toBe(true);
+    expect(unresolvedTurnstileFrame(widget({ answered: true }).iframe)).toBe(false);
+    expect(unresolvedTurnstileFrame(widget({ hidden: true }).iframe)).toBe(false);
+    expect(unresolvedTurnstileFrame(widget({ otherAnswered: true }).iframe)).toBe(true);
+  });
+
+  it('routes a browser-reported challenge frame through the existing CAPTCHA wait', async () => {
+    const main = { url: () => 'https://jobs.example/apply', evaluate: vi.fn(async () => ({ url: 'https://jobs.example/apply', fields: [], buttons: [], captcha: false, errors: [], text: '' })) };
+    const child = { url: () => 'https://challenges.cloudflare.com/cdn-cgi/challenge-platform/turnstile/if/ov2/test',
+      frameElement: vi.fn(async () => ({ evaluate: (read: (element: HTMLIFrameElement) => boolean) => read(widget().iframe) })) };
+    const snapshot = await extractFields({ frames: () => [main, child], url: main.url } as any);
+    expect(snapshot.captcha).toBe(true);
+    expect(child.frameElement).toHaveBeenCalledOnce();
   });
 });

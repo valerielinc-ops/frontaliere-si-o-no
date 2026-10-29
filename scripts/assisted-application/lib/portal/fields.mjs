@@ -761,12 +761,39 @@ export function registerPortalChannelType(context, channelType) {
   if (context && String(channelType || '').trim()) portalChannelTypes.set(context, String(channelType).trim());
 }
 
+/** Read a visible Turnstile iframe even when a closed shadow root hides it from document queries. */
+export function unresolvedTurnstileFrame(iframe) {
+  const rect = iframe.getBoundingClientRect();
+  const style = iframe.ownerDocument.defaultView.getComputedStyle(iframe);
+  if (rect.width <= 40 || rect.height <= 40 || style.visibility === 'hidden' || style.display === 'none') return false;
+  const root = iframe.getRootNode();
+  const host = root.host || iframe;
+  const widget = host.closest('.cf-turnstile, [data-sitekey]') || host.parentElement;
+  // A token belonging to another widget must not hide this unsolved challenge.
+  const responses = widget ? [...widget.querySelectorAll('input[name="cf-turnstile-response"]')] : [];
+  return responses.length !== 1 || !String(responses[0].value || '').trim();
+}
+
+function isTurnstileFrame(url) {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'https:' && parsed.hostname === 'challenges.cloudflare.com';
+  } catch { return false; }
+}
+
 export async function extractFields(page, { listboxOptions = true, channelType = '', includeHidden = false } = {}) {
   const frames = page.frames();
   const result = { url: page.url(), fields: [], buttons: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
   const context = typeof page.context === 'function' ? page.context() : null;
   const effectiveChannelType = String(channelType || portalChannelTypes.get(context) || '').trim();
   for (const [index, frame] of frames.entries()) {
+    if (index > 0 && isTurnstileFrame(frame.url())) {
+      try {
+        const element = await frame.frameElement();
+        result.captcha ||= await element.evaluate(unresolvedTurnstileFrame);
+      } catch { /* A detached challenge is re-evaluated on the next snapshot. */ }
+      continue;
+    }
     if (index > 0 && /recaptcha|hcaptcha|challenges\.cloudflare|turnstile|captcha-delivery|doubleclick|googletagmanager|youtube|vimeo/i.test(frame.url())) continue;
     let snapshot;
     try {
