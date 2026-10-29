@@ -2449,6 +2449,10 @@ describe('portal runner helpers', () => {
     for (const text of ['Grazie per esserti candidato!', 'La ringraziamo per la sua candidatura', 'Vielen Dank für deine Bewerbung']) expect(CONFIRM_RE.test(text)).toBe(true);
     expect(VALIDATION_RE.test('Dieses Feld ist ein Pflichtfeld')).toBe(true);
     expect(findButton([{ id: 'b1', text: 'Cancel' }, { id: 'b2', text: 'Weiter' }], NEXT_RE)).toEqual({ id: 'b2', text: 'Weiter' });
+    // RhB's exact final label must not depend on a model naming the button.
+    for (const text of ['Senden', 'senden', 'SENDEN']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Nicht senden', 'Senden an einen Freund', 'Unterlagen senden']) expect(SUBMIT_RE.test(text)).toBe(false);
+    expect(findButton([{ id: 'rhb', text: 'Senden', disabled: false }], SUBMIT_RE)?.id).toBe('rhb');
     // A disabled submit (required fields still empty) is not clicked, but the runner can see it.
     const disabled = [{ id: 'b3', text: 'Bewerbung senden', disabled: true }];
     expect(findButton(disabled, SUBMIT_RE)).toBeNull();
