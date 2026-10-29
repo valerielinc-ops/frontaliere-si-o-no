@@ -1,7 +1,7 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-10-29T14:40:07.672Z",
+  "generatedAt": "2026-10-29T21:33:49.856Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -13,10 +13,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6235,
-  "avgDurationMs": 6235,
+  "durationMs": 5375,
+  "avgDurationMs": 5375,
   "durationHistory": [
-    6235
+    5375
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +41,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-29T14:39:50.356Z",
+      "crawledAt": "2026-10-29T21:33:35.969Z",
       "id": "pkb-private-bank-861a521add1e",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-23T09:46:10.994Z",
@@ -52,16 +52,16 @@
       "applyUrl": "https://careers.pkb.ch/job/view-job.php?id=31-compliance-officer-lugano&language=it",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "ec655f196b6b4671f70530d83dc02de16dd47346"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }

@@ -1,7 +1,7 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-10-29T14:43:11.027Z",
+  "generatedAt": "2026-10-29T21:37:10.050Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,59 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8198,
-  "avgDurationMs": 8198,
+  "unchangedCount": 3,
+  "durationMs": 5776,
+  "avgDurationMs": 5776,
   "durationHistory": [
-    8198
+    5776
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "amina-bank-43d485a2b0f5",
-      "slug": "strategie-di-pagamento-e-sviluppo-commerciale-amina-bank-zug",
-      "company": "AMINA Bank",
-      "companyKey": "amina-bank",
-      "companyDomain": "amina.jobs.personio.com",
-      "title": "Payments Strategy & Business Development",
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://amina.jobs.personio.com/job/2752820",
-      "source": "AMINA Bank Dedicated Parser (Personio JSON)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-29T14:42:48.637Z",
-      "addressLocality": "Zug",
-      "postalCode": "6300",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://amina.jobs.personio.com/job/2752820",
-      "firstSeenAt": "2026-08-13T10:35:16.318Z",
-      "salaryMin": 74500,
-      "salaryMax": 127000,
-      "salarySource": "estimated",
-      "addressRegion": "ZG",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +37,7 @@
       "url": "https://amina.jobs.personio.com/job/2840347",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T14:42:49.276Z",
+      "crawledAt": "2026-10-29T21:36:55.744Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -110,6 +67,47 @@
       }
     },
     {
+      "id": "amina-bank-43d485a2b0f5",
+      "slug": "strategie-di-pagamento-e-sviluppo-commerciale-amina-bank-zug",
+      "company": "AMINA Bank",
+      "companyKey": "amina-bank",
+      "companyDomain": "amina.jobs.personio.com",
+      "title": "Payments Strategy & Business Development",
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://amina.jobs.personio.com/job/2752820",
+      "source": "AMINA Bank Dedicated Parser (Personio JSON)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-29T21:36:55.470Z",
+      "addressLocality": "Zug",
+      "postalCode": "6300",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://amina.jobs.personio.com/job/2752820",
+      "firstSeenAt": "2026-08-13T10:35:16.318Z",
+      "salaryMin": 74500,
+      "salaryMax": 127000,
+      "salarySource": "estimated",
+      "addressRegion": "ZG",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
       "id": "amina-bank-6dc97b03283f",
       "slug": "responsabile-relazioni-b2b2c-amina-bank-zug",
       "company": "AMINA Bank",
@@ -121,7 +119,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T14:42:48.381Z",
+      "crawledAt": "2026-10-29T21:36:54.736Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -151,5 +149,5 @@
       }
     }
   ],
-  "codeCommit": "ec655f196b6b4671f70530d83dc02de16dd47346"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }
