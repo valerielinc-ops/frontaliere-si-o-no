@@ -67,7 +67,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { dailyBucketInfo, dailyKeyZurich } from './followup-resolution-match.mjs';
+import { dailyBucketInfo, dailyBucketSourcePrNumbers, dailyKeyZurich } from './followup-resolution-match.mjs';
 
 const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
@@ -845,10 +845,7 @@ export function persistedBucketIssueMatches(issue, prNumber, prComments = '', ma
   // two grammars separate prevents an ordinary issue's unrelated Sources bullet
   // from being mistaken for persisted follow-up evidence.
   const directEvidence = info
-    ? new RegExp(
-      `^\\s*###\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*$(?:(?!^\\s*#{2,3}\\s+)[\\s\\S])*?^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
-      'im',
-    ).test(body)
+    ? dailyBucketSourcePrNumbers(body).includes(Number(prNumber))
     : new RegExp(
       `^\\s*-\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*\\bSources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
       'im',
