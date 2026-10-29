@@ -8646,7 +8646,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'Der Bundesrat beantragt 165,4 Millionen Franken.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.norme-flessibilita-start-up.title': 'Bundesrat gewährt Start-ups Flexibilität bei der Arbeitszeit',
-    'blog.article.norme-flessibilita-start-up.excerpt': 'Neue Sonderbestimmungen am 28. Oktober 2026 Inkrafttreten am 1. Dezember 2026 Gezielte Ausnahmen für bestimmte Start-up-Beschäftigte Die Revision setzt das Ziel der parlamentarischen Initiative 16.442 um',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Neue Sonderbestimmungen am 28.',
     'blog.article.norme-flessibilita-start-up.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.sem-rinnovo-simic-paralisi.title': 'Die SEM droht wegen der Erneuerung von SIMIC zum Stillstand zu kommen',
     'blog.article.sem-rinnovo-simic-paralisi.excerpt': 'Die SEM droht ohne zusätzliche Ressourcen zum Stillstand zu kommen SIMIC: im Jahr 2024 von etwa 66 auf 193 Millionen geschätzt Das neue System wird nicht vor 2032 betriebsbereit sein',
