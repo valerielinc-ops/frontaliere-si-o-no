@@ -330,7 +330,7 @@ async function renewSumUpCheckout({ db, orderId, order, nowMs, createSumUp = cre
     const checkoutId = boundedString(checkout?.id, 200);
     if (!checkoutId) throw new Error('sumup_recovery_checkout_missing');
     const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
-    return db.runTransaction(async (transaction) => {
+    return await db.runTransaction(async (transaction) => {
       const snapshot = await transaction.get(ref);
       const current = snapshot.exists ? snapshot.data() || {} : {};
       if (current.paymentStatus === 'paid') return { status: 'paid' };
