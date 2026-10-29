@@ -52,6 +52,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -197,6 +198,17 @@ function nonPlaceholder(value = '') {
   return normalized === '-' ? '' : normalized;
 }
 
+function normalizeApplyUrl(rawUrl = '', publicUrl = '') {
+  const candidate = normalizeSpace(rawUrl);
+  if (!candidate || candidate === '-') return publicUrl;
+  try {
+    const parsed = new URL(candidate);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:' ? parsed.href : publicUrl;
+  } catch {
+    return publicUrl;
+  }
+}
+
 export function buildValoraApiListing(record = {}) {
   if (!record || typeof record !== 'object') {
     throw new Error('Valora API returned a non-object job record');
@@ -210,6 +222,10 @@ export function buildValoraApiListing(record = {}) {
   const labels = record.labels && typeof record.labels === 'object' ? record.labels : {};
   const city = nonPlaceholder(record.jobCity);
   const region = nonPlaceholder(record.jobRegion);
+  const descriptionHtml = String(record.jobDescription || '');
+  if (!meetsSourceBodyFloor(stripHtml(descriptionHtml))) {
+    throw new Error(`Valora API job ${id} has a source description below the 50-word floor`);
+  }
 
   return {
     id,
@@ -226,8 +242,8 @@ export function buildValoraApiListing(record = {}) {
       addrPostal: nonPlaceholder(record.jobZipCode),
       addrStreet: nonPlaceholder(record.jobStreet),
       addrRegion: region,
-      descriptionHtml: String(record.jobDescription || ''),
-      applyUrl: normalizeSpace(record.applyUrl || ''),
+      descriptionHtml,
+      applyUrl: normalizeApplyUrl(record.applyUrl, publicUrl),
     },
   };
 }

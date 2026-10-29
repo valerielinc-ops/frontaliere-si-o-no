@@ -49,12 +49,13 @@ describe('Valora Group crawler parser', () => {
   });
 
   describe('first-party jobs API', () => {
+    const sourceDescription = '<p>Diese Stelle bietet eine verantwortungsvolle Aufgabe mit klaren Zielen, abwechslungsreichen Tätigkeiten und direktem Kundenkontakt. Sie arbeiten im Team, planen Ihre Einsätze sorgfältig, dokumentieren die täglichen Abläufe und unterstützen die Filialleitung bei Qualität, Sicherheit und Warenpräsentation. Wir bieten eine strukturierte Einarbeitung, faire Arbeitszeiten, interne Weiterbildung, moderne Arbeitsmittel, attraktive Sozialleistungen und langfristige Entwicklungsmöglichkeiten in einem schweizerischen Unternehmen.</p>';
     const apiPayload = {
       jobs: [
         {
           externalId: '21923',
           jobTitle: 'Verkäuferin / Verkäufer k kiosk 30 Std.',
-          jobDescription: '<p>Ist verkaufen Deine Leidenschaft?</p><h2>Deine Aufgaben</h2>',
+          jobDescription: sourceDescription,
           jobCategory: 'sales',
           entryLevel: 'young_professionals',
           employmentType: 'part_time',
@@ -69,7 +70,7 @@ describe('Valora Group crawler parser', () => {
         {
           externalId: '12939',
           jobTitle: 'Agenturpartnerin / Agenturpartner Kanton Graubünden',
-          jobDescription: '<p>Suchst Du den Einstieg in die Selbständigkeit?</p>',
+          jobDescription: sourceDescription,
           jobCategory: 'sales',
           entryLevel: 'franchise_and_agency_partner',
           employmentType: 'full_time',
@@ -122,6 +123,21 @@ describe('Valora Group crawler parser', () => {
         .toThrow(/pagination metadata/);
       expect(() => buildValoraApiListing({ externalId: '21923' }))
         .toThrow(/externalId or jobTitle/);
+      expect(() => buildValoraApiListing({
+        externalId: '21923',
+        jobTitle: 'Short source body',
+        jobDescription: '<p>Too short.</p>',
+      })).toThrow(/50-word floor/);
+    });
+
+    it('falls back to the public job URL for invalid application targets', () => {
+      const listing = buildValoraApiListing({
+        externalId: '21923',
+        jobTitle: 'Valid source body',
+        jobDescription: sourceDescription,
+        applyUrl: '-',
+      });
+      expect(listing.detail.applyUrl).toBe(listing.url);
     });
 
     it('accepts an explicitly empty API snapshot', () => {

@@ -1784,6 +1784,12 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         recordSourceFetchMetadata(extracted);
         const nextCandidates = filterListingCandidates(spec, extracted.candidates);
         const nextDeclaredPageCount = readDeclaredListingPageCount(body, pagination);
+        if (pagination.stopAfterDeclaredPageCount && nextDeclaredPageCount === null) {
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] numero di pagine dichiarato dalla fonte non trovato `
+            + `(declaredPageCountPattern ${pagination.declaredPageCountRx?.source || 'missing'})`,
+          ), bySlug.size);
+        }
         if (nextDeclaredPageCount !== null) {
           if (declaredPageCount !== null && nextDeclaredPageCount !== declaredPageCount) {
             throw markSpecListingFailure(new Error(

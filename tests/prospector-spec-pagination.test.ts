@@ -358,6 +358,24 @@ describe('spec.pagination', () => {
     ]);
   });
 
+  it('fallisce chiuso se una pagina successiva perde il numero di pagine dichiarato', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: `${listingPage({ ids: ['sa1'], page: 1, next: `${ORIGIN}/?sf_paged=2` })}<script type="application/json">{"total_pages":2}</script>`,
+      [`${ORIGIN}/?sf_paged=2`]: listingPage({ ids: ['sa2'], page: 2, next: `${ORIGIN}/?sf_paged=3` }),
+    };
+    await expect(collect(specWith({
+      pagination: {
+        maxPages: 10,
+        declaredPageCountPattern: '"total_pages"\\s*:\\s*(\\d+)',
+        stopAfterDeclaredPageCount: true,
+        pageStateParams: ['sf_paged'],
+      },
+    }), pages)).rejects.toMatchObject({
+      specListingFailure: true,
+      message: expect.stringMatching(/numero di pagine dichiarato dalla fonte non trovato/),
+    });
+  });
+
   it('fallisce chiuso quando maxPages si esaurisce con un next ancora presente', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1'], page: 1, total: 3, next: `${ORIGIN}/?sf_paged=2` }),
