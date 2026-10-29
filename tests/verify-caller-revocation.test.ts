@@ -9,7 +9,7 @@ vi.mock('../functions/src/recaptchaVerification.js', () => ({ createAssessment: 
 vi.mock('../functions/src/githubProxy.js', () => ({ GITHUB_API: 'https://api.github.com', getRepoConfig: vi.fn() }));
 import { verifyCaller } from '../functions/src/stripePublisherCore.js';
 const req = { get: () => 'Bearer test-id-token' };
-beforeEach(() => mocks.verifyIdToken.mockReset());
+beforeEach(() => { mocks.verifyIdToken.mockReset(); });
 
 describe('caller verification for session grants', () => {
   it('preserves the default verification policy for existing callers', async () => {
