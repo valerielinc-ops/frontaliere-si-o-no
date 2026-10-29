@@ -108,21 +108,17 @@ jobs:
 
       - name: Select trusted GitHub identity
         env:
+          PUSH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          token=''
-          if [ "${APP_TOKEN_DATA_REFRESH:-false}" = 'true' ] && [ -n "${APP_TOKEN:-}" ]; then
-            token="$APP_TOKEN"
-          elif [ -n "${GITHUB_PAT:-}" ]; then
-            token="$GITHUB_PAT"
-          else
+          if [ -z "${PUSH_TOKEN:-}" ]; then
             echo '::error::nessuna identità App/PAT con permessi di push e pull request disponibile.'
             exit 1
           fi
-          echo "::add-mask::$token"
-          echo "GH_TOKEN=$token" >> "$GITHUB_ENV"
-          git remote set-url origin "https://x-access-token:${token}@github.com/${GITHUB_REPOSITORY}.git"
+          echo "::add-mask::$PUSH_TOKEN"
+          echo "GH_TOKEN=$PUSH_TOKEN" >> "$GITHUB_ENV"
+          git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
