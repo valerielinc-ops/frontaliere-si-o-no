@@ -41,20 +41,4 @@ describe('jobs SEO soft-landing social metadata', () => {
       '|| clampMetaDescription(expiredBannerCopy[locale]?.banner || expiredBannerCopy.it.banner, undefined, locale)',
     );
   });
-
-  it('emits the expired body as a sibling static overlay, not inside #root', () => {
-    expect(SOFT_LANDING_TEMPLATE).toContain(
-      '<main class="seo-static-content" data-expired-static-body="true"',
-    );
-    expect(SOFT_LANDING_TEMPLATE).toContain(
-      'style="max-width:none;margin:0;padding:0;display:block"',
-    );
-    expect(SOFT_LANDING_TEMPLATE).toContain('<div id="footer-root">\n ${shell.footer}\n </div>');
-
-    const rootClose = SOFT_LANDING_TEMPLATE.indexOf('</div>\n <main class="seo-static-content"');
-    const articleOpen = SOFT_LANDING_TEMPLATE.indexOf('<article class="ft-static-article ft-expired-page">');
-    expect(rootClose).toBeGreaterThan(-1);
-    expect(articleOpen).toBeGreaterThan(rootClose);
-    expect(SOFT_LANDING_TEMPLATE).toContain('data-expired-static-path="${esc(expiredStaticPath)}"');
-  });
 });

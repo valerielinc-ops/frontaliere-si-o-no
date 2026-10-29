@@ -15,7 +15,6 @@
  */
 
 import { getLocale, type Locale } from './i18n';
-import { seededExpiredDocumentMatchesSlug } from './seededExpiredJob';
 import { STABIO_DOSSO_PETITION_PATHS } from './petitionRoute';
 import { EVENTS_ARCHIVE_SEGMENT } from './eventsArchivePaths';
 import { SLUG_TABLES, type SlugTable } from './routeSlugs.data';
@@ -3089,15 +3088,6 @@ export function parsePath(pathname: string): ParseResult {
      // `/cerca-lavoro-zurigo/zurich/` and similar resolve consistently.
      // Sector hub matches are also honoured for parity with TI.
      if (rawSecond) {
-       // Expired soft-landings are emitted as static HTML. The seed is the
-       // authority for this exact document, so keep that body outside the SPA
-       // main instead of hydrating the generic job-detail gate over it.
-       if (seededExpiredDocumentMatchesSlug(rawSecond)) {
-         return {
-           route: { activeTab: 'job-board', jobBoardCanton: cantonCode, staticOverlay: true },
-           locale,
-         };
-       }
        const sectorHit = SECTOR_HUB_KEYS.find(
          (s) => SECTOR_HUB_SLUG[locale][s] === rawSecond,
        );
@@ -3401,12 +3391,6 @@ export function parsePath(pathname: string): ParseResult {
  // the already-built location landing UI, while preserving the city
  // identifier for canonical URL generation in buildPath().
  if (rawSecond) {
- // Expired soft-landings are static-first pages. Match the build seed before
- // the sector/city/editorial disambiguators so an archived slug cannot fall
- // through to the hydrated JobExpiredView gate.
- if (seededExpiredDocumentMatchesSlug(rawSecond)) {
- return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
- }
  // Sector hub (infermieri / case-anziani / educatori) — clean canonical URLs.
  // staticOverlay tells App.tsx to skip the React main render so the
  // build-time SEO HTML stays visible (lite-shell mode). Without this
