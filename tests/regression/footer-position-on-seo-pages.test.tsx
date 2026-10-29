@@ -228,11 +228,17 @@ describe('Regression: footer position on staticOverlay SEO pages (Bug A portal f
     staticFooter.dataset.staticFooter = 'true';
     footerRootDiv.appendChild(staticFooter);
 
-    render(<App />, { container: rootDiv });
+    const { rerender } = render(<App />, { container: rootDiv });
 
     expect(staticMain.isConnected).toBe(true);
     expect(staticMain.style.display).toBe('block');
     expect(staticFooter.isConnected).toBe(false);
     expect(footerRootDiv.querySelector('footer:not([data-static-footer])')).not.toBeNull();
+
+    // A soft navigation can keep staticOverlay=true while the pathname changes.
+    // The cleanup must still run before the destination paints.
+    window.history.replaceState(null, '', '/guida/contratti-di-lavoro/');
+    rerender(<App />);
+    expect(staticMain.isConnected).toBe(false);
   });
 });

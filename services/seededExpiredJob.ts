@@ -23,15 +23,18 @@ export interface SeededExpiredJobSlugs {
 }
 
 // The build-seeded blob belongs to the initial document only. Capture its
-// pathname while the entry bundle is loading so a later SPA navigation cannot
-// make the old global look authoritative for a new route.
+// pathname while the entry bundle is loading and require the matching static
+// body to still be mounted, so a later SPA navigation cannot make the old
+// global look authoritative for a new route or a return to the old pathname.
 const SEEDED_EXPIRED_DOCUMENT_PATHNAME: string | null =
   typeof window !== 'undefined' ? window.location.pathname : null;
 
-/** True while the browser is still on the document that carried the seed. */
+/** True while the seeded document still owns its matching static body. */
 export function onSeededExpiredDocument(): boolean {
-  return typeof window !== 'undefined'
-    && window.location.pathname === SEEDED_EXPIRED_DOCUMENT_PATHNAME;
+ if (typeof window === 'undefined' || typeof document === 'undefined') return false;
+ if (window.location.pathname !== SEEDED_EXPIRED_DOCUMENT_PATHNAME) return false;
+ const staticBody = document.querySelector<HTMLElement>('main[data-expired-static-body]');
+ return staticBody?.dataset.expiredStaticPath === window.location.pathname;
 }
 
 /**

@@ -6,6 +6,11 @@ const EXPIRED_SLUG = 'crew-mcdonalds-switzerland-morbio-inferiore-p8-319611-6';
 
 async function loadRouterWithExpiredSeed(pathname = EXPIRED_PATH, slug = EXPIRED_SLUG) {
   window.history.replaceState(null, '', pathname);
+  document.body.innerHTML = '';
+  const staticBody = document.createElement('main');
+  staticBody.dataset.expiredStaticBody = 'true';
+  staticBody.dataset.expiredStaticPath = pathname;
+  document.body.appendChild(staticBody);
   (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__ = {
     slug,
     title: 'Crew',
@@ -16,6 +21,7 @@ async function loadRouterWithExpiredSeed(pathname = EXPIRED_PATH, slug = EXPIRED
 
 afterEach(() => {
   delete (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+  document.body.innerHTML = '';
   window.history.replaceState(null, '', '/');
 });
 
@@ -47,6 +53,17 @@ describe('router — seeded expired-job static overlay', () => {
     const parsed = parsePath(EXPIRED_PATH);
 
     expect(parsed.route.activeTab).toBe('job-board');
+    expect(parsed.route.staticOverlay).toBeFalsy();
+    expect(parsed.route.jobSlug).toBe(EXPIRED_SLUG);
+  });
+
+  it('does not revive the seed after the static body was removed and the URL returns', async () => {
+    const { parsePath } = await loadRouterWithExpiredSeed();
+    document.querySelector('main[data-expired-static-body]')?.remove();
+    window.history.pushState(null, '', '/cerca-lavoro-ticino/');
+    window.history.pushState(null, '', EXPIRED_PATH);
+
+    const parsed = parsePath(EXPIRED_PATH);
     expect(parsed.route.staticOverlay).toBeFalsy();
     expect(parsed.route.jobSlug).toBe(EXPIRED_SLUG);
   });

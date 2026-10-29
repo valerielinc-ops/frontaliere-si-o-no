@@ -619,7 +619,7 @@ const App: React.FC = () => {
  // visitor soft-navigates away (or when a different static page is reached),
  // otherwise the archived offer could reappear below a later SPA route.
  useLayoutEffect(() => {
-   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+   const currentPath = contextualPath;
    for (const staticBody of document.querySelectorAll<HTMLElement>('main[data-expired-static-body]')) {
      if (!staticOverlay || staticBody.dataset.expiredStaticPath !== currentPath) {
        staticBody.remove();
@@ -638,7 +638,7 @@ const App: React.FC = () => {
        staticFooter.remove();
      }
    }
- }, [staticOverlay]);
+ }, [contextualPath, staticOverlay]);
 
  // Static sub-nav deduplication: build plugins (staticPagesPlugin via
  // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`
