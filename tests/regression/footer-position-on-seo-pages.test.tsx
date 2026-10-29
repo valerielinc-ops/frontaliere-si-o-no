@@ -174,7 +174,7 @@ describe('Regression: footer position on staticOverlay SEO pages (Bug A portal f
     }));
 
     // Render into the pre-existing #root div so the React tree lives inside it.
-    render(<App />, { container: rootDiv });
+    const { rerender } = render(<App />, { container: rootDiv });
 
     const footerEl = document.querySelector('footer');
     expect(footerEl, '<footer> must be present in the DOM').not.toBeNull();
@@ -274,7 +274,7 @@ describe('Regression: footer position on staticOverlay SEO pages (Bug A portal f
     staticFooter.dataset.staticFooter = 'true';
     footerRootDiv.appendChild(staticFooter);
 
-    render(<App />, { container: rootDiv });
+    const { rerender } = render(<App />, { container: rootDiv });
 
     // Keep the initial static body mounted but hidden until useExpiredJob can
     // consume window.__EXPIRED_JOB_DATA__; soft-navigation cleanup is tested
