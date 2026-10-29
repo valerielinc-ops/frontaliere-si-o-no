@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 import { sanitizeTelemetryProperties } from '../services/analyticsUrlPrivacy.js';
 import { GTAG_INIT_CONTENT, POSTHOG_INIT_CONTENT } from '../build-plugins/constants';
+import { buildRedirectPage } from '../build-plugins/affiliateRedirectPlugin';
+import { PARTNERS, isPartnerizeUrl } from '../services/affiliateService';
 
 const url = 'https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera/?application_concierge_service_id=service-test&ne=candidate%40example.test&ac=secret-code&utm_source=email&utm_medium=payment_reminder#offer';
 
@@ -57,6 +59,26 @@ describe('email-link telemetry URL privacy', () => {
   expect(pageView.page_location).toContain('utm_medium=payment_reminder');
   expect(pageView.page_location).not.toContain('candidate');
   expect(context.location.href).toBe(url);
+ });
+
+ it('sanitizes the affiliate redirect producer before its automatic handoff', () => {
+  const partner = PARTNERS.find((entry) => !isPartnerizeUrl(entry.url))!;
+  const html = buildRedirectPage(partner);
+  const start = html.indexOf('var u=');
+  const end = html.indexOf('})();</script>', start);
+  const context: Record<string, any> = {
+   location: new URL(url),
+   navigator: { userAgent: 'Mozilla/5.0 (iPhone) Version/18.1 Mobile Safari/604.1', language: 'it-CH', languages: ['it-CH'] },
+   screen: { width: 390, height: 844 },
+   document: { title: 'Redirect', referrer: url }, URL, URLSearchParams,
+   setTimeout: () => {},
+  };
+  context.window = context;
+  runInNewContext(html.slice(start, end), context);
+  const config = context.dataLayer.map((entry: IArguments) => Array.from(entry)).find((entry: any[]) => entry[0] === 'config')[2];
+  expect(config.page_location).not.toContain('secret-code');
+  expect(config.page_referrer).not.toContain('candidate');
+  expect(config.page_location).toContain('utm_source=email');
  });
 
  it('keeps ordinary URLs byte-identical and embeds canonical code in static producers', () => {
