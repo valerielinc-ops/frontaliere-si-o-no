@@ -1596,6 +1596,15 @@ describe('employer citations versus candidate facts', () => {
     expect(checkDraftFacts({ coverLetter: 'La società Beta SA è attiva da 50 anni.' }, {
       ...sources, order, posting: 'La società Alfa SA è attiva da 50 anni.',
     }).ok).toBe(false);
+    for (const coverLetter of [
+      'La società “Beta SA” è attiva da 50 anni.',
+      'La società (Beta SA) è attiva da 50 anni.',
+      'La società, Beta SA, è attiva da 50 anni.',
+    ]) {
+      expect(checkDraftFacts({ coverLetter }, {
+        ...sources, order, posting: 'La società Alfa SA è attiva da 50 anni.',
+      }).ok).toBe(false);
+    }
   });
 
   it.each([
