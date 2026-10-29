@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * Valora Group job parser — genuinely custom career site (regex-based
- * HTML scraping; no known multi-tenant ATS signature found).
+ * Valora Group job parser — first-party API-backed career portal.
  *
  * Source: https://career.valora.com/en/ (the canonical career portal;
  * https://www.valora.com/en/career/ links here; https://jobs.valora.com/
@@ -18,31 +17,14 @@
  * Handelsregister entries for Valora Holding AG / Valora Schweiz AG
  * (CHE-103.468.185, Muttenz).
  *
- * ATS discovery: issue #3337 tagged this company's ATS as "Custom" —
- * confirmed correct on live inspection (unlike several other companies
- * in the same backlog wave whose "Custom" tag turned out to be wrong).
- * career.valora.com serves server-rendered HTML from a bespoke
- * recruiting module built by Swiss agency cloudtec AG (script paths
- * /bundles/cloudtecadmin/…, /bundles/cloudtecvalora/…, /adminui/…;
- * cloudtec.ch is a Bern-based web-platform shop that builds bespoke
- * installs per client, not a multi-tenant ATS product). No known ATS
- * signature was found on the page or its network requests: no
- * smartrecruiters.com / myworkdayjobs.com / successfactors.com /
- * icims.com / greenhouse.io (incl. boards-api.greenhouse.io) /
- * lever.co / personio / softgarden / talentsoft / join.com / recruitee
- * / cornerstone script src, XHR/fetch endpoint, iframe, or footer
- * recruiter-login link leaking a real ATS host. No JSON API and no
- * JSON-LD JobPosting block either — plain server-rendered HTML — so
- * this parser scrapes it directly with regex (no cheerio/jsdom,
- * consistent with the rest of the codebase, e.g. deloitte-job-parser.mjs
- * for a similarly-shaped genuinely-custom Avature scrape).
+ * The portal's current Next.js HTML is only an application shell. Its own
+ * `/api/jobs` endpoint is the authoritative Switzerland-filtered feed and
+ * carries the full description, location, publication date, and application
+ * URL for each posting; the parser validates that envelope before publishing.
  *
- * Listing: https://career.valora.com/en/?criteria[jobCountry][0]=1&page=N
- * (jobCountry option value "1" == Switzerland, confirmed against the
- * <select id="criteria_jobCountry"> filter facet on the listing page),
- * ~20 jobs/page, paginated via ?page=N. A page beyond the last one
- * echoes the previous page's content byte-for-byte (used as one of the
- * stop conditions, alongside job-id dedup and the "NN entries" total).
+ * Listing API: https://career.valora.com/api/jobs?criteria[jobCountry][0]=1
+ * &limit=100&page=N&locale=de. The explicit totalCount/totalPages metadata
+ * makes a partial response distinguishable from a legitimate empty source.
  *
  * Detail pages (https://career.valora.com/en/job/{id}/{slug}) expose a
  * labelled param strip (`uk-tooltip="Reference number|Field of
@@ -70,6 +52,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -78,14 +61,10 @@ export const VALORA_KEY = 'valora';
 export const VALORA_COMPANY_NAME = 'Valora Group';
 export const VALORA_COMPANY_DOMAIN = 'valora.com';
 
-const LISTING_BASE = 'https://career.valora.com/en/';
 const CAREER_URL = 'https://career.valora.com/en/';
-// jobCountry option value "1" == Switzerland (from the listing page's
-// <select id="criteria_jobCountry"> filter facet — confirmed live). The
-// current form serializes its multi-select criteria with an indexed slot;
-// the former `[]` spelling now yields the empty/JS shell response.
-const LISTING_QS = 'criteria%5BjobCountry%5D%5B0%5D=1';
-const MAX_PAGES = 15; // safety cap (~20/page; site currently lists 53 CH jobs across 3 pages)
+export const VALORA_API_URL = 'https://career.valora.com/api/jobs';
+const API_PAGE_LIMIT = 100;
+const MAX_PAGES = 15; // safety cap for an unexpectedly large API response
 
 const SECTOR = 'Retail / Foodvenience';
 
@@ -204,11 +183,109 @@ function detectEmploymentType(raw = '') {
   return 'OTHER';
 }
 
-function parseValoraDate(raw = '') {
-  const m = String(raw || '').trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+export function parseValoraDate(raw = '') {
+  const value = String(raw || '').trim();
+  const iso = value.match(/^(\d{4}-\d{2}-\d{2})(?:T|$)/);
+  if (iso) return iso[1];
+  const m = value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
   if (!m) return '';
   const [, d, mo, y] = m;
   return `${y}-${mo.padStart(2, '0')}-${d.padStart(2, '0')}`;
+}
+
+function nonPlaceholder(value = '') {
+  const normalized = normalizeSpace(value);
+  return normalized === '-' ? '' : normalized;
+}
+
+function normalizeApplyUrl(rawUrl = '', publicUrl = '') {
+  const candidate = normalizeSpace(rawUrl);
+  if (!candidate || candidate === '-') return publicUrl;
+  try {
+    const parsed = new URL(candidate);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:' ? parsed.href : publicUrl;
+  } catch {
+    return publicUrl;
+  }
+}
+
+export function buildValoraApiListing(record = {}) {
+  if (!record || typeof record !== 'object') {
+    throw new Error('Valora API returned a non-object job record');
+  }
+  const id = normalizeSpace(record.externalId);
+  const title = normalizeSpace(record.jobTitle);
+  if (!id || !title) {
+    throw new Error('Valora API job record is missing externalId or jobTitle');
+  }
+  const publicUrl = `${CAREER_URL}job/${encodeURIComponent(id)}/${slugify(title)}`;
+  const labels = record.labels && typeof record.labels === 'object' ? record.labels : {};
+  const city = nonPlaceholder(record.jobCity);
+  const region = nonPlaceholder(record.jobRegion);
+  const descriptionHtml = String(record.jobDescription || '');
+  if (!meetsSourceBodyFloor(stripHtml(descriptionHtml))) {
+    throw new Error(`Valora API job ${id} has a source description below the 50-word floor`);
+  }
+
+  return {
+    id,
+    url: publicUrl,
+    detail: {
+      title,
+      shortLocation: city || region,
+      publicationDateRaw: record.publicationDate || '',
+      referenceNumber: id,
+      fieldOfActivity: labels.category || record.jobCategory || '',
+      careerLevel: labels.entryLevel || record.entryLevel || '',
+      employmentLabel: labels.employmentType || record.employmentType || '',
+      addrCity: city,
+      addrPostal: nonPlaceholder(record.jobZipCode),
+      addrStreet: nonPlaceholder(record.jobStreet),
+      addrRegion: region,
+      descriptionHtml,
+      applyUrl: normalizeApplyUrl(record.applyUrl, publicUrl),
+    },
+  };
+}
+
+/**
+ * Validate and normalize one first-party Valora API response.
+ *
+ * The response envelope is part of the source contract: accepting a bare
+ * array, a missing total, or a malformed row would turn an API/schema drift
+ * into a destructive empty/partial snapshot.
+ */
+export function parseValoraApiResponse(body = '') {
+  let payload = body;
+  if (typeof body === 'string') {
+    try {
+      payload = JSON.parse(body);
+    } catch (error) {
+      throw new Error(`Valora API returned invalid JSON: ${error?.message || error}`);
+    }
+  }
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+    throw new Error('Valora API response is not an object envelope');
+  }
+  if (!Array.isArray(payload.jobs)) throw new Error('Valora API response is missing jobs[]');
+  const totalCount = Number(payload.totalCount);
+  const page = Number(payload.page);
+  const totalPages = Number(payload.totalPages);
+  if (!Number.isInteger(totalCount) || totalCount < 0
+    || !Number.isInteger(page) || page < 1
+    || !Number.isInteger(totalPages)
+    || totalPages < (totalCount === 0 ? 0 : 1)) {
+    throw new Error('Valora API response has invalid pagination metadata');
+  }
+  if (payload.jobs.length > API_PAGE_LIMIT || payload.jobs.length > totalCount) {
+    throw new Error('Valora API response has an invalid jobs page size');
+  }
+  return {
+    listings: payload.jobs.map(buildValoraApiListing),
+    totalCount,
+    page,
+    totalPages,
+  };
 }
 
 /* ── Address Resolution ─────────────────────────────────────────
@@ -386,57 +463,69 @@ async function fetchJobDetail(url) {
   };
 }
 
-/**
- * Fetch Switzerland-only Valora job listing stubs, paginating through
- * `?page=N` until a page adds no new job ids, the declared "NN entries"
- * total is reached, or MAX_PAGES is hit. Then enriches each stub with
- * its detail page (address, description, structured tags).
- */
+/** Fetch Switzerland-only Valora jobs from the portal's first-party API. */
 async function fetchJobListings() {
-  console.log(`  Fetching Switzerland listing (${CAREER_URL}?${LISTING_QS})`);
+  console.log(`  Fetching Switzerland listing API (${VALORA_API_URL})`);
   const byId = new Map();
   let total = null;
+  let totalPages = null;
 
   for (let page = 1; page <= MAX_PAGES; page++) {
-    const pageUrl = `${LISTING_BASE}?${LISTING_QS}&page=${page}`;
-    let html;
+    const params = new URLSearchParams({
+      'criteria[jobCountry][0]': '1',
+      limit: String(API_PAGE_LIMIT),
+      page: String(page),
+      locale: 'de',
+    });
+    const pageUrl = `${VALORA_API_URL}?${params}`;
+    let body;
     try {
-      html = await fetchHtml(pageUrl, { headers: { 'User-Agent': BROWSER_UA } });
+      body = await fetchHtml(pageUrl, {
+        headers: {
+          Accept: 'application/json',
+          'User-Agent': BROWSER_UA,
+        },
+      });
     } catch (err) {
-      console.warn(`  ⚠️ listing page fetch failed (${pageUrl}): ${err?.message || err}`);
+      console.warn(`  ⚠️ listing API fetch failed (${pageUrl}): ${err?.message || err}`);
       throw err;
     }
 
-    const totalMatch = html.match(/(\d+)\s*entries/i);
-    if (totalMatch) total = Number(totalMatch[1]);
+    const response = parseValoraApiResponse(body);
+    if (response.page !== page) {
+      throw new Error(`Valora API returned page ${response.page} for requested page ${page}`);
+    }
+    if (total !== null && total !== response.totalCount) {
+      throw new Error(`Valora API totalCount changed during pagination (${total}/${response.totalCount})`);
+    }
+    if (totalPages !== null && totalPages !== response.totalPages) {
+      throw new Error(`Valora API totalPages changed during pagination (${totalPages}/${response.totalPages})`);
+    }
+    total = response.totalCount;
+    totalPages = response.totalPages;
 
-    const stubs = parseListingPage(html);
     let added = 0;
-    for (const stub of stubs) {
-      if (byId.has(stub.id)) continue;
-      byId.set(stub.id, stub);
+    for (const listing of response.listings) {
+      if (byId.has(listing.id)) continue;
+      byId.set(listing.id, listing);
       added++;
     }
 
     console.log(`  📄 page ${page}: +${added} (collected ${byId.size}${total ? `/${total}` : ''})`);
 
-    if (stubs.length === 0 || added === 0) break;
-    if (total && byId.size >= total) break;
-  }
-
-  const stubs = [...byId.values()];
-  console.log(`  🔗 ${stubs.length} job detail pages to enrich`);
-
-  const listings = [];
-  for (const stub of stubs) {
-    const detail = await fetchJobDetail(stub.url);
-    if (!detail) {
-      await new Promise((r) => setTimeout(r, 200));
-      continue;
+    if (response.listings.length === 0 && total > 0) {
+      throw new Error(`Valora API returned an empty page before totalCount ${total} was collected`);
     }
-    listings.push({ ...stub, detail });
-    await new Promise((r) => setTimeout(r, 200));
+    if (total === 0 || byId.size >= total) break;
+    if (page >= totalPages) {
+      throw new Error(`Valora API pagination ended at ${byId.size}/${total} jobs`);
+    }
   }
+
+  if (total === null || totalPages === null) throw new Error('Valora API returned no pagination metadata');
+  if (byId.size !== total) throw new Error(`Valora API snapshot incomplete: collected ${byId.size}/${total} jobs`);
+  const listings = [...byId.values()];
+  console.log(`  🔗 ${listings.length} API job records normalized`);
   return listings;
 }
 
@@ -527,7 +616,7 @@ export async function fetchAllValoraJobs() {
       currency: 'CHF',
       featured: false,
       ...publication,
-      applyUrl: publicUrl,
+      applyUrl: detail.applyUrl || publicUrl,
       jobReqId: detail.referenceNumber || null,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
