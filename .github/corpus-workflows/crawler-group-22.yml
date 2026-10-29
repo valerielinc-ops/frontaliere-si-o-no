@@ -199,7 +199,7 @@ jobs:
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 30 silent push failures."
+            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 31 silent push failures."
             exit 1
           fi
           git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
@@ -241,7 +241,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/rittmeyer-ag.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -258,7 +257,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- rittmeyer: run crawler (verbatim from original workflow) ----
           npm run jobs:update:rittmeyer
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -271,18 +269,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- rittmeyer: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- rittmeyer: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💧 Auto-update Rittmeyer jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
-          # ---- rittmeyer: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run rittmeyer" \
@@ -405,10 +400,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -441,7 +432,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/saint-gobain-weber-isover.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -458,7 +448,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- saint-gobain-weber-isover: run crawler (verbatim from original workflow) ----
           node scripts/update-saint-gobain-weber-isover-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -471,18 +460,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- saint-gobain-weber-isover: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- saint-gobain-weber-isover: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Saint-Gobain Weber/Isover Suisse jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- saint-gobain-weber-isover: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run saint-gobain-weber-isover" \
@@ -605,10 +591,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -641,7 +623,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-davos.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -658,7 +639,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- spital-davos: run crawler (verbatim from original workflow) ----
           node scripts/update-spital-davos-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -671,18 +651,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- spital-davos: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- spital-davos: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Spital Davos jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- spital-davos: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run spital-davos" \
@@ -805,10 +782,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -841,7 +814,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/lindenhofgruppe.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -858,7 +830,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- lindenhofgruppe: run crawler (verbatim from original workflow) ----
           node scripts/update-lindenhofgruppe-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -871,18 +842,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- lindenhofgruppe: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- lindenhofgruppe: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Lindenhofgruppe jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- lindenhofgruppe: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run lindenhofgruppe" \
@@ -1005,10 +973,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1041,7 +1005,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/scandit.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -1058,7 +1021,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- scandit: run crawler (verbatim from original workflow) ----
           node scripts/update-scandit-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1071,18 +1033,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- scandit: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- scandit: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Scandit AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- scandit: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run scandit" \
@@ -1205,10 +1164,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1241,7 +1196,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-thusis.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -1258,7 +1212,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- spital-thusis: run crawler (verbatim from original workflow) ----
           node scripts/update-spital-thusis-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1271,18 +1224,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- spital-thusis: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- spital-thusis: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Spital Thusis jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- spital-thusis: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run spital-thusis" \
@@ -1405,10 +1355,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1441,7 +1387,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/reha-bellikon.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -1458,7 +1403,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- reha-bellikon: run crawler (verbatim from original workflow) ----
           node scripts/update-reha-bellikon-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1471,18 +1415,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- reha-bellikon: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- reha-bellikon: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Reha Bellikon jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- reha-bellikon: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run reha-bellikon" \
@@ -1605,10 +1546,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1641,7 +1578,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/heineken-ch.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -1658,7 +1594,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- heineken-ch: run crawler (verbatim from original workflow) ----
           node scripts/update-heineken-ch-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1671,18 +1606,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- heineken-ch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- heineken-ch: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Heineken Switzerland jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- heineken-ch: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run heineken-ch" \
@@ -1805,10 +1737,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -1841,7 +1769,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/mks-pamp.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -1858,7 +1785,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- mkspamp: run crawler (verbatim from original workflow) ----
           npm run jobs:update:mkspamp
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1871,18 +1797,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- mkspamp: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- mkspamp: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update MKS PAMP jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
-          # ---- mkspamp: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run mkspamp" \
@@ -2005,10 +1928,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2041,7 +1960,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ferring.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -2058,7 +1976,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- ferring: run crawler (verbatim from original workflow) ----
           node scripts/update-ferring-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2071,18 +1988,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- ferring: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- ferring: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Ferring Pharmaceuticals jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- ferring: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run ferring" \
@@ -2205,10 +2119,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2241,7 +2151,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/mistral-ai.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -2258,7 +2167,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- mistral-ai: run crawler (verbatim from original workflow) ----
           node scripts/update-mistral-ai-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2271,18 +2179,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- mistral-ai: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- mistral-ai: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Mistral AI jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- mistral-ai: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run mistral-ai" \
@@ -2405,10 +2310,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2441,7 +2342,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/stadt-zuerich.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -2458,7 +2358,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- stadt-zuerich: run crawler (verbatim from original workflow) ----
           node scripts/update-stadt-zuerich-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2471,18 +2370,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- stadt-zuerich: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- stadt-zuerich: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Stadt Zürich jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- stadt-zuerich: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run stadt-zuerich" \
@@ -2605,10 +2501,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2642,7 +2534,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/klinik-seeschau.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -2659,7 +2550,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- klinik-seeschau: run crawler (verbatim from original workflow) ----
           node scripts/update-klinik-seeschau-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2672,18 +2562,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- klinik-seeschau: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- klinik-seeschau: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update KLINIK_SEESCHAU jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- klinik-seeschau: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run klinik-seeschau" \
@@ -2806,10 +2693,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -2842,7 +2725,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/huntsman.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -2859,7 +2741,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- huntsman: run crawler (verbatim from original workflow) ----
           node scripts/update-huntsman-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2872,18 +2753,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- huntsman: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- huntsman: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Huntsman Corporation jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- huntsman: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run huntsman" \
@@ -3006,10 +2884,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -3042,7 +2916,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/med-ipersonal.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -3059,7 +2932,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- med-ipersonal: run crawler (verbatim from original workflow) ----
           node scripts/update-med-ipersonal-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3072,18 +2944,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- med-ipersonal: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- med-ipersonal: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update iPersonal AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- med-ipersonal: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run med-ipersonal" \
@@ -3206,10 +3075,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -3242,7 +3107,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/kudelski-nagra.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -3259,7 +3123,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- kudelski-nagra: run crawler (verbatim from original workflow) ----
           node scripts/update-kudelski-nagra-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3272,18 +3135,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- kudelski-nagra: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- kudelski-nagra: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kudelski NAGRA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- kudelski-nagra: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run kudelski-nagra" \
@@ -3406,10 +3266,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -3442,7 +3298,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/tl-lausanne.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -3459,7 +3314,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- tl-lausanne: run crawler (verbatim from original workflow) ----
           node scripts/update-tl-lausanne-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3472,18 +3326,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- tl-lausanne: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- tl-lausanne: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update tl Lausanne jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- tl-lausanne: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run tl-lausanne" \
@@ -3606,10 +3457,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -3642,7 +3489,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/otis.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -3659,7 +3505,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- otis: run crawler (verbatim from original workflow) ----
           npm run jobs:update:otis
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3672,18 +3517,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- otis: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- otis: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🛗 Auto-update Otis jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- otis: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run otis" \
@@ -3806,10 +3648,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -3842,7 +3680,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/oerlikon.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -3859,7 +3696,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- oerlikon: run crawler (verbatim from original workflow) ----
           node scripts/update-oerlikon-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3872,18 +3708,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- oerlikon: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- oerlikon: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Oerlikon jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- oerlikon: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run oerlikon" \
@@ -4006,10 +3839,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4042,7 +3871,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/corner-banca.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -4059,7 +3887,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- corner: run crawler (verbatim from original workflow) ----
           npm run jobs:update:corner
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4072,18 +3899,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- corner: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- corner: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏦 Auto-update Corner jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
-          # ---- corner: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run corner" \
@@ -4206,10 +4030,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4242,7 +4062,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/eth-zurich.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -4259,7 +4078,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- eth-zurich: run crawler (verbatim from original workflow) ----
           node scripts/update-eth-zurich-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4272,18 +4090,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- eth-zurich: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- eth-zurich: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ETH Zürich jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- eth-zurich: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run eth-zurich" \
@@ -4406,10 +4221,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4442,7 +4253,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/giardino.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -4459,7 +4269,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- giardino: run crawler (verbatim from original workflow) ----
           node scripts/update-giardino-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4472,18 +4281,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- giardino: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- giardino: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Giardino Group jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- giardino: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run giardino" \
@@ -4606,10 +4412,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4642,7 +4444,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/bossard.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -4659,7 +4460,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- bossard: run crawler (verbatim from original workflow) ----
           node scripts/update-bossard-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4672,18 +4472,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- bossard: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- bossard: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Bossard jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- bossard: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run bossard" \
@@ -4806,10 +4603,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -4842,7 +4635,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/clinica-holistica-engiadina.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -4859,7 +4651,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- clinica-holistica-engiadina: run crawler (verbatim from original workflow) ----
           node scripts/update-clinica-holistica-engiadina-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4872,18 +4663,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- clinica-holistica-engiadina: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- clinica-holistica-engiadina: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update CLINICA_HOLISTICA_ENGIADINA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- clinica-holistica-engiadina: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run clinica-holistica-engiadina" \
@@ -5006,10 +4794,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5042,7 +4826,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/ariston-group.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -5059,7 +4842,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- ariston: run crawler (verbatim from original workflow) ----
           npm run jobs:update:ariston
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5072,18 +4854,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- ariston: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- ariston: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🔥 Auto-update Ariston Group jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
 
-          # ---- ariston: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run ariston" \
@@ -5206,10 +4985,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5242,7 +5017,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/bachtelen.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -5259,7 +5033,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- bachtelen: run crawler (verbatim from original workflow) ----
           node scripts/update-bachtelen-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5272,18 +5045,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- bachtelen: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- bachtelen: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Bachtelen jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- bachtelen: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run bachtelen" \
@@ -5406,10 +5176,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5442,7 +5208,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/alcon.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -5459,7 +5224,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- alcon: run crawler (verbatim from original workflow) ----
           node scripts/update-alcon-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5472,18 +5236,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- alcon: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- alcon: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ALCON jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- alcon: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run alcon" \
@@ -5606,10 +5367,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5642,7 +5399,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/yellowshark.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -5659,7 +5415,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- yellowshark: run crawler (verbatim from original workflow) ----
           node scripts/update-yellowshark-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5672,18 +5427,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- yellowshark: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- yellowshark: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update yellowshark AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- yellowshark: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run yellowshark" \
@@ -5806,10 +5558,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -5842,7 +5590,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/rh-expert-ch.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -5859,7 +5606,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- rh-expert-ch: run crawler (verbatim from original workflow) ----
           node scripts/update-rh-expert-ch-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5872,18 +5618,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- rh-expert-ch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- rh-expert-ch: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update RH-Expert jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- rh-expert-ch: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run rh-expert-ch" \
@@ -6006,10 +5749,6 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -6042,7 +5781,6 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/project-interim.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
-          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
@@ -6059,7 +5797,6 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- project-interim: run crawler (verbatim from original workflow) ----
           node scripts/update-project-interim-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -6072,18 +5809,15 @@ jobs:
           git_commit_exit=0
           report_exit=0
 
-          # ---- project-interim: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- project-interim: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Project Interim jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- project-interim: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run project-interim" \
@@ -6206,10 +5940,197 @@ jobs:
                 exit "$terminal_exit"
               fi
               if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch pks-bewerbung-ch
+        id: crawler-launch-pks-bewerbung-ch
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pks-bewerbung-ch.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_PKS_BEWERBUNG_CH_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: pks-bewerbung-ch
+          JOBS_SLICE_FILE: data/jobs/by-crawler/pks-bewerbung-ch.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-22"
+          mkdir -p "$state_dir/slots"
+          script_path="$state_dir/pks-bewerbung-ch.sh"
+          launcher_path="$state_dir/pks-bewerbung-ch.launcher.sh"
+          worker_path="$state_dir/pks-bewerbung-ch.worker.sh"
+          log_path="$state_dir/pks-bewerbung-ch.log"
+          pid_path="$state_dir/pks-bewerbung-ch.pid"
+          status_path="$state_dir/pks-bewerbung-ch.status"
+          started_path="$state_dir/pks-bewerbung-ch.started"
+          watchdog_path="$state_dir/pks-bewerbung-ch.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/pks-bewerbung-ch.crawl-exit"
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          node scripts/update-pks-bewerbung-ch-jobs.mjs
+          crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::pks-bewerbung-ch: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
+          git_commit_exit=0
+          report_exit=0
+
+          if [ "$crawler_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs) || true
+          fi
+
+          if [ "$crawler_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update pks-bewerbung jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
+              --title "Crawler Failure: Run pks-bewerbung-ch" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run pks-bewerbung-ch"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed pks-bewerbung-ch"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::pks-bewerbung-ch: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ pks-bewerbung-ch: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::pks-bewerbung-ch: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ pks-bewerbung-ch: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::pks-bewerbung-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ pks-bewerbung-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
+          fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::pks-bewerbung-ch: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ pks-bewerbung-ch: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
+
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.sh"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.worker.status"
+          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.worker.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.log"
+          : > "$started_file"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
+          mv -f "$worker_status_tmp" "$worker_status_file"
+          exit "$crawler_exit"' > "$worker_path"
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-22"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.worker.status"
+          started_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.watchdog"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
+            worker_watchdog_minutes=74
+          fi
+          resolveCrawlerTerminalStatus() {
+            local wrapper_exit="$1"
+            local worker_status=""
+            local terminal_exit="$wrapper_exit"
+            local watchdog_marker=1
+            if [[ "$wrapper_exit" =~ ^[0-9]+$ ]] && { [ "$wrapper_exit" -eq 124 ] || [ "$wrapper_exit" -eq 137 ]; }; then
+              terminal_exit="$wrapper_exit"
+              if [ -s "$worker_status_file" ]; then
+                worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+                if [ "$worker_status" -eq 1 ] 2>/dev/null || [ "$worker_status" -eq 124 ] 2>/dev/null; then watchdog_marker=0; fi
+              fi
+            elif [ -s "$worker_status_file" ]; then
+              worker_status="$(cat "$worker_status_file" 2>/dev/null || true)"
+              if [[ "$worker_status" =~ ^[0-9]+$ ]]; then terminal_exit="$worker_status"; else terminal_exit=1; fi
+            else
+              if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+              if [ -e "$started_file" ] && [ "$terminal_exit" -eq 0 ]; then terminal_exit=143; fi
+            fi
+            if [ "$watchdog_marker" -eq 1 ]; then
+              if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            fi
+            if ! { printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp" && mv -f "$status_tmp" "$status_file"; } 2>/dev/null; then
+              echo "::error::could not publish the crawler terminal status" >&2
+              return 1
+            fi
+            printf '\''%s\n'\'' "$terminal_exit"
+          }
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            terminal_exit="$(resolveCrawlerTerminalStatus 1)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            terminal_exit="$(resolveCrawlerTerminalStatus 127)"
+            exit "$terminal_exit"
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+            exit "$terminal_exit"
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -s "$worker_status_file" ]; then
+                terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
+                exit "$terminal_exit"
+              fi
+              if [ -e "$started_file" ]; then
                 terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"
                 exit "$terminal_exit"
               fi
@@ -7877,6 +7798,61 @@ jobs:
             exit 1
           fi
           exit "$status"
+      - name: Run pks-bewerbung-ch
+        id: crawler-pks-bewerbung-ch
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-pks-bewerbung-ch'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-22"
+          status_file="$state_dir/pks-bewerbung-ch.status"
+          pid_file="$state_dir/pks-bewerbung-ch.pid"
+          log_file="$state_dir/pks-bewerbung-ch.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::pks-bewerbung-ch: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::pks-bewerbung-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::pks-bewerbung-ch: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::pks-bewerbung-ch: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::pks-bewerbung-ch: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::pks-bewerbung-ch: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::pks-bewerbung-ch: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
       - name: Aggregate crawler outcomes
         id: crawler_aggregate
         if: always()
@@ -7969,6 +7945,7 @@ jobs:
           aggregate_crawler_member 'yellowshark'
           aggregate_crawler_member 'rh-expert-ch'
           aggregate_crawler_member 'project-interim'
+          aggregate_crawler_member 'pks-bewerbung-ch'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -8039,7 +8016,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"alcon","primarySlice":"data/jobs/by-crawler/alcon.json"},{"crawlerId":"ariston-group","primarySlice":"data/jobs/by-crawler/ariston-group.json"},{"crawlerId":"bachtelen","primarySlice":"data/jobs/by-crawler/bachtelen.json"},{"crawlerId":"bossard","primarySlice":"data/jobs/by-crawler/bossard.json"},{"crawlerId":"clinica-holistica-engiadina","primarySlice":"data/jobs/by-crawler/clinica-holistica-engiadina.json"},{"crawlerId":"corner-banca","primarySlice":"data/jobs/by-crawler/corner-banca.json"},{"crawlerId":"eth-zurich","primarySlice":"data/jobs/by-crawler/eth-zurich.json"},{"crawlerId":"ferring","primarySlice":"data/jobs/by-crawler/ferring.json"},{"crawlerId":"giardino","primarySlice":"data/jobs/by-crawler/giardino.json"},{"crawlerId":"heineken-ch","primarySlice":"data/jobs/by-crawler/heineken-ch.json"},{"crawlerId":"huntsman","primarySlice":"data/jobs/by-crawler/huntsman.json"},{"crawlerId":"klinik-seeschau","primarySlice":"data/jobs/by-crawler/klinik-seeschau.json"},{"crawlerId":"kudelski-nagra","primarySlice":"data/jobs/by-crawler/kudelski-nagra.json"},{"crawlerId":"lindenhofgruppe","primarySlice":"data/jobs/by-crawler/lindenhofgruppe.json"},{"crawlerId":"med-ipersonal","primarySlice":"data/jobs/by-crawler/med-ipersonal.json"},{"crawlerId":"mistral-ai","primarySlice":"data/jobs/by-crawler/mistral-ai.json"},{"crawlerId":"mks-pamp","primarySlice":"data/jobs/by-crawler/mks-pamp.json"},{"crawlerId":"oerlikon","primarySlice":"data/jobs/by-crawler/oerlikon.json"},{"crawlerId":"otis","primarySlice":"data/jobs/by-crawler/otis.json"},{"crawlerId":"project-interim","primarySlice":"data/jobs/by-crawler/project-interim.json"},{"crawlerId":"reha-bellikon","primarySlice":"data/jobs/by-crawler/reha-bellikon.json"},{"crawlerId":"rh-expert-ch","primarySlice":"data/jobs/by-crawler/rh-expert-ch.json"},{"crawlerId":"rittmeyer-ag","primarySlice":"data/jobs/by-crawler/rittmeyer-ag.json"},{"crawlerId":"saint-gobain-weber-isover","primarySlice":"data/jobs/by-crawler/saint-gobain-weber-isover.json"},{"crawlerId":"scandit","primarySlice":"data/jobs/by-crawler/scandit.json"},{"crawlerId":"spital-davos","primarySlice":"data/jobs/by-crawler/spital-davos.json"},{"crawlerId":"spital-thusis","primarySlice":"data/jobs/by-crawler/spital-thusis.json"},{"crawlerId":"stadt-zuerich","primarySlice":"data/jobs/by-crawler/stadt-zuerich.json"},{"crawlerId":"tl-lausanne","primarySlice":"data/jobs/by-crawler/tl-lausanne.json"},{"crawlerId":"yellowshark","primarySlice":"data/jobs/by-crawler/yellowshark.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"alcon","primarySlice":"data/jobs/by-crawler/alcon.json"},{"crawlerId":"ariston-group","primarySlice":"data/jobs/by-crawler/ariston-group.json"},{"crawlerId":"bachtelen","primarySlice":"data/jobs/by-crawler/bachtelen.json"},{"crawlerId":"bossard","primarySlice":"data/jobs/by-crawler/bossard.json"},{"crawlerId":"clinica-holistica-engiadina","primarySlice":"data/jobs/by-crawler/clinica-holistica-engiadina.json"},{"crawlerId":"corner-banca","primarySlice":"data/jobs/by-crawler/corner-banca.json"},{"crawlerId":"eth-zurich","primarySlice":"data/jobs/by-crawler/eth-zurich.json"},{"crawlerId":"ferring","primarySlice":"data/jobs/by-crawler/ferring.json"},{"crawlerId":"giardino","primarySlice":"data/jobs/by-crawler/giardino.json"},{"crawlerId":"heineken-ch","primarySlice":"data/jobs/by-crawler/heineken-ch.json"},{"crawlerId":"huntsman","primarySlice":"data/jobs/by-crawler/huntsman.json"},{"crawlerId":"klinik-seeschau","primarySlice":"data/jobs/by-crawler/klinik-seeschau.json"},{"crawlerId":"kudelski-nagra","primarySlice":"data/jobs/by-crawler/kudelski-nagra.json"},{"crawlerId":"lindenhofgruppe","primarySlice":"data/jobs/by-crawler/lindenhofgruppe.json"},{"crawlerId":"med-ipersonal","primarySlice":"data/jobs/by-crawler/med-ipersonal.json"},{"crawlerId":"mistral-ai","primarySlice":"data/jobs/by-crawler/mistral-ai.json"},{"crawlerId":"mks-pamp","primarySlice":"data/jobs/by-crawler/mks-pamp.json"},{"crawlerId":"oerlikon","primarySlice":"data/jobs/by-crawler/oerlikon.json"},{"crawlerId":"otis","primarySlice":"data/jobs/by-crawler/otis.json"},{"crawlerId":"pks-bewerbung-ch","primarySlice":"data/jobs/by-crawler/pks-bewerbung-ch.json"},{"crawlerId":"project-interim","primarySlice":"data/jobs/by-crawler/project-interim.json"},{"crawlerId":"reha-bellikon","primarySlice":"data/jobs/by-crawler/reha-bellikon.json"},{"crawlerId":"rh-expert-ch","primarySlice":"data/jobs/by-crawler/rh-expert-ch.json"},{"crawlerId":"rittmeyer-ag","primarySlice":"data/jobs/by-crawler/rittmeyer-ag.json"},{"crawlerId":"saint-gobain-weber-isover","primarySlice":"data/jobs/by-crawler/saint-gobain-weber-isover.json"},{"crawlerId":"scandit","primarySlice":"data/jobs/by-crawler/scandit.json"},{"crawlerId":"spital-davos","primarySlice":"data/jobs/by-crawler/spital-davos.json"},{"crawlerId":"spital-thusis","primarySlice":"data/jobs/by-crawler/spital-thusis.json"},{"crawlerId":"stadt-zuerich","primarySlice":"data/jobs/by-crawler/stadt-zuerich.json"},{"crawlerId":"tl-lausanne","primarySlice":"data/jobs/by-crawler/tl-lausanne.json"},{"crawlerId":"yellowshark","primarySlice":"data/jobs/by-crawler/yellowshark.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-22-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs

@@ -51,13 +51,19 @@ export function sanitizeTelemetryProperties(properties) {
     changed = cleanParams(url.searchParams) || changed;
     let fragment = url.hash.slice(1);
     let encoded = false;
-    // Decode a whole-fragment reference only; query/hash parameter values
-    // must retain their own escaping until URLSearchParams reads them.
-    if (!looksLikeUrl(fragment) && !fragment.includes('=')) {
-     try {
-      const decoded = decodeURIComponent(fragment);
-      if (looksLikeUrl(decoded)) { fragment = decoded; encoded = true; }
-     } catch { /* An ordinary malformed escape does not make the URL unsafe. */ }
+    // Validate every fragment, but decode its contents only for a whole
+    // reference: parameter values retain their own escaping until parsed.
+    try {
+     const decoded = decodeURIComponent(fragment);
+     if (!looksLikeUrl(fragment) && !fragment.includes('=') && looksLikeUrl(decoded)) {
+      fragment = decoded;
+      encoded = true;
+     }
+    } catch {
+     // An undecodable fragment may conceal credentials. Omit it from telemetry.
+     fragment = '';
+     url.hash = '';
+     changed = true;
     }
     let cleanedFragment = fragment;
     const separator = fragment.search(/[?#]/);

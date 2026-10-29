@@ -2354,7 +2354,7 @@ describe('cross-repo crawler execution artifacts', () => {
       sourceRef: committedContract.sourceRef,
       sourceCommit: committedContract.sourceCommit,
     });
-    return { ...result, outDir, contractPath };
+    return { ...result, outDir, contractPath, groupResults };
   }
 
   it('lega i 24 job completi *-logic.yml alla stessa sorgente del generatore', () => {
@@ -2617,6 +2617,20 @@ describe('cross-repo crawler execution artifacts', () => {
         .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
     }
   }, 60_000);
+
+  it('compatta solo il crawler shell portabile che supera il budget dopo il wrapper di checkout', () => {
+    const { outDir, groupResults } = generateArtifacts();
+    const group23 = groupResults.find((group: any) => group.groupIndex === 23);
+    const group23Member = group23.memberSpecs[0].slug;
+    const group23Content = fs.readFileSync(path.join(outDir, 'crawler-group-23.yml'), 'utf8');
+
+    expect(Buffer.byteLength(group23Content, 'utf8')).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
+    expect(group23Content).not.toContain(`# ---- ${group23Member}: run crawler`);
+
+    const group02 = groupResults.find((group: any) => group.groupIndex === 2);
+    const group02Content = fs.readFileSync(path.join(outDir, 'crawler-group-02.yml'), 'utf8');
+    expect(group02Content).toContain(`# ---- ${group02.memberSpecs[0].slug}: run crawler`);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('rifiuta un ancoraggio commit non osservabile e conserva ref/sha espliciti', () => {
     expect(resolveCrawlerContractSource({

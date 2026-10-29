@@ -141,6 +141,13 @@ describe('SumUp assisted-application payment client', () => {
     expect(JSON.parse(fetchMock.mock.calls[0][1].body)).not.toHaveProperty('hosted_checkout');
   });
 
+  it('expires a discounted renewal checkout at its fixed offer deadline', async () => {
+    const deadline = new Date(Date.now() + 3600000);
+    fetchMock.mockResolvedValue({ ok: true, json: async () => ({ id: 'renewal-checkout' }) });
+    await createSumUpApplicationConciergeCheckout({ serviceId: 'renewal-service', amountCents: 2999, validUntil: deadline });
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toMatchObject({ amount: 29.99, valid_until: deadline.toISOString() });
+  });
+
   it('creates an isolated 1.99 EUR sandbox checkout for Google Pay testing', async () => {
     fetchMock.mockResolvedValue({
       ok: true,

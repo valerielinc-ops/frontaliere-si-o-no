@@ -999,11 +999,11 @@ function runnerShutdownNotice(slug, { propagate = false } = {}) {
  * reporting deliberately remains outside this phase so a timeout is still
  * observable and the target exits non-zero without committing partial data.
  */
-function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
+function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false } = {}) {
   const outer = [...CRAWLER_SHELL_PREAMBLE];
   const work = [...CRAWLER_SHELL_PREAMBLE];
 
-  work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
+  if (!compact) work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
   work.push(crawler.runStep.run.trimEnd());
   work.push('crawler_exit=$?');
   work.push(...recordMemberCrawlExitLines(crawler.slug, '$crawler_exit'));
@@ -1013,7 +1013,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   for (const step of crawler.postSteps) {
     if (step.if === 'failure()') continue;
     const isCommitStep = /git-commit-data\.sh/.test(step.run || '');
-    work.push(`# ---- ${crawler.slug}: ${step.name} (only if crawler succeeded) ----`);
+    if (!compact) work.push(`# ---- ${crawler.slug}: ${step.name} (only if crawler succeeded) ----`);
     work.push('if [ "$crawler_exit" -eq 0 ]; then');
     if (isCommitStep) {
       work.push(indentBlock(`CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())}`, 2));
@@ -1043,8 +1043,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push('fi');
   work.push('exit 0');
 
+  // Keep the explicit target budget visible even in compact output. It is a
+  // contract marker for bounded crawlers, not decorative phase commentary.
   outer.push(`# ---- ${crawler.slug}: ${timeoutMinutes} minute target wall timeout ----`);
-  outer.push('# shellcheck disable=SC2016');
+  if (!compact) outer.push('# shellcheck disable=SC2016');
   outer.push(
     `timeout --signal=TERM --kill-after=30s ${timeoutMinutes}m bash -c ${shellQuote(work.join('\n'))}`,
   );
@@ -1074,7 +1076,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
       '"## Crawler fallito',
       '"## Crawler fallito${crawler_failure_timeout_detail}',
     );
-    outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
+    if (!compact) outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
     outer.push("crawler_failure_timeout_detail=''");
     outer.push('if [ "$target_exit" -eq 124 ]; then');
     outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
@@ -1141,10 +1143,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
  * treated as equally significant as `crawler_exit` for both the
  * failure-report gate and the launcher's own final exit code.
  */
-export function buildCrawlerShellBody(crawler) {
+export function buildCrawlerShellBody(crawler, { compact = false } = {}) {
   const targetTimeoutMinutes = validateTargetTimeoutMinutes(crawler);
   if (targetTimeoutMinutes != null) {
-    return buildTimedCrawlerShellBody(crawler, targetTimeoutMinutes);
+    return buildTimedCrawlerShellBody(crawler, targetTimeoutMinutes, { compact });
   }
   const lines = [];
   lines.push('set -uo pipefail');
@@ -1159,7 +1161,7 @@ export function buildCrawlerShellBody(crawler) {
   // crawler killed its own launcher script before the report gate.
   lines.push('set +e');
   lines.push('');
-  lines.push(`# ---- ${crawler.slug}: run crawler (verbatim from original workflow) ----`);
+  if (!compact) lines.push(`# ---- ${crawler.slug}: run crawler (verbatim from original workflow) ----`);
   lines.push(crawler.runStep.run.trimEnd());
   lines.push(`crawler_exit=$?`);
   lines.push(...recordMemberCrawlExitLines(crawler.slug, '$crawler_exit'));
@@ -1210,7 +1212,9 @@ export function buildCrawlerShellBody(crawler) {
           .split('${{ github.workflow }}')
           .join(crawlerWorkflowId),
       );
-      lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----`);
+      if (!compact) {
+        lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----`);
+      }
       // PUSH-CONTENTION CLASS (exit 42 from git-commit-data.sh): the crawl
       // succeeded and only the ref race was lost after every retry. That is a
       // SYSTEMIC condition (a burst of concurrent groups), not a per-crawler
@@ -1246,7 +1250,7 @@ export function buildCrawlerShellBody(crawler) {
     // Commit-and-push do NOT run if the crawler script itself fails (only
     // "Report failure", which has `if: failure()`, still runs). We must
     // reproduce that here: both steps are gated on `crawler_exit -eq 0`.
-    lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim, only if crawler succeeded) ----`);
+    if (!compact) lines.push(`# ---- ${crawler.slug}: ${step.name} (verbatim, only if crawler succeeded) ----`);
     lines.push('if [ "$crawler_exit" -eq 0 ]; then');
 
     if (isCommitStep) {
@@ -1355,7 +1359,7 @@ function isCrawlerLaunchStep(step) {
  * acquires one of the group's bounded slots before it starts the crawler body,
  * so a burst cannot exhaust the hosted runner.
  */
-export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
+export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = false } = {}) {
   const nn = String(groupIndex).padStart(2, '0');
   const slug = crawler.slug;
   // A relay member must use its one-hour Google ID token soon after the auth
@@ -1363,7 +1367,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
   // takes a private one-process slot and starts as soon as it is launched.
   // Launch order (and therefore the pinned member order) stays unchanged.
   const dedicatedSlot = SOURCE_RELAY_SLUG_SET.has(slug);
-  const body = buildCrawlerShellBody(crawler);
+  const body = buildCrawlerShellBody(crawler, { compact });
   // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
   // receipts carry), not by the slug: for the step-id overrides the two differ
   // and a slug-keyed file would read as `unknown`. See MEMBER_CRAWL_EXIT_FILE_ENV.
@@ -1476,10 +1480,12 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     '      exit "$terminal_exit"',
     '    fi',
     '    if [ -e "$started_file" ]; then',
-    '      # A worker that acquired a slot but disappeared before its atomic',
-    '      # status write must not be retried or waited on for the full budget.',
-    '      # Preserve the child status when available; 143 is the conventional',
-    '      # fallback for a SIGTERM from the runner/host.',
+    ...(compact ? [] : [
+      '      # A worker that acquired a slot but disappeared before its atomic',
+      '      # status write must not be retried or waited on for the full budget.',
+      '      # Preserve the child status when available; 143 is the conventional',
+      '      # fallback for a SIGTERM from the runner/host.',
+    ]),
     '      terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"',
     '      exit "$terminal_exit"',
     '    fi',
@@ -1492,7 +1498,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     'done',
   ].join('\n');
   return [
-    '# shellcheck disable=SC2016,SC1003',
+    ...(compact ? [] : ['# shellcheck disable=SC2016,SC1003']),
     'set -euo pipefail',
     `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
     'mkdir -p "$state_dir/slots"',
@@ -2250,7 +2256,13 @@ const GENERATED_GROUP_PERMISSIONS = Object.freeze({ contents: 'write', issues: '
 const LOGIC_GROUP_PERMISSIONS = Object.freeze({ contents: 'read' });
 const STANDALONE_PERMISSIONS = Object.freeze({ actions: 'read', contents: 'read', issues: 'write' });
 
-function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand, { quarantine = null } = {}) {
+function buildGroupWorkflowObject(
+  groupIndex,
+  group,
+  needsPlaywright,
+  installCommand,
+  { quarantine = null, compactShell = false } = {},
+) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
   const runtimeInputs = crawlerRuntimeInputsForGroup(group.members);
 
@@ -2401,7 +2413,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
         ...buildCrawlerStepEnv(crawler, summaryFile),
         ...(SOURCE_RELAY_SLUG_SET.has(crawler.slug) ? sourceRelayStepEnv() : {}),
       },
-      run: buildCrawlerLaunchShellBody(crawler, groupIndex),
+      run: buildCrawlerLaunchShellBody(crawler, groupIndex, { compact: compactShell }),
     });
   }
 
@@ -3043,6 +3055,22 @@ function logicWriteAuthStep(members) {
       'echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"',
     ].join('\n'),
   };
+}
+
+function compactCrawlerLogicShells(logicText, groupIndex, memberSpecs) {
+  const logic = YAML.parse(logicText);
+  const job = Object.values(logic.jobs ?? {})[0];
+  if (!job?.steps || !Array.isArray(memberSpecs)) {
+    throw new Error(`crawler-group-${groupIndex}: cannot compact missing member shell specs`);
+  }
+  for (const crawler of memberSpecs) {
+    const step = job.steps.find((candidate) => candidate?.id === `crawler-launch-${crawler.slug}`);
+    if (!step) throw new Error(`crawler-group-${groupIndex}: missing launcher for ${crawler.slug}`);
+    step.run = normalizeCrawlerInputReferences(
+      buildCrawlerLaunchShellBody(crawler, groupIndex, { compact: true }),
+    );
+  }
+  return YAML.stringify(logic, { lineWidth: 0 });
 }
 
 /** Deriva il workflow_call completo dalla stessa resa locale del generatore. */
@@ -3742,17 +3770,36 @@ export function generateCrossRepoExecutionArtifacts({
     const logicText = fs.readFileSync(logicPath, 'utf8');
     const members = assertCrawlerLogicParity(result.content, logicText, path.basename(logicPath));
     const logic = YAML.parse(logicText);
-    const rawContent = buildStandaloneCrossRepoWorkflow({
-      logicText,
-      name: `Crawler Group ${nn} (sparse cross-repo execution)`,
-      runName: `crawler-generation-${CRAWLER_GENERATION_TOKEN_EXPR}-group-${nn}`,
-      workflowFile: fileName,
-      trigger: groupTrigger(logic),
-      concurrency: { group: `jobs-crawler-group-${nn}`, 'cancel-in-progress': false },
-      runtimePaths: CRAWLER_GENERATION_RUNTIME_PATHS,
-      checkoutRef: "${{ inputs.site_code_commit || 'main' }}",
-    });
-    const portable = canonicalizePortableCrawlerIdentities(rawContent, logic, members);
+    const renderPortable = (sourceLogicText) => {
+      const rawContent = buildStandaloneCrossRepoWorkflow({
+        logicText: sourceLogicText,
+        name: `Crawler Group ${nn} (sparse cross-repo execution)`,
+        runName: `crawler-generation-${CRAWLER_GENERATION_TOKEN_EXPR}-group-${nn}`,
+        workflowFile: fileName,
+        trigger: groupTrigger(logic),
+        concurrency: { group: `jobs-crawler-group-${nn}`, 'cancel-in-progress': false },
+        runtimePaths: CRAWLER_GENERATION_RUNTIME_PATHS,
+        checkoutRef: "${{ inputs.site_code_commit || 'main' }}",
+      });
+      return canonicalizePortableCrawlerIdentities(rawContent, logic, members);
+    };
+    let portable = renderPortable(logicText);
+    if (Buffer.byteLength(portable.content, 'utf8') > GENERATED_WORKFLOW_SIZE_BUDGET_BYTES
+        && Array.isArray(result.memberSpecs)) {
+      // The portable checkout/retry wrapper is larger than the site workflow.
+      // Compact only this group's generated crawler shell comments when that
+      // extra wrapper would otherwise push it over the shared file budget.
+      const compactLogicText = compactCrawlerLogicShells(
+        logicText,
+        result.groupIndex,
+        result.memberSpecs,
+      );
+      const compactPortable = renderPortable(compactLogicText);
+      if (Buffer.byteLength(compactPortable.content, 'utf8')
+          < Buffer.byteLength(portable.content, 'utf8')) {
+        portable = compactPortable;
+      }
+    }
     const content = portable.content;
     YAML.parse(content);
     workflowPayloads.set(fileName, content);
@@ -4041,24 +4088,36 @@ export function generate({
       const filePath = path.join(outDir, fileName);
       const installCommand = existingCrawlerGroupInstallCommand(filePath)
         ?? (needsIgnoreScripts ? 'npm ci --ignore-scripts' : 'npm ci');
-      const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand, {
-        quarantine: i === quarantineIndex
-          ? { tolerated: toleratedQuarantineFailures(quarantine, group.members.map((m) => m.slug)) }
-          : null,
-      });
-      const yamlBody = YAML.stringify(obj, { lineWidth: 0 });
-      // Il preambolo scritto a mano sopra il marker AUTO-GENERATED sopravvive alla
-      // rigenerazione: e' la nota che spiega perche' QUEL file e' speciale (il
-      // pilota cross-repo di crawler-group-23), e riscriverla a mano a ogni giro e'
-      // la stessa deriva che questa PR chiude. Il corpo resta rigenerato da zero.
-      const preamble = extractManualPreamble(fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '');
-      const fileContent = `${preamble}${workflowHeaderComment(groupIndex, group)}\n\n${yamlBody}`;
       const stagingPath = path.join(stagingDir, fileName);
-      fs.writeFileSync(stagingPath, fileContent, 'utf8');
-      // Calcola il profilo su staging: tutti i 24 file sono renderizzati e
-      // validati prima che una sola destinazione venga sostituita.
-      const finalContent = profileRenderer(stagingPath, npmScriptsForAnalyzer()).text;
-      YAML.parse(finalContent);
+      const renderGroup = (compactShell) => {
+        const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand, {
+          quarantine: i === quarantineIndex
+            ? { tolerated: toleratedQuarantineFailures(quarantine, group.members.map((m) => m.slug)) }
+            : null,
+          compactShell,
+        });
+        const yamlBody = YAML.stringify(obj, { lineWidth: 0 });
+        // Il preambolo scritto a mano sopra il marker AUTO-GENERATED sopravvive alla
+        // rigenerazione: e' la nota che spiega perche' QUEL file e' speciale (il
+        // pilota cross-repo di crawler-group-23), e riscriverla a mano a ogni giro e'
+        // la stessa deriva che questa PR chiude. Il corpo resta rigenerato da zero.
+        const preamble = extractManualPreamble(fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '');
+        const fileContent = `${preamble}${workflowHeaderComment(groupIndex, group)}\n\n${yamlBody}`;
+        fs.writeFileSync(stagingPath, fileContent, 'utf8');
+        // Calcola il profilo su staging: tutti i 24 file sono renderizzati e
+        // validati prima che una sola destinazione venga sostituita.
+        const rendered = profileRenderer(stagingPath, npmScriptsForAnalyzer()).text;
+        YAML.parse(rendered);
+        return rendered;
+      };
+      let finalContent = renderGroup(false);
+      // Adding a crawler can push a nearly-full group over the GitHub workflow
+      // limit. Compact only the generated shell comments (never commands,
+      // guards, exits or reporting) as a deterministic second rendering pass;
+      // the normal-sized groups keep their existing, more readable output.
+      if (Buffer.byteLength(finalContent, 'utf8') > GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
+        finalContent = renderGroup(true);
+      }
       results.push({
         fileName,
         filePath,
@@ -4066,6 +4125,7 @@ export function generate({
         memberCount: group.members.length,
         wallClockMs: group.wallClockMs,
         members: group.members.map((m) => m.slug),
+        memberSpecs: group.members,
         content: finalContent,
       });
     });

@@ -13,19 +13,26 @@ const COPY = {
 };
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+export function conciergeServiceUrl(service, serviceId, autologin = null, { renewal = false } = {}) {
+  const locale = Object.hasOwn(COPY, service.locale) ? service.locale : 'it';
+  const url = new URL(COPY[locale].path, 'https://frontaliereticino.ch');
+  url.searchParams.set('application_concierge_service_id', serviceId);
+  if (renewal) url.searchParams.set('application_concierge_renewal', '1');
+  return autologin?.email && autologin?.autologinCode
+    ? makeAuthenticatedUrl(url.toString(), autologin.email, { autologinCode: autologin.autologinCode, sessionGated: 'concierge service requires the recipient owner session' })
+    : url.toString();
+}
+
 export function buildConciergePaidEmail(service, serviceId, { audience = 'customer', autologin = null } = {}) {
   const locale = Object.hasOwn(COPY, service.locale) ? service.locale : 'it';
   const copy = COPY[locale];
   const owner = audience === 'owner';
-  const url = new URL(copy.path, 'https://frontaliereticino.ch');
-  url.searchParams.set('application_concierge_service_id', serviceId);
-  const href = owner ? ADMIN_QUEUE_URL : autologin?.email && autologin?.autologinCode
-    ? makeAuthenticatedUrl(url.toString(), autologin.email, { autologinCode: autologin.autologinCode, sessionGated: 'concierge service requires the recipient owner session' })
-    : url.toString();
-  const subject = owner ? 'Nuovo servizio candidatura assistita pagato — 39,99 €' : copy.subject;
+  const href = owner ? ADMIN_QUEUE_URL : conciergeServiceUrl(service, serviceId, autologin);
+  const price = new Intl.NumberFormat(locale === 'en' ? 'en-IE' : locale, { style: 'currency', currency: 'EUR' }).format((Number(service.amountTotal) || 3999) / 100);
+  const subject = owner ? `Nuovo servizio candidatura assistita pagato — ${price}` : copy.subject;
   const body = owner
     ? `Pagamento confermato per il servizio di 30 giorni e fino a 10 posizioni approvate. Cliente: ${service.applicantName || 'dati da completare'}. Email: ${service.customerEmail || service.applicantEmail || 'non disponibile'}. Servizio: ${serviceId}.`
-    : copy.body;
+    : copy.body.replace(locale === 'en' ? '€39.99' : '39,99 €', price);
   const cta = owner ? 'Apri la gestione candidature' : copy.cta;
   return { subject, text: `${body}\n\n${cta}: ${href}`, html: renderBrandedEmail({ locale: owner ? 'it' : locale, preheader: subject, badge: 'Candidatura assistita · 30 giorni', heroTitle: subject, bodyHtml: brandParagraph(escapeHtml(body)) + brandButton(href, cta) }) };
 }

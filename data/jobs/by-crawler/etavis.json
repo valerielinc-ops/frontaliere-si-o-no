@@ -5341,7 +5341,7 @@
       "title": "Junior Projektleiter Elektroinstallation (w/m/d) 80–100%",
       "titleByLocale": {
         "it": "Junior Project Manager Installazioni Elettriche (m/f/d) 80–100%",
-        "en": "Junior Projektleiter Elektroinstallation (w/m/d) 80–100%",
+        "en": "Junior Project Manager Electrical Installation (m/f/d) 80–100 %",
         "de": "Junior Projektleiter Elektroinstallation (w/m/d) 80–100%",
         "fr": "Chef de projet junior Installations électriques (h/f/d) 80–100%"
       },
@@ -5426,7 +5426,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:51:25.651Z",
-      "needsRetranslation": true,
       "salaryMin": 50000,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -5455,7 +5454,7 @@
       "companyDomain": "etavis.ch",
       "title": "Chef de projet",
       "titleByLocale": {
-        "it": "Chef de projet",
+        "it": "Responsabile del progetto",
         "en": "Project Manager",
         "de": "Projektleiter",
         "fr": "Chef de projet"
@@ -5554,8 +5553,7 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

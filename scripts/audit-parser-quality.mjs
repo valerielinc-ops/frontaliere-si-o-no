@@ -102,6 +102,8 @@ export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/html-attr.mjs',
   'scripts/lib/mid-plugins-flag.mjs',
   'scripts/lib/prospector/location-evidence.mjs',
+  'scripts/lib/canton-postal-fallback.mjs',
+  'scripts/lib/swiss-locality-directory.mjs',
   'scripts/lib/target-swiss-locations.mjs',
   'scripts/lib/crawler-location-config.mjs',
   'scripts/lib/prospector/country-inventory.mjs',
@@ -111,6 +113,8 @@ export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/source-posting-date.mjs',
   'data/canton-municipalities.json',
   'data/swiss-locality-postal-codes.json',
+  'data/swiss-postal-code-index.json',
+  'data/swiss-postal-codes.json',
 ]);
 export const SOURCE_DETAIL_NORMALIZER_VERSION_FILES = Object.freeze([
   'scripts/audit-parser-quality.mjs',
