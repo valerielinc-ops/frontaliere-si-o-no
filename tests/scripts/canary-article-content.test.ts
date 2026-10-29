@@ -23,6 +23,15 @@ describe('article-content canary live fetches', () => {
     expect(noWait).toHaveBeenCalledTimes(1);
   });
 
+  it('treats an empty sitemap as an infrastructure failure', async () => {
+    const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(new Response('<urlset />', { status: 200 }));
+
+    await expect(
+      loadArticleUrls({ fetchImpl, sleepImpl: makeNoWait() }),
+    ).rejects.toThrow('sitemap empty');
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
   it('retries a transient 5xx article response but keeps the final content checks', async () => {
     const url = 'https://frontaliereticino.ch/articoli-frontaliere/example/';
     const body = `<script src="/assets/index-test.js"></script>${'x'.repeat(5000)}`;

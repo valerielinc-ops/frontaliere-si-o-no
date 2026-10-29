@@ -146,6 +146,7 @@ async function loadArticleUrls({ fetchImpl = fetch, sleepImpl = sleep } = {}) {
   const rx = /<loc>([^<]+)<\/loc>/g;
   let m;
   while ((m = rx.exec(xml)) !== null) urls.push(m[1]);
+  if (urls.length === 0) throw new Error("sitemap empty");
   return urls;
 }
 
@@ -231,10 +232,6 @@ async function main() {
     log(`[canary-article-content] sitemap=${SITEMAP_URL}`);
     const all = await loadArticleUrls();
     log(`[canary-article-content] sitemap=${all.length} URLs`);
-    if (all.length === 0) {
-      console.error("[canary-article-content] FAIL — sitemap empty");
-      process.exit(1);
-    }
     const sample = pickSample(all, samples);
     log(`[canary-article-content] sampling ${sample.length} URLs at concurrency=${PROBE_CONCURRENCY}`);
     const results = await probeWithPool(sample, PROBE_CONCURRENCY);
