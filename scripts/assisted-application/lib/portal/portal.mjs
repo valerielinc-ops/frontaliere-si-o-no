@@ -170,23 +170,57 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+const LOCALE_PATH_SEGMENT_RE = /^(?:it|en|de|fr)(?:-[a-z]{2})?$/i;
+
+/**
+ * Read an employer-hosted `/jobs/<slug>` route, allowing one locale segment
+ * before `jobs`. ALTEN can redirect an English/canonical posting to
+ * `/de/jobs/<slug>/apply` while the stored posting URL remains `/jobs/<slug>/`;
+ * the host and complete slug still bind the two URLs to one posting.
+ */
+function directJobRoute(pathname, isApply) {
+  const rawSegments = String(pathname || '').split('/');
+  const start = rawSegments[0] === '' ? 1 : 0;
+  const end = rawSegments.at(-1) === '' ? -1 : rawSegments.length;
+  const segments = rawSegments.slice(start, end);
+  if (segments.some((segment) => segment === '')) return null;
+  if (isApply && segments.pop()?.toLowerCase() !== 'apply') return null;
+  if (segments.length < 2 || segments.at(-2)?.toLowerCase() !== 'jobs') return null;
+  const prefix = segments.slice(0, -2);
+  const slug = segments.at(-1);
+  return slug ? { prefix, slug } : null;
+}
+
+function sameDirectJobPrefix(first, second) {
+  if (first.length === second.length && first.every((segment, index) => segment === second[index])) return true;
+  const withoutLeadingLocale = (prefix) => LOCALE_PATH_SEGMENT_RE.test(prefix[0] || '')
+    ? prefix.slice(1)
+    : prefix;
+  const firstBase = withoutLeadingLocale(first);
+  const secondBase = withoutLeadingLocale(second);
+  return Boolean(firstBase && secondBase)
+    && firstBase.length === secondBase.length
+    && firstBase.every((segment, index) => segment === secondBase[index]);
+}
+
 /**
  * Employer-hosted job apply routes can redirect to a generic application page
  * when opened cold. Enter through the matching job detail page first so its
  * normal Apply link establishes the portal session. Match both origin and the
- * complete job route: a stale or unrelated posting URL must never change
- * which application the runner opens.
+ * complete job slug: a stale or unrelated posting URL must never change which
+ * application the runner opens. A single locale segment may differ between
+ * the stored canonical URL and the localized apply route.
  */
 function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   try {
     const apply = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
-    const applyRoute = /^(.*\/jobs\/)([^/]+)\/apply\/?$/i.exec(apply.pathname);
-    const postingRoute = /^(.*\/jobs\/)([^/]+)\/?$/i.exec(posting.pathname);
+    const applyRoute = directJobRoute(apply.pathname, true);
+    const postingRoute = directJobRoute(posting.pathname, false);
     return apply.origin === posting.origin
       && Boolean(applyRoute && postingRoute)
-      && applyRoute[1] === postingRoute[1]
-      && applyRoute[2] === postingRoute[2];
+      && applyRoute.slug === postingRoute.slug
+      && sameDirectJobPrefix(applyRoute.prefix, postingRoute.prefix);
   } catch {
     return false;
   }

@@ -358,6 +358,7 @@ export function buildApplicationConciergePaymentReminderEmail({ day, locale = 'i
     `${copy.cta}: ${ctaUrl}`,
   ].join('\n');
   return {
+    from: 'Il tuo assistente candidature · Frontaliere Ticino <confirmation@frontaliereticino.ch>',
     subject: copy.subject,
     html: renderBrandedEmail({
       locale: safeLocale,
@@ -521,7 +522,7 @@ async function processService(db, document, nowMs, newsletterSecret) {
     });
     const unsubscribeUrl = paymentReminderUrl(claim.uid, newsletterSecret);
     const payload = {
-      from: 'Il tuo assistente candidature · Frontaliere Ticino <confirmation@frontaliereticino.ch>',
+      from: email.from,
       to: [claim.email],
       subject: email.subject,
       html: email.html,

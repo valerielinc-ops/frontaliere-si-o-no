@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-29T09:23:43.543Z",
-  "total": 11,
+  "generatedAt": "2026-10-29T15:03:25.042Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 3897,
-  "avgDurationMs": 3897,
+  "removedCount": 1,
+  "unchangedCount": 8,
+  "durationMs": 3024,
+  "avgDurationMs": 3024,
   "durationHistory": [
-    3897
+    3024
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -103,7 +103,52 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Product Administrator Factory Outlet Intern",
+      "slug": "product-administrator-factory-outlet-tirocinante-guess-europe-sagl-stabio",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/F6C925347F/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/F6C925347F/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Stabio",
+      "addressLocality": "Stabio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-07T00:00:00.000Z",
+      "postedDate": "2026-10-07T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-e41ee2b5a6e0",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6855",
+      "firstSeenAt": "2026-10-07T21:20:15.058Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Buyers Administrator Intern",
@@ -336,50 +381,6 @@
       }
     },
     {
-      "title": "Product Administrator Factory Outlet Intern",
-      "slug": "product-administrator-factory-outlet-tirocinante-guess-europe-sagl-stabio",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/F6C925347F/",
-      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/F6C925347F/apply/",
-      "company": "Guess Europe Sagl",
-      "companyKey": "guess-europe",
-      "companyDomain": "guess.eu",
-      "location": "Stabio",
-      "addressLocality": "Stabio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Lusso & Moda",
-      "source": "guess-europe-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2026-10-07T00:00:00.000Z",
-      "postedDate": "2026-10-07T00:00:00.000Z",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "benefits": [
-        "An International, fresh and dynamic working environment",
-        "Training & Development platform and paths",
-        "Discount on our products both online and in stores"
-      ],
-      "id": "guess-europe-e41ee2b5a6e0",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6855",
-      "firstSeenAt": "2026-10-07T21:20:15.058Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Sales Associate - Bern Westside - 80pt (Temporary)",
       "slug": "vendite-associate-bern-westside-80pt-temporary-guess-europe-sagl-bern",
       "url": "https://apply.workable.com/guess-europe-sagl/j/F5FB94F8A5/",
@@ -513,5 +514,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "ec655f196b6b4671f70530d83dc02de16dd47346"
 }
