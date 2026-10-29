@@ -48,8 +48,8 @@
  */
 
 import process from "node:process";
-import { pathToFileURL } from "node:url";
 
+import { isInvokedDirectly } from "./lib/is-invoked-directly.mjs";
 import { httpFetchWithRetry } from "./lib/transient-fetch.mjs";
 
 const SITE = "https://frontaliereticino.ch";
@@ -227,7 +227,7 @@ async function main() {
   process.exitCode = 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     if (wantsJson) console.log(JSON.stringify(createFailureReport(err), null, 2));
     console.error(`[canary-article-content] error: ${err.message || err}`);
