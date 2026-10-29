@@ -20,6 +20,9 @@ export const DEFAULT_SITEMAP_SEEDS = [
 ];
 
 const DEFAULT_HOST = 'frontaliereticino.ch';
+export const DEFAULT_LIVE_FETCH_ATTEMPTS = 5;
+export const DEFAULT_LIVE_FETCH_RETRY_DELAY_MS = 1_000;
+export const MAX_RETRY_AFTER_MS = 30_000;
 const XML_URL_RE = /<url\b[^>]*>([\s\S]*?)<\/url>/gi;
 const XML_SITEMAP_RE = /<sitemap\b[^>]*>([\s\S]*?)<\/sitemap>/gi;
 const XML_LINK_RE = /<[^>]*link\b[^>]*>/gi;
@@ -151,12 +154,24 @@ function sitemapUrlsFromText(text, options) {
   return values;
 }
 
+function retryAfterMs(response) {
+  const value = response.headers.get('Retry-After');
+  if (!value) return 0;
+  if (/^\d+$/.test(value.trim())) {
+    return Math.min(Number(value.trim()) * 1_000, MAX_RETRY_AFTER_MS);
+  }
+  const timestamp = Date.parse(value);
+  if (!Number.isFinite(timestamp)) return 0;
+  return Math.min(Math.max(timestamp - Date.now(), 0), MAX_RETRY_AFTER_MS);
+}
+
 async function fetchLiveText(url, {
-  attempts = 3,
+  attempts = DEFAULT_LIVE_FETCH_ATTEMPTS,
   timeoutMs = 15_000,
-  retryDelayMs = 1_000,
+  retryDelayMs = DEFAULT_LIVE_FETCH_RETRY_DELAY_MS,
 } = {}) {
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    let providerDelay = 0;
     try {
       const response = await fetch(url, {
         headers: {
@@ -172,10 +187,11 @@ async function fetchLiveText(url, {
       // attempts, so a genuinely retired sitemap is never silently omitted.
       const retryableStatus = response.status === 404 || response.status === 429 || response.status >= 500;
       if (!retryableStatus || attempt === attempts) return null;
+      providerDelay = retryAfterMs(response);
     } catch {
       if (attempt === attempts) return null;
     }
-    await new Promise((resolveSleep) => setTimeout(resolveSleep, retryDelayMs * attempt));
+    await new Promise((resolveSleep) => setTimeout(resolveSleep, Math.max(retryDelayMs * attempt, providerDelay)));
   }
   return null;
 }
@@ -239,8 +255,8 @@ export async function crawlSitemaps({
   seeds,
   requiredSeeds = ['sitemap.xml'],
   strict = source === 'live',
-  fetchAttempts = 3,
-  fetchDelayMs = 1_000,
+  fetchAttempts = DEFAULT_LIVE_FETCH_ATTEMPTS,
+  fetchDelayMs = DEFAULT_LIVE_FETCH_RETRY_DELAY_MS,
   logger = console,
 } = {}) {
   if (source === 'local' && !rootDir) {

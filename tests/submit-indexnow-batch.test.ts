@@ -109,7 +109,10 @@ describe('getUrlsFromSitemaps (live mode branches)', () => {
     vi.spyOn(console, 'log').mockImplementation(() => {});
     vi.spyOn(console, 'error').mockImplementation(() => {});
 
-    await expect(getUrlsFromSitemaps()).rejects.toThrow('process.exit:1');
+    // The production crawl retries transient edge failures. This branch only
+    // tests the terminal fail-closed result, so disable the retry wait here to
+    // keep the fixture bounded even when every sitemap is unavailable.
+    await expect(getUrlsFromSitemaps({ fetchAttempts: 1, fetchDelayMs: 0 })).rejects.toThrow('process.exit:1');
     expect(exitSpy).toHaveBeenCalledWith(1);
   });
 
