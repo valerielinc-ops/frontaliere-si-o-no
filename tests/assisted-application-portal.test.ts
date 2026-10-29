@@ -2445,6 +2445,17 @@ describe('portal runner helpers', () => {
     for (const text of ['Thank you for applying!', 'Vielen Dank für Ihre Bewerbung', 'La candidatura è stata inviata', 'Votre candidature a bien été envoyée']) expect(CONFIRM_RE.test(text)).toBe(true);
     // The same thanks in more words (an ATS in English, 2026-10-03).
     for (const text of ['Thank you very much for your application', 'Many thanks for your application!']) expect(CONFIRM_RE.test(text)).toBe(true);
+    for (const text of [
+      'Ihre Bewerbung auf das Stellenangebot 1234 – Logistiker/in (70%) wurde erfolgreich gesendet.',
+      'Deine Bewerbung auf das Stellenangebot TEST-42 – Lagerist wurde übermittelt.',
+    ]) expect(CONFIRM_RE.test(text)).toBe(true);
+    for (const text of [
+      'Ihre persönlichen Angaben wurden gespeichert.',
+      'Ihre Bewerbung auf das Stellenangebot 1234 – Logistiker/in wurde nicht gesendet.',
+      'Ihre Bewerbung auf das Stellenangebot 1234 wurde nicht gesendet. Eine andere Bewerbung wurde erfolgreich gesendet.',
+      'Ihre Bewerbung auf das Stellenangebot 1234 wurde nicht gesendet aber eine andere wurde erfolgreich gesendet.',
+      'Seine Bewerbung auf das Stellenangebot 1234 wurde erfolgreich gesendet.',
+    ]) expect(CONFIRM_RE.test(text)).toBe(false);
     // JOIN says "du"/"tu".
     for (const text of ['Grazie per esserti candidato!', 'La ringraziamo per la sua candidatura', 'Vielen Dank für deine Bewerbung']) expect(CONFIRM_RE.test(text)).toBe(true);
     expect(VALIDATION_RE.test('Dieses Feld ist ein Pflichtfeld')).toBe(true);
