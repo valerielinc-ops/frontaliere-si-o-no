@@ -1,19 +1,59 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-28T21:52:50.300Z",
+  "generatedAt": "2026-10-29T09:17:37.300Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 18687,
-  "avgDurationMs": 18687,
+  "unchangedCount": 4,
+  "durationMs": 19017,
+  "avgDurationMs": 19017,
   "durationHistory": [
-    18687
+    19017
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Logistiker (w/m/div.) REF292485N",
+      "slug": "logistiker-w-m-div-ref292485n-bosch-thermotechnik-ag-spreitenbach",
+      "url": "https://jobs.bosch.com/en/job/REF292485N-logistiker-w-m-div-ref292485n",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000157981119-logistiker-w-m-div-ref292485n?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Spreitenbach",
+      "addressLocality": "Spreitenbach",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-27",
+      "postedDate": "2026-10-27",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-a8800a2c4e54",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8957",
+      "firstSeenAt": "2026-07-23T22:11:34.118Z",
+      "retranslationAttempts": 0,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "title": "Praktikum im Sales und Marketing (w/m/d) REF298875D",
       "slug": "stage-nelle-vendite-e-nel-marketing-m-f-d-ref298875d-bosch-thermotechnik-ag-frauenfeld",
@@ -256,45 +296,6 @@
       }
     },
     {
-      "title": "Logistiker (w/m/div.) REF292485N",
-      "slug": "logistiker-w-m-div-ref292485n-bosch-thermotechnik-ag-spreitenbach",
-      "url": "https://jobs.bosch.com/en/job/REF292485N-logistiker-w-m-div-ref292485n",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000157981119-logistiker-w-m-div-ref292485n?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Spreitenbach",
-      "addressLocality": "Spreitenbach",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-27",
-      "postedDate": "2026-10-27",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-a8800a2c4e54",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8957",
-      "firstSeenAt": "2026-07-23T22:11:34.118Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Fertigungssteurer 100% (w/m/div.) - REF299070D",
       "slug": "regolatore-di-produzione-100-f-m-div-ref299070d-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF299070D-fertigungssteurer-100-w-m-div-ref299070d",
@@ -334,5 +335,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }
