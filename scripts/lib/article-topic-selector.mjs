@@ -222,7 +222,14 @@ export function extractItTitlesFromMeta(metaSrc) {
   return out;
 }
 
-export function loadExistingItTitles(metaPath = 'services/locales/blog-meta-it.ts') {
+// The corpus twin rewires this site-local default through `corpusPath()` after
+// structural transport. Keep the layout choice at one boundary: copying that
+// corpus import into the site would make this module unloadable, while copying
+// the site default verbatim into the corpus would make title dedup read the
+// wrong tree. The explicit argument remains the safe adapter seam for tests
+// and other repository layouts.
+export const SITE_IT_META_PATH = 'services/locales/blog-meta-it.ts';
+export function loadExistingItTitles(metaPath = SITE_IT_META_PATH) {
   try {
     if (!existsSync(metaPath)) return [];
     return extractItTitlesFromMeta(readFileSync(metaPath, 'utf-8'));
@@ -2019,6 +2026,7 @@ export default {
   SCORE_WEIGHT_DIVERSITY,
   SCORE_WEIGHT_NOVELTY,
   NOVELTY_DUP_JACCARD,
+  SITE_IT_META_PATH,
   loadJsonSafe,
   tokenize,
   jaccardSimilarity,
