@@ -50,7 +50,10 @@ import {
   isTitleSourceCopy,
   titleContainsLlmReasoning,
 } from './job-locale-core.mjs';
-import { jobTitleSourceLang } from './job-locale-utils.mjs';
+// Keep this reader dependency-free: the social confirmation workflow loads it
+// without npm install, so the full locale utility (which uses html-entities)
+// must not enter its import closure.
+import { jobTitleSourceLang } from './job-title-source-locale.mjs';
 import { hasUsableTitle } from './translation-quality.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
 import { previousRunSliceJobs } from './crawler-previous-run-slice.mjs';
