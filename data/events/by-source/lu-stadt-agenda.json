@@ -3,7 +3,7 @@
   "sourceKey": "lu-stadt-agenda",
   "sourceName": "Stadt Luzern — Termine",
   "canton": "LU",
-  "assembledAt": "2026-10-28T12:14:05.371Z",
+  "assembledAt": "2026-10-29T12:19:37.888Z",
   "events": [
     {
       "id": "lu-stadt-agenda:6840391",
@@ -579,7 +579,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7587574",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -602,7 +602,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694299",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -625,7 +625,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7463713",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -648,7 +648,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7723786",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -669,7 +669,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7648411",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -692,7 +692,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694113",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -715,7 +715,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/6363316",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -738,7 +738,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694302",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -761,7 +761,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7463716",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-28T12:14:05.371Z",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -772,6 +772,27 @@
         "name": "Stadt Luzern — Termine"
       },
       "sourceDescriptionHash": "8c6c0807b13d80b5df6a4ae6f68d9b35e3820bde1fcecefd729fc01168911a11"
+    },
+    {
+      "id": "lu-stadt-agenda:7629616",
+      "title": "KulTour - Blick hinter die Türen von Kulturschaffenden",
+      "startDate": "2026-11-09",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7629616",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-29T12:19:37.888Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "717c07a3625f0dc3e238d710feb11f2ae3928f943ec67ae1f84a5fa87e435342"
     }
   ]
 }
