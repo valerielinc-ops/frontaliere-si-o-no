@@ -18,11 +18,12 @@ const email = { id: 'f1', kind: 'text', inputType: 'email', label: 'Email', fram
 const password = { id: 'f2', kind: 'text', inputType: 'password', label: 'Password', frame: 0 };
 
 describe('verification credential ownership at the frame boundary', () => {
-  it.each([0, 1])('does not send credentials to duplicate field IDs in another frame (sign-in frame %s)', async signinFrame => {
+  it.each([{ signinFrame: 0, duplicateIds: false }, { signinFrame: 1, duplicateIds: false }, { signinFrame: 0, duplicateIds: true }])('does not send credentials to duplicate or foreign controls: %j', async ({ signinFrame, duplicateIds }) => {
     state.filled = [];
     let signedIn = false;
     let currentUrl = loginUrl;
-    const login = { fields: [email, password, { ...email, frame: 1 }, { ...password, frame: 1 }],
+    const ownPassword = { ...password, id: duplicateIds ? email.id : password.id };
+    const login = { fields: [email, ownPassword, { ...email, frame: 1 }, { ...ownPassword, frame: 1 }],
       buttons: [{ id: 'f3', text: 'Sign in', frame: signinFrame }], passwordVisible: true, captcha: false, text: 'Sign in', errors: [] };
     const review = { fields: [], buttons: [], passwordVisible: false, captcha: false, errors: [], text: 'Please review your application.' };
     state.snapshot = login;
@@ -42,7 +43,7 @@ describe('verification credential ownership at the frame boundary', () => {
       launch: async () => ({ newContext: async () => context, close: async () => {} }) });
     expect(proof.conclusion).toBe('unknown');
     expect(foreignLocator).not.toHaveBeenCalled();
-    if (signinFrame === 0) expect(state.filled).toEqual([email, password]);
+    if (signinFrame === 0 && !duplicateIds) expect(state.filled).toEqual([email, ownPassword]);
     else { expect(state.filled).toEqual([]); expect(accounts.load).not.toHaveBeenCalled(); }
   });
 });
