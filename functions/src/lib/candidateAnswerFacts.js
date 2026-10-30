@@ -103,7 +103,7 @@ export function candidateFactAnswerForQuestion(question, answer) {
   if (!options.length || options.includes(answer)) return answer;
   let matches;
   if (fact.type === 'permit_status') {
-    const regime = value => [...new Set(fold(value).split(' ').map(token => ['eu', 'ue'].includes(token) ? 'EU'
+    const regime = value => [...new Set(fold(value).split(/[^a-z]+/).map(token => ['eu', 'ue'].includes(token) ? 'EU'
       : ['efta', 'aele', 'aels'].includes(token) ? 'EFTA' : '').filter(Boolean))].sort().join('|');
     const sourceRegime = regime(answer);
     matches = options.filter(option => positivePermitStatus(option) === fact.status && (!regime(option) || regime(option) === sourceRegime));
