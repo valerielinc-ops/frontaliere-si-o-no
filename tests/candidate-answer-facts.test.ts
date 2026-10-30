@@ -71,6 +71,13 @@ describe('positive typed candidate answer contracts', () => {
     const memory = rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: '3' } });
     expect(candidateAnswersForQuestions([translated, months, sql], {}, memory)).toEqual({ translated: '3' });
   });
+  it('validates the complete target field before reusing a typed answer and preserves a direct current answer', () => {
+    const source = question('How many years of experience do you have with Python?', 'number');
+    const limited = { ...source, id: 'limited', validation: { max: 3 } };
+    const memory = rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: '6' } });
+    expect(candidateAnswersForQuestions([limited], {}, memory)).toEqual({});
+    expect(candidateAnswersForQuestions([limited], { limited: '6' }, memory)).toEqual({ limited: '6' });
+  });
   it.each([{ context: 'This employer' }, { section: 'Dependent child' }, { autocomplete: 'other-fact' }, { source: 'policy_default' }, { applicationQuestion: 'What is your expected date of birth?' }])('refuses to erase contextual provenance: %j', metadata => {
     expect(candidateQuestionFact(question('What is your date of birth?', 'date', metadata))).toBeNull();
   });
