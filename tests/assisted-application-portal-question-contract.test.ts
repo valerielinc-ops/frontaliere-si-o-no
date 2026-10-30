@@ -26,6 +26,19 @@ describe('portal candidate question contract', () => {
     expect(questions).toEqual([expect.objectContaining({ type: 'choice', required: true, applicationQuestion: field.label, options: ['Homepage', 'Empfehlung'] })]);
   });
 
+  it('retains rejected or unknown file requirements as uploads while excluding the core documents', () => {
+    for (const metadata of [{ required: false, invalid: true }, { required: undefined }]) {
+      const files = [
+        { id: 'certificate', kind: 'file', label: 'Arbeitszeugnisse', ...metadata },
+        { id: 'cv', kind: 'file', label: 'Resume / CV', ...metadata },
+        { id: 'letter', kind: 'file', label: 'Cover letter', ...metadata },
+      ];
+      const result = portalRequirementsFromMissingRequired(files, files.map(file => ({ fieldId: file.id, question: file.label, type: 'text', options: [] })));
+      expect(result.questions).toEqual([]);
+      expect(result.documents).toEqual([expect.objectContaining({ label: 'Arbeitszeugnisse', required: true })]);
+    }
+  });
+
   it('preserves requests when mandatory status or the live control is unknown', () => {
     const { required: _required, ...unknown } = field;
     expect(portalRequirementsFromMissingRequired([unknown], [planned]).questions).toEqual([expect.objectContaining({ required: true, type: 'choice' })]);

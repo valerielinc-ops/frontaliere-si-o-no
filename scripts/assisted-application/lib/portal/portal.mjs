@@ -3089,7 +3089,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
     if (field?.required === false && !field.invalid) continue;
-    const document = portalRequiredDocumentFromField(field);
+    const document = portalRequiredDocumentFromField(field ? { ...field, required: true } : field);
     if (!document) {
       // A field with a generated name is no question for a person: the submit
       // run's agent reads it from the live page instead.
