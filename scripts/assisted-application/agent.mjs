@@ -293,7 +293,7 @@ async function main() {
     // consumes this event. A superseded run cannot replace the current draft.
     if (!dryRun && event.type === 'submit_needs_candidate'
       && (Array.isArray(event.questions) || Array.isArray(event.documents))) {
-      if (!await persistLivePortalRequirements({ db, orderRef, expected: { order, flow, draft: submitDraft }, round, event })) {
+      if (!await persistLivePortalRequirements({ db, orderRef, expected: { order, flow: flowSnapshot.data() || {}, draft: submitDraft }, round, event })) {
         summary(`mode=${mode} round=${round} skipped: requirement context changed`);
         return;
       }
