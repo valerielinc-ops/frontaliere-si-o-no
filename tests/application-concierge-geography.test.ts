@@ -69,6 +69,8 @@ describe('concierge geographic ranking', () => {
     expect(locationMatchPoints('Biel/Bienne (Bern), Schweiz', { location: 'Biel/Bienne', addressCountry: 'CH', canton: 'BE' })).toBe(8);
     expect(locationMatchPoints('Biel/Bienne (Bern), Schweiz', { addressLocality: 'Biel/Other', addressCountry: 'CH', canton: 'BE' })).toBe(0);
     expect(locationMatchPoints('Biel/Bienne (Bern), Schweiz', { addressLocality: 'Biel/Bienne', canton: 'BE' })).toBe(0);
+    expect(locationMatchPoints('Town/TI (Ticino), Schweiz', { addressLocality: 'Town/GR', addressCountry: 'CH', canton: 'TI' })).toBe(0);
+    expect(locationMatchPoints('Vila Italia, Italia', { addressLocality: 'Vila', addressCountry: 'IT' })).toBe(0);
   });
 
   it('supports every country emitted by the current residence catalogue in all four locales', () => {

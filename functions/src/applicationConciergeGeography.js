@@ -3,7 +3,6 @@
 const COUNTRY_CODES = new Set('AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR XK KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SS SE SG SH SI SJ SK SL SM SN SO SR ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW'.split(' '));
 const POINTS = Object.freeze({ sameLocality: 8, sameThreeDigitPostcode: 6, sameTwoDigitPostcode: 4, adjacentTwoDigitPostcode: 2 });
 const CANTON_CODES = new Set('ag ai ar be bl bs fr ge gl gr ju lu ne nw ow sg sh so sz tg ti ur vd vs zg zh'.split(' '));
-const NON_LOCALITY_WORDS = new Set('ch switzerland svizzera schweiz suisse italia italy italien canton cantone kanton ticino tessin grigioni graubunden graubuenden grisons'.split(' '));
 const fold = value => String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, ' ').trim();
 const CANTON_NAMES = new Map(Object.entries({
   ag: 'Aargau|Argovia|Argovie', ai: 'Appenzell Innerrhoden|Appenzello Interno|Appenzell Rhodes Intérieures',
@@ -63,9 +62,8 @@ function locationParts(value) {
 function locality(value, country) {
   const part = String(value || '').replace(/\b\d{4,5}\b/g, ' ').trim();
   const annotation = part.match(/\s+\(([^()]*)\)\s*$/);
-  const key = value => fold(value).split(' ').filter(token => !CANTON_CODES.has(token) && !NON_LOCALITY_WORDS.has(token)).join(' ');
   const qualifier = annotation ? fold(annotation[1]) : '';
-  return { key: key(annotation ? part.slice(0, annotation.index) : part), qualifier: country === 'CH' ? CANTON_NAMES.get(qualifier) || qualifier : qualifier };
+  return { key: fold(annotation ? part.slice(0, annotation.index) : part), qualifier: country === 'CH' ? CANTON_NAMES.get(qualifier) || qualifier : qualifier };
 }
 
 function postcode(value) {
