@@ -13,7 +13,7 @@ export const ASSISTED_EMAIL_PROVIDERS = Object.freeze(['maileroo', 'resend']);
 
 /** Provider tracking references are not RFC Message-IDs used for reply threading. */
 export function replyThreadMessageId(send, requestedMessageId) {
-  if (typeof send?.rfcMessageId === 'string' && /^<[^<>\s]+@[^<>\s]+>$/.test(send.rfcMessageId)) return send.rfcMessageId;
+  if (typeof send?.rfcMessageId === 'string' && /^<[^<>@\s]+@[^<>@\s]+>$/.test(send.rfcMessageId)) return send.rfcMessageId;
   // Maileroo generates its own Message-ID; its API reference_id is not it.
   // Keep subject threading, rather than referencing an ID the employer never received.
   if (send?.provider === 'maileroo') return null;

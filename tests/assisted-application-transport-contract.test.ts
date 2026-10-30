@@ -56,6 +56,7 @@ describe('application transport contracts', () => {
     expect(replyThreadMessageId({ provider: 'maileroo', messageId: '0123456789abcdef01234567' }, '<requested@example.com>')).toBeNull();
     expect(replyThreadMessageId({ provider: 'maileroo', rfcMessageId: '<actual@example.com>' }, '<requested@example.com>')).toBe('<actual@example.com>');
     expect(replyThreadMessageId({ provider: 'maileroo', rfcMessageId: 'provider-tracking-id' }, '<requested@example.com>')).toBeNull();
+    expect(replyThreadMessageId({ provider: 'maileroo', rfcMessageId: '<opaque@@example.com>' }, '<requested@example.com>')).toBeNull();
   });
 
   it.each([false, true])('falls back only after a definite rejection (ambiguous=%s)', async ambiguous => {
@@ -76,7 +77,7 @@ describe('application transport contracts', () => {
     }));
     const attachment = { filename: 'CV.pdf', content: 'JVBERi0x' };
     const result = await sendEmailCascade([{
-      payload: { from: 'sender@example.com', to: ['employer@example.com'], replyTo: 'candidate@example.com', subject: 'Application', html: '<p>Application</p>', attachments: [attachment] },
+      payload: { from: 'sender@example.com', to: ['employer@example.com'], replyTo: 'candidate@example.com', subject: 'Application', html: '<p>Application</p>', attachments: [attachment], tags: [{ name: 'campaign_id', value: 'aa--order_test--followup_review_1' }] },
       recipient: { email: 'employer@example.com' }, meta: {},
     }], { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS });
     if (ambiguous) {
@@ -89,6 +90,7 @@ describe('application transport contracts', () => {
       expect(result.accepted[0].provider).toBe('resend');
       expect(posts[1].body.reply_to).toBe('candidate@example.com');
       expect(posts[1].body.attachments).toEqual([attachment]);
+      expect(posts[1].body.tags).toEqual([{ name: 'campaign_id', value: 'aa--order_test--followup_review_1' }]);
     }
   });
 
@@ -96,6 +98,9 @@ describe('application transport contracts', () => {
     'www.apply.example.ch', 'http://www.apply.example.ch', 'https://apply.example.ch/CHCareers/',
     'apply.example.ch', 'apply@example.com', '/careers/apply/',
     'www.bewerben.example.ch', 'https://postuler.example.fr/',
+    'https://jobs.example/?apply=true', 'https://jobs.example/?action=apply',
+    'mailto:apply+foo@example.ch', 'apply+foo@example.ch', '?apply=true',
+    'Read https://jobs.example/?action=apply for information',
   ])('does not follow a generic address because it contains an application word: %s', label => {
     expect(APPLY_RE.test(label)).toBe(false);
   });
@@ -104,6 +109,7 @@ describe('application transport contracts', () => {
     'Apply', 'APPLY NOW', 'Apply for this job', 'Auf diese Stelle bewerben',
     'Bewerbung starten', 'Zur Bewerbung', 'Candidati', 'Candidarsi',
     'Invia la tua candidatura', 'Candidatura online', 'Postuler', 'Postulez', 'Je postule',
+    '(Apply now)', '› Apply now', 'Apply!', 'Apply-now', 'Apply\u00a0now',
   ])('still recognizes the actual application control: %s', label => {
     expect(APPLY_RE.test(label)).toBe(true);
   });
