@@ -137,6 +137,7 @@ function takeoverStep(heldBy: string[]): NextStep {
       detail: 'Il robot non ha completato una pagina del portale. Prova «Compila con l’estensione»: se si ferma sullo stesso punto, serve una correzione del robot prima di «Riprova l’invio automatico».',
     };
   }
+  if (held === 'fact_repair_failed') return { group: 'fix', code: 'fact_repair_failed', label: 'Correzione automatica non riuscita', detail: 'I testi non sono stati inviati. L’automazione ha esaurito i tentativi di correzione: serve una verifica tecnica, senza confermare fatti non supportati.' };
   if (held === 'draft_failed' || held === 'runner_timeout') {
     return {
       group: 'owner', code: 'regenerate', label: 'Da rigenerare',
@@ -158,8 +159,8 @@ function takeoverStep(heldBy: string[]): NextStep {
   // The runner checks the facts again right before sending: nothing left, and a plain retry would stop again.
   if (held === 'fact_check_not_acknowledged') {
     return {
-      group: 'owner', code: 'confirm_facts', label: 'Conferma i fatti e riprova',
-      detail: 'L’invio si è fermato prima di partire: nei testi ci sono fatti che il controllo non trova nel CV. Li vedi nel pannello sotto «Fatti non trovati»: se sono corretti spunta «Ho verificato», altrimenti correggi i testi e salva le modifiche; poi «Riprova l’invio automatico».',
+      group: 'robot', code: 'repair_facts', label: 'Correzione automatica dei testi',
+      detail: 'Il controllo ha fermato l’invio prima che partisse. L’automazione riscrive i passaggi non verificati e ripropone la bozza al candidato: non serve controllare i fatti a mano.',
     };
   }
   return {
@@ -197,6 +198,7 @@ export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): N
         detail: `Il robot sta scrivendo la bozza${flow.dispatch?.requestedAt ? ` (${since(flow.dispatch.requestedAt, nowMs)})` : ''}: di solito 10–15 minuti. Se non riesce, riprova da solo e poi ti avvisa.`,
       };
     case 'owner_review':
+      if (heldBy.includes('fact_check')) return { group: 'robot', code: 'repair_facts', label: 'Correzione automatica dei testi', detail: 'L’automazione riscrive o rimuove le affermazioni non supportate e ricontrolla la bozza prima di mostrarla al candidato.' };
       if (heldBy.length) {
         return { group: 'owner', code: 'review_held', label: 'Bozza ferma: serve il tuo ok', detail: 'La bozza non passa al candidato finché non confermi gli avvisi qui sotto (fatti non verificati, canale).' };
       }

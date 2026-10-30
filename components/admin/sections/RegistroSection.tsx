@@ -32,7 +32,8 @@ function targetHref(entry: AdminAuditEntry): string | null {
   const { action, target } = entry;
   if (action === 'employer_contact_update' || action === 'employer_outreach_send') return `${adminSectionPath('aziende')}?${new URLSearchParams({ azienda: target }).toString()}`;
   if (action === 'article_author_reassign' || action === 'editorial_profile_update') return adminSectionPath('redazione');
-  if (action.startsWith('assisted_application_') || action === 'application_concierge_proposal_create') return `${adminSectionPath('candidature')}?${new URLSearchParams({ ordine: target }).toString()}`;
+  if (action === 'application_concierge_proposal_create') return `${adminSectionPath('servizio-candidature')}?${new URLSearchParams({ servizio: target }).toString()}`;
+  if (action.startsWith('assisted_application_')) return `${adminSectionPath('candidature')}?${new URLSearchParams({ ordine: target }).toString()}`;
   if (action === 'journalist_role_grant' || action === 'journalist_role_revoke') return adminSectionPath('giornalisti');
   if (action === 'crawler_config_update') return adminSectionPath('configurazione-crawler');
   if (action === 'workflow_dispatch') return adminSectionPath('automazioni');

@@ -106,7 +106,7 @@ export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed']
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
 const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
-const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
+const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged', 'repair_facts']);
 // The submit_failed errors of a send that may have reached the employer (never retried).
 // portal_antibot_ambiguous: the same unknown outcome, on a portal with an invisible reCAPTCHA.
 const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
@@ -216,6 +216,7 @@ function base(flow) {
     postingExpiredAt: Number(flow?.postingExpiredAt) || null,
     portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
     portalAutoRetryCount: Number(flow?.portalAutoRetryCount) || 0,
+    factRepairAttempts: Number(flow?.factRepairAttempts) || 0,
   };
 }
 
@@ -284,6 +285,27 @@ export function roundWasSent(flow, round = Number(flow?.round) || 1) {
 }
 
 /** The round's draft is written again, in the same round. */
+/** Only generated-text fact holds can be recovered without an operator's judgement. */
+export function needsFactRepair(flow) {
+  return ['owner_review', 'owner_takeover'].includes(flow?.state)
+    && (flow.heldBy || []).some((held) => ['fact_check', 'fact_check_not_acknowledged'].includes(held));
+}
+
+function enterFactRepair(next, current) {
+  if (current.factRepairAttempts >= MAX_RUN_ATTEMPTS) {
+    next.state = 'owner_takeover';
+    next.heldBy = ['fact_repair_failed'];
+    next.deadlineAt = null;
+    next.reminderAt = null;
+    return [{ type: 'email', kind: 'owner_takeover', reason: 'fact_repair_failed', stage: 'draft', attempts: current.factRepairAttempts }];
+  }
+  next.factRepairAttempts = current.factRepairAttempts + 1;
+  // Changed documents must be shown again; an approval of an old draft never
+  // authorises the repaired one. Unseen drafts keep their current round.
+  if (current.shownRounds.includes(current.round)) next.round = current.round + 1;
+  return redraftSameRound(next, 'fact_repair');
+}
+
 function redraftSameRound(next, reason) {
   next.state = 'regenerating';
   next.deadlineAt = null;
@@ -433,6 +455,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // review remains a hard gate for fact, channel, legitimacy and posting
       // flags, but a normal CV must not wait for an owner acknowledgement just
       // to start the candidate's own review clock (ownerless automation).
+      if (flags.owner.includes('fact_check')) {
+        effects = enterFactRepair(next, current);
+        break;
+      }
       effects = flags.owner.length ? enterOwnerReview(next, flags, nowMs) : enterCandidateReview(next, flags, nowMs);
       break;
     case 'draft_failed': {
@@ -449,6 +475,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       effects = [takeoverEmail(flow, event, 'draft')];
       break;
     }
+    case 'repair_facts':
+      if (!needsFactRepair(current) || roundDraftMissing(current, draft)) return ignore('not_fact_held');
+      effects = enterFactRepair(next, current);
+      break;
     case 'owner_approve':
       if (state !== 'owner_review') return ignore('not_owner_review');
       // Every owner flag needs its explicit acknowledgement (written to the
@@ -486,6 +516,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       effects = enterOwnerReview(next, { owner: [], candidate: flags.candidate, documents: flags.documents }, nowMs);
       break;
     case 'tick': {
+      if (needsFactRepair(current)) {
+        effects = enterFactRepair(next, current);
+        break;
+      }
       const deadline = current.deadlineAt || 0;
       const reminder = current.reminderAt || 0;
       // The ad closed while the candidate is awaited (the caller looks before it reminds them:
@@ -692,6 +726,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     }
     case 'submit_succeeded':
       if (state !== 'submitting') return ignore('not_submitting');
+      next.factRepairAttempts = 0;
       next.state = 'submitted';
       effects = [{ type: 'mark_submitted' }];
       break;
@@ -780,6 +815,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     }
     case 'submit_failed': {
       if (state !== 'submitting') return ignore('not_submitting');
+      if (event.error === 'fact_check_not_acknowledged') {
+        effects = enterFactRepair(next, current);
+        break;
+      }
       // Safe to run again: the submission guard (scripts/assisted-application/
       // lib/submit.mjs) replays an application already sent, and one that may
       // have left (after the final click, or an e-mail of unknown outcome)
