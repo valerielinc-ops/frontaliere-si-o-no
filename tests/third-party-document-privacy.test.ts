@@ -46,9 +46,12 @@ describe('signed-origin autonomous SDK startup', () => {
   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, { referrer: '' }, false)).toBe(true);
  });
  it('preserves ordinary unsigned visits and campaign/service context', () => {
-  const win = browser(clean);
-  expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, { referrer: '', querySelectorAll: () => [] })).toBe(false);
-  expect(win.location.href).toBe(clean);
+  const dom = new JSDOM('<!doctype html><body></body>', { url: clean });
+  try {
+   const win = browser(clean);
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
+   expect(win.location.href).toBe(clean);
+  } finally { dom.window.close(); }
  });
  it.each(['iframe', 'href', 'jsonld'])('rejects a clean-origin document with a sensitive %s URL before SDK startup', (kind) => {
   const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'https://frontaliereticino.ch/', runScripts: 'outside-only' });
