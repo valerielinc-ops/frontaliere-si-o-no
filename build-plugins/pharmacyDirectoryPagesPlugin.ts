@@ -51,18 +51,28 @@ import { PHARMACY_NOINDEX_TARGET_MARKER } from './shared/pharmacyNoindexTargetMa
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
-// A live catalogue can still contain the source locality of a retained
-// regional-duty redirect (for example, Castagnola). Keep its directory page,
-// but do not emit the same duty-city path that the bridge below must own: the
-// bridge would otherwise overwrite the canonical page after the render loop.
-const PHARMACY_DUTY_CITY_ALIAS_SLUGS = new Set(
-  TICINO_CITIES
-    .filter(({ slug }) => LOCALES.some((locale) => Object.prototype.hasOwnProperty.call(
-      PHARMACY_DUTY_CITY_REDIRECTS,
-      buildPharmacyPath({ kind: 'duty-city', locale, citySlug: slug }, locale),
-    )))
-    .map(({ slug }) => slug),
-);
+
+/** Static duty-city bridges are exclusions for their source locale only. */
+export function pharmacyDutyCityAliasPaths(
+  redirects: Readonly<Record<string, string>> = PHARMACY_DUTY_CITY_REDIRECTS,
+): ReadonlySet<string> {
+  return new Set(Object.keys(redirects).map((from) => {
+    const route = parsePharmacyRoute(from);
+    if (route?.kind !== 'duty-city') throw new Error(`Invalid pharmacy duty city alias: ${from}`);
+    return from;
+  }));
+}
+
+const PHARMACY_DUTY_CITY_ALIAS_PATHS = pharmacyDutyCityAliasPaths();
+
+export function shouldEmitPharmacyDutyCityPage(
+  locale: Locale,
+  citySlug: string,
+  aliasPaths: ReadonlySet<string> = PHARMACY_DUTY_CITY_ALIAS_PATHS,
+): boolean {
+  return !aliasPaths.has(buildPharmacyPath({ kind: 'duty-city', locale, citySlug }, locale));
+}
+
 // Duty rendering and pharmacy detail rendering must share the same enriched
 // catalogue. The raw JSON is still the release container, but its pharmacy
 // rows are replaced with BORDER_PHARMACIES/TICINO_PHARMACIES from
@@ -392,8 +402,10 @@ const ALIAS_COPY: Record<Locale, { title: string; description: string; body: str
 type PharmacyAliasBridgeDescriptor = PharmacyUrlAliasDescriptor | Pick<PharmacyUrlAliasDescriptor, 'locale' | 'from' | 'to'>;
 
 /** Retained regional-duty URLs, not aliases for a different pharmacy identity. */
-export function pharmacyDutyCityAliasDescriptors(): PharmacyAliasBridgeDescriptor[] {
-  return Object.entries(PHARMACY_DUTY_CITY_REDIRECTS).map(([from, to]) => {
+export function pharmacyDutyCityAliasDescriptors(
+  redirects: Readonly<Record<string, string>> = PHARMACY_DUTY_CITY_REDIRECTS,
+): PharmacyAliasBridgeDescriptor[] {
+  return Object.entries(redirects).map(([from, to]) => {
     const route = parsePharmacyRoute(from);
     if (route?.kind !== 'duty-city') throw new Error(`Invalid pharmacy duty city alias: ${from}`);
     return { locale: route.locale, from, to };
@@ -852,6 +864,11 @@ function descriptorPath(descriptor: PageDescriptor, locale: Locale): PharmacyPat
   return cityPath(descriptor.country || 'CH', locale, descriptor.citySlug || '', descriptor.areaSlug);
 }
 
+function isDutyCityAliasDescriptor(descriptor: PageDescriptor, locale: Locale): boolean {
+  return descriptor.kind === 'duty-city'
+    && !shouldEmitPharmacyDutyCityPage(locale, descriptor.citySlug || '');
+}
+
 interface CantonCityEntry {
   name: string;
   count: number;
@@ -1213,9 +1230,7 @@ function descriptors(now: Date = pharmacyBuildNow()): PageDescriptor[] {
     { kind: 'country', country: 'IT' },
     ...ITALY_BORDER_PROVINCES.map((area) => ({ kind: 'area' as const, country: 'IT' as const, areaSlug: area.slug, areaName: area.name })),
     ...TICINO_CITIES.map((city) => ({ kind: 'city' as const, country: 'CH' as const, citySlug: city.slug, cityName: city.name })),
-    ...TICINO_CITIES
-      .filter((city) => !PHARMACY_DUTY_CITY_ALIAS_SLUGS.has(city.slug))
-      .map((city) => ({ kind: 'duty-city' as const, country: 'CH' as const, citySlug: city.slug, cityName: city.name })),
+    ...TICINO_CITIES.map((city) => ({ kind: 'duty-city' as const, country: 'CH' as const, citySlug: city.slug, cityName: city.name })),
     ...ITALY_CITIES.map((city) => ({ kind: 'city' as const, country: 'IT' as const, areaSlug: ITALY_BORDER_PROVINCES.find((area) => area.code === city.province)?.slug, citySlug: city.slug, cityName: city.name })),
     ...BORDER_PHARMACIES.map((pharmacy) => ({ kind: 'pharmacy' as const, country: pharmacy.country, pharmacy })),
   ];
@@ -1283,6 +1298,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
           if (shouldEmitLocale(locale)) continue;
           const eligibility = new Map<PageDescriptor, PageEligibility>();
           for (const descriptor of allDescriptors) {
+            if (isDutyCityAliasDescriptor(descriptor, locale)) continue;
             eligibility.set(descriptor, buildPageEligibility(
               descriptor,
               locale,
@@ -1299,6 +1315,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
           const eligibility = sitemapEligibilityByLocale.get(locale);
           if (eligibility) {
             for (const descriptor of allDescriptors) {
+              if (isDutyCityAliasDescriptor(descriptor, locale)) continue;
               if (eligibility.get(descriptor)?.indexable) {
                 urls.push(buildPharmacyPath(descriptorPath(descriptor, locale), locale));
               } else {
@@ -1309,6 +1326,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
           continue;
         }
         for (const descriptor of allDescriptors) {
+          if (isDutyCityAliasDescriptor(descriptor, locale)) continue;
           const built = buildPage(descriptor, locale, distDir, dutiesDataset, buildNow, emittedPathsByLocale.get(locale)!);
           collector.add(path.join(distDir, `${built.path.replace(/^\/+/, '').replace(/\/+$/, '')}/index.html`), built.html);
           // The IT/main shard owns the shared sitemap and must list every
