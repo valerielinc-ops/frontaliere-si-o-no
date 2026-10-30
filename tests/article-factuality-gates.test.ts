@@ -37,6 +37,7 @@ import {
   checkSourceFidelity,
   runFactualityGates,
   formatRemediation,
+  normalizeRemediationIssues,
   formatItalianNumber,
   FACT_CHECK_CATEGORIES,
 } from '../scripts/lib/article-factuality-gates.mjs';
@@ -1636,6 +1637,48 @@ describe('formatRemediation', () => {
   it('returns an empty string when there is nothing to fix', () => {
     expect(formatRemediation([])).toBe('');
   });
+
+  it('normalizes gate and verifier findings without dropping source evidence', () => {
+    expect(normalizeRemediationIssues([
+      {
+        code: 'arithmetic-error',
+        message: 'calcolo errato',
+        severity: 'critical',
+        evidence: '0,45 x 60.000 = 27.000',
+        fix: 'usa il valore corretto',
+      },
+      {
+        claim: 'La Svizzera è membro UE',
+        reason: 'affermazione falsa',
+        severity: 'critical',
+        category: 'eu_svizzera',
+        sourceQuote: 'La Svizzera non è membro dell’Unione europea.',
+      },
+    ])).toEqual([
+      {
+        claim: '0,45 x 60.000 = 27.000',
+        reason: 'calcolo errato',
+        severity: 'critical',
+        category: 'arithmetic-error',
+        sourceQuote: '',
+        fix: 'usa il valore corretto',
+      },
+      {
+        claim: 'La Svizzera è membro UE',
+        reason: 'affermazione falsa',
+        severity: 'critical',
+        category: 'eu_svizzera',
+        sourceQuote: 'La Svizzera non è membro dell’Unione europea.',
+      },
+    ]);
+    expect(formatRemediation(normalizeRemediationIssues([{
+      claim: 'La Svizzera è membro UE',
+      reason: 'affermazione falsa',
+      severity: 'critical',
+      category: 'eu_svizzera',
+      sourceQuote: 'La Svizzera non è membro dell’Unione europea.',
+    }]))).toContain('ESTRATTO FONTE');
+  });
 });
 
 describe('stale source vs. undated source', () => {
@@ -1662,6 +1705,28 @@ describe('stale source vs. undated source', () => {
 });
 
 describe('reviewer follow-ups (PR #4900)', () => {
+  it('keeps deterministic and LLM retry findings on one remediation contract', () => {
+    const generatorSrc = readFileSync(
+      new URL('../scripts/create-article.mjs', import.meta.url),
+      'utf-8',
+    );
+    const formatterSrc = readFileSync(
+      new URL('../scripts/lib/article-factuality-gates.mjs', import.meta.url),
+      'utf-8',
+    );
+
+    expect(formatterSrc).toContain('export function normalizeRemediationIssues(issues)');
+    for (const field of ['claim', 'reason', 'severity', 'category', 'sourceQuote']) {
+      expect(formatterSrc, `campo remediation mancante: ${field}`).toContain(`${field}:`);
+    }
+    expect(generatorSrc).toMatch(
+      /formatRemediation\(normalizeRemediationIssues\(gateResult\.blocking\)\)/,
+    );
+    expect(generatorSrc).toMatch(
+      /formatRemediation\(\s*normalizeRemediationIssues\(factResult\.issues\)/,
+    );
+  });
+
   // 🔴 Regression the reviewer caught: lastSourcePublishedAt is module-level and
   // was only set on the real-fetch branch, so a Fase-1 news source date could
   // leak into the Fase-2 evergreen article in the same process and block it as

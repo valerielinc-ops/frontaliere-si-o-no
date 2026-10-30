@@ -260,7 +260,10 @@ export function ensureRequiredQuestions(questions, { requirements, profile, answ
     const validation = sanitizeValidation({ pattern: '.*\\d.*', maxLength: 120, example: "CHF 80'000", message: SALARY_RULE_MESSAGES[locale] || SALARY_RULE_MESSAGES.it }, { type: 'text' });
     result.push({ id: 'salary_expectation', question, why, type: 'text', options: [], required: true, validation, source: 'rule' });
   }
-  return result.slice(0, 8);
+  // Rule-derived hard questions must never displace another required answer.
+  // The display budget applies only to optional questions.
+  const optional = new Set(result.filter(item => !item.required).slice(0, Math.max(0, 8 - result.filter(item => item.required).length)));
+  return result.filter(item => item.required || optional.has(item));
 }
 
 const SALUTATION_QUESTION = {
