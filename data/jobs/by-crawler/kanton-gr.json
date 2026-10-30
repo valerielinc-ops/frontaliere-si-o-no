@@ -839,12 +839,12 @@
     },
     {
       "id": "kanton-gr-1ace449b55d8",
-      "slug": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+      "slug": "impiegato-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
-        "en": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
         "de": "sachbearbeiter-in-kanton-gr-ch",
-        "fr": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
+        "it": "impiegato-kantonale-verwaltung-graubunden-chur",
+        "en": "clerk-kantonale-verwaltung-graubunden-chur",
+        "fr": "greffier-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -913,20 +913,24 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kanton-gr-ch",
-          "impiegato-a-amministrativo-a-kantonale-verwaltung-graubunden-chur"
+          "impiegato-a-amministrativo-a-kantonale-verwaltung-graubunden-chur",
+          "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "administrative-officer-kantonale-verwaltung-graubunden-chur"
+          "administrative-officer-kantonale-verwaltung-graubunden-chur",
+          "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
-          "collaborateur-trice-administratif-ive-kantonale-verwaltung-graubunden-chur"
+          "collaborateur-trice-administratif-ive-kantonale-verwaltung-graubunden-chur",
+          "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-in-kanton-gr-ch",
         "impiegato-a-amministrativo-a-kantonale-verwaltung-graubunden-chur",
         "administrative-officer-kantonale-verwaltung-graubunden-chur",
-        "collaborateur-trice-administratif-ive-kantonale-verwaltung-graubunden-chur"
+        "collaborateur-trice-administratif-ive-kantonale-verwaltung-graubunden-chur",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -948,9 +952,9 @@
       "id": "kanton-gr-bac64f047ec6",
       "slug": "tirocinante-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
+        "de": "praktikant-in-kanton-gr-ch",
         "it": "tirocinante-kantonale-verwaltung-graubunden-chur",
         "en": "intern-kantonale-verwaltung-graubunden-chur",
-        "de": "praktikant-in-kanton-gr-ch",
         "fr": "interne-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1025,7 +1029,8 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "tirocinante-kantonale-verwaltung-graubunden-chur"
+          "tirocinante-kantonale-verwaltung-graubunden-chur",
+          "praktikant-in-kanton-gr-ch"
         ],
         "en": [
           "praktikant-in-kanton-gr-ch"
@@ -1061,9 +1066,9 @@
       "id": "kanton-gr-af6cb0a41775",
       "slug": "controllore-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
+        "de": "controller-in-kanton-gr-ch",
         "it": "controllore-kantonale-verwaltung-graubunden-chur",
         "en": "controller-kantonale-verwaltung-graubunden-chur",
-        "de": "controller-in-kanton-gr-ch",
         "fr": "controleur-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1175,12 +1180,12 @@
     },
     {
       "id": "kanton-gr-25670acbab49",
-      "slug": "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur",
+      "slug": "vice-coordinatore-per-la-violenza-domestica-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur",
-        "en": "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur",
         "de": "stellvertretung-koordinator-in-hausliche-gewalt-kanton-gr-ch",
-        "fr": "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur"
+        "it": "vice-coordinatore-per-la-violenza-domestica-kantonale-verwaltung-graubunden-chur",
+        "en": "deputy-coordinator-for-domestic-violence-kantonale-verwaltung-graubunden-chur",
+        "fr": "coordonnatrice-adjointe-pour-la-violence-domestique-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1256,20 +1261,24 @@
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-koordinator-in-hausliche-gewalt-kanton-gr-ch",
-          "sostituto-a-coordinatore-rice-violenza-domestica-kantonale-verwaltung-graubunden-chur"
+          "sostituto-a-coordinatore-rice-violenza-domestica-kantonale-verwaltung-graubunden-chur",
+          "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "deputy-domestic-violence-coordinator-kantonale-verwaltung-graubunden-chur"
+          "deputy-domestic-violence-coordinator-kantonale-verwaltung-graubunden-chur",
+          "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
-          "coordinateur-coordinatrice-suppleant-e-violence-domestique-kantonale-verwaltung-graubunden-chur"
+          "coordinateur-coordinatrice-suppleant-e-violence-domestique-kantonale-verwaltung-graubunden-chur",
+          "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "stellvertretung-koordinator-in-hausliche-gewalt-kanton-gr-ch",
         "sostituto-a-coordinatore-rice-violenza-domestica-kantonale-verwaltung-graubunden-chur",
         "deputy-domestic-violence-coordinator-kantonale-verwaltung-graubunden-chur",
-        "coordinateur-coordinatrice-suppleant-e-violence-domestique-kantonale-verwaltung-graubunden-chur"
+        "coordinateur-coordinatrice-suppleant-e-violence-domestique-kantonale-verwaltung-graubunden-chur",
+        "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1289,12 +1298,12 @@
     },
     {
       "id": "kanton-gr-881746a696b7",
-      "slug": "kundenbetreuer-in-previdenza-kantonale-verwaltung-graubunden-chur",
+      "slug": "addetto-al-servizio-clienti-nel-settore-pensionistico-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "kundenbetreuer-in-previdenza-kantonale-verwaltung-graubunden-chur",
-        "en": "kundenbetreuer-in-in-vorsorge-kanton-gr-ch",
         "de": "kundenbetreuer-in-in-vorsorge-kanton-gr-ch",
-        "fr": "kundenbetreuer-in-in-vorsorge-kanton-gr-ch"
+        "it": "addetto-al-servizio-clienti-nel-settore-pensionistico-kantonale-verwaltung-graubunden-chur",
+        "en": "customer-service-representative-in-the-pension-sector-kantonale-verwaltung-graubunden-chur",
+        "fr": "representant-du-service-a-la-clientele-dans-le-secteur-des-retraites-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1375,20 +1384,24 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-in-in-vorsorge-kanton-gr-ch",
-          "consulente-alla-clientela-previdenza-kantonale-verwaltung-graubunden-chur"
+          "consulente-alla-clientela-previdenza-kantonale-verwaltung-graubunden-chur",
+          "kundenbetreuer-in-previdenza-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "customer-advisor-pension-provision-kantonale-verwaltung-graubunden-chur"
+          "customer-advisor-pension-provision-kantonale-verwaltung-graubunden-chur",
+          "kundenbetreuer-in-in-vorsorge-kanton-gr-ch"
         ],
         "fr": [
-          "conseiller-conseillere-a-la-clientele-prevoyance-kantonale-verwaltung-graubunden-chur"
+          "conseiller-conseillere-a-la-clientele-prevoyance-kantonale-verwaltung-graubunden-chur",
+          "kundenbetreuer-in-in-vorsorge-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
         "kundenbetreuer-in-in-vorsorge-kanton-gr-ch",
         "consulente-alla-clientela-previdenza-kantonale-verwaltung-graubunden-chur",
         "customer-advisor-pension-provision-kantonale-verwaltung-graubunden-chur",
-        "conseiller-conseillere-a-la-clientele-prevoyance-kantonale-verwaltung-graubunden-chur"
+        "conseiller-conseillere-a-la-clientele-prevoyance-kantonale-verwaltung-graubunden-chur",
+        "kundenbetreuer-in-previdenza-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1408,12 +1421,12 @@
     },
     {
       "id": "kanton-gr-853dc9d3a9d0",
-      "slug": "fachperson-per-den-abklarungsdienst-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
+      "slug": "specialista-del-servizio-di-valutazione-dell-autorita-per-la-protezione-dell-infanzia-e-degli-adulti-kantonale",
       "slugByLocale": {
-        "it": "fachperson-per-den-abklarungsdienst-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-        "en": "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
         "de": "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
-        "fr": "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
+        "it": "specialista-del-servizio-di-valutazione-dell-autorita-per-la-protezione-dell-infanzia-e-degli-adulti-kantonale",
+        "en": "specialist-for-the-child-and-adult-protection-service-kantonale-verwaltung-graubunden-chur",
+        "fr": "specialiste-du-service-de-protection-de-l-enfance-et-des-adultes-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1494,20 +1507,25 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
-          "esperto-a-per-il-servizio-d-inchiesta-dell-autorita-di-protezione-dei-minori-e-degli-adulti-kantonale-verwaltung"
+          "esperto-a-per-il-servizio-d-inchiesta-dell-autorita-di-protezione-dei-minori-e-degli-adulti-kantonale-verwaltung",
+          "fachperson-per-den-abklarungsdienst-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "specialist-for-the-investigation-service-child-and-adult-protection-authority-kantonale-verwaltung-graubunden-chur"
+          "specialist-for-the-investigation-service-child-and-adult-protection-authority-kantonale-verwaltung-graubunden-chur",
+          "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
-          "specialiste-pour-le-service-d-enquete-de-l-autorite-de-protection-de-l-enfant-et-de-l-adulte-kantonale-verwaltung"
+          "specialiste-pour-le-service-d-enquete-de-l-autorite-de-protection-de-l-enfant-et-de-l-adulte-kantonale-verwaltung",
+          "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
         "esperto-a-per-il-servizio-d-inchiesta-dell-autorita-di-protezione-dei-minori-e-degli-adulti-kantonale-verwaltung",
         "specialist-for-the-investigation-service-child-and-adult-protection-authority-kantonale-verwaltung-graubunden-chur",
-        "specialiste-pour-le-service-d-enquete-de-l-autorite-de-protection-de-l-enfant-et-de-l-adulte-kantonale-verwaltung"
+        "specialiste-pour-le-service-d-enquete-de-l-autorite-de-protection-de-l-enfant-et-de-l-adulte-kantonale-verwaltung",
+        "fachperson-per-den-abklarungsdienst-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
+        "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1526,12 +1544,12 @@
     },
     {
       "id": "kanton-gr-1b60cc7d103b",
-      "slug": "projektleiter-in-bauprojekt-management-kantonale-verwaltung-graubunden-chur",
+      "slug": "responsabile-di-progetto-gestione-di-progetti-edili-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "projektleiter-in-bauprojekt-management-kantonale-verwaltung-graubunden-chur",
-        "en": "projektleiter-in-bauprojekt-management-kanton-gr-ch",
         "de": "projektleiter-in-bauprojekt-management-kanton-gr-ch",
-        "fr": "projektleiter-in-bauprojekt-management-kanton-gr-ch"
+        "it": "responsabile-di-progetto-gestione-di-progetti-edili-kantonale-verwaltung-graubunden-chur",
+        "en": "project-manager-construction-project-management-kantonale-verwaltung-graubunden-chur",
+        "fr": "chef-de-projet-gestion-de-projets-de-construction-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1612,20 +1630,22 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bauprojekt-management-kanton-gr-ch",
-          "responsabile-di-progetto-gestione-progetti-edili-kantonale-verwaltung-graubunden-chur"
+          "responsabile-di-progetto-gestione-progetti-edili-kantonale-verwaltung-graubunden-chur",
+          "projektleiter-in-bauprojekt-management-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "project-manager-construction-project-management-kantonale-verwaltung-graubunden-chur"
+          "projektleiter-in-bauprojekt-management-kanton-gr-ch"
         ],
         "fr": [
-          "chef-cheffe-de-projet-gestion-de-projets-de-construction-kantonale-verwaltung-graubunden-chur"
+          "chef-cheffe-de-projet-gestion-de-projets-de-construction-kantonale-verwaltung-graubunden-chur",
+          "projektleiter-in-bauprojekt-management-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
         "projektleiter-in-bauprojekt-management-kanton-gr-ch",
         "responsabile-di-progetto-gestione-progetti-edili-kantonale-verwaltung-graubunden-chur",
-        "project-manager-construction-project-management-kantonale-verwaltung-graubunden-chur",
-        "chef-cheffe-de-projet-gestion-de-projets-de-construction-kantonale-verwaltung-graubunden-chur"
+        "chef-cheffe-de-projet-gestion-de-projets-de-construction-kantonale-verwaltung-graubunden-chur",
+        "projektleiter-in-bauprojekt-management-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -1645,12 +1665,12 @@
     },
     {
       "id": "kanton-gr-c658f5c74c86",
-      "slug": "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur",
+      "slug": "specialista-in-indennita-di-disoccupazione-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur",
-        "en": "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur",
         "de": "fachspezialist-in-arbeitslosenentschadigung-kanton-gr-ch",
-        "fr": "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur"
+        "it": "specialista-in-indennita-di-disoccupazione-kantonale-verwaltung-graubunden-chur",
+        "en": "unemployment-compensation-specialist-kantonale-verwaltung-graubunden-chur",
+        "fr": "specialiste-de-l-indemnisation-du-chomage-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1700,20 +1720,24 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-arbeitslosenentschadigung-kanton-gr-ch",
-          "indennita-di-disoccupazione-specialistica-kantonale-verwaltung-graubunden-chur"
+          "indennita-di-disoccupazione-specialistica-kantonale-verwaltung-graubunden-chur",
+          "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "specialist-unemployment-compensation-kantonale-verwaltung-graubunden-chur"
+          "specialist-unemployment-compensation-kantonale-verwaltung-graubunden-chur",
+          "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
-          "assurance-chomage-specialisee-kantonale-verwaltung-graubunden-chur"
+          "assurance-chomage-specialisee-kantonale-verwaltung-graubunden-chur",
+          "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "fachspezialist-in-arbeitslosenentschadigung-kanton-gr-ch",
         "indennita-di-disoccupazione-specialistica-kantonale-verwaltung-graubunden-chur",
         "specialist-unemployment-compensation-kantonale-verwaltung-graubunden-chur",
-        "assurance-chomage-specialisee-kantonale-verwaltung-graubunden-chur"
+        "assurance-chomage-specialisee-kantonale-verwaltung-graubunden-chur",
+        "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

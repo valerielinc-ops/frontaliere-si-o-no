@@ -16760,12 +16760,12 @@
     },
     {
       "id": "physioswiss-c85954098d61",
-      "slug": "physiotherapeut-in-physio-swiss-gumligen",
+      "slug": "fisioterapista-physio-swiss-3073-gumligen",
       "slugByLocale": {
-        "it": "physiotherapeut-in-physio-swiss-gumligen",
-        "en": "physiotherapeut-in-physio-swiss-gumligen",
         "de": "physiotherapeut-in-3073-gumligen-physioswiss-ch",
-        "fr": "physiotherapeut-in-physio-swiss-gumligen"
+        "it": "fisioterapista-physio-swiss-3073-gumligen",
+        "en": "physiotherapist-physio-swiss-3073-gumligen",
+        "fr": "physiotherapeute-physio-swiss-3073-gumligen"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -16810,11 +16810,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-3073-gumligen-physioswiss-ch"
+          "physiotherapeut-in-3073-gumligen-physioswiss-ch",
+          "physiotherapeut-in-physio-swiss-gumligen"
+        ],
+        "en": [
+          "physiotherapeut-in-physio-swiss-gumligen"
+        ],
+        "fr": [
+          "physiotherapeut-in-physio-swiss-gumligen"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-3073-gumligen-physioswiss-ch"
+        "physiotherapeut-in-3073-gumligen-physioswiss-ch",
+        "physiotherapeut-in-physio-swiss-gumligen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

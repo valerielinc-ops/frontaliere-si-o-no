@@ -25259,9 +25259,9 @@
       "id": "bkw-dd6df3291cad",
       "slug": "consulente-tecnico-clienti-per-soluzioni-energetiche-tutti-bkw-nidau",
       "slugByLocale": {
+        "de": "technische-r-kundenberater-in-energielosungen-alle-bkw-ch",
         "it": "consulente-tecnico-clienti-per-soluzioni-energetiche-tutti-bkw-nidau",
         "en": "technical-customer-advisor-for-energy-solutions-all-bkw-nidau",
-        "de": "technische-r-kundenberater-in-energielosungen-alle-bkw-ch",
         "fr": "conseiller-technique-clientele-pour-les-solutions-energetiques-tous-bkw-nidau"
       },
       "company": "BKW",
@@ -25356,12 +25356,12 @@
     },
     {
       "id": "bkw-51d2468d6486",
-      "slug": "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-bulle",
+      "slug": "installatore-di-riscaldamento-cfc-tutti-bkw-bulle",
       "slugByLocale": {
-        "it": "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-bulle",
-        "en": "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-ch",
-        "de": "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-ch",
-        "fr": "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-ch"
+        "fr": "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-ch",
+        "it": "installatore-di-riscaldamento-cfc-tutti-bkw-bulle",
+        "en": "apprenticeship-cfc-heating-installer-all-bkw-bulle",
+        "de": "lehrling-cfc-heizungsinstallateur-alle-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25415,20 +25415,24 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-ch",
-          "apprendista-installatore-installatrice-di-riscaldamenti-afc-tutti-bkw-bulle"
+          "apprendista-installatore-installatrice-di-riscaldamenti-afc-tutti-bkw-bulle",
+          "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-bulle"
         ],
         "en": [
-          "heating-installer-apprentice-federal-vet-diploma-all-genders-bkw-bulle"
+          "heating-installer-apprentice-federal-vet-diploma-all-genders-bkw-bulle",
+          "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-ch"
         ],
         "de": [
-          "lernende-r-heizungsinstallateur-in-efz-alle-bkw-bulle"
+          "lernende-r-heizungsinstallateur-in-efz-alle-bkw-bulle",
+          "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-ch"
         ]
       },
       "previousSlugs": [
         "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-ch",
         "apprendista-installatore-installatrice-di-riscaldamenti-afc-tutti-bkw-bulle",
         "heating-installer-apprentice-federal-vet-diploma-all-genders-bkw-bulle",
-        "lernende-r-heizungsinstallateur-in-efz-alle-bkw-bulle"
+        "lernende-r-heizungsinstallateur-in-efz-alle-bkw-bulle",
+        "apprentissage-installateur-trice-en-chauffage-cfc-tous-bkw-bulle"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -25449,10 +25453,10 @@
       "id": "bkw-09b1df3f8e2f",
       "slug": "responsabile-di-progetto-elektro-alle-bkw-thun",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-elektro-alle-bkw-thun",
-        "en": "projektleiter-in-elektro-alle-bkw-ch",
         "de": "projektleiter-in-elektro-alle-bkw-ch",
-        "fr": "projektleiter-in-elektro-alle-bkw-ch"
+        "it": "responsabile-di-progetto-elektro-alle-bkw-thun",
+        "en": "project-manager-elektro-alle-bkw-thun",
+        "fr": "chef-de-projet-elektro-alle-bkw-thun"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25524,10 +25528,12 @@
           "project-manager-elettrotecnica-m-f-d-bkw-thun"
         ],
         "en": [
-          "electrical-project-manager-all-bkw-thun"
+          "electrical-project-manager-all-bkw-thun",
+          "projektleiter-in-elektro-alle-bkw-ch"
         ],
         "fr": [
-          "chef-de-projet-electricite-h-f-d-bkw-thun"
+          "chef-de-projet-electricite-h-f-d-bkw-thun",
+          "projektleiter-in-elektro-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -25553,12 +25559,12 @@
     },
     {
       "id": "bkw-854084cacd7c",
-      "slug": "abteilungsleiter-in-gebaudetechnik-bkw-volketswil",
+      "slug": "capo-del-dipartimento-tecnologia-edilizia-bkw-volketswil",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-gebaudetechnik-bkw-volketswil",
-        "en": "abteilungsleiter-in-gebaudetechnik-bkw-volketswil",
         "de": "abteilungsleiter-in-gebaudetechnik-bkw-ch",
-        "fr": "abteilungsleiter-in-gebaudetechnik-bkw-volketswil"
+        "it": "capo-del-dipartimento-tecnologia-edilizia-bkw-volketswil",
+        "en": "head-of-department-building-technology-bkw-volketswil",
+        "fr": "chef-de-departement-technologie-du-batiment-bkw-volketswil"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25631,20 +25637,24 @@
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-gebaudetechnik-bkw-ch",
-          "responsabile-tecnica-degli-edifici-bkw-volketswil"
+          "responsabile-tecnica-degli-edifici-bkw-volketswil",
+          "abteilungsleiter-in-gebaudetechnik-bkw-volketswil"
         ],
         "en": [
-          "head-of-building-technology-bkw-volketswil"
+          "head-of-building-technology-bkw-volketswil",
+          "abteilungsleiter-in-gebaudetechnik-bkw-volketswil"
         ],
         "fr": [
-          "responsable-de-la-technique-du-batiment-bkw-volketswil"
+          "responsable-de-la-technique-du-batiment-bkw-volketswil",
+          "abteilungsleiter-in-gebaudetechnik-bkw-volketswil"
         ]
       },
       "previousSlugs": [
         "abteilungsleiter-in-gebaudetechnik-bkw-ch",
         "responsabile-tecnica-degli-edifici-bkw-volketswil",
         "head-of-building-technology-bkw-volketswil",
-        "responsable-de-la-technique-du-batiment-bkw-volketswil"
+        "responsable-de-la-technique-du-batiment-bkw-volketswil",
+        "abteilungsleiter-in-gebaudetechnik-bkw-volketswil"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
