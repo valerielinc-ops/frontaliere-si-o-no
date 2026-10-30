@@ -51,6 +51,7 @@ describe('the browser\'s check of a requested document', () => {
 
   it.each([
     'Si certifica che il candidato ha superato, con voti 100 su 110, l’esame di laurea in ingegneria informatica.',
+    'Modello amministrativo 42. Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
     'Si attesta che la candidata ha superato l’esame di laurea in ingegneria informatica.',
     'SI CERTIFICA CHE IL CANDIDATO HA SUPERATO, CON VOTAZIONE 100/110, L’ESAME DI LAUREA IN INFORMATICA.',
   ])('recognises completed degree exams certified without a degree title: %s', text => {
