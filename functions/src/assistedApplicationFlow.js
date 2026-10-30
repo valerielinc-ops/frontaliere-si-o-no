@@ -27,6 +27,7 @@
  * Keeping it free of I/O is what makes every edge of the diagram testable.
  */
 
+import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { isAutoRetryablePortalHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import {
@@ -156,8 +157,10 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
   // career-ops Block G "Suspicious": the owner looks at the posting first.
   if (draft?.legitimacy?.tier === 'suspicious' && !acknowledged('legitimacy')) owner.push('legitimacy');
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
-  const candidate = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers)
-    .filter((question) => question.required && !String(candidateAnswers?.[question.id] ?? '').trim())
+  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers);
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
+  const candidate = questions
+    .filter((question) => question.required && !String(projected?.[question.id] ?? '').trim())
     .map((question) => question.id);
   // A required document (school reports, a test result…) the candidate has not given yet.
   return { owner, candidate, documents: openRequiredDocuments(draft, documents) };
@@ -380,14 +383,14 @@ function knownAnswerForQuestion(question, { draft, answers, questionAnswers }) {
   const portalAnswer = portalAnswerForQuestion(question, draft);
   if (hasAnswer(portalAnswer)) return portalAnswer;
   const key = candidateQuestionAnswerKey(question);
-  if (!key) return undefined;
+  if (!key) return operationalDefaultAnswer(question)?.value;
   const remembered = candidateAnswersForQuestions([question], {}, questionAnswers);
   if (hasAnswer(remembered?.[question.id])) return remembered[question.id];
   for (const current of Array.isArray(draft?.questions) ? draft.questions : []) {
     if (candidateQuestionAnswerKey(current) !== key) continue;
     if (hasAnswer(projected?.[current.id])) return projected[current.id];
   }
-  return undefined;
+  return operationalDefaultAnswer(question)?.value;
 }
 
 function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
@@ -514,6 +517,18 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         && candidateHolds(flags).length === 0
       ) {
         effects = enterCandidateReview(next, flags, nowMs, { resend: false });
+        break;
+      }
+      // An already approved round held only by obsolete/missing operational
+      // answers can resume on a normal tick. Never release unknown holds,
+      // missing documents, owner flags or a known closed posting.
+      if (state === 'needs_candidate_action' && !event.postingExpired && !current.postingExpiredAt
+        && current.heldBy.length > 0
+        && current.heldBy.every(held => String(held).startsWith('question:')
+          && (draft?.questions || []).some(question => question.id === String(held).slice(9)))
+        && flags.owner.length === 0 && candidateHolds(flags).length === 0
+        && roundWasSent(flow, current.round)) {
+        effects = enterSubmitting(next, 'resolved_candidate_answers');
         break;
       }
       if (waitsForCandidate(current) && reminder && nowMs >= reminder) {
@@ -733,14 +748,15 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
         break;
       }
-      const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {
-        const question = detailsById.get(id) || { id };
-        return hasAnswer(knownAnswerForQuestion(question, {
+      const unresolvedQuestions = questionIds.filter((id) => {
+        const question = detailsById.get(id) || (draft?.questions || []).find(item => item.id === id) || { id };
+        return !hasAnswer(knownAnswerForQuestion(question, {
           draft,
           answers,
           questionAnswers: flow?.questionAnswers || {},
         }));
       });
+      const answersAlreadyExist = questionIds.length > 0 && unresolvedQuestions.length === 0;
       // A portal can report a validation step as a candidate question even
       // after the runner filled it from an answer already saved in the flow.
       // Retry once without sending an unnecessary candidate-action notice;
@@ -770,7 +786,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       }
       next.state = 'needs_candidate_action';
       next.heldBy = [
-        ...questionIds.map((id) => `question:${id}`),
+        ...unresolvedQuestions.map((id) => `question:${id}`),
         ...eventDocuments.map((id) => `document:${id}`),
       ];
       next.heldSince = null;

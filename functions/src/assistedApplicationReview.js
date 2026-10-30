@@ -16,6 +16,7 @@
  * submission.
  */
 
+import { operationalEmailBody, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { MAX_REVIEW_ROUNDS, roundsShown } from './assistedApplicationFlow.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { applicationFileName, checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
@@ -287,7 +288,7 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
-  const answers = { ...candidateAnswers };
+  const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, flow?.questionAnswers).map((question) => {
     const view = questionView(question, nowMs);
     if (question.id !== 'work_permit') return view;
@@ -333,7 +334,7 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     coverLetter: draft ? { subject: draft.coverLetter?.subject || '', text: draft.coverLetter?.text || '' } : null,
     coverLetterUrl: coverLetterUrl || null,
     applicationEmail: channel.type === 'email' && draft?.applicationEmail
-      ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: draft.applicationEmail.body }
+      ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: operationalEmailBody(draft, candidateAnswers) }
       : null,
     formAnswers: formAnswers.map((field) => fieldView(field, { draft, locale })),
     editLimits: TEXT_LIMITS,

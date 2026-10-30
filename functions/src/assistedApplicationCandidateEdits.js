@@ -100,7 +100,7 @@ function answerFitsQuestion(value, question) {
 }
 
 /** A percentage preference is portable; employer requirements and shift availability are not. */
-function isPreferredWorkloadQuestion(value) {
+export function isPreferredWorkloadQuestion(value) {
   const text = normalizeQuestionValue(value);
   if (!text || /\b(?:if|when|provided|falls|wenn|sofern|se|si|qualora|presso|pour|chez|hours?|stunden?|heures?|ore|days?|giorni|tage|jours|weekends?|overtime|shifts?|night|turni|notturn|fine settimana|attuale|current|currently|required|minimum|maximum|mindestens|maximal)\b/.test(text)) return false;
   const workload = /\b(?:workload|pensum|beschaftigungsgrad|grado di occupazione|percentuale di lavoro|percentuale lavorativa|disponibilita lavorativa|taux d activite|taux d occupation)\b/.test(text);

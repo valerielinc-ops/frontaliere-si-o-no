@@ -20,6 +20,7 @@ import { hasLanguageContext, isLanguageAbilityQuestion, isLanguageContextLabel, 
 import { asksHeldStatus, BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField, isPermitField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
+import { isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, permitBooleanOptionLabel, questionFromLabel, questionTopic } from './plan.mjs';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 
@@ -34,7 +35,7 @@ const ACTION_PROPERTIES = {
   question: S,
   context: S,
   answer: S,
-  source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule', 'widget'] },
+  source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule', 'widget', 'policy_default'] },
   evidence: S,
 };
 const QUESTION_PROPERTIES = {
@@ -314,7 +315,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const question = String(action.question || '').trim();
     const context = boundedPortalContext(action.context);
     const { languageAction } = languageActionKind(action);
-    return (languageAction && hasLanguageActionAnswer(action))
+    return action.source === 'policy_default'
+      || (languageAction && hasLanguageActionAnswer(action))
       || SENSITIVE.test(question)
       || KNOCK_OUT.test(question)
       || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(question, context, { section: action.section, autocomplete: action.autocomplete }));
@@ -421,7 +423,12 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
-    if (fromCandidate || (languageAbility && (native || quoted))
+    const policyField = { label: action.question, context, ...metadata };
+    const resolved = candidateAnswerForField(candidate, policyField);
+    const policy = action.source !== 'widget' && resolved?.source === 'policy_default'
+      && isOperationalDefaultValue(policyField, answer);
+    if (policy) action.source = 'policy_default';
+    if (policy || fromCandidate || (languageAbility && (native || quoted))
       || (!languageIntent && !languageAbility && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {
       grounded.add(questionKey(action.question, context, section, autocomplete));
     }
