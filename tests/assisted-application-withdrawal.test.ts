@@ -3,6 +3,7 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { canWithdrawApplication, withdrawAssistedApplication } from '../functions/src/assistedApplicationWithdrawal.js';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
+import { claimWatchdogDispatch } from '../functions/src/assistedApplicationAutomation.js';
 
 const now = Date.now();
 const orderId = 'order_withdraw_test';
@@ -61,5 +62,15 @@ describe('candidate withdrawal and slot release', () => {
 
   it('never offers concierge slot release on a standalone application', () => {
     expect(canWithdrawApplication({ order: { billingMode: 'standalone', paymentStatus: 'paid' }, flow: { state: 'candidate_review' } })).toBe(false);
+  });
+
+  it('never restores a stale submitting mirror after withdrawal and claims a watchdog once', async () => {
+    const store = fixture();
+    store.docs.set(`${path}/automation/flow`, { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, requestedAt: now - 86400000, attempts: 1 } });
+    expect(await claimWatchdogDispatch({ db: store.db, orderId, nowMs: now })).toMatchObject({ dispatch: { attempts: 2 } });
+    expect(await claimWatchdogDispatch({ db: store.db, orderId, nowMs: now })).toBeNull();
+    await withdrawAssistedApplication({ db: store.db, orderId, round: 1, nowMs: now });
+    expect(await claimWatchdogDispatch({ db: store.db, orderId, nowMs: now + 86400000 })).toBeNull();
+    expect(store.read(path).automationState).toBe('withdrawn');
   });
 });
