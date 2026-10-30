@@ -30,9 +30,10 @@ export function portalRecoveryDefinitelyUnsent({ order, flow, draft, submission 
 
 /** This lane only schedules native discovery of resolved operational fields. */
 export function operationalPortalRecoveryReady({ order, flow, draft }) {
-  if (flow?.heldBy?.[0] !== 'portal:portal_needs_candidate') return true;
+  if (!flow?.heldBy?.includes('portal:portal_needs_candidate')) return true;
+  if (flow.heldBy.length !== 1) return false;
   const questions = (Array.isArray(draft?.questions) ? draft.questions : []).filter(question => {
-    if (provenOptionalOperationalPortalQuestion(question)) return false;
+    if (provenOptionalOperationalPortalQuestion(question, draft)) return false;
     return question?.source === 'portal' || question?.required !== false;
   });
   if (!questions.length || !hasAssistedApplicationConsent(order)

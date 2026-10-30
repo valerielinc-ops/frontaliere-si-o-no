@@ -39,6 +39,15 @@ describe('current runner updates a previously stored portal question contract', 
     expect(mergeLivePortalQuestions([{ ...old, source: 'cv_match' }], [live]).questions).toEqual([{ ...old, source: 'cv_match' }]);
   });
 
+  it('replaces or clears a previous Admin native proof when this live contract is refreshed', () => {
+    const stale = { ...old, portalNativeContract: { version: 'native-contract-v1' } };
+    const cleared = mergeLivePortalQuestions([stale], [{ ...live, id: 'new' }]);
+    expect(cleared.questions[0].id).toBe(old.id);
+    expect(cleared.questions[0]).not.toHaveProperty('portalNativeContract');
+    const proof = { version: 'native-contract-v1', required: true };
+    expect(mergeLivePortalQuestions([stale], [{ ...live, portalNativeContract: proof }]).questions[0].portalNativeContract).toEqual(proof);
+  });
+
   it('keeps bounded preflight descriptors as references without replacing the native catalogue', async () => {
     const store = fixture();
     store.expected.draft.questions = [live];

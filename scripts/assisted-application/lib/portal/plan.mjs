@@ -1088,7 +1088,7 @@ function hasExplicitOperationalAnswer(candidate, field) {
 function operationalChoiceHasNoCatalogue(field) {
   return Boolean(operationalQuestionTopic(field)
     && (['select', 'radio', 'listbox'].includes(field?.kind) || field?.selectLike || field?.nativeSelectId)
-    && !(field.options || []).some(option => option?.placeholder !== true && String(option?.label ?? '').trim()));
+    && !(field.options || []).some(option => option?.placeholder !== true && String(typeof option === 'string' ? option : option?.label ?? '').trim()));
 }
 
 function optionForAnswer(field, answer) {
@@ -1327,7 +1327,7 @@ function referralSourceAnswer(field) {
       : null;
   }
   const ranked = options.map((option) => {
-    const label = String(option?.label ?? '').trim();
+    const label = String(typeof option === 'string' ? option : option?.label ?? '').trim();
     const score = REFERRAL_JOB_BOARD_OPTION_RE.test(label) ? 4
       : REFERRAL_OTHER_WEBSITE_RE.test(label) ? 3
         : REFERRAL_INTERNET_OPTION_RE.test(label) ? 2
@@ -1524,7 +1524,11 @@ const statedCivilStatus = (candidate) => String(candidate?.profile?.civilStatus 
 export function answeredByCandidate(candidate, question, answer, context = '', metadata = {}) {
   const given = String(answer || '').trim();
   const previous = candidateAnswerForQuestion(candidate, question, context, metadata);
-  return Boolean(given && previous) && equivalentAnswer(question, previous, given, context, metadata);
+  if (!given || !previous) return false;
+  if (operationalQuestionTopic({ ...metadata, question, context }) === 'notice_period' && metadata.options?.length) {
+    return operationalAnswerForOption({ ...metadata, question, context }, previous) === given;
+  }
+  return equivalentAnswer(question, previous, given, context, metadata);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
@@ -1774,7 +1778,7 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
-    if (action.action === 'select' && field.options?.length && !field.options.some((option) => option.label === action.value)) continue;
+    if (action.action === 'select' && field.options?.length && !field.options.some((option) => (typeof option === 'string' ? option : option.label) === action.value)) continue;
     actions.push(action);
   }
   // A skip answers nothing, and neither does an unchecked box.

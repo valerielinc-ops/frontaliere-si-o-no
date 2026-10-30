@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { operationalAnswerForOption, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalAnswerForOption, equivalentOperationalAnswers, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { candidateForForm, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { candidateAnswerForField, guardPlan, answeredByCandidate } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { buildFillKit } from '../functions/src/assistedApplicationFillKit.js';
 import { validateAnswer } from '../functions/src/lib/answerRules.js';
@@ -93,6 +93,22 @@ describe('notice duration projection onto the native catalogue', () => {
       { question: 'Notice period', answer: '3+ months', source: 'answers' },
     ] };
     expect(candidateAnswerForField(candidate, { ...field, label: 'Notice period' })).toBeNull();
+  });
+
+  it('authorizes a native notice band directionally without equating the band to an exact fact', () => {
+    const candidate = { answers: {}, portalQuestionsAnswered: [{ question: 'Notice period', answer: '7 days', source: 'answers' }] };
+    const native = { kind: 'select', label: 'Notice period', options: [{ label: 'less than one month' }, { label: '3 months' }] };
+    expect(answeredByCandidate(candidate, native.label, 'less than one month', '', native)).toBe(true);
+    expect(equivalentOperationalAnswers({ question: native.label }, '7 days', 'less than one month')).toBe(false);
+    const range = { answers: {}, portalQuestionsAnswered: [{ question: 'Notice period', answer: 'less than one month', source: 'answers' }] };
+    expect(answeredByCandidate(range, native.label, '7 days', '', { ...native, options: [{ label: '7 days' }] })).toBe(false);
+  });
+
+  it('retains a valid choice when native option labels are strings', () => {
+    const native = { ...field, options: ['3 months'] };
+    const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 months', source: 'policy_default' }], missingRequired: [] }, [native], { identity: {}, answers: {} });
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, value: '3 months' }));
+    expect(guarded.missingRequired).toEqual([]);
   });
 
   it('requires a real native catalogue before filling an operational select discovered during recovery', () => {
