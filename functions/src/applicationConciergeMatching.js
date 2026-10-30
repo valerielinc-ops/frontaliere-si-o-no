@@ -373,11 +373,11 @@ function jobUrl(job) {
   return job?.applyUrl || job?.url || job?.jobUrl || job?.canonicalUrl || '';
 }
 
-async function fetchJobs(url = process.env.APPLICATION_CONCIERGE_JOB_INDEX_URL || DEFAULT_JOB_INDEX_URL) {
+async function fetchJobs(url = process.env.APPLICATION_CONCIERGE_JOB_INDEX_URL || DEFAULT_JOB_INDEX_URL, signal = null) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
-    const response = await fetch(url, { signal: controller.signal, headers: { accept: 'application/json' } });
+    const response = await fetch(url, { signal: signal ? AbortSignal.any([controller.signal, signal]) : controller.signal, headers: { accept: 'application/json' } });
     if (!response.ok) throw new Error(`job_index_http_${response.status}`);
     const value = await response.json();
     if (Array.isArray(value)) return value;
@@ -470,7 +470,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
 
   await serviceRef.set({ matchingStatus: 'running', matchingStartedAt: FieldValue.serverTimestamp(), matchingError: null, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   try {
-    const jobs = (await fetchJobs(jobIndexUrl)).map(normalizeConciergeJobRecord);
+    const jobs = (await fetchJobs(jobIndexUrl, eligibilitySignal)).map(normalizeConciergeJobRecord);
     const existingSnapshot = await serviceRef.collection('proposals').get();
     const existing = existingSnapshot.docs || [];
     const known = new Set(existing.map((doc) => {
