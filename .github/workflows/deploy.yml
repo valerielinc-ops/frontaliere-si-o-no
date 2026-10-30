@@ -1202,10 +1202,13 @@ jobs:
             --dry-run
 
       - name: Save hreflang index manifest (${{ matrix.locale }})
-        uses: actions/cache/save@v6
+        uses: actions/upload-artifact@v7
         with:
+          name: hreflang-index-manifest-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: .cache/hreflang-index-manifest/${{ matrix.locale }}.json
-          key: hreflang-index-manifest-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 1
 
       - name: Wait for complete same-run hreflang manifest set
         env:
@@ -1224,18 +1227,18 @@ jobs:
           barrier_seconds=3600
           deadline=$((SECONDS + barrier_seconds))
           while :; do
-            complete=1
-            for locale in it en de fr; do
-              key="hreflang-index-manifest-${locale}-${HREFlANG_RUN_ID}-${HREFlANG_RUN_ATTEMPT}"
-              count="$(gh api -X GET "repos/${GH_REPO}/actions/caches?key=${key}" --jq '.total_count')"
-              if [ "${count:-0}" -lt 1 ]; then
-                complete=0
-                break
-              fi
-            done
-            if [ "$complete" -eq 1 ]; then
+            artifact_list="${RUNNER_TEMP}/hreflang-manifest-artifacts.json"
+            gh api -X GET "repos/${GH_REPO}/actions/runs/${HREFlANG_RUN_ID}/artifacts?per_page=100" \
+              --paginate --slurp > "$artifact_list"
+            artifact_status=0
+            node scripts/ci/hreflang-manifest-artifacts.mjs "$artifact_list" "$HREFlANG_RUN_ID" "$HREFlANG_RUN_ATTEMPT" \
+              || artifact_status=$?
+            if [ "$artifact_status" -eq 0 ]; then
               echo "✓ complete same-run hreflang manifest set is available"
               break
+            fi
+            if [ "$artifact_status" -ne 1 ]; then
+              exit "$artifact_status"
             fi
             # A sibling that has already terminated cannot publish its
             # manifest. Do not make the healthy legs burn the full one-hour
@@ -1264,34 +1267,42 @@ jobs:
 
       - name: Restore same-run hreflang index manifest (it)
         if: matrix.locale != 'it'
-        uses: actions/cache/restore@v6
+        uses: actions/download-artifact@v8
         with:
-          path: .cache/hreflang-index-manifest/it.json
-          key: hreflang-index-manifest-it-${{ github.run_id }}-${{ github.run_attempt }}
+          name: hreflang-index-manifest-it-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .cache/hreflang-index-manifest
+          github-token: ${{ github.token }}
+          run-id: ${{ github.run_id }}
 
       - name: Restore same-run hreflang index manifest (en)
         if: matrix.locale != 'en'
-        uses: actions/cache/restore@v6
+        uses: actions/download-artifact@v8
         with:
-          path: .cache/hreflang-index-manifest/en.json
-          key: hreflang-index-manifest-en-${{ github.run_id }}-${{ github.run_attempt }}
+          name: hreflang-index-manifest-en-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .cache/hreflang-index-manifest
+          github-token: ${{ github.token }}
+          run-id: ${{ github.run_id }}
 
       - name: Restore same-run hreflang index manifest (de)
         if: matrix.locale != 'de'
-        uses: actions/cache/restore@v6
+        uses: actions/download-artifact@v8
         with:
-          path: .cache/hreflang-index-manifest/de.json
-          key: hreflang-index-manifest-de-${{ github.run_id }}-${{ github.run_attempt }}
+          name: hreflang-index-manifest-de-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .cache/hreflang-index-manifest
+          github-token: ${{ github.token }}
+          run-id: ${{ github.run_id }}
 
       - name: Restore same-run hreflang index manifest (fr)
         if: matrix.locale != 'fr'
-        uses: actions/cache/restore@v6
+        uses: actions/download-artifact@v8
         with:
-          path: .cache/hreflang-index-manifest/fr.json
-          key: hreflang-index-manifest-fr-${{ github.run_id }}-${{ github.run_attempt }}
+          name: hreflang-index-manifest-fr-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .cache/hreflang-index-manifest
+          github-token: ${{ github.token }}
+          run-id: ${{ github.run_id }}
 
-      # `actions/cache/restore` is deliberately allowed to be a no-op on a
-      # miss.  Verify the files and their envelope before the rewrite pass so
+      # Artifact transport must succeed. Also verify the files and their
+      # envelope before the rewrite pass so
       # a missing, truncated, or foreign manifest cannot be interpreted as an
       # unknown member and let one shard publish a different graph.
       - name: Verify same-run hreflang manifests after restore
