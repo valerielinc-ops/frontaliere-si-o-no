@@ -1,18 +1,18 @@
 {
   "key": "alten-switzerland",
   "label": "ALTEN Switzerland",
-  "generatedAt": "2026-10-29T21:27:36.210Z",
+  "generatedAt": "2026-10-30T09:48:21.256Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 140561,
-  "avgDurationMs": 140561,
+  "unchangedCount": 3,
+  "durationMs": 11201,
+  "avgDurationMs": 11201,
   "durationHistory": [
-    140561
+    11201
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,45 +48,6 @@
       "datePosted": "2026-03-04",
       "postingDateSource": "reported",
       "postalCode": "6500",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Analyste de données",
-      "slug": "analista-di-dati-alten-switzerland-switzerland",
-      "url": "https://www.alten.ch/jobs/907-analyste-de-donnees/",
-      "applyUrl": "https://www.alten.ch/jobs/907-analyste-de-donnees/apply",
-      "company": "ALTEN Switzerland",
-      "companyKey": "alten-switzerland",
-      "companyDomain": "alten.ch",
-      "location": "Switzerland",
-      "addressLocality": "Switzerland",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "IT Consulting & Engineering",
-      "source": "alten-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2026-10-15",
-      "postedDate": "2026-10-15",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "id": "alten-switzerland-1386b96540c4",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-10-19T09:35:20.874Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -139,6 +100,45 @@
       }
     },
     {
+      "title": "Analyste de données",
+      "slug": "analista-di-dati-alten-switzerland-switzerland",
+      "url": "https://www.alten.ch/jobs/907-analyste-de-donnees/",
+      "applyUrl": "https://www.alten.ch/jobs/907-analyste-de-donnees/apply",
+      "company": "ALTEN Switzerland",
+      "companyKey": "alten-switzerland",
+      "companyDomain": "alten.ch",
+      "location": "Switzerland",
+      "addressLocality": "Switzerland",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "engineering",
+      "sector": "IT Consulting & Engineering",
+      "source": "alten-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-15",
+      "postedDate": "2026-10-15",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "id": "alten-switzerland-1386b96540c4",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-10-19T09:35:20.874Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Cloud Engineer – Google Cloud Platform",
       "slug": "ingegnere-cloud-google-cloud-platform-alten-switzerland-ticino",
       "url": "https://www.alten.ch/jobs/879-google-cloud-platform/",
@@ -179,5 +179,5 @@
       }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }

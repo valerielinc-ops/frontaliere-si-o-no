@@ -10,7 +10,7 @@ import {
   VD_BROWSER_USER_AGENT,
   fetchHtml,
 } from '../../../functions/src/plateAuctionsCore.js';
-import { BE_AUCTION_URLS } from '../../../functions/src/plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, FR_ECARI_CATALOGUE_URL } from '../../../functions/src/plateAuctionSourceUrls.js';
 import {
   fetchEcariCantonAuctions,
   parseEcariCantonAuctions,
@@ -25,7 +25,7 @@ import {
 export const EXPANDED_ECARI_SOURCES = Object.freeze({
   ar: { canton: 'Appenzello Esterno', plateCode: 'AR', officialAuctionUrl: 'https://eauktion.ar.ch/ecari-auction/ui/app/init' },
   bl: { canton: 'Basilea Campagna', plateCode: 'BL', officialAuctionUrl: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' },
-  fr: { canton: 'Friburgo', plateCode: 'FR', officialAuctionUrl: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' },
+  fr: { canton: 'Friburgo', plateCode: 'FR', officialAuctionUrl: FR_ECARI_CATALOGUE_URL },
   nw: { canton: 'Nidvaldo', plateCode: 'NW', officialAuctionUrl: 'https://ecarinwprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH' },
   ow: { canton: 'Obvaldo', plateCode: 'OW', officialAuctionUrl: 'https://ecariowprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH' },
   so: { canton: 'Soletta', plateCode: 'SO', officialAuctionUrl: 'https://eauktion.so.ch/ecari-auction/ui/app/init?locale=de_CH' },

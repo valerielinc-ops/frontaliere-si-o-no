@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bracco",
-  "assembledAt": "2026-10-29T21:21:59.536Z",
-  "runId": "40954722863",
+  "assembledAt": "2026-10-30T09:46:46.254Z",
+  "runId": "41030838967",
   "jobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/Automation-Specialist_JR100449",
@@ -36,7 +36,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-29T21:21:56.917Z",
+      "crawledAt": "2026-10-30T09:46:43.675Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -114,7 +114,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-29T21:21:56.917Z",
+      "crawledAt": "2026-10-30T09:46:43.675Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -192,7 +192,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-29T21:21:56.917Z",
+      "crawledAt": "2026-10-30T09:46:43.675Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -270,7 +270,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-29T21:21:56.917Z",
+      "crawledAt": "2026-10-30T09:46:43.675Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -385,7 +385,8 @@
       },
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
-      "postalCode": "6814"
+      "postalCode": "6814",
+      "crawlerMissStreak": 1
     }
   ]
 }

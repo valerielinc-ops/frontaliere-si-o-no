@@ -537,16 +537,26 @@ function logRuntimeObservation(spec, observation) {
  * @param {{ url: string, text: string }[]} links
  * @param {RegExp} templateRx
  * @param {string} host
+ * @param {string[]} [allowedDetailOrigins]
  * @returns {{ title: string, url: string, via: 'known-template' }[]}
  */
-function matchKnownTemplate(links, templateRx, host) {
+function matchKnownTemplate(links, templateRx, host, allowedDetailOrigins = []) {
+  const allowedOrigins = new Set();
+  for (const rawOrigin of allowedDetailOrigins) {
+    try {
+      const origin = new URL(rawOrigin);
+      if ((origin.protocol === 'http:' || origin.protocol === 'https:') && !origin.username && !origin.password) {
+        allowedOrigins.add(origin.origin);
+      }
+    } catch { /* invalid configured origins are rejected by the URL policy */ }
+  }
   const seen = new Set();
   /** @type {{ title: string, url: string, via: 'known-template' }[]} */
   const out = [];
   for (const l of links) {
     let u;
     try { u = new URL(l.url); } catch { continue; }
-    if (normalizeHost(u.hostname) !== host) continue;
+    if (normalizeHost(u.hostname) !== host && !allowedOrigins.has(u.origin)) continue;
     if (!templateRx.test(u.pathname)) continue;
     if (seen.has(l.url)) continue;
     seen.add(l.url);
@@ -670,7 +680,9 @@ function extractListingCandidates(html, effectiveUrl, templateRx, spec, runtime 
     && templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
     let host = '';
     try { host = normalizeHost(new URL(effectiveUrl).hostname); } catch { /* skip override */ }
-    const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
+    const direct = host
+      ? matchKnownTemplate(links, templateRx, host, spec?.allowedDetailOrigins)
+      : [];
     if (direct.length) candidates = direct;
   }
   // A candidate outside the learned detail template is never published (the

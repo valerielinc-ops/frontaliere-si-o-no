@@ -1,7 +1,7 @@
 {
   "crawlerKey": "alten-switzerland",
-  "assembledAt": "2026-10-29T21:27:29.777Z",
-  "runId": "40956135184",
+  "assembledAt": "2026-10-30T09:48:13.682Z",
+  "runId": "41032004515",
   "jobs": [
     {
       "title": "Project Manager – IT & Banking",
@@ -72,8 +72,8 @@
       "previousSlugs": [
         "project-manager-it-banking-alten-switzerland-chiasso",
         "project-manager-it-e-bancario-alten-switzerland-chiasso",
-        "project-manager-it-banking-alten-switzerland-switzerland",
-        "pro-manager-alten-switzerland-switzerland"
+        "pro-manager-alten-switzerland-switzerland",
+        "project-manager-it-banking-alten-switzerland-switzerland"
       ],
       "sourceIdentity": "url:https://www.alten.ch/jobs/903-pipe-project-manager-it",
       "salarySource": "estimated",
@@ -140,7 +140,8 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-19T09:35:20.874Z"
+      "firstSeenAt": "2026-10-19T09:35:20.874Z",
+      "needsRetranslation": true
     },
     {
       "title": "Analyste de données",
@@ -203,19 +204,19 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-10-19T09:35:20.874Z",
       "previousSlugsByLocale": {
-        "it": [
-          "analyste-de-donnees-alten-switzerland-switzerland"
-        ],
         "en": [
           "data-analyst-alten-switzerland-switzerland"
+        ],
+        "it": [
+          "analyste-de-donnees-alten-switzerland-switzerland"
         ],
         "de": [
           "analyste-de-donnees-alten-switzerland-switzerland"
         ]
       },
       "previousSlugs": [
-        "analyste-de-donnees-alten-switzerland-switzerland",
-        "data-analyst-alten-switzerland-switzerland"
+        "data-analyst-alten-switzerland-switzerland",
+        "analyste-de-donnees-alten-switzerland-switzerland"
       ]
     },
     {

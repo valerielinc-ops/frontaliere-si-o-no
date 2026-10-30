@@ -27,7 +27,7 @@ import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.
 import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
-import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
+import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
 import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
@@ -357,6 +357,7 @@ export async function submitApplication(ctx) {
     const guard = ctx.submissionGuard || null;
     if (guard) {
       const claim = await guard.claim('email', nowMs);
+      if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
       if (claim.status === 'already_sent') {
         // Sent by an earlier run of this round: its follow-ups and its record come from the guard.
         const record = claim.record || {};
@@ -373,7 +374,7 @@ export async function submitApplication(ctx) {
     }
     const { failed, sent } = await sendCascade(
       [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
-      { delayMs: 0, forceProvider: 'maileroo' },
+      { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS },
     );
     if (failed.length) {
       // An ambiguous delivery must never be retried blindly (career-ops: a
@@ -386,7 +387,8 @@ export async function submitApplication(ctx) {
       await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous, sent: sentRecord }, key: runKey, nowMs });
       return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : emailInfrastructureFailure(failed[0]) ? 'email_provider_unavailable' : 'email_failed' };
     }
-    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId, provider: sent[0]?.provider || null, sent: sentRecord }, nowMs);
+    const threadMessageId = replyThreadMessageId(sent[0], messageId);
+    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId: threadMessageId, provider: sent[0]?.provider || null, sent: sentRecord }, nowMs);
     await storeEvidence({
       bucket,
       orderId,
@@ -408,7 +410,7 @@ export async function submitApplication(ctx) {
     });
     // What the follow-ups (7 and 14 days) need and the record of what left; agent.mjs
     // stores them, they never reach the automation event.
-    return { type: 'submit_succeeded', channel: 'email', followup: { to, subject: payload.subject, messageId, sentAt: nowMs }, sent: sentRecord };
+    return { type: 'submit_succeeded', channel: 'email', followup: { to, subject: payload.subject, messageId: threadMessageId, sentAt: nowMs }, sent: sentRecord };
   }
 
   // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login
@@ -431,6 +433,7 @@ export async function submitApplication(ctx) {
     const guard = ctx.dryRun ? null : ctx.submissionGuard || null;
     if (guard) {
       const claim = await guard.claim('portal', nowMs, { resumable: true });
+      if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
       if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true, ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
     }

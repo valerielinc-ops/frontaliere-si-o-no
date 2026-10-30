@@ -40,6 +40,8 @@ export function submissionLeftAt(record) {
 
 export function submissionGuard(db, orderId, round) {
   const ref = submissionRefFor(db, orderId);
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
+  const flowRef = orderRef.collection('automation').doc('flow');
   const key = `r${Number(round) || 1}`;
   return {
     async read() {
@@ -53,7 +55,15 @@ export function submissionGuard(db, orderId, round) {
     async claim(channel, nowMs = Date.now(), { resumable = false } = {}) {
       let outcome = null;
       await db.runTransaction(async (transaction) => {
-        const current = (await transaction.get(ref)).data()?.[key];
+        const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
+          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
+        ]);
+        const submission = submissionDoc.data();
+        if (submission?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
+          outcome = { status: 'withdrawn' };
+          return;
+        }
+        const current = submission?.[key];
         if (current?.state === 'sent') {
           outcome = { status: 'already_sent', record: current };
           return;
@@ -69,7 +79,15 @@ export function submissionGuard(db, orderId, round) {
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
     async markClicked(nowMs = Date.now()) {
-      await ref.set({ [key]: { clickedAt: nowMs } }, { merge: true });
+      await db.runTransaction(async transaction => {
+        const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
+          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
+        ]);
+        if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
+          throw new Error('application_withdrawn');
+        }
+        transaction.set(ref, { [key]: { clickedAt: nowMs } }, { merge: true });
+      });
     },
     async markSent(record = {}, nowMs = Date.now()) {
       await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });

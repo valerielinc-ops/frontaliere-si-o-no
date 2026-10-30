@@ -1,313 +1,19 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-10-29T21:51:50.773Z",
+  "generatedAt": "2026-10-30T09:41:35.431Z",
   "total": 19,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 19340,
-  "avgDurationMs": 19340,
+  "unchangedCount": 17,
+  "durationMs": 20572,
+  "avgDurationMs": 20572,
   "durationHistory": [
-    19340
+    20572
   ],
-  "newJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/Team-Lead-Test-Data-Platform-%28wmd%29/74783-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Team-Lead-Test-Data-Platform-%28wmd%29/74783-de_DE",
-      "title": "Team Lead Test Data Platform  (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "team-lead-test-data-platform-w-m-d-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:19.292Z",
-      "validThrough": "05.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "needsRetranslation": true,
-      "id": "postfinance-244da47b8362",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-10-29T21:51:19.292Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Cyber-Security-%28wmd%29/74946-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Cyber-Security-%28wmd%29/74946-de_DE",
-      "title": "Senior Specialist TPRM Security Monitoring - Cyber Security (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "senior-specialista-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:29.244Z",
-      "validThrough": "13.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-97f5f75a0324",
-      "firstSeenAt": "2026-10-13T09:40:44.037Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "needsRetranslation": true,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Operations-&-Contracting-%28wmd%29/74944-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Operations-&-Contracting-%28wmd%29/74944-de_DE",
-      "title": "Senior Specialist TPRM Security - Operations & Contracting (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "senior-specialista-tprm-security-operations-contracting-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:28.542Z",
-      "validThrough": "13.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-055b257d4406",
-      "firstSeenAt": "2026-10-13T09:40:44.845Z",
-      "needsRetranslation": true,
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Information-Security-%28wmd%29/74945-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Information-Security-%28wmd%29/74945-de_DE",
-      "title": "Senior Specialist TPRM Security Monitoring - Information Security (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "senior-specialista-tprm-security-monitoring-information-security-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:27.695Z",
-      "validThrough": "13.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-c1f5318137f9",
-      "firstSeenAt": "2026-10-13T09:40:43.226Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "needsRetranslation": true,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Platform-Engineer-Continuous-Integration-%28wmd%29/74052-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Platform-Engineer-Continuous-Integration-%28wmd%29/74052-de_DE",
-      "title": "Platform Engineer Continuous Integration (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:27.029Z",
-      "validThrough": "12.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "60-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-171dec0933ee",
-      "firstSeenAt": "2026-10-13T09:40:42.405Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Solution-Team-Lead-Customer-Order-Process-Automation-%28wmd%29/74923-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Solution-Team-Lead-Customer-Order-Process-Automation-%28wmd%29/74923-de_DE",
-      "title": "Solution Team Lead Customer Order Process Automation (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "responsabile-del-team-di-soluzioni-per-l-automazione-dei-processi-degli-ordini-dei-clienti-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:25.526Z",
-      "validThrough": "06.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-32b505eb772c",
-      "firstSeenAt": "2026-10-13T21:42:11.134Z",
-      "needsRetranslation": true,
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
     {
       "url": "https://jobs.postfinance.ch/job/Solution-Team-Lead-Kundenbeziehung-%28wmd%29/74892-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Solution-Team-Lead-Kundenbeziehung-%28wmd%29/74892-de_DE",
@@ -328,7 +34,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:24.822Z",
+      "crawledAt": "2026-10-30T09:41:11.904Z",
       "validThrough": "06.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -355,49 +61,47 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
-      "title": "Kundenbetreuer:in Customer Center Biel",
+      "url": "https://jobs.postfinance.ch/job/Team-Lead-Test-Data-Platform-%28wmd%29/74783-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Team-Lead-Test-Data-Platform-%28wmd%29/74783-de_DE",
+      "title": "Team Lead Test Data Platform  (w/m/d)",
       "company": "PostFinance",
       "companyKey": "postfinance",
-      "location": "Biel/Bienne",
+      "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "addetto-a-al-servizio-clienti-customer-center-biel-postfinance-biel-bienne",
+      "slug": "team-lead-test-data-platform-w-m-d-postfinance",
       "sourceLang": "de",
       "department": [
-        "Verkauf und Kundenberatung"
+        "Informatik und Digital Services"
       ],
       "category": [
-        "Verkauf und Kundenberatung"
+        "Informatik und Digital Services"
       ],
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:32.016Z",
-      "validThrough": "31.10.26",
+      "crawledAt": "2026-10-30T09:41:05.334Z",
+      "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "60-100%",
+      "sector": "IT",
+      "workload": "80-100%",
       "_targetScope": {
         "canton": "BE",
-        "location": "Biel/Bienne"
+        "location": "Bern"
       },
-      "id": "postfinance-a2e105d9ca29",
-      "firstSeenAt": "2026-10-01T09:32:58.564Z",
-      "salaryMin": 109000,
-      "salaryMax": 167000,
+      "id": "postfinance-244da47b8362",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-29T21:51:19.292Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "postalCode": "2502",
-      "addressLocality": "Biel/Bienne",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
       "addressRegion": "BE",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -406,7 +110,10 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
@@ -427,7 +134,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:31.324Z",
+      "crawledAt": "2026-10-30T09:41:18.666Z",
       "validThrough": "02.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -475,7 +182,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:30.645Z",
+      "crawledAt": "2026-10-30T09:41:17.856Z",
       "validThrough": "30.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -523,7 +230,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:29.954Z",
+      "crawledAt": "2026-10-30T09:41:17.067Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -552,6 +259,202 @@
       }
     },
     {
+      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Cyber-Security-%28wmd%29/74946-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Cyber-Security-%28wmd%29/74946-de_DE",
+      "title": "Senior Specialist TPRM Security Monitoring - Cyber Security (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "senior-specialista-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-30T09:41:16.414Z",
+      "validThrough": "13.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-97f5f75a0324",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-13T09:40:44.037Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Operations-&-Contracting-%28wmd%29/74944-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Operations-&-Contracting-%28wmd%29/74944-de_DE",
+      "title": "Senior Specialist TPRM Security - Operations & Contracting (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "senior-specialista-tprm-security-operations-contracting-w-m-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-30T09:41:15.545Z",
+      "validThrough": "13.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-055b257d4406",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-13T09:40:44.845Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Information-Security-%28wmd%29/74945-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Information-Security-%28wmd%29/74945-de_DE",
+      "title": "Senior Specialist TPRM Security Monitoring - Information Security (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "senior-specialista-tprm-security-monitoring-information-security-w-m-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-30T09:41:14.773Z",
+      "validThrough": "13.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-c1f5318137f9",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-13T09:40:43.226Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Platform-Engineer-Continuous-Integration-%28wmd%29/74052-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Platform-Engineer-Continuous-Integration-%28wmd%29/74052-de_DE",
+      "title": "Platform Engineer Continuous Integration (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-30T09:41:14.079Z",
+      "validThrough": "12.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "60-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-171dec0933ee",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-13T09:40:42.405Z",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "url": "https://jobs.postfinance.ch/job/Leiterin-Cyber-Defense-Center/74954-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Leiterin-Cyber-Defense-Center/74954-de_DE",
       "title": "Leiter:in Cyber Defense Center",
@@ -571,7 +474,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:26.216Z",
+      "crawledAt": "2026-10-30T09:41:13.261Z",
       "validThrough": "12.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -584,6 +487,55 @@
       },
       "id": "postfinance-1c40d3328ae0",
       "firstSeenAt": "2026-10-13T21:42:11.795Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Solution-Team-Lead-Customer-Order-Process-Automation-%28wmd%29/74923-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Solution-Team-Lead-Customer-Order-Process-Automation-%28wmd%29/74923-de_DE",
+      "title": "Solution Team Lead Customer Order Process Automation (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "responsabile-del-team-di-soluzioni-per-l-automazione-dei-processi-degli-ordini-dei-clienti-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-30T09:41:12.567Z",
+      "validThrough": "06.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-32b505eb772c",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-13T21:42:11.134Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
@@ -619,7 +571,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:24.125Z",
+      "crawledAt": "2026-10-30T09:41:10.496Z",
       "validThrough": "15.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -667,7 +619,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:23.422Z",
+      "crawledAt": "2026-10-30T09:41:09.659Z",
       "validThrough": "20.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -715,7 +667,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:22.745Z",
+      "crawledAt": "2026-10-30T09:41:08.869Z",
       "validThrough": "10.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -763,7 +715,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:22.034Z",
+      "crawledAt": "2026-10-30T09:41:08.072Z",
       "validThrough": "18.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -811,7 +763,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:21.340Z",
+      "crawledAt": "2026-10-30T09:41:07.396Z",
       "validThrough": "19.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -859,7 +811,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:20.671Z",
+      "crawledAt": "2026-10-30T09:41:06.720Z",
       "validThrough": "26.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -907,7 +859,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T21:51:19.982Z",
+      "crawledAt": "2026-10-30T09:41:06.032Z",
       "validThrough": "29.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -934,7 +886,55 @@
         "translation": 25,
         "completeness": 17
       }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
+      "title": "Kundenbetreuer:in Customer Center Biel",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "addetto-a-al-servizio-clienti-customer-center-biel-postfinance-biel-bienne",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-30T09:41:04.637Z",
+      "validThrough": "30.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "60-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Biel/Bienne"
+      },
+      "id": "postfinance-a2e105d9ca29",
+      "firstSeenAt": "2026-10-01T09:32:58.564Z",
+      "salaryMin": 109000,
+      "salaryMax": 167000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "2502",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }

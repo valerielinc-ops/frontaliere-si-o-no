@@ -23,6 +23,7 @@
  */
 
 import { randomUUID, timingSafeEqual } from 'node:crypto';
+import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { sameSite } from './assistedApplicationPortalSites.js';
@@ -334,7 +335,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         },
         recipient: { email: to },
         meta: { orderId, key: 'employer_message_forward' },
-      }], { delayMs: 0, forceProvider: 'maileroo' });
+      }], { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS });
       forwarded = failed.length ? { status: 'failed', error: String(failed[0].error || '').slice(0, 120) } : { status: 'sent', provider: sent[0]?.provider || null };
     }
 

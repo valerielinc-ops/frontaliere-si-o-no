@@ -100,9 +100,10 @@ export const FLOW_STATES = Object.freeze([
   'submitted',
   'owner_takeover',
   'failed',
+  'withdrawn',
 ]);
 
-export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed']);
+export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed', 'withdrawn']);
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
 const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
@@ -453,6 +454,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
   const next = { ...current };
   const flags = evaluateRedFlags(draft, answers, documents, flow?.questionAnswers);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
+  if (state === 'withdrawn') return ignore('withdrawn');
   if (TERMINAL_STATES.has(state) && !STOPPED_EXITS.has(event.type)) return ignore('terminal');
 
   let effects = [];

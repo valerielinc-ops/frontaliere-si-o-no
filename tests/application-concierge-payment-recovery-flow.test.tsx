@@ -19,7 +19,8 @@ vi.mock('@/services/analyticsProxy', () => ({ Analytics: {
   trackApplicationConciergeView: mocks.view, trackApplicationConciergeCheckoutClick: mocks.click,
   trackApplicationConciergeCheckoutResume: mocks.resume,
 } }));
-vi.mock('@/services/applicationConciergeService', () => ({
+vi.mock('@/services/applicationConciergeService', async importOriginal => ({
+  ...await importOriginal<typeof import('../services/applicationConciergeService')>(),
   openApplicationConciergeChildReview: mocks.openChild,
   fetchApplicationConciergeService: mocks.fetchService, recoverApplicationConciergePaymentSession: mocks.recoverSession,
   acceptApplicationConciergeProposal: vi.fn(), declineApplicationConciergeProposal: vi.fn(),

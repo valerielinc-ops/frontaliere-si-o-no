@@ -1,7 +1,7 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-10-29T21:31:57.602Z",
+  "generatedAt": "2026-10-30T09:19:29.308Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4438,
-  "avgDurationMs": 4438,
+  "durationMs": 4292,
+  "avgDurationMs": 4292,
   "durationHistory": [
-    4438
+    4292
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000156570214-logistics-operator-switzerland-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:31:40.906Z",
+      "crawledAt": "2026-10-30T09:19:18.290Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -67,44 +67,43 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "oetiker-8119d815097a",
-      "slug": "responsabile-del-progetto-di-r-s-strumenti-di-assemblaggio-automatico-gruppo-oeticiano-tutti-oetiker-horgen-zh",
+      "id": "oetiker-aafd137f6490",
+      "slug": "qualita-della-testa-hse-tutti-oetiker-horgen-zh-switzerland",
       "company": "Oetiker",
       "companyKey": "oetiker",
       "companyDomain": "oetiker.com",
-      "title": "Head R&D Project Automatic Assembly Tools Oetiker Group (all)",
+      "title": "Head Quality & HSE (all)",
       "location": "Horgen, ZH, Switzerland",
       "canton": "ZH",
-      "url": "https://jobs.smartrecruiters.com/Oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true",
+      "url": "https://jobs.smartrecruiters.com/Oetiker/744000152841739-head-quality-hse-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:28:42.136Z",
+      "crawledAt": "2026-10-30T09:19:18.318Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
       "postalCode": "8810",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "Qualità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "senior",
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-04T12:13:02.999Z",
-      "postedDate": "2026-09-04T12:13:02.999Z",
+      "datePosted": "2026-10-01T06:27:45.666Z",
+      "postedDate": "2026-10-01T06:27:45.666Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true",
-      "jobReqId": "744000147495900",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-04T13:28:05.508Z",
+      "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000152841739-head-quality-hse-all-?oga=true",
+      "jobReqId": "744000152841739",
+      "firstSeenAt": "2026-09-19T22:53:36.244Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -112,9 +111,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "oetiker-40fa9592fb9c",
       "slug": "apprendistato-come-efz-polimeccanico-tutti-oetiker-horgen-zh-switzerland",
@@ -127,7 +124,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000150080009-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:31:40.908Z",
+      "crawledAt": "2026-10-30T09:19:18.315Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -170,7 +167,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000149925798-leiter-einkauf-avor-pps-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:31:40.902Z",
+      "crawledAt": "2026-10-30T09:19:18.312Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -200,50 +197,7 @@
         "translation": 25,
         "completeness": 25
       }
-    },
-    {
-      "id": "oetiker-aafd137f6490",
-      "slug": "qualita-della-testa-hse-tutti-oetiker-horgen-zh-switzerland",
-      "company": "Oetiker",
-      "companyKey": "oetiker",
-      "companyDomain": "oetiker.com",
-      "title": "Head Quality & HSE (all)",
-      "location": "Horgen, ZH, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.smartrecruiters.com/Oetiker/744000152841739-head-quality-hse-all-?oga=true",
-      "source": "Oetiker Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:31:40.876Z",
-      "addressLocality": "Horgen",
-      "addressRegion": "ZH",
-      "streetAddress": "Spätzstrasse 11",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-01T06:27:45.666Z",
-      "postedDate": "2026-10-01T06:27:45.666Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000152841739-head-quality-hse-all-?oga=true",
-      "jobReqId": "744000152841739",
-      "firstSeenAt": "2026-09-19T22:53:36.244Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }

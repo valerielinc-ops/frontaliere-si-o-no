@@ -1,7 +1,7 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-10-29T22:47:32.327Z",
+  "generatedAt": "2026-10-30T09:19:05.302Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6003,
-  "avgDurationMs": 6003,
+  "durationMs": 6689,
+  "avgDurationMs": 6689,
   "durationHistory": [
-    6003
+    6689
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "yapeal-1b9cf2600e1d",
-      "slug": "lead-it-operations-yapeal-zurich-hybrid",
+      "slug": "operazioni-it-di-punta-yapeal-zurich-hybrid",
       "company": "Yapeal",
       "companyKey": "yapeal",
       "companyDomain": "yapeal.ch",
@@ -34,7 +35,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2868333",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T22:47:21.447Z",
+      "crawledAt": "2026-10-30T09:18:47.718Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -53,21 +54,19 @@
       "postingDateSource": "reported",
       "applyUrl": "https://yapeal-ag.jobs.personio.de/job/2868333",
       "jobReqId": "2868333",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-29T22:47:21.447Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-29T22:47:21.447Z",
-      "_qualityScore": 90,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -82,7 +81,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T22:47:21.449Z",
+      "crawledAt": "2026-10-30T09:18:47.721Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -125,7 +124,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T22:47:21.444Z",
+      "crawledAt": "2026-10-30T09:18:47.712Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -157,5 +156,5 @@
       }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }

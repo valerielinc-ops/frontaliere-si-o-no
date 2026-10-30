@@ -1,7 +1,7 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-10-29T21:22:38.900Z",
+  "generatedAt": "2026-10-30T09:41:19.312Z",
   "total": 5,
   "discovered": 7,
   "parsed": 5,
@@ -10,57 +10,16 @@
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5233,
-  "avgDurationMs": 5233,
+  "unchangedCount": 3,
+  "durationMs": 4766,
+  "avgDurationMs": 4766,
   "durationHistory": [
-    5233
+    4766
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Booking & Revenue Specialist – Luxury Hospitality",
-      "slug": "booking-revenue-specialista-luxury-hospitality-a-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "real-estate",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "a-group-3ed7b9973902",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-28T05:26:25.994Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
     {
       "title": "Governante / Housekeeping Lugano",
       "slug": "governante-housekeeping-lugano-a-plus-plus-group-massagno",
@@ -148,6 +107,47 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
+      "title": "Booking & Revenue Specialist – Luxury Hospitality",
+      "slug": "booking-revenue-specialista-luxury-hospitality-a-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en/",
+      "company": "A++ Group",
+      "companyKey": "a-group",
+      "companyDomain": "a2plus.green",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "postalCode": "6900",
+      "streetAddress": "Via Molinazzo 4",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "real-estate",
+      "sector": "Architettura & Design",
+      "source": "a-plus-plus-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "a-group-3ed7b9973902",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-28T05:26:25.994Z",
+      "salarySource": "reported",
+      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
       "title": "Front Office",
       "slug": "front-office-a-group-location-andermatt-svizzera",
       "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/front-office-724678/en/",
@@ -231,5 +231,5 @@
       }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }

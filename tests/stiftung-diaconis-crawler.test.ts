@@ -1,19 +1,35 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import {
   STIFTUNG_DIACONIS_KEY,
   STIFTUNG_DIACONIS_COMPANY_NAME,
+  LISTING_URL,
+  LISTING_API_URL,
   isStiftungDiaconisJob,
   isTrustedDomain,
   parseListing,
+  parseApiListing,
+  parseApiDescription,
   parseDetailDescription,
+  fetchAllStiftungDiaconisJobs,
 } from '../scripts/lib/stiftung-diaconis-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 describe('Stiftung Diaconis crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(STIFTUNG_DIACONIS_KEY).toBe('stiftung-diaconis');
     expect(STIFTUNG_DIACONIS_COMPANY_NAME).toBe('Stiftung Diaconis');
+  });
+
+  it('uses the canonical public JobPortal listing and API', () => {
+    expect(LISTING_URL).toBe('https://karriere.diaconis.ch/job-overview');
+    expect(LISTING_API_URL).toContain('api.jobportal.abaservices.ch/api/publication/publications/job-portal/');
+    expect(LISTING_API_URL).toContain(encodeURIComponent(LISTING_URL));
   });
 
   // ── isCompanyJob ──
@@ -205,6 +221,70 @@ describe('Stiftung Diaconis crawler parser', () => {
 
     it('returns empty when no main and no sections', () => {
       expect(parseDetailDescription('<div>nothing useful</div>')).toBe('');
+    });
+  });
+
+  describe('Abacus JobPortal API', () => {
+    const apiRecord = {
+      PublicationId: 'publication-123',
+      JobTitle: 'Köchin / Koch 60 %',
+      PublicationUrlAbacusJobPortal: 'https://karriere.diaconis.ch/job-advertisement/publication-123',
+      ApplicationUrl: 'https://karriere.diaconis.ch/application-process/publication-123',
+      PlaceOfWorkCity: 'Bern',
+      PlaceOfWorkState: 'BE',
+      PlaceOfWorkZip: '3013',
+      PublicationStartDateSortkey: '2026-10-28',
+      Introduction: '&lt;p&gt;Wir suchen eine engagierte Person.&lt;/p&gt;',
+      Tasks: '&lt;ul&gt;&lt;li&gt;Speisen zubereiten&lt;/li&gt;&lt;li&gt;Team unterstützen&lt;/li&gt;&lt;/ul&gt;',
+      Requirements: '&lt;p&gt;Ausbildung als Köchin oder Koch.&lt;/p&gt;',
+      Benefits: '&lt;p&gt;Mindestens sechs Wochen Ferien.&lt;/p&gt;',
+      Contact: '&lt;p&gt;HR Diaconis&lt;/p&gt;',
+    };
+
+    it('keeps trusted real openings and drops spontaneous/non-trusted records', () => {
+      const rows = parseApiListing([
+        apiRecord,
+        { ...apiRecord, PublicationId: 'spontaneous', JobTitle: 'Spontanbewerbung' },
+        { ...apiRecord, PublicationId: 'external', PublicationUrlAbacusJobPortal: 'https://example.com/job/1' },
+        { ...apiRecord, JobTitle: 'Duplicate title' },
+      ]);
+      expect(rows).toHaveLength(1);
+      expect(rows[0]).toMatchObject({
+        jobId: 'publication-123',
+        title: 'Köchin / Koch 60 %',
+        url: apiRecord.PublicationUrlAbacusJobPortal,
+      });
+      expect(rows[0].sourceRecord).toBe(apiRecord);
+    });
+
+    it('decodes the API HTML fields and preserves reported publication dates', () => {
+      const parsed = parseApiDescription(apiRecord);
+      expect(parsed.body).not.toContain('&lt;');
+      expect(parsed.body).not.toContain('<p>');
+      expect(parsed.body).toContain('Wir suchen eine engagierte Person');
+      expect(parsed.body).toContain('• Speisen zubereiten');
+      expect(parsed.body).toContain('Mindestens sechs Wochen');
+      expect(parsed).toMatchObject({
+        datePosted: '2026-10-28',
+        postedDate: '2026-10-28',
+        postingDateSource: 'reported',
+      });
+    });
+
+    it('marks only a successful explicit API zero as an authoritative empty snapshot', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      const jobs = await fetchAllStiftungDiaconisJobs({ fetchApi: async () => [] });
+      expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    });
+
+    it('fails closed when the API and legacy fallback both yield no trusted rows', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      await expect(fetchAllStiftungDiaconisJobs({
+        fetchApi: async () => { throw new Error('temporary API failure'); },
+        fetchLegacyHtml: async () => '<html><body>No trusted job rows</body></html>',
+      })).rejects.toThrow(/fail-closed; source state is not proven empty/);
     });
   });
 });
