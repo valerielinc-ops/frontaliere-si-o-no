@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { useState } from 'react';
 const mocks = vi.hoisted(() => ({
-  openChild: vi.fn(), fetchService: vi.fn(), recoverSession: vi.fn(), signIn: vi.fn(), checkout: vi.fn(),
+  openChild: vi.fn(), childRender: vi.fn(), fetchService: vi.fn(), recoverSession: vi.fn(), signIn: vi.fn(), checkout: vi.fn(),
   widgetResponses: [] as Array<(type: string) => void>,
   view: vi.fn(), click: vi.fn(), resume: vi.fn(), ensureAuth: vi.fn(), auth: { currentUser: null as any },
 }));
@@ -26,6 +26,11 @@ vi.mock('@/services/applicationConciergeService', () => ({
   recordApplicationConciergeConsent: vi.fn(), saveApplicationConciergeProfile: vi.fn(),
   getCandidateVisibleApplicationConciergeProposals: (proposals: unknown) => proposals,
 }));
+vi.mock('@/components/community/AssistedApplicationReview', () => ({ default: ({ token }: { token: string }) => {
+  const [note, setNote] = useState('');
+  mocks.childRender(token);
+  return <div data-testid="child-review">{token}<input aria-label="Child review note" value={note} onChange={event => setNote(event.target.value)} /></div>;
+} }));
 vi.mock('@/components/community/SumUpPaymentWidget', () => ({ default: ({ amountCents, checkoutId, onClose, onResponse }: any) => {
   mocks.widgetResponses.push(onResponse);
   return <div role="dialog" aria-label="SumUp">{amountCents}<span>{checkoutId}</span><button onClick={onClose}>close</button><button onClick={() => onResponse('success')}>success</button></div>;
@@ -46,6 +51,39 @@ beforeEach(() => {
   mocks.checkout.mockResolvedValue({ ok: true, paymentProvider: 'sumup', checkoutId: 'sumup-test', serviceId: 'service-test' });
 });
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
+
+describe('concierge child query navigation', () => {
+  it('switches and reopens a child without rendering the previous token or retaining its edit state', async () => {
+    mocks.fetchService.mockResolvedValue({ ...service, paymentStatus: 'paid', serviceStatus: 'active',
+      proposals: [
+        { proposalId: 'proposal-1', status: 'accepted', childApplicationId: 'child-1' },
+        { proposalId: 'proposal-2', status: 'accepted', childApplicationId: 'child-2' },
+      ] });
+    let finishSecond!: (token: string) => void;
+    const secondToken = new Promise<string>(resolve => { finishSecond = resolve; });
+    mocks.openChild.mockResolvedValue('review-child-2').mockResolvedValueOnce('review-child-1').mockReturnValueOnce(secondToken);
+    const parent = '?application_concierge_service_id=service-test';
+    const childSearch = (id: string) => `${parent}&application_concierge_application_id=${id}`;
+    const view = render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} locationSearch={childSearch('child-1')} />);
+    expect(await screen.findByTestId('child-review')).toHaveTextContent('review-child-1');
+    fireEvent.change(screen.getByLabelText('Child review note'), { target: { value: 'First child only' } });
+
+    mocks.childRender.mockClear();
+    view.rerender(<ApplicationConciergePortal serviceId="service-test" authUser={owner} locationSearch={childSearch('child-2')} />);
+    expect(screen.queryByTestId('child-review')).toBeNull();
+    expect(mocks.childRender).not.toHaveBeenCalledWith('review-child-1');
+    await act(async () => { finishSecond('review-child-2'); await secondToken; });
+    expect(await screen.findByTestId('child-review')).toHaveTextContent('review-child-2');
+    expect(screen.getByLabelText('Child review note')).toHaveValue('');
+
+    view.rerender(<ApplicationConciergePortal serviceId="service-test" authUser={owner} locationSearch={parent} />);
+    expect(screen.queryByTestId('child-review')).toBeNull();
+    view.rerender(<ApplicationConciergePortal serviceId="service-test" authUser={owner} locationSearch={childSearch('child-2')} />);
+    expect(await screen.findByTestId('child-review')).toHaveTextContent('review-child-2');
+    expect(mocks.openChild).toHaveBeenLastCalledWith(owner, 'service-test', 'proposal-2');
+    expect(mocks.checkout).not.toHaveBeenCalled();
+  });
+});
 
 describe('concierge reminder payment flow', () => {
   it('waits for autologin, auto-opens embedded checkout once and tracks recovery instead of click', async () => {

@@ -96,6 +96,46 @@ describe('useNavigationState', () => {
     expect(result.current.showApiStatus).toBe(false);
   });
 
+  describe('query-only navigation', () => {
+    it.each([
+      ['/automatizza-ricerca-lavoro-svizzera/', '?application_concierge_service_id=service-1', '&application_concierge_application_id=child-1', '&application_concierge_application_id=child-2'],
+      ['/cerca-lavoro-zurigo/example/', '?concierge_service=service-1', '&concierge_proposal=proposal-1', '&concierge_proposal=proposal-2'],
+    ])('updates the view when reopening or switching a query detail on %s', (pathname, parent, first, second) => {
+      window.history.replaceState({}, '', pathname + parent);
+      const { result } = renderHook(() => useNavigationState());
+      expect(result.current.locationSearch).toBe(parent);
+
+      for (const search of [parent + first, parent, parent + first, parent + second]) {
+        const link = document.createElement('a');
+        link.href = pathname + search;
+        document.body.appendChild(link);
+        try {
+          act(() => { link.click(); });
+          expect(window.location.search).toBe(search);
+          expect(result.current.locationSearch).toBe(search);
+        } finally {
+          link.remove();
+        }
+      }
+    });
+
+    it('updates query-driven views on back/forward even when the pathname does not change', () => {
+      const pathname = '/automatizza-ricerca-lavoro-svizzera/';
+      const parent = '?application_concierge_service_id=service-1';
+      const child = parent + '&application_concierge_application_id=child-1';
+      window.history.replaceState({}, '', pathname + child);
+      const { result } = renderHook(() => useNavigationState());
+
+      for (const search of [parent, child, '']) {
+        act(() => {
+          window.history.replaceState({}, '', pathname + search);
+          window.dispatchEvent(new PopStateEvent('popstate'));
+        });
+        expect(result.current.locationSearch).toBe(search);
+      }
+    });
+  });
+
   it('prefetches active tab on mount', () => {
     renderHook(() => useNavigationState());
     expect(prefetchTab).toHaveBeenCalledWith('calculator');
