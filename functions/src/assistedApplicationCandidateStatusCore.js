@@ -10,6 +10,7 @@ export function candidateStatusForAssistedApplication(order) {
 
   if (order?.paymentStatus === 'refunded' || submissionStatus === 'refunded') return 'refunded';
   if (submissionStatus === 'submitted' || automationState === 'submitted') return 'submitted';
+  if (submissionStatus === 'withdrawn' || automationState === 'withdrawn') return 'withdrawn';
   if (CANDIDATE_ACTION_STATES.has(automationState)) return 'needs_candidate';
   if (submissionStatus === 'blocked' || ['failed', 'owner_takeover'].includes(automationState)) return 'under_review';
   const cvStorageKey = typeof order?.cvStorageKey === 'string' ? order.cvStorageKey.trim().slice(0, 300) : '';

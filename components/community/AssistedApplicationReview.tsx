@@ -38,7 +38,7 @@ const CV_CHOICE_LABELS = {
 
 const WAITING_STATES = new Set(['drafting', 'regenerating', 'owner_review', 'submitting']);
 // Actions whose outcome is the page's new state, shown at the top.
-const STATE_ACTIONS = new Set<ReviewAction>(['approve', 'reject', 'confirm_submitted', 'followup_send', 'followup_skip']);
+const STATE_ACTIONS = new Set<ReviewAction>(['approve', 'reject', 'withdraw', 'confirm_submitted', 'followup_send', 'followup_skip']);
 const INTL: Record<string, string> = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 
 function formatDeadline(ms: number | null, locale: string): string {
@@ -186,6 +186,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState('');
   const [showFeedback, setShowFeedback] = useState(false);
+  const [confirmWithdrawal, setConfirmWithdrawal] = useState(false);
   const [done, setDone] = useState<string | null>(null);
   const [followup, setFollowup] = useState<FollowupPayload | null>(null);
   // The candidate's own changes to the letter, the e-mail and the fields.
@@ -246,7 +247,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       // what is there now, then say why (load clears the error it finds). An open
       // edit form still holds the values it was opened with: close it, so that a
       // second save cannot send them back over the other tab's change.
-      if (code === 'changed_meanwhile') {
+      if (code === 'changed_meanwhile' || code === 'withdrawal_unavailable') {
         await load();
         if (action === 'edit') setEditing(false);
       }
@@ -474,6 +475,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             </div>
           )
         )}
+
+        {data?.state === 'withdrawn' && <p role="status" className="rounded-xl border border-edge bg-surface-raised p-4 text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.withdrawn')}</p>}
 
         {data && data.state === 'submitted' && (data.whatsappUrl ? (
           // A WhatsApp application: the last step is the candidate's chat from the phone.
@@ -847,6 +850,17 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             )}
           </div>
         )}
+
+        {data?.can.withdraw && !data.stale && <div className="space-y-3 border-t border-edge pt-4">
+          {!confirmWithdrawal ? <button type="button" disabled={Boolean(busy)} onClick={() => setConfirmWithdrawal(true)} className="inline-flex min-h-[44px] items-center rounded-lg px-2 text-sm font-semibold text-danger hover:bg-danger-subtle disabled:opacity-60">{t('jobBoard.assisted.review.withdraw')}</button>
+            : <div className="space-y-3">
+              <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.withdrawConfirm')}</p>
+              <div className="flex flex-wrap gap-2">
+                <button type="button" disabled={Boolean(busy)} onClick={() => { void run('withdraw'); }} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-danger-border bg-danger-subtle px-4 text-sm font-semibold text-danger disabled:opacity-60">{busy === 'withdraw' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}{t('jobBoard.assisted.review.withdrawSubmit')}</button>
+                <button type="button" disabled={Boolean(busy)} onClick={() => setConfirmWithdrawal(false)} className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-edge px-4 text-sm font-semibold text-body disabled:opacity-60">{t('jobBoard.assisted.review.withdrawCancel')}</button>
+              </div>
+            </div>}
+        </div>}
 
         {errorText && (
           <div role="alert" className="rounded-xl border border-danger-border bg-danger-subtle p-3 text-sm text-danger">{errorText}</div>

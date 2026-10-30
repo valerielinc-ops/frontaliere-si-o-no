@@ -17,6 +17,9 @@ export interface ApplicationConciergeProposal {
   childApplicationState?: string | null;
   childSubmissionStatus?: string | null;
   childCandidateStatus?: string | null;
+  childSendState?: string | null;
+  childRetryScheduled?: boolean;
+  withdrawnAt?: string | null;
   matchScore?: number | null;
   matchReasons?: string[];
   matchedAt?: string | null;
@@ -65,6 +68,21 @@ export function getCandidateVisibleApplicationConciergeProposals(
   proposals: readonly ApplicationConciergeProposal[],
 ): ApplicationConciergeProposal[] {
   return proposals.filter((proposal) => proposal.status !== 'retracted');
+}
+
+/** The decision to accept a proposal is separate from the progress of its application. */
+export function conciergeProposalDisplayStatus(proposal: ApplicationConciergeProposal): string {
+  if (proposal.status !== 'accepted') return proposal.status;
+  const state = proposal.childApplicationState;
+  if (proposal.childCandidateStatus === 'submitted' || proposal.childSubmissionStatus === 'submitted' || proposal.childSendState === 'sent' || state === 'submitted') return 'submitted';
+  if (state === 'withdrawn') return 'declined';
+  if (state === 'needs_candidate_action' || state === 'candidate_handoff') return 'needs_answers';
+  if (state === 'candidate_review') return 'needs_review';
+  if (state === 'submitting') return proposal.childSendState === 'sending' ? 'sending' : 'queued';
+  if (proposal.childRetryScheduled) return 'retry_scheduled';
+  if (state === 'owner_takeover' || state === 'owner_review' || state === 'failed') return 'technical_review';
+  if (state === 'drafting' || state === 'regenerating') return 'preparing';
+  return 'accepted';
 }
 
 function errorCode(value: unknown): string {

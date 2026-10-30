@@ -180,6 +180,27 @@ function mirrorFields(flow) {
   };
 }
 
+/** Claim a due watchdog atomically with the candidate's possible withdrawal. */
+export async function claimWatchdogDispatch({ db, orderId, nowMs }) {
+  return db.runTransaction(async transaction => {
+    const orderRef = orderRefFor(db, orderId);
+    const flowRef = flowRefFor(db, orderId);
+    const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
+    const order = orderDoc.data();
+    const flow = flowDoc.data();
+    if (!order || order.withdrawnAt || !['drafting', 'regenerating', 'submitting'].includes(flow?.state)) return null;
+    const dueAt = computeDueAt(flow);
+    const attempts = Number(flow.dispatch?.attempts) || 1;
+    if (!dueAt || dueAt > nowMs || attempts >= MAX_DISPATCH_ATTEMPTS) return null;
+    const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
+    const dispatch = { ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 };
+    const nextFlow = { ...flow, dispatch, updatedAt: nowMs };
+    transaction.set(flowRef, { dispatch, updatedAt: nowMs }, { merge: true });
+    transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
+    return nextFlow;
+  });
+}
+
 /** Repair clocks written before a retry reason was recognized by the mirror.
  * Only the query index changes; the state machine still owns every retry.
  */
@@ -606,10 +627,9 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
         const attempts = Number(flow.dispatch?.attempts) || 1;
         const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
         if (attempts < MAX_DISPATCH_ATTEMPTS) {
-          const dispatch = { ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 };
-          await flowRefFor(db, doc.id).set({ dispatch, updatedAt: nowMs }, { merge: true });
-          await orderRefFor(db, doc.id).set(mirrorFields({ ...flow, dispatch }), { merge: true });
-          await runEffect({ db, orderId: doc.id, effect: { type: 'dispatch', mode, reason: 'watchdog' }, flow: { ...flow, dispatch }, nowMs });
+          const claimed = await claimWatchdogDispatch({ db, orderId: doc.id, nowMs });
+          if (!claimed) { summary.ignored += 1; continue; }
+          await runEffect({ db, orderId: doc.id, effect: { type: 'dispatch', mode: claimed.dispatch.mode, reason: 'watchdog' }, flow: claimed, nowMs });
           summary.redispatched += 1;
         } else {
           const failure = mode === 'submit' ? 'submit_failed' : 'draft_failed';
