@@ -60,6 +60,17 @@ const MIMIT_API_MIN_INTERVAL_MS = 1_000;
 const MIMIT_API_RATE_LIMIT_DEFAULT_COOLDOWN_MS = 15_000;
 const MIMIT_API_RATE_LIMIT_MAX_COOLDOWN_MS = 60_000;
 const MIMIT_MAX_AGE_HOURS = 48;
+const MIMIT_API_FUEL_TYPE_BY_ID = Object.freeze({
+  1: 'Benzina',
+  2: 'Gasolio',
+});
+const MIMIT_API_FUEL_TYPE_BY_NAME = Object.freeze({
+  BENZINA: 'Benzina',
+  BE: 'Benzina',
+  GASOLIO: 'Gasolio',
+  G: 'Gasolio',
+  GA: 'Gasolio',
+});
 const MIMIT_PRICES_REQUIRED_COLUMNS = Object.freeze([
   'idImpianto', 'descCarburante', 'prezzo', 'isSelf', 'dtComu',
 ]);
@@ -405,6 +416,26 @@ function readApiFuelList(station) {
   return lists[0];
 }
 
+function resolveApiFuelType(fuel) {
+  const nameValues = [fuel.name, fuel.carb]
+    .filter((value) => value != null && String(value).trim() !== '')
+    .map((value) => MIMIT_API_FUEL_TYPE_BY_NAME[normalizeText(value)] ?? null);
+  if (nameValues.some((value) => value == null) || new Set(nameValues).size > 1) return null;
+  const nameType = nameValues[0] ?? null;
+
+  const rawFuelId = fuel.fuelId;
+  let idType = null;
+  if (rawFuelId != null && String(rawFuelId).trim() !== '') {
+    const fuelId = Number(String(rawFuelId).trim());
+    if (!Number.isInteger(fuelId)) return null;
+    idType = MIMIT_API_FUEL_TYPE_BY_ID[fuelId] ?? null;
+    if (!idType) return null;
+  }
+
+  if (nameType && idType && nameType !== idType) return null;
+  return nameType ?? idType;
+}
+
 function readApiBoolean(value) {
   if (value === true || value === 1 || value === '1' || value === 'true') return true;
   if (value === false || value === 0 || value === '0' || value === 'false') return false;
@@ -453,10 +484,8 @@ function readApiFuelRows(station, observationTimestamp) {
   const rows = [];
   for (const fuel of fuels) {
     if (!fuel || typeof fuel !== 'object') continue;
-    const name = consistentValue([fuel.name, fuel.carb], (value) => normalizeText(value));
-    if (name.ambiguous || !name.value) continue;
-    const normalizedName = normalizeText(name.value);
-    if (normalizedName !== 'BENZINA' && normalizedName !== 'GASOLIO') continue;
+    const fuelType = resolveApiFuelType(fuel);
+    if (!fuelType) continue;
     const price = consistentValue([fuel.price, fuel.prezzo], (value) => {
       const parsed = toNumber(value);
       return parsed == null || parsed <= 0 ? null : String(parsed);
@@ -467,7 +496,7 @@ function readApiFuelRows(station, observationTimestamp) {
     });
     if (price.ambiguous || self.ambiguous || price.value == null || self.value == null) continue;
     rows.push({
-      descCarburante: normalizedName === 'BENZINA' ? 'Benzina' : 'Gasolio',
+      descCarburante: fuelType,
       prezzo: String(toNumber(price.value)),
       isSelf: readApiBoolean(self.value) ? '1' : '0',
       dtComu: observationTimestamp,
