@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { candidateAnswersForQuestions } from '../assistedApplicationCandidateEdits.js';
 import { sanitizeValidation } from './answerRules.js';
 
-const norm = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const SWISS = /\b(?:switzerland|swiss|svizzera|suisse|schweiz|ch)\b/;
 const RESIDENCE = /\b(?:resident\w*|residence|residency|residenza|domicil\w*|wohnsitz|wohnhaft|living|live)\b/;
 const RELOCATION = /\b(?:relocat\w*|trasferir\w*|trasferiment\w*|demenag\w*|umzug|umzieh\w*)\b/;
@@ -60,10 +60,16 @@ function cvProof(row, evidence, profile, sourceText) {
     && source.includes(location) && !LEGAL_STATUS.test(location) && !EMPLOYER.test(location);
   const residence = Boolean(contact || (quoted && SWISS.test(value) && RESIDENCE.test(value)
     && !LEGAL_STATUS.test(value) && !/\b(?:previous|formerly|former|past|lived|used to)\b/.test(value)));
-  const relocation = Boolean(quoted && SWISS.test(value) && RELOCATION.test(value) && WILLING.test(value) && !LEGAL_STATUS.test(value));
+  const relocationQuote = [evidence, profile?.availability].map(v => String(v || '')).find(v => {
+    const t = norm(v);
+    return t && source.includes(t) && SWISS.test(t) && RELOCATION.test(t) && WILLING.test(t)
+      && !NEGATIVE_OR_CONDITIONAL.test(t) && !LEGAL_STATUS.test(t) && !EMPLOYER.test(t);
+  });
+  const relocation = Boolean(relocationQuote);
   const met = kind.residence && kind.relocation ? kind.alternative ? residence || relocation : residence && relocation
     : kind.residence ? residence : relocation;
-  return met ? (contact && kind.residence ? String(profile.location) : String(evidence)) : null;
+  return met ? (contact && kind.residence && (!kind.relocation || kind.alternative) ? String(profile.location)
+    : relocationQuote || String(evidence)) : null;
 }
 
 /** Shared by proposal qualification and draft preparation before review/dispatch. */

@@ -50,6 +50,7 @@ it('uses actual current residence or explicit relocation evidence, without chang
   expect(guardMobilityMatch(requirements, match, resident).matches[0]).toMatchObject({ status: 'met', evidence: 'Examplecity, Switzerland' });
   const evidence = 'Available to relocate to Switzerland';
   expect(guardMobilityMatch(requirements, { ...match, matches: [{ ...match.matches[0], evidence }] }, { ...context, sourceText: evidence }).matches[0].status).toBe('met');
+  expect(guardMobilityMatch(requirements, match, { profile: { location: 'Exampletown, Italy', availability: evidence }, sourceText: evidence }).questions).toEqual([]);
 });
 
 it.each(['Swiss citizenship', 'Company resident in Switzerland', 'Not willing to relocate to Switzerland', 'Lived in Switzerland previously'])('does not repurpose unrelated or negated evidence: %s', evidence => {
