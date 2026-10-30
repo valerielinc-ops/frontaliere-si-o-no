@@ -440,10 +440,12 @@ run_push_with_token() {
   if [ "$no_lazy_fetch" = true ]; then
     run_bounded "$PUSH_TIMEOUT_SECONDS" "$label" \
       env GIT_NO_LAZY_FETCH=1 \
-      git -c http.https://github.com/.extraheader= push "$token_url" "$@"
+      git -c http.https://github.com/.extraheader= \
+        -c pack.window=0 -c pack.threads=1 push --no-thin "$token_url" "$@"
   else
     run_bounded "$PUSH_TIMEOUT_SECONDS" "$label" \
-      git -c http.https://github.com/.extraheader= push "$token_url" "$@"
+      git -c http.https://github.com/.extraheader= \
+        -c pack.window=0 -c pack.threads=1 push --no-thin "$token_url" "$@"
   fi
 }
 
