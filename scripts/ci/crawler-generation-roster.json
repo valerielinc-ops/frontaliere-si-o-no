@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "groupCount": 24,
+  "groupCount": 25,
   "crawlerCount": 666,
   "groups": {
     "10": [
@@ -182,7 +182,6 @@
       "kanton-aargau",
       "kanton-solothurn",
       "klinik-adelheid",
-      "knowledge-lab",
       "le-team",
       "mabetex",
       "octapharma",
@@ -455,6 +454,9 @@
       "zaugg"
     ],
     "24": [
+      "knowledge-lab"
+    ],
+    "25": [
       "protectas"
     ],
     "01": [
@@ -1386,5 +1388,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:13572e6ec9046889994604ce17d3df7ead4b81e8bf27be43d33c36f0fbaf7fdb"
+  "digest": "sha256:81b1fd6490a285b4da30aebf459d5be4958723250513b49fa567bf586c2a84a4"
 }

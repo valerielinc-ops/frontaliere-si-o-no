@@ -1,7 +1,7 @@
 /**
  * Guards scripts/generate-crawler-group-workflows.mjs's `packGroups`
  * bin-packing logic — the algorithm that decides which of the 581 crawler
- * scripts get bundled into which of the 24 grouped GitHub Actions workflows
+ * scripts get bundled into the grouped GitHub Actions workflows
  * (each group is one job holding multiple `background: true` steps, so the
  * job's wall-clock is bounded by its SLOWEST member, not the sum of all
  * members).
@@ -270,7 +270,7 @@ describe('generate() — shared install step reflects per-crawler prep requireme
     };
   }
 
-  // GROUP_COUNT (24) crawlers of similar duration each become their own
+  // GROUP_COUNT crawlers of similar duration each become their own
   // group "anchor" in packGroups' first phase — to reliably land MULTIPLE
   // synthetic crawlers in the SAME group (reproducing the real corpus
   // scenario where a group has ~25 members), use more crawlers than
