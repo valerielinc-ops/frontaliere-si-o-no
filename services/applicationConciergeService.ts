@@ -1,3 +1,4 @@
+import { parseEmployerResponse, type EmployerResponse } from './assistedApplicationEmployerResponse';
 import { APPLICATION_CONCIERGE_URL, MANAGE_APPLICATION_CONCIERGE_URL } from './functionsBase';
 
 export interface ApplicationConciergeProposal {
@@ -17,6 +18,7 @@ export interface ApplicationConciergeProposal {
   childApplicationState?: string | null;
   childSubmissionStatus?: string | null;
   childCandidateStatus?: string | null;
+  childEmployerResponse?: EmployerResponse | null;
   childSendState?: string | null;
   childRetryScheduled?: boolean;
   withdrawnAt?: string | null;
@@ -74,6 +76,8 @@ export function getCandidateVisibleApplicationConciergeProposals(
 export function conciergeProposalDisplayStatus(proposal: ApplicationConciergeProposal): string {
   if (proposal.status !== 'accepted') return proposal.status;
   const state = proposal.childApplicationState;
+  const response = parseEmployerResponse(proposal.childEmployerResponse);
+  if (response) return `employer_${response.category}`;
   if (proposal.childCandidateStatus === 'submitted' || proposal.childSubmissionStatus === 'submitted' || proposal.childSendState === 'sent' || state === 'submitted') return 'submitted';
   if (state === 'withdrawn') return 'declined';
   if (state === 'needs_candidate_action' || state === 'candidate_handoff') return 'needs_answers';

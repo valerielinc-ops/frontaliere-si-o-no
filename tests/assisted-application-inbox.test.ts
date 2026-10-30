@@ -509,3 +509,37 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     expect(sendCascade).toHaveBeenCalledTimes(2);
   });
 });
+
+
+it('commits inbox processing and employer response in one transaction and keeps duplicate delivery inert', async () => {
+  const { store, alias } = await setupInbound();
+  const batches: string[][] = [];
+  const original = store.db.runTransaction.bind(store.db);
+  const db = { ...store.db, runTransaction: (fn: any) => original((tx: any) => {
+    const writes: string[] = []; batches.push(writes);
+    return fn({ ...tx, set: (ref: any, data: any, options: any) => { writes.push(ref.path); return tx.set(ref, data, options); } });
+  }) };
+  const classify = vi.fn(async () => ({ category: 'auto_acknowledgement', summaryIt: 'Ricezione confermata.', summaryCandidate: 'Received.', interviewWhen: '', requestedDocuments: [], verificationCode: '', verificationUrl: '', needsReply: false }));
+  const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
+  const { messageId, bucket } = await deliver({ db, store, alias, raw: employerMail({ subject: 'Application received', text: 'We have received your application and are reviewing it.' }), classify, sendCascade, nowMs: 5000 });
+  const orderPath = `assisted_applications/${ORDER}`;
+  const inboxPath = `${orderPath}/inbox/${messageId}`;
+  expect(batches.some(paths => paths.includes(orderPath) && paths.includes(inboxPath))).toBe(true);
+  expect(store.read(orderPath)?.employerResponse).toMatchObject({ category: 'auto_acknowledgement', receivedAt: 5000, needsReply: false });
+  expect(await processAssistedApplicationInbound({ db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, sendCascade, nowMs: 6000 })).toEqual({ ok: true, skipped: true });
+  expect(sendCascade).toHaveBeenCalledTimes(1);
+});
+
+it('keeps UTF-8 and the full long employer text in a wrapping forwarded email', async () => {
+  const { store, alias } = await setupInbound();
+  const text = 'Réception confirmée — documenti ricevuti. Grüße. ' + 'https://example.test/' + 'long-path'.repeat(50);
+  const raw = Buffer.from(['From: HR <hr@example.test>', 'Subject: Documents received', 'Content-Type: text/plain; charset=utf-8', 'Content-Transfer-Encoding: base64', '', Buffer.from(text).toString('base64')].join('\r\n'));
+  const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
+  await deliver({ store, alias, raw, sendCascade, classify: async () => ({ category: 'auto_acknowledgement', summaryCandidate: '', needsReply: false }) });
+  const payload = (sendCascade.mock.calls as any)[0][0][0].payload;
+  expect(payload.text).toContain(text);
+  expect(payload.html).toContain('overflow-wrap:anywhere');
+  expect(payload.html).toContain('word-break:break-word');
+  expect(payload.html).toContain('Réception confirmée');
+  expect(payload.replyTo).toBe('hr@example.test');
+});

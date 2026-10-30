@@ -1,3 +1,4 @@
+import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import { useCallback, useEffect, useMemo, useRef, useState, lazy, Suspense } from 'react';
 import type { ReactNode } from 'react';
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, Clock3, FileText, Loader2, ShieldCheck, Sparkles, Target, UploadCloud, XCircle } from 'lucide-react';
@@ -966,7 +967,7 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
   }, [proposed, proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
   const state = proposal.childApplicationState;
   const displayStatus = conciergeProposalDisplayStatus(proposal);
-  const statusTone = displayStatus === 'submitted' ? 'bg-success-subtle text-success'
+  const statusTone = displayStatus === 'submitted' || displayStatus === 'employer_auto_acknowledgement' ? 'bg-success-subtle text-success'
     : ['proposed', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
     : 'bg-surface-raised text-muted';
   const childKey = state === 'needs_candidate_action' || state === 'candidate_handoff' ? 'childNeedsAnswers'
@@ -981,11 +982,11 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
       <div className="min-w-0 flex-1"><h3 className="break-words font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>
         {proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div>
       </div>
-      <span className={`max-w-[45%] shrink-0 rounded-full px-2 py-1 text-center text-xs font-bold ${statusTone}`}>{t(`jobBoard.concierge.proposalStatus.${displayStatus}`)}</span>
+      <span className={`max-w-[45%] shrink-0 rounded-full px-2 py-1 text-center text-xs font-bold ${statusTone}`}>{t(displayStatus.startsWith('employer_') ? `jobBoard.assisted.employerResponse.${displayStatus.slice(9)}` : `jobBoard.concierge.proposalStatus.${displayStatus}`)}</span>
     </div>
     {proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}
     {accepted && proposal.childApplicationId && <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-surface-raised p-3">
-      <p className="text-sm font-semibold text-heading">{t(`jobBoard.concierge.${childKey}`)}</p>
+      <div className="min-w-0"><p className="text-sm font-semibold text-heading">{t(`jobBoard.concierge.${childKey}`)}</p><AssistedApplicationEmployerResponse response={proposal.childEmployerResponse} compact /></div>
       <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${state === 'needs_candidate_action' || state === 'candidate_handoff' ? 'answerChild' : state === 'candidate_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
     </div>}
     {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">

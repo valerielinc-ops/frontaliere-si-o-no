@@ -1,3 +1,4 @@
+import { employerResponseView, loadEmployerResponse } from './assistedApplicationEmployerResponse.js';
 /**
  * Candidate and owner API for the application concierge.
  *
@@ -134,6 +135,7 @@ function serializeProposal(doc) {
     childApplicationState: optionalString(data.childApplicationState, 60),
     childSubmissionStatus: optionalString(data.childSubmissionStatus, 60),
     childCandidateStatus: optionalString(data.childCandidateStatus, 40),
+    childEmployerResponse: employerResponseView(data.childEmployerResponse),
     childSendState: optionalString(data.childSendState, 20),
     childRetryScheduled: data.childRetryScheduled === true,
     withdrawnAt: timestampToIso(data.withdrawnAt),
@@ -220,10 +222,12 @@ async function loadService(db, serviceId) {
     ]);
     const child = childDoc.data();
     if (child?.userId !== parent.userId || child.parentServiceId !== serviceId || child.parentProposalId !== proposal.id) return proposal;
+    const employerResponse = await loadEmployerResponse(childRef, child);
     const flow = flowDoc.data();
     const childApplicationState = flow?.state || child.automationState || null;
     const send = submissionDoc.data()?.[`r${Number(flow?.round) || 1}`];
     return { id: proposal.id, ref: proposal.ref || proposal, data: () => ({ ...data,
+      childEmployerResponse: employerResponseView(employerResponse),
       childApplicationState, childSubmissionStatus: child.submissionStatus || null,
       childCandidateStatus: candidateStatusForAssistedApplication({ ...child, automationState: childApplicationState }),
       childSendState: send?.state || null, childRetryScheduled: childApplicationState === 'owner_takeover' && Number(flow?.portalAutoRetryAt) > 0,

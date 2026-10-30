@@ -1,3 +1,4 @@
+import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, CalendarDays, MapPin } from 'lucide-react';
 import { useTranslation, type Locale } from '@/services/i18n';
@@ -173,6 +174,8 @@ function ApplicationDossier({
               )}
             </div>
           </div>
+
+          <AssistedApplicationEmployerResponse response={application.employerResponse} compact />
 
           {helpKey && (
             <div className={`-mx-4 mt-5 flex flex-col gap-3 px-4 py-4 sm:-mx-5 sm:flex-row sm:items-center sm:justify-between sm:px-5 ${nextStepStyle(application.status)}`}>

@@ -22,6 +22,7 @@
  *      confirmation e-mail): see confirmSubmissionByEmployer.
  */
 
+import { employerResponseOf, loadEmployerResponse, mergeEmployerResponse } from './assistedApplicationEmployerResponse.js';
 import { randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { FieldValue } from 'firebase-admin/firestore';
@@ -169,7 +170,7 @@ export function buildForward({ order, message, classification, sender }) {
       summary ? brandCallout(`<strong>${escapeHtml(summary)}</strong>`) : '',
       brandParagraph(escapeHtml(copy.reply)),
       `<p style="margin:16px 0 4px;font-size:12px;color:#64748b">${escapeHtml(copy.original)} — ${escapeHtml(sender)}</p>`,
-      `<div style="white-space:pre-wrap;border-left:3px solid #e2e8f0;padding-left:12px;font-size:14px;color:#1e293b">${escapeHtml(original)}</div>`,
+      `<div style="white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;line-height:1.6;max-width:100%;border-left:3px solid #e2e8f0;padding-left:12px;font-size:14px;color:#1e293b">${escapeHtml(original)}</div>`,
       brandSignature('Frontaliere Ticino', ''),
     ].join(''),
     footerLines: [],
@@ -276,6 +277,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
 
   try {
     const order = (await orderRef.get()).data() || {};
+    const previousResponse = await loadEmployerResponse(orderRef, order);
     const [file] = await bucket.file(claimed.rawKey).download();
     const { raw } = decryptJson(JSON.parse(Buffer.from(file).toString('utf8')), runKeyFrom(runKey));
     const message = parseMimeMessage(Buffer.from(raw, 'base64'));
@@ -339,21 +341,32 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       forwarded = failed.length ? { status: 'failed', error: String(failed[0].error || '').slice(0, 120) } : { status: 'sent', provider: sent[0]?.provider || null };
     }
 
-    await ref.set({
-      status: 'processed',
-      processedAt: nowMs,
-      from: sender,
-      subject: String(message.subject || '').slice(0, 300),
-      attachments: message.attachments.map((item) => item.filename || 'allegato').slice(0, 20),
-      classifiedBy,
-      ...classification,
-      forwarded,
-    }, { merge: true });
-    await orderRef.set({
-      employerReplies: FieldValue.increment(1),
-      lastEmployerReplyAt: claimed.receivedAt,
-      lastEmployerReplyCategory: classification.category,
-    }, { merge: true });
+    await db.runTransaction(async transaction => {
+      const [currentMessage, currentOrder] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
+      if (currentMessage.data()?.processedAt) return;
+      const liveOrder = currentOrder.data() || {};
+      const employerResponse = mergeEmployerResponse(mergeEmployerResponse(previousResponse, employerResponseOf(liveOrder)), {
+        ...classification, receivedAt: claimed.receivedAt, messageId,
+      });
+      transaction.set(ref, {
+        status: 'processed',
+        processedAt: nowMs,
+        from: sender,
+        subject: String(message.subject || '').slice(0, 300),
+        attachments: message.attachments.map((item) => item.filename || 'allegato').slice(0, 20),
+        classifiedBy,
+        ...classification,
+        forwarded,
+      }, { merge: true });
+      transaction.set(orderRef, {
+        employerReplies: FieldValue.increment(1),
+        ...(Number(claimed.receivedAt) >= Number(liveOrder.lastEmployerReplyAt || 0) ? {
+          lastEmployerReplyAt: claimed.receivedAt,
+          lastEmployerReplyCategory: classification.category,
+        } : {}),
+        ...(employerResponse ? { employerResponse } : {}),
+      }, { merge: true });
+    });
     const settled = runEffect && RECEIPT_CATEGORIES.has(classification.category)
       ? await settleSubmission({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
       : null;
@@ -365,7 +378,10 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     };
   } catch (error) {
     // Back to `received`: the trigger's retry processes it again.
-    await ref.set({ status: 'received', lastError: (error instanceof Error ? error.message : String(error)).slice(0, 120) }, { merge: true });
+    await db.runTransaction(async transaction => {
+      const current = (await transaction.get(ref)).data();
+      if (!current?.processedAt) transaction.set(ref, { status: 'received', lastError: (error instanceof Error ? error.message : String(error)).slice(0, 120) }, { merge: true });
+    });
     throw error;
   }
 }

@@ -3066,6 +3066,17 @@ Rules:
 
 
   'profile.action.journalistDashboard': 'Newsroom',
+  'jobBoard.assisted.employerResponse.heading': "Latest update from the employer",
+  'jobBoard.assisted.employerResponse.auto_acknowledgement': "Receipt confirmed",
+  'jobBoard.assisted.employerResponse.interview_invite': "Interview invitation",
+  'jobBoard.assisted.employerResponse.rejection': "Application not selected",
+  'jobBoard.assisted.employerResponse.documents_request': "Documents requested",
+  'jobBoard.assisted.employerResponse.question': "Question from the employer",
+  'jobBoard.assisted.employerResponse.assessment': "Assessment to complete",
+  'jobBoard.assisted.employerResponse.offer': "Offer received",
+  'jobBoard.assisted.employerResponse.needsReply': "The employer is waiting for your reply.",
+  'jobBoard.assisted.employerResponse.emailHint': "The full message is in the email we forwarded to you. Reply to that email to answer the employer.",
+
 };
 
 export default enCore;
