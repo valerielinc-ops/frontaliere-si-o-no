@@ -558,7 +558,8 @@ describe('handleChatbotInference — rung Codex', () => {
     const { handleChatbotInference } = await import('../../functions/src/chatbotInference.js');
     expect(await handleChatbotInference(params)).toMatchObject({ text: 'chat fallback', model: 'openai/gpt-oss-20b', source: 'openai-compat' });
     expect(models).toEqual(['openai/gpt-oss-120b', 'openai/gpt-oss-20b']);
-    expect(getRemoteConfigValueMock).not.toHaveBeenCalledWith('NVIDIA_API_KEY');
+    expect(getRemoteConfigValueMock).toHaveBeenCalledWith('NVIDIA_API_KEY');
+    expect(fetchMock.mock.calls.some(([url]) => String(url).startsWith('https://integrate.api.nvidia.com/'))).toBe(false);
   });
 
   it('senza CODEX_AUTH_JSON lancia ALL_FAILED con codex: not_configured', async () => {
