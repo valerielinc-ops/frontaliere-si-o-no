@@ -255,12 +255,12 @@
     // the question the candidate reads, right before the field, comes first.
     const aria = element.getAttribute('aria-label') || '';
     if (aria && !INTERNAL_NAME_RE.test(aria)) return aria;
-    if (aria) {
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    if (aria && (!group || oneQuestionGroup(group, element))) {
       const nearby = nearbyText(element);
       if (nearby) return nearby;
     }
     // A field group (Zag/Ark, fieldset): its own label or legend.
-    const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
       if (!legend.contains(element) && textOf(legend)) return textOf(legend);
     }

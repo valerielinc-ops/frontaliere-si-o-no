@@ -101,8 +101,13 @@ it('does not name a radio group after any individual option', () => {
   dom.window.close();
 });
 
-it.each(['<span class="label">I accept the Privacy Policy. *</span>', '<legend>I accept the Privacy Policy. *</legend>'])('keeps a shared heading ambiguous across distinct checkbox questions: %s', heading => {
-  const { dom, snapshot } = extract(`<form><fieldset>${heading}<input id="x" name="newsletter" type="checkbox" required><input id="y" name="updates" type="checkbox" required></fieldset></form>`);
+it.each([
+  ['<span class="label">I accept the Privacy Policy. *</span>', ''],
+  ['<legend>I accept the Privacy Policy. *</legend>', ''],
+  ['<span class="label">I accept the Privacy Policy. *</span>', 'aria-label="[Default] Newsletter"'],
+  ['<legend>I accept the Privacy Policy. *</legend>', 'aria-label="[Default] Newsletter"'],
+])('keeps a shared heading ambiguous across distinct checkbox questions: %s %s', (heading, aria) => {
+  const { dom, snapshot } = extract(`<form><fieldset>${heading}<input id="x" name="newsletter" ${aria} type="checkbox" required><input id="y" name="updates" type="checkbox" required></fieldset></form>`);
   expect(snapshot.fields[0].label).not.toMatch(/privacy/i);
   (dom.window as any).CSS = { escape: (value: string) => value };
   for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
