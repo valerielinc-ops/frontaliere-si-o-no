@@ -37,6 +37,17 @@ describe('portal candidate question contract', () => {
     }
   });
 
+  it('keeps an editable combobox as free text beside an unloaded select-like combobox', () => {
+    const combo = { ...field, kind: 'combobox', inputType: 'text', options: [] };
+    const validation = { minLength: 3 };
+    const editable = portalRequirementsFromMissingRequired([{ ...combo, selectLike: false }], [{ ...planned, validation }]);
+    expect(editable.questions).toEqual([expect.objectContaining({ type: 'text', options: [] })]);
+    expect(validateAnswer('Some employer', editable.questions[0])).toEqual({ ok: true });
+    expect(validateAnswer('AB', editable.questions[0])).toMatchObject({ ok: false, reason: 'too_short' });
+    const picklist = portalRequirementsFromMissingRequired([{ ...combo, selectLike: true }], [planned]);
+    expect(picklist).toEqual({ questions: [], documents: [], unreadableFields: [field.id] });
+  });
+
   it('does not apply stale free-text rules to native choices while preserving free-text validation', () => {
     const validation = { minLength: 30, maxLength: 40, pattern: '^\\d+$' };
     const question = portalRequirementsFromMissingRequired([field], [{ ...planned, validation }]).questions[0];

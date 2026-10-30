@@ -3102,7 +3102,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
         }
-        const applicationOptions = (field ? field.options || [] : item.applicationOptions || item.options || [])
+        const editableCombobox = field?.kind === 'combobox' && field.selectLike === false && !field.nativeSelectId;
+        const applicationOptions = (field ? editableCombobox ? [] : field.options || [] : item.applicationOptions || item.options || [])
           .filter(option => option?.placeholder !== true)
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
@@ -3110,7 +3111,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
         const optionMap = portalOptionMap({ options: item.options, applicationOptions, optionMap: item.optionMap });
         let type = item.type;
         if (field) {
-          if (['select', 'radio', 'combobox', 'listbox'].includes(field.kind) || applicationOptions.length) type = 'choice';
+          if (['select', 'radio', 'listbox'].includes(field.kind) || field.selectLike || field.nativeSelectId || applicationOptions.length) type = 'choice';
+          else if (editableCombobox) type = 'text';
           else if (field.kind === 'checkbox') type = 'yes_no';
           else if (field.kind === 'date' || field.inputType === 'date') type = 'date';
           else if (field.inputType === 'number') type = 'number';
