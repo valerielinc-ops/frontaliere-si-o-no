@@ -283,13 +283,7 @@ function buildApplicationIntentReminderCase(recipient, runId) {
     runId,
     subject: strings.subject(1),
     html,
-    text: buildApplicationIntentReminderEmailText({
-      locale: 'it',
-      applicationIntentEntries: [entry],
-      recommendations: [],
-      manageUrl: 'https://frontaliereticino.ch/profilo/',
-      unsubUrl,
-    }),
+    text: buildApplicationIntentReminderEmailText({ html }),
     headers: {
       'X-Frontaliere-CI-Run': `${runId}:application-intent-reminder`,
       'X-Campaign-Id': 'maileroo-ci-application-intent',

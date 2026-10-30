@@ -320,13 +320,7 @@ async function sendReminder({ db, uid, email, locale, entries, recommendations, 
     unsubUrl,
     email,
   });
-  const text = buildApplicationIntentReminderEmailText({
-    locale,
-    applicationIntentEntries: entries,
-    recommendations,
-    manageUrl,
-    unsubUrl,
-  });
+  const text = buildApplicationIntentReminderEmailText({ html });
   const subject = strings.subject(entries.length);
   if (DRY_RUN) {
     console.log(`   📝 [dry-run] would send to ${email} (${locale}) — subject: ${subject}`);

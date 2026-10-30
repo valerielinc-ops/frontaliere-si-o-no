@@ -226,6 +226,24 @@ describe('saved-jobs digest — localized application reminder copy', () => {
     expect(text).toContain(strings.applicationIntentNotice);
   });
 
+  it('keeps salary, contract and the selected recommendation in the text alternative', () => {
+    const html = buildEmailHtml({
+      locale: 'it', s: getStrings('it'), savedEntries: [], recommendations: [],
+      applicationIntentEntries: [{
+        id: 'job-live', title: 'Sviluppatore', company: 'Azienda', location: 'Lugano',
+        url: 'https://example.test/job/', salaryMin: 80000, salaryMax: 100000,
+        currency: 'CHF', contract: 'full-time',
+      }],
+      manageUrl: 'https://example.test/profile/', unsubUrl: 'https://example.test/unsubscribe/',
+      email: 'recipient@example.com',
+    });
+    const text = buildEmailText({ html });
+    expect(text).toContain('CHF 80K–100K/anno');
+    expect(text).toContain('Tempo pieno');
+    expect(text).toContain('Consigliato per te');
+    expect(text).toContain('https://example.test/unsubscribe/');
+  });
+
   it('keeps the completion question visible when saved jobs and intents share one digest', () => {
     const strings = getStrings('it');
     const html = buildEmailHtml({
