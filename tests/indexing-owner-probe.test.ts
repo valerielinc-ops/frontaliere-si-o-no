@@ -4,27 +4,11 @@ import {
   DEFAULT_OWNER_PROBE_URL,
   isOwnerProbeSuccess,
   probeOwnership,
-} from '../scripts/submit-google-indexing-jobs.js';
+} from '../scripts/lib/indexing-owner.mjs';
 import {
   parseArgs,
   verifyIndexingOwner,
 } from '../scripts/ci/verify-indexing-owner.mjs';
-
-// The owner probe must stay testable without the live sitemap planner. The
-// planner's data snapshot is intentionally omitted from sparse CI checkouts;
-// none of its behavior is under test here.
-vi.mock('../scripts/lib/indexing-jobs-planner.mjs', () => ({
-  quotaDayKey: vi.fn(),
-  isJobDetailCandidate: vi.fn(),
-  parseSitemapUrlset: vi.fn(),
-  parseJobSitemapIndex: vi.fn(),
-  loadLedger: vi.fn(),
-  observeSitemap: vi.fn(),
-  planSubmissions: vi.fn(),
-  recordOutcome: vi.fn(),
-  judgeLive: vi.fn(),
-  spentOn: vi.fn(),
-}));
 
 afterEach(() => vi.unstubAllGlobals());
 

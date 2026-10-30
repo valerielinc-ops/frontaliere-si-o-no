@@ -40,7 +40,7 @@
 
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
-import { createJwtAssertion, exchangeAssertionForToken } from './lib/google-service-account-token.mjs';
+import { DEFAULT_OWNER_PROBE_URL, resolveOwnerToken } from './lib/indexing-owner.mjs';
 import {
   quotaDayKey,
   isJobDetailCandidate,
@@ -55,7 +55,6 @@ import {
 } from './lib/indexing-jobs-planner.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
-export const DEFAULT_OWNER_PROBE_URL = `${SITE_URL}/`;
 // Google default quota: 200 publish requests/day per GCP project. 40 stay
 // reserved for scripts/notify-article-search-engines.mjs (10 articles × 4
 // locales), which shares the project when the service account is the owner.
@@ -64,11 +63,15 @@ const DEFAULT_MAX = 15;
 const MAX_RETRIES = 2;
 const FETCH_TIMEOUT_MS = 20_000;
 const INDEXING_PUBLISH = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
-const INDEXING_METADATA = 'https://indexing.googleapis.com/v3/urlNotifications/metadata';
-const INDEXING_SCOPE = 'https://www.googleapis.com/auth/indexing';
-const TOKEN_URI = 'https://oauth2.googleapis.com/token';
 const DEFAULT_LEDGER = '/tmp/indexing-api-jobs-ledger.json';
 const USER_AGENT = 'frontaliere-indexing-api/2.0 (+https://frontaliereticino.ch)';
+
+export {
+  DEFAULT_OWNER_PROBE_URL,
+  isOwnerProbeSuccess,
+  probeOwnership,
+  resolveOwnerToken,
+} from './lib/indexing-owner.mjs';
 
 function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
 function log(prefix, msg) { console.log(`${prefix} ${msg}`); }
@@ -107,76 +110,6 @@ export function runBudgetFor(args, spent) {
   if (!(args.max > 0)) return 0;
   const cap = spent === 0 && args.maxFirstRun > args.max ? args.maxFirstRun : args.max;
   return Math.max(0, Math.min(cap, DAILY_BUDGET - spent));
-}
-
-// ── Credentials ─────────────────────────────────────────────
-
-function loadServiceAccount() {
-  const envJson = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
-  if (envJson) {
-    try { const sa = JSON.parse(envJson); if (sa.client_email && sa.private_key) return sa; } catch { /* next */ }
-  }
-  const saPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-  if (!saPath || !existsSync(saPath)) return null;
-  try {
-    const sa = JSON.parse(readFileSync(saPath, 'utf-8'));
-    return sa.client_email && sa.private_key ? sa : null;
-  } catch { return null; }
-}
-
-async function oauthUserToken() {
-  const { GSC_CLIENT_ID: clientId, GSC_CLIENT_SECRET: clientSecret, GSC_REFRESH_TOKEN: refreshToken } = process.env;
-  if (!clientId || !clientSecret || !refreshToken) return null;
-  const res = await fetchWithTimeout(TOKEN_URI, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ client_id: clientId, client_secret: clientSecret, refresh_token: refreshToken, grant_type: 'refresh_token' }),
-  });
-  if (!res.ok) throw new Error(`OAuth token refresh failed (${res.status})`);
-  return (await res.json()).access_token || null;
-}
-
-/**
- * Read-only ownership probe. 200 (already notified) and 404 (never notified)
- * both prove Google accepts the identity as owner; 403 means it does not.
- */
-export function isOwnerProbeSuccess(status) {
-  return status === 200 || status === 404;
-}
-
-export async function probeOwnership(token, url) {
-  const res = await fetchWithTimeout(`${INDEXING_METADATA}?url=${encodeURIComponent(url)}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  if (isOwnerProbeSuccess(res.status)) return { ok: true, status: res.status };
-  const text = await res.text().catch(() => '');
-  let reason = text.slice(0, 200);
-  try { reason = JSON.parse(text)?.error?.message || reason; } catch { /* not JSON */ }
-  return { ok: false, status: res.status, reason };
-}
-
-export async function resolveOwnerToken(probeUrl = DEFAULT_OWNER_PROBE_URL) {
-  const identities = [
-    { name: 'service account', get: async () => {
-      const sa = loadServiceAccount();
-      return sa ? exchangeAssertionForToken(createJwtAssertion(sa, INDEXING_SCOPE)) : null;
-    } },
-    { name: 'OAuth2 user (GSC_*)', get: oauthUserToken },
-  ];
-  for (const id of identities) {
-    let token;
-    try { token = await id.get(); } catch (err) { log('⚠️', `${id.name}: ${err.message}`); continue; }
-    if (!token) { log('ℹ️', `${id.name}: no credentials`); continue; }
-    const probe = await probeOwnership(token, probeUrl);
-    if (probe.ok) {
-      log('🔑', `Indexing API owner identity: ${id.name} (metadata probe ${probe.status})`);
-      return token;
-    }
-    log('⚠️', `${id.name}: ownership probe ${probe.status} — ${probe.reason}`);
-  }
-  log('❌', 'No identity is a Search Console OWNER of sc-domain:frontaliereticino.ch.');
-  log('💡', 'Fix: add the service account as Owner at https://search.google.com/search-console/users');
-  return null;
 }
 
 // ── Sitemaps ────────────────────────────────────────────────

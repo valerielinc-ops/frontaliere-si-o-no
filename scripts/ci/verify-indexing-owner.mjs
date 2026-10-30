@@ -14,7 +14,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import {
   DEFAULT_OWNER_PROBE_URL,
   resolveOwnerToken,
-} from '../submit-google-indexing-jobs.js';
+} from '../lib/indexing-owner.mjs';
 
 export function parseArgs(argv) {
   const args = { probeUrl: DEFAULT_OWNER_PROBE_URL };
