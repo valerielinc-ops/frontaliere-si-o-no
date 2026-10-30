@@ -8654,6 +8654,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.farmaci-riserve-finanziamento.title': 'Médicaments : les stocks obligatoires sous pression en Suisse',
     'blog.article.farmaci-riserve-finanziamento.excerpt': 'En Suisse, les antibiotiques et les analgésiques font défaut depuis des années.',
     'blog.article.farmaci-riserve-finanziamento.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.svizzera-rischi-climatici-strumenti.title': 'Plus de 30 outils pour les risques climatiques futurs en Suisse',
+    'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Plus de 30 outils pour les risques climatiques futurs NCCS-Impacts a démarré en 2022 Cinq projets, plus de 100 personnes impliquées Environ 9 millions de francs',
+    'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

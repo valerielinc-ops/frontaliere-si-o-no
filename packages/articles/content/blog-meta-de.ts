@@ -1140,8 +1140,8 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.guida-pensione-frontaliere-avs-lpp.excerpt': 'Vollständiger Rentenratgeber für Grenzgänger: drei Säulen, Totalisierung Italien-Schweiz, Rentensimulation und häufige Fehler.',
  'blog.article.guida-pensione-frontaliere-avs-lpp.imageAlt': 'Rentnerehepaar spaziert am Luganer See mit den Alpen im Hintergrund',
 
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'In der Schweiz arbeiten, in Italien leben: Lohnt sich das?',
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Vergleichen Sie Nettolohn, Steuerstatus, Wohnen, Krankenversicherung und Pendelkosten in zwei Jahresbudgets. Eurostat vergleicht nationale Preisniveaus, keine Stadtmieten.',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Leben in der Schweiz vs. Italien: Realer Vergleich für Grenzgänger',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Bewilligung B oder G? Detaillierter Vergleich von Kosten, Steuern, Gesundheit, Lebensqualität mit praktischen Beispielen 2026.',
  'blog.article.vivere-svizzera-vs-italia-frontaliere.imageAlt': 'Panoramablick auf die italienisch-schweizerische Grenze mit dem Luganer See und italienischen Dorfhäusern',
 
  'blog.article.dumping-salariale-diritti-lavoratore-ticino.title': 'Lohndumping im Tessin: Erkennen und sich schützen',
@@ -13623,6 +13623,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'In Gaggiolo nicht deklarierte Luxusartikel im Wert von über 23.000 Euro',
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'Eine Fahrerin, die in Gaggiolo nach Italien einreiste, erklärte, nichts anzumelden zu haben, doch im Kofferraum wurden eine hochwertige Tasche und ein hochwertiger Schal im Wert von über 23.000 Euro gefunden.',
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.arcisate-ticino-scelta-frontaliere.title': 'In Arcisate leben und als Grenzgänger im Tessin arbeiten',
+    'blog.article.arcisate-ticino-scelta-frontaliere.excerpt': 'Grenzgängerabkommen in Kraft seit dem 1.',
+    'blog.article.arcisate-ticino-scelta-frontaliere.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.vivere-brunate-lavorare-ticino.title': 'In Brunate leben und als Grenzgänger im Tessin arbeiten',
+    'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Steuer- und Beitragsleitfaden für Personen, die in Brunate leben und im Tessin arbeiten, mit Blick auf das neue Grenzgängerabkommen, die Quellensteuer, Befreiungen und Lohnabrechnungsposten.',
+    'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

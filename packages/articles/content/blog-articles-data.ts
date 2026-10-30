@@ -45966,6 +45966,28 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'arcisate-ticino-scelta-frontaliere',
+ category: 'pratico',
+ date: '2026-10-29T22:16:41.376Z',
+ image: '/images/blog/article-arcisate-ticino-scelta-frontaliere.webp',
+ hasCalculator: true,
+ articleType: 'evergreen',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-brunate-lavorare-ticino',
+ category: 'fiscale',
+ date: '2026-10-29T23:04:24.829Z',
+ image: '/images/blog/article-vivere-brunate-lavorare-ticino.webp',
+ hasCalculator: true,
+ articleType: 'evergreen',
+ canton: ['TI'],
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

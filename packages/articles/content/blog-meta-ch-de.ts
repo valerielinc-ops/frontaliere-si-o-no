@@ -8654,6 +8654,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.farmaci-riserve-finanziamento.title': 'Medikamente: Pflichtlager in der Schweiz unter Druck',
     'blog.article.farmaci-riserve-finanziamento.excerpt': 'In der Schweiz fehlen seit Jahren Antibiotika und Schmerzmittel.',
     'blog.article.farmaci-riserve-finanziamento.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.svizzera-rischi-climatici-strumenti.title': 'Mehr als 30 Instrumente für künftige Klimarisiken in der Schweiz',
+    'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Mehr als 30 Instrumente für künftige Klimarisiken NCCS-Impacts startete 2022 Fünf Projekte, über 100 beteiligte Personen Rund 9 Millionen Franken',
+    'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
