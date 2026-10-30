@@ -104,13 +104,18 @@ async function pdfText(file: File): Promise<string> {
   const pdfjsLib = await import('pdfjs-dist');
   pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.mjs', import.meta.url).href;
   const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
-  const pages: string[] = [];
-  // The first pages say what the document is.
-  for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 5); pageNum += 1) {
-    const content = await (await pdf.getPage(pageNum)).getTextContent();
-    pages.push(content.items.map((item) => ('str' in item ? item.str : '')).join(' '));
+  try {
+    const pages: string[] = [];
+    // The first pages say what the document is.
+    for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 5); pageNum += 1) {
+      const content = await (await pdf.getPage(pageNum)).getTextContent();
+      pages.push(content.items.map((item) => ('str' in item ? item.str : '')).join(' '));
+      if (pages.join('\n').length >= DOCUMENT_CHECK_MAX_TEXT_CHARS) break;
+    }
+    return pages.join('\n').slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS);
+  } finally {
+    await pdf.destroy();
   }
-  return pages.join('\n').slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS);
 }
 
 async function docxText(file: File): Promise<string> {
