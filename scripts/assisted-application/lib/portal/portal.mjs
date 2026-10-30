@@ -352,13 +352,13 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {} }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {} }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers);
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
@@ -457,7 +457,8 @@ const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') 
 const unreadableAddressOwner = field => addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
   && Object.hasOwn(field || {}, 'addressContext') && (!addressContextContract(field) || addressContextContract(field).unknown);
 
-function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
+function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
+  const attestedIds = new Set(currentAnswerIds);
   const items = questions.map((question) => ({
     answerId: portalAnswerForApplication(question, answers[question.id]) !== String(answers[question.id] ?? '').trim() ? question.id : undefined,
     question: question.applicationQuestion || question.question,
@@ -468,8 +469,9 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     autocomplete: question.autocomplete || '',
     ...addressMetadata(question),
     answer: portalAnswerForApplication(question, answers[question.id]),
-    source: 'answers',
+    source: Object.hasOwn(answerSources, question.id) ? answerSources[question.id] : 'answers',
     current: true,
+    attested: attestedIds.has(question.id) && (!Object.hasOwn(answerSources, question.id) || answerSources[question.id] === 'answers'),
   })).filter((item) => item.answer);
   const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
   const currentKeys = new Set(questions
@@ -500,13 +502,13 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     const previous = seen.get(key);
     if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source, current, ...metadata }) => ({
-    ...(current === true && Object.hasOwn(metadata, 'addressContext') && addressAnswerNeedsOwnership(question, { ...metadata, autocomplete }) ? { current: true } : {}), ...addressMetadata(metadata), ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
+  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source, current, attested, ...metadata }) => ({
+    ...(attested === true && Object.hasOwn(metadata, 'addressContext') && addressAnswerNeedsOwnership(question, { ...metadata, autocomplete }) ? { current: true } : {}), ...addressMetadata(metadata), ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
   }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
-export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {} } = {}) {
+export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {}, sources = null } = {}) {
   const out = {};
   for (const question of questions) {
     if (question?.source !== 'portal' || !question.required || String(answers?.[question.id] ?? '').trim()) continue;
@@ -522,6 +524,7 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       context: question.context || '',
       section: question.section || '',
       autocomplete: question.autocomplete || '',
+      ...addressMetadata(question),
       required: true,
       options,
     };
@@ -531,7 +534,10 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
         return no ? { value: no.label, source: 'rule' } : null;
       })();
     // Policy defaults belong to live form filling, never to confirmed CV facts.
-    if (answer?.value && answer.source !== 'policy_default') out[question.id] = answer.value;
+    if (answer?.value && answer.source !== 'policy_default') {
+      out[question.id] = answer.value;
+      if (sources) sources[question.id] = answer.source;
+    }
   }
   return out;
 }

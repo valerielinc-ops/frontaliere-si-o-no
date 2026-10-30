@@ -221,19 +221,25 @@ export async function submitApplication(ctx) {
   // Resolve facts that the CV already states before the generic required-question gate.
   // Older drafts can contain a newly discovered portal question with an empty answer;
   // waiting for the planner would never work because the gate returns first.
+  // Only persisted nonempty candidate answers can attest a current statement.
+  // Automatic and remembered projections below never enlarge this set.
+  const originalCurrentAnswerIds = Object.entries(flow?.answers || {})
+    .filter(([, value]) => String(value ?? '').trim()).map(([id]) => id);
   const initialEdited = candidateWithEdits({ order, draft, flow });
   const portalQuestions = (draft?.questions || []).filter((question) => question.source === 'portal');
   const initialCandidate = candidateForForm({
     identity: initialEdited.identity,
     profile: initialEdited.profile,
     answers: initialEdited.answers,
+    currentAnswerIds: originalCurrentAnswerIds,
     draft,
     portalQuestions,
     language: draft?.language,
     personal: initialEdited.personal,
     job: { title: draft?.job?.title || order.jobTitle || '', company: order.companyName || '' },
   });
-  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers });
+  const autoAnswerSources = Object.create(null);
+  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers, sources: autoAnswerSources });
   const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered, flow?.questionAnswers || {});
   const mergedAnswers = { ...(flow?.answers || {}), ...rememberedAnswers, ...autoAnswers };
   const submitFlow = Object.keys(mergedAnswers).length
@@ -511,7 +517,7 @@ export async function submitApplication(ctx) {
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,

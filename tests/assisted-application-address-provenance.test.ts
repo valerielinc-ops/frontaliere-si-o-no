@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 import { describe, expect, it } from 'vitest';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
-import { candidateForForm, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 const bundle = readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8');
@@ -59,7 +59,7 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Como', source: 'identity' });
   });
 
-  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita', 'Commune de naissance', 'Ort der Geburt', 'Nato a', 'Birth country', 'Provincia di nascita', 'Nationality / Country of birth', 'Nazionalità / Paese di nascita'])('does not answer %s with a known date of birth or nationality', (label) => {
+  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita', 'Commune de naissance', 'Ort der Geburt', 'Nato a', 'Birth country', 'Provincia di nascita', 'Nationality / Country of birth', 'Nazionalità / Paese di nascita', 'Nazionalità / Nazione di nascita', 'Nationalität bei Geburt', 'Nationality at birth'])('does not answer %s with a known date of birth or nationality', (label) => {
     const field = nativeField(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" name="city"></form>`, reader);
     expect(candidateAnswerForField(candidate, field)).toBeNull();
   });
@@ -132,10 +132,23 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
   it('honors the current explicit residence correction above CV extraction', () => {
     const field = nativeField('<form><h2>Personal information</h2><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></form>', reader);
     const question = { ...field, question: field.label, source: 'portal', type: 'text' };
-    const form = candidateForForm({ identity: { name: 'Test User', email: 'test@example.test' }, profile: { address: { city: 'Como', country: 'Italia' } }, portalQuestions: [question], answers: { [field.id]: 'Lugano' } });
+    const form = candidateForForm({ identity: { name: 'Test User', email: 'test@example.test' }, profile: { address: { city: 'Como', country: 'Italia' } }, portalQuestions: [question], answers: { [field.id]: 'Lugano' }, currentAnswerIds: [field.id] });
     expect(candidateAnswerForField(form, field)).toEqual({ value: 'Lugano', source: 'answers' });
     const cleared = candidateForForm({ identity: { name: 'Test User', email: 'test@example.test' }, portalQuestions: [{ ...question, addressContext: { ...field.addressContext, owners: ['Employer'] } }], answers: { [field.id]: '' }, draft: { portalAnswers: { answers: [{ question: field.label, context: field.context, section: field.section, autocomplete: field.autocomplete, addressContext: { ...field.addressContext, owners: ['Employer'] }, answer: 'Como', source: 'answers' }] } } });
     expect(cleared.portalQuestionsAnswered).toEqual([]);
+  });
+
+  it('preserves ownership during automatic answer projection and never attests an inferred answer as current', () => {
+    const field = nativeField('<form><h2>Personal information</h2><fieldset aria-label="Employer"><label for="city">City</label><input id="city" name="city" required autocomplete="address-level2"></fieldset></form>', reader);
+    const question = { ...field, question: field.label, source: 'portal', type: 'text' };
+    expect(autoAnswersForPortalQuestions({ questions: [question], candidate, answers: {} })).toEqual({});
+    const personal = { ...question, addressContext: { section: 'Personal information', owners: [], unknown: false } };
+    const sources: Record<string, string> = {};
+    const projected = autoAnswersForPortalQuestions({ questions: [personal], candidate, answers: {}, sources });
+    expect(projected[field.id]).toBe('Como');
+    const inferred = candidateForForm({ identity: { name: 'Test User', email: 'test@example.test' }, portalQuestions: [personal], answers: projected, answerSources: sources });
+    expect(inferred.portalQuestionsAnswered[0].current).toBeUndefined();
+    expect(inferred.portalQuestionsAnswered[0].source).toBe('identity');
   });
 
   it('does not invent DOB when the profile has no date of birth', () => {

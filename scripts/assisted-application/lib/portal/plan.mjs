@@ -722,7 +722,11 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
 export function questionTopic(label, context = '', metadata = {}) {
   const text = questionFromLabel(label);
-  if (BIRTH_LOCATION_RE.test(text)) return '';
+  const nativeBirthDate = /^(?:birth|nascita|geburt|naissance)$/iu.test(text)
+    && (metadata?.inputType === 'date' || metadata?.kind === 'date');
+  // Any birth fact without positive date semantics stays distinct from
+  // current nationality and residence, including mixed/compound captions.
+  if (BIRTH_LOCATION_RE.test(text) || (BIRTH_FIELD_RE.test(text) && !DATE_OF_BIRTH_RE.test(text) && !nativeBirthDate)) return '';
   // `context` is a flattened list of nearby sibling labels, not a trusted
   // parent label. Use it only for the narrowly scoped aliases below; it must
   // not assign another sibling's semantic topic to this question.
@@ -766,8 +770,6 @@ export function questionTopic(label, context = '', metadata = {}) {
   // reused without assigning all birthplace questions a shared date topic.
   // A broad "birth/nascita" marker identifies sensitive data, not a date.
   // A native date control can resolve an otherwise bare birth caption.
-  const nativeBirthDate = /^(?:birth|nascita|geburt|naissance)$/iu.test(text)
-    && (metadata?.inputType === 'date' || metadata?.kind === 'date');
   if (DATE_OF_BIRTH_RE.test(text) || nativeBirthDate) return 'birth_date';
   if (isPhoneCountryQuestion(text, context, metadata)) return 'phone_country';
   if (PHONE_CODE_FIELD_RE.test(text)) return 'phone';
