@@ -1,3 +1,4 @@
+import type { EmployerResponse } from './assistedApplicationEmployerResponse';
 /**
  * Client of the candidate review page of the automated assisted application
  * (functions/src/assistedApplicationReview.js). The signed token from the
@@ -147,6 +148,7 @@ export interface ReviewKeptDocuments {
 
 export interface ReviewPayload {
   ok: true;
+  employerResponse?: EmployerResponse | null;
   stale: boolean;
   /** The link's round was just sent back: its next version is being prepared. */
   preparingNext?: boolean;

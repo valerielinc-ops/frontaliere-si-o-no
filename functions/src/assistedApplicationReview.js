@@ -16,6 +16,7 @@
  * submission.
  */
 
+import { employerResponseView, loadEmployerResponse } from './assistedApplicationEmployerResponse.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { MAX_REVIEW_ROUNDS, roundsShown } from './assistedApplicationFlow.js';
 import { canWithdrawApplication, withdrawAssistedApplication, WithdrawalError } from './assistedApplicationWithdrawal.js';
@@ -742,7 +743,9 @@ export async function handleAssistedApplicationReview(req, deps) {
           .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
           .filter((file) => file.url), kept.whatsapp),
       };
-      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }) };
+      return { status: 200, body: { ...buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
+        employerResponse: employerResponseView(await loadEmployerResponse(orderRefFor(deps.db, orderId), order)),
+      } };
     }
     if (method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 

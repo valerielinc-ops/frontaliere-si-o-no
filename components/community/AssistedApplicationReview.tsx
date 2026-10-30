@@ -1,3 +1,4 @@
+import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
@@ -495,6 +496,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.submitted')}</p>
           </div>
         ))}
+
+        {data?.employerResponse && <AssistedApplicationEmployerResponse response={data.employerResponse} />}
 
         {/* After the sending: the documents that left, to keep, with the editable Word copies beside them. */}
         {data && data.state === 'submitted' && data.keptDocuments && (
