@@ -124,7 +124,8 @@
       const owner = label.closest('label') || label;
       return label.closest(QUESTION_GROUP_SELECTOR) === group && !owner.contains(element)
         && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
-        && (!owner.matches('label[for]') || Boolean(element.id) && owner.getAttribute('for') === element.id);
+        && (!owner.matches('label[for]') || Boolean(element.id) && owner.getAttribute('for') === element.id)
+        && [...owner.querySelectorAll('label[for]')].every(linked => Boolean(element.id) && linked.getAttribute('for') === element.id);
     });
   const labelFor = (element) => {
     if (element.id) {
@@ -332,7 +333,7 @@
   const groupQuestion = (element) => {
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, 'legend, .question, .label, h3, h4', element)) {
-      if (legend.closest('label')?.hasAttribute('for')) continue; // An option's label never names the whole group.
+      if (legend.closest('label')?.hasAttribute('for') || legend.querySelector('label[for]')) continue; // An option's label never names the whole group.
       const text = !legend.contains(element) && clean(legend.innerText || legend.textContent);
       if (text) return text;
     }
