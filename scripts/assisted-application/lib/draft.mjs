@@ -9,6 +9,7 @@
  * same, so only the two calls that depend on the feedback run again.
  */
 
+import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequirements.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
 import {
@@ -218,7 +219,8 @@ export async function buildDraft(ctx) {
     schema: MATCH_SCHEMA,
     timeoutMs: CODEX_TIMEOUT_MS,
   });
-  const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}\n${candidateNotes}`);
+  const match = guardMobilityMatch(requirements, sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}\n${candidateNotes}`),
+    { profile, sourceText: `${cvText}\n${candidateNotes}`, answers, memory: flow?.questionAnswers || {}, locale });
   let requiredDocuments = requiredDocumentsFromRequirements(requirements);
   // A document the posting requires is uploaded, not asked about (owner decision 2026-10-08): «do you hold the
   // driver qualification card?» next to that very card among the documents held the order twice for one

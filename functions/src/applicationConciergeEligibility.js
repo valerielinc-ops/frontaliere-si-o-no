@@ -10,9 +10,10 @@ import { fetchJobPosting } from './assistedApplicationAiJob.js';
 import { sanitizeProfile, sanitizeRequirements, sanitizeMatch, verifyQuotes } from './assistedApplicationAiDraftCore.js';
 import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SCHEMA, REQUIREMENTS_SYSTEM_PROMPT,
   requirementsUserText, MATCH_SCHEMA, matchSystemPrompt, matchUserText } from './assistedApplicationAiPrompts.js';
+import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
 
-export const CONCIERGE_ELIGIBILITY_VERSION = 'full-posting-requirements-v1';
+export const CONCIERGE_ELIGIBILITY_VERSION = 'full-posting-requirements-v2-mobility';
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
@@ -63,7 +64,8 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
   const matchRaw = await generate(matchSystemPrompt(locale), matchUserText({ profile: normalizedProfile, requirements, answers,
     postingExcerpt: posting.text, sourceText }), MATCH_SCHEMA);
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
-  const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`);
+  const match = guardMobilityMatch(requirements, sanitizeMatch(matchRaw, requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
+    { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
   const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
   return { ...result, postingHash, requirements, match, posting };
 }
