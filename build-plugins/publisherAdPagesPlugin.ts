@@ -29,6 +29,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildJobPostingSchema } from './shared/jobPostingSchema';
 import { composeSerpJobTitle, META_DESCRIPTION_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
+import { jobTitleLocaleQualifiers } from './shared/jobTitleLocaleCollision';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { WriteCollector } from './batchWrite';
 import {
@@ -456,6 +457,11 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${detailPath('it', slug)}">`,
         ].join('\n');
 
+        const titleLocaleQualifiers = jobTitleLocaleQualifiers(
+          String(rec.title || ''), String(rec.company || '').trim(),
+          String(rec.location || rec.addressLocality || '').trim(), (value) => esc(value).length,
+          Object.fromEntries(LOCALES.map((locale) => [locale, localizedTitle(rec, locale)])),
+        );
         for (const locale of LOCALES) {
           const urlPath = detailPath(locale, slug);
           const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -488,7 +494,9 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           // unbounded — route through the shared role/company/city cascade
           // (same helper as job-detail pages) so long combinations truncate
           // word-aware instead of overflowing the 66-char cap via raw concat.
-          const metaTitle = composeSerpJobTitle(title, company, place, locale);
+          const metaTitle = composeSerpJobTitle(title, company, place, locale, {
+            disambiguator: titleLocaleQualifiers[locale], measureLength: (value) => esc(value).length,
+          });
           // Surrogate-safe (truncateHeadline slices via truncateCodeUnits): ad
           // bodies are user-submitted and contain emoji; a raw slice can split a
           // pair and leave a lone surrogate (� in the SERP snippet). It also adds
