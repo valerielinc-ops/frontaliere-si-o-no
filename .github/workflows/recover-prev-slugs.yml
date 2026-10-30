@@ -424,6 +424,8 @@ jobs:
             --path data/jobs/by-crawler/ \
             --path data/jobs/expired/by-crawler/ \
             --path data/jobs-crawler-summaries/by-crawler/ \
+            --reconcile-main \
+            --reconcile-refresh-paths \
             --branch chore/recover-prev-slugs \
             --commit-message "$COMMIT_MSG" \
             --title "chore(data): recover lost previousSlugs" \
