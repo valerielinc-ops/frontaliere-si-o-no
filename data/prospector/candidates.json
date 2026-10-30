@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-30T13:32:30.125Z",
+  "updatedAt": "2026-10-30T13:34:34.245Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -388861,12 +388861,12 @@
     },
     "elektriker-elektromonteur-jobs.ch": {
       "key": "elektriker-elektromonteur-jobs.ch",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-09-20T08:57:48.192Z",
-      "updatedAt": "2026-10-29T14:37:12.152Z",
+      "updatedAt": "2026-10-30T13:34:34.151Z",
       "name": "elektriker-elektromonteur-jobs",
       "domain": "elektriker-elektromonteur-jobs.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -389117,7 +389117,13 @@
         }
       ],
       "promotionPr": "15918",
-      "promotionBranch": "prospector/promote-2026-10-29"
+      "promotionBranch": "prospector/promote-2026-10-29",
+      "promotedAt": "2026-10-29T19:26:07Z",
+      "firstCrawlerOutputStatus": "empty",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-30T09:42:41.692Z",
+      "firstCrawlerJobCount": 0
     },
     "elektrisola-feindraht@escholzmatt": {
       "key": "elektrisola-feindraht@escholzmatt",
@@ -909056,12 +909062,12 @@
     },
     "nishcom.ch": {
       "key": "nishcom.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-09-22T09:21:56.440Z",
-      "updatedAt": "2026-10-29T14:37:12.153Z",
+      "updatedAt": "2026-10-30T13:34:34.152Z",
       "name": "nishcom",
       "domain": "nishcom.ch",
       "careersUrl": "https://nishcom.jobs.personio.de/job/2844123?language=de",
@@ -909277,7 +909283,13 @@
         }
       ],
       "promotionPr": "15918",
-      "promotionBranch": "prospector/promote-2026-10-29"
+      "promotionBranch": "prospector/promote-2026-10-29",
+      "promotedAt": "2026-10-29T19:26:07Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-30T09:20:50.823Z",
+      "firstCrawlerJobCount": 1
     },
     "nitrochemie-wimmis@wimmis": {
       "key": "nitrochemie-wimmis@wimmis",
@@ -933375,12 +933387,12 @@
     },
     "opacc.ch": {
       "key": "opacc.ch",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-23T04:13:00.273Z",
-      "updatedAt": "2026-10-29T14:37:12.153Z",
+      "updatedAt": "2026-10-30T13:34:34.152Z",
       "name": "Opacc Software AG",
       "domain": "opacc.ch",
       "city": "Rothenburg",
@@ -933619,7 +933631,13 @@
         }
       ],
       "promotionPr": "15918",
-      "promotionBranch": "prospector/promote-2026-10-29"
+      "promotionBranch": "prospector/promote-2026-10-29",
+      "promotedAt": "2026-10-29T19:26:07Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "opal-associates@wetzikon-zh": {
       "key": "opal-associates@wetzikon-zh",
@@ -985771,12 +985789,12 @@
     },
     "pks-bewerbung.ch": {
       "key": "pks-bewerbung.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-09-27T09:43:28.741Z",
-      "updatedAt": "2026-10-29T14:37:12.153Z",
+      "updatedAt": "2026-10-30T13:34:34.152Z",
       "name": "pks-bewerbung",
       "domain": "pks-bewerbung.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -986027,7 +986045,13 @@
         }
       ],
       "promotionPr": "15918",
-      "promotionBranch": "prospector/promote-2026-10-29"
+      "promotionBranch": "prospector/promote-2026-10-29",
+      "promotedAt": "2026-10-29T19:26:07Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-30T09:41:37.558Z",
+      "firstCrawlerJobCount": 3
     },
     "pks-personal-kaderselektion": {
       "key": "pks-personal-kaderselektion",
@@ -993421,12 +993445,12 @@
     },
     "policelavaux.ch": {
       "key": "policelavaux.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-22T04:10:02.869Z",
-      "updatedAt": "2026-10-29T14:37:12.152Z",
+      "updatedAt": "2026-10-30T13:34:34.153Z",
       "name": "policelavaux",
       "domain": "policelavaux.ch",
       "careersUrl": "https://www.policelavaux.ch/emplois/devenir-policier/",
@@ -993677,7 +993701,13 @@
         }
       ],
       "promotionPr": "15918",
-      "promotionBranch": "prospector/promote-2026-10-29"
+      "promotionBranch": "prospector/promote-2026-10-29",
+      "promotedAt": "2026-10-29T19:26:07Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-30T09:47:20.698Z",
+      "firstCrawlerJobCount": 4
     },
     "policentro.ch": {
       "key": "policentro.ch",
