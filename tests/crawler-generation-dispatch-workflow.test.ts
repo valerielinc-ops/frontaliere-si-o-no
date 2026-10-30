@@ -234,7 +234,7 @@ describe('crawler generation PR B workflow wiring', () => {
       // Il drift che quel confronto inseguiva resta chiuso, e piu' stretto: le
       // due uguaglianze sha256 qui sotto legano OGNI artefatto alla sua sorgente
       // attraverso `contract.json`, e tests/generate-crawler-group-workflows.test.ts
-      // rigenera i 24 gruppi e li confronta byte a byte. Una modifica a mano
+      // rigenera i 25 gruppi e li confronta byte a byte. Una modifica a mano
       // dell'artefatto resta rossa; una rigenerazione corretta ora passa.
       expect(crawler.concurrency).toEqual({
         group: `jobs-crawler-group-${group}`,

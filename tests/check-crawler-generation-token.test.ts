@@ -56,7 +56,7 @@ describe('generated crawler groups validate the token before crawling', () => {
   ];
 
   it('covers every logic and corpus group workflow', () => {
-    expect(workflows.length).toBe(48);
+    expect(workflows.length).toBe(50);
   });
 
   it.each(workflows.map(({ file, doc }) => [file, doc]))('%s', (_file, doc: any) => {

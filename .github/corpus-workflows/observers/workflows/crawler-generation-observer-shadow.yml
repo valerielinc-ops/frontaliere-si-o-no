@@ -47,6 +47,7 @@ on:
       - Crawler Group 22 (sparse cross-repo execution)
       - Crawler Group 23 (sparse cross-repo execution)
       - Crawler Group 24 (sparse cross-repo execution)
+      - Crawler Group 25 (sparse cross-repo execution)
     types: [completed]
     branches: ['crawler-generation-shadow-*']
   schedule:

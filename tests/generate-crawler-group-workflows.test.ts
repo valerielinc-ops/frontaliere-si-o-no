@@ -4212,8 +4212,8 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
 
   it('every committed generated workflow is within the budget', () => {
     const files = committedWorkflowFiles();
-    // 24 copie portabili del corpus + 24 gruppi + 24 logic del sito.
-    expect(files.filter((file) => /crawler-group-\d+\.yml$/.test(file)).length).toBeGreaterThanOrEqual(48);
+    // 25 copie portabili del corpus + 25 gruppi + 25 logic del sito.
+    expect(files.filter((file) => /crawler-group-\d+\.yml$/.test(file)).length).toBeGreaterThanOrEqual(50);
     const violations = workflowSizeBudgetViolations(
       files.map((file) => ({ file, content: fs.readFileSync(path.join(ROOT, file), 'utf8') })),
     );

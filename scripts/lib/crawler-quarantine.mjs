@@ -1,8 +1,9 @@
 /**
  * Crawler quarantine: the entry, tolerated verdict, recovery and owner review.
  *
- * Il gruppo di quarantena (crawler-group-24) e' nato il 2026-09-22 (#9522) come
- * raccolta a mano dei crawler che fallivano, e da allora ci si entrava solo con
+ * Il gruppo di quarantena (ora crawler-group-25, prima crawler-group-24) e'
+ * nato il 2026-09-22 (#9522) come raccolta a mano dei crawler che fallivano,
+ * e da allora ci si entrava solo con
  * PR manuali (#9580, #9632, #9796, #9970, #10012, #10111) senza alcuna uscita:
  * il gruppo chiudeva rosso a ogni ondata per costruzione («16 succeeded, 4
  * failed» il 28-09), e un rosso nuovo dentro lo stesso gruppo non si vedeva.

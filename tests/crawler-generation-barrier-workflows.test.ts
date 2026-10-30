@@ -143,7 +143,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
     }
   });
 
-  it('renders all 24 groups before atomically replacing any destination', () => {
+  it('renders all 25 groups before atomically replacing any destination', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-late-render-'));
     try {
       const outDir = path.join(tmp, 'workflows');
@@ -210,7 +210,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
     expect(fs.readFileSync(ASSIGNMENTS)).toEqual(before);
   });
 
-  it('derives every registered identity and emits inherited receipt env plus terminal shadow steps for all 24 groups', () => {
+  it('derives every registered identity and emits inherited receipt env plus terminal shadow steps for all 25 groups', () => {
     const results: any = generate({ outDir: WORKFLOWS, assignmentsPath: ASSIGNMENTS, write: false });
     const committedRoster = JSON.parse(fs.readFileSync(ROSTER, 'utf8'));
     const assignedCrawlerIds = Object.values(committedRoster.groups).flat() as string[];
