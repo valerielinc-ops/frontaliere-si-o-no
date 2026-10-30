@@ -7,6 +7,7 @@ import {
   validatePlateAuctionSourceEntry,
 } from '../services/plateAuctions/types';
 import { normalizePlateAuctionRedirectUrl } from '../functions/src/plateAuctionUrlNormalization.js';
+import { FR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 
 /**
  * Schema guard for `data/plate-auction-sources-registry.json` (#6355, prereq
@@ -101,7 +102,8 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.ti.status).toBe('active');
     expect(registry.sources.ti.officialUrl).toBe('https://www.carieauktion.ti.ch/ecari-auktion/');
     expect(registry.sources.fr.status).toBe('active');
-    expect(registry.sources.fr.officialUrl).toBe('https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch');
+    expect(FR_ECARI_CATALOGUE_URL).toBe('https://appls.ocn.ch/ecari-auction?locale=fr_ch');
+    expect(registry.sources.fr.officialUrl).toBe(FR_ECARI_CATALOGUE_URL);
     expect(registry.sources.ne.status).toBe('blocked');
     // GE: connettore pronto (lista PDF dell'OCV su ge.ch), attivato quando
     // esce la lista d'autunno 2026; Ricardo resta solo un link.

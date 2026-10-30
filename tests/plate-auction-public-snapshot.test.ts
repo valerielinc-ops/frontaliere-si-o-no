@@ -11,6 +11,7 @@ import {
   PLATE_AUCTION_SNAPSHOT_CACHE_MS,
   resetPublicPlateAuctionSnapshotCache,
 } from "../functions/src/plateAuctions.js";
+import { FR_ECARI_CATALOGUE_URL } from "../functions/src/plateAuctionSourceUrls.js";
 
 function makeDb({ auctions = [], sources = [], history = [] } = {}) {
   return {
@@ -127,7 +128,7 @@ describe("public plate-auction snapshot source gating", () => {
           id: "fr",
           canton: "Friburgo",
           plateCode: "FR",
-          officialUrl: "https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch",
+          officialUrl: FR_ECARI_CATALOGUE_URL,
           status: "active",
           rowCount: 2,
           lastSuccessAt: "2026-09-14T12:00:00.000Z",

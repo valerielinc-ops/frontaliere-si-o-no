@@ -11,6 +11,13 @@
 export const GR_ECARI_CATALOGUE_URL = 'https://eauktion.gr.ch/ecari-auction/ui/app/init?locale=de_CH';
 
 /**
+ * OCN's current public page links to the eCari application root. Keep this
+ * endpoint shared by the Cloud Function, static collector and source registry;
+ * the portal can redirect from the root to its current application route.
+ */
+export const FR_ECARI_CATALOGUE_URL = 'https://appls.ocn.ch/ecari-auction?locale=fr_ch';
+
+/**
  * BE publishes the same official catalogue on both host aliases. The edge
  * currently returns 404 for one alias intermittently while the other still
  * serves the catalogue, so both collectors try the registry URL first and
