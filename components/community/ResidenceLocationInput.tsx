@@ -42,8 +42,8 @@ export default function ResidenceLocationInput({ value, onChange }: { value: str
   };
   const hint = status === 'loading' ? 'residenceLoading' : status === 'error' ? 'residenceUnavailable'
     : country ? 'residenceManual' : 'residenceChooseCountry';
-  const countryLabel = options.find(option => option.code === country)?.label || '';
-  const maxTownLength = countryLabel ? Math.max(1, 120 - countryLabel.length - 2) : 120;
+  const countrySuffixLength = formatResidenceLocation('x', country, locale).length - 1;
+  const maxTownLength = Math.max(1, 120 - countrySuffixLength);
   const control = 'mt-1 min-h-11 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-base text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent';
   return <div className="min-w-0 space-y-3">
     <div>

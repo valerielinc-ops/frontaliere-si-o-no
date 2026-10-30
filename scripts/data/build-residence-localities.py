@@ -80,7 +80,7 @@ def build(output):
     output.mkdir(parents=True, exist_ok=True)
     for code, labels in catalogues.items():
         (output / (code + '.json')).write_text(json.dumps(labels, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
-    manifest = {'source': BASE, 'license': 'CC-BY-4.0', 'attribution': 'GeoNames',
+    manifest = {'source': BASE, 'license': 'CC-BY-4.0', 'licenseUrl': 'https://creativecommons.org/licenses/by/4.0/', 'attribution': 'GeoNames',
                 'generatedAt': datetime.now(timezone.utc).isoformat(), 'sha256': hashes,
                 'countries': countries, 'counts': {code: len(values) for code, values in catalogues.items()}, 'total': count}
     (output / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

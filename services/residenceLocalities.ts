@@ -11,20 +11,28 @@ export function residenceCountries(locale: string) {
     .sort((a, b) => a.label.localeCompare(b.label, locale));
 }
 
-const countryNames = new Map<string, string>();
+const countryNames = new Map<string, string | null>();
+function addCountryName(label: string, code: string) {
+  const key = foldResidenceText(label);
+  countryNames.set(key, countryNames.has(key) && countryNames.get(key) !== code ? null : code);
+}
 for (const [code, name] of Object.entries(countries)) {
-  countryNames.set(foldResidenceText(code), code);
-  countryNames.set(foldResidenceText(name), code);
+  addCountryName(name, code);
 }
 for (const locale of ['it', 'en', 'de', 'fr']) {
-  for (const { code, label } of residenceCountries(locale)) countryNames.set(foldResidenceText(label), code);
+  for (const { code, label } of residenceCountries(locale)) addCountryName(label, code);
 }
 
 /** Only an explicit country suffix counts: a town or postal code proves no country. */
 export function parseResidenceLocation(value: string) {
   const split = value.lastIndexOf(',');
   if (split < 0) return { country: '', town: value };
-  const country = countryNames.get(foldResidenceText(value.slice(split + 1)));
+  const suffix = value.slice(split + 1).trim();
+  // Two-letter province/canton abbreviations (CO, CH, GE…) are not countries.
+  // Georgia is also a US state: require the explicit name-plus-country marker.
+  const encoded = suffix.match(/^(.+) \(([A-Z]{2})\)$/);
+  const named = countryNames.get(foldResidenceText(encoded?.[1] || suffix));
+  const country = encoded ? (named === encoded[2] ? named : null) : named === 'GE' ? null : named;
   return country ? { country, town: value.slice(0, split).trim() } : { country: '', town: value };
 }
 
@@ -32,7 +40,7 @@ export function formatResidenceLocation(town: string, country: string, locale: s
   const clean = town.trim();
   if (!clean) return '';
   const label = countries[country] ? new Intl.DisplayNames([locale], { type: 'region' }).of(country) : '';
-  return label ? `${clean}, ${label}` : clean;
+  return label ? `${clean}, ${label}${country === 'GE' ? ' (GE)' : ''}` : clean;
 }
 
 /** Load only the selected country. Typing never sends residence text to a geocoder. */

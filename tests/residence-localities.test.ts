@@ -4,8 +4,8 @@ import { formatResidenceLocation, loadResidenceLocalities, parseResidenceLocatio
 
 describe('international concierge residence', () => {
   it('recognizes explicit country names in all site languages without inferring from town names', () => {
-    for (const country of ['Italia', 'Italy', 'Italien', 'Italie', 'IT']) expect(parseResidenceLocation(`Como, ${country}`)).toEqual({ town: 'Como', country: 'IT' });
-    for (const value of ['Como', '6900', 'Albania', 'Paris, Texas', 'Lugano Switzerland']) expect(parseResidenceLocation(value)).toEqual({ town: value, country: '' });
+    for (const country of ['Italia', 'Italy', 'Italien', 'Italie']) expect(parseResidenceLocation(`Como, ${country}`)).toEqual({ town: 'Como', country: 'IT' });
+    for (const value of ['Como', '6900', 'Albania', 'Paris, Texas', 'Lugano Switzerland', 'Atlanta, Georgia', 'Como, CO', 'Vasto, CH']) expect(parseResidenceLocation(value)).toEqual({ town: value, country: '' });
     expect(parseResidenceLocation('Tiranë, Albanie')).toEqual({ town: 'Tiranë', country: 'AL' });
   });
   it('preserves explicit country provenance on a round trip and supports manual entries', () => {
@@ -13,6 +13,7 @@ describe('international concierge residence', () => {
       const value = formatResidenceLocation('Unlisted village', 'AL', locale);
       expect(parseResidenceLocation(value)).toEqual({ town: 'Unlisted village', country: 'AL' });
     }
+    expect(parseResidenceLocation(formatResidenceLocation('Tbilisi', 'GE', 'it'))).toEqual({ town: 'Tbilisi', country: 'GE' });
     expect(formatResidenceLocation('Como', '', 'it')).toBe('Como');
     expect(formatResidenceLocation('', 'IT', 'it')).toBe('');
   });
