@@ -131,6 +131,60 @@ describe('exchangeHreflangManifests', () => {
     expect(clock - start).toBeLessThanOrEqual(DEFAULT_DOWNLOAD_BUDGET_MS);
   });
 
+  it('shared download budget stops after deadline', async () => {
+    const { gh: fake, calls } = fakeGh();
+    const slowGh = async (args: string[], timeoutMs: number) => {
+      const out = await fake(args, timeoutMs);
+      if (args[0] === 'run') clock += DEFAULT_DOWNLOAD_BUDGET_MS + 1;
+      return out;
+    };
+    await expect(exchangeHreflangManifests({ ...base(), gh: slowGh })).rejects.toThrow(
+      'same-run hreflang manifest unavailable after 1 tries: it (download budget exhausted)',
+    );
+    expect(calls.filter((args) => args[0] === 'run')).toHaveLength(1);
+    expect(written()).toEqual([]);
+  });
+
+  it('stops before the next locale when the budget ran out between downloads', async () => {
+    const { gh: fake, calls } = fakeGh();
+    let downloads = 0;
+    const slowGh = async (args: string[], timeoutMs: number) => {
+      const out = await fake(args, timeoutMs);
+      if (args[0] === 'run') {
+        downloads += 1;
+        // Still inside the budget when it returns; the last ms goes between locales.
+        clock += DEFAULT_DOWNLOAD_BUDGET_MS - 1;
+      }
+      return out;
+    };
+    await expect(exchangeHreflangManifests({
+      ...base(),
+      gh: slowGh,
+      log: (line: string) => { if (line.includes('downloaded')) clock += 1; },
+    })).rejects.toThrow('same-run hreflang manifest unavailable after 0 tries: en (download budget exhausted)');
+    expect(downloads).toBe(1);
+    expect(calls.filter((args) => args[0] === 'run')).toHaveLength(1);
+    expect(written()).toEqual(['it.json']);
+  });
+
+  it('never gives one try more time than the budget has left', async () => {
+    const timeouts: number[] = [];
+    const { gh: fake } = fakeGh({ download: { it: [EGRESS] } });
+    const recordingGh = async (args: string[], timeoutMs: number) => {
+      if (args[0] === 'run') {
+        timeouts.push(timeoutMs);
+        clock += DEFAULT_DOWNLOAD_BUDGET_MS - 60_000;
+      }
+      return fake(args, timeoutMs);
+    };
+    await expect(exchangeHreflangManifests({
+      ...base(),
+      gh: recordingGh,
+    })).rejects.toBeInstanceOf(ManifestExchangeError);
+    expect(timeouts[0]).toBe(180_000);
+    expect(timeouts[1]).toBeLessThanOrEqual(55_000);
+  });
+
   it('does not retry a corrupt manifest: the artifact is immutable', async () => {
     const { gh, calls } = fakeGh({ download: { it: ['{"version":1'] } });
     await expect(exchangeHreflangManifests({ ...base(), gh })).rejects.toThrow(/invalid same-run hreflang manifest it: unparsable/);

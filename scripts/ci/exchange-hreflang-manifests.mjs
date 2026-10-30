@@ -172,10 +172,19 @@ export async function downloadManifest({
   log = console.log,
 }) {
   const name = manifestArtifactName(locale, runId, runAttempt);
+  const unavailable = (tries, reason) => new ManifestExchangeError(
+    `same-run hreflang manifest unavailable after ${tries} tries: ${locale} (${reason})`,
+  );
   for (let attempt = 1; ; attempt += 1) {
+    const remainingMs = deadline - now();
+    if (remainingMs <= 0) throw unavailable(attempt - 1, 'download budget exhausted');
     const dir = fs.mkdtempSync(path.join(manifestDir, `.download-${locale}-`));
     try {
-      await gh(['run', 'download', String(runId), '--repo', repo, '--name', name, '--dir', dir], DOWNLOAD_TIMEOUT_MS);
+      await gh(
+        ['run', 'download', String(runId), '--repo', repo, '--name', name, '--dir', dir],
+        Math.min(DOWNLOAD_TIMEOUT_MS, remainingMs),
+      );
+      if (now() >= deadline) throw unavailable(attempt, 'download budget exhausted');
       const file = path.join(dir, `${locale}.json`);
       readForeignManifest(file, locale, runId);
       fs.renameSync(file, path.join(manifestDir, `${locale}.json`));
@@ -183,11 +192,7 @@ export async function downloadManifest({
     } catch (error) {
       if (error instanceof ManifestExchangeError) throw error;
       const delay = Math.min(BACKOFF_BASE_MS * 2 ** (attempt - 1), BACKOFF_MAX_MS);
-      if (now() + delay >= deadline) {
-        throw new ManifestExchangeError(
-          `same-run hreflang manifest unavailable after ${attempt} tries: ${locale} (${describeError(error)})`,
-        );
-      }
+      if (now() + delay >= deadline) throw unavailable(attempt, describeError(error));
       log(`::warning::same-run hreflang manifest ${locale}: try ${attempt} failed (${describeError(error)}), retrying in ${Math.round(delay / 1000)}s`);
       await sleep(delay);
     } finally {
