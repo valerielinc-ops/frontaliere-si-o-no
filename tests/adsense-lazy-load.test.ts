@@ -64,12 +64,10 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     expect(ADSENSE_SNIPPET).toContain(ADSENSE_LAZY_LOADER);
     // ADSENSE_LAZY_LOADER is a tiny <script src="..."> tag pointing to the
     // externalised loader file written by staticScriptsPlugin. The filename is
-    // STABLE (no query string, no content hash — vite.config.ts stable-name
-    // policy, pinned by tests/stable-asset-names.test.ts): a loader-body change
-    // propagates via the serving stack's max-age=600 revalidation instead of a
-    // rename, so the ~822k pages embedding this tag never churn on it.
+    // Privacy guards are content-addressed for new HTML; the stable alias
+    // remains emitted for older pages during cache convergence.
     expect(ADSENSE_LAZY_LOADER).toMatch(
-      /<script\s+defer\s+src=["']\/assets\/adsense-loader\.js["']><\/script>/,
+      /<script\s+defer\s+src=["']\/assets\/adsense-loader-[a-f0-9]{12}\.js["']><\/script>/,
     );
     expect(ADSENSE_LOADER_CONTENT).toContain('IntersectionObserver');
     expect(ADSENSE_LOADER_CONTENT).toContain('rootMargin');

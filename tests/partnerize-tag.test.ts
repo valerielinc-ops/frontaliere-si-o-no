@@ -30,14 +30,14 @@ describe('Partnerize tag', () => {
     expect(constants).toContain("window.crypto.subtle.digest('SHA-1', bin)");
     expect(constants).toContain("return h.slice(0, 6) + 'p.' + h + '.com';");
     expect(constants).toContain("fetch('https://api.performancehorizon.com/v3/pzthc/' + tid");
-    expect(constants).toContain("document.addEventListener('DOMContentLoaded', pzti);");
+    expect(constants).toContain("if(document.readyState==='loading')document.addEventListener('DOMContentLoaded', pzti,{once:true});else pzti();");
   });
 
-  it('e\' servito come file esterno con defer, non inline sulle pagine statiche', () => {
+  it('cattura il contesto inline senza rendere parser-blocking il producer esterno', () => {
     const constants = read('build-plugins/constants.ts');
     expect(constants).toContain("export const PARTNERIZE_TAG_FILENAME = 'partnerize-tag.js';");
     expect(constants).toContain(
-      'export const PARTNERIZE_TAG_SNIPPET = `<script defer src="/assets/${PARTNERIZE_TAG_FILENAME}"></script>`;',
+      'export const PARTNERIZE_TAG_SNIPPET = `<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`;',
     );
   });
 
@@ -64,11 +64,12 @@ describe('Partnerize tag', () => {
     }
   });
 
-  it('e\' inline e in alto nel <head> della shell SPA', () => {
+  it('la shell SPA usa il medesimo producer protetto prima del bootstrap React', () => {
     const html = read('index.html');
-    expect(html).toContain(TAG_ID);
-    // "il piu' in alto possibile", come chiede la doc: prima del blocco SEO.
-    expect(html.indexOf(TAG_ID)).toBeLessThan(html.indexOf('<!-- SEO & Metadata -->'));
+    const tag = '<script src="/assets/partnerize-tag.js"></script>';
+    expect(html).toContain(tag);
+    expect(html).not.toContain("var pzthc = function");
+    expect(html.indexOf(tag)).toBeLessThan(html.indexOf('<!-- SEO & Metadata -->'));
   });
 
   it('il contenitore del Dynamic Ad Widget espone il selettore configurato in dashboard', () => {
