@@ -25,6 +25,8 @@ import {
   safeHref,
   sanitizeJobDescriptionHtml,
 } from '../../build-plugins/shared/jobDescription/sanitizeHtml';
+import { renderJobDescriptionContent } from '../../build-plugins/shared/jobDescriptionContent';
+import { createAuditor } from '../../scripts/audit-link-anchor-text.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 
@@ -155,6 +157,7 @@ describe('sanitizeJobDescriptionHtml — cosa resta', () => {
 describe('safeHref', () => {
   it.each([
     'javascript:alert(1)', ' JAVASCRIPT:alert(1)', 'java\nscript:alert(1)', '&#106;avascript:alert(1)',
+    'java&Tab;script:alert(1)', 'java&NewLine;script:alert(1)', '&#106avascript:alert(1)',
     '&#x6a;avascript:alert(1)', 'javascript&colon;alert(1)', 'data:text/html,x', 'vbscript:x', 'file:///etc/passwd', '',
   ])('rifiuta %j', (href) => {
     expect(safeHref(href)).toBeNull();
@@ -167,6 +170,10 @@ describe('safeHref', () => {
     ['tel:+41911234567', 'tel:+41911234567'],
     ['/en/find-jobs-ticino/', '/en/find-jobs-ticino/'],
     ['#apply', '#apply'],
+    ['/a&lt;b?x=1&amp;y=2', '/a&lt;b?x=1&amp;y=2'],
+    ['/a&amp;lt;b', '/a&amp;lt;b'],
+    ['/unicode/&#x10ffff;', `/unicode/${String.fromCodePoint(0x10ffff)}`],
+    ['/unicode/&#1114111', `/unicode/${String.fromCodePoint(0x10ffff)}`],
   ])('accetta %j', (href, expected) => {
     expect(safeHref(href)).toBe(expected);
   });
@@ -176,9 +183,49 @@ describe('JobExpiredView non inietta più la description grezza', () => {
   const src = readFileSync(path.join(ROOT, 'components/community/JobExpiredView.tsx'), 'utf8');
 
   it('passa dal serializer condiviso con le pagine statiche', () => {
-    expect(src).toContain("import { jobDescriptionTextToHtml } from '@/build-plugins/shared/jobDescription/toHtml';");
-    expect(src).toMatch(/const descriptionHtml = jobDescriptionTextToHtml\(description\);/);
+    expect(src).toContain("import { renderJobDescriptionContent } from '@/build-plugins/shared/jobDescriptionContent';");
+    expect(src).toMatch(/const descriptionHtml = renderJobDescriptionContent\(description, locale,/);
     expect(src).toContain('dangerouslySetInnerHTML={{ __html: descriptionHtml }}');
     expect(src).not.toMatch(/__html:\s*description\s*\}/);
+    const rendered = document.createElement('div');
+    rendered.innerHTML = renderJobDescriptionContent(PAYLOADS.map(([payload]) => payload).join('\n'), 'it');
+    expect(domFindings(rendered.querySelector('[data-job-description-full]')!.innerHTML)).toEqual([]);
+  });
+});
+
+describe('complete source links have descriptive destinations', () => {
+  it('repairs the real auditor violation without discarding the source link or surrounding text', () => {
+    const input = '<p>All our code is open source: <a href="https://proton.me/community/open-source">here</a>. Read about our impact.</p>';
+    const before = createAuditor({ ledger: null, sampleRate: 1 });
+    before.collect('/tmp/job-detail/index.html', input);
+    expect(before.report().passed).toBe(false);
+    const rendered = renderJobDescriptionContent(input, 'en');
+    const after = createAuditor({ ledger: null, sampleRate: 1 });
+    after.collect('/tmp/job-detail/index.html', rendered);
+    expect(after.report().passed).toBe(true);
+    expect(textOf(rendered)).toContain('All our code is open source: here (proton.me/community/open-source). Read about our impact.');
+  });
+
+  it.each(['here', 'qui', 'mehr', 'en savoir plus', 'h&#101;re', '&nbsp;here&nbsp;'])('retains %s and the safe source destination', (label) => {
+    const input = `<p>Open source: <a href="https://proton.me/community/open-source?ref=job">${label}</a></p>`;
+    const output = sanitizeJobDescriptionHtml(input);
+    expect(output).toContain(`${label} (proton.me/community/open-source)</a>`);
+    expect(output).toContain('href="https://proton.me/community/open-source?ref=job"');
+    expect(sanitizeJobDescriptionHtml(output)).toBe(output);
+    expect(domFindings(output)).toEqual([]);
+    const auditor = createAuditor({ ledger: null, sampleRate: 1 });
+    auditor.collect('/tmp/job-detail/index.html', output);
+    expect(auditor.report().passed).toBe(true);
+  });
+
+  it('preserves meaningful labels and escapes destination labels without adding credentials', () => {
+    expect(sanitizeJobDescriptionHtml('<a href="/privacy/">Privacy policy</a>'))
+      .toBe('<a href="/privacy/">Privacy policy</a>');
+    const output = sanitizeJobDescriptionHtml('<a href="https://user:pass@example.com/%3Cscript%3E">here</a>');
+    expect(output).toContain('here (example.com/%3Cscript%3E)');
+    expect(domFindings(output)).toEqual([]);
+    expect(sanitizeJobDescriptionHtml('<a href="javascript:alert(1)">here</a>')).not.toContain('href=');
+    expect(sanitizeJobDescriptionHtml('<a href="/a&lt;b?x=1&amp;y=2">here</a>'))
+      .toBe('<a href="/a&lt;b?x=1&amp;y=2">here (/a&lt;b?x=1&amp;y=2)</a>');
   });
 });
