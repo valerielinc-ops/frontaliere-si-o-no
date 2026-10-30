@@ -71,4 +71,30 @@ describe('the lazy analytics proxy forwards page-view acts unchanged', () => {
 
     expect(trackPageView.mock.calls[0]).toEqual(['/unknown/', undefined, null, null]);
   });
+
+  it('forwards the method acknowledgement through the lazy import', async () => {
+    let acknowledge!: (value: string) => void;
+    const pending = new Promise<string>((resolve) => { acknowledge = resolve; });
+    trackPageView.mockReturnValueOnce(pending);
+    const { Analytics } = await loadProxy();
+    const result = Analytics.trackPageView('/handoff/');
+    let settled = false;
+    void result.then(() => { settled = true; });
+    await flushForwardedCalls(1);
+    expect(settled).toBe(false);
+    acknowledge('sdk-acknowledged');
+    await expect(result).resolves.toBe('sdk-acknowledged');
+  });
+
+  it('keeps asynchronous failures fail-open without rejecting callers', async () => {
+    trackPageView.mockRejectedValueOnce(new Error('sdk-unavailable'));
+    const { Analytics } = await loadProxy();
+    await expect(Analytics.trackPageView('/blocked/')).resolves.toBeUndefined();
+  });
+
+  it('keeps a missing method fail-open for a stale analytics chunk', async () => {
+    const { Analytics } = await loadProxy();
+    await expect(Analytics.missingMethod()).resolves.toBeUndefined();
+  });
+
 });

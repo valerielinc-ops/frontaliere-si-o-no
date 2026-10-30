@@ -1,7 +1,8 @@
 /**
  * analyticsProxy — lightweight lazy proxy for Analytics.
  *
- * All Analytics calls are fire-and-forget; no return values are used.
+ * Most Analytics calls are fire-and-forget. Preserve returned acknowledgements
+ * for callers that must finish telemetry before a full-page navigation.
  * The proxy defers the actual import('@/services/analytics') until the
  * first user interaction (or consent grant), keeping Firebase out of the
  * critical bundle path and reducing TBT.
@@ -10,8 +11,8 @@
  * import { Analytics } from '@/services/analyticsProxy';
  * Analytics.trackPageView('/foo'); // safe to call immediately
  */
-export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
- {} as Record<string, (...a: unknown[]) => void>,
+export const Analytics: Record<string, (...a: unknown[]) => Promise<unknown>> = new Proxy(
+ {} as Record<string, (...a: unknown[]) => Promise<unknown>>,
  {
  get: (_t, method: string) =>
  (...args: unknown[]) => {
@@ -24,14 +25,14 @@ export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
  // V8 `Cannot read properties of undefined (reading 'trackFunnelStep')` —
  // same null-deref, different engine wording. Analytics is fire-and-forget,
  // so swallow both the missing-export case and any throw inside the call.
- import('@/services/analytics')
+ return import('@/services/analytics')
  .then((m) => {
  // Keep the named bot-gate export in the analytics chunk for AdSenseBanner
  // assets cached before the gate moved to shared-services.js. Production-only
  // keeps partial Vitest module doubles from needing the compatibility export.
  if (import.meta.env?.PROD) void m.isLikelyBot;
  const fn = (m.Analytics as any)?.[method];
- if (typeof fn === 'function') fn(...args);
+ if (typeof fn === 'function') return fn(...args);
  })
  .catch(() => {});
  },

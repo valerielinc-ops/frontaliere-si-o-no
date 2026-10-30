@@ -384,7 +384,7 @@ function flushQueue() {
  while (_eventQueue.length > 0) {
  const event = _eventQueue.shift()!;
  if (event.type === 'log') {
- _doLog(event.args[0], event.args[1]);
+   _doLog(event.args[0], event.args[1], event.args[2]);
  } else {
  _doSetProps(event.args[0]);
  }
@@ -393,7 +393,7 @@ function flushQueue() {
 
 let configuredTelemetryLocation: string | null = null;
 
-function _doLog(eventName: string, params?: Record<string, any>) {
+function _doLog(eventName: string, params?: Record<string, any>, onSent?: () => void) {
  try {
  if (_analytics && _logEvent) {
  // Keep SDK-generated engagement events on the current SPA route as well.
@@ -407,12 +407,17 @@ function _doLog(eventName: string, params?: Record<string, any>) {
    configuredTelemetryLocation = locationKey;
   } catch { /* A default-context update must not discard the explicit event. */ }
  }
- _logEvent(_analytics, eventName as any, params);
+ // Keep the acknowledgement out of the application event object, then add
+ // it only at the Firebase→Google tag boundary where the SDK relays the
+ // documented processing callback. `logEvent` itself returns void and must
+ // not resolve the handoff synchronously.
+ const sdkParams = onSent ? { ...(params || {}), event_callback: onSent } : params;
+ _logEvent(_analytics, eventName as any, sdkParams);
  }
  } catch (error) {
  // If logEvent failed due to IndexedDB loss, re-queue the event and attempt recovery
  if (isIndexedDbError(error)) {
- _eventQueue.push({ type: 'log', args: [eventName, params] });
+ _eventQueue.push({ type: 'log', args: [eventName, params, onSent] });
  recoverFromIndexedDbLoss();
  return;
  }
@@ -436,6 +441,11 @@ function _doSetProps(properties: Record<string, string | null>) {
 }
 
 const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
+ const onSent = typeof params?.event_callback === 'function' ? params.event_callback as () => void : undefined;
+ if (params && 'event_callback' in params) {
+  const { event_callback: _eventCallback, ...eventParams } = params;
+  params = eventParams;
+ }
  // Override GA4's automatic document URL before the asynchronous auth exchange.
  params = sanitizeTelemetryProperties({
   ...(typeof window === 'undefined' ? {} : { page_location: window.location.href, page_referrer: typeof document === 'undefined' ? '' : document.referrer }),
@@ -446,9 +456,9 @@ const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
  // reads (see ./nonProductionHost).
  if (GA4_ERROR_EVENTS.has(eventName) && isNonProductionTelemetryHost()) return;
  if (_firebaseReady) {
-  _doLog(eventName, params);
+  _doLog(eventName, params, onSent);
  } else {
-  _eventQueue.push({ type: 'log', args: [eventName, params] });
+  _eventQueue.push({ type: 'log', args: [eventName, params, onSent] });
   ensureFirebase().then(() => {
    if (_analytics && _logEvent) {
     _firebaseReady = true;
@@ -1437,7 +1447,12 @@ export const Analytics = {
   });
  },
 
- /** GA4-only click event for every attempt to open the checkout. */
+ /**
+  * GA4-only click event for every attempt to open the checkout.
+  * Firebase relays event_callback unchanged to gtag, which invokes it after
+  * event processing. logEvent returning void is not that acknowledgement.
+  * Control parameter reference: https://developers.google.com/tag-platform/gtagjs/reference/parameters
+  */
  trackApplicationConciergeCheckoutClick: () => {
   const pagePath = typeof window !== 'undefined'
    ? (() => {
@@ -1447,7 +1462,7 @@ export const Analytics = {
      return `${window.location.pathname}${query ? `?${query}` : ''}`;
     })()
    : APPLICATION_CONCIERGE_PATH;
-  logFirebaseOnly('application_concierge_checkout_click', {
+  return new Promise<void>((resolve) => logFirebaseOnly('application_concierge_checkout_click', {
    page_path: pagePath,
    page_template: 'application_concierge',
    content_group: 'jobs',
@@ -1456,10 +1471,11 @@ export const Analytics = {
    position_limit: 10,
    price_eur: 39.99,
    price_eur_cents: 3999,
-  });
+   event_callback: () => resolve(),
+  }));
  },
 
- /** Automatic recovery is distinct from a user click. */
+ /** Automatic recovery uses the same gtag processing acknowledgement as clicks. */
  trackApplicationConciergeCheckoutResume: () => {
   const pagePath = typeof window !== 'undefined'
    ? (() => {
@@ -1469,7 +1485,7 @@ export const Analytics = {
      return `${window.location.pathname}${query ? `?${query}` : ''}`;
     })()
    : APPLICATION_CONCIERGE_PATH;
-  logFirebaseOnly('application_concierge_checkout_resume', {
+  return new Promise<void>((resolve) => logFirebaseOnly('application_concierge_checkout_resume', {
    page_path: pagePath,
    page_template: 'application_concierge',
    content_group: 'jobs',
@@ -1478,7 +1494,8 @@ export const Analytics = {
    position_limit: 10,
    price_eur: 39.99,
    price_eur_cents: 3999,
-  });
+   event_callback: () => resolve(),
+  }));
  },
 
  /** A visible referral CTA; Firebase is the unsampled source of truth. */
