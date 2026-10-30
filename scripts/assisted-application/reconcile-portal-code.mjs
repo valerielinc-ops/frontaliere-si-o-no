@@ -3,7 +3,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { evaluateRedFlags, roundWasSent } from '../../functions/src/assistedApplicationFlow.js';
-import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomation.js';
+import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
 import { getRemoteConfig } from 'firebase-admin/remote-config';
 import { portalCodeVersion, portalRecoveryDefinitelyUnsent } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 

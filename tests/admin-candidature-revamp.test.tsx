@@ -104,6 +104,9 @@ describe('admin candidature revamp', () => {
   });
 
   it('shows the real candidate portal in preview without fetching a candidate session or restarting payment', async () => {
+    // Resolve the real lazy module before exercising preview behavior; the
+    // assertion is about read-only preview, not CI module-transform latency.
+    await import('@/components/community/ApplicationConciergePortal');
     render(<ApplicationConciergeAdmin />);
     fireEvent.click(await screen.findByRole('button', { name: /Bob.*Apri utente/ }));
     fireEvent.click(screen.getByRole('button', { name: 'Vedi come candidato' }));

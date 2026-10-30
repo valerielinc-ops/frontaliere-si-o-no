@@ -5,7 +5,6 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { transition } from '../../functions/src/assistedApplicationFlow.js';
 import { OPERATIONAL_DEFAULTS_VERSION } from '../../functions/src/assistedApplicationOperationalAnswers.js';
-import { draftRefFor, flowRefFor } from '../../functions/src/assistedApplicationAutomation.js';
 
 export async function reconcileOperationalAnswers({ db, apply = false, nowMs = Date.now() }) {
   const counts = { scanned: 0, eligible: 0, queued: 0, alreadyQueued: 0 };
@@ -21,7 +20,7 @@ export async function reconcileOperationalAnswers({ db, apply = false, nowMs = D
       if (doc.data().paymentStatus !== 'paid' || doc.data().refundStatus === 'pending') continue;
       const outcome = await db.runTransaction(async transaction => {
         const [orderDoc, flowDoc, draftDoc] = await Promise.all([
-          transaction.get(doc.ref), transaction.get(flowRefFor(db, doc.id)), transaction.get(draftRefFor(db, doc.id)),
+          transaction.get(doc.ref), transaction.get(doc.ref.collection('automation').doc('flow')), transaction.get(doc.ref.collection('ai_drafts').doc('current')),
         ]);
         const order = orderDoc.data();
         if (order?.paymentStatus !== 'paid' || order.refundStatus === 'pending') return null;

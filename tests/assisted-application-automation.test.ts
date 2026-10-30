@@ -23,6 +23,7 @@ const {
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
 const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationFlow.js');
+const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
@@ -639,7 +640,7 @@ describe('sweep', () => {
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'submit_handoff', reason }, actor: 'runner', runEffect, nowMs: T0 + 2_000 });
     effects = [];
 
-    const retryAt = T0 + 2_000 + PORTAL_AUTO_RETRY_DELAYS_MS[0];
+    const retryAt = T0 + 2_000 + autoRetryDelaysForFlow({ heldBy: [`portal:${reason}`] })[0];
     expect(store.read(ORDER_PATH)).toMatchObject({ automationState: 'owner_takeover', automationDueAt: retryAt });
     expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: retryAt - 1 })).toMatchObject({ portalRetries: 0 });
     expect(effects).toEqual([]);
@@ -647,7 +648,8 @@ describe('sweep', () => {
     expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: retryAt })).toMatchObject({ portalRetries: 1 });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
       state: 'submitting',
-      portalAutoRetryCount: 1,
+      portalAutoRetryCount: reason === 'captcha_provider_unavailable' ? 0 : 1,
+      transportAutoRetryCount: reason === 'captcha_provider_unavailable' ? 1 : 0,
       portalAutoRetryAt: null,
       dispatch: { mode: 'submit', round: 1, requestedAt: retryAt, attempts: 1, reason: 'portal_auto_retry' },
     });
