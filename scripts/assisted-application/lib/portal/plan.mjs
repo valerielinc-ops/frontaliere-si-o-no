@@ -721,6 +721,7 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
 export function questionTopic(label, context = '', metadata = {}) {
   const text = questionFromLabel(label);
+  if (BIRTH_LOCATION_RE.test(text)) return '';
   // `context` is a flattened list of nearby sibling labels, not a trusted
   // parent label. Use it only for the narrowly scoped aliases below; it must
   // not assign another sibling's semantic topic to this question.
@@ -762,7 +763,6 @@ export function questionTopic(label, context = '', metadata = {}) {
   // Birthplace is a separate hard fact. Neither the residence city nor the
   // known date of birth answers it; an explicit matching answer can still be
   // reused without assigning all birthplace questions a shared date topic.
-  if (BIRTH_LOCATION_RE.test(text)) return '';
   // A broad "birth/nascita" marker identifies sensitive data, not a date.
   // A native date control can resolve an otherwise bare birth caption.
   const nativeBirthDate = /^(?:birth|nascita|geburt|naissance)$/iu.test(text)

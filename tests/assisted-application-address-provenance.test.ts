@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 import { describe, expect, it } from 'vitest';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
-import { candidateAnswerForField } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 const bundle = readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8');
 const candidate = { identity: { address: { city: 'Como', country: 'Italia' } }, profile: { dateOfBirth: '1990-01-02', nationality: 'Italia' }, answers: [] };
@@ -35,6 +35,7 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     '<section aria-labelledby="owner"><span id="owner" hidden>Employer</span>',
     '<fieldset aria-labelledby="missing-owner">', '<fieldset><legend>Place of birth</legend>',
     `<section aria-labelledby="owner"><span id="owner">Personal information ${'x'.repeat(310)} Employer</span>`,
+    '<fieldset aria-labelledby="owner"><span id="owner">Personal information</span><span id="owner">Employer</span>',
   ])('never substitutes residence or DOB for another named owner', (open) => {
     const close = open.startsWith('<fieldset') ? '</fieldset>' : open.startsWith('<section') ? '</section>' : '</div>';
     const field = nativeField(`<form><h2>Personal information</h2>${open}<div role="group"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></div>${close}</form>`, reader);
@@ -57,7 +58,7 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Como', source: 'identity' });
   });
 
-  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita', 'Commune de naissance', 'Ort der Geburt', 'Nato a', 'Birth country', 'Provincia di nascita'])('does not answer %s with a known date of birth or nationality', (label) => {
+  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita', 'Commune de naissance', 'Ort der Geburt', 'Nato a', 'Birth country', 'Provincia di nascita', 'Nationality / Country of birth', 'Nazionalità / Paese di nascita'])('does not answer %s with a known date of birth or nationality', (label) => {
     const field = nativeField(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" name="city"></form>`, reader);
     expect(candidateAnswerForField(candidate, field)).toBeNull();
   });
@@ -65,5 +66,25 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
   it.each(['Date of birth', 'DOB', 'Data di nascita', 'Quando sei nato?', 'Geburtsdatum', 'Date de naissance'])('still answers the actual %s date question', (label) => {
     const field = nativeField(`<form><h2>Personal information</h2><label for="dob">${label}</label><input id="dob" name="dob" type="date"></form>`, reader, 'dob');
     expect(candidateAnswerForField(candidate, field)).toEqual({ value: '1990-01-02', source: 'profile' });
+  });
+
+  it('uses native date semantics for a bare birth caption but not arbitrary text', () => {
+    const input = nativeField('<form><h2>Personal information</h2><label for="dob">Birth</label><input id="dob" name="dob" type="date"></form>', reader, 'dob');
+    expect(candidateAnswerForField(candidate, input)).toEqual({ value: '1990-01-02', source: 'profile' });
+    expect(candidateAnswerForField(candidate, { ...input, inputType: 'text', kind: 'text' })).toBeNull();
+  });
+
+  it('retains an explicit exact answer without substituting another birth fact', () => {
+    const field = nativeField('<form><h2>Personal information</h2><label for="city">Place of birth</label><input id="city" name="city"></form>', reader);
+    const stated = { ...candidate, portalQuestionsAnswered: [{ question: field.label, context: field.context, section: field.section, autocomplete: field.autocomplete, answer: 'Lugano', source: 'candidate' }] };
+    expect(candidateAnswerForField(stated, field)).toEqual({ value: 'Lugano', source: 'answers' });
+    expect(candidateAnswerForField(stated, { ...field, label: 'Country of birth' })).toBeNull();
+  });
+
+  it('does not invent DOB when the profile has no date of birth', () => {
+    const field = nativeField('<form><label for="dob">DOB</label><input id="dob" name="dob" type="date" required></form>', reader, 'dob');
+    const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: '1990-01-02', source: 'inferred' }], missingRequired: [] }, [field], { ...candidate, profile: {} });
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired.some((item: any) => item.fieldId === field.id)).toBe(true);
   });
 });

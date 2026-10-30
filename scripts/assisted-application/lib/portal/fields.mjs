@@ -378,7 +378,9 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       if (node.matches(scopes)) {
         if (!add(node.getAttribute('aria-label') || '')) return result;
         for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
-          const named = node.ownerDocument.getElementById(id);
+          const matches = node.ownerDocument.querySelectorAll(`[id="${CSS.escape(id)}"]`);
+          if (matches.length !== 1) { result.unknown = true; return result; }
+          const named = matches[0];
           const name = String(named?.innerText || named?.textContent || '').replace(/\s+/g, ' ').trim();
           // Hidden text explicitly referenced by ARIA still names the owner.
           if (!name) { result.unknown = true; return result; }
