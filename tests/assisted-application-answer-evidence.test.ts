@@ -150,3 +150,13 @@ describe('ordering survives source cleanup and bounded clocks', () => {
     expect(plan.records).toEqual({});
   });
 });
+
+describe('policy preferences are never confirmed candidate facts', () => {
+  it('does not attest a policy_default value even when a caller labels itself owner', () => {
+    const q = { id: 'notice', question: 'What is your notice period in months?', type: 'number', source: 'policy_default' };
+    const f = fixture(q, '3', 'owner');
+    expect(f.records[f.key]).toMatchObject({ cleared: true });
+    expect(f.records[f.key]).not.toHaveProperty('answer');
+    expect(f.records[f.key]).not.toHaveProperty('question');
+  });
+});

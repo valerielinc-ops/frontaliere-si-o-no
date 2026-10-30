@@ -113,7 +113,7 @@ const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
 
 /** Complete general questions only: additional domain, future or employer clauses retain their own key. */
 export function isGeneralCandidateLanguageQuestion(value) {
-  const text = normalizeQuestionValue(value).split(' ').map(word => isLanguageNameOnly(word) ? 'language_target' : word).join(' ');
+  const text = normalizeQuestionValue(value).split(' ').map(word => languageCodesIn(word).length === 1 && isLanguageNameOnly(word) ? 'language_target' : word).join(' ');
   return /^(?:what is your (?:current )?(?:(?:written|spoken|oral) )?language_target (?:proficiency(?: level)?|fluency level|level)|what is your (?:current )?level of language_target|do you speak language_target(?: if so how would you describe your proficiency level)?|qual e il tuo (?:attuale )?livello di language_target|parli language_target|wie ist (?:ihr|dein) (?:aktuelles )?niveau in language_target|sprechen sie language_target|quel est votre niveau (?:actuel )?(?:en|de) language_target|parlez vous language_target)$/.test(text);
 }
 
@@ -130,7 +130,10 @@ export function candidateQuestionAnswerKey(question) {
     const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
     const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
     const kind = threshold ? `threshold_${threshold}` : LANGUAGE_LEVEL_RE.test(normalized) ? 'proficiency' : 'ability';
-    return `language_${languageCodes[0]}_${modality}_${kind}`;
+    const levelField = kind === 'proficiency' && ['text', 'choice'].includes(question?.type || 'text')
+      && !optionValues(question).some(option => /^(?:yes|no|si|ja|nein|oui|non|true|false)$/.test(option));
+    const binaryField = kind === 'ability' && ['yes_no', 'checkbox'].includes(question?.type);
+    if (levelField || binaryField) return `language_${languageCodes[0]}_${modality}_${kind}`;
   }
   const normalized = normalizeQuestionValue(text);
   if (!normalized) return '';

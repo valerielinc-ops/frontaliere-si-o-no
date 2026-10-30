@@ -23,8 +23,9 @@ const LEVEL = /^(?:[abc][12]|native|mother tongue|madrelingua|muttersprache|lang
 
 function descriptor(question) {
   const q = object(question);
-  const fields = ['id', 'question', 'applicationQuestion', 'context', 'section', 'autocomplete'];
+  const fields = ['id', 'question', 'applicationQuestion', 'context', 'section', 'autocomplete', 'source'];
   if (fields.some(field => String(q[field] || '').length > 1000) || Array.isArray(q.options) && q.options.length > 100) return null;
+  if (!['text', 'number', 'date', 'yes_no', 'choice', 'checkbox', 'multi_choice'].includes(q.type)) return null;
   return { ...Object.fromEntries(fields.map(field => [field, String(q[field] || '').trim()])),
     type: String(q.type || 'text'), options: Array.isArray(q.options) ? q.options : [], validation: object(q.validation) };
 }
@@ -32,14 +33,16 @@ function semantics(question, answer) {
   const key = candidateQuestionAnswerKey(question);
   const label = norm(question.question);
   const text = norm([question.question, question.applicationQuestion, question.context, question.section].join(' '));
-  if (!key || PRIVACY.test(text)) return null;
+  if (!key || question.source === 'policy_default' || PRIVACY.test(text)) return null;
   const language = /^language_([a-z]{2})_(any|oral|written)_(proficiency|ability|threshold_[abc][12])$/.exec(key);
   if ((language || languageCodesIn(question.question).length === 1 && isLanguageAbilityQuestion(question.question)) && LANGUAGE_QUESTION.test(label)) {
     const levelAnswer = ['text', 'choice'].includes(question.type) && LEVEL.test(norm(answer));
     const portable = language?.[2] === 'any' && language?.[3] === 'proficiency' && levelAnswer && isGeneralCandidateLanguageQuestion(question.question)
       && !question.context && !question.section && !question.autocomplete
       && (!question.applicationQuestion || norm(question.applicationQuestion) === label);
-    return { category: 'language', unit: levelAnswer ? 'CEFR_or_stated_level' : 'boolean', scope: portable ? 'candidate' : 'job' };
+    const unit = levelAnswer ? 'CEFR_or_stated_level' : ['yes_no', 'checkbox'].includes(question.type) ? 'boolean'
+      : question.type === 'number' ? 'question_specific_number' : 'question_specific_text';
+    return { category: 'language', unit, scope: portable ? 'candidate' : 'job' };
   }
   const unit = ['yes_no', 'checkbox'].includes(question.type) ? 'boolean' : question.type === 'date' ? 'date'
     : question.type === 'number' ? 'question_specific_number' : 'question_specific_text';
@@ -121,7 +124,7 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
   const startedAt = Date.now();
   const legacy = object(profileRecord.applicationQuestionAnswers);
   const candidates = Object.entries(object(profileRecord.applicationQuestionAnswerEvidence)).slice(-80)
-    .filter(([key, record]) => validRecord(key, record, userId, legacy)).map(([, record]) => record);
+    .filter(([key, record]) => validRecord(key, record, userId, legacy) && record.provenance.confirmedAt <= nowMs).map(([, record]) => record);
   const sources = new Map();
   await Promise.all([...new Set(candidates.map(record => record.provenance.orderId))].map(async orderId => {
     const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);

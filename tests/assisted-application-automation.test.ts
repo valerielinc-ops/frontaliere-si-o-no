@@ -58,13 +58,13 @@ const readyDraft = (round = 1) => ({
   questions: [],
 });
 
-function attestedSource(userId: string, answer = 'C1') {
+function attestedSource(userId: string, answer = 'C1', at = Date.now()) {
   const question = { id: 'source_english', question: 'What is your English proficiency level?', type: 'text' };
-  const order = paidOrder({ userId, cvUploadedAt: T0, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
+  const order = paidOrder({ userId, cvUploadedAt: at, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
   const sourceFlow = { round: 1, answers: { source_english: answer } };
   const sourceDraft = { round: 1, questions: [question] };
   const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: sourceFlow.answers,
-    orderId: 'answer-source', order, flow: sourceFlow, draft: sourceDraft, actor: 'candidate', nowMs: T0 });
+    orderId: 'answer-source', order, flow: sourceFlow, draft: sourceDraft, actor: 'candidate', nowMs: at });
   return {
     'assisted_applications/answer-source': order,
     'assisted_applications/answer-source/automation/flow': sourceFlow,
@@ -99,9 +99,10 @@ beforeEach(() => {
 describe('starting the flow', () => {
   it('seeds a new order from a proven general fact with source reads in the same transaction', async () => {
     const userId = 'candidate-1';
-    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }), ...attestedSource(userId) });
+    const at = Date.now();
+    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }), ...attestedSource(userId, 'C1', at) });
     const reads = recordSourceTransactionReads(store.db);
-    await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
+    await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: at });
     expect(store.read(`${ORDER_PATH}/automation/flow`).questionAnswers).toMatchObject({ language_en_any_proficiency: 'C1' });
     expect(reads).toEqual(expect.arrayContaining(['assisted_applications/answer-source', 'assisted_applications/answer-source/automation/flow', 'assisted_applications/answer-source/ai_drafts/current']));
   });
@@ -125,7 +126,8 @@ describe('starting the flow', () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
-    const sourceOrder = paidOrder({ userId, cvUploadedAt: T0, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
+    const at = Date.now();
+    const sourceOrder = paidOrder({ userId, cvUploadedAt: at, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
     store = createMemoryFirestore({ [ORDER_PATH]: sourceOrder, [`user_cv_profiles/${userId}`]: { status: 'ready' } });
 
     await saveAnswersWithCv({
@@ -137,7 +139,7 @@ describe('starting the flow', () => {
       flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: {} },
       draft: { round: 1, questions: [question] },
       answers: { work_permit: 'Permit G' },
-      nowMs: T0,
+      nowMs: at,
     });
 
     expect(store.read(`user_cv_profiles/${userId}`)).toMatchObject({
@@ -728,14 +730,15 @@ describe('sweep', () => {
 
   it('uses a proven source answer for an equivalent portal question without asking again', async () => {
     const userId = 'candidate-1';
+    const at = Date.now();
     const question = { id: 'portal_english', question: 'Qual è il tuo livello di inglese?', type: 'text' };
-    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }), ...attestedSource(userId),
+    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }), ...attestedSource(userId, 'C1', at),
       [`${ORDER_PATH}/automation/flow`]: { state: 'submitting', round: 1, answers: {}, questionAnswers: {}, heldBy: [], dispatch: { mode: 'submit', round: 1, attempts: 2 } },
       [`${ORDER_PATH}/ai_drafts/current`]: readyDraft(),
     });
     const reads = recordSourceTransactionReads(store.db);
     const result = await applyAutomationEvent({ db: store.db, orderId: ORDER,
-      event: { type: 'submit_needs_candidate', questions: [{ id: question.id }], questionDetails: [question] }, runEffect, nowMs: T0 });
+      event: { type: 'submit_needs_candidate', questions: [{ id: question.id }], questionDetails: [question] }, runEffect, nowMs: at });
     expect(result).toMatchObject({ ok: true, flow: { state: 'owner_takeover', questionAnswers: { language_en_any_proficiency: 'C1' } } });
     expect(effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit', attempts: 2 }]);
     expect(reads).toContain('assisted_applications/answer-source/automation/flow');
