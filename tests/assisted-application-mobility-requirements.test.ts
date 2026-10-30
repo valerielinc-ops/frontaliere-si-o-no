@@ -3,6 +3,7 @@ import { guardMobilityMatch, swissMobilityRequirement } from '../functions/src/l
 import { conciergeProposalEligibility, fitNoticeOf } from '../functions/src/assistedApplicationFitNotice.js';
 import { evaluateRedFlags } from '../functions/src/assistedApplicationFlow.js';
 import { rememberCandidateQuestionAnswers } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { ensureRequiredQuestions } from '../functions/src/assistedApplicationAiDraftCore.js';
 import { operationalDefaultAnswer } from '../functions/src/assistedApplicationOperationalAnswers.js';
 
 const quote = 'Resident in Switzerland or willingness to relocate.';
@@ -71,4 +72,13 @@ it('requires the whole qualified clause and keeps its answer specific to that cl
   expect(qualified.questions[0].applicationQuestion).toContain('30 days');
   const negative = guardMobilityMatch(requirements, match, { ...context, answers: { [question.id]: false } });
   expect(conciergeProposalEligibility(requirements, negative, context).status).toBe('incompatible');
+});
+
+
+it('never truncates required facts when adding rule-derived questions', () => {
+  const hard = Array.from({ length: 8 }, (_, i) => ({ id: `hard_${i}`, question: `Required answer ${i}`, type: 'text', required: true }));
+  const questions = ensureRequiredQuestions(hard, { requirements: { salaryRequested: true }, profile: {}, locale: 'it' });
+  expect(questions).toHaveLength(9);
+  expect(questions.some(q => q.id === 'salary_expectation' && q.required)).toBe(true);
+  expect(hard.every(q => questions.some(result => result.id === q.id))).toBe(true);
 });

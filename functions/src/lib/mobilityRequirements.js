@@ -78,7 +78,7 @@ export function guardMobilityMatch(requirements, match, { profile = {}, sourceTe
   const targets = rows.map((row, index) => swissMobilityRequirement(row) ? { row, index, question: questionFor(row, locale) } : null).filter(Boolean);
   if (!targets.length) return match;
   const confirmed = candidateAnswersForQuestions(targets.map(t => t.question), answers, memory);
-  let result = { ...match, matches: [...(match.matches || [])], questions: [...(match.questions || [])] };
+  const result = { ...match, matches: [...(match.matches || [])], questions: [...(match.questions || [])] };
   for (const { row, index, question } of targets) {
     const at = result.matches.findIndex(m => m.index === index);
     const previous = result.matches[at];
