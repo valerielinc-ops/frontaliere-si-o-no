@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinique-de-montchoisi",
-  "assembledAt": "2026-10-29T21:38:41.402Z",
-  "runId": "40956600189",
+  "assembledAt": "2026-10-30T09:46:10.341Z",
+  "runId": "41032394822",
   "jobs": [
     {
       "id": "clinique-de-montchoisi-c9c29e33dfc8",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T21:38:33.502Z",
+      "crawledAt": "2026-10-30T09:46:02.251Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
