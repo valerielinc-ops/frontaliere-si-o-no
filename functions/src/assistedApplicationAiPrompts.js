@@ -165,7 +165,7 @@ Rules:
   - importance: critical = explicit must-have or knock-out (for example "zwingend", "indispensabile", "requis", "must", a required licence, a required language level); high = clearly required; meaningful = asked for; preferred = nice to have ("von Vorteil", "costituisce un plus", "un atout").
   - basis: stated when the posting says it; inferred when it is only implied by the role. An inferred requirement can NEVER be critical or high.
   - quote: the verbatim excerpt of the posting in its original language; "" only when basis is inferred.
-- languageRequirements: each language the posting asks for, the level as written and a verbatim quote.
+- languageRequirements: each language the posting asks for, the level as written and a verbatim quote. Every languageRequirements quote MUST also appear unchanged in a numbered requirements row, with its original importance (required = critical/high, optional = preferred). Do not leave a required language only in languageRequirements. Preserve combined or alternative clauses as a single requirement; never turn an alternative into multiple must-haves.
 - workPermitQuote: the verbatim sentence about work permits, nationality or residence, else "".
 - salaryRequested: true only if the posting asks candidates to state a salary expectation.
 - applicationEmail: an e-mail address the posting explicitly gives for sending applications, copied character by character. Never construct or guess an address; "" if there is none.

@@ -65,6 +65,13 @@ export function fitNoticeWording(fit, { questions = false, edit = true } = {}) {
 export function conciergeProposalEligibility(requirements, match, { profile = null, answers = {} } = {}) {
   const rows = Array.isArray(requirements?.requirements) ? requirements.requirements : [];
   if (!rows.length || !Array.isArray(match?.matches)) return { status: 'unverified', gaps: [] };
+  // The separate language list must not bypass the numbered, evidence-checked
+  // requirements. An omitted clause is incomplete extraction, not a candidate gap.
+  if ((requirements?.languageRequirements || []).some(language => {
+    const quote = text(language?.quote, 300).toLocaleLowerCase();
+    return !quote || !rows.some(row => row.basis === 'stated' && !row.quoteUnverified
+      && text(row.quote, 400).toLocaleLowerCase().includes(quote));
+  })) return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
   const found = new Map();
   for (const row of match.matches) {
     if (found.has(row.index)) return { status: 'unverified', gaps: [] };

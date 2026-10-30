@@ -81,6 +81,30 @@ describe('qualification before proposal publication', () => {
     expect(result.status).toBe('incompatible');
     expect(result.gaps).toContainEqual(expect.objectContaining({ knownMissing: true }));
   });
+  it('retries a language clause omitted from numbered requirements instead of publishing or caching it', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'IT Manager' }], verdict: 'strong' });
+    const omitted = { requirements: [{ requirement: 'IT experience', importance: 'high', basis: 'stated', quote: 'IT operations' }],
+      languageRequirements: [{ language: 'German', level: 'fluent', quote: 'Fluent German required' }] };
+    f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? omitted : { matches: [{ index: 0, status: 'met', evidence: 'IT Manager' }], verdict: 'strong' });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    for (let retry = 0; retry < 2; retry++) expect(await check({ id: 'omitted-language' }))
+      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete', gaps: [] });
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+    expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(2);
+  });
+  it('keeps combined and alternative language clauses intact and accepts an optional language without positive evidence', () => {
+    for (const quote of ['English or German required', 'English and German required', 'French is a plus']) {
+      const rows = { requirements: [{ requirement: quote, importance: quote.includes('plus') ? 'preferred' : 'high', basis: 'stated', quote }],
+        languageRequirements: [{ language: quote.includes('plus') ? 'French' : 'English', level: '', quote }] };
+      expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: quote.includes('plus') ? 'missing' : 'met', evidence: quote.includes('plus') ? '' : 'Language evidence' }], verdict: 'good' }).status).toBe('compatible');
+    }
+  });
+  it('does not accept a short language quote as coverage of a longer combined clause', () => {
+    const incomplete = { requirements: [{ requirement: 'German', importance: 'high', basis: 'stated', quote: 'German' }],
+      languageRequirements: [{ language: 'German', level: '', quote: 'Strong German and English communication skills' }] };
+    expect(conciergeProposalEligibility(incomplete, { matches: [{ index: 0, status: 'met', evidence: 'German C2' }], verdict: 'good' }))
+      .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete', gaps: [] });
+  });
   it('does not convert a geographic reference into a language requirement', () => {
     const geographic = { requirements: [{ requirement: 'Office location', importance: 'critical', basis: 'stated', quote: 'Office in the German-speaking part of Switzerland' }] };
     expect(conciergeProposalEligibility(geographic, { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong' }, { profile: rawProfile }).status).toBe('compatible');
