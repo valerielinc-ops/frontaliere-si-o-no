@@ -79,8 +79,8 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
   const cv = found(haystack, CV_WORDS);
   // Unless the CV is what the posting asked for, a file that reads as a CV is the CV.
   if (cv.length >= 3 && asked.length < 2) return { verdict: 'looks_like_cv', matched: '' };
-  if (titles.length && cv.length < 2) return { verdict: 'match', matched: titles[0] };
   if (asked.length) return { verdict: 'match', matched: asked[0] };
+  if (titles.length && cv.length < 2) return { verdict: 'match', matched: titles[0] };
   if (usual.length >= 2) return { verdict: 'match', matched: usual[0] };
   if (cv.length >= 2) return { verdict: 'looks_like_cv', matched: '' };
   return { verdict: 'mismatch', matched: '' };

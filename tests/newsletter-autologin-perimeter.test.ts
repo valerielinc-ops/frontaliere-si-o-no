@@ -436,7 +436,10 @@ describe('the senders agree with the perimeter', () => {
     const src = read('scripts/send-job-alerts.mjs');
     expect(src).toMatch(/const allJobsUrl = wrapPublicUrl\(/);
     expect(src).toMatch(/const manageUrl = wrapPublicUrl\(/);
-    expect(src.match(/const url = wrapJobUrl\(rawJobUrl\);/g) || []).toHaveLength(2);
+    // Both MIME alternatives now share the same rendered destination: the
+    // text is derived from the complete HTML rather than wrapping a second URL.
+    expect(src.match(/const url = wrapJobUrl\(rawJobUrl\);/g) || []).toHaveLength(1);
+    expect(src).toMatch(/const text = htmlToText\(html\);/);
     expect(src).not.toMatch(/\bwrapUrl\(/);
   });
 
