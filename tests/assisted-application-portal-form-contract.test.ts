@@ -83,7 +83,7 @@ it.each(['listbox', 'owned'])('keeps complete ARIA option catalogues as well: %s
   const button = { click: async () => {}, press: async () => {} };
   const options = { first: () => ({ waitFor: async () => {} }), allInnerTexts: async () => labels };
   const list = { waitFor: async () => {}, locator: () => options };
-  const frame = { locator: (selector: string) => selector.startsWith('[data-aa-id=') ? { first: () => button } : list };
+  const frame = { locator: (selector: string) => selector.startsWith('[data-aa-id=') ? { first: () => button } : selector === '[role="listbox"]:visible' ? { last: () => list } : list };
   const result = kind === 'owned' ? readOwnedListOptions(frame, { id: 'choice', ownedList: 'choices' }) : readListboxOptions(frame, 'choice');
   return expect(result).resolves.toHaveLength(301);
 });
