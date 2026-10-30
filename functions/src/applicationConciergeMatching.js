@@ -447,11 +447,11 @@ async function updateExistingProposal(db, ref, update, expectedStatus, nextStatu
   });
 }
 
-export async function runApplicationConciergeMatching({ db = getAdminDb(), serviceId, jobIndexUrl, eligibility = null } = {}) {
+export async function runApplicationConciergeMatching({ db = getAdminDb(), serviceId, jobIndexUrl, eligibility = null, deadlineMs = Date.now() + 480_000 } = {}) {
   const runStartedAt = Date.now();
   // The worker has 540s: cancel external reads/inference at 480s and reserve
   // a minute for durable proposals, retry metadata and completion writes.
-  const eligibilitySignal = AbortSignal.timeout(480_000);
+  const eligibilitySignal = AbortSignal.timeout(Math.max(1, Math.min(480_000, deadlineMs - Date.now())));
   const serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
   const serviceSnapshot = await serviceRef.get();
   if (!serviceSnapshot.exists) return { status: 'skipped', reason: 'service_not_found' };
@@ -495,7 +495,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const rankedCandidates = rankedWork.filter(entry => !known.has(`${entry.job.id || ''}|${entry.url}`));
 
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
-    const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, signal: eligibilitySignal });
+    const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, background: true, signal: eligibilitySignal });
     const checks = new Map();
     const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile, profileRecord.applicationQuestionAnswers || {}])).digest('hex');
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));

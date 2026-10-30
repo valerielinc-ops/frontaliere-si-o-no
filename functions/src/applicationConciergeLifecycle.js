@@ -51,7 +51,7 @@ async function deliverNewProposals({ db, ref, nowMs, send }) {
 }
 
 /** One document-trigger worker per service: no user's AI work can starve another service's sweep. */
-export async function runConciergeProposalRefresh({ db, serviceId, requestId = null, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification }) {
+export async function runConciergeProposalRefresh({ db, serviceId, requestId = null, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification, deadlineMs = null }) {
   const ref = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
   const claimed = await db.runTransaction(async tx => {
     const current = (await tx.get(ref)).data();
@@ -67,7 +67,7 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
   try {
     const before = await ref.collection('proposals').get();
     const known = new Set(before.docs.map(d => d.id));
-    const result = await match({ db, serviceId });
+    const result = await match({ db, serviceId, ...(deadlineMs ? { deadlineMs } : {}) });
     if (result.status === 'complete') {
       refreshed = 1;
       const after = await ref.collection('proposals').get();

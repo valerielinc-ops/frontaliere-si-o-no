@@ -35,7 +35,7 @@ describe('qualification before proposal publication', () => {
       ok: true, provider: 'test', text: JSON.stringify(systemPrompt.startsWith(PROFILE_SYSTEM_PROMPT) ? rawProfile : systemPrompt.startsWith(REQUIREMENTS_SYSTEM_PROMPT) ? requirements : match),
     } }));
     const { generate: _unused, ...input } = f;
-    const check = await prepareConciergeEligibility({ ...input, profileRecord: {} });
+    const check = await prepareConciergeEligibility({ ...input, profileRecord: {}, background: true });
     await check({ id: 'job', title: 'IT Lead', company: 'Example' });
     expect(generateServerText).toHaveBeenCalledTimes(3);
     for (const [options] of vi.mocked(generateServerText).mock.calls) expect(options).toMatchObject({ maxProviderAttempts: 3, allowCodexFallback: false, maxTokens: 8192, background: true });

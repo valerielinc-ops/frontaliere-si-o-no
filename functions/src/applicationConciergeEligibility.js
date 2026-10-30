@@ -83,8 +83,8 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
   return { ...result, postingHash, requirements, match, posting };
 }
 
-export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = null, readPosting = fetchJobPosting, signal = null }) {
-  const generation = generate || ((system, user, schema) => generateJson(system, user, schema, { background: true, signal }));
+export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = null, readPosting = fetchJobPosting, background = false, signal = null }) {
+  const generation = generate || ((system, user, schema) => generateJson(system, user, schema, { background, signal }));
   generate = (...args) => beforeCancellation(() => generation(...args), signal);
   const read = (order, options) => beforeCancellation(() => readPosting(order, { ...options, ...(signal ? { signal } : {}) }), signal);
   signal?.throwIfAborted();
