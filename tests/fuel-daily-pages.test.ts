@@ -254,6 +254,24 @@ describe('fuel-daily page generation — content quality', () => {
     expect(infeedAds.some(({ index }) => (index ?? -1) > seventhStation)).toBe(false);
   });
 
+  it('labels the provider acquisition time without presenting the build time as price data', () => {
+    const expectedObservation = 'Dati acquisiti: 20.04.2026';
+    const localizedPages = [
+      pages['/prezzi-benzina/lugano/oggi/'],
+      pages['/en/gasoline-price-switzerland/lugano/today/'],
+      pages['/de/benzinpreis-schweiz/lugano/heute/'],
+      pages['/fr/prix-essence-suisse/lugano/aujourd-hui/'],
+    ];
+
+    expect(localizedPages[0]).toContain(expectedObservation);
+    for (const html of localizedPages) {
+      expect(html).not.toContain('Generazione pagina:');
+      expect(html).not.toContain('Page generated:');
+      expect(html).not.toContain('Seite erstellt:');
+      expect(html).not.toContain('Page générée :');
+    }
+  });
+
   it('renders the shared same-currency calculator on regional petrol and diesel pages with known sample prices', () => {
     const petrol = pages['/prezzi-benzina/oggi/'];
     const diesel = pages['/prezzi-diesel/oggi/'];
