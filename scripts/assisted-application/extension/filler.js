@@ -365,7 +365,7 @@
     const field = runner.get(element.getAttribute('data-aa-id'));
     if (!field) return '';
     const section = field.section || '';
-    const scopeSelector = 'form, [role="form"], fieldset, section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], [role="group"], [role="radiogroup"], main, [role="main"]';
+    const scopeSelector = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
     const boundary = element.closest('form, [role="form"], dialog, [role="dialog"], main, [role="main"]');
     if (!boundary) return '';
     const names = [];
