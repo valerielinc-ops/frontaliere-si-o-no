@@ -55,6 +55,28 @@ it('does not invent a hidden owner from an empty for and empty tracking ID', () 
   dom.window.close();
 });
 it.each([
+  ['aria-describedby="description" aria-label="I agree"', '<span id="description">Newsletter</span>'],
+  ['aria-describedby="description"', '<span id="description">I do not agree</span>'],
+  ['aria-describedby="missing-description"', ''],
+  ['aria-details="description"', '<span id="description">I do not agree</span>'],
+  ['title="Newsletter"', ''],
+  ['placeholder="Newsletter"', ''],
+  ['aria-description="Newsletter"', ''],
+])('keeps contrary or unresolved own descriptive metadata distinct from the hidden privacy question: %s', (attributes, description) => {
+  const choice = mirrorChoice.replace('type="checkbox"', `type="checkbox" ${attributes}`);
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${mirrorQuestion}${description}${choice}</div></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields[0].label).not.toMatch(/privacy/i);
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).not.toEqual({ check: true });
+  dom.window.close();
+});
+it('preserves a verified mirror when the own ARIA description is also an affirmative acceptance', () => {
+  const choice = mirrorChoice.replace('type="checkbox"', 'type="checkbox" aria-describedby="description"');
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${mirrorQuestion}<span id="description">I agree</span>${choice}</div></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields[0]).toMatchObject({ label: mirrorPrompt, required: true });
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toEqual({ check: true });
+  dom.window.close();
+});
+it.each([
   mirrorQuestion.replace('name="resumator-questionnaire[722664]"', 'name="resumator-questionnaire[9]"') + mirrorChoice,
   mirrorQuestion + mirrorChoice.replace('name="resumator-checkbox-722664-1"', 'name="resumator-checkbox-9-1"'),
   mirrorQuestion + mirrorChoice.replaceAll('resumator-checkbox-722664-1', 'resumator-checkbox-9-1'),

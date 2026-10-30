@@ -262,11 +262,14 @@
     if (mirror.id !== `resumator-questionnaire-q${key[1]}` || mirror.name !== `resumator-questionnaire[${key[1]}]`
       || mirror.form !== form || mirror.closest(QUESTION_GROUP_SELECTOR) !== group) return null;
     const doc = element.ownerDocument;
-    const refs = (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean);
+    const refs = ['aria-labelledby', 'aria-describedby', 'aria-details']
+      .flatMap(attribute => (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean));
     if (refs.some(id => !doc.getElementById(id))) return null;
     const ownNames = [...element.labels || []].map(label => label.textContent || '');
     ownNames.push(...refs.map(id => doc.getElementById(id).textContent || ''));
-    if (element.getAttribute('aria-label')) ownNames.push(element.getAttribute('aria-label'));
+    for (const attribute of ['aria-label', 'aria-description', 'title', 'placeholder']) {
+      if (element.getAttribute(attribute)) ownNames.push(element.getAttribute(attribute));
+    }
     if (!ownNames.length || ownNames.some(text => !/^(?:i )?(?:agree|accept)[.!]?$/i.test(String(text).replace(/\s+/g, ' ').trim()))) return null;
     if ([...doc.querySelectorAll('[id]')].filter(node => node.id === mirror.id).length !== 1
       || [...doc.querySelectorAll('[id]')].filter(node => node.id === element.id).length !== 1) return null;
