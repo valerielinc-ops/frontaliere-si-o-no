@@ -207,7 +207,7 @@ describe('submit-google-indexing-jobs CLI', () => {
   it('the first run of the quota day takes the large share, later runs the small one, never past the budget', () => {
     const args = parseArgs(['--max', '15', '--max-first-run', '2000']);
     expect(runBudgetFor(args, 0)).toBe(2000);
-    expect(runBudgetFor(args, 2000)).toBe(15);
+    expect(runBudgetFor(args, 200)).toBe(15);
     expect(runBudgetFor(args, 1999)).toBe(1);
     expect(runBudgetFor(args, DAILY_BUDGET)).toBe(0);
   });
