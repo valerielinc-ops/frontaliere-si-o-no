@@ -733,6 +733,7 @@ interface Copy {
   webcamExternalNote: string;
   webcamDisclaimer: (sourceName: string) => string;
   webcamUnavailable: string;
+  webcamAdLabel: string;
   faqTitle: string;
   breadcrumbHome: string;
   regionalLabelTicinoComo: string;
@@ -778,7 +779,7 @@ interface Copy {
   regionalIntro: (region: string, count: number) => string;
 }
 
-const COPY: Record<BorderWaitLocale, Copy> = {
+export const COPY: Record<BorderWaitLocale, Copy> = {
   it: {
     leafH1: (c, _d) => `Tempi di attesa dogana ${c}: coda live oggi`,
     rootH1: 'Tempi di attesa alle dogane svizzere — live oggi',
@@ -827,6 +828,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamDisclaimer: (sourceName) =>
       `Webcam gestita da ${sourceName}. Frontaliereticino.ch non è responsabile per disponibilità o contenuto.`,
     webcamUnavailable: 'Webcam non disponibile per questo valico. Nessuna immagine live è pubblicata al momento per questa frontiera.',
+    webcamAdLabel: 'Pubblicità',
     faqTitle: 'Domande frequenti',
     breadcrumbHome: 'Home',
     regionalLabelTicinoComo: 'Ticino–Como',
@@ -937,6 +939,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamDisclaimer: (sourceName) =>
       `Webcam operated by ${sourceName}. Frontaliereticino.ch is not responsible for its availability or content.`,
     webcamUnavailable: 'No webcam available for this crossing. No live images are currently published for this border.',
+    webcamAdLabel: 'Advertisement',
     faqTitle: 'Frequently asked questions',
     breadcrumbHome: 'Home',
     regionalLabelTicinoComo: 'Ticino–Como',
@@ -1047,6 +1050,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamDisclaimer: (sourceName) =>
       `Webcam betrieben von ${sourceName}. Frontaliereticino.ch ist nicht verantwortlich für Verfügbarkeit oder Inhalt.`,
     webcamUnavailable: 'Keine Webcam für diesen Grenzübergang verfügbar. Für diese Grenze werden derzeit keine Live-Bilder veröffentlicht.',
+    webcamAdLabel: 'Werbung',
     faqTitle: 'Häufige Fragen',
     breadcrumbHome: 'Startseite',
     regionalLabelTicinoComo: 'Tessin–Como',
@@ -1157,6 +1161,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamDisclaimer: (sourceName) =>
       `Webcam gérée par ${sourceName}. Frontaliereticino.ch n'est pas responsable de la disponibilité ou du contenu.`,
     webcamUnavailable: "Webcam non disponible pour ce poste frontière. Aucune image en direct n'est actuellement publiée pour cette frontière.",
+    webcamAdLabel: 'Publicité',
     faqTitle: 'Questions fréquentes',
     breadcrumbHome: 'Accueil',
     regionalLabelTicinoComo: 'Tessin–Côme',
@@ -1692,7 +1697,18 @@ function renderHubPlanningProse(
 
 // ── Section renderers ─────────────────────────────────────────
 
-function renderWebcamSection(
+/**
+ * In-article unit between two webcams of the same crossing. `aria-label` feeds
+ * the `.ft-webcam-ad::before` disclosure so the `<ins>` stays the only child
+ * and the shared no-fill rule can collapse the whole wrapper; the top padding
+ * reserves the label's height, which the async stylesheet would otherwise add
+ * as a layout shift.
+ */
+function renderWebcamInlineAd(copy: Copy): string {
+  return `<section class="ft-webcam-ad" aria-label="${esc(copy.webcamAdLabel)}" style="position:relative;margin:16px 0;padding-top:20px">${adSlotHtml('ARTICLE_INLINE_MOBILE', { collapseWhenUnfilled: true, placement: 'border-webcam-inline' })}</section>`;
+}
+
+export function renderWebcamSection(
   crossingLabel: string,
   webcams: readonly WebcamRef[],
   copy: Copy,
@@ -1704,7 +1720,7 @@ function renderWebcamSection(
   </section>`;
   }
   const figures = webcams
-    .map((w) => {
+    .map((w, i) => {
       const embeddable = w.embedAllowed !== false;
       const refreshMs = w.refreshIntervalMs ?? 60000;
       const licenseHtml = w.licenseNote
@@ -1726,7 +1742,7 @@ function renderWebcamSection(
       style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--color-edge);background:var(--color-surface-alt)"
     >`
         : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
-      return `<figure class="s-WFzTLc">
+      return `${i === 1 && embeddable && webcams[0].embedAllowed !== false ? `${renderWebcamInlineAd(copy)}\n` : ''}<figure class="s-WFzTLc">
     ${mediaHtml}
     <figcaption class="s-7GN3SP">
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:

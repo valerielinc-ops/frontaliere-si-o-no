@@ -13,6 +13,7 @@
 import { createExceptionFilter, installRawStackRecorder } from './posthog-error-filter';
 import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
 import { isLikelyBot } from './botPatterns';
+import { wasNewsletterAutologinAttempted } from './newsletterAutologinSignal';
 import {
  POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
  createPostHogQuotaFilter,
@@ -24,6 +25,14 @@ const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
 
 let _posthog: any = null;
 let _loading: Promise<void> | null = null;
+
+function isSensitiveDocument(): boolean {
+ const context = { page_location: window.location.href, page_referrer: document.referrer };
+ const safeContext = sanitizeTelemetryProperties(context);
+ return wasNewsletterAutologinAttempted()
+ || context.page_location !== safeContext.page_location
+ || context.page_referrer !== safeContext.page_referrer;
+}
 
 async function ensurePostHog(): Promise<any> {
  if (_posthog) return _posthog;
@@ -54,6 +63,9 @@ async function ensurePostHog(): Promise<any> {
  autocapture: false, // Explicit events only, reduces noise
  // Sample 5% of sessions for replay to stay under the free-tier 5k/mo cap.
  session_recording: { sampleRate: POSTHOG_SESSION_REPLAY_SAMPLE_RATE },
+ // Replay DOM is gzipped before before_send, so a signed entry URL kept in an
+ // attribute cannot be cleaned there: exclude the whole document, as Clarity does.
+ disable_session_recording: isSensitiveDocument(),
  // Ordinary client events stay off (quota); GA4 still receives the complete
  // event stream through analytics.ts. Page views, identity, replay and error
  // events pass the quota filter (POSTHOG_QUOTA_EXEMPT_EVENTS).
