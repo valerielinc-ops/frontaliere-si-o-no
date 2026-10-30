@@ -304,8 +304,10 @@
    */
   function labelsOf(element, label, runnerLabel = '') {
     const doc = element.ownerDocument;
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    const ownContext = !group || oneQuestionGroup(group, element);
     const described = (element.getAttribute('aria-describedby') || '').split(/\s+/).map((id) => textOf(doc.getElementById(id))).join(' ');
-    const names = [runnerLabel, label, nearbyText(element), element.getAttribute('aria-label'), described, questionOf(element),
+    const names = [runnerLabel, label, ownContext ? nearbyText(element) : '', element.getAttribute('aria-label'), described, ownContext ? questionOf(element) : '',
       element.getAttribute('title'), element.getAttribute('placeholder'), humanize(element.getAttribute('name')), humanize(element.id)];
     return [...new Set(names.map((name) => String(name || '').trim()).filter(Boolean))];
   }
