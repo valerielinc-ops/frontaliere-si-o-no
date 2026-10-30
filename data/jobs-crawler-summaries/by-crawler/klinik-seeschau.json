@@ -1,7 +1,7 @@
 {
   "key": "klinik-seeschau",
   "label": "Klinik Seeschau",
-  "generatedAt": "2026-10-29T21:47:57.409Z",
+  "generatedAt": "2026-10-30T09:42:27.719Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3098,
-  "avgDurationMs": 3098,
+  "durationMs": 4232,
+  "avgDurationMs": 4232,
   "durationHistory": [
-    3098
+    4232
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#:~:text=Neu%3A%20Ausbildung%20zur%20Dipl.%20Pflegefachperson%20HF%20bei%20uns!",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:47:46.467Z",
+      "crawledAt": "2026-10-30T09:42:11.689Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#:~:text=Dipl.%20Pflegefachfrau%2F%2Dmann%20(HF)%20ab%2050%20%25",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:47:46.466Z",
+      "crawledAt": "2026-10-30T09:42:11.688Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -110,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }

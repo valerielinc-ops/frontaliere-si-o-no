@@ -1,7 +1,7 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-10-29T21:49:15.885Z",
-  "runId": "40957369944",
+  "assembledAt": "2026-10-30T09:40:59.372Z",
+  "runId": "41033036488",
   "jobs": [
     {
       "id": "oerlikon-3e7f80f0bc32",
@@ -34,7 +34,7 @@
       "url": "https://careers.oerlikon.com/job/Global-OPS-Continuous-Improvement-Manager-%28gn%29/104472-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T21:49:11.258Z",
+      "crawledAt": "2026-10-30T09:40:52.534Z",
       "addressLocality": "Barchfeld, DEU",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://careers.oerlikon.com/job/Receptionist/104921-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-29T21:49:10.627Z",
+      "crawledAt": "2026-10-30T09:40:51.862Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -178,7 +178,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:49:10.004Z",
+      "crawledAt": "2026-10-30T09:40:51.201Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:49:09.366Z",
+      "crawledAt": "2026-10-30T09:40:50.473Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -331,7 +331,7 @@
       "url": "https://careers.oerlikon.com/job/Techniker-%28gn%29-Pr%C3%BCffeld/104517-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:49:08.735Z",
+      "crawledAt": "2026-10-30T09:40:49.899Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -410,7 +410,7 @@
       "url": "https://careers.oerlikon.com/job/MonteurMechaniker-%28gn%29-f%C3%BCr-den-Anlagenbau/104513-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:49:08.110Z",
+      "crawledAt": "2026-10-30T09:40:49.182Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -492,7 +492,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:49:07.481Z",
+      "crawledAt": "2026-10-30T09:40:48.472Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -547,7 +547,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen",
         "en": "project-engineer-gn-electrical-engineering-oerlikon-wohlen",
-        "de": "projektingenieur-gn-electrical-engineering-oerlikon-ch",
+        "de": "inbetriebnahme-gn-engineer-oerlikon-wohlen",
         "fr": "ingenieur-de-projet-gn-genie-electrique-oerlikon-wohlen"
       },
       "company": "Oerlikon",
@@ -572,7 +572,7 @@
       "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:49:06.866Z",
+      "crawledAt": "2026-10-30T09:40:47.730Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -593,9 +593,9 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "inbetriebnahme-gn-engineer-oerlikon-ch",
           "inbetriebnahme-gn-ingenieur-oerlikon-wohlen",
-          "inbetriebnahme-gn-engineer-oerlikon-wohlen"
+          "projektingenieur-gn-electrical-engineering-oerlikon-ch",
+          "inbetriebnahme-gn-engineer-oerlikon-ch"
         ],
         "it": [
           "inbetriebnahme-gn-engineer-oerlikon-ch"
@@ -604,7 +604,7 @@
       "previousSlugs": [
         "inbetriebnahme-gn-engineer-oerlikon-ch",
         "inbetriebnahme-gn-ingenieur-oerlikon-wohlen",
-        "inbetriebnahme-gn-engineer-oerlikon-wohlen"
+        "projektingenieur-gn-electrical-engineering-oerlikon-ch"
       ],
       "firstSeenAt": "2026-09-30T21:36:31.399Z",
       "salaryMin": 72500,
@@ -652,7 +652,7 @@
       "url": "https://careers.oerlikon.com/job/Teamleiter-Elektrofertigung-%28gn%29/104960-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:49:06.243Z",
+      "crawledAt": "2026-10-30T09:40:47.025Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",

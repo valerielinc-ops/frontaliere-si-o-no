@@ -1,7 +1,7 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-10-29T21:47:43.524Z",
+  "generatedAt": "2026-10-30T09:43:31.847Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9787,
-  "avgDurationMs": 9787,
+  "durationMs": 5901,
+  "avgDurationMs": 5901,
   "durationHistory": [
-    9787
+    5901
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -51,7 +51,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T21:47:28.371Z",
+      "crawledAt": "2026-10-30T09:43:16.630Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "salaryMin": 72500,
@@ -93,7 +93,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T21:47:25.153Z",
+      "crawledAt": "2026-10-30T09:43:16.083Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "salaryMin": 71000,
@@ -135,7 +135,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T21:47:24.602Z",
+      "crawledAt": "2026-10-30T09:43:15.529Z",
       "jobReqId": "J-020110",
       "firstSeenAt": "2026-07-24T22:16:40.031Z",
       "salaryMin": 72500,
@@ -177,7 +177,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern---Data-Science_J-020004",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T21:47:23.308Z",
+      "crawledAt": "2026-10-30T09:43:14.346Z",
       "jobReqId": "J-020004",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -193,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }
