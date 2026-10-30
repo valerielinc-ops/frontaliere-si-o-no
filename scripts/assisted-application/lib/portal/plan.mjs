@@ -42,6 +42,7 @@ import {
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+export { BIRTH_FIELD_RE };
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });

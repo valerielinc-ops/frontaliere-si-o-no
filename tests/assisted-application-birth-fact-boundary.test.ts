@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 import { describe, expect, it } from 'vitest';
-import { BIRTH_LOCATION_RE, DATE_OF_BIRTH_RE } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { BIRTH_FIELD_RE, BIRTH_LOCATION_RE, DATE_OF_BIRTH_RE } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 const directory = new URL('../scripts/assisted-application/extension/', import.meta.url);
 const kit = { identity: { address: { city: 'Como', country: 'Italia' } }, profile: { dateOfBirth: '1990-01-02' }, answers: [] };
@@ -17,6 +17,7 @@ describe('birth fact boundaries in the extension', () => {
     const { dom, F } = page('DOB');
     expect(`${F.DATE_OF_BIRTH_RE.source}/${F.DATE_OF_BIRTH_RE.flags}`).toBe(`${DATE_OF_BIRTH_RE.source}/${DATE_OF_BIRTH_RE.flags}`);
     expect(`${F.BIRTH_LOCATION_RE.source}/${F.BIRTH_LOCATION_RE.flags}`).toBe(`${BIRTH_LOCATION_RE.source}/${BIRTH_LOCATION_RE.flags}`);
+    expect(`${F.BIRTH_FIELD_RE.source}/${F.BIRTH_FIELD_RE.flags}`).toBe(`${BIRTH_FIELD_RE.source}/${BIRTH_FIELD_RE.flags}`);
     dom.window.close();
   });
 

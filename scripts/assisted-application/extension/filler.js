@@ -42,6 +42,8 @@
   const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
   const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
 
+  const BIRTH_FIELD_RE = /birth|geburt|nascita|\bnat[oa]\b|naissance/i;
+
   // Field families, on the normalized label (accents gone, lower case).
   // German compounds («Geburtsdatum», «Telefonnummer», «Postleitzahl»): a
   // family word may start a longer word.
@@ -628,7 +630,10 @@
 
   function familyOf(entry) {
     if ((entry.labels || [entry.label]).some(name => BIRTH_LOCATION_RE.test(normalize(name)))) return null;
-    if ((entry.type === 'date' || entry.kind === 'date') && /^(?:birth|nascita|geburt|naissance)$/iu.test(normalize(entry.label))) return 'birthDate';
+    const nativeBirthDate = (entry.type === 'date' || entry.kind === 'date') && /^(?:birth|nascita|geburt|naissance)$/iu.test(normalize(entry.label));
+    if (BIRTH_FIELD_RE.test(normalize(`${entry.label || ''} ${entry.section || ''}`))
+      && !DATE_OF_BIRTH_RE.test(normalize(entry.label)) && !nativeBirthDate) return null;
+    if (nativeBirthDate) return 'birthDate';
     if (entry.type === 'email') return 'email';
     if (entry.type === 'tel') return 'phone';
     const labels = entry.labels || [entry.label];
@@ -1264,7 +1269,7 @@
   }
 
   root.CompilaCandidatura = {
-    DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
+    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
     config, normalize, textOf, labelOf, questionOf, collect, isEmpty, answerFor, bestOption,
     parseDate, formatForInput, phoneFor, fillEntry, fillPage, pageState, cookieRefusal,
     pageSignature, nextButton, finalButton, press, setValue, sleep,
