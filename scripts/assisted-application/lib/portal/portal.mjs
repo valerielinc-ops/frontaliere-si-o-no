@@ -3120,6 +3120,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           ...item,
           applicationQuestion,
           type,
+          validation: field && ['choice', 'yes_no'].includes(type) ? {} : item.validation,
           required: true,
           applicationOptions,
           options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,

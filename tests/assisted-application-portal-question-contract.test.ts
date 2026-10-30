@@ -17,6 +17,15 @@ describe('portal candidate question contract', () => {
     expect(validateAnswer('Invented', questions[0])).toMatchObject({ ok: false, reason: 'not_an_option' });
   });
 
+  it('does not apply stale free-text rules to native choices while preserving free-text validation', () => {
+    const validation = { minLength: 30, maxLength: 40, pattern: '^\\d+$' };
+    const question = portalRequirementsFromMissingRequired([field], [{ ...planned, validation }]).questions[0];
+    for (const option of question.options) expect(validateAnswer(option, question)).toEqual({ ok: true });
+    const text = portalRequirementsFromMissingRequired([{ ...field, kind: 'text', options: [] }], [{ ...planned, validation }]).questions[0];
+    expect(validateAnswer('123', text)).toMatchObject({ ok: false, reason: 'too_short' });
+    expect(text.validation.pattern).not.toBe('');
+  });
+
   it('does not ask the candidate for a proven optional field wrongly called missing by the planner', () => {
     expect(portalRequirementsFromMissingRequired([{ ...field, required: false }], [planned])).toEqual({ questions: [], documents: [] });
   });
