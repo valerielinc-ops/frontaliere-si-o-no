@@ -22361,7 +22361,7 @@
       "advisory": false,
       "advisoryReason": null,
       "lastFailureReason": null,
-      "status": "healthy",
+      "status": "unknown",
       "_lastObservedAt": "2026-10-03T11:54:56.879Z",
       "_lastObservedJobs": 1,
       "_lastObservedEmptyOk": false,
@@ -22378,8 +22378,7 @@
       "_authoritativeEmptySnapshot": false,
       "_lastObservedFetchOutcome": null,
       "_lastObservedAbortKind": null,
-      "_abortedRun": false,
-      "_retired": true
+      "_abortedRun": false
     },
     "pzm-muensingen": {
       "lastSuccessfulRunAt": "2026-07-07T12:00:44.510Z",

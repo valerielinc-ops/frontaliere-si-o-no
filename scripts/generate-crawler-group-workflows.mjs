@@ -4,7 +4,7 @@ import { realpathSync } from 'node:fs';
 /**
  * scripts/generate-crawler-group-workflows.mjs
  *
- * Generates the 24 grouped crawler GitHub Actions workflows
+ * Generates the grouped crawler GitHub Actions workflows
  * (.github/workflows/crawler-group-NN.yml) from:
  *   - data/crawler-manifest.json              (per-crawler step manifest)
  *   - data/crawler-workflow-duration-baseline.json (historical avg durations)

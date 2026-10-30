@@ -12,10 +12,9 @@ import { GITHUB_WORKFLOW_DISPATCH_API_VERSION } from '../../functions/src/github
 
 export { canonicalJson, digestDocument, isCrawlerGenerationToken };
 
-// The generator currently emits 24 groups. Runtime validation accepts the
-// exact group set carried by the generated contract/roster, so dispatch does
-// not need a second hard-coded allowlist when that count changes.
-export const GROUP_IDS = createCrawlerGroupIds(24);
+// Runtime validation accepts the exact generated group set; keep this
+// compatibility bound aligned with the checked-in workflow roster.
+export const GROUP_IDS = createCrawlerGroupIds(25);
 export { GROUP_MANIFEST_REASON_CODES };
 export const BARRIER_STATUSES = Object.freeze([
   'waiting',

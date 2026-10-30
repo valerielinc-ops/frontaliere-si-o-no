@@ -2,7 +2,7 @@
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
- * crawler-quarantine-review.mjs — applica le due uscite della quarantena.
+ * crawler-quarantine-review.mjs — applica recovery e escalation della quarantena.
  *
  * Legge le ondate reali del gruppo di quarantena (le run completate di
  * `crawler-group-NN.yml` nel repo che le esegue), decide con
@@ -11,8 +11,8 @@ import { realpathSync } from 'node:fs';
  * mergia da solo su `## LGTM`:
  *
  *   - rientro: il crawler lascia il registro e torna nel suo gruppo;
- *   - ritiro: il crawler lascia il gruppo e finisce in `retired`, con una
- *     issue «Crawler ritirato: <slug>» che lo annuncia;
+ *   - escalation: il fallimento noto supera la soglia ma il crawler resta
+ *     schedulato; il ritiro passa da una decisione esplicita del proprietario;
  *   - fallimento noto: un rosso NUOVO diventa tollerato solo dopo aver avuto
  *     una issue aperta (quella del reporter per crawler, oppure una nuova) e
  *     con la scadenza scritta nel registro;
@@ -35,8 +35,8 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   QUARANTINE_REJOIN_GREEN_WAVES,
-  QUARANTINE_RETIRE_DAYS,
-  QUARANTINE_RETIRE_RED_WAVES,
+  QUARANTINE_FAILURE_ESCALATION_DAYS,
+  QUARANTINE_RED_ESCALATION_WAVES,
   applyQuarantineDecisions,
   decideQuarantine,
   dueRetirementReviews,
@@ -155,7 +155,13 @@ export function buildQuarantineReviewPrBody({ decisions, registry, corpusRepo = 
   }
   const pendingLines = decisions.flatMap((d) => {
     if (d.action === 'keep-failing') {
-      return [`- **per scelta** — \`${d.slug}\` resta fallimento noto (#${d.issue}) fino al ${d.deadline}: ${describeEvidence(d, corpusRepo)}. **Motivo:** ne' ${QUARANTINE_RETIRE_RED_WAVES} ondate rosse ne' ${QUARANTINE_RETIRE_DAYS} giorni sono ancora raggiunti. **Prossimo passo:** la review successiva lo ritira alla soglia, o lo segna in recupero al primo verde.`];
+      const reason = d.escalationReached
+        ? `raggiunta la soglia di ${QUARANTINE_RED_ESCALATION_WAVES} ondate rosse o ${QUARANTINE_FAILURE_ESCALATION_DAYS} giorni; la soglia richiede escalation, non autorizza il ritiro automatico`
+        : `le soglie di escalation di ${QUARANTINE_RED_ESCALATION_WAVES} ondate rosse o ${QUARANTINE_FAILURE_ESCALATION_DAYS} giorni non sono ancora raggiunte`;
+      const next = d.escalationReached
+        ? 'mantenere il crawler schedulato e correggere la fonte; solo il proprietario può decidere un eventuale ritiro con una PR esplicita'
+        : 'continuare a osservare le ondate; anche alla soglia il crawler resta schedulato finché il proprietario non decide diversamente';
+      return [`- **per scelta** — \`${d.slug}\` resta schedulato e il fallimento resta tracciato da #${d.issue}; la tolleranza del verdetto scade il ${d.deadline}: ${describeEvidence(d, corpusRepo)}. **Motivo:** ${reason}. **Prossimo passo:** ${next}.`];
     }
     if (d.action === 'hold') {
       return [`- **per scelta** — \`${d.slug}\` resta nel gruppo ${registry.group} anche con ${describeEvidence(d, corpusRepo)}. **Motivo:** ${d.reason} (\`holdLastQuarantineMember\`). **Prossimo passo:** rientra alla prima review dopo l'ingresso di un altro crawler in quarantena.`];
@@ -170,7 +176,7 @@ ${lines.join('\n')}
 
 ${pendingLines.length > 0 ? pendingLines.join('\n') : '- Nessuno.'}
 
-Decisioni di \`scripts/crawler-quarantine-review.mjs\` sulle ondate osservate di \`crawler-group-${String(registry.group).padStart(2, '0')}.yml\` in \`${corpusRepo}\`: rientro dopo ${QUARANTINE_REJOIN_GREEN_WAVES} ondate verdi consecutive, ritiro dopo ${QUARANTINE_RETIRE_RED_WAVES} ondate rosse consecutive o ${QUARANTINE_RETIRE_DAYS} giorni di fallimento.
+Decisioni di \`scripts/crawler-quarantine-review.mjs\` sulle ondate osservate di \`crawler-group-${String(registry.group).padStart(2, '0')}.yml\` in \`${corpusRepo}\`: rientro dopo ${QUARANTINE_REJOIN_GREEN_WAVES} ondate verdi consecutive; ${QUARANTINE_RED_ESCALATION_WAVES} ondate rosse o ${QUARANTINE_FAILURE_ESCALATION_DAYS} giorni tengono aperta l'escalation senza disattivare il crawler. Il ritiro richiede una decisione esplicita del proprietario.
 `;
 }
 
@@ -216,7 +222,7 @@ function performIssueActions({ decisions, registry, corpusRepo }) {
     const evidence = describeEvidence(d, corpusRepo);
     if (d.action === 'mark-failing') {
       const deadline = quarantineDeadline({ failingSince: d.failingSince });
-      const note = `Il crawler \`${d.slug}\` e' rosso nel gruppo di quarantena ${registry.group}: ${evidence}. Da ora il suo fallimento e' **noto** ed escluso dal verdetto del gruppo fino al **${deadline}** (\`data/crawler-quarantine.json\`). Alla scadenza, o dopo ${QUARANTINE_RETIRE_RED_WAVES} ondate rosse consecutive, \`scripts/crawler-quarantine-review.mjs\` lo ritira; con ${QUARANTINE_REJOIN_GREEN_WAVES} ondate verdi rientra.`;
+      const note = `Il crawler \`${d.slug}\` e' rosso nel gruppo di quarantena ${registry.group}: ${evidence}. Da ora il suo fallimento e' **noto** ed escluso dal verdetto del gruppo fino al **${deadline}** (\`data/crawler-quarantine.json\`). Alla scadenza il gruppo torna a segnalare il rosso; anche dopo ${QUARANTINE_RED_ESCALATION_WAVES} ondate rosse il crawler resta schedulato. Con ${QUARANTINE_REJOIN_GREEN_WAVES} ondate verdi rientra; il ritiro richiede una decisione esplicita del proprietario.`;
       // The per-crawler reporter's issue first; then one this script opened on
       // an earlier run whose PR never landed, so a retry does not duplicate it.
       let issue = findOpenIssueByExactTitle(`Crawler Failure: Run ${d.slug}`)

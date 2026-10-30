@@ -19,7 +19,7 @@ import { canonicalJson } from '../lib/canonical-json-digest.mjs';
 import { WATCHDOG_RUNTIME_PATH, manifestDigest } from './translate-watchdog-pin.mjs';
 
 export const CRAWLER_WORKFLOW_FILES = [
-  ...createCrawlerGroupIds(24).map((group) => `crawler-group-${group}.yml`),
+  ...createCrawlerGroupIds(25).map((group) => `crawler-group-${group}.yml`),
   'translate-pending.yml',
 ];
 
