@@ -5,7 +5,7 @@ import { publicContractGet } from '../scripts/assisted-application/lib/portal/pu
 import { readOnlyPortalContracts } from '../scripts/assisted-application/lib/portal/read-only-contracts.mjs';
 
 const browserLauncher = vi.hoisted(() => ({
-  launch: vi.fn(async () => { throw new Error('Executable does not exist'); }),
+  launch: vi.fn(async (_options: any) => { throw new Error('Executable does not exist'); }),
   installingLaunch: vi.fn(async () => { throw new Error('installer must not run'); }),
 }));
 vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
@@ -37,7 +37,21 @@ it('returns unknown promptly when the prepared browser is missing, without start
   const result = await readOnlyPortalContracts({ applyUrl: url, timeoutMs: 100,
     get: async () => ({ status: 200, url, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form></form>') }) });
   expect(result).toMatchObject({ complete: false, reason: 'transient_probe_failure' });
-  expect(browserLauncher.launch).toHaveBeenCalledWith({ headless: true, timeout: 100 });
+  expect(browserLauncher.launch).toHaveBeenCalledWith({ headless: true, timeout: expect.any(Number) });
+  expect(browserLauncher.launch.mock.calls.at(-1)?.[0].timeout).toBeLessThanOrEqual(100);
+  expect(browserLauncher.installingLaunch).not.toHaveBeenCalled();
+});
+
+it('gives browser launch only the deadline left after the primary GET', async () => {
+  browserLauncher.launch.mockClear();
+  await readOnlyPortalContracts({ applyUrl: url, timeoutMs: 200,
+    get: async () => {
+      await new Promise(resolve => setTimeout(resolve, 35));
+      return { status: 200, url, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form></form>') };
+    } });
+  const options = browserLauncher.launch.mock.calls.at(-1)?.[0];
+  expect(options.timeout).toBeGreaterThan(0);
+  expect(options.timeout).toBeLessThanOrEqual(170);
   expect(browserLauncher.installingLaunch).not.toHaveBeenCalled();
 });
 

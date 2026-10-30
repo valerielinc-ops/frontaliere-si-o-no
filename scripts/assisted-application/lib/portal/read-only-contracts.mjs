@@ -9,7 +9,7 @@ const contractKey = fields => JSON.stringify(fields.map(field => ({ id: field.id
   kind: field.kind, inputType: field.inputType, required: field.required, invalid: field.invalid, options: field.options })));
 
 export async function readOnlyPortalContracts({ applyUrl, job, channelType = '', get = publicContractGet,
-  launch = async () => (await getChromium()).launch({ headless: true, timeout: timeoutMs }), now = Date.now, timeoutMs = 30_000 } = {}) {
+  launch = null, now = Date.now, timeoutMs = 30_000 } = {}) {
   const startedAt = performance.now();
   const controller = new AbortController();
   const deadline = AbortSignal.timeout(timeoutMs);
@@ -68,7 +68,13 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
       return unknown(html.status >= 500 || html.status === 429 ? 'transient_http' : 'public_form_unavailable');
     }
     if (html.url !== applyUrl) return unknown('redirected_form_unknown');
-    browser = await launch();
+    // The initial GET and package import spend the same deadline. A missing
+    // binary is unknown; this read-only probe never starts an installer.
+    const chromium = launch ? null : await getChromium();
+    const remainingMs = Math.floor(timeoutMs - (performance.now() - startedAt));
+    if (signal.aborted || remainingMs <= 0) return unknown('transient_probe_failure');
+    browser = launch ? await launch({ timeoutMs: remainingMs })
+      : await chromium.launch({ headless: true, timeout: remainingMs });
     if (signal.aborted) return unknown('transient_probe_failure');
     context = await browser.newContext({ javaScriptEnabled: true, offline: true, serviceWorkers: 'block', acceptDownloads: false });
     await context.routeWebSocket('**/*', async socket => { blocked = true; await socket.close().catch(() => {}); });
