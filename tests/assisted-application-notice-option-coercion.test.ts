@@ -67,6 +67,11 @@ describe('notice duration projection onto the native catalogue', () => {
     const guarded = guardPlan({ actions: [], missingRequired: [] }, [incompatible], candidate);
     expect(guarded.actions).toEqual([]);
     expect(guarded.missingRequired).toHaveLength(1);
+    for (const source of ['policy_default', 'profile', 'rule']) {
+      const planned = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 mesi', source }], missingRequired: [] }, [incompatible], candidate);
+      expect(planned.actions).toEqual([]);
+      expect(planned.missingRequired).toHaveLength(1);
+    }
   });
 
   it('requires a real native catalogue before filling an operational select discovered during recovery', () => {

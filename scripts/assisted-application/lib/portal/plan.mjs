@@ -1074,6 +1074,16 @@ function isChoiceField(field) {
   return Boolean(field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike);
 }
 
+function hasExplicitOperationalAnswer(candidate, field) {
+  const topic = operationalQuestionTopic(field);
+  if (!topic) return false;
+  const recorded = (candidate?.portalQuestionsAnswered || []).filter(item => item?.source !== 'policy_default');
+  const fromIds = Object.entries(candidate?.answers || {}).filter(([id]) => /^portal_/i.test(id))
+    .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
+  return [...recorded, ...fromIds].some(item => String(item?.answer ?? '').trim()
+    && operationalQuestionTopic({ question: item.applicationQuestion || item.question }) === topic);
+}
+
 function operationalChoiceHasNoCatalogue(field) {
   return Boolean(operationalQuestionTopic(field)
     && (['select', 'radio', 'listbox'].includes(field?.kind) || field?.selectLike || field?.nativeSelectId)
@@ -1473,6 +1483,7 @@ export function candidateAnswerForField(candidate, field) {
     const value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     return value ? { value, source: 'profile' } : null;
   }
+  if (hasExplicitOperationalAnswer(candidate, field)) return null;
   const operational = operationalDefaultAnswer(field);
   if (operational) return operational;
   if (topic !== 'current_school') return null;
@@ -1662,6 +1673,11 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);
+      if (!known && hasExplicitOperationalAnswer(candidate, field)) {
+        rejectedActionFields.add(field.id);
+        ask(field);
+        continue;
+      }
       if (known?.value) action = { ...action, action: isChoiceField(field) ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
     }
     if (action.action === 'fill' && isDateField(field)) {
