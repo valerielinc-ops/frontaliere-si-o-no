@@ -2,6 +2,7 @@ import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { redactEmailAddresses } from '../functions/src/lib/redactEmails.js';
 import {
   buildJobAlertFunnel,
   formatJobAlertBatchLine,
@@ -269,6 +270,28 @@ describe('writeJobAlertStepSummary', () => {
       expect(warn).toHaveBeenCalledWith(expect.stringContaining('Job Summary non scritto'));
     } finally {
       rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('redactEmailAddresses', () => {
+  it('oscura gli indirizzi dentro un percorso Firestore o un messaggio di provider', () => {
+    expect(redactEmailAddresses('job_alert_subscribers/mario.rossi+x@esempio.ch/alerts/1 not found'))
+      .toBe('job_alert_subscribers/[indirizzo oscurato]/alerts/1 not found');
+    expect(redactEmailAddresses('rifiutato: a@b.co, c@d.org')).toBe('rifiutato: [indirizzo oscurato], [indirizzo oscurato]');
+    expect(redactEmailAddresses(undefined)).toBe('');
+    expect(redactEmailAddresses('nessun indirizzo qui')).toBe('nessun indirizzo qui');
+  });
+});
+
+describe("messaggi d'errore nel percorso di invio", () => {
+  it('ogni riga di log che stampa un errore passa da redactEmailAddresses', () => {
+    for (const file of ['scripts/send-job-alerts.mjs', 'functions/src/emailCascade.js', 'scripts/lib/email-cascade.mjs']) {
+      const unsafe = read(file).split('\n').filter((line) =>
+        /(console\.(log|warn|error)\(|logDetail\()/.test(line)
+        && /\$\{[^}]*(\.message\b|\berr\b|\berror\b|callbackError|cfMsg|matcherHealth\.error)|,\s*(e|err|error)\??\./.test(line)
+        && !/redactEmailAddresses\(/.test(line));
+      expect(unsafe, file).toEqual([]);
     }
   });
 });
