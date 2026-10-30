@@ -1761,10 +1761,10 @@ function renderPage(inp: PageInputs): string {
     fr: `Moyenne ${priceFmt} CHF/l · ${range} CHF/l · ${zonePrice.stations.length} stations observées en ${shortArea}.`,
   })[locale] + (deltaYest === null ? '' : ` ${deltaYestFmt} ${comparisonLabel(1)}.`);
   const provenance = ({
-    it: `Dati acquisiti: ${observationStamp}. L’orario di variazione del prezzo alla pompa non è fornito dalla fonte. Generazione pagina: ${today.toISOString()}.`,
-    en: `Data collected: ${observationStamp}. The source does not provide the time of the price change at the pump. Page generated: ${today.toISOString()}.`,
-    de: `Daten abgerufen: ${observationStamp}. Die Quelle nennt keinen Zeitpunkt der Preisänderung an der Zapfsäule. Seite erstellt: ${today.toISOString()}.`,
-    fr: `Données acquises : ${observationStamp}. La source ne fournit pas l’heure de modification du prix à la pompe. Page générée : ${today.toISOString()}.`,
+    it: `Dati acquisiti: ${observationStamp}. L’orario di variazione del prezzo alla pompa non è fornito dalla fonte.`,
+    en: `Data collected: ${observationStamp}. The source does not provide the time of the price change at the pump.`,
+    de: `Daten abgerufen: ${observationStamp}. Die Quelle nennt keinen Zeitpunkt der Preisänderung an der Zapfsäule.`,
+    fr: `Données acquises : ${observationStamp}. La source ne fournit pas l’heure de modification du prix à la pompe.`,
   })[locale];
   const euroRateNoteHtml = eurEquivalentFmt !== null && rateDateStamp && rateFmt && datedEcbSourceUrl
     ? `<p id="fuelEuroContext" class="text-sm text-muted">${esc(copy.euroRateNote(rateFmt, rateDateStamp))} <a href="${esc(datedEcbSourceUrl)}" rel="noopener noreferrer" target="_blank">${locale === 'de' ? 'EZB' : locale === 'fr' || locale === 'it' ? 'BCE' : 'ECB'}</a></p>`
@@ -3055,12 +3055,10 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
       seriesByRange: stationSeriesByRange,
       currency: 'CHF',
     });
-    const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(inp.today.toISOString().slice(0, 10), inp.locale))}</p>`;
     return `<section class="s-ziawP1" aria-labelledby="stationHistory">
   <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeadingStation(inp.brand))}</h2>
   <p class="s-MZT5qc">${esc(labels.historyCaptionStation)}</p>
   ${chartCard}
-  ${lastUpdatedLine}
 </section>`;
   }
 
@@ -3089,12 +3087,10 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
     seriesByRange: zoneSeriesByRange,
     currency: 'CHF',
   });
-  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(inp.today.toISOString().slice(0, 10), inp.locale))}</p>`;
   return `<section class="s-ziawP1" aria-labelledby="stationHistory">
   <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeading(inp.zoneLabel))}</h2>
   <p class="s-YUEhlJ">${esc(labels.historyDisclaimer)}</p>
   ${chartCard}
-  ${lastUpdatedLine}
 </section>`;
 }
 

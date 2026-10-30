@@ -254,6 +254,24 @@ describe('fuel-daily page generation — content quality', () => {
     expect(infeedAds.some(({ index }) => (index ?? -1) > seventhStation)).toBe(false);
   });
 
+  it('labels the provider acquisition time without presenting the build time as price data', () => {
+    const expectedObservation = 'Dati acquisiti: 20.04.2026';
+    const localizedPages = [
+      pages['/prezzi-benzina/lugano/oggi/'],
+      pages['/en/gasoline-price-switzerland/lugano/today/'],
+      pages['/de/benzinpreis-schweiz/lugano/heute/'],
+      pages['/fr/prix-essence-suisse/lugano/aujourd-hui/'],
+    ];
+
+    expect(localizedPages[0]).toContain(expectedObservation);
+    for (const html of localizedPages) {
+      expect(html).not.toContain('Generazione pagina:');
+      expect(html).not.toContain('Page generated:');
+      expect(html).not.toContain('Seite erstellt:');
+      expect(html).not.toContain('Page générée :');
+    }
+  });
+
   it('renders the shared same-currency calculator on regional petrol and diesel pages with known sample prices', () => {
     const petrol = pages['/prezzi-benzina/oggi/'];
     const diesel = pages['/prezzi-diesel/oggi/'];
@@ -709,6 +727,10 @@ describe('fuel-daily page generation — observation date', () => {
       expect(html.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1], locale).not.toMatch(/oggi|today|heute|aujourd/);
       expect(html, locale).toContain('vs 19.04.2026');
       expect(html, locale).not.toMatch(/stabile vs ieri|unchanged vs yesterday|unverändert vs gestern|stable vs hier/);
+      expect(html, locale).not.toContain('Pagina generata');
+      expect(html, locale).not.toContain('Page generated');
+      expect(html, locale).not.toContain('Seite erstellt');
+      expect(html, locale).not.toContain('Page générée');
       // History must not fabricate a point for the later build date.
       const emittedDates = [...html.matchAll(/<td\b[^>]*>(\d{4}-\d{2}-\d{2})<\/td>/g)].map((match) => match[1]);
       expect(emittedDates, locale).toContain(observedAt.toISOString().slice(0, 10));
