@@ -126,7 +126,9 @@ describe('signed-origin autonomous SDK startup', () => {
   expect(win.location.href).toBe(clean);
  });
  it('restores Ads exactly once on clean SPA mutations and disconnects its deferred retry', async () => {
-  const dom = new JSDOM('<!doctype html><head></head><body><iframe></iframe></body>', { url: signed, runScripts: 'outside-only' });
+  const hook = staticScriptsPlugin('.').transformIndexHtml as { handler: (html: string) => string };
+  const actualRoot = hook.handler(readFileSync(new NodeURL('../index.html', import.meta.url), 'utf8'));
+  const dom = new JSDOM(actualRoot, { url: signed, runScripts: 'outside-only' });
   try {
    const idle: Array<() => void> = [];
    const observed: Array<{ disconnected: boolean }> = [];
@@ -140,7 +142,9 @@ describe('signed-origin autonomous SDK startup', () => {
    Object.defineProperty(dom.window, 'requestIdleCallback', { value: (cb: () => void) => { idle.push(cb); return 1; } });
    Object.defineProperty(dom.window, 'setTimeout', { value: () => 1 });
    dom.window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted');
-   dom.window.document.querySelector('iframe')!.setAttribute('src', `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`);
+   const frame = dom.window.document.createElement('iframe');
+   frame.setAttribute('src', `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`);
+   dom.window.document.body.appendChild(frame);
    const context = dom.getInternalVMContext();
    vm.runInContext(THIRD_PARTY_DOCUMENT_INITIAL_GUARD, context);
    dom.reconfigure({ url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/?utm_source=email' });
@@ -151,7 +155,7 @@ describe('signed-origin autonomous SDK startup', () => {
     await Promise.resolve();
    }
    expect(dom.window.document.querySelector('script[src*="adsbygoogle.js"]')).toBe(null);
-   dom.window.document.querySelector('iframe')!.remove();
+   frame.remove();
    await Promise.resolve();
    dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
    for (const cb of idle.splice(0)) cb();
@@ -168,7 +172,9 @@ describe('signed-origin autonomous SDK startup', () => {
   try {
    const win = dom.window as unknown as PrivacyWindow;
    const script = dom.window.document.querySelector('script')!;
-   script.textContent = JSON.stringify({ url: `https://ads.example.test/frame?url=${encodeURIComponent(signed)}` });
+   script.textContent = JSON.stringify({ description: 'C# developers at 100%', mainEntity: [{ name: 'C# work, 100%', url: clean }] });
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document, true)).toBe(false);
+   script.textContent = JSON.stringify({ mainEntity: [{ '@id': `https://ads.example.test/frame?url=${encodeURIComponent(signed)}` }] });
    expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document, true)).toBe(true);
    script.textContent = '{';
    expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document, true)).toBe(true);

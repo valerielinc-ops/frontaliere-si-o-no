@@ -35,19 +35,30 @@ export function isSensitiveThirdPartyDocument(sanitize, win, doc, attempted = fa
   if (context.page_location === safe.page_location && context.page_referrer === safe.page_referrer) {
    if (!win.__FT_SENSITIVE_DOCUMENT__) return false;
    // URL cleanup alone cannot authorize loading: an old iframe/src or JSON-LD
-   // URL can still expose the signed URL. Inspect the live, decoded DOM without
+   // URL can still expose the signed URL. Inspect live, decoded URL fields without
    // rewriting it, and retain the initial-origin fact for every later retry.
    if (typeof doc?.querySelectorAll !== 'function') return deny();
    /** @param {string} value */
    const unchanged = (value) => sanitize({ page_location: value }).page_location === value;
+   /** @param {any} value @param {string} [key] @returns {boolean} */
+   const structuredUrlsClean = (value, key = '') => {
+    if (Array.isArray(value)) return value.every((entry) => structuredUrlsClean(entry, key));
+    if (value && typeof value === 'object') return Object.entries(value).every(([name, entry]) => structuredUrlsClean(entry, name));
+    if (typeof value !== 'string') return true;
+    const urlField = /^(?:@id|sameAs|image|logo|mainEntityOfPage|isBasedOn|license|target|item|hasMap)$/i.test(key) || /(?:url|uri|href|src)$/i.test(key);
+    return !(urlField || /^(?:https?:|\/\/)[^\s]*$/i.test(value)) || unchanged(value);
+   };
    for (const element of doc.querySelectorAll('*')) {
-    for (const attribute of element.attributes) if (!unchanged(attribute.value)) return deny();
-    for (const node of element.childNodes) {
-     if ((node.nodeType === 3 || node.nodeType === 4) && !unchanged(node.textContent || '')) return deny();
+    for (const attribute of element.attributes) {
+     // Attribute semantics identify URL inputs. CSS, JavaScript and ordinary
+     // prose can contain #/?/% syntax but are not whole URL references.
+     if (/^(?:href|src|action|formaction|poster|data|cite|background|longdesc|manifest|xlink:href)$/i.test(attribute.name) || /(?:^|[-_:])(?:url|href|src)$/i.test(attribute.name)) {
+      if (!unchanged(attribute.value)) return deny();
+     }
     }
     if (element.tagName === 'SCRIPT' && element.getAttribute('type') === 'application/ld+json') {
      const data = JSON.parse(element.textContent || '');
-     if (JSON.stringify(data) !== JSON.stringify(sanitize(data))) return deny();
+     if (!structuredUrlsClean(data)) return deny();
     }
    }
    return false;
