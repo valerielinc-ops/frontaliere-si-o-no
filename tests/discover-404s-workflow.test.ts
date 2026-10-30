@@ -100,7 +100,13 @@ describe('404 discovery workflows publish protected data through PRs', () => {
       'if [ "$RECONCILE_COMPAT" = true ] || [ "$RECONCILE_MAIN" = true ]; then',
     );
     expect(reconciler).toContain("if (flag === '--compat')");
-    expect(reconciler).toContain("['--base', '--main', '--message', '--refresh-base']");
+    // Other reconciliation modes can add flags; the pinned compat call above
+    // must still have all three of its value-taking arguments accepted.
+    const acceptedFlags = reconciler.match(/if \(!\[([^\]]+)\]\.includes\(flag\)/)?.[1];
+    expect(acceptedFlags).toBeDefined();
+    for (const flag of ['--base', '--main', '--message']) {
+      expect(acceptedFlags).toMatch(new RegExp(`['"]${flag}['"]`));
+    }
   });
 
   it('anchors a new compat branch to reconciled main and cleans before retry checkout', () => {
