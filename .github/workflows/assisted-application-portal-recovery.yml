@@ -17,6 +17,7 @@ on:
       - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'
       - 'functions/src/assistedApplicationSubmissionGuard.js'
       - 'functions/src/lib/answerRules.js'
+      - 'functions/src/lib/portalQuestionText.js'
   workflow_dispatch:
 
 permissions:

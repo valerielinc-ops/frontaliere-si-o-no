@@ -1,3 +1,4 @@
+import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
 /**
  * Portal runner (fase 3b: portals without an account; fase 3c: accounts).
@@ -30,6 +31,7 @@ import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
@@ -1120,7 +1122,7 @@ function localeCode(value) {
 
 const LOCALIZATION_FALLBACKS = {
   it: {
-    question: 'Il portale richiede una risposta a questa domanda.',
+    question: PORTAL_QUESTION_PLACEHOLDERS.it,
     why: 'Il portale richiede questa informazione.',
     validation: 'Inserisci una risposta valida.',
     placeholder: 'Seleziona',
@@ -1128,7 +1130,7 @@ const LOCALIZATION_FALLBACKS = {
     no: 'No',
   },
   de: {
-    question: 'Das Portal benötigt eine Antwort auf diese Frage.',
+    question: PORTAL_QUESTION_PLACEHOLDERS.de,
     why: 'Das Portal benötigt diese Angabe.',
     validation: 'Gib eine gültige Antwort ein.',
     placeholder: 'Bitte wählen',
@@ -1136,7 +1138,7 @@ const LOCALIZATION_FALLBACKS = {
     no: 'Nein',
   },
   fr: {
-    question: 'Le portail demande une réponse à cette question.',
+    question: PORTAL_QUESTION_PLACEHOLDERS.fr,
     why: 'Le portail demande cette information.',
     validation: 'Saisissez une réponse valide.',
     placeholder: 'Sélectionner',
@@ -1144,7 +1146,7 @@ const LOCALIZATION_FALLBACKS = {
     no: 'Non',
   },
   en: {
-    question: 'The portal requires an answer to this question.',
+    question: PORTAL_QUESTION_PLACEHOLDERS.en,
     why: 'The portal requires this information.',
     validation: 'Enter a valid answer.',
     placeholder: 'Select',
@@ -1182,7 +1184,7 @@ function fallbackLocalizedQuestion(item, language) {
   });
   return {
     ...item,
-    ...(rawIsApplicationCopy ? { question: fallback.question } : {}),
+    question: portalQuestionText(item),
     ...(rawIsApplicationCopy && !String(item.why || '').trim() ? { why: fallback.why } : {}),
     ...(item.validation?.message && rawIsApplicationCopy ? { validation: { ...item.validation, message: fallback.validation } } : {}),
     ...(options.length ? { options } : {}),
@@ -1196,12 +1198,12 @@ function fallbackLocalizedQuestion(item, language) {
  * identified a required field. The ATS label and options remain attached so
  * the answer can be mapped back to the form's language at submission time.
  * The application copy remains exact and the candidate copy is translated in
- * one structured call. If that call fails, a planner sentence is retained only
- * when it is already different from the ATS label; an exact raw ATS label is
- * replaced with a candidate-language fallback and marked for diagnostics.
+ * one structured call. If that call fails or returns a generic placeholder,
+ * retain the actual question and mark the fallback for diagnostics.
  */
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
-  const items = Array.isArray(questions) ? questions : [];
+  const items = (Array.isArray(questions) ? questions : []).map(item => ({ ...item, question: portalQuestionText(item) }));
+  if (items.some(item => !item.question)) throw new Error('portal_question_unreadable');
   const candidateLanguage = localeCode(candidateLocale);
   const applicationLanguage = localeCode(applicationLocale);
   if (!items.length || !candidateLanguage || !applicationLanguage || candidateLanguage === applicationLanguage) return items;
@@ -1251,10 +1253,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
     const rawQuestion = String(item.question || '').trim();
     const rawIsApplicationCopy = !rawQuestion || !String(item.applicationQuestion || '').trim()
       || normalizedQuestionText(rawQuestion) === normalizedQuestionText(item.applicationQuestion);
-    const question = translatedQuestion && (!String(item.applicationQuestion || '').trim()
-      || normalizedQuestionText(translatedQuestion) !== normalizedQuestionText(item.applicationQuestion))
-      ? translatedQuestion
-      : (rawIsApplicationCopy ? (LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it).question : rawQuestion);
+    const question = readablePortalQuestionText(translatedQuestion) || portalQuestionText(item);
     const why = String(copy?.why || '').trim() || (rawIsApplicationCopy && !String(item.why || '').trim()
       ? (LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it).why
       : String(item.why || '').trim());
@@ -2755,8 +2754,10 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
   const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+  const initialRequirements = portalRequirementsFromMissingRequired(others.fields, plan.missingRequired);
+  if (initialRequirements.unreadableFields?.length) return { handoff: 'question_label_unreadable' };
   if (plan.missingRequired.length) return {
-    questions: await localizePortalQuestions(portalRequirementsFromMissingRequired(others.fields, plan.missingRequired).questions, {
+    questions: await localizePortalQuestions(initialRequirements.questions, {
       candidateLocale: ctx.candidateLocale,
       applicationLocale: ctx.language,
       codex: ctx.codex,
@@ -2816,7 +2817,12 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     const repairSnapshot = { ...after, fields: after.fields.filter((field) => field.inputType !== 'password') };
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
-      const questions = await localizePortalQuestions(portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired).questions, {
+      const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
+      if (repairedRequirements.unreadableFields?.length) {
+        await ctx.accounts.mark(host, { status: 'unanswered' });
+        return noted({ handoff: 'question_label_unreadable' });
+      }
+      const questions = await localizePortalQuestions(repairedRequirements.questions, {
         candidateLocale: ctx.candidateLocale,
         applicationLocale: ctx.language,
         codex: ctx.codex,
@@ -3074,6 +3080,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
   };
   const documents = [];
   const readable = [];
+  const unreadableFields = [];
   for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
     const field = fieldFor(item);
     const document = portalRequiredDocumentFromField(field);
@@ -3085,7 +3092,11 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
       if (!field || (field.kind !== 'file' && field.inputType !== 'file')) {
         // A live field is authoritative. An agent's candidate-language copy
         // must never replace the exact label/options read from the ATS.
-        const applicationQuestion = String(field?.label || item.applicationQuestion || item.portalQuestion || item.question || '').trim();
+        const applicationQuestion = String(field ? field.label || '' : item.applicationQuestion || item.portalQuestion || item.question || '').trim();
+        if (!readablePortalQuestionText(applicationQuestion) || machineLabel(applicationQuestion)) {
+          unreadableFields.push(field?.id || item.fieldId || 'unknown');
+          continue;
+        }
         const applicationOptions = (field?.options?.length ? field.options : item.applicationOptions || item.options || [])
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
@@ -3103,7 +3114,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     }
     if (!documents.some((candidate) => candidate.id === document.id)) documents.push(document);
   }
-  return { questions: questionsFrom(readable), documents };
+  return { questions: questionsFrom(readable), documents, ...(unreadableFields.length ? { unreadableFields } : {}) };
 }
 
 /**
@@ -3111,8 +3122,9 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
  * identify ALL the questions before answering), so the candidate answers them
  * on the first review instead of in a second round at submit time. The form
  * is opened and read, never filled, and nothing is pressed but "apply".
- * Never fails the draft: any problem returns no questions.
- * @returns {Promise<{questions:Array<object>,documents:Array<object>}>} requirements for the review page
+ * Never fails the draft: browser failures return no questions. An unreadable
+ * required field is a technical handoff, never a question for the candidate.
+ * @returns {Promise<{questions:Array<object>,documents:Array<object>,handoff?:string,unreadableFields?:Array<string>}>} requirements for the review page
  */
 export async function readPortalRequirements(ctx) {
   const entryUrl = portalEntryUrl(ctx);
@@ -3139,6 +3151,7 @@ export async function readPortalRequirements(ctx) {
       acceptDownloads: false,
     });
     registerPortalChannelType(context, portalChannelType(ctx));
+    await registerCookieSessionRecovery(context, { log: ctx.log });
     let page = await context.newPage();
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
@@ -3155,6 +3168,10 @@ export async function readPortalRequirements(ctx) {
     if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };
     const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired);
+    if (requirements.unreadableFields?.length) {
+      (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
+      return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
+    }
     return {
       ...requirements,
       questions: await localizePortalQuestions(requirements.questions, {
@@ -3245,6 +3262,7 @@ export async function submitViaPortal(ctx) {
       ? await launchNopechaContext(extensionPath, { ...contextOptions, headless: !headedBrowser() })
       : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
     registerPortalChannelType(context, channelType);
+    await registerCookieSessionRecovery(context, { log: ctx.log });
     diagnostics = startPortalDiagnostics(context, (evidence.submitHttpFailures = []));
     evidence.diagnostics = diagnostics.data;
     await diagnostics.installFetchObserver().catch(() => { evidence.diagnostics.fetchObserverUnavailable = true; });
@@ -3447,6 +3465,7 @@ export async function submitViaPortal(ctx) {
     };
     const askCandidate = async (questions) => {
       const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions);
+      if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
       return {
         event: {
           type: 'submit_needs_candidate',

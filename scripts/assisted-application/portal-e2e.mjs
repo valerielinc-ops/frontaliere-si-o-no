@@ -24,6 +24,7 @@ import { acceptPrivacyStatement, readPortalRequirements, submitViaPortal } from 
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
 import { extractFields } from './lib/portal/fields.mjs';
 import { applyActions } from './lib/portal/fill.mjs';
+import { registerCookieSessionRecovery } from './lib/portal/cookie-session.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
@@ -298,6 +299,11 @@ function fakePortal() {
     const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(html); };
     const redirect = (to, headers = {}) => { res.writeHead(303, { location: to, ...headers }); res.end(); };
     const route = `${req.method} ${url.pathname}`;
+    if (route === 'GET /cookiecheck-cc0.html') {
+      const validCookie = /(?:^|;\s*)sid=synthetic-session(?:;|$)/.test(req.headers.cookie || '');
+      res.writeHead(url.search ? 500 : 200, { 'content-type': 'application/json' });
+      return res.end(JSON.stringify({ cookie_allowed: validCookie, session_id: validCookie ? 'synthetic-session' : '' }));
+    }
     // SIX's SuccessFactors route: a cold direct apply URL falls back to the
     // generic career page. Visiting the matching posting first sets the site
     // cookie, and its own Apply link opens the actual application form.
@@ -1230,7 +1236,7 @@ async function main() {
         <span id="notice-button" class="ui-selectmenu-button" role="combobox" aria-owns="notice-menu" tabindex="0">---</span>
         <ul id="notice-menu" style="display:none"><li><div data-month="month1">1 mese</div></li><li><div data-month="month3">3 mesi</div></li></ul>
         <label for="parser-cv">Curriculum vitae *</label><input id="parser-cv" type="file" required>
-        <label for="parser-privacy">I accept the Privacy Policy</label><input id="parser-privacy" type="checkbox" required>
+        <input id="parser-privacy" type="checkbox" required style="display:none"><label for="parser-privacy">I accept the Privacy Policy</label>
         <label for="parser-newsletter">Marketing newsletter</label><input id="parser-newsletter" type="checkbox">
         <button type="submit">Submit application</button></form>
         <div role="dialog" style="display:none" id="parser-dialog">
@@ -1275,6 +1281,21 @@ async function main() {
         && parserState.notice === 'month3' && parserState.privacy && !parserState.newsletter
         && parserState.accepted === 0 && parserState.declined === 1 && parserState.sent === 0);
     } finally { await parserBrowser.close(); }
+
+    const sessionBrowser = await launchChromium({ headless: true, executablePath });
+    try {
+      const context = await sessionBrowser.newContext();
+      await context.addCookies([{ name: 'sid', value: 'synthetic-session', url: base }]);
+      await registerCookieSessionRecovery(context);
+      const page = await context.newPage();
+      await page.goto(`${base}/careers.html`);
+      const result = await page.evaluate(async () => {
+        const response = await fetch('/cookiecheck-cc0.html?sid=synthetic-session');
+        return { status: response.status, body: await response.json() };
+      });
+      check('a failing session-query preflight recovers through the same proven cookie session',
+        result.status === 200 && result.body.cookie_allowed === true && result.body.session_id === 'synthetic-session');
+    } finally { await sessionBrowser.close(); }
 
     const unownedBrowser = await launchChromium({ headless: true, executablePath });
     const unownedPage = await unownedBrowser.newPage();

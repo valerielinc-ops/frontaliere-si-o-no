@@ -179,6 +179,18 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     }
   });
 
+  it('excludes documents opened from a credential link from static replay', () => {
+    const initOptions = (href: string) => {
+      lookLikeRealChrome();
+      Object.defineProperty(window, 'location', { configurable: true, value: { hostname: 'frontaliereticino.ch', href } });
+      delete (window as unknown as { posthog?: unknown }).posthog;
+      new Function(POSTHOG_INIT_CONTENT)();
+      return (window as unknown as { posthog?: { _i?: Array<[string, CapturedInit]> } }).posthog?._i?.[0]?.[1];
+    };
+    expect(initOptions('https://frontaliereticino.ch/lavoro/?utm_source=email')?.disable_session_recording).toBe(false);
+    expect(initOptions('https://frontaliereticino.ch/lavoro/?ne=x&ac=secret')?.disable_session_recording).toBe(true);
+  });
+
   it('keeps automatic page-view capture on for static pages', () => {
     // Static pages have no router: posthog-js's own capture_pageview is the
     // only producer of their $pageview.

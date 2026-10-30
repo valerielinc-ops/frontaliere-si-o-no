@@ -54,7 +54,7 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.read(base).automationDueAt).toBeNull();
   });
 
-  it.each(['portal:upload_failed', 'portal:cv_upload_failed'])('recovers a fixed upload stop only with pre-click failed proof: %s', async reason => {
+  it.each(['portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: [reason] });
     const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
@@ -79,7 +79,7 @@ describe('automatic recovery after a portal fix', () => {
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
       ...['assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
-        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/answerRules.js'].map(file => `functions/src/${file}`),
+        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/answerRules.js', 'lib/portalQuestionText.js'].map(file => `functions/src/${file}`),
     ];
     const write = (file: string, text: string) => { mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); writeFileSync(path.join(root, file), text); };
     try {
@@ -89,6 +89,9 @@ describe('automatic recovery after a portal fix', () => {
       expect(currentPortalCodeVersion(root)).toBe(before);
       write('scripts/assisted-application/lib/portal/fields.mjs', 'fixed selector');
       expect(currentPortalCodeVersion(root)).not.toBe(before);
+      const afterFields = currentPortalCodeVersion(root);
+      write('functions/src/lib/portalQuestionText.js', 'fixed question readability');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterFields);
       const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/assisted-application-portal-recovery.yml', import.meta.url), 'utf8'));
       for (const file of sourceFiles) expect(workflow.on.push.paths.some((pattern: string) => pattern.endsWith('/**') ? file.startsWith(pattern.slice(0, -2)) : file === pattern)).toBe(true);
     } finally { rmSync(root, { recursive: true, force: true }); }

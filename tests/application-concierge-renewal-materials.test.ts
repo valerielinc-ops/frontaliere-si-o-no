@@ -56,4 +56,18 @@ describe('renewal owns a separate CV with fresh consent', () => {
     expect(f.documents.get('renewal').cvStorageKey).toBeUndefined();
     expect(f.files.size).toBe(1);
   });
+  it.each(['target_retention', 'target_expired', 'target_consent', 'source_retention', 'source_removed'])('discards a copy if privacy or eligibility changes during storage copying: %s', async change => {
+    const f = fixture();
+    f.setOnCopy(() => {
+      if (change === 'target_retention') f.documents.get('renewal').retentionPurgedAt = new Date(f.now);
+      if (change === 'target_expired') f.documents.get('renewal').expiresAt = new Date(f.now);
+      if (change === 'target_consent') delete f.documents.get('renewal').renewalConsentVersion;
+      if (change === 'source_retention') f.documents.get('original').retentionPurgedAt = new Date(f.now);
+      if (change === 'source_removed') f.documents.delete('original');
+    });
+    expect((await inheritConciergeRenewalMaterials({ ...f, serviceId: 'renewal', nowMs: f.now })).copied).toBe(false);
+    expect(f.documents.get('renewal').cvStorageKey).toBeUndefined();
+    expect(f.deleted).toHaveLength(1);
+    expect(f.files.size).toBe(1);
+  });
 });

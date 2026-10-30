@@ -1827,6 +1827,21 @@ ins.adsbygoogle[data-ft-static-ad-collapsed] {
   overflow: hidden !important;
 }
 
+.ft-webcam-ad::before {
+  content: attr(aria-label);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: var(--color-subtle);
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /* ===== Top in-page Auto Ad reserve — REMOVED 2026-08-19 ══════════════════
    `.autoad-top-reserve` (TopAutoAdReserve.tsx) held 250px above <main> on the
    homepage for a top in-page Auto Ad, mirroring the ad's height so <main> never
