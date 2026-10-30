@@ -127,10 +127,11 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const node = id && document.getElementById(id);
     return node ? clean(node.innerText || node.textContent) : '';
   };
+  const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
   const ownedGroupLabels = (group, selector, element) => [...(group?.querySelectorAll(selector) || [])]
     .filter(label => {
       const owner = label.closest('label') || label;
-      return !owner.contains(element)
+      return label.closest(QUESTION_GROUP_SELECTOR) === group && !owner.contains(element)
         && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
         && (!owner.matches('label[for]') || Boolean(element.id) && owner.getAttribute('for') === element.id);
     });
@@ -147,7 +148,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const wrapping = element.closest('label');
     const wrappingText = wrapping && clean(wrapping.innerText || wrapping.textContent);
     if (wrappingText) return wrappingText;
-    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
       const legendText = !legend.contains(element) && clean(legend.innerText || legend.textContent);
       if (legendText) return legendText;
@@ -179,7 +180,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       const node = document.getElementById(id);
       if (node) labels.add(node);
     }
-    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const groupLabel of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
       if (!groupLabel.contains(element)
         && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
@@ -338,7 +339,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     return '';
   };
   const groupQuestion = (element) => {
-    const group = element.closest('fieldset, [role="radiogroup"], [role="group"], .application-question, .field, li');
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, 'legend, .question, .label, h3, h4', element)) {
       if (legend.closest('label')?.hasAttribute('for')) continue; // An option's label never names the whole group.
       const text = !legend.contains(element) && clean(legend.innerText || legend.textContent);

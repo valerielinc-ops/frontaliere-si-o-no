@@ -221,10 +221,11 @@
   }
 
   /** The words a person reads for this control. */
+  const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
   const ownedGroupLabels = (group, selector, element) => [...(group?.querySelectorAll(selector) || [])]
     .filter(label => {
       const owner = label.closest('label') || label;
-      return !owner.contains(element)
+      return label.closest(QUESTION_GROUP_SELECTOR) === group && !owner.contains(element)
         && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
         && (!owner.matches('label[for]') || Boolean(element.id) && owner.getAttribute('for') === element.id);
     });
@@ -249,7 +250,7 @@
       if (nearby) return nearby;
     }
     // A field group (Zag/Ark, fieldset): its own label or legend.
-    const group = element.closest('[role="group"], fieldset');
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, 'label, legend', element)) {
       if (!legend.contains(element) && textOf(legend)) return textOf(legend);
     }
@@ -337,7 +338,7 @@
       const node = doc.getElementById(id);
       if (node) labels.add(node);
     }
-    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const groupLabel of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
       if (!groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
     }
@@ -462,7 +463,7 @@
     }
     for (const radios of radiosByName.values()) {
       const question = questionOf(radios[0]);
-      const group = radios[0].closest('fieldset, [role="radiogroup"], [role="group"]');
+      const group = radios[0].closest(QUESTION_GROUP_SELECTOR);
       const legend = ownedGroupLabels(group, 'legend, [role="heading"], label', radios[0])
         .filter(node => !node.closest('label')?.hasAttribute('for')).map(textOf).find(Boolean) || '';
       const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))];
