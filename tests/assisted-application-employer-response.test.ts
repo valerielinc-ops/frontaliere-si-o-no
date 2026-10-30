@@ -54,3 +54,9 @@ it.each(['verification', 'other', '__proto__', 'unknown'])('does not project uns
 it.each([NaN, Infinity, -1, 0, 1e30])('rejects an invalid received date %s', date => {
   expect(parseEmployerResponse(message('offer', date))).toBeNull();
 });
+
+
+it('never reconstructs an employer reply after retention has purged it', async () => {
+  const order = { employerResponse: message('interview_invite', 1000), lastEmployerReplyCategory: 'auto_acknowledgement', lastEmployerReplyAt: 2000, employerReplies: 2, retentionPurgedAt: 3000 };
+  expect(await loadEmployerResponse(undefined, order)).toBeNull();
+});

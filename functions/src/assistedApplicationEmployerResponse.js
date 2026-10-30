@@ -15,6 +15,7 @@ function response(value) {
     messageId: typeof value.messageId === 'string' ? value.messageId.slice(0, 200) : '' };
 }
 export function employerResponseOf(order) {
+  if (order?.retentionPurgedAt) return null;
   return response(order?.employerResponse) || response({ category: order?.lastEmployerReplyCategory, receivedAt: order?.lastEmployerReplyAt });
 }
 export function employerResponseView(value) {
@@ -34,6 +35,7 @@ export function mergeEmployerResponse(previous, event) {
 
 /** Legacy orders already have the classified inbox; never require another email. */
 export async function loadEmployerResponse(orderRef, order) {
+  if (order?.retentionPurgedAt) return null;
   const stored = response(order?.employerResponse);
   if (stored) return stored;
   const legacy = employerResponseOf(order);

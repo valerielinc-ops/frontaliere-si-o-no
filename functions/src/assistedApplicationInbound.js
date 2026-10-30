@@ -343,8 +343,9 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
 
     await db.runTransaction(async transaction => {
       const [currentMessage, currentOrder] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
-      if (currentMessage.data()?.processedAt) return;
+      if (!currentMessage.exists || currentMessage.data()?.processedAt) return;
       const liveOrder = currentOrder.data() || {};
+      if (liveOrder.retentionPurgedAt) { transaction.delete(ref); return; }
       const employerResponse = mergeEmployerResponse(mergeEmployerResponse(previousResponse, employerResponseOf(liveOrder)), {
         ...classification, receivedAt: claimed.receivedAt, messageId,
       });
@@ -380,7 +381,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // Back to `received`: the trigger's retry processes it again.
     await db.runTransaction(async transaction => {
       const current = (await transaction.get(ref)).data();
-      if (!current?.processedAt) transaction.set(ref, { status: 'received', lastError: (error instanceof Error ? error.message : String(error)).slice(0, 120) }, { merge: true });
+      if (current && !current.processedAt) transaction.set(ref, { status: 'received', lastError: (error instanceof Error ? error.message : String(error)).slice(0, 120) }, { merge: true });
     });
     throw error;
   }

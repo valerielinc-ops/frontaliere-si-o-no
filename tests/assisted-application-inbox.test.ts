@@ -543,3 +543,17 @@ it('keeps UTF-8 and the full long employer text in a wrapping forwarded email', 
   expect(payload.html).toContain('Réception confirmée');
   expect(payload.replyTo).toBe('hr@example.test');
 });
+
+
+it('does not recreate a purged inbox or reply projection if retention finishes during forwarding', async () => {
+  const { store, alias } = await setupInbound();
+  const classify = async () => ({ category: 'auto_acknowledgement', needsReply: false });
+  const sendCascade = async () => {
+    await store.db.collection('assisted_applications').doc(ORDER).set({ retentionPurgedAt: 6000 }, { merge: true });
+    for (const path of store.list(`assisted_applications/${ORDER}/inbox/`)) store.docs.delete(path);
+    return { failed: [], sent: [{ provider: 'maileroo' }] };
+  };
+  await deliver({ store, alias, raw: employerMail({ subject: 'Application received', text: 'We have received your application.' }), classify, sendCascade, nowMs: 5000 });
+  expect(store.list(`assisted_applications/${ORDER}/inbox/`)).toEqual([]);
+  expect(store.read(`assisted_applications/${ORDER}`)?.employerResponse).toBeUndefined();
+});
