@@ -33,6 +33,8 @@ import { PROFESSION_IDS, PROFESSION_LOCALES, buildProfessionLandingPath } from '
 import { CH_CANTON_EMPLOYERS_CANTON_KEYS, buildCantonEmployersPath } from '../build-plugins/weeklyEmployersChCantonPathsData';
 import { CH_CANTON_SNAPSHOT_CANTON_KEYS, buildCantonSnapshotPath } from '../build-plugins/jobMarketSnapshotChCantonPathsData';
 import { SALARY_STATS_CANTON_SLUGS } from '../build-plugins/salaryStatsData';
+import { listAllBrandAliases } from '../build-plugins/shared/brandCanonicalMap';
+import { COMPANY_ROUTE_PREFIX, SECTION_LEGACY_TI } from '../build-plugins/shared/cantonSection';
 // Imported (not only read) so scripts/ci/run-related-tests.mjs selects this
 // file whenever the plugin's table changes.
 import { legacyRedirectsPlugin } from '../build-plugins/legacyRedirectsPlugin';
@@ -122,6 +124,14 @@ beforeEach(() => vi.stubGlobal('caches', { default: { match: async () => undefin
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe('generated edge table', () => {
+  it('promotes every declared company alias bridge to its primary hub in each locale', () => {
+    for (const { alias, canonical } of listAllBrandAliases()) {
+      for (const locale of PROFESSION_LOCALES) {
+        const root = `${locale === 'it' ? '' : `/${locale}`}/${SECTION_LEGACY_TI[locale]}/${COMPANY_ROUTE_PREFIX[locale]}-`;
+        expect(legacyStubTarget(`${root}${alias}/`)).toBe(`${root}${canonical}/`);
+      }
+    }
+  });
   it('is byte-identical to a fresh render of the plugin map', () => {
     expect(typeof legacyRedirectsPlugin).toBe('function');
     const fresh = renderEdgeLegacyStubModule(buildEdgeLegacyStubRedirects(ROOT));

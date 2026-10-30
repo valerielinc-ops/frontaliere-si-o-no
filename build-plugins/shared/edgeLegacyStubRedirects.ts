@@ -39,6 +39,8 @@
 import { readHardcodedRedirects, loadArticleRedirects } from './articleRedirects.mjs';
 import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './legacyLuganoCompetitionRedirects';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './borderWaitLegacyRedirects';
+import { listAllBrandAliases } from './brandCanonicalMap';
+import { COMPANY_ROUTE_PREFIX, SECTION_LEGACY_TI } from './cantonSection';
 import { listAllProfessionCantonPaths } from '../professionCantonData';
 import { PROFESSION_IDS, PROFESSION_LOCALES, buildProfessionLandingPath } from '../professionLandingsData';
 import { listAllSalaryProfessionCantonPaths } from '../salaryProfessionCantonData';
@@ -69,6 +71,14 @@ export function buildEdgeLegacyStubRedirects(rootDir: string): Record<string, st
   for (const [from, to] of BORDER_WAIT_LEGACY_REDIRECTS) put(from, to, false);
   for (const [from, to] of Object.entries(loadArticleRedirects(rootDir, { warn: () => {} }) as Record<string, string>)) {
     put(from, to, false);
+  }
+  // Declared company aliases use the same marked bridge as legacy paths.
+  // Recovering an archived alias must not expose a new 200 meta refresh.
+  for (const { alias, canonical } of listAllBrandAliases()) {
+    for (const locale of PROFESSION_LOCALES) {
+      const root = `${locale === 'it' ? '' : `/${locale}`}/${SECTION_LEGACY_TI[locale]}/${COMPANY_ROUTE_PREFIX[locale]}-`;
+      put(`${root}${alias}/`, `${root}${canonical}/`, false);
+    }
   }
   // These routes can alternate between a full page and a below-floor bridge
   // as inventory changes. The Worker checks REDIRECT_STUB_MARKER before a
