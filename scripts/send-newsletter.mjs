@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { htmlToText } from '../functions/src/lib/mimeMessage.js';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 
@@ -2854,6 +2855,7 @@ async function main() {
         to: [subscriber.email],
         subject,
         html: sanitizedHtml,
+        text: htmlToText(sanitizedHtml),
         headers: buildEmailHeaders(subscriber.email, campaignId),
         ...(scheduledAt ? { scheduledAt } : {}),
         tags: [

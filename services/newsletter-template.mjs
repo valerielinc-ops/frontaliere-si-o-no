@@ -77,8 +77,8 @@ const NL_I18N = {
     copyright: 'Newsletter artigianale, 0% spam, 100% utile',
     jobsLabel: 'Lavoro',
     toolsLabel: 'Strumenti',
-    topClicked: '\ud83d\udd25 Più cliccata',
-    realtimeUpdate: '\u26a1 Aggiornamento in tempo reale',
+    topClicked: 'Più cliccata',
+    realtimeUpdate: 'Aggiornamento in tempo reale',
     rateLabel: 'Tasso CHF \u2192 EUR',
     vsLastWeek: 'vs settimana scorsa',
     salaryImpact: 'Su uno stipendio di <strong style="color:{orange};font-size:15px;">5\u2019000 CHF</strong>, questa settimana {verb} <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> in più rispetto a lunedì scorso.{yearly}',
@@ -130,8 +130,8 @@ const NL_I18N = {
     copyright: 'Handcrafted newsletter, 0% spam, 100% useful',
     jobsLabel: 'Jobs',
     toolsLabel: 'Tools',
-    topClicked: '\ud83d\udd25 Most clicked',
-    realtimeUpdate: '\u26a1 Real-time update',
+    topClicked: 'Most clicked',
+    realtimeUpdate: 'Real-time update',
     rateLabel: 'Rate CHF \u2192 EUR',
     vsLastWeek: 'vs last week',
     salaryImpact: 'On a salary of <strong style="color:{orange};font-size:15px;">CHF 5\u2019000</strong>, this week you {verb} <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> compared to last Monday.{yearly}',
@@ -183,8 +183,8 @@ const NL_I18N = {
     copyright: 'Handgemachter Newsletter, 0% Spam, 100% n\u00fctzlich',
     jobsLabel: 'Stellen',
     toolsLabel: 'Tools',
-    topClicked: '\ud83d\udd25 Meistgeklickt',
-    realtimeUpdate: '\u26a1 Echtzeit-Update',
+    topClicked: 'Meistgeklickt',
+    realtimeUpdate: 'Echtzeit-Update',
     rateLabel: 'Kurs CHF \u2192 EUR',
     vsLastWeek: 'vs letzte Woche',
     salaryImpact: 'Bei einem Gehalt von <strong style="color:{orange};font-size:15px;">CHF 5\u2019000</strong> {verb} du diese Woche <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> im Vergleich zu letztem Montag.{yearly}',
@@ -236,8 +236,8 @@ const NL_I18N = {
     copyright: 'Newsletter artisanale, 0% spam, 100% utile',
     jobsLabel: 'Emplois',
     toolsLabel: 'Outils',
-    topClicked: '\ud83d\udd25 Plus cliqu\u00e9e',
-    realtimeUpdate: '\u26a1 Mise \u00e0 jour en temps r\u00e9el',
+    topClicked: 'Plus cliqu\u00e9e',
+    realtimeUpdate: 'Mise \u00e0 jour en temps r\u00e9el',
     rateLabel: 'Taux CHF \u2192 EUR',
     vsLastWeek: 'vs semaine derni\u00e8re',
     salaryImpact: 'Sur un salaire de <strong style="color:{orange};font-size:15px;">CHF 5\u2019000</strong>, cette semaine tu {verb} <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> par rapport \u00e0 lundi dernier.{yearly}',
@@ -415,14 +415,14 @@ function renderHeroExchangeRate({ rate, previousRate, locale, recipientName }) {
 
   return `
     <tr><td class="section-pad" style="background:${BRAND_DARK};color:#fff;padding:32px 28px 28px;text-align:center;">
-      <div style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin-bottom:6px;">${nlT(locale, 'realtimeUpdate')}</div>
+      <div style="font-size:13px;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin-bottom:6px;">${nlT(locale, 'realtimeUpdate')}</div>
       <div style="font-size:28px;font-weight:800;margin:0 0 4px;line-height:1.2;color:#fff;">${personalizeGreeting(locale, recipientName)}</div>
       <div style="font-size:14px;color:#94a3b8;margin:0 0 20px;">${nlT(locale, 'greetingSub')}</div>
 
       <!--[if mso]><table cellpadding="0" cellspacing="0" align="center"><tr><td style="background:#1e293b;border-radius:16px;padding:20px 36px;"><![endif]-->
       <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="text-decoration:none;display:inline-block;">
       <div class="rate-box" style="display:inline-block;background:#1e293b;background-image:linear-gradient(135deg,#1e293b,#334155);border-radius:16px;padding:20px 36px;margin:8px 0 16px;">
-        <div style="font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">${nlT(locale, 'rateLabel')}</div>
+        <div style="font-size:12px;color:#94a3b8;letter-spacing:1px;">${nlT(locale, 'rateLabel')}</div>
         <div class="hero-rate" style="font-size:52px;font-weight:900;color:${BRAND_ORANGE};letter-spacing:-1px;line-height:1.1;">${rate.toFixed(4)}</div>
         <div style="font-size:14px;margin-top:4px;color:${arrowColor};">${arrow} ${sign}${pct}% ${nlT(locale, 'vsLastWeek')}</div>
       </div>
@@ -475,9 +475,8 @@ function renderMetrics(totalJobs, metrics, locale) {
         <td width="33%" style="padding:0 4px 0 0;">
           <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/cerca-lavoro-svizzera', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
-              <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcbc</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${totalJobs || '200+'}</div>
-              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">${nlT(locale, 'metricJobs')}</div>
+              <div style="font-size:11px;color:${MUTED_COLOR};letter-spacing:0.5px;margin-top:2px;">${nlT(locale, 'metricJobs')}</div>
             </div>
           </a>
         </td>
@@ -485,9 +484,8 @@ function renderMetrics(totalJobs, metrics, locale) {
         <td width="33%" style="padding:0 4px;">
           <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/statistiche', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
-              <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcca</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${unemploymentRate}</div>
-              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">${unemploymentLabel}</div>
+              <div style="font-size:11px;color:${MUTED_COLOR};letter-spacing:0.5px;margin-top:2px;">${unemploymentLabel}</div>
             </div>
           </a>
         </td>
@@ -495,9 +493,8 @@ function renderMetrics(totalJobs, metrics, locale) {
         <td width="33%" style="padding:0 0 0 4px;">
           <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/compara-servizi/confronta-casse-malati', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
-              <div style="font-size:22px;margin-bottom:4px;">\ud83c\udfe5</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${lamalPremium}</div>
-              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">${lamalLabel}</div>
+              <div style="font-size:11px;color:${MUTED_COLOR};letter-spacing:0.5px;margin-top:2px;">${lamalLabel}</div>
             </div>
           </a>
         </td>
@@ -525,9 +522,9 @@ function renderJobs(matchedJobs, locale, totalJobs, rankingContext = null) {
     const truncatedTitle = truncateToClauseNonEmpty(job.title, 55);
     const tags = [];
     if (job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(234,179,8,0.2);color:#fde047;padding:2px 8px;border-radius:6px;letter-spacing:0.5px;font-weight:600;">🔔 Il tuo alert</span>`);
-    if (i === 0 && !job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);
-    if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.contract)}</span>`);
-    if (job.location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.location)}</span>`);
+    if (i === 0 && !job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);
+    if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.contract)}</span>`);
+    if (job.location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.location)}</span>`);
     let jobUrl = directUrl(job.url);
     if (rankingContext && jobUrl) {
       jobUrl = appendJobRankingParams(jobUrl, {
@@ -637,7 +634,7 @@ function renderArticle(article, locale) {
             <span style="font-size:56px;letter-spacing:8px;">${emoji}</span>
           </div>
           <div style="padding:18px 20px;">
-            ${article.badge ? `<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">${escapeHtml(nlT(locale, 'topRead'))}</span>` : ''}
+            ${article.badge ? `<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;letter-spacing:0.5px;margin-bottom:8px;">${escapeHtml(nlT(locale, 'topRead'))}</span>` : ''}
             <div style="font-size:17px;font-weight:800;color:${BRAND_DARK};margin:0 0 8px;line-height:1.3;">${escapeHtml(article.title)}</div>
             <div style="font-size:13px;color:#475569;line-height:1.55;margin:0 0 14px;">${escapeHtml(article.excerpt)}</div>
             <span style="display:inline-block;background:${BRAND_DARK};color:#fff;font-weight:700;font-size:13px;padding:10px 22px;border-radius:8px;">${nlT(locale, 'articleCta')}</span>
@@ -654,7 +651,7 @@ function renderTools(locale) {
     const bg = isFeatured ? '#fff7ed' : CARD_BG;
     const border = isFeatured ? BRAND_ORANGE : BORDER_COLOR;
     const nameColor = isFeatured ? '#c2410c' : BRAND_DARK;
-    const popular = isFeatured ? `<span style="font-size:9px;background:${BRAND_ORANGE};color:#fff;padding:2px 6px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-left:4px;vertical-align:middle;">\u2605 #1</span>` : '';
+    const popular = isFeatured ? `<span style="font-size:9px;background:${BRAND_ORANGE};color:#fff;padding:2px 6px;border-radius:4px;font-weight:700;letter-spacing:0.5px;margin-left:4px;vertical-align:middle;">\u2605 #1</span>` : '';
     return `
       <td width="50%" class="tool-cell" style="padding:${i % 2 === 0 ? '0 5px 10px 0' : '0 0 10px 5px'};vertical-align:top;">
         <a target="_blank" rel="noopener noreferrer" href="${localizedUrl(tool.toolUrl, locale)}" style="text-decoration:none;display:block;">
@@ -765,7 +762,7 @@ export function buildNewsletter(data) {
   // 6. Section header: Jobs (only if there are matched jobs)
   if (data.matchedJobs && data.matchedJobs.length > 0) {
     html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcbc ${nlT(locale, 'jobsLabel')}</div>
+      <div style="font-size:11px;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcbc ${nlT(locale, 'jobsLabel')}</div>
       <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${nlT(locale, 'jobsTitle')}</div>
       <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'jobsSub')}</div>
     </td></tr>`;
@@ -787,7 +784,7 @@ export function buildNewsletter(data) {
   // 9. Article section
   if (data.article) {
     html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcf0 ${nlT(locale, 'articleTitle')}</div>
+      <div style="font-size:11px;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcf0 ${nlT(locale, 'articleTitle')}</div>
     </td></tr>`;
     html += renderArticle(data.article, locale);
   }
@@ -797,7 +794,7 @@ export function buildNewsletter(data) {
 
   // 11. Section header: Tools
   html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
-    <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83e\uddf0 ${nlT(locale, 'toolsLabel')}</div>
+    <div style="font-size:11px;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83e\uddf0 ${nlT(locale, 'toolsLabel')}</div>
     <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${nlT(locale, 'toolsTitle')}</div>
     <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'toolsSub')}</div>
   </td></tr>`;
