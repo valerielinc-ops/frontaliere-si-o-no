@@ -42,6 +42,7 @@ describe('concierge geographic ranking', () => {
   it('does not discard conflicting disambiguators or conflicting posting countries', () => {
     expect(locationMatchPoints('Frankfurt (Oder), Deutschland', { location: 'Frankfurt (Main)', addressCountry: 'DE' })).toBe(0);
     expect(locationMatchPoints('Baden (Aargau), Schweiz', { location: 'Baden (Lower Austria), Österreich', addressCountry: 'CH' })).toBe(0);
+    expect(locationMatchPoints('Lugano (Ticino), Svizzera', { location: 'Lugano (TI)', addressCountry: 'CH' })).toBe(8);
   });
 
   it('accepts explicit structured countries and preserves the Georgia marker', () => {

@@ -54,7 +54,7 @@ function locality(value) {
   const part = text.split(/[;,|/]+/).find(part => fold(part).split(' ').some(token => !CANTON_CODES.has(token) && !NON_LOCALITY_WORDS.has(token))) || '';
   const annotation = part.match(/\s+\(([^()]*)\)\s*$/);
   const key = value => fold(value).split(' ').filter(token => !CANTON_CODES.has(token) && !NON_LOCALITY_WORDS.has(token)).join(' ');
-  return { key: key(annotation ? part.slice(0, annotation.index) : part), qualifier: annotation ? fold(annotation[1]) : '' };
+  return { key: key(annotation ? part.slice(0, annotation.index) : part), qualifier: annotation ? key(annotation[1]) : '' };
 }
 
 function postcode(value) {
