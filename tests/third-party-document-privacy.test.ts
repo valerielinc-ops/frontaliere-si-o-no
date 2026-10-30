@@ -16,6 +16,7 @@ import { isSensitiveThirdPartyDocument } from '../services/thirdPartyDocumentPri
 import {
  ADSENSE_LOADER_CONTENT, ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LAZY_LOADER,
  PARTNERIZE_TAG_CONTENT, PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_SNIPPET,
+ THIRD_PARTY_DOCUMENT_INITIAL_GUARD,
 } from '../build-plugins/constants';
 import { thirdPartyShellAssetSnapshot } from '../scripts/ci/export-third-party-shell-assets';
 import { listStaticScriptFiles, staticScriptsPlugin } from '../build-plugins/staticScriptsPlugin';
@@ -111,6 +112,8 @@ describe('signed-origin autonomous SDK startup', () => {
   let touched = 0;
   const doc = new Proxy({ referrer: '' }, { get(target, key) {
    if (key === 'referrer') return target.referrer;
+   if (key === 'documentElement') return undefined;
+   if (key === 'querySelectorAll') return () => { throw new Error('DOM cannot be attested'); };
    touched += 1;
    throw new Error('SDK touched DOM before the privacy guard');
   } });
@@ -122,6 +125,59 @@ describe('signed-origin autonomous SDK startup', () => {
   expect(touched).toBe(0);
   expect(win.location.href).toBe(clean);
  });
+ it('restores Ads exactly once on clean SPA mutations and disconnects its deferred retry', async () => {
+  const dom = new JSDOM('<!doctype html><head></head><body><iframe></iframe></body>', { url: signed, runScripts: 'outside-only' });
+  try {
+   const idle: Array<() => void> = [];
+   const observed: Array<{ disconnected: boolean }> = [];
+   const NativeObserver = dom.window.MutationObserver;
+   Object.defineProperty(dom.window, 'MutationObserver', { value: class extends NativeObserver {
+    state = { disconnected: false };
+    constructor(cb: MutationCallback) { super(cb); observed.push(this.state); }
+    disconnect() { this.state.disconnected = true; super.disconnect(); }
+   } });
+   Object.defineProperty(dom.window.navigator, 'userAgent', { value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Version/17.5 Mobile/15E148 Safari/604.1' });
+   Object.defineProperty(dom.window, 'requestIdleCallback', { value: (cb: () => void) => { idle.push(cb); return 1; } });
+   Object.defineProperty(dom.window, 'setTimeout', { value: () => 1 });
+   dom.window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted');
+   dom.window.document.querySelector('iframe')!.setAttribute('src', `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`);
+   const context = dom.getInternalVMContext();
+   vm.runInContext(THIRD_PARTY_DOCUMENT_INITIAL_GUARD, context);
+   dom.reconfigure({ url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/?utm_source=email' });
+   vm.runInContext(ADSENSE_LOADER_CONTENT, context);
+   expect(dom.window.document.querySelector('script[src*="adsbygoogle.js"]')).toBe(null);
+   for (let retry = 0; retry < 3; retry++) {
+    dom.window.document.body.setAttribute('data-retry', String(retry));
+    await Promise.resolve();
+   }
+   expect(dom.window.document.querySelector('script[src*="adsbygoogle.js"]')).toBe(null);
+   dom.window.document.querySelector('iframe')!.remove();
+   await Promise.resolve();
+   dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
+   for (const cb of idle.splice(0)) cb();
+   vm.runInContext(ADSENSE_LOADER_CONTENT, context);
+   dom.window.dispatchEvent(new dom.window.Event('popstate'));
+   await Promise.resolve();
+   expect(dom.window.document.querySelectorAll('script[src*="adsbygoogle.js"]')).toHaveLength(1);
+   expect(observed[0].disconnected).toBe(true);
+   expect((dom.window as unknown as PrivacyWindow).__FT_SENSITIVE_DOCUMENT__).toBe(true);
+  } finally { dom.window.close(); }
+ });
+ it('keeps sensitive referrers, residual structured URLs and unreadable DOM fail-closed after cleanup', () => {
+  const dom = new JSDOM('<!doctype html><body><script type="application/ld+json"></script></body>', { url: clean });
+  try {
+   const win = dom.window as unknown as PrivacyWindow;
+   const script = dom.window.document.querySelector('script')!;
+   script.textContent = JSON.stringify({ url: `https://ads.example.test/frame?url=${encodeURIComponent(signed)}` });
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document, true)).toBe(true);
+   script.textContent = '{';
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document, true)).toBe(true);
+   script.remove();
+   Object.defineProperty(dom.window.document, 'referrer', { value: signed });
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document, true)).toBe(true);
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, { referrer: '' }, true)).toBe(true);
+  } finally { dom.window.close(); }
+ });
  it('keeps Partnerize vendor initialization on ordinary documents', async () => {
   const win = browser(clean) as PrivacyWindow & Record<string, unknown>;
   const appended: Array<Record<string, unknown>> = [];
@@ -129,7 +185,7 @@ describe('signed-origin autonomous SDK startup', () => {
   const requests: Array<{ url: string; body: string }> = [];
   Object.assign(win, { crypto: { subtle: { digest: async () => new ArrayBuffer(20) } } });
   const doc = {
-   referrer: '', createElement: () => ({}),
+   referrer: '', readyState: 'loading', createElement: () => ({}),
    body: { appendChild: (script: Record<string, unknown>) => appended.push(script) },
    addEventListener: (event: string, cb: () => void) => { listeners[event] = cb; },
   };
@@ -144,6 +200,39 @@ describe('signed-origin autonomous SDK startup', () => {
   (appended[0].onload as () => void)();
   expect(JSON.parse(requests[0].body).url).toBe(clean);
  });
+ it('starts deferred Partnerize once after DOMContentLoaded and a clean mutation, then disconnects', async () => {
+  const dom = new JSDOM('<!doctype html><body><iframe></iframe></body>', { url: signed, runScripts: 'outside-only' });
+  try {
+   let disconnected = 0;
+   const requests: Array<{ body: string }> = [];
+   const NativeObserver = dom.window.MutationObserver;
+   Object.defineProperty(dom.window, 'MutationObserver', { value: class extends NativeObserver {
+    disconnect() { disconnected++; super.disconnect(); }
+   } });
+   Object.defineProperty(dom.window, 'crypto', { value: { subtle: { digest: async () => new ArrayBuffer(20) } } });
+   Object.assign(dom.window, { TextEncoder, fetch: async (_url: string, options: { body: string }) => { requests.push(options); } });
+   const frame = dom.window.document.querySelector('iframe')!;
+   frame.src = `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`;
+   const context = dom.getInternalVMContext();
+   vm.runInContext(THIRD_PARTY_DOCUMENT_INITIAL_GUARD, context);
+   vm.runInContext(PARTNERIZE_TAG_CONTENT, context);
+   await Promise.resolve(); await Promise.resolve();
+   expect(dom.window.document.readyState).toBe('complete');
+   dom.reconfigure({ url: clean });
+   dom.window.document.body.setAttribute('data-retry', 'still-unsafe');
+   await Promise.resolve();
+   expect(dom.window.document.querySelectorAll('script')).toHaveLength(0);
+   frame.remove();
+   for (let i = 0; i < 8; i++) await Promise.resolve();
+   vm.runInContext(PARTNERIZE_TAG_CONTENT, context);
+   dom.window.dispatchEvent(new dom.window.Event('popstate'));
+   expect(dom.window.document.querySelectorAll('script')).toHaveLength(1);
+   expect(disconnected).toBe(1);
+   dom.window.document.querySelector('script')!.dispatchEvent(new dom.window.Event('load'));
+   expect(requests).toHaveLength(1);
+   expect(JSON.parse(requests[0].body).url).toBe(clean);
+  } finally { dom.window.close(); }
+ });
  it('publishes hash-bound protected assets plus stable aliases', () => {
   const files = new Map(listStaticScriptFiles());
   for (const [name, source, stable] of [
@@ -155,14 +244,26 @@ describe('signed-origin autonomous SDK startup', () => {
    expect(files.get(stable)).toBe(source);
   }
   expect(ADSENSE_LAZY_LOADER).toContain(ADSENSE_LOADER_VERSIONED_FILENAME);
-  expect(PARTNERIZE_TAG_SNIPPET).toBe(`<script src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`);
+  expect(PARTNERIZE_TAG_SNIPPET).toBe(`<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`);
+  expect(THIRD_PARTY_DOCUMENT_INITIAL_GUARD).not.toContain('</script');
  });
  it('invalidates the transported fingerprint when either producer or helper changes', () => {
   const snapshot = thirdPartyShellAssetSnapshot();
-  const fingerprint = { ...snapshot, assets: snapshot.assets.map(({ content: _content, ...asset }) => asset) };
+  const fingerprint = { ...snapshot, initialDocumentGuard: { sha256: snapshot.initialDocumentGuard.sha256 }, assets: snapshot.assets.map(({ content: _content, ...asset }) => asset) };
   expect(fingerprint).toEqual(JSON.parse(readFileSync(new NodeURL('./third-party-shell-assets-fingerprint.json', import.meta.url), 'utf8')));
  });
- it('transforms root HTML to the same synchronous producer before React', () => {
+ it('captures the signed context inline before cleanup without a blocking CDN request', () => {
+  const win = browser();
+  const doc = { referrer: '' };
+  const context = vm.createContext({ window: win, document: doc, URL, URLSearchParams });
+  vm.runInContext(THIRD_PARTY_DOCUMENT_INITIAL_GUARD, context);
+  win.location.href = clean;
+  // The deferred producer arrives after React has redeemed and cleaned the URL.
+  vm.runInContext(PARTNERIZE_TAG_CONTENT, context);
+  expect(win.__FT_SENSITIVE_DOCUMENT__).toBe(true);
+  expect(win.location.href).toBe(clean);
+ });
+ it('transforms root HTML to the same inline guard and deferred producer before React', () => {
   const source = readFileSync(new NodeURL('../index.html', import.meta.url), 'utf8');
   const hook = staticScriptsPlugin('.').transformIndexHtml as { handler: (html: string) => string };
   const html = hook.handler(source);

@@ -30,14 +30,14 @@ describe('Partnerize tag', () => {
     expect(constants).toContain("window.crypto.subtle.digest('SHA-1', bin)");
     expect(constants).toContain("return h.slice(0, 6) + 'p.' + h + '.com';");
     expect(constants).toContain("fetch('https://api.performancehorizon.com/v3/pzthc/' + tid");
-    expect(constants).toContain("document.addEventListener('DOMContentLoaded', pzti);");
+    expect(constants).toContain("if(document.readyState==='loading')document.addEventListener('DOMContentLoaded', pzti,{once:true});else pzti();");
   });
 
-  it('cattura il contesto iniziale con lo stesso file esterno sincrono sulle pagine statiche', () => {
+  it('cattura il contesto inline senza rendere parser-blocking il producer esterno', () => {
     const constants = read('build-plugins/constants.ts');
     expect(constants).toContain("export const PARTNERIZE_TAG_FILENAME = 'partnerize-tag.js';");
     expect(constants).toContain(
-      'export const PARTNERIZE_TAG_SNIPPET = `<script src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`;',
+      'export const PARTNERIZE_TAG_SNIPPET = `<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`;',
     );
   });
 

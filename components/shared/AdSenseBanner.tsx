@@ -213,8 +213,8 @@ function AdSenseBannerInstance({
  // ── Load the AdSense script (singleton) ──────────────────
  const loadAdSenseScript = useCallback(() => {
  if (typeof document === 'undefined') return;
- // Initial HTML captures the document before auth cleanup; the immutable
- // signal also protects a late SPA chunk if that local bootstrap failed.
+ // Capture initial provenance even for a late chunk. Later SPA routes may
+ // initialize only after URL/referrer and residual DOM URLs attest clean.
  if (isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, window, document, wasNewsletterAutologinAttempted())) return;
  // ── ADVERTISING CONSENT GATE (#5842) ──────────────────────
  // The single choke point for adsbygoogle.js in the SPA. Deliberately here and
