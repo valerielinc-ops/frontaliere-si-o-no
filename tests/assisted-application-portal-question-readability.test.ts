@@ -67,6 +67,8 @@ it.each([
   const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${mirrorQuestion}${description}${choice}</div></form>`);
   for (const fields of [source, bundle, filler]) expect(fields[0].label).not.toMatch(/privacy/i);
   expect(F.answerFor(filler[0], { identity: {}, documents: {} })).not.toEqual({ check: true });
+  const plan = guardPlan({ actions: [{ fieldId: source[0].id, action: 'check', source: 'consent' }], missingRequired: [] }, source);
+  expect(plan.actions).not.toContainEqual(expect.objectContaining({ fieldId: source[0].id, action: 'check' }));
   dom.window.close();
 });
 it('preserves a verified mirror when the own ARIA description is also an affirmative acceptance', () => {
