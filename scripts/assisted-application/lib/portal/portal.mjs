@@ -54,7 +54,7 @@ const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
-export const { APPLY_RE, APPLY_LATER_RE, startsApplication } = globalThis.AssistedApplyControls;
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls } = globalThis.AssistedApplyControls;
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
@@ -992,6 +992,8 @@ const isCvFileField = (field) => {
   const context = String(field.context || '');
   return CV_FILE_FIELD_RE.test(context) && !COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context);
 };
+
+export const preferredCvFields = fields => preferredDocumentControls(fields.filter(isCvFileField));
 
 // SuccessFactors can render the CV input only after its icon-only upload
 // control is pressed. The visible page still has application questions (and
@@ -3658,36 +3660,31 @@ export async function submitViaPortal(ctx) {
       let unclearQuestions = [];
       if (workable(snapshot)) {
         // The planner never sees a password field, nor what a retry finds typed in it.
-        const planned = ownAccount ? { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') } : snapshot;
+        const cvFields = preferredCvFields(snapshot.fields);
+        const preferredCvIds = new Set(cvFields.map(field => field.id));
+        const planned = { ...snapshot, fields: snapshot.fields.filter(field =>
+          (!ownAccount || field.inputType !== 'password') && (!isCvFileField(field) || preferredCvIds.has(field.id))) };
         const plan = await planPage({
           snapshot: planned,
           candidate: candidateWithRecordedAnswers(ctx.candidate, planned),
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
         });
-        const cvField = snapshot.fields.find(isCvFileField);
+
         // This synthetic action is executed by applyActions below, which resolves
         // the extracted fieldId through data-aa-id; agent.mjs aria-ref actions
         // are a separate path and are not used for this deterministic upload.
-        const automaticCvUpload = cvField && documentPaths(ctx.files, 'cv').length
-          ? {
-              fieldId: cvField.id,
-              ref: cvField.ref,
-              action: 'upload',
-              value: '',
-              document: 'cv',
-              source: 'documents',
-              evidence: '',
-            }
-          : null;
+        const automaticCvUploads = documentPaths(ctx.files, 'cv').length ? cvFields.map(field => ({
+          fieldId: field.id, ref: field.ref, action: 'upload', value: '', document: 'cv', source: 'documents', evidence: '',
+        })) : [];
         const plannedActions = [...plan.actions];
-        if (automaticCvUpload && !plannedActions.some((action) => action.fieldId === cvField.id
-          && action.action === 'upload' && action.document === 'cv')) {
-          const skipIndex = plannedActions.findIndex((action) => action.fieldId === cvField.id && action.action === 'skip');
+        for (const upload of automaticCvUploads) {
+          if (plannedActions.some(action => action.fieldId === upload.fieldId && action.action === 'upload' && action.document === 'cv')) continue;
+          const skipIndex = plannedActions.findIndex(action => action.fieldId === upload.fieldId && action.action === 'skip');
           if (skipIndex >= 0) plannedActions.splice(skipIndex, 1);
-          plannedActions.push(automaticCvUpload);
+          plannedActions.push(upload);
         }
-        const missingRequired = plan.missingRequired.filter((item) => !(automaticCvUpload && item.fieldId === cvField.id));
+        const missingRequired = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
         // A required field with no readable label is no question for the
         // candidate ("select-input-_r_p_"): the agent finds its question on the page.
         const unclear = missingRequired.some((item) => machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
@@ -3707,7 +3704,7 @@ export async function submitViaPortal(ctx) {
         // was saved had «Street Name» and «Postcode» empty). A choice the field already shows is not made again.
         const fieldOf = (action) => snapshot.fields.find((field) => field.id === action.fieldId);
         const tidy = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
-        const isChoice = (action) => action.action !== 'skip' && ['select', 'listbox'].includes(fieldOf(action)?.kind);
+        const isChoice = (action) => action.action !== 'skip' && ['select', 'listbox', 'combobox'].includes(fieldOf(action)?.kind);
         const shown = (action) => isChoice(action) && Boolean(tidy(action.value)) && tidy(fieldOf(action)?.value) === tidy(action.value);
         const choices = actions.filter((action) => isChoice(action) && !shown(action));
         const selectedUploads = new Map();
@@ -3717,7 +3714,7 @@ export async function submitViaPortal(ctx) {
         ];
         // The form after the choices: with other fields than the ones planned it is read and planned again
         // (twice at most for one page), and nothing is typed into what is no longer there.
-        const labelsOf = (view) => view.fields.map((field) => field.label).join('|');
+        const labelsOf = (view) => view.fields.map(field => `${field.id}:${field.kind}:${field.label}`).join('|');
         let redrawn = false;
         if (choices.length && (redraws.get(plannedUrl) || 0) < MAX_REDRAWS_PER_PAGE) {
           for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {

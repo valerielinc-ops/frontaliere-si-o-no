@@ -532,6 +532,13 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     // navigation or footer (Workday's «settingsSelectorButton», read as a field of every page of the form).
     if (/language.?selector|sprachauswahl/i.test(`${label} ${element.getAttribute('data-automation-id') || ''}`) || isSiteChromeControl(element)) continue;
     const fieldLabel = label === clean(element.innerText) ? groupQuestion(element) || label : label;
+    // jQuery UI multiselect renders a visible button immediately after its
+    // hidden native select. Require both the widget and the same labelled-by
+    // owner; a neighboring unrelated select is not an option source.
+    const native = element.previousElementSibling;
+    const nativeSelect = element.classList.contains('ui-multiselect') && native?.tagName === 'SELECT'
+      && native.id && native.getAttribute('aria-labelledby')
+      && native.getAttribute('aria-labelledby') === element.getAttribute('aria-labelledby') ? native : null;
     fields.push({
       id: idFor(element),
       kind: 'listbox',
@@ -541,7 +548,10 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       label: fieldLabel,
       context: sectionContext(element),
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
-      value: clean(element.innerText || element.textContent),
+      value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
+      ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
+        options: [...nativeSelect.options].filter(option => !option.disabled).slice(0, 300).map(option => ({ value: option.value, label: clean(option.textContent) })),
+        required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
   }
@@ -553,7 +563,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   // plain links inside a styled `.css_button` wrapper. Keep the wrapper guard
   // so ordinary content links do not become buttons.
   const BUTTONS = 'button, input[type="submit"], a[role="button"], a[href], [role="button"]';
-  const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
+  const actionLink = (element) => element.tagName === 'A' && (Boolean(element.closest('.css_button')) || element.classList.contains('button') || element.classList.contains('btn'));
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
   const buttonName = (element) => [
     // `innerText` is the rendered label in a browser. JSDOM does not expose
@@ -804,7 +814,7 @@ export async function extractFields(page, { listboxOptions = true, channelType =
     } catch {
       continue; // cross-origin or detached
     }
-    for (const field of listboxOptions && !includeHidden ? snapshot.fields.filter((item) => item.kind === 'listbox' || item.selectLike).slice(0, 15) : []) {
+    for (const field of listboxOptions && !includeHidden ? snapshot.fields.filter((item) => (item.kind === 'listbox' && item.widget !== 'jquery-multiselect') || item.selectLike).slice(0, 15) : []) {
       field.options = field.selectLike ? await readOwnedListOptions(frame, field) : await readListboxOptions(frame, field.id);
     }
     result.frames.push({ index, url: snapshot.url });

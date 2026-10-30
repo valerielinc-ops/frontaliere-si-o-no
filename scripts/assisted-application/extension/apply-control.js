@@ -1,4 +1,4 @@
-/** Shared classic-script matcher, used by both the extension and Node runner. */
+/** Shared classic-script control helpers, used by the extension and Node runner. */
 (function (root) {
   'use strict';
 // Anywhere in the label: Personio says "Auf diese Stelle bewerben".
@@ -14,5 +14,11 @@ const startsApplication = (text) => {
     .filter(token => !/:\/\/|\bwww\.|mailto:|@|^[/?]/i.test(token)).join(' ');
   return APPLY_RE.test(words) && !APPLY_LATER_RE.test(text);
 };
-  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication });
+  // Callers classify the document family first: a mandatory CV attachment
+  // takes precedence over an optional CV importer that redraws the form.
+  const preferredDocumentControls = (controls) => {
+    const required = controls.filter(control => control.required);
+    return required.length ? required : controls;
+  };
+  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls });
 })(globalThis);

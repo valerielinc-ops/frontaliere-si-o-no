@@ -866,3 +866,18 @@ describe('fill extension: other portals', () => {
     expect((document.getElementById('phone') as HTMLInputElement).value).toBe('324 0753275');
   });
 });
+
+
+it('uploads to the mandatory CV attachment instead of an optional profile importer', async () => {
+  const { F, document, window } = page(`<form>
+    <label for="parser">CV-Upload</label><input id="parser" type="file">
+    <label for="cv">Curriculum vitae *</label><input id="cv" type="file" required>
+  </form>`);
+  for (const input of document.querySelectorAll('input')) Object.defineProperty(input, 'files', { value: null, writable: true, configurable: true });
+  (window as any).DataTransfer = class { files: File[] = []; items = { add: (file: File) => { this.files.push(file); } }; };
+  const file = new window.File(['%PDF-1.4'], 'CV.pdf', { type: 'application/pdf' });
+  const result = await F.fillPage(document, kit, { getFile: async () => file, attempts: new WeakMap(), uploaded: new Set() });
+  expect(result.failed).toEqual([]);
+  expect((document.getElementById('parser') as HTMLInputElement).files).toBeNull();
+  expect((document.getElementById('cv') as HTMLInputElement).files?.[0]?.name).toBe('CV.pdf');
+});

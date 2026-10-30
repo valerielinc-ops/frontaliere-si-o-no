@@ -31,7 +31,7 @@ const VERIFICATION_POLL_MS = 10_000;
 // answer: «Noch kein Profil? Hier registrieren», «Non hai ancora un profilo?
 // Registrati qui», «Vous n'avez pas encore de compte? Créez-en un»; its
 // button is «Konto anlegen» / «Crea account» / «Créer un compte».
-export const CREATE_ACCOUNT_RE = /^([^?]{0,60}\?\s*)?(hier |jetzt )?(konto (erstellen|anlegen)|neues konto( erstellen| anlegen)?|registrieren|create (an )?account|sign up|register|crea (un )?account|registrati( qui)?|créer (un )?compte|créez-en un|s'inscrire)$/i;
+export const CREATE_ACCOUNT_RE = /^([^?]{0,60}\?\s*)?(hier |jetzt )?((?:konto|profil) (erstellen|anlegen)|neues konto( erstellen| anlegen)?|registrieren|create (an? )?(?:account|profile)|sign up|register|crea (un )?(?:account|profilo)|registrati( qui)?|créer (un )?(?:compte|profil)|créez-en un|s'inscrire)$/i;
 export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion|se connecter)$/i;
 export const RESEND_VERIFICATION_RE = /(resend|send (?:a )?new (?:verification )?code|request a new code|neuen code (?:senden|anfordern)|code (?:erneut|noch einmal) senden|renvoyer|réenvoyer|envoyer un nouveau code|invia(?:re)? un nuovo codice|nuovo codice|reinvia)/i;
 export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|code))/i;

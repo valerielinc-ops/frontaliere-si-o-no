@@ -118,9 +118,10 @@ describe('portal account pages', () => {
     for (const label of [
       'Konto erstellen', 'Jetzt registrieren', 'Konto anlegen', 'Noch kein Profil? Hier registrieren',
       'Crea account', 'Non hai ancora un profilo? Registrati qui', 'Registrati',
+      'Create profile', 'Create a profile', 'Profil erstellen', 'Crea un profilo', 'Créer un profil',
       'Créer un compte', "Vous n'avez pas encore de compte? Créez-en un", 'Create an account', 'Sign up',
     ]) expect(CREATE_ACCOUNT_RE.test(label), label).toBe(true);
-    for (const label of ['Kennwort vergessen?', 'Mit bestehendem Profil anmelden und bewerben', 'Job-Abo hier anlegen', 'Melde dich hier an.', 'Anmelden']) {
+    for (const label of ['Edit profile', 'View profile', 'Create profile alert', 'Create job alert', 'Kennwort vergessen?', 'Mit bestehendem Profil anmelden und bewerben', 'Job-Abo hier anlegen', 'Melde dich hier an.', 'Anmelden']) {
       expect(CREATE_ACCOUNT_RE.test(label), label).toBe(false);
     }
   });
