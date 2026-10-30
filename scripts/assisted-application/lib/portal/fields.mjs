@@ -134,7 +134,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     return node ? clean(node.innerText || node.textContent) : '';
   };
   const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
-  const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]';
+  const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
   const DATE_QUESTION_SELECTOR = '[ui5-date-picker], [data-scope="date-picker"][data-part="root"]';
   const QUESTION_CONTROL_SELECTOR = `input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"], button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"], ${DATE_QUESTION_SELECTOR}`;
   const questionControls = group => {
