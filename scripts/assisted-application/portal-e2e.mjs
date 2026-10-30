@@ -1213,6 +1213,69 @@ async function main() {
       && pickedDate === '2025-05-12' && pickedYear === '2025' && pickedMonth === '5');
     await dateBrowser.close();
 
+    // Rexx-style controls: a styled native select and an optional AI parser
+    // dialog opened only after choosing the required attachment.
+    const parserBrowser = await launchChromium({ headless: true, executablePath });
+    try {
+      const parserPage = await parserBrowser.newPage();
+      await parserPage.goto(`${base}/careers.html`);
+      let parserUploads = 0;
+      await parserPage.route('**/optional-parser-upload', async route => {
+        parserUploads++;
+        await route.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' });
+      });
+      await parserPage.setContent(`<form>
+        <label for="notice">Attuale periodo di preavviso *</label>
+        <select id="notice" name="notice" required style="display:none"><option value="">---</option><option value="month1">1 mese</option><option value="month3">3 mesi</option></select>
+        <span id="notice-button" class="ui-selectmenu-button" role="combobox" aria-owns="notice-menu" tabindex="0">---</span>
+        <ul id="notice-menu" style="display:none"><li><div data-month="month1">1 mese</div></li><li><div data-month="month3">3 mesi</div></li></ul>
+        <label for="parser-cv">Curriculum vitae *</label><input id="parser-cv" type="file" required>
+        <label for="parser-privacy">I accept the Privacy Policy</label><input id="parser-privacy" type="checkbox" required>
+        <label for="parser-newsletter">Marketing newsletter</label><input id="parser-newsletter" type="checkbox">
+        <button type="submit">Submit application</button></form>
+        <div role="dialog" style="display:none" id="parser-dialog">
+          Per un riempimento automatico più preciso i contenuti possono essere valutati da un’intelligenza artificiale (IA).
+          La decisione di procedere senza IA non ha alcun effetto sul prosieguo del processo di candidatura.
+          <button type="button" id="parser-accept">Accettare</button><button type="button" id="parser-decline">Rifiutare</button>
+        </div><script>
+          window.parserAccepted = 0; window.parserDeclined = 0; window.parserSent = 0;
+          const native = document.querySelector('#notice');
+          const menu = document.querySelector('#notice-menu');
+          document.querySelector('#notice-button').onclick = () => { menu.style.display = ''; };
+          menu.querySelectorAll('[data-month]').forEach(item => item.onclick = () => {
+            native.value = item.dataset.month; menu.style.display = 'none';
+            document.querySelector('#notice-button').textContent = item.textContent;
+          });
+          const dialog = document.querySelector('#parser-dialog');
+          const cv = document.querySelector('#parser-cv');
+          cv.onchange = () => { dialog.style.display = ''; };
+          document.querySelector('#parser-accept').onclick = () => { window.parserAccepted++; };
+          document.querySelector('#parser-decline').onclick = async () => {
+            window.parserDeclined++; dialog.style.display = 'none';
+            const body = new FormData(); body.append('cv', cv.files[0]);
+            await fetch('/optional-parser-upload', { method: 'POST', body });
+          };
+          document.querySelector('form').onsubmit = event => { event.preventDefault(); window.parserSent++; };
+        </script>`);
+      const parserSnapshot = await extractFields(parserPage);
+      const parserActions = [
+        { fieldId: parserSnapshot.fields.find(field => field.widget === 'jquery-selectmenu')?.id, action: 'select', value: '3 mesi' },
+        { fieldId: parserSnapshot.fields.find(field => field.kind === 'checkbox' && /Privacy/.test(field.label))?.id, action: 'check' },
+        { fieldId: parserSnapshot.fields.find(field => field.kind === 'file')?.id, action: 'upload', document: 'cv' },
+      ];
+      const parserResults = await applyActions(parserPage, parserSnapshot.fields, parserActions, files, { pause: async () => {} });
+      const parserState = await parserPage.evaluate(() => ({
+        notice: document.querySelector('#notice').value, privacy: document.querySelector('#parser-privacy').checked,
+        newsletter: document.querySelector('#parser-newsletter').checked,
+        accepted: window.parserAccepted, declined: window.parserDeclined, sent: window.parserSent,
+      }));
+      check('owned selectmenu commits three months and the optional parser is declined before upload confirmation',
+        parserResults.length === 3 && parserResults.every(result => result.ok)
+        && parserResults.some(result => result.uploadAccepted) && parserUploads === 1
+        && parserState.notice === 'month3' && parserState.privacy && !parserState.newsletter
+        && parserState.accepted === 0 && parserState.declined === 1 && parserState.sent === 0);
+    } finally { await parserBrowser.close(); }
+
     const unownedBrowser = await launchChromium({ headless: true, executablePath });
     const unownedPage = await unownedBrowser.newPage();
     await unownedPage.setContent(`<div data-scope="date-picker" data-part="root" aria-label="Birth date">
