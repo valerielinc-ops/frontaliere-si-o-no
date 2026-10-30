@@ -379,7 +379,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
         if (!add(node.getAttribute('aria-label') || '')) return result;
         for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
           const named = node.ownerDocument.getElementById(id);
-          const name = clean(named?.innerText || named?.textContent || '');
+          const name = String(named?.innerText || named?.textContent || '').replace(/\s+/g, ' ').trim();
           // Hidden text explicitly referenced by ARIA still names the owner.
           if (!name) { result.unknown = true; return result; }
           if (!add(name)) return result;

@@ -34,6 +34,7 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     '<fieldset aria-label="Employer">', '<div class="field" aria-label="Company address">',
     '<section aria-labelledby="owner"><span id="owner" hidden>Employer</span>',
     '<fieldset aria-labelledby="missing-owner">', '<fieldset><legend>Place of birth</legend>',
+    `<section aria-labelledby="owner"><span id="owner">Personal information ${'x'.repeat(310)} Employer</span>`,
   ])('never substitutes residence or DOB for another named owner', (open) => {
     const close = open.startsWith('<fieldset') ? '</fieldset>' : open.startsWith('<section') ? '</section>' : '</div>';
     const field = nativeField(`<form><h2>Personal information</h2>${open}<div role="group"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></div>${close}</form>`, reader);
@@ -56,13 +57,13 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Como', source: 'identity' });
   });
 
-  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita'])('does not answer %s with a known date of birth or nationality', (label) => {
+  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita', 'Commune de naissance', 'Ort der Geburt', 'Nato a', 'Birth country', 'Provincia di nascita'])('does not answer %s with a known date of birth or nationality', (label) => {
     const field = nativeField(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" name="city"></form>`, reader);
     expect(candidateAnswerForField(candidate, field)).toBeNull();
   });
 
-  it('still answers the actual date-of-birth question', () => {
-    const field = nativeField('<form><h2>Personal information</h2><label for="dob">Date of birth</label><input id="dob" name="dob" type="date"></form>', reader, 'dob');
+  it.each(['Date of birth', 'DOB', 'Data di nascita', 'Quando sei nato?', 'Geburtsdatum', 'Date de naissance'])('still answers the actual %s date question', (label) => {
+    const field = nativeField(`<form><h2>Personal information</h2><label for="dob">${label}</label><input id="dob" name="dob" type="date"></form>`, reader, 'dob');
     expect(candidateAnswerForField(candidate, field)).toEqual({ value: '1990-01-02', source: 'profile' });
   });
 });
