@@ -19,7 +19,7 @@ export function verificationTarget({ applyUrl, evidence, sourceProtocol = null }
     const target = new URL(evidence?.finalUrl);
     if (source.protocol !== 'https:' || target.origin !== source.origin || portalDirectory(target) !== sourceDirectory(source, sourceProtocol) || !portalJobKey(applyUrl, sourceProtocol)
       || portalJobKey(target.href) !== portalJobKey(applyUrl, sourceProtocol) || target.hash
-      || !/(?:^|\/)(?:application)?(?:review|preview|summary)\/?$/i.test(target.pathname)) return null;
+      || !/(?:^|\/)(?:application\/|application)?(?:review|preview|summary)\/?$/i.test(target.pathname)) return null;
     if ([...target.searchParams.keys()].some(key => !/^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))) return null;
     return target.href;
   } catch { return null; }
@@ -32,7 +32,7 @@ export function safeSigninAction(action, pageUrl, sourceProtocol = null) {
     return url.protocol === 'https:' && url.origin === source.origin && !url.username && !url.password && !url.hash
       && portalDirectory(url) === sourceDirectory(source, sourceProtocol)
       && !/(?:submit|finali[sz]e|withdraw|delete|remove|applicationapply)/i.test(url.pathname)
-      && /(?:^|\/)(?:application)?(?:login|signin|sign-in)\/?$/i.test(url.pathname)
+      && /(?:^|\/)(?:application\/|application)?(?:login|signin|sign-in)\/?$/i.test(url.pathname)
       && [...url.searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key));
   } catch { return false; }
 }
@@ -101,7 +101,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       try {
         const url = new URL(value);
         if (url.origin === origin && portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && portalJobKey(url.href) === portalJobKey(applyUrl, sourceProtocol) && !url.hash
-          && /(?:^|\/)(?:application)?confirmation\/?$/i.test(url.pathname)
+          && /(?:^|\/)(?:application\/|application)?confirmation\/?$/i.test(url.pathname)
           && [...url.searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))) navigationTargets.add(url.href);
       } catch { /* Unknown historical addresses cannot authorize a navigation. */ }
     }
