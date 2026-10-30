@@ -3920,9 +3920,9 @@ export async function submitViaPortal(ctx) {
         if (stuckOnPage >= 2) {
           const agent = await runAgent(snapshot, 'refused');
           if (agent?.status === 'needs_candidate') {
-          const request = await askCandidate(agent.questions);
-          if (request) return request;
-        }
+            const request = await askCandidate(agent.questions);
+            if (request) return request;
+          }
           if (agent?.status === 'done') snapshot = await extractFields(page);
           else if ((agent && agent.status !== 'unavailable') || stuckOnPage > 2) return await handoff('portal_needs_candidate');
         }

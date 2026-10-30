@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { localizePortalQuestions, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { localizePortalQuestions, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -198,6 +198,28 @@ it('routes unreadable source labels to a technical hold instead of manufacturing
   expect(result.unreadableFields).toEqual(['f1']);
   expect(portalRequirementsFromMissingRequired([{ id: 'f1', kind: 'text', label: '', required: true }],
     [{ fieldId: 'f1', question: 'A plausible but invented question?' }])).toMatchObject({ questions: [], unreadableFields: ['f1'] });
+});
+
+it('does not create a candidate request when the real reduction contains no questions or documents', async () => {
+  const requirements = portalRequirementsFromMissingRequired([{ id: 'cv', kind: 'file', label: 'Resume / CV', required: true }], [{ fieldId: 'cv', type: 'text', question: 'Upload your CV' }]);
+  expect(requirements).toMatchObject({ questions: [], documents: [] });
+  const codex = vi.fn();
+  expect(await portalRequirementsForCandidate(requirements, { candidateLocale: 'it', applicationLocale: 'en', codex })).toBeNull();
+  expect(codex).not.toHaveBeenCalled();
+});
+
+it.each([false, true])('preserves a real document request and hard question without manufacturing answers: %s', async withQuestion => {
+  const question = { id: 'permit', source: 'portal', type: 'choice', question: 'Do you hold a Swiss work permit?', applicationQuestion: 'Do you hold a Swiss work permit?', options: ['Yes', 'No'], required: true };
+  const requirements = { questions: withQuestion ? [question] : [], documents: [{ id: 'diploma', label: 'Diploma', required: true }] };
+  const codex = vi.fn();
+  const request = await portalRequirementsForCandidate(requirements, { candidateLocale: 'en', applicationLocale: 'en', codex });
+  expect(request).toEqual(requirements);
+  expect(request).not.toHaveProperty('answers');
+  expect(codex).not.toHaveBeenCalled();
+});
+
+it('never treats an unreadable required field as an empty resolved reduction', async () => {
+  await expect(portalRequirementsForCandidate({ questions: [], documents: [], unreadableFields: ['unknown'] })).rejects.toThrow('portal_question_unreadable');
 });
 
 it.each([
