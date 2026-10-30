@@ -37,7 +37,7 @@ function fixture(initial = profile) {
     }),
     evaluate: async (fn: Function) => String(fn).includes('navigator.userAgent') ? 'Chrome' : state.snapshot.text,
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
-    locator: () => ({ first: () => ({ click }) }),
+    locator: () => ({ count: async () => 0, first: () => ({ click }) }),
   };
   const browser = { newContext: async () => ({ route: async () => {}, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
   const run = () => submitViaPortal({ applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
