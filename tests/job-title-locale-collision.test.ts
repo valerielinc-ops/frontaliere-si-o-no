@@ -47,5 +47,8 @@ describe('job title collisions across rendered locale variants', () => {
     const first = jobTitleLocaleQualifiers(...identity, escapedLength);
     jobTitleLocaleQualifiers('Different role', '', '', escapedLength);
     expect(jobTitleLocaleQualifiers(...identity, escapedLength)).toEqual(first);
+    expect(jobTitleLocaleQualifiers(...identity, escapedLength, {
+      it: 'Sviluppatore', en: 'Developer', de: 'Entwickler', fr: 'Développeur',
+    })).toEqual({});
   });
 });

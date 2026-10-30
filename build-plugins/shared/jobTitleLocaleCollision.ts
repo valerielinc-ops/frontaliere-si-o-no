@@ -21,9 +21,10 @@ export function jobTitleLocaleKeys(
 export function jobTitleLocaleQualifiers(
   title: string, company: string, location: string,
   measureLength: (value: string) => number,
+  titlesByLocale: Partial<Record<Locale, string>> = {},
 ): Partial<Record<Locale, string>> {
   const locales = Object.keys(JOB_TITLE_LOCALE_LABELS) as Locale[];
-  const keys = locales.map((locale) => jobTitleLocaleKeys(title, company, location, locale, measureLength));
+  const keys = locales.map((locale) => jobTitleLocaleKeys(titlesByLocale[locale] || title, company, location, locale, measureLength));
   const qualifiers: Partial<Record<Locale, string>> = {};
   for (let index = 1; index < locales.length; index++) {
     if (keys[index].some((key) => keys.slice(0, index).some((earlier) => earlier.includes(key)))) {
