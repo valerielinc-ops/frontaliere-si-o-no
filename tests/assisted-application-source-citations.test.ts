@@ -51,7 +51,10 @@ describe('source-bound match evidence', () => {
     expect(conciergeProposalEligibility(requirements, guarded, context))
       .toMatchObject({ status: 'unverified', reason: 'evidence_incomplete' });
     // An actual candidate answer, unlike an invented citation, remains usable.
-    const question = guardMobilityMatch(requirements, { ...sanitized, matches: [{ ...sanitized.matches[0], evidenceUnverified: false }] }, context).questions[0];
+    const candidateGap = guardMobilityMatch(requirements, { ...sanitized,
+      matches: [{ index: 0, status: 'partial', evidence: cv, evidenceUnverified: false }] }, context);
+    expect(candidateGap.questions).toHaveLength(1);
+    const question = candidateGap.questions[0];
     const confirmed = guardMobilityMatch(requirements, sanitized, { ...context, answers: { [question.id]: 'Sì' } });
     expect(confirmed.matches[0]).toMatchObject({ status: 'met', evidenceUnverified: false });
   });
