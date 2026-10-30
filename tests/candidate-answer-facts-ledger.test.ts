@@ -43,6 +43,11 @@ describe('typed facts use the attested answer source contract', () => {
     expect(context(target).answerEvidence).toEqual([]);
     expect(context(order).answerEvidence[0]).toMatchObject({ scope: 'job', fact: { status: 'permit_g', relation: 'reported_possession_not_work_right' } });
   });
+  it.each(['B (will be sponsored by employer)', 'B (only if the employer sponsors me)', 'C (role-specific condition)'])('does not promote a conditional permit answer to a portable fact: %s', answer => {
+    const f = fixture({ ...cases[3], answer, question: { ...cases[3].question, options: [answer] } });
+    expect(f.evidence[f.key]).not.toHaveProperty('fact');
+    expect(f.evidence[f.key]?.scope).not.toBe('candidate');
+  });
   it('does not reuse a fact whose unit, subject, round, source answer or retention changed', async () => {
     for (const change of ['unit', 'subject', 'round', 'answer', 'deadline']) {
       const f = fixture(cases[1]);

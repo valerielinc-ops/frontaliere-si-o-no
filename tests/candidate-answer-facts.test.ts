@@ -78,6 +78,19 @@ describe('positive typed candidate answer contracts', () => {
     expect(candidateAnswersForQuestions([limited], {}, memory)).toEqual({});
     expect(candidateAnswersForQuestions([limited], { limited: '6' }, memory)).toEqual({ limited: '6' });
   });
+  it.each(['B (will be sponsored by employer)', 'B (only if the employer sponsors me)', 'C (role-specific condition)'])('does not turn a conditional permit answer or native option into current possession: %s', conditional => {
+    const q = question('What is your current Swiss work permit status?', 'choice', { options: [conditional, 'C'] });
+    expect(candidateAnswerFact(q, conditional)).toBeNull();
+    const source = question('What is your current Swiss work permit status?', 'choice', { options: ['B', 'C'] });
+    const answer = conditional.startsWith('B') ? 'B' : 'C';
+    const memory = rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: answer } });
+    const target = { ...q, id: 'target', options: [conditional] };
+    expect(candidateAnswersForQuestions([target], {}, memory)).toEqual({});
+  });
+  it.each(['it', 'en', 'de', 'fr'])('preserves all official permit labels in %s without a permissive parenthesis parser', locale => {
+    const q = question('What is your current Swiss work permit status?', 'choice', { options: permitOptions(locale) });
+    for (const answer of permitOptions(locale)) expect(candidateAnswerFact(q, answer)).not.toBeNull();
+  });
   it('projects a confirmed fact only to one equivalent native option without creating a new answer', () => {
     const source = question('What is your current Swiss work permit status?', 'choice', { options: permitOptions('en') });
     const translated = { ...question('Quel permis suisse possédez-vous actuellement?', 'choice', { options: permitOptions('fr') }), id: 'translated' };
