@@ -5,13 +5,17 @@ import { extractFields } from './fields.mjs';
 import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
 import { applyActions, findButton, locatorFor } from './fill.mjs';
 import { applicationReceipt, applicationStage, portalJobKey } from './stages.mjs';
+import { avaturePortalDirectory } from './protocol.mjs';
 
-export function verificationTarget({ applyUrl, evidence }) {
+const portalDirectory = url => url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1);
+const sourceDirectory = (url, protocol) => avaturePortalDirectory(url.href, protocol) || portalDirectory(url);
+
+export function verificationTarget({ applyUrl, evidence, sourceProtocol = null }) {
   try {
     const source = new URL(applyUrl);
     const target = new URL(evidence?.finalUrl);
-    if (source.protocol !== 'https:' || target.origin !== source.origin || !portalJobKey(applyUrl)
-      || portalJobKey(target.href) !== portalJobKey(applyUrl) || target.hash
+    if (source.protocol !== 'https:' || target.origin !== source.origin || portalDirectory(target) !== sourceDirectory(source, sourceProtocol) || !portalJobKey(applyUrl, sourceProtocol)
+      || portalJobKey(target.href) !== portalJobKey(applyUrl, sourceProtocol) || target.hash
       || !/(?:^|\/)(?:application)?(?:review|preview|summary)\/?$/i.test(target.pathname)) return null;
     if ([...target.searchParams.keys()].some(key => !/^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))) return null;
     return target.href;
@@ -19,10 +23,11 @@ export function verificationTarget({ applyUrl, evidence }) {
 }
 
 /** A native sign-in action, not an application action wearing a login label. */
-export function safeSigninAction(action, pageUrl) {
+export function safeSigninAction(action, pageUrl, sourceProtocol = null) {
   try {
     const url = new URL(action); const source = new URL(pageUrl);
-    return url.protocol === 'https:' && url.origin === source.origin && !url.hash
+    return url.protocol === 'https:' && url.origin === source.origin && !url.username && !url.password && !url.hash
+      && portalDirectory(url) === sourceDirectory(source, sourceProtocol)
       && !/(?:submit|finali[sz]e|withdraw|delete|remove|applicationapply)/i.test(url.pathname)
       && /(?:^|\/)(?:application)?(?:login|signin|sign-in)\/?$/i.test(url.pathname)
       && [...url.searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key));
@@ -38,15 +43,43 @@ export function isVerificationCookieReject(element, rejectSource) {
     && new RegExp(rejectSource, 'i').test(text));
 }
 
+/** Accept the owned history link only as an exact read-only route in this portal. */
+export function verificationHistoryTarget(value, applyUrl, sourceProtocol = null) {
+  try {
+    const target = new URL(value); const source = new URL(applyUrl);
+    const jobParams = [...target.searchParams.keys()].filter(key => /^(?:jobid|job_id)$/i.test(key));
+    if (portalDirectory(target) !== sourceDirectory(source, sourceProtocol)
+      || (jobParams.length > 0 && (!portalJobKey(target.href) || portalJobKey(target.href) !== portalJobKey(source.href, sourceProtocol)))) return null;
+    if (target.protocol !== 'https:' || target.origin !== source.origin || target.username || target.password || target.hash
+      || !/(?:^|\/)(?:(?:my[-_]?)?application(?:s|history)|(?:meine[-_]?)?bewerbungen|(?:(?:mes|le[-_]?mie)[-_]?)?candidatures?)\/?$/i.test(target.pathname)
+      || [...target.searchParams.keys()].some(key => !/^(?:page|offset|sort|status|jobid|job_id)$/i.test(key))) return null;
+    return target.href;
+  } catch { return null; }
+}
+
+/** Main-document navigation links are not necessarily styled as form buttons. */
+export function applicationHistoryLinksInPage() {
+  const named = /^(?:my applications|my application(?:s)? history|meine bewerbungen|le mie candidature|mes candidatures)$/i;
+  const links = [...document.querySelectorAll('a[href]')].filter(element => {
+    const text = String(element.innerText || element.textContent || '').replace(/\s+/g, ' ').trim();
+    return named.test(text) && element.getAttribute('aria-disabled') !== 'true' && !element.hasAttribute('disabled')
+      && !element.closest('[hidden], [aria-hidden="true"]')
+      && element.getClientRects().length > 0 && getComputedStyle(element).visibility !== 'hidden'
+      && getComputedStyle(element).display !== 'none';
+  }).map(element => ({ text: String(element.innerText || element.textContent || '').replace(/\s+/g, ' ').trim(), href: element.href }));
+  const unique = new Map(links.map(link => [link.href, link]));
+  return unique.size > 20 ? [] : [...unique.values()];
+}
+
 /**
  * This result is evidence for human review. A review page being accessible does
  * not prove that the earlier application was unsent, and never releases a claim.
  */
-export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrls = [], job, accounts, launch = launchChromium }) {
-  if (verificationTarget({ applyUrl, evidence: { finalUrl: targetUrl } }) !== targetUrl) throw new Error('unsafe_verification_target');
+export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrls = [], sourceProtocol = null, job, accounts, launch = launchChromium }) {
+  if (verificationTarget({ applyUrl, evidence: { finalUrl: targetUrl }, sourceProtocol }) !== targetUrl) throw new Error('unsafe_verification_target');
   const browser = await launch({ headless: !headedBrowser() });
   let context;
-  const proof = { kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown' };
+  const proof = { ...(sourceProtocol ? { sourceProtocol } : {}), kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown' };
   try {
     context = await browser.newContext({ serviceWorkers: 'block', userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : ''), viewport: { width: 1366, height: 900 }, locale: 'en-GB' });
     // No alternate application transport may bypass the HTTP route fence.
@@ -64,7 +97,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     for (const value of observedUrls) {
       try {
         const url = new URL(value);
-        if (url.origin === origin && portalJobKey(url.href) === portalJobKey(applyUrl) && !url.hash
+        if (url.origin === origin && portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && portalJobKey(url.href) === portalJobKey(applyUrl, sourceProtocol) && !url.hash
           && /(?:^|\/)(?:application)?confirmation\/?$/i.test(url.pathname)
           && [...url.searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))) navigationTargets.add(url.href);
       } catch { /* Unknown historical addresses cannot authorize a navigation. */ }
@@ -79,11 +112,12 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
         if (request.isNavigationRequest() && url.origin !== origin) { proof.blockedRequests++; return route.abort(); }
         if (/(?:submit|finali[sz]e|withdraw|delete|remove|cancelapplication|applicationapply)/i.test(url.pathname) || [...url.searchParams.keys()].some(key => /^(?:action|submit|send|withdraw|delete|cancel)$/i.test(key))) { proof.blockedRequests++; return route.abort(); }
         if (request.isNavigationRequest() && !navigationTargets.has(url.href)
-          && !/(?:^|\/)(?:application)?(?:login|signin|sign-in|home|index)(?:\/|$)/i.test(url.pathname)
-          && !(!url.search && (url.pathname === '/' || url.pathname === `/${new URL(applyUrl).pathname.split('/').filter(Boolean)[0]}`))) { proof.blockedRequests++; return route.abort(); }
+          && !safeSigninAction(url.href, applyUrl, sourceProtocol)
+          && !(portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && /(?:^|\/)(?:home|index)\/?$/i.test(url.pathname) && !url.search)
+          && !(!url.search && (url.pathname === '/' || url.pathname === sourceDirectory(new URL(applyUrl), sourceProtocol).replace(/\/$/, '')))) { proof.blockedRequests++; return route.abort(); }
         return route.continue();
       }
-      if (loginArmed && !loginPosted && method === 'POST' && request.url() === loginAction && safeSigninAction(loginAction, applyUrl)) {
+      if (loginArmed && !loginPosted && method === 'POST' && request.url() === loginAction && safeSigninAction(loginAction, applyUrl, sourceProtocol)) {
         loginPosted = true;
         return route.continue();
       }
@@ -103,7 +137,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       snapshot = await extractFields(page, { listboxOptions: false });
     }
     if (snapshot.passwordVisible) {
-      if (new URL(page.url()).origin !== origin || authPageKind(snapshot) !== 'sign_in') return proof;
+      if (!safeSigninAction(page.url(), applyUrl, sourceProtocol) || authPageKind(snapshot) !== 'sign_in') return proof;
       const { email, password } = loginFields(snapshot);
       const signin = findButton(snapshot.buttons, SIGN_IN_RE);
       if (!email || !password || !signin || new Set([email.id, password.id, signin.id]).size !== 3 || (signin.frame || 0) !== 0 || (email.frame || 0) !== (signin.frame || 0)
@@ -117,7 +151,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
             return nodes.length === 1 && nodes[0].form === form;
           }) } : null;
       }, [email.id, password.id]);
-      if (!owned?.credentialsOwned || !safeSigninAction(owned.action, page.url()) || String(owned.method).toLowerCase() !== 'post') return proof;
+      if (!owned?.credentialsOwned || !safeSigninAction(owned.action, applyUrl, sourceProtocol) || String(owned.method).toLowerCase() !== 'post') return proof;
       const account = await accounts.load(new URL(page.url()).hostname);
       if (!account?.email || !account.password) return proof;
       loginAction = owned.action;
@@ -136,20 +170,19 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       const current = await extractFields(page, { listboxOptions: false });
       const text = (await page.evaluate(() => document.body?.innerText || '')).slice(0, 60_000);
       const seen = { ...current, text };
-      const stage = applicationStage(seen, { applyUrl, job, url: page.url() });
+      const stage = applicationStage(seen, { applyUrl, sourceProtocol, job, url: page.url() });
       proof.pages.push({ url: page.url(), text, fields: current.fields.map(field => ({ label: field.label, kind: field.kind, required: field.required })),
-        buttons: current.buttons, stage: stage.kind, receipt: applicationReceipt(seen, { applyUrl, job, url: page.url() }),
+        buttons: current.buttons, stage: stage.kind, receipt: applicationReceipt(seen, { applyUrl, sourceProtocol, job, url: page.url() }),
         screenshot: (await page.screenshot({ fullPage: true })).toString('base64') });
       return current;
     };
     snapshot = await observe();
     // An explicitly named application-history link is a read, never Apply or
     // an inferred route. Preserve its exact rows for a job/status review.
-    const histories = snapshot.buttons.filter(button => !button.disabled && !button.chrome
-      && /^(?:my applications|my application(?:s)? history|meine bewerbungen|le mie candidature|mes candidatures)$/i.test(button.text || '')
-      && button.href && new URL(button.href).origin === origin && !new URL(button.href).hash
-      && /(?:application(?:s|history)|bewerbungen|candidatur)/i.test(new URL(button.href).pathname)
-      && [...new URL(button.href).searchParams.keys()].every(key => /^(?:page|offset|sort|status|jobid|job_id)$/i.test(key)));
+    const links = await page.evaluate(applicationHistoryLinksInPage).catch(() => []);
+    const histories = [...new Map((Array.isArray(links) ? links : [])
+      .map(link => ({ text: link.text, href: verificationHistoryTarget(link.href, applyUrl, sourceProtocol) }))
+      .filter(link => link.href).map(link => [link.href, link])).values()];
     if (histories.length === 1) {
       navigationTargets.add(histories[0].href);
       await page.goto(histories[0].href, { waitUntil: 'domcontentloaded', timeout: 60_000 });

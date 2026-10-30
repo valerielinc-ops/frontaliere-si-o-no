@@ -11,7 +11,7 @@ vi.mock('../scripts/assisted-application/lib/portal/fill.mjs', async importOrigi
   ...await importOriginal<any>(), applyActions: async (_page: any, fields: any[]) => { state.filled = fields; return []; },
 }));
 import { COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { isVerificationCookieReject, verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
+import { applicationHistoryLinksInPage, isVerificationCookieReject, verificationHistoryTarget, verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
 
 const applyUrl = 'https://careers.example/ApplicationMethods?jobId=42';
 const targetUrl = 'https://careers.example/ApplicationReview?jobId=42';
@@ -20,6 +20,37 @@ const email = { id: 'f1', kind: 'text', inputType: 'email', label: 'Email', fram
 const password = { id: 'f2', kind: 'text', inputType: 'password', label: 'Password', frame: 0 };
 
 describe('verification credential ownership at the frame boundary', () => {
+  it('requires an exact history route before following its GET', () => {
+    expect(verificationHistoryTarget('https://careers.example/MyApplications?page=1', applyUrl)).toBe('https://careers.example/MyApplications?page=1');
+    expect(verificationHistoryTarget('https://careers.example/Careers/MyApplications', 'https://careers.example/Careers/ApplicationMethods?jobId=42')).toBe('https://careers.example/Careers/MyApplications');
+    for (const target of ['https://careers.example/ApplicationSave/MyApplications', 'https://careers.example/Login/Save/MyApplications', 'https://careers.example/ApplicationSubmit', 'https://careers.example/ApplicationSave',
+      'https://careers.example/MyApplications?action=withdraw', 'https://careers.example/MyApplications?jobId=43', 'https://careers.example/MyApplications?jobId=42&JOBID=43', 'https://other.example/MyApplications',
+      'https://careers.example/MyApplications#submit', 'http://[invalid']) {
+      expect(verificationHistoryTarget(target, applyUrl)).toBeNull();
+    }
+  });
+
+  it.each([
+    { hrefs: [...Array(20).fill('/MyApplications'), '/MyApplications?status=draft'], count: 2 },
+    { hrefs: Array.from({ length: 21 }, (_, index) => `/MyApplications?page=${index}`), count: 0 },
+  ])('preserves ambiguous distinct history destinations beyond repeated links: %j', ({ hrefs, count }) => {
+    const dom = new JSDOM(hrefs.map(href => `<a href="${href}">My applications</a>`).join(''), { url: applyUrl, runScripts: 'outside-only' });
+    Object.defineProperty(dom.window.HTMLElement.prototype, 'getClientRects', { value() { return [{ width: 10, height: 10 }]; } });
+    expect(dom.window.eval(`(${applicationHistoryLinksInPage.toString()})()`)).toHaveLength(count);
+    dom.window.close();
+  });
+
+  it('reads ordinary visible history links from the main document without inventing a target', () => {
+    const dom = new JSDOM(`<header><a href="/MyApplications">My applications</a></header>
+      <a aria-disabled="true" href="/disabled-history">My applications</a>
+      <a href="/ApplicationSubmit?jobId=42">Apply</a><div hidden><a href="/old-history">My applications</a></div>
+      <iframe srcdoc='<a href="/foreign-history">My applications</a>'></iframe>`, { url: applyUrl, runScripts: 'outside-only' });
+    Object.defineProperty(dom.window.HTMLElement.prototype, 'getClientRects', { value() { return [{ width: 10, height: 10 }]; } });
+    const links = dom.window.eval(`(${applicationHistoryLinksInPage.toString()})()`);
+    expect(links).toEqual([{ text: 'My applications', href: 'https://careers.example/MyApplications' }]);
+    dom.window.close();
+  });
+
   it.each([
     ['<div id="onetrust-banner-sdk"><button>Decline optional cookies</button></div>', true],
     ['<div id="onetrust-banner-sdk"><button>Decline optional\ncookies</button></div>', true],

@@ -10,6 +10,8 @@ import { roundWasSent } from '../../functions/src/assistedApplicationFlow.js';
 import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
 import { verificationTarget, verifyPortalApplication } from './lib/portal/verify.mjs';
+import { portalJobKey } from './lib/portal/stages.mjs';
+import { readPublicPortalProtocol } from './lib/portal/protocol.mjs';
 import { decryptJson, maskValues, personalValuesOf, runKeyFrom, storeEvidence } from './lib/secure-run.mjs';
 
 export function verificationBinding({ flow, submission }) {
@@ -56,7 +58,7 @@ export async function requestPortalVerification({ db, orderId, round, version, n
   });
 }
 
-export async function executePortalVerification({ db, bucket, orderId, round, nonce, version, key, nowMs = Date.now(), inspect = verifyPortalApplication }) {
+export async function executePortalVerification({ db, bucket, orderId, round, nonce, version, key, nowMs = Date.now(), inspect = verifyPortalApplication, loadProtocol = readPublicPortalProtocol }) {
   const ref = db.collection('assisted_applications').doc(orderId);
   const verificationRef = ref.collection('automation').doc('portal_verification');
   const state = await db.runTransaction(async transaction => {
@@ -79,10 +81,11 @@ export async function executePortalVerification({ db, bucket, orderId, round, no
     const [buffer] = await bucket.file(sourcePath).download();
     const source = decryptJson(JSON.parse(buffer.toString('utf8')), key);
     const applyUrl = state.draft.channel?.applyUrl || state.draft.job?.applyUrl || '';
-    const targetUrl = source.event?.type === 'submit_failed' && /_ambiguous$/.test(source.event.error || '')
-      && source.applyUrl === applyUrl && source.evidence?.finalOutcomes?.at(-1) === 'ambiguous'
-      ? verificationTarget({ applyUrl, evidence: source.evidence }) : null;
-    if (targetUrl) proof = await inspect({ applyUrl, targetUrl, observedUrls: (source.evidence.steps || []).map(step => step.url).filter(Boolean), job: state.draft.job || {},
+    const validSource = source.event?.type === 'submit_failed' && /_ambiguous$/.test(source.event.error || '')
+      && source.applyUrl === applyUrl && source.evidence?.finalOutcomes?.at(-1) === 'ambiguous';
+    const sourceProtocol = validSource && !portalJobKey(applyUrl) ? await loadProtocol(applyUrl) : null;
+    const targetUrl = validSource ? verificationTarget({ applyUrl, evidence: source.evidence, sourceProtocol }) : null;
+    if (targetUrl) proof = await inspect({ applyUrl, targetUrl, sourceProtocol, observedUrls: (source.evidence.steps || []).map(step => step.url).filter(Boolean), job: state.draft.job || {},
       accounts: portalAccountStore({ db, orderId, key, mask: value => maskValues([value]) }) });
   } catch {
     // Fail closed without putting credentials or portal/candidate text in logs.

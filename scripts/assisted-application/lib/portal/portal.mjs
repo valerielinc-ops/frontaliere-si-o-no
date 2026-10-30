@@ -3267,6 +3267,7 @@ export async function submitViaPortal(ctx) {
   const browser = extensionPath ? null : await launch();
   let context = null;
   let page = null;
+  let sourceProtocol = null;
   let diagnostics = null;
   let finalClickAttempted = false;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
@@ -3297,7 +3298,7 @@ export async function submitViaPortal(ctx) {
   };
   const controlsFor = async (current, known) => {
     const snapshot = { ...current, text: await pageText(page) };
-    const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, job: ctx.job });
+    const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
     if (controls.stage) evidence.steps.at(-1).applicationStage = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
     return controls;
   };
@@ -3328,6 +3329,8 @@ export async function submitViaPortal(ctx) {
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
+    sourceProtocol = snapshot.protocol || null;
+    if (sourceProtocol) evidence.sourceProtocol = sourceProtocol;
     snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
     // The posting as a browser renders it (career-ops liveness-browser): the
     // fetch before the run sees only the empty shell of a JavaScript portal.
@@ -3352,7 +3355,7 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    ({ page, snapshot } = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, job: ctx.job }));
+    ({ page, snapshot } = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job }));
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     const formHandoff = initialPortalHandoffReason({ snapshot });
     if (formHandoff) return await handoff(formHandoff);
@@ -3569,7 +3572,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job }));
+          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job }));
           snapshot = await extractFields(page);
         }
         step -= 1;
@@ -3658,7 +3661,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job }));
+          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job }));
           snapshot = await extractFields(page);
         }
         step -= 1; // a login page is not a form page
@@ -4049,7 +4052,7 @@ export async function submitViaPortal(ctx) {
       finalClickAttempted = true;
       diagnostics.finalClick();
       await final.click();
-      const outcome = await waitForOutcome(page, Boolean(extensionPath), { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, job: ctx.job });
+      const outcome = await waitForOutcome(page, Boolean(extensionPath), { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
       (evidence.finalOutcomes ||= []).push(outcome);
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');

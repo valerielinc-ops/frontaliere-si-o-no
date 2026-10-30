@@ -4,6 +4,7 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { requestPortalVerification, executePortalVerification, verificationBinding } from '../scripts/assisted-application/verify-portal.mjs';
 import { safeSigninAction, verificationTarget, verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
 import { encryptJson } from '../scripts/assisted-application/lib/secure-run.mjs';
+import { portalProtocolFromHtml } from '../scripts/assisted-application/lib/portal/protocol.mjs';
 
 const now = Date.now();
 const version = 'b'.repeat(64);
@@ -68,6 +69,27 @@ describe('protected read-only portal inspection', () => {
     expect(inspect).toHaveBeenCalledTimes(1);
   });
 
+  it.each([true, false])('requires primary metadata for an archived slug/path posting (proof=%s)', async proven => {
+    const store = fixture();
+    const posting = 'https://careers.example/ExternalJobs/JobDetail/Infrastructure-Strategy-Manager/71825';
+    const review = 'https://careers.example/ExternalJobs/ApplicationReview?jobId=71825';
+    store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), channel: { type: 'employer_site', applyUrl: posting } });
+    const originals = structuredClone([...store.docs]);
+    await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce, nowMs: now });
+    const key = Buffer.alloc(32, 7);
+    const source = { applyUrl: posting, event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence: { finalUrl: review, finalOutcomes: ['ambiguous'] } };
+    const bucket = { file: () => ({ download: async () => [Buffer.from(JSON.stringify(encryptJson(source, key)))], save: async () => {} }) };
+    const protocol = await portalProtocolFromHtml('<meta name="avature.portal.id" content="87"><meta name="avature.portal.urlPath" content="ExternalJobs"><meta name="avature.portal.page" content="JobDetail"><portal-data id="synapserBootstrap" data-applicationName="customPortal" data-applicationCode="customPortal_87"></portal-data>', posting);
+    const loadProtocol = vi.fn(async () => proven ? protocol : null);
+    const inspect = vi.fn(async () => ({ conclusion: 'unknown', pages: [] }));
+    expect(await executePortalVerification({ db: store.db, bucket, orderId, round: 1, nonce, version, key, nowMs: now + 10, inspect, loadProtocol }))
+      .toMatchObject({ inspected: true, recorded: true, conclusion: 'unknown' });
+    expect(loadProtocol).toHaveBeenCalledExactlyOnceWith(posting);
+    expect(inspect).toHaveBeenCalledTimes(proven ? 1 : 0);
+    if (proven) expect(inspect).toHaveBeenCalledWith(expect.objectContaining({ applyUrl: posting, targetUrl: review, sourceProtocol: protocol }));
+    for (const [path, data] of originals) expect(store.read(path)).toEqual(data);
+  });
+
   it('blocks service workers and alternate transports before visiting the protected page', async () => {
     const routeWebSocket = vi.fn(async () => {});
     const addInitScript = vi.fn(async (_fn: Function) => {});
@@ -91,7 +113,7 @@ describe('protected read-only portal inspection', () => {
 
   it('permits only the native sign-in endpoint for the sole authentication POST', () => {
     expect(safeSigninAction('https://careers.example/Login?jobId=42', applyUrl)).toBe(true);
-    for (const action of ['https://careers.example/ApplicationSubmit?jobId=42', 'https://careers.example/submit?jobId=42', 'https://careers.example/Login/ApplicationSubmit?jobId=42', 'https://careers.example/Login?action=withdraw', 'https://foreign.example/Login', 'https://careers.example/apply']) expect(safeSigninAction(action, applyUrl)).toBe(false);
+    for (const action of ['https://careers.example/ApplicationSubmit?jobId=42', 'https://careers.example/submit?jobId=42', 'https://careers.example/Login/ApplicationSubmit?jobId=42', 'https://careers.example/ApplicationSave/Login?jobId=42', 'https://careers.example/Login?action=withdraw', 'https://foreign.example/Login', 'https://careers.example/apply']) expect(safeSigninAction(action, applyUrl)).toBe(false);
   });
 
   it.each(['inspect', 'store'])('does not resurrect evidence when retention changes during %s', async phase => {
@@ -155,7 +177,7 @@ describe('protected read-only portal inspection', () => {
 
   it('uses only the previously observed review URL for the exact posting', () => {
     expect(verificationTarget({ applyUrl, evidence: { finalUrl: targetUrl } })).toBe(targetUrl);
-    for (const finalUrl of [targetUrl.replace('42', '43'), targetUrl + '&submit=true', targetUrl.replace('Review', 'Submit'), targetUrl.replace('careers.example', 'other.example')]) {
+    for (const finalUrl of [targetUrl.replace('42', '43'), targetUrl + '&submit=true', targetUrl.replace('Review', 'Submit'), targetUrl.replace('/ApplicationReview', '/ApplicationSave/ApplicationReview'), targetUrl.replace('careers.example', 'other.example')]) {
       expect(verificationTarget({ applyUrl, evidence: { finalUrl } })).toBeNull();
     }
     expect(verificationBinding({ flow: { round: 1 }, submission: { r1: { clickedAt: 1 } } })).not.toBe(verificationBinding({ flow: { round: 1 }, submission: { r1: { clickedAt: 2 } } }));

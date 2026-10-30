@@ -1,4 +1,5 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
+import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { CONFIRM_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
 const REVIEW_PATH_RE = /(?:^|\/)(?:application)?(?:review|preview|summary)\/?$/i;
@@ -12,18 +13,29 @@ function parsed(value) {
 }
 
 /** Only explicit posting keys bind a route. Account IDs/application IDs are not job IDs. */
-export function portalJobKey(value) {
+export function portalJobKey(value, protocol = null) {
   const url = parsed(value);
   if (!url) return null;
   const entries = [...url.searchParams.entries()].filter(([key]) => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key));
-  return entries.length === 1 && /^[a-z0-9_-]{1,100}$/i.test(entries[0][1]) ? entries[0][1] : null;
+  if (entries.length > 1 || (entries.length === 1 && !/^[a-z0-9_-]{1,100}$/i.test(entries[0][1]))) return null;
+  const quotedPathKey = avaturePostingJobKey(value, protocol);
+  if (quotedPathKey && entries.length === 1 && entries[0][1] !== quotedPathKey) return null;
+  return entries[0]?.[1] || quotedPathKey || null;
 }
 
-function boundRoute(value, applyUrl) {
+function invalidPostingKey(value, protocol = null) {
+  const url = parsed(value);
+  return url && [...url.searchParams.keys()].some(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))
+    && !portalJobKey(value, protocol);
+}
+
+function boundRoute(value, applyUrl, sourceProtocol = null) {
   const url = parsed(value);
   const expected = parsed(applyUrl);
-  const key = portalJobKey(applyUrl);
-  return Boolean(url && expected && url.protocol === 'https:' && url.origin === expected.origin && key && portalJobKey(value) === key);
+  const key = portalJobKey(applyUrl, sourceProtocol);
+  const namespace = avaturePortalDirectory(applyUrl, sourceProtocol);
+  return Boolean(url && expected && url.protocol === 'https:' && url.origin === expected.origin
+    && (!namespace || url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1) === namespace) && key && portalJobKey(value) === key);
 }
 
 function normalized(value) {
@@ -47,18 +59,20 @@ function receiptTitleBound(text, title) {
 }
 
 /** Receipt copy must explicitly describe an application received for this posting. */
-export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, submissionUrl, job = {} } = {}) {
+export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, submissionUrl, sourceProtocol = null, job = {} } = {}) {
   const text = String(snapshot?.text || '');
-  if (!snapshot || !CONFIRM_RE.test(text) || REFUSED_RE.test(text) || PROFILE_CONTINUATION_RE.test(snapshot.text || '')
+  if (!snapshot || invalidPostingKey(url) || invalidPostingKey(submissionUrl || applyUrl, sourceProtocol) || !CONFIRM_RE.test(text) || REFUSED_RE.test(text) || PROFILE_CONTINUATION_RE.test(snapshot.text || '')
     || REVIEW_INSTRUCTIONS_RE.test(snapshot.text || '') || BEFORE_SEND_RE.test(snapshot.text || '')) return false;
   if ((snapshot.buttons || []).some(button => !button.chrome && SUBMIT_RE.test(button.text || ''))) return false;
   const actualJobKey = portalJobKey(url);
-  const expectedJobKey = portalJobKey(submissionUrl || applyUrl);
+  const expectedJobKey = portalJobKey(submissionUrl || applyUrl, sourceProtocol);
   // A receipt naming a different posting never borrows the title from generic page chrome.
   if (actualJobKey && expectedJobKey && actualJobKey !== expectedJobKey) return false;
   const actual = parsed(url);
   const source = parsed(submissionUrl || applyUrl);
   if (!actual || !source || actual.protocol !== 'https:' || actual.origin !== source.origin) return false;
+  const namespace = avaturePortalDirectory(submissionUrl || applyUrl, sourceProtocol);
+  if (namespace && actual.pathname.slice(0, actual.pathname.lastIndexOf('/') + 1) !== namespace) return false;
   return Boolean(actualJobKey && expectedJobKey && actualJobKey === expectedJobKey) || receiptTitleBound(snapshot.text, job.title);
 }
 
@@ -68,19 +82,23 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
  * stay unknown. A review instruction explicitly announcing the final commit
  * makes its Apply control the real guarded action.
  */
-export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, job = {} } = {}) {
+export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sourceProtocol = null, job = {} } = {}) {
+  if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
   const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
   const text = String(snapshot?.text || '').replace(/\s+/g, ' ');
-  if (applicationReceipt(snapshot, { url, applyUrl, job })) return { kind: 'receipt' };
+  if (applicationReceipt(snapshot, { url, applyUrl, sourceProtocol, job })) return { kind: 'receipt' };
   const mismatchedJob = parsed(url)?.origin === parsed(applyUrl)?.origin
-    && portalJobKey(url) && portalJobKey(applyUrl) && portalJobKey(url) !== portalJobKey(applyUrl);
+    && portalJobKey(url) && portalJobKey(applyUrl, sourceProtocol) && portalJobKey(url) !== portalJobKey(applyUrl, sourceProtocol);
   if (mismatchedJob) return { kind: 'posting_mismatch' };
-  const bound = boundRoute(url, applyUrl) || titleBound(text, job.title);
+  const quotedSource = avaturePostingJobKey(applyUrl, sourceProtocol);
+  if (quotedSource && !sameAvaturePortal(sourceProtocol, snapshot?.protocol, url)
+    && buttons.some(button => GENERIC_APPLY_RE.test(button.text || ''))) return { kind: 'unknown_apply', prefinal: true };
+  const bound = boundRoute(url, applyUrl, sourceProtocol) || titleBound(text, job.title);
   const finalReview = bound && REVIEW_INSTRUCTIONS_RE.test(text);
   if (finalReview) return { kind: 'final_review' };
   const pending = PROFILE_CONTINUATION_RE.test(text) || BEFORE_SEND_RE.test(text);
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
-    && boundRoute(url, applyUrl) && boundRoute(button.href, applyUrl)
+    && boundRoute(url, applyUrl, sourceProtocol) && boundRoute(button.href, applyUrl, sourceProtocol)
     && REVIEW_PATH_RE.test(parsed(button.href)?.pathname || '') && !parsed(button.href)?.hash
     && [...parsed(button.href).searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))
     && button.href !== url);

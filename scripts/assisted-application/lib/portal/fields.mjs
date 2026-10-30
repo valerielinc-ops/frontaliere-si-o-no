@@ -1,3 +1,4 @@
+import { avatureProtocolMatches, readPortalProtocolInPage } from './protocol.mjs';
 /**
  * Form-field discovery for the portal runner. `extractFieldsInPage` runs
  * inside the page (Playwright `evaluate`) and is self-contained on purpose.
@@ -911,7 +912,11 @@ export async function extractFields(page, { listboxOptions = true, channelType =
     result.captcha ||= snapshot.captcha;
     result.passwordVisible ||= snapshot.passwordVisible;
     result.errors.push(...snapshot.errors);
-    if (index === 0) result.text = snapshot.text;
+    if (index === 0) {
+      result.text = snapshot.text;
+      const protocol = await frame.evaluate(readPortalProtocolInPage).catch(() => null);
+      if (avatureProtocolMatches(protocol, snapshot.url)) result.protocol = protocol;
+    }
   }
   return result;
 }
