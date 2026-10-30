@@ -2,10 +2,9 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { acceptApplicationConciergeProposal, fetchApplicationConciergeService, type ApplicationConciergeService } from '@/services/applicationConciergeService';
 import { conciergeProposalContext, conciergeServiceHref } from '@/services/applicationConciergeNavigation';
 
-export function useConciergeProposalAction({ user, authLoading, onRequireAuth, locale, navigate = (href: string) => window.location.assign(href) }: {
-  user: any; authLoading: boolean; onRequireAuth?: () => void; locale: 'it' | 'en' | 'de' | 'fr'; navigate?: (href: string) => void;
+export function useConciergeProposalAction({ user, authLoading, onRequireAuth, locale, navigate = (href: string) => window.location.assign(href), search = typeof window === 'undefined' ? '' : window.location.search }: {
+  user: any; authLoading: boolean; onRequireAuth?: () => void; locale: 'it' | 'en' | 'de' | 'fr'; navigate?: (href: string) => void; search?: string;
 }) {
-  const search = typeof window === 'undefined' ? '' : window.location.search;
   const context = useMemo(() => conciergeProposalContext(search), [search]);
   const active = new URLSearchParams(search).has('concierge_service') || new URLSearchParams(search).has('concierge_proposal');
   const [service, setService] = useState<ApplicationConciergeService | null>(null);

@@ -34,6 +34,7 @@ const MATCHING_STATES = new Set(['queued', 'processing', 'running']);
 
 export interface ApplicationConciergePortalProps {
   serviceId?: string | null;
+  locationSearch?: string;
   entry?: boolean;
   authUser?: any | null;
   authLoading?: boolean;
@@ -99,6 +100,7 @@ function isRetryablePayment(service: ApplicationConciergeService | null): boolea
 
 export default function ApplicationConciergePortal({
   serviceId = null,
+  locationSearch = typeof window === 'undefined' ? '' : window.location.search,
   entry = false,
   authUser = null,
   authLoading = false,
@@ -111,9 +113,10 @@ export default function ApplicationConciergePortal({
     [locale],
   );
   const [service, setService] = useState<ApplicationConciergeService | null>(null);
-  const [childReviewToken, setChildReviewToken] = useState<string | null>(null);
+  const [childReview, setChildReview] = useState<{ childId: string; token: string } | null>(null);
   const [childReviewError, setChildReviewError] = useState(false);
-  const requestedChildId = typeof window === 'undefined' ? null : new URLSearchParams(window.location.search).get('application_concierge_application_id');
+  const requestedChildId = new URLSearchParams(locationSearch).get('application_concierge_application_id');
+  const childReviewToken = childReview?.childId === requestedChildId ? childReview.token : null;
   const childProposalId = service?.proposals.find(proposal => proposal.status === 'accepted' && proposal.childApplicationId === requestedChildId)?.proposalId || null;
   const [currentUser, setCurrentUser] = useState<any | null>(authUser);
   const [loading, setLoading] = useState(Boolean(serviceId));
@@ -283,11 +286,11 @@ export default function ApplicationConciergePortal({
 
   useEffect(() => {
     let cancelled = false;
-    setChildReviewToken(null);
+    setChildReview(null);
     setChildReviewError(false);
     if (!requestedChildId || !childProposalId || !serviceId || !currentUser?.getIdToken || authLoading) return;
     void openApplicationConciergeChildReview(currentUser, serviceId, childProposalId).then(token => {
-      if (!cancelled) setChildReviewToken(token);
+      if (!cancelled) setChildReview({ childId: requestedChildId, token });
     }).catch(() => { if (!cancelled) setChildReviewError(true); });
     return () => { cancelled = true; };
   }, [requestedChildId, childProposalId, serviceId, currentUser, authLoading]);
@@ -563,7 +566,7 @@ export default function ApplicationConciergePortal({
     return <div className={`mx-auto max-w-5xl space-y-5 px-4 py-8 ${REPLAY_PRIVATE_CLASS}`} {...REPLAY_PRIVATE_ATTRS}>
       <a href={conciergeServiceHref(service.serviceId, locale)} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">← {t('jobBoard.concierge.backToService')}</a>
       {!childProposalId || childReviewError ? <p role="alert" className="rounded-xl border border-danger-border bg-danger-subtle p-4 text-danger">{t('jobBoard.concierge.errors.generic')}</p>
-        : childReviewToken ? <Suspense fallback={<p role="status">{t('jobBoard.concierge.loading')}</p>}><ChildApplicationReview token={childReviewToken} /></Suspense>
+        : childReviewToken ? <Suspense fallback={<p role="status">{t('jobBoard.concierge.loading')}</p>}><ChildApplicationReview key={requestedChildId} token={childReviewToken} /></Suspense>
         : <p role="status" className="flex items-center gap-2 text-subtle"><Loader2 size={18} className="animate-spin" aria-hidden="true" />{t('jobBoard.concierge.loading')}</p>}
     </div>;
   }

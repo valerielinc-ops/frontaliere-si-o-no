@@ -64,6 +64,8 @@ function jobBoardCompanySlugFromPath(pathname: string): string | null {
 
 export interface NavigationState {
  // State
+ /** Current query string, refreshed even for navigation within the same pathname. */
+ locationSearch: string;
  activeTab: ActiveTab;
  adminSection: string;
  calcolatoreSubTab: CalcolatoreSubTab;
@@ -165,6 +167,7 @@ export function useNavigationState(): NavigationState {
  return { route: parsed.route, locale: parsed.locale };
  });
 
+ const [, setRouteRevision] = useState(0);
  const [activeTab, setActiveTab] = useState<ActiveTab>(initialRoute.route.activeTab);
  const [adminSection, setAdminSection] = useState<string>(initialRoute.route.adminSection || '');
  const [calcolatoreSubTab, setCalcolatoreSubTab] = useState<CalcolatoreSubTab>(initialRoute.route.calcolatoreSubTab || 'calculator');
@@ -479,6 +482,9 @@ export function useNavigationState(): NavigationState {
      return;
    }
  }
+ // Query-only links can leave every pathname-derived state unchanged. Apply
+ // every navigation even then, so the current URL reaches the rendered view.
+ setRouteRevision(revision => revision + 1);
  setNotFoundPath(parsedNotFoundPath);
  // Toggle lite-shell mode based on the new route. When leaving a static
  // SEO page, we also remove the static `<main class="seo-static-content">`
@@ -1145,6 +1151,7 @@ export function useNavigationState(): NavigationState {
  }, [activeTab, guidaSubTab, vitaSubTab, fiscoSubTab]);
 
  return {
+ locationSearch: window.location.search,
  activeTab, adminSection, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
  blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,

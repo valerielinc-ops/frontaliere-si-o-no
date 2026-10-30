@@ -771,6 +771,8 @@ interface JobBoardFilterParams {
 interface JobBoardProps {
  onPostJob?: () => void;
  initialJobSlug?: string;
+ /** Query changes must also invalidate the memoized job-detail view. */
+ locationSearch?: string;
  /** Pre-applied filters from SiteSearch navigation (location, search query) */
  initialFilterParams?: JobBoardFilterParams | null;
  /** Called after filter params have been consumed so they aren't re-applied */
@@ -2523,6 +2525,7 @@ function buildAssistedApplicationJobContext(
 const JobBoard: React.FC<JobBoardProps> = ({
  onPostJob,
  initialJobSlug,
+ locationSearch,
  initialFilterParams,
  onFilterParamsConsumed,
  onJobRouteChange,
@@ -4160,7 +4163,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Trigger: single-job-detail view, logged-in user with email, feature flag on,
  // localStorage gating allows it, AND no existing alert covers this category.
  const isJobDetailView = selectedJob !== null;
- const conciergeAction = useConciergeProposalAction({ user: authUser, authLoading, onRequireAuth, locale });
+ const conciergeAction = useConciergeProposalAction({ user: authUser, authLoading, onRequireAuth, locale, search: locationSearch });
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();

@@ -384,6 +384,7 @@ const App: React.FC = () => {
 
  // Navigation state: tabs, sub-tabs, deep links, popstate, SEO effects, etc.
  const {
+ locationSearch,
  activeTab, adminSection, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
  blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,
@@ -3292,17 +3293,18 @@ const App: React.FC = () => {
  // (max-w-6xl), so only the rail'd detail/gate views use the full width.
  <div className="max-xlw:max-w-7xl xlw:max-w-none mx-auto">
  {(typeof window !== 'undefined' && (() => {
-  const searchParams = new URLSearchParams(window.location.search);
+  const searchParams = new URLSearchParams(locationSearch);
   return Boolean(searchParams.get('application_concierge_service_id'))
    || searchParams.get('application_concierge') === '1'
    || isApplicationConciergePath(window.location.pathname);
  })()) ? (
  <ApplicationConciergePortal
-  key={typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('application_concierge_service_id')
-    ? `${authUser?.uid ?? 'anonymous'}:${new URLSearchParams(window.location.search).get('application_concierge_service_id')}:${window.location.pathname}`
+  key={typeof window !== 'undefined' && new URLSearchParams(locationSearch).get('application_concierge_service_id')
+    ? `${authUser?.uid ?? 'anonymous'}:${new URLSearchParams(locationSearch).get('application_concierge_service_id')}:${window.location.pathname}`
     : `application-concierge-entry:${typeof window !== 'undefined' ? window.location.pathname : '/'}`}
-  serviceId={typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') : null}
-  entry={typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('application_concierge') === '1' || isApplicationConciergePath(window.location.pathname))}
+  serviceId={new URLSearchParams(locationSearch).get('application_concierge_service_id')}
+  locationSearch={locationSearch}
+  entry={typeof window !== 'undefined' && (new URLSearchParams(locationSearch).get('application_concierge') === '1' || isApplicationConciergePath(window.location.pathname))}
   authUser={authUser}
   authLoading={authLoading || newsletterAutologinInFlight}
   onRequireAuth={() => void googleSignIn()}
@@ -3310,6 +3312,7 @@ const App: React.FC = () => {
  ) : <JobBoard
  key={authUser?.uid ?? 'anonymous'}
  initialJobSlug={jobSlug || undefined}
+ locationSearch={locationSearch}
  initialFilterParams={jobBoardFilterParams}
  initialFilterCanton={typeof window !== 'undefined' ? (parsePath(window.location.pathname).route.jobBoardCanton ?? null) : null}
  onFilterParamsConsumed={() => setJobBoardFilterParams(null)}

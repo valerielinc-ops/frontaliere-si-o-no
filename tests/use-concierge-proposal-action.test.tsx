@@ -17,6 +17,31 @@ beforeEach(() => {
 afterEach(() => { cleanup(); window.history.replaceState(null, '', '/'); });
 
 describe('proposal actions from JobDetails', () => {
+  it('switches the owned proposal from reactive query props without creating another application', async () => {
+    mocks.fetchService.mockResolvedValue({ proposals: [
+      { ...proposal, status: 'accepted', childApplicationId: 'child-1' },
+      { ...proposal, proposalId: 'proposal-2', status: 'accepted', childApplicationId: 'child-2' },
+    ] });
+    const navigate = vi.fn();
+    const { result, rerender } = renderHook(({ search }) => useConciergeProposalAction({
+      user, authLoading: false, locale: 'it', navigate, search,
+    }), { initialProps: { search: '?concierge_service=service-1&concierge_proposal=proposal-1' } });
+    await waitFor(() => expect(result.current.labelKey).toBe('jobBoard.concierge.openChild'));
+    act(() => { result.current.apply({ id: 'job-1' }); });
+    expect(navigate.mock.calls[0][0]).toContain('application_concierge_application_id=child-1');
+
+    rerender({ search: '?concierge_service=service-1&concierge_proposal=proposal-2' });
+    await waitFor(() => expect(mocks.fetchService).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(result.current.labelKey).toBe('jobBoard.concierge.openChild'));
+    act(() => { result.current.apply({ id: 'job-1' }); });
+    expect(navigate.mock.calls[1][0]).toContain('application_concierge_application_id=child-2');
+
+    rerender({ search: '' });
+    expect(result.current.active).toBe(false);
+    expect(result.current.apply({ id: 'job-1' })).toBe(false);
+    expect(mocks.accept).not.toHaveBeenCalled();
+  });
+
   it('accepts once on rapid clicks and opens the existing owned review instead of a purchase', async () => {
     const navigate = vi.fn();
     const { result } = renderHook(() => useConciergeProposalAction({ user, authLoading: false, locale: 'it', navigate }));
