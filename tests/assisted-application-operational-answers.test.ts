@@ -64,7 +64,24 @@ describe('scope, languages and actual field options', () => {
     'Your WhatsApp number', 'Accetti marketing tramite WhatsApp?', 'WhatsApp privacy conditions',
     'Hai esperienza nella comunicazione via WhatsApp?', 'Can you work 100% shifts?',
     'Hai un diploma?', 'Confermi disponibilità al 100% richiesta?',
+    'What is your notice period and earliest possible start date?',
+    'Qual è il preavviso e la data di inizio?', 'Kündigungsfrist und frühester Eintrittstermin',
+    'Délai de préavis et date de début', 'Your notice period and desired workload',
+    'What is your notice period and salary expectation?',
+    'Do you consent to be contacted via WhatsApp?', 'Consenso al contatto via WhatsApp',
+    'Einwilligung zur Kommunikation per WhatsApp', 'Consentement au contact par WhatsApp',
+    'WhatsApp contact and data processing',
   ])('does not invent facts or consent: %s', label => expect(operationalDefaultAnswer({ label, type: 'yes_no' })).toBeNull());
+
+  it('rejects compound text prompts independently of their input type', () => {
+    for (const question of [
+      'What is your notice period and earliest possible start date?',
+      'Qual è il preavviso e la data di inizio?',
+      'What is your notice period and salary expectation?',
+      'Your notice period and desired workload',
+    ]) expect(operationalDefaultAnswer({ question, type: 'text' })).toBeNull();
+    expect(operationalDefaultAnswer({ question: 'Do you consent to be contacted via WhatsApp?', type: 'yes_no' })).toBeNull();
+  });
 
   it('requires an available preference and respects validation bounds', () => {
     expect(operationalDefaultAnswer({ label: 'Notice period', options: [{ label: '3 months', value: 'notice_3' }] })?.value).toBe('3 months');

@@ -11,11 +11,12 @@ const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u03
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
   || (Array.isArray(value) ? value.some(item => String(item ?? '').trim()) : String(value ?? '').trim().length > 0);
 const YES = /^(?:si|yes|ja|oui|true|1)$/;
-const HARD_DECLARATION = /\b(?:experience|esperienz\w*|erfahrung|kenntnis\w*|conosc\w*|qualific\w*|certific\w*|degree|diplom\w*|laurea|law|gesetz|loi|legal|legale|legali|marketing|newsletter|promoz\w*|promot\w*|publicit\w*|werbung|terms|conditions|condizioni|privacy|datenschutz|confidentialite|disabil\w*|criminal\w*|penal\w*)\b/;
+const HARD_DECLARATION = /\b(?:experience|esperienz\w*|erfahrung|kenntnis\w*|conosc\w*|qualific\w*|certific\w*|degree|diplom\w*|laurea|law|gesetz|loi|legal|legale|legali|marketing|newsletter|promoz\w*|promot\w*|publicit\w*|werbung|terms|conditions|condizioni|privacy|datenschutz|confidentialite|disabil\w*|criminal\w*|penal\w*|consent\w*|consens\w*|einwillig\w*|zustimm\w*|processing|trattamento|traitement|verarbeitung|salar\w*|gehalt|lohn|retribuz\w*|remuner\w*|start date|starting date|earliest|available from|data di inizio|data d inizio|data di assunzione|fruhest\w*|eintrittsdatum|startdatum|date de debut|date d entree|commencer)\b/;
 const NOTICE = /\b(?:notice period|notice time|period of notice|periodo di preavviso|preavviso|kundigungsfrist|delai de preavis|preavis)\b/;
 const CONSTRAINED_NOTICE = /\b(?:within|entro|max(?:imum)?|min(?:imum)?|al massimo|almeno|at least|no more|spatestens|mindestens|au moins|au plus|confirm|confermi|bestatigen|confirmez|can you|could you|would you|are you|do you|puoi|potresti|saresti|konnen sie|wurden sie|pouvez vous|pourriez vous|days?|giorni|tage|jours|weeks?|settimane|wochen|semaines)\b/;
 const CONTACT = /\b(?:comunicazion\w*|contatt\w*|contact\w*|communication|kommunikation|kontakt\w*|erreich\w*)\b/;
 const CONTACT_FACT = /\b(?:do you use|do you have|usi|utilizzi|possiedi|nutzen sie|verwenden sie|utilisez vous|avez vous|number|numero|nummer|telephone|telefono)\b/;
+const OTHER_NOTICE_TOPIC = /\b(?:availability|disponibilita|verfugbarkeit|disponibilite|workload|pensum|grado di occupazione|taux d activite|taux d occupation)\b/;
 const THREE_MONTHS = /\b(?:3|three|tre|drei|trois)\s*(?:months?|mesi|mese|monate?n?|mois)\b/;
 
 function optionsOf(question) {
@@ -39,13 +40,14 @@ export function operationalQuestionTopic(question) {
     .replace(/\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*)\s*$/i, '');
   const text = norm(label + ' ' + (question?.applicationQuestion || ''));
   if (!text || HARD_DECLARATION.test(text) || question?.type === 'date' || question?.inputType === 'date') return null;
+  if (NOTICE.test(text) && OTHER_NOTICE_TOPIC.test(text)) return null;
   if (isPreferredWorkloadQuestion(label)) return 'preferred_workload';
   if (NOTICE.test(text) && !CONSTRAINED_NOTICE.test(text) && !['yes_no', 'checkbox'].includes(question?.type || question?.kind)) return 'notice_period';
   if (/\bwhatsapp\b/.test(text) && CONTACT.test(text) && !CONTACT_FACT.test(text)) {
     // Adjacent form labels are not candidate facts. A promotional/privacy
     // qualifier attached to WhatsApp still makes this a consent, not a preference.
     const context = norm(question?.context);
-    if (/(?:whatsapp.{0,80}(?:marketing|newsletter|privacy|promoz|publicit|werbung)|(?:marketing|newsletter|privacy|promoz|publicit|werbung).{0,80}whatsapp)/.test(context)) return null;
+    if (/(?:whatsapp.{0,80}(?:marketing|newsletter|privacy|promoz|publicit|werbung|consent|consens|einwillig|processing|trattamento|traitement|verarbeitung)|(?:marketing|newsletter|privacy|promoz|publicit|werbung|consent|consens|einwillig|processing|trattamento|traitement|verarbeitung).{0,80}whatsapp)/.test(context)) return null;
     const options = optionsOf(question);
     const binary = ['yes_no', 'checkbox'].includes(question?.type || question?.kind)
       || options.some(option => YES.test(norm(option.label)));
