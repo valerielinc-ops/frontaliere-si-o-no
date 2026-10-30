@@ -1932,12 +1932,23 @@ export const EDGE_LEGACY_GONE_PATHS = Object.freeze({
 
 function lookupLegacyTable(pathname, table) {
   const own = (key) => Object.prototype.hasOwnProperty.call(table, key);
+  // Like lookupRetired, accept URL-shaped encoded keys in generated maps:
+  // normaliseRetiredPath decodes request segments before this lookup.
+  const valueFor = (key) => {
+    if (own(key)) return table[key];
+    const encoded = encodeURI(key);
+    return encoded !== key && own(encoded) ? table[encoded] : undefined;
+  };
   const path = normaliseRetiredPath(pathname);
-  if (own(path)) return table[path];
-  if (!path.endsWith('/') && own(`${path}/`)) return table[`${path}/`];
+  const direct = valueFor(path);
+  if (direct !== undefined) return direct;
+  if (!path.endsWith('/')) {
+    const withSlash = valueFor(`${path}/`);
+    if (withSlash !== undefined) return withSlash;
+  }
   if (path.endsWith('/index.html')) {
     const dir = path.slice(0, -'index.html'.length);
-    if (own(dir)) return table[dir];
+    return valueFor(dir);
   }
   return undefined;
 }
@@ -1996,6 +2007,9 @@ export function apexLegacyResponse(url) {
 // The upgrade therefore runs on the RESPONSE: only a 200 whose body carries
 // REDIRECT_STUB_MARKER (the comment buildCanonicalBridgePage writes into every
 // bridge <head>) becomes a 301. A live page at a listed path is served as is.
+// The generated inventory also includes the finite salary-stats bridge
+// families. Full above-floor pages have no stub marker and remain 200,
+// even though the same path redirected while below floor.
 // Only listed paths pay the body read; every other response passes untouched,
 // and nothing is tee'd (single consumer, see the Cache API note in the header).
 // HEAD has no body to inspect, so a listed HEAD is answered from a GET of the
