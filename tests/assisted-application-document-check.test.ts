@@ -64,6 +64,7 @@ describe('the browser\'s check of a requested document', () => {
     'Non si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
     'Mai si attesta che il candidato ha superato l’esame di laurea in ingegneria informatica.',
     'Fattura per servizio di traduzione. Testo richiesto dal cliente: «Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica».',
+    'Template: si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
     'Fac simile di certificato: si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
     'Lettera di referenza. Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
     'Si certifica che il candidato non ha superato l’esame di laurea in ingegneria informatica.',

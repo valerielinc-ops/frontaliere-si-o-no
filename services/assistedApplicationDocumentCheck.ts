@@ -54,7 +54,7 @@ const KIND_TITLES: Record<string, string[]> = {
 // degree title. Require the certification and the completed exam together:
 // "certificato" alone also describes residence and other unrelated documents.
 const NON_ACADEMIC_CERTIFICATION_CONTEXT = [
-  'fattura', 'invoice', 'rechnung', 'facture', 'preventivo', 'fac simile', 'modello di certificato', 'certificate template',
+  'fattura', 'invoice', 'rechnung', 'facture', 'preventivo', 'fac simile', 'modello di certificato', 'template',
   ...KIND_TITLES.reference,
 ];
 const ITALIAN_DEGREE_CERTIFICATION = / (?:si certifica|si attesta) che (?:(?!\b(?:non|mai|dovra|deve)\b)[a-z0-9 ]){0,160}ha superato (?:in data [0-3]?\d [01]?\d (?:19|20)\d{2} )?(?:con (?:voti|votazione) (?:[a-z0-9]+ ){1,10})?l esame di laurea /;
