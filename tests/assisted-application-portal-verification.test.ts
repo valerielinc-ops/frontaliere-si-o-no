@@ -13,7 +13,7 @@ const applyUrl = 'https://careers.example/ApplicationMethods?jobId=42';
 const targetUrl = 'https://careers.example/ApplicationReview?jobId=42';
 function fixture() {
   return createMemoryFirestore({
-    [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress' },
+    [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress', consentVersion: 'assisted-application-v2', consentedAt: now - 20000, cvUploadedAt: now - 10000 },
     [`${base}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'], dispatch: { mode: 'submit', round: 1, requestedAt: now - 5000 } },
     [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, channel: { type: 'employer_site', applyUrl }, sentAttempt: { at: now - 1000 }, job: { title: 'Test Infrastructure Manager' } },
     [`${base}/automation/submission`]: { r1: { state: 'sending', channel: 'portal', startedAt: now - 2000, clickedAt: now - 1000 } },
@@ -21,7 +21,7 @@ function fixture() {
 }
 
 describe('protected read-only portal inspection', () => {
-  it('requests once per source version and never releases a legacy clicked claim', async () => {
+  it('keeps an active one-use request exclusive and never releases a legacy clicked claim', async () => {
     const store = fixture();
     const before = structuredClone([...store.docs]);
     expect(await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce, nowMs: now })).toMatchObject({ requested: true, nonce });
@@ -30,9 +30,11 @@ describe('protected read-only portal inspection', () => {
     expect(store.read(`${base}/automation/submission`).r1.clickedAt).toBe(now - 1000);
   });
 
-  it.each(['withdrawn', 'refunded', 'purged', 'other_round', 'sent', 'other_dispatch', 'expired', 'other_nonce', 'other_version'])('does not inspect a superseded or unsafe request: %s', async kind => {
+  it.each(['withdrawn', 'expired_retention', 'no_consent', 'refunded', 'purged', 'other_round', 'sent', 'other_dispatch', 'expired', 'other_nonce', 'other_version'])('does not inspect a superseded or unsafe request: %s', async kind => {
     const store = fixture();
     await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce, nowMs: now });
+    if (kind === 'expired_retention') store.docs.set(base, { ...store.read(base), cvUploadedAt: now - 91 * 86400000 });
+    if (kind === 'no_consent') store.docs.set(base, { ...store.read(base), consentVersion: null });
     if (kind === 'withdrawn') store.docs.set(base, { ...store.read(base), withdrawnAt: now });
     if (kind === 'refunded') store.docs.set(base, { ...store.read(base), refundStatus: 'pending' });
     if (kind === 'purged') store.docs.set(base, { ...store.read(base), retentionPurgedAt: now });
@@ -68,6 +70,45 @@ describe('protected read-only portal inspection', () => {
   it('permits only the native sign-in endpoint for the sole authentication POST', () => {
     expect(safeSigninAction('https://careers.example/Login?jobId=42', applyUrl)).toBe(true);
     for (const action of ['https://careers.example/ApplicationSubmit?jobId=42', 'https://careers.example/submit?jobId=42', 'https://careers.example/Login/ApplicationSubmit?jobId=42', 'https://careers.example/Login?action=withdraw', 'https://foreign.example/Login', 'https://careers.example/apply']) expect(safeSigninAction(action, applyUrl)).toBe(false);
+  });
+
+  it.each(['inspect', 'store'])('does not resurrect evidence when retention changes during %s', async phase => {
+    const store = fixture();
+    await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce, nowMs: now });
+    const key = Buffer.alloc(32, 7);
+    const source = { applyUrl, event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence: { finalUrl: targetUrl, finalOutcomes: ['ambiguous'] } };
+    const saves = new Map<string, string>();
+    const deleted = vi.fn(async (name: string) => { saves.delete(name); });
+    const purge = () => store.docs.set(base, { ...store.read(base), retentionPurgedAt: now });
+    const bucket = { file: (name: string) => ({
+      download: async () => [Buffer.from(JSON.stringify(encryptJson(source, key)))],
+      save: async (data: string) => { saves.set(name, data); if (phase === 'store') purge(); },
+      delete: async () => deleted(name),
+    }) };
+    const inspect = vi.fn(async () => { if (phase === 'inspect') purge(); return { conclusion: 'unknown', pages: [] }; });
+    expect(await executePortalVerification({ db: store.db, bucket, orderId, round: 1, nonce, version, key, nowMs: now + 10, inspect }))
+      .toMatchObject({ inspected: true, recorded: false });
+    expect(saves.size).toBe(0);
+    if (phase === 'store') expect(deleted).toHaveBeenCalledTimes(1);
+    expect(store.read(`${base}/automation/submission`).r1).toMatchObject({ state: 'sending', clickedAt: now - 1000 });
+    expect(store.read(`${base}/automation/flow`).state).toBe('owner_takeover');
+  });
+
+  it('recovers an expired read-only lease with a new nonce, bounded per source, round and claim', async () => {
+    const store = fixture();
+    await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce, nowMs: now });
+    const requestPath = `${base}/automation/portal_verification`;
+    store.docs.set(requestPath, { ...store.read(requestPath), state: 'running' });
+    expect(await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce: 'next-verification-nonce', nowMs: now + 31 * 60_000 })).toMatchObject({ requested: true });
+    expect(store.read(requestPath).attempts).toBe(2);
+    store.docs.set(requestPath, { ...store.read(requestPath), state: 'completed', attempts: 3 });
+    expect(await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce, nowMs: now + 32 * 60_000 })).toMatchObject({ requested: false, reason: 'inspection_limit' });
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), round: 2, dispatch: { mode: 'submit', round: 2 } });
+    store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), round: 2 });
+    store.docs.set(`${base}/automation/submission`, { ...store.read(`${base}/automation/submission`), r2: { state: 'sending', channel: 'portal', clickedAt: now, startedAt: now - 1 } });
+    expect(await requestPortalVerification({ db: store.db, orderId, round: 2, version, nonce, nowMs: now + 33 * 60_000 })).toMatchObject({ requested: true, round: 2 });
+    expect(store.read(requestPath).attempts).toBe(1);
+    expect(store.read(`${base}/automation/submission`).r1.clickedAt).toBe(now - 1000);
   });
 
   it('uses only the previously observed review URL for the exact posting', () => {

@@ -86,6 +86,10 @@ describe('application stage ownership', () => {
     expect(applicationReceipt(snapshot, { applyUrl, job })).toBe(false);
   });
 
+  it.each(['Thank you for applying', 'Thank you very much for applying', 'Thank you so much for applying', 'Grazie per la tua candidatura', 'Grazie per aver inviato la tua candidatura', 'Merci pour votre candidature', 'Vielen Dank für Ihre Bewerbung'])('retains explicit application receipts: %s', text => {
+    expect(applicationReceipt({ ...receipt, text }, { applyUrl, job })).toBe(true);
+  });
+
   it('recognises an explicit receipt bound by the full known job title when there is no job URL key', () => {
     expect(applicationReceipt({ ...receipt, url: `${origin}/thank-you` }, { applyUrl, job })).toBe(true);
     expect(applicationReceipt({ ...receipt, text: 'Thank you for your application.', url: `${origin}/thank-you` }, { applyUrl, job })).toBe(false);

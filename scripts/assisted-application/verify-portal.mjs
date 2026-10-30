@@ -3,8 +3,9 @@ import { createHash, randomUUID } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
-import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedApplicationConstants.js';
+import { ASSISTED_APPLICATION_ORDER_ID_RE, hasAssistedApplicationConsent } from '../../functions/src/assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
+import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/src/assistedApplicationRetention.js';
 import { roundWasSent } from '../../functions/src/assistedApplicationFlow.js';
 import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
@@ -16,9 +17,11 @@ export function verificationBinding({ flow, submission }) {
     claim: submission?.[`r${Number(flow?.round) || 1}`] || null })).digest('hex');
 }
 
-export function verificationEligible({ order, flow, draft, submission, round }) {
+export function verificationEligible({ order, flow, draft, submission, round, nowMs = Date.now() }) {
   const claim = submission?.[`r${round}`];
-  return order?.paymentStatus === 'paid' && !order.withdrawnAt && !order.retentionPurgedAt && !submission?.withdrawnAt
+  const retentionDue = retentionPurgeDueAt(order);
+  return hasAssistedApplicationConsent(order) && (talentPoolConsentActive(order) || (retentionDue !== null && retentionDue > nowMs))
+    && order?.paymentStatus === 'paid' && !order.withdrawnAt && !order.retentionPurgedAt && !submission?.withdrawnAt
     && !['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus)
     && !['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
     && roundWasSent(flow, round) && flow?.state === 'owner_takeover' && Number(flow.round) === round && !flow.postingExpiredAt
@@ -39,10 +42,15 @@ export async function requestPortalVerification({ db, orderId, round, version, n
   const ref = db.collection('assisted_applications').doc(orderId);
   return db.runTransaction(async transaction => {
     const state = await readContext(transaction, ref);
-    if (!verificationEligible({ ...state, round })) return { requested: false, reason: 'ineligible' };
-    if (state.verification?.version === version || (state.verification?.state === 'running')) return { requested: false, reason: 'already_requested' };
+    if (!verificationEligible({ ...state, round, nowMs })) return { requested: false, reason: 'ineligible' };
+    const binding = verificationBinding(state);
+    const previous = state.verification;
+    const same = previous?.version === version && previous.round === round && previous.binding === binding;
+    if (['requested', 'running'].includes(previous?.state) && previous.expiresAt > nowMs) return { requested: false, reason: 'already_requested' };
+    const attempts = same ? Number(previous.attempts || 1) : 0;
+    if (attempts >= 3) return { requested: false, reason: 'inspection_limit' };
     const request = { state: 'requested', nonce, round, version, requestedAt: nowMs, expiresAt: nowMs + 30 * 60_000,
-      binding: verificationBinding(state) };
+      binding, attempts: attempts + 1 };
     transaction.set(ref.collection('automation').doc('portal_verification'), request);
     return { requested: true, nonce, round, version };
   });
@@ -54,7 +62,7 @@ export async function executePortalVerification({ db, bucket, orderId, round, no
   const state = await db.runTransaction(async transaction => {
     const current = await readContext(transaction, ref);
     const request = current.verification;
-    if (!verificationEligible({ ...current, round }) || request?.state !== 'requested' || request.nonce !== nonce
+    if (!verificationEligible({ ...current, round, nowMs: Date.now() }) || request?.state !== 'requested' || request.nonce !== nonce
       || request.round !== round || request.version !== version || request.expiresAt <= nowMs
       || request.binding !== verificationBinding(current)) return null;
     transaction.set(verificationRef, { state: 'running', runId: process.env.GITHUB_RUN_ID || null, startedAt: nowMs }, { merge: true });
@@ -80,16 +88,24 @@ export async function executePortalVerification({ db, bucket, orderId, round, no
     // Fail closed without putting credentials or portal/candidate text in logs.
     proof = { conclusion: 'unknown', reason: 'inspection_unavailable' };
   }
+  const mayStore = await db.runTransaction(async transaction => {
+    const current = await readContext(transaction, ref);
+    return verificationEligible({ ...current, round, nowMs: Date.now() }) && current.verification?.nonce === nonce
+      && current.verification.state === 'running' && current.verification.version === version
+      && current.verification.binding === verificationBinding(current);
+  });
+  if (!mayStore) return { inspected: true, recorded: false, conclusion: 'unknown' };
   const proofPath = await storeEvidence({ bucket, orderId, name: 'portal-verification', key,
     payload: { round, nonce, version, binding: state.verification.binding, sourcePath, proof }, nowMs });
   const recorded = await db.runTransaction(async transaction => {
     const current = await readContext(transaction, ref);
-    if (!verificationEligible({ ...current, round }) || current.verification?.nonce !== nonce
+    if (!verificationEligible({ ...current, round, nowMs: Date.now() }) || current.verification?.nonce !== nonce
       || current.verification.state !== 'running' || current.verification.version !== version
       || current.verification.binding !== verificationBinding(current)) return false;
     transaction.set(verificationRef, { state: 'completed', completedAt: Date.now(), proofPath, conclusion: 'unknown' }, { merge: true });
     return true;
   });
+  if (!recorded) await bucket.file(proofPath).delete({ ignoreNotFound: true });
   return { inspected: true, recorded, conclusion: 'unknown' };
 }
 

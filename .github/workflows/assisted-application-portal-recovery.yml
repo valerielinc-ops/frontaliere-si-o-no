@@ -16,6 +16,7 @@ on:
       - 'functions/src/assistedApplicationFlow.js'
       - 'functions/src/assistedApplicationPortalRetryPolicy.js'
       - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'
+      - 'functions/src/assistedApplicationRetention.js'
       - 'functions/src/assistedApplicationSubmissionGuard.js'
       - 'functions/src/lib/answerRules.js'
       - 'functions/src/lib/portalQuestionText.js'
