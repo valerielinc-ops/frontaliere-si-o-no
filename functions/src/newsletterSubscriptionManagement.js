@@ -468,6 +468,7 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  'capri-holdings-michael-kors-versace': 'michael-kors',
  usi: 'usi-universita-della-svizzera-italiana',
  'ospedale-malcantonese-oscam-fondazione-giuseppe-rossi': 'oscam-ospedale-e-casa-anziani-malcantonese',
+ 'dein-neuer-job-erfassen-modellieren-und-verarbeiten-von-strukturierten-sowie-unstrukturierten-daten-durchfuhren-von-ad-hoc-analysen-und-a': 'banca-cler',
  'zurich-insurance-sede-ticino': 'zurich-insurance',
 });
 

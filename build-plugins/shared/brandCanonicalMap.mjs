@@ -69,6 +69,12 @@ export const BRAND_CANONICAL_MAP = {
     canonical: 'oscam-ospedale-e-casa-anziani-malcantonese',
     aliases: ['ospedale-malcantonese-oscam-fondazione-giuseppe-rossi'],
   },
+  // Archived banca-cler record: a scraped description became the company label.
+  // companyKey and the original German job slug both identify Banca Cler.
+  'banca-cler': {
+    canonical: 'banca-cler',
+    aliases: ['dein-neuer-job-erfassen-modellieren-und-verarbeiten-von-strukturierten-sowie-unstrukturierten-daten-durchfuhren-von-ad-hoc-analysen-und-a'],
+  },
   'zurich-insurance': { canonical: 'zurich-insurance', aliases: ['zurich-insurance-sede-ticino'] },
 };
 
