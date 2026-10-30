@@ -301,6 +301,7 @@ describe('job alert email — plaintext alternative', () => {
     ['it', '1 nuova offerta:'],
     ['en', '1 new job:'],
     ['de', '1 neue Stelle:'],
+    ['fr', '1 nouvelle offre:'],
   ] as const)('uses the singular in the %s preview for one new job', (locale, preview) => {
     const result = buildAlertEmail(fixtureAlert(locale), [fixtureJob()], true);
     expect(result.text).toContain(preview);

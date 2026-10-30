@@ -765,7 +765,7 @@ const EMAIL_STRINGS = {
     subjectFor: 'pour',
     subjectDefault: 'vos alertes',
     preheader: (n, label, fresh = true) => fresh
-      ? `${n} nouvelles offres: ${label}`
+      ? `${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}: ${label}`
       : `${n} offre${n === 1 ? '' : 's'} sélectionnée${n === 1 ? '' : 's'}: ${label}`,
     heroTitle: (n, fresh = true) => fresh
       ? `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'} pour vous`
