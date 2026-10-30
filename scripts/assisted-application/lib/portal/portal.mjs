@@ -1,3 +1,4 @@
+import '../../extension/apply-control.js';
 /**
  * Portal runner (fase 3b: portals without an account; fase 3c: accounts).
  *
@@ -52,19 +53,8 @@ export const WAVE1_CHANNELS = new Set([
 const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
-// Anywhere in the label: Personio says "Auf diese Stelle bewerben".
-// Match complete human-readable action tokens, with optional decorative
-// punctuation. URL/query/email fragments are never standalone action words.
-// This same expression is also used by the accessible-link fallback.
-export const APPLY_RE = /(?:^|\s)[([{«»“”‘’"'›•*-]*(apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (la tua )?candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i;
-// «Später bewerben» on Prospective.ch's career pages (Coop, 2026-10-02) keeps
-// the posting for later by e-mail: never the way into the form.
-export const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
-const startsApplication = (text) => {
-  const words = String(text || '').split(/\s+/)
-    .filter(token => !/:\/\/|\bwww\.|mailto:|@|^[/?]/i.test(token)).join(' ');
-  return APPLY_RE.test(words) && !APPLY_LATER_RE.test(text);
-};
+// The extension injects this same classic-script module before its filler.
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication } = globalThis.AssistedApplyControls;
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
