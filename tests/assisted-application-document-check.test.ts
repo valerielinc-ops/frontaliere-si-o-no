@@ -2,9 +2,12 @@
 // them when a file does not look like the document the posting asks for
 // (owner decision 2026-10-02: a warning, never a block). Rolex: school
 // reports and the EVA test results.
-import { describe, expect, it } from 'vitest';
-import { checkDocumentFile, classifyDocumentText, DOCUMENT_CHECK_VERSION } from '../services/assistedApplicationDocumentCheck';
+import { describe, expect, it, vi } from 'vitest';
+import { checkDocumentFile, classifyDocumentText, DOCUMENT_CHECK_VERSION, readDocumentText } from '../services/assistedApplicationDocumentCheck';
 import { sanitizeClientCheck } from '../functions/src/assistedApplicationExtraDocuments.js';
+
+
+vi.mock('pdfjs-dist', () => ({ GlobalWorkerOptions: {}, getDocument: vi.fn() }));
 
 const REPORTS = { label: 'Bulletins des trois dernières années scolaires', kind: 'school_report', keywords: ['bulletin', 'Zeugnis', 'pagella', 'school report'] };
 const EVA = { label: 'Résultats du test EVA', kind: 'aptitude_test', keywords: ['EVA', 'evatech', 'test d\'aptitudes'] };
@@ -87,6 +90,34 @@ describe('the browser\'s check of a requested document', () => {
     expect(classifyDocumentText(CV + ' Diploma di laurea in informatica.', degree).verdict).toBe('looks_like_cv');
     expect(classifyDocumentText('Comune. Certificato di residenza relativo alla persona iscritta in anagrafe, per uso amministrativo.', degree).verdict).toBe('mismatch');
     expect(classifyDocumentText('Fattura per un master di formazione. Importo dovuto e modalità di pagamento, scadenza trenta giorni.', degree).verdict).toBe('mismatch');
+  });
+
+  it.each(['readable', 'page_error', 'load_error'])('releases the PDF reader after a browser recheck, including parsing errors: %s', async broken => {
+    const pdfjs = await import('pdfjs-dist');
+    const destroy = vi.fn(async () => {});
+    const pdf = { numPages: 1, getPage: async () => ({ getTextContent: async () => {
+      if (broken === 'page_error') throw new Error('unreadable PDF');
+      return { items: [{ str: 'Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.' }] };
+    } }) };
+    vi.mocked(pdfjs.getDocument).mockReturnValue({ promise: broken === 'load_error' ? Promise.reject(new Error('invalid PDF')) : Promise.resolve(pdf), destroy } as any);
+    const text = await readDocumentText({ name: 'degree.pdf', type: 'application/pdf', arrayBuffer: async () => new ArrayBuffer(0) } as File);
+    expect(text).toBe(broken !== 'readable' ? '' : 'Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.');
+    expect(destroy).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(['readable', 'page_error', 'load_error'])('releases the sibling article PDF reader without changing its error contract: %s', async broken => {
+    const pdfjs = await import('pdfjs-dist');
+    const { extractArticleBodyFromFile } = await import('../services/articleDocumentImport');
+    const destroy = vi.fn(async () => {});
+    const pdf = { numPages: 1, getPage: async () => ({ getTextContent: async () => {
+      if (broken === 'page_error') throw new Error('unreadable PDF');
+      return { items: [{ str: 'Article text retained exactly as read.' }] };
+    } }) };
+    vi.mocked(pdfjs.getDocument).mockReturnValue({ promise: broken === 'load_error' ? Promise.reject(new Error('invalid PDF')) : Promise.resolve(pdf), destroy } as any);
+    const reading = extractArticleBodyFromFile({ name: 'article.pdf', arrayBuffer: async () => new ArrayBuffer(0) } as File);
+    if (broken === 'readable') expect(await reading).toBe('Article text retained exactly as read.');
+    else await expect(reading).rejects.toThrow();
+    expect(destroy).toHaveBeenCalledTimes(1);
   });
 
   it('versions new browser checks and preserves their version without storing extracted text', async () => {

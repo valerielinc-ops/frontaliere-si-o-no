@@ -20,7 +20,8 @@ export interface DocumentCheck {
   version?: number;
 }
 
-export const DOCUMENT_CHECK_VERSION = 3;
+export { DOCUMENT_CHECK_VERSION } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
+import { DOCUMENT_CHECK_VERSION, DOCUMENT_CHECK_MAX_TEXT_CHARS } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
 
 export interface CheckedDocument {
   label: string;
@@ -80,7 +81,7 @@ function found(haystack: string, words: string[]): string[] {
 
 /** The verdict on a file's text for the requested document (pure: the page and the tests use it). */
 export function classifyDocumentText(text: string, document: CheckedDocument): DocumentCheck {
-  const haystack = normalize(text);
+  const haystack = normalize(String(text || '').slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS));
   if (haystack.trim().length < MIN_TEXT_CHARS) return { verdict: 'unreadable', matched: '' };
   const asked = found(haystack, document.keywords || []);
   const usual = found(haystack, KIND_WORDS[document.kind] || []);
@@ -102,20 +103,26 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
 async function pdfText(file: File): Promise<string> {
   const pdfjsLib = await import('pdfjs-dist');
   pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.mjs', import.meta.url).href;
-  const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
-  const pages: string[] = [];
-  // The first pages say what the document is.
-  for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 5); pageNum += 1) {
-    const content = await (await pdf.getPage(pageNum)).getTextContent();
-    pages.push(content.items.map((item) => ('str' in item ? item.str : '')).join(' '));
+  const loading = pdfjsLib.getDocument({ data: await file.arrayBuffer() });
+  try {
+    const pdf = await loading.promise;
+    const pages: string[] = [];
+    // The first pages say what the document is.
+    for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 5); pageNum += 1) {
+      const content = await (await pdf.getPage(pageNum)).getTextContent();
+      pages.push(content.items.map((item) => ('str' in item ? item.str : '')).join(' '));
+      if (pages.join('\n').length >= DOCUMENT_CHECK_MAX_TEXT_CHARS) break;
+    }
+    return pages.join('\n').slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS);
+  } finally {
+    await loading.destroy();
   }
-  return pages.join('\n');
 }
 
 async function docxText(file: File): Promise<string> {
   const mammoth = await import('mammoth');
   const { value } = await mammoth.extractRawText({ arrayBuffer: await file.arrayBuffer() });
-  return value;
+  return value.slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS);
 }
 
 /** The file's readable text: PDF and Word; a photo, a scan or an old .doc has none here. */

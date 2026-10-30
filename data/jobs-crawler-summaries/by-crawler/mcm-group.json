@@ -1,7 +1,7 @@
 {
   "key": "mcm-group",
   "label": "Medizinisches Center Bonaduz",
-  "generatedAt": "2026-10-30T09:19:27.412Z",
+  "generatedAt": "2026-10-30T21:12:23.608Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8517,
-  "avgDurationMs": 8517,
+  "durationMs": 7335,
+  "avgDurationMs": 7335,
   "durationHistory": [
-    8517
+    7335
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://mcm-group.ch/jobs/med-praxisassistenz-in-mpa-80-100-allgemeinmedizin-1-1-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:19:12.436Z",
+      "crawledAt": "2026-10-30T21:12:07.874Z",
       "addressLocality": "Rebstein",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:19:12.435Z",
+      "crawledAt": "2026-10-30T21:12:07.873Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://mcm-group.ch/jobs/hausarzt-hausaerztin",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:19:12.432Z",
+      "crawledAt": "2026-10-30T21:12:07.870Z",
       "addressLocality": "Bonaduz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -151,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

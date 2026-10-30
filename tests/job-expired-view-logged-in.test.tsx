@@ -81,4 +81,21 @@ describe('JobExpiredView (logged-in)', () => {
   // No "Scaduta il" line since no expiredAt
   expect(screen.queryByText(/Scaduta il/i)).not.toBeInTheDocument();
  });
+
+ it('places related jobs in the standard full-width three-column section', () => {
+  const relatedJobs = Array.from({ length: 4 }, (_, index) => ({
+   slug: `related-job-${index}`,
+   title: `Related role ${index}`,
+   company: 'Acme SA',
+   location: 'Lugano',
+  }));
+  const { container } = render(<JobExpiredView job={fullJob} hasAccess relatedJobs={relatedJobs} />);
+
+  const layout = container.querySelector('[data-expired-layout="authenticated"]');
+  const relatedGrid = layout?.querySelector('[data-job-related-grid]');
+  expect(relatedGrid).toHaveClass('grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3');
+  expect(relatedGrid?.querySelectorAll('article')).toHaveLength(4);
+  expect(relatedGrid?.closest('article')).toBeNull();
+  expect(relatedGrid?.querySelectorAll('[data-job-related-ad]')).toHaveLength(1);
+ });
 });
