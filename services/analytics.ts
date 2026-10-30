@@ -103,6 +103,7 @@ import { jobJourneyFields, recordJobJourneyStep, type JobJourneyStep, type JobJo
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { runAfterNextPaint } from './afterNextPaint';
 import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
+import { buildResourceErrorLabel } from './resourceErrorLabel';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
@@ -1977,6 +1978,9 @@ export const Analytics = {
  blockedByAdBlocker?: boolean;
  }) => {
  log('resource_load_error', {
+ // error_type/error_message are what GA4 can query: see resourceErrorLabel.ts.
+ error_type: `resource_${info.resourceType}`,
+ error_message: buildResourceErrorLabel(info.resourceUrl),
  resource_type: info.resourceType,
  resource_url: truncate(info.resourceUrl, 200),
  page_path: truncate(info.pagePath || window.location.pathname, 180),
