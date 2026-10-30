@@ -12,6 +12,121 @@
 
 /* eslint-disable no-undef -- runs in the browser */
 export function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
+  // BEGIN GENERATED APPLICATION CONSENT
+  const readOwnConsentMetadata = function readOwnConsentMetadata(element, primaryLabel = '', questionOwned = false) {
+  let complete = Boolean(element?.isConnected && element.matches('input[type="checkbox"]'));
+  const own = new Set(), primary = new Set(), links = new Set(), visited = new Set(), active = new Set();
+  const doc = element?.ownerDocument;
+  const direct = ['aria-label', 'aria-description', 'aria-roledescription', 'title', 'placeholder', 'alt'];
+  const refs = ['aria-labelledby', 'aria-describedby', 'aria-details'];
+  const controlSelector = 'input:not([type="hidden"]), select, textarea, [role="checkbox"], [role="radio"], [role="combobox"], button[aria-haspopup="listbox"], [ui5-date-picker], [data-scope="date-picker"][data-part="root"]';
+  const ids = new Map();
+  if (doc) for (const node of doc.querySelectorAll('[id]')) {
+    if (node.id) ids.set(node.id, [...ids.get(node.id) || [], node]);
+  }
+  if (element?.id && ids.get(element.id)?.length !== 1) complete = false;
+  let bytes = 0, linkBytes = 0, referenceCount = 0;
+  const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
+  const add = (value, isPrimary = false) => {
+    const text = clean(value);
+    if (!text) return;
+    if (text.length > 8_000 || !own.has(text) && (bytes + text.length > 12_000 || own.size >= 64)) { complete = false; return; }
+    if (!own.has(text)) { own.add(text); bytes += text.length; }
+    if (isPrimary) primary.add(text);
+  };
+  const textOf = node => {
+    const parts = [], walker = doc.createTreeWalker(node, 4);
+    for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+      if (!text.parentElement?.closest('script, style, noscript, select, option, textarea')) parts.push(text.textContent);
+    }
+    return clean(parts.join(' '));
+  };
+  const visit = (node, isPrimary = false) => {
+    if (!node?.isConnected || active.has(node)) { complete = false; return; }
+    if (visited.has(node)) { if (isPrimary) add(textOf(node), true); return; }
+    if (visited.size >= 64) { complete = false; return; }
+    if ([...node.querySelectorAll(controlSelector)].some(control => control !== element)) { complete = false; return; }
+    const label = node.closest('label');
+    if (label?.hasAttribute('for') && label.getAttribute('for') && label.control !== element) { complete = false; return; }
+    visited.add(node); active.add(node);
+    add(textOf(node), isPrimary);
+    for (const anchor of [...(node.matches('a[href]') ? [node] : []), ...node.querySelectorAll('a[href]')]) {
+      const raw = anchor.getAttribute('href') || '';
+      if (raw.length > 2048) { complete = false; continue; }
+      let href;
+      try {
+        const url = new URL(raw, doc.baseURI);
+        if (url.protocol !== 'https:' && !(url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname))) { complete = false; continue; }
+        href = url.href;
+      } catch { complete = false; continue; }
+      if (href.length > 2048 || !links.has(href) && (links.size >= 16 || linkBytes + href.length > 8192)) { complete = false; continue; }
+      if (!links.has(href)) { links.add(href); linkBytes += href.length; }
+    }
+    for (const attribute of direct) add(node.getAttribute(attribute), isPrimary && attribute === 'aria-label');
+    for (const attribute of refs) {
+      for (const id of clean(node.getAttribute(attribute)).split(/\s+/).filter(Boolean)) {
+        if (++referenceCount > 24 || id.length > 256 || ids.get(id)?.length !== 1) { complete = false; continue; }
+        visit(ids.get(id)[0], isPrimary && attribute === 'aria-labelledby');
+      }
+    }
+    for (const child of node.querySelectorAll(direct.concat(refs).map(attribute => `[${attribute}]`).join(','))) {
+      if (child !== element && !visited.has(child)) visit(child, isPrimary);
+    }
+    active.delete(node);
+  };
+  if (complete) {
+    // Keep the input active while following references: a self-reference is unknown.
+    active.add(element);
+    for (const label of element.labels || []) visit(label, true);
+    const wrapping = element.closest('label');
+    if (wrapping && !visited.has(wrapping)) visit(wrapping, true);
+    for (const attribute of direct) add(element.getAttribute(attribute), attribute === 'aria-label');
+    for (const attribute of refs) for (const id of clean(element.getAttribute(attribute)).split(/\s+/).filter(Boolean)) {
+      if (++referenceCount > 24 || id.length > 256 || ids.get(id)?.length !== 1) { complete = false; continue; }
+      visit(ids.get(id)[0], attribute === 'aria-labelledby');
+    }
+    const labelledBy = clean(element.getAttribute('aria-labelledby')).split(/\s+/).filter(Boolean);
+    if (labelledBy.length && labelledBy.every(id => ids.get(id)?.length === 1)) add(labelledBy.map(id => textOf(ids.get(id)[0])).join(' '), true);
+    active.delete(element);
+    add(primaryLabel);
+  }
+  const form = element?.form || element?.closest('[role="form"]');
+  let actionPath = '';
+  try { const url = new URL(form?.action || doc?.URL || ''); actionPath = `${url.origin}${url.pathname}`; } catch { complete = false; }
+  const scopes = [];
+  for (let node = element?.parentElement, depth = 0; node && node !== doc?.body; node = node.parentElement, depth++) {
+    if (depth >= 64) { complete = false; break; }
+    if (!node.matches('fieldset, section, article, [role="group"], [role="radiogroup"], [role="region"], form, [role="form"]')) continue;
+    const values = [node.getAttribute('aria-label') || ''];
+    for (const id of clean(node.getAttribute('aria-labelledby')).split(/\s+/).filter(Boolean)) {
+      if (ids.get(id)?.length !== 1) { complete = false; continue; }
+      values.push(textOf(ids.get(id)[0]));
+    }
+    const heading = [...node.children].find(child => child.matches('legend, h1, h2, h3, h4, [role="heading"]'));
+    if (heading) values.push(textOf(heading));
+    const label = [...new Set(values.map(clean).filter(Boolean))].join(' · ');
+    if (label.length > 1024) { complete = false; continue; }
+    if (label || node.id) scopes.push({ tag: node.tagName, id: node.id || '', role: node.getAttribute('role') || '', label });
+  }
+  const owner = { v: 1, tag: element?.tagName, type: element?.type, id: element?.id || '', name: element?.name || '',
+    form: { tag: form?.tagName || '', id: form?.id || '', index: form ? [...doc.querySelectorAll('form, [role="form"]')].indexOf(form) : -1,
+      action: actionPath, method: form?.method || '' }, autocomplete: element?.getAttribute('autocomplete') || '', scopes };
+  let ownerKey = '';
+  if ([owner.id, owner.name, owner.form.id, actionPath, owner.autocomplete].some(value => value.length > 2048)) complete = false;
+  else ownerKey = JSON.stringify(owner);
+  if (ownerKey.length > 4096) { complete = false; ownerKey = ''; }
+  return {
+    ownConsentText: complete ? [...own] : [],
+    ownConsentQuestionLabels: complete ? [...primary] : [],
+    ownConsentLinks: complete ? [...links] : [],
+    ownConsentMetadataComplete: complete,
+    ownConsentQuestionOwned: questionOwned === true,
+    ownConsentOwnerKey: ownerKey,
+    consentOwnershipUnknown: !complete || questionOwned !== true,
+  };
+};
+  // END GENERATED APPLICATION CONSENT
+
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   const nativeOption = (option, select) => ({
     value: option.value,
