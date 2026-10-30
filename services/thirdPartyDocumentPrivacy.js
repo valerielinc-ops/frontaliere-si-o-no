@@ -61,7 +61,11 @@ export function isSensitiveThirdPartyDocument(sanitize, win, doc, attempted = fa
      while (at < value.length && !space.test(value[at])) at++;
      const token = value.slice(start, at);
      if (!token) break;
-     if (!unchanged(token.replace(/,+$/, ''))) return false;
+     const url = token.replace(/,+$/, '');
+     if (!unchanged(url)) return false;
+     // Privacy attestation also checks serialized absolute references inside
+     // a non-data URL token; this does not change HTML candidate tokenization.
+     if (url.includes(',') && !/^data:/i.test(url) && !url.split(/,(?=(?:https?:|[\\/]{2}))/i).every(unchanged)) return false;
      if (token.endsWith(',')) continue;
      let parentheses = 0;
      while (at < value.length) {

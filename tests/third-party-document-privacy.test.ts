@@ -95,11 +95,20 @@ describe('signed-origin autonomous SDK startup', () => {
    expect(check('data:image/svg+xml,%3Csvg%20viewBox=%220,0,100,100%22%3E%3Ctext%3E100%25%3C/text%3E%3C/svg%3E 1x, https://img.example.test/b.png 2x')).toBe(false);
    expect(check('https://img.example.test/a.png 1x, https://synthetic:credential@img.example.test/b.png 2x')).toBe(true);
    // WHATWG 4.8.4.2.1/parse-a-srcset-attribute: without whitespace this is
-   // one relative URL, not a second candidate with a different authority.
+   // one relative URL, not a second browser candidate. Privacy attestation
+   // separately checks serialized absolute references inside non-data tokens.
    const commaInsideUrl = 'clean.jpg,https://synthetic:credential@img.example.test/b.png';
    expect(new NodeURL(commaInsideUrl, dom.window.location.href).hostname).toBe('frontaliereticino.ch');
-   expect(check(commaInsideUrl)).toBe(false);
+   expect(check(commaInsideUrl)).toBe(true);
    expect(check('clean.jpg, https://synthetic:credential@img.example.test/b.png')).toBe(true);
+   expect(check('clean.jpg,//synthetic:credential@img.example.test/b.png')).toBe(true);
+   expect(check('https://img.example.test/region,city/photo.png')).toBe(false);
+   expect(check('https://img.example.test/a.png?coords=10,20&scale=100%25')).toBe(false);
+   expect(check('https://img.example.test/a.png?name=wide%2Csmall%20image')).toBe(false);
+   expect(check('clean.jpg,https://img.example.test/b.png?size=100%25')).toBe(false);
+   expect(check('data:image/svg+xml,%3Ctext%3E,https://synthetic:credential@img.example.test/%3C/text%3E 1x')).toBe(false);
+   dom.window.document.body.appendChild(dom.window.document.createTextNode(commaInsideUrl));
+   expect(check('images/a.png 320w, images/b.png 640w')).toBe(false);
    expect(check(`https://img.example.test/a.png?size=large 1x, https://img.example.test/b.png?redirect=${encodeURIComponent(signed)} 2x`)).toBe(true);
    expect(check(`images/a.png?redirect=${encodeURIComponent(signed)} 320w, images/b.png 640w`)).toBe(true);
    expect(check('https://img.example.test/a.png custom(1,2), https://synthetic:credential@img.example.test/b.png 2x')).toBe(true);
