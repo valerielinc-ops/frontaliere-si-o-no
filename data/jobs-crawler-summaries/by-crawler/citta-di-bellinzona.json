@@ -1,8 +1,8 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-10-29T21:18:38.614Z",
-  "total": 6,
+  "generatedAt": "2026-10-30T09:48:49.010Z",
+  "total": 7,
   "sourceBodyFailureCount": 1,
   "sourceBodyFailures": [
     {
@@ -12,16 +12,58 @@
       "message": "PDF extraction failed: no text extracted"
     }
   ],
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 7932,
-  "avgDurationMs": 7932,
+  "durationMs": 7577,
+  "avgDurationMs": 7577,
   "durationHistory": [
-    7932
+    7577
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "citta-di-bellinzona-impiegato-a-amministrativo-a-addetto-a-alla-formazione-del-personale-presso-il-bellinzona",
+      "slug": "impiegato-a-amministrativo-a-addetto-a-alla-formazione-del-personale-presso-il-bellinzona",
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Impiegato/a amministrativo/a (addetto/a alla formazione del personale), presso il Settore Risorse umane",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=76648689-f8a1-4fee-a1dd-7b7214db47c6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": "https://www.bellinzona.ch/una-Impiegatoa-amministrativoa-addettoa-alla-formazione-del-personale-presso-il-Settore-Risorse-umane-5b42d400",
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=76648689-f8a1-4fee-a1dd-7b7214db47c6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-10-30T09:48:40.338Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-30T09:48:40.338Z",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -52,7 +94,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6e333017-34f2-4666-b96f-b9823f48d74f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-29T21:18:23.226Z",
+      "crawledAt": "2026-10-30T09:48:40.108Z",
       "firstSeenAt": "2026-10-28T09:16:22.746Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -92,7 +134,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=92523e3b-33f8-479f-bdd2-2483250bc177,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-29T21:18:21.340Z",
+      "crawledAt": "2026-10-30T09:48:38.902Z",
       "firstSeenAt": "2026-10-16T09:13:58.210Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -132,7 +174,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=5185f2b9-4a36-4d7f-b778-e9fc8f25b387,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-29T21:18:21.776Z",
+      "crawledAt": "2026-10-30T09:48:39.129Z",
       "firstSeenAt": "2026-10-16T09:13:58.418Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -172,7 +214,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=5fe35897-3e0a-493b-8324-ef8babce1685,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-29T21:18:20.624Z",
+      "crawledAt": "2026-10-30T09:48:38.047Z",
       "firstSeenAt": "2026-05-30T10:21:10.149Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -212,7 +254,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=cff3878f-e39c-460e-910b-60cbe704fd30,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-29T21:18:20.957Z",
+      "crawledAt": "2026-10-30T09:48:38.456Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -252,7 +294,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=15c49f5b-66e5-4dd8-896a-766a2f4e06f0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-29T21:18:21.153Z",
+      "crawledAt": "2026-10-30T09:48:38.685Z",
       "firstSeenAt": "2026-10-13T09:15:25.455Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -266,5 +308,5 @@
       }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }
