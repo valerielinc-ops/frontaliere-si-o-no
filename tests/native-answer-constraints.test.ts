@@ -26,7 +26,9 @@ describe('typed native answer constraints', () => {
   });
   it('does not transfer language, future proficiency or a combined-language claim', () => {
     expect(typedNativeAnswerConstraint(claim('Yes', { question: 'Do you speak English at C1?', context: '' }), languageRecord)).toBe('unrelated');
-    expect(typedNativeAnswerConstraint(claim('Yes', { question: 'Do you speak German and English at C1?', context: '' }), languageRecord)).toBe('unrelated');
+    expect(typedNativeAnswerConstraint(claim('Yes', { question: 'Do you speak German and English at C1?', context: '' }), languageRecord)).toBe('contradicts');
+    expect(typedNativeAnswerConstraint(claim('Yes', { question: 'Do you speak German and English at C1?', context: '' }), { ...languageRecord, answer: 'C1' })).toBe('unknown');
+    expect(typedNativeAnswerConstraint(claim('Yes', { question: 'Fluent German or French required', context: '' }), { ...languageRecord, question: { question: 'What is your current French level?' }, answer: 'C1' })).toBe('supports');
     expect(typedNativeAnswerConstraint(claim('Yes', { question: 'Do you speak German at C1?', context: '' }), { ...languageRecord, question: { question: 'What German level do you plan to reach after training?' }, answer: 'C1' })).toBe('unrelated');
   });
   it('keeps numeric actual values bound to the same owned question and context', () => {

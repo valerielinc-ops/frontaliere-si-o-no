@@ -56,9 +56,11 @@ export function qualificationSources({ sourceText = '', profile = {}, answers = 
       if (!line.trim()) { block++; continue; }
       for (const _entry of sourceCitations({ line }).excerpts) blocks.push(block);
     }
+    const blockSizes = new Map();
+    for (const value of blocks) blockSizes.set(value, (blockSizes.get(value) || 0) + 1);
     for (const [index, excerpt] of excerpts.entries()) entries.set(excerpt.id, {
       id: excerpt.id, kind: document.kind, documentHash, quote: excerpt.text,
-      position: { ordinal: index, block: blocks[index], blockSize: blocks.filter(value => value === blocks[index]).length },
+      position: { ordinal: index, block: blocks[index], blockSize: blockSizes.get(blocks[index]) || 0 },
       ...(document.answerRecord ? { answerRecord: document.answerRecord }
         : { context: excerpts.slice(Math.max(0, index - 1), index + 2).map(entry => entry.text).join('\n') }),
     });
@@ -231,7 +233,10 @@ export async function verifyNativeFormAnswers({ claims, sources, generate, scope
     || typeof claim.nativeFormContract?.question !== 'string' || !claim.nativeFormContract.question.trim() || !['string', 'boolean', 'number'].includes(typeof claim.proposedAnswer)
     || (typeof claim.proposedAnswer === 'string' && !claim.proposedAnswer.trim())
     || (typeof claim.proposedAnswer === 'number' && !Number.isFinite(claim.proposedAnswer)))) return fail('form_contract_unbound');
-  if (!catalog.length) return fail('source_unbound');
+  if (!catalog.length || catalog.some(source => typeof source.id !== 'string' || !source.id
+    || typeof source.quote !== 'string' || !source.quote.trim() || !/^[a-f0-9]{64}$/.test(source.documentHash || '')
+    || !Number.isInteger(source.position?.ordinal) || !Number.isInteger(source.position?.block)
+    || !Number.isInteger(source.position?.blockSize))) return fail('source_unbound');
   for (const claim of claims) {
     if (catalog.some(source => source.kind === 'candidate_answer' && typedNativeAnswerConstraint(claim, source.answerRecord) === 'contradicts')) {
       return fail('actual_answer_conflict');

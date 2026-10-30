@@ -151,6 +151,22 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     expect(result.verification.assessmentHash).not.toBe(qualificationAssessmentHash(f.requirements, f.match));
   });
 
+  it('never supplies a neighboring CV action as evidence for an unrelated selected quote', async () => {
+    const f = fixture([qualificationEvidenceCases()[3]]);
+    const sources = qualificationSources({ sourceText: 'Master’s Degree in Computer Science\nWorked as a software engineer for eight years' });
+    const requirements = { requirements: [{ basis: 'stated', importance: 'high', requirement: 'Experience', quote: 'How many years have you worked as a software engineer?',
+      nativeFormContract: { question: 'How many years have you worked as a software engineer?' }, proposedAnswer: 8 }] };
+    const evidence = 'Master’s Degree in Computer Science';
+    f.generate.mockImplementation(async (_system, user) => {
+      const payload = JSON.parse(user);
+      expect(payload.claims[0].proof.quote).toBe(evidence);
+      expect(payload.claims[0].proof).not.toHaveProperty('context');
+      expect(user).not.toContain('Worked as a software engineer for eight years');
+      return { assessments: [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'unsupported', reason: 'unrelated_evidence' }] };
+    });
+    expect((await verifyQualificationEvidence({ ...f, sources, requirements, match: { matches: [{ index: 0, status: 'met', evidence }] }, rawMatch: { matches: [] }, purpose: 'documents' })).status).toBe('unverified');
+  });
+
   it('does not label a profile projection or a bare answer as original primary evidence', async () => {
     const f = fixture([qualificationEvidenceCases()[3]]);
     const projection = qualificationSources({ profile: { degree: f.match.matches[0].evidence }, answers: { question_unknown: 'Yes' } });

@@ -10,7 +10,7 @@ function fixture() {
   const generate = vi.fn(async (system: string, user: string, _schema?: any, _options?: any) => {
     const payload = JSON.parse(user);
     if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) return { assessments: payload.claims.map((claim: any) => ({ index: claim.index,
-      sourceId: payload.sources.find((source: any) => source.quote.includes(claim.index ? 'eight years' : 'Master’s Degree')).sourceId })) };
+      sourceIds: [payload.sources.find((source: any) => source.quote.includes(claim.index ? 'eight years' : 'Master’s Degree')).sourceId] })) };
     return { assessments: payload.claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id, verdict: 'supported', reason: 'explicit_fact' })) };
   });
   return { claims, sources, generate, scope: { orderId: 'fixture-order', round: 2, jobId: 'fixture-job' } };
@@ -28,13 +28,14 @@ describe('blind native form answer evidence selection', () => {
     expect(payload.claims.map((claim: any) => claim.proposedAnswer)).toEqual(['Yes', 8]);
     expect(user).not.toContain('untrusted planner');
     expect(user).not.toContain('"status":"met"');
-    expect(schema.properties.assessments.items.properties.sourceId.enum).toEqual(['', ...payload.sources.map((source: any) => source.sourceId)]);
+    expect(schema.properties.assessments.items.properties.sourceIds.items.enum).toEqual(payload.sources.map((source: any) => source.sourceId));
     expect(options).toEqual({ maxTokens: 2048 });
     expect(result.verification.checks).toHaveLength(2);
     expect(JSON.stringify(result.verification)).not.toContain('[[cv:');
     const judged = JSON.parse(f.generate.mock.calls[1][1]);
     expect(judged).not.toHaveProperty('sources');
-    expect(judged.claims[0].proof).toMatchObject({ kind: 'cv_original', quote: 'Master’s Degree in Computer Science' });
+    expect(judged.claims[0].proof).toMatchObject({ kind: 'primary_bundle', quotes: [expect.objectContaining({ kind: 'cv_original', quote: 'Master’s Degree in Computer Science' })] });
+    expect(judged.claims[0].proof.quotes[0]).not.toHaveProperty('context');
   });
 
   it.each(['missing', 'duplicate', 'unknown_index', 'unknown_source', 'unsupported', 'uncertain', 'invalid_reason', 'contradiction_reason'])('fails technically closed on %s', async violation => {
@@ -46,7 +47,7 @@ describe('blind native form answer evidence selection', () => {
       if (selection && violation === 'missing') raw.assessments.pop();
       if (selection && violation === 'duplicate') raw.assessments[1] = raw.assessments[0];
       if (selection && violation === 'unknown_index') raw.assessments[0].index = 99;
-      if (selection && violation === 'unknown_source') raw.assessments[0].sourceId = '[[profile:9999]]';
+      if (selection && violation === 'unknown_source') raw.assessments[0].sourceIds = ['[[profile:9999]]'];
       if (!selection && violation === 'unsupported') raw.assessments[0].verdict = 'unsupported';
       if (!selection && violation === 'uncertain') raw.assessments[0].verdict = 'uncertain';
       if (!selection && violation === 'contradiction_reason') raw.assessments[0].reason = 'contradiction';
@@ -76,7 +77,7 @@ describe('blind native form answer evidence selection', () => {
     counter.correction = 'Changed while waiting';
     f.sources.evidenceCatalog().forEach(source => { source.documentHash = 'changed-source'; });
     release({ assessments: payload.claims.map((claim: any) => ({ index: claim.index,
-      sourceId: payload.sources.find((source: any) => source.quote.includes(claim.index ? 'eight years' : 'Master’s Degree')).sourceId,
+      sourceIds: [payload.sources.find((source: any) => source.quote.includes(claim.index ? 'eight years' : 'Master’s Degree')).sourceId],
       })) });
     const result = await pending;
     expect(result.status).toBe('supported');
@@ -113,9 +114,10 @@ describe('blind native form answer evidence selection', () => {
         const date = payload.sources.find((source: any) => source.quote.includes('Present'));
         const role = payload.sources.find((source: any) => source.quote.includes('Software Engineer'));
         expect(date.contextSourceIds).toContain(role.sourceId);
-        return { assessments: [{ index: 0, sourceId: date.sourceId }] };
+        return { assessments: [{ index: 0, sourceIds: [role.sourceId, date.sourceId] }] };
       }
-      expect(payload.claims[0].proof.context).toContain('Software Engineer');
+      expect(payload.claims[0].proof.quotes.map((proof: any) => proof.quote).join(' ')).toContain('Software Engineer');
+      expect(payload.claims[0].proof.quotes.every((proof: any) => !('context' in proof))).toBe(true);
       return { assessments: [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'supported', reason: 'relevant_role_or_tenure' }] };
     });
     expect((await verifyNativeFormAnswers({ ...f, sources, claims: [{ fieldId: 'tenure', nativeFormContract: { question: 'Have you worked as a software engineer for at least five years?' }, proposedAnswer: 'Yes' }] })).status).toBe('supported');
@@ -139,9 +141,9 @@ describe('blind native form answer evidence selection', () => {
     const sources = qualificationSources({ answerEvidence: [{ id: 'answer-no', question, answer: false, category: 'work_authorization', unit: 'boolean', scope: 'job', provenance: { actor: 'candidate', round: 2 } }] });
     f.generate.mockImplementation(async (system, user) => {
       const payload = JSON.parse(user);
-      if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) return { assessments: [{ index: 0, sourceId: payload.sources[0].sourceId }] };
+      if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) return { assessments: [{ index: 0, sourceIds: [payload.sources[0].sourceId] }] };
       expect(payload.claims[0].proposedAnswer).toBe(false);
-      expect(payload.claims[0].proof.answerRecord.answer).toBe(false);
+      expect(payload.claims[0].proof.quotes[0].answerRecord.answer).toBe(false);
       return { assessments: [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'supported', reason: 'explicit_fact' }] };
     });
     expect((await verifyNativeFormAnswers({ ...f, sources, claims: [{ fieldId: 'sponsor', nativeFormContract: question, proposedAnswer: false }] })).status).toBe('supported');
