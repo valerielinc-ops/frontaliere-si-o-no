@@ -23,11 +23,12 @@ const LEVEL = /^(?:[abc][12]|native|mother tongue|madrelingua|muttersprache|lang
 
 function descriptor(question) {
   const q = object(question);
-  const fields = ['id', 'question', 'applicationQuestion', 'context', 'section', 'autocomplete', 'source'];
+  const fields = ['id', 'question', 'applicationQuestion', 'context', 'section', 'autocomplete', 'source', 'minDate'];
   if (fields.some(field => String(q[field] || '').length > 1000) || Array.isArray(q.options) && q.options.length > 100) return null;
-  if (!['text', 'number', 'date', 'yes_no', 'choice', 'checkbox', 'multi_choice'].includes(q.type)) return null;
+  if (!['text', 'number', 'date', 'yes_no', 'choice', 'checkbox', 'multi_choice'].includes(q.type)
+    || q.required != null && typeof q.required !== 'boolean') return null;
   return { ...Object.fromEntries(fields.map(field => [field, String(q[field] || '').trim()])),
-    type: String(q.type || 'text'), options: Array.isArray(q.options) ? q.options : [], validation: object(q.validation) };
+    required: Boolean(q.required), type: String(q.type || 'text'), options: Array.isArray(q.options) ? q.options : [], validation: object(q.validation) };
 }
 function semantics(question, answer) {
   const key = candidateQuestionAnswerKey(question);
@@ -92,7 +93,7 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, prev
       || group.some(q => !same(changed[q.id], answer) || !same(descriptor(q), question));
     accepted.add(key);
     delete records[key];
-    if (conflict || !policy || !hasAnswer(answer) || !validateAnswer(answer, question).ok || policy.scope === 'job' && !order.jobUrl) {
+    if (conflict || !policy || !hasAnswer(answer) || !validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok || policy.scope === 'job' && !order.jobUrl) {
       // Keep only the ordering clock after a clear; never retain the removed Q/A.
       records[key] = { version: ANSWER_EVIDENCE_VERSION, key, cleared: true, provenance: source };
       continue;
@@ -109,7 +110,7 @@ function validRecord(key, record, userId, legacy) {
   const { question, provenance: source } = record;
   const policy = semantics(question || {}, record.answer);
   return Boolean(policy && same(policy, { category: record.category, unit: record.unit, scope: record.scope })
-    && candidateQuestionAnswerKey(question) === key && validateAnswer(record.answer, question).ok
+    && candidateQuestionAnswerKey(question) === key && validateAnswer(record.answer, question, { todayIso: Number.isFinite(nowMs) ? new Date(nowMs).toISOString().slice(0, 10) : '' }).ok
     && source?.userId === userId && ['candidate', 'owner'].includes(source.actor) && source.orderId
     && Number.isInteger(source.round) && source.round > 0 && Number.isFinite(source.confirmedAt) && source.confirmedAt > 0
     && Object.hasOwn(legacy, key) && same(legacy[key], record.answer));
