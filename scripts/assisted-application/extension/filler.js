@@ -461,7 +461,7 @@
       const question = questionOf(radios[0]);
       const group = radios[0].closest('fieldset, [role="radiogroup"], [role="group"]');
       const legend = ownedGroupLabels(group, 'legend, [role="heading"], label', radios[0])
-        .map(textOf).find(Boolean) || '';
+        .filter(node => !node.matches('label[for]')).map(textOf).find(Boolean) || '';
       const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))];
       entries.push({
         kind: 'radio',

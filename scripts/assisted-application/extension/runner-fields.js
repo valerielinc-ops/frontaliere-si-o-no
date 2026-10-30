@@ -328,6 +328,7 @@
   const groupQuestion = (element) => {
     const group = element.closest('fieldset, [role="radiogroup"], [role="group"], .application-question, .field, li');
     for (const legend of ownedGroupLabels(group, 'legend, .question, .label, h3, h4', element)) {
+      if (legend.matches('label[for]')) continue; // An option's label never names the whole group.
       const text = !legend.contains(element) && clean(legend.innerText || legend.textContent);
       if (text) return text;
     }

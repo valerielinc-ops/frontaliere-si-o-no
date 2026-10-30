@@ -86,6 +86,16 @@ it.each([
   dom.window.close();
 });
 
+it('does not name a radio group after any individual option', () => {
+  const { dom, snapshot } = extract('<form><fieldset><label class="label" for="x">Yes</label><input id="x" name="permit" type="radio"><label>No<input id="y" name="permit" type="radio"></label><legend>Work permit?</legend></fieldset></form>');
+  expect(snapshot.fields[0].label).toBe('Work permit?');
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  expect((dom.window as any).CompilaRunnerFields().fields[0].label).toBe('Work permit?');
+  expect((dom.window as any).CompilaCandidatura.collect(dom.window.document)[0].label).toBe('Work permit?');
+  dom.window.close();
+});
+
 it('routes unreadable source labels to a technical hold instead of manufacturing a required question', () => {
   const result = portalRequirementsFromMissingRequired([{ id: 'f1', kind: 'checkbox', label: '', required: true }], [{ fieldId: 'f1', question: '' }]);
   expect(result.questions).toEqual([]);
