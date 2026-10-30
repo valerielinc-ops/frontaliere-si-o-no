@@ -2,11 +2,14 @@ import { describe, expect, it, vi } from 'vitest';
 vi.mock('../functions/src/applicationConciergeEligibility.js', async original => ({ ...await original<typeof import('../functions/src/applicationConciergeEligibility.js')>(), prepareConciergeEligibility: vi.fn(async () => async () => ({ status: 'compatible' })) }));
 import { parseCandidateCvText } from '../functions/src/candidateCvProfile.js';
 import {
+  approvedRolePreference,
+  conciergeMatchingWork,
   proposalDocumentId,
   runApplicationConciergeMatching,
   scoreJobForProfile,
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from '../functions/src/applicationConciergeMatching.js';
+import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
 
 function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
   const documents = new Map(Object.entries(seed));
@@ -667,7 +670,7 @@ describe('application concierge matching', () => {
       expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 1 });
       expect(relevant).toEqual(expect.objectContaining({
         status: 'proposed',
-        matchingVersion: 'cv-relevance-v6-full-requirements',
+        matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
         matchScore: expect.any(Number),
       }));
       expect((relevant?.matchScore as number)).toBeLessThan(99);
@@ -753,5 +756,56 @@ describe('dated historical positions as matching evidence', () => {
   it('includes an earlier position in specialty mismatch evidence', () => {
     const profile = { previousPositions: ['Sales Manager'], skills: [], experienceSummary: [] };
     expect(scoreJobForProfile({ title: 'Sales Manager' }, profile).score).toBeGreaterThanOrEqual(28);
+  });
+});
+
+describe('progress through the complete relevant job pool', () => {
+  it('continues beyond repeated unverified jobs and beyond the old top-40 window', async () => {
+    const path = 'application_concierge_services/service-progress';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-progress', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(Date.now() + 86400000) },
+      'user_cv_profiles/candidate-progress': { status: 'ready', profile: { searchText: 'IT support', workPosition: 'IT Support Manager', skills: ['support', 'IT'] } },
+    });
+    const jobs = Array.from({ length: 70 }, (_, index) => ({ id: `job-${String(index).padStart(3, '0')}`,
+      url: `https://jobs.example.test/job-${String(index).padStart(3, '0')}`, title: 'IT Support Manager', description: 'IT support responsibilities' }));
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => jobs })));
+    const seen: string[][] = [];
+    try {
+      for (let run = 0; run < 3; run++) {
+        let budget = 0;
+        const checked: string[] = [];
+        await runApplicationConciergeMatching({ db, serviceId: 'service-progress', eligibility: async (job: any) => {
+          if (budget++ >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
+          checked.push(job.id);
+          return job.id === 'job-055' ? { status: 'compatible' } : { status: 'unverified', reason: 'analysis_unavailable' };
+        } });
+        seen.push(checked);
+      }
+      expect(seen[0]).toEqual(jobs.slice(0, 20).map(job => job.id));
+      expect(seen[1]).toEqual(jobs.slice(20, 40).map(job => job.id));
+      expect(seen[2]).toEqual(jobs.slice(40, 60).map(job => job.id));
+      expect([...documents.entries()].filter(([key, value]) => key.startsWith(`${path}/proposals/`) && value.status === 'proposed').map(([, value]) => value.jobId)).toEqual(['job-055']);
+      expect(documents.get(path)?.matchingPendingCount).toBe(10);
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it('revalidates current proposals, advances the frontier and starts another cycle after its end', () => {
+    const candidates = Array.from({ length: 90 }, (_, index) => ({ url: `job-${index}` }));
+    const priority = new Set(['job-0', 'job-1']);
+    const next = conciergeMatchingWork(candidates, priority, 'job-45');
+    expect(next.work.slice(0, 3).map((row: any) => row.url)).toEqual(['job-0', 'job-1', 'job-46']);
+    expect(next.work).toHaveLength(40);
+    expect(conciergeMatchingWork(candidates, priority, 'job-89').work[2].url).toBe('job-2');
+    expect(conciergeMatchingWork(candidates, priority, 'removed-job').work[2].url).toBe('job-2');
+  });
+
+  it('uses accepted roles as ordering preferences without creating CV qualifications', () => {
+    const proposals = [{ status: 'accepted', jobTitle: 'IT Support Manager' }];
+    expect(approvedRolePreference({ title: 'IT Support Lead' }, proposals)).toBeGreaterThan(0);
+    expect(approvedRolePreference({ title: 'IT Support Lead' }, [{ ...proposals[0], status: 'declined' }])).toBe(0);
+    expect(approvedRolePreference({ title: 'IT Support Lead' }, [{ ...proposals[0], withdrawnAt: Date.now() }])).toBe(0);
+    expect(scoreJobForProfile({ title: 'IT Support Lead' }, { searchText: 'infermiere', workPosition: 'Infermiere', skills: ['assistenza infermieristica'] }).score).toBe(0);
+    expect(proposals).toEqual([{ status: 'accepted', jobTitle: 'IT Support Manager' }]);
   });
 });

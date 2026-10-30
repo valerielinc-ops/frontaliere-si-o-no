@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
+import { conciergeRefreshDue } from '../functions/src/applicationConciergeLifecyclePolicy.js';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getNewsletterSecrets: vi.fn(async () => ({ newsletterSecret: 'test-only-secret' })), getRemoteConfigValue: vi.fn(async () => '') }));
 vi.mock('../functions/src/applicationConciergeMatching.js', () => ({ runApplicationConciergeMatching: vi.fn() }));
@@ -60,6 +61,13 @@ const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, mat
 beforeEach(() => { records = new Map(); queue = Promise.resolve(); deliveries.length = 0; vi.clearAllMocks(); });
 
 describe('concierge refresh and notification lifecycle', () => {
+  it('continues an unfinished search hourly while respecting expiry and the assisted-application cap', () => {
+    const service = active({ matchingStatus: 'complete', matchingCompletedAt: now - 60 * 60 * 1000, matchingPendingCount: 20, matchingUnverifiedCount: 0 });
+    expect(conciergeRefreshDue(service, now)).toBe(true);
+    expect(conciergeRefreshDue({ ...service, matchingCompletedAt: now - 30 * 60 * 1000 }, now)).toBe(false);
+    expect(conciergeRefreshDue({ ...service, acceptedPositionsCount: 10 }, now)).toBe(false);
+    expect(conciergeRefreshDue({ ...service, expiresAt: now - 1 }, now)).toBe(false);
+  });
   it('queues due services separately instead of doing their AI work in the hourly sweep', async () => {
     records.set('application_concierge_services/service', active());
     const result = await sweep({ enqueueOnly: true });
