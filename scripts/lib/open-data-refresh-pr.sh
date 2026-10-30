@@ -652,6 +652,7 @@ if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] \
     fi
     RECONCILE_ARGS=(--base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE")
     if [ "$RECONCILE_REFRESH_PATHS" = true ]; then
+      RECONCILE_ARGS+=(--refresh-base "$REFRESH_BASE")
       for refresh_path in "${RECONCILE_PATHS[@]}"; do
         RECONCILE_ARGS+=(--path "$refresh_path")
       done

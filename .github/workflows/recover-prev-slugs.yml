@@ -420,10 +420,31 @@ jobs:
           if [ "${{ steps.reconcile.outputs.reconciled_dropped }}" != "0" ]; then
             COMMIT_MSG="$COMMIT_MSG + reconciled ${{ steps.reconcile.outputs.reconciled_dropped }} duplicate-id record(s)"
           fi
+          # Main reconciliation may treat these files as this run's snapshots;
+          # keep the scope to files actually changed by this recovery.
+          refresh_paths=()
+          while IFS= read -r -d '' refresh_file; do
+            refresh_paths+=(--path "$refresh_file")
+          done < <(
+            {
+              git diff --name-only -z --diff-filter=ACDMRTUXB -- \
+                data/jobs/by-crawler/ \
+                data/jobs/expired/by-crawler/ \
+                data/jobs-crawler-summaries/by-crawler/
+              git ls-files --others --exclude-standard -z -- \
+                data/jobs/by-crawler/ \
+                data/jobs/expired/by-crawler/ \
+                data/jobs-crawler-summaries/by-crawler/
+            } | sort -zu
+          )
+          if [ "${#refresh_paths[@]}" -eq 0 ]; then
+            echo "::error::Recovery reported changes but produced no stageable data paths"
+            exit 1
+          fi
           bash scripts/lib/open-data-refresh-pr.sh \
-            --path data/jobs/by-crawler/ \
-            --path data/jobs/expired/by-crawler/ \
-            --path data/jobs-crawler-summaries/by-crawler/ \
+            "${refresh_paths[@]}" \
+            --reconcile-main \
+            --reconcile-refresh-paths \
             --branch chore/recover-prev-slugs \
             --commit-message "$COMMIT_MSG" \
             --title "chore(data): recover lost previousSlugs" \
