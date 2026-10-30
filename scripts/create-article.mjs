@@ -105,7 +105,7 @@ import {
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
   dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
-import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES, assertNoFabricatedNormAcronyms, mentionsWrongConventionDate, CONVENTION_DATE_IT } from './lib/article-factuality-gates.mjs';
+import { runFactualityGates, formatIssues, formatRemediation, normalizeRemediationIssues, buildSourceContract, FACT_CHECK_CATEGORIES, assertNoFabricatedNormAcronyms, mentionsWrongConventionDate, CONVENTION_DATE_IT } from './lib/article-factuality-gates.mjs';
 import { loadDefectMemory, learnedDenylist, learnedSuspects } from './lib/article-defect-memory.mjs';
 import { decodeControlEscapesByField } from './lib/unescape-ts-string.mjs';
 import {
@@ -4117,36 +4117,11 @@ function issueLooksAffirmative(issue) {
   return !/\b(ma|però|tuttavia|non|manca|senza|sbagliat|errat|fals|inesatt|fuorviante|contraddic|non specifica|non conferma)\b/i.test(reason);
 }
 
-/**
- * Normalize every factuality finding before it enters the regeneration
- * prompt. Deterministic gates use code/message/evidence/fix, while the LLM
- * verifier uses claim/reason/category/sourceQuote. Keeping one shape at this
- * boundary prevents a retry path from silently dropping its correction or
- * source evidence.
- *
- * `fix` is intentionally retained as an optional field: deterministic gates
- * compute exact replacement values that are safer than category-level advice.
- */
-function toRemediationIssue(issue = {}) {
-  return {
-    claim: String(issue.claim ?? issue.evidence ?? ''),
-    reason: String(issue.reason ?? issue.message ?? ''),
-    severity: String(issue.severity ?? ''),
-    category: String(issue.category ?? issue.code ?? ''),
-    sourceQuote: String(issue.sourceQuote ?? ''),
-    ...(issue.fix ? { fix: String(issue.fix) } : {}),
-  };
-}
-
-function normalizeRemediationIssues(issues) {
-  return Array.isArray(issues) ? issues.map(toRemediationIssue) : [];
-}
-
 function normalizeFactCheckIssues(issues, { isEvergreen = false } = {}) {
   if (!Array.isArray(issues)) return [];
   return issues.flatMap((issue) => {
     if (!issue || typeof issue !== 'object') return [];
-    const normalized = toRemediationIssue(issue);
+    const normalized = normalizeRemediationIssues([issue])[0];
     const reason = normalized.reason.toLowerCase();
     if (issueLooksAffirmative(normalized)) return [];
     if (
