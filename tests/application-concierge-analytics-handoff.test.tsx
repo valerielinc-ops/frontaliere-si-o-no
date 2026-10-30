@@ -5,7 +5,7 @@ vi.unmock('@/services/analytics');
 vi.unmock('@/services/analyticsProxy');
 
 const mocks = vi.hoisted(() => ({
-  checkout: vi.fn(), fetchService: vi.fn(), logEvent: vi.fn(), auth: { currentUser: null as any },
+  ensureAuth: vi.fn(), checkout: vi.fn(), fetchService: vi.fn(), logEvent: vi.fn(), auth: { currentUser: null as any },
 }));
 vi.mock('@/services/i18n', () => ({ getLocale: () => 'it', useLocale: () => ['it'], useTranslation: () => ({ t: (key: string) => key }) }));
 vi.mock('@/services/firebase', () => ({ getApp: async () => ({}), getAnalytics: async () => ({}), getConfigValue: async () => '' }));
@@ -14,7 +14,7 @@ vi.mock('firebase/auth', () => ({ getAuth: () => mocks.auth }));
 vi.mock('@/services/posthog', () => ({ captureEvent: vi.fn() }));
 vi.mock('@/services/authService', () => ({ signInWithCustomAuthToken: vi.fn() }));
 vi.mock('@/services/profileFirestore', () => ({ loadEnrichmentProfileFields: vi.fn() }));
-vi.mock('@/services/assistedApplicationCheckout', () => ({ ensureAssistedApplicationAuth: vi.fn() }));
+vi.mock('@/services/assistedApplicationCheckout', () => ({ ensureAssistedApplicationAuth: mocks.ensureAuth }));
 vi.mock('@/services/applicationConciergeCheckout', () => ({ createApplicationConciergeCheckout: mocks.checkout }));
 vi.mock('@/services/applicationConciergeService', () => ({
   fetchApplicationConciergeService: mocks.fetchService, recoverApplicationConciergePaymentSession: vi.fn(),
@@ -84,6 +84,25 @@ describe('real concierge analytics acknowledgement before Stripe navigation', ()
     expect(eventCalls(eventName)).toHaveLength(1);
     expect(eventCalls(manual ? 'application_concierge_checkout_resume' : 'application_concierge_checkout_click')).toHaveLength(0);
     expect(eventCalls('application_concierge_view')).toHaveLength(1);
+  });
+
+  it('keeps waiting across a late initial auth notification for the same SDK owner', async () => {
+    window.history.replaceState(null, '', '/automatizza-ricerca-lavoro-svizzera/');
+    const assign = installRedirectRecorder();
+    mocks.auth.currentUser = null;
+    mocks.ensureAuth.mockImplementationOnce(async () => { mocks.auth.currentUser = owner; return owner; });
+    let finishCheckout!: (value: typeof stripeResult) => void;
+    mocks.checkout.mockReturnValueOnce(new Promise((resolve) => { finishCheckout = resolve; }));
+    const view = render(<ApplicationConciergePortal entry authUser={null} />);
+    fireEvent.change(screen.getByRole('textbox', { name: /jobBoard.concierge.email/ }), { target: { value: owner.email } });
+    fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
+    await waitFor(() => expect(mocks.checkout).toHaveBeenCalledOnce());
+    await waitFor(() => expect(eventCalls('application_concierge_checkout_click')).toHaveLength(1));
+    await act(async () => { finishCheckout(stripeResult); });
+    await act(async () => { view.rerender(<ApplicationConciergePortal entry authUser={owner} />); });
+    expect(assign).not.toHaveBeenCalled();
+    await act(async () => { eventCalls('application_concierge_checkout_click')[0][2].event_callback(); });
+    await waitFor(() => expect(assign).toHaveBeenCalledWith(stripeResult.url));
   });
 
   it('starts its bounded fallback only after the checkout API has finished', async () => {

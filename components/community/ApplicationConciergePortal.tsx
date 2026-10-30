@@ -160,7 +160,7 @@ export default function ApplicationConciergePortal({
     return () => { mounted.current = false; };
   }, []);
 
-  useEffect(() => () => { cancelTelemetryHandoff.current?.(); }, [serviceId, authUser?.uid]);
+  useEffect(() => () => { cancelTelemetryHandoff.current?.(); }, [serviceId]);
 
   useEffect(() => {
     if ((!entry && !serviceId) || authLoading || (serviceId && (loading || !service)) || conciergeViewTracked.current) return;
@@ -175,6 +175,7 @@ export default function ApplicationConciergePortal({
     // Keep the typed email and request alive across the expected first
     // anonymous sign-in; clear the previous owner's form on logout/switch.
     if (previousUid && previousUid !== nextUid) {
+      cancelTelemetryHandoff.current?.();
       checkoutInFlight.current = false;
       setBusy(null);
       setSumUpPayment(null);
