@@ -60,12 +60,15 @@ for (let i = 2; i < process.argv.length; i += 1) {
     continue;
   }
   if (!['--base', '--main', '--message', '--refresh-base'].includes(flag) || !process.argv[i + 1]) {
-    throw new Error('Usage: reconcile-data-refresh-main.mjs [--compat] [--path PATH] [--refresh-base SHA] --base SHA --main SHA --message TEXT');
+    throw new Error('Usage: reconcile-data-refresh-main.mjs [--compat] [--path PATH --refresh-base SHA] --base SHA --main SHA --message TEXT');
   }
   options[flag === '--refresh-base' ? 'refreshBase' : flag.slice(2)] = process.argv[i + 1];
   i += 1;
 }
 if (!options.base || !options.main || !options.message) throw new Error('Missing main reconciliation arguments');
+if (options.paths.length > 0 && !options.refreshBase) {
+  throw new Error('--path requires --refresh-base so snapshot conflicts can be checked against their source');
+}
 
 function git(args, input) {
   return execFileSync('git', args, {

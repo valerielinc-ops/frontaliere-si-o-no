@@ -169,10 +169,9 @@ if [ "${#OPTIONAL_PATHS[@]}" -gt 0 ]; then
   done
 fi
 
-# Preserve the producer-owned paths before the sparse publisher checkout
-# replaces PATHS with the files from this run's commit. Optional paths join the
-# reconciliation scope only when they are stageable in this refresh.
-RECONCILE_PATHS=("${PATHS[@]}")
+# Callers use --path as staging roots. Main reconciliation gets the exact files
+# committed by this run below, never every sibling under a declared directory.
+RECONCILE_PATHS=()
 
 REPOSITORY="${GITHUB_REPOSITORY:-}"
 [ -n "$REPOSITORY" ] || {
@@ -505,6 +504,12 @@ else
   if [ "$RESET_STALE_STABLE_BRANCH" = true ]; then
     echo "No open refresh PR for ${BRANCH}; rebuilding from the current main snapshot instead of stale tip ${REMOTE_HEAD}."
   fi
+fi
+
+if [ "$RECONCILE_REFRESH_PATHS" = true ] && [ -n "$REFRESH_COMMIT" ]; then
+  while IFS= read -r -d '' refresh_path; do
+    RECONCILE_PATHS+=("$refresh_path")
+  done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
 fi
 
 if [ -n "$REMOTE_HEAD" ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
