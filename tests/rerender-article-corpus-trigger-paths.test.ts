@@ -200,6 +200,7 @@ describe('rerender-article-corpus.yml push filter covers the real article render
       ['html-entities', 'typescript', ...NOT_LOADED_BY_THE_RENDERER].sort(),
     );
     expect(rootPackage.dependencies?.['@noble/hashes']).toBeTruthy();
+    expect(rootPackage.devDependencies?.esbuild).toBeTruthy();
     const IMAGE_ENGINE = 'packages/articles/engine/shared/generatedImageEngine.mjs';
     const engineFiles = execFileSync('git', ['ls-files', '--', 'packages/articles/engine'], { cwd: ROOT, encoding: 'utf8' })
       .split('\n')
@@ -211,11 +212,18 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     ).toEqual([]);
     expect(packageLock.packages?.['node_modules/html-entities']?.version).toBeTruthy();
     expect(packageLock.packages?.['node_modules/@noble/hashes']?.version).toBeTruthy();
+    expect(packageLock.packages?.['node_modules/esbuild']?.version).toBeTruthy();
+    expect(packageLock.packages?.['node_modules/@esbuild/linux-x64']?.version).toBeTruthy();
     expect(installer).toContain('node_modules/html-entities');
     expect(installer).toContain('node_modules/@noble/hashes');
+    expect(installer).toContain('node_modules/esbuild');
+    expect(installer).toContain('node_modules/@esbuild');
     expect(installer).toContain('mktemp -d');
     expect(installer).toContain('--prefix "$NOBLE_DEPS_DIR"');
     expect(installer).toContain('cp -a -- "$NOBLE_DEPS_DIR/node_modules/@noble/hashes"');
+    expect(installer).toContain('--prefix "$ESBUILD_DEPS_DIR"');
+    expect(installer).toContain('cp -a -- "$ESBUILD_DEPS_DIR/node_modules/esbuild"');
+    expect(installer).toContain('cp -a -- "$ESBUILD_DEPS_DIR/node_modules/@esbuild"');
     expect(installer).not.toMatch(/npm install\s+\\\s+--prefix "\$ROOT_DIR"/);
     expect(installer).toContain('--workspaces=false');
     expect(installer).toContain('--omit=peer');
