@@ -36,8 +36,12 @@ export function portalHandoffReason(reason, { diagnostics, attempt, finalClickAt
     const host = String(entry?.host || '').toLowerCase();
     const path = String(entry?.path || '');
     const status = Number(entry?.status);
-    return /^api\.nopecha\.com(?::443)?$/.test(host)
-      && /^\/v1\/(?:recognition|token)\/(?:turnstile|recaptcha|hcaptcha)(?:\/|$)/.test(path)
+    if (!/^api\.nopecha\.com(?::443)?$/.test(host)) return false;
+    // The free provider can reject a shared runner IP before a solve starts.
+    // This is not a candidate question, even without a later 5xx response.
+    if (path === '/v1/status' && status === 403 && Array.isArray(entry.errors)
+      && entry.errors.some(error => /^banned\s+ip$/i.test(String(error?.message || '').trim()))) return true;
+    return /^\/v1\/(?:recognition|token)\/(?:turnstile|recaptcha|hcaptcha)(?:\/|$)/.test(path)
       && (status === 429 || (status >= 500 && status < 600));
   });
   return unavailable ? 'captcha_provider_unavailable' : reason;
