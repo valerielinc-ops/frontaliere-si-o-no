@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin, pharmacyDutyCityAliasDescriptors, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
+import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin, pharmacyDutyCityAliasDescriptors, pharmacyDutyCityAliasPaths, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors, shouldEmitPharmacyDutyCityPage } from '../build-plugins/pharmacyDirectoryPagesPlugin';
 import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { currentDutyWeekStart } from '../services/pharmacies/dutyWeek';
@@ -227,7 +227,12 @@ describe('pharmacy directory static pages', () => {
 
     const distDir = path.join(root, 'dist');
     const pages = pageFiles(distDir);
-    const expectedPageCount = 4 * pharmacyPageDescriptors().length + pharmacyUrlAliasDescriptors().length + pharmacyDutyCityAliasDescriptors().length;
+    const aliasPaths = pharmacyDutyCityAliasPaths();
+    const expectedDirectoryPageCount = pharmacyPageDescriptors().reduce((count, descriptor) => {
+      if (descriptor.kind !== 'duty-city') return count + 4;
+      return count + (['it', 'en', 'de', 'fr'] as const).filter((locale) => shouldEmitPharmacyDutyCityPage(locale, descriptor.citySlug!, aliasPaths)).length;
+    }, 0);
+    const expectedPageCount = expectedDirectoryPageCount + pharmacyUrlAliasDescriptors().length + pharmacyDutyCityAliasDescriptors().length;
     expect(pages).toHaveLength(expectedPageCount);
 
     const sitemap = fs.readFileSync(path.join(distDir, 'sitemap-farmacie.xml'), 'utf8');
