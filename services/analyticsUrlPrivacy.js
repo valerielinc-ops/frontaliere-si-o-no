@@ -94,6 +94,9 @@ export function sanitizeTelemetryProperties(properties) {
  };
  /** @param {any} value @param {string} key @returns {any} */
  const clean = (value, key) => {
+  // Replay events marked `cv` carry gzip bytes as strings: treating them as URLs
+  // truncates the payload and the recording can no longer be played.
+  if (key === '$snapshot_data' && value && value.cv) return value;
   if (typeof value === 'string' && (looksLikeUrl(value) || urlField.test(key))) return cleanUrl(value);
   if (Array.isArray(value)) return value.map((entry) => clean(entry, key));
   if (value && Object.prototype.toString.call(value) === '[object Object]') return Object.fromEntries(Object.entries(value).map(([name, entry]) => [name, clean(entry, name)]));

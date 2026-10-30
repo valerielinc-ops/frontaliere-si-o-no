@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
+import { gunzipSync, gzipSync } from 'node:zlib';
 import { sanitizeTelemetryProperties } from '../services/analyticsUrlPrivacy.js';
 import { GTAG_INIT_CONTENT, POSTHOG_INIT_CONTENT } from '../build-plugins/constants';
 import { buildRedirectPage } from '../build-plugins/affiliateRedirectPlugin';
@@ -183,6 +184,23 @@ describe('email-link telemetry URL privacy', () => {
   expect(parsed.searchParams.get('application_concierge_service_id')).toBe('service-test');
   expect(JSON.stringify(config)).not.toMatch(/secret-code|candidate|password|person|secret/);
   expect(context.location.href).toBe(input);
+ });
+
+ it('leaves compressed replay payloads intact while cleaning plain replay events', () => {
+  // Same encoding as posthog-js: gzip bytes held in a latin-1 string, so `?`, `#`
+  // and lone `%` occur by chance. A fixed seed keeps the bytes reproducible.
+  let seed = 1;
+  const noise = Array.from({ length: 200_000 }, () => { seed = Math.imul(seed, 1664525) + 1013904223 | 0; return String.fromCharCode(32 + ((seed >>> 16) % 95)); }).join('');
+  const gzipped = gzipSync(noise).toString('latin1');
+  const fullSnapshot = { type: 2, timestamp: 1, cv: '2024-10', data: gzipped };
+  const mutation = { type: 3, timestamp: 2, cv: '2024-10', data: { source: 0, adds: gzipped, texts: gzipped, removes: gzipped, attributes: gzipped } };
+  const meta = { type: 4, timestamp: 0, data: { href: url, width: 1, height: 1 } };
+  const result = sanitizeTelemetryProperties({ event: '$snapshot', properties: { $current_url: url, $snapshot_data: [meta, fullSnapshot, mutation] } });
+  const [cleanMeta, cleanFull, cleanMutation] = result.properties.$snapshot_data;
+  expect(gunzipSync(Buffer.from(cleanFull.data, 'latin1')).toString()).toBe(noise);
+  expect(cleanMutation).toEqual(mutation);
+  expect(cleanMeta.data.href).not.toContain('secret-code');
+  expect(result.properties.$current_url).not.toContain('secret-code');
  });
 
  it('keeps ordinary URLs byte-identical and embeds canonical code in static producers', () => {
