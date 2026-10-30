@@ -10,6 +10,7 @@ import { ensureAssistedApplicationAuth } from '@/services/assistedApplicationChe
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
+import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import {
   openApplicationConciergeChildReview,
@@ -846,7 +847,7 @@ export default function ApplicationConciergePortal({
                     <label className="text-sm font-medium text-body">{t('jobBoard.concierge.email')}<input value={email} onChange={(event) => setEmail(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" type="email" autoComplete="email" /></label>
                   </div>
                   <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.phone')}<input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" /></label>
-                  <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.location')}<input value={location} onChange={(event) => setLocation(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="address-level2" maxLength={120} /></label>
+                  <ResidenceLocationInput key={`${serviceId || previewService?.serviceId || "new"}:${authUser?.uid || "anonymous"}`} value={location} onChange={setLocation} />
                   <p className="-mt-2 text-xs leading-5 text-subtle">{t('jobBoard.concierge.locationHint')}</p>
                   <button type="submit" disabled={busy !== null || expired} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:text-accent disabled:opacity-60">{busy === 'profile' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.saveData')}</button>
                 </form>
