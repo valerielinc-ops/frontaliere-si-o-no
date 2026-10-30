@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-/** Normalize definitely unsent legacy holds; the regular clock owns every retry. */
+/** After deploying the updated Functions policy, normalize definitely unsent
+ * legacy holds; the regular clock owns every retry. Default is read-only. */
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { roundWasSent } from '../functions/src/assistedApplicationFlow.js';
@@ -25,7 +26,7 @@ export async function reconcileTransportHolds({ db, apply = false, nowMs = Date.
         const order = orderDoc.data();
         const flow = flowDoc.data();
         const draft = draftDoc.data();
-        if (order?.paymentStatus !== 'paid' || order.withdrawnAt || ['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus)
+        if (order?.paymentStatus !== 'paid' || order.withdrawnAt || order.retentionPurgedAt || ['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus)
           || ['pending', 'succeeded', 'refunded'].includes(order.refundStatus)) return false;
         const reason = legacyTransportHoldReason({ flow, draft, submission: submissionDoc.data() });
         if (!reason || draft?.status !== 'ready' || Number(draft.round) !== Number(flow.round || 1) || !roundWasSent(flow)) return false;

@@ -86,11 +86,12 @@ describe('legacy recovery is general, idempotent and only repairs the query cloc
   });
 
   it('never recovers an unapproved, withdrawn, unpaid or possibly sent application', async () => {
-    for (const kind of ['not_approved', 'withdrawn', 'unpaid', 'sent', 'ambiguous', 'prior_sent', 'missing_draft']) {
+    for (const kind of ['not_approved', 'withdrawn', 'unpaid', 'purged', 'sent', 'ambiguous', 'prior_sent', 'missing_draft']) {
       const { store, path, flow, submission } = fixture();
       if (kind === 'not_approved') store.docs.set(`${path}/automation/flow`, { ...flow, dispatch: { mode: 'draft' } });
       if (kind === 'withdrawn') store.docs.set(path, { ...store.read(path), withdrawnAt: now });
       if (kind === 'unpaid') store.docs.set(path, { ...store.read(path), paymentStatus: 'pending' });
+      if (kind === 'purged') store.docs.set(path, { ...store.read(path), retentionPurgedAt: now });
       if (kind === 'missing_draft') store.docs.delete(`${path}/ai_drafts/current`);
       if (kind === 'sent' || kind === 'ambiguous') store.docs.set(`${path}/automation/submission`, { r1: { ...submission.r1, state: kind === 'sent' ? 'sent' : 'sending' } });
       if (kind === 'prior_sent') store.docs.set(`${path}/automation/submission`, { ...submission, r2: { state: 'sent' } });

@@ -51,8 +51,8 @@ export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
 // portal pages have a bounded repair window; definite infrastructure outages
 // stay in the normal queue with a capped delay until the posting closes.
 export const MAX_REVIEW_ROUNDS = 3;
-// A draft or submit run that failed on a transient error is dispatched again
-// up to this many runs in all; the owner hears about it only after the last.
+// Transient draft/broker run failures are dispatched up to this many times.
+// Infrastructure send failures use their independent queue policy instead.
 export const MAX_RUN_ATTEMPTS = 3;
 const TRANSIENT_RUN_ERROR_RE = /broker|timed[ _]?out|timeout|rate[ _]?limit|(?:^|[^0-9])(?:429|5\d\d)(?![0-9])|econnreset|econnrefused|etimedout|enetunreach|ehostunreach|eai_again|socket|(?:service|temporarily)[ _]?unavailable|overloaded/i;
 
