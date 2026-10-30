@@ -30,7 +30,9 @@ const ChildApplicationReview = lazy(() => import('@/components/community/Assiste
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 const POLL_MS = 3500;
-const CHECKOUT_TELEMETRY_HANDOFF_MS = 1000;
+// The current Google tag batches custom hits for 5s after processing.
+// Leave a small scheduling margin and bound an unavailable SDK after the API.
+const CHECKOUT_TELEMETRY_BATCH_WINDOW_MS = 5250;
 const MATCHING_STATES = new Set(['queued', 'processing', 'running']);
 
 export interface ApplicationConciergePortalProps {
@@ -378,20 +380,32 @@ export default function ApplicationConciergePortal({
         setSumUpPaymentOpen(true);
         return;
       }
-      // Protect the existing attempt event from the full-page Stripe handoff.
-      // This is a bounded best-effort SDK acknowledgement, not an ingestion receipt.
+      // Processing acknowledges queue acceptance, before Google tag's batch send.
+      // Its timestamp lets the batch window overlap auth/API work; this is still
+      // bounded best effort, not a network or ingestion receipt.
       await new Promise<void>((resolve) => {
         let finished = false;
+        let batchTimer: number | undefined;
         const finish = () => {
           if (finished) return;
           finished = true;
           window.clearTimeout(timer);
+          if (batchTimer !== undefined) window.clearTimeout(batchTimer);
           if (cancelTelemetryHandoff.current === finish) cancelTelemetryHandoff.current = null;
           resolve();
         };
-        const timer = window.setTimeout(finish, CHECKOUT_TELEMETRY_HANDOFF_MS);
+        const timer = window.setTimeout(finish, CHECKOUT_TELEMETRY_BATCH_WINDOW_MS);
         cancelTelemetryHandoff.current = finish;
-        void Promise.resolve(telemetryAcknowledgement).then(finish, finish);
+        void Promise.resolve(telemetryAcknowledgement).then((acknowledgement) => {
+          if (finished) return;
+          if (!isCurrentOwner()) { finish(); return; }
+          const processedAtMs = acknowledgement && typeof acknowledgement === 'object'
+            && 'processedAtMs' in acknowledgement ? acknowledgement.processedAtMs : null;
+          if (typeof processedAtMs !== 'number' || !Number.isFinite(processedAtMs)) { finish(); return; }
+          const remaining = Math.max(0, Math.min(CHECKOUT_TELEMETRY_BATCH_WINDOW_MS,
+            processedAtMs + CHECKOUT_TELEMETRY_BATCH_WINDOW_MS - Date.now()));
+          batchTimer = window.setTimeout(finish, remaining);
+        }, finish);
       });
       if (!isCurrentOwner()) return;
       window.location.assign(result.url);

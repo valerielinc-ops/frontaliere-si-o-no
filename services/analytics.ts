@@ -1450,7 +1450,8 @@ export const Analytics = {
  /**
   * GA4-only click event for every attempt to open the checkout.
   * Firebase relays event_callback unchanged to gtag, which invokes it after
-  * event processing. logEvent returning void is not that acknowledgement.
+  * event processing. The returned timestamp stays local and is not a network
+  * receipt. logEvent returning void is not that acknowledgement.
   * Control parameter reference: https://developers.google.com/tag-platform/gtagjs/reference/parameters
   */
  trackApplicationConciergeCheckoutClick: () => {
@@ -1462,7 +1463,7 @@ export const Analytics = {
      return `${window.location.pathname}${query ? `?${query}` : ''}`;
     })()
    : APPLICATION_CONCIERGE_PATH;
-  return new Promise<void>((resolve) => logFirebaseOnly('application_concierge_checkout_click', {
+  return new Promise<{ processedAtMs: number }>((resolve) => logFirebaseOnly('application_concierge_checkout_click', {
    page_path: pagePath,
    page_template: 'application_concierge',
    content_group: 'jobs',
@@ -1471,7 +1472,7 @@ export const Analytics = {
    position_limit: 10,
    price_eur: 39.99,
    price_eur_cents: 3999,
-   event_callback: () => resolve(),
+   event_callback: () => resolve({ processedAtMs: Date.now() }),
   }));
  },
 
@@ -1485,7 +1486,7 @@ export const Analytics = {
      return `${window.location.pathname}${query ? `?${query}` : ''}`;
     })()
    : APPLICATION_CONCIERGE_PATH;
-  return new Promise<void>((resolve) => logFirebaseOnly('application_concierge_checkout_resume', {
+  return new Promise<{ processedAtMs: number }>((resolve) => logFirebaseOnly('application_concierge_checkout_resume', {
    page_path: pagePath,
    page_template: 'application_concierge',
    content_group: 'jobs',
@@ -1494,7 +1495,7 @@ export const Analytics = {
    position_limit: 10,
    price_eur: 39.99,
    price_eur_cents: 3999,
-   event_callback: () => resolve(),
+   event_callback: () => resolve({ processedAtMs: Date.now() }),
   }));
  },
 
