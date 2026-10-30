@@ -5,6 +5,17 @@ const POINTS = Object.freeze({ sameLocality: 8, sameThreeDigitPostcode: 6, sameT
 const CANTON_CODES = new Set('ag ai ar be bl bs fr ge gl gr ju lu ne nw ow sg sh so sz tg ti ur vd vs zg zh'.split(' '));
 const NON_LOCALITY_WORDS = new Set('ch switzerland svizzera schweiz suisse italia italy italien canton cantone kanton ticino tessin grigioni graubunden graubuenden grisons'.split(' '));
 const fold = value => String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, ' ').trim();
+const CANTON_NAMES = new Map(Object.entries({
+  ag: 'Aargau|Argovia|Argovie', ai: 'Appenzell Innerrhoden|Appenzello Interno|Appenzell Rhodes Intérieures',
+  ar: 'Appenzell Ausserrhoden|Appenzello Esterno|Appenzell Rhodes Extérieures', be: 'Bern|Berne|Berna',
+  bl: 'Basel Landschaft|Basilea Campagna|Bâle Campagne', bs: 'Basel Stadt|Basel City|Basilea Città|Bâle Ville',
+  fr: 'Fribourg|Freiburg|Friburgo', ge: 'Geneva|Genève|Genf|Ginevra', gl: 'Glarus|Glarona|Glaris',
+  gr: 'Grisons|Graubünden|Graubuenden|Grigioni', ju: 'Jura|Giura', lu: 'Lucerne|Luzern|Lucerna',
+  ne: 'Neuchâtel|Neuenburg', nw: 'Nidwalden|Nidvaldo|Nidwald', ow: 'Obwalden|Obvaldo|Obwald',
+  sg: 'Sankt Gallen|Saint Gallen|St Gallen|San Gallo|Saint Gall', sh: 'Schaffhausen|Sciaffusa|Schaffhouse',
+  so: 'Solothurn|Soletta|Soleure', sz: 'Schwyz|Svitto|Schwytz', tg: 'Thurgau|Turgovia|Thurgovie',
+  ti: 'Ticino|Tessin', ur: 'Uri', vd: 'Vaud|Waadt', vs: 'Valais|Wallis|Vallese', zg: 'Zug|Zugo|Zoug', zh: 'Zurich|Zürich|Zurigo',
+}).flatMap(([code, names]) => names.split('|').map(name => [fold(name), code])));
 
 let countries;
 function countryNames() {
@@ -49,12 +60,13 @@ function locationParts(value) {
   return { town: text, country: '' };
 }
 
-function locality(value) {
+function locality(value, country) {
   const text = String(value || '').replace(/\b\d{4,5}\b/g, ' ');
   const part = text.split(/[;,|/]+/).find(part => fold(part).split(' ').some(token => !CANTON_CODES.has(token) && !NON_LOCALITY_WORDS.has(token))) || '';
   const annotation = part.match(/\s+\(([^()]*)\)\s*$/);
   const key = value => fold(value).split(' ').filter(token => !CANTON_CODES.has(token) && !NON_LOCALITY_WORDS.has(token)).join(' ');
-  return { key: key(annotation ? part.slice(0, annotation.index) : part), qualifier: annotation ? key(annotation[1]) : '' };
+  const qualifier = annotation ? fold(annotation[1]) : '';
+  return { key: key(annotation ? part.slice(0, annotation.index) : part), qualifier: country === 'CH' ? CANTON_NAMES.get(qualifier) || qualifier : qualifier };
 }
 
 function postcode(value) {
@@ -74,8 +86,8 @@ export function locationMatchPoints(candidateLocation, job) {
   // One explicit country cannot establish that an unqualified homonym is near.
   // Preserve the old bounded hint only when both legacy values omit a country.
   if ((candidate.country || jobCountry) && candidate.country !== jobCountry) return 0;
-  const candidateLocality = locality(candidate.town);
-  const jobLocality = locality(posting.town);
+  const candidateLocality = locality(candidate.town, candidate.country);
+  const jobLocality = locality(posting.town, jobCountry);
   if (candidateLocality.qualifier && jobLocality.qualifier && candidateLocality.qualifier !== jobLocality.qualifier) return 0;
   if (candidateLocality.key && candidateLocality.key === jobLocality.key) return POINTS.sameLocality;
   const candidatePostcode = postcode(candidate.town);

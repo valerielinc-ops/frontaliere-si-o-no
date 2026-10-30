@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { locationMatchPoints } from '../functions/src/applicationConciergeGeography.js';
 import manifest from '../data/residence-localities/manifest.json';
+import { SWISS_CANTONS } from '../services/pharmacies/swissCantons';
 
 describe('concierge geographic ranking', () => {
   it.each([
@@ -43,6 +44,10 @@ describe('concierge geographic ranking', () => {
     expect(locationMatchPoints('Frankfurt (Oder), Deutschland', { location: 'Frankfurt (Main)', addressCountry: 'DE' })).toBe(0);
     expect(locationMatchPoints('Baden (Aargau), Schweiz', { location: 'Baden (Lower Austria), Österreich', addressCountry: 'CH' })).toBe(0);
     expect(locationMatchPoints('Lugano (Ticino), Svizzera', { location: 'Lugano (TI)', addressCountry: 'CH' })).toBe(8);
+    expect(locationMatchPoints('Baden (Aargau), Schweiz', { location: 'Baden (AG)', addressCountry: 'CH' })).toBe(8);
+    expect(locationMatchPoints('Baden (AG), Schweiz', { location: 'Baden (ZH)', addressCountry: 'CH' })).toBe(0);
+    expect(locationMatchPoints('Baden (Aargau), Schweiz', { location: 'Baden (ZH)', addressCountry: 'CH' })).toBe(0);
+    expect(locationMatchPoints('Lugano (TI), Schweiz', { location: 'Lugano (GR)', addressCountry: 'CH' })).toBe(0);
   });
 
   it('accepts explicit structured countries and preserves the Georgia marker', () => {
@@ -58,6 +63,12 @@ describe('concierge geographic ranking', () => {
         const suffix = names.of(country) + (country === 'GE' ? ' (GE)' : '');
         expect(locationMatchPoints(`Town (Region), ${suffix}`, { location: 'Town', addressCountry: country })).toBe(8);
       }
+    }
+  });
+
+  it('preserves each canton identity across all existing presentation labels', () => {
+    for (const canton of SWISS_CANTONS) for (const name of Object.values(canton.names)) {
+      expect(locationMatchPoints(`Town (${name}), Schweiz`, { location: `Town (${canton.code})`, addressCountry: 'CH' })).toBe(8);
     }
   });
 
