@@ -3092,17 +3092,12 @@ const REMEDIATION_BY_CATEGORY = {
 };
 
 /**
- * Renders issues as CORRECTIVE INSTRUCTIONS for the regeneration prompt.
+ * Normalizes deterministic-gate and LLM-verifier findings to the shared
+ * remediation contract consumed by the regeneration formatter.
  *
- * The regeneration loop used to receive a bare list of complaints. Faced with
- * "questo claim non è nella fonte" and no instruction, the writer's cheapest
- * move is deletion — which is how the 2026-07-28 article lost every real fact
- * it had and kept only the invented ones. Telling it exactly what to change,
- * with the corrected values, makes repair cheaper than removal.
- *
- * @param {Array<{claim: string, reason: string, severity: string, category: string,
- *   sourceQuote: string, fix?: string}>} issues
- * @param {{cap?: number}} [opts]
+ * @param {object[]} issues
+ * @returns {Array<{claim: string, reason: string, severity: string, category: string,
+ *   sourceQuote: string, fix?: string}>}
  */
 export function normalizeRemediationIssues(issues) {
   if (!Array.isArray(issues)) return [];
@@ -3118,6 +3113,19 @@ export function normalizeRemediationIssues(issues) {
   }));
 }
 
+/**
+ * Renders issues as CORRECTIVE INSTRUCTIONS for the regeneration prompt.
+ *
+ * The regeneration loop used to receive a bare list of complaints. Faced with
+ * "questo claim non è nella fonte" and no instruction, the writer's cheapest
+ * move is deletion — which is how the 2026-07-28 article lost every real fact
+ * it had and kept only the invented ones. Telling it exactly what to change,
+ * with the corrected values, makes repair cheaper than removal.
+ *
+ * @param {Array<{claim: string, reason: string, severity: string, category: string,
+ *   sourceQuote: string, fix?: string}>} issues
+ * @param {{cap?: number}} [opts]
+ */
 export function formatRemediation(issues, opts = {}) {
   const cap = opts.cap ?? 8;
   const list = normalizeRemediationIssues(issues).slice(0, cap);
