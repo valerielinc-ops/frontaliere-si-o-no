@@ -56,6 +56,7 @@ it.each([
   mirrorQuestion + mirrorChoice + mirrorChoice,
   mirrorQuestion + mirrorChoice + mirrorChoice.replaceAll('resumator-checkbox-722664-1', 'resumator-checkbox-722664-2'),
   mirrorQuestion.replace(mirrorPrompt, '') + mirrorChoice,
+  mirrorQuestion.replace('type="hidden"', 'type="hidden" form="other-form"') + mirrorChoice,
   `<div class="field">${mirrorQuestion}</div><div class="field">${mirrorChoice}</div>`,
   `<div class="field">${mirrorQuestion}${mirrorChoice.replaceAll('722664', '9')}</div>${mirrorChoice}`,
 ])('rejects mismatched, duplicate or foreign hidden-question ownership: %s', markup => {

@@ -259,7 +259,7 @@
     if (choices.length !== 1 || hidden.length !== 1) return null;
     const mirror = hidden[0];
     if (mirror.id !== `resumator-questionnaire-q${key[1]}` || mirror.name !== `resumator-questionnaire[${key[1]}]`
-      || mirror.closest(QUESTION_GROUP_SELECTOR) !== group) return null;
+      || mirror.form !== form || mirror.closest(QUESTION_GROUP_SELECTOR) !== group) return null;
     const doc = element.ownerDocument;
     if ([...doc.querySelectorAll('[id]')].filter(node => node.id === mirror.id).length !== 1
       || [...doc.querySelectorAll('[id]')].filter(node => node.id === element.id).length !== 1) return null;
