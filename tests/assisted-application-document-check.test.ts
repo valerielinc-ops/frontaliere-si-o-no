@@ -92,16 +92,16 @@ describe('the browser\'s check of a requested document', () => {
     expect(classifyDocumentText('Fattura per un master di formazione. Importo dovuto e modalità di pagamento, scadenza trenta giorni.', degree).verdict).toBe('mismatch');
   });
 
-  it.each([false, true])('releases the PDF reader after a browser recheck, including parsing errors: %s', async broken => {
+  it.each(['readable', 'page_error', 'load_error'])('releases the PDF reader after a browser recheck, including parsing errors: %s', async broken => {
     const pdfjs = await import('pdfjs-dist');
     const destroy = vi.fn(async () => {});
-    const pdf = { numPages: 1, destroy, getPage: async () => ({ getTextContent: async () => {
-      if (broken) throw new Error('unreadable PDF');
+    const pdf = { numPages: 1, getPage: async () => ({ getTextContent: async () => {
+      if (broken === 'page_error') throw new Error('unreadable PDF');
       return { items: [{ str: 'Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.' }] };
     } }) };
-    vi.mocked(pdfjs.getDocument).mockReturnValue({ promise: Promise.resolve(pdf) } as any);
+    vi.mocked(pdfjs.getDocument).mockReturnValue({ promise: broken === 'load_error' ? Promise.reject(new Error('invalid PDF')) : Promise.resolve(pdf), destroy } as any);
     const text = await readDocumentText({ name: 'degree.pdf', type: 'application/pdf', arrayBuffer: async () => new ArrayBuffer(0) } as File);
-    expect(text).toBe(broken ? '' : 'Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.');
+    expect(text).toBe(broken !== 'readable' ? '' : 'Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.');
     expect(destroy).toHaveBeenCalledTimes(1);
   });
 

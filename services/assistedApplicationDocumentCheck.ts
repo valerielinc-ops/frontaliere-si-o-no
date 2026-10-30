@@ -103,8 +103,9 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
 async function pdfText(file: File): Promise<string> {
   const pdfjsLib = await import('pdfjs-dist');
   pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.mjs', import.meta.url).href;
-  const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
+  const loading = pdfjsLib.getDocument({ data: await file.arrayBuffer() });
   try {
+    const pdf = await loading.promise;
     const pages: string[] = [];
     // The first pages say what the document is.
     for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 5); pageNum += 1) {
@@ -114,7 +115,7 @@ async function pdfText(file: File): Promise<string> {
     }
     return pages.join('\n').slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS);
   } finally {
-    await pdf.destroy();
+    await loading.destroy();
   }
 }
 
