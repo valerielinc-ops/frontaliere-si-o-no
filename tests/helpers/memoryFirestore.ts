@@ -20,6 +20,7 @@ function deepMerge(target: Data, patch: Data): Data {
 }
 
 const OPERATORS: Record<string, (left: any, right: any) => boolean> = {
+  'in': (left, right) => Array.isArray(right) && right.includes(left),
   '==': (left, right) => left === right,
   '<=': (left, right) => left != null && left <= right,
   '<': (left, right) => left != null && left < right,

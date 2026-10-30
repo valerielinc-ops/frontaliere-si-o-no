@@ -35,7 +35,17 @@ export const portalContractContextHash = value => createHash('sha256').update(JS
 export const portalContractSourceUrl = draft => String(draft?.channel?.applyUrl || draft?.job?.applyUrl || '').trim();
 export const portalContractQuestionKey = question => text(question?.applicationQuestion).toLowerCase();
 
-export function legacyPortalContractEligible({ order, flow, draft, submission = {} }, nowMs) {
+function ownerPortalQuestionHold(flow) {
+  return flow?.state === 'owner_takeover' && flow.heldBy?.length === 1
+    && flow.heldBy[0] === 'portal:portal_needs_candidate';
+}
+function contractWorkerIdle({ flow, execution = {} }, nowMs) {
+  if (!flow?.executionId && !Object.keys(execution).length) return true;
+  return Boolean(flow?.executionId && execution.id === flow.executionId && execution.state === 'finished'
+    && !(Number(execution.lease?.expiresAt) > nowMs) && !(Number(execution.controller?.expiresAt) > nowMs));
+}
+
+export function legacyPortalContractEligible({ order, flow, draft, submission = {}, execution = {} }, nowMs) {
   const purgeAt = retentionPurgeDueAt(order);
   const round = Number(flow?.round) || 1;
   const send = submission[`r${round}`];
@@ -44,15 +54,18 @@ export function legacyPortalContractEligible({ order, flow, draft, submission = 
     && (talentPoolConsentActive(order) || (purgeAt != null && purgeAt > nowMs))
     && !['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
     && !['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus)
-    && order.automationState === 'needs_candidate_action' && flow?.state === 'needs_candidate_action'
+    && ((order.automationState === 'needs_candidate_action' && flow?.state === 'needs_candidate_action')
+      || (order.automationState === 'owner_takeover' && ownerPortalQuestionHold(flow)))
+    && contractWorkerIdle({ flow, execution }, nowMs)
     && !flow.postingExpiredAt && roundWasSent(flow, round)
+    && Number(flow.dispatch?.round) === round
     && Number(draft?.completedAt) > 0 && Number(flow.dispatch?.requestedAt) >= Number(draft.completedAt)
     && draft?.status === 'ready' && Number(draft.round) === round && !draft.sent && !draft.sentAttempt
     && send?.state === 'failed' && send.channel === 'portal' && !send.clickedAt && Number(send.releasedAt) > 0
     && !Object.values(submission).some(record => record?.state === 'sent' || record?.state === 'sending' || record?.clickedAt)
     && isFetchablePublicUrl(portalContractSourceUrl(draft))
     && (draft.questions || []).some(question => question.source === 'portal' && question.required === true
-      && (flow.heldBy || []).includes(`question:${question.id}`) && relaxablePortalQuestionTopic(question)
+      && (ownerPortalQuestionHold(flow) || (flow.heldBy || []).includes(`question:${question.id}`)) && relaxablePortalQuestionTopic(question)
       && !hasAnswer(candidateWithEdits({ order, draft, flow }).answers[question.id]));
 }
 
@@ -74,7 +87,9 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
     return { changed: false, reason: 'application_form_owner_unknown' };
   }
   const answers = candidateWithEdits({ order, draft, flow }).answers;
-  const held = new Set((flow.heldBy || []).map(value => String(value).replace(/^question:/, '')));
+  const held = new Set(ownerPortalQuestionHold(flow)
+    ? (draft.questions || []).filter(question => question.required === true).map(question => question.id)
+    : (flow.heldBy || []).map(value => String(value).replace(/^question:/, '')));
   const updated = [];
   const protectedIds = new Set(previouslyRelaxed);
   const questions = (draft.questions || []).map(question => {

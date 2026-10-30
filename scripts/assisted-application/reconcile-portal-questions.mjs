@@ -15,9 +15,10 @@ const stateHash = context => portalContractContextHash({ ...context,
   submission: { ...context.submission, [RECEIPT]: undefined } });
 
 async function readContext(ref, read = item => item.get()) {
-  const [order, flow, draft, submission] = await Promise.all([read(ref), read(ref.collection('automation').doc('flow')),
-    read(ref.collection('ai_drafts').doc('current')), read(ref.collection('automation').doc('submission'))]);
-  return { order: order.data(), flow: flow.data(), draft: draft.data(), submission: submission.data() || {} };
+  const [order, flow, draft, submission, execution] = await Promise.all([read(ref), read(ref.collection('automation').doc('flow')),
+    read(ref.collection('ai_drafts').doc('current')), read(ref.collection('automation').doc('submission')),
+    read(ref.collection('automation').doc('execution'))]);
+  return { order: order.data(), flow: flow.data(), draft: draft.data(), submission: submission.data() || {}, execution: execution.data() || {} };
 }
 
 export async function reconcilePortalQuestions({ db, apply = false, now = Date.now, isEnabled = null,
@@ -47,7 +48,7 @@ export async function reconcilePortalQuestions({ db, apply = false, now = Date.n
   } else cursor = (await cursorRef.get()).data()?.cursor || null;
   let lastId = cursor;
   try {
-    let query = db.collection('assisted_applications').where('automationState', '==', 'needs_candidate_action').orderBy('__name__');
+    let query = db.collection('assisted_applications').where('automationState', 'in', ['needs_candidate_action', 'owner_takeover']).orderBy('__name__');
     if (cursor) query = query.startAfter(cursor);
     const page = await query.limit(scanLimit).get();
     for (const doc of page.docs) {

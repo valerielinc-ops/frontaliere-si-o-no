@@ -4,6 +4,7 @@ import { reconcilePortalQuestions } from '../scripts/assisted-application/reconc
 import { revalidatedPortalQuestions, relaxablePortalQuestionTopic, legacyPortalContractEligible } from '../scripts/assisted-application/lib/portal/question-contract-reconciliation.mjs';
 import { buildReviewPayload } from '../functions/src/assistedApplicationReview.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 
 const now = Date.now();
@@ -60,6 +61,75 @@ describe('legacy operational portal contract reconciliation', () => {
     expect(transition(after.flow, { type: 'tick' }, { draft: after.draft, nowMs: now }).effects)
       .toContainEqual({ type: 'dispatch', mode: 'submit', reason: 'resolved_candidate_answers' });
     expect(await reconcilePortalQuestions({ ...options(store), apply: true })).toMatchObject({ probed: 0, changed: 0, queued: 0 });
+  });
+
+  it('repairs only referral metadata in the complete owner-held legacy draft without resuming an unsafe engine', async () => {
+    const store = fixture();
+    const questions = [
+      { id: 'optional-match', source: 'match', question: 'Optional information', required: false, type: 'choice', options: ['A', 'B'] },
+      { id: 'optional-rule', source: 'rule', question: 'Optional preference', required: false, type: 'choice', options: ['A', 'B'] },
+      { id: 'notice', source: 'portal', question: 'Attuale periodo di preavviso', type: 'choice', required: true, options: [] },
+      { id: 'whatsapp', source: 'portal', question: 'Comunicazione via WhatsApp', type: 'yes_no', required: true, options: [] },
+      { id: 'workload', source: 'portal', question: 'Grado di occupazione desiderato', type: 'choice', required: true, options: [] },
+      { ...question, applicationOptions: Array.from({ length: 20 }, (_, index) => `Source ${index}`) },
+    ];
+    store.docs.set(base, { ...store.read(base), automationState: 'owner_takeover' });
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], answers: { notice: '7 giorni' } });
+    store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions });
+    const before = context(store);
+    const seen = proof({ fields: [{ ...native, options: Array.from({ length: 20 }, (_, index) => ({ label: `Source ${index}`, value: `${index}` })) }, ...proof().fields.slice(1)] });
+    expect(await reconcilePortalQuestions({ ...options(store), probe: async () => seen, apply: true })).toMatchObject({ changed: 1, queued: 0 });
+    const after = context(store);
+    expect(after.flow).toEqual(before.flow);
+    expect(after.order.automationDueAt).toBeNull();
+    expect(after.draft.questions.slice(0, 5)).toEqual(questions.slice(0, 5));
+    expect(after.draft.questions[5]).toMatchObject({ id: question.id, required: false, type: 'choice' });
+    expect(after.draft.questions[5].options).toHaveLength(20);
+    expect(after.flow.answers.notice).toBe('7 giorni');
+    expect(buildReviewPayload({ ...after, round: 1 }).questions.some(item => item.id === question.id)).toBe(false);
+    // Safe operational discovery belongs to concatenated PR #16143. This
+    // branch must not launch the old fallback-to-default engine in between.
+    expect(await reconcilePortalCode({ db: store.db, version: 'b'.repeat(64), apply: true, nowMs: now, isEnabled: async () => true })).toMatchObject({ queued: 0 });
+  });
+
+  it.each(['other_reason', 'mixed_hold', 'active_execution', 'controller_active', 'unknown_execution', 'old_click'])('keeps owner metadata unchanged for %s', async kind => {
+    const store = fixture();
+    store.docs.set(base, { ...store.read(base), automationState: 'owner_takeover' });
+    const flow = { ...store.read(`${base}/automation/flow`), state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'] };
+    if (kind === 'other_reason') flow.heldBy = ['portal:portal_ambiguous'];
+    if (kind === 'mixed_hold') flow.heldBy.push('question:hard');
+    if (kind.includes('execution') || kind === 'controller_active') {
+      flow.executionId = 'current-execution';
+      if (kind !== 'unknown_execution') store.docs.set(`${base}/automation/execution`, { id: 'current-execution', state: kind === 'active_execution' ? 'running' : 'finished', controller: { expiresAt: kind === 'controller_active' ? now + 1000 : 0 } });
+    }
+    store.docs.set(`${base}/automation/flow`, flow);
+    if (kind === 'old_click') store.docs.set(`${base}/automation/submission`, { ...store.read(`${base}/automation/submission`), r0: { state: 'failed', clickedAt: now - 1000 } });
+    const before = context(store);
+    expect(await reconcilePortalQuestions({ ...options(store), apply: true })).toMatchObject({ probed: 0, changed: 0 });
+    expect(context(store).draft).toEqual(before.draft);
+    expect(context(store).flow).toEqual(before.flow);
+  });
+
+  it('fences a worker lease acquired after the owner public proof started', async () => {
+    const store = fixture();
+    store.docs.set(base, { ...store.read(base), automationState: 'owner_takeover' });
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], executionId: 'current-execution' });
+    store.docs.set(`${base}/automation/execution`, { id: 'current-execution', state: 'finished', controller: { expiresAt: 0 }, lease: null });
+    const probe = async () => {
+      store.docs.set(`${base}/automation/execution`, { id: 'current-execution', state: 'running', controller: { expiresAt: now + 1000 }, lease: { expiresAt: now + 1000 } });
+      return proof();
+    };
+    expect(await reconcilePortalQuestions({ ...options(store), probe, apply: true })).toMatchObject({ raced: 1, changed: 0, queued: 0 });
+    expect(store.read(`${base}/ai_drafts/current`).questions).toEqual([question]);
+  });
+
+  it('does not treat a blocked initialization POST as complete owner proof', async () => {
+    const store = fixture();
+    store.docs.set(base, { ...store.read(base), automationState: 'owner_takeover' });
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'] });
+    expect(await reconcilePortalQuestions({ ...options(store), apply: true, probe: async () => ({ complete: false, readOnly: true, reason: 'incomplete_public_form', deniedRequests: [{ method: 'POST', endpoint: url }] }) })).toMatchObject({ changed: 0, queued: 0, unknown: 1 });
+    expect(store.read(`${base}/ai_drafts/current`).questions).toEqual([question]);
+    expect(store.read(base).automationDueAt).toBeNull();
   });
 
   it('does not write receipts, questions, clocks, leases or cursors in dry-run', async () => {
