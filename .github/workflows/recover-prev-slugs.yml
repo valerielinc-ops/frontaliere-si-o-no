@@ -338,6 +338,16 @@ jobs:
           # Restore from the reconciled preflight result, not the stale branch
           # tip. A clean merge may include current-main updates that landed
           # after the pending recovery PR was created.
+          if ! live_head_before_restore="$(run_bounded 60 'gh pr view previousSlugs recovery PR head before restore' \
+            gh pr view "$open_pr_number" --repo "$GITHUB_REPOSITORY" --json headRefOid \
+              --jq '.headRefOid // empty')"; then
+            echo "::error::Unable to revalidate the pending previousSlugs recovery PR before restore"
+            exit 1
+          fi
+          if [ "$live_head_before_restore" != "$refresh_sha" ]; then
+            echo "::error::Pending previousSlugs recovery PR changed during preflight; refusing to restore it"
+            exit 1
+          fi
           git checkout --detach "$main_sha"
           git update-ref refs/recover-prev-slugs/carried-forward "$carry_sha"
           # Restore only blobs present in the reconciled branch. A directory

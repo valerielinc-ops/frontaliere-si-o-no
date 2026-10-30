@@ -122,6 +122,12 @@ describe('recover-prev-slugs.yml — wiring del reconcile duplicate stable-id', 
     expect(carry?.run).toContain('refs/recover-prev-slugs/carried-forward');
     expect(carry?.run).not.toContain('git restore --source="refs/remotes/origin/${branch}" -- "$path"');
     expect(carry?.run).toContain('data/jobs/by-crawler/');
+    const liveHeadGuard = carry?.run.indexOf('live_head_before_restore=');
+    const carriedRefUpdate = carry?.run.indexOf('git update-ref refs/recover-prev-slugs/carried-forward');
+    expect(liveHeadGuard).toBeGreaterThan(-1);
+    expect(carriedRefUpdate).toBeGreaterThan(liveHeadGuard!);
+    expect(carry?.run).toContain('gh pr view "$open_pr_number" --repo "$GITHUB_REPOSITORY" --json headRefOid');
+    expect(carry?.run).toContain('refusing to restore it');
     expect(steps.indexOf(carry!)).toBeLessThan(steps.indexOf(reconcile));
   });
 
