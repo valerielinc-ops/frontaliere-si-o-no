@@ -454,8 +454,9 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  * the previous portal run when an ATS regenerates its field id.
  */
 const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') ? { addressContext: addressContextContract(field) } : {};
-const unreadableAddressOwner = field => addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
-  && Object.hasOwn(field || {}, 'addressContext') && (!addressContextContract(field) || addressContextContract(field).unknown);
+const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.consentOwnershipUnknown === true)
+  || (addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
+    && Object.hasOwn(field || {}, 'addressContext') && (!addressContextContract(field) || addressContextContract(field).unknown));
 
 function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
   const attestedIds = new Set(currentAnswerIds);
@@ -2862,7 +2863,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       && !['skip', 'uncheck'].includes(action.action));
     const openFields = retryableFields.filter((field) => field.inputType !== 'password'
       && !repairActions.some((action) => action.fieldId === field.id));
-    if (openFields.some(unreadableAddressOwner)) return noted({ handoff: 'question_label_unreadable' });
+    if (openFields.some(unreadableNativeOwner)) return noted({ handoff: 'question_label_unreadable' });
     if (openFields.length) {
       const why = ({ it: 'Il portale ha rifiutato questo dato. Controllalo o correggilo.', de: 'Das Portal hat diese Angabe abgelehnt. Bitte prüfe oder korrigiere sie.', fr: 'Le portail a refusé cette réponse. Veuillez la vérifier ou la corriger.', en: 'The portal rejected this entry. Please check or correct it.' })[ctx.candidateLocale] || 'Il portale ha rifiutato questo dato. Controllalo o correggilo.';
       const openQuestions = questionsFrom(openFields.filter((field) => String(field.label || '').trim()).map((field) => ({
@@ -3109,7 +3110,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
     if (field?.required === false && !field.invalid) continue;
-    if (unreadableAddressOwner(field || item)) {
+    if (unreadableNativeOwner(field || item)) {
       unreadableFields.push(field?.id || item.fieldId || 'unknown');
       continue;
     }

@@ -151,6 +151,14 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(inferred.portalQuestionsAnswered[0].source).toBe('identity');
   });
 
+  it('keeps an unreadable native checkbox owner technical without dropping legacy checkboxes', () => {
+    const field = { id: 'consent', label: 'I agree to the required privacy terms', kind: 'checkbox', required: true };
+    const missing = [{ fieldId: field.id, question: field.label, type: 'yes_no' }];
+    expect(portalRequirementsFromMissingRequired([{ ...field, consentOwnershipUnknown: true }], missing).unreadableFields).toEqual([field.id]);
+    expect(portalRequirementsFromMissingRequired([field], missing).questions).toHaveLength(1);
+    expect(portalRequirementsFromMissingRequired([{ ...field, consentOwnershipUnknown: false }], missing).questions).toHaveLength(1);
+  });
+
   it('does not invent DOB when the profile has no date of birth', () => {
     const field = nativeField('<form><label for="dob">DOB</label><input id="dob" name="dob" type="date" required></form>', reader, 'dob');
     const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: '1990-01-02', source: 'inferred' }], missingRequired: [] }, [field], { ...candidate, profile: {} });
