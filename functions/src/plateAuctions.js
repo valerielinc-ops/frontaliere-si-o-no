@@ -28,7 +28,7 @@ import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvChec
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
 import { normalizePlateAuctionRedirectUrl } from './plateAuctionUrlNormalization.js';
-import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from './plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, FR_ECARI_CATALOGUE_URL, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from './plateAuctionSourceUrls.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
   checkPlateAuctionQuality,
@@ -192,7 +192,7 @@ const CONNECTORS = {
   }),
   bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
   bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
-  fr: makeEcariConnector({ canton: 'Friburgo', plateCode: 'FR', url: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' }),
+  fr: makeEcariConnector({ canton: 'Friburgo', plateCode: 'FR', url: FR_ECARI_CATALOGUE_URL }),
   // Ginevra: lista PDF dell'OCV su ge.ch (numeri e date, nessun prezzo);
   // Ricardo è solo un link. Gira solo quando il registry la segna `active`.
   ge: {

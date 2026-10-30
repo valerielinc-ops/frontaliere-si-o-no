@@ -72,6 +72,47 @@ describe('companyHubBridgePlugin — autoDiscoverCompanyHubs locale coverage (#3
     expect(bySlug.length).toBe(4);
   });
 
+  it('preserves archived company identities in every locale without advertising expired jobs as active', async () => {
+    const rootDir = makeCrawlerFixture('Current Clinic SA', 'current-clinic');
+    const archivedDir = path.join(rootDir, 'data/jobs/expired/by-crawler');
+    fs.mkdirSync(archivedDir, { recursive: true });
+    const records = [
+      { company: 'Bieri Elektrotechnik AG', companyKey: 'burkhalter-group', canton: 'SO' },
+      { company: 'Arsanté (Clinique de Carouge) — Centre Médical de Lancy', companyKey: 'arsante-clinique-de-carouge', canton: 'GE' },
+      { company: 'CURRENT CLINIC SA', companyKey: 'current-clinic', canton: 'GE' },
+      { company: 'Capri Holdings (Michael Kors / Versace)', companyKey: 'capri-holdings', canton: 'TI' },
+      { company: '' }, null,
+    ];
+    fs.writeFileSync(path.join(archivedDir, 'fixture.json'), JSON.stringify(records));
+    fs.writeFileSync(path.join(archivedDir, 'ignored-locale-cache.json'), JSON.stringify([{ company: 'Scratch Employer' }]));
+    fs.writeFileSync(path.join(archivedDir, 'ignored.json.cleanup-tmp.json'), JSON.stringify([{ company: 'Scratch Employer' }]));
+    fs.writeFileSync(path.join(archivedDir, 'wrong-envelope.json'), JSON.stringify({ jobs: [{ company: 'Wrong Shape' }] }));
+    fs.writeFileSync(path.join(archivedDir, 'broken.json'), '{');
+
+    const hubs = autoDiscoverCompanyHubs(rootDir);
+    for (const slug of ['bieri-elektrotechnik-ag', 'burkhalter-group', 'arsante-clinique-de-carouge-centre-medical-de-lancy']) {
+      expect(hubs.filter((entry) => entry.companySlug === slug).map((entry) => entry.locale).sort()).toEqual(['de', 'en', 'fr', 'it']);
+    }
+    expect(hubs.filter((entry) => entry.companySlug === 'current-clinic-sa')).toHaveLength(4);
+    expect(hubs.filter((entry) => entry.companySlug === 'current-clinic-sa').every((entry) => entry.displayName === 'Current Clinic SA')).toBe(true);
+    expect(hubs.some((entry) => ['scratch-employer', 'wrong-shape'].includes(entry.companySlug))).toBe(false);
+    expect(hubs.filter((entry) => entry.companySlug === 'michael-kors')).toHaveLength(4);
+
+    fs.mkdirSync(path.join(rootDir, 'dist'));
+    const plugin = companyHubBridgePlugin(rootDir) as unknown as { closeBundle: { handler: () => Promise<void> } };
+    await plugin.closeBundle.handler();
+    for (const entry of hubs.filter((entry) => entry.companySlug === 'bieri-elektrotechnik-ag')) {
+      const html = fs.readFileSync(path.join(rootDir, 'dist', new URL(entry.url).pathname, 'index.html'), 'utf8');
+      expect(/<link rel=(?:"canonical"|canonical) href="([^"]+)"/.exec(html)?.[1]).toBe(entry.url);
+      expect(html).not.toContain('data-company-canton-fallback');
+      expect(html).not.toMatch(/<meta[^>]+http-equiv="refresh"/i);
+    }
+    const italian = fs.readFileSync(path.join(rootDir, 'dist/cerca-lavoro-ticino/azienda-bieri-elektrotechnik-ag/index.html'), 'utf8');
+    expect(italian).toContain('Nessun annuncio di Bieri Elektrotechnik AG in Ticino');
+    const brandTarget = fs.readFileSync(path.join(rootDir, 'dist/cerca-lavoro-ticino/azienda-michael-kors/index.html'), 'utf8');
+    expect(brandTarget).toContain('Nessun annuncio di Michael Kors in Ticino');
+  });
+
   it('every seeded locale gets a distinct, correctly-prefixed URL and a non-empty display name (safe fallback content, never thin)', () => {
     const rootDir = makeCrawlerFixture('Solothurner Spitäler (soH)');
     const hubs = autoDiscoverCompanyHubs(rootDir).filter(

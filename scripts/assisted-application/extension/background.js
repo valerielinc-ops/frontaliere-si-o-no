@@ -140,7 +140,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
     }
   }
   if (info.status !== 'complete' || !(await entryFor(tabId))) return;
-  await chrome.scripting.executeScript({ target: { tabId, allFrames: true }, files: ['runner-fields.js', 'filler.js', 'content.js'] }).catch(() => {});
+  await chrome.scripting.executeScript({ target: { tabId, allFrames: true }, files: ['runner-fields.js', 'apply-control.js', 'filler.js', 'content.js'] }).catch(() => {});
 });
 
 // A posting that opens its form in a new tab (Coop's «Jetzt bewerben» goes to
@@ -207,7 +207,7 @@ chrome.tabs.onRemoved.addListener((tabId) => {
 // Once a minute the service worker compares its own files on disk with the
 // ones it was loaded with and, when they changed and no order is being
 // filled, reloads itself: nobody presses «Ricarica» in chrome://extensions.
-const OWN_FILES = ['manifest.json', 'background.js', 'bridge.js', 'runner-fields.js', 'filler.js', 'content.js'];
+const OWN_FILES = ['manifest.json', 'background.js', 'bridge.js', 'runner-fields.js', 'apply-control.js', 'filler.js', 'content.js'];
 const UPDATE_ALARM = 'update-check';
 // A fill left half-way for longer than this no longer holds an update back.
 const FILL_HOLD_MS = 2 * 60 * 60 * 1000;

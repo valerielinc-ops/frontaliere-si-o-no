@@ -332,8 +332,8 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     const employerMail = mails.at(-1).payload;
     expect(employerMail).toMatchObject({ to: ['hr@ospedale.ch'], subject: 'Re: Candidatura infermiera', headers: { 'In-Reply-To': '<aa-1@candidature.frontaliereticino.ch>' } });
     expect(employerMail.text).not.toContain('+41');
-    expect(sendCascade.mock.calls[0][1]).toEqual(expect.objectContaining({ delayMs: 0, forceProvider: 'maileroo' }));
-    expect(sendCascade.mock.calls[1][1]).toEqual({ delayMs: 0, forceProvider: 'maileroo' });
+    expect(sendCascade.mock.calls[0][1]).toEqual(expect.objectContaining({ delayMs: 0, forceProvider: ['maileroo', 'resend'] }));
+    expect(sendCascade.mock.calls[1][1]).toEqual({ delayMs: 0, forceProvider: ['maileroo', 'resend'] });
     const sentFollowup = store.read(`${ORDER_PATH}/automation/followup`);
     expect(sentFollowup).toMatchObject({ state: 'scheduled', sent: 1, dueAt: followupDueAt(T0, 2) });
     expect(sentFollowup?.history?.at(-1)).toMatchObject({ event: 'sent', provider: 'maileroo' });
@@ -419,7 +419,7 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     await sendFollowup({ db: store.db, orderId: ORDER, nowMs: T0 + 1, sendCascade, by: 'candidate' });
     expect(await sendFollowup({ db: store.db, orderId: ORDER, nowMs: T0 + 2, sendCascade, by: 'deadline' })).toMatchObject({ ok: false, error: 'not_pending' });
     expect(sendCascade).toHaveBeenCalledTimes(1);
-    expect(sendCascade.mock.calls[0][1]).toEqual({ delayMs: 0, forceProvider: 'maileroo' });
+    expect(sendCascade.mock.calls[0][1]).toEqual({ delayMs: 0, forceProvider: ['maileroo', 'resend'] });
 
     // Signed with the name the candidate corrected on the review page.
     const corrected = followupStore();

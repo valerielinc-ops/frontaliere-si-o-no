@@ -6,6 +6,19 @@
  */
 
 export const EMPLOYER_MAIL_FROM = 'valerie@frontaliereticino.ch';
+// These adapters preserve both Reply-To and dossier attachments. Maileroo
+// remains first; a definite rejection can fall back without losing CV files.
+// The shared cascade stops on an ambiguous outcome, rather than sending twice.
+export const ASSISTED_EMAIL_PROVIDERS = Object.freeze(['maileroo', 'resend']);
+
+/** Provider tracking references are not RFC Message-IDs used for reply threading. */
+export function replyThreadMessageId(send, requestedMessageId) {
+  if (typeof send?.rfcMessageId === 'string' && /^<[^<>@\s]+@[^<>@\s]+>$/.test(send.rfcMessageId)) return send.rfcMessageId;
+  // Maileroo generates its own Message-ID; its API reference_id is not it.
+  // Keep subject threading, rather than referencing an ID the employer never received.
+  if (send?.provider === 'maileroo') return null;
+  return requestedMessageId || null;
+}
 
 export function escapeHtml(value) {
   return String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

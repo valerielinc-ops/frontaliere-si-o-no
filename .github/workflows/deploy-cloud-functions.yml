@@ -83,6 +83,14 @@ jobs:
         # observed signature once; all other deploy failures remain fatal.
         run: node scripts/ci/deploy-cloud-functions-with-retry.mjs
 
+      - name: Reconcile definitely unsent assisted applications
+        # The migration arrives in a dependent PR. Run only after this deploy
+        # has published the transport fixes; never dispatch a send directly.
+        run: |
+          if [ -f scripts/reconcile-assisted-application-transport-holds.mjs ]; then
+            timeout 180s node scripts/reconcile-assisted-application-transport-holds.mjs --apply
+          fi
+
       - name: Deploy Firestore indexes
         run: firebase deploy --only firestore:indexes --project frontaliere-ticino
 

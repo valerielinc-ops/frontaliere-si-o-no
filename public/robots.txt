@@ -84,6 +84,9 @@ User-agent: KagiBot
 User-agent: SemrushBot
 Allow: /
 Disallow: /api/
+# Cloudflare infrastructure (including protected email links), not site content.
+# https://developers.cloudflare.com/fundamentals/reference/cdn-cgi-endpoint/
+Disallow: /cdn-cgi/
 Disallow: /data/jobs.json
 Disallow: /data/jobs-ai-cache.json
 Disallow: /data/expired-jobs.json

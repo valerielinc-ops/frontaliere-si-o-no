@@ -30,9 +30,7 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bcandidatura\s+online\b|\bpostuler\b|\bpostulez\b|je postule)/i;
-  // «Später bewerben» (Prospective.ch, Coop): keeps the posting for later, never starts the application.
-  const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?( cookies)?|decline( all)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
@@ -1111,7 +1109,7 @@
     if (VERIFY_RE.test(text) && !collect(doc, channelType).some((entry) => entry.required) && !next && !finalButton(doc)) return { kind: 'verify' };
     const required = collect(doc, channelType).filter((entry) => entry.required).length;
     if (!sawForm && !next && !required) {
-      const start = buttons(doc).find((button) => APPLY_RE.test(button.text) && !APPLY_LATER_RE.test(button.text) && !SOCIAL_RE.test(button.text)
+      const start = buttons(doc).find((button) => startsApplication(button.text) && !SOCIAL_RE.test(button.text)
         && !/^(conferma|confirm|bestatig|confirmer|invia|send|absenden|envoyer|submit)/i.test(normalize(button.text)));
       if (start) return { kind: 'posting', start: start.element };
     }

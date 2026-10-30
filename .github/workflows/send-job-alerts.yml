@@ -159,7 +159,6 @@ jobs:
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -171,7 +170,6 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # Content-addressed cache of the assembled dataset. The key is printed by
@@ -204,6 +202,18 @@ jobs:
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      # Dry run (input dry_run, default true per i dispatch manuali): costruisce gli
+      # alert con i dati di produzione e stampa il motivo di ogni alert filtrato e il
+      # funnel, senza inviare né scrivere nulla. Lo step di invio resta fermo con dry_run.
+      - name: Build alerts without sending (dry run)
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        env:
+          ENABLE_JOB_ALERTS: 'true'
+          TARGET_EMAIL: ${{ inputs.target_email }}
+          SKIP_NEWSLETTER_COOLDOWN: ${{ inputs.target_email != '' && '1' || '' }}
+        run: |
+          node scripts/send-job-alerts.mjs --dry-run
 
       - name: Send job alert emails
         if: inputs.dry_run != true && inputs.dry_run != 'true'

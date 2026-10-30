@@ -17,7 +17,7 @@ import { draftRefFor, flowRefFor, isAutomationEnabled, orderRefFor } from './ass
 import { candidateWithEdits, factSourcesNow } from './assistedApplicationCandidateEdits.js';
 import { buildCandidateAutomationEmail } from './assistedApplicationAutomationEmails.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
-import { EMPLOYER_MAIL_FROM, senderName, textToHtml, replySubject } from './assistedApplicationEmployerMail.js';
+import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, senderName, textToHtml, replySubject } from './assistedApplicationEmployerMail.js';
 import { assistedEmailTracking, assistedMailerooRefOnSent } from './assistedApplicationEmailEvents.js';
 import {
   DAY_MS,
@@ -162,7 +162,7 @@ async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, 
       payload: { from: ASSISTED_APPLICATION_SENDER, to: [to], subject: email.subject, html: email.html, text: email.text, ...assistedEmailTracking(orderId, `followup_review_${n}`) },
       recipient: { email: to },
       meta: { orderId, key: `followup_review_${n}` },
-    }], { delayMs: 0, forceProvider: 'maileroo', onSent: assistedMailerooRefOnSent(db) });
+    }], { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS, onSent: assistedMailerooRefOnSent(db) });
   }
   return { ok: true, drafted: n };
 }
@@ -207,7 +207,7 @@ export async function sendFollowup({ db, orderId, nowMs, sendCascade, by }) {
     },
     recipient: { email: claimed.to },
     meta: { orderId, key: `employer_followup_${pending.n}` },
-  }], { delayMs: 0, forceProvider: 'maileroo' });
+  }], { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS });
 
   if (failed.length) {
     if (failed[0].ambiguousDelivery || pending.attempts + 1 >= MAX_SEND_ATTEMPTS) {
