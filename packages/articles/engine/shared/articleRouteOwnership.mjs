@@ -19,6 +19,7 @@ const REGEX_PREFIX_KEYWORDS = new Set([
   'await', 'break', 'case', 'continue', 'debugger', 'default', 'delete', 'do', 'else', 'in',
   'instanceof', 'new', 'of', 'return', 'throw', 'typeof', 'void', 'yield',
 ]);
+const CONTROL_HEADER_KEYWORDS = new Set(['catch', 'for', 'if', 'switch', 'while', 'with']);
 const REGEX_PREFIX_PUNCTUATION = new Set('([{,:;=!?+-*%&|^~<>'.split(''));
 
 function lineTerminatorIndex(text, offset) {
@@ -301,6 +302,9 @@ function skipUnsupportedExpression(text, offset) {
   let bracketDepth = 0;
   let braceDepth = 0;
   let canStartRegex = true;
+  let pendingControlHeader = null;
+  let afterMemberAccess = false;
+  const parenthesisContexts = [];
 
   const skipRegexLiteral = start => {
     let inClass = false;
@@ -351,6 +355,8 @@ function skipUnsupportedExpression(text, offset) {
       if (!literal) return null;
       index = literal.end;
       canStartRegex = false;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if (char === '`') {
@@ -358,6 +364,8 @@ function skipUnsupportedExpression(text, offset) {
       if (end === null) return null;
       index = end;
       canStartRegex = false;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if (char === '/' && canStartRegex) {
@@ -365,36 +373,71 @@ function skipUnsupportedExpression(text, offset) {
       if (end === null) return null;
       index = end;
       canStartRegex = false;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if (char === '/') {
       index += 1;
       canStartRegex = true;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if ((char === '+' && text[index + 1] === '+') || (char === '-' && text[index + 1] === '-')) {
       const postfix = !canStartRegex;
       index += 2;
       canStartRegex = !postfix;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
+      continue;
+    }
+    if (text.startsWith('...', index)) {
+      index += 3;
+      canStartRegex = true;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
+      continue;
+    }
+    if (char === '?' && text[index + 1] === '.') {
+      index += 2;
+      canStartRegex = false;
+      pendingControlHeader = false;
+      afterMemberAccess = true;
+      continue;
+    }
+    if (char === '.') {
+      index += 1;
+      canStartRegex = false;
+      pendingControlHeader = false;
+      afterMemberAccess = true;
       continue;
     }
     if (char === '(') {
       parenDepth += 1;
+      parenthesisContexts.push(Boolean(pendingControlHeader));
       index += 1;
       canStartRegex = true;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if (char === ')') {
       if (parenDepth === 0) return null;
       parenDepth -= 1;
+      const closesControlHeader = parenthesisContexts.pop() === true;
       index += 1;
-      canStartRegex = false;
+      canStartRegex = closesControlHeader;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if (char === '[') {
       bracketDepth += 1;
       index += 1;
       canStartRegex = true;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if (char === ']') {
@@ -402,12 +445,16 @@ function skipUnsupportedExpression(text, offset) {
       bracketDepth -= 1;
       index += 1;
       canStartRegex = false;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if (char === '{') {
       braceDepth += 1;
       index += 1;
       canStartRegex = true;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if (char === '}') {
@@ -417,6 +464,8 @@ function skipUnsupportedExpression(text, offset) {
       braceDepth -= 1;
       index += 1;
       canStartRegex = false;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     if (char === ',' && parenDepth === 0 && bracketDepth === 0 && braceDepth === 0) {
@@ -425,16 +474,38 @@ function skipUnsupportedExpression(text, offset) {
     if (/[A-Za-z_$]/.test(char)) {
       let end = index + 1;
       while (/[A-Za-z0-9_$]/.test(text[end] || '')) end += 1;
-      canStartRegex = REGEX_PREFIX_KEYWORDS.has(text.slice(index, end));
+      const word = text.slice(index, end);
+      if (pendingControlHeader === 'for' && word === 'await') {
+        pendingControlHeader = 'for';
+      } else {
+        pendingControlHeader = !afterMemberAccess && CONTROL_HEADER_KEYWORDS.has(word)
+          ? word
+          : null;
+      }
+      canStartRegex = !afterMemberAccess && REGEX_PREFIX_KEYWORDS.has(word);
+      afterMemberAccess = false;
       index = end;
+      continue;
+    }
+    if (char === '#' && /[A-Za-z_$]/.test(text[index + 1] || '')) {
+      let end = index + 2;
+      while (/[A-Za-z0-9_$]/.test(text[end] || '')) end += 1;
+      index = end;
+      canStartRegex = false;
+      pendingControlHeader = null;
+      afterMemberAccess = false;
       continue;
     }
     if (/[0-9]/.test(char)) {
       index += 1;
       canStartRegex = false;
+      pendingControlHeader = false;
+      afterMemberAccess = false;
       continue;
     }
     canStartRegex = REGEX_PREFIX_PUNCTUATION.has(char);
+    pendingControlHeader = false;
+    afterMemberAccess = false;
     index += 1;
   }
   return null;
