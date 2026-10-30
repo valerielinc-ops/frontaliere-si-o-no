@@ -126,8 +126,9 @@ it.each([
   for (const field of filler) expect(F.answerFor(field, { identity: {}, documents: {}, answers: [] })).toBeNull();
   dom.window.close();
 });
-it('never groups unnamed radio options across separate forms under a shared named section', () => {
-  const { dom, source, bundle, filler } = allQuestionReaders('<section aria-label="I accept the Privacy Policy. *"><form><div role="radio">Yes</div></form><form><div role="radio">No</div></form></section>');
+it.each(['form', 'div role="form"'])('never groups unnamed radio options across separate %s owners under a shared named section', tag => {
+  const close = tag.split(' ')[0];
+  const { dom, source, bundle, filler } = allQuestionReaders(`<section aria-label="I accept the Privacy Policy. *"><${tag}><div role="radio">Yes</div></${close}><${tag}><div role="radio">No</div></${close}></section>`);
   for (const fields of [source, bundle, filler]) {
     expect(fields).toHaveLength(2);
     expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);

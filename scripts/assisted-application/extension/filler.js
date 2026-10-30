@@ -231,7 +231,7 @@
     if (element.tagName === 'INPUT' || !element.matches('[role="radio"]')) return null;
     const explicit = element.closest('[role="radiogroup"]');
     if (explicit) return explicit;
-    const ownerSelector = `${QUESTION_GROUP_SELECTOR}, form, section, article, dialog, [role="region"], [role="dialog"], [role="tabpanel"], [aria-label], [aria-labelledby]`;
+    const ownerSelector = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="region"], [role="dialog"], [role="tabpanel"], [aria-label], [aria-labelledby]`;
     const owner = element.parentElement?.closest(ownerSelector);
     const boundary = owner || element.closest('form') || element.ownerDocument.body;
     for (let node = element.parentElement; node; node = node.parentElement) {
