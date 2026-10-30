@@ -170,7 +170,7 @@ describe('native job route ownership with interned prefixes', () => {
           const oldBuildIndex = ${oldBuildIndex.toString()};
           const prefixes = ${JSON.stringify(prefixes)};
           const sections = ${JSON.stringify(sections)};
-          const tracking = {};
+          let tracking = {};
           for (let i = 0; i < 24000; i++) {
             const paths = {};
             for (const locale of ['it', 'en', 'de', 'fr']) {
@@ -179,6 +179,9 @@ describe('native job route ownership with interned prefixes', () => {
             }
             tracking['master-key-' + i] = paths;
           }
+          // Match the JSON-loaded registry representation before either
+          // baseline; do not measure flattening fixture-construction ropes.
+          tracking = JSON.parse(JSON.stringify(tracking));
           globalThis.retainedTracking = tracking;
           for (let i = 0; i < 3; i++) global.gc();
           const before = process.memoryUsage().heapUsed;
