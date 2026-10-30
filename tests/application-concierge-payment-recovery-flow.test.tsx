@@ -4,14 +4,17 @@ import { useState } from 'react';
 const mocks = vi.hoisted(() => ({
   openChild: vi.fn(), childRender: vi.fn(), fetchService: vi.fn(), recoverSession: vi.fn(), signIn: vi.fn(), checkout: vi.fn(),
   widgetResponses: [] as Array<(type: string) => void>,
-  view: vi.fn(), click: vi.fn(), resume: vi.fn(), ensureAuth: vi.fn(), auth: { currentUser: null as any },
+  view: vi.fn(), click: vi.fn(), resume: vi.fn(), accessLink: vi.fn(), auth: { currentUser: null as any },
 }));
 vi.mock('@/services/i18n', () => ({
   getLocale: () => 'it', useLocale: () => ['it'], useTranslation: () => ({ t: (key: string) => key }),
 }));
-vi.mock('@/services/authService', () => ({ signInWithCustomAuthToken: mocks.signIn }));
+vi.mock('@/services/authService', () => ({ signInWithCustomAuthToken: mocks.signIn, getAuthEmail: (user: any) => user?.email || null }));
 vi.mock('@/services/profileFirestore', () => ({ loadEnrichmentProfileFields: vi.fn() }));
-vi.mock('@/services/assistedApplicationCheckout', () => ({ ensureAssistedApplicationAuth: mocks.ensureAuth }));
+vi.mock('@/components/community/SignupPromptModal', () => ({
+  default: ({ intent }: { intent: string }) => <div role="dialog" aria-label="Signup prompt">{intent}</div>,
+  requestConciergeAccessLink: mocks.accessLink,
+}));
 vi.mock('@/services/firebase', () => ({ getApp: async () => ({}) }));
 vi.mock('firebase/auth', () => ({ getAuth: () => mocks.auth }));
 vi.mock('@/services/applicationConciergeCheckout', () => ({ createApplicationConciergeCheckout: mocks.checkout }));
@@ -168,74 +171,86 @@ describe('concierge reminder payment flow', () => {
     expect(assign).not.toHaveBeenCalled();
   });
 
-  it('keeps the typed email and in-flight SumUp request through the first anonymous sign-in', async () => {
-    const anonymous = { uid: 'new-anonymous-owner', isAnonymous: true, getIdToken: async () => 'anonymous-token' };
-    mocks.auth.currentUser = null;
-    let notifyAuth!: (user: any) => void;
-    function LandingHost() {
-      const [user, setUser] = useState<any>(null);
-      notifyAuth = setUser;
-      return <ApplicationConciergePortal entry authUser={user} />;
-    }
-    render(<LandingHost />);
-    mocks.ensureAuth.mockImplementationOnce(async () => {
-      mocks.auth.currentUser = anonymous;
-      notifyAuth(anonymous);
-      return anonymous;
-    });
-    let resolveCheckout!: (value: any) => void;
-    const pending = new Promise((resolve) => { resolveCheckout = resolve; });
-    mocks.checkout.mockReturnValueOnce(pending);
-    const input = screen.getByRole('textbox', { name: /jobBoard\.concierge\.email/ });
-    fireEvent.change(input, { target: { value: 'typed-recipient@example.test' } });
+  const verifiedOwner = { ...owner, uid: 'verified-owner', email: 'account@example.test', emailVerified: true };
+
+  it('never asks for an email on the landing: a verified account pays with its own address', async () => {
+    mocks.auth.currentUser = verifiedOwner;
+    render(<ApplicationConciergePortal entry authUser={verifiedOwner} />);
+    expect(screen.queryByRole('textbox')).toBeNull();
     fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
-    await waitFor(() => expect(mocks.checkout).toHaveBeenCalledOnce());
-    expect(input).toHaveValue('typed-recipient@example.test');
-    expect(mocks.checkout).toHaveBeenCalledWith(expect.objectContaining({ customerEmail: 'typed-recipient@example.test' }), anonymous);
-    await act(async () => {
-      resolveCheckout({ ok: true, paymentProvider: 'sumup', checkoutId: 'initial-checkout', serviceId: 'initial-service' });
-      await pending;
-    });
-    expect(await screen.findByRole('dialog', { name: 'SumUp' })).toHaveTextContent('initial-checkout');
+    await screen.findByRole('dialog', { name: 'SumUp' });
+    expect(mocks.checkout).toHaveBeenCalledOnce();
+    expect(mocks.checkout.mock.calls[0][0]).not.toHaveProperty('customerEmail');
+    expect(mocks.checkout.mock.calls[0][1]).toBe(verifiedOwner);
+  });
+
+  it.each([
+    ['logged out', null],
+    ['a leftover anonymous session', { uid: 'anon', isAnonymous: true, getIdToken: async () => 'anon-token' }],
+  ])('opens the sign-up prompt when %s, and resumes the click once the account is verified', async (_label, start) => {
+    mocks.auth.currentUser = start;
+    const view = render(<ApplicationConciergePortal entry authUser={start} />);
+    fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
+    expect(await screen.findByRole('dialog', { name: 'Signup prompt' })).toHaveTextContent('concierge');
+    expect(mocks.checkout).not.toHaveBeenCalled();
+    mocks.auth.currentUser = verifiedOwner;
+    view.rerender(<ApplicationConciergePortal entry authUser={verifiedOwner} />);
+    await screen.findByRole('dialog', { name: 'SumUp' });
+    expect(screen.queryByRole('dialog', { name: 'Signup prompt' })).toBeNull();
     expect(mocks.checkout).toHaveBeenCalledOnce();
   });
 
-  it.each(['logout', 'owner-switch'])('clears the previous landing form and widget on %s', async (change) => {
-    const firstOwner = { ...owner, email: 'first-owner@example.test' };
+  it('resumes the click after the email link opened the page in a new tab', async () => {
+    window.localStorage.setItem('application-concierge-activation-intent', String(Date.now()));
+    mocks.auth.currentUser = verifiedOwner;
+    render(<ApplicationConciergePortal entry authUser={verifiedOwner} />);
+    await screen.findByRole('dialog', { name: 'SumUp' });
+    expect(window.localStorage.getItem('application-concierge-activation-intent')).toBeNull();
+  });
+
+  it('ignores an activation click older than its time limit', async () => {
+    window.localStorage.setItem('application-concierge-activation-intent', String(Date.now() - 2 * 60 * 60 * 1000));
+    mocks.auth.currentUser = verifiedOwner;
+    render(<ApplicationConciergePortal entry authUser={verifiedOwner} />);
+    await act(async () => { await Promise.resolve(); });
+    expect(mocks.checkout).not.toHaveBeenCalled();
+  });
+
+  it('holds an unverified account at the confirmation step and sends the link to its address', async () => {
+    const unverified = { ...verifiedOwner, emailVerified: false, reload: vi.fn(async () => {}), getIdToken: vi.fn(async () => 'token') };
+    mocks.auth.currentUser = unverified;
+    mocks.accessLink.mockResolvedValue(undefined);
+    render(<ApplicationConciergePortal entry authUser={unverified} />);
+    fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
+    fireEvent.click(await screen.findByRole('button', { name: 'jobBoard.concierge.confirmEmailCta' }));
+    await screen.findByText('jobBoard.concierge.confirmEmailSent');
+    expect(mocks.accessLink).toHaveBeenCalledWith('account@example.test', 'it');
+    expect(unverified.reload).toHaveBeenCalledOnce();
+    expect(mocks.checkout).not.toHaveBeenCalled();
+  });
+
+  it('lets an account verified in another tab pay after re-reading it from Firebase', async () => {
+    const stale = { ...verifiedOwner, emailVerified: false };
+    const live = { ...stale, reload: vi.fn(async () => { live.emailVerified = true; }), getIdToken: vi.fn(async () => 'fresh-token') };
+    mocks.auth.currentUser = live;
+    render(<ApplicationConciergePortal entry authUser={stale} />);
+    fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
+    await screen.findByRole('dialog', { name: 'SumUp' });
+    expect(live.getIdToken).toHaveBeenCalledWith(true);
+  });
+
+  it.each(['logout', 'owner-switch'])('clears the previous landing state and widget on %s', async (change) => {
+    const firstOwner = { ...owner, email: 'first-owner@example.test', emailVerified: true };
     mocks.auth.currentUser = firstOwner;
     const view = render(<ApplicationConciergePortal entry authUser={firstOwner} />);
     fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
     await screen.findByRole('dialog', { name: 'SumUp' });
-    const nextOwner = change === 'logout' ? null : { ...owner, uid: 'next-owner', email: 'next-owner@example.test' };
+    const nextOwner = change === 'logout' ? null : { ...owner, uid: 'next-owner', email: 'next-owner@example.test', emailVerified: true };
     mocks.auth.currentUser = nextOwner;
     view.rerender(<ApplicationConciergePortal entry authUser={nextOwner} />);
     await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
-    expect(screen.getByRole('textbox', { name: /jobBoard\.concierge\.email/ })).toHaveValue(nextOwner?.email || '');
+    expect(screen.getByTestId('application-concierge-account-hint')).toHaveTextContent(nextOwner ? 'jobBoard.concierge.accountEmailHint' : 'jobBoard.concierge.signInHint');
     expect(mocks.checkout).toHaveBeenCalledOnce();
-  });
-
-  it('does not apply late anonymous auth over a different SDK owner', async () => {
-    mocks.auth.currentUser = null;
-    let notifyAuth!: (user: any) => void;
-    function LandingHost() {
-      const [user, setUser] = useState<any>(null);
-      notifyAuth = setUser;
-      return <ApplicationConciergePortal entry authUser={user} />;
-    }
-    render(<LandingHost />);
-    let resolveAuth!: (value: any) => void;
-    const pending = new Promise((resolve) => { resolveAuth = resolve; });
-    mocks.ensureAuth.mockReturnValueOnce(pending);
-    fireEvent.change(screen.getByRole('textbox', { name: /jobBoard\.concierge\.email/ }), { target: { value: 'typed@example.test' } });
-    fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
-    await waitFor(() => expect(mocks.ensureAuth).toHaveBeenCalledOnce());
-    const nextOwner = { ...owner, uid: 'chosen-owner', email: 'chosen@example.test' };
-    act(() => { mocks.auth.currentUser = nextOwner; notifyAuth(nextOwner); });
-    await act(async () => { resolveAuth({ uid: 'late-anonymous', getIdToken: async () => 'old-token' }); await pending; });
-    expect(mocks.checkout).not.toHaveBeenCalled();
-    fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
-    await screen.findByRole('dialog', { name: 'SumUp' });
-    expect(mocks.checkout).toHaveBeenCalledWith(expect.anything(), nextOwner);
   });
 
   it('ignores a cached SumUp callback after the SDK owner changes before prop notification', async () => {
