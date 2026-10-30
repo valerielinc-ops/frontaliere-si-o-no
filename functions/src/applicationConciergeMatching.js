@@ -439,7 +439,7 @@ async function updateExistingProposal(db, ref, update, expectedStatus, nextStatu
     transaction.set(ref, {
       ...update,
       ...(nextStatus ? { status: nextStatus } : {}),
-      ...(nextStatus === 'retracted' ? { retractedAt: FieldValue.serverTimestamp(), retractionReason: update.eligibilityStatus && update.eligibilityStatus !== 'compatible' ? 'decisive_requirements_unverified' : 'match_below_threshold' } : {}),
+      ...(nextStatus === 'retracted' ? { retractedAt: FieldValue.serverTimestamp(), retractionReason: update.matchScore < MIN_MATCH_SCORE ? 'match_below_threshold' : update.eligibilityStatus && update.eligibilityStatus !== 'compatible' ? 'decisive_requirements_unverified' : 'match_below_threshold' } : {}),
       ...(nextStatus === 'proposed' && current.status === 'retracted' ? { reactivatedAt: FieldValue.serverTimestamp() } : {}),
     }, { merge: true });
     return true;
