@@ -97,7 +97,7 @@ async function serializeCandidateApplication(db, doc, order, getSecret) {
     source: order.billingMode === 'application_concierge' ? 'concierge' : 'single',
     status,
     ...(employerResponse ? { employerResponse } : {}),
-    updatedAt: latestIsoDate(order.automationUpdatedAt, order.updatedAt, order.statusChangedAt, order.createdAt),
+    updatedAt: latestIsoDate(employerResponse?.receivedAt, order.automationUpdatedAt, order.updatedAt, order.statusChangedAt, order.createdAt),
     requiresCvUpload: status === 'awaiting_materials',
     applicationUrl: await applicationUrlFor(db, doc.id, order, status, getSecret),
   };
