@@ -1141,8 +1141,8 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.guida-pensione-frontaliere-avs-lpp.excerpt': 'Guide complet de la retraite pour les travailleurs en Suisse : trois piliers, totalisation Italie-Suisse, simulation et erreurs à éviter.',
  'blog.article.guida-pensione-frontaliere-avs-lpp.imageAlt': 'Couple de retraités se promenant le long du lac de Lugano avec les Alpes en arrière-plan',
 
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Travailler en Suisse et vivre en Italie : est-ce avantageux ?',
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Comparez revenu net, régime fiscal, logement, assurance maladie et trajets dans deux budgets annuels. Eurostat compare des prix nationaux, pas les loyers par ville.',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Vivre en Suisse ou en Italie : comparaison réelle pour frontaliers',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Permis B ou permis G ? Comparaison détaillée des coûts, impôts, santé, qualité de vie avec exemples pratiques 2026.',
  'blog.article.vivere-svizzera-vs-italia-frontaliere.imageAlt': 'Vue panoramique de la frontière italo-suisse avec le lac de Lugano et les toits d\'un village italien',
 
  'blog.article.dumping-salariale-diritti-lavoratore-ticino.title': 'Dumping salarial au Tessin : comment le reconnaître et se protéger',
@@ -13626,6 +13626,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'Gaggiolo : articles de luxe non déclarés > 23 000 euros',
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'Une conductrice entrant en Italie à Gaggiolo a déclaré n\'avoir rien à signaler, mais un sac et un foulard haut de gamme d\'une valeur de plus de 23.000 euros ont été trouvés dans le coffre.',
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.arcisate-ticino-scelta-frontaliere.title': 'Vivre à Arcisate et travailler au Tessin en tant que frontalier',
+    'blog.article.arcisate-ticino-scelta-frontaliere.excerpt': 'Accord sur les frontaliers en vigueur depuis le 1er janvier 2024 Anciens frontaliers : exonération €7\'500 jusqu\'en 2033 Nouveaux frontaliers : franchise €10\'000 Canton du Tessin : 78\'561',
+    'blog.article.arcisate-ticino-scelta-frontaliere.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.vivere-brunate-lavorare-ticino.title': 'Vivre à Brunate et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Guide fiscal et des cotisations sociales pour les personnes qui vivent à Brunate et travaillent au Tessin, entre le nouvel Accord Frontalieri, l’impôt à la source, les exonérations et les rubriques du bulletin de salaire.',
+    'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

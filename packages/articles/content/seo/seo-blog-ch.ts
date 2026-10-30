@@ -109387,6 +109387,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-rischi-climatici-strumenti': {
+    title: 'Oltre 30 strumenti per i rischi climatici futuri in Svizzera',
+    description: 'Oltre 30 strumenti per i rischi climatici futuri NCCS-Impacts è partito nel 2022 Cinque progetti, oltre 100 persone coinvolte Circa 9 milioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, oltre, strumenti, rischi, climatici',
+    ogTitle: '30+ strumenti per rischi climatici in Svizzera',
+    ogDescription: 'Oltre 30 strumenti per i rischi climatici futuri NCCS-Impacts è partito nel 2022 Cinque progetti, oltre 100 persone coinvolte Circa 9 milioni di franchi',
+    canonicalPath: '/articoli-svizzera/svizzera-rischi-climatici-strumenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Oltre 30 strumenti per i rischi climatici futuri in Svizzera",
+      "description": "Oltre 30 strumenti per i rischi climatici futuri NCCS-Impacts è partito nel 2022 Cinque progetti, oltre 100 persone coinvolte Circa 9 milioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-rischi-climatici-strumenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-29T22:36:55+00:00",
+      "dateModified": "2026-10-29T22:36:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-rischi-climatici-strumenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

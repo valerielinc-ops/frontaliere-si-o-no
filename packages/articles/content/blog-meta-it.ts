@@ -1141,8 +1141,8 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.guida-pensione-frontaliere-avs-lpp.excerpt': 'Guida completa alla pensione per chi lavora in Svizzera: tre pilastri, totalizzazione Italia-Svizzera, simulazione della rendita e errori da evitare.',
  'blog.article.guida-pensione-frontaliere-avs-lpp.imageAlt': 'Coppia di pensionati che passeggia lungo il lago di Lugano con le Alpi sullo sfondo',
 
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Conviene lavorare in Svizzera e vivere in Italia? Guida 2026',
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Confronta reddito netto, regime fiscale, abitazione, sanità e spostamenti con due budget annuali. L’indice Eurostat è nazionale, non un prezzo per città.',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Conviene fare il frontaliere? Svizzera o Italia, il confronto 2026',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Permesso B o Permesso G? Confronto dettagliato su costi, tasse, sanità, qualità della vita e convenienza economica con esempi pratici 2026.',
  'blog.article.vivere-svizzera-vs-italia-frontaliere.imageAlt': 'Vista panoramica del confine italo-svizzero con il lago di Lugano e i tetti di un villaggio italiano',
 
  'blog.article.dumping-salariale-diritti-lavoratore-ticino.title': 'Dumping salariale in Ticino: come riconoscerlo e difendersi',
@@ -13625,6 +13625,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'A Gaggiolo articoli di lusso non dichiarati oltre 23.000 euro',
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'Una conducente in entrata in Italia a Gaggiolo ha dichiarato di non avere nulla da segnalare, ma nel bagagliaio sono stati trovati una borsa e un foulard di alta gamma per oltre 23.000 euro.',
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.arcisate-ticino-scelta-frontaliere.title': 'Vivere a Arcisate e lavorare in Ticino da frontaliere',
+    'blog.article.arcisate-ticino-scelta-frontaliere.excerpt': 'Accordo Frontalieri in vigore dal 1° gennaio 2024 Vecchi frontalieri: esenzione €7\'500 fino al 2033 Nuovi frontalieri: franchigia €10\'000 Canton Ticino: 78\'561',
+    'blog.article.arcisate-ticino-scelta-frontaliere.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.vivere-brunate-lavorare-ticino.title': 'Vivere a Brunate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Guida fiscale e contributiva per chi vive a Brunate e lavora in Ticino, tra nuovo Accordo Frontalieri, imposta alla fonte, esenzioni e voci di busta paga.',
+    'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

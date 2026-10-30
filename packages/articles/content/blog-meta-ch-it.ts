@@ -8654,6 +8654,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.farmaci-riserve-finanziamento.title': 'Farmaci: scorte obbligatorie sotto pressione in Svizzera',
     'blog.article.farmaci-riserve-finanziamento.excerpt': 'In Svizzera mancano da anni antibiotici e antidolorifici.',
     'blog.article.farmaci-riserve-finanziamento.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.svizzera-rischi-climatici-strumenti.title': 'Oltre 30 strumenti per i rischi climatici futuri in Svizzera',
+    'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Oltre 30 strumenti per i rischi climatici futuri NCCS-Impacts è partito nel 2022 Cinque progetti, oltre 100 persone coinvolte Circa 9 milioni di franchi',
+    'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

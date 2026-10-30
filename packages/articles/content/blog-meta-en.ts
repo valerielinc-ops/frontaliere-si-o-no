@@ -1140,8 +1140,8 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.guida-pensione-frontaliere-avs-lpp.excerpt': 'Complete pension guide for those working in Switzerland: three pillars, Italy-Switzerland totalization, benefit simulation and mistakes to avoid.',
  'blog.article.guida-pensione-frontaliere-avs-lpp.imageAlt': 'Retired couple walking along Lake Lugano with the Alps in the background',
 
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Work in Switzerland, Live in Italy? A Cross-Border Guide',
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Compare take-home pay, tax status, housing, healthcare and commuting costs in two annual budgets. Eurostat compares national price levels, not city rents.',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Living in Switzerland vs Italy: Real Comparison for Cross-Border Workers',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Permit B or Permit G? Detailed comparison of costs, taxes, healthcare, quality of life and economic convenience with 2026 practical examples.',
  'blog.article.vivere-svizzera-vs-italia-frontaliere.imageAlt': 'Panoramic view of the Italian-Swiss border with Lake Lugano and Italian village rooftops',
 
  'blog.article.dumping-salariale-diritti-lavoratore-ticino.title': 'Wage Dumping in Ticino: How to Recognize It and Protect Yourself',
@@ -13624,6 +13624,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'At Gaggiolo, undeclared luxury goods worth over 23.000 euro',
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'A driver entering Italy at Gaggiolo declared that she had nothing to declare, but a high-end handbag and scarf worth over 23.000 euro were found in the trunk.',
     'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.arcisate-ticino-scelta-frontaliere.title': 'Living in Arcisate and working in Ticino as a cross-border commuter',
+    'blog.article.arcisate-ticino-scelta-frontaliere.excerpt': 'Cross-border Agreement in force from January 1, 2024 Old cross-border workers: €7\'500 exemption until 2033 New cross-border workers: €10\'000 tax-free allowance Canton Ticino: 78\'561',
+    'blog.article.arcisate-ticino-scelta-frontaliere.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.vivere-brunate-lavorare-ticino.title': 'Living in Brunate and working in Ticino as a cross-border commuter',
+    'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Tax and social security guide for those who live in Brunate and work in Ticino, covering the new Cross-Border Agreement, withholding tax, exemptions, and payslip items.',
+    'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

@@ -2907,6 +2907,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'norme-flessibilita-start-up': { it: 'norme-flessibilita-start-up', en: 'flexibility-start-up-rules', de: 'flexibilitaet-startups-regeln', fr: 'regles-flexibilite-startups' },
  'sem-rinnovo-simic-paralisi': { it: 'sem-rinnovo-simic-paralisi', en: 'sem-simic-renewal-paralysis', de: 'sem-simic-erneuerung-blockade', fr: 'sem-renouvellement-simic-paralysie' },
  'farmaci-riserve-finanziamento': { it: 'farmaci-riserve-finanziamento', en: 'medicine-stock-funding', de: 'medikamente-reserven-finanzierung', fr: 'medicaments-reserves-financement' },
+ 'svizzera-rischi-climatici-strumenti': { it: 'svizzera-rischi-climatici-strumenti', en: 'switzerland-climate-risk-tools', de: 'schweiz-klima-risiken-werkzeuge', fr: 'suisse-risques-climatiques-outils' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

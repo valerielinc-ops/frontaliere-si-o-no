@@ -8654,6 +8654,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.farmaci-riserve-finanziamento.title': 'Medicines: mandatory stockpiles under pressure in Switzerland',
     'blog.article.farmaci-riserve-finanziamento.excerpt': 'There has been a shortage of antibiotics and painkillers in Switzerland for years.',
     'blog.article.farmaci-riserve-finanziamento.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.svizzera-rischi-climatici-strumenti.title': 'Over 30 tools for future climate risks in Switzerland',
+    'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Over 30 tools for future climate risks NCCS-Impacts launched in 2022 Five projects, over 100 people involved Approximately 9 million francs',
+    'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

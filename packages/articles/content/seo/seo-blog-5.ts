@@ -113601,6 +113601,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arcisate-ticino-scelta-frontaliere': {
+    title: 'Vivere a Arcisate e lavorare in Ticino da frontaliere',
+    description: 'Accordo Frontalieri in vigore dal 1° gennaio 2024 Vecchi frontalieri: esenzione €7\'500 fino al 2033 Nuovi frontalieri: franchigia €10\'000 Canton',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, arcisate, lavorare, accordo',
+    ogTitle: 'Vivere ad Arcisate e lavorare in Ticino',
+    ogDescription: 'Accordo Frontalieri in vigore dal 1° gennaio 2024 Vecchi frontalieri: esenzione €7\'500 fino al 2033 Nuovi frontalieri: franchigia €10\'000 Canton Ticino: 78\'561',
+    canonicalPath: '/articoli-frontaliere/arcisate-ticino-scelta-frontaliere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Arcisate e lavorare in Ticino da frontaliere",
+      "description": "Accordo Frontalieri in vigore dal 1° gennaio 2024 Vecchi frontalieri: esenzione €7'500 fino al 2033 Nuovi frontalieri: franchigia €10'000 Canton",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-arcisate-ticino-scelta-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-29T22:16:41+00:00",
+      "dateModified": "2026-10-29T22:16:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arcisate-ticino-scelta-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-brunate-lavorare-ticino': {
+    title: 'Vivere a Brunate e lavorare in Ticino da frontaliere',
+    description: 'Guida per chi vive a Brunate e lavora in Ticino: nuovo accordo frontalieri, imposta alla fonte, esenzioni, franchigie e contributi in busta paga.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, brunate, lavorare, fiscale',
+    ogTitle: 'Vivere a Brunate e lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri il regime fiscale, le franchigie, le esenzioni e le voci contributive per chi vive a Brunate e lavora in Ticino secondo il nuovo Accordo Frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vivere-brunate-lavorare-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Brunate e lavorare in Ticino da frontaliere",
+      "description": "Guida per chi vive a Brunate e lavora in Ticino: nuovo accordo frontalieri, imposta alla fonte, esenzioni, franchigie e contributi in busta paga.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-vivere-brunate-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-29T23:04:25+00:00",
+      "dateModified": "2026-10-29T23:04:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-brunate-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
