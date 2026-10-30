@@ -78,7 +78,8 @@ function browserFixture(requests: any[]) {
     newPage: async () => page, close: vi.fn(async () => {}),
   };
   const browser = { newContext: vi.fn(async () => context), close: vi.fn(async () => {}) };
-  return { browser, context, aborts };
+  return { browser, context, aborts, page,
+    dispatch: async (request: any) => routeHandler({ request: () => request, abort: async () => { aborts.push(request); } }) };
 }
 
 describe('read-only browser boundary', () => {
@@ -114,5 +115,27 @@ describe('read-only browser boundary', () => {
     expect((await readOnlyPortalContracts({ applyUrl: url, launch: async () => fixture.browser, get })).complete).toBe(false);
     expect(get).toHaveBeenCalledTimes(1);
     expect(fixture.aborts).toHaveLength(1);
+  });
+
+  it.each(['read', 'close'])('does not return a complete proof when a blocked request arrives during the final %s', async when => {
+    const fixture = browserFixture([]);
+    const frame: any = { url: () => url, evaluate: async () => ({ url, fields: [
+      { id: 'source', frame: 0, form: 0, kind: 'select', label: 'Recruitment source', required: false, options: [{ label: 'Website' }] },
+      { id: 'cv', frame: 0, form: 0, kind: 'file', inputType: 'file', label: 'CV', required: true },
+    ], buttons: [], text: 'Example Motors', errors: [], captcha: false, passwordVisible: false }) };
+    fixture.page.frames = () => [frame];
+    fixture.page.mainFrame = () => frame;
+    fixture.page.evaluate = async () => [{ id: 'source', explicitlyOptional: true, nativeRequired: false }];
+    fixture.page.waitForTimeout = async () => {};
+    const denied = { method: () => 'POST', isNavigationRequest: () => false, url: () => `${url}timezone/` };
+    fixture.page.locator = () => ({ innerText: async () => {
+      if (when === 'read') await fixture.dispatch(denied);
+      return 'Example Motors';
+    } });
+    if (when === 'close') fixture.context.close.mockImplementationOnce(async () => { await fixture.dispatch(denied); });
+    const result = await readOnlyPortalContracts({ applyUrl: url, job: { company: 'Example Motors' }, launch: async () => fixture.browser,
+      get: async () => ({ status: 200, url, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form>public</form>') }) });
+    expect(result.complete).toBe(false);
+    expect(result.deniedRequests).toHaveLength(1);
   });
 });

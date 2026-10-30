@@ -148,6 +148,14 @@ describe('legacy operational portal contract reconciliation', () => {
     expect(store.read('assisted_application_maintenance/native-contract-v1').cursor).toBeNull();
     expect(await reconcilePortalQuestions(ctx)).toMatchObject({ probed: 0, alreadyChecked: 2 });
     expect(probe).toHaveBeenCalledTimes(2);
+    for (const elapsed of [6 * 60_000, 37 * 60_000]) {
+      const afterBackoff = { ...ctx, now: () => now + elapsed };
+      await reconcilePortalQuestions(afterBackoff);
+      await reconcilePortalQuestions(afterBackoff);
+    }
+    expect(probe).toHaveBeenCalledTimes(6);
+    expect(await reconcilePortalQuestions({ ...ctx, now: () => now + 60 * 60_000 }))
+      .toMatchObject({ probed: 0, alreadyChecked: 2 });
   });
 
   it.each([false, true])('does not declassify a newly returned conditional hold twice, including regenerated IDs: %s', async regenerate => {

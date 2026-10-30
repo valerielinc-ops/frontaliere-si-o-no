@@ -9,16 +9,26 @@ const contractKey = fields => JSON.stringify(fields.map(field => ({ id: field.id
   kind: field.kind, inputType: field.inputType, required: field.required, invalid: field.invalid, options: field.options })));
 
 export async function readOnlyPortalContracts({ applyUrl, job, channelType = '', get = publicContractGet,
-  launch = () => launchChromium({ headless: true }), now = Date.now, timeoutMs = 30_000 } = {}) {
+  launch = () => launchChromium({ headless: true, timeout: timeoutMs }), now = Date.now, timeoutMs = 30_000 } = {}) {
+  const startedAt = performance.now();
   const controller = new AbortController();
-  const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(timeoutMs)]);
+  const deadline = AbortSignal.timeout(timeoutMs);
+  const signal = AbortSignal.any([controller.signal, deadline]);
   let browser;
+  let browserClosing;
   let context;
   let page;
+  let candidateProof;
   let blocked = false;
   let resourceFailed = false;
   let requestCount = 0;
   let totalBytes = 0;
+  const closeBrowser = () => {
+    if (browser && !browserClosing) browserClosing = browser.close().catch(() => { resourceFailed = true; });
+    return browserClosing;
+  };
+  const abortBrowser = () => { void closeBrowser(); };
+  signal.addEventListener('abort', abortBrowser, { once: true });
   const deniedRequests = [];
   const unknown = reason => ({ complete: false, readOnly: true, observedAt: now(), reason, deniedRequests });
   const recordDenied = request => {
@@ -59,6 +69,7 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
     }
     if (html.url !== applyUrl) return unknown('redirected_form_unknown');
     browser = await launch();
+    if (signal.aborted) return unknown('transient_probe_failure');
     context = await browser.newContext({ javaScriptEnabled: true, offline: true, serviceWorkers: 'block', acceptDownloads: false });
     await context.routeWebSocket('**/*', async socket => { blocked = true; await socket.close().catch(() => {}); });
     await context.exposeBinding('__portalContractProbeDenied', () => { blocked = true; });
@@ -129,9 +140,10 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
     if (first.passwordVisible || snapshot.passwordVisible) return unknown('account_form_unknown');
     if (!hasApplicationSurface(snapshot) || !snapshot.fields.some(field => field.kind === 'file')) return unknown('application_form_unknown');
     const pageText = await page.locator('body').innerText({ timeout: 2_000 });
+    if (blocked || resourceFailed || signal.aborted || page.url() !== applyUrl) return unknown('incomplete_public_form');
     if (postingMatch(pageText, job, applyUrl) !== 'match') return unknown('posting_mismatch');
     if (contractKey(first.fields) !== contractKey(snapshot.fields) || JSON.stringify(firstMarkers) !== JSON.stringify(finalMarkers)) return unknown('native_contract_unstable');
-    return { complete: true, readOnly: true, stable: true, sourceUrl: applyUrl, url: page.url(), observedAt: now(),
+    candidateProof = { complete: true, readOnly: true, stable: true, sourceUrl: applyUrl, url: page.url(), observedAt: now(),
       fields: snapshot.fields.map(({ value: _value, checked: _checked, ...field }) => ({ ...field,
         explicitlyOptional: field.frame === 0 && finalMarkers.filter(marker => marker.id === field.id
           && marker.explicitlyOptional && marker.nativeRequired === false).length === 1 })) };
@@ -139,7 +151,12 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
     return unknown(/^contract_(?:url|dns|redirect|encoding|response_too_large)/.test(String(error?.code || ''))
       ? 'public_contract_unsupported' : 'transient_probe_failure');
   } finally {
-    await context?.close().catch(() => {});
-    await browser?.close().catch(() => {});
+    await context?.close().catch(() => { resourceFailed = true; });
+    controller.abort();
+    await closeBrowser();
+    signal.removeEventListener('abort', abortBrowser);
   }
+  if (blocked || resourceFailed || deadline.aborted || performance.now() - startedAt >= timeoutMs
+    || page?.url() !== applyUrl) return unknown('incomplete_public_form');
+  return candidateProof;
 }
