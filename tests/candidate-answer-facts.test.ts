@@ -99,6 +99,16 @@ describe('positive typed candidate answer contracts', () => {
     expect(edited.profile.workPermit).toBe(workPermit);
     expect(edited.profile.permitStatus).toBe('');
   });
+  it.each([['B EU', 'B EFTA'], ['B EFTA', 'B EU'], ['B EU/EFTA', 'B EFTA']])('does not substitute the declared regime %s with %s', (sourceAnswer, targetAnswer) => {
+    const source = question('What is your current Swiss work permit status?', 'choice', { options: [sourceAnswer] });
+    const target = { ...source, id: 'target', options: [targetAnswer] };
+    expect(candidateAnswersForQuestions([target], {}, rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: sourceAnswer } }))).toEqual({});
+  });
+  it.each(['B EU/EFTA', 'B UE/AELS', 'B UE/AELE'])('preserves the identical EU/EFTA regime in a translated native label: %s', targetAnswer => {
+    const source = question('What is your current Swiss work permit status?', 'choice', { options: ['B EU/EFTA'] });
+    const target = { ...source, id: 'target', options: [targetAnswer] };
+    expect(candidateAnswersForQuestions([target], {}, rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: 'B EU/EFTA' } }))).toEqual({ target: targetAnswer });
+  });
   it.each(['it', 'en', 'de', 'fr'])('preserves all official permit labels in %s without a permissive parenthesis parser', locale => {
     const q = question('What is your current Swiss work permit status?', 'choice', { options: permitOptions(locale) });
     for (const answer of permitOptions(locale)) expect(candidateAnswerFact(q, answer)).not.toBeNull();
