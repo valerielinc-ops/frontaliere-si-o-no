@@ -42,7 +42,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     // No alternate application transport may bypass the HTTP route fence.
     await context.routeWebSocket('**/*', socket => socket.close());
     await context.addInitScript(() => {
-      for (const name of ['WebTransport', 'Worker', 'SharedWorker']) {
+      for (const name of ['WebTransport', 'Worker', 'SharedWorker', 'RTCPeerConnection', 'webkitRTCPeerConnection']) {
         Object.defineProperty(globalThis, name, { value: undefined, configurable: false, writable: false });
       }
     });
