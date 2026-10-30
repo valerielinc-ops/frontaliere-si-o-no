@@ -2,6 +2,8 @@
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { CONFIRM_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
+// Match a complete final segment: /review and /application/review already
+// match, as does the combined Avature segment /ApplicationReview.
 const REVIEW_PATH_RE = /(?:^|\/)(?:application)?(?:review|preview|summary)\/?$/i;
 const PROFILE_CONTINUATION_RE = /(?:already submitted your personal information|(?:account|profile|personal information) (?:has been |was |is )?(?:created|saved|updated)).{0,300}(?:application|apply|review|continue)/i;
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;

@@ -8,6 +8,9 @@ import { applicationReceipt, applicationStage, portalJobKey } from './stages.mjs
 import { avaturePortalDirectory } from './protocol.mjs';
 
 const portalDirectory = url => url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1);
+// /job?jobId=42 does not attest a sibling /application/ namespace. Only
+// primary protocol metadata can lift a JobDetail/slug directory to its
+// portal namespace; suffix regexes must never relax this boundary.
 const sourceDirectory = (url, protocol) => avaturePortalDirectory(url.href, protocol) || portalDirectory(url);
 
 export function verificationTarget({ applyUrl, evidence, sourceProtocol = null }) {
