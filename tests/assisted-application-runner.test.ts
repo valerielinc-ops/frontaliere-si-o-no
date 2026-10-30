@@ -7,7 +7,9 @@ import {
   MATCH_SCHEMA,
   PROFILE_SCHEMA,
   REQUIREMENTS_SCHEMA,
+  PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt,
 } from '../functions/src/assistedApplicationAiPrompts.js';
+import { CONCIERGE_ELIGIBILITY_VERSION, eligibilityHash } from '../functions/src/applicationConciergeEligibility.js';
 import { TAILORED_CV_SCHEMA } from '../functions/src/assistedApplicationTailoredCv.js';
 import { CV_TEXT_VERSION } from '../scripts/assisted-application/lib/cv-text.mjs';
 import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draft.mjs';
@@ -231,6 +233,46 @@ describe('draft mode', () => {
     })).rejects.toMatchObject({ eventType: 'draft_failed', code: 'evidence_entailment_unverified' });
     expect(codex.mock.calls.some(([request]) => request.schema === DOCUMENTS_SCHEMA || request.schema === TAILORED_CV_SCHEMA)).toBe(false);
     expect(bucket.files.size).toBe(0);
+  });
+
+  it('reuses an identical vetted witness in the real draft, and rechecks a changed full match', async () => {
+    const base = fakeCodex();
+    const fresh = vi.fn(async (request: any) => {
+      if (request.schema === REQUIREMENTS_SCHEMA) {
+        const raw = await base(request);
+        return { ...raw, requirements: [raw.requirements[1]], salaryRequested: false };
+      }
+      if (isMatchSchema(request.schema)) {
+        const payload = JSON.parse(request.prompt.split('\n\n<<<POSTING EXCERPT')[0].split('\n\n').at(-1)!);
+        return { matches: [{ index: 0, status: 'met', evidence: payload.candidateSourceExcerpts.find((row: any) => row.text.includes('tedesco B1')).id }], verdict: 'good', summaryIt: 'Buon profilo.', checksIt: [], questions: [] };
+      }
+      return base(request);
+    });
+    const bytes = cvPdf();
+    const ctx = { order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: bytes, cvType: 'pdf',
+      bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet };
+    const first = await buildDraft({ ...ctx, codex: fresh });
+    const cacheId = `job-${'a'.repeat(32)}`;
+    const cachePath = `application_concierge_services/service/eligibility/${cacheId}`;
+    const match = { matches: first.matches, verdict: first.verdict, summaryIt: first.summaryIt, checksIt: first.checksIt, questions: [] };
+    const cached = { profile: first.profile, requirements: first.requirementsRaw, match, entailment: first.entailment,
+      result: { status: 'compatible' }, fingerprint: 'same', cvHash: eligibilityHash(bytes), answerHash: eligibilityHash('{}'),
+      postingHash: eligibilityHash(POSTING.replace(/\s+/g, ' ').trim()), version: CONCIERGE_ELIGIBILITY_VERSION,
+      promptVersion: eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n')) };
+    const store = createMemoryFirestore({ 'application_concierge_services/service': { userId: 'candidate' },
+      'application_concierge_services/service/proposals/proposal': { eligibilityCacheId: cacheId, eligibilityFingerprint: 'same' },
+      'user_cv_profiles/candidate': {}, [cachePath]: cached });
+    const run = async () => {
+      const codex = vi.fn(fresh.getMockImplementation()!);
+      await buildDraft({ ...ctx, db: store.db, order: { ...order, userId: 'candidate', parentServiceId: 'service', parentProposalId: 'proposal' }, codex });
+      return codex.mock.calls.map(([request]) => request.schema);
+    };
+    const reused = await run();
+    expect(reused.some(schema => isMatchSchema(schema) || schema?.properties?.assessments || schema === PROFILE_SCHEMA || schema === REQUIREMENTS_SCHEMA)).toBe(false);
+    store.read(cachePath).match.summaryIt = 'Changed match after verification';
+    const rechecked = await run();
+    expect(rechecked.some(schema => isMatchSchema(schema))).toBe(true);
+    expect(rechecked.some(schema => schema?.properties?.assessments)).toBe(true);
   });
 
   it('writes an apprenticeship’s subject from the trade, and the fact gate reads that subject as a name', async () => {
