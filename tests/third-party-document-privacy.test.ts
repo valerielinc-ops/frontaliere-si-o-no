@@ -2,8 +2,11 @@ import { describe, expect, it } from 'vitest';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
-import { URL as NodeURL } from 'node:url';
+import { URL as NodeURL, fileURLToPath, pathToFileURL } from 'node:url';
 import { TextEncoder } from 'node:util';
+import { createRequire } from 'node:module';
+import { dirname } from 'node:path';
+import ts from 'typescript';
 import { JSDOM } from 'jsdom';
 import { createServer } from 'vite';
 import { serializeStaticFunction } from '../build-plugins/shared/serializeStaticFunction';
@@ -63,6 +66,31 @@ describe('signed-origin autonomous SDK startup', () => {
    expect(constants.ADSENSE_LOADER_CONTENT).toBe(ADSENSE_LOADER_CONTENT);
    expect(constants.PARTNERIZE_TAG_CONTENT).toBe(PARTNERIZE_TAG_CONTENT);
   } finally { await server.close(); }
+ });
+ it('imports and compiles in a mixed DOM/Node realm without loading esbuild JS', () => {
+  const helperUrl = new NodeURL('../build-plugins/shared/serializeStaticFunction.ts', import.meta.url);
+  const require = createRequire(helperUrl);
+  const esbuildUrl = pathToFileURL(require.resolve('esbuild'));
+  const mixedContext = (url: NodeURL) => {
+   const exports = {};
+   return vm.createContext({ exports, module: { exports }, require: createRequire(url),
+    __filename: fileURLToPath(url), __dirname: dirname(fileURLToPath(url)),
+    TextEncoder, Buffer, process,
+   });
+  };
+  const broken = mixedContext(esbuildUrl);
+  expect(vm.runInContext('new TextEncoder().encode("") instanceof Uint8Array', broken)).toBe(false);
+  expect(() => vm.runInContext(readFileSync(esbuildUrl, 'utf8'), broken)).toThrow(/Invariant violation/);
+  const context = mixedContext(helperUrl);
+  const source = ts.transpileModule(readFileSync(helperUrl, 'utf8'), {
+   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+  }).outputText.replace(/import\.meta\.url/g, JSON.stringify(helperUrl.href));
+  vm.runInContext(source, context);
+  for (const [file, name] of [['manualAdLifecycle', 'observeManualAd'], ['adSlotKinds', 'isManualSlot'], ['staticAdSlotEligibility', 'createStaticAdSlotEligibility']]) {
+   const url = new NodeURL(`../services/${file}.ts`, import.meta.url);
+   expect(context.module.exports.serializeStaticFunction(url, name)).toBe(serializeStaticFunction(url, name));
+  }
+  expect(vm.runInContext('new TextEncoder().encode("") instanceof Uint8Array', context)).toBe(false);
  });
  it('runs the full clean Ads bootstrap through eligibility and requests the SDK', () => {
   const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: clean, runScripts: 'outside-only' });
