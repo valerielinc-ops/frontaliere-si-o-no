@@ -242,8 +242,9 @@
     }
     // A field group (Zag/Ark, fieldset): its own label or legend.
     const group = element.closest('[role="group"], fieldset');
-    const legend = group?.querySelector('label, legend');
-    if (legend && !legend.contains(element) && textOf(legend)) return textOf(legend);
+    for (const legend of group?.querySelectorAll('label, legend') || []) {
+      if (!legend.contains(element) && textOf(legend)) return textOf(legend);
+    }
     return questionOf(element) || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
   }
 
@@ -329,8 +330,9 @@
       if (node) labels.add(node);
     }
     const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
-    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
-    if (groupLabel && !groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
+    for (const groupLabel of group?.querySelectorAll('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]') || []) {
+      if (!groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
+    }
     const marker = (node, adjacent = false) => {
       if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
       const text = markerText(node);
@@ -453,7 +455,8 @@
     for (const radios of radiosByName.values()) {
       const question = questionOf(radios[0]);
       const group = radios[0].closest('fieldset, [role="radiogroup"], [role="group"]');
-      const legend = group ? textOf(group.querySelector('legend, [role="heading"], label')) : '';
+      const legend = [...(group?.querySelectorAll('legend, [role="heading"], label') || [])]
+        .filter(node => !node.contains(radios[0])).map(textOf).find(Boolean) || '';
       const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))];
       entries.push({
         kind: 'radio',

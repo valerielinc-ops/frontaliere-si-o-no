@@ -57,6 +57,16 @@ it.each([
   dom.window.close();
 });
 
+it.each(['text', 'radio'])('preserves the readable question and its required marker past an empty label for %s fields', type => {
+  const { dom, snapshot } = extract(`<form><fieldset><label></label><legend>Work permit?</legend><span>*</span><input type="${type}" name="permit" id="x"></fieldset></form>`);
+  expect(snapshot.fields[0]).toMatchObject({ label: 'Work permit?', required: true });
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  expect((dom.window as any).CompilaRunnerFields().fields[0]).toMatchObject({ label: 'Work permit?', required: true });
+  expect((dom.window as any).CompilaCandidatura.collect(dom.window.document)[0]).toMatchObject({ label: 'Work permit?', required: true });
+  dom.window.close();
+});
+
 it('routes unreadable source labels to a technical hold instead of manufacturing a required question', () => {
   const result = portalRequirementsFromMissingRequired([{ id: 'f1', kind: 'checkbox', label: '', required: true }], [{ fieldId: 'f1', question: '' }]);
   expect(result.questions).toEqual([]);

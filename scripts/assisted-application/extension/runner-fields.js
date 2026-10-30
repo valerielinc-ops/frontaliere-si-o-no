@@ -164,9 +164,10 @@
       if (node) labels.add(node);
     }
     const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
-    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
-    if (groupLabel && !groupLabel.contains(element)
-      && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
+    for (const groupLabel of group?.querySelectorAll('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]') || []) {
+      if (!groupLabel.contains(element)
+        && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
+    }
     const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\s*\)?)$/i;
     const marker = (node, adjacent = false) => {
       if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
@@ -322,8 +323,11 @@
   };
   const groupQuestion = (element) => {
     const group = element.closest('fieldset, [role="radiogroup"], [role="group"], .application-question, .field, li');
-    const legend = group?.querySelector('legend, .question, .label, h3, h4');
-    return clean(legend?.innerText || legend?.textContent || '');
+    for (const legend of group?.querySelectorAll('legend, .question, .label, h3, h4') || []) {
+      const text = !legend.contains(element) && clean(legend.innerText || legend.textContent);
+      if (text) return text;
+    }
+    return '';
   };
   // Ids stay unique per document: a component that clones a node (Personio
   // resets its file input that way) copies data-aa-id too, so every copy after
