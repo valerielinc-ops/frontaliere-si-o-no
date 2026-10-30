@@ -231,6 +231,25 @@ export function adoptStaticFallbackIntoRoot(
   const railWrap = fallback.closest<HTMLElement>('.ft-rail-grid');
   const anchor = railWrap ?? fallback;
 
+  // Expired-job HTML carries a seeded payload on window, but its guard also
+  // requires this URL marker to remain in the document until the view reads
+  // the seed. createRoot() clears adopted fallback content, so leave behind an
+  // empty, hidden marker for this document only; App.tsx removes it on route
+  // changes just as it does the original static body.
+  const expiredStaticBody = fallback.matches('main[data-expired-static-body]')
+    ? fallback
+    : fallback.querySelector<HTMLElement>('main[data-expired-static-body]');
+  const expiredStaticPath = expiredStaticBody?.dataset.expiredStaticPath;
+  if (expiredStaticPath && expiredStaticPath === doc.defaultView?.location.pathname) {
+    const seedMarker = doc.createElement('main');
+    seedMarker.dataset.expiredStaticBody = 'true';
+    seedMarker.dataset.expiredStaticPath = expiredStaticPath;
+    seedMarker.hidden = true;
+    seedMarker.setAttribute('aria-hidden', 'true');
+    seedMarker.style.setProperty('display', 'none', 'important');
+    doc.body.appendChild(seedMarker);
+  }
+
   // Only a sub-nav that is a direct child of <body> and sits between #root and
   // the fallback belongs to this handoff; any other nav is left untouched.
   let subnav: HTMLElement | null = null;
