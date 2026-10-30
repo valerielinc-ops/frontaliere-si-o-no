@@ -48,7 +48,7 @@ it('prefers mandatory CV attachments and preserves other required document famil
 it.each([true, false])('requires native selection proof after the checkbox is pressed (%s)', async committed => {
   const choice = extract().fields.find((field: any) => field.widget === 'jquery-multiselect');
   let selected = false;
-  const button = { click: vi.fn(), press: vi.fn() };
+  const button = { click: vi.fn(async () => {}), press: vi.fn(async () => {}) };
   const checkbox = { count: async () => 1, setChecked: vi.fn(async () => { selected = true; }) };
   const native = { evaluate: async () => selected && committed };
   const frame = { locator: vi.fn((selector: string) => selector.startsWith('input[name="multiselect_workload"]') ? checkbox : selector.startsWith('select[') ? native : { first: () => button }) };
