@@ -395,7 +395,14 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
  *   location:string, postalCode:string, streetAddress:string, contactPerson:string, contactPhone:string,
  *   salary:string, employmentType:string, datePosted:string, postedDate:string, postingDateSource:string, firstSeenAt:string, validThrough:string}>}
  */
-export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = lookup, maxPostingChars = MAX_POSTING_CHARS } = {}) {
+export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = lookup, maxPostingChars = MAX_POSTING_CHARS, signal = null } = {}) {
+  if (signal) {
+    const fetchPosting = fetchImpl;
+    fetchImpl = (url, init = {}) => {
+      signal.throwIfAborted();
+      return fetchPosting(url, { ...init, signal: init.signal ? AbortSignal.any([signal, init.signal]) : signal });
+    };
+  }
   maxPostingChars = Math.min(60_000, Math.max(MAX_POSTING_CHARS, Number(maxPostingChars) || MAX_POSTING_CHARS));
   const empty = {
     source: 'none', text: '', applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
