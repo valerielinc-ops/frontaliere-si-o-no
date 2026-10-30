@@ -262,7 +262,7 @@ describe('fill extension: JOIN steps', () => {
     const { F, document, window } = page(`<form><h2>${heading}</h2>
       <div role="group"><label for="first">First name</label><input id="first"></div>
       <div role="group"><label for="last">Last name</label><input id="last"></div>
-      <div role="group"><label for="nonexistent">Not this control</label><input id="city" role="combobox" placeholder="City"></div>
+      <div role="group"><label for="nonexistent">Not this control</label><div data-testid="CityName"><div id="city-box"><div id="react-select-1-placeholder">Select a city</div><div><input id="city" role="combobox" placeholder="City"></div></div></div></div>
       <div role="group"><label for="company-city">Company city</label><input id="company-city" autocomplete="address-level2"></div>
       <div role="group"><label for="birthplace">Place of birth</label><input id="birthplace" autocomplete="address-level2"></div>
       <div id="menu"></div></form>`);
@@ -273,12 +273,12 @@ describe('fill extension: JOIN steps', () => {
       document.getElementById('menu')!.innerHTML = '<div role="option">Comano</div><div role="option">Como</div><div role="option">Comologno</div>';
       for (const option of document.querySelectorAll('[role="option"]')) option.addEventListener('click', () => {
         chosen = option.textContent || '';
-        input.parentElement!.innerHTML = `<p>${chosen}</p>`;
+        document.getElementById('city-box')!.innerHTML = `<p>${chosen}</p>`;
         document.getElementById('menu')!.innerHTML = '';
       });
     });
     const city = F.collect(document).find((entry: any) => entry.element === input);
-    expect(city.labels).not.toContain('Not this control');
+    expect(city.label).not.toBe('Not this control');
     expect(F.answerFor(city, { ...kit, answers: [] })).toEqual({ value: 'Como', family: 'city' });
     await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap() });
     expect(chosen).toBe('Como');

@@ -608,7 +608,11 @@
     const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''}`);
     const candidateAddress = (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       || RESIDENCE_CONTEXT_RE.test(addressContext))
-      && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext);
+      && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
+      // A browser autocomplete token describes a type, not its owner. An
+      // explicit birthplace or another person's/company's label vetoes even
+      // a genuine personal section before the autocomplete branch below.
+      && !labels.some(name => NOT_PERSON_RE.test(normalize(name)) || PLACE_RE.test(normalize(name)));
     if (autoFamily) {
       // `postal-code`, `address-level2`, etc. identify a value type, not
       // whose address it is. Require explicit candidate-residence context.
