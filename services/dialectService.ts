@@ -19,6 +19,7 @@ export const DIALECT_ENTRIES: DialectEntry[] = [
  { key: 'scüsa', category: 'saluti' },
  { key: 'aDoman', category: 'saluti' },
  { key: 'bunDi', category: 'saluti' },
+ { key: 'ciaoPepp', category: 'saluti' },
 
  { key: 'mingaMal', category: 'espressioni' },
  { key: 'lassaSta', category: 'espressioni' },
@@ -34,6 +35,9 @@ export const DIALECT_ENTRIES: DialectEntry[] = [
  { key: 'sbassaLaCresta', category: 'espressioni' },
  { key: 'capiNaMazza', category: 'espressioni' },
  { key: 'süDaCo', category: 'espressioni' },
+ { key: 'longhComeLaFam', category: 'espressioni' },
+ { key: 'pota', category: 'espressioni' },
+ { key: 'daBon', category: 'espressioni' },
 
  { key: 'chiVaPian', category: 'proverbi' },
  { key: 'leMingaTutt', category: 'proverbi' },
@@ -67,6 +71,7 @@ export const DIALECT_ENTRIES: DialectEntry[] = [
  { key: 'elPaga', category: 'lavoro' },
  { key: 'laDesDüra', category: 'lavoro' },
  { key: 'andàACà', category: 'lavoro' },
+ { key: 'daghNaMan', category: 'lavoro' },
 
  { key: 'tiraGiò', category: 'natura' },
  { key: 'elLac', category: 'natura' },
