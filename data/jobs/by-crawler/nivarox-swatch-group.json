@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nivarox-swatch-group",
-  "assembledAt": "2026-10-29T21:28:36.241Z",
-  "runId": "40954878517",
+  "assembledAt": "2026-10-30T09:38:18.883Z",
+  "runId": "41030964966",
   "jobs": [
     {
       "id": "company-7uc3o0",
@@ -24,7 +24,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "nivarox-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-29T09:37:24.378Z",
+      "crawledAt": "2026-10-30T09:37:59.991Z",
       "firstSeenAt": "2026-10-27T09:47:40.517Z",
       "titleByLocale": {
         "it": "Laborantin/Physical Laborantine Learning CFC",
@@ -72,8 +72,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2400",
       "addressLocality": "Le Locle",
-      "addressRegion": "NE",
-      "crawlerMissStreak": 1
+      "addressRegion": "NE"
     }
   ]
 }
