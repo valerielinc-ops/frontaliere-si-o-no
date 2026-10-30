@@ -4,13 +4,9 @@ import {
   AlertTriangle,
   CheckCircle2,
   Clock3,
-  Eye,
   ExternalLink,
   FileText,
-  Info,
   Loader2,
-  Mail,
-  MousePointerClick,
   RefreshCw,
   RotateCcw,
   Send,
@@ -28,7 +24,6 @@ import {
   type AssistedApplicationCandidateView,
   type AssistedApplicationAdminOrder,
   type AssistedApplicationAdminStatus,
-  type AssistedApplicationCandidateEmail,
   type AssistedApplicationPdfRendererCheck,
 } from '@/services/assistedApplicationAdminService';
 import {
@@ -40,6 +35,8 @@ import { NEXT_STEP_GROUP_LABELS, nextStepFor, type NextStep, type NextStepGroup 
 import { pdfRendererLine, type PdfRendererTone } from '@/services/assistedApplicationPdfRendererStatus';
 import { replaceAdminQuery } from '@/components/admin/lib/adminNavigation';
 import { useAdminConfirm } from '@/components/admin/ui/AdminConfirmDialog';
+import CandidateEmails from './AssistedApplicationCandidateEmails';
+import ApplicationInbox from './AssistedApplicationInbox';
 import AssistedApplicationAutomationPanel from './AssistedApplicationAutomationPanel';
 
 type QueueFilter = AssistedApplicationAdminStatus | 'all';
@@ -52,15 +49,6 @@ const STATUS_LABELS: Record<QueueFilter, string> = {
   submitted: 'Inviate',
   blocked: 'Bloccate',
   refunded: 'Rimborsate',
-};
-
-const STATUS_STYLES: Record<AssistedApplicationAdminStatus, string> = {
-  awaiting_upload: 'bg-surface-alt text-subtle border-edge',
-  ready_for_manual_submission: 'bg-warning-subtle text-warning border-warning-border',
-  in_progress: 'bg-info-subtle text-info border-info-border',
-  submitted: 'bg-success-subtle text-success border-success-border',
-  blocked: 'bg-danger-subtle text-danger border-danger-border',
-  refunded: 'bg-surface-alt text-muted border-edge',
 };
 
 const NEXT_STATUS_OPTIONS: Record<AssistedApplicationAdminStatus, Array<{
@@ -231,147 +219,6 @@ function orderEventContext(order: AssistedApplicationAdminOrder) {
   };
 }
 
-function StatusBadge({ status }: { status: AssistedApplicationAdminStatus }) {
-  return (
-    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${STATUS_STYLES[status]}`}>
-      {status === 'submitted' ? <CheckCircle2 size={13} aria-hidden="true" /> : status === 'blocked' ? <AlertTriangle size={13} aria-hidden="true" /> : <Clock3 size={13} aria-hidden="true" />}
-      {STATUS_LABELS[status]}
-    </span>
-  );
-}
-
-const EMAIL_STATUS_LABELS: Record<string, string> = {
-  sent: 'inviata',
-  sending: 'in invio',
-  failed: 'non riuscita (ritento)',
-  ambiguous: 'esito incerto',
-};
-
-function emailStatusLabel(status: string | null): string {
-  return status ? EMAIL_STATUS_LABELS[status] || status : 'non inviata';
-}
-
-const CANDIDATE_EMAIL_LABELS: Array<[RegExp, (match: RegExpMatchArray) => string]> = [
-  [/^customer_intro$/, () => 'Benvenuto'],
-  [/^customer_materials_received$/, () => 'CV ricevuto'],
-  [/^customer_materials_reminder$/, () => 'Promemoria 48 h'],
-  [/^customer_submitted$/, () => 'Conferma invio'],
-  [/^auto_candidate_review_r(\d+)(_held)?$/, (m) => `Revisione della bozza, round ${m[1]}${m[2] ? ' (con domande)' : ''}`],
-  [/^auto_candidate_reminder_r(\d+)$/, (m) => `Promemoria revisione, round ${m[1]}`],
-  [/^auto_candidate_action_\d+$/, () => 'Serve una risposta del candidato'],
-  [/^auto_candidate_handoff$/, () => 'Invio dal portale affidato al candidato'],
-  [/^auto_candidate_handoff_reminder$/, () => 'Promemoria invio dal portale'],
-  [/^auto_candidate_posting_closed$/, () => 'Annuncio chiuso e rimborso'],
-  [/^followup_review_(\d+)$/, (m) => `Follow-up ${m[1]} da rivedere`],
-  [/^interview_prep$/, () => 'Preparazione al colloquio'],
-  [/^employer_message_forward$/, () => 'Risposta del datore inoltrata'],
-];
-
-function candidateEmailLabel(key: string): string {
-  for (const [pattern, label] of CANDIDATE_EMAIL_LABELS) {
-    const match = key.match(pattern);
-    if (match) return label(match);
-  }
-  return key;
-}
-
-/** Delivery, opens and clicks of each e-mail the candidate received. */
-function CandidateEmails({ emails }: { emails: AssistedApplicationCandidateEmail[] }) {
-  if (!emails.length) return <span className="block text-xs text-subtle">Nessuna email al candidato finora</span>;
-  return (
-    <div className="min-w-0">
-      <div role="table" aria-label="Invio e interazioni delle email al candidato">
-        <div role="rowgroup">
-          <div role="row" className="grid grid-cols-[minmax(0,1fr)_auto_auto] gap-x-3 border-b border-edge pb-2 text-xs font-medium text-muted md:grid-cols-[minmax(0,2fr)_minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,0.8fr)] md:gap-x-4">
-            <span role="columnheader">Email</span>
-            <span role="columnheader" className="hidden md:block">Invio</span>
-            <span role="columnheader" className="inline-flex items-center gap-1"><Eye size={13} aria-hidden="true" />Lettura</span>
-            <span role="columnheader" className="inline-flex items-center gap-1"><MousePointerClick size={13} aria-hidden="true" />Clic</span>
-          </div>
-        </div>
-        <ul role="rowgroup" className="divide-y divide-edge">
-          {emails.map((email) => {
-            const sent = Boolean(email.sentAt || email.delivered || email.status === 'sent' || email.opens || email.clicks);
-            let sendLabel = emailStatusLabel(email.status || (sent ? 'sent' : null));
-            let sendIconTone = sent ? 'text-success' : 'text-muted';
-            const sendTextTone = email.bounces || email.complaints || email.status === 'failed'
-              ? 'text-danger'
-              : sent ? 'text-body' : 'text-muted';
-            if (email.bounces > 0) {
-              sendLabel = 'Rimbalzata';
-              sendIconTone = 'text-danger';
-            } else if (email.complaints > 0 || email.status === 'failed') {
-              sendLabel = email.complaints > 0 ? 'Segnalata come spam' : sendLabel;
-              sendIconTone = 'text-danger';
-            } else if (email.status === 'ambiguous') {
-              sendIconTone = 'text-warning';
-            } else if (email.status === 'sending') {
-              sendIconTone = 'text-info';
-            }
-            const trackingAvailable = sent && email.bounces === 0 && !['ambiguous', 'failed', 'sending'].includes(email.status || '');
-            const openedLabel = email.opens ? `Letta ${email.opens}×` : trackingAvailable ? 'Non letta' : '—';
-            const clickedLabel = email.clicks ? `${email.clicks} clic` : trackingAvailable ? 'Nessun clic' : '—';
-            const openedDescription = email.opens
-              ? `${openedLabel}${email.firstOpenAt ? `, prima apertura ${formatDate(email.firstOpenAt)}` : ''}`
-              : trackingAvailable ? 'Non ancora aperta' : 'Nessun dato di apertura';
-            const clickedDescription = email.clicks
-              ? `${clickedLabel}${email.lastClickAt ? `, ultimo ${formatDate(email.lastClickAt)}` : ''}`
-              : trackingAvailable ? 'Nessun clic registrato' : 'Nessun dato sui clic';
-            return (
-              <li role="row" key={email.key} className="grid grid-cols-[minmax(0,1fr)_auto_auto] items-start gap-x-3 gap-y-1.5 py-2.5 text-xs md:grid-cols-[minmax(0,2fr)_minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,0.8fr)] md:items-center md:gap-x-4">
-                <div role="cell" className="col-start-1 row-start-1 min-w-0 md:col-auto md:row-auto">
-                  <span className="flex min-w-0 items-start gap-1.5 font-semibold leading-snug text-strong" title={candidateEmailLabel(email.key)}>
-                    <Mail size={14} className="shrink-0 text-muted" aria-hidden="true" />
-                    <span className="min-w-0 break-words">{candidateEmailLabel(email.key)}</span>
-                  </span>
-                  <span className="mt-1 inline-flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-body md:hidden">
-                    <Send size={13} className={sendIconTone} aria-hidden="true" />
-                    <span className={`font-medium ${sendTextTone}`}>{sendLabel}</span>
-                    {email.sentAt && <time className="text-subtle tabular-nums" dateTime={email.sentAt}>{formatDate(email.sentAt)}</time>}
-                    {email.bounces > 0 && <span className="text-danger">{email.bounces} rimbalzi</span>}
-                    {email.complaints > 0 && <span className="text-danger">{email.complaints} segnalazioni spam</span>}
-                  </span>
-                </div>
-                <span role="cell" className="hidden min-w-0 flex-wrap items-center gap-x-2 gap-y-0.5 text-body md:flex">
-                  <span className={`inline-flex items-center gap-1.5 font-medium ${sendTextTone}`}>
-                    <Send size={13} className={sendIconTone} aria-hidden="true" />
-                    {sendLabel}
-                  </span>
-                  {email.sentAt && <time className="text-xs text-subtle tabular-nums" dateTime={email.sentAt}>{formatDate(email.sentAt)}</time>}
-                  {email.bounces > 0 && <span className="text-xs text-danger">{email.bounces} rimbalzi</span>}
-                  {email.complaints > 0 && <span className="text-xs text-danger">{email.complaints} segnalazioni spam</span>}
-                </span>
-                <span role="cell"
-                  className={`col-start-2 row-start-1 inline-flex items-center justify-end gap-1.5 whitespace-nowrap font-medium md:col-auto md:row-auto md:justify-start ${sent ? 'text-body' : 'text-muted'}`}
-                  aria-label={openedDescription}
-                  title={openedDescription}
-                >
-                  <Eye size={14} className={email.opens ? 'text-success' : 'text-muted'} aria-hidden="true" />
-                  <span className="md:hidden tabular-nums">{trackingAvailable ? email.opens : '—'}</span>
-                  <span className="hidden md:inline">{openedLabel}</span>
-                </span>
-                <span role="cell"
-                  className={`col-start-3 row-start-1 inline-flex items-center justify-end gap-1.5 whitespace-nowrap font-medium md:col-auto md:row-auto md:justify-start ${sent ? 'text-body' : 'text-muted'}`}
-                  aria-label={clickedDescription}
-                  title={clickedDescription}
-                >
-                  <MousePointerClick size={14} className={email.clicks ? 'text-accent' : 'text-muted'} aria-hidden="true" />
-                  <span className="md:hidden tabular-nums">{trackingAvailable ? email.clicks : '—'}</span>
-                  <span className="hidden md:inline">{clickedLabel}</span>
-                </span>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <span className="mt-2 inline-flex items-start gap-1.5 text-xs text-muted">
-        <Info size={14} className="mt-0.5 shrink-0" aria-hidden="true" />
-        Le aperture sono indicative: alcuni client email possono registrarle automaticamente.
-      </span>
-    </div>
-  );
-}
-
 function CvLink({ order }: { order: AssistedApplicationAdminOrder }) {
   if (!order.hasCv) {
     return <span className="mt-1 block text-xs text-subtle">CV non ancora ricevuto sul sito (può arrivare via email)</span>;
@@ -414,14 +261,21 @@ function queueFilterFromQuery(value: string | null): QueueFilter {
     : 'all';
 }
 
+function queueFiltersFromQuery() {
+  const params = readAdminQuery();
+  const action = params.get('azione') as NextStepGroup;
+  const step: NextStepGroup | 'all' = NEXT_STEP_ORDER.includes(action) ? action : 'all';
+  return { step, status: step === 'all' ? queueFilterFromQuery(params.get('stato')) : 'all' as QueueFilter };
+}
+
 export default function AssistedApplicationAdmin({ locationKey, onSummary }: { locationKey?: string; onSummary?: (summary: { count: number; updatedAt: string }) => void }) {
   const { user, loading: authLoading } = useAuth();
   const { requestConfirmation } = useAdminConfirm();
   const [orders, setOrders] = useState<AssistedApplicationAdminOrder[]>([]);
   // undefined until the queue has loaded once: nothing is said about the renderer before.
   const [pdfRenderer, setPdfRenderer] = useState<AssistedApplicationPdfRendererCheck | null | undefined>(undefined);
-  const [filter, setFilter] = useState<QueueFilter>(() => queueFilterFromQuery(readAdminQuery().get('stato')));
-  const [stepFilter, setStepFilter] = useState<NextStepGroup | 'all'>('all');
+  const [filter, setFilter] = useState<QueueFilter>(() => queueFiltersFromQuery().status);
+  const [stepFilter, setStepFilter] = useState<NextStepGroup | 'all'>(() => queueFiltersFromQuery().step);
   const [notesByOrder, setNotesByOrder] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -431,7 +285,9 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
 
   useEffect(() => {
-    setFilter(queueFilterFromQuery(readAdminQuery().get('stato')));
+    const selected = queueFiltersFromQuery();
+    setFilter(selected.status);
+    setStepFilter(selected.step);
   }, [locationKey]);
 
   const loadOrders = async (isRefresh = false) => {
@@ -486,9 +342,13 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orders, locationKey, candidatePreview, candidatePreviewLoading]);
 
-  const selectStatus = (next: QueueFilter) => {
-    setFilter(next);
-    replaceAdminQuery({ stato: next === 'all' ? null : next });
+  const selectQueueFilter = (value: string) => {
+    const [kind, selected] = value.split(':');
+    const step = kind === 'step' ? selected as NextStepGroup : 'all';
+    const status = kind === 'status' ? selected as QueueFilter : 'all';
+    setStepFilter(step);
+    setFilter(status);
+    replaceAdminQuery({ azione: step === 'all' ? null : step, stato: status === 'all' ? null : status });
   };
 
   useEffect(() => {
@@ -613,7 +473,7 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
         </button>
       </div>
 
-      {rendererLine && (
+      {rendererLine && rendererLine.tone !== 'ok' && (
         <p className={`rounded-stripe border px-3 py-2 text-xs ${PDF_RENDERER_STYLES[rendererLine.tone]}`} title={pdfRenderer?.error || undefined}>
           {rendererLine.text}
         </p>
@@ -625,53 +485,24 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
         </div>
       )}
 
-      <div className="flex gap-2 overflow-x-auto border-b border-edge pb-1" role="tablist" aria-label="Filtra stati candidature">
-        <button
-          type="button"
-          role="tab"
-          aria-selected={filter === 'all'}
-          onClick={() => selectStatus('all')}
-          className={`shrink-0 rounded-t-lg px-3 py-2 text-sm font-medium ${filter === 'all' ? 'border border-b-0 border-edge bg-surface text-accent' : 'text-muted hover:text-body'}`}
+      <label className="flex flex-wrap items-center gap-3 text-sm font-medium text-body">
+        Mostra candidature
+        <select
+          aria-label="Mostra candidature"
+          value={stepFilter !== 'all' ? `step:${stepFilter}` : filter !== 'all' ? `status:${filter}` : 'all'}
+          onChange={(event) => selectQueueFilter(event.target.value)}
+          className="min-h-11 max-w-full rounded-stripe border border-edge bg-surface px-3 py-2 text-sm text-strong"
         >
-          Tutte <span className="ml-1 text-xs">({orders.length})</span>
-        </button>
-        {ASSISTED_APPLICATION_ADMIN_STATUSES.map((status) => (
-          <button
-            key={status}
-            type="button"
-            role="tab"
-            aria-selected={filter === status}
-            onClick={() => selectStatus(status)}
-            className={`shrink-0 rounded-t-lg px-3 py-2 text-sm font-medium ${filter === status ? 'border border-b-0 border-edge bg-surface text-accent' : 'text-muted hover:text-body'}`}
-          >
-            {STATUS_LABELS[status]} <span className="ml-1 text-xs">({counts[status]})</span>
-          </button>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filtra per prossima mossa">
-        <span className="text-xs font-semibold uppercase tracking-wide text-muted">Prossima mossa</span>
-        <button
-          type="button"
-          aria-pressed={stepFilter === 'all'}
-          onClick={() => setStepFilter('all')}
-          className={`min-h-[36px] rounded-full border px-3 text-xs font-semibold ${stepFilter === 'all' ? 'border-accent bg-accent-subtle text-accent' : 'border-edge text-subtle hover:text-body'}`}
-        >
-          Tutte ({orders.length})
-        </button>
-        {NEXT_STEP_ORDER.map((group) => (
-          <button
-            key={group}
-            type="button"
-            aria-pressed={stepFilter === group}
-            onClick={() => setStepFilter(stepFilter === group ? 'all' : group)}
-            className={`inline-flex min-h-[36px] items-center gap-1 rounded-full border px-3 text-xs font-semibold ${stepFilter === group ? NEXT_STEP_STYLES[group] : 'border-edge text-subtle hover:text-body'}`}
-          >
-            <NextStepIcon group={group} />
-            {NEXT_STEP_GROUP_LABELS[group]} ({stepCounts[group]})
-          </button>
-        ))}
-      </div>
+          <option value="all">Tutte ({orders.length})</option>
+          <optgroup label="Chi deve agire">
+            {NEXT_STEP_ORDER.map((group) => <option key={group} value={`step:${group}`}>{NEXT_STEP_GROUP_LABELS[group]} ({stepCounts[group]})</option>)}
+          </optgroup>
+          <optgroup label="Stato della candidatura">
+            {ASSISTED_APPLICATION_ADMIN_STATUSES.map((status) => <option key={status} value={`status:${status}`}>{STATUS_LABELS[status]} ({counts[status]})</option>)}
+          </optgroup>
+        </select>
+        <span className="text-xs text-subtle">{visibleOrders.length} {visibleOrders.length === 1 ? 'risultato' : 'risultati'} · prima le candidature che richiedono attenzione</span>
+      </label>
 
       {loading ? (
         <div className="flex items-center gap-2 rounded-stripe border border-edge bg-surface p-6 text-sm text-subtle" role="status">
@@ -690,13 +521,12 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
               <article key={order.orderId} className="rounded-stripe border border-edge bg-surface p-4 shadow-stripe-sm sm:p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-muted">{order.companyName || 'Azienda non indicata'}</p>
                     <h3 className="mt-1 text-base font-semibold text-strong">{order.jobTitle || order.jobId || 'Annuncio non indicato'}</h3>
+                    <p className="mt-1 text-sm text-subtle">{order.companyName || 'Azienda non indicata'}</p>
                     <p className="mt-1 text-xs text-muted">Ordine {order.orderId} · creato {formatDate(order.createdAt)}</p>
                   </div>
                   <div className="flex flex-wrap items-center justify-end gap-2">
                     <NextStepBadge step={step} />
-                    <StatusBadge status={order.submissionStatus} />
                   </div>
                 </div>
 
@@ -704,7 +534,7 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
                   <strong>{NEXT_STEP_GROUP_LABELS[step.group]}.</strong> <span className="text-body">{step.detail}</span>
                 </p>
 
-                <dl className="mt-4 grid gap-4 border-t border-edge pt-4 sm:grid-cols-2 lg:grid-cols-5">
+                <dl className="mt-4 grid gap-4 border-t border-edge pt-4 sm:grid-cols-2 lg:grid-cols-4">
                   <DataRow label="Candidato">
                     <span className="font-semibold text-strong">{order.applicantName || '—'}</span>
                     {(order.applicantEmail || order.customerEmail) && <a className="mt-0.5 block text-link hover:underline" href={`mailto:${order.applicantEmail || order.customerEmail}`}>{order.applicantEmail || order.customerEmail}</a>}
@@ -736,15 +566,12 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
                     </span>
                     <CvLink order={order} />
                   </DataRow>
-                  <DataRow label="Email automatiche">
-                    <span className="block text-xs text-subtle">Benvenuto: {emailStatusLabel(order.emails?.intro ?? null)}</span>
-                    <span className="block text-xs text-subtle">Promemoria 48 h: {emailStatusLabel(order.emails?.reminder ?? null)}</span>
-                    <span className="block text-xs text-subtle">Conferma invio: {emailStatusLabel(order.emails?.submitted ?? null)}</span>
-                  </DataRow>
-                  <DataRow label="Aperture e clic del candidato" className="sm:col-span-2 lg:col-span-5">
+                  <DataRow label="Email al candidato" className="sm:col-span-2 lg:col-span-4">
                     <CandidateEmails emails={order.candidateEmails || []} />
                   </DataRow>
                 </dl>
+
+                <ApplicationInbox automation={order.automation} />
 
                 {candidatePreview?.orderId === order.orderId && <CandidateStatusPreview view={candidatePreview} />}
 
@@ -767,7 +594,9 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
                 )}
 
                 {options.length > 0 && (
-                  <div className="mt-4 space-y-3 border-t border-edge pt-4">
+                  <details className="mt-4 border-t border-edge pt-4">
+                    <summary className="cursor-pointer text-sm font-semibold text-subtle">Gestione manuale e rimborso</summary>
+                    <div className="mt-3 space-y-3">
                     <label className="block text-sm font-medium text-body">
                       Nota audit (obbligatoria per bloccare)
                       <textarea
@@ -808,7 +637,8 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
                         </button>
                       )}
                     </div>
-                  </div>
+                    </div>
+                  </details>
                 )}
               </article>
             );

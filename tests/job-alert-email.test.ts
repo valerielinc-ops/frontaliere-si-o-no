@@ -297,6 +297,17 @@ describe('job alert email — plaintext alternative', () => {
     expect(result.text.length).toBeGreaterThan(50);
   });
 
+  it.each([
+    ['it', '1 nuova offerta:'],
+    ['en', '1 new job:'],
+    ['de', '1 neue Stelle:'],
+    ['fr', '1 nouvelle offre:'],
+  ] as const)('uses the singular in the %s preview for one new job', (locale, preview) => {
+    const result = buildAlertEmail(fixtureAlert(locale), [fixtureJob()], true);
+    expect(result.text).toContain(preview);
+    expect(result.html).toContain(preview);
+  });
+
   it('plaintext contains the job title and url', () => {
     const job = fixtureJob({ title: 'Unique Test Title XYZ' });
     const result = buildAlertEmail(fixtureAlert('en'), [job], true);
@@ -307,6 +318,17 @@ describe('job alert email — plaintext alternative', () => {
   it('plaintext does NOT contain HTML tags', () => {
     const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
     expect(result.text).not.toMatch(/<[a-z]+/i);
+  });
+
+  it('preserves salary, contract and the selected recommendation in plaintext', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob({
+      salaryMin: 75000, salaryMax: 85000, salaryCurrency: 'CHF', contract: 'full-time',
+    })], true);
+    expect(result.text).toContain('CHF 75K–85K/anno');
+    expect(result.text).toContain('Tempo pieno');
+    expect(result.text).toContain('Automatizza la ricerca di lavoro in Svizzera');
+    expect(result.text.match(/automatizza-ricerca-lavoro-svizzera/g) || []).toHaveLength(1);
+    expect(result.text).toContain('0% spam, 100% frontaliere');
   });
 
   it('tracks ranked job links in both HTML and plaintext alternatives', () => {
@@ -349,6 +371,9 @@ describe('job alert email — recommendation owns the automation CTA', () => {
       const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
 
       expect(result.html).toContain('Offerta sponsor');
+      expect(result.text).toContain('Offerta sponsor');
+      expect(result.text).toContain('Corpo sponsor');
+      expect(result.text).toContain('https://sponsor.example/offer/');
       expect(result.html).toContain('Automatizza la tua ricerca di lavoro');
       expect(result.html.match(/automatizza-ricerca-lavoro-svizzera/g) || []).toHaveLength(1);
       expect((result.html.match(/Automatizza/g) || [])).toHaveLength(1);

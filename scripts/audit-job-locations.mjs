@@ -235,6 +235,90 @@ function crawlerEvidence(crawlerRecord) {
   };
 }
 
+function sourceBackedLocationEvidence({
+  job,
+  id,
+  company,
+  city,
+  publishedCity,
+  publishedLocation,
+  storedCanton,
+  publishedCanton,
+  lookup,
+}) {
+  const record = lookup.record;
+  return {
+    id,
+    stableId: id,
+    publishedJobId: id,
+    publishedUrl: norm(job.url) || null,
+    company,
+    city,
+    publishedCity,
+    publishedLocation,
+    storedCanton,
+    publishedCanton,
+    sourceCorrelationStatus: lookup.status,
+    sourceStableId: record?.sourceStableId || null,
+    sourceJobId: record?.sourceJobId || null,
+    sourceUrl: record?.sourceUrl || null,
+    sourceLocation: record?.location || record?.city || null,
+    ...crawlerEvidence(record),
+  };
+}
+
+function crawlerLocationRewriteEvidence({
+  job,
+  id,
+  company,
+  city,
+  rawLocation,
+  cantonUpper,
+  lookup,
+}) {
+  return {
+    ...sourceBackedLocationEvidence({
+      job,
+      id,
+      company,
+      city: city || '(empty)',
+      publishedCity: city || '(empty)',
+      publishedLocation: rawLocation || '(empty)',
+      storedCanton: cantonUpper,
+      publishedCanton: cantonUpper || '(none)',
+      lookup,
+    }),
+    inferredCanton: city ? inferAnyCanton(city) || '(none)' : '(none)',
+  };
+}
+
+function emptyLocationEvidence({
+  job,
+  id,
+  company,
+  city,
+  storedCanton,
+  cantonUpper,
+  rawLocation,
+  lookup,
+}) {
+  const emptyReason = !city ? 'missing' : city === 'CH' ? 'country-only' : 'too-short';
+  return {
+    ...sourceBackedLocationEvidence({
+      job,
+      id,
+      company,
+      city,
+      publishedCity: city || '(empty)',
+      publishedLocation: rawLocation || '(empty)',
+      storedCanton,
+      publishedCanton: cantonUpper || '(none)',
+      lookup,
+    }),
+    emptyReason,
+  };
+}
+
 function hirslandenCorrelationEntry({ job, id, company, city, rawLocation, cantonUpper, lookup }) {
   const record = lookup.record;
   let correlationStatus = lookup.status;
@@ -442,18 +526,15 @@ for (const job of jobsToAudit) {
   // separately as context and never trips the "must never produce" verdict.
   if (crawlerRecord) {
     const crawlerCity = crawlerRecord.city;
-    const entry = {
+    const entry = crawlerLocationRewriteEvidence({
+      job,
       id,
-      stableId: id,
       company,
-      city: city || '(empty)',
-      publishedCity: city || '(empty)',
-      publishedLocation: rawLocation || '(empty)',
-      storedCanton: cantonUpper,
-      publishedCanton: cantonUpper || '(none)',
-      ...crawlerEvidence(crawlerRecord),
-      inferredCanton: city ? inferAnyCanton(city) || '(none)' : '(none)',
-    };
+      city,
+      rawLocation,
+      cantonUpper,
+      lookup: crawlerLookup,
+    });
     if (crawlerCity && city && !sameRecordedPlace(crawlerCity, city)) {
       results.crawlerLocationRewritten.push(entry);
     } else if (crawlerRecord.canton && cantonUpper && crawlerRecord.canton !== cantonUpper) {
@@ -463,17 +544,16 @@ for (const job of jobsToAudit) {
 
   // Empty location
   if (!city || city === 'CH' || city.length < 2) {
-    results.emptyLocation.push({
+    results.emptyLocation.push(emptyLocationEvidence({
+      job,
       id,
-      stableId: id,
       company,
       city,
       storedCanton,
-      publishedCity: city || '(empty)',
-      publishedLocation: rawLocation || '(empty)',
-      publishedCanton: cantonUpper || '(none)',
-      ...crawlerEvidence(crawlerRecord),
-    });
+      cantonUpper,
+      rawLocation,
+      lookup: crawlerLookup,
+    }));
     continue;
   }
 

@@ -14,6 +14,8 @@
 import { isAnalyticsGranted } from '@/services/consentService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { resilientImport } from '@/services/resilientImport';
+import { isNewsletterAutologinInFlight, subscribeNewsletterAutologin } from '@/services/newsletterAutologinSignal';
+import { sanitizeTelemetryProperties } from '@/services/analyticsUrlPrivacy';
 
 let _initialized = false;
 
@@ -37,6 +39,17 @@ export async function initClarity(): Promise<void> {
  }
 
  try {
+ // App owns credential removal after redeem/sign-in, including failures. Never
+ // rewrite that URL here: an interrupted exchange must remain retryable.
+ if (isNewsletterAutologinInFlight()) {
+ await new Promise<void>((resolve) => {
+ const unsubscribe = subscribeNewsletterAutologin(() => {
+ unsubscribe();
+ resolve();
+ });
+ });
+ }
+
  const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  const projectId = await getConfigValue('CLARITY_PROJECT_ID');
 
@@ -46,6 +59,15 @@ export async function initClarity(): Promise<void> {
  }
  return;
  }
+
+ // The signal's safety timeout can settle before App removes credentials.
+ // Referrer is read-only, so sensitive referrers exclude this document too.
+ // Recheck after every await, before the SDK can read either browser value.
+ const context = { page_location: window.location.href, page_referrer: document.referrer };
+ const safeContext = sanitizeTelemetryProperties(context);
+ if (_initialized || !isAnalyticsGranted()
+ || context.page_location !== safeContext.page_location
+ || context.page_referrer !== safeContext.page_referrer) return;
 
  _initialized = true;
 

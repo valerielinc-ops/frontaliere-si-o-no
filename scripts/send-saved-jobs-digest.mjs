@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { htmlToText } from '../functions/src/lib/mimeMessage.js';
 import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
@@ -90,7 +91,7 @@ import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 // both email channels.
 import { renderJobCard as renderSharedJobCard, formatPostedDate } from '../services/newsletter/jobCard.mjs';
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
-import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
+import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
@@ -873,35 +874,9 @@ table{border-collapse:collapse;}
 </html>`;
 }
 
-export function buildEmailText({ locale, s, savedEntries = [], applicationIntentEntries = [], recommendations = [], manageUrl, unsubUrl }) {
-  const hasSaved = savedEntries.length > 0;
-  const hasApplicationIntents = applicationIntentEntries.length > 0;
-  const lines = [hasSaved ? s.heroTitle : s.applicationSectionTitle, ''];
-  for (const e of savedEntries) {
-    lines.push(`- ${e.title} (${s.at} ${e.company})${e.expired ? ` [${s.expiredBadge}]` : ''}: ${e.expired ? legacyJobBoardUrl(locale) : e.url}`);
-  }
-  if (hasApplicationIntents) {
-    lines.push('', s.applicationSectionTitle, s.applicationIntentNotice);
-    for (const e of applicationIntentEntries) {
-      lines.push(`- ${e.title} (${s.at} ${e.company}) [${s.applicationIntentBadge}]: ${e.url}`);
-    }
-  }
-  if (recommendations.length) {
-    lines.push('', s.recoTitle);
-    for (const e of recommendations) lines.push(`- ${e.title} (${s.at} ${e.company}): ${e.url}`);
-  }
-  lines.push(
-    '',
-    `${s.textViewAllLine} ${manageUrl}`,
-    '',
-    `${s.textUnsubLine} ${unsubUrl}`,
-    '',
-    emailEngagementBannersText({ locale }),
-    '',
-    `© ${new Date().getFullYear()} Frontaliere Ticino`,
-    dataControllerFooterLine(locale),
-  );
-  return lines.join('\n');
+export function buildEmailText(options) {
+  // Share the chosen sponsor and every card detail with the HTML alternative.
+  return htmlToText(options.html ?? buildEmailHtml(options));
 }
 
 // ── Sending ───────────────────────────────────────────────────────────────
@@ -985,7 +960,7 @@ async function sendDigest({ db, uid, email, locale, savedEntries, applicationInt
   const manageUrl = profileUrl(locale);
   const unsubUrl = makeUnsubscribeUrl(uid, email, locale);
   const html = buildEmailHtml({ locale, s, savedEntries, applicationIntentEntries, recommendations, manageUrl, unsubUrl, email });
-  const text = buildEmailText({ locale, s, savedEntries, applicationIntentEntries, recommendations, manageUrl, unsubUrl });
+  const text = buildEmailText({ html });
   const subject = s.subject({ savedCount: savedEntries.length, intentCount: applicationIntentEntries.length });
 
   if (DRY_RUN) {

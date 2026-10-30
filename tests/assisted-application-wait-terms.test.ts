@@ -41,7 +41,9 @@ describe('the candidate\'s three rounds are the drafts they were shown', () => {
     // As startAutomation writes it: nothing shown yet.
     let flow: any = { state: 'drafting', round: 1, shownRounds: [] };
     const step = (event: any, draft: any, at: number) => { flow = transition(flow, event, { draft, nowMs: at }).flow; return flow; };
-    const ownerHeld = { ...clean, factCheck: { ok: false, unsupported: [{ field: 'letter', kind: 'number', token: '99' }] } };
+    // Fact warnings now self-repair. A missing posting is still a genuine
+    // owner-held review, so it continues to exercise the manual-round contract.
+    const ownerHeld = { ...clean, job: { source: 'none', title: 'Infermiera' } };
     step({ type: 'draft_ready' }, ownerHeld, T0);
     // Twice the owner asks for a new draft from her own flagged review: the number grows, while no draft has
     // reached the candidate yet.
@@ -69,6 +71,21 @@ describe('the candidate\'s three rounds are the drafts they were shown', () => {
     expect(flow.shownRounds).toHaveLength(MAX_REVIEW_ROUNDS);
     expect(rejected.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['max_rounds'] });
     expect(rejected.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'max_rounds' }]);
+  });
+
+  it('does not charge the candidate for automatic fact repairs before their first review', () => {
+    const flagged = { ...clean, factCheck: { ok: false, unsupported: [{ field: 'coverLetter', kind: 'number', token: '99' }] } };
+    let flow: any = { state: 'drafting', round: 1, shownRounds: [] };
+    for (let attempt = 1; attempt <= 2; attempt += 1) {
+      const result = transition(flow, { type: 'draft_ready' }, { draft: flagged, nowMs: T0 + attempt });
+      expect(result.flow).toMatchObject({ state: 'regenerating', round: 1, shownRounds: [], factRepairAttempts: attempt });
+      expect(result.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'fact_repair' }]);
+      flow = result.flow;
+    }
+    flow = transition(flow, { type: 'draft_ready' }, { draft: clean, nowMs: T0 + 3 }).flow;
+    expect(flow).toMatchObject({ state: 'candidate_review', round: 1, shownRounds: [1] });
+    const rejected = transition(flow, { type: 'candidate_reject', feedback: 'più breve' }, { draft: clean, nowMs: T0 + 4 });
+    expect(rejected.flow).toMatchObject({ state: 'regenerating', round: 2, shownRounds: [1] });
   });
 
   it('shows a round once: answering its questions, or coming back to it, never counts it twice', () => {

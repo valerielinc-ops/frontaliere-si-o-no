@@ -8,6 +8,7 @@
  * consents the application itself needs are ticked.
  */
 
+import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -49,7 +50,7 @@ export const PLAN_SCHEMA = OBJ({
     action: { type: 'string', enum: ['fill', 'select', 'check', 'uncheck', 'upload', 'skip'] },
     value: S,
     document: { type: 'string', enum: ['cv', 'cover_letter', ...EXTRA_DOCUMENT_SLOTS, 'none'] },
-    source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule'] },
+    source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule', 'policy_default'] },
     evidence: S,
   })),
   missingRequired: LIST(OBJ({
@@ -75,7 +76,7 @@ ${candidateRules(candidateLocale)}`;
 /** career-ops' apply rules, shared by the planner and the agentic fallback (agent.mjs). */
 export function candidateRules(candidateLocale) {
   return `- Use ONLY the candidate data given. Never invent facts, numbers, dates, employers, degrees or answers. Before marking a required field missing or asking the candidate, check all identity, profile and previous-answer data for the same fact under equivalent wording; reuse a supported answer instead of asking them to repeat CV information. Ask only when the required fact is genuinely absent or ambiguous.
-- Work permit, visa, nationality, date of birth, salary expectation, notice period, start date, availability, relocation, criminal record, disability, gender, ethnicity or any other legal or demographic question: answer only when the candidate data states it (answers or profile). Otherwise, for a demographic question (gender, ethnicity, disability) choose the "prefer not to say / keine Angabe" option when one exists; failing that, when the field is required, put it in missingRequired; when optional, skip it.
+- Work permit, visa, nationality, date of birth, salary expectation, start date, availability, relocation, criminal record, disability, gender, ethnicity or any other legal or demographic question: answer only when the candidate data states it (answers or profile). Otherwise, for a demographic question (gender, ethnicity, disability) choose the "prefer not to say / keine Angabe" option when one exists; failing that, when the field is required, put it in missingRequired; when optional, skip it.
 - Swiss work permit, work authorisation, residence status, visa or sponsorship: swissStatus.statement is the candidate's own statement of their Swiss status today (null: the candidate did not choose one; then only what profile.workPermit states). Choose the option, or write the value, that says exactly that status, never one that says more (a permit pending, to be requested or not needed); never answer whether the candidate needs a permit, a visa or sponsorship, and never infer a status from the nationality, the address or the place of birth. When no option says it, the field is missing (required) or skipped (optional).
 - Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
 - Age-threshold questions (for example, "under 26" / "meno di 26 anni"): derive the yes/no answer only from an explicit profile.dateOfBirth, calculated against today's date. If the date of birth is absent or invalid, put the required question in missingRequired; never infer age from education, dates of study, the name or the current year.
@@ -83,6 +84,7 @@ export function candidateRules(candidateLocale) {
 - Native language: an explicitly native/mother-tongue entry is sufficient. When profile.cvLanguage identifies the language the CV is written in, and the profile also lists at least one different language with an explicit level while giving no conflicting level for cvLanguage, treat cvLanguage as native/mother tongue for that language's level questions. Do not infer a native language from the CV language alone, and do not infer any other level.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given. For a date field, use a full calendar date only. Never type an ongoing or partial-period marker such as "ad oggi", "2015", "present" or "current" into a date field; leave the end blank. Do not invent an end date for an ongoing or overlapping CV entry; if the portal requires a full end date and the candidate did not state one, put it in missingRequired.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
+- Operational preferences, only when no candidate answer exists: 3 months for an unconditional notice-period question, 100% preferred workload, and Yes to contact about this application via WhatsApp. Use policy_default as source. Never infer a start date, qualification or marketing/privacy consent from these preferences. The deterministic field guard verifies the exact question and available options.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
 - Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): use answers.salutation, filled from an explicit personal statement in the CV, an answer/correction, or a clearly gendered first name in the candidate's locale. Leave it unknown for ambiguous or unfamiliar names. This rule applies only to the form of address, never to gender identity questions. Choose the equivalent option in the form's language. If no value is available, a required one is missing.
 - Marital or civil status (Marital status, Zivilstand, Stato civile, État civil): only from profile.civilStatus (the candidate's CV, in its own words) or an answer in portalQuestionsAnswered, choosing the option that means the same in the form's language. Never guess it: when the candidate data does not say, a required one is missing and an optional one is skipped.
@@ -974,7 +976,7 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
 
 /** The candidate already answered this question, including a wording/ID variant. */
 function recordedAnswerForQuestion(candidate, question, context = '', metadata = {}) {
-  const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
+  const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.source !== 'policy_default' && String(item?.answer || '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
   // too: the answer id still carries the portal question's wording as a slug.
@@ -1405,7 +1407,7 @@ export function candidateAnswerForField(candidate, field) {
     const value = field?.options?.length ? optionForAnswer(field, candidate.profile.nationality) : candidate.profile.nationality;
     if (value) return { value, source: 'profile' };
   }
-  if (topic !== 'start_date_contextual' && (AVAILABILITY_FIELD_RE.test(label) || isExactAvailableFromLabel(label))) {
+  if (!['start_date_contextual', 'notice_period'].includes(topic) && (AVAILABILITY_FIELD_RE.test(label) || isExactAvailableFromLabel(label))) {
     const availability = String(candidate?.answers?.availability || candidate?.profile?.availability || '').trim();
     const value = availability && (field?.options?.length ? optionForAnswer(field, availability) : availability);
     if (value) return { value, source: candidate?.answers?.availability ? 'answers' : 'profile' };
@@ -1456,6 +1458,8 @@ export function candidateAnswerForField(candidate, field) {
     const value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     return value ? { value, source: 'profile' } : null;
   }
+  const operational = operationalDefaultAnswer(field);
+  if (operational) return operational;
   if (topic !== 'current_school') return null;
   const institution = String(candidate?.profile?.currentEducation?.institution || '').trim();
   if (!institution) return null;
@@ -1510,7 +1514,7 @@ export function isoDates(text) {
 
 /** The candidate's data, as one lower-case text, for knownAnswer. */
 export function knownValuesOf(candidate) {
-  return candidate ? JSON.stringify([candidate.answers, candidate.profile, candidate.portalQuestionsAnswered]).toLowerCase() : null;
+  return candidate ? JSON.stringify([candidate.answers, candidate.profile, (candidate.portalQuestionsAnswered || []).filter(item => item?.source !== 'policy_default')]).toLowerCase() : null;
 }
 
 /** The answer is in the candidate's data (a date in any of its usual formats). */
@@ -1660,6 +1664,7 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
+    const fromPolicy = action.source === 'policy_default' && isOperationalDefaultValue(field, action.value);
     const fromCandidate = (addressNeedsProvenance
       ? answeredByCandidate(candidate, field.label, action.value, field.context, field)
       : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value))
@@ -1676,7 +1681,7 @@ export function guardPlan(plan, fields, candidate = null) {
         ask(field);
         continue;
       }
-    } else if ((SENSITIVE.test(field.label) || isAddressTopic) && ['fill', 'select'].includes(action.action) && !fromCandidate && !native && !declines) {
+    } else if ((SENSITIVE.test(field.label) || isAddressTopic) && ['fill', 'select'].includes(action.action) && !fromCandidate && !fromPolicy && !native && !declines) {
       ask(field);
       continue;
     }

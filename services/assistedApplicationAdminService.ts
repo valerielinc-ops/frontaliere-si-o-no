@@ -66,6 +66,7 @@ export interface AutomationSentView {
 }
 
 export interface AssistedApplicationAutomationView {
+  candidateAlias?: string | null;
   /** Employer messages received on the order alias (newest first, max 10). */
   inbox?: Array<{ receivedAt: number | null; from: string; subject: string; category: string; summaryIt: string; interviewWhen: string; forwarded: string | null }>;
   /** Follow-ups of an e-mail application (day 7 and 14). */

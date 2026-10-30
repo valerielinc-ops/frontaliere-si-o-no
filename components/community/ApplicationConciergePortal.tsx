@@ -35,6 +35,8 @@ const MATCHING_STATES = new Set(['queued', 'processing', 'running']);
 
 export interface ApplicationConciergePortalProps {
   serviceId?: string | null;
+  /** Owner-only admin snapshot; never authenticates or mutates a candidate session. */
+  previewService?: ApplicationConciergeService;
   locationSearch?: string;
   entry?: boolean;
   authUser?: any | null;
@@ -106,6 +108,7 @@ export default function ApplicationConciergePortal({
   authUser = null,
   authLoading = false,
   onRequireAuth,
+  previewService,
 }: ApplicationConciergePortalProps) {
   const { t } = useTranslation();
   const [locale] = useLocale();
@@ -113,14 +116,14 @@ export default function ApplicationConciergePortal({
     () => new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(APPLICATION_CONCIERGE_PRICE_EUR_CENTS / 100),
     [locale],
   );
-  const [service, setService] = useState<ApplicationConciergeService | null>(null);
+  const [service, setService] = useState<ApplicationConciergeService | null>(previewService || null);
   const [childReview, setChildReview] = useState<{ childId: string; token: string } | null>(null);
   const [childReviewError, setChildReviewError] = useState(false);
   const requestedChildId = new URLSearchParams(locationSearch).get('application_concierge_application_id');
   const childReviewToken = childReview?.childId === requestedChildId ? childReview.token : null;
   const childProposalId = service?.proposals.find(proposal => (proposal.status === 'accepted' || proposal.withdrawnAt) && proposal.childApplicationId === requestedChildId)?.proposalId || null;
   const [currentUser, setCurrentUser] = useState<any | null>(authUser);
-  const [loading, setLoading] = useState(Boolean(serviceId));
+  const [loading, setLoading] = useState(Boolean(serviceId) && !previewService);
   const [busy, setBusy] = useState<string | null>(null);
   const [sumUpPayment, setSumUpPayment] = useState<{
     checkoutId: string;
@@ -134,11 +137,11 @@ export default function ApplicationConciergePortal({
   const [sumUpPaymentError, setSumUpPaymentError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [location, setLocation] = useState('');
-  const [consent, setConsent] = useState(false);
+  const [name, setName] = useState(previewService?.applicantName || '');
+  const [email, setEmail] = useState(previewService?.applicantEmail || previewService?.customerEmail || '');
+  const [phone, setPhone] = useState(previewService?.applicantPhone || '');
+  const [location, setLocation] = useState(previewService?.applicantLocation || '');
+  const [consent, setConsent] = useState(previewService?.hasConsent || false);
   const [renewalConsent, setRenewalConsent] = useState(false);
   useEffect(() => { setRenewalConsent(false); }, [serviceId]);
   const conciergeViewTracked = useRef(false);
@@ -167,12 +170,13 @@ export default function ApplicationConciergePortal({
   useEffect(() => () => { cancelTelemetryHandoff.current?.(); }, [serviceId]);
 
   useEffect(() => {
-    if ((!entry && !serviceId) || authLoading || (serviceId && (loading || !service)) || conciergeViewTracked.current) return;
+    if (previewService || (!entry && !serviceId) || authLoading || (serviceId && (loading || !service)) || conciergeViewTracked.current) return;
     conciergeViewTracked.current = true;
     Analytics.trackApplicationConciergeView();
-  }, [entry, serviceId, authLoading, loading, service]);
+  }, [entry, serviceId, authLoading, loading, service, previewService]);
 
   useEffect(() => {
+    if (previewService) return;
     const nextUid = authUser?.uid || null;
     const previousUid = lastAuthUid.current || currentOwnerUid.current;
     lastAuthUid.current = nextUid;
@@ -199,22 +203,23 @@ export default function ApplicationConciergePortal({
     if (!authUser) return;
     setName((value) => value || String(authUser.displayName || ''));
     setEmail((value) => value || String(authUser.email || ''));
-  }, [authUser]);
+  }, [authUser, previewService]);
 
   useEffect(() => {
-    if (service?.paymentStatus === 'paid' && currentUser?.uid) {
+    if (!previewService && service?.paymentStatus === 'paid' && currentUser?.uid) {
       clearRequestKeyForUser(String(currentUser.uid));
     }
-  }, [currentUser?.uid, service?.paymentStatus]);
+  }, [currentUser?.uid, service?.paymentStatus, previewService]);
 
   const ensureUser = useCallback(async () => {
+    if (previewService) return null;
     if (currentUser?.getIdToken) return currentUser;
     if (serviceId) return null;
     if (authLoading) return null;
     // The checkout caller accepts this identity only after its active-context
     // and authoritative SDK checks; late auth must not overwrite a new owner.
     return ensureAssistedApplicationAuth();
-  }, [authLoading, currentUser, serviceId]);
+  }, [authLoading, currentUser, serviceId, previewService]);
 
   const loadService = useCallback(async () => {
     if (!serviceId) return null;
@@ -241,7 +246,7 @@ export default function ApplicationConciergePortal({
   }, [ensureUser, serviceId]);
 
   useEffect(() => {
-    if (!serviceId || authLoading) return undefined;
+    if (previewService || !serviceId || authLoading) return undefined;
     let cancelled = false;
     setLoading(true);
     setError(null);
@@ -258,10 +263,10 @@ export default function ApplicationConciergePortal({
       if (!cancelled) setLoading(false);
     });
     return () => { cancelled = true; };
-  }, [authLoading, authUser, loadService, serviceId, requestedChildId]);
+  }, [authLoading, authUser, loadService, serviceId, requestedChildId, previewService]);
 
   useEffect(() => {
-    if (!serviceId || !service || (!isPending(service) && !isRetryablePayment(service) && !MATCHING_STATES.has(String(service.matchingStatus || '')))) return undefined;
+    if (previewService || !serviceId || !service || (!isPending(service) && !isRetryablePayment(service) && !MATCHING_STATES.has(String(service.matchingStatus || '')))) return undefined;
     let cancelled = false;
     const timer = window.setTimeout(async function poll() {
       if (cancelled) return;
@@ -276,7 +281,7 @@ export default function ApplicationConciergePortal({
       cancelled = true;
       window.clearTimeout(timer);
     };
-  }, [loadService, service, serviceId]);
+  }, [loadService, service, serviceId, previewService]);
 
   const displayError = useMemo(() => {
     if (!error) return null;
@@ -289,15 +294,15 @@ export default function ApplicationConciergePortal({
     let cancelled = false;
     setChildReview(null);
     setChildReviewError(false);
-    if (!requestedChildId || !childProposalId || !serviceId || !currentUser?.getIdToken || authLoading) return;
+    if (previewService || !requestedChildId || !childProposalId || !serviceId || !currentUser?.getIdToken || authLoading) return;
     void openApplicationConciergeChildReview(currentUser, serviceId, childProposalId).then(token => {
       if (!cancelled) setChildReview({ childId: requestedChildId, token });
     }).catch(() => { if (!cancelled) setChildReviewError(true); });
     return () => { cancelled = true; };
-  }, [requestedChildId, childProposalId, serviceId, currentUser, authLoading]);
+  }, [requestedChildId, childProposalId, serviceId, currentUser, authLoading, previewService]);
 
   const startCheckout = useCallback(async (resumeServiceId: string | null = null, automatic = false, renewal = false) => {
-    if (checkoutInFlight.current || (renewal && (!renewalConsent || !service?.renewalOffer))) return;
+    if (previewService || checkoutInFlight.current || (renewal && (!renewalConsent || !service?.renewalOffer))) return;
     const contextVersion = checkoutContext.current.version;
     const path = window.location.pathname;
     const linkedService = new URLSearchParams(window.location.search).get('application_concierge_service_id');
@@ -404,16 +409,16 @@ export default function ApplicationConciergePortal({
         setBusy(null);
       }
     }
-  }, [email, service, serviceId, ensureUser, onRequireAuth, sumUpPayment, locale, renewalConsent, loadService]);
+  }, [email, service, serviceId, ensureUser, onRequireAuth, sumUpPayment, locale, renewalConsent, loadService, previewService]);
 
   useEffect(() => {
     const recoverable = service && (isPending(service) || isRetryablePayment(service));
-    if (!serviceId || !recoverable || loading || authLoading || autoResumedService.current === serviceId) return;
+    if (previewService || !serviceId || !recoverable || loading || authLoading || autoResumedService.current === serviceId) return;
     if (['pending', 'completed'].includes(String(service.checkoutSessionStatus || '').toLowerCase())) return;
     autoResumedService.current = serviceId;
     if (new URLSearchParams(window.location.search).get('application_concierge_payment_return') === '1') return;
     void startCheckout(serviceId, true);
-  }, [serviceId, service, loading, authLoading, startCheckout]);
+  }, [serviceId, service, loading, authLoading, startCheckout, previewService]);
 
   const handleSumUpResponse = (type: string) => {
     if (!sumUpPayment || !sumUpResponseIsActive.current?.(sumUpPayment)) return;
@@ -744,13 +749,15 @@ export default function ApplicationConciergePortal({
   const verificationPending = canVerifyMore && Number(service.matchingUnverifiedCount) > 0;
   const qualificationNeedsDetails = canVerifyMore && Number(service.matchingClarificationCount) > 0;
 
+  const PortalTitle = previewService ? 'h3' : 'h1';
+  const SectionTitle = previewService ? 'h4' : 'h2';
   return (
-    <PortalShell wide>
+    <PortalShell wide embedded={Boolean(previewService)}>
       <div className="space-y-6">
         <header className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{t('jobBoard.concierge.eyebrow')}</p>
-            <h1 className="mt-1 text-3xl font-bold tracking-[-0.025em] font-display text-heading">{t('jobBoard.concierge.portalTitle')}</h1>
+            <PortalTitle className="mt-1 text-3xl font-bold tracking-[-0.025em] font-display text-heading">{t('jobBoard.concierge.portalTitle')}</PortalTitle>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-subtle">{t('jobBoard.concierge.portalIntro')}</p>
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-accent-border bg-accent-subtle/60 px-4 py-3">
@@ -806,7 +813,7 @@ export default function ApplicationConciergePortal({
         {expired && service.renewalOffer && (
           <section className="rounded-2xl border border-accent bg-accent-subtle p-5" aria-labelledby="concierge-renewal-title">
             <p className="text-xs font-bold uppercase tracking-wider text-accent">{t('jobBoard.concierge.renewalEyebrow')}</p>
-            <h2 id="concierge-renewal-title" className="mt-2 text-2xl font-bold font-display text-heading">{t('jobBoard.concierge.renewalTitle')}</h2>
+            <SectionTitle id="concierge-renewal-title" className="mt-2 text-2xl font-bold font-display text-heading">{t('jobBoard.concierge.renewalTitle')}</SectionTitle>
             <p className="mt-2 text-sm leading-6 text-subtle">{t('jobBoard.concierge.renewalBody')}</p>
             <p className="mt-4 text-3xl font-extrabold text-heading">
               {new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(service.renewalOffer.amountTotal / 100)}
@@ -828,10 +835,10 @@ export default function ApplicationConciergePortal({
         {!pending && service.paymentStatus === 'paid' && (
           <>
             <div className="grid gap-5 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)]">
-              <section className="rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-profile-title">
+              <section className="min-w-0 rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-profile-title">
                 <div className="flex items-start gap-3">
                   <div className="rounded-xl bg-accent-subtle p-2.5 text-accent"><ShieldCheck size={20} aria-hidden="true" /></div>
-                  <div><h2 id="concierge-profile-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.profileTitle')}</h2><p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.profileIntro')}</p></div>
+                  <div><SectionTitle id="concierge-profile-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.profileTitle')}</SectionTitle><p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.profileIntro')}</p></div>
                 </div>
                 <form className="mt-5 space-y-4" onSubmit={(event) => { event.preventDefault(); void handleSaveProfile(); }}>
                   <div className="grid gap-4 sm:grid-cols-2">
@@ -870,8 +877,8 @@ export default function ApplicationConciergePortal({
                 </div>
               </section>
 
-              <section className="rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-proposals-title">
-                <div className="flex items-start justify-between gap-3"><div><h2 id="concierge-proposals-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.proposalsTitle')}</h2><p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.proposalsIntro')}</p></div><span className="shrink-0 rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-muted">{service.acceptedPositionsCount}/{service.maxPositions}</span></div>
+              <section className="min-w-0 rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-proposals-title">
+                <div className="flex items-start justify-between gap-3"><div><SectionTitle id="concierge-proposals-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.proposalsTitle')}</SectionTitle><p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.proposalsIntro')}</p></div><span className="shrink-0 rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-muted">{service.acceptedPositionsCount}/{service.maxPositions}</span></div>
                 {matchingActive && <div className="mt-5 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status"><div className="flex items-center gap-2 text-sm font-semibold text-info"><Loader2 size={16} className="animate-spin" aria-hidden="true" />{t('jobBoard.concierge.matchingRunning')}</div><p className="mt-1 text-xs leading-5 text-body">{t('jobBoard.concierge.matchingRunningHint')}</p><div className="mt-4 space-y-2" aria-hidden="true"><div className="h-16 animate-pulse rounded-lg bg-surface" /><div className="h-16 animate-pulse rounded-lg bg-surface" /></div></div>}
                 {matchingNeedsReview && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.matchingNeedsReview')} /></div>}
                 {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
@@ -892,7 +899,8 @@ export default function ApplicationConciergePortal({
   );
 }
 
-function PortalShell({ children, wide = false }: { children: ReactNode; wide?: boolean }) {
+function PortalShell({ children, wide = false, embedded = false }: { children: ReactNode; wide?: boolean; embedded?: boolean }) {
+  if (embedded) return <div className={`${REPLAY_PRIVATE_CLASS} min-w-0`} {...REPLAY_PRIVATE_ATTRS}>{children}</div>;
   return <main className={`${REPLAY_PRIVATE_CLASS} mx-auto ${wide ? 'max-w-5xl' : 'max-w-3xl'} px-4 py-8 sm:py-12`} {...REPLAY_PRIVATE_ATTRS}><section className="rounded-3xl border border-edge bg-surface p-5 shadow-sm sm:p-8">{children}</section></main>;
 }
 
@@ -967,10 +975,12 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     : state === 'owner_takeover' || state === 'owner_review' ? 'childProcessing'
     : 'childPreparing';
   return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border">
-    <div className="flex items-start gap-3">
+    <div className="flex flex-wrap items-start gap-3">
+      <div className="flex min-w-0 flex-1 basis-48 items-start gap-3">
       <div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div>
-      <div className="min-w-0 flex-1"><h3 className="font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>
+      <div className="min-w-0 flex-1"><h3 className="break-words font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>
         {proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div>
+      </div>
       <span className={`max-w-[45%] shrink-0 rounded-full px-2 py-1 text-center text-xs font-bold ${statusTone}`}>{t(`jobBoard.concierge.proposalStatus.${displayStatus}`)}</span>
     </div>
     {proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}

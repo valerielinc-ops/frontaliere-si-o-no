@@ -19,6 +19,7 @@ const {
   parseAutomationFlag,
   runAutomationSweep,
   reconcilePortalRetrySchedule,
+  reconcileFactRepairSchedule,
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
 const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationFlow.js');
@@ -586,6 +587,48 @@ describe('sweep', () => {
     expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 + 2 * RUN_WATCHDOG_MS })).toMatchObject({ timedOut: 1 });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'owner_takeover', heldBy: ['draft_failed'] });
     expect(effects.at(-1)).toMatchObject({ type: 'email', kind: 'owner_takeover', reason: 'runner_timeout' });
+  });
+
+  it.each(['owner_review', 'owner_takeover'])('recovers a legacy %s fact hold through the existing sweep without an owner confirmation', async state => {
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
+      state, round: 1, shownRounds: [1], heldBy: ['fact_check_not_acknowledged'], answers: {},
+    });
+    expect(await reconcileFactRepairSchedule({ db: store.db, orderId: ORDER })).toEqual({ changed: true });
+    expect(store.read(ORDER_PATH)?.automationDueAt).toBeUndefined();
+    expect(await reconcileFactRepairSchedule({ db: store.db, orderId: ORDER, apply: true })).toEqual({ changed: true });
+    expect(store.read(ORDER_PATH)?.automationDueAt).toBe(1);
+    await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'regenerating', round: 2, factRepairAttempts: 1 });
+    expect(effects).toContainEqual({ type: 'dispatch', mode: 'draft', reason: 'fact_repair' });
+    expect(effects.some(effect => effect.kind === 'owner_takeover')).toBe(false);
+  });
+
+  it.each(['repair_facts', 'tick'])('rechecks a scheduled %s recovery after the order is refunded', async type => {
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ state: 'owner_review', round: 1, heldBy: ['fact_check'] });
+    await reconcileFactRepairSchedule({ db: store.db, orderId: ORDER, apply: true });
+    await store.db.collection('assisted_applications').doc(ORDER).set({ paymentStatus: 'refunded', submissionStatus: 'refunded' }, { merge: true });
+    expect(await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type }, runEffect, nowMs: T0 })).toMatchObject({ ok: false, ignored: 'not_paid' });
+    expect(store.read(ORDER_PATH)?.automationDueAt).toBeNull();
+    expect(store.read(`${ORDER_PATH}/automation/flow`)?.state).toBe('owner_review');
+    expect(effects).toEqual([]);
+  });
+
+  it('does not send a repaired draft to the candidate after a refund begins during generation', async () => {
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ state: 'regenerating', round: 1, factRepairAttempts: 1 });
+    await store.db.collection('assisted_applications').doc(ORDER).set({ refundStatus: 'pending' }, { merge: true });
+    expect(await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 })).toMatchObject({ ok: false, ignored: 'refund_in_progress' });
+    expect(effects).toEqual([]);
+  });
+
+  it('does not reconcile fact holds on closed or unpaid orders', async () => {
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ state: 'owner_review', round: 1, heldBy: ['fact_check'] });
+    for (const patch of [{ submissionStatus: 'submitted' }, { submissionStatus: 'ready_for_manual_submission', paymentStatus: 'pending' }, { paymentStatus: 'paid', refundStatus: 'pending' }]) {
+      await store.db.collection('assisted_applications').doc(ORDER).set(patch, { merge: true });
+      expect(await reconcileFactRepairSchedule({ db: store.db, orderId: ORDER, apply: true })).toEqual({ changed: false });
+    }
   });
 
   it.each(['portal_needs_candidate', 'captcha_provider_unavailable'])('automatically retries an approved %s handoff when its backoff expires', async (reason) => {
