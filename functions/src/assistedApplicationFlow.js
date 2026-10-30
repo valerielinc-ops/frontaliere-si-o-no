@@ -27,6 +27,7 @@
  * Keeping it free of I/O is what makes every edge of the diagram testable.
  */
 
+import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { isAutoRetryablePortalHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import {
@@ -106,7 +107,7 @@ export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed']
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
 const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
-const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
+const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged', 'repair_facts']);
 // The submit_failed errors of a send that may have reached the employer (never retried).
 // portal_antibot_ambiguous: the same unknown outcome, on a portal with an invisible reCAPTCHA.
 const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
@@ -156,8 +157,10 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
   // career-ops Block G "Suspicious": the owner looks at the posting first.
   if (draft?.legitimacy?.tier === 'suspicious' && !acknowledged('legitimacy')) owner.push('legitimacy');
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
-  const candidate = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers)
-    .filter((question) => question.required && !String(candidateAnswers?.[question.id] ?? '').trim())
+  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers);
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
+  const candidate = questions
+    .filter((question) => question.required && !String(projected?.[question.id] ?? '').trim())
     .map((question) => question.id);
   // A required document (school reports, a test result…) the candidate has not given yet.
   return { owner, candidate, documents: openRequiredDocuments(draft, documents) };
@@ -216,6 +219,7 @@ function base(flow) {
     postingExpiredAt: Number(flow?.postingExpiredAt) || null,
     portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
     portalAutoRetryCount: Number(flow?.portalAutoRetryCount) || 0,
+    factRepairAttempts: Number(flow?.factRepairAttempts) || 0,
   };
 }
 
@@ -284,6 +288,27 @@ export function roundWasSent(flow, round = Number(flow?.round) || 1) {
 }
 
 /** The round's draft is written again, in the same round. */
+/** Only generated-text fact holds can be recovered without an operator's judgement. */
+export function needsFactRepair(flow) {
+  return ['owner_review', 'owner_takeover'].includes(flow?.state)
+    && (flow.heldBy || []).some((held) => ['fact_check', 'fact_check_not_acknowledged'].includes(held));
+}
+
+function enterFactRepair(next, current) {
+  if (current.factRepairAttempts >= MAX_RUN_ATTEMPTS) {
+    next.state = 'owner_takeover';
+    next.heldBy = ['fact_repair_failed'];
+    next.deadlineAt = null;
+    next.reminderAt = null;
+    return [{ type: 'email', kind: 'owner_takeover', reason: 'fact_repair_failed', stage: 'draft', attempts: current.factRepairAttempts }];
+  }
+  next.factRepairAttempts = current.factRepairAttempts + 1;
+  // Changed documents must be shown again; an approval of an old draft never
+  // authorises the repaired one. Unseen drafts keep their current round.
+  if (current.shownRounds.includes(current.round)) next.round = current.round + 1;
+  return redraftSameRound(next, 'fact_repair');
+}
+
 function redraftSameRound(next, reason) {
   next.state = 'regenerating';
   next.deadlineAt = null;
@@ -380,14 +405,14 @@ function knownAnswerForQuestion(question, { draft, answers, questionAnswers }) {
   const portalAnswer = portalAnswerForQuestion(question, draft);
   if (hasAnswer(portalAnswer)) return portalAnswer;
   const key = candidateQuestionAnswerKey(question);
-  if (!key) return undefined;
+  if (!key) return operationalDefaultAnswer(question)?.value;
   const remembered = candidateAnswersForQuestions([question], {}, questionAnswers);
   if (hasAnswer(remembered?.[question.id])) return remembered[question.id];
   for (const current of Array.isArray(draft?.questions) ? draft.questions : []) {
     if (candidateQuestionAnswerKey(current) !== key) continue;
     if (hasAnswer(projected?.[current.id])) return projected[current.id];
   }
-  return undefined;
+  return operationalDefaultAnswer(question)?.value;
 }
 
 function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
@@ -433,6 +458,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // review remains a hard gate for fact, channel, legitimacy and posting
       // flags, but a normal CV must not wait for an owner acknowledgement just
       // to start the candidate's own review clock (ownerless automation).
+      if (flags.owner.includes('fact_check')) {
+        effects = enterFactRepair(next, current);
+        break;
+      }
       effects = flags.owner.length ? enterOwnerReview(next, flags, nowMs) : enterCandidateReview(next, flags, nowMs);
       break;
     case 'draft_failed': {
@@ -449,6 +478,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       effects = [takeoverEmail(flow, event, 'draft')];
       break;
     }
+    case 'repair_facts':
+      if (!needsFactRepair(current) || roundDraftMissing(current, draft)) return ignore('not_fact_held');
+      effects = enterFactRepair(next, current);
+      break;
     case 'owner_approve':
       if (state !== 'owner_review') return ignore('not_owner_review');
       // Every owner flag needs its explicit acknowledgement (written to the
@@ -486,6 +519,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       effects = enterOwnerReview(next, { owner: [], candidate: flags.candidate, documents: flags.documents }, nowMs);
       break;
     case 'tick': {
+      if (needsFactRepair(current)) {
+        effects = enterFactRepair(next, current);
+        break;
+      }
       const deadline = current.deadlineAt || 0;
       const reminder = current.reminderAt || 0;
       // The ad closed while the candidate is awaited (the caller looks before it reminds them:
@@ -514,6 +551,18 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         && candidateHolds(flags).length === 0
       ) {
         effects = enterCandidateReview(next, flags, nowMs, { resend: false });
+        break;
+      }
+      // An already approved round held only by obsolete/missing operational
+      // answers can resume on a normal tick. Never release unknown holds,
+      // missing documents, owner flags or a known closed posting.
+      if (state === 'needs_candidate_action' && !event.postingExpired && !current.postingExpiredAt
+        && current.heldBy.length > 0
+        && current.heldBy.every(held => String(held).startsWith('question:')
+          && (draft?.questions || []).some(question => question.id === String(held).slice(9)))
+        && flags.owner.length === 0 && candidateHolds(flags).length === 0
+        && roundWasSent(flow, current.round)) {
+        effects = enterSubmitting(next, 'resolved_candidate_answers');
         break;
       }
       if (waitsForCandidate(current) && reminder && nowMs >= reminder) {
@@ -692,6 +741,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     }
     case 'submit_succeeded':
       if (state !== 'submitting') return ignore('not_submitting');
+      next.factRepairAttempts = 0;
       next.state = 'submitted';
       effects = [{ type: 'mark_submitted' }];
       break;
@@ -733,14 +783,15 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
         break;
       }
-      const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {
-        const question = detailsById.get(id) || { id };
-        return hasAnswer(knownAnswerForQuestion(question, {
+      const unresolvedQuestions = questionIds.filter((id) => {
+        const question = detailsById.get(id) || (draft?.questions || []).find(item => item.id === id) || { id };
+        return !hasAnswer(knownAnswerForQuestion(question, {
           draft,
           answers,
           questionAnswers: flow?.questionAnswers || {},
         }));
       });
+      const answersAlreadyExist = questionIds.length > 0 && unresolvedQuestions.length === 0;
       // A portal can report a validation step as a candidate question even
       // after the runner filled it from an answer already saved in the flow.
       // Retry once without sending an unnecessary candidate-action notice;
@@ -770,7 +821,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       }
       next.state = 'needs_candidate_action';
       next.heldBy = [
-        ...questionIds.map((id) => `question:${id}`),
+        ...unresolvedQuestions.map((id) => `question:${id}`),
         ...eventDocuments.map((id) => `document:${id}`),
       ];
       next.heldSince = null;
@@ -780,6 +831,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     }
     case 'submit_failed': {
       if (state !== 'submitting') return ignore('not_submitting');
+      if (event.error === 'fact_check_not_acknowledged') {
+        effects = enterFactRepair(next, current);
+        break;
+      }
       // Safe to run again: the submission guard (scripts/assisted-application/
       // lib/submit.mjs) replays an application already sent, and one that may
       // have left (after the final click, or an e-mail of unknown outcome)

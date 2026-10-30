@@ -50,7 +50,7 @@ describe('next step of an assisted-application order', () => {
   it('is the owner\'s move: a draft to review, an order she took over, a send the extension completes', () => {
     expect(step({ state: 'owner_review', deadlineAt: NOW + HOUR })).toMatchObject({ group: 'owner', code: 'review', label: 'Bozza da rivedere' });
     const heldReview = step({ state: 'owner_review', heldBy: ['fact_check'] });
-    expect(heldReview).toMatchObject({ group: 'owner', code: 'review_held' });
+    expect(heldReview).toMatchObject({ group: 'robot', code: 'repair_facts' });
     // #11026: a profile that is not a full match holds nothing any more, so it is no warning to confirm.
     expect(heldReview.detail).not.toContain('requisito mancante');
     // Rolex: taken over to ask for the documents the posting requires.
@@ -117,10 +117,10 @@ describe('next step of an assisted-application order', () => {
   // would stop on the same facts: the owner confirms them (or corrects the texts) first.
   it('says how to release a send the fact gate stopped', () => {
     const stopped = step({ state: 'owner_takeover', heldBy: ['fact_check_not_acknowledged'] });
-    expect(stopped).toMatchObject({ group: 'owner', code: 'confirm_facts', label: 'Conferma i fatti e riprova' });
-    expect(stopped.detail).toContain('si è fermato prima di partire');
-    expect(stopped.detail).toContain('«Ho verificato»');
-    expect(stopped.detail).toContain('«Riprova l’invio automatico»');
+    expect(stopped).toMatchObject({ group: 'robot', code: 'repair_facts', label: 'Correzione automatica dei testi' });
+    expect(stopped.detail).toContain('ha fermato l’invio prima che partisse');
+    expect(stopped.detail).toContain('riscrive i passaggi non verificati');
+    expect(stopped.detail).toContain('non serve controllare i fatti a mano');
     // Any other failed send keeps the generic move.
     expect(step({ state: 'owner_takeover', heldBy: ['email_failed'] })).toMatchObject({ group: 'owner', code: 'retry_or_complete' });
   });

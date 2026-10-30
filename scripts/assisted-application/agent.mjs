@@ -30,6 +30,7 @@ import { scheduleFollowups } from '../../functions/src/assistedApplicationFollow
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
+import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
@@ -199,6 +200,11 @@ async function main() {
     || (mode === 'draft' && !DRAFT_STATES.has(flow.state))
     || (mode === 'submit' && flow.state !== 'submitting')) {
     summary(`mode=${mode} round=${round} skipped: flow is ${flow.state} round ${flow.round}`);
+    return;
+  }
+
+  if (Number(flow.factRepairAttempts) > 0 && !automationEligibility(order, orderId).eligible) {
+    summary(`mode=${mode} round=${round} skipped: fact recovery order is no longer eligible`);
     return;
   }
 

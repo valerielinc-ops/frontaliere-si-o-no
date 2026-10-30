@@ -531,7 +531,8 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
         const no = targetEmployerNoOption(field, candidate);
         return no ? { value: no.label, source: 'rule' } : null;
       })();
-    if (answer?.value) out[question.id] = answer.value;
+    // Policy defaults belong to live form filling, never to confirmed CV facts.
+    if (answer?.value && answer.source !== 'policy_default') out[question.id] = answer.value;
   }
   return out;
 }

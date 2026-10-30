@@ -29,7 +29,7 @@ import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
-import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
+import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
@@ -140,9 +140,26 @@ export function automationEligibility(order, orderId) {
   return { eligible: true, reason: null };
 }
 
+/** Backfill old fact-held orders into the normal scheduled recovery, without dispatching here. */
+export async function reconcileFactRepairSchedule({ db, orderId, apply = false }) {
+  return db.runTransaction(async (transaction) => {
+    const orderRef = orderRefFor(db, orderId);
+    const [orderSnapshot, flowSnapshot] = await Promise.all([
+      transaction.get(orderRef), transaction.get(flowRefFor(db, orderId)),
+    ]);
+    const order = orderSnapshot.data() || {};
+    const flow = flowSnapshot.data() || {};
+    if (order.paymentStatus !== 'paid' || !STARTABLE_STATUSES.has(order.submissionStatus)
+      || order.refundStatus === 'pending' || !needsFactRepair(flow) || order.automationDueAt === 1) return { changed: false };
+    if (apply) transaction.set(orderRef, { automationDueAt: 1 }, { merge: true });
+    return { changed: true };
+  });
+}
+
 /** Next moment the sweep must look at this flow (clock, reminder or watchdog). */
 export function computeDueAt(flow) {
   if (!flow) return null;
+  if (needsFactRepair(flow)) return 1;
   if (flow.state === 'owner_takeover') {
     return portalRetryDueAt(flow);
   }
@@ -267,6 +284,19 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       return;
     }
     const result = transition(flowForTransition, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    // Recovery can be scheduled before a refund or a manual closure. The
+    // order read in this transaction is authoritative for starting and
+    // continuing a fact-repair chain, including its candidate-review emails.
+    const startsFactRepair = result.effects.some((effect) => effect.type === 'dispatch' && effect.reason === 'fact_repair');
+    const continuesFactRepair = Number(flow.factRepairAttempts) > 0
+      && !['submit_succeeded', 'submit_acknowledged', 'owner_takeover'].includes(event.type);
+    const eligibility = automationEligibility(orderSnapshot.data() || {}, orderId);
+    if ((startsFactRepair || continuesFactRepair) && !eligibility.eligible) {
+      claim(`ignored:${eligibility.reason}`);
+      transaction.set(orderRef, { automationDueAt: null }, { merge: true });
+      outcome = { ok: false, ignored: eligibility.reason, state: flow.state };
+      return;
+    }
     if (result.ignored) {
       claim(`ignored:${result.ignored}`);
       outcome = { ok: false, ignored: result.ignored, state: flow.state };
@@ -520,7 +550,7 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
     .where('automationDueAt', '<=', nowMs)
     .limit(SWEEP_BATCH)
     .get();
-  const summary = { ticks: 0, redispatched: 0, portalRetries: 0, timedOut: 0, ignored: 0, failed: 0, refunds: 0 };
+  const summary = { ticks: 0, redispatched: 0, portalRetries: 0, factRepairs: 0, timedOut: 0, ignored: 0, failed: 0, refunds: 0 };
   // Automatic refunds that failed (closed ad): retried until they go through
   // or the effect gives up and alerts the owner.
   const refunds = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
@@ -555,12 +585,15 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
         const result = await applyAutomationEvent({
           db,
           orderId: doc.id,
-          event: { type: 'portal_auto_retry' },
-          actor: 'portal-recovery',
+          event: { type: needsFactRepair(flow) ? 'repair_facts' : 'portal_auto_retry' },
+          actor: needsFactRepair(flow) ? 'fact-recovery' : 'portal-recovery',
           runEffect,
           nowMs,
         });
-        if (result.ok) summary.portalRetries += 1;
+        if (result.ok) {
+          if (needsFactRepair(flow)) summary.factRepairs += 1;
+          else summary.portalRetries += 1;
+        }
         else {
           summary.ignored += 1;
           const latest = await flowRefFor(db, doc.id).get();
