@@ -2,8 +2,9 @@
  * npx tsx scripts/ci/export-third-party-shell-assets.ts > third-party-shell-assets.json
  */
 import { createHash } from 'node:crypto';
-import { readFileSync, realpathSync } from 'node:fs';
-import { fileURLToPath, URL as NodeURL } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { URL as NodeURL } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import {
  ADSENSE_LOADER_CONTENT, ADSENSE_LOADER_VERSIONED_FILENAME,
  PARTNERIZE_TAG_CONTENT, PARTNERIZE_TAG_VERSIONED_FILENAME,
@@ -23,6 +24,6 @@ export function thirdPartyShellAssetSnapshot() {
  };
 }
 
-if (process.argv[1] && realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
  console.log(JSON.stringify(thirdPartyShellAssetSnapshot(), null, 2));
 }

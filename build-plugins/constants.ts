@@ -63,9 +63,10 @@ import {
 // module scope is inert under Node.
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED, ADS_CONSENT_CHANGE_EVENT } from '../services/adsConsent';
 import { AD_PAGE_TEMPLATE_INLINE_FN } from '../services/adPageTemplate';
-import { isManualSlot } from '../services/adSlotKinds';
-import { observeManualAd } from '../services/manualAdLifecycle';
-import { createStaticAdSlotEligibility } from '../services/staticAdSlotEligibility';
+import '../services/adSlotKinds';
+import '../services/manualAdLifecycle';
+import '../services/staticAdSlotEligibility';
+import { serializeStaticFunction } from './shared/serializeStaticFunction';
 import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '../services/adsenseSlots';
 import { BENIGN_MESSAGES, THIRD_PARTY_STACK_ORIGINS } from '../services/posthog-error-filter';
 import {
@@ -954,8 +955,8 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
 /** Manual slot state is shared with the SPA. A response deadline marks a
  * pending request; only explicit no-fill/script failures collapse, offscreen.
  * The static carrier consumes the same function over HTTP on corpus pages. */
-const STATIC_AD_COLLAPSE_CONTENT = `var observeManualAd=(function(){function __name(fn){return fn;}return ${observeManualAd.toString()};})();
-var staticAdManual=${isManualSlot.toString()};
+const STATIC_AD_COLLAPSE_CONTENT = `var observeManualAd=${serializeStaticFunction(new NodeURL('../services/manualAdLifecycle.ts', import.meta.url), 'observeManualAd')};
+var staticAdManual=${serializeStaticFunction(new NodeURL('../services/adSlotKinds.ts', import.meta.url), 'isManualSlot')};
 var staticAdTemplate=${AD_PAGE_TEMPLATE_INLINE_FN};
 var staticAdPlacements=${JSON.stringify(STATIC_AD_UNIQUE_PLACEMENTS)};
 var staticAdWatches=new Map();
@@ -1000,7 +1001,7 @@ const AD_PAGE_DIAG_CALL = `(${AD_PAGE_DIAG_FN})(function(){return(${BOT_GATE_FN}
 /** The static shell's Google push queue selects the first eligible `<ins>` in
  * DOM order. Park manual slots until they approach the same 200px margin used
  * by the SPA so a deep link cannot spend requests on earlier offscreen units. */
-const STATIC_AD_SLOT_ELIGIBILITY_CONTENT = `var staticAdEligibility=(${createStaticAdSlotEligibility.toString()})();`;
+const STATIC_AD_SLOT_ELIGIBILITY_CONTENT = `var staticAdEligibility=(${serializeStaticFunction(new NodeURL('../services/staticAdSlotEligibility.ts', import.meta.url), 'createStaticAdSlotEligibility')})();`;
 const STATIC_AD_SLOT_REQUEST_CONTENT = `var queue=[],slotIo=null;function pushEligible(el){if(!staticAdEligibility.activate(el))return;var watch=staticAdWatch(el);try{(window.adsbygoogle=window.adsbygoogle||[]).push({});if(watch)watch.request();}catch(e){if(watch)watch.fail('push_failed');}}function stopSlotObserverWhenDrained(){if(slotIo&&staticAdEligibility.pendingCount()===0){slotIo.disconnect();slotIo=null;}}function armSlots(){if(slotIo){slotIo.disconnect();slotIo=null;}var candidates=[].slice.call(document.querySelectorAll('ins[data-ad-slot]')).filter(staticAdIsTarget);queue=staticAdEligibility.park(candidates,staticAdIsTarget);for(var q=0;q<queue.length;q++)if(queue[q].hasAttribute('data-ft-static-ad'))staticAdWatch(queue[q]);if(!queue.length)return;if(!('IntersectionObserver' in window)){for(var n=0;n<queue.length;n++)pushEligible(queue[n]);return;}slotIo=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting&&queue.indexOf(entries[i].target)!==-1)pushEligible(entries[i].target);}stopSlotObserverWhenDrained();},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}`;
 
 /**

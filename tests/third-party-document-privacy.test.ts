@@ -4,6 +4,10 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 import { URL as NodeURL } from 'node:url';
 import { TextEncoder } from 'node:util';
+import { JSDOM } from 'jsdom';
+import { createServer } from 'vite';
+import { serializeStaticFunction } from '../build-plugins/shared/serializeStaticFunction';
+import { ADS_CONSENT_STORAGE_KEY } from '../services/adsConsent';
 import { sanitizeTelemetryProperties } from '../services/analyticsUrlPrivacy.js';
 import { isSensitiveThirdPartyDocument } from '../services/thirdPartyDocumentPrivacy.js';
 import {
@@ -41,6 +45,38 @@ describe('signed-origin autonomous SDK startup', () => {
   const win = browser(clean);
   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, { referrer: '' })).toBe(false);
   expect(win.location.href).toBe(clean);
+ });
+ it('compiles the same self-contained controllers in Node and Vite SSR', async () => {
+  const server = await createServer({ configFile: false, root: process.cwd(), optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true, watch: null, hmr: false } });
+  try {
+   const ssr = await server.ssrLoadModule('/build-plugins/shared/serializeStaticFunction.ts');
+   for (const [file, name] of [['manualAdLifecycle', 'observeManualAd'], ['adSlotKinds', 'isManualSlot'], ['staticAdSlotEligibility', 'createStaticAdSlotEligibility']]) {
+    const url = new NodeURL(`../services/${file}.ts`, import.meta.url);
+    const source = serializeStaticFunction(url, name);
+    expect(ssr.serializeStaticFunction(url, name)).toBe(source);
+    expect(source).not.toContain('__name(');
+    expect(source).not.toContain('require(');
+    expect(source).not.toContain('import(');
+    expect(typeof new Function(`return ${source}`)()).toBe('function');
+   }
+   const constants = await server.ssrLoadModule('/build-plugins/constants.ts');
+   expect(constants.ADSENSE_LOADER_CONTENT).toBe(ADSENSE_LOADER_CONTENT);
+   expect(constants.PARTNERIZE_TAG_CONTENT).toBe(PARTNERIZE_TAG_CONTENT);
+  } finally { await server.close(); }
+ });
+ it('runs the full clean Ads bootstrap through eligibility and requests the SDK', () => {
+  const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: clean, runScripts: 'outside-only' });
+  try {
+   const idle: Array<() => void> = [];
+   Object.defineProperty(dom.window.navigator, 'userAgent', { value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Version/17.5 Mobile/15E148 Safari/604.1' });
+   Object.defineProperty(dom.window, 'requestIdleCallback', { value: (cb: () => void) => { idle.push(cb); return 1; } });
+   Object.defineProperty(dom.window, 'setTimeout', { value: () => 1 });
+   dom.window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted');
+   vm.runInContext(ADSENSE_LOADER_CONTENT, dom.getInternalVMContext());
+   dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
+   for (const cb of idle) cb();
+   expect(dom.window.document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]') !== null).toBe(true);
+  } finally { dom.window.close(); }
  });
  it.each([['Ads', ADSENSE_LOADER_CONTENT], ['Partnerize', PARTNERIZE_TAG_CONTENT]])('%s real bootstrap performs no work on a signed document, including retries', (_name, source) => {
   const win = browser();
