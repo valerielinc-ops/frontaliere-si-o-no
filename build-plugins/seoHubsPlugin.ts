@@ -1994,7 +1994,7 @@ export function buildThinCantonHubHtml(args: {
    *  takeaway from the numbers above. */
   advice?: string;
 }): string {
-  const { locale, hub, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp, statTiles, cta, advice } = args;
+  const { locale, hub, canton, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp, statTiles, cta, advice } = args;
   const page = args.page ?? 1;
   const totalPages = args.totalPages ?? 1;
   const h1 = cantonHubH1(locale, hub, cantonLabel, totalItems);
