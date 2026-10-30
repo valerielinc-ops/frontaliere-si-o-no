@@ -4,6 +4,15 @@ import { Readable } from 'node:stream';
 import { publicContractGet } from '../scripts/assisted-application/lib/portal/public-contract-get.mjs';
 import { readOnlyPortalContracts } from '../scripts/assisted-application/lib/portal/read-only-contracts.mjs';
 
+const browserLauncher = vi.hoisted(() => ({
+  launch: vi.fn(async () => { throw new Error('Executable does not exist'); }),
+  installingLaunch: vi.fn(async () => { throw new Error('installer must not run'); }),
+}));
+vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
+  getChromium: async () => ({ launch: browserLauncher.launch }),
+  launchChromium: browserLauncher.installingLaunch,
+}));
+
 const url = 'https://jobs.example.com/apply/';
 const resolve = vi.fn(async () => [{ address: '93.184.216.34', family: 4 }]);
 function transport(responses: Array<{ status?: number; headers?: object; body?: string }>) {
@@ -23,6 +32,14 @@ function transport(responses: Array<{ status?: number; headers?: object; body?: 
   };
   return { request, requests };
 }
+
+it('returns unknown promptly when the prepared browser is missing, without starting an installer', async () => {
+  const result = await readOnlyPortalContracts({ applyUrl: url, timeoutMs: 100,
+    get: async () => ({ status: 200, url, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form></form>') }) });
+  expect(result).toMatchObject({ complete: false, reason: 'transient_probe_failure' });
+  expect(browserLauncher.launch).toHaveBeenCalledWith({ headless: true, timeout: 100 });
+  expect(browserLauncher.installingLaunch).not.toHaveBeenCalled();
+});
 
 describe('public contract transport', () => {
   it('pins the validated address while keeping TLS bound to the original hostname', async () => {
