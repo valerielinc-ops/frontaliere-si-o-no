@@ -1,3 +1,4 @@
+import { redactEmailAddresses } from './lib/redactEmails.js';
 /**
  * emailCascade.js — Multi-provider email sending with daily quota tracking.
  *
@@ -1405,7 +1406,7 @@ async function sendViaCloudflare(email, _scheduledAt, signal) {
         cfMsg = first.message ?? '';
       }
     } catch {}
-    console.warn(`   ⚠️  [cf-send] HTTP ${res.status} code=${cfCode} message="${String(cfMsg).slice(0, 160)}"`);
+    console.warn(`   ⚠️  [cf-send] HTTP ${res.status} code=${cfCode} message="${redactEmailAddresses(String(cfMsg)).slice(0, 160)}"`);
     throw new Error(`Cloudflare ${res.status} code=${cfCode}: ${String(cfMsg || err).slice(0, 200)}`);
   }
 
@@ -1660,7 +1661,7 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal, ada
           cooldownProvider(provider.id);
         } else if (isRateLimitedError(err.message)) {
           incrementCounter(provider.id, remainingQuota(provider.id));
-          console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run: ${err.message.slice(0, 150)}`);
+          console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run: ${redactEmailAddresses(err.message).slice(0, 150)}`);
         }
         break;
       }
@@ -1830,7 +1831,7 @@ export async function sendEmailCascade(emails, opts = {}) {
             // callback did not. Keep the terminal outcome accepted while
             // exposing the persistence failure to the caller for quarantine.
             outcome.persistFailed = true;
-            console.warn(`⚠️ onSent callback failed after ${result?.provider || 'provider'} accepted the message: ${String(callbackError?.message || callbackError).slice(0, 200)}`);
+            console.warn(`⚠️ onSent callback failed after ${result?.provider || 'provider'} accepted the message: ${redactEmailAddresses(callbackError?.message || callbackError).slice(0, 200)}`);
           }
         }
       } catch (err) {
@@ -1839,7 +1840,7 @@ export async function sendEmailCascade(emails, opts = {}) {
         // instead of silently deducing failure, so callers can distinguish
         // "never sent" from "unknown, do not resend blindly".
         failed.push({ ...item, error: err.message, ambiguousDelivery: !!err.ambiguousDelivery });
-        console.warn(`❌ [${i + 1}/${emails.length}] ${item.recipient?.email}: ${err.message.slice(0, 100)}`);
+        console.warn(`❌ [${i + 1}/${emails.length}] destinatario: ${redactEmailAddresses(err.message).slice(0, 100)}`);
       }
     }
   };
