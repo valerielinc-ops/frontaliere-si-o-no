@@ -344,7 +344,8 @@ describe('approval flow', () => {
     expect(missing.effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
 
     const document = transition(submitting, { ...question, documents: ['certificate'] }, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
-    expect(document.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:work_permit', 'document:certificate'] });
+    // The required document still blocks; an answer already provided is not asked again.
+    expect(document.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['document:certificate'] });
   });
 
   // Rolex 2026-10-02: school reports and the EVA test results go with the application.
