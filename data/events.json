@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T12:13:23.746Z",
+  "generatedAt": "2026-10-30T13:23:17.161Z",
   "totalEvents": 15771,
   "events": [
     {
@@ -326328,11 +326328,6 @@
         {
           "canton": "TI",
           "comune": "Mendrisio",
-          "slug": "bertille-bak-voci-dalla-terra-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-07-07"
         },
         {
@@ -326349,6 +326344,11 @@
           "canton": "TI",
           "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "bertille-bak-voci-dalla-terra-2026-10-29"
         },
         {
           "canton": "TI",
@@ -327046,11 +327046,6 @@
         {
           "canton": "TI",
           "comune": "Riva San Vitale",
-          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-26"
         },
         {
@@ -327062,6 +327057,11 @@
           "canton": "TI",
           "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Riva San Vitale",
+          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-10-29"
         },
         {
           "canton": "TI",
@@ -327724,11 +327724,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "corpi-in-prestito-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-09-16"
         },
         {
@@ -327745,6 +327740,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-08-21"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "corpi-in-prestito-2026-10-29"
         },
         {
           "canton": "TI",
@@ -329181,11 +329181,6 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-10-29"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
           "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-09-03"
         },
         {
@@ -329217,6 +329212,11 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-09-14"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-10-29"
         },
         {
           "canton": "GE",
@@ -329348,11 +329348,6 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-29"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-11"
         },
         {
@@ -329364,6 +329359,11 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-08-15"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-10-29"
         },
         {
           "canton": "GE",
@@ -330113,7 +330113,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il festival propone 18 appuntamenti legati ad Halloween nella regione di Genève e al Salève. L’organizzazione è affidata a Ville de Genève Agenda e il prezzo indicato è di 25 CHF.",
+      "descriptionByLocale": {
+        "it": "Il festival propone 18 appuntamenti legati ad Halloween nella regione di Genève e al Salève. L’organizzazione è affidata a Ville de Genève Agenda e il prezzo indicato è di 25 CHF.",
+        "en": "The festival brings together 18 Halloween-related events in the canton of Geneva and at Salève. It is organized by Ville de Genève Agenda, and the listed price is CHF 25.",
+        "de": "Das Festival umfasst 18 Veranstaltungen rund um Halloween im Kanton Genf und am Salève. Veranstalter ist Ville de Genève Agenda; der Preis beträgt 25 CHF.",
+        "fr": "Ce festival réunit 18 rendez-vous autour d’Halloween dans le canton de Genève et au Salève. Il est organisé par Ville de Genève Agenda et l’entrée coûte 25 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:849df99712ec40fc9d945780a580fc06",
@@ -330339,17 +330347,17 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "fra-roberto-tra-le-mura-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "fra-roberto-tra-le-mura-2026-07-07"
         },
         {
           "canton": "TI",
           "comune": "Bellinzona",
           "slug": "fra-roberto-tra-le-mura-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "fra-roberto-tra-le-mura-2026-10-29"
         },
         {
           "canton": "TI",
@@ -332915,11 +332923,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "isa-hesse-rabinovitch-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "isa-hesse-rabinovitch-2026-09-16"
         },
         {
@@ -332941,6 +332944,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "isa-hesse-rabinovitch-2026-07-03"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "isa-hesse-rabinovitch-2026-10-29"
         },
         {
           "canton": "TI",
@@ -333149,11 +333157,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "ivo-soldini-progetto-castel-grande-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "ivo-soldini-progetto-castel-grande-2026-09-15"
         },
         {
@@ -333175,6 +333178,11 @@
           "canton": "TI",
           "comune": "Bellinzona",
           "slug": "ivo-soldini-progetto-castel-grande-2026-08-23"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "ivo-soldini-progetto-castel-grande-2026-10-29"
         },
         {
           "canton": "TI",
@@ -333482,11 +333490,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "jannis-kounellis-io-sono-un-pittore-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-20"
         },
         {
@@ -333503,6 +333506,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-25-2"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-10-29"
         },
         {
           "canton": "TI",
@@ -337715,11 +337723,6 @@
       "previousRoutes": [
         {
           "canton": "TI",
-          "comune": "Savosa",
-          "slug": "popoetic-2026-10-29"
-        },
-        {
-          "canton": "TI",
           "comune": "Lugano",
           "slug": "popoetic-2026-09-10"
         },
@@ -337727,6 +337730,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "popoetic-2026-09-04"
+        },
+        {
+          "canton": "TI",
+          "comune": "Savosa",
+          "slug": "popoetic-2026-10-29"
         },
         {
           "canton": "TI",
@@ -338188,17 +338196,17 @@
         {
           "canton": "TI",
           "comune": "__other-events__",
-          "slug": "radici-mostra-temporanea-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "__other-events__",
           "slug": "radici-mostra-temporanea-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "__other-events__",
           "slug": "radici-mostra-temporanea-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "radici-mostra-temporanea-2026-10-29"
         },
         {
           "canton": "TI",
@@ -339634,11 +339642,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "sentimento-e-osservazione-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-16"
         },
         {
@@ -339665,6 +339668,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-10-29"
         },
         {
           "canton": "TI",
@@ -341547,17 +341555,17 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-10-29"
         },
         {
           "canton": "TI",
@@ -341728,11 +341736,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "umberto-boccioni-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "umberto-boccioni-2026-09-15"
         },
         {
@@ -341744,6 +341747,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "umberto-boccioni-2026-08-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-10-29"
         },
         {
           "canton": "TI",
@@ -341964,11 +341972,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "uomo-e-ambiente-il-distruttore-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-25"
         },
         {
@@ -341980,6 +341983,11 @@
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "uomo-e-ambiente-il-distruttore-2026-10-29"
         },
         {
           "canton": "TI",
@@ -342279,17 +342287,17 @@
         {
           "canton": "TI",
           "comune": "Locarno",
-          "slug": "videokunst-ch-palacinema-2026-10-29"
-        },
-        {
-          "canton": "TI",
-          "comune": "Locarno",
           "slug": "videokunst-ch-palacinema-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "locarno",
           "slug": "videokunst-ch-palacinema-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "videokunst-ch-palacinema-2026-10-29"
         },
         {
           "canton": "TI",
@@ -342482,12 +342490,12 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "visite-guidee-pour-petits-grands-2026-10-28"
+          "slug": "visite-guidee-pour-petits-grands-2026-09-25"
         },
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "visite-guidee-pour-petits-grands-2026-09-25"
+          "slug": "visite-guidee-pour-petits-grands-2026-10-28"
         },
         {
           "canton": "GE",
@@ -362694,11 +362702,6 @@
       "previousRoutes": [
         {
           "canton": "TI",
-          "comune": "Caslano",
-          "slug": "gyotaku-tracce-di-pesci-2026-10-29"
-        },
-        {
-          "canton": "TI",
           "comune": "Lugano",
           "slug": "gyotaku-tracce-di-pesci-2026-09-06"
         },
@@ -362726,6 +362729,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "gyotaku-tracce-di-pesci-2026-07-07"
+        },
+        {
+          "canton": "TI",
+          "comune": "Caslano",
+          "slug": "gyotaku-tracce-di-pesci-2026-10-29"
         },
         {
           "canton": "TI",
@@ -718942,6 +718950,13 @@
         "Lovero"
       ],
       "sourceDescriptionHash": "53d835553fac739f209f94105625097e6ad09c18066dc80b63318435dbb7e223",
+      "previousRoutes": [
+        {
+          "canton": "GR",
+          "comune": "Brusio",
+          "slug": "saggio-di-primavera-della-scuola-di-musica-di-2027-05-23-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-musica-alpi-montagna-primavera-estate-v02.webp",
       "imageAssetId": "event-musica-alpi-montagna-primavera-estate-v02",
       "imageLicense": "CC BY 4.0",
