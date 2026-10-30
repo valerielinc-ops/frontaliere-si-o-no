@@ -532,8 +532,15 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
   // GSC/orphan-audit already prove exists for these URLs (e.g. the historical
   // `/en|de|fr/.../company|unternehmen|entreprise-*` hits in
   // `data/evidence-index.json` and `data/cf-hot-404s.json`).
-  const crawlerDir = path.join(rootDir, 'data', 'jobs', 'by-crawler');
-  if (fs.existsSync(crawlerDir)) {
+  // Route identity outlives the last active job. Archived slices are arrays,
+  // unlike the active { jobs } envelopes; they seed empty filters only and
+  // never enter loadCompanyCantonAvailability's active counts.
+  const crawlerSources = [
+    { dir: path.join(rootDir, 'data', 'jobs', 'by-crawler'), archived: false },
+    { dir: path.join(rootDir, 'data', 'jobs', 'expired', 'by-crawler'), archived: true },
+  ];
+  for (const { dir: crawlerDir, archived } of crawlerSources) {
+    if (!fs.existsSync(crawlerDir)) continue;
     // Stesso predicato di scripts/lib/crawler-slice-files.mjs: `.endsWith('.json')`
     // da solo leggeva come slice anche i companion `-locale-cache.json` e gli
     // orfani `<key>.json.cleanup-tmp.json` lasciati da un housekeeping ucciso a
@@ -544,9 +551,9 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
       if (!isSliceFile(file)) continue;
       try {
         const raw = JSON.parse(fs.readFileSync(path.join(crawlerDir, file), 'utf-8'));
-        const jobs: Array<{ company?: unknown; companyKey?: unknown }> = Array.isArray(raw?.jobs)
-          ? raw.jobs
-          : [];
+        const jobs: Array<{ company?: unknown; companyKey?: unknown }> = archived
+          ? (Array.isArray(raw) ? raw : [])
+          : (Array.isArray(raw?.jobs) ? raw.jobs : []);
         // A crawler slice is not guaranteed to be single-employer: dedicated
         // sources can retain multiple display identities for one stable key.
         // Register every valid company record; sampling the first one leaves
@@ -557,7 +564,7 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
           if (!company) continue;
           const slug = slugifyCompanyName(company);
           if (!slug) continue;
-          displayNameByItSlug.set(slug, company);
+          if (!archived || !displayNameByItSlug.has(slug)) displayNameByItSlug.set(slug, company);
           const seedSlug = (candidateSlug: string): void => {
             for (const locale of Object.keys(LOCALE_PREFIX) as Locale[]) {
               const key = `${locale}::${candidateSlug}`;
