@@ -5,7 +5,7 @@ import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/
 import { candidateAnswerForField } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 const bundle = readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8');
-const candidate = { identity: { address: { city: 'Como', country: 'Italia' } }, profile: { dateOfBirth: '1990-01-02' }, answers: [] };
+const candidate = { identity: { address: { city: 'Como', country: 'Italia' } }, profile: { dateOfBirth: '1990-01-02', nationality: 'Italia' }, answers: [] };
 
 function nativeField(html: string, reader: string, name = 'city') {
   const dom = new JSDOM(`<!doctype html><body>${html}</body>`, { url: 'https://jobs.example.test/apply/', runScripts: 'outside-only' });
@@ -56,7 +56,7 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Como', source: 'identity' });
   });
 
-  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance'])('does not answer %s with a known date of birth', (label) => {
+  it.each(['Place of birth', 'Comune di nascita', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Country of birth', 'Paese di nascita'])('does not answer %s with a known date of birth or nationality', (label) => {
     const field = nativeField(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" name="city"></form>`, reader);
     expect(candidateAnswerForField(candidate, field)).toBeNull();
   });
