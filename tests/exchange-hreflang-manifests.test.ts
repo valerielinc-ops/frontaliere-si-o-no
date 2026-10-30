@@ -6,7 +6,7 @@ import YAML from 'yaml';
 
 import { serializeHreflangManifest } from '../scripts/lib/hreflang-index-manifest.mjs';
 import {
-  DEFAULT_BARRIER_MS,
+  BARRIER_JOB_ELAPSED_MS,
   DEFAULT_DOWNLOAD_BUDGET_MS,
   ManifestExchangeError,
   exchangeHreflangManifests,
@@ -23,6 +23,8 @@ import {
 const REPO = 'owner/repo';
 const RUN_ID = '41088323300';
 const RUN_ATTEMPT = '1';
+const JOB_START_MS = 1_000_000;
+const MINUTE = 60_000;
 const EGRESS = Object.assign(new Error('Command failed'), { stderr: 'Egress is over the account limit.\n' });
 
 function manifestText(locale: string, runId = RUN_ID) {
@@ -72,6 +74,7 @@ describe('exchangeHreflangManifests', () => {
     runAttempt: RUN_ATTEMPT,
     buildLocale: 'fr',
     manifestDir,
+    jobStartEpoch: String(JOB_START_MS / 1000),
     now: () => clock,
     sleep: async (ms: number) => { clock += ms; },
     log: (line: string) => { logs.push(line); },
@@ -79,7 +82,7 @@ describe('exchangeHreflangManifests', () => {
 
   beforeEach(() => {
     manifestDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hreflang-exchange-'));
-    clock = 1_000_000;
+    clock = JOB_START_MS;
     logs.length = 0;
   });
   afterEach(() => {
@@ -264,17 +267,63 @@ describe('exchangeHreflangManifests', () => {
     expect(clock).toBe(start);
   });
 
-  it('times out naming the missing locale', async () => {
+  it('times out naming the missing locale, at the job deadline', async () => {
     const { gh } = fakeGh({ published: ['it', 'fr'] });
-    const start = clock;
     await expect(exchangeHreflangManifests({ ...base(), gh })).rejects.toThrow(/barrier timed out waiting for en/);
-    expect(clock - start).toBeGreaterThanOrEqual(DEFAULT_BARRIER_MS);
+    expect(clock - JOB_START_MS).toBeGreaterThanOrEqual(BARRIER_JOB_ELAPSED_MS);
+    expect(clock - JOB_START_MS).toBeLessThan(BARRIER_JOB_ELAPSED_MS + MINUTE);
+  });
+
+  it('survives the 62-minute gap between legs that killed run 41119148516', async () => {
+    // en reached the barrier 72 minutes in, it published 134 minutes in.
+    clock = JOB_START_MS + 72 * MINUTE;
+    const published = ['en', 'fr', 'de'];
+    const { gh } = fakeGh({ published });
+    await exchangeHreflangManifests({
+      ...base(),
+      gh,
+      buildLocale: 'en',
+      sleep: async (ms: number) => {
+        clock += ms;
+        if (clock >= JOB_START_MS + 134 * MINUTE && !published.includes('it')) published.push('it');
+      },
+    });
+    expect(written()).toEqual(['de.json', 'fr.json', 'it.json']);
+  });
+
+  it('anchors the wait to the job start, not to when the leg arrived', async () => {
+    clock = JOB_START_MS + BARRIER_JOB_ELAPSED_MS - 5 * MINUTE;
+    const arrived = clock;
+    const { gh } = fakeGh({ published: ['fr'] });
+    await expect(exchangeHreflangManifests({ ...base(), gh })).rejects.toThrow(/barrier timed out/);
+    expect(clock - arrived).toBeLessThan(6 * MINUTE);
+  });
+
+  it('does not list again a manifest it has already seen', async () => {
+    const published = ['it', 'en', 'fr'];
+    const { gh, calls } = fakeGh({ published });
+    let polls = 0;
+    await exchangeHreflangManifests({
+      ...base(),
+      gh,
+      sleep: async (ms: number) => {
+        clock += ms;
+        polls += 1;
+        if (polls === 5) published.push('de');
+      },
+    });
+    const listed = (locale: string) => calls.filter((args) => args[0] === 'api' && args.at(-1)?.includes(`-${locale}-`)).length;
+    expect(listed('it')).toBe(1);
+    expect(listed('en')).toBe(1);
+    expect(listed('de')).toBe(6);
   });
 
   it('refuses an unknown leg or a missing input before touching the network', async () => {
     const { gh, calls } = fakeGh();
     await expect(exchangeHreflangManifests({ ...base(), gh, buildLocale: 'es' })).rejects.toThrow(/unknown hreflang build locale: es/);
     await expect(exchangeHreflangManifests({ ...base(), gh, runId: '' })).rejects.toThrow(/missing hreflang manifest exchange input: runId/);
+    await expect(exchangeHreflangManifests({ ...base(), gh, jobStartEpoch: '' })).rejects.toThrow(/missing hreflang manifest exchange input: jobStartEpoch/);
+    await expect(exchangeHreflangManifests({ ...base(), gh, jobStartEpoch: 'soon' })).rejects.toThrow(/invalid hreflang job start epoch: soon/);
     expect(calls).toHaveLength(0);
   });
 });
@@ -325,14 +374,27 @@ describe('deploy.yml hreflang manifest exchange', () => {
     expect(byName(RETRY)['continue-on-error']).toBeUndefined();
   });
 
+  it('anchors the barrier to the first step of the leg', () => {
+    expect(byName(EXCHANGE).env?.HREFlANG_JOB_START_EPOCH).toBe('${{ env.CDN_JOB_START_EPOCH }}');
+    const start = steps.findIndex((step) => step.run?.includes('CDN_JOB_START_EPOCH=$(date +%s)'));
+    expect(start).toBe(0);
+    expect(steps[start].if).toBeUndefined();
+  });
+
+  it('keeps enough of the job after the barrier for the slowest leg', () => {
+    const jobMs = YAML.parse(raw).jobs['build-locale']['timeout-minutes'] * MINUTE;
+    const postBarrierOfItMs = 76 * MINUTE;
+    expect(BARRIER_JOB_ELAPSED_MS + DEFAULT_DOWNLOAD_BUDGET_MS + postBarrierOfItMs).toBeLessThan(jobMs);
+  });
+
   it('gives the exchange the inputs it reads and a bound above its own budgets', () => {
     const exchange = byName(EXCHANGE);
     expect(exchange.run).toContain('node scripts/ci/exchange-hreflang-manifests.mjs');
     expect(Object.keys(exchange.env ?? {})).toEqual(expect.arrayContaining([
-      'GH_TOKEN', 'GH_REPO', 'HREFlANG_BUILD_LOCALE', 'HREFlANG_RUN_ID', 'HREFlANG_RUN_ATTEMPT',
+      'GH_TOKEN', 'GH_REPO', 'HREFlANG_BUILD_LOCALE', 'HREFlANG_JOB_START_EPOCH', 'HREFlANG_RUN_ID', 'HREFlANG_RUN_ATTEMPT',
     ]));
     expect(exchange['continue-on-error']).toBeUndefined();
-    expect((exchange['timeout-minutes'] ?? 0) * 60_000).toBeGreaterThan(DEFAULT_BARRIER_MS + DEFAULT_DOWNLOAD_BUDGET_MS);
+    expect((exchange['timeout-minutes'] ?? 0) * MINUTE).toBeGreaterThan(BARRIER_JOB_ELAPSED_MS + DEFAULT_DOWNLOAD_BUDGET_MS);
   });
 
   it('lets the leg read artifacts with the job token', () => {
