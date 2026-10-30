@@ -1,4 +1,4 @@
-import { candidateAnswerFact, candidateFactIdentity, candidateQuestionFact } from './lib/candidateAnswerFacts.js';
+import { candidateAnswerFact, candidateFactAnswerForQuestion, candidateFactIdentity, candidateQuestionFact } from './lib/candidateAnswerFacts.js';
 import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 /**
  * What the candidate may change on the review page before approving (owner
@@ -170,7 +170,8 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
     if (!key || conflicts.has(key)) continue;
     const remembered = Object.hasOwn(memory || {}, key) ? memory[key] : undefined;
     if (Object.hasOwn(memory || {}, key) && !hasQuestionAnswer(remembered)) continue;
-    const source = currentValues.get(key)?.value ?? remembered;
+    const recorded = currentValues.get(key)?.value ?? remembered;
+    const source = candidateQuestionFact(question) ? candidateFactAnswerForQuestion(question, recorded) : recorded;
     if (hasQuestionAnswer(source) && answerFitsQuestion(source, question)) {
       result[question.id] = key === WORKLOAD_PREFERENCE_KEY && question.type === 'number'
         ? String(Number(String(source).replace('%', '').trim().replace(',', '.')))
