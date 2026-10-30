@@ -16,9 +16,9 @@ on:
   workflow_dispatch:
     inputs:
       indexing_max:
-        description: 'Max Indexing API notifications this run (default 130 of the 160/day job budget; the rest stays for deploy-triggered runs)'
+        description: 'Max Indexing API notifications this run (default 2000 of the approved 2000/day job budget; deploy-triggered runs share the same ledger)'
         required: false
-        default: '130'
+        default: '2000'
         type: string
       dry_run:
         description: 'Dry run (no issues, no Indexing API notifications)'
@@ -198,13 +198,13 @@ jobs:
 
       - name: Notify job pages to Google Indexing API
         # Always exits 0. Scheduled/dispatched: up to indexing_max. Deploy-
-        # triggered: 15, or 130 when it is the first run of the quota day.
+        # triggered: 15, or 2000 when it is the first run of the quota day.
         env:
-          INPUT_MAX: ${{ github.event_name == 'workflow_run' && '15' || inputs.indexing_max || '130' }}
+          INPUT_MAX: ${{ github.event_name == 'workflow_run' && '15' || inputs.indexing_max || '2000' }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
         run: |
           case "$INPUT_MAX" in ''|*[!0-9]*) echo "::error::indexing_max must be an integer"; exit 1 ;; esac
-          ARGS=(--max "$INPUT_MAX" --max-first-run 130 --ledger /tmp/indexing-api-jobs-ledger.json --priority-file /tmp/job-rich-missing/job-rich-missing.json)
+          ARGS=(--max "$INPUT_MAX" --max-first-run 2000 --ledger /tmp/indexing-api-jobs-ledger.json --priority-file /tmp/job-rich-missing/job-rich-missing.json)
           if [ "$INPUT_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           node scripts/submit-google-indexing-jobs.js "${ARGS[@]}"
 
