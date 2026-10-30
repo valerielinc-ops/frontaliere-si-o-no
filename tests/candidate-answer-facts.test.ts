@@ -90,7 +90,7 @@ describe('positive typed candidate answer contracts', () => {
     const certMemory = rememberCandidateQuestionAnswers({ questions: [cert], answers: { synthetic: 'Yes' } });
     expect(candidateAnswersForQuestions([certIt], {}, certMemory)).toEqual({ cert_it: 'Sì' });
   });
-  it.each([{ context: 'This employer' }, { section: 'Dependent child' }, { autocomplete: 'other-fact' }, { source: 'policy_default' }, { applicationQuestion: 'What is your expected date of birth?' }])('refuses to erase contextual provenance: %j', metadata => {
+  it.each([{ context: 'This employer' }, { section: 'Dependent child' }, { autocomplete: 'other-fact' }, { addressContext: { section: 'Dependent', owners: ['Child'], unknown: false } }, { source: 'policy_default' }, { applicationQuestion: 'What is your expected date of birth?' }])('refuses to erase contextual provenance: %j', metadata => {
     expect(candidateQuestionFact(question('What is your date of birth?', 'date', metadata))).toBeNull();
   });
 });
