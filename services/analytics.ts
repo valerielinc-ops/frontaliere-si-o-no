@@ -1447,7 +1447,7 @@ export const Analytics = {
      return `${window.location.pathname}${query ? `?${query}` : ''}`;
     })()
    : APPLICATION_CONCIERGE_PATH;
-  logFirebaseOnly('application_concierge_checkout_click', {
+  return new Promise<void>((resolve) => logFirebaseOnly('application_concierge_checkout_click', {
    page_path: pagePath,
    page_template: 'application_concierge',
    content_group: 'jobs',
@@ -1456,7 +1456,8 @@ export const Analytics = {
    position_limit: 10,
    price_eur: 39.99,
    price_eur_cents: 3999,
-  });
+   event_callback: () => resolve(),
+  }));
  },
 
  /** Automatic recovery is distinct from a user click. */
@@ -1469,7 +1470,7 @@ export const Analytics = {
      return `${window.location.pathname}${query ? `?${query}` : ''}`;
     })()
    : APPLICATION_CONCIERGE_PATH;
-  logFirebaseOnly('application_concierge_checkout_resume', {
+  return new Promise<void>((resolve) => logFirebaseOnly('application_concierge_checkout_resume', {
    page_path: pagePath,
    page_template: 'application_concierge',
    content_group: 'jobs',
@@ -1478,7 +1479,8 @@ export const Analytics = {
    position_limit: 10,
    price_eur: 39.99,
    price_eur_cents: 3999,
-  });
+   event_callback: () => resolve(),
+  }));
  },
 
  /** A visible referral CTA; Firebase is the unsampled source of truth. */

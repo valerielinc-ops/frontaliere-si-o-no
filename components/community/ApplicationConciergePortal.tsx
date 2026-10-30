@@ -29,6 +29,7 @@ const ChildApplicationReview = lazy(() => import('@/components/community/Assiste
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 const POLL_MS = 3500;
+const CHECKOUT_TELEMETRY_HANDOFF_MS = 1000;
 const MATCHING_STATES = new Set(['queued', 'processing', 'running']);
 
 export interface ApplicationConciergePortalProps {
@@ -140,6 +141,7 @@ export default function ApplicationConciergePortal({
   const autoResumedService = useRef<string | null>(null);
   const checkoutInFlight = useRef(false);
   const mounted = useRef(true);
+  const cancelTelemetryHandoff = useRef<(() => void) | null>(null);
   const sumUpResponseIsActive = useRef<((payment: unknown) => boolean) | null>(null);
   const currentOwnerUid = useRef<string | null>(authUser?.uid || null);
   const lastAuthUid = useRef<string | null>(authUser?.uid || null);
@@ -157,6 +159,8 @@ export default function ApplicationConciergePortal({
     mounted.current = true;
     return () => { mounted.current = false; };
   }, []);
+
+  useEffect(() => () => { cancelTelemetryHandoff.current?.(); }, [serviceId, authUser?.uid]);
 
   useEffect(() => {
     if ((!entry && !serviceId) || authLoading || (serviceId && (loading || !service)) || conciergeViewTracked.current) return;
@@ -303,8 +307,9 @@ export default function ApplicationConciergePortal({
       setError('application_concierge_email_required');
       return;
     }
-    if (automatic) Analytics.trackApplicationConciergeCheckoutResume();
-    else Analytics.trackApplicationConciergeCheckoutClick();
+    const telemetryAcknowledgement = automatic
+      ? Analytics.trackApplicationConciergeCheckoutResume()
+      : Analytics.trackApplicationConciergeCheckoutClick();
     checkoutInFlight.current = true;
     setBusy('checkout');
     setError(null);
@@ -363,6 +368,22 @@ export default function ApplicationConciergePortal({
         setSumUpPaymentOpen(true);
         return;
       }
+      // Protect the existing attempt event from the full-page Stripe handoff.
+      // This is a bounded best-effort SDK acknowledgement, not an ingestion receipt.
+      await new Promise<void>((resolve) => {
+        let finished = false;
+        const finish = () => {
+          if (finished) return;
+          finished = true;
+          window.clearTimeout(timer);
+          if (cancelTelemetryHandoff.current === finish) cancelTelemetryHandoff.current = null;
+          resolve();
+        };
+        const timer = window.setTimeout(finish, CHECKOUT_TELEMETRY_HANDOFF_MS);
+        cancelTelemetryHandoff.current = finish;
+        void Promise.resolve(telemetryAcknowledgement).then(finish, finish);
+      });
+      if (!isCurrentOwner()) return;
       window.location.assign(result.url);
     } catch (checkoutError) {
       if (isActive()) {
