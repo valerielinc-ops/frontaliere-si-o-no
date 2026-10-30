@@ -170,6 +170,23 @@ export function formatJobAlertFunnelMarkdown(funnel, { date, mode, providers = [
   return out.join('\n');
 }
 
+/**
+ * Una riga per il log con i provider attivi: quante email ha accettato questo
+ * run e quanta quota resta oggi. La tabella completa sta nel Job Summary, non nel
+ * log, così il log non ripete la stessa tabella a ogni run.
+ */
+export function formatJobAlertProviderLine(providers = []) {
+  const active = providers.filter((p) => p.configured);
+  if (active.length === 0) return '';
+  const parts = active.map((p) => {
+    const quota = Number.isFinite(p.dailyLimit)
+      ? ` (residuo ${formatJobAlertCount(p.remaining)} di ${formatJobAlertCount(p.dailyLimit)})`
+      : ` (residuo ${formatJobAlertCount(p.remaining)})`;
+    return `${p.id} ${formatJobAlertCount(p.sent)} inviate${quota}`;
+  });
+  return `   📮 Provider: ${parts.join(' · ')}`;
+}
+
 /** Accoda al Job Summary. Fuori da GitHub Actions non fa nulla. */
 export function writeJobAlertStepSummary(markdown, { target = process.env.GITHUB_STEP_SUMMARY } = {}) {
   if (!target) return false;
