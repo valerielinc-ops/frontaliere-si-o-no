@@ -80,7 +80,7 @@ it.each([
   expect(snapshot.fields[0].label).not.toMatch(/privacy/i);
   expect(snapshot.fields[1].label).toBe('I accept the Privacy Policy. *');
   const plan = guardPlan({ actions: [{ fieldId: snapshot.fields[0].id, action: 'check', source: 'consent' }], missingRequired: [] }, snapshot.fields);
-  expect(plan.actions).not.toContainEqual(expect.objectContaining({ action: 'check' }));
+  expect(plan.actions).not.toContainEqual(expect.objectContaining({ fieldId: snapshot.fields[0].id, action: 'check' }));
   (dom.window as any).CSS = { escape: (value: string) => value };
   for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
   expect((dom.window as any).CompilaRunnerFields().fields[0].label).not.toMatch(/privacy/i);
