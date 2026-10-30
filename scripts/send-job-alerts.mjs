@@ -2687,7 +2687,7 @@ async function main() {
     const before = alerts.length;
     alerts = alerts.filter((a) => {
       if (!suppressedEmails.has(a.email.toLowerCase())) return true;
-      logDetail(`   🚫 soppresso — alert ${a.id} · ${a.email} · stop globale, bounce, reclamo o lista provider`);
+      logDetail(`   🚫 soppresso — alert ${a.id} · stop globale, bounce, reclamo o lista provider`);
       return false;
     });
     funnelIn.suppressed = before - alerts.length;
@@ -2715,7 +2715,7 @@ async function main() {
         });
       }
       if (consent.allowed !== true) {
-        logDetail(`   🚫 senza base di iscrizione — alert ${a.id} · ${a.email} · ${consent.reason || 'nessun consenso verificabile'}`);
+        logDetail(`   🚫 senza base di iscrizione — alert ${a.id} · ${consent.reason || 'nessun consenso verificabile'}`);
       }
       return consent.allowed === true;
     });
@@ -2731,7 +2731,7 @@ async function main() {
     const before = alerts.length;
     alerts = alerts.filter((a) => {
       if (!newsletterCooldownSet.has(a.email.toLowerCase())) return true;
-      logDetail(`   📬 rinviato (newsletter inviata da poco) — alert ${a.id} · ${a.email}`);
+      logDetail(`   📬 rinviato (newsletter inviata da poco) — alert ${a.id}`);
       return false;
     });
     funnelIn.cooldown = before - alerts.length;
@@ -2852,7 +2852,7 @@ async function main() {
     alert.cadenceManual = decision.manual;
     if (decision.decayed) {
       decayedSkipped++;
-      logDetail(`   🪦 decaduto per cadenza — alert ${alert.id} · ${alert.email}`);
+      logDetail(`   🪦 decaduto per cadenza — alert ${alert.id}`);
       return false;
     }
     if (decision.ceilingApplied && ceilingHeld[decision.tier] != null) ceilingHeld[decision.tier]++;
