@@ -1,3 +1,4 @@
+import { addressContextContract } from './lib/addressContextContract.js';
 import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 /**
  * What the candidate may change on the review page before approving (owner
@@ -126,8 +127,11 @@ export function candidateQuestionAnswerKey(question) {
   const autocomplete = normalizeQuestionValue(question?.autocomplete);
   const originalQuestion = normalizeQuestionValue(question?.applicationQuestion);
   const originalContext = originalQuestion && originalQuestion !== normalizeQuestionValue(text) ? originalQuestion : '';
+  const ownership = addressContextContract(question);
+  if (ownership === null || ownership?.unknown) return '';
+  const ownershipKey = ownership === undefined ? '' : JSON.stringify(ownership);
   const languageCodes = languageCodesIn(text);
-  if (!context && !section && !autocomplete && !originalContext && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
+  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
     const normalized = normalizeQuestionValue(text);
     const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
     const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
@@ -139,9 +143,10 @@ export function candidateQuestionAnswerKey(question) {
   }
   const normalized = normalizeQuestionValue(text);
   if (!normalized) return '';
-  if (!context && !section && !autocomplete && !originalContext && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
+  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
   const metadataContext = section || autocomplete ? `${context}\u0000${section}\u0000${autocomplete}` : context;
-  const scopedContext = originalContext ? `${metadataContext}\u0000${originalContext}` : metadataContext;
+  const originalQuestionContext = originalContext ? `${metadataContext}\u0000${originalContext}` : metadataContext;
+  const scopedContext = ownershipKey ? `${originalQuestionContext}\u0000${ownershipKey}` : originalQuestionContext;
   const type = normalizeQuestionValue(question?.type) || 'unknown';
   const options = [...new Set(optionValues(question))].sort().join('|');
   return `question_${questionHash(`${type}\u0000${scopedContext}\u0000${normalized}\u0000${options}`)}`;
