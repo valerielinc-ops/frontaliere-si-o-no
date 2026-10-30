@@ -2,7 +2,9 @@ import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
 import { ArrowLeft, Eye, Loader2, Plus, RefreshCw } from 'lucide-react';
 import { useAuth } from '@/services/authService';
+import { useTranslation } from '@/services/i18n';
 import {
+  conciergeProposalDisplayStatus,
   createApplicationConciergeProposal,
   fetchApplicationConciergeAdminData,
   type ApplicationConciergeService,
@@ -29,6 +31,7 @@ const EMPTY_FORM = { serviceId: '', jobId: '', jobUrl: '', companyId: '', compan
 
 export default function ApplicationConciergeAdmin() {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const { locationKey } = useAdminNavigation();
   const [selectedId, setSelectedId] = useState(() => new URLSearchParams(window.location.search).get('servizio') || '');
   const [preview, setPreview] = useState(() => new URLSearchParams(window.location.search).get('vista') === 'candidato');
@@ -156,10 +159,22 @@ export default function ApplicationConciergeAdmin() {
               <section aria-labelledby="concierge-proposals-title">
                 <h3 id="concierge-proposals-title" className="text-lg font-semibold text-heading">Proposte ({selected.proposals.length})</h3>
                 {selected.proposals.length === 0 ? <p className="mt-2 text-sm text-subtle">Non sono ancora state proposte posizioni a questo utente.</p> : <ul className="mt-3 divide-y divide-edge">
-                  {selected.proposals.map((proposal) => <li key={proposal.proposalId} className="flex flex-wrap items-start justify-between gap-2 py-3 text-sm">
-                    <div className="min-w-0"><p className="break-words font-semibold text-strong">{proposal.jobTitle}</p><p className="text-subtle">{proposal.companyName} · proposta il {date(proposal.proposedAt)}</p></div>
-                    <span className="text-subtle">{PROPOSAL_LABELS[proposal.status] || proposal.status}</span>
-                  </li>)}
+                  {selected.proposals.map((proposal) => {
+                    const displayStatus = conciergeProposalDisplayStatus(proposal);
+                    const employerResponse = displayStatus.startsWith('employer_');
+                    return (
+                      <li key={proposal.proposalId} className="flex flex-wrap items-start justify-between gap-2 py-3 text-sm">
+                        <div className="min-w-0"><p className="break-words font-semibold text-strong">{proposal.jobTitle}</p><p className="text-subtle">{proposal.companyName} · proposta il {date(proposal.proposedAt)}</p></div>
+                        <dl className="text-subtle">
+                          <div><dt className="inline">Decisione proposta: </dt><dd className="inline">{PROPOSAL_LABELS[proposal.status] || proposal.status}</dd></div>
+                          {displayStatus !== proposal.status && <div>
+                            <dt className="inline">{employerResponse ? 'Risposta azienda: ' : 'Candidatura: '}</dt>
+                            <dd className="inline font-semibold text-strong">{displayStatus === 'declined' ? 'Ritirata' : t(employerResponse ? `jobBoard.assisted.employerResponse.${displayStatus.slice(9)}` : `jobBoard.concierge.proposalStatus.${displayStatus}`)}</dd>
+                          </div>}
+                        </dl>
+                      </li>
+                    );
+                  })}
                 </ul>}
               </section>
               <section className="space-y-4" aria-labelledby="concierge-orders-title">
