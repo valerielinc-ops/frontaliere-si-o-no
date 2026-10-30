@@ -94,7 +94,7 @@ describe('rebaseActionForLgtmPr (#2415 rebase-thrash livelock guard)', () => {
     expect(inFlight).toBeGreaterThan(-1);
     expect(reopen).toBeGreaterThan(inFlight);
     expect(merge).toBeGreaterThan(reopen);
-    expect(processPr.slice(reopen, merge)).toContain('guardedReopen(num, head)');
+    expect(processPr.slice(reopen, merge)).toContain('guardedReopen(num, head, { reviewInput })');
     const predicate = AUTOREBASE_SOURCE.slice(
       AUTOREBASE_SOURCE.indexOf('function reviewGateRedOnFreshVerdict('),
       AUTOREBASE_SOURCE.indexOf('function readReopenBudgetBody('),
