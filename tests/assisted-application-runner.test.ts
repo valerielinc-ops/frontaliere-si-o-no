@@ -273,7 +273,7 @@ describe('draft mode', () => {
     const same = await draftWith(() => documents([backed, 'Ho 7 anni di esperienza.']));
     expect(same.draft.factRepair).toMatchObject({ before: 1, after: 0, method: 'verified_paragraphs' });
     expect(same.draft.factCheck).toMatchObject({ ok: true, unsupported: [] });
-    expect(same.draft.coverLetter.text).toContain(backed);
+    expect(same.draft.coverLetter.text).toContain('dal 2018 al 2023 ho lavorato in un reparto da 24 letti e ridotto gli errori del 15\u00a0%.');
     expect(same.draft.coverLetter.text).not.toContain('7 anni');
     const worse = await draftWith(() => documents([backed, 'Ho 7 anni di esperienza con 99 colleghi.']));
     expect(worse.draft.factCheck).toMatchObject({ ok: true, unsupported: [] });

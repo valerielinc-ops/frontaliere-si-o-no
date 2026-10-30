@@ -118,7 +118,7 @@ describe('next step of an assisted-application order', () => {
   it('says how to release a send the fact gate stopped', () => {
     const stopped = step({ state: 'owner_takeover', heldBy: ['fact_check_not_acknowledged'] });
     expect(stopped).toMatchObject({ group: 'robot', code: 'repair_facts', label: 'Correzione automatica dei testi' });
-    expect(stopped.detail).toContain('si è fermato prima di partire');
+    expect(stopped.detail).toContain('ha fermato l’invio prima che partisse');
     expect(stopped.detail).toContain('riscrive i passaggi non verificati');
     expect(stopped.detail).toContain('non serve controllare i fatti a mano');
     // Any other failed send keeps the generic move.
