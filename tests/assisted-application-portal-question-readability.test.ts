@@ -126,6 +126,14 @@ it.each([
   for (const field of filler) expect(F.answerFor(field, { identity: {}, documents: {}, answers: [] })).toBeNull();
   dom.window.close();
 });
+it('never groups unnamed radio options across separate forms under a shared named section', () => {
+  const { dom, source, bundle, filler } = allQuestionReaders('<section aria-label="I accept the Privacy Policy. *"><form><div role="radio">Yes</div></form><form><div role="radio">No</div></form></section>');
+  for (const fields of [source, bundle, filler]) {
+    expect(fields).toHaveLength(2);
+    expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  }
+  dom.window.close();
+});
 
 it('reads the owned consent legend past an empty label and resolves it without a candidate question', () => {
   const { dom, snapshot } = extract(form);
