@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { emitSeoHubs } from '../../build-plugins/seoHubsPlugin';
-import { HUB_SLUGS } from '../../build-plugins/seoHubsData';
+import { HUB_LOCALES, HUB_SLUGS, hubSlugFor } from '../../build-plugins/seoHubsData';
 import { writeAllKnownJobSlugs } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 
 describe('SEO job archive detail links', () => {
@@ -51,5 +51,16 @@ describe('SEO job archive detail links', () => {
     const html = fs.readFileSync(hubFile, 'utf8');
     expect(html).toContain(`href="${emittedPath}"`);
     expect(html).not.toContain(`href="${retiredPath}"`);
+
+    // The legacy company directory lives outside the job-board section.
+    // Its existence must not suppress the canton-local company indexes.
+    for (const locale of HUB_LOCALES) {
+      const companyPath = hubSlugFor('TI', locale, 'aziende');
+      const companyHtml = fs.readFileSync(path.join(distDir, companyPath.slice(1), 'index.html'), 'utf8');
+      expect(companyHtml).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${companyPath}">`);
+      for (const alternate of HUB_LOCALES) {
+        expect(companyHtml).toContain(`<link rel="alternate" hreflang="${alternate}" href="https://frontaliereticino.ch${hubSlugFor('TI', alternate, 'aziende')}">`);
+      }
+    }
   });
 });
