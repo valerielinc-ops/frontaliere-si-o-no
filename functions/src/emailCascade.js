@@ -1443,7 +1443,7 @@ const SEND_FNS = {
 /**
  * Send a single email via the first available provider with remaining quota.
  * @param {Object} email - Email payload (may carry an optional `scheduledAt`)
- * @param {string} [forceProvider] - If set, only use this specific provider
+ * @param {string|string[]} [forceProvider] - If set, restrict to these eligible providers
  * @returns {{ messageId: string|null, provider: string, ack: 'identified'|'unidentifiable', scheduledFor: string|null }}
  */
 /**
