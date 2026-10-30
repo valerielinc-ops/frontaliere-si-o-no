@@ -4117,21 +4117,47 @@ function issueLooksAffirmative(issue) {
   return !/\b(ma|però|tuttavia|non|manca|senza|sbagliat|errat|fals|inesatt|fuorviante|contraddic|non specifica|non conferma)\b/i.test(reason);
 }
 
+/**
+ * Normalize every factuality finding before it enters the regeneration
+ * prompt. Deterministic gates use code/message/evidence/fix, while the LLM
+ * verifier uses claim/reason/category/sourceQuote. Keeping one shape at this
+ * boundary prevents a retry path from silently dropping its correction or
+ * source evidence.
+ *
+ * `fix` is intentionally retained as an optional field: deterministic gates
+ * compute exact replacement values that are safer than category-level advice.
+ */
+function toRemediationIssue(issue = {}) {
+  return {
+    claim: String(issue.claim ?? issue.evidence ?? ''),
+    reason: String(issue.reason ?? issue.message ?? ''),
+    severity: String(issue.severity ?? ''),
+    category: String(issue.category ?? issue.code ?? ''),
+    sourceQuote: String(issue.sourceQuote ?? ''),
+    ...(issue.fix ? { fix: String(issue.fix) } : {}),
+  };
+}
+
+function normalizeRemediationIssues(issues) {
+  return Array.isArray(issues) ? issues.map(toRemediationIssue) : [];
+}
+
 function normalizeFactCheckIssues(issues, { isEvergreen = false } = {}) {
   if (!Array.isArray(issues)) return [];
   return issues.flatMap((issue) => {
     if (!issue || typeof issue !== 'object') return [];
-    const reason = String(issue.reason || '').toLowerCase();
-    if (issueLooksAffirmative(issue)) return [];
+    const normalized = toRemediationIssue(issue);
+    const reason = normalized.reason.toLowerCase();
+    if (issueLooksAffirmative(normalized)) return [];
     if (
       isEvergreen
-      && issue.severity === 'major'
+      && normalized.severity === 'major'
       && /\b(non (è|e')? presente nella fonte|non (è|e')? stato trovato nella fonte|non compare nella fonte|fonte originale)\b/i.test(reason)
       && !/\b(falso|sbagliat|errat|inesatt|inventat|inesistent|contraddic|non esist)\b/i.test(reason)
     ) {
-      return [{ ...issue, severity: 'minor' }];
+      return [{ ...normalized, severity: 'minor' }];
     }
-    return [issue];
+    return [normalized];
   });
 }
 
@@ -11064,7 +11090,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           // computed them), so the writer repairs the passage instead of
           // deleting it. Unlike the LLM verifier's issues, each of these is a
           // verified fact about the text, so the feedback cannot mislead.
-          lastFactCheckErrors = formatRemediation(gateResult.blocking);
+          lastFactCheckErrors = formatRemediation(normalizeRemediationIssues(gateResult.blocking));
           console.error(`  🔄 Rigenero contenuto IT per gate deterministici (${attempt}/${maxAttempts})...`);
           continue;
         }
@@ -11110,7 +11136,10 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           // formatRemediation() reports the overflow instead of dropping the
           // tail silently.
           const FACTCHECK_FEEDBACK_CAP = 8;
-          lastFactCheckErrors = formatRemediation(factResult.issues, { cap: FACTCHECK_FEEDBACK_CAP });
+          lastFactCheckErrors = formatRemediation(
+            normalizeRemediationIssues(factResult.issues),
+            { cap: FACTCHECK_FEEDBACK_CAP },
+          );
           console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${maxAttempts})...`);
           continue;
         }

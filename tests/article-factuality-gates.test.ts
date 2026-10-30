@@ -1662,6 +1662,24 @@ describe('stale source vs. undated source', () => {
 });
 
 describe('reviewer follow-ups (PR #4900)', () => {
+  it('keeps deterministic and LLM retry findings on one remediation contract', () => {
+    const src = readFileSync(
+      new URL('../scripts/create-article.mjs', import.meta.url),
+      'utf-8',
+    );
+
+    expect(src).toContain('function toRemediationIssue(issue = {})');
+    for (const field of ['claim', 'reason', 'severity', 'category', 'sourceQuote']) {
+      expect(src, `campo remediation mancante: ${field}`).toContain(`${field}:`);
+    }
+    expect(src).toMatch(
+      /formatRemediation\(normalizeRemediationIssues\(gateResult\.blocking\)\)/,
+    );
+    expect(src).toMatch(
+      /formatRemediation\(\s*normalizeRemediationIssues\(factResult\.issues\)/,
+    );
+  });
+
   // 🔴 Regression the reviewer caught: lastSourcePublishedAt is module-level and
   // was only set on the real-fetch branch, so a Fase-1 news source date could
   // leak into the Fase-2 evergreen article in the same process and block it as
