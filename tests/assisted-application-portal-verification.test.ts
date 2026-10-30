@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { requestPortalVerification, executePortalVerification, verificationBinding } from '../scripts/assisted-application/verify-portal.mjs';
-import { safeSigninAction, verificationTarget } from '../scripts/assisted-application/lib/portal/verify.mjs';
+import { safeSigninAction, verificationTarget, verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
 import { encryptJson } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const now = Date.now();
@@ -65,6 +65,21 @@ describe('protected read-only portal inspection', () => {
     expect(store.read(`${base}/automation/portal_verification`)).toMatchObject({ state: 'completed', conclusion: 'unknown', nonce, round: 1, version });
     expect(await executePortalVerification({ db: store.db, bucket, orderId, round: 1, nonce, version, key, nowMs: now + 20, inspect })).toMatchObject({ inspected: false });
     expect(inspect).toHaveBeenCalledTimes(1);
+  });
+
+  it('blocks service workers and alternate transports before visiting the protected page', async () => {
+    const routeWebSocket = vi.fn(async () => {});
+    const addInitScript = vi.fn(async () => {});
+    const close = vi.fn(async () => {});
+    const context = { routeWebSocket, addInitScript, close, route: vi.fn(async () => {}),
+      newPage: async () => ({ goto: async () => { throw new Error('test_stop_before_network'); } }) };
+    const newContext = vi.fn(async () => context);
+    await expect(verifyPortalApplication({ applyUrl, targetUrl, job: {}, accounts: {}, launch: async () => ({ newContext, close: async () => {} }) }))
+      .rejects.toThrow('test_stop_before_network');
+    expect(newContext).toHaveBeenCalledWith(expect.objectContaining({ serviceWorkers: 'block' }));
+    expect(routeWebSocket).toHaveBeenCalledTimes(1);
+    expect(addInitScript).toHaveBeenCalledTimes(1);
+    expect(close).toHaveBeenCalledTimes(1);
   });
 
   it('permits only the native sign-in endpoint for the sole authentication POST', () => {

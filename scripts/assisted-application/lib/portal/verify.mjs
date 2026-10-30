@@ -37,7 +37,14 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
   let context;
   const proof = { kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown' };
   try {
-    context = await browser.newContext({ viewport: { width: 1366, height: 900 }, locale: 'en-GB' });
+    context = await browser.newContext({ serviceWorkers: 'block', viewport: { width: 1366, height: 900 }, locale: 'en-GB' });
+    // No alternate application transport may bypass the HTTP route fence.
+    await context.routeWebSocket('**/*', socket => socket.close());
+    await context.addInitScript(() => {
+      for (const name of ['WebTransport', 'Worker', 'SharedWorker']) {
+        Object.defineProperty(globalThis, name, { value: undefined, configurable: false, writable: false });
+      }
+    });
     const origin = new URL(applyUrl).origin;
     let loginAction = null;
     let loginArmed = false;
