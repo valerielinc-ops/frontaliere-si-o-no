@@ -490,11 +490,22 @@ const App: React.FC = () => {
  // Version badge commit hash — fetched at runtime (services/buildInfo.ts)
  // instead of a Vite `define`. Baking it into the bundle put a fresh value in
  // the entry every build → ~100% deploy churn.
+ // Only once the footer badge is on screen: an unconditional fetch at mount made
+ // /commit-hash.txt the most requested URL of the site (698k/week, 94% from
+ // JS-rendering crawlers that never read the badge).
  const [commitHash, setCommitHash] = useState('');
+ const commitBadgeRef = useRef<HTMLAnchorElement>(null);
  useEffect(() => {
+ const badge = commitBadgeRef.current;
+ if (!badge || typeof IntersectionObserver === 'undefined') return;
  let alive = true;
+ const observer = new IntersectionObserver(([entry]) => {
+ if (!entry?.isIntersecting) return;
+ observer.disconnect();
  fetchCommitHash().then((hash) => { if (alive && hash) setCommitHash(hash); });
- return () => { alive = false; };
+ });
+ observer.observe(badge);
+ return () => { alive = false; observer.disconnect(); };
  }, []);
 
  useEffect(() => {
@@ -3622,6 +3633,7 @@ const App: React.FC = () => {
  {/* Version badge with GitHub link */}
  <div className="flex items-center justify-center mt-2 mb-2">
  <a
+ ref={commitBadgeRef}
  href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${commitHash || 'unknown'}`}
  target="_blank"
  rel="noopener noreferrer"
