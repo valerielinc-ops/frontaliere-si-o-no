@@ -48,7 +48,7 @@ const mocks = vi.hoisted(() => {
     firestore,
     db: vi.fn(() => firestore),
     getStripe: vi.fn(async () => stripe),
-    verifyCaller: vi.fn(async () => ({ uid: 'candidate-42', email: 'candidate@example.test' })),
+    verifyCaller: vi.fn(async () => ({ uid: 'candidate-42', email: 'candidate@example.test', email_verified: true })),
     applySumUpCheckout: vi.fn(async (checkout: { checkout_reference: string }) => {
       const key = 'application_concierge_services/' + checkout.checkout_reference;
       store.set(key, { ...store.get(key), paymentStatus: 'paid' });
@@ -125,7 +125,7 @@ function request(overrides: Record<string, unknown> = {}) {
 
 beforeEach(() => {
   mocks.reset();
-  mocks.verifyCaller.mockResolvedValue({ uid: 'candidate-42', email: 'candidate@example.test' });
+  mocks.verifyCaller.mockResolvedValue({ uid: 'candidate-42', email: 'candidate@example.test', email_verified: true });
   mocks.getAssistedApplicationPaymentProvider.mockResolvedValue('stripe');
   mocks.stripeCheckoutSessionsCreate.mockResolvedValue({
     id: 'cs_concierge_1',
@@ -149,6 +149,32 @@ function pendingService(provider: 'sumup' | 'stripe', overrides: Record<string, 
 }
 
 describe('application concierge checkout', () => {
+  it('uses the verified account address and ignores an email sent by the browser', async () => {
+    const base = request();
+    const result = await handleCreateApplicationConciergeCheckout(request({ body: { ...base.body, customerEmail: 'typed@example.test' } }));
+    expect(result.status).toBe(200);
+    expect(mocks.store.get(`application_concierge_services/${result.body.serviceId}`)?.customerEmail).toBe('candidate@example.test');
+  });
+
+  it.each([
+    ['an unverified account', { uid: 'candidate-42', email: 'candidate@example.test', email_verified: false }],
+    ['an anonymous session', { uid: 'candidate-42' }],
+  ])('refuses a new activation from %s, whatever the browser sends', async (_label, caller) => {
+    mocks.verifyCaller.mockResolvedValue(caller);
+    const base = request();
+    const result = await handleCreateApplicationConciergeCheckout(request({ body: { ...base.body, customerEmail: 'typed@example.test' } }));
+    expect(result).toEqual({ status: 403, body: { ok: false, error: 'application_concierge_email_not_verified' } });
+    expect(mocks.stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
+  it('lets a legacy anonymous owner finish its pending order with the stored address', async () => {
+    mocks.verifyCaller.mockResolvedValue({ uid: 'candidate-42' });
+    const pending = pendingService('stripe', { checkoutSessionStatus: 'expired', paymentStatus: 'failed', serviceStatus: 'payment_failed', customerEmail: 'stored@example.test' });
+    const result = await handleCreateApplicationConciergeCheckout(pending.request());
+    expect(result.status).toBe(200);
+    expect(mocks.store.get(pending.key)?.customerEmail).toBe('stored@example.test');
+  });
+
   it('creates a 39.99 EUR, non-renewing parent service', async () => {
     const result = await handleCreateApplicationConciergeCheckout(request());
 
@@ -548,6 +574,16 @@ describe('explicit paid concierge renewal', () => {
       renewal: true, renewalConsentVersion: 'application-concierge-v1', serviceStatus: 'awaiting_payment',
     });
     expect(mocks.store.get('application_concierge_services/original-service')?.renewedByServiceId).toBeUndefined();
+  });
+  it('renews for a legacy anonymous owner with the address stored on the paid service', async () => {
+    const renewal = source();
+    mocks.store.set('application_concierge_services/original-service', {
+      ...mocks.store.get('application_concierge_services/original-service'), customerEmail: 'stored@example.test',
+    });
+    mocks.verifyCaller.mockResolvedValue({ uid: 'candidate-42' });
+    const result = await handleCreateApplicationConciergeCheckout(renewal);
+    expect(result.status).toBe(200);
+    expect(mocks.store.get(`application_concierge_services/${result.body.serviceId}`)?.customerEmail).toBe('stored@example.test');
   });
   it.each([
     ['stripe', 3 * day - 1, 2999], ['stripe', 3 * day, 3999],

@@ -111,9 +111,12 @@ export default function SocialSignInButtons({
   const linkedInAvailable = useLinkedInSignInAvailable();
   const googleButtonRef = useRef<HTMLDivElement>(null);
 
+  // A leftover anonymous checkout session is not an account: it still has to sign in.
+  const signedIn = Boolean(user) && user.isAnonymous !== true;
+
   // Mount the GIS rendered button once, only while unauthenticated.
   useEffect(() => {
-    if (user || !mountEnabled) {
+    if (signedIn || !mountEnabled) {
       if (googleButtonRef.current) googleButtonRef.current.innerHTML = '';
       setGoogleButtonReady(false);
       return;
@@ -137,9 +140,9 @@ export default function SocialSignInButtons({
     };
     void mount();
     return () => { cancelled = true; };
-  }, [user, locale, googleWidth, errorContext, mountEnabled, onAuthIntent, attribution]);
+  }, [signedIn, locale, googleWidth, errorContext, mountEnabled, onAuthIntent, attribution]);
 
-  if (user) return null;
+  if (signedIn) return null;
 
   const fallbackSizeClasses = googleFallbackVariant === 'sm'
     ? 'min-h-[40px] px-4 py-2 text-xs'

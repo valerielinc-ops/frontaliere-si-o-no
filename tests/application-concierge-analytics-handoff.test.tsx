@@ -5,16 +5,16 @@ vi.unmock('@/services/analytics');
 vi.unmock('@/services/analyticsProxy');
 
 const mocks = vi.hoisted(() => ({
-  ensureAuth: vi.fn(), checkout: vi.fn(), fetchService: vi.fn(), logEvent: vi.fn(), auth: { currentUser: null as any },
+  checkout: vi.fn(), fetchService: vi.fn(), logEvent: vi.fn(), auth: { currentUser: null as any },
 }));
 vi.mock('@/services/i18n', () => ({ getLocale: () => 'it', useLocale: () => ['it'], useTranslation: () => ({ t: (key: string) => key }) }));
 vi.mock('@/services/firebase', () => ({ getApp: async () => ({}), getAnalytics: async () => ({}), getConfigValue: async () => '' }));
 vi.mock('firebase/analytics', () => ({ logEvent: mocks.logEvent, setUserProperties: vi.fn() }));
 vi.mock('firebase/auth', () => ({ getAuth: () => mocks.auth }));
 vi.mock('@/services/posthog', () => ({ captureEvent: vi.fn() }));
-vi.mock('@/services/authService', () => ({ signInWithCustomAuthToken: vi.fn() }));
+vi.mock('@/services/authService', () => ({ signInWithCustomAuthToken: vi.fn(), getAuthEmail: (user: any) => user?.email || null }));
+vi.mock('@/components/community/SignupPromptModal', () => ({ default: () => null, requestConciergeAccessLink: vi.fn() }));
 vi.mock('@/services/profileFirestore', () => ({ loadEnrichmentProfileFields: vi.fn() }));
-vi.mock('@/services/assistedApplicationCheckout', () => ({ ensureAssistedApplicationAuth: mocks.ensureAuth }));
 vi.mock('@/services/applicationConciergeCheckout', () => ({ createApplicationConciergeCheckout: mocks.checkout }));
 vi.mock('@/services/applicationConciergeService', () => ({
   fetchApplicationConciergeService: mocks.fetchService, recoverApplicationConciergePaymentSession: vi.fn(),
@@ -29,7 +29,7 @@ vi.mock('@/components/community/SumUpPaymentWidget', () => ({ default: () => <di
 import ApplicationConciergePortal from '@/components/community/ApplicationConciergePortal';
 // The production ErrorBoundary chunk also statically imports analytics.
 import '@/services/analytics';
-const owner = { uid: 'handoff-owner', email: 'candidate@example.test', getIdToken: async () => 'test-token' };
+const owner = { uid: 'handoff-owner', email: 'candidate@example.test', emailVerified: true, getIdToken: async () => 'test-token' };
 const service = {
   serviceId: 'service-test', paymentStatus: 'pending', serviceStatus: 'awaiting_payment',
   checkoutSessionStatus: 'open', customerEmail: owner.email, applicantLocation: 'Lugano',
@@ -94,17 +94,16 @@ describe('real concierge analytics acknowledgement before Stripe navigation', ()
   it('keeps waiting across a late initial auth notification for the same SDK owner', async () => {
     window.history.replaceState(null, '', '/automatizza-ricerca-lavoro-svizzera/');
     const assign = installRedirectRecorder();
-    mocks.auth.currentUser = null;
-    mocks.ensureAuth.mockImplementationOnce(async () => { mocks.auth.currentUser = owner; return owner; });
+    const verified = { ...owner, emailVerified: true };
+    mocks.auth.currentUser = verified;
     let finishCheckout!: (value: typeof stripeResult) => void;
     mocks.checkout.mockReturnValueOnce(new Promise((resolve) => { finishCheckout = resolve; }));
-    const view = render(<ApplicationConciergePortal entry authUser={null} />);
-    fireEvent.change(screen.getByRole('textbox', { name: /jobBoard.concierge.email/ }), { target: { value: owner.email } });
+    const view = render(<ApplicationConciergePortal entry authUser={verified} />);
     fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
     await vi.waitFor(() => expect(mocks.checkout).toHaveBeenCalledOnce());
     await vi.waitFor(() => expect(eventCalls('application_concierge_checkout_click')).toHaveLength(1));
     await act(async () => { finishCheckout(stripeResult); });
-    await act(async () => { view.rerender(<ApplicationConciergePortal entry authUser={owner} />); });
+    await act(async () => { view.rerender(<ApplicationConciergePortal entry authUser={verified} />); });
     expect(assign).not.toHaveBeenCalled();
     await act(async () => { eventCalls('application_concierge_checkout_click')[0][2].event_callback(); });
     expect(assign).not.toHaveBeenCalled();
