@@ -75,7 +75,9 @@ const COUNT_KEYS = [
   'failed', 'sent', 'ambiguous', 'retrySent', 'uniqueRecipients',
 ];
 
-export function buildJobAlertFunnel(input = {}) {
+// dryRun: nulla viene inviato, quindi `planned` sono le email che sarebbero partite
+// e il passaggio 4 (pianificate − fallite = inviate) non si applica.
+export function buildJobAlertFunnel(input = {}, { dryRun = false } = {}) {
   const c = Object.fromEntries(COUNT_KEYS.map((key) => [key, num(input[key])]));
   const values = { ...c, totalSent: c.sent + c.retrySent };
 
@@ -92,7 +94,7 @@ export function buildJobAlertFunnel(input = {}) {
     c.archive - c.paused - c.companyImmediate - c.allowlist - c.base,
     c.base - c.suppressionDeferred - c.suppressed - c.backfill - c.cooldown - c.decayed - c.notDue - c.eligible,
     c.eligible - c.quotaDeferred - c.noCandidate - c.emptyProfile - c.zeroMatch - c.alreadySent - c.deadLinks - c.planned,
-    c.planned - c.failed - c.sent,
+    dryRun ? 0 : c.planned - c.failed - c.sent,
   ];
 
   return { rows, values, balanced: imbalance.every((d) => d === 0), imbalance };
