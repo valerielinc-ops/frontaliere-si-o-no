@@ -22,6 +22,7 @@ import {
 const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-index.json';
 const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = 10;
+const MAX_ELIGIBILITY_WORK_PER_RUN = 40;
 const MIN_MATCH_SCORE = 28;
 export { APPLICATION_CONCIERGE_MATCHING_VERSION } from './applicationConciergeConstants.js';
 export const APPLICATION_CONCIERGE_REQUIREMENTS_VERIFIED = true;
@@ -408,6 +409,27 @@ export function shouldRunApplicationConciergeMatchingForServiceUpdate(before, af
     || String(before?.applicantLocation || '').trim() !== String(after.applicantLocation || '').trim();
 }
 
+/** Preference affects ordering only, after the CV relevance gate has passed. */
+export function approvedRolePreference(job, proposals) {
+  const tokens = tokenize(job?.title);
+  const roles = roleSignals(job?.title || '');
+  return proposals.some(proposal => proposal.status === 'accepted' && !proposal.withdrawnAt
+    && (overlap(tokens, tokenize(proposal.jobTitle)).length >= 2
+      || overlap(roles, roleSignals(proposal.jobTitle || '')).length > 0)) ? 8 : 0;
+}
+
+/** A bounded, durable frontier replaces the static top-40 window. */
+export function conciergeMatchingWork(candidates, proposedUrls = new Set(), cursor = '') {
+  const priority = candidates.filter(candidate => proposedUrls.has(candidate.url));
+  const frontier = candidates.filter(candidate => !proposedUrls.has(candidate.url));
+  const previous = frontier.findIndex(candidate => candidate.url === cursor);
+  const start = previous >= 0 && previous + 1 < frontier.length ? previous + 1 : 0;
+  return {
+    work: [...priority, ...frontier.slice(start)].slice(0, MAX_ELIGIBILITY_WORK_PER_RUN),
+    frontier,
+  };
+}
+
 async function updateExistingProposal(db, ref, update, expectedStatus, nextStatus = null) {
   return db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(ref);
@@ -417,7 +439,7 @@ async function updateExistingProposal(db, ref, update, expectedStatus, nextStatu
     transaction.set(ref, {
       ...update,
       ...(nextStatus ? { status: nextStatus } : {}),
-      ...(nextStatus === 'retracted' ? { retractedAt: FieldValue.serverTimestamp(), retractionReason: update.eligibilityStatus && update.eligibilityStatus !== 'compatible' ? 'decisive_requirements_unverified' : 'match_below_threshold' } : {}),
+      ...(nextStatus === 'retracted' ? { retractedAt: FieldValue.serverTimestamp(), retractionReason: update.matchScore < MIN_MATCH_SCORE ? 'match_below_threshold' : update.eligibilityStatus && update.eligibilityStatus !== 'compatible' ? 'decisive_requirements_unverified' : 'match_below_threshold' } : {}),
       ...(nextStatus === 'proposed' && current.status === 'retracted' ? { reactivatedAt: FieldValue.serverTimestamp() } : {}),
     }, { merge: true });
     return true;
@@ -453,30 +475,51 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     }));
     const available = Math.max(0, (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS) - acceptedPositionsCount(service));
     const candidateLocation = String(service.applicantLocation || '').trim();
-    const rankedCandidates = jobs.map((job) => {
+    const existingData = existing.map(doc => doc.data() || {});
+    const excludedUrls = new Set(existingData.filter(data => !['proposed', 'retracted'].includes(data.status)).map(data => data.jobUrl));
+    const rankedWork = jobs.map((job) => {
       const url = jobUrl(job);
       const scored = scoreJobForProfile(job, profile, candidateLocation);
-      return { job, url, ...scored };
-    }).filter((entry) => entry.score > 0 && validJobUrl(entry.url) && !known.has(`${entry.job.id || ''}|${entry.url}`))
+      const preference = scored.score > 0 ? approvedRolePreference(job, existingData) : 0;
+      return { job, url, ...scored, rankScore: (scored.rankScore || 0) + preference };
+    }).filter((entry) => entry.score > 0 && validJobUrl(entry.url) && !excludedUrls.has(entry.url))
       .sort((left, right) => right.rankScore - left.rankScore
         || right.score - left.score
         || right.evidenceStrength - left.evidenceStrength
-        || String(right.job.datePosted || '').localeCompare(String(left.job.datePosted || '')))
-      .slice(0, 40);
+        || String(right.job.datePosted || '').localeCompare(String(left.job.datePosted || ''))
+        || left.url.localeCompare(right.url));
+    const rankedCandidates = rankedWork.filter(entry => !known.has(`${entry.job.id || ''}|${entry.url}`));
 
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
     const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord });
-    const pendingJobs = existing.filter(doc => ['proposed', 'retracted'].includes(doc.data()?.status))
-      .map(doc => jobsByUrl.get(doc.data().jobUrl)).filter(Boolean);
     const checks = new Map();
-    const work = [...new Map([...pendingJobs, ...rankedCandidates.map(candidate => candidate.job)].map(job => [jobUrl(job), job])).values()];
+    const scanContext = createHash('sha256').update(JSON.stringify([service.cvStorageKey, profile, profileRecord.applicationQuestionAnswers || {}])).digest('hex');
+    const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
+    const { work, frontier } = conciergeMatchingWork(rankedWork, proposedUrls,
+      service.matchingScanContext === scanContext ? service.matchingScanCursor : '');
+    const frontierUrls = new Set(frontier.map(entry => entry.url));
+    let scannedCursor = service.matchingScanContext === scanContext ? service.matchingScanCursor || '' : '';
     for (let offset = 0; offset < work.length; offset += 4) {
       // Leave time for a last batch with three bounded provider attempts and final ledger writes.
       if (Date.now() - runStartedAt > 280_000) break;
-      await Promise.all(work.slice(offset, offset + 4).map(async job => {
-        try { checks.set(jobUrl(job), await evaluate(job)); }
-        catch { checks.set(jobUrl(job), { status: 'unverified', reason: 'analysis_unavailable' }); }
+      const batch = work.slice(offset, offset + 4);
+      await Promise.all(batch.map(async ({ job, url }) => {
+        try { checks.set(url, await evaluate(job)); }
+        catch { checks.set(url, { status: 'unverified', reason: 'analysis_unavailable' }); }
       }));
+      // Deferred or unverified work must stay at the cursor so the next run
+      // retries it before scanning later frontier entries. Completion order of
+      // concurrent provider calls is irrelevant.
+      for (const entry of batch) {
+        const result = checks.get(entry.url);
+        if (result?.reason === 'analysis_deferred' || result?.status === 'unverified') break;
+        if (frontierUrls.has(entry.url)) scannedCursor = entry.url;
+      }
+      await serviceRef.set({ matchingScanCursor: scannedCursor, matchingScanContext: scanContext }, { merge: true });
+      if (batch.some(entry => {
+        const result = checks.get(entry.url);
+        return result?.reason === 'analysis_deferred' || result?.status === 'unverified';
+      })) break;
     }
     const candidates = rankedCandidates.filter(candidate => checks.get(candidate.url)?.status === 'compatible')
       .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
@@ -568,6 +611,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     }
     await serviceRef.set({
       matchingStatus: 'complete',
+      matchingPendingCount: Math.max(0, frontier.length - (frontier.findIndex(entry => entry.url === scannedCursor) + 1)),
       matchingUnverifiedCount: Math.max(0, work.length - checks.size) + [...checks.values()].filter(result => result.status === 'unverified').length,
       matchingClarificationCount: [...checks.values()].filter(result => result.status === 'clarification_required').length,
       matchingJobCount: createdProposals + refreshedProposals,
