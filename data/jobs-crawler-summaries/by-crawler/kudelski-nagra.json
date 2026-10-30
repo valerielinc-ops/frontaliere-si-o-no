@@ -1,7 +1,7 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-10-30T09:41:43.892Z",
+  "generatedAt": "2026-10-30T21:57:22.727Z",
   "total": 1,
   "discovered": 21,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7173,
-  "avgDurationMs": 7173,
+  "durationMs": 10242,
+  "avgDurationMs": 10242,
   "durationHistory": [
-    7173
+    10242
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:41:28.252Z",
+      "crawledAt": "2026-10-30T21:57:07.176Z",
       "addressLocality": "Adliswil",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

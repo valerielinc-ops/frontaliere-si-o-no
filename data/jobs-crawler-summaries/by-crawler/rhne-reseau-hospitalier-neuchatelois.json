@@ -1,7 +1,7 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-10-30T09:48:46.637Z",
+  "generatedAt": "2026-10-30T21:25:00.997Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 12980,
-  "avgDurationMs": 12980,
+  "durationMs": 14802,
+  "avgDurationMs": 14802,
   "durationHistory": [
-    12980
+    14802
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=0fc6c7c2-3378-4000-a58e-2b697b8bdee1&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:48:30.472Z",
+      "crawledAt": "2026-10-30T21:24:35.199Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2d51ebb7-5339-4287-9ce2-925fa72c4c7e&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:48:34.681Z",
+      "crawledAt": "2026-10-30T21:24:41.606Z",
       "addressLocality": "Le Locle",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=4e7ea050-8368-48a4-b910-0cd953a962ef&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:48:32.593Z",
+      "crawledAt": "2026-10-30T21:24:39.505Z",
       "addressLocality": "Fontaines NE",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=0538d47b-9ac3-45df-8a14-c7b565dc8657&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:48:28.334Z",
+      "crawledAt": "2026-10-30T21:24:37.327Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -198,5 +198,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

@@ -1,7 +1,7 @@
 {
   "key": "policelavaux-ch",
   "label": "Police Lavaux",
-  "generatedAt": "2026-10-30T09:47:28.475Z",
+  "generatedAt": "2026-10-30T21:49:51.025Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9670,
-  "avgDurationMs": 9670,
+  "unchangedCount": 4,
+  "durationMs": 10253,
+  "avgDurationMs": 10253,
   "durationHistory": [
-    9670
+    10253
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "policelavaux-ch-4561cf363340",
       "slug": "segretario-per-affari-porti-cdd-per-studenti-police-lavaux-lutry",
@@ -35,7 +37,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/secretaire-en-charge-des-affaires-portuaires",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:47:14.722Z",
+      "crawledAt": "2026-10-30T21:49:36.520Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -78,7 +80,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/secretaire-de-police-du-commerce",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:47:14.721Z",
+      "crawledAt": "2026-10-30T21:49:36.519Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -121,7 +123,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-se-developpe-et-recrute",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:47:14.720Z",
+      "crawledAt": "2026-10-30T21:49:36.517Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -164,7 +166,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-recrute-des-sous-officierere-superieure",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:47:14.718Z",
+      "crawledAt": "2026-10-30T21:49:36.515Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -196,7 +198,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

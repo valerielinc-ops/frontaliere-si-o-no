@@ -1269,6 +1269,15 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   });
 }
 
+/** A reduction without questions or documents never creates a candidate wait. */
+export async function portalRequirementsForCandidate(requirements, localization = {}) {
+  if (requirements?.unreadableFields?.length) throw new Error('portal_question_unreadable');
+  const questions = requirements?.questions || [];
+  const documents = requirements?.documents || [];
+  if (!questions.length && !documents.length) return null;
+  return { questions: await localizePortalQuestions(questions, localization), documents };
+}
+
 /**
  * Remove portal questions that mean the same thing after an ATS changes its
  * wording or language. Keep the first record: its answer id is already in the
@@ -2754,14 +2763,10 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
   const initialRequirements = portalRequirementsFromMissingRequired(others.fields, plan.missingRequired);
   if (initialRequirements.unreadableFields?.length) return { handoff: 'question_label_unreadable' };
-  if (plan.missingRequired.length) return {
-    questions: await localizePortalQuestions(initialRequirements.questions, {
-      candidateLocale: ctx.candidateLocale,
-      applicationLocale: ctx.language,
-      codex: ctx.codex,
-      log: ctx.log,
-    }),
-  };
+  const initialRequest = await portalRequirementsForCandidate(initialRequirements, {
+    candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log: ctx.log,
+  });
+  if (initialRequest) return initialRequest;
   const password = account?.password || newPortalPassword({ portal: host });
   const sinceMs = Date.now();
   if (retryingUnverifiedAccount) {
@@ -2820,17 +2825,17 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
         await ctx.accounts.mark(host, { status: 'unanswered' });
         return noted({ handoff: 'question_label_unreadable' });
       }
-      const questions = await localizePortalQuestions(repairedRequirements.questions, {
+      const request = await portalRequirementsForCandidate(repairedRequirements, {
         candidateLocale: ctx.candidateLocale,
         applicationLocale: ctx.language,
         codex: ctx.codex,
         log: ctx.log,
       });
-      if (questions.length) {
+      if (request) {
         // Keep the credential for this order: a candidate's answer resumes this
         // registration, while a generic account flow can recreate it if absent.
         await ctx.accounts.mark(host, { status: 'unanswered' });
-        return noted({ questions });
+        return noted(request);
       }
     }
 
@@ -3492,16 +3497,14 @@ export async function submitViaPortal(ctx) {
     const askCandidate = async (questions) => {
       const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions);
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
+      const request = await portalRequirementsForCandidate(requirements, {
+        candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log,
+      });
+      if (!request) return null;
       return {
         event: {
           type: 'submit_needs_candidate',
-          questions: await localizePortalQuestions(requirements.questions, {
-            candidateLocale: ctx.candidateLocale,
-            applicationLocale: ctx.language,
-            codex: ctx.codex,
-            log,
-          }),
-          documents: requirements.documents,
+          ...request,
         },
         evidence,
       };
@@ -3608,13 +3611,15 @@ export async function submitViaPortal(ctx) {
         }
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),
-          outcome: auth.handoff || (auth.questions ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
+          outcome: auth.handoff || (auth.questions?.length || auth.documents?.length ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
           ...(auth.privacy ? { privacy: auth.privacy } : {}),
           // How the sign-in button was found (clickButton): by its id, again after a redraw, or by its text.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
         };
         if (auth.handoff) return await handoff(auth.handoff);
-        if (auth.questions) return { event: { type: 'submit_needs_candidate', questions: auth.questions }, evidence };
+        if (auth.questions?.length || auth.documents?.length) return {
+          event: { type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [] }, evidence,
+        };
         if (auth.dryRun) {
           evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
           return { event: { type: 'dry_run_ready', stage: 'account' }, evidence };
@@ -3731,8 +3736,12 @@ export async function submitViaPortal(ctx) {
         const missingRequired = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
         // A required field with no readable label is no question for the
         // candidate ("select-input-_r_p_"): the agent finds its question on the page.
-        const unclear = missingRequired.some((item) => machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
-        if (missingRequired.length && !unclear) return askCandidate(missingRequired);
+        const requirements = portalRequirementsFromMissingRequired(snapshot.fields, missingRequired);
+        const unclear = Boolean(requirements.unreadableFields?.length);
+        if (missingRequired.length && !unclear) {
+          const request = await askCandidate(missingRequired);
+          if (request) return request;
+        }
         if (unclear) unclearQuestions = missingRequired;
         if (unclear) agentHint = 'unclear_fields';
         // A file already uploaded on this page is not uploaded again when the
@@ -3856,11 +3865,17 @@ export async function submitViaPortal(ctx) {
       if ((!submit && !next) || agentHint === 'unclear_fields') {
         const agentUrl = page.url();
         const agent = await runAgent(after, agentHint);
-        if (agent?.status === 'needs_candidate') return askCandidate(agent.questions);
+        if (agent?.status === 'needs_candidate') {
+          const request = await askCandidate(agent.questions);
+          if (request) return request;
+        }
         // Required fields left unanswered: the owner looks when the agent could
         // not answer them; without the agent, the planner's questions as before.
         if (unclearQuestions.length && agent?.status !== 'done') {
-          return !agent || agent.status === 'unavailable' ? askCandidate(unclearQuestions) : await handoff('portal_needs_candidate');
+          if (!agent || agent.status === 'unavailable') {
+            const request = await askCandidate(unclearQuestions);
+            if (request) return request;
+          } else return await handoff('portal_needs_candidate');
         }
         if (agent?.status === 'done') {
           if (agent.moved || page.url() !== agentUrl) {
@@ -3930,7 +3945,10 @@ export async function submitViaPortal(ctx) {
         stuckOnPage = pageSignature(page, snapshot) === before ? stuckOnPage + 1 : 0;
         if (stuckOnPage >= 2) {
           const agent = await runAgent(snapshot, 'refused');
-          if (agent?.status === 'needs_candidate') return askCandidate(agent.questions);
+          if (agent?.status === 'needs_candidate') {
+            const request = await askCandidate(agent.questions);
+            if (request) return request;
+          }
           if (agent?.status === 'done') snapshot = await extractFields(page);
           else if ((agent && agent.status !== 'unavailable') || stuckOnPage > 2) return await handoff('portal_needs_candidate');
         }
@@ -3955,7 +3973,10 @@ export async function submitViaPortal(ctx) {
         evidence.steps.at(-1).requiredFieldsUnfilled = true;
         const repairUrl = page.url();
         const repair = await runAgent(after, 'required_fields_unfilled');
-        if (repair?.status === 'needs_candidate') return askCandidate(repair.questions);
+        if (repair?.status === 'needs_candidate') {
+          const request = await askCandidate(repair.questions);
+          if (request) return request;
+        }
         if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
         if (repair.moved || page.url() !== repairUrl) {
           snapshot = await awaitFields(page, await extractFields(page));

@@ -1,3 +1,4 @@
+import type { CheckedDocument } from './assistedApplicationDocumentCheck';
 import type { EmployerResponse } from './assistedApplicationEmployerResponse';
 /**
  * Client of the candidate review page of the automated assisted application
@@ -8,7 +9,7 @@ import type { EmployerResponse } from './assistedApplicationEmployerResponse';
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
 
 export type ReviewAction = 'approve' | 'reject' | 'withdraw' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip'
-  | 'document_upload' | 'document_remove' | 'photo_upload' | 'photo_remove' | 'cv_lines';
+  | 'document_upload' | 'document_remove' | 'document_recheck' | 'photo_upload' | 'photo_remove' | 'cv_lines';
 
 /** The candidate's choice for one line of the tailored CV (functions/src/assistedApplicationReview.js cvChangesView). */
 export interface ReviewCvLineChoice {
@@ -274,4 +275,39 @@ export async function sendReviewAction(
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ t: token, action, ...extra }),
   }));
+}
+
+/** Versioned metadata only. The file is read and classified entirely in the browser. */
+export async function recheckReviewDocument(
+  token: string,
+  document: ReviewDocument,
+  file: ReviewDocument['files'][number],
+  signal: AbortSignal,
+): Promise<ReviewDocument['files'][number]['clientCheck'] | null> {
+  const request = async (extra: Record<string, unknown> = {}) => parse(await fetch(ASSISTED_APPLICATION_REVIEW_URL, {
+    method: 'POST', signal, cache: 'no-store', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ t: token, action: 'document_recheck', documentId: document.id, fileId: file.id, ...extra }),
+  }));
+  const descriptor = await request();
+  if (descriptor.state === 'unchanged') return descriptor.clientCheck;
+  if (descriptor.state !== 'ready') return null;
+  const context = descriptor.document;
+  if (!context || typeof context.label !== 'string' || typeof context.kind !== 'string'
+    || !Array.isArray(context.keywords) || !context.keywords.every((word: unknown) => typeof word === 'string')) throw new Error('invalid_check');
+  const checkedDocument: CheckedDocument = { label: context.label, kind: context.kind, keywords: context.keywords };
+  if (descriptor.size !== file.size || descriptor.size > 10 * 1024 * 1024) throw new Error('invalid_file');
+  const response = await fetch(descriptor.url, { signal, credentials: 'omit', cache: 'no-store', referrerPolicy: 'no-referrer' });
+  if (!response.ok) throw new Error('file_unavailable');
+  const declared = Number(response.headers.get('content-length'));
+  if (declared && declared !== descriptor.size) throw new Error('file_changed');
+  const buffer = await response.arrayBuffer();
+  if (buffer.byteLength !== descriptor.size) throw new Error('file_changed');
+  const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', buffer))].map(byte => byte.toString(16).padStart(2, '0')).join('');
+  if (sha256 !== descriptor.sha256) throw new Error('file_changed');
+  const { checkDocumentFile, DOCUMENT_CHECK_VERSION } = await import('./assistedApplicationDocumentCheck');
+  if (descriptor.version !== DOCUMENT_CHECK_VERSION) throw new Error('check_version_changed');
+  const check = await checkDocumentFile(new File([buffer], file.name, { type: file.detectedType === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }), checkedDocument);
+  if (signal.aborted) return null;
+  const result = await request({ descriptor: descriptor.descriptor, sha256, clientCheck: check });
+  return result.state === 'checked' ? result.clientCheck : null;
 }

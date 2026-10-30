@@ -4,7 +4,7 @@ import { hasAssistedApplicationConsent } from './assistedApplicationConstants.js
 import { automationEligibility } from './assistedApplicationEligibility.js';
 
 export const portalCodeVersion = value => /^[a-f0-9]{64}$/.test(String(value || '')) ? String(value) : null;
-const RECOVERABLE = new Set(['portal:account', 'portal:question_label_unreadable', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:posting_mismatch', 'portal:portal_needs_candidate', 'portal:captcha_provider_unavailable', 'portal:captcha', 'portal:portal_antibot', 'portal:remote_executor_unavailable']);
+const RECOVERABLE = new Set(['portal:account', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:posting_mismatch', 'portal:portal_needs_candidate', 'portal:captcha_provider_unavailable', 'portal:captcha', 'portal:portal_antibot', 'portal:remote_executor_unavailable']);
 
 export function portalCodeChanged(flow, version) {
   return Boolean(portalCodeVersion(version)) && flow?.state === 'owner_takeover'

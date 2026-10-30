@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-30T09:46:23.796Z",
-  "runId": "41030838967",
+  "assembledAt": "2026-10-30T21:15:51.836Z",
+  "runId": "41128284929",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.737Z",
+      "crawledAt": "2026-10-30T21:15:44.920Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -111,7 +111,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.736Z",
+      "crawledAt": "2026-10-30T21:15:44.918Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -141,322 +141,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-338bfd5acd78",
-      "slug": "business-analyst-core-banking-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analyst-core-banking-talan-geneve",
-        "en": "business-analyste-core-banking-talan-geneve-switzerland",
-        "de": "business-analyst-core-banking-talan-geneve",
-        "fr": "business-analyste-core-banking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyste Core Banking",
-      "titleByLocale": {
-        "it": "Business Analyst Core Banking",
-        "en": "Business Analyst Core Banking",
-        "de": "Business Analyst Core Banking",
-        "fr": "Business Analyste Core Banking"
-      },
-      "description": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\n Principales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di Core Banking IT, Business Analyst supporta i progetti di trasformazione di Core Banking e fornisce l'interfaccia tra team aziendali e IT.\nPrincipali responsabilità:\n\n• Analizzare e formalizzare le esigenze aziendali di Core Banking.\n\n• Soluzioni di progettazione con EMS e Service Owners.\n\n• Scrivere requisiti funzionali e specifiche.\n\n• Presentare le analisi agli utenti e ottenere la loro validazione.\n\n• Condurre le stime del carico di sviluppo.\n\n• Garantire il rispetto degli standard, delle procedure e dell'architettura IT\n\n• Assicurare il coordinamento tra il commercio, l'IT e i team tecnici.\n\nProfilo ricercato\n\n• Più di 15 anni di esperienza nel settore bancario, idealmente in Core Banking.\n\n• Forte esperienza nella trasformazione e consegna IT.\n\n• Buona conoscenza dei processi operativi in Wealth Management e nell'ecosistema Core Banking.\n\n• Esperienza nell'intelligenza artificiale.\n\n• Ottima capacità di comunicazione, con un buon livello in francese e inglese, sia orale che scritta.\n\n• Autonomo, strutturato e dotato di un forte spirito analitico.\n\n• L'orientamento del cliente e la capacità di lavorare con vari interlocutori.\n\n• Buon controllo SQL.\n\n• Capacità di evolversi in un ambiente complesso e gestire più argomenti in parallelo.\n\n• Laurea o equivalente.",
-        "en": "Within the Core Banking IT team, the Business Analyst supports Core Banking transformation projects and provides the interface between business and IT teams.\nMain responsibilities:\n\n• Analyze and formalize Core Banking business needs.\n\n• Design solutions with EMS and Service Owners.\n\n• Write down functional requirements and specifications.\n\n• Present the analyses to users and obtain their validation.\n\n• Conduct development load estimates.\n\n• Ensure compliance with IT standards, procedures and architecture\n\n• Ensure coordination between trade, IT and technical teams.\n\nProfile sought\n\n• More than 15 years of experience in the banking sector, ideally in Core Banking.\n\n• Strong experience in transformation and delivery IT.\n\n• Good knowledge of the operational processes in Wealth Management and the Core Banking ecosystem.\n\n• Experience in Artificial Intelligence.\n\n• Excellent communication skills, with a good level in French and English, both oral and written.\n\n• Autonomous, structured and endowed with a strong analytical spirit.\n\n• Customer orientation and ability to work with various interlocutors.\n\n• Good SQL control.\n\n• Ability to evolve in a complex environment and manage multiple topics in parallel.\n\n• Bachelor's degree or equivalent.",
-        "de": "Innerhalb des Core Banking IT Teams unterstützt der Business Analyst Core Banking Transformationsprojekte und stellt die Schnittstelle zwischen Business und IT Teams bereit.\nHauptzuständigkeiten:\n\n• Analysieren und formalisieren Sie die Anforderungen des Core Banking-Geschäfts.\n\n• Design-Lösungen mit EMS und Service Ownern.\n\n• Notieren Sie sich funktionale Anforderungen und Spezifikationen.\n\n• Präsentieren Sie die Analysen den Nutzern und erhalten Sie deren Validierung.\n\n• Durchführung von Entwicklungslastschätzungen.\n\n• Gewährleistung der Einhaltung von IT-Standards, -Verfahren und -Architektur\n\n• Gewährleistung der Koordinierung zwischen Handels-, IT- und technischen Teams.\n\nProfil gesucht\n\n• Mehr als 15 Jahre Erfahrung im Bankensektor, idealerweise im Core Banking.\n\n• Starke Erfahrung in der Transformation und Delivery IT.\n\n• Gute Kenntnisse der operativen Prozesse im Wealth Management und im Core Banking Ökosystem.\n\n• Erfahrung in Künstlicher Intelligenz.\n\n• Hervorragende Kommunikationsfähigkeiten, mit einem guten Niveau in Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Autonom, strukturiert und mit einem starken analytischen Geist ausgestattet.\n\n• Kundenorientierung und die Fähigkeit, mit verschiedenen Gesprächspartnern zu arbeiten.\n\n• Gute SQL-Kontrolle.\n\n• Fähigkeit, sich in einer komplexen Umgebung zu entwickeln und mehrere Themen parallel zu verwalten.\n\n• Bachelor-Abschluss oder gleichwertig.",
-        "fr": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\nPrincipales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.735Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-21T14:00:33.629Z",
-      "postedDate": "2026-08-21T14:00:33.629Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
-      "jobReqId": "744000144774739",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyste-core-banking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyste-core-banking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:26:00.523Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-77288cd4a877",
-      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
-      "slugByLocale": {
-        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
-        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
-        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
-        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
-      "titleByLocale": {
-        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
-        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
-        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
-        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
-      },
-      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
-      "descriptionByLocale": {
-        "it": "Svolgi un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa tua missione mira a:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progetta, esponi e proteggi i servizi OData o le API SAP.\n\n• Sviluppa estensioni su SAP BTP (Extension Suite).\n\n• Partecipare alle scelte dell'architettura tecnica delle applicazioni SAP.\n\n• Garantire la qualità degli sviluppi, attraverso best practice, revisioni del codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architetti su progetti SAP.\n\nCerchiamo una persona esperta in:\n\n• Sviluppo ABAP / ABAP OO e S/4HANA\n\n• Visualizzazioni CDS\n\n• SAPFiori/SAPUI5\n\n• API OData/SAP\n\n• Solide basi su SAP BTP\n⭐ I vantaggi:\n\n• CAP (Node.js o Java) e RAP\n\n• Suite di integrazione SAP/Mesh di eventi\n\n• Git, CI / CD, GCTS\n\n• Consapevolezza dell'intelligenza artificiale nell'ecosistema SAP (Joule, AI Core)\n\n• Conoscenza funzionale (FI, CO, MM, SD, ecc.)\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh, ecc.).\n\n• Ambiente stimolante, che incoraggia lo sviluppo delle competenze e l'iniziativa.\n\n• Accesso ai corsi di formazione avanzata SAP (BTP, Fiori, CAP, IA, ecc.).\n\n• Comunità SAP interna dinamica, scambi regolari con esperti.\n\n• Possibilità di avanzamento a Tech Lead, SAP Architect o Construction Expert.",
-        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission aims to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData services or SAP APIs.\n\n• Develop extensions on SAP BTP (Extension Suite).\n\n• Participate in the technical architecture choices of SAP applications.\n\n• Guarantee the quality of developments, through best practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architect teams on SAP projects.\n\nWe are looking for someone who is proficient in:\n\n• ABAP / ABAP OO and S/4HANA development\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / SAP APIs\n\n• Solid foundations on SAP BTP\n⭐ The pluses:\n\n• CAP (Node.js or Java) and RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• AI awareness in the SAP ecosystem (Joule, AI Core)\n\n• Functional knowledge (FI, CO, MM, SD, etc.)\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Stimulating environment, encouraging skills development and initiative.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA, etc.).\n\n• Dynamic internal SAP community, regular exchanges with experts.\n\n• Possibilities for advancement to Tech Lead, SAP Architect, or Construction Expert.",
-        "de": "Sie spielen eine Schlüsselrolle bei der Konzeption und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission zielt darauf ab:\n\n• Entwerfen und entwickeln Sie technische Lösungen für SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP-Fiori-/SAPUI5-Anwendungen.\n\n• Entwerfen, verfügbar machen und sichern Sie OData-Dienste oder SAP-APIs.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der technischen Architekturauswahl von SAP-Anwendungen.\n\n• Garantieren Sie die Qualität der Entwicklungen durch Best Practices, Codeüberprüfungen und Dokumentation.\n\n• Arbeiten Sie mit Funktions-, Technik-, Cloud- und Architektenteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der Folgendes beherrscht:\n\n• ABAP / ABAP OO und S/4HANA-Entwicklung\n\n• CDS-Views\n\n• SAP Fiori / SAPUI5\n\n• OData/SAP-APIs\n\n• Solide Grundlagen auf SAP BTP\n⭐ Die Pluspunkte:\n\n• CAP (Node.js oder Java) und RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, ci / CD, gCTS\n\n• KI-Bewusstsein im SAP-Ökosystem (Joule, AI Core)\n\n• Fachwissen (FI, CO, MM, SD, etc.)\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Anregendes Umfeld, das die Entwicklung von Fähigkeiten und Initiative fördert.\n\n• Zugang zu weiterführenden SAP-Schulungen (BTP, Fiori, CAP, IA usw.).\n\n• Dynamische interne SAP-Community, regelmäßiger Austausch mit Experten.\n\n• Aufstiegsmöglichkeiten zum Tech Lead, SAP Architect oder Construction Expert.",
-        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.734Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T13:56:14.338Z",
-      "postedDate": "2026-10-02T13:56:14.338Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "jobReqId": "744000153192441",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ],
-        "fr": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T22:55:58.539Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-9addce44f74f",
-      "slug": "consulente-sap-basis-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-sap-basis-talan-geneva",
-        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
-        "de": "berater-sap-basis-talan-geneva",
-        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant SAP Basis",
-      "titleByLocale": {
-        "it": "Consulente SAP Basis",
-        "en": "SAP Basis Consultant",
-        "de": "Berater SAP Basis",
-        "fr": "Consultant SAP Basis"
-      },
-      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-      "descriptionByLocale": {
-        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
-        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
-        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
-        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.733Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T07:38:00.377Z",
-      "postedDate": "2026-10-02T07:38:00.377Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "jobReqId": "744000153113299",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-sap-basis-talan-geneva-ge-switzerland"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1266,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.545Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-3d22739aef94",
-      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
-        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
-        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
-        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyst – Enterprise Data Management (EDM)",
-      "titleByLocale": {
-        "it": "Business Analista – Enterprise Data Management (EDM)",
-        "en": "Business Analyst – Enterprise Data Management (EDM)",
-        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
-        "fr": "Business Analyst – Enterprise Data Management (EDM)"
-      },
-      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
-        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
-        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
-        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
-      },
-      "needsRetranslation": true,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.733Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-08T13:16:20.226Z",
-      "postedDate": "2026-09-08T13:16:20.226Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "jobReqId": "744000148235109",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:35:44.207Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -503,7 +187,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.732Z",
+      "crawledAt": "2026-10-30T21:15:44.917Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -533,6 +217,81 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:10:26.715Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-338bfd5acd78",
+      "slug": "business-analyst-core-banking-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analyst-core-banking-talan-geneve",
+        "en": "business-analyste-core-banking-talan-geneve-switzerland",
+        "de": "business-analyst-core-banking-talan-geneve",
+        "fr": "business-analyste-core-banking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyste Core Banking",
+      "titleByLocale": {
+        "it": "Business Analyst Core Banking",
+        "en": "Business Analyst Core Banking",
+        "de": "Business Analyst Core Banking",
+        "fr": "Business Analyste Core Banking"
+      },
+      "description": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\n Principales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent.",
+      "descriptionByLocale": {
+        "it": "All'interno del team di Core Banking IT, Business Analyst supporta i progetti di trasformazione di Core Banking e fornisce l'interfaccia tra team aziendali e IT.\nPrincipali responsabilità:\n\n• Analizzare e formalizzare le esigenze aziendali di Core Banking.\n\n• Soluzioni di progettazione con EMS e Service Owners.\n\n• Scrivere requisiti funzionali e specifiche.\n\n• Presentare le analisi agli utenti e ottenere la loro validazione.\n\n• Condurre le stime del carico di sviluppo.\n\n• Garantire il rispetto degli standard, delle procedure e dell'architettura IT\n\n• Assicurare il coordinamento tra il commercio, l'IT e i team tecnici.\n\nProfilo ricercato\n\n• Più di 15 anni di esperienza nel settore bancario, idealmente in Core Banking.\n\n• Forte esperienza nella trasformazione e consegna IT.\n\n• Buona conoscenza dei processi operativi in Wealth Management e nell'ecosistema Core Banking.\n\n• Esperienza nell'intelligenza artificiale.\n\n• Ottima capacità di comunicazione, con un buon livello in francese e inglese, sia orale che scritta.\n\n• Autonomo, strutturato e dotato di un forte spirito analitico.\n\n• L'orientamento del cliente e la capacità di lavorare con vari interlocutori.\n\n• Buon controllo SQL.\n\n• Capacità di evolversi in un ambiente complesso e gestire più argomenti in parallelo.\n\n• Laurea o equivalente.",
+        "en": "Within the Core Banking IT team, the Business Analyst supports Core Banking transformation projects and provides the interface between business and IT teams.\nMain responsibilities:\n\n• Analyze and formalize Core Banking business needs.\n\n• Design solutions with EMS and Service Owners.\n\n• Write down functional requirements and specifications.\n\n• Present the analyses to users and obtain their validation.\n\n• Conduct development load estimates.\n\n• Ensure compliance with IT standards, procedures and architecture\n\n• Ensure coordination between trade, IT and technical teams.\n\nProfile sought\n\n• More than 15 years of experience in the banking sector, ideally in Core Banking.\n\n• Strong experience in transformation and delivery IT.\n\n• Good knowledge of the operational processes in Wealth Management and the Core Banking ecosystem.\n\n• Experience in Artificial Intelligence.\n\n• Excellent communication skills, with a good level in French and English, both oral and written.\n\n• Autonomous, structured and endowed with a strong analytical spirit.\n\n• Customer orientation and ability to work with various interlocutors.\n\n• Good SQL control.\n\n• Ability to evolve in a complex environment and manage multiple topics in parallel.\n\n• Bachelor's degree or equivalent.",
+        "de": "Innerhalb des Core Banking IT Teams unterstützt der Business Analyst Core Banking Transformationsprojekte und stellt die Schnittstelle zwischen Business und IT Teams bereit.\nHauptzuständigkeiten:\n\n• Analysieren und formalisieren Sie die Anforderungen des Core Banking-Geschäfts.\n\n• Design-Lösungen mit EMS und Service Ownern.\n\n• Notieren Sie sich funktionale Anforderungen und Spezifikationen.\n\n• Präsentieren Sie die Analysen den Nutzern und erhalten Sie deren Validierung.\n\n• Durchführung von Entwicklungslastschätzungen.\n\n• Gewährleistung der Einhaltung von IT-Standards, -Verfahren und -Architektur\n\n• Gewährleistung der Koordinierung zwischen Handels-, IT- und technischen Teams.\n\nProfil gesucht\n\n• Mehr als 15 Jahre Erfahrung im Bankensektor, idealerweise im Core Banking.\n\n• Starke Erfahrung in der Transformation und Delivery IT.\n\n• Gute Kenntnisse der operativen Prozesse im Wealth Management und im Core Banking Ökosystem.\n\n• Erfahrung in Künstlicher Intelligenz.\n\n• Hervorragende Kommunikationsfähigkeiten, mit einem guten Niveau in Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Autonom, strukturiert und mit einem starken analytischen Geist ausgestattet.\n\n• Kundenorientierung und die Fähigkeit, mit verschiedenen Gesprächspartnern zu arbeiten.\n\n• Gute SQL-Kontrolle.\n\n• Fähigkeit, sich in einer komplexen Umgebung zu entwickeln und mehrere Themen parallel zu verwalten.\n\n• Bachelor-Abschluss oder gleichwertig.",
+        "fr": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\nPrincipales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-30T21:15:44.917Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-21T14:00:33.629Z",
+      "postedDate": "2026-08-21T14:00:33.629Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
+      "jobReqId": "744000144774739",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyste-core-banking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyste-core-banking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T21:26:00.523Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -579,7 +338,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.731Z",
+      "crawledAt": "2026-10-30T21:15:44.915Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -640,6 +399,247 @@
       }
     },
     {
+      "id": "talan-77288cd4a877",
+      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+      "slugByLocale": {
+        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
+        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
+        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
+      "titleByLocale": {
+        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
+        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
+        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
+      },
+      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+      "descriptionByLocale": {
+        "it": "Svolgi un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa tua missione mira a:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progetta, esponi e proteggi i servizi OData o le API SAP.\n\n• Sviluppa estensioni su SAP BTP (Extension Suite).\n\n• Partecipare alle scelte dell'architettura tecnica delle applicazioni SAP.\n\n• Garantire la qualità degli sviluppi, attraverso best practice, revisioni del codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architetti su progetti SAP.\n\nCerchiamo una persona esperta in:\n\n• Sviluppo ABAP / ABAP OO e S/4HANA\n\n• Visualizzazioni CDS\n\n• SAPFiori/SAPUI5\n\n• API OData/SAP\n\n• Solide basi su SAP BTP\n⭐ I vantaggi:\n\n• CAP (Node.js o Java) e RAP\n\n• Suite di integrazione SAP/Mesh di eventi\n\n• Git, CI / CD, GCTS\n\n• Consapevolezza dell'intelligenza artificiale nell'ecosistema SAP (Joule, AI Core)\n\n• Conoscenza funzionale (FI, CO, MM, SD, ecc.)\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh, ecc.).\n\n• Ambiente stimolante, che incoraggia lo sviluppo delle competenze e l'iniziativa.\n\n• Accesso ai corsi di formazione avanzata SAP (BTP, Fiori, CAP, IA, ecc.).\n\n• Comunità SAP interna dinamica, scambi regolari con esperti.\n\n• Possibilità di avanzamento a Tech Lead, SAP Architect o Construction Expert.",
+        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission aims to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData services or SAP APIs.\n\n• Develop extensions on SAP BTP (Extension Suite).\n\n• Participate in the technical architecture choices of SAP applications.\n\n• Guarantee the quality of developments, through best practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architect teams on SAP projects.\n\nWe are looking for someone who is proficient in:\n\n• ABAP / ABAP OO and S/4HANA development\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / SAP APIs\n\n• Solid foundations on SAP BTP\n⭐ The pluses:\n\n• CAP (Node.js or Java) and RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• AI awareness in the SAP ecosystem (Joule, AI Core)\n\n• Functional knowledge (FI, CO, MM, SD, etc.)\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Stimulating environment, encouraging skills development and initiative.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA, etc.).\n\n• Dynamic internal SAP community, regular exchanges with experts.\n\n• Possibilities for advancement to Tech Lead, SAP Architect, or Construction Expert.",
+        "de": "Sie spielen eine Schlüsselrolle bei der Konzeption und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission zielt darauf ab:\n\n• Entwerfen und entwickeln Sie technische Lösungen für SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP-Fiori-/SAPUI5-Anwendungen.\n\n• Entwerfen, verfügbar machen und sichern Sie OData-Dienste oder SAP-APIs.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der technischen Architekturauswahl von SAP-Anwendungen.\n\n• Garantieren Sie die Qualität der Entwicklungen durch Best Practices, Codeüberprüfungen und Dokumentation.\n\n• Arbeiten Sie mit Funktions-, Technik-, Cloud- und Architektenteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der Folgendes beherrscht:\n\n• ABAP / ABAP OO und S/4HANA-Entwicklung\n\n• CDS-Views\n\n• SAP Fiori / SAPUI5\n\n• OData/SAP-APIs\n\n• Solide Grundlagen auf SAP BTP\n⭐ Die Pluspunkte:\n\n• CAP (Node.js oder Java) und RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, ci / CD, gCTS\n\n• KI-Bewusstsein im SAP-Ökosystem (Joule, AI Core)\n\n• Fachwissen (FI, CO, MM, SD, etc.)\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Anregendes Umfeld, das die Entwicklung von Fähigkeiten und Initiative fördert.\n\n• Zugang zu weiterführenden SAP-Schulungen (BTP, Fiori, CAP, IA usw.).\n\n• Dynamische interne SAP-Community, regelmäßiger Austausch mit Experten.\n\n• Aufstiegsmöglichkeiten zum Tech Lead, SAP Architect oder Construction Expert.",
+        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-30T21:15:44.914Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T13:56:14.338Z",
+      "postedDate": "2026-10-02T13:56:14.338Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "jobReqId": "744000153192441",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+        ],
+        "fr": [
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T22:55:58.539Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-3d22739aef94",
+      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
+        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
+        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
+        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyst – Enterprise Data Management (EDM)",
+      "titleByLocale": {
+        "it": "Business Analista – Enterprise Data Management (EDM)",
+        "en": "Business Analyst – Enterprise Data Management (EDM)",
+        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
+        "fr": "Business Analyst – Enterprise Data Management (EDM)"
+      },
+      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
+      "descriptionByLocale": {
+        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
+        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
+        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
+        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
+      },
+      "needsRetranslation": true,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-30T21:15:44.913Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-08T13:16:20.226Z",
+      "postedDate": "2026-09-08T13:16:20.226Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "jobReqId": "744000148235109",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:35:44.207Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-9addce44f74f",
+      "slug": "consulente-sap-basis-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-sap-basis-talan-geneva",
+        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "de": "berater-sap-basis-talan-geneva",
+        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant SAP Basis",
+      "titleByLocale": {
+        "it": "Consulente SAP Basis",
+        "en": "SAP Basis Consultant",
+        "de": "Berater SAP Basis",
+        "fr": "Consultant SAP Basis"
+      },
+      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+      "descriptionByLocale": {
+        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
+        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
+        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
+        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-30T21:15:44.912Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T07:38:00.377Z",
+      "postedDate": "2026-10-02T07:38:00.377Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "jobReqId": "744000153113299",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-sap-basis-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-sap-basis-talan-geneva-ge-switzerland"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1266,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-04T22:55:58.545Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-c97255b5c406",
       "slug": "piattaforma-dati-ms-fabric-databricks-talan-geneve-switzerland",
       "slugByLocale": {
@@ -671,7 +671,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.730Z",
+      "crawledAt": "2026-10-30T21:15:44.911Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -750,7 +750,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.729Z",
+      "crawledAt": "2026-10-30T21:15:44.910Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -829,7 +829,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.729Z",
+      "crawledAt": "2026-10-30T21:15:44.908Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -880,34 +880,34 @@
       "id": "talan-7d591d30432b",
       "slug": "agente-sviluppatore-talan-geneva-ge-switzerland",
       "slugByLocale": {
-        "fr": "developpeur-agentique-talan-geneva-ge-switzerland",
         "it": "agente-sviluppatore-talan-geneva-ge-switzerland",
         "en": "agent-developer-talan-geneva-ge-switzerland",
-        "de": "developpeur-agentique-talan-geneva-ge-switzerland"
+        "de": "developpeur-agentique-talan-geneva-ge-switzerland",
+        "fr": "developpeur-agentique-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
       "title": "Développeur Agentique",
       "titleByLocale": {
-        "fr": "Développeur Agentique",
         "it": "Agente Sviluppatore",
         "en": "Agent Developer",
-        "de": "Agent Developer"
+        "de": "Agent Developer",
+        "fr": "Développeur Agentique"
       },
       "description": "Mise en Œuvre du Framework Agentique (Hands-on)\n\n• Concevoir, coder et paramétrer les agents IA spécialisés intervenant à chaque étape du SDLC (cartographie applicative, spécification, génération de code, automatisation des tests, documentation).\n\n• Développer les skills, commandes et répertoires de contexte réutilisables pour alimenter le travail des agents.\n\n• Implémenter les mécanismes d'orchestration multi-agents, les passages de relais ( handoffs ) et les boucles de validation humaine ( Human-in-the-loop ).\n Intégration & Socle Technique\n\n• Veiller à l'intégration des agents au sein des pipelines CI/CD, des environnements de développement (IDE) et des outils de gestion de code.\n\n• Participer à l'optimisation de la gestion du contexte ( Context Engineering ) et à la maîtrise de la consommation des tokens ( TokenOps ).\n\n• Garantir la qualité, la sécurité et la traçabilité des livrables produits ou assistés par l'IA.\n Déploiement Opérationnel & Support aux Équipes\n\n• Développer des POCs, démonstrateurs et templates réutilisables pour les développeurs.\n\n• Accompagner les équipes pilotes dans la prise en main opérationnelle du framework et recueillir les retours du terrain pour affiner les agents.\n\nParcours & Expérience\n\n• 5 à 10 ans d'expérience globale en développement et ingénierie logicielle (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Expérience concrète (Hands-on) dans le développement et la mise en œuvre de frameworks agentiques appliqués au génie logiciel.\n Compétences Techniques Clés\n\n• Maîtrise du développement logiciel, de l'architecture, du clean code, des pratiques DevOps, CI/CD et du testing automatisé.\n\n• Expérienceavérée des LLMs, frameworks de développement d'agents autonomes/multi-agents (agents, skills, tools, prompts), techniques de RAG et Context Engineering.\n\n• Maîtrise des extensions et assistants de code IA modernes (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Français & anglais courants.\n Soft Skills\n\n• Capacité à accompagner le déploiement sur le terrain des assets techniques et méthodologiques auprès des équipes de développement.\n\n• Grande capacité d'assimilation, pragmatisme et réactivité pour traduire des cas d'usage en agents opérationnels.\n\n• Capacité à collaborer au sein d'une équipe hybride (consultants, architectes, développeurs) et à accompagner la montée en compétences des pairs.",
       "descriptionByLocale": {
-        "fr": "Mise en Œuvre du Framework Agentique (Hands-on)\n\n• Concevoir, coder et paramétrer les agents IA spécialisés intervenant à chaque étape du SDLC (cartographie applicative, spécification, génération de code, automatisation des tests, documentation).\n\n• Développer les skills, commandes et répertoires de contexte réutilisables pour alimenter le travail des agents.\n\n• Implémenter les mécanismes d'orchestration multi-agents, les passages de relais ( handoffs ) et les boucles de validation humaine ( Human-in-the-loop ).\n Intégration & Socle Technique\n\n• Veiller à l'intégration des agents au sein des pipelines CI/CD, des environnements de développement (IDE) et des outils de gestion de code.\n\n• Participer à l'optimisation de la gestion du contexte ( Context Engineering ) et à la maîtrise de la consommation des tokens ( TokenOps ).\n\n• Garantir la qualité, la sécurité et la traçabilité des livrables produits ou assistés par l'IA.\n Déploiement Opérationnel & Support aux Équipes\n\n• Développer des POCs, démonstrateurs et templates réutilisables pour les développeurs.\n\n• Accompagner les équipes pilotes dans la prise en main opérationnelle du framework et recueillir les retours du terrain pour affiner les agents.\n\nParcours & Expérience\n\n• 5 à 10 ans d'expérience globale en développement et ingénierie logicielle (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Expérience concrète (Hands-on) dans le développement et la mise en œuvre de frameworks agentiques appliqués au génie logiciel.\n Compétences Techniques Clés\n\n• Maîtrise du développement logiciel, de l'architecture, du clean code, des pratiques DevOps, CI/CD et du testing automatisé.\n\n• Expérienceavérée des LLMs, frameworks de développement d'agents autonomes/multi-agents (agents, skills, tools, prompts), techniques de RAG et Context Engineering.\n\n• Maîtrise des extensions et assistants de code IA modernes (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Français & anglais courants.\n Soft Skills\n\n• Capacité à accompagner le déploiement sur le terrain des assets techniques et méthodologiques auprès des équipes de développement.\n\n• Grande capacité d'assimilation, pragmatisme et réactivité pour traduire des cas d'usage en agents opérationnels.\n\n• Capacité à collaborer au sein d'une équipe hybride (consultants, architectes, développeurs) et à accompagner la montée en compétences des pairs.",
-        "it": "Attuazione del quadro di gestione (Hands-on)\n\n• Progettazione, codice e configurazione di agenti AI specializzati in ogni fase del SDLC (mapping applicabile, specificazione, generazione di codici, test di automazione, documentazione).\n\n• Sviluppare competenze riutilizzabili, comandi e directory contestuali per alimentare il lavoro degli agenti.\n\n• Attuazione di meccanismi di orchestrazione multi-agenti, handoff e loop di validazione umana ( Human-in-the-loop ).\n Integrazione & Technical Socle\n\n• Assicurare l'integrazione di agenti in pipeline CI/CD, ambienti di sviluppo (IDE) e strumenti di gestione del codice.\n\n• Partecipare all'ottimizzazione dell'ingegneria di contesto e al controllo dei consumi (TokenOps ).\n\n• Assicurare la qualità, la sicurezza e la tracciabilità dei consegnabili prodotti o assistiti da AI.\n Distribuzione operativa e supporto alle squadre\n\n• Sviluppare POC riutilizzabili, dimostranti e modelli per gli sviluppatori.\n\n• Accompagna i team pilota nell'acquisizione operativa del quadro e raccogli feedback dal campo per affinare gli agenti.\n\n& esperienza\n\n• da 5 a 10 anni di esperienza globale nello sviluppo e nell'ingegneria del software (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Esperienza concreta (Hands-on) nello sviluppo e nell'attuazione di quadri artificiali applicati all'ingegneria del software.\n Principali competenze tecniche\n\n• Mastery di sviluppo software, architettura, codice pulito, DevOps, pratiche CI/CD e test automatizzati.\n\n• Esperienza con LLM, quadri di sviluppo di agenti autonomi/multi-agenti (agenti, competenze, strumenti, suggerimenti), tecniche RAG e Ingegneria del Contesto.\n\n• Mastery delle moderne estensioni AI e assistenti di codice (Copilota, Cursor, Claude Code, Cline, Windsurf, ecc.).\n\n• Inglese attuale e francese.\n Abilità morbide\n\n• Capacità di supportare la distribuzione del campo di attività tecniche e metodologiche ai team di sviluppo.\n\n• Alta capacità di assimilazione, pragmatismo e reattività per tradurre casi di utilizzo in agenti operativi.\n\n• Capacità di collaborare in un team ibrido (consultanti, architetti, sviluppatori) e di supportare lo sviluppo peer.",
-        "en": "Implementing the Management Framework (Hands-on)\n\n• Design, code and configure specialized AI agents at each phase of the SDLC (applicative mapping, specification, code generation, testing automation, documentation).\n\n• Develop reusable skills, commands and context directories to feed the work of agents.\n\n• Implement multi-agent orchestration mechanisms, handoffs and human validation loops ( Human-in-the-loop ).\n Integration & Technical Socle\n\n• Ensure the integration of agents into CI/CD pipelines, development environments (IDEs) and code management tools.\n\n• Participate in context engineering optimization and token consumption control ( TokenOps ).\n\n• Ensure the quality, safety and traceability of deliverables produced or assisted by AI.\n Operational Deployment & Support to Teams\n\n• Develop reusable POCs, demonstrators and templates for developers.\n\n• Accompany the pilot teams in the operational take-over of the framework and collect feedback from the field to refine the agents.\n\n& Experience\n\n• 5 to 10 years of global experience in software development and engineering (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Concrete experience (Hands-on) in the development and implementation of artificial frameworks applied to software engineering.\n Key Technical Skills\n\n• Mastery of software development, architecture, clean code, DevOps, CI/CD practices and automated testing.\n\n• Experience with LLMs, autonomous/multi-agent agent development frameworks (agents, skills, tools, prompts), RAG techniques and Context Engineering.\n\n• Mastery of modern AI extensions and code assistants (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Current English & French.\n Soft Skills\n\n• Ability to support the field deployment of technical and methodological assets to development teams.\n\n• High assimilation capacity, pragmatism and responsiveness to translate cases of use into operational agents.\n\n• Ability to collaborate in a hybrid team (consultants, architects, developers) and to support peer development.",
-        "de": "Umsetzung des Management Framework (Hands-on)\n\n• Design, Code und Konfiguration von spezialisierten KI-Agenten in jeder Phase des SDLC (applikatives Mapping, Spezifikation, Codegenerierung, Testautomatisierung, Dokumentation).\n\n• Entwickeln Sie wiederverwendbare Fähigkeiten, Befehle und Kontextverzeichnisse, um die Arbeit von Agenten zu füttern.\n\n• Implementieren Sie Multi-Agent-Orchestrierungsmechanismen, Handoffs und menschliche Validierungsschleifen (Human-in-the-Loop).\n Integration & Technical Socle\n\n• Gewährleistung der Integration von Agenten in CI/CD-Pipelines, Entwicklungsumgebungen (IDEs) und Code-Management-Tools.\n\n• Beteiligen Sie sich an der Kontextoptimierung und Tokenverbrauchskontrolle (TokenOps).\n\n• Gewährleistung der Qualität, Sicherheit und Rückverfolgbarkeit der von KI produzierten oder unterstützten Produkte.\n Operational Deployment & Support für Teams\n\n• Entwicklung wiederverwendbarer POCs, Demonstratoren und Vorlagen für Entwickler.\n\n• Begleiten Sie die Pilotteams bei der operativen Übernahme des Frameworks und sammeln Sie Feedback aus dem Feld, um die Agenten zu verfeinern.\n\n& Erfahrung\n\n• 5 bis 10 Jahre globale Erfahrung in der Softwareentwicklung und -entwicklung (Seniors / Staff Dev, Software Engineer, Tech Lead).\n\n• Konkrete Erfahrung (Hands-on) in der Entwicklung und Implementierung von künstlichen Frameworks für das Software Engineering.\n Technische Schlüsselkompetenzen\n\n• Beherrschung von Softwareentwicklung, Architektur, Clean Code, DevOps, CI / CD-Praktiken und automatisiertem Testen.\n\n• Erfahrung mit LLMs, autonomen / Multiagenten-Entwicklungs-Frameworks (Agenten, Fähigkeiten, Werkzeuge, Aufforderungen), RAG-Techniken und Context Engineering.\n\n• Beherrschung moderner KI-Erweiterungen und Code-Assistenten (Copilot, Cursor, Claude Code, Cline, Windsurf usw.).\n\n• Aktuelles Englisch & Französisch.\n Soft Skills\n\n• Fähigkeit, den Einsatz technischer und methodischer Assets in Entwicklungsteams vor Ort zu unterstützen.\n\n• Hohe Assimilationsfähigkeit, Pragmatismus und Reaktionsfähigkeit, um Anwendungsfälle in operative Agenten zu übersetzen.\n\n• Fähigkeit, in einem hybriden Team (Berater, Architekten, Entwickler) zusammenzuarbeiten und die Peer-Entwicklung zu unterstützen."
+        "it": "Attuazione del quadro di gestione (Hands-on)\n\n• Progettazione, codice e configurazione di agenti AI specializzati in ogni fase del SDLC (mapping applicabile, specificazione, generazione di codici, test di automazione, documentazione).\n\n• Sviluppare competenze riutilizzabili, comandi e directory contestuali per alimentare il lavoro degli agenti.\n\n• Attuazione di meccanismi di orchestrazione multi-agenti, handoff e loop di validazione umana ( Human-in-the-loop ).\nIntegrazione & Technical Socle\n\n• Assicurare l'integrazione di agenti in pipeline CI/CD, ambienti di sviluppo (IDE) e strumenti di gestione del codice.\n\n• Partecipare all'ottimizzazione dell'ingegneria di contesto e al controllo dei consumi (TokenOps ).\n\n• Assicurare la qualità, la sicurezza e la tracciabilità dei consegnabili prodotti o assistiti da AI.\nDistribuzione operativa e supporto alle squadre\n\n• Sviluppare POC riutilizzabili, dimostranti e modelli per gli sviluppatori.\n\n• Accompagna i team pilota nell'acquisizione operativa del quadro e raccogli feedback dal campo per affinare gli agenti.\n\n& esperienza\n\n• da 5 a 10 anni di esperienza globale nello sviluppo e nell'ingegneria del software (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Esperienza concreta (Hands-on) nello sviluppo e nell'attuazione di quadri artificiali applicati all'ingegneria del software.\nPrincipali competenze tecniche\n\n• Mastery di sviluppo software, architettura, codice pulito, DevOps, pratiche CI/CD e test automatizzati.\n\n• Esperienza con LLM, quadri di sviluppo di agenti autonomi/multi-agenti (agenti, competenze, strumenti, suggerimenti), tecniche RAG e Ingegneria del Contesto.\n\n• Mastery delle moderne estensioni AI e assistenti di codice (Copilota, Cursor, Claude Code, Cline, Windsurf, ecc.).\n\n• Inglese attuale e francese.\nAbilità morbide\n\n• Capacità di supportare la distribuzione del campo di attività tecniche e metodologiche ai team di sviluppo.\n\n• Alta capacità di assimilazione, pragmatismo e reattività per tradurre casi di utilizzo in agenti operativi.\n\n• Capacità di collaborare in un team ibrido (consultanti, architetti, sviluppatori) e di supportare lo sviluppo peer.",
+        "en": "Implementing the Management Framework (Hands-on)\n\n• Design, code and configure specialized AI agents at each phase of the SDLC (applicative mapping, specification, code generation, testing automation, documentation).\n\n• Develop reusable skills, commands and context directories to feed the work of agents.\n\n• Implement multi-agent orchestration mechanisms, handoffs and human validation loops ( Human-in-the-loop ).\nIntegration & Technical Socle\n\n• Ensure the integration of agents into CI/CD pipelines, development environments (IDEs) and code management tools.\n\n• Participate in context engineering optimization and token consumption control ( TokenOps ).\n\n• Ensure the quality, safety and traceability of deliverables produced or assisted by AI.\nOperational Deployment & Support to Teams\n\n• Develop reusable POCs, demonstrators and templates for developers.\n\n• Accompany the pilot teams in the operational take-over of the framework and collect feedback from the field to refine the agents.\n\n& Experience\n\n• 5 to 10 years of global experience in software development and engineering (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Concrete experience (Hands-on) in the development and implementation of artificial frameworks applied to software engineering.\nKey Technical Skills\n\n• Mastery of software development, architecture, clean code, DevOps, CI/CD practices and automated testing.\n\n• Experience with LLMs, autonomous/multi-agent agent development frameworks (agents, skills, tools, prompts), RAG techniques and Context Engineering.\n\n• Mastery of modern AI extensions and code assistants (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Current English & French.\nSoft Skills\n\n• Ability to support the field deployment of technical and methodological assets to development teams.\n\n• High assimilation capacity, pragmatism and responsiveness to translate cases of use into operational agents.\n\n• Ability to collaborate in a hybrid team (consultants, architects, developers) and to support peer development.",
+        "de": "Umsetzung des Management Framework (Hands-on)\n\n• Design, Code und Konfiguration von spezialisierten KI-Agenten in jeder Phase des SDLC (applikatives Mapping, Spezifikation, Codegenerierung, Testautomatisierung, Dokumentation).\n\n• Entwickeln Sie wiederverwendbare Fähigkeiten, Befehle und Kontextverzeichnisse, um die Arbeit von Agenten zu füttern.\n\n• Implementieren Sie Multi-Agent-Orchestrierungsmechanismen, Handoffs und menschliche Validierungsschleifen (Human-in-the-Loop).\nIntegration & Technical Socle\n\n• Gewährleistung der Integration von Agenten in CI/CD-Pipelines, Entwicklungsumgebungen (IDEs) und Code-Management-Tools.\n\n• Beteiligen Sie sich an der Kontextoptimierung und Tokenverbrauchskontrolle (TokenOps).\n\n• Gewährleistung der Qualität, Sicherheit und Rückverfolgbarkeit der von KI produzierten oder unterstützten Produkte.\nOperational Deployment & Support für Teams\n\n• Entwicklung wiederverwendbarer POCs, Demonstratoren und Vorlagen für Entwickler.\n\n• Begleiten Sie die Pilotteams bei der operativen Übernahme des Frameworks und sammeln Sie Feedback aus dem Feld, um die Agenten zu verfeinern.\n\n& Erfahrung\n\n• 5 bis 10 Jahre globale Erfahrung in der Softwareentwicklung und -entwicklung (Seniors / Staff Dev, Software Engineer, Tech Lead).\n\n• Konkrete Erfahrung (Hands-on) in der Entwicklung und Implementierung von künstlichen Frameworks für das Software Engineering.\nTechnische Schlüsselkompetenzen\n\n• Beherrschung von Softwareentwicklung, Architektur, Clean Code, DevOps, CI / CD-Praktiken und automatisiertem Testen.\n\n• Erfahrung mit LLMs, autonomen / Multiagenten-Entwicklungs-Frameworks (Agenten, Fähigkeiten, Werkzeuge, Aufforderungen), RAG-Techniken und Context Engineering.\n\n• Beherrschung moderner KI-Erweiterungen und Code-Assistenten (Copilot, Cursor, Claude Code, Cline, Windsurf usw.).\n\n• Aktuelles Englisch & Französisch.\nSoft Skills\n\n• Fähigkeit, den Einsatz technischer und methodischer Assets in Entwicklungsteams vor Ort zu unterstützen.\n\n• Hohe Assimilationsfähigkeit, Pragmatismus und Reaktionsfähigkeit, um Anwendungsfälle in operative Agenten zu übersetzen.\n\n• Fähigkeit, in einem hybriden Team (Berater, Architekten, Entwickler) zusammenzuarbeiten und die Peer-Entwicklung zu unterstützen.",
+        "fr": "Mise en Œuvre du Framework Agentique (Hands-on)\n\n• Concevoir, coder et paramétrer les agents IA spécialisés intervenant à chaque étape du SDLC (cartographie applicative, spécification, génération de code, automatisation des tests, documentation).\n\n• Développer les skills, commandes et répertoires de contexte réutilisables pour alimenter le travail des agents.\n\n• Implémenter les mécanismes d'orchestration multi-agents, les passages de relais ( handoffs ) et les boucles de validation humaine ( Human-in-the-loop ).\nIntégration & Socle Technique\n\n• Veiller à l'intégration des agents au sein des pipelines CI/CD, des environnements de développement (IDE) et des outils de gestion de code.\n\n• Participer à l'optimisation de la gestion du contexte ( Context Engineering ) et à la maîtrise de la consommation des tokens ( TokenOps ).\n\n• Garantir la qualité, la sécurité et la traçabilité des livrables produits ou assistés par l'IA.\nDéploiement Opérationnel & Support aux Équipes\n\n• Développer des POCs, démonstrateurs et templates réutilisables pour les développeurs.\n\n• Accompagner les équipes pilotes dans la prise en main opérationnelle du framework et recueillir les retours du terrain pour affiner les agents.\n\nParcours & Expérience\n\n• 5 à 10 ans d'expérience globale en développement et ingénierie logicielle (Seniors/Staff Dev, Software Engineer, Tech Lead).\n\n• Expérience concrète (Hands-on) dans le développement et la mise en œuvre de frameworks agentiques appliqués au génie logiciel.\nCompétences Techniques Clés\n\n• Maîtrise du développement logiciel, de l'architecture, du clean code, des pratiques DevOps, CI/CD et du testing automatisé.\n\n• Expérienceavérée des LLMs, frameworks de développement d'agents autonomes/multi-agents (agents, skills, tools, prompts), techniques de RAG et Context Engineering.\n\n• Maîtrise des extensions et assistants de code IA modernes (Copilot, Cursor, Claude Code, Cline, Windsurf, etc.).\n\n• Français & anglais courants.\nSoft Skills\n\n• Capacité à accompagner le déploiement sur le terrain des assets techniques et méthodologiques auprès des équipes de développement.\n\n• Grande capacité d'assimilation, pragmatisme et réactivité pour traduire des cas d'usage en agents opérationnels.\n\n• Capacité à collaborer au sein d'une équipe hybride (consultants, architectes, développeurs) et à accompagner la montée en compétences des pairs."
       },
       "location": "Geneva, GE, Switzerland",
       "canton": "GE",
       "url": "https://jobs.smartrecruiters.com/Talan/744000158697280-developpeur-agentique?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:46:18.726Z",
+      "crawledAt": "2026-10-30T21:15:44.907Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -927,9 +927,19 @@
       "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000158697280-developpeur-agentique?oga=true",
       "jobReqId": "744000158697280",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "developpeur-agentique-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "developpeur-agentique-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "developpeur-agentique-talan-geneva-ge-switzerland"
+        ]
       },
+      "firstSeenAt": "2026-10-30T09:46:18.726Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -942,19 +952,77 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "talan-1136cde917a9",
+      "slug": "head-of-presales-talan-geneva-ge-switzerland",
+      "slugByLocale": {
+        "fr": "head-of-presales-talan-geneva-ge-switzerland",
+        "it": "head-of-presales-talan-geneva-ge-switzerland",
+        "en": "head-of-presales-talan-geneva-ge-switzerland",
+        "de": "head-of-presales-talan-geneva-ge-switzerland"
       },
-      "firstSeenAt": "2026-10-30T09:46:18.726Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "developpeur-agentique-talan-geneva-ge-switzerland"
-        ],
-        "en": [
-          "developpeur-agentique-talan-geneva-ge-switzerland"
-        ]
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Head of Presales",
+      "titleByLocale": {
+        "fr": "Head of Presales",
+        "it": "Responsabile Presales",
+        "en": "Head of Presales",
+        "de": "Leiter Presales"
       },
-      "previousSlugs": [
-        "developpeur-agentique-talan-geneva-ge-switzerland"
-      ]
+      "description": "Le Head of Presales pilote la fonction avant-vente de Talan Suisse. Il ou elle définit le cadre de travail commun, dimensionne les capacités, développe les outils et les compétences des équipes et suit la performance de la fonction. Le rôle reste directement impliqué dans les opportunités Stratégiques lorsque la situation l'exige.\n Votre mission:\n\n• Définir, documenter et faire évoluer le processus et la gouvernance avant-vente, notamment les niveaux Basic, Standard et Strategic, les rôles et les rituels associés.\n\n• Piloter la capacité du pool de Bid Managers et anticiper les pics de charge liés aux opportunités et aux accords-cadres.\n\n• Construire le référentiel de contenus, de modèles et de bonnes pratiques utilisé par les équipes avant-vente.\n\n• Développer les compétences des Bid Managers, Solution Leads et Opportunity Owners.\n\n• Intervenir personnellement comme Solution Lead ou Bid Manager sur les opportunités Stratégiques selon les besoins.\n Pilotage de la fonction avant-vente :\n\n• Définir, suivre et partager les indicateurs de performance, notamment la couverture, le taux de succès et la charge par rôle et par Business Line.\n\n• Arbitrer les tensions de capacité entre les Business Lines et proposer des plans d'action.\n\n• Faire adopter la gouvernance, les outils et les standards avant-vente à l'échelle de Talan Suisse.\n\n• Assurer l'amélioration continue du modèle opérationnel et de ses pratiques.\n Planification des ressources et gestion du bench\n\n• Maintenir une prévision glissante des ressources sur trois à six mois, alignée sur le pipeline et les priorités stratégiques.\n\n• Équilibrer les objectifs de taux d'activité avec la capacité nécessaire au développement commercial et au développement des practices.\n\n• Piloter l'allocation des ressources sur l’ensemble du processus avant-vente\n\n• Identifier les tensions et les manques de ressources et recommander des recrutements, des actions de montée en compétence ou des renforts externes.\n\n• Coordonner les responsables de practice et les équipes delivery afin d'optimiser le déploiement des ressources.\n Prévisions et analyse du taux d'activité :\n\n• Construire et maintenir des modèles reflétant la capacité de l'entreprise, le pipeline commercial et les plannings de delivery avant-vente.\n\n• Produire les reportings mensuels et trimestriels et analyser les écarts.\n\n• Anticiper les tendances et identifier les risques pour la profitabilité.\n\n• Formuler des recommandations fondées sur les données pour améliorer l'utilisation et la planification des capacités.\n\n• Appuyer les décisions de pricing et d'allocation des ressources par des analyses fiables.\n Gestion des compétences et des références :\n\n• Maintenir une cartographie des compétences à l'échelle de l'entreprise par practice, niveau, géographie, spécialité et langue.\n\n• Conduire des évaluations régulières et identifier les écarts de capacité.\n\n• Fournir les données utiles aux décisions de recrutement, de formation, de développement des talents et de staffing.\n\n• Maintenir une base centralisée et consultable de CV et de références à jour, conformes aux standards de l'entreprise.\n\n• Organiser la mise à jour régulière des CV et permettre leur adaptation rapide aux appels d'offres et aux demandes clients.\n\n• Garantir la confidentialité et la gouvernance des données associées.\n Suivi des certifications et accreditations:\n\n• Maintenir un registre complet des certifications, accréditations et références professionnelles.\n\n• Suivre les échéances et les renouvellements et alerter les collaborateurs et managers en amont.\n\n• Veiller au respect des exigences de certification des clients et des autorités réglementaires.\n\n• Analyser la couverture des certifications par practice, niveau et spécialité et communiquer les écarts à la direction.\n\nLes compétences attendues:\n\n• Expérience solide de l'avant-vente et du bid management sur des opportunités complexes.\n\n• Capacité à influencer et à obtenir l'adhésion sans lien hiérarchique direct.\n\n• Maîtrise du pilotage par les données, notamment les capacités, la charge, les ratios et le taux d'activité.\n\n• Compétences en coaching, accompagnement et développement des équipes.\n\n• Capacité à combiner pilotage transverse et implication opérationnelle sur les opportunités Stratégiques.\n Votre profil:\n\n• Huit à dix ans d'expérience minimum en avant-vente, bid management ou vente de solutions complexes.\n\n• Expérience du pilotage de processus de pursuit à l'échelle d'une organisation.\n\n• Expérience de collaboration avec plusieurs Business Lines, practices ou secteurs d'activité.\n\n• Aisance avec les enjeux de planification des ressources, de profitabilité et de performance commerciale.\n\n• Maîtrise professionnelle du français et de l'anglais. L'allemand constitue un atout.\n Comment la performance sera évaluée :\n\n• Taux de couverture de la capacité Bid Manager par rapport à la charge réelle.\n\n• Taux de succès des opportunités Standard et Stratégiques.\n\n• Taux d'adoption de la gouvernance et des outils avant-vente par les Business Lines.\n\n• Couverture de la charge liée aux accords-cadres et aux référencements.\n\n• Qualité des prévisions de ressources et maîtrise des écarts entre capacité, pipeline et delivery.\n\n• Actualité et couverture des données de compétences, CV et certifications.\n\n.",
+      "descriptionByLocale": {
+        "fr": "Le Head of Presales pilote la fonction avant-vente de Talan Suisse. Il ou elle définit le cadre de travail commun, dimensionne les capacités, développe les outils et les compétences des équipes et suit la performance de la fonction. Le rôle reste directement impliqué dans les opportunités Stratégiques lorsque la situation l'exige.\n Votre mission:\n\n• Définir, documenter et faire évoluer le processus et la gouvernance avant-vente, notamment les niveaux Basic, Standard et Strategic, les rôles et les rituels associés.\n\n• Piloter la capacité du pool de Bid Managers et anticiper les pics de charge liés aux opportunités et aux accords-cadres.\n\n• Construire le référentiel de contenus, de modèles et de bonnes pratiques utilisé par les équipes avant-vente.\n\n• Développer les compétences des Bid Managers, Solution Leads et Opportunity Owners.\n\n• Intervenir personnellement comme Solution Lead ou Bid Manager sur les opportunités Stratégiques selon les besoins.\n Pilotage de la fonction avant-vente :\n\n• Définir, suivre et partager les indicateurs de performance, notamment la couverture, le taux de succès et la charge par rôle et par Business Line.\n\n• Arbitrer les tensions de capacité entre les Business Lines et proposer des plans d'action.\n\n• Faire adopter la gouvernance, les outils et les standards avant-vente à l'échelle de Talan Suisse.\n\n• Assurer l'amélioration continue du modèle opérationnel et de ses pratiques.\n Planification des ressources et gestion du bench\n\n• Maintenir une prévision glissante des ressources sur trois à six mois, alignée sur le pipeline et les priorités stratégiques.\n\n• Équilibrer les objectifs de taux d'activité avec la capacité nécessaire au développement commercial et au développement des practices.\n\n• Piloter l'allocation des ressources sur l’ensemble du processus avant-vente\n\n• Identifier les tensions et les manques de ressources et recommander des recrutements, des actions de montée en compétence ou des renforts externes.\n\n• Coordonner les responsables de practice et les équipes delivery afin d'optimiser le déploiement des ressources.\n Prévisions et analyse du taux d'activité :\n\n• Construire et maintenir des modèles reflétant la capacité de l'entreprise, le pipeline commercial et les plannings de delivery avant-vente.\n\n• Produire les reportings mensuels et trimestriels et analyser les écarts.\n\n• Anticiper les tendances et identifier les risques pour la profitabilité.\n\n• Formuler des recommandations fondées sur les données pour améliorer l'utilisation et la planification des capacités.\n\n• Appuyer les décisions de pricing et d'allocation des ressources par des analyses fiables.\n Gestion des compétences et des références :\n\n• Maintenir une cartographie des compétences à l'échelle de l'entreprise par practice, niveau, géographie, spécialité et langue.\n\n• Conduire des évaluations régulières et identifier les écarts de capacité.\n\n• Fournir les données utiles aux décisions de recrutement, de formation, de développement des talents et de staffing.\n\n• Maintenir une base centralisée et consultable de CV et de références à jour, conformes aux standards de l'entreprise.\n\n• Organiser la mise à jour régulière des CV et permettre leur adaptation rapide aux appels d'offres et aux demandes clients.\n\n• Garantir la confidentialité et la gouvernance des données associées.\n Suivi des certifications et accreditations:\n\n• Maintenir un registre complet des certifications, accréditations et références professionnelles.\n\n• Suivre les échéances et les renouvellements et alerter les collaborateurs et managers en amont.\n\n• Veiller au respect des exigences de certification des clients et des autorités réglementaires.\n\n• Analyser la couverture des certifications par practice, niveau et spécialité et communiquer les écarts à la direction.\n\nLes compétences attendues:\n\n• Expérience solide de l'avant-vente et du bid management sur des opportunités complexes.\n\n• Capacité à influencer et à obtenir l'adhésion sans lien hiérarchique direct.\n\n• Maîtrise du pilotage par les données, notamment les capacités, la charge, les ratios et le taux d'activité.\n\n• Compétences en coaching, accompagnement et développement des équipes.\n\n• Capacité à combiner pilotage transverse et implication opérationnelle sur les opportunités Stratégiques.\n Votre profil:\n\n• Huit à dix ans d'expérience minimum en avant-vente, bid management ou vente de solutions complexes.\n\n• Expérience du pilotage de processus de pursuit à l'échelle d'une organisation.\n\n• Expérience de collaboration avec plusieurs Business Lines, practices ou secteurs d'activité.\n\n• Aisance avec les enjeux de planification des ressources, de profitabilité et de performance commerciale.\n\n• Maîtrise professionnelle du français et de l'anglais. L'allemand constitue un atout.\n Comment la performance sera évaluée :\n\n• Taux de couverture de la capacité Bid Manager par rapport à la charge réelle.\n\n• Taux de succès des opportunités Standard et Stratégiques.\n\n• Taux d'adoption de la gouvernance et des outils avant-vente par les Business Lines.\n\n• Couverture de la charge liée aux accords-cadres et aux référencements.\n\n• Qualité des prévisions de ressources et maîtrise des écarts entre capacité, pipeline et delivery.\n\n• Actualité et couverture des données de compétences, CV et certifications.\n\n.",
+        "it": "Il Capo di Presales controlla la funzione pre-vendita di Talan Svizzera. Egli definisce il quadro di lavoro comune, dimensionando le capacità, sviluppando gli strumenti e le competenze dei team e monitorando le prestazioni della funzione. Il ruolo rimane direttamente coinvolto in opportunità strategiche quando la situazione lo richiede.\n La vostra missione:\n\n• Definire, documentare ed evolvere il processo e la governance pre-vendita, tra cui livelli di base, standard e strategici, ruoli e rituali correlati.\n\n• Pilota la capacità del pool Bid Managers e anticipare i picchi di carico relativi alle opportunità e agli accordi quadro.\n\n• Costruire il repository di contenuti, modelli e buone pratiche utilizzate dai team pre-vendita.\n\n• Sviluppa le competenze di Bid Managers, Solution Leads e Opportunity Owners.\n\n• Intervenire personalmente come Soluzione Lead o Bid Manager sulle opportunità strategiche come necessario.\n Pilotando la funzione pre-vendita:\n\n• Definire, monitorare e condividere indicatori di performance, tra cui copertura, tasso di successo e onere per ruolo e Business Line.\n\n• Organizzare tensioni di capacità tra Business Lines e proporre piani d'azione.\n\n• Adottare la governance, gli strumenti e gli standard pre-vendita a Talan Svizzera.\n\n• Assicurare un miglioramento continuo del modello aziendale e delle sue pratiche.\n Pianificazione delle risorse e Benchmark Management\n\n• Mantenere una previsione scivolosa da tre a sei mesi di risorse allineate con la pipeline e priorità strategiche.\n\n• Bilanciare gli obiettivi dei tassi di attività con la capacità di sviluppare il commercio e le pratiche.\n\n• Attribuzione delle risorse pilota durante il processo pre-vendita\n\n• Identificare tensioni e lacune delle risorse e consigliare il reclutamento, l'aggiornamento delle abilità o i rinforzi esterni.\n\n• Coordinare la pratica e i team di consegna per ottimizzare la distribuzione delle risorse.\n Previsioni e analisi del tasso di attività:\n\n• Costruisci e mantieni i modelli che riflettono la capacità dell'azienda, le pipeline commerciali e i tempi di consegna pre-vendita.\n\n• Produrre variazioni di report e analisi mensili e trimestrali.\n\n• Tendenze anticipate e identificare i rischi per la redditività.\n\n• Sviluppa raccomandazioni basate sui dati per migliorare l'utilizzo e la pianificazione delle capacità.\n\n• Sostenere le decisioni di pricing e di allocazione delle risorse attraverso analisi affidabili.\n Competency and Reference Management:\n\n• Mantenere la mappatura delle competenze a livello aziendale per pratica, livello, geografia, specialità e lingua.\n\n• Condurre valutazioni regolari e identificare lacune di capacità.\n\n• Fornire dati rilevanti per le decisioni di reclutamento, formazione, sviluppo del talento e personale.\n\n• Mantenere un database centralizzato e ricercabile di CV e riferimenti aggiornati in linea con gli standard aziendali.\n\n• Organizzare l'aggiornamento regolare dei CV e consentire il loro rapido adattamento alle richieste di offerte e richieste dei clienti.\n\n• Assicurare la riservatezza e la governance dei dati associati.\n Seguire certificazioni e accreditamenti:\n\n• Mantenere un registro completo di certificazioni professionali, accreditamenti e riferimenti.\n\n• Seguire le scadenze e i rinnovi e avvisare i dipendenti e i manager a monte.\n\n• Assicurare il rispetto dei requisiti di certificazione client e normativi.\n\n• Analizzare la copertura delle certificazioni per pratica, livello e specialità e comunicare variazioni alla gestione.\n\nLe competenze previste:\n\n• Forte esperienza nella gestione pre-vendita e delle offerte sulle opportunità complesse.\n\n• Capacità di influenzare e ottenere l'adesione senza collegamento gerarchico diretto.\n\n• Controllo del controllo dei dati, compresa la capacità, il carico, i rapporti e la velocità di attività.\n\n• Competenze in coaching, coaching e sviluppo di team.\n\n• Capacità di combinare il pilotaggio trasversale e il coinvolgimento operativo sulle opportunità strategiche.\n Il tuo profilo:\n\n• Esperienza minima da otto a dieci anni in prevendita, gestione delle offerte o vendita di soluzioni complesse.\n\n• Esperienza nella guida di un processo di ricerca a livello organizzativo.\n\n• Collaborazione con diverse linee di business, pratiche o industrie.\n\n• Relazione con la pianificazione delle risorse, la redditività e i problemi delle prestazioni aziendali.\n\n• Mastery professionale di francese e inglese. Il tedesco e' una risorsa.\n Come verranno valutate le prestazioni:\n\n• Tasso di copertura della capacità di Bid Manager rispetto al carico effettivo.\n\n• Tasso di successo delle opportunità standard e strategiche.\n\n• Tasso di adozione degli strumenti di governance e pre-vendita di Business Lines.\n\n• Coerente l'onere degli accordi quadro e dei riferimenti.\n\n• Qualità delle previsioni delle risorse e controllo delle lacune tra capacità, pipeline e consegna.\n\n• Notizie e copertura di dati di competenze, CV e certificazioni.\n\n.",
+        "en": "The Head of Presales controls the pre-sales function of Talan Switzerland. He or she defines the common working framework, sizing the capabilities, developing the tools and skills of the teams and monitoring the performance of the function. The role remains directly involved in strategic opportunities when the situation so requires.\n Your mission:\n\n• Define, document and evolve the process and pre-sales governance, including Basic, Standard and Strategic levels, roles and related rituals.\n\n• Pilot the capacity of the Bid Managers pool and anticipate peaks of load related to opportunities and framework agreements.\n\n• Build the repository of content, models and good practices used by pre-sales teams.\n\n• Develop the skills of Bid Managers, Solution Leads and Opportunity Owners.\n\n• Personally intervene as Solution Lead or Bid Manager on strategic opportunities as needed.\n Piloting the pre-sales function:\n\n• Define, monitor and share performance indicators, including coverage, success rate and burden by role and Business Line.\n\n• Arrange capacity tensions between Business Lines and propose action plans.\n\n• Adopt governance, tools and pre-sales standards at Talan Switzerland.\n\n• Ensure continuous improvement of the business model and its practices.\n Resource Planning and Benchmark Management\n\n• Maintain a three to six month slippery forecast of resources aligned with the pipeline and strategic priorities.\n\n• Balancing the objectives of activity rates with the capacity to develop trade and practices.\n\n• Piloting resource allocation throughout the pre-sales process\n\n• Identify tensions and resource gaps and recommend recruitment, skill upgrading or external reinforcements.\n\n• Coordinate practice and delivery teams to optimize resource deployment.\n Forecast and Analysis of Activity Rate:\n\n• Build and maintain models reflecting company capacity, commercial pipeline and pre-sale delivery schedules.\n\n• Produce monthly and quarterly reporting and analyse variances.\n\n• Anticipate trends and identify risks for profitability.\n\n• Develop data-based recommendations to improve capacity utilization and planning.\n\n• Support pricing and resource allocation decisions through reliable analysis.\n Competency and Reference Management:\n\n• Maintain enterprise-wide competency mapping by practice, level, geography, specialty and language.\n\n• Conduct regular assessments and identify capacity gaps.\n\n• Provide relevant data for recruitment, training, talent development and staffing decisions.\n\n• Maintain a centralized and searchable database of CVs and updated references in line with company standards.\n\n• Organize regular updating of CVs and enable their rapid adaptation to calls for tenders and customer requests.\n\n• Ensure confidentiality and governance of associated data.\n Follow-up of certifications and accreditations:\n\n• Maintain a complete register of professional certifications, accreditations and references.\n\n• Follow deadlines and renewals and alert employees and managers upstream.\n\n• Ensure compliance with client and regulatory certification requirements.\n\n• Analyze coverage of certifications by practice, level and specialty and communicate variances to management.\n\nThe skills expected:\n\n• Strong experience in pre-sales and bid management on complex opportunities.\n\n• Ability to influence and obtain membership without direct hierarchical link.\n\n• Control of data control, including capacity, load, ratios and activity rate.\n\n• Skills in coaching, coaching and team development.\n\n• Ability to combine transverse pilotage and operational involvement on strategic opportunities.\n Your profile:\n\n• Eight to ten years minimum experience in pre-sale, bid management or sale of complex solutions.\n\n• Experience in leading an organization-wide pursuit process.\n\n• Collaboration with several Business Lines, practices or industries.\n\n• Relationship with resource planning, profitability and business performance issues.\n\n• Professional mastery of French and English. German is an asset.\n How performance will be evaluated:\n\n• Bid Manager capacity coverage rate relative to actual load.\n\n• Success Rate of Standard and Strategic Opportunities.\n\n• Adoption rate of governance and pre-sales tools by Business Lines.\n\n• Covering the burden of framework agreements and references.\n\n• Quality of resource forecasts and control of gaps between capacity, pipeline and delivery.\n\n• News and coverage of skills data, CVs and certifications.\n\n.",
+        "de": "Der Leiter Presales kontrolliert die Vorverkaufsfunktion von Talan Schweiz. Er oder sie definiert den gemeinsamen Arbeitsrahmen, die Größe der Fähigkeiten, die Entwicklung der Werkzeuge und Fähigkeiten der Teams und die Überwachung der Leistung der Funktion. Die Rolle bleibt direkt an strategischen Möglichkeiten beteiligt, wenn die Situation es erfordert.\n Ihre Mission:\n\n• Definieren, dokumentieren und entwickeln Sie den Prozess und die Pre-Sales-Governance, einschließlich Basis-, Standard- und Strategieebenen, Rollen und verwandte Rituale.\n\n• Pilotieren Sie die Kapazität des Bid Managers-Pools und antizipieren Sie Belastungsspitzen im Zusammenhang mit Chancen und Rahmenvereinbarungen.\n\n• Erstellen Sie ein Repository mit Inhalten, Modellen und bewährten Praktiken, die von Pre-Sales-Teams verwendet werden.\n\n• Entwickeln Sie die Fähigkeiten von Bid Managern, Solution Leads und Opportunity Ownern.\n\n• Persönlich intervenieren Sie als Solution Lead oder Bid Manager bei Bedarf bei strategischen Chancen.\n Pilotierung der Pre-Sales-Funktion:\n\n• Definieren, überwachen und teilen Sie Leistungsindikatoren, einschließlich Abdeckung, Erfolgsquote und Belastung nach Rolle und Geschäftsfeld.\n\n• Kapazitätsspannungen zwischen Geschäftsbereichen vereinbaren und Aktionspläne vorschlagen.\n\n• Übernahme von Governance, Tools und Pre-Sales-Standards bei Talan Schweiz.\n\n• Gewährleistung einer kontinuierlichen Verbesserung des Geschäftsmodells und seiner Praktiken.\n Ressourcenplanung und Benchmark Management\n\n• Führen Sie eine drei- bis sechsmonatige, rutschige Prognose der Ressourcen, die mit der Pipeline und den strategischen Prioritäten in Einklang stehen.\n\n• Abwägung der Ziele der Erwerbsquoten mit der Fähigkeit, Handel und Praktiken zu entwickeln.\n\n• Pilotierung der Ressourcenzuweisung während des Pre-Sales-Prozesses\n\n• Identifizieren Sie Spannungen und Ressourcenlücken und empfehlen Sie Rekrutierung, Qualifizierung oder externe Verstärkung.\n\n• Koordinieren Sie Praxis- und Lieferteams, um die Ressourcenbereitstellung zu optimieren.\n Prognose und Analyse der Aktivitätsrate:\n\n• Erstellen und pflegen Sie Modelle, die die Kapazität des Unternehmens, die kommerzielle Pipeline und die Lieferpläne vor dem Verkauf widerspiegeln.\n\n• Erstellung monatlicher und vierteljährlicher Berichte und Analyse der Varianzen.\n\n• Antizipieren Sie Trends und identifizieren Sie Risiken für die Rentabilität.\n\n• Entwicklung datenbasierter Empfehlungen zur Verbesserung der Kapazitätsauslastung und -planung.\n\n• Unterstützung von Preis- und Ressourcenzuweisungsentscheidungen durch zuverlässige Analysen.\n Kompetenz- und Referenzmanagement:\n\n• Pflegen Sie unternehmensweite Kompetenz-Mapping nach Praxis, Ebene, Geographie, Spezialität und Sprache.\n\n• Durchführung regelmäßiger Bewertungen und Ermittlung von Kapazitätslücken.\n\n• Geben Sie relevante Daten für Einstellung, Ausbildung, Talententwicklung und Personalentscheidungen an.\n\n• Pflegen Sie eine zentralisierte und durchsuchbare Datenbank mit Lebensläufen und aktualisierten Referenzen gemäß den Unternehmensstandards.\n\n• Organisieren Sie die regelmäßige Aktualisierung von Lebensläufen und ermöglichen Sie deren schnelle Anpassung an Ausschreibungen und Kundenanfragen.\n\n• Gewährleistung der Vertraulichkeit und Verwaltung der zugehörigen Daten.\n Follow-up von Zertifizierungen und Akkreditierungen:\n\n• Führen Sie ein vollständiges Register der professionellen Zertifizierungen, Akkreditierungen und Referenzen.\n\n• Befolgen Sie Fristen und Verlängerungen und alarmieren Sie Mitarbeiter und Manager vorgelagert.\n\n• Gewährleistung der Einhaltung der Kunden- und behördlichen Zertifizierungsanforderungen.\n\n• Analysieren Sie die Abdeckung von Zertifizierungen nach Praxis, Niveau und Spezialisierung und kommunizieren Sie Abweichungen an das Management.\n\nDie erwarteten Fähigkeiten:\n\n• Starke Erfahrung im Pre-Sales- und Angebotsmanagement zu komplexen Chancen.\n\n• Fähigkeit, die Mitgliedschaft ohne direkten hierarchischen Link zu beeinflussen und zu erhalten.\n\n• Kontrolle der Datenkontrolle, einschließlich Kapazität, Last, Verhältnisse und Aktivitätsrate.\n\n• Fähigkeiten in Coaching, Coaching und Teamentwicklung.\n\n• Fähigkeit, Querlotsendienst und operative Beteiligung an strategischen Chancen zu kombinieren.\n Ihr Profil:\n\n• Acht bis zehn Jahre Mindesterfahrung im Pre-Sale, Bid Management oder Verkauf komplexer Lösungen.\n\n• Erfahrung in der Leitung eines organisationsweiten Verfolgungsprozesses.\n\n• Zusammenarbeit mit verschiedenen Geschäftsbereichen, Praktiken oder Branchen.\n\n• Beziehung zu Ressourcenplanung, Rentabilität und Geschäftsleistungsfragen.\n\n• Professionelle Beherrschung von Französisch und Englisch. Deutsch ist ein Asset.\n Wie die Leistung bewertet wird:\n\n• Bid Manager Kapazitätsdeckungsrate im Verhältnis zur tatsächlichen Last.\n\n• Erfolgsquote von Standard- und strategischen Chancen.\n\n• Übernahmequote von Governance- und Pre-Sales-Tools durch Business Lines.\n\n• Deckung der Belastung durch Rahmenvereinbarungen und Referenzen.\n\n• Ressourcenqualitätsprognosen und Kontrolle von Lücken zwischen Kapazität, Pipeline und Lieferung.\n\n• Nachrichten und Berichterstattung über Qualifikationsdaten, Lebensläufe und Zertifizierungen.\n\n."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000158714650-head-of-presales-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-30T21:15:44.902Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30T10:58:16.821Z",
+      "postedDate": "2026-10-30T10:58:16.821Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000158714650-head-of-presales-?oga=true",
+      "jobReqId": "744000158714650",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-30T21:15:44.902Z"
     }
   ]
 }

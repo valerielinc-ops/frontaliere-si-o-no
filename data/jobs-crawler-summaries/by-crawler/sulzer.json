@@ -1,7 +1,7 @@
 {
   "key": "sulzer",
   "label": "Sulzer",
-  "generatedAt": "2026-10-30T09:44:15.045Z",
+  "generatedAt": "2026-10-30T21:39:37.893Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 12106,
-  "avgDurationMs": 12106,
+  "durationMs": 10046,
+  "avgDurationMs": 10046,
   "durationHistory": [
-    12106
+    10046
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:43:53.194Z",
+      "crawledAt": "2026-10-30T21:39:25.251Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:43:52.548Z",
+      "crawledAt": "2026-10-30T21:39:24.518Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Digital-Internal-Communications-Working-Student--Trainee-_JR105047",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:43:51.813Z",
+      "crawledAt": "2026-10-30T21:39:23.781Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/R-D-Chemical-Recycling-Intern_JR104882-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:43:51.054Z",
+      "crawledAt": "2026-10-30T21:39:22.927Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Legal-Assistant---Paralegal_JR105145-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:43:48.504Z",
+      "crawledAt": "2026-10-30T21:39:22.187Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Machine-Diagnostics-Engineer_JR103447-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:43:47.344Z",
+      "crawledAt": "2026-10-30T21:39:20.955Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -292,7 +292,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/ICT-Supporter_JR105348",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:43:46.560Z",
+      "crawledAt": "2026-10-30T21:39:20.062Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -323,5 +323,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

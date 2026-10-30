@@ -222,25 +222,119 @@
 
   /** The words a person reads for this control. */
   const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
+  const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
+  const DATE_QUESTION_SELECTOR = '[ui5-date-picker], [data-scope="date-picker"][data-part="root"]';
+  const QUESTION_CONTROL_SELECTOR = `input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"], button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"], ${DATE_QUESTION_SELECTOR}`;
+  // Unnamed option cards are one question only inside a pure, bounded list.
+  // A heading or another control inside that list makes ownership ambiguous.
+  const ariaRadioCluster = element => {
+    if (element.tagName === 'INPUT' || !element.matches('[role="radio"]')) return null;
+    const explicit = element.closest('[role="radiogroup"]');
+    if (explicit) return explicit;
+    const ownerSelector = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="region"], [role="dialog"], [role="tabpanel"], [aria-label], [aria-labelledby]`;
+    const owner = element.parentElement?.closest(ownerSelector);
+    const boundary = owner || element.closest('form') || element.ownerDocument.body;
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)].filter(control =>
+        control.tagName !== 'INPUT' || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()));
+      if (controls.length > 1) {
+        return controls.every(control => control.tagName !== 'INPUT' && control.matches('[role="radio"]')
+          && control.parentElement?.closest(ownerSelector) === owner)
+          && !node.querySelector(QUESTION_LABEL_SELECTOR) ? node : null;
+      }
+      if (node === boundary) break;
+    }
+    return null;
+  };
+  // JazzHR submits a hidden questionnaire value while its checkbox has an
+  // exact question/option key. The value alone never proves that relationship.
+  const mirroredQuestionLabel = element => {
+    if (!element.matches('input[type="checkbox"]') || !element.form) return null;
+    const key = /^resumator-checkbox-(\d+)-(\d+)$/.exec(element.id);
+    if (!key || element.name !== element.id) return null;
+    const form = element.form, group = element.closest(QUESTION_GROUP_SELECTOR);
+    const choices = [...form.querySelectorAll('input[type="checkbox"]')].filter(control =>
+      new RegExp(`^resumator-checkbox-${key[1]}-`).test(control.id) || new RegExp(`^resumator-checkbox-${key[1]}-`).test(control.name));
+    const hidden = [...form.querySelectorAll('input[type="hidden"]')].filter(control =>
+      control.id === `resumator-questionnaire-q${key[1]}` || control.name === `resumator-questionnaire[${key[1]}]`);
+    if (choices.length !== 1 || hidden.length !== 1) return null;
+    const mirror = hidden[0];
+    if (mirror.id !== `resumator-questionnaire-q${key[1]}` || mirror.name !== `resumator-questionnaire[${key[1]}]`
+      || mirror.form !== form || mirror.closest(QUESTION_GROUP_SELECTOR) !== group) return null;
+    const doc = element.ownerDocument;
+    const refs = ['aria-labelledby', 'aria-describedby', 'aria-details']
+      .flatMap(attribute => (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean));
+    if (refs.some(id => !doc.getElementById(id))) return null;
+    const ownNames = [...element.labels || []].map(label => label.textContent || '');
+    ownNames.push(...refs.map(id => doc.getElementById(id).textContent || ''));
+    for (const attribute of ['aria-label', 'aria-description', 'title', 'placeholder']) {
+      if (element.getAttribute(attribute)) ownNames.push(element.getAttribute(attribute));
+    }
+    if (!ownNames.length || ownNames.some(text => !/^(?:i )?(?:agree|accept)[.!]?$/i.test(String(text).replace(/\s+/g, ' ').trim()))) return null;
+    if ([...doc.querySelectorAll('[id]')].filter(node => node.id === mirror.id).length !== 1
+      || [...doc.querySelectorAll('[id]')].filter(node => node.id === element.id).length !== 1) return null;
+    const labels = [...doc.querySelectorAll('label[for]')].filter(label => label.getAttribute('for') === mirror.id);
+    const label = labels.length === 1 && labels[0];
+    return label && label.closest('form') === form && label.closest(QUESTION_GROUP_SELECTOR) === group
+      && !label.querySelector(QUESTION_CONTROL_SELECTOR) && String(label.textContent || '').trim() ? label : null;
+  };
+  const questionControls = group => {
+    const nodes = [...(group?.querySelectorAll(QUESTION_CONTROL_SELECTOR) || [])];
+    const labelledHidden = new Set();
+    const hiddenTargets = [...(group?.ownerDocument.querySelectorAll('input[type="hidden"][id]') || [])];
+    for (const label of group?.querySelectorAll('label[for]') || []) {
+      if (label.control?.matches(QUESTION_CONTROL_SELECTOR)) nodes.push(label.control);
+      if (!label.getAttribute('for') || !String(label.textContent || '').trim()) continue;
+      // A hidden input is not labelable in the DOM API. Resolve every exact
+      // target instead of treating label.control === null as no other owner.
+      for (const target of hiddenTargets.filter(control => control.id === label.getAttribute('for'))) {
+        labelledHidden.add(target);
+        nodes.push(target);
+      }
+    }
+    return [...new Set(nodes
+      .filter(control => control.tagName !== 'INPUT'
+        || labelledHidden.has(control) || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()))
+      .map(control => {
+        if (labelledHidden.has(control)) {
+          const linked = [...(control.form?.querySelectorAll('input[type="checkbox"]') || [])]
+            .filter(choice => mirroredQuestionLabel(choice)?.getAttribute('for') === control.id);
+          return linked.length === 1 ? linked[0] : control;
+        }
+        const widget = control.closest(`${DATE_QUESTION_SELECTOR}, [role="radiogroup"]`) || ariaRadioCluster(control);
+        if (widget) return widget;
+        const nativeId = control.matches('.ui-selectmenu-button[role="combobox"]') && control.id.endsWith('-button') ? control.id.slice(0, -7) : '';
+        const native = nativeId && control.ownerDocument.getElementById(nativeId);
+        if (native?.tagName === 'SELECT' && control.getAttribute('aria-owns') === `${nativeId}-menu`) return native;
+        const previous = control.previousElementSibling;
+        if (control.classList.contains('ui-multiselect') && previous?.tagName === 'SELECT' && previous.id
+          && previous.getAttribute('aria-labelledby') && previous.getAttribute('aria-labelledby') === control.getAttribute('aria-labelledby')) return previous;
+        return control;
+      }))];
+  };
   const oneQuestionGroup = (group, element) => {
-    const controls = [...(group?.querySelectorAll('input:not([type="hidden"]), select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]') || [])];
+    const controls = questionControls(group);
     return controls.length === 1 || controls.length > 0 && controls.every(control =>
       control.matches('input[type="radio"], [role="radio"]') && (group.matches('[role="radiogroup"]')
         || control.matches('input[type="radio"]') && Boolean(element.name) && control.name === element.name));
   };
+  const hasSingleQuestionContext = (element, group) => oneQuestionGroup(
+    group || element.form || element.closest('form') || element.ownerDocument.body, element);
   const ownedGroupLabels = (group, selector, element) => {
     const oneQuestion = oneQuestionGroup(group, element);
     return [...(group?.querySelectorAll(selector) || [])].filter(label => {
       const owner = label.closest('label') || label;
       const linked = [...owner.querySelectorAll('label[for]'), ...(owner.matches('label[for]') ? [owner] : [])];
       return label.closest(QUESTION_GROUP_SELECTOR) === group && !owner.contains(element)
-        && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
+        && questionControls(owner).length === 0
         && linked.every(node => Boolean(element.id) && node.getAttribute('for') === element.id)
         && (linked.length > 0 || oneQuestion);
     });
   };
 
   function labelOf(element) {
+    const mirrorLabel = mirroredQuestionLabel(element);
+    if (mirrorLabel) return textOf(mirrorLabel);
     const doc = element.ownerDocument;
     const byIds = (ids) => ids.split(/\s+/).map((id) => textOf(doc.getElementById(id))).join(' ').trim();
     const labelledBy = element.getAttribute('aria-labelledby');
@@ -256,15 +350,16 @@
     const aria = element.getAttribute('aria-label') || '';
     if (aria && !INTERNAL_NAME_RE.test(aria)) return aria;
     const group = element.closest(QUESTION_GROUP_SELECTOR);
-    if (aria && (!group || oneQuestionGroup(group, element))) {
+    const ownContext = hasSingleQuestionContext(element, group) && hasSingleQuestionContext(element);
+    if (aria && ownContext) {
       const nearby = nearbyText(element);
       if (nearby) return nearby;
     }
     // A field group (Zag/Ark, fieldset): its own label or legend.
-    for (const legend of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
+    for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       if (!legend.contains(element) && textOf(legend)) return textOf(legend);
     }
-    return (!group || oneQuestionGroup(group, element) ? questionOf(element) : '')
+    return (ownContext ? questionOf(element) : '')
       || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
   }
 
@@ -305,7 +400,7 @@
   function labelsOf(element, label, runnerLabel = '') {
     const doc = element.ownerDocument;
     const group = element.closest(QUESTION_GROUP_SELECTOR);
-    const ownContext = !group || oneQuestionGroup(group, element);
+    const ownContext = hasSingleQuestionContext(element, group) && hasSingleQuestionContext(element);
     const described = (element.getAttribute('aria-describedby') || '').split(/\s+/).map((id) => textOf(doc.getElementById(id))).join(' ');
     const names = [runnerLabel, label, ownContext ? nearbyText(element) : '', element.getAttribute('aria-label'), described, ownContext ? questionOf(element) : '',
       element.getAttribute('title'), element.getAttribute('placeholder'), humanize(element.getAttribute('name')), humanize(element.id)];
@@ -341,6 +436,8 @@
     if (element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required')) return true;
     const doc = element.ownerDocument;
     const labels = new Set(element.labels || []);
+    const mirrorLabel = mirroredQuestionLabel(element);
+    if (mirrorLabel) labels.add(mirrorLabel);
     if (element.id) {
       const direct = doc.querySelector(`label[for="${element.id.replace(/["\\]/g, "\\$&")}"]`);
       if (direct) labels.add(direct);
@@ -352,7 +449,7 @@
       if (node) labels.add(node);
     }
     const group = element.closest(QUESTION_GROUP_SELECTOR);
-    for (const groupLabel of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
+    for (const groupLabel of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       if (!groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
     }
     const marker = (node, adjacent = false) => {
@@ -406,7 +503,7 @@
     const runner = runnerLabels(channelType);
     const inPicker = (element) => element.closest('[data-scope="date-picker"]');
     for (const picker of doc.querySelectorAll('[data-scope="date-picker"][data-part="root"]')) {
-      if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: questionOf(picker) || labelOf(picker), required: true });
+      if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: labelOf(picker), required: true });
     }
     // SAP UI5's date picker (SuccessFactors' «Geburtsdatum», Coop): its input lives in its shadow root.
     for (const picker of doc.querySelectorAll('[ui5-date-picker]')) {
@@ -476,10 +573,11 @@
     }
     for (const radios of radiosByName.values()) {
       const group = radios[0].closest(QUESTION_GROUP_SELECTOR);
-      const question = !group || oneQuestionGroup(group, radios[0]) ? questionOf(radios[0]) : '';
-      const legend = ownedGroupLabels(group, 'legend, [role="heading"], label', radios[0])
+      const ownContext = hasSingleQuestionContext(radios[0], group) && hasSingleQuestionContext(radios[0]);
+      const question = ownContext ? questionOf(radios[0]) : '';
+      const legend = ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, radios[0])
         .filter(node => !node.closest('label')?.hasAttribute('for') && !node.querySelector('label[for]')).map(textOf).find(Boolean) || '';
-      const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))];
+      const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, ownContext ? nearbyText(group || radios[0].parentElement || radios[0]) : '', question].filter(Boolean))];
       entries.push({
         kind: 'radio',
         element: radios[0],
@@ -493,20 +591,20 @@
     const ariaGroups = new Map();
     for (const radio of doc.querySelectorAll('[role="radio"]')) {
       if (radio.tagName === 'INPUT' || !isShown(radio) || inPicker(radio)) continue;
-      const group = radio.closest('[role="radiogroup"]') || radio.parentElement?.parentElement?.parentElement || radio.parentElement;
-      const key = radio.closest('[role="radiogroup"]') ? group : questionOf(radio) || group;
+      const key = ariaRadioCluster(radio) || radio;
       if (!ariaGroups.has(key)) ariaGroups.set(key, []);
       ariaGroups.get(key).push(radio);
     }
     for (const radios of ariaGroups.values()) {
-      const group = radios[0].closest('[role="radiogroup"]');
-      const ariaLabel = (group && group.getAttribute('aria-label')) || questionOf(radios[0]);
+      const group = ariaRadioCluster(radios[0]);
+      const ownContext = hasSingleQuestionContext(radios[0]);
+      const ariaLabel = group ? labelOf(group) : ownContext ? questionOf(radios[0]) : '';
       entries.push({
         kind: 'aria-radio',
         element: radios[0],
         options: radios.map((radio) => ({ element: radio, label: textOf(radio) })),
         label: ariaLabel,
-        labels: [...new Set([runnerLabelOf(runner, radios[0]), ariaLabel, questionOf(radios[0]), nearbyText(group || radios[0].parentElement || radios[0])].filter(Boolean))],
+        labels: [...new Set([runnerLabelOf(runner, radios[0]), ariaLabel, ownContext ? questionOf(radios[0]) : '', ownContext ? nearbyText(group || radios[0].parentElement || radios[0]) : ''].filter(Boolean))],
         required: true,
       });
     }
