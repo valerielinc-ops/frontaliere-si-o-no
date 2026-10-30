@@ -6,7 +6,7 @@ import { qualificationEvidenceCases } from './fixtures/qualification-evidence-ca
 function fixture(cases = qualificationEvidenceCases().filter(item => item.group === 'yellowshark-positive')) {
   const sourceText = [...new Set(cases.map(item => item.evidence))].join('\n');
   const sources = qualificationSources({ sourceText });
-  const requirements = { requirements: cases.map(item => ({ requirement: item.requirement, quote: item.quote, basis: 'stated', importance: 'high' })) };
+  const requirements = { requirements: cases.map(item => ({ requirement: item.requirement, quote: item.quote, basis: 'stated', importance: 'high', ...(item.nativeFormContract ? { nativeFormContract: item.nativeFormContract, proposedAnswer: item.proposedAnswer } : {}) })) };
   const match = { verdict: 'good', matches: cases.map((item, index) => ({ index, status: 'met', evidence: item.evidence, evidenceUnverified: false })) };
   const rawMatch = { matches: match.matches.map(item => ({ ...item, evidence: sources.citations.excerpts.find(source => source.text === item.evidence)?.id })) };
   const generate = vi.fn(async (_system: string, user: string, _schema?: any, _options?: any) => ({ assessments: JSON.parse(user).claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id, verdict: 'supported', reason: 'explicit_fact' })) }));
