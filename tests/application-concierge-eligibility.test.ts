@@ -92,12 +92,33 @@ describe('qualification before proposal publication', () => {
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
     expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(2);
   });
-  it('keeps combined and alternative language clauses intact and accepts an optional language without positive evidence', () => {
-    for (const quote of ['English or German required', 'English and German required', 'French is a plus']) {
-      const rows = { requirements: [{ requirement: quote, importance: quote.includes('plus') ? 'preferred' : 'high', basis: 'stated', quote }],
-        languageRequirements: [{ language: quote.includes('plus') ? 'French' : 'English', level: '', quote }] };
-      expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: quote.includes('plus') ? 'missing' : 'met', evidence: quote.includes('plus') ? '' : 'Language evidence' }], verdict: 'good' }).status).toBe('compatible');
-    }
+  it('accepts an optional language without positive evidence', () => {
+    const quote = 'French is a plus';
+    const rows = { requirements: [{ requirement: quote, importance: 'preferred', basis: 'stated', quote }],
+      languageRequirements: [{ language: 'French', level: '', quote }] };
+    expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'good' }).status).toBe('compatible');
+  });
+  it('does not satisfy fluent German AND English with English evidence while German is A2', () => {
+    const quote = 'Fluent German and English required';
+    const rows = { requirements: [{ requirement: quote, importance: 'critical', basis: 'stated', quote }],
+      languageRequirements: [{ language: 'German', level: 'fluent', quote }, { language: 'English', level: 'fluent', quote }] };
+    const profile = { languages: [{ language: 'German', level: 'A2' }, { language: 'English', level: 'C1' }] };
+    expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: 'met', evidence: 'English C1' }], verdict: 'good' }, { profile }))
+      .toMatchObject({ status: 'incompatible', gaps: [expect.objectContaining({ knownMissing: true })] });
+  });
+  it('accepts fluent German OR French when only French C1 is proven', () => {
+    const quote = 'Fluent German or French required';
+    const rows = { requirements: [{ requirement: quote, importance: 'critical', basis: 'stated', quote }],
+      languageRequirements: [{ language: 'German', level: 'fluent', quote }, { language: 'French', level: 'fluent', quote }] };
+    const profile = { languagesExplicitList: true, languages: [{ language: 'French', level: 'C1' }] };
+    expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: 'met', evidence: 'French C1' }], verdict: 'good' }, { profile }).status).toBe('compatible');
+  });
+  it.each(['Strong German & English communication', 'German C1 and English B2 required', 'Fluent German / English required', 'Fluent German and English or French required'])('keeps ambiguous language clause %s a technical failure without inventing a gap', quote => {
+    const rows = { requirements: [{ requirement: quote, importance: 'high', basis: 'stated', quote }],
+      languageRequirements: [{ language: 'German', level: '', quote }] };
+    const profile = { languages: [{ language: 'English', level: 'C1' }] };
+    expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: 'met', evidence: 'English C1' }], verdict: 'good' }, { profile }))
+      .toMatchObject({ status: 'unverified', reason: 'language_clause_unverified', gaps: [] });
   });
   it('does not accept a short language quote as coverage of a longer combined clause', () => {
     const incomplete = { requirements: [{ requirement: 'German', importance: 'high', basis: 'stated', quote: 'German' }],

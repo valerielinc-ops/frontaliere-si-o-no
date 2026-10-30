@@ -94,16 +94,11 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     }
     return [];
   });
-  // A one-language must-have cannot be satisfied by evidence about a different language.
-  // Multi-language alternatives and combined clauses remain with the two-pass evaluator.
+  // A language must-have cannot be satisfied by evidence about another language.
   for (const [index, row] of rows.entries()) {
-    if (!profile || !DECISIVE.includes(row.importance) || !isLanguageAbilityQuestion(row.quote)) continue;
+    const listedLanguage = (requirements?.languageRequirements || []).some(language => language.quote && text(row.quote, 400).includes(text(language.quote, 300)));
+    if (!DECISIVE.includes(row.importance) || (!listedLanguage && !isLanguageAbilityQuestion(row.quote))) continue;
     const codes = languageCodesIn(row.quote || '');
-    if (codes.length !== 1) continue;
-    const code = codes[0];
-    const entry = explicitLanguageEntry(profile, code);
-    const remembered = answers[`language_${code}_any_proficiency`];
-    const level = String(remembered || entry?.level || '');
     const rank = value => {
       const label = String(value);
       const cefr = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(label.toUpperCase().match(/\b[ABC][12]\b/)?.[0]);
@@ -115,6 +110,34 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     const fluent = /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(row.quote || '');
     const native = /\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(row.quote || '');
     const minimum = requested >= 0 ? requested : native ? 5 : fluent ? 4 : -1;
+    if (codes.length > 1) {
+      const alternative = /\b(?:or|oder|ou|o)\b/iu.test(row.quote);
+      const conjunction = /(?:\b(?:and|und|et|e)\b|&)/iu.test(row.quote);
+      const levels = new Set(String(row.quote).toUpperCase().match(/\b[ABC][12]\b/g) || []);
+      // Mixed clauses, different per-language levels and unspecified levels
+      // need a complete analysis, never a guess from one positive language.
+      if (!profile || minimum < 0 || levels.size > 1 || alternative === conjunction) {
+        return { status: 'unverified', reason: 'language_clause_unverified', gaps: [] };
+      }
+      const states = codes.map(code => {
+        const entry = explicitLanguageEntry(profile, code);
+        const remembered = answers[`language_${code}_any_proficiency`];
+        const level = rank(remembered || entry?.level || '');
+        const absent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
+        return { met: level >= minimum, knownMissing: absent || (level >= 0 && level < minimum) };
+      });
+      if (alternative ? states.some(state => state.met) : states.every(state => state.met)) continue;
+      const knownMissing = alternative ? states.every(state => state.knownMissing) : states.some(state => state.knownMissing);
+      const existing = gaps.find(gap => gap.index === index);
+      if (existing) existing.knownMissing = knownMissing;
+      else gaps.push({ index, requirement: row.requirement, importance: row.importance, status: 'unknown', knownMissing });
+      continue;
+    }
+    if (!profile || codes.length !== 1) continue;
+    const code = codes[0];
+    const entry = explicitLanguageEntry(profile, code);
+    const remembered = answers[`language_${code}_any_proficiency`];
+    const level = String(remembered || entry?.level || '');
     if (minimum < 0 && !/(?:knowledge|proficien|kenntnis|conoscenz|maîtrise|parlato|written|spoken)/iu.test(row.quote || '')) continue;
     const knownAbsent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
     if (knownAbsent || (!entry && !remembered) || (minimum >= 0 && (rank(level) < minimum))) {
