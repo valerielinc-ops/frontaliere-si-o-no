@@ -35,7 +35,11 @@ function fixture(initial = profile) {
       if (url === reviewUrl) { expect(guard).not.toHaveBeenCalled(); state.snapshot = review; }
       return { status: () => 200 };
     }),
-    evaluate: async (fn: Function) => String(fn).includes('navigator.userAgent') ? 'Chrome' : state.snapshot.text,
+    evaluate: async (fn: Function) => {
+      const source = String(fn);
+      if (source.includes('navigator.userAgent')) return 'Chrome';
+      return source.includes('document.body') ? state.snapshot.text : false;
+    },
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
     locator: () => ({ count: async () => 0, first: () => ({ click }) }),
   };

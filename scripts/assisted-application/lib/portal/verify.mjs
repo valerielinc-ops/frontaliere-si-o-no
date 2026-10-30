@@ -1,6 +1,6 @@
 /** Protected inspection: existing-account sign-in, GET reads, no application actions. */
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
-import { headedBrowser, realisticUserAgent } from './portal.mjs';
+import { COOKIE_REJECT_RE, headedBrowser, realisticUserAgent } from './portal.mjs';
 import { extractFields } from './fields.mjs';
 import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
 import { applyActions, findButton, locatorFor } from './fill.mjs';
@@ -27,6 +27,15 @@ export function safeSigninAction(action, pageUrl) {
       && /(?:^|\/)(?:application)?(?:login|signin|sign-in)\/?$/i.test(url.pathname)
       && [...url.searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key));
   } catch { return false; }
+}
+
+/** Serialized in the browser: a bounded CMP control, never a page-wide cookie state. */
+export function isVerificationCookieReject(element, rejectSource) {
+  const container = element.closest('#onetrust-banner-sdk, #onetrust-pc-sdk');
+  const text = String(element.innerText || element.textContent || element.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim();
+  return Boolean(container && !['HTML', 'BODY', 'FORM', 'MAIN'].includes(container.tagName)
+    && !element.form && !element.closest('form') && /\bcookies?\b/i.test(text)
+    && new RegExp(rejectSource, 'i').test(text));
 }
 
 /**
@@ -84,6 +93,15 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     const page = await context.newPage();
     await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     let snapshot = await extractFields(page, { listboxOptions: false });
+    // A fresh session can put its cookie manager over the login. Only reject
+    // optional cookies in a proved cookie container; never press generic OK,
+    // Accept, an application consent or an unrelated modal action.
+    const cookie = findButton(snapshot.buttons.filter(button => /\bcookies?\b/i.test(button.text || '')), COOKIE_REJECT_RE);
+    if (cookie && (cookie.frame || 0) === 0 && await locatorFor(page, cookie).evaluate(isVerificationCookieReject, COOKIE_REJECT_RE.source).catch(() => false) === true) {
+      await locatorFor(page, cookie).click({ timeout: 6000 });
+      await page.waitForTimeout(800);
+      snapshot = await extractFields(page, { listboxOptions: false });
+    }
     if (snapshot.passwordVisible) {
       if (new URL(page.url()).origin !== origin || authPageKind(snapshot) !== 'sign_in') return proof;
       const { email, password } = loginFields(snapshot);
