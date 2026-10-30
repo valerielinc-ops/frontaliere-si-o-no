@@ -28,11 +28,13 @@ const FETCH_TIMEOUT_MS = 30_000;
 // quickly, the existing bounded/fail-closed Git proof remains authoritative.
 const GITHUB_COMPARE_TIMEOUT_MS = 2_250;
 // A shallow refresh may need the complete commit graph to prove that a
-// fetched marker is not hidden beyond the shallow boundary. This fetch stays
-// tree-filtered, but its duration scales with the repository's commit graph;
-// the old 30-second cap made valid data-refresh PRs fail closed before the
-// history check could finish. Keep a separate, bounded budget for this slower
-// operation instead of relaxing the guard or sharing the short-fetch timeout.
+// fetched marker is not hidden beyond the shallow boundary. This fetch omits
+// blobs, but includes trees: tree-less fetches can hit Git's local-links
+// repack assertion while completing a shallow graph. Its duration scales with
+// the repository's commit graph; the old 30-second cap made valid data-refresh
+// PRs fail closed before the history check could finish. Keep a separate,
+// bounded budget for this slower operation instead of relaxing the guard or
+// sharing the short-fetch timeout.
 export const HISTORY_GRAPH_FETCH_TIMEOUT_MS = 5 * 60_000;
 // How many commits a head may add over the refreshed base and still be decided
 // without the history graph. A data writer adds a handful; a longer list is not
@@ -257,7 +259,7 @@ function completeShallowHistory({ cwd, remote, headRef, branch, baseRef, markerR
   if (isShallowRepository(cwd)) args.push('--unshallow');
   try {
     fetchTarget = checkoutFetchTarget({ cwd, remote });
-    args.push('--filter=tree:0', fetchTarget.remote, `+${branchRef}:${baseRef}`);
+    args.push('--filter=blob:none', fetchTarget.remote, `+${branchRef}:${baseRef}`);
     if (requiredHeadRef !== branchRef) args.push(requiredHeadRef);
     // If the marker is absent, fetch it in the same request as the branch
     // graph. The old fallback fetched the marker and then the graph in two
