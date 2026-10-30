@@ -3,6 +3,7 @@ import { operationalAnswerForOption, isOperationalDefaultValue, withOperationalQ
 import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { buildFillKit } from '../functions/src/assistedApplicationFillKit.js';
 import { validateAnswer } from '../functions/src/lib/answerRules.js';
 
 const options = ['---', 'Nessuno / Rapporto di lavoro già terminato', '6 mesi', '5 mesi', '4 mesi', '3 mesi', '2 mesi', '1 mesi', 'Meno di 1 mese'];
@@ -57,6 +58,16 @@ describe('notice duration projection onto the native catalogue', () => {
     expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text' }, '3months')).toBe(true);
     expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text', validation: { pattern: '^3 months$' } }, '3months')).toBe(false);
     expect(isOperationalDefaultValue({ question: 'Notice period', type: 'choice', options: ['3 mesi'] }, '3 months')).toBe(false);
+  });
+
+  it('gives the owner fill kit the explicit projected notice ahead of an old policy default', () => {
+    const flow = { answers: { notice: '7 giorni' } };
+    const draft = { questions: [question], portalAnswers: { answers: [{ question: question.applicationQuestion, answer: '3 mesi', source: 'policy_default' }] } };
+    const before = structuredClone({ flow, draft });
+    const kit = buildFillKit({ orderId: 'notice_fixture', flow, draft });
+    expect(kit.answers).toContainEqual(expect.objectContaining({ question: question.applicationQuestion, answer: 'Meno di 1 mese', source: 'answers' }));
+    expect(kit.answers).not.toContainEqual(expect.objectContaining({ question: question.applicationQuestion, answer: '3 mesi' }));
+    expect({ flow, draft }).toEqual(before);
   });
 
   it('keeps the owner preference separate from explicit answers and CV facts', () => {

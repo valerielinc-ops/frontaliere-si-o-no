@@ -18,13 +18,14 @@ import { candidateWithEdits, questionsForCandidate } from './assistedApplication
 import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from './lib/permitStatus.js';
+import { operationalAnswerForOption, operationalQuestionTopic } from './assistedApplicationOperationalAnswers.js';
 import { portalAnswerForApplication } from './lib/portalQuestionMapping.js';
 import { countryCodeOfLabel, countryLabelForCode, formatInternationalPhone, phoneCountryLabel } from './lib/phoneNormalization.js';
 
 const text = (value, max = 500) => String(value ?? '').trim().slice(0, max);
 
 function applicationAnswer(question, answer) {
-  return text(portalAnswerForApplication(question, answer), 2000);
+  return text(portalAnswerForApplication(question, operationalAnswerForOption(question, answer) || answer), 2000);
 }
 
 /**
@@ -40,9 +41,9 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
   const fromPortal = (draft.portalAnswers?.answers || [])
     .map((item) => ({ question: item?.applicationQuestion || item?.question, answer: item?.answer, source: item?.source || 'portal' }));
   const fromDraft = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers)
-    .map((question) => ({ question: question.applicationQuestion || question.question, answer: applicationAnswer(question, answers[question.id]), source: 'answers' }));
+    .map((question) => ({ question: question.applicationQuestion || question.question, answer: applicationAnswer(question, answers[question.id]), source: 'answers', operational: Boolean(operationalQuestionTopic(question)) }));
   const seen = new Set();
-  const kitAnswers = [...fromPortal, ...fromDraft]
+  const kitAnswers = [...fromDraft.filter(item => item.operational && item.answer), ...fromPortal, ...fromDraft]
     .map((item) => ({ question: text(item.question, 300), answer: text(item.answer, 2000), source: text(item.source, 20) }))
     .filter((item) => {
       const key = item.question.toLowerCase();
