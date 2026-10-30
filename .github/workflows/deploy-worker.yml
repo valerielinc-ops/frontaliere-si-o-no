@@ -26,6 +26,7 @@ on:
     paths:
       - 'infra/cloudflare-worker/**'
       - 'scripts/cf-locale-failover-setup.mjs'
+      - 'scripts/cf-worker-observability-settings.mjs'
       - 'scripts/cf-purge-worker-origin-cache.mjs'
       - 'scripts/lib/cf-purge-limits.mjs'
   workflow_dispatch: {}
@@ -116,6 +117,13 @@ jobs:
           accountId: ${{ env.CF_ACCOUNT_ID }}
           workingDirectory: infra/cloudflare-worker
           command: deploy
+
+      # wrangler.toml has no field for this: without it every query string
+      # (unsubscribe tokens included) lands in Workers Logs. A failure here must
+      # not fail a deploy already live; cf-observability-audit reports the drift.
+      - name: Assert query-string redaction in Workers Logs
+        continue-on-error: true
+        run: node scripts/cf-worker-observability-settings.mjs
 
       # cacheTtlByStatus changes future origin responses, but cannot evict a
       # 5xx already stored under the old uniform cacheTtl. Purge only the
