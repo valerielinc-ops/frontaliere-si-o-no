@@ -29,7 +29,8 @@
 
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
-import { isAutoRetryablePortalHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isInfrastructureRetryHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
   candidateQuestionAnswerKey,
@@ -47,14 +48,12 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
-// The portal-stop issue fixer usually lands within hours. Retry only this
-// unsupported-page stop after time for a fix; CAPTCHA/account/answer stops are
-// not recoverable by blindly running the same portal flow again. A measured
-// 429/5xx from the solver before the final click can recover after backoff.
-export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
+// Retry clocks live in assistedApplicationPortalRetryPolicy.js. Unsupported
+// portal pages have a bounded repair window; definite infrastructure outages
+// stay in the normal queue with a capped delay until the posting closes.
 export const MAX_REVIEW_ROUNDS = 3;
-// A draft or submit run that failed on a transient error is dispatched again
-// up to this many runs in all; the owner hears about it only after the last.
+// Transient draft/broker run failures are dispatched up to this many times.
+// Infrastructure send failures use their independent queue policy instead.
 export const MAX_RUN_ATTEMPTS = 3;
 const TRANSIENT_RUN_ERROR_RE = /broker|timed[ _]?out|timeout|rate[ _]?limit|(?:^|[^0-9])(?:429|5\d\d)(?![0-9])|econnreset|econnrefused|etimedout|enetunreach|ehostunreach|eai_again|socket|(?:service|temporarily)[ _]?unavailable|overloaded/i;
 
@@ -219,6 +218,7 @@ function base(flow) {
     postingExpiredAt: Number(flow?.postingExpiredAt) || null,
     portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
     portalAutoRetryCount: Number(flow?.portalAutoRetryCount) || 0,
+    transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,
     factRepairAttempts: Number(flow?.factRepairAttempts) || 0,
   };
 }
@@ -419,18 +419,23 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
   next.state = 'owner_takeover';
   next.deadlineAt = null;
   next.reminderAt = null;
-  next.heldBy = [`portal:${String(event.reason || 'portal_needs_candidate').slice(0, 60)}`];
   const reason = String(event.reason || 'portal_needs_candidate');
-  const attempts = Number(current.portalAutoRetryCount) || 0;
-  next.portalAutoRetryCount = attempts;
-  next.portalAutoRetryAt = ['portal_needs_candidate', 'captcha_provider_unavailable'].includes(reason) && PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
-    ? nowMs + PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
+  next.heldBy = [`${reason === 'email_provider_unavailable' ? 'transport' : 'portal'}:${reason.slice(0, 60)}`];
+  const infrastructure = isInfrastructureRetryHold(next);
+  const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
+  const delays = autoRetryDelaysForFlow(next);
+  const delay = delays[infrastructure ? Math.min(attempts, delays.length - 1) : attempts];
+  next.portalAutoRetryAt = isAutoRetryablePortalHold(next) && delay
+    ? nowMs + delay
     : null;
-  if (reason === 'captcha_provider_unavailable' && next.portalAutoRetryAt) return null;
+  // Infrastructure retries continue after the short backoff ladder. Notify
+  // operations once, without handing every affected application to a human.
+  if (next.portalAutoRetryAt && (reason === 'captcha_provider_unavailable'
+    || (infrastructure && attempts !== delays.length))) return null;
   return {
     type: 'email',
     kind: 'owner_takeover',
-    reason: `portal:${reason}`,
+    reason: next.heldBy[0],
     stage: 'submit',
     attempts: Number(attemptsOverride) || Number(current?.dispatch?.attempts) || 1,
   };
@@ -643,9 +648,11 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       if (!retryAt || retryAt > nowMs) return ignore('portal_retry_not_due');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
-      const attempts = Number(current.portalAutoRetryCount) || 0;
-      if (attempts >= PORTAL_AUTO_RETRY_DELAYS_MS.length) return ignore('portal_retry_limit');
-      next.portalAutoRetryCount = attempts + 1;
+      const infrastructure = isInfrastructureRetryHold(current);
+      const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
+      if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length) return ignore('portal_retry_limit');
+      if (!Number.isSafeInteger(attempts) || attempts < 0) return ignore('invalid_retry_count');
+      next[infrastructure ? 'transportAutoRetryCount' : 'portalAutoRetryCount'] = attempts + 1;
       next.portalAutoRetryAt = null;
       effects = enterSubmitting(next, 'portal_auto_retry');
       break;
@@ -831,6 +838,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     }
     case 'submit_failed': {
       if (state !== 'submitting') return ignore('not_submitting');
+      if (event.error === 'email_provider_unavailable') {
+        effects = [portalTakeover(next, current, { reason: 'email_provider_unavailable' }, nowMs)].filter(Boolean);
+        break;
+      }
       if (event.error === 'fact_check_not_acknowledged') {
         effects = enterFactRepair(next, current);
         break;

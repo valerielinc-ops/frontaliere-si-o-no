@@ -25,6 +25,16 @@ import {
 } from '../build-plugins/shared/edgeLegacyStubRedirects';
 import { readHardcodedRedirects } from '../build-plugins/shared/articleRedirects.mjs';
 import { buildCanonicalBridgePage } from '../build-plugins/constants';
+import { renderProfessionBelowFloorBridge } from '../build-plugins/shared/professionJobsFloor';
+import { renderSalaryStatsBridge, salaryStatsBridgeTarget } from '../build-plugins/shared/salaryStatsBridge';
+import { listAllProfessionCantonPaths } from '../build-plugins/professionCantonData';
+import { listAllSalaryProfessionCantonPaths } from '../build-plugins/salaryProfessionCantonData';
+import { PROFESSION_IDS, PROFESSION_LOCALES, buildProfessionLandingPath } from '../build-plugins/professionLandingsData';
+import { CH_CANTON_EMPLOYERS_CANTON_KEYS, buildCantonEmployersPath } from '../build-plugins/weeklyEmployersChCantonPathsData';
+import { CH_CANTON_SNAPSHOT_CANTON_KEYS, buildCantonSnapshotPath } from '../build-plugins/jobMarketSnapshotChCantonPathsData';
+import { SALARY_STATS_CANTON_SLUGS } from '../build-plugins/salaryStatsData';
+import { listAllBrandAliases } from '../build-plugins/shared/brandCanonicalMap';
+import { COMPANY_ROUTE_PREFIX, SECTION_LEGACY_TI } from '../build-plugins/shared/cantonSection';
 // Imported (not only read) so scripts/ci/run-related-tests.mjs selects this
 // file whenever the plugin's table changes.
 import { legacyRedirectsPlugin } from '../build-plugins/legacyRedirectsPlugin';
@@ -46,6 +56,51 @@ const stubHtml = (to: string) => buildCanonicalBridgePage({
   crossPageSignals: false,
 });
 const LIVE_HTML = '<!DOCTYPE html><html lang="it"><head><meta name="robots" content="index,follow"><title>Live</title></head><body>live page</body></html>';
+
+describe('below-floor salary bridge HTTP recovery', () => {
+  it('covers every producer of the shared salary-stats bridge in all locales', () => {
+    const entries = [...listAllProfessionCantonPaths(), ...listAllSalaryProfessionCantonPaths()];
+    for (const locale of PROFESSION_LOCALES) {
+      for (const id of PROFESSION_IDS) entries.push({ path: buildProfessionLandingPath(locale, id), locale, cantonKey: 'TI', id });
+      for (const cantonKey of CH_CANTON_EMPLOYERS_CANTON_KEYS) {
+        expect(legacyStubTarget(buildCantonEmployersPath(locale, SALARY_STATS_CANTON_SLUGS[cantonKey][locale])))
+          .toBe(salaryStatsBridgeTarget(locale, cantonKey).targetPath);
+      }
+      for (const cantonKey of CH_CANTON_SNAPSHOT_CANTON_KEYS) {
+        expect(legacyStubTarget(buildCantonSnapshotPath(locale, SALARY_STATS_CANTON_SLUGS[cantonKey][locale])))
+          .toBe(salaryStatsBridgeTarget(locale, cantonKey).targetPath);
+      }
+    }
+    for (const { path, locale, cantonKey } of entries) {
+      expect(legacyStubTarget(path), path).toBe(salaryStatsBridgeTarget(locale, cantonKey).targetPath);
+    }
+  });
+
+  it.each(['logopedista', 'farmacista', 'assistente-dentale', 'tecnico-radiologia', 'architetto'] as const)(
+    'upgrades the real %s bridge while preserving a live page at the same URL', async (id) => {
+      const path = buildProfessionLandingPath('it', id);
+      const bridge = renderProfessionBelowFloorBridge('it', 'TI', id);
+      expect(bridge).toContain('http-equiv="refresh"');
+      for (const method of ['GET', 'HEAD']) {
+        const response = await upgradeLegacyStub(new Request(`${APEX}${path}?utm_source=audit`, { method }),
+          new Response(method === 'HEAD' ? null : bridge, { headers: { 'Content-Type': 'text/html' } }),
+          async () => new Response(bridge, { headers: { 'Content-Type': 'text/html' } }));
+        expect(response.status).toBe(301);
+        expect(response.headers.get('Location')).toBe('/stipendi-ticino/?utm_source=audit');
+        expect(await response.text()).toBe('');
+      }
+      const live = await upgradeLegacyStub(new Request(`${APEX}${path}`), new Response(LIVE_HTML), async () => new Response(LIVE_HTML));
+      expect(live.status).toBe(200);
+      expect(await live.text()).toBe(LIVE_HTML);
+    },
+  );
+
+  it('leaves an unlisted marked bridge untouched', async () => {
+    const html = renderSalaryStatsBridge('it', 'TI', { title: 'Bridge', description: 'No inventory', ctaLabel: 'Open data' });
+    const origin = new Response(html, { headers: { 'Content-Type': 'text/html' } });
+    expect(await upgradeLegacyStub(new Request(`${APEX}/not-an-enumerated-profession/`), origin, async () => new Response(html))).toBe(origin);
+  });
+});
 
 /**
  * Public directory form of whatever path the Worker asked the origin for. The
@@ -69,6 +124,14 @@ beforeEach(() => vi.stubGlobal('caches', { default: { match: async () => undefin
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe('generated edge table', () => {
+  it('promotes every declared company alias bridge to its primary hub in each locale', () => {
+    for (const { alias, canonical } of listAllBrandAliases()) {
+      for (const locale of PROFESSION_LOCALES) {
+        const root = `${locale === 'it' ? '' : `/${locale}`}/${SECTION_LEGACY_TI[locale]}/${COMPANY_ROUTE_PREFIX[locale]}-`;
+        expect(legacyStubTarget(`${root}${alias}/`)).toBe(`${root}${canonical}/`);
+      }
+    }
+  });
   it('is byte-identical to a fresh render of the plugin map', () => {
     expect(typeof legacyRedirectsPlugin).toBe('function');
     const fresh = renderEdgeLegacyStubModule(buildEdgeLegacyStubRedirects(ROOT));
@@ -108,6 +171,14 @@ describe('edge HTTP contract', () => {
   // Paths another edge table answers before the origin is ever asked.
   const ownPaths = Object.keys(STUB_TABLE).filter(from =>
     apexLegacyResponse(new URL(`${APEX}${from}`)) === null && lookupRetired(from) === undefined);
+
+  it('resolves encoded and decoded non-ASCII legacy keys after path normalization', () => {
+    const encoded = '/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/';
+    const target = '/fr/articles-frontalier/baisse-sejours-irreguliers-juillet/';
+    for (const variant of [encoded, decodeURI(encoded), encoded.toLowerCase(), `${encoded}index.html`, encoded.slice(0, -1)]) {
+      expect(legacyStubTarget(variant), variant).toBe(target);
+    }
+  });
 
   it('leaves a non-trivial set of paths to the stub upgrade', () => {
     expect(ownPaths.length).toBeGreaterThan(700);

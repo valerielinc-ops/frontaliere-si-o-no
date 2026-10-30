@@ -38,7 +38,7 @@ for (const [name, producer, listing, listHtml, detail] of profiles) describe(`${
     expect(jobs[0].applyUrl).toMatch(/^https:\/\//);
     expect(jobs[0].id).toBeTruthy();
     expect(jobs[0].crawledAt).toBe('2026-10-04T12:00:00.000Z');
-    expect(fetcher).toHaveBeenCalledTimes(2);
+    expect(fetcher).toHaveBeenCalledTimes(name === 'diaconis' ? 3 : 2);
   });
 });
 describe('Vista public API and typed detail', () => {
