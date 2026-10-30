@@ -99,6 +99,7 @@ describe('permit status catalogue (owner decisions 2026-10-03)', () => {
       ['none', 'none'], ['Non ancora', 'none'], ['nessuno', 'none'], ['keine', 'none'], ['noch nicht', 'none'], ['pas encore', 'none'], ['not yet', 'none'],
       ['Permesso G', 'permit_g'], ['Ausweis G (Grenzgänger)', 'permit_g'], ['G - Grenzgänger', 'permit_g'], ['B-Ausweis', 'permit_b'], ['Frontaliere (permesso G)', 'permit_g'],
       // A permit to come never reads as held.
+      ['B (will be sponsored by employer)', ''], ['B (only if the employer sponsors me)', ''], ['C (role-specific condition)', ''],
       ['Permesso B in rinnovo', ''], ['Permesso G (da richiedere)', ''], ['Bewilligung G beantragt', ''], ['Permesso G scaduto', ''],
       // A status word without a permit, two permits, a driving licence, a level, a bare no.
       ['Frontaliere', ''], ['Grenzgänger', ''], ['EU/EFTA-Bürger', ''], ['Ausweis B / C', ''], ['Patente B', ''], ['permis de conduire B', ''], ['C1', ''], ['Nein', ''], ['', ''],

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { candidateAnswerFact, candidateFactIdentity, candidateQuestionFact } from '../functions/src/lib/candidateAnswerFacts.js';
-import { candidateQuestionAnswerKey, candidateAnswersForQuestions, rememberCandidateQuestionAnswers } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, candidateAnswersForQuestions, candidateWithEdits, rememberCandidateQuestionAnswers } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 const today = new Date().toISOString().slice(0, 10);
@@ -92,6 +92,12 @@ describe('positive typed candidate answer contracts', () => {
     const native = { ...source, id: 'native', options: ['B EU/EFTA'] };
     expect(candidateAnswersForQuestions([native], {}, rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: 'B' } }))).toEqual({});
     expect(candidateAnswersForQuestions([native], {}, rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: 'B EU/EFTA' } }))).toEqual({ native: 'B EU/EFTA' });
+  });
+  it('does not derive a held permit in the existing profile path from a conditional override', () => {
+    const workPermit = 'B (will be sponsored by employer)';
+    const edited = candidateWithEdits({ order: {}, draft: { profile: {}, questions: [] }, flow: { formOverrides: { workPermit } } });
+    expect(edited.profile.workPermit).toBe(workPermit);
+    expect(edited.profile.permitStatus).toBe('');
   });
   it.each(['it', 'en', 'de', 'fr'])('preserves all official permit labels in %s without a permissive parenthesis parser', locale => {
     const q = question('What is your current Swiss work permit status?', 'choice', { options: permitOptions(locale) });
