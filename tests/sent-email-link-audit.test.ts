@@ -639,4 +639,55 @@ describe('the cascade wrapper — where the actually-sent HTML is audited', () =
     expect(logSpy.mock.calls.flat().join('\n')).not.toContain('link audit');
     logSpy.mockRestore();
   });
+
+  it('quiet: a defect is still printed in full, and the batch carries its status for the run summary', async () => {
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const prevExit = process.exitCode;
+    const item = { recipient: { email: CANARY }, payload: { html: bodyWith(makeUnsubscribeUrl(CANARY)) } };
+    const base = vi.fn().mockResolvedValue({ sent: [item], failed: [] });
+    const mod = await loadCascadeWith(base);
+
+    const out = await mod.sendEmailCascade([item], { quiet: true });
+
+    expect(out.linkAudit).toEqual({ ok: false });
+    expect(logSpy.mock.calls.flat().join('\n')).toContain('spa_action_without_ac');
+    process.exitCode = prevExit;
+    errSpy.mockRestore();
+    logSpy.mockRestore();
+  });
+
+  it('quiet: the per-batch canary hint is not printed, but the audit still runs and reports', async () => {
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const prevExit = process.exitCode;
+    const stranger = {
+      recipient: { email: 'someone-else@example.com' },
+      payload: { html: bodyWith(makeOneClickUnsubscribeUrl('someone-else@example.com')) },
+    };
+    const base = vi.fn().mockResolvedValue({ sent: [stranger], failed: [] });
+    const mod = await loadCascadeWith(base);
+
+    const out = await mod.sendEmailCascade([stranger], { quiet: true });
+
+    expect(logSpy.mock.calls.flat().join('\n')).not.toContain('no canary recipient');
+    expect(out.linkAudit).toBeDefined();
+    process.exitCode = prevExit;
+    logSpy.mockRestore();
+  });
+
+  it('without quiet the result stays exactly the base result (no linkAudit field added)', async () => {
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const prevExit = process.exitCode;
+    const item = { recipient: { email: CANARY }, payload: { html: bodyWith(makeUnsubscribeUrl(CANARY)) } };
+    const base = vi.fn().mockResolvedValue({ sent: [item], failed: [] });
+    const mod = await loadCascadeWith(base);
+
+    const out = await mod.sendEmailCascade([item]);
+
+    expect(out).not.toHaveProperty('linkAudit');
+    process.exitCode = prevExit;
+    errSpy.mockRestore();
+    logSpy.mockRestore();
+  });
 });

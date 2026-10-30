@@ -26,6 +26,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
+import {
+  buildJobAlertFunnel,
+  formatJobAlertBatchLine,
+  formatJobAlertFunnelLines,
+  formatJobAlertFunnelMarkdown,
+  writeJobAlertStepSummary,
+} from './lib/job-alert-funnel.mjs';
 import { normalizeContract, formatSalary, emailTagChip } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import {
@@ -211,6 +218,27 @@ const MATCHER_MONITOR_ISSUE_TITLE = '[Monitor] Job-alert zero-match rate above t
 // for workflow_dispatch test sends without code changes.
 const TARGET_EMAIL_RAW = (process.env.TARGET_EMAIL || '').trim().toLowerCase();
 const ALLOWED_EMAILS = TARGET_EMAIL_RAW ? new Set([TARGET_EMAIL_RAW]) : null;
+
+// Una riga per alert (ogni email inviata, ogni alert saltato) è la parte più
+// grossa del log, e il riepilogo di fine run le ha già contate nel funnel. Le
+// righe si riaccendono con JOB_ALERT_LOG_DETAIL=1 e restano accese per costruzione
+// nei run di test (TARGET_EMAIL) e a secco, dove il dettaglio serve davvero.
+const JOB_ALERT_LOG_DETAIL = process.env.JOB_ALERT_LOG_DETAIL === '1' || DRY_RUN || ALLOWED_EMAILS !== null;
+const logDetail = (...args) => {
+  if (JOB_ALERT_LOG_DETAIL) console.log(...args);
+};
+
+// Totali delle chiamate al cascade in questo run: alimentano la tabella dei
+// provider (una volta sola) e la riga di link audit del funnel.
+const cascadeStats = { calls: 0, linkAuditBatches: 0, linkAuditDefects: 0 };
+function noteCascadeResult(result) {
+  cascadeStats.calls += 1;
+  if (result?.linkAudit) {
+    cascadeStats.linkAuditBatches += 1;
+    if (!result.linkAudit.ok) cascadeStats.linkAuditDefects += 1;
+  }
+}
+
 if (TARGET_EMAIL_RAW) {
   console.log(`🎯 TARGET_EMAIL set — limiting send to: ${TARGET_EMAIL_RAW}`);
 }
@@ -329,7 +357,7 @@ async function inspectLiveJobs(
   }
   const deadCount = checked - liveCount;
   if (deadCount > 0) {
-    console.log(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
+    logDetail(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
   }
   return { jobs: knownLiveJobs, knownLiveJobs, unknownJobs, failOpen: false };
 }
@@ -1689,7 +1717,7 @@ function jobAlertDeliveryKey(item) {
 
 async function sendBatch(emails) {
   // Use cascade for bulk sending
-  const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
+  const { sendEmailCascade, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
 
   const cascadeEmails = emails.map(e => {
     // Gmail FBL: Feedback-ID category:identifier:sender-name
@@ -1750,8 +1778,9 @@ async function sendBatch(emails) {
     ...JOB_ALERT_SEND_THROTTLE,
     providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
     onSent: onSentComposed,
+    quiet: true,
   });
-  logProviderSummary();
+  noteCascadeResult(result);
 
   // Per-user send-time observability (#3798 follow-up): the cascade returns
   // the authoritative scheduledFor per item (sent[i] === { ...cascadeEmail,
@@ -1782,6 +1811,8 @@ async function sendBatch(emails) {
     failed: result.failed.length,
     failedItems: result.failed,
     scheduleOutcomes,
+    ambiguous: result.ambiguous?.length ?? 0,
+    providerBreakdown: result.providerBreakdown ?? {},
   };
 }
 
@@ -1831,11 +1862,11 @@ async function processRetryQueue(db) {
   const snap = await db.collection(RETRY_COLLECTION).get();
   if (snap.empty) {
     console.log('   🔄 Retry queue: empty — nothing to retry');
-    return;
+    return { succeeded: 0, requeued: 0, recipients: new Set() };
   }
 
   console.log(`   🔄 Retry queue: ${snap.size} pending email(s) to retry`);
-  const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
+  const { sendEmailCascade, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
   const { FieldValue } = await import('firebase-admin/firestore');
 
   const retryEmails = [];
@@ -1977,7 +2008,7 @@ async function processRetryQueue(db) {
 
   if (retryEmails.length === 0) {
     console.log(`   🔄 Retry queue: no sendable entries (stale ${retryStale}, suppressed ${retrySuppressed})`);
-    return;
+    return { succeeded: 0, requeued: 0, recipients: new Set() };
   }
 
   console.log(`   🔄 Retrying ${retryEmails.length} email(s)...`);
@@ -1988,8 +2019,9 @@ async function processRetryQueue(db) {
     ...JOB_ALERT_SEND_THROTTLE,
     providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
     onSent: onSentComposed,
+    quiet: true,
   });
-  logProviderSummary();
+  noteCascadeResult(result);
 
   const retryRankingRecords = result.sent
     .filter((item) => item.meta?.rankingDeliveryId && item.meta?.rankingJobs?.length)
@@ -2040,6 +2072,7 @@ async function processRetryQueue(db) {
 
   let successCount = 0;
   let reEnqueueCount = 0;
+  const retryRecipients = new Set();
 
   for (const retryDoc of retryDocs) {
     const { ref, data } = retryDoc;
@@ -2076,6 +2109,7 @@ async function processRetryQueue(db) {
         }, { merge: true });
         await ref.delete();
         successCount++;
+        retryRecipients.add(String(data.email).toLowerCase());
         console.log(`   ✅ Retry succeeded: ${data.email} (alert ${data.alertId})`);
       } catch (error) {
         console.warn(`   ⚠️ Retry accepted but finalisation failed for ${data.email} (alert ${data.alertId}); queue item retained: ${error?.message || error}`);
@@ -2099,6 +2133,7 @@ async function processRetryQueue(db) {
   }
 
   console.log(`   🔄 Retry summary: ${successCount} succeeded, ${reEnqueueCount} will retry tomorrow`);
+  return { succeeded: successCount, requeued: reEnqueueCount, recipients: retryRecipients };
 }
 
 // ── Main ─────────────────────────────────────────────────────
@@ -2371,8 +2406,10 @@ async function main() {
 
   // 0. Process retry queue FIRST — retries get priority on fresh daily quota
   const db = await getFirestoreAdmin();
+  // Esito della coda di retry: entra nel funnel come «retry di invii precedenti».
+  let retryOutcome = { succeeded: 0, requeued: 0, recipients: new Set() };
   if (!DRY_RUN) {
-    await processRetryQueue(db);
+    retryOutcome = await processRetryQueue(db);
   } else {
     console.log('   🔵 DRY RUN — skipping retry queue processing');
   }
@@ -2431,6 +2468,14 @@ async function main() {
       return grandparent === 'job_alert_subscribers';
     });
   }
+  // Contatori del funnel (scripts/lib/job-alert-funnel.mjs): ogni filtro registra
+  // quanti alert scarta, così il riepilogo di fine run è la somma di questi numeri.
+  const funnelIn = {
+    archive: alertDocs.length, paused: 0, companyImmediate: 0, allowlist: 0, base: 0,
+    suppressionDeferred: 0, suppressed: 0, backfill: 0, cooldown: 0, decayed: 0, notDue: 0,
+    eligible: 0, noCandidate: 0, emptyProfile: 0, zeroMatch: 0, alreadySent: 0, deadLinks: 0,
+    quotaDeferred: 0,
+  };
   let alerts = alertDocs.map((doc) => {
     const data = doc.data();
     const parentEmail = doc.ref.parent.parent?.id || data.email;
@@ -2445,6 +2490,7 @@ async function main() {
   // never send; skip it here before any downstream matching/logging.
   const beforePauseFilter = alerts.length;
   alerts = alerts.filter((a) => a.paused !== true);
+  funnelIn.paused = beforePauseFilter - alerts.length;
   if (alerts.length !== beforePauseFilter) {
     console.log(`   ⏸️  Paused alerts skipped: ${beforePauseFilter - alerts.length}`);
   }
@@ -2457,6 +2503,7 @@ async function main() {
   // same job twice: once immediately, once in tomorrow's digest.
   const beforeImmediateFilter = alerts.length;
   alerts = alerts.filter((a) => !isImmediateCompanyAlert(a));
+  funnelIn.companyImmediate = beforeImmediateFilter - alerts.length;
   if (alerts.length !== beforeImmediateFilter) {
     console.log(`   🏢 Immediate CompanyAlerts skipped (owned by send-company-alerts.mjs): ${beforeImmediateFilter - alerts.length}`);
   }
@@ -2465,10 +2512,12 @@ async function main() {
   if (ALLOWED_EMAILS) {
     const before = alerts.length;
     alerts = alerts.filter((a) => ALLOWED_EMAILS.has(String(a.email || '').toLowerCase()));
+    funnelIn.allowlist = before - alerts.length;
     if (before !== alerts.length) {
       console.log(`   ⚠️  Allowlist active: ${before} alerts → ${alerts.length} (admin-only testing)`);
     }
   }
+  funnelIn.base = alerts.length;
   console.log(`   Active alerts: ${alerts.length}`);
   if (alerts.length === 0) {
     console.log('   No active alerts — skipping.');
@@ -2607,6 +2656,7 @@ async function main() {
   if (suppressionLookupFailedEmails.size > 0) {
     const before = alerts.length;
     alerts = alerts.filter((a) => !suppressionLookupFailedEmails.has(a.email.toLowerCase()));
+    funnelIn.suppressionDeferred = before - alerts.length;
     console.warn(`   ⏳ Subscriber suppression lookup failed; ${before - alerts.length} alert(s) deferred for the next run.`);
   }
 
@@ -2657,6 +2707,7 @@ async function main() {
   if (suppressedEmails.size > 0) {
     const before = alerts.length;
     alerts = alerts.filter((a) => !suppressedEmails.has(a.email.toLowerCase()));
+    funnelIn.suppressed = before - alerts.length;
     console.log(`   🚫 Suppressed (global stop / bounced / complained / provider list): ${before - alerts.length} alert(s) skipped`);
   }
   // An alert backfilled from a newsletter document that carries no
@@ -2682,6 +2733,7 @@ async function main() {
       }
       return consent.allowed === true;
     });
+    funnelIn.backfill = before - alerts.length;
     if (before !== alerts.length) {
       console.log(`   🚫 Backfilled alerts without a subscription basis: ${before - alerts.length} alert(s) skipped`);
     }
@@ -2692,6 +2744,7 @@ async function main() {
   if (newsletterCooldownSet.size > 0) {
     const before = alerts.length;
     alerts = alerts.filter((a) => !newsletterCooldownSet.has(a.email.toLowerCase()));
+    funnelIn.cooldown = before - alerts.length;
     console.log(`   📬 Newsletter cooldown (36h): ${before - alerts.length} alerts deferred (newsletter sent recently)`);
   }
 
@@ -2795,6 +2848,7 @@ async function main() {
   // wrote.
   let decayedSkipped = 0;
   const ceilingHeld = { daily: 0, 'every-other-day': 0 };
+  const beforeDue = alerts.length;
   alerts = alerts.filter((alert) => {
     const emailKey = alert.email.toLowerCase();
     const decision = isJobAlertDueToday({
@@ -2813,10 +2867,14 @@ async function main() {
     if (decision.ceilingApplied && ceilingHeld[decision.tier] != null) ceilingHeld[decision.tier]++;
     return decision.due;
   });
+  funnelIn.decayed = decayedSkipped;
+  // «Non in programma oggi»: scartati dalla cadenza, né decaduti né in invio.
+  funnelIn.notDue = beforeDue - decayedSkipped - alerts.length;
   if (decayedSkipped > 0) {
     console.log(`   🪦 Cadence-decayed alerts skipped: ${decayedSkipped} (terminal state; the alert stays active — see scripts/lib/jobAlertCadence.mjs)`);
   }
-  console.log(`   ⏳ Cadence ceiling ${JOB_ALERT_CADENCE_CEILING_DAYS}d: ${ceilingHeld.daily} tier-1 and ${ceilingHeld['every-other-day']} tier-3 alerts held to the ceiling today`);
+  // Con il tetto disattivato (null) la riga diceva «nulld»: si stampa solo se attivo.
+  if (JOB_ALERT_CADENCE_CEILING_DAYS != null) console.log(`   ⏳ Cadence ceiling ${JOB_ALERT_CADENCE_CEILING_DAYS}d: ${ceilingHeld.daily} tier-1 and ${ceilingHeld['every-other-day']} tier-3 alerts held to the ceiling today`);
 
   // 2d. Resolve the real provider budget before matching, but do not slice the
   // candidate list here. Matching can eliminate zero-match, already-sent and
@@ -2824,6 +2882,7 @@ async function main() {
   // lets the sender reach the next eligible recipient. The loop below scans
   // the complete engagement-ordered list and stops only when this budget is
   // actually consumed. Its bounded batches are the memory boundary.
+  funnelIn.eligible = alerts.length;
   const { getAvailableCascadeQuota } = await import('./lib/email-cascade.mjs');
   const availableQuota = await getAvailableCascadeQuota();
   alerts.sort((a, b) => (ENGAGEMENT_SEND_PRIORITY[a.effectiveTier] ?? 2) - (ENGAGEMENT_SEND_PRIORITY[b.effectiveTier] ?? 2));
@@ -2890,7 +2949,9 @@ async function main() {
   let rankingProfileCount = 0;
   const subjectCounts = {};
   let activeSubjectAssignments = 0;
-  const runStats = { planned: 0, sent: 0, failed: 0 };
+  // sent = accettate dal provider (comprese le ambigue); ambiguous è il sottoinsieme
+  // il cui esito non è confermato; recipients sono gli indirizzi unici raggiunti.
+  const runStats = { planned: 0, sent: 0, failed: 0, ambiguous: 0, batches: 0, recipients: new Set() };
   const scheduleOutcomes = new Map();
   const cadenceStateByEmail = new Map();
   const effectiveTierByEmail = new Map();
@@ -2906,6 +2967,8 @@ async function main() {
     const successfulEmails = batchEmails.filter((email) => !failedKeys.has(jobAlertDeliveryKey(email)));
     runStats.sent += successfulEmails.length;
     runStats.failed += result.failedItems.length;
+    runStats.ambiguous += result.ambiguous ?? 0;
+    for (const delivery of successfulEmails) runStats.recipients.add(delivery.to.toLowerCase());
 
     for (const delivery of successfulEmails) {
       const email = delivery.to.toLowerCase();
@@ -3106,11 +3169,12 @@ async function main() {
       if (subjectAssignment?.inExperiment === true) activeSubjectAssignments++;
 
     if (rankedCount === 0) {
-      console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
+      logDetail(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
       continue;
     }
     if (matched.length === 0) {
-      console.log(`   ⏭️  Alert ${alert.id}: ${rankedCount} matches, all already sent → skip`);
+      funnelIn.alreadySent += 1;
+      logDetail(`   ⏭️  Alert ${alert.id}: ${rankedCount} matches, all already sent → skip`);
       continue;
     }
 
@@ -3126,7 +3190,8 @@ async function main() {
       { initialRanked: preflightRanked },
     );
     if (rankedForEmail.length === 0) {
-      console.log(`   ⏭️  Alert ${alert.id}: ${matched.length} matches, all failed the live-link check → skip`);
+      funnelIn.deadLinks += 1;
+      logDetail(`   ⏭️  Alert ${alert.id}: ${matched.length} matches, all failed the live-link check → skip`);
       continue;
     }
 
@@ -3219,7 +3284,7 @@ async function main() {
       sendTimeSource,
     });
 
-    console.log(`   📬 Alert ${alert.id}: ${matched.length} matches → ${alert.email}`);
+    logDetail(`   📬 Alert ${alert.id}: ${matched.length} matches → ${alert.email}`);
     }
 
     runStats.planned += batchEmails.length;
@@ -3227,11 +3292,9 @@ async function main() {
       if (batchEmails.length > 0) logScheduleDistribution(batchEmails, { indent: '   ' });
     } else if (batchEmails.length > 0) {
       const result = await sendBatch(batchEmails);
-      console.log(`   ✅ Batch sent: ${result.sent}/${batchEmails.length} emails`);
-      if (result.failed > 0) {
-        console.log(`   ❌ ${result.failed} email(s) failed — enqueuing for retry`);
-        await enqueueFailedEmails(db, result.failedItems);
-      }
+      runStats.batches += 1;
+      console.log(formatJobAlertBatchLine(runStats.batches, result));
+      if (result.failed > 0) await enqueueFailedEmails(db, result.failedItems);
       await persistSentBatch(batchEmails, result);
     }
     // Drop the current batch's copied match rows and rendered payloads before
@@ -3353,6 +3416,35 @@ async function main() {
     }
   }
 
+  // Il funnel esce prima di ogni ritorno anticipato: è il numero che si legge ogni
+  // giorno, anche quando non c'è nulla da inviare. Provider e link audit si
+  // riassumono qui, una volta sola per run, non a ogni batch.
+  let providers = [];
+  if (cascadeStats.calls > 0) {
+    const { logProviderSummary, getProviderStats } = await import('./lib/email-cascade.mjs');
+    logProviderSummary();
+    providers = getProviderStats();
+  }
+  const funnel = buildJobAlertFunnel({
+    ...funnelIn,
+    noCandidate: zeroMatchSummary.noEligibleCandidateCount,
+    emptyProfile: zeroMatchSummary.emptyProfileCount,
+    zeroMatch: zeroMatchSummary.zeroMatchCount,
+    // Gli alert non visitati dal ciclo (quota finita) restano per il giorno dopo:
+    // li conta la differenza con gli eleggibili, non un contatore a parte.
+    quotaDeferred: Math.max(0, funnelIn.eligible - zeroMatchSummary.alertCount),
+    planned: runStats.planned,
+    sent: runStats.sent,
+    failed: runStats.failed,
+    ambiguous: runStats.ambiguous,
+    retrySent: retryOutcome.succeeded,
+    uniqueRecipients: new Set([...runStats.recipients, ...retryOutcome.recipients]).size,
+  });
+  const mode = DRY_RUN ? 'DRY RUN' : (ALLOWED_EMAILS ? 'TEST' : 'LIVE');
+  const linkAudit = { batches: cascadeStats.linkAuditBatches, defects: cascadeStats.linkAuditDefects };
+  for (const line of formatJobAlertFunnelLines(funnel, { date: TODAY_ISO, mode, linkAudit })) console.log(line);
+  writeJobAlertStepSummary(formatJobAlertFunnelMarkdown(funnel, { date: TODAY_ISO, mode, providers, linkAudit }));
+
   if (runStats.planned === 0) {
     console.log('   No matches — no emails to send.');
     return;
@@ -3361,8 +3453,6 @@ async function main() {
   if (DRY_RUN) {
     console.log(`   🔵 DRY RUN — not sending emails (would send ${runStats.planned})`);
   } else {
-    console.log(`   ✅ Sent ${runStats.sent} emails in bounded batches`);
-    if (runStats.failed > 0) console.log(`   ❌ Failed and queued for retry: ${runStats.failed}`);
     if (decayedNow > 0) {
       console.log(`   🪦 Cadence decay recorded for ${decayedNow} backfilled alert(s) — terminal, active untouched`);
     }
