@@ -253,6 +253,19 @@ describe('application concierge matching', () => {
     expect(scoreJobForProfile(job, profile).score).toBe(relevanceOnly.score);
   });
 
+  it('uses country-qualified catalogue locations only as a ranking hint', () => {
+    const profile = { workPosition: 'Infermiere', skills: ['triage'], experienceSummary: ['reparto medicina'] };
+    const job = { title: 'Infermiere reparto medicina', requirements: 'triage', location: 'Como', addressCountry: 'IT' };
+    const baseline = scoreJobForProfile(job, profile);
+    const sameTown = scoreJobForProfile(job, profile, 'Como (Lombardy), Italia');
+    const otherCountry = scoreJobForProfile(job, profile, 'Como, Österreich');
+    expect(sameTown.rankScore).toBe(baseline.rankScore + 8);
+    expect(otherCountry.rankScore).toBe(baseline.rankScore);
+    expect(otherCountry.score).toBeGreaterThan(0);
+    expect(sameTown.evidenceStrength).toBe(baseline.evidenceStrength);
+    expect(scoreJobForProfile(job, { skills: ['construction'] }, 'Como (Lombardy), Italia').score).toBe(0);
+  });
+
   it('keeps the proximity tie-breaker when the displayed match score is capped', () => {
     const profile = {
       workPosition: 'Technology applications management strategy director',
