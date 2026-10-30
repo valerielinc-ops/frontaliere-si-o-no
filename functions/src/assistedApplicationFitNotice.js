@@ -14,7 +14,7 @@
  * the fact warnings.
  */
 
-import { languageCodesIn, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion, isLanguageNameOnly } from './lib/languageFacts.js';
+import { languageCodesIn, languageCodeOf, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion, isLanguageNameOnly } from './lib/languageFacts.js';
 
 export const DECISIVE_REQUIREMENT_IMPORTANCES = ['critical', 'high'];
 const DECISIVE = DECISIVE_REQUIREMENT_IMPORTANCES;
@@ -98,7 +98,10 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
   for (const [index, row] of rows.entries()) {
     const listedLanguages = (requirements?.languageRequirements || []).filter(language => language.quote && text(row.quote, 400).toLocaleLowerCase().includes(text(language.quote, 300).toLocaleLowerCase()));
     if (!DECISIVE.includes(row.importance) || (!listedLanguages.length && !isLanguageAbilityQuestion(row.quote))) continue;
-    const codes = [...new Set([...languageCodesIn(row.quote || ''), ...listedLanguages.flatMap(language => languageCodesIn(language.language))])];
+    const codes = [...new Set([...languageCodesIn(row.quote || ''), ...listedLanguages.flatMap(({ language }) => {
+      const code = languageCodeOf(language);
+      return code ? [code] : languageCodesIn(language);
+    })])];
     const rank = value => {
       const label = String(value);
       const cefr = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(label.toUpperCase().match(/\b[ABC][12]\b/)?.[0]);

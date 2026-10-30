@@ -81,9 +81,14 @@ describe('qualification before proposal publication', () => {
     expect(result.status).toBe('incompatible');
     expect(result.gaps).toContainEqual(expect.objectContaining({ knownMissing: true }));
   });
-  it.each(['Verhandlungssichere Deutschkenntnisse erforderlich', 'Fliessende Deutschkenntnisse erforderlich', 'Muttersprachliche Deutschkenntnisse erforderlich'])('uses the quoted language metadata for inflected requirement %s', quote => {
+  it.each([
+    ['Verhandlungssichere Deutschkenntnisse erforderlich', 'Deutsch'],
+    ['Fliessende Deutschkenntnisse erforderlich', 'Deutsch'],
+    ['Muttersprachliche Deutschkenntnisse erforderlich', 'Deutsch'],
+    ['Verhandlungssichere Deutschkenntnisse erforderlich', 'de-CH'],
+  ])('uses the quoted language metadata for inflected requirement %s (%s)', (quote, language) => {
     const rows = { requirements: [{ requirement: 'Tedesco', importance: 'critical', basis: 'stated', quote }],
-      languageRequirements: [{ language: 'Deutsch', level: '', quote }] };
+      languageRequirements: [{ language, level: '', quote }] };
     const profile = { languages: [{ language: 'German', level: 'A2' }, { language: 'English', level: 'C1' }] };
     expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: 'met', evidence: 'English C1' }], verdict: 'good' }, { profile }).status).toBe('incompatible');
   });
