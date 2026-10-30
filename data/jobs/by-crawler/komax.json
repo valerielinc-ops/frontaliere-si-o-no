@@ -69,7 +69,6 @@
           "vendite-svizzera-ingegnere-tecnico-commerciale-m-f-d-komax-dierikon"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3097,
       "retranslationAttempts": 16,
@@ -86,7 +85,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-5dc9d2ba6fee",
