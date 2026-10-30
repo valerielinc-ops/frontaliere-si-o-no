@@ -432,7 +432,7 @@ describe('handleGeminiGenerate — rung Codex', () => {
 
     expect(res).toEqual({ status: 200, body: { ok: true, text: 'dal rung codex', provider: 'codex' } });
     const urls = fetchMock.mock.calls.map(([url]) => String(url));
-    expect(urls).toHaveLength(4); // gemini, groq GPT-OSS 120B, groq GPT-OSS 20B, codex
+    expect(urls).toHaveLength(5); // Gemini, Groq 120B, independent NVIDIA 20B, Groq 20B, Codex
     expect(urls.at(-1)).toBe(CODEX_URL);
     expect(urls.slice(0, -1)).not.toContain(CODEX_URL);
     expect(JSON.parse(codexCalls()[0][1].body).input[0]).toEqual({ type: 'message', role: 'developer', content: [{ type: 'input_text', text: 'sys' }] });
@@ -453,6 +453,21 @@ describe('handleGeminiGenerate — rung Codex', () => {
     expect(await handleGeminiGenerate(req)).toMatchObject({ status: 200, body: { text: 'supported fallback', provider: 'groq-gpt-oss-120b' } });
     expect(fetchMock).toHaveBeenCalledTimes(2);
     expect(getRemoteConfigValueMock).not.toHaveBeenCalledWith('NVIDIA_API_KEY');
+  });
+
+  it('recovers bounded concierge generation through the independent NVIDIA provider', async () => {
+    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n' };
+    fetchMock.mockImplementation(async (url: string, init: any) => {
+      if (!String(url).startsWith('https://integrate.api.nvidia.com/')) return new Response('quota', { status: 429 });
+      const body = JSON.parse(init.body);
+      expect(body).toMatchObject({ model: 'openai/gpt-oss-20b', max_tokens: 4096, reasoning_effort: 'low', messages: [{ role: 'system', content: 'sys' }, { role: 'user', content: 'scrivi' }] });
+      expect(body.max_completion_tokens).toBeUndefined();
+      return new Response(JSON.stringify({ choices: [{ message: { content: '{"verified":true}' } }] }));
+    });
+    const { generateServerText } = await import('../../functions/src/geminiGenerate.js');
+    expect(await generateServerText({ systemPrompt: 'sys', userPrompt: 'scrivi', maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false })).toMatchObject({ status: 200, body: { text: '{"verified":true}', provider: 'nvidia-gpt-oss-20b' } });
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(codexCalls()).toHaveLength(0);
   });
 
   it('senza CODEX_AUTH_JSON risponde all_providers_failed con codex: not_configured', async () => {
@@ -515,6 +530,20 @@ describe('handleChatbotInference — rung Codex', () => {
     for (const key of ['ANTHROPIC_API_KEY', 'OPENAI_API_KEY']) expect(getRemoteConfigValueMock).not.toHaveBeenCalledWith(key);
   });
 
+  it('uses the NVIDIA request contract for chatbot fallback too', async () => {
+    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n' };
+    fetchMock.mockImplementation(async (url: string, init: any) => {
+      if (!String(url).startsWith('https://integrate.api.nvidia.com/')) return new Response('down', { status: 500 });
+      const body = JSON.parse(init.body);
+      expect(body).toMatchObject({ model: 'openai/gpt-oss-20b', max_tokens: 1024, reasoning_effort: 'low' });
+      expect(body.max_completion_tokens).toBeUndefined();
+      return new Response(JSON.stringify({ choices: [{ message: { content: 'Independent fallback' } }] }));
+    });
+    const { handleChatbotInference } = await import('../../functions/src/chatbotInference.js');
+    expect(await handleChatbotInference(params)).toMatchObject({ text: 'Independent fallback', model: 'openai/gpt-oss-20b', source: 'openai-compat' });
+    expect(codexCalls()).toHaveLength(0);
+  });
+
   it('uses the same supported fallback order for chat and survives one model quota', async () => {
     rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q' };
     const models: string[] = [];
@@ -529,7 +558,8 @@ describe('handleChatbotInference — rung Codex', () => {
     const { handleChatbotInference } = await import('../../functions/src/chatbotInference.js');
     expect(await handleChatbotInference(params)).toMatchObject({ text: 'chat fallback', model: 'openai/gpt-oss-20b', source: 'openai-compat' });
     expect(models).toEqual(['openai/gpt-oss-120b', 'openai/gpt-oss-20b']);
-    expect(getRemoteConfigValueMock).not.toHaveBeenCalledWith('NVIDIA_API_KEY');
+    expect(getRemoteConfigValueMock).toHaveBeenCalledWith('NVIDIA_API_KEY');
+    expect(fetchMock.mock.calls.some(([url]) => String(url).startsWith('https://integrate.api.nvidia.com/'))).toBe(false);
   });
 
   it('senza CODEX_AUTH_JSON lancia ALL_FAILED con codex: not_configured', async () => {

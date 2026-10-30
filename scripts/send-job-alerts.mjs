@@ -1861,7 +1861,7 @@ async function processRetryQueue(db) {
 
     if (retryCount >= MAX_RETRY_COUNT) {
       // Max retries exhausted — give up
-      console.warn(`   ⚠️  Giving up on email to ${data.email} (alert ${data.alertId}) after ${retryCount} retries`);
+      console.warn(`   ⚠️  Giving up on retry for alert ${data.alertId} after ${retryCount} retries`);
       await doc.ref.delete();
       continue;
     }
@@ -1928,7 +1928,7 @@ async function processRetryQueue(db) {
 
         if (discardReason) {
           await item.doc.ref.delete();
-          console.log(`   🧹 Dropped queued job-alert retry (${discardReason}) for ${item.email} / ${item.alertId}`);
+          console.log(`   🧹 Dropped queued job-alert retry (${discardReason}) for alert ${item.alertId}`);
           continue;
         }
 
@@ -2034,7 +2034,7 @@ async function processRetryQueue(db) {
         }
         if (Object.keys(update).length > 0) await alertRef.update(update);
       } catch (error) {
-        console.warn(`⚠️ Retry embedded ranking persist failed for ${record.email} (${record.alertId}):`, error?.message || error);
+        console.warn(`⚠️ Retry embedded ranking persist failed for alert ${record.alertId}:`, error?.message || error);
       }
     }
   }
@@ -2087,15 +2087,15 @@ async function processRetryQueue(db) {
         await ref.delete();
         successCount++;
         retryRecipients.add(String(data.email).toLowerCase());
-        console.log(`   ✅ Retry succeeded: ${data.email} (alert ${data.alertId})`);
+        console.log(`   ✅ Retry succeeded: alert ${data.alertId}`);
       } catch (error) {
-        console.warn(`   ⚠️ Retry accepted but finalisation failed for ${data.email} (alert ${data.alertId}); queue item retained: ${error?.message || error}`);
+        console.warn(`   ⚠️ Retry accepted but finalisation failed for alert ${data.alertId}; queue item retained: ${error?.message || error}`);
       }
     } else {
       // Still failed — increment retryCount
       const newCount = (data.retryCount || 0) + 1;
       if (newCount >= MAX_RETRY_COUNT) {
-        console.warn(`   ⚠️  Giving up on email to ${data.email} (alert ${data.alertId}) after ${newCount} retries`);
+        console.warn(`   ⚠️  Giving up on retry for alert ${data.alertId} after ${newCount} retries`);
         await ref.delete();
       } else {
         await ref.update({
@@ -2104,7 +2104,7 @@ async function processRetryQueue(db) {
           lastError: result.failed.find(f => f.recipient?.email === data.email)?.error?.slice(0, 500) || 'unknown',
         });
         reEnqueueCount++;
-        console.log(`   🔄 Retry failed for ${data.email} — attempt ${newCount}/${MAX_RETRY_COUNT}, will retry tomorrow`);
+        console.log(`   🔄 Retry failed for alert ${data.alertId} — attempt ${newCount}/${MAX_RETRY_COUNT}, will retry tomorrow`);
       }
     }
   }
@@ -2629,7 +2629,7 @@ async function main() {
       // single RPC-level error, not per-document, so isolating further would
       // need per-email getAll calls — defeating the batching this fixes.
       chunk.forEach((email) => suppressionLookupFailedEmails.add(email.toLowerCase()));
-      console.warn(`   ⚠️  batched subscriber lookup failed for ${chunk.length} email(s) starting at ${chunk[0]}: ${err?.message || err}`);
+      console.warn(`   ⚠️  batched subscriber lookup failed for ${chunk.length} subscriber(s): ${err?.message || err}`);
     }
   }
   if (suppressionLookupFailedEmails.size > 0) {
@@ -3275,7 +3275,7 @@ async function main() {
       sendTimeSource,
     });
 
-    logDetail(`   📬 Alert ${alert.id}: ${matched.length} matches → ${alert.email}`);
+    logDetail(`   📬 Alert ${alert.id}: ${matched.length} matches`);
     }
 
     runStats.planned += batchEmails.length;
