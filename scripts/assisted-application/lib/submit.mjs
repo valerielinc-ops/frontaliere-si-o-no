@@ -352,6 +352,7 @@ export async function submitApplication(ctx) {
     const guard = ctx.submissionGuard || null;
     if (guard) {
       const claim = await guard.claim('email', nowMs);
+      if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
       if (claim.status === 'already_sent') {
         // Sent by an earlier run of this round: its follow-ups and its record come from the guard.
         const record = claim.record || {};
@@ -426,6 +427,7 @@ export async function submitApplication(ctx) {
     const guard = ctx.dryRun ? null : ctx.submissionGuard || null;
     if (guard) {
       const claim = await guard.claim('portal', nowMs, { resumable: true });
+      if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
       if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true, ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
     }
