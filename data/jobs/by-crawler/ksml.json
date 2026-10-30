@@ -473,7 +473,7 @@
       "slugByLocale": {
         "de": "wir-suchen-dich-if-lehrperson-6-lektionen-3-klasse-schule-neumatt-in-belp-belp-37425",
         "it": "ti-stiamo-cercando-if-maestro-6-lezioni-di-terza-classe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425",
-        "en": "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp",
+        "en": "we-are-looking-for-you-if-teacher-6-lessons-3rd-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425",
         "fr": "nous-vous-recherchons-if-enseignant-6-lecons-3eme-classe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
       },
       "slugDisambiguator": "37425",
@@ -529,12 +529,12 @@
           "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-schule-neumatt-in-belp-belp-37425"
         ],
         "en": [
-          "we-are-looking-for-you-if-teacher-6-lessons-3rd-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
+          "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp"
         ]
       },
       "previousSlugs": [
         "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-schule-neumatt-in-belp-belp-37425",
-        "we-are-looking-for-you-if-teacher-6-lessons-3rd-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
+        "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -1246,7 +1246,7 @@
           "teilpensenlehrperson-16-lektionen-schulen-krauchthal-krauchthal-40075"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:21:54.909Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -1260,7 +1260,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-91029c4bc9dc",
@@ -3261,7 +3262,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-logopadie-35-schule-lengnau-lengnau-40624"
@@ -11039,7 +11039,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-10-bis-15-lektionen-zyklus-1-2-kindergarten-tavola-langenthal-40627"
@@ -14012,7 +14011,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "fachperson-logopadie-schule-signau-signau-40617",
         "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
@@ -16423,7 +16421,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "eine-klassen-und-fachlehrperson-fur-25-lk-schulen-twann-ttl-twann-40566"

@@ -308,7 +308,9 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "proton-413579452a2b",
@@ -537,7 +539,9 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     }
   ]
 }

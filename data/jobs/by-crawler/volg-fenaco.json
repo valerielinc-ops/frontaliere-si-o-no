@@ -376,7 +376,6 @@
         "fr": "vendeur-volg-illnau-zh-h-f-d-volg-illnau-effretikon"
       },
       "crawledAt": "2026-10-30T09:17:12.159Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-3131a31873cb",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -454,7 +453,6 @@
         "fr": "ligne-de-charge-h-f-d-volg-meikirch"
       },
       "crawledAt": "2026-10-30T09:17:12.159Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-1961d1f2c8d9",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -532,7 +530,6 @@
         "fr": "vendeur-vendeur-h-f-d-volg-horn-tg"
       },
       "crawledAt": "2026-10-30T09:17:12.159Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-491f78952ae0",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -610,7 +607,6 @@
         "fr": "vendeur-volg-reutigen"
       },
       "crawledAt": "2026-10-30T09:17:12.159Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-132db65bbb55",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -688,7 +684,6 @@
         "fr": "gestionnaire-de-magasins-gestionnaire-de-magasins-volg-leissigen"
       },
       "crawledAt": "2026-10-30T09:17:12.159Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-fd0614b63146",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -766,7 +761,6 @@
         "fr": "vendeur-vendeur-volg-daily-h-f-d-volg-tagerig"
       },
       "crawledAt": "2026-10-30T09:17:12.159Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-293e2a8fc27e",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -1079,7 +1073,6 @@
         "fr": "specialiste-specialiste-br-financement-controle-et-projets-h-f-d-fenaco-sursee"
       },
       "crawledAt": "2026-10-30T09:17:12.159Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-42b3eee41a1c",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -1311,7 +1304,6 @@
         "fr": "negociant-e-international-e-en-matieres-premieres-biologiques-h-f-d-fenaco-getreide-winterthur"
       },
       "crawledAt": "2026-10-30T09:17:12.159Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-2218621cc186",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -11983,7 +11975,8 @@
         "venditore-venditore-volg-kandersteg-497f1d",
         "venditore-venditore-volg-kandersteg",
         "verkauferin-verkaufer-volg-kandersteg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",

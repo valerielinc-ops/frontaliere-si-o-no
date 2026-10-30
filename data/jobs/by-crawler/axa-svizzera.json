@@ -1803,7 +1803,6 @@
         "fr": "versicherungsberater-in-fur-die-generalagentur-frauenfeld-axa-svizzera-frauenfeld"
       },
       "id": "axa-svizzera-d4f087ce1611",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "versicherungsberater-in-fur-die-generalagentur-frauenfeld-axa-frauenfeld-3z06ja"
@@ -3713,17 +3712,21 @@
         "fr": "consultant-en-assurance-pour-l-agence-principale-hochdorf-axa-svizzera-hochdorf"
       },
       "id": "axa-svizzera-d994271346af",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-in-fur-die-hauptagentur-hochdorf-axa-hochdorf-3yywic"
+          "versicherungsberater-in-fur-die-hauptagentur-hochdorf-axa-hochdorf-3yywic",
+          "insurance-consultant-for-the-main-agency-hochdorf-axa-svizzera-hochdorf"
         ],
         "de": [
           "versicherungsberater-in-fur-die-hauptagentur-hochdorf-axa-hochdorf-3yywic"
+        ],
+        "en": [
+          "insurance-consultant-for-the-main-agency-hochdorf-axa-svizzera-hochdorf"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-in-fur-die-hauptagentur-hochdorf-axa-hochdorf-3yywic"
+        "versicherungsberater-in-fur-die-hauptagentur-hochdorf-axa-hochdorf-3yywic",
+        "insurance-consultant-for-the-main-agency-hochdorf-axa-svizzera-hochdorf"
       ],
       "salaryMin": 72500,
       "salaryMax": 128500,
@@ -3954,17 +3957,23 @@
         "fr": "consultant-en-assurance-pour-l-agence-principale-zuoz-axa-svizzera-zuoz"
       },
       "id": "axa-svizzera-b3c03fef392e",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-in-fur-die-hauptagentur-zuoz-axa-zuoz-3ywaj2"
+          "versicherungsberater-in-fur-die-hauptagentur-zuoz-axa-zuoz-3ywaj2",
+          "insurance-consultant-for-the-main-agency-zuoz-axa-svizzera-zuoz",
+          "versicherungsberater-in-per-la-hauptagentur-zuoz-axa-svizzera-zuoz"
         ],
         "de": [
           "versicherungsberater-in-fur-die-hauptagentur-zuoz-axa-zuoz-3ywaj2"
+        ],
+        "en": [
+          "insurance-consultant-for-the-main-agency-zuoz-axa-svizzera-zuoz"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-in-fur-die-hauptagentur-zuoz-axa-zuoz-3ywaj2"
+        "versicherungsberater-in-fur-die-hauptagentur-zuoz-axa-zuoz-3ywaj2",
+        "insurance-consultant-for-the-main-agency-zuoz-axa-svizzera-zuoz",
+        "versicherungsberater-in-per-la-hauptagentur-zuoz-axa-svizzera-zuoz"
       ],
       "salaryMin": 58500,
       "salaryMax": 103500,
@@ -6820,7 +6829,8 @@
       },
       "previousSlugs": [
         "conseiller-ere-en-assurances-pour-l-agence-principale-du-landeron-entre-deux-lacs-3yyywh"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Sachbearbeiter:in Verkaufssupport für die Generalagentur Uster",
@@ -8735,7 +8745,8 @@
       },
       "previousSlugs": [
         "fachspezialist-in-leistungen-unfall-axa-bern-3yxltl"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo per il Mendrisiotto",
@@ -10104,7 +10115,8 @@
       ],
       "sourceIdentity": "url:https://careers.axa.com/careers-home/jobs/26564?lang=de-de",
       "datePosted": "2026-10-02T05:38:00+00:00",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Full Stack Developer (all genders)",
@@ -12482,7 +12494,8 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-chur-3z06p9"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Expert Legal Claims - Vermögensschadenhaftpflicht (all genders), ab 1. April 27 oder nach Vereinbarung",
