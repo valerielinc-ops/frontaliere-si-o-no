@@ -1,7 +1,7 @@
 {
   "key": "pks-bewerbung-ch",
   "label": "pks-bewerbung",
-  "generatedAt": "2026-10-30T09:41:46.788Z",
+  "generatedAt": "2026-10-30T21:55:31.551Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6565,
-  "avgDurationMs": 6565,
+  "unchangedCount": 3,
+  "durationMs": 7358,
+  "avgDurationMs": 7358,
   "durationHistory": [
-    6565
+    7358
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "pks-bewerbung-ch-82a92461d441",
       "slug": "consulente-abacus-80-100-paghe-hr-perfetto-ingresso-laterale-per-professionisti-hr-pks-bewerbung-4102-binningen",
@@ -35,7 +37,7 @@
       "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:41:31.341Z",
+      "crawledAt": "2026-10-30T21:55:14.331Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -77,7 +79,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalist-in-40-60-in-der-bankenbranche/basel/hrm/1c106405",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:41:31.338Z",
+      "crawledAt": "2026-10-30T21:55:14.329Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -106,10 +108,7 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "pks-bewerbung-ch-6cf3968ca115",
       "slug": "impiegato-a-amministrativo-a-hr-50-80-impiego-a-tempo-determinato-fino-a-circa-l-estate-2027-lavoro-operativo-delle",
@@ -144,7 +143,7 @@
       "salaryMax": 74800,
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-29T21:49:28.682Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -154,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }
