@@ -3066,12 +3066,11 @@ export function portalRequiredDocumentFromField(field) {
  */
 export function portalRequirementsFromMissingRequired(fields, missingRequired) {
   const availableFields = Array.isArray(fields) ? fields : [];
-  const byId = new Map(availableFields.map((field) => [field.id, field]));
   const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim();
   const fieldFor = (item) => {
-    const direct = byId.get(item?.fieldId);
-    if (direct) return direct;
+    const direct = availableFields.filter(field => field.id && field.id === item?.fieldId);
+    if (direct.length === 1) return direct[0];
     const questions = [item?.applicationQuestion, item?.portalQuestion, item?.question].map(folded).filter(Boolean);
     if (!questions.length) return null;
     const matching = availableFields.filter((field) => {
@@ -3120,7 +3119,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           ...item,
           applicationQuestion,
           type,
-          validation: field && ['choice', 'yes_no'].includes(type) ? {} : item.validation,
+          validation: field && (type !== item.type || ['choice', 'yes_no'].includes(type)) ? {} : item.validation,
           required: true,
           applicationOptions,
           options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,

@@ -26,6 +26,20 @@ describe('portal candidate question contract', () => {
     expect(text.validation.pattern).not.toBe('');
   });
 
+  it('does not carry text validation across native date or number types', () => {
+    const validation = { minLength: 30, maxLength: 40, pattern: '^letters+$', min: 10 };
+    const date = portalRequirementsFromMissingRequired([{ ...field, kind: 'text', inputType: 'date', options: [] }], [{ ...planned, validation }]).questions[0];
+    const futureDate = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    expect(date.type).toBe('date');
+    expect(validateAnswer(futureDate, date)).toEqual({ ok: true });
+    const numberField = { ...field, kind: 'text', inputType: 'number', options: [] };
+    const number = portalRequirementsFromMissingRequired([numberField], [{ ...planned, validation }]).questions[0];
+    expect(number.type).toBe('number');
+    expect(validateAnswer('3', number)).toEqual({ ok: true });
+    const sameType = portalRequirementsFromMissingRequired([numberField], [{ ...planned, type: 'number', validation: { min: 10 } }]).questions[0];
+    expect(validateAnswer('3', sameType)).toMatchObject({ ok: false, reason: 'too_small' });
+  });
+
   it('does not ask the candidate for a proven optional field wrongly called missing by the planner', () => {
     expect(portalRequirementsFromMissingRequired([{ ...field, required: false }], [planned])).toEqual({ questions: [], documents: [] });
   });
@@ -60,6 +74,16 @@ describe('portal candidate question contract', () => {
     expect(portalRequirementsFromMissingRequired([optional], [request]).questions).toHaveLength(1);
     const ambiguous = [{ ...optional, id: 'first' }, { ...optional, id: 'second', required: true }];
     expect(portalRequirementsFromMissingRequired(ambiguous, [{ ...request, question: optional.label }]).questions).toHaveLength(1);
+  });
+
+  it('does not use a duplicate frame-local field ID as proof of optionality', () => {
+    const native = [
+      { ...field, frame: 0, label: 'Required main field', required: true },
+      { ...field, frame: 1, label: 'Optional iframe field', required: false },
+    ];
+    const required = portalRequirementsFromMissingRequired(native, [{ ...planned, question: 'Required main field' }]);
+    expect(required.questions).toEqual([expect.objectContaining({ required: true, applicationQuestion: 'Required main field' })]);
+    expect(portalRequirementsFromMissingRequired(native, [planned]).questions).toHaveLength(1);
   });
 
   it('does not retain model choices for a live free text field', () => {
