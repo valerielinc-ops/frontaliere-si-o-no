@@ -846,11 +846,12 @@ describe('progress through the complete relevant job pool', () => {
     const now = Date.now();
     const path = 'application_concierge_services/service-preference';
     const history = { jobId: 'previous', jobUrl: 'https://jobs.example.test/previous/',
-      jobTitle: 'Infermiere medicina', status: 'accepted', ...(withdrawn ? { withdrawnAt: now - 1_000 } : {}) };
+      jobTitle: 'Infermiere medicina', status: withdrawn ? 'declined' : 'accepted', ...(withdrawn ? { withdrawnAt: now - 1_000 } : {}) };
+    const acceptedPositionsCount = withdrawn ? 0 : 1;
     const profile = { searchText: 'infermiere triage medicina', workPosition: 'Infermiere', skills: ['triage', 'medicina'], experienceSummary: [] };
     const { db, documents } = createMatchingDb({
-      [path]: { userId: 'candidate-preference', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 2,
-        acceptedPositionsCount: 1, expiresAt: new Date(now + 86_400_000) },
+      [path]: { userId: 'candidate-preference', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: acceptedPositionsCount + 1,
+        acceptedPositionsCount, expiresAt: new Date(now + 86_400_000) },
       'user_cv_profiles/candidate-preference': { status: 'ready', profile },
       [`${path}/proposals/history`]: history,
     });
@@ -870,7 +871,7 @@ describe('progress through the complete relevant job pool', () => {
       expect(proposals[0][1].eligibilityStatus).toBe('compatible');
       expect(new Set(eligibility.mock.calls.map(([job]) => job.id))).toEqual(new Set(['first', 'second']));
       expect(documents.get(`${path}/proposals/history`)).toEqual(history);
-      expect(documents.get(path)?.acceptedPositionsCount).toBe(1);
+      expect(documents.get(path)?.acceptedPositionsCount).toBe(acceptedPositionsCount);
     } finally { vi.unstubAllGlobals(); }
   });
 });
