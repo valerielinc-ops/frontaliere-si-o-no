@@ -591,7 +591,8 @@
     }
     return entries.map(entry => {
       const field = runner.get(entry.element.getAttribute('data-aa-id'));
-      return { ...entry, section: runnerSectionOf(runner, entry.element), context: field?.context || '', nativeSection: field?.section || '',
+      return { ...entry, ...(field?.consentOwnershipUnknown === true ? { consentOwnershipUnknown: true } : {}),
+        section: runnerSectionOf(runner, entry.element), context: field?.context || '', nativeSection: field?.section || '',
         ...(Object.hasOwn(field || {}, 'addressContext') ? { addressContext: field.addressContext } : {}) };
     });
   }
@@ -822,6 +823,7 @@
       return null;
     }
     if (entry.kind === 'checkbox') {
+      if (entry.consentOwnershipUnknown === true) return null;
       // JazzHR/Resumator (Fincons) puts the required privacy statement in the
       // label immediately before a separate «I agree» checkbox. Use all the
       // control's labels, but keep marketing/newsletter opt-ins excluded.

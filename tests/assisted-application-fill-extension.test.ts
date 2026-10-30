@@ -115,6 +115,16 @@ describe('fill extension: scoped saved geography answers', () => {
   });
 });
 
+describe('fill extension: native checkbox ownership contract', () => {
+  it.each([undefined, false, true])('respects consentOwnershipUnknown=%s before required privacy defaults', async (unknown) => {
+    const { window, document, F } = page('<label for="privacy">I agree to the required privacy terms</label><input id="privacy" type="checkbox" required data-aa-id="a1">');
+    (window as any).CompilaRunnerFields = () => ({ fields: [{ id: 'a1', label: 'I agree to the required privacy terms', ...(unknown === undefined ? {} : { consentOwnershipUnknown: unknown }) }] });
+    await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('privacy') as HTMLInputElement).checked).toBe(unknown !== true);
+    window.close();
+  });
+});
+
 describe('fill extension: patterns', () => {
   it('shares URL-safe Apply selection with the runner', () => {
     const { F, document } = page('<a href="/wrong">https://jobs.example/?apply=true</a><a href="/email">mailto:apply+foo@example.ch</a><button>Apply now</button>');
