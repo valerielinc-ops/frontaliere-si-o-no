@@ -22,6 +22,9 @@ for (const [code, name] of Object.entries(countries)) {
 for (const locale of ['it', 'en', 'de', 'fr']) {
   for (const { code, label } of residenceCountries(locale)) addCountryName(label, code);
 }
+// Older Intl/CLDR releases serialize the long territory name; newer ones
+// shorten it to St. Helena. Both identify the same explicit country suffix.
+addCountryName('Saint Helena, Ascension and Tristan da Cunha', 'SH');
 
 /** Only an explicit country suffix counts: a town or postal code proves no country. */
 export function parseResidenceLocation(value: string) {
