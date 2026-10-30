@@ -118,29 +118,53 @@
     const node = id && document.getElementById(id);
     return node ? clean(node.innerText || node.textContent) : '';
   };
+  const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
+  const oneQuestionGroup = (group, element) => {
+    const controls = [...(group?.querySelectorAll('input:not([type="hidden"]), select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]') || [])];
+    return controls.length === 1 || controls.length > 0 && controls.every(control =>
+      control.matches('input[type="radio"], [role="radio"]') && (group.matches('[role="radiogroup"]')
+        || control.matches('input[type="radio"]') && Boolean(element.name) && control.name === element.name));
+  };
+  const ownedGroupLabels = (group, selector, element) => {
+    const oneQuestion = oneQuestionGroup(group, element);
+    return [...(group?.querySelectorAll(selector) || [])].filter(label => {
+      const owner = label.closest('label') || label;
+      const linked = [...owner.querySelectorAll('label[for]'), ...(owner.matches('label[for]') ? [owner] : [])];
+      return label.closest(QUESTION_GROUP_SELECTOR) === group && !owner.contains(element)
+        && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
+        && linked.every(node => Boolean(element.id) && node.getAttribute('for') === element.id)
+        && (linked.length > 0 || oneQuestion);
+    });
+  };
   const labelFor = (element) => {
     if (element.id) {
       const direct = document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
-      if (direct) return clean(direct.innerText || direct.textContent);
+      const directText = direct && clean(direct.innerText || direct.textContent);
+      if (directText) return directText;
     }
     const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(textOf).filter(Boolean).join(' ');
     if (labelledBy) return labelledBy;
-    if (element.getAttribute('aria-label')) return clean(element.getAttribute('aria-label'));
+    const ariaLabel = clean(element.getAttribute('aria-label'));
+    if (ariaLabel) return ariaLabel;
     const wrapping = element.closest('label');
-    if (wrapping) return clean(wrapping.innerText || wrapping.textContent);
-    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
-    const legend = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
-    if (legend && !legend.contains(element)) return clean(legend.innerText || legend.textContent);
+    const wrappingText = wrapping && clean(wrapping.innerText || wrapping.textContent);
+    if (wrappingText) return wrappingText;
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    for (const legend of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
+      const legendText = !legend.contains(element) && clean(legend.innerText || legend.textContent);
+      if (legendText) return legendText;
+    }
     const placeholder = element.getAttribute('placeholder');
     if (placeholder) return clean(placeholder);
     // Last resort: the closest container's own text before the control.
     const container = element.closest('li, .field, .form-group, [class*="question"], [class*="field"]');
-    const text = container ? clean((container.innerText || '').split('\n')[0]) : '';
+    const text = container && (!group || oneQuestionGroup(group, element)) ? clean((container.innerText || '').split('\n')[0]) : '';
     if (text) return text;
     // The first of name and id that is not generated ("input-7" never hides "email-address").
     const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
     const technical = names.find((value) => !GENERATED_ID_RE.test(value));
     if (technical) return technical;
+    if (group && !oneQuestionGroup(group, element)) return names[0] || '';
     // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
     // the heading the control sits under and the text of its zone say what it
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
@@ -158,10 +182,11 @@
       const node = document.getElementById(id);
       if (node) labels.add(node);
     }
-    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
-    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
-    if (groupLabel && !groupLabel.contains(element)
-      && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    for (const groupLabel of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
+      if (!groupLabel.contains(element)
+        && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
+    }
     const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\s*\)?)$/i;
     const marker = (node, adjacent = false) => {
       if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
@@ -316,9 +341,13 @@
     return '';
   };
   const groupQuestion = (element) => {
-    const group = element.closest('fieldset, [role="radiogroup"], [role="group"], .application-question, .field, li');
-    const legend = group?.querySelector('legend, .question, .label, h3, h4');
-    return clean(legend?.innerText || legend?.textContent || '');
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    for (const legend of ownedGroupLabels(group, 'legend, .question, .label, h3, h4', element)) {
+      if (legend.closest('label')?.hasAttribute('for') || legend.querySelector('label[for]')) continue; // An option's label never names the whole group.
+      const text = !legend.contains(element) && clean(legend.innerText || legend.textContent);
+      if (text) return text;
+    }
+    return '';
   };
   // Ids stay unique per document: a component that clones a node (Personio
   // resets its file input that way) copies data-aa-id too, so every copy after
