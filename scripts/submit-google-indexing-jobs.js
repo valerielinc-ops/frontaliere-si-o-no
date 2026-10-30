@@ -55,6 +55,7 @@ import {
 } from './lib/indexing-jobs-planner.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
+export const DEFAULT_OWNER_PROBE_URL = `${SITE_URL}/`;
 // Google default quota: 200 publish requests/day per GCP project. 40 stay
 // reserved for scripts/notify-article-search-engines.mjs (10 articles × 4
 // locales), which shares the project when the service account is the owner.
@@ -139,18 +140,22 @@ async function oauthUserToken() {
  * Read-only ownership probe. 200 (already notified) and 404 (never notified)
  * both prove Google accepts the identity as owner; 403 means it does not.
  */
-async function probeOwnership(token, url) {
+export function isOwnerProbeSuccess(status) {
+  return status === 200 || status === 404;
+}
+
+export async function probeOwnership(token, url) {
   const res = await fetchWithTimeout(`${INDEXING_METADATA}?url=${encodeURIComponent(url)}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  if (res.status === 200 || res.status === 404) return { ok: true };
+  if (isOwnerProbeSuccess(res.status)) return { ok: true, status: res.status };
   const text = await res.text().catch(() => '');
   let reason = text.slice(0, 200);
   try { reason = JSON.parse(text)?.error?.message || reason; } catch { /* not JSON */ }
   return { ok: false, status: res.status, reason };
 }
 
-async function resolveOwnerToken(probeUrl) {
+export async function resolveOwnerToken(probeUrl = DEFAULT_OWNER_PROBE_URL) {
   const identities = [
     { name: 'service account', get: async () => {
       const sa = loadServiceAccount();
@@ -163,7 +168,10 @@ async function resolveOwnerToken(probeUrl) {
     try { token = await id.get(); } catch (err) { log('⚠️', `${id.name}: ${err.message}`); continue; }
     if (!token) { log('ℹ️', `${id.name}: no credentials`); continue; }
     const probe = await probeOwnership(token, probeUrl);
-    if (probe.ok) { log('🔑', `Indexing API owner identity: ${id.name}`); return token; }
+    if (probe.ok) {
+      log('🔑', `Indexing API owner identity: ${id.name} (metadata probe ${probe.status})`);
+      return token;
+    }
     log('⚠️', `${id.name}: ownership probe ${probe.status} — ${probe.reason}`);
   }
   log('❌', 'No identity is a Search Console OWNER of sc-domain:frontaliereticino.ch.');
