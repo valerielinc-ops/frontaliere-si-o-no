@@ -129,7 +129,8 @@ describe('companyHubBridgePlugin — autoDiscoverCompanyHubs locale coverage (#3
     const hubs = autoDiscoverCompanyHubs(rootDir);
     const aliases = hubs.filter((entry) => entry.companySlug === alias);
     expect(aliases).toHaveLength(4);
-    expect(hubs.filter((entry) => entry.displayName === legitimate)).toHaveLength(4);
+    // Display-name and stable-key URLs both survive in all four locales.
+    expect(hubs.filter((entry) => entry.displayName === legitimate)).toHaveLength(8);
     fs.mkdirSync(path.join(rootDir, 'dist'));
     const plugin = companyHubBridgePlugin(rootDir) as unknown as { closeBundle: { handler: () => Promise<void> } };
     await plugin.closeBundle.handler();
