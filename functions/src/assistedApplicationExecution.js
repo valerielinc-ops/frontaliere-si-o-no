@@ -182,14 +182,16 @@ export function executionController({ db, orderId, executionId, sourceSha, runId
       return db.runTransaction(async transaction => {
         const context = await contextIn(transaction, ref);
         const execution = matches(context);
-        if (execution.controller?.runId !== runId || execution.state === 'finished') return false;
-        const resume = execution.state === 'running' ? execution : execution.resumeProof
+        if (execution.controller?.runId !== runId || (execution.state === 'finished' && execution.outcome !== 'unknown')) return false;
+        if (execution.materialVersion !== executionMaterialVersion(context)) return false;
+        const resume = execution.state === 'running' ? execution : execution.state === 'finished' && execution.outcome === 'unknown'
+          ? { id: execution.id, lease: { generation: execution.generation } } : execution.resumeProof
           ? { id: execution.resumeProof.id, lease: { generation: execution.resumeProof.generation } } : null;
         if (executionEligibility({ ...context, nowMs: now(), round: execution.round, resumeExecution: resume })) return false;
         const records = Object.entries(context.submission).filter(([key]) => /^r\d+$/.test(key)).map(([, record]) => record);
         if (context.draft.sent || context.draft.sentAttempt || records.some(record => record?.state === 'sent' || record?.clickedAt)) return false;
         transaction.set(ref.execution, { state: 'finished', outcome: 'deferred', finishedAt: now(),
-          controller: { expiresAt: 0 }, fencedGeneration: execution.lease?.generation || null, lease: null }, { merge: true });
+          controller: { expiresAt: 0 }, fencedGeneration: execution.lease?.generation || execution.generation || null, lease: null }, { merge: true });
         transaction.set(ref.order.collection('automation_events').doc(), { type: 'submit_handoff', reason: 'remote_executor_unavailable',
           error: 'remote_executor_unavailable', round: execution.round, mode: 'submit', createdAt: now(), runId,
           executionId, sourceSha, dispatchAt: execution.dispatchAt, executionGeneration: execution.generation || 0,
@@ -218,7 +220,8 @@ export function executionLease({ db, orderId, executionId, sourceSha, engineVers
       || ['pending', 'succeeded', 'refunded'].includes(context.order.refundStatus)
       || !['awaiting_upload', 'ready_for_manual_submission', 'in_progress'].includes(context.order.submissionStatus)
       || !hasAssistedApplicationConsent(context.order)
-      || context.flow.state !== 'submitting' || Number(context.flow.round) !== execution.round) throw new Error('execution_not_submittable');
+      || context.flow.state !== 'submitting' || Number(context.flow.round) !== execution.round
+      || !roundWasSent(context.flow, execution.round)) throw new Error('execution_not_submittable');
     return execution;
   };
   const assertInTransaction = async (transaction, options) => {

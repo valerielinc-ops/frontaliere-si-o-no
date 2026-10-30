@@ -100,7 +100,7 @@ describe('portal infrastructure host recovery', () => {
     await expect(first.assert()).rejects.toThrow('execution_lease_lost');
     await second.assert();
   });
-  it.each(['source', 'engine', 'materials', 'withdrawal', 'submissionWithdrawal', 'receiptHistory', 'consent', 'payment', 'round', 'dispatch', 'controller'])('rejects changed %s before a final click', async change => {
+  it.each(['source', 'engine', 'materials', 'withdrawal', 'submissionWithdrawal', 'receiptHistory', 'consent', 'payment', 'round', 'dispatch', 'dispatchMode', 'controller'])('rejects changed %s before a final click', async change => {
     const store = await prepared(); const guard = lease(store); await guard.claim();
     if (change === 'source') await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('execution').set({ sourceSha: 'c'.repeat(40) }, { merge: true });
     if (change === 'engine') await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('execution').set({ engineVersion: 'd'.repeat(64) }, { merge: true });
@@ -113,6 +113,7 @@ describe('portal infrastructure host recovery', () => {
     if (change === 'payment') await store.db.collection('assisted_applications').doc(ORDER).set({ paymentStatus: 'refunded' }, { merge: true });
     if (change === 'round') await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ round: 2 }, { merge: true });
     if (change === 'dispatch') await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ dispatch: { requestedAt: 200 } }, { merge: true });
+    if (change === 'dispatchMode') store.read(`${ROOT}/automation/flow`)!.dispatch.mode = 'draft';
     await expect(guard.assert()).rejects.toThrow(/^execution_/);
   });
   it.each(['sending', 'sent', 'clicked', 'unpaid', 'unapproved', 'sentAttempt', 'hardfact'])('does not queue a recovery with %s', async danger => {
@@ -162,6 +163,17 @@ describe('portal infrastructure host recovery', () => {
     const controller = executionController({ db: store.db, orderId: ORDER, executionId: 'execution-fixture', sourceSha: SHA, runId: 'run-fixture', now: () => 115 });
     await expect(controller.defer()).resolves.toBe(false);
     expect(store.read(`${ROOT}/automation/submission`)!.r1).toMatchObject({ state: 'sending', clickedAt: 112 });
+  });
+  it('returns an unknown worker outcome to the normal clock only with fenced pre-click proof', async () => {
+    const store = await prepared(); const actor = lease(store); await actor.claim();
+    await submissionGuard(store.db, ORDER, 1, { execution: actor }).claim('portal');
+    await actor.complete();
+    expect(store.read(`${ROOT}/automation/execution`)).toMatchObject({ state: 'finished', outcome: 'unknown' });
+    const controller = executionController({ db: store.db, orderId: ORDER, executionId: 'execution-fixture', sourceSha: SHA,
+      runId: 'run-fixture', now: () => 115 });
+    await expect(controller.defer()).resolves.toBe(true);
+    expect(store.read(`${ROOT}/automation/execution`)).toMatchObject({ outcome: 'deferred', fencedGeneration: 1 });
+    expect(store.read(`${ROOT}/automation/submission`)!.r1).toMatchObject({ state: 'sending', clickedAt: null, executionGeneration: 1 });
   });
   it('fences every stale outcome after a new generation, including completion', async () => {
     const store = await prepared(); let nowMs = 110; const first = lease(store, { now: () => nowMs }); await first.claim();
