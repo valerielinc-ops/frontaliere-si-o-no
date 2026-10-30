@@ -171,34 +171,9 @@ export function isAddressLikeQuestion(question) {
 // answered only with a quote of the candidate's data that supports the answer.
 export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
 
-// The consents an application itself needs (the prompt's rule, re-checked in code): the privacy
-// notice, the processing of the data, the terms. Never what the candidate may refuse and still
-// apply, nor a box that also declares a fact (a permit, a licence, a level).
-const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
-const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool|future (openings|opportunities|positions|vacancies)|other (companies|vacancies|positions)|weitere stellen|andere stellen|altre (posizioni|offerte|società)|autres (postes|offres|sociétés)|third part|dritte|\bterzi\b|\btiers\b)/i;
-// Some classic portals enforce their application privacy agreement without
-// adding `required` to the checkbox (Ticino Rexx: `agbs_check`). An explicit
-// acceptance sentence is still the application's own consent, not a fact the
-// candidate must supply. Optional marketing/talent-pool wording is excluded
-// below by OPTIONAL_CONSENT.
-const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
-const APPLICATION_CONSENT_NAME_RE = /^(?:agbs?|privacy(?:[_:-]?(?:policy|statement|notice))?|consent(?:[_:-]?(?:privacy|data))?|terms?)(?:[_:-]|$)/i;
-const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to|will\s+not|won['’]?t|shall\s+not|shan['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
-// «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state. So is a work
-// authorisation or a citizenship («Ich habe eine gültige Arbeitserlaubnis und akzeptiere…», «Ho la cittadinanza
-// svizzera e accetto…»); not the bare «permesso»: «Do il permesso al trattamento dei dati» is the consent.
-const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lavoro|soggiorno|domicilio)|\bvisa\b|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de (conduire|travail|séjour)|\b[abc][12]\b|years? of|berufserfahrung|anni di esperienza|ann[ée]es d.exp[ée]rience|strafregister|casellario|criminal|\bdiplom|\bdegree\b|abschluss|\blaurea\b|${WORK_AUTHORISATION_RE.source}|${NATIONALITY_FIELD_RE.source})`, 'i');
-
-/** A required checkbox that is the application's own consent, and nothing else. */
-export function ownConsent(field) {
-  const label = String(field?.label || '');
-  const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
-  const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
-  const consentText = `${label} ${name}`;
-  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent;
-  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent) && ownText
-    && !NEGATED_CONSENT.test(consentText) && !OPTIONAL_CONSENT.test(consentText) && !DECLARES_FACT.test(`${label} ${name}`);
-}
+// Canonical policy is also generated into the browser; only owned native text authorizes a default.
+export { pureApplicationConsent as ownConsent } from '../../../../functions/src/lib/applicationConsent.js';
+import { pureApplicationConsent as ownConsent, isConsentRefusal } from '../../../../functions/src/lib/applicationConsent.js';
 
 // A current job is explicit when the CV's experience period says "ad oggi",
 // "present", "heute", etc. It is not inferred from the first experience entry:
@@ -1547,7 +1522,16 @@ function identityAnswerMatches(candidate, field, value) {
  * Code-side guard on the plan: an answer to a sensitive question must come
  * from the candidate's answers or profile, never from a model "rule".
  */
-export function guardPlan(plan, fields, candidate = null) {
+export function guardPlan(plan, fields, candidate = null, { refuses } = {}) {
+  const refused = new Set(fields.filter(field => field.kind === 'checkbox' && (refuses?.(field)
+    || isConsentRefusal(recordedAnswerForQuestion(candidate, field.label, field.context, field)))).map(field => field.id));
+  for (const field of fields) {
+    if (refused.has(field.id) && field.required) {
+      const error = new Error('native_attested_refusal');
+      error.code = 'evidence_entailment_unverified';
+      throw error;
+    }
+  }
   const knownValues = knownValuesOf(candidate);
   const byId = new Map(fields.map((field) => [field.id, field]));
   const actions = [];
@@ -1632,7 +1616,7 @@ export function guardPlan(plan, fields, candidate = null) {
   for (const plannedAction of plan.actions || []) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
-    if (!field) continue;
+    if (!field || refused.has(field.id)) continue;
     // A planner's `consent` provenance never authorizes optional marketing
     // or a box that also declares a candidate fact. Recheck the actual label.
     if (action.action === 'check' && action.source === 'consent' && !ownConsent(field)) {
@@ -1742,7 +1726,7 @@ export function guardPlan(plan, fields, candidate = null) {
   // The page may expose a renamed/reworded version of a question already
   // answered in the review. Reuse it before turning the field into a new hold.
   for (const field of fields) {
-    if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id)) continue;
+    if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id) || refused.has(field.id)) continue;
     const answer = candidateAnswerForField(candidate, field);
     if (!answer) continue;
     const value = field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);
@@ -1767,7 +1751,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // mandate covers it, so the box the plan left alone is ticked here (umantis,
     // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,
     // and went to the candidate as a text question).
-    if (!answered.has(field.id) && !holdsValue(field) && ownConsent(field)) {
+    if (!refused.has(field.id) && !answered.has(field.id) && !holdsValue(field) && ownConsent(field)) {
       actions.push({ fieldId: field.id, action: 'check', value: '', document: 'none', source: 'consent', evidence: '' });
       answered.add(field.id);
       continue;

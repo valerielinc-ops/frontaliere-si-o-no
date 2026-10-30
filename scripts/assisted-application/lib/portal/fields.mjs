@@ -13,7 +13,7 @@
 /* eslint-disable no-undef -- runs in the browser */
 export function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
   // BEGIN GENERATED APPLICATION CONSENT
-  const readOwnConsentMetadata = function readOwnConsentMetadata(element, primaryLabel = '', questionOwned = false) {
+  const readOwnConsentMetadata = function readOwnConsentMetadata(element, primaryLabel = '', questionOwned = false, questionNodes = []) {
   let complete = Boolean(element?.isConnected && element.matches('input[type="checkbox"]'));
   const own = new Set(), primary = new Set(), links = new Set(), visited = new Set(), active = new Set();
   const doc = element?.ownerDocument;
@@ -46,8 +46,10 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (visited.has(node)) { if (isPrimary) add(textOf(node), true); return; }
     if (visited.size >= 64) { complete = false; return; }
     if ([...node.querySelectorAll(controlSelector)].some(control => control !== element)) { complete = false; return; }
+    const linkedLabels = [...node.querySelectorAll('label[for]'), ...(node.matches('label[for]') ? [node] : [])];
+    if (linkedLabels.some(label => label.getAttribute('for') && label.control !== element && !questionNodes.includes(label))) { complete = false; return; }
     const label = node.closest('label');
-    if (label?.hasAttribute('for') && label.getAttribute('for') && label.control !== element) { complete = false; return; }
+    if (label?.hasAttribute('for') && label.getAttribute('for') && label.control !== element && !questionNodes.includes(label)) { complete = false; return; }
     visited.add(node); active.add(node);
     add(textOf(node), isPrimary);
     for (const anchor of [...(node.matches('a[href]') ? [node] : []), ...node.querySelectorAll('a[href]')]) {
@@ -88,7 +90,8 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const labelledBy = clean(element.getAttribute('aria-labelledby')).split(/\s+/).filter(Boolean);
     if (labelledBy.length && labelledBy.every(id => ids.get(id)?.length === 1)) add(labelledBy.map(id => textOf(ids.get(id)[0])).join(' '), true);
     active.delete(element);
-    add(primaryLabel);
+    for (const node of questionNodes) visit(node, true);
+    if (questionOwned) add(primaryLabel);
   }
   const form = element?.form || element?.closest('[role="form"]');
   let actionPath = '';
@@ -504,6 +507,22 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     ];
     return nearby.find((text) => text && text !== label && text.length <= 300 && !GENERATED_ID_RE.test(text)) || label;
   };
+  const consentMetadataFor = (element, label) => {
+    const canonical = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+    const metadata = readOwnConsentMetadata(element);
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    const nodes = [mirroredQuestionLabel(element), ...ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)].filter(Boolean);
+    const parent = element.parentElement;
+    if (parent && oneQuestionGroup(parent, element)) nodes.push(parent);
+    if (hasSingleQuestionContext(element, group) && hasSingleQuestionContext(element)) {
+      const scope = group || element.form || element.closest('form') || element.ownerDocument.body;
+      nodes.push(...[...scope.querySelectorAll(QUESTION_LABEL_SELECTOR)].filter(node => node.closest(QUESTION_GROUP_SELECTOR) === group));
+    }
+    const target = canonical(label);
+    const matched = [...new Set(nodes)].filter(node => target && canonical(node.textContent) === target);
+    const owned = Boolean(target && (metadata.ownConsentQuestionLabels.some(value => canonical(value) === target) || matched.length));
+    return readOwnConsentMetadata(element, label, owned, matched);
+  };
   // A heading of another step a portal keeps in the page, hidden, names nothing.
   const shown = (node) => {
     if (node.closest('[hidden], [aria-hidden="true"]')) return false;
@@ -729,7 +748,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
           // has no options and the planner cannot select the required value.
           || (isSuccessFactorsPage(channelType) && field.required && owned.listbox));
     }
-    if (type === 'checkbox') field.checked = element.checked;
+    if (type === 'checkbox') Object.assign(field, { checked: element.checked }, consentMetadataFor(element, label));
     fields.push(field);
   }
   for (const entry of radios.values()) fields.push(entry);

@@ -30,7 +30,7 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, pureApplicationConsent, isConsentRefusal, readOwnConsentMetadata } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
@@ -332,6 +332,22 @@
     });
   };
 
+  const consentMetadataFor = (element, label) => {
+    const canonical = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+    const metadata = readOwnConsentMetadata(element);
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    const nodes = [mirroredQuestionLabel(element), ...ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)].filter(Boolean);
+    const parent = element.parentElement;
+    if (parent && oneQuestionGroup(parent, element)) nodes.push(parent);
+    if (hasSingleQuestionContext(element, group) && hasSingleQuestionContext(element)) {
+      const scope = group || element.form || element.closest('form') || element.ownerDocument.body;
+      nodes.push(...[...scope.querySelectorAll(QUESTION_LABEL_SELECTOR)].filter(node => node.closest(QUESTION_GROUP_SELECTOR) === group));
+    }
+    const target = canonical(label);
+    const matched = [...new Set(nodes)].filter(node => target && canonical(node.textContent) === target);
+    const owned = Boolean(target && (metadata.ownConsentQuestionLabels.some(value => canonical(value) === target) || matched.length));
+    return readOwnConsentMetadata(element, label, owned, matched);
+  };
   function labelOf(element) {
     const mirrorLabel = mirroredQuestionLabel(element);
     if (mirrorLabel) return textOf(mirrorLabel);
@@ -535,7 +551,8 @@
       const label = labelOf(element);
       const labels = labelsOf(element, label, runnerLabelOf(runner, element));
       entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
-        ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
+        ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}),
+        ...(kind === 'checkbox' ? consentMetadataFor(element, label) : {}), type });
     }
     // Classic jQuery UI spans own a native select and its exact menu. The
     // extension uses the same visible UI and verifies its submitted value.
@@ -765,6 +782,7 @@
   }
 
   /** The value for one entry, or null: never invented, always from the kit. */
+  const consentReceipts = new WeakMap();
   function answerFor(entry, kit) {
     const fromKit = kitAnswer(entry.labels || [entry.label], kit);
     if (entry.kind === 'file') {
@@ -788,12 +806,13 @@
       return null;
     }
     if (entry.kind === 'checkbox') {
-      // JazzHR/Resumator (Fincons) puts the required privacy statement in the
-      // label immediately before a separate «I agree» checkbox. Use all the
-      // control's labels, but keep marketing/newsletter opt-ins excluded.
-      const label = normalize((entry.labels || [entry.label]).join(' '));
-      // Only the required acceptance of the portal's terms: never a newsletter or a talent pool.
-      return entry.required && CONSENT_RE.test(label) && !MARKETING_RE.test(label) ? { check: true } : null;
+      if (entry.consentOwnershipUnknown === true || isConsentRefusal(fromKit?.answer)) return null;
+      const fresh = { kind: 'checkbox', label: labelOf(entry.element), name: entry.element.name,
+        required: entry.required, ...consentMetadataFor(entry.element, labelOf(entry.element)) };
+      if (!pureApplicationConsent(fresh)) return null;
+      const answer = { check: true };
+      consentReceipts.set(answer, { element: entry.element, form: entry.element.form, contract: JSON.stringify(fresh) });
+      return answer;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     // Contact facts are canonical identity data, not answers copied from the
@@ -1121,9 +1140,16 @@
         }
         return Boolean(element.files && element.files.length === (element.multiple ? files.length : 1));
       }
-      case 'checkbox':
+      case 'checkbox': {
+        const receipt = consentReceipts.get(answer);
+        const fresh = { kind: 'checkbox', label: labelOf(element), name: element.name,
+          required: isRequiredControl(element) || labelsOf(element, labelOf(element)).some(value => REQUIRED_RE.test(value)),
+          ...consentMetadataFor(element, labelOf(element)) };
+        if (!receipt || receipt.element !== element || receipt.form !== element.form || !element.isConnected
+          || receipt.contract !== JSON.stringify(fresh) || !pureApplicationConsent(fresh)) return false;
         if (!element.checked) press(element);
         return element.checked;
+      }
       case 'radio': {
         const option = bestOption(entry.options, answer.value, answer.family);
         if (!option) return false;

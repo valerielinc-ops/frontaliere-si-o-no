@@ -28,12 +28,26 @@ export function createApplicationConsentGuard(factSources = {}) {
     .replace(/\bich habe (?=(?:(?:die|den|das) )?(?:datenschutz|privacy|nutzungsbedingungen))/g, '')
     .replace(/\b(?:je confirme avoir lu|j ai lu|j ai pris connaissance|avoir lu)\b/g, '');
 
+  // A privacy word is not authority for the rest of a sentence. Every word
+  // must stay in the closed language of reading/accepting this notice.
+  // New declarations, qualifications or other purposes remain unknown.
+  const PRIVACY_WORDS = new Set(`i me my myself you your yours we our the a an and or to of for in on by with under as per that this these have has having am are is been be it its here hereby do yes read reading understood understand acknowledge acknowledged acknowledgment consent consenting accept accepts accepted accepting agree agreed agreement clicking click confirming confirm accordance pursuant subject comply complies provided provide provision provisions terms conditions application applications candidate candidates applicant applicants applying privacy policy policies statement statements notice notices protection processing process processed collection collected collecting storage storing stored electronic electronically personal data information handling use using accordance
+  io me mia mie miei mio tu tuo tua tuoi tue noi nostri nostri il lo la le gli l dei degli delle della dello dell di del al alla allo all ai agli alle a da dal dalla in con su per e o secondo sensi disposizioni materia accetto accetta accettare accettazione acconsento consenso consento autorizzo autorizzazione letto letta leggere lettura compreso compresa comprendo preso visione informativa trattamento trattati trattare protezione dati personali memorizzazione elettronica elettronico conservazione candidatura candidature candidato candidati condizioni termini sensi
+  ich mir mich mein meine meiner meinen meines du dir dich dein deine ihrer ihre ihren ihrem sie wir uns unser unsere der die das des den dem ein eine einer eines einem einen und oder zu zur zum von im in am an fur mit nach gemaess gemass laut dass diese dieser dieses diesen hiermit habe haben gelesen lesen verstanden verstehe akzeptiere akzeptieren akzeptiert stimme stimmen zustimmung einwillige einwilligung einverstanden erklarung erklarungen datenschutz datenschutzerklarung datenschutzerklaerung datenschutzhinweise datenschutzbestimmungen daten personenbezogenen personenbezogener personlichen verarbeitung verarbeiten speicherung elektronischen elektronischer elektronische bewerbung bewerbungen bewerber bewerberin nutzungsbedingungen bewerbungsbedingungen hinweise bestimmungen
+  je moi mon ma mes me vous votre vos nous nos le la les l de des du d au aux a par pour en avec et ou que cette ce ces j ai lu lire pris prise connaissance compris comprends accepte accepter acceptation consens consentement autorise autorisation conformement dispositions matiere politique confidentialite protection traitement donnees personnelles conservation electronique candidature candidatures candidat candidats conditions generales utilisation`.split(/\s+/));
+  const OPTIONAL_WORDS = new Set(`receive receiving send sending subscribe subscribing subscription newsletter newsletters marketing promotional promotion advertising advertisements job jobs alert alerts pool talent future opportunities openings positions vacancies whatsapp messages message communication communications contacted contact updates offers other companies third parties
+  ricevere ricevo inviare invio comunicazioni comunicazione messaggi messaggio aggiornamenti newsletter marketing pubblicita promozionali promozioni offerte altre posizioni societa terzi whatsapp
+  erhalten empfange senden zusenden abonnieren abonniere newsletter werbung marketing werbliche informationen stellen stellenangebote jobabo talentpool zukunftige weitere andere unternehmen dritte dritter whatsapp nachrichten kontaktieren
+  recevoir envoyer abonner abonnement newsletter marketing publicite promotionnelles offres autres postes societes tiers whatsapp messages communications actualites`.split(/\s+/));
+  const positiveLanguage = (value, optional = false) => plain(value).replace(/&/g, ' and ').split(/[^a-z0-9]+/).filter(Boolean)
+    .every(word => PRIVACY_WORDS.has(word) || optional && OPTIONAL_WORDS.has(word));
+
   const GENERIC_TERMS = /\bterms\b|nutzungsbedingungen|teilnahmebedingungen|\bagb\b|termini|condizioni|conditions generales|conditions d utilisation/;
   const context = field => {
     if (field?.kind !== 'checkbox' || field.ownConsentMetadataComplete !== true
       || field.ownConsentQuestionOwned !== true || !Array.isArray(field.ownConsentText)
       || !Array.isArray(field.ownConsentLinks) || typeof field.ownConsentOwnerKey !== 'string') return null;
-    const own = [field.label, ...field.ownConsentText].map(value => String(value || '').trim()).filter(Boolean).join(' ');
+    const own = [...new Set([field.label, ...field.ownConsentText].map(value => String(value || '').trim()).filter(Boolean))].join(' ');
     if (!own || own.length > 16_000 || field.ownConsentOwnerKey.length > 4096) return null;
     let owner;
     try { owner = JSON.parse(field.ownConsentOwnerKey); } catch { return null; }
@@ -52,20 +66,20 @@ export function createApplicationConsentGuard(factSources = {}) {
       if (url.protocol !== 'https:' && !(url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname))) return null;
       try { purposes.push(plain(decodeURIComponent(`${url.pathname} ${url.search} ${url.hash}`)).replace(/[-_/?=&.]+/g, ' ')); } catch { return null; }
     }
-    return { text, purposes };
+    return { text, purposes, positive: positiveLanguage(text), optionalPositive: positiveLanguage(text, true) };
   };
   const isConsentOnly = field => {
     const value = context(field);
-    return Boolean(value && (PRIVACY.test(value.text) || APPLICATION_TERMS.test(value.text) || OPTIONAL.test(value.text))
+    return Boolean(value && value.optionalPositive && (PRIVACY.test(value.text) || APPLICATION_TERMS.test(value.text) || OPTIONAL.test(value.text))
       && !OTHER_TERMS.test(value.purposes.join(' ')));
   };
   const isConsentRefusal = value => value === false || value === 0
     || /^(?:no|nein|non|false|0|decline|refuse|rifiuto|non accetto|ich stimme nicht|je refuse)(?:$|[ ,;.!])/.test(plain(value));
   const pureApplicationConsent = field => {
     const value = context(field);
-    if (!value || (!PRIVACY.test(value.text) && !APPLICATION_TERMS.test(value.text))) return false;
+    if (!value || !value.positive || (!PRIVACY.test(value.text) && !APPLICATION_TERMS.test(value.text))) return false;
     if (!field.required && !ACCEPTANCE.test(value.text)) return false;
-    if (OPTIONAL.test(value.text) || value.purposes.some(purpose => OPTIONAL.test(purpose) || OTHER_TERMS.test(purpose))) return false;
+    if (OPTIONAL.test(value.text) || value.purposes.some(purpose => OPTIONAL.test(purpose) || OTHER_TERMS.test(purpose) || FACTS.test(purpose) || !PRIVACY.test(purpose) && !APPLICATION_TERMS.test(purpose))) return false;
     if (GENERIC_TERMS.test(`${value.text} ${value.purposes.join(' ')}`) && !APPLICATION_TERMS.test(value.text)) return false;
     return true;
   };
@@ -77,7 +91,7 @@ export const isConsentOnly = pureApplicationConsent.isConsentOnly;
 export const isConsentRefusal = pureApplicationConsent.isConsentRefusal;
 
 /** Native text only. No input values, sibling headings or section summaries. */
-export function readOwnConsentMetadata(element, primaryLabel = '', questionOwned = false) {
+export function readOwnConsentMetadata(element, primaryLabel = '', questionOwned = false, questionNodes = []) {
   let complete = Boolean(element?.isConnected && element.matches('input[type="checkbox"]'));
   const own = new Set(), primary = new Set(), links = new Set(), visited = new Set(), active = new Set();
   const doc = element?.ownerDocument;
@@ -110,8 +124,10 @@ export function readOwnConsentMetadata(element, primaryLabel = '', questionOwned
     if (visited.has(node)) { if (isPrimary) add(textOf(node), true); return; }
     if (visited.size >= 64) { complete = false; return; }
     if ([...node.querySelectorAll(controlSelector)].some(control => control !== element)) { complete = false; return; }
+    const linkedLabels = [...node.querySelectorAll('label[for]'), ...(node.matches('label[for]') ? [node] : [])];
+    if (linkedLabels.some(label => label.getAttribute('for') && label.control !== element && !questionNodes.includes(label))) { complete = false; return; }
     const label = node.closest('label');
-    if (label?.hasAttribute('for') && label.getAttribute('for') && label.control !== element) { complete = false; return; }
+    if (label?.hasAttribute('for') && label.getAttribute('for') && label.control !== element && !questionNodes.includes(label)) { complete = false; return; }
     visited.add(node); active.add(node);
     add(textOf(node), isPrimary);
     for (const anchor of [...(node.matches('a[href]') ? [node] : []), ...node.querySelectorAll('a[href]')]) {
@@ -152,7 +168,8 @@ export function readOwnConsentMetadata(element, primaryLabel = '', questionOwned
     const labelledBy = clean(element.getAttribute('aria-labelledby')).split(/\s+/).filter(Boolean);
     if (labelledBy.length && labelledBy.every(id => ids.get(id)?.length === 1)) add(labelledBy.map(id => textOf(ids.get(id)[0])).join(' '), true);
     active.delete(element);
-    add(primaryLabel);
+    for (const node of questionNodes) visit(node, true);
+    if (questionOwned) add(primaryLabel);
   }
   const form = element?.form || element?.closest('[role="form"]');
   let actionPath = '';
