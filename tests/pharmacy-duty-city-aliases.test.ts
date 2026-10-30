@@ -84,4 +84,18 @@ describe('attested Castagnola regional duty URL migration', () => {
       expect(page.html).not.toContain('"@type":"ItemList"');
     }
   });
+
+  it('does not emit a canonical duty-city page for a retained redirect source', () => {
+    const aliasPaths = new Set(pages.pharmacyDutyCityAliasDescriptors().map(({ from }) => from));
+    const emittedDutyCityPaths = pages.pharmacyPageDescriptors().flatMap((descriptor) => {
+      if (descriptor.kind !== 'duty-city') return [];
+      return aliases.map(([locale]) => buildPharmacyPath({
+        kind: 'duty-city',
+        locale,
+        citySlug: descriptor.citySlug,
+      }, locale));
+    });
+
+    expect(emittedDutyCityPaths.filter((pathname) => aliasPaths.has(pathname))).toEqual([]);
+  });
 });

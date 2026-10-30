@@ -51,6 +51,18 @@ import { PHARMACY_NOINDEX_TARGET_MARKER } from './shared/pharmacyNoindexTargetMa
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
+// A live catalogue can still contain the source locality of a retained
+// regional-duty redirect (for example, Castagnola). Keep its directory page,
+// but do not emit the same duty-city path that the bridge below must own: the
+// bridge would otherwise overwrite the canonical page after the render loop.
+const PHARMACY_DUTY_CITY_ALIAS_SLUGS = new Set(
+  TICINO_CITIES
+    .filter(({ slug }) => LOCALES.some((locale) => Object.prototype.hasOwnProperty.call(
+      PHARMACY_DUTY_CITY_REDIRECTS,
+      buildPharmacyPath({ kind: 'duty-city', locale, citySlug: slug }, locale),
+    )))
+    .map(({ slug }) => slug),
+);
 // Duty rendering and pharmacy detail rendering must share the same enriched
 // catalogue. The raw JSON is still the release container, but its pharmacy
 // rows are replaced with BORDER_PHARMACIES/TICINO_PHARMACIES from
@@ -1201,7 +1213,9 @@ function descriptors(now: Date = pharmacyBuildNow()): PageDescriptor[] {
     { kind: 'country', country: 'IT' },
     ...ITALY_BORDER_PROVINCES.map((area) => ({ kind: 'area' as const, country: 'IT' as const, areaSlug: area.slug, areaName: area.name })),
     ...TICINO_CITIES.map((city) => ({ kind: 'city' as const, country: 'CH' as const, citySlug: city.slug, cityName: city.name })),
-    ...TICINO_CITIES.map((city) => ({ kind: 'duty-city' as const, country: 'CH' as const, citySlug: city.slug, cityName: city.name })),
+    ...TICINO_CITIES
+      .filter((city) => !PHARMACY_DUTY_CITY_ALIAS_SLUGS.has(city.slug))
+      .map((city) => ({ kind: 'duty-city' as const, country: 'CH' as const, citySlug: city.slug, cityName: city.name })),
     ...ITALY_CITIES.map((city) => ({ kind: 'city' as const, country: 'IT' as const, areaSlug: ITALY_BORDER_PROVINCES.find((area) => area.code === city.province)?.slug, citySlug: city.slug, cityName: city.name })),
     ...BORDER_PHARMACIES.map((pharmacy) => ({ kind: 'pharmacy' as const, country: pharmacy.country, pharmacy })),
   ];
