@@ -1298,12 +1298,12 @@
     },
     {
       "id": "ksw-0178136b4769",
-      "slug": "physiotherapeutin-physiotherapeut-per-den-bereich-beckenboden-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "fisioterapista-fisioterapista-per-il-settore-del-pavimento-pelvico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-fur-den-bereich-beckenboden-ksw-ch",
-        "it": "physiotherapeutin-physiotherapeut-per-den-bereich-beckenboden-kantonsspital-winterthur-ksw-winterthur",
-        "en": "physiotherapeutin-physiotherapeut-fur-den-bereich-beckenboden-ksw-ch",
-        "fr": "physiotherapeutin-physiotherapeut-fur-den-bereich-beckenboden-ksw-ch"
+        "it": "fisioterapista-fisioterapista-per-il-settore-del-pavimento-pelvico-kantonsspital-winterthur-ksw-winterthur",
+        "en": "physical-therapist-physical-therapist-for-the-pelvic-floor-area-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "physiotherapeute-physiotherapeute-pour-la-zone-de-plancher-pelvienne-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1351,11 +1351,19 @@
       "department": "Institut für Therapien und Rehabilitation",
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeutin-physiotherapeut-fur-den-bereich-beckenboden-ksw-ch",
+          "physiotherapeutin-physiotherapeut-per-den-bereich-beckenboden-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-fur-den-bereich-beckenboden-ksw-ch"
+        ],
+        "fr": [
           "physiotherapeutin-physiotherapeut-fur-den-bereich-beckenboden-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "physiotherapeutin-physiotherapeut-fur-den-bereich-beckenboden-ksw-ch"
+        "physiotherapeutin-physiotherapeut-fur-den-bereich-beckenboden-ksw-ch",
+        "physiotherapeutin-physiotherapeut-per-den-bereich-beckenboden-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
