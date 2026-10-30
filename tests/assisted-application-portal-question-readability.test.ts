@@ -49,6 +49,8 @@ it('routes unreadable source labels to a technical hold instead of manufacturing
   const result = portalRequirementsFromMissingRequired([{ id: 'f1', kind: 'checkbox', label: '', required: true }], [{ fieldId: 'f1', question: '' }]);
   expect(result.questions).toEqual([]);
   expect(result.unreadableFields).toEqual(['f1']);
+  expect(portalRequirementsFromMissingRequired([{ id: 'f1', kind: 'text', label: '', required: true }],
+    [{ fieldId: 'f1', question: 'A plausible but invented question?' }])).toMatchObject({ questions: [], unreadableFields: ['f1'] });
 });
 
 it('uses the actual source question if localization returns only a generic placeholder', async () => {
