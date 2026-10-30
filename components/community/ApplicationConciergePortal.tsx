@@ -1,3 +1,4 @@
+import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import { useCallback, useEffect, useMemo, useRef, useState, lazy, Suspense } from 'react';
 import type { ReactNode } from 'react';
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, Clock3, FileText, Loader2, ShieldCheck, Sparkles, Target, UploadCloud, XCircle } from 'lucide-react';
@@ -30,7 +31,9 @@ const ChildApplicationReview = lazy(() => import('@/components/community/Assiste
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 const POLL_MS = 3500;
-const CHECKOUT_TELEMETRY_HANDOFF_MS = 1000;
+// The current Google tag batches custom hits for 5s after processing.
+// Leave a small scheduling margin and bound an unavailable SDK after the API.
+const CHECKOUT_TELEMETRY_BATCH_WINDOW_MS = 5250;
 const MATCHING_STATES = new Set(['queued', 'processing', 'running']);
 
 export interface ApplicationConciergePortalProps {
@@ -378,20 +381,32 @@ export default function ApplicationConciergePortal({
         setSumUpPaymentOpen(true);
         return;
       }
-      // Protect the existing attempt event from the full-page Stripe handoff.
-      // This is a bounded best-effort SDK acknowledgement, not an ingestion receipt.
+      // Processing acknowledges queue acceptance, before Google tag's batch send.
+      // Its timestamp lets the batch window overlap auth/API work; this is still
+      // bounded best effort, not a network or ingestion receipt.
       await new Promise<void>((resolve) => {
         let finished = false;
+        let batchTimer: number | undefined;
         const finish = () => {
           if (finished) return;
           finished = true;
           window.clearTimeout(timer);
+          if (batchTimer !== undefined) window.clearTimeout(batchTimer);
           if (cancelTelemetryHandoff.current === finish) cancelTelemetryHandoff.current = null;
           resolve();
         };
-        const timer = window.setTimeout(finish, CHECKOUT_TELEMETRY_HANDOFF_MS);
+        const timer = window.setTimeout(finish, CHECKOUT_TELEMETRY_BATCH_WINDOW_MS);
         cancelTelemetryHandoff.current = finish;
-        void Promise.resolve(telemetryAcknowledgement).then(finish, finish);
+        void Promise.resolve(telemetryAcknowledgement).then((acknowledgement) => {
+          if (finished) return;
+          if (!isCurrentOwner()) { finish(); return; }
+          const processedAtMs = acknowledgement && typeof acknowledgement === 'object'
+            && 'processedAtMs' in acknowledgement ? acknowledgement.processedAtMs : null;
+          if (typeof processedAtMs !== 'number' || !Number.isFinite(processedAtMs)) { finish(); return; }
+          const remaining = Math.max(0, Math.min(CHECKOUT_TELEMETRY_BATCH_WINDOW_MS,
+            processedAtMs + CHECKOUT_TELEMETRY_BATCH_WINDOW_MS - Date.now()));
+          batchTimer = window.setTimeout(finish, remaining);
+        }, finish);
       });
       if (!isCurrentOwner()) return;
       window.location.assign(result.url);
@@ -966,7 +981,7 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
   }, [proposed, proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
   const state = proposal.childApplicationState;
   const displayStatus = conciergeProposalDisplayStatus(proposal);
-  const statusTone = displayStatus === 'submitted' ? 'bg-success-subtle text-success'
+  const statusTone = displayStatus === 'submitted' || displayStatus === 'employer_auto_acknowledgement' ? 'bg-success-subtle text-success'
     : ['proposed', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
     : 'bg-surface-raised text-muted';
   const childKey = state === 'needs_candidate_action' || state === 'candidate_handoff' ? 'childNeedsAnswers'
@@ -981,11 +996,11 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
       <div className="min-w-0 flex-1"><h3 className="break-words font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>
         {proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div>
       </div>
-      <span className={`max-w-[45%] shrink-0 rounded-full px-2 py-1 text-center text-xs font-bold ${statusTone}`}>{t(`jobBoard.concierge.proposalStatus.${displayStatus}`)}</span>
+      <span className={`max-w-[45%] shrink-0 rounded-full px-2 py-1 text-center text-xs font-bold ${statusTone}`}>{t(displayStatus.startsWith('employer_') ? `jobBoard.assisted.employerResponse.${displayStatus.slice(9)}` : `jobBoard.concierge.proposalStatus.${displayStatus}`)}</span>
     </div>
     {proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}
     {accepted && proposal.childApplicationId && <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-surface-raised p-3">
-      <p className="text-sm font-semibold text-heading">{t(`jobBoard.concierge.${childKey}`)}</p>
+      <div className="min-w-0"><p className="text-sm font-semibold text-heading">{t(`jobBoard.concierge.${childKey}`)}</p><AssistedApplicationEmployerResponse response={proposal.childEmployerResponse} compact /></div>
       <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${state === 'needs_candidate_action' || state === 'candidate_handoff' ? 'answerChild' : state === 'candidate_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
     </div>}
     {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">

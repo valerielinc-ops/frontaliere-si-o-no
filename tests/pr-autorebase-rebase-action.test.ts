@@ -94,13 +94,29 @@ describe('rebaseActionForLgtmPr (#2415 rebase-thrash livelock guard)', () => {
     expect(inFlight).toBeGreaterThan(-1);
     expect(reopen).toBeGreaterThan(inFlight);
     expect(merge).toBeGreaterThan(reopen);
-    expect(processPr.slice(reopen, merge)).toContain('guardedReopen(num, head)');
+    expect(processPr.slice(reopen, merge)).toContain('guardedReopen(num, head, { reviewInput })');
     const predicate = AUTOREBASE_SOURCE.slice(
       AUTOREBASE_SOURCE.indexOf('function reviewGateRedOnFreshVerdict('),
       AUTOREBASE_SOURCE.indexOf('function readReopenBudgetBody('),
     );
     expect(predicate).toContain('reviewSkippedByGuard(steps) || reviewAbortedWithoutVerdict(steps)');
     expect(predicate).toContain('prior.reviewGateUsed');
+  });
+
+  it('REGRESSIONE: review input cambiato dopo guardedReopen lascia stale-review', () => {
+    const processPr = AUTOREBASE_SOURCE.slice(AUTOREBASE_SOURCE.indexOf('async function processPR('));
+    const reopenCalls = [...processPr.matchAll(/if \(guardedReopen\(num, head, \{ reviewInput \}\)\) \{/g)];
+    expect(reopenCalls).toHaveLength(2);
+
+    for (const call of reopenCalls) {
+      const cleanup = processPr.slice(call.index!, call.index! + 280);
+      expect(cleanup).toMatch(
+        /if \(reviewInputStableForMutation\(num, reviewInput, 'la rimozione di stale-review'\)\) \{\s*clearStaleReviewLabel\(num\);\s*\}/,
+      );
+      expect(cleanup.indexOf('reviewInputStableForMutation')).toBeLessThan(
+        cleanup.indexOf('clearStaleReviewLabel'),
+      );
+    }
   });
 
   it('non-LGTM → rebase (non near-merge-as-is)', () => {

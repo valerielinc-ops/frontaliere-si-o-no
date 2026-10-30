@@ -314,7 +314,7 @@ function fakePortal() {
     if (route === 'GET /careers.html') return send(page('Career Opportunities | SIX', '<h1>Finde deinen Traumjob</h1><label for="search">Suche</label><input id="search" name="search"><button type="button">Finden</button>'));
     if (route === 'POST /six/submit') {
       const body = await readBody(req);
-      state.sixApplications.push({ workload: /name="workload"\r\n\r\n80%/.test(body) });
+      state.sixApplications.push({ workload: body.match(/name="workload"\r\n\r\n([^\r\n]*)/)?.[1] || '' });
       state.sixApplications.at(-1).hasCv = /name="cv"; filename="CV_Luca_Bianchi\.pdf"/.test(body);
       return send(page('Application received', '<h1>Thank you for your application</h1>'));
     }
@@ -1094,6 +1094,7 @@ async function main() {
     const sixJob = { title: 'Senior IT Manager - CIO Office', company: 'SIX Group' };
     const sixDirect = await run({ applyUrl: sixApplyUrl, job: sixJob });
     check('SIX cold apply redirects to the generic careers page and never sends', sixDirect.event.type === 'submit_handoff' && state.sixApplications.length === 0);
+    let sixReadSawWorkload = false;
     const sixRead = await readPortalRequirements({
       channelType: 'employer_site', applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, language: 'en', candidateLocale: 'it',
       candidate: { identity: { email: ALIAS } },
@@ -1101,11 +1102,13 @@ async function main() {
         const result = await fakeCodex(request);
         const input = JSON.parse(request.prompt.slice(request.prompt.lastIndexOf('{"form"'), request.prompt.lastIndexOf('\n\nReturn exactly')));
         const workload = input.form.fields.find((field) => /preferred workload/i.test(field.label));
+        sixReadSawWorkload = Boolean(workload);
         return { ...result, missingRequired: workload ? [{ fieldId: workload.id, question: workload.label }] : [] };
       },
       launch: () => launchChromium({ headless: true, executablePath }),
     });
-    check('SIX pre-read follows the posting and captures the required workload question', sixRead.questions.some((item) => /preferred workload/i.test(item.applicationQuestion || item.question)) && state.sixPostingViews === 1);
+    check('SIX pre-read recognizes workload without asking the candidate for an operational default', sixReadSawWorkload
+      && !sixRead.questions.some((item) => /preferred workload/i.test(item.applicationQuestion || item.question)) && state.sixPostingViews === 1);
     const sixCodex = async (request) => {
       const planned = await fakeCodex(request);
       if (!request.prompt.includes('{"form"')) return planned;
@@ -1113,12 +1116,9 @@ async function main() {
       const cv = payload.form.fields.find((field) => field.kind === 'file' && /resume|cv/i.test(field.label));
       const workload = payload.form.fields.find((field) => /preferred workload/i.test(field.label));
       const workloadAnswer = payload.candidate?.portalQuestionsAnswered?.find((item) => /preferred workload/i.test(item.applicationQuestion || item.question || ''))?.answer || '';
-      // The live SIX form asks for a personal preference that is not present in
-      // the candidate facts. Keep the first phase at the candidate gate: the
-      // final POST is only legal after the reviewed answer comes back on the
-      // retry. This is deliberately returned from the planner, like a real
-      // portal-specific required answer, instead of being hidden in the fake
-      // server's POST handler.
+      // Deliberately leave the model's missing preference in the plan: the
+      // deterministic owner policy must resolve the soft question to 100%.
+      // An explicit reviewed preference on a later run must still win.
       const gated = workload && !String(workloadAnswer).trim()
         ? { ...planned, missingRequired: [{ fieldId: workload.id, question: workload.label }] }
         : planned;
@@ -1130,14 +1130,14 @@ async function main() {
       identity: { email: ALIAS },
       profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
     };
-    const sixNeedsCandidate = await run({
+    const sixDefault = await run({
       applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
       codex: sixCodex,
       candidate: sixCandidate,
     });
-    check('SIX stops at the personal-answer gate without a final POST', sixNeedsCandidate.event.type === 'submit_needs_candidate'
-      && sixNeedsCandidate.event.questions.some((item) => /preferred workload/i.test(item.applicationQuestion || item.question || ''))
-      && state.sixApplications.length === 0);
+    check('SIX submits with the 100% operational default when no hard facts are missing', sixDefault.event.type === 'submit_succeeded'
+      && state.sixApplications.length === 1 && state.sixApplications[0].workload === '100%'
+      && state.sixApplications[0].hasCv === true);
     const six = await run({
       applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
       codex: sixCodex,
@@ -1148,9 +1148,9 @@ async function main() {
       },
     });
     check('SIX opens the matching form and submits with the reviewed workload answer', six.event.type === 'submit_succeeded'
-      && state.sixPostingViews === 3 && state.sixApplications.length === 1 && state.sixApplications[0].workload
+      && state.sixPostingViews === 3 && state.sixApplications.length === 2 && state.sixApplications[1].workload === '80%'
       && six.evidence.postingMatch === 'match');
-    check('SIX uploads the supplied CV when the planner skips its file field', state.sixApplications[0]?.hasCv === true
+    check('SIX uploads the supplied CV when the planner skips its file field', state.sixApplications[1]?.hasCv === true
       && six.evidence.uploads?.some((item) => item.document === 'cv'));
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });

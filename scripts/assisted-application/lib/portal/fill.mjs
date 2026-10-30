@@ -824,6 +824,21 @@ export async function applyActions(page, fields, actions, files, {
               : residenceCountryOptionLabel(action.value, field.options || []));
           if (!selectedLabel) throw new Error('option_not_found');
           await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
+        } else if (field.widget === 'jquery-multiselect') {
+          const option = (field.options || []).find(option => normalizedChoice(option.label) === normalizedChoice(action.value));
+          if (!option) throw new Error('option_not_found');
+          await locator.click({ timeout: ACTION_TIMEOUT_MS });
+          const frame = page.frames()[field.frame || 0] || page.mainFrame();
+          const quote = value => String(value).replace(/["\\]/g, '\\$&');
+          const checkbox = frame.locator(`input[name="multiselect_${quote(field.nativeSelectId)}"][value="${quote(option.value)}"]`);
+          if (await checkbox.count() !== 1) throw new Error('option_owner_ambiguous');
+          await checkbox.setChecked(true, { timeout: ACTION_TIMEOUT_MS });
+          await locator.press('Escape').catch(() => {});
+          const selected = await frame.locator(`select[id="${quote(field.nativeSelectId)}"]`).evaluate((select, value) => [...select.selectedOptions].some(option => option.value === value), option.value);
+          if (!selected) throw new Error('choice_not_registered');
+          results.push({ fieldId: field.id, ok: true });
+          await pause();
+          continue;
         } else if (field.kind === 'listbox') {
           // Workday: open the listbox and click the option (OfferOS dom-fill, fillListboxButton).
           await locator.click({ timeout: ACTION_TIMEOUT_MS });

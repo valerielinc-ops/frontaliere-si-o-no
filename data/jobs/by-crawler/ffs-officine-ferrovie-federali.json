@@ -5,9 +5,9 @@
   "jobs": [
     {
       "id": "sbb-aa82a20484ba",
-      "slug": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
+      "slug": "addetto-a-agli-acquisti-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
+        "it": "addetto-a-agli-acquisti-ffs-officine-ferrovie-federali-bern",
         "en": "purchasing-clerk-ffs-officine-ferrovie-federali-bern",
         "de": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
         "fr": "responsable-des-achats-ffs-officine-ferrovie-federali-bern"
@@ -86,7 +86,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/sachbearbeiter-in-einkauf/8ca6ff7b-b5c4-4824-9c91-d33fe4ae57ff",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-30T09:53:23.176Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -104,7 +103,15 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/sachbearbeiter-in-einkauf/8ca6ff7b-b5c4-4824-9c91-d33fe4ae57ff",
-      "firstSeenAt": "2026-10-30T09:53:23.176Z"
+      "firstSeenAt": "2026-10-30T09:53:23.176Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-d7817e195ded",
@@ -657,9 +664,9 @@
     },
     {
       "id": "sbb-fbd32d719f00",
-      "slug": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
+      "slug": "responsabile-di-prodotto-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
-        "it": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
+        "it": "responsabile-di-prodotto-ffs-officine-ferrovie-federali-olten",
         "en": "product-manager-ffs-officine-ferrovie-federali-olten",
         "de": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
         "fr": "chef-fe-de-produit-ffs-officine-ferrovie-federali-olten"
@@ -733,7 +740,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/produktmanager-in/109cd18d-273c-405c-9063-5df3ff4dede4",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-30T09:53:02.657Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -751,7 +757,15 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/produktmanager-in/109cd18d-273c-405c-9063-5df3ff4dede4",
-      "firstSeenAt": "2026-10-30T09:53:02.657Z"
+      "firstSeenAt": "2026-10-30T09:53:02.657Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktmanager-in-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "produktmanager-in-ffs-officine-ferrovie-federali-olten"
+      ]
     },
     {
       "id": "sbb-dc2057a350c7",

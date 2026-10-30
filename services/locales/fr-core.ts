@@ -3070,6 +3070,17 @@ Règles :
   'jobBoard.rewardedOffer.handoffDirectTitle': 'Ouvrir l’offre',
   'jobBoard.rewardedOffer.handoffDirectTitleJob': 'Ouvrir « {jobTitle} »',
   'jobBoard.rewardedOffer.handoffDirectText': 'L’offre s’ouvre dans un nouvel onglet et cette page reste ouverte.',
+  'jobBoard.assisted.employerResponse.heading': "Dernière mise à jour de l’entreprise",
+  'jobBoard.assisted.employerResponse.auto_acknowledgement': "Réception confirmée",
+  'jobBoard.assisted.employerResponse.interview_invite': "Invitation à un entretien",
+  'jobBoard.assisted.employerResponse.rejection': "Candidature non retenue",
+  'jobBoard.assisted.employerResponse.documents_request': "Documents demandés",
+  'jobBoard.assisted.employerResponse.question': "Question de l’entreprise",
+  'jobBoard.assisted.employerResponse.assessment': "Test à compléter",
+  'jobBoard.assisted.employerResponse.offer': "Offre reçue",
+  'jobBoard.assisted.employerResponse.needsReply': "L’entreprise attend votre réponse.",
+  'jobBoard.assisted.employerResponse.emailHint': "Le message complet figure dans l’e-mail que nous vous avons transféré. Répondez à cet e-mail pour répondre à l’entreprise.",
+
 };
 
 export default frCore;

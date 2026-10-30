@@ -30,9 +30,9 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
-  const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?( cookies)?|decline( all)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
+  const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
   // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
   const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
@@ -423,8 +423,13 @@
       const label = own === textOf(button) ? questionOf(button) || nearbyText(button) || own : own;
       // The site's own language menu is not part of the application.
       if (/language.?selector|sprachauswahl/i.test(`${label} ${button.getAttribute('data-automation-id') || ''}`)) continue;
+      const previous = button.previousElementSibling;
+      const nativeSelect = button.classList.contains('ui-multiselect') && previous?.tagName === 'SELECT'
+        && previous.id && previous.getAttribute('aria-labelledby')
+        && previous.getAttribute('aria-labelledby') === button.getAttribute('aria-labelledby') ? previous : null;
       entries.push({
         kind: 'listbox',
+        ...(nativeSelect ? { nativeSelect } : {}),
         element: button,
         label,
         labels: labelsOf(button, label, runnerLabelOf(runner, button)),
@@ -476,6 +481,7 @@
     if (entry.kind === 'file') return !(element.files && element.files.length);
     if (entry.kind === 'radio') return !entry.options.some((option) => option.element.checked);
     if (entry.kind === 'aria-radio') return !entry.options.some((option) => option.element.getAttribute('aria-checked') === 'true');
+    if (entry.kind === 'listbox' && entry.nativeSelect) return !entry.nativeSelect.selectedOptions.length;
     if (entry.kind === 'listbox') return LISTBOX_PLACEHOLDER_RE.test(normalize(textOf(element))) || !normalize(textOf(element));
     if (entry.kind === 'search-select') return !chosenPills(element).length && !String(element.value || '').trim();
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
@@ -628,11 +634,20 @@
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
       const accept = String(entry.element.getAttribute('accept') || '');
       if (/image|png|jpe?g/i.test(accept) && !/pdf|doc/i.test(accept)) return null;
+      const ownLabel = normalize(entry.label);
+      if (isNonCvDocumentLabel(entry.label)) {
+        const extra = extraDocumentFor(ownLabel, kit);
+        return extra ? { document: extra } : null;
+      }
+      if (!CV_RE.test(ownLabel) && isNonCvDocumentLabel(label)) {
+        const extra = extraDocumentFor(label, kit);
+        return extra ? { document: extra } : null;
+      }
       if (LETTER_RE.test(label) && !CV_RE.test(label)) return { document: 'coverLetter' };
       if (CV_RE.test(label)) return { document: 'cv' };
       const extra = extraDocumentFor(label, kit);
       if (extra) return { document: extra };
-      if (fromKit?.source === 'documents' || CV_RE.test(normalize(questionOf(entry.element)))) return { document: 'cv' };
+      if (fromKit?.source === 'documents' || (CV_RE.test(normalize(questionOf(entry.element))) && !isNonCvDocumentLabel(questionOf(entry.element)))) return { document: 'cv' };
       return null;
     }
     if (entry.kind === 'checkbox') {
@@ -984,6 +999,17 @@
       case 'combobox':
         return chooseInCombobox(element, answer.value, entry.selectLike, answer.family);
       case 'listbox': {
+        if (entry.nativeSelect) {
+          const option = bestOption([...entry.nativeSelect.options].filter(option => !option.disabled).map(option => ({ element: option, label: option.text })), answer.value, answer.family);
+          if (!option) return false;
+          press(element);
+          const inputs = [...element.ownerDocument.getElementsByName(`multiselect_${entry.nativeSelect.id}`)]
+            .filter(input => input.matches('input[type="checkbox"], input[type="radio"]') && input.value === option.element.value);
+          if (inputs.length !== 1) return false;
+          if (!inputs[0].checked) press(inputs[0]);
+          fire(element, 'keydown', { key: 'Escape' });
+          return [...entry.nativeSelect.selectedOptions].some(selected => selected.value === option.element.value);
+        }
         // Open it, click the option the answer names (lib/portal/fill.mjs: exact label).
         press(element);
         const option = await waitFor(() => bestOption(openOptions(element.ownerDocument), answer.value, answer.family));
@@ -1064,15 +1090,29 @@
    * One pass on the page: answers every empty question the kit can answer.
    * @returns {Promise<{filled:string[], missing:Array<{label:string, answer:string}>, failed:string[], entries:number}>}
    */
+  const anonymousUploadIds = new WeakMap();
+  let anonymousUploadCounter = 0;
+  function uploadControlId(element) {
+    const stable = element.getAttribute('data-aa-id') || element.id;
+    if (stable) return stable;
+    // A name or label can be shared by several controls. Without a stable DOM
+    // id, remember this node only; a replacement node needs its own receipt.
+    if (!anonymousUploadIds.has(element)) anonymousUploadIds.set(element, `anonymous-${++anonymousUploadCounter}`);
+    return anonymousUploadIds.get(element);
+  }
+
   async function fillPage(doc, kit, { getFile, getFiles, attempts, uploaded = new Set() }) {
     const filled = [];
     const missing = [];
     const failed = [];
     const entries = collect(doc, kit?.channelType);
+    const cvControls = entries.filter(entry => entry.kind === 'file' && answerFor(entry, kit)?.document === 'cv');
+    const preferredCv = new Set(preferredDocumentControls(cvControls));
     for (const entry of entries) {
+      if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
       if (!isEmpty(entry)) continue;
       const answer = answerFor(entry, kit);
-      const documentKey = answer?.document ? `${doc.defaultView.location.pathname}|${answer.document}` : '';
+      const documentKey = answer?.document ? `${doc.defaultView.location.href}|${answer.document}|${uploadControlId(entry.element)}` : '';
       if (documentKey && uploaded.has(documentKey)) continue;
       if (!answer) {
         if (entry.required) missing.push({ label: entry.label || entry.kind, answer: '' });
