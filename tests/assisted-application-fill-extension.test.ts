@@ -25,6 +25,14 @@ function page(html: string, url = 'https://join.com/companies/acme/1/apply/step'
   return { window: dom.window, document: dom.window.document, F };
 }
 
+function nativeFieldReading(window: JSDOM['window']) {
+  // JSDOM has no layout; expose the visible, simple-ID controls in these
+  // fixtures to the same native field reader the real extension loads.
+  Object.defineProperty(window.HTMLElement.prototype, 'getBoundingClientRect', { value: () => ({ width: 100, height: 24 }) });
+  Object.defineProperty(window, 'CSS', { value: { escape: (value: string) => value } });
+  window.eval(runnerFieldsSource);
+}
+
 // The trial order's kit (JOIN, giro di prova 2026-10-01): the runner's own answers, worded as JOIN asks.
 const kit = {
   orderId: 'trial',
@@ -266,7 +274,7 @@ describe('fill extension: JOIN steps', () => {
       <div role="group"><label for="company-city">Company city</label><input id="company-city" autocomplete="address-level2"></div>
       <div role="group"><label for="birthplace">Place of birth</label><input id="birthplace" autocomplete="address-level2"></div>
       <div id="menu"></div></form>`);
-    window.eval(runnerFieldsSource);
+    nativeFieldReading(window);
     const input = document.getElementById('city') as HTMLInputElement;
     let chosen = '';
     input.addEventListener('input', () => {
@@ -279,6 +287,7 @@ describe('fill extension: JOIN steps', () => {
     });
     const city = F.collect(document).find((entry: any) => entry.element === input);
     expect(city.label).not.toBe('Not this control');
+    expect(city.section).toBe(heading);
     expect(F.answerFor(city, { ...kit, answers: [] })).toEqual({ value: 'Como', family: 'city' });
     await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap() });
     expect(chosen).toBe('Como');
@@ -301,6 +310,17 @@ describe('fill extension: JOIN steps', () => {
   it.each(['Luogo di nascita', 'Lieu de naissance', 'Place of birth', 'Geburtsort'])('does not substitute residence for %s despite autocomplete', (label) => {
     const { F, document } = page(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" autocomplete="address-level2"></form>`);
     expect(F.answerFor(F.collect(document)[0], { ...kit, answers: [] })).toBeNull();
+  });
+
+  it.each([
+    '<form><h2>Personal information</h2><input name="first"></form><form><label for="city">City</label><input id="city" autocomplete="address-level2"></form>',
+    '<form><fieldset><legend>Personal information</legend><input name="first"></fieldset><fieldset><label for="city">City</label><input id="city" autocomplete="address-level2"></fieldset></form>',
+    '<form><h2>Personal information</h2><section><h3>Work history</h3><label for="city">City</label><input id="city" autocomplete="address-level2"></section></form>',
+  ])('does not borrow personal context from another form or section', (html) => {
+    const { F, document, window } = page(html);
+    nativeFieldReading(window);
+    const city = F.collect(document).find((entry: any) => entry.element.id === 'city');
+    expect(F.answerFor(city, { ...kit, answers: [] })).toBeNull();
   });
 
   it('stops on the review page with «Conferma e applica» and never presses it', async () => {

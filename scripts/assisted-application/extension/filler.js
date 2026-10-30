@@ -350,15 +350,34 @@
     if (typeof read !== 'function') return byId;
     try {
       for (const field of read({ channelType }).fields || []) {
-        if (field.id) byId.set(field.id, field.label || '');
-        for (const option of field.options || []) if (option.aaId) byId.set(option.aaId, field.label || '');
+        if (field.id) byId.set(field.id, field);
+        for (const option of field.options || []) if (option.aaId) byId.set(option.aaId, field);
       }
     } catch {
       // A page the runner's reading does not understand: the engine's own names only.
     }
     return byId;
   }
-  const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id')) || '';
+  const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id'))?.label || '';
+
+  /** Residence context stays separate from question labels and kit answers. */
+  function runnerSectionOf(runner, element) {
+    const section = runner.get(element.getAttribute('data-aa-id'))?.section || '';
+    if (!section) return '';
+    const scopeSelector = 'form, [role="form"], fieldset, section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"]';
+    const boundary = element.closest('form, [role="form"], dialog, [role="dialog"], main, [role="main"]');
+    if (!boundary) return '';
+    // The producer can see headings elsewhere in the document. A matching
+    // heading must also belong to a visible section containing this control;
+    // another form, step or fieldset cannot establish its address owner.
+    const owned = [...boundary.querySelectorAll('h1, h2, h3, h4, legend')].some(heading => {
+      const owner = heading.closest(scopeSelector);
+      return owner?.contains(element) && isShown(heading)
+        && Boolean(heading.compareDocumentPosition(element) & 4)
+        && normalize(textOf(heading)) === normalize(section);
+    });
+    return owned ? section : '';
+  }
 
   function markerText(node) {
     return String(node?.innerText || node?.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 300);
@@ -539,7 +558,7 @@
         required: true,
       });
     }
-    return entries;
+    return entries.map(entry => ({ ...entry, section: runnerSectionOf(runner, entry.element) }));
   }
 
   function isEmpty(entry) {
