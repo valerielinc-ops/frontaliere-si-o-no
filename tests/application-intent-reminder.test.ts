@@ -187,6 +187,20 @@ describe('application-intent reminder email', () => {
     expect(strings.subject(5)).toBe('Hai cliccato «Candidati» su 5 annunci');
   });
 
+  it('keeps card metadata and the selected recommendation in the text alternative', () => {
+    const html = buildApplicationIntentReminderEmailHtml({
+      locale: 'it', applicationIntentEntries: [entry], recommendations: [],
+      manageUrl: 'https://example.test/profile/', unsubUrl: 'https://example.test/unsubscribe/',
+      email: 'recipient@example.com',
+    });
+    const text = buildApplicationIntentReminderEmailText({ html });
+    expect(text).toContain('CHF 80K–100K/anno');
+    expect(text).toContain('Tempo pieno');
+    expect(text).toContain('Consigliato per te');
+    expect(text).toContain('recipient@example.com');
+    expect(text).toContain('https://example.test/unsubscribe/');
+  });
+
   it('uses application-specific copy and does not claim completion', () => {
     const text = buildApplicationIntentReminderEmailText({
       locale: 'it',

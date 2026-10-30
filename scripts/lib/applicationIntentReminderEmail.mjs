@@ -1,8 +1,9 @@
+import { htmlToText } from '../../functions/src/lib/mimeMessage.js';
 import { renderEmailPreview } from '../../functions/src/lib/emailPreview.js';
 import { dataControllerFooterLine } from '../../functions/src/lib/dataControllerIdentity.js';
 import { renderJobCard } from '../../services/newsletter/jobCard.mjs';
 import { renderRecommendedBlock } from '../../services/newsletter/recommendedBlock.mjs';
-import { emailEngagementBannersText, renderEmailEngagementBanners } from '../../functions/src/lib/emailEngagementBanners.js';
+import { renderEmailEngagementBanners } from '../../functions/src/lib/emailEngagementBanners.js';
 
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
@@ -151,23 +152,10 @@ export function buildApplicationIntentReminderEmailHtml({
 }
 
 /**
- * @param {{locale?: string, applicationIntentEntries?: any[], recommendations?: any[], manageUrl?: string, unsubUrl?: string}} [options]
+ * @param {{locale?: string, applicationIntentEntries?: any[], recommendations?: any[], manageUrl?: string, unsubUrl?: string, email?: string, html?: string}} [options]
  * @returns {string}
  */
-export function buildApplicationIntentReminderEmailText({
-  locale = 'it',
-  applicationIntentEntries = [],
-  recommendations = [],
-  manageUrl,
-  unsubUrl,
-} = {}) {
-  const s = getApplicationIntentReminderStrings(locale);
-  const lines = [s.heroTitle, '', s.sectionTitle, s.sectionDesc];
-  for (const entry of applicationIntentEntries) lines.push(`- ${entry.title} (${s.at} ${entry.company}): ${entry.url}`);
-  if (recommendations.length) {
-    lines.push('', s.recommendationsTitle);
-    for (const entry of recommendations) lines.push(`- ${entry.title} (${s.at} ${entry.company}): ${entry.url}`);
-  }
-  lines.push('', `${s.manageLink}: ${manageUrl}`, `${s.unsubscribe}: ${unsubUrl}`, '', s.closer, '', emailEngagementBannersText({ locale }), '', `© ${new Date().getFullYear()} Frontaliere Ticino`, dataControllerFooterLine(locale));
-  return lines.join('\n');
+export function buildApplicationIntentReminderEmailText(options = {}) {
+  // Production passes the already-rendered HTML so a sponsor is selected once.
+  return htmlToText(options.html ?? buildApplicationIntentReminderEmailHtml(options));
 }

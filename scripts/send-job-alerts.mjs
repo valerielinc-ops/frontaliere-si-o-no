@@ -33,7 +33,8 @@ import {
   pickNewsletterRecommendation,
   renderRecommendedBlock,
 } from '../services/newsletter/recommendedBlock.mjs';
-import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
+import { htmlToText } from '../functions/src/lib/mimeMessage.js';
+import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import {
   buildAlertProfile,
   createAlertScorer,
@@ -677,7 +678,7 @@ const EMAIL_STRINGS = {
     subjectFor: 'per',
     subjectDefault: 'le tue offerte',
     preheader: (n, label, fresh = true) => fresh
-      ? `${n} nuove offerte: ${label}`
+      ? `${n} nuov${n === 1 ? 'a offerta' : 'e offerte'}: ${label}`
       : `${n} offert${n === 1 ? 'a selezionata' : 'e selezionate'}: ${label}`,
     heroTitle: (n, fresh = true) => fresh
       ? `\ud83d\udd14 ${n} nuov${n === 1 ? 'a offerta' : 'e offerte'} per te`
@@ -700,18 +701,13 @@ const EMAIL_STRINGS = {
     at: 'presso',
     more: 'altre offerte',
     intendedFor: (email, filter) => `Questa email \u00e8 stata inviata a ${email} in base al tuo alert: <strong>${filter}</strong>.`,
-    textFilters: 'Filtri',
-    textViewAllLine: 'Vedi tutte le offerte:',
-    textManageLine: 'Gestisci le tue alert:',
-    textUnsubThisLine: 'Disiscriviti da questa alert:',
-    textUnsubAllLine: 'Disiscriviti da tutte le alert:',
   },
   en: {
     subjectNew: (n) => `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'}`,
     subjectFor: 'for',
     subjectDefault: 'your alerts',
     preheader: (n, label, fresh = true) => fresh
-      ? `${n} new jobs: ${label}`
+      ? `${n} new job${n === 1 ? '' : 's'}: ${label}`
       : `${n} selected job${n === 1 ? '' : 's'}: ${label}`,
     heroTitle: (n, fresh = true) => fresh
       ? `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'} for you`
@@ -734,18 +730,13 @@ const EMAIL_STRINGS = {
     at: 'at',
     more: 'more',
     intendedFor: (email, filter) => `This email was sent to ${email} based on your alert: <strong>${filter}</strong>.`,
-    textFilters: 'Filters',
-    textViewAllLine: 'View all matching jobs:',
-    textManageLine: 'Manage alerts:',
-    textUnsubThisLine: 'Unsubscribe this alert:',
-    textUnsubAllLine: 'Unsubscribe all:',
   },
   de: {
     subjectNew: (n) => `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'}`,
     subjectFor: 'f\u00fcr',
     subjectDefault: 'Ihre Alerts',
     preheader: (n, label, fresh = true) => fresh
-      ? `${n} neue Stellen: ${label}`
+      ? `${n} neue Stelle${n === 1 ? '' : 'n'}: ${label}`
       : `${n} ausgewählte Stelle${n === 1 ? '' : 'n'}: ${label}`,
     heroTitle: (n, fresh = true) => fresh
       ? `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'} f\u00fcr Sie`
@@ -768,18 +759,13 @@ const EMAIL_STRINGS = {
     at: 'bei',
     more: 'weitere',
     intendedFor: (email, filter) => `Diese E-Mail wurde an ${email} basierend auf deinem Alert gesendet: <strong>${filter}</strong>.`,
-    textFilters: 'Filter',
-    textViewAllLine: 'Alle Stellen ansehen:',
-    textManageLine: 'Alerts verwalten:',
-    textUnsubThisLine: 'Von diesem Alert abmelden:',
-    textUnsubAllLine: 'Von allen Alerts abmelden:',
   },
   fr: {
     subjectNew: (n) => `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}`,
     subjectFor: 'pour',
     subjectDefault: 'vos alertes',
     preheader: (n, label, fresh = true) => fresh
-      ? `${n} nouvelles offres: ${label}`
+      ? `${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}: ${label}`
       : `${n} offre${n === 1 ? '' : 's'} sélectionnée${n === 1 ? '' : 's'}: ${label}`,
     heroTitle: (n, fresh = true) => fresh
       ? `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'} pour vous`
@@ -802,11 +788,6 @@ const EMAIL_STRINGS = {
     at: 'chez',
     more: 'autres',
     intendedFor: (email, filter) => `Cet e-mail a \u00e9t\u00e9 envoy\u00e9 \u00e0 ${email} en fonction de votre alerte\u00a0: <strong>${filter}</strong>.`,
-    textFilters: 'Filtres',
-    textViewAllLine: 'Voir toutes les offres\u00a0:',
-    textManageLine: 'G\u00e9rer vos alertes\u00a0:',
-    textUnsubThisLine: 'Se d\u00e9sabonner de cette alerte\u00a0:',
-    textUnsubAllLine: 'Se d\u00e9sabonner de toutes les alertes\u00a0:',
   },
 };
 
@@ -1493,51 +1474,11 @@ function buildAlertEmail(
 </body>
 </html>`;
 
-  // ── Plaintext alternative (multipart/alternative) ──────────
-  // Built from the same data source as the HTML — never regex-stripped.
-  const heroLine = s.heroTitle(shownJobs.length, useNewCopy).replace(/\ud83d\udd14\s*/, '\u{1F514} ');
-  const textJobs = shownJobs.map((job, i) => {
-    const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
-    const company = job.company || '';
-    const rawLocation = (job.location || job.addressLocality || '').replace(/^[-\u2013\u2014\s]+/, '').trim();
-    const jobUrl = jobPageUrl(job, locale);
-    let rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
-    if (rankingContext && jobUrl) {
-      rawJobUrl = appendJobRankingParams(rawJobUrl, {
-        jobId: stableJobId(job),
-        surface: 'job_alert',
-        surfaceId: alert.id,
-        deliveryId: rankingContext.deliveryId,
-        position: i + 1,
-        variant: rankingContext.variant,
-        alertId: alert.id,
-        rankingScore: job.ranking?.rankingScore,
-        relevanceScore: job.ranking?.relevanceScore,
-      });
-    }
-    const url = wrapJobUrl(rawJobUrl);
-    const meta = [company, rawLocation].filter(Boolean).join(' \u00b7 ');
-    return `${title}\n${meta}\n${url}`;
-  }).join('\n---\n');
-
-  const text = [
-    heroLine,
-    '',
-    `${s.textFilters}: ${filterLabel}`,
-    '',
-    textJobs,
-    '',
-    `${s.textViewAllLine} ${allJobsUrl}`,
-    '',
-    `${s.textManageLine} ${manageUrl}`,
-    `${s.textUnsubThisLine} ${unsubscribeUrl}`,
-    `${s.textUnsubAllLine} ${unsubAllUrl}`,
-    '',
-    emailEngagementBannersText({ locale }),
-    '',
-    `\u00a9 ${new Date().getFullYear()} Frontaliere Ticino`,
-    dataControllerFooterLine(locale),
-  ].join('\n');
+  // Keep every visible detail and destination in both alternatives, including
+  // salary/contract chips, the selected recommendation and unsubscribe links.
+  // Rendering the complete HTML once also avoids selecting a different sponsor
+  // when building the text alternative.
+  const text = htmlToText(html);
 
   return {
     subject,
