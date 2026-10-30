@@ -1,4 +1,5 @@
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
+import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
 import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
 import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
@@ -4492,10 +4493,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
  <meta property="og:image:alt" content="${esc(ogTitle)}">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(ogTitle)}">
- <meta name="twitter:description" content="${esc(clampMetaDescription(description, undefined, locale))}">
- <meta name="twitter:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png`}">
+ ${buildTwitterCardMetaTags({ title: ogTitle, description, locale, image: perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png` })}
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
  <!-- jobs-seo-reuse:job-posting:start --><script type="application/ld+json">${jobLd}</script><!-- jobs-seo-reuse:job-posting:end -->
@@ -13780,10 +13778,7 @@ ${staticAnalyticsHtml}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:alt" content="${pageTitle}">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${pageTitle}">
- <meta name="twitter:description" content="${esc(metaDescription)}">
- <meta name="twitter:image" content="${BASE_URL}/og-image.png">
+ ${buildTwitterCardMetaTags({ title: decodeHtmlText(pageTitle), description: metaDescription, locale })}
  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
  <link rel="canonical" href="${selfUrl}">

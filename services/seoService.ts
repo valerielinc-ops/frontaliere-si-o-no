@@ -1,4 +1,5 @@
 import { buildJobPostingEditorialFields } from './jobs/jobPostingEditorial';
+import { updateJobTwitterCardMeta } from './seo/jobTwitterCardMeta';
 import { resolveAuthorProfileMetadata } from './seo/authorProfileMetadata';
 import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { buildCorrezioniSeo } from './seo/seo-correzioni';
@@ -2174,11 +2175,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  }
 
  if (isJobDetailPage) {
- updateOrCreateMetaTag('name', 'twitter:card', 'summary_large_image');
- updateOrCreateMetaTag('name', 'twitter:title', metaOgTitle);
- updateOrCreateMetaTag('name', 'twitter:description', metaOgDescription);
  const jobOgImage = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
- if (jobOgImage) updateOrCreateMetaTag('name', 'twitter:image', jobOgImage);
+ updateJobTwitterCardMeta({ title: metaOgTitle, description: metaOgDescription, image: jobOgImage || `${BASE_URL}/og-image.png` });
  }
 
  // Update canonical URL (uses current locale path)
