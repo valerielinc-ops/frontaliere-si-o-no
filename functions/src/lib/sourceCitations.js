@@ -19,7 +19,13 @@ export function sourceCitations(sources) {
     }
   }
   const lookup = new Map(excerpts.map(({ id, text }) => [id, text]));
-  return { excerpts, resolve: value => lookup.get(String(value || '')) ?? value };
+  return { excerpts, resolve: value => {
+    const id = String(value ?? '');
+    if (lookup.has(id)) return lookup.get(id);
+    // Even a token printed in the CV is not a valid citation unless this
+    // request issued it. Keep that failure distinct from absent evidence.
+    return /^\s*\[\[[\s\S]*\]\]\s*$/u.test(id) ? null : value;
+  } };
 }
 
 /** Keep the public stored schema unchanged; only the provider response uses IDs. */
@@ -34,5 +40,8 @@ export function citationSchema(schema, collection, field, citations) {
 
 export function resolveCitations(raw, collection, field, citations) {
   return { ...raw, [collection]: Array.isArray(raw?.[collection])
-    ? raw[collection].map(item => ({ ...item, [field]: citations.resolve(item?.[field]) })) : raw?.[collection] };
+    ? raw[collection].map(item => {
+      const resolved = citations.resolve(item?.[field]);
+      return { ...item, [field]: resolved ?? '', ...(resolved === null ? { [`${field}Unverified`]: true } : {}) };
+    }) : raw?.[collection] };
 }
