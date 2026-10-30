@@ -3103,6 +3103,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           continue;
         }
         const applicationOptions = (field ? field.options || [] : item.applicationOptions || item.options || [])
+          .filter(option => option?.placeholder !== true)
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);

@@ -17,6 +17,19 @@ describe('portal candidate question contract', () => {
     expect(validateAnswer('Invented', questions[0])).toMatchObject({ ok: false, reason: 'not_an_option' });
   });
 
+  it('excludes a proven native placeholder without deleting legitimate empty-value or similarly labelled options', () => {
+    const options = [
+      { value: '', label: 'Bitte auswählen', placeholder: true },
+      { value: 'site', label: 'Homepage' },
+      { value: 'real', label: 'Please select recruitment network' },
+      { value: '', label: 'Legitimate blank value', placeholder: false },
+    ];
+    const question = portalRequirementsFromMissingRequired([{ ...field, options }], [planned]).questions[0];
+    expect(question.options).toEqual(['Homepage', 'Please select recruitment network', 'Legitimate blank value']);
+    expect(validateAnswer('Bitte auswählen', question)).toMatchObject({ ok: false, reason: 'not_an_option' });
+    for (const option of question.options) expect(validateAnswer(option, question)).toEqual({ ok: true });
+  });
+
   it('does not apply stale free-text rules to native choices while preserving free-text validation', () => {
     const validation = { minLength: 30, maxLength: 40, pattern: '^\\d+$' };
     const question = portalRequirementsFromMissingRequired([field], [{ ...planned, validation }]).questions[0];
