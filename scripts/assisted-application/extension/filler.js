@@ -391,13 +391,18 @@
     // The producer can see headings elsewhere in the document. A matching
     // heading must also belong to a visible section containing this control;
     // another form, step or fieldset cannot establish its address owner.
-    const owned = [...boundary.querySelectorAll('h1, h2, h3, h4, legend')].some(heading => {
+    let owned = false;
+    for (const heading of boundary.querySelectorAll('h1, h2, h3, h4, legend')) {
       const owner = heading.closest(scopeSelector);
-      return owner?.contains(element) && isShown(heading)
-        && Boolean(heading.compareDocumentPosition(element) & 4)
-        && normalize(textOf(heading)) === normalize(section);
-    });
-    return [...new Set([...names, owned ? section : ''].map(value => String(value).trim().slice(0, 300)).filter(Boolean))].join(' · ');
+      if (!owner?.contains(element) || !isShown(heading) || !(heading.compareDocumentPosition(element) & 4)) continue;
+      const text = textOf(heading).replace(/\s+/g, ' ').trim();
+      if (normalize(text.slice(0, 300)) !== normalize(section)) continue;
+      if (text.length > 300) return null;
+      owned = true;
+    }
+    const context = [...new Set([...names, owned ? section : ''].map(value => String(value).replace(/\s+/g, ' ').trim()).filter(Boolean))];
+    if (context.length > 16 || context.some(value => value.length > 300)) return null;
+    return context.join(' · ');
   }
 
   function markerText(node) {

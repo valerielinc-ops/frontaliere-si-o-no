@@ -338,6 +338,9 @@ describe('fill extension: JOIN steps', () => {
     ['<fieldset aria-labelledby="owner"><span id="owner" style="display:none">Employer</span>', '</fieldset>'],
     ['<fieldset aria-labelledby="missing-owner">', '</fieldset>'],
     ['<fieldset aria-labelledby="owner"><span id="owner">Personal information</span><span id="owner">Employer</span>', '</fieldset>'],
+    [`<fieldset aria-label="${'Details '.repeat(50)}Employer">`, '</fieldset>'],
+    [`<fieldset aria-labelledby="owner"><span id="owner">${'Details '.repeat(50)}Employer</span>`, '</fieldset>'],
+    [`<fieldset><legend>${'Details '.repeat(50)}Employer</legend>`, '</fieldset>'],
   ])('keeps a named professional owner authoritative inside a personal form', (open, close) => {
     const { F, document, window } = page(`<form><h2>Personal information</h2>${open}<label for="city">City</label><input id="city" autocomplete="address-level2">${close}</form>`);
     nativeFieldReading(window);
