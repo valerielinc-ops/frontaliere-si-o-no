@@ -1,5 +1,5 @@
 /** Positive, typed question contracts. This module never infers a fact from a CV or an opaque answer key. */
-import { permitStatusOf } from './permitStatus.js';
+import { PERMIT_STATUSES, permitOptionCode, permitOptions } from './permitStatus.js';
 
 export const CANDIDATE_FACTS_VERSION = 'candidate-facts-v1';
 const fold = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
@@ -62,6 +62,11 @@ export function candidateQuestionFact(question = {}) {
   return null;
 }
 
+const OFFICIAL_PERMIT_LABELS = new Map(['it', 'en', 'de', 'fr'].flatMap(locale => permitOptions(locale).map((label, index) => [fold(label), PERMIT_STATUSES[index]])));
+function positivePermitStatus(value) {
+  return OFFICIAL_PERMIT_LABELS.get(fold(value)) || permitOptionCode(value);
+}
+
 /** No conversion or qualification inference. The original answer remains authoritative. */
 export function candidateAnswerFact(question, answer, { nowMs = Date.now() } = {}) {
   const fact = candidateQuestionFact(question);
@@ -77,7 +82,7 @@ export function candidateAnswerFact(question, answer, { nowMs = Date.now() } = {
   } else if (fact.type === 'credential_held') {
     if (!(typeof answer === 'boolean' || /^(?:yes|no|si|ja|nein|oui|non|true|false)$/.test(fold(answer)))) return null;
   } else if (fact.type === 'permit_status') {
-    const status = permitStatusOf(answer);
+    const status = positivePermitStatus(answer);
     if (!status) return null;
     return { ...fact, status, scope: status === 'permit_g' ? 'job' : 'candidate' };
   }
@@ -97,7 +102,7 @@ export function candidateFactAnswerForQuestion(question, answer) {
   const options = Array.isArray(question.options) ? question.options.filter(option => typeof option === 'string') : [];
   if (!options.length || options.includes(answer)) return answer;
   let matches;
-  if (fact.type === 'permit_status') matches = options.filter(option => permitStatusOf(option) === fact.status);
+  if (fact.type === 'permit_status') matches = options.filter(option => positivePermitStatus(option) === fact.status);
   else if (fact.type === 'credential_held') {
     const truth = value => /^(?:yes|si|ja|oui|true)$/.test(fold(value)) ? true
       : /^(?:no|nein|non|false)$/.test(fold(value)) ? false : null;
