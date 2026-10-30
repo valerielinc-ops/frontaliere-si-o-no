@@ -89,4 +89,13 @@ describe('concierge admin proposal decision and application progress', () => {
     expect(row.getByText('Rifiutata')).toBeInTheDocument();
     expect(row.queryByText('Ritirata')).not.toBeInTheDocument();
   });
+
+  it.each([
+    [{ childSendState: 'sent' }, 'Inviata'],
+    [{ childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } }, 'Invito a colloquio'],
+  ] satisfies Array<[Partial<ApplicationConciergeProposal>, string]>)('does not hide confirmed delivery or employer replies behind withdrawal %s', async (evidence, label) => {
+    const row = await renderProposal({ status: 'declined', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn', ...evidence });
+    expect(row.getByText(label)).toBeInTheDocument();
+    expect(row.queryByText('Ritirata')).not.toBeInTheDocument();
+  });
 });

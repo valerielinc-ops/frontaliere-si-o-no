@@ -53,4 +53,17 @@ describe('candidate proposal status with the shared progress helper', () => {
     expect(card.queryByRole('button', { name: translations['jobBoard.concierge.accept'] })).not.toBeInTheDocument();
     expect(screen.getByText('1/10')).toBeInTheDocument();
   });
+
+  it.each([
+    [{ childSendState: 'sent' }, 'Inviata'],
+    [{ childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } }, 'Invito a colloquio'],
+  ] satisfies Array<[Partial<ApplicationConciergeProposal>, string]>)('keeps confirmed submission or employer replies visible despite a conflicting withdrawal %s', (evidence, label) => {
+    render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{ ...service, proposals: [{ ...proposal, status: 'declined', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn', ...evidence }] }} locationSearch="" />);
+    const card = within(screen.getByRole('heading', { name: 'Posizione test' }).closest('article')!);
+    expect(card.getByText(label)).toBeInTheDocument();
+    expect(card.queryByText('Ritirata')).not.toBeInTheDocument();
+    expect(card.queryByRole('button')).not.toBeInTheDocument();
+    expect(card.queryByRole('link')).not.toBeInTheDocument();
+    expect(screen.getByText('1/10')).toBeInTheDocument();
+  });
 });

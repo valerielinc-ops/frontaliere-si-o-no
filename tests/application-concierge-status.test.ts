@@ -10,10 +10,17 @@ describe('proposal decision and actual application progress', () => {
   ])('shows %s as %s', (state, expected) => {
     expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: state })).toBe(expected);
   });
-  it('distinguishes a persisted withdrawal from a declined proposal and old submission evidence', () => {
-    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined', withdrawnAt: new Date().toISOString(), childSendState: 'sent' })).toBe('withdrawn');
-    expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: 'withdrawn', childSubmissionStatus: 'submitted' })).toBe('withdrawn');
-    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined', childSendState: 'sent' })).toBe('declined');
+  it('distinguishes an unsent persisted withdrawal from a declined proposal', () => {
+    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined', withdrawnAt: new Date().toISOString() })).toBe('withdrawn');
+    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined' })).toBe('declined');
+  });
+  it('keeps confirmed sending and employer replies visible when withdrawal evidence conflicts', () => {
+    const withdrawn = { ...proposal, status: 'declined', childApplicationId: 'child-test', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn' };
+    expect(conciergeProposalDisplayStatus({ ...withdrawn, childSendState: 'sent' })).toBe('submitted');
+    expect(conciergeProposalDisplayStatus({ ...withdrawn, childSubmissionStatus: 'submitted' })).toBe('submitted');
+    expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: 'withdrawn', childSubmissionStatus: 'submitted' })).toBe('submitted');
+    expect(conciergeProposalDisplayStatus({ ...withdrawn, childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } })).toBe('employer_interview_invite');
+    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined', childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } })).toBe('declined');
   });
   it('prefers durable submission evidence and distinguishes sending and scheduled retry', () => {
     expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: 'candidate_review', childSubmissionStatus: 'submitted' })).toBe('submitted');
