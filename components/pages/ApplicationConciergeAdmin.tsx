@@ -20,7 +20,7 @@ import ApplicationInbox from './AssistedApplicationInbox';
 import AssistedApplicationAutomationPanel from './AssistedApplicationAutomationPanel';
 
 const CandidatePortal = lazy(() => import('@/components/community/ApplicationConciergePortal'));
-const SERVICE_LABELS: Record<string, string> = { active: 'Attivo', awaiting_payment: 'In attesa di pagamento', payment_failed: 'Pagamento non riuscito', expired: 'Scaduto', cancelled: 'Annullato' };
+const SERVICE_LABELS: Record<string, string> = { active: 'Attivo', awaiting_payment: 'In attesa di pagamento', payment_failed: 'Pagamento non riuscito', expired: 'Scaduto', refunded: 'Rimborsato' };
 const PAYMENT_LABELS: Record<string, string> = { paid: 'Confermato', pending: 'In attesa', failed: 'Non riuscito', refunded: 'Rimborsato' };
 const PROPOSAL_LABELS: Record<string, string> = { proposed: 'In attesa del candidato', accepted: 'Accettata', declined: 'Rifiutata', expired: 'Scaduta', retracted: 'Ritirata' };
 const date = (value?: string | null) => value ? new Date(value).toLocaleDateString('it-CH') : '—';
