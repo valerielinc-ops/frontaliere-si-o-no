@@ -171,6 +171,7 @@ describe('draft mode', () => {
     expect(draft.requirementsRaw.applicationEmail).toBe('');
     // Evidence the CV does not contain is not kept as evidence.
     expect(draft.matches.find((item: any) => item.index === 0)).toMatchObject({ evidence: '', evidenceUnverified: true });
+    expect(draft.matches.find((item: any) => item.index === 1)).toMatchObject({ evidence: expect.stringContaining('tedesco B1'), evidenceUnverified: false });
     // The posting asks for a salary expectation: the question is added even though the model forgot it.
     // The unambiguous Italian first name already fills the form of address, so it is not asked again.
     expect(draft.questions).toEqual([
