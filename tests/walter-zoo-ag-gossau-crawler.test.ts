@@ -6,12 +6,24 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/walter-zoo-ag-gossau-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('WALTER ZOO AG GOSSAU crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(WALTER_ZOO_AG_GOSSAU_KEY).toBe('walter-zoo-ag-gossau');
     expect(WALTER_ZOO_AG_GOSSAU_COMPANY_NAME).toBe('WALTER ZOO AG GOSSAU');
+  });
+
+  it('uses the official jobs listing and rescues blocked empty responses', () => {
+    expect(loadSpec(WALTER_ZOO_AG_GOSSAU_KEY)).toMatchObject({
+      seedUrls: ['https://www.walterzoo.ch/unser-zoo/'],
+      allowedDetailOrigins: ['https://link.ostendis.com/'],
+      detailTemplate: '/publication/*/*',
+      detailEnrichment: true,
+      rescueOnEmptyListing: true,
+      emptyListingOutcome: 'anti_bot_block',
+    });
   });
 
   // ── isCompanyJob ──

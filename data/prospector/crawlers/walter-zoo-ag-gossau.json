@@ -5,14 +5,22 @@
   "platform": "ostendis.com",
   "mode": "jsonld",
   "seedUrls": [
-    "https://link.ostendis.com/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my"
+    "https://www.walterzoo.ch/unser-zoo/"
   ],
-  "detailTemplate": "/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my",
-  "detailEnrichment": false,
+  "allowedDetailOrigins": [
+    "https://link.ostendis.com/"
+  ],
+  "detailTemplate": "/publication/*/*",
+  "detailEnrichment": true,
+  "rescueOnEmptyListing": true,
+  "emptyListingOutcome": "anti_bot_block",
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 1,
+  "sampleVacancyCount": 4,
   "sampleTitles": [
-    "Praktikant:in Artenschutz und Umweltbildung 100%"
+    "Praktikant:in Tierpflege (100 %)",
+    "Praktikant:in Artenschutz und Umweltbildung (100 %)",
+    "Executive Küchenchef:in (100 %)",
+    "Köchin/Koch (80 - 100 %)"
   ],
   "canton": "SG",
   "sourceLang": "de",
