@@ -197,6 +197,8 @@ function boardLabel(locale: HealthFacilityLocale, cantonName: string): string {
 
 function toJobCard(job: FacilityFeaturedJob): JobCardJob {
   return {
+    id: job.id,
+    slug: job.slug,
     title: job.title,
     titleByLocale: job.titleByLocale,
     company: job.company,

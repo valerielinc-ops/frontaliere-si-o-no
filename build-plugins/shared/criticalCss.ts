@@ -815,12 +815,12 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
   '.uppercase{text-transform:uppercase}' +
   '.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}' +
   '.scrollbar-hide::-webkit-scrollbar{display:none}' +
-  '.jc-card{padding:calc(var(--spacing)*3);min-height:72px;border-width:1px;border-style:solid}' +
+  '.jc-card{position:relative;padding:calc(var(--spacing)*3);min-height:72px;border-width:1px;border-style:solid}' +
   '.jc-link{display:block}' +
   '.jc-row{display:flex;align-items:flex-start;gap:calc(var(--spacing)*3)}' +
   '.jc-logoslot{height:calc(var(--spacing)*10);width:calc(var(--spacing)*10);display:flex;align-items:center;justify-content:center;overflow:hidden;border-width:1px;border-style:solid;flex-shrink:0}' +
   '.jc-logoimg{height:calc(var(--spacing)*7);width:calc(var(--spacing)*7);object-fit:contain}' +
-  '.jc-meta{min-width:0;flex:1}' +
+  '.jc-meta{min-width:0;flex:1;padding-right:calc(var(--spacing)*9)}' +
   '.jc-title{font-size:var(--text-sm);line-height:var(--text-sm--line-height);font-weight:var(--font-weight-bold);font-family:var(--font-display)}' +
   '.jc-sub{margin-top:calc(var(--spacing)*.5);font-size:var(--text-xs);line-height:var(--text-xs--line-height);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}' +
   '.jc-salary{margin-top:calc(var(--spacing)*1);display:inline-flex;align-items:center;gap:calc(var(--spacing)*1);font-size:var(--text-xs);line-height:var(--text-xs--line-height);font-weight:var(--font-weight-semibold)}' +

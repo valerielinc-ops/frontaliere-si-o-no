@@ -37,6 +37,7 @@ const NewsletterMount = React.lazy(() => import('@/components/community/Newslett
 // pages emit. Mounted unconditionally like NewsletterMount above — on every
 // other route the scan is one querySelectorAll that matches nothing.
 const CompanyFollowMount = React.lazy(() => import('@/components/community/CompanyFollowMount'));
+const JobSaveMount = React.lazy(() => import('@/components/community/JobSaveMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const SeasonalNaspiSimulator = lazyRetry(() => import('@/components/calculator/SeasonalNaspiSimulator'));
@@ -267,6 +268,7 @@ import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
 import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
 import { subscribeSavedJobsFirestore } from '@/services/savedJobsService';
+import { syncJobSaveAuth } from '@/services/jobSaveGate';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import {
  upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
@@ -1716,6 +1718,11 @@ const App: React.FC = () => {
  });
  return unsubscribe;
  }, [authUser?.uid, authEmail, locale]);
+
+ // Declared after the sync above: a pending bookmark replays into its cache.
+ useEffect(() => {
+ syncJobSaveAuth(authUser?.uid ?? null);
+ }, [authUser?.uid]);
 
  // GA4 user-scoped `is_registered` custom dimension (analytics Stage 1,
  // revenue-per-user segmentation) — keyed off the signed-in uid so it
@@ -4406,6 +4413,7 @@ const App: React.FC = () => {
  <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  <SafeLazy boundary="company-follow-mount"><CompanyFollowMount /></SafeLazy>
+ <SafeLazy boundary="job-save-mount"><JobSaveMount /></SafeLazy>
  {showWhatsNew && (
  <SafeLazy boundary="whats-new-modal">
  <WhatsNewModal
