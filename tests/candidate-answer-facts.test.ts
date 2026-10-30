@@ -9,6 +9,12 @@ const birth = `${previousYear}-02-20`;
 const question = (label: string, type = 'text', extra = {}) => ({ id: 'synthetic', question: label, type, ...extra });
 
 describe('positive typed candidate answer contracts', () => {
+  it('preserves null-tolerant question readers', () => {
+    expect(candidateQuestionFact(null)).toBeNull();
+    expect(candidateQuestionAnswerKey(null)).toBe('');
+    expect(rememberCandidateQuestionAnswers({ questions: [null], answers: {} })).toEqual({});
+    expect(candidateAnswersForQuestions([null], {}, {})).toEqual({});
+  });
   it.each(['What is your date of birth?', 'Qual è la tua data di nascita?', 'Was ist Ihr Geburtsdatum?', 'Quelle est votre date de naissance?'])('preserves a positively typed birth date: %s', label => {
     expect(candidateAnswerFact(question(label, 'date'), birth)).toMatchObject({ type: 'birth_date', subject: 'candidate', unit: 'calendar_date', scope: 'candidate' });
   });

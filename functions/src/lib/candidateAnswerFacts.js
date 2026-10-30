@@ -42,6 +42,7 @@ function unqualified(question) {
 
 /** A recognized question describes a type; a separate value check is still required before portability. */
 export function candidateQuestionFact(question = {}) {
+  if (!question || typeof question !== 'object' || Array.isArray(question)) return null;
   const label = words(question.question);
   if (!unqualified(question)) return null;
   if (question.type === 'date' && BIRTH_DATE.test(label)) return {
@@ -83,7 +84,7 @@ export function candidateAnswerFact(question, answer, { nowMs = Date.now() } = {
   return { ...fact, scope: 'candidate' };
 }
 
-/** Used only after an attested record has passed the common source loader. */
+/** A stable typed identity; it does not attest a value or its source. */
 export function candidateFactIdentity(fact) {
   if (!fact) return '';
   return [CANDIDATE_FACTS_VERSION, fact.type, fact.subject, fact.unit, fact.relation, fact.jurisdiction || ''].join('|');
