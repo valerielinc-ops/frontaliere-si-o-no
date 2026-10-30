@@ -38,7 +38,24 @@ describe('qualification before proposal publication', () => {
     const check = await prepareConciergeEligibility({ ...input, profileRecord: {} });
     await check({ id: 'job', title: 'IT Lead', company: 'Example' });
     expect(generateServerText).toHaveBeenCalledTimes(3);
-    for (const [options] of vi.mocked(generateServerText).mock.calls) expect(options).toMatchObject({ maxProviderAttempts: 3, allowCodexFallback: false, maxTokens: 8192 });
+    for (const [options] of vi.mocked(generateServerText).mock.calls) expect(options).toMatchObject({ maxProviderAttempts: 3, allowCodexFallback: false, maxTokens: 8192, background: true });
+  });
+
+  it('defers cancellation without publishing or caching a late posting read', async () => {
+    const f = fixture({ matches: [], verdict: 'strong' });
+    const controller = new AbortController();
+    let release!: (value: any) => void;
+    f.readPosting.mockImplementation(() => new Promise(resolve => { release = resolve; }));
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {}, signal: controller.signal });
+    const result = check({ id: 'cancelled', url: 'https://example.test/jobs/cancelled/' });
+    const failure = expect(result).rejects.toThrow('matching deadline');
+    controller.abort(new Error('matching deadline'));
+    await failure;
+    release({ text: 'IT operations experience. '.repeat(100), textTruncated: false });
+    await Promise.resolve();
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+    expect(f.generate).toHaveBeenCalledTimes(1);
+    expect(await check({ id: 'next' })).toEqual({ status: 'unverified', reason: 'analysis_deferred' });
   });
 
   it.each(['missing', 'partial'])('rejects title relevance when a decisive requirement is %s in both funnels', async status => {

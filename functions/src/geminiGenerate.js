@@ -29,6 +29,14 @@ const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 const DEFAULT_MODEL = 'gemini-flash-lite-latest';
 const MAX_PROMPT_CHARS = 8000;
 const PROVIDER_TIMEOUT_MS = 18000;
+// Full-posting qualification measured 29.6s on NVIDIA. Only trusted background
+// callers get this budget; the HTTP endpoint retains its interactive timeout.
+const BACKGROUND_NVIDIA_TIMEOUT_MS = 60_000;
+const cancelled = () => ({ status: 503, body: { ok: false, error: 'generation_cancelled' } });
+function providerSignal(signal, timeoutMs) {
+  const timeout = AbortSignal.timeout(timeoutMs);
+  return signal ? AbortSignal.any([signal, timeout]) : timeout;
+}
 
 // Free OpenAI-compatible fallbacks, tried in order when Gemini fails. Keys are
 // already present in Remote Config (hydrated into CI via load-rc-env.mjs).
@@ -37,7 +45,7 @@ const PROVIDER_TIMEOUT_MS = 18000;
 
 
 /** Single-shot Gemini call. Returns trimmed text on success, throws on failure. */
-async function callGemini({ apiKey, model, systemPrompt, userPrompt, maxTokens, temperature }) {
+async function callGemini({ apiKey, model, systemPrompt, userPrompt, maxTokens, temperature, signal }) {
   const payload = {
     contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
     generationConfig: { maxOutputTokens: maxTokens, temperature },
@@ -50,7 +58,7 @@ async function callGemini({ apiKey, model, systemPrompt, userPrompt, maxTokens, 
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
-    signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
+    signal: providerSignal(signal, PROVIDER_TIMEOUT_MS),
   });
 
   if (!res.ok) {
@@ -65,7 +73,7 @@ async function callGemini({ apiKey, model, systemPrompt, userPrompt, maxTokens, 
 }
 
 /** Single-shot OpenAI-compatible chat call. Returns trimmed text, throws on failure. */
-async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPrompt, maxTokens, temperature, apiFamily }) {
+async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPrompt, maxTokens, temperature, apiFamily, background, signal }) {
   const messages = [];
   if (systemPrompt.trim()) messages.push({ role: 'system', content: systemPrompt });
   messages.push({ role: 'user', content: userPrompt });
@@ -74,7 +82,7 @@ async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPro
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
     body: JSON.stringify(serverTextFallbackBody({ model, messages, maxTokens, temperature, apiFamily })),
-    signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
+    signal: providerSignal(signal, background && apiFamily === 'nvidia' ? BACKGROUND_NVIDIA_TIMEOUT_MS : PROVIDER_TIMEOUT_MS),
   });
 
   if (!res.ok) {
@@ -108,19 +116,21 @@ export async function handleGeminiGenerate(req) {
 
 /** Internal trusted callers can send complete source text; the HTTP endpoint keeps its original caps. */
 export async function generateServerText({ systemPrompt = '', userPrompt = '', maxTokens = 2048, temperature = 0.7,
-  model = DEFAULT_MODEL, maxProviderAttempts = Infinity, allowCodexFallback = true } = {}) {
+  model = DEFAULT_MODEL, maxProviderAttempts = Infinity, allowCodexFallback = true, background = false, signal = null } = {}) {
   if (!userPrompt || userPrompt.length > 100_000 || systemPrompt.length > 40_000) {
     return { status: 400, body: { ok: false, error: 'generation_input_out_of_bounds' } };
   }
+  if (signal?.aborted) return cancelled();
   let attempts = 0;
   const failures = [];
 
   // 1. Primary: Gemini (free tier). Skip cleanly if the key isn't configured.
   const geminiKey = await getRemoteConfigValue('GEMINI_API_KEY');
+  if (signal?.aborted) return cancelled();
   if (geminiKey && attempts < maxProviderAttempts) {
     attempts += 1;
     try {
-      const text = await callGemini({ apiKey: geminiKey, model, systemPrompt, userPrompt, maxTokens, temperature });
+      const text = await callGemini({ apiKey: geminiKey, model, systemPrompt, userPrompt, maxTokens, temperature, signal });
       return { status: 200, body: { ok: true, text, provider: 'gemini' } };
     } catch (err) {
       failures.push(`gemini: ${err instanceof Error ? err.message : String(err)}`);
@@ -131,15 +141,17 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
 
   // 2. Fallbacks: free OpenAI-compatible providers (keys already in Remote Config).
   for (const fb of OPENAI_FALLBACKS) {
+    if (signal?.aborted) return cancelled();
     if (attempts >= maxProviderAttempts) break;
     const key = await getRemoteConfigValue(fb.rcKey);
+    if (signal?.aborted) return cancelled();
     if (!key) {
       failures.push(`${fb.label}: no_key`);
       continue;
     }
     attempts += 1;
     try {
-      const text = await callOpenAiCompatible({ base: fb.base, apiKey: key, model: fb.model, apiFamily: fb.apiFamily, systemPrompt, userPrompt, maxTokens, temperature });
+      const text = await callOpenAiCompatible({ base: fb.base, apiKey: key, model: fb.model, apiFamily: fb.apiFamily, systemPrompt, userPrompt, maxTokens, temperature, background, signal });
       console.log(`[geminiGenerate] served by fallback ${fb.label}`);
       return { status: 200, body: { ok: true, text, provider: fb.label } };
     } catch (err) {
@@ -151,6 +163,7 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
   //    (CODEX_AUTH_JSON from Remote Config, never refreshed here) — scoped
   //    exception in AGENTS.md (issue #4495). Only reached once every free
   //    provider above has failed.
+  if (signal?.aborted) return cancelled();
   const codexResult = allowCodexFallback ? await tryCodexFallback({
     systemPrompt,
     messages: [{ role: 'user', content: userPrompt }],

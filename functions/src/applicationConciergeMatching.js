@@ -449,6 +449,9 @@ async function updateExistingProposal(db, ref, update, expectedStatus, nextStatu
 
 export async function runApplicationConciergeMatching({ db = getAdminDb(), serviceId, jobIndexUrl, eligibility = null } = {}) {
   const runStartedAt = Date.now();
+  // The worker has 540s: cancel external reads/inference at 480s and reserve
+  // a minute for durable proposals, retry metadata and completion writes.
+  const eligibilitySignal = AbortSignal.timeout(480_000);
   const serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
   const serviceSnapshot = await serviceRef.get();
   if (!serviceSnapshot.exists) return { status: 'skipped', reason: 'service_not_found' };
@@ -492,7 +495,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const rankedCandidates = rankedWork.filter(entry => !known.has(`${entry.job.id || ''}|${entry.url}`));
 
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
-    const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord });
+    const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, signal: eligibilitySignal });
     const checks = new Map();
     const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile, profileRecord.applicationQuestionAnswers || {}])).digest('hex');
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
@@ -504,7 +507,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       service.matchingScanContext === scanContext ? service.matchingScanCursor : '', retryUrls);
     let scannedCursor = service.matchingScanContext === scanContext ? service.matchingScanCursor || '' : '';
     for (let offset = 0; offset < work.length; offset += 4) {
-      // Leave time for a last batch with three bounded provider attempts and final ledger writes.
+      // Stop starting batches early; the shared signal also bounds the last batch.
       if (Date.now() - runStartedAt > 280_000) break;
       const batch = work.slice(offset, offset + 4);
       await Promise.all(batch.map(async ({ job, url }) => {
@@ -513,7 +516,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         if (retry?.context === scanContext && Number(retry.retryAt) > Date.now()) result = { status: 'unverified', reason: 'retry_backoff' };
         else {
           try { result = await evaluate(job); }
-          catch { result = { status: 'unverified', reason: 'analysis_unavailable' }; }
+          catch { result = { status: 'unverified', reason: eligibilitySignal.aborted ? 'analysis_deferred' : 'analysis_unavailable' }; }
         }
         await recordEligibilityRetry({ db, serviceRef, url, result, context: scanContext, nowMs: Date.now() });
         checks.set(url, result);

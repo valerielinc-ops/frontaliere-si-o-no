@@ -29,14 +29,27 @@ export function normalizeConciergeJobRecord(job = {}) {
   };
 }
 
-async function generateJson(systemPrompt, userPrompt, schema) {
+async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
   const response = await generateServerText({ systemPrompt: `${systemPrompt}\nReturn ONLY valid JSON matching this schema:\n${JSON.stringify(schema)}`,
-    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false });
+    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false, ...options });
+  options.signal?.throwIfAborted();
   if (!response.body?.ok) throw new Error('eligibility_provider_unavailable');
   const text = response.body.text.replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
   const result = JSON.parse(text);
   if (!result || typeof result !== 'object' || Array.isArray(result)) throw new Error('eligibility_invalid_json');
   return result;
+}
+
+async function beforeCancellation(operation, signal) {
+  if (!signal) return operation();
+  signal.throwIfAborted();
+  let abort;
+  const cancellation = new Promise((_, reject) => {
+    abort = () => reject(signal.reason);
+    signal.addEventListener('abort', abort, { once: true });
+  });
+  try { return await Promise.race([operation(), cancellation]); }
+  finally { signal.removeEventListener('abort', abort); }
 }
 
 function profileForEligibility(profile = {}) {
@@ -70,16 +83,20 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
   return { ...result, postingHash, requirements, match, posting };
 }
 
-export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = generateJson, readPosting = fetchJobPosting }) {
+export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = null, readPosting = fetchJobPosting, signal = null }) {
+  const generation = generate || ((system, user, schema) => generateJson(system, user, schema, { background: true, signal }));
+  generate = (...args) => beforeCancellation(() => generation(...args), signal);
+  const read = (order, options) => beforeCancellation(() => readPosting(order, { ...options, ...(signal ? { signal } : {}) }), signal);
+  signal?.throwIfAborted();
   if (!String(service.cvStorageKey || '').startsWith(`application-concierge-uploads/${serviceRef.id}/`)) throw new Error('eligibility_cv_owner_mismatch');
   const storage = bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
   const file = storage.file(service.cvStorageKey);
-  const [metadata] = await file.getMetadata();
+  const [metadata] = await beforeCancellation(() => file.getMetadata(), signal);
   if (Number(metadata.size) > 12 * 1024 * 1024) throw new Error('eligibility_cv_too_large');
-  const [bytes] = await file.download();
+  const [bytes] = await beforeCancellation(() => file.download(), signal);
   const cvHash = eligibilityHash(bytes);
   const type = detectCvFileType(bytes.subarray(0, 8));
-  const cvText = type ? await extractCvText(bytes, type) : '';
+  const cvText = type ? await beforeCancellation(() => extractCvText(bytes, type), signal) : '';
   if (cvText.length < 80 || cvText.length > 60_000) throw new Error('eligibility_cv_unreadable');
   const cache = serviceRef.collection('eligibility');
   const purgeAt = new Date((timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt) || Date.now()) + 90 * 86400000);
@@ -100,7 +117,8 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   return async (job) => {
     job = normalizeConciergeJobRecord(job);
     const normalizedProfile = profileForEligibility(profile);
-    const posting = await readPosting({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
+    if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
+    const posting = await read({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
     if (!posting.text || posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
     const postingHash = sourceHash(posting.text);
     const postingMetadata = [job.title, job.company, posting.location || job.location].map(value => String(value || '').trim().replace(/\s+/g, ' '));
