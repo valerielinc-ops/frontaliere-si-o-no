@@ -47,9 +47,15 @@ if (isInvokedDirectly(import.meta.url)) {
   if (process.env.AGENT_BOOT_ERROR_FILE && ASSISTED_APPLICATION_ORDER_ID_RE.test(orderId || '')) {
     const bootError = await readFile(process.env.AGENT_BOOT_ERROR_FILE, 'utf8').catch(() => '');
     if (bootError && process.env.ASSISTED_APPLICATION_RUN_KEY) {
-      const { getStorage } = await import('firebase-admin/storage');
-      await storeEvidence({ bucket: getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET), orderId,
-        name: 'runner-boot-failed', key: runKeyFrom(), payload: { runId, mode, round, bootError: bootError.slice(0, 60000) } });
+      try {
+        const { getStorage } = await import('firebase-admin/storage');
+        await storeEvidence({ bucket: getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET), orderId,
+          name: 'runner-boot-failed', key: runKeyFrom(), payload: { runId, mode, round, bootError: bootError.slice(0, 60000) } });
+      } catch {
+        // Evidence is best-effort: a Storage or encryption failure must not
+        // prevent the Firestore event from advancing the application flow.
+        console.warn('runner_boot_evidence_store_failed');
+      }
     }
   }
   console.log(JSON.stringify(await reportRunnerFailure({ db, orderId, mode, round, runId, startedAt })));
