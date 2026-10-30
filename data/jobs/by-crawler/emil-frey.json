@@ -2443,7 +2443,7 @@
       "slugByLocale": {
         "it": "servizio-clienti-representative-100-luzern-emil-frey-luzern",
         "en": "customer-service-representative-100-luzern-emil-frey-luzern",
-        "de": "kundendienst-representative-100-luzern-emil-frey-luzern",
+        "de": "customer-service-representative-100-luzern-emil-frey-luzern",
         "fr": "customer-service-representative-100-luzern-emil-frey-luzern"
       },
       "company": "Emil Frey",
@@ -2489,14 +2489,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-service-representative-100-luzern-emil-frey-luzern"
+        "customer-service-representative-100-luzern-emil-frey-luzern",
+        "kundendienst-representative-100-luzern-emil-frey-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-service-representative-100-luzern-emil-frey-luzern"
         ],
         "de": [
-          "customer-service-representative-100-luzern-emil-frey-luzern"
+          "kundendienst-representative-100-luzern-emil-frey-luzern"
         ]
       },
       "firstSeenAt": "2026-09-30T21:18:04.937Z",
@@ -6679,7 +6680,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -6748,7 +6748,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobilfachmann-frau-oder-automobilmechatroniker-in-emil-frey-zurich"
@@ -6893,7 +6892,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6962,7 +6960,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",

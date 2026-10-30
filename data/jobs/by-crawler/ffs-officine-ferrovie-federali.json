@@ -86,7 +86,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/konzeptplaner-in-guetertransport/657d05f7-8c8e-47cb-8e95-96372a8d3bc5",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-29T21:32:21.021Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -286,7 +285,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/ingenieur-in-fuer-mess-und-inspektionssysteme/361bd735-95fd-4c38-acea-f8872d0caee9",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-29T21:32:19.008Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-in-fur-mess-und-inspektionssysteme-ffs-officine-ferrovie-federali-bern"
@@ -886,7 +884,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/product-manager-application-platform-m-w-d/8894df2e-c123-47d8-85f6-7b1f954ec282",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-267b05aacbe5",
@@ -984,7 +983,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/product-manager-cloud-foundation-m-w-d/137f6d3d-9298-4c0d-a312-ce3b02a9c64d",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-48fdac3fd924",

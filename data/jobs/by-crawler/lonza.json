@@ -2811,7 +2811,8 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-98469a40e604",
@@ -6475,7 +6476,8 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-fe15e68a52c1",
@@ -11615,7 +11617,8 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-e17e59fc6c35",
@@ -11851,7 +11854,8 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-a5403563fe2f",
@@ -12882,7 +12886,8 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-7fd30e0bd930",
@@ -13339,7 +13344,6 @@
       "previousSlugsByLocale": {
         "it": [
           "deputy-treasurer-lonza-ch",
-          "tesoriere-aggiunto-lonza-basel",
           "associate-director-treasury-lonza-ch"
         ],
         "de": [
@@ -13356,9 +13360,6 @@
       },
       "previousSlugs": [
         "deputy-treasurer-lonza-ch",
-        "tesoriere-aggiunto-lonza-basel",
-        "stellvertretender-schatzmeister-lonza-basel",
-        "tresorier-adjoint-lonza-basel",
         "associate-director-treasury-lonza-ch",
         "associate-direktor-treasury-lonza-basel",
         "associate-directeur-treasury-lonza-basel"
@@ -14970,7 +14971,6 @@
       "sourceLang": "en",
       "crawledAt": "2026-10-29T21:20:27.916Z",
       "jobReqId": "R80036",
-      "needsRetranslation": true,
       "salaryMin": 127000,
       "salaryMax": 211500,
       "salarySource": "estimated",

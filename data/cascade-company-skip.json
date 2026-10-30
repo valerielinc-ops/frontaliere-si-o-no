@@ -1,5 +1,5 @@
 {
-  "run": 267,
+  "run": 268,
   "companies": {
     "migrolino": {
       "sterile": 0,
@@ -14,6 +14,10 @@
       "sterile": 0,
       "signature": "fbae73aaf36293da",
       "skipUntilRun": 270
+    },
+    "pemsa": {
+      "sterile": 1,
+      "signature": "d4cdb525ea223104"
     }
   }
 }

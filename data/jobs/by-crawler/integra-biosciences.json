@@ -378,7 +378,6 @@
       "pensum": "50 - 60%",
       "pensumMin": 50,
       "pensumMax": 60,
-      "needsRetranslation": true,
       "previousSlugs": [
         "accountant-m-w-d-50-60-integra-biosciences-ch",
         "accountant-m-w-d-50-60-integra-biosciences-zizers"
@@ -569,7 +568,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "integra-biosciences-c4715e87a10c",

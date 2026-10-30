@@ -8329,7 +8329,8 @@
         "venditore-venditore-volg-kandersteg-497f1d",
         "venditore-venditore-volg-kandersteg",
         "verkauferin-verkaufer-volg-kandersteg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -39852,7 +39853,7 @@
       "slugByLocale": {
         "it": "vendor-vendor-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
         "en": "vendor-vendor-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
-        "de": "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+        "de": "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon-y1bjcv",
         "fr": "fournisseur-fournisseur-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
       },
       "crawledAt": "2026-10-29T21:38:30.748Z",
@@ -39893,7 +39894,8 @@
           "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
         ],
         "de": [
-          "praktikantin-praktikant-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
+          "praktikantin-praktikant-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+          "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
         ]
       },
       "previousSlugs": [
@@ -46728,7 +46730,6 @@
         "fr": "elimination-des-employes-h-f-d-landi-schweiz-ag-dotzigen"
       },
       "crawledAt": "2026-10-29T21:38:30.734Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-22ade7e5322d",
       "previousSlugsByLocale": {
         "it": [
@@ -46887,7 +46888,6 @@
         "fr": "tete-tete-de-sortie-de-marchandises-h-f-d-landi-schweiz-ag-dotzigen"
       },
       "crawledAt": "2026-10-29T21:38:30.735Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-1162e87ed9a7",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -47041,7 +47041,6 @@
         "fr": "vendeur-landi-h-f-d-landi-reba-ag-laufen"
       },
       "crawledAt": "2026-10-29T21:38:30.735Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-a39a36f860ac",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -47119,7 +47118,6 @@
         "fr": "employee-employee-biens-de-sortie-h-f-d-landi-schweiz-ag-dotzigen"
       },
       "crawledAt": "2026-10-29T21:38:30.735Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-c22304fc72a3",
       "previousSlugsByLocale": {
         "it": [
@@ -47199,7 +47197,6 @@
         "fr": "employe-employe-verlad-avec-permis-de-conduire-cat-ce-br-environ-16-00-17-00-02-30-03-30-h-f-d-traveco-transporte-ag"
       },
       "crawledAt": "2026-10-29T21:38:30.735Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-baddefc8168e",
       "previousSlugsByLocale": {
         "it": [
@@ -47279,7 +47276,6 @@
         "fr": "ligne-de-charge-adjointe-h-f-d-landi-pilatus-ag-malters"
       },
       "crawledAt": "2026-10-29T21:38:30.735Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-77a2937bd9eb",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -47950,7 +47946,6 @@
         "fr": "verkaufsmitarbeiter-in-volg-huntwangen-w-m-d-landi-zuri-unterland-genossenschaft-huntwangen"
       },
       "crawledAt": "2026-10-29T21:38:30.735Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-60a17c686bc2",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -48078,7 +48073,6 @@
         "fr": "verkaufsmitarbeiter-in-volg-embrach-w-m-d-landi-zuri-unterland-genossenschaft-embrach"
       },
       "crawledAt": "2026-10-29T21:38:30.735Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-fe0396d3ad04",
       "salaryMin": 83000,
       "salaryMax": 127500,
