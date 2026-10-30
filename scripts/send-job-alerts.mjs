@@ -267,7 +267,7 @@ async function printJobAlertFunnel({ funnelIn = {}, zeroMatch = {}, sends = {}, 
     ambiguous: sends.ambiguous ?? 0,
     retrySent: retryOutcome.succeeded,
     uniqueRecipients: new Set([...(sends.recipients ?? []), ...retryOutcome.recipients]).size,
-  });
+  }, { dryRun: DRY_RUN });
   const mode = DRY_RUN ? 'DRY RUN' : (ALLOWED_EMAILS ? 'TEST' : 'LIVE');
   const linkAudit = { batches: cascadeStats.linkAuditBatches, defects: cascadeStats.linkAuditDefects };
   for (const line of formatJobAlertFunnelLines(funnel, { date: TODAY_ISO, mode, linkAudit })) console.log(line);

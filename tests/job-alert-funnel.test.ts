@@ -124,6 +124,19 @@ describe('buildJobAlertFunnel', () => {
     expect(lines[0]).toBe('📬 EMAIL INVIATE OGGI: 3 — nuove 0 · retry 3 · destinatari unici 2');
   });
 
+  it('a dry run does not flag the send check: nothing is sent, so planned is what would have gone out', () => {
+    // Il dry-run di produzione del 30/10 (09:27 UTC) segnalava Δ 2 su questo passaggio.
+    const counts = { archive: 2, base: 2, eligible: 2, planned: 2, sent: 0, failed: 0 };
+
+    const dry = buildJobAlertFunnel(counts, { dryRun: true });
+    expect(dry.balanced).toBe(true);
+    expect(dry.imbalance[3]).toBe(0);
+
+    const live = buildJobAlertFunnel(counts);
+    expect(live.balanced).toBe(false);
+    expect(live.imbalance[3]).toBe(2);
+  });
+
   it('counts retries as sent today but keeps the new-send figure separate', () => {
     const funnel = buildJobAlertFunnel({ ...RUN_2026_10_30, retrySent: 12 });
 
