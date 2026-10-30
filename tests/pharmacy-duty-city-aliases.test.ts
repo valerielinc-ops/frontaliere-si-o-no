@@ -84,4 +84,38 @@ describe('attested Castagnola regional duty URL migration', () => {
       expect(page.html).not.toContain('"@type":"ItemList"');
     }
   });
+
+  it('does not emit a canonical duty-city page for a retained redirect source', () => {
+    const aliasPaths = pages.pharmacyDutyCityAliasPaths();
+    const emittedDutyCityPaths = pages.pharmacyPageDescriptors().flatMap((descriptor) => {
+      if (descriptor.kind !== 'duty-city') return [];
+      return aliases
+        .filter(([locale]) => pages.shouldEmitPharmacyDutyCityPage(locale, descriptor.citySlug, aliasPaths))
+        .map(([locale]) => buildPharmacyPath({
+          kind: 'duty-city',
+          locale,
+          citySlug: descriptor.citySlug,
+        }, locale));
+    });
+
+    expect(emittedDutyCityPaths.filter((pathname) => aliasPaths.has(pathname))).toEqual([]);
+  });
+
+  it('keeps non-aliased locale duty-city pages when only Italian has a bridge', () => {
+    const onlyItalianRedirects = {
+      [aliases[0][1]]: '/farmacie/ticino/lugano/di-turno/',
+    };
+    const descriptors = pages.pharmacyDutyCityAliasDescriptors(onlyItalianRedirects);
+    expect(descriptors).toEqual([{
+      locale: 'it',
+      from: aliases[0][1],
+      to: '/farmacie/ticino/lugano/di-turno/',
+    }]);
+
+    const aliasPaths = pages.pharmacyDutyCityAliasPaths(onlyItalianRedirects);
+    expect(pages.shouldEmitPharmacyDutyCityPage('it', 'castagnola', aliasPaths)).toBe(false);
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      expect(pages.shouldEmitPharmacyDutyCityPage(locale, 'castagnola', aliasPaths)).toBe(true);
+    }
+  });
 });

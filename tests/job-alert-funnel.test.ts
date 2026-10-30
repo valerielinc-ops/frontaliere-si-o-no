@@ -283,6 +283,13 @@ describe('send-job-alerts.mjs log contract', () => {
     expect(source).not.toMatch(/console\.log\(`\s+🔗 Live-link check/);
   });
 
+  it('never prints a subscriber address in a log line: the Actions log of this repo is public', () => {
+    // Un indirizzo stampato in un log di Actions è un indirizzo pubblicato.
+    const logLines = source.split('\n').filter((line) => /console\.(log|warn|error)\(|logDetail\(/.test(line));
+    const leaking = logLines.filter((line) => /\$\{[^}]*(\bemail\b|chunk\[0\])/i.test(line));
+    expect(leaking).toEqual([]);
+  });
+
   it('keeps the provider table out of the log: it lives in the Job Summary', () => {
     expect(source).not.toMatch(/logProviderSummary\(\);/);
     expect(source).toMatch(/formatJobAlertProviderLine\(providers\)/);
