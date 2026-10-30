@@ -182,8 +182,8 @@ it.each([
   dom.window.close();
 });
 
-it.each(['h3', 'div role="heading"'])('keeps a radio heading owned by its field when a different question shares the form: %s', heading => {
-  const { dom, snapshot } = extract(`<form><div class="field"><${heading}>Work permit?</${heading.split(' ')[0]}><label for="yes">Yes</label><input id="yes" name="permit" type="radio"><label for="no">No</label><input id="no" name="permit" type="radio"></div><div class="field"><label for="email">Email</label><input id="email" type="email"></div></form>`);
+it.each(['h3', 'div role="heading"'].flatMap(heading => ['fieldset', 'div class="field"'].map(wrapper => [heading, wrapper])))('keeps a radio heading owned by its field when a different question shares the form: %s %s', (heading, wrapper) => {
+  const { dom, snapshot } = extract(`<form><${wrapper}><${heading}>Work permit?</${heading.split(' ')[0]}><label for="yes">Yes</label><input id="yes" name="permit" type="radio" required><label for="no">No</label><input id="no" name="permit" type="radio"></${wrapper.split(' ')[0]}><div class="field"><label for="email">Email</label><input id="email" type="email"></div></form>`);
   expect(snapshot.fields.find((field: any) => field.kind === 'radio').label).toBe('Work permit?');
   (dom.window as any).CSS = { escape: (value: string) => value };
   for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
