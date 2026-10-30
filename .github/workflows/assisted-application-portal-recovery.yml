@@ -8,6 +8,7 @@ on:
       - 'scripts/assisted-application/extension/apply-control.js'
       - 'scripts/assisted-application/lib/submit.mjs'
       - 'scripts/assisted-application/agent.mjs'
+      - 'scripts/assisted-application/verify-portal.mjs'
       - 'scripts/assisted-application/lib/portal-code-version.mjs'
       - 'scripts/assisted-application/install-nopecha.sh'
       - 'functions/src/assistedApplicationOperationalAnswers.js'
