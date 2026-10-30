@@ -1,0 +1,25 @@
+{
+  "companyKey": "asanti-ch",
+  "companyName": "Asanti AG",
+  "companyHost": "asanti.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://asanti.ch/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Sachbearbeiter/in Debitorenbuchhaltung & Offertwesen (40–60 %) / try&hire 5400 Bezirk Baden Teilzeit gepostet vor 1 Woche",
+    "Logistiker EFZ (m/w/d) 4402 Frenkendorf Festanstellung Temporär gepostet vor 3 Tagen",
+    "Logistiker EFZ (m/w/d) 100% Kloten 8302 Temporär gepostet vor 3 Tagen",
+    "Automobilverkäufer / Sales Consultant 100 % 8620 Zürcher Oberland Festanstellung gepostet vor 1 Woche",
+    "Sachbearbeitung Logistik (m/w/d) – 100 % 8110 Bülach Festanstellung Temporär gepostet vor 1 Tag"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:47:18.315Z",
+  "candidateKey": "asanti"
+}

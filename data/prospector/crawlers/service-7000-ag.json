@@ -1,0 +1,25 @@
+{
+  "companyKey": "service-7000-ag",
+  "companyName": "Service 7000 AG",
+  "companyHost": "service7000.ch",
+  "platform": "abaservices.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://service7000.ch/karriere/"
+  ],
+  "detailTemplate": "/karriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Disposition Mehr erfahren --> -->",
+    "Verkauf Innendienst Mehr erfahren --> -->",
+    "Verkauf Aussendienst Mehr erfahren --> -->",
+    "Finanzen & Verrechnen Mehr erfahren --> -->",
+    "Human Resources Mehr erfahren --> -->"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:47:13.405Z",
+  "candidateKey": "service-7000@wangen-an-der-aare"
+}
