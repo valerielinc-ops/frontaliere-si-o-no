@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
+import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
 import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { AssistedApplicationDocuments } from '@/components/community/AssistedApplicationDocuments';
 import { AssistedApplicationFitNotice } from '@/components/community/AssistedApplicationFitNotice';
@@ -150,6 +151,7 @@ function EditField({ field, value, onChange, disabled, error }: {
       </div>
     );
   }
+  if (field.key === 'location') return <ResidenceLocationInput value={value} onChange={onChange} disabled={disabled} error={error} label={label} />;
   const common = {
     value,
     onChange: (event: { target: { value: string } }) => onChange(event.target.value),
