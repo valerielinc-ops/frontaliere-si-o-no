@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
-vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => 'true') }));
+vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => 'true'), bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}) }));
 vi.mock('../functions/src/assistedApplicationTailoredCvPdf.js', () => ({
   tailoredCvChanges: () => false, rebuildTailoredCvPdf: vi.fn(), supersededPhotoPdf: () => null,
 }));
@@ -33,7 +33,7 @@ describe('typed facts use the complete producer and automation path', () => {
     const profile = store.read('user_cv_profiles/synthetic');
     expect(Object.values(profile.applicationQuestionAnswerEvidence)).toHaveLength(4);
     expect(profile.profile).toEqual({ languages: [] });
-    const runEffect = vi.fn(async () => ({ ok: true }));
+    const runEffect = vi.fn(async (_input: any) => ({ ok: true }));
     await startAutomation({ db: store.db, orderId, runEffect, nowMs: now });
     expect(Object.keys(store.read(`${path}/automation/flow`).questionAnswers)).toHaveLength(4);
     const translated = [
