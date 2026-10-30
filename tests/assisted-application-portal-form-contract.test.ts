@@ -1,7 +1,7 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { extractFieldsInPage, readListboxOptions, readOwnedListOptions } from '../scripts/assisted-application/lib/portal/fields.mjs';
-import { preferredCvFields } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { preferredCvFields, uploadedPortalFieldKey } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { applyActions } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateAnswerForField } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
@@ -89,8 +89,19 @@ it.each(['listbox', 'owned'])('keeps complete ARIA option catalogues as well: %s
 });
 
 
-it.each(['Degree certificates', 'Certificati di studio', 'Arbeitszeugnisse', 'Diplômes', 'Other documents', 'degree_certificates'])('does not redirect the CV into a different required document: %s', label => {
+it.each(['Degree certificates', 'Certificati di studio', 'Arbeitszeugnisse', 'Diplômes', 'Other documents', 'degree_certificates', 'CV / Diploma', 'Resume / Degree certificates', 'Lebenslauf / Arbeitszeugnisse', 'CV / Diplômes'])('does not redirect the CV into a different required document: %s', label => {
   const cv = { id: 'cv', kind: 'file', label: 'Curriculum vitae', required: false };
   const other = { id: 'other', name: 'cv-upload', kind: 'file', label, required: true, context: 'CV and degree certificates' };
   expect(preferredCvFields([cv, other]).map((field: any) => field.id)).toEqual(['cv']);
+});
+
+
+it('keeps upload receipts distinct for required CV controls with identical labels', () => {
+  const url = 'https://example.test/apply/';
+  const first = { id: 'f1', label: 'CV', required: true };
+  const second = { id: 'f2', label: 'CV', required: true };
+  const uploaded = new Set([uploadedPortalFieldKey(url, first)]);
+  expect(uploaded.has(uploadedPortalFieldKey(url, second))).toBe(false);
+  uploaded.add(uploadedPortalFieldKey(url, second));
+  expect(uploaded.size).toBe(2);
 });

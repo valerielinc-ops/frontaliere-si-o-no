@@ -889,3 +889,31 @@ it('does not reuse an old CV answer for a specifically labelled degree-certifica
   const stale = { ...kit, answers: [{ question: 'CV · Degree certificates', answer: '[CV]', source: 'documents' }], documents: {} };
   expect(F.answerFor(entry, stale)).toBeNull();
 });
+
+
+it.each(['CV / Diploma', 'Resume / Degree certificates', 'Lebenslauf / Arbeitszeugnisse', 'CV / Diplômes'])('does not put a CV into a mixed specific-document field: %s', label => {
+  const { F, document } = page(`<form><label for="degree">${label}</label><input type="file" id="degree" required></form>`);
+  expect(F.answerFor(F.collect(document)[0], kit)).toBeNull();
+});
+
+it.each([true, false])('retries only the failed CV control when labels and names coincide (ids: %s)', async hasIds => {
+  const { F, document, window } = page(`<form>
+    <label>Curriculum vitae<input ${hasIds ? 'id="cv-one"' : ''} name="document" type="file" required></label>
+    <label>Curriculum vitae<input ${hasIds ? 'id="cv-two"' : ''} name="document" type="file" required></label>
+  </form>`);
+  const inputs = [...document.querySelectorAll('input')];
+  for (const input of inputs) Object.defineProperty(input, 'files', { value: null, writable: true, configurable: true });
+  (window as any).DataTransfer = class { files: File[] = []; items = { add: (file: File) => { this.files.push(file); } }; };
+  const file = new window.File(['%PDF-1.4'], 'CV.pdf', { type: 'application/pdf' });
+  let requests = 0;
+  const options = { attempts: new WeakMap(), uploaded: new Set(), getFile: async () => { requests += 1; if (requests === 2) throw new Error('Temporary upload failure'); return file; } };
+  const first = await F.fillPage(document, kit, options);
+  expect(first.failed).toHaveLength(1);
+  // Some widgets clear the original file input after a successful upload.
+  (inputs[0] as any).files = [];
+  const retry = await F.fillPage(document, kit, options);
+  expect(retry.failed).toEqual([]);
+  expect(requests).toBe(3);
+  expect(options.uploaded.size).toBe(2);
+  expect(inputs[1].files?.[0]?.name).toBe('CV.pdf');
+});

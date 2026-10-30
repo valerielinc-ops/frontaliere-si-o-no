@@ -978,21 +978,21 @@ const documentContextRe = (terms) => new RegExp(
 const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
-const uploadedPortalFieldKey = (url, field) => `${url}|${field?.label || field?.id || ''}`;
+export const uploadedPortalFieldKey = (url, field) => `${url}|${field?.id || field?.label || ''}`;
 
 const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
 const isCvFileField = (field) => {
   if (!isFileField(field)) return false;
   const label = String(field.label || '');
   if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(label)) return false;
-  if (CV_FILE_FIELD_RE.test(label)) return true;
   if (isNonCvDocumentLabel(label)) return false;
+  if (CV_FILE_FIELD_RE.test(label)) return true;
   const metadata = `${field.name || ''} ${field.id || ''}`;
   if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(metadata)) return false;
-  if (CV_FILE_FIELD_RE.test(metadata)) return true;
   if (isNonCvDocumentLabel(metadata)) return false;
+  if (CV_FILE_FIELD_RE.test(metadata)) return true;
   const context = String(field.context || '');
-  return CV_FILE_FIELD_RE.test(context) && !COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context);
+  return CV_FILE_FIELD_RE.test(context) && !COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context) && !isNonCvDocumentLabel(context);
 };
 
 export const preferredCvFields = fields => preferredDocumentControls(fields.filter(isCvFileField));

@@ -635,15 +635,19 @@
       const accept = String(entry.element.getAttribute('accept') || '');
       if (/image|png|jpe?g/i.test(accept) && !/pdf|doc/i.test(accept)) return null;
       const ownLabel = normalize(entry.label);
-      if (!CV_RE.test(ownLabel) && isNonCvDocumentLabel(entry.label)) {
+      if (isNonCvDocumentLabel(entry.label)) {
         const extra = extraDocumentFor(ownLabel, kit);
+        return extra ? { document: extra } : null;
+      }
+      if (!CV_RE.test(ownLabel) && isNonCvDocumentLabel(label)) {
+        const extra = extraDocumentFor(label, kit);
         return extra ? { document: extra } : null;
       }
       if (LETTER_RE.test(label) && !CV_RE.test(label)) return { document: 'coverLetter' };
       if (CV_RE.test(label)) return { document: 'cv' };
       const extra = extraDocumentFor(label, kit);
       if (extra) return { document: extra };
-      if (fromKit?.source === 'documents' || CV_RE.test(normalize(questionOf(entry.element)))) return { document: 'cv' };
+      if (fromKit?.source === 'documents' || (CV_RE.test(normalize(questionOf(entry.element))) && !isNonCvDocumentLabel(questionOf(entry.element)))) return { document: 'cv' };
       return null;
     }
     if (entry.kind === 'checkbox') {
@@ -1086,6 +1090,17 @@
    * One pass on the page: answers every empty question the kit can answer.
    * @returns {Promise<{filled:string[], missing:Array<{label:string, answer:string}>, failed:string[], entries:number}>}
    */
+  const anonymousUploadIds = new WeakMap();
+  let anonymousUploadCounter = 0;
+  function uploadControlId(element) {
+    const stable = element.getAttribute('data-aa-id') || element.id;
+    if (stable) return stable;
+    // A name or label can be shared by several controls. Without a stable DOM
+    // id, remember this node only; a replacement node needs its own receipt.
+    if (!anonymousUploadIds.has(element)) anonymousUploadIds.set(element, `anonymous-${++anonymousUploadCounter}`);
+    return anonymousUploadIds.get(element);
+  }
+
   async function fillPage(doc, kit, { getFile, getFiles, attempts, uploaded = new Set() }) {
     const filled = [];
     const missing = [];
@@ -1097,7 +1112,7 @@
       if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
       if (!isEmpty(entry)) continue;
       const answer = answerFor(entry, kit);
-      const documentKey = answer?.document ? `${doc.defaultView.location.pathname}|${answer.document}|${entry.element.name || entry.element.id || normalize(entry.label)}` : '';
+      const documentKey = answer?.document ? `${doc.defaultView.location.href}|${answer.document}|${uploadControlId(entry.element)}` : '';
       if (documentKey && uploaded.has(documentKey)) continue;
       if (!answer) {
         if (entry.required) missing.push({ label: entry.label || entry.kind, answer: '' });
