@@ -1,4 +1,5 @@
 import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
+import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 /**
  * What the candidate may change on the review page before approving (owner
  * decision 2026-09-30): the cover letter, the e-mail to the employer (only
@@ -188,7 +189,8 @@ export function rememberCandidateQuestionAnswers({ questions, answers = {}, prev
 
 /** Whether a language ability question still needs an answer after facts from the CV are applied. */
 export function questionNeedsCandidateAnswer(question, profile) {
-  return Boolean(question) && !unreadablePortalQuestion(question) && !languageExplicitlyAbsent(profile, question?.question);
+  return Boolean(question) && !provenOptionalOperationalPortalQuestion(question)
+    && !unreadablePortalQuestion(question) && !languageExplicitlyAbsent(profile, question?.question);
 }
 
 /** Remove questions established by the CV and duplicate semantic requests, retaining required status. */
