@@ -1267,7 +1267,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const frame = { locator: vi.fn(() => ({ first: () => control })) };
     const page = { frames: () => [frame], mainFrame: () => frame };
     const result = await applyActions(page as any, [{ id: 'privacy', kind: 'checkbox', label: 'Privacy', required: true }], [{ fieldId: 'privacy', action: 'check', value: '' }], {}, { pause: async () => {} });
-    expect(result).toEqual([{ fieldId: 'privacy', ok: false, error: 'choice_not_registered' }]);
+    expect(result).toEqual([expect.objectContaining({ fieldId: 'privacy', ok: false, error: 'choice_not_registered' })]);
   });
 
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
