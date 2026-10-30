@@ -25,6 +25,7 @@ import {
   fetchJson,
   normalizeDescriptionSpace,
 } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -317,8 +318,9 @@ export async function fetchAllElettra1938Jobs() {
       totalCards = ajaxResult.totalCards;
       console.log(`  📋 AJAX fallback found ${listings.length} Stabio listings (of ${totalCards} total cards)`);
     } else if (/\b(?:nessun annuncio disponibile|no vacancies available|keine stellenangebote verfügbar|aucune offre disponible)\b/i.test(normalizeSpace(new JSDOM(endpointMarkup).window.document.body?.textContent || ''))) {
-      console.warn('⚠️ Elettra 1938: both the intact page scaffold and live AJAX endpoint confirm a genuine portal-wide lull.');
-      return [];
+      const evidence = 'FIAMM Components vacancy AJAX endpoint explicitly reported no vacancies available';
+      console.warn(`⚠️ Elettra 1938: both the intact page scaffold and live AJAX endpoint confirm a genuine portal-wide lull — ${evidence}.`);
+      return markAuthoritativeEmptySnapshot([], evidence);
     } else {
       throw new Error('Elettra 1938: the live vacancy AJAX endpoint contains neither ".vacancy__render" cards nor an explicit empty state — likely selector/template drift.');
     }
