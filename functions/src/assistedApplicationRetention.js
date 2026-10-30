@@ -97,7 +97,7 @@ async function candidateDocs(collection, field, cutoff) {
  * the candidate's e-mails (assistedApplicationEmailEvents.js). They share the
  * CV's retention: the whole order folder and those documents go with it.
  */
-async function purgeAutomationData(bucket, orderRef, orderId) {
+async function purgeAutomationData(bucket, orderRef, orderId, db, order, nowMs) {
   if (typeof bucket.deleteFiles === 'function') {
     await bucket.deleteFiles({ prefix: `${ASSISTED_STORAGE_PREFIX}${orderId}/` });
   }
@@ -109,6 +109,9 @@ async function purgeAutomationData(bucket, orderRef, orderId) {
     const docs = await orderRef.collection(name).get();
     for (const doc of docs.docs || []) await doc.ref.delete();
   }
+  // This copy follows the source order's consent and retention window as well.
+  const { purgeCandidateAnswerEvidence } = await import('./assistedApplicationAnswerEvidence.js');
+  await purgeCandidateAnswerEvidence({ db, userId: order.userId, orderId, nowMs });
 }
 
 /**
@@ -175,7 +178,7 @@ export async function purgeExpiredAssistedApplicationFiles(
       for (const key of keys) {
         await bucket.file(key).delete({ ignoreNotFound: true });
       }
-      await purgeAutomationData(bucket, snapshot.ref, snapshot.id);
+      await purgeAutomationData(bucket, snapshot.ref, snapshot.id, firestore, order, nowMs);
       if (order.candidateAlias?.address) {
         const { removeOrderAlias } = await import('./assistedApplicationAlias.js');
         await removeOrderAlias({ db: firestore, order });
