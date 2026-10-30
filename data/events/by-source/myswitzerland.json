@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-29T12:07:21.255Z",
+  "assembledAt": "2026-10-30T11:58:48.856Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -272286,6 +272286,673 @@
         "url": "https://www.myswitzerland.com/en/"
       },
       "sourceDescriptionHash": "042833853826385572954462116ddc824362d390263edf1166b8ec614889af92"
+    },
+    {
+      "id": "myswitzerland:b83369f8d3e84ae19178f763c9c65a6c",
+      "title": "BUBBLE GUM PARADISE",
+      "titleByLocale": {
+        "it": "BUBBLE GUM PARADISE",
+        "en": "BUBBLE GUM PARADISE",
+        "de": "BUBBLE GUM PARADISE",
+        "fr": "BUBBLE GUM PARADISE"
+      },
+      "startDate": "2027-06-16",
+      "endDate": "2027-07-11",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "La Chaux-de-Fonds",
+      "comune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bubble-gum-paradise/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1039744,
+        "lng": 6.8310948
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "La Chaux-de-Fonds"
+      },
+      "sourceDescriptionHash": "c2e7ab18f93a3e52fb3fc15333318bd05632c532645ec3e39ca1260fcf94b60c"
+    },
+    {
+      "id": "myswitzerland:b7e37b50c84f43399e0c4264dbaa0dfd",
+      "title": "Zaubertanz",
+      "titleByLocale": {
+        "it": "Zaubertanz",
+        "en": "Zaubertanz",
+        "de": "Zaubertanz",
+        "fr": "Zaubertanz"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/zaubertanz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.478507,
+        "lng": 8.306942
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "b7db4c94c2e123006fee2e86920c1176509fe3de206d6e5df1c3909313510f93"
+    },
+    {
+      "id": "myswitzerland:b7bc97b1d5304d3eaf2d0dc4a879dc2d",
+      "title": "It's Different for Girls - Dokumentarfilm & Talk",
+      "titleByLocale": {
+        "it": "It's Different for Girls - Dokumentarfilm & Talk",
+        "en": "It's Different for Girls - Dokumentarfilm & Talk",
+        "de": "It's Different for Girls - Dokumentarfilm & Talk",
+        "fr": "It's Different for Girls - Dokumentarfilm & Talk"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "St. Gallen",
+      "comune": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/its-different-for-girls-dokumentarfilm-talk/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4255549,
+        "lng": 9.37762
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "St. Gallen"
+      },
+      "sourceDescriptionHash": "5c7911db22e9fdbf668d05193406ce3988838f60597db05acce8c3f1c765111e"
+    },
+    {
+      "id": "myswitzerland:b737fbc25d4c4baba6a854601b9e4bfb",
+      "title": "Journée des familles de la Saint-Nicolas à MEMO",
+      "titleByLocale": {
+        "it": "Journée des familles de la Saint-Nicolas à MEMO",
+        "en": "Journée des familles de la Saint-Nicolas à MEMO",
+        "de": "Familientag am Nikolaustag in MEMO",
+        "fr": "Journée des familles de la Saint-Nicolas à MEMO"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/journee-des-familles-de-la-saint-nicolas-a-memo/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8055338,
+        "lng": 7.1543774
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Aktivitäten für die ganze Familie im Burg-Quartier und in L'Atelier"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "941bc5e56a99f280c9058351e7dc3aeedc19ecec843694eedd8eb43677bd29c8"
+    },
+    {
+      "id": "myswitzerland:b6bd45df85804e14b49d7f92b1b6710c",
+      "title": "Ciné-Doc : Islande, un jour sans femmes",
+      "titleByLocale": {
+        "it": "Ciné-Doc : Islande, un jour sans femmes",
+        "en": "Ciné-Doc : Islande, un jour sans femmes",
+        "de": "Ciné-Doc : Islande, un jour sans femmes",
+        "fr": "Ciné-Doc : Islande, un jour sans femmes"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "La Neuveville",
+      "comune": "La Neuveville",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/cinedoc-islande-un-jour-sans-femmes-5/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0630983,
+        "lng": 7.0946682
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "La Neuveville"
+      },
+      "sourceDescriptionHash": "9baa355b030ac54f835a0ccf0005f9bd8fe2c3f7f1725876bc08d20cbbbd3d1e"
+    },
+    {
+      "id": "myswitzerland:b6453c300c40422b975b2f39a59c23cc",
+      "title": "2026 Parenting and Family Fair in Conthey",
+      "titleByLocale": {
+        "it": "2026 Parenting and Family Fair in Conthey",
+        "en": "2026 Parenting and Family Fair in Conthey",
+        "de": "Eltern- und Familienmesse 2026 in Conthey",
+        "fr": "Salon de la Parentalité et de la Famille 2026 à Conthey"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-22",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Conthey",
+      "comune": "Conthey",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/salon-de-la-parentalite-et-de-la-famille-2026-a-conthey/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2165146,
+        "lng": 7.2968592
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Conthey"
+      },
+      "sourceDescriptionHash": "48c121be4ab32ee99df82f554034cf196f1566c842fad2ce8042e20c0fc81c03"
+    },
+    {
+      "id": "myswitzerland:b5814aca81a9485597a914b2bfb65bc7",
+      "title": "MLG Stubete am GÜDIS-MÄNTIG Abend",
+      "titleByLocale": {
+        "it": "MLG Stubete am GÜDIS-MÄNTIG Abend",
+        "en": "MLG Stubete am GÜDIS-MÄNTIG Abend",
+        "de": "MLG Stubete am GÜDIS-MÄNTIG Abend",
+        "fr": "MLG Stubete am GÜDIS-MÄNTIG Abend"
+      },
+      "startDate": "2027-02-08",
+      "endDate": "2027-02-08",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Lucerne",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mlg-stubete-am-guedis-maentig-abend/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0526272,
+        "lng": 8.3046054
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lucerne"
+      },
+      "sourceDescriptionHash": "3a09fb0d0735015a53fb8992cd53ee850d2cbf610088f7fe9e1e1109592c0bff"
+    },
+    {
+      "id": "myswitzerland:b5064b1f14e94818bf412a4e1dedc54f",
+      "title": "Naturschutzfachliche Pflege",
+      "titleByLocale": {
+        "it": "Naturschutzfachliche Pflege",
+        "en": "Naturschutzfachliche Pflege",
+        "de": "Naturschutzfachliche Pflege",
+        "fr": "Naturschutzfachliche Pflege"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-07",
+      "startTime": "09:30",
+      "category": "Event",
+      "venue": "Ettiswil",
+      "comune": "Ettiswil",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/naturschutzfachliche-pflege/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1438776,
+        "lng": 8.0301193
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ettiswil"
+      },
+      "sourceDescriptionHash": "195d6a3696cdbd1c5d2b4679e3f9b0501775340bb5c878283f471be6c7bbe98e"
+    },
+    {
+      "id": "myswitzerland:b473baa9d20f4fe286a019cc083f6057",
+      "title": "Pon Di Island",
+      "titleByLocale": {
+        "it": "Pon Di Island",
+        "en": "Pon Di Island",
+        "de": "Pon Di Island",
+        "fr": "Pon Di Island"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "startTime": "23:00",
+      "category": "Event",
+      "venue": "Biel",
+      "comune": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/pon-di-island/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1359849,
+        "lng": 7.2499741
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Biel"
+      },
+      "sourceDescriptionHash": "692b40db3e6cceba1addf170d7cdc5b3757659c3568aeb3d4158d90f5bcf0225"
+    },
+    {
+      "id": "myswitzerland:b45ef13f2b9f4404a59d1eec25864f82",
+      "title": "7. Förder-& Gedenk-Konzerte \"Die Schweiz singt\" Mozart: Requiem",
+      "titleByLocale": {
+        "it": "7. Förder-& Gedenk-Konzerte \"Die Schweiz singt\" Mozart: Requiem",
+        "en": "7. Förder-& Gedenk-Konzerte \"Die Schweiz singt\" Mozart: Requiem",
+        "de": "7. Förder-& Gedenk-Konzerte \"Die Schweiz singt\" Mozart: Requiem",
+        "fr": "7. Förder-& Gedenk-Konzerte \"Die Schweiz singt\" Mozart: Requiem"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/7-foerder-gedenkkonzerte-2026-die-schweiz-singt-mozart-requiem-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9472862,
+        "lng": 7.4515731
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Bern"
+      },
+      "sourceDescriptionHash": "2028ef679af64f890ceb51530b5c192cab3515a8637fea92dc6cf9e876da7f15"
+    },
+    {
+      "id": "myswitzerland:b41cae42ef9e40a8868f443739a1d9f8",
+      "title": "Weihnachtliche Spezialführung",
+      "titleByLocale": {
+        "it": "Weihnachtliche Spezialführung",
+        "en": "Weihnachtliche Spezialführung",
+        "de": "Weihnachtliche Spezialführung",
+        "fr": "Weihnachtliche Spezialführung"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Muri AG",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtliche-spezialfuehrung/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2751579,
+        "lng": 8.3375652
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Muri AG"
+      },
+      "sourceDescriptionHash": "c89f0733596e1f428348c0d8a8a7f1a1dd1afde74046a1dcb38261570abaa0bc"
+    },
+    {
+      "id": "myswitzerland:b29b333dcae84937bb1a32e62e980656",
+      "title": "MLG Stubete am SCHMUDO Mittag - 2 Gang Menü",
+      "titleByLocale": {
+        "it": "MLG Stubete am SCHMUDO Mittag - 2 Gang Menü",
+        "en": "MLG Stubete am SCHMUDO Mittag - 2 Gang Menü",
+        "de": "MLG Stubete am SCHMUDO Mittag - 2 Gang Menü",
+        "fr": "MLG Stubete am SCHMUDO Mittag - 2 Gang Menü"
+      },
+      "startDate": "2027-02-04",
+      "endDate": "2027-02-04",
+      "startTime": "12:00",
+      "category": "Event",
+      "venue": "Lucerne",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mlg-stubete-am-schmudo-mittag-2-gang-menue/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0526272,
+        "lng": 8.3046054
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Kleinformationen zu Speis"
+        },
+        {
+          "name": "Trank, im eigenen Saal"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "3a09fb0d0735015a53fb8992cd53ee850d2cbf610088f7fe9e1e1109592c0bff"
+    },
+    {
+      "id": "myswitzerland:b1e91b13113b425486073907d2984b2f",
+      "title": "La Locandiera",
+      "titleByLocale": {
+        "it": "La Locandiera",
+        "en": "La Locandiera",
+        "de": "Die Wirtin",
+        "fr": "La Locandiera"
+      },
+      "startDate": "2027-04-16",
+      "endDate": "2027-05-02",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Chalais",
+      "comune": "Chalais",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/la-locandiera-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2672831,
+        "lng": 7.5089703
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Chalais"
+      },
+      "sourceDescriptionHash": "1f9b4c40f720217bb34dbc69c04d8564053595fe8015fba39a5502c4de97f8aa"
+    },
+    {
+      "id": "myswitzerland:b1ce7e4bf82b4c9288ad19fc321d90aa",
+      "title": "Ukandanz",
+      "titleByLocale": {
+        "it": "Ukandanz",
+        "en": "Ukandanz",
+        "de": "Ukandanz",
+        "fr": "Ukandanz"
+      },
+      "startDate": "2027-02-16",
+      "endDate": "2027-02-16",
+      "startTime": "20:30",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ukandanz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3888209,
+        "lng": 8.518645
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "5c1a96a8c81f0d49310ea1752d237d6a8cdaa85bef9d75316860dde9ecfc75e9"
+    },
+    {
+      "id": "myswitzerland:b1806fa714654e19a3833f31da05e94c",
+      "title": "DANJU - Zehn Jahre „Stoned ohne Grund\"",
+      "titleByLocale": {
+        "it": "DANJU - Zehn Jahre „Stoned ohne Grund\"",
+        "en": "DANJU - Zehn Jahre „Stoned ohne Grund\"",
+        "de": "DANJU - Zehn Jahre „Stoned ohne Grund\"",
+        "fr": "DANJU - Zehn Jahre „Stoned ohne Grund\""
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "startTime": "20:30",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/danju-zehn-jahre-stoned-ohne-grund/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4799963,
+        "lng": 8.3006636
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "f3ea4deec1e7fe572019dc86aae15058d895512c3c89e2eec7092c607b52b624"
+    },
+    {
+      "id": "myswitzerland:b119264576c34133913c12861bce9abd",
+      "title": "All or nothing",
+      "titleByLocale": {
+        "it": "All or nothing",
+        "en": "All or nothing",
+        "de": "Kopf und Kragen",
+        "fr": "All or nothing"
+      },
+      "startDate": "2027-02-25",
+      "endDate": "2027-02-25",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Davos",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/all-or-nothing/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7967781,
+        "lng": 9.8223277
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Davos"
+      },
+      "sourceDescriptionHash": "e18aed6ab5d54ef503e45be01924b8a8e001a86803543efad656ac10bc9ea912"
+    },
+    {
+      "id": "myswitzerland:b102d0f80887451f96e031096587c41e",
+      "title": "Räuchern für Mensch und Raum",
+      "titleByLocale": {
+        "it": "Räuchern für Mensch und Raum",
+        "en": "Räuchern für Mensch und Raum",
+        "de": "Räuchern für Mensch und Raum",
+        "fr": "Räuchern für Mensch und Raum"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2027-02-27",
+      "startTime": "09:30",
+      "category": "Event",
+      "venue": "Wermatswil",
+      "comune": "Uster",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/raeuchern-fuer-mensch-und-raum/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.361199,
+        "lng": 8.743242
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Wermatswil"
+      },
+      "sourceDescriptionHash": "57a1d5040d198473c2ad017cd0a31834b9339a9eda61afee889996e72792c54f"
+    },
+    {
+      "id": "myswitzerland:b0f4e341c29a4929951d694bbcaffd20",
+      "title": "Literary Event",
+      "titleByLocale": {
+        "it": "Literary Event",
+        "en": "Literary Event",
+        "de": "»Obstwiesen« und andere französische Zyklen 1923-1926",
+        "fr": "Rencontre littéraire"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Sierre",
+      "comune": "Sierre",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/obstwiesen-und-andere-franzoesische-zyklen-1923-1926/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2942197,
+        "lng": 7.537131
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Sierre"
+      },
+      "sourceDescriptionHash": "7530f5fdecbfa34225662b1fd0adb4c3de3f1c4eb59a5b60a4bf4d6ce2a188e1"
+    },
+    {
+      "id": "myswitzerland:b0ae591917dd47ce90ef8d6bc4b3c097",
+      "title": "Halloween Trains",
+      "titleByLocale": {
+        "it": "Halloween Trains",
+        "en": "Halloween Trains",
+        "de": "Halloween-Züge",
+        "fr": "Trains Halloween"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-11-01",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "St-Sulpice NE",
+      "comune": "Val-de-Travers",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/halloween-trains/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9140305,
+        "lng": 6.5663226
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "St-Sulpice NE"
+      },
+      "sourceDescriptionHash": "c46aeb0af023ca89caec2f67b9965d04401dec0bd1673503d14ea915d12e7b90"
     }
   ]
 }
