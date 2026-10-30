@@ -14,7 +14,7 @@
  * the fact warnings.
  */
 
-import { languageCodesIn, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion } from './lib/languageFacts.js';
+import { languageCodesIn, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion, isLanguageNameOnly } from './lib/languageFacts.js';
 
 export const DECISIVE_REQUIREMENT_IMPORTANCES = ['critical', 'high'];
 const DECISIVE = DECISIVE_REQUIREMENT_IMPORTANCES;
@@ -111,12 +111,20 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     const native = /\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(row.quote || '');
     const minimum = requested >= 0 ? requested : native ? 5 : fluent ? 4 : -1;
     if (codes.length > 1) {
-      const alternative = /\b(?:or|oder|ou|o)\b/iu.test(row.quote);
-      const conjunction = /(?:\b(?:and|und|et|e)\b|&)/iu.test(row.quote);
-      const levels = new Set((String(row.quote).match(/\b(?:[ABC][12]|native|mother tongue|madrelingua|muttersprache|langue maternelle|fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/giu) || []).map(rank));
+      const names = [...String(row.quote).matchAll(/\p{L}+/gu)].filter(word => isLanguageNameOnly(word[0]));
+      const bridges = names.slice(1).map((word, position) => row.quote.slice(names[position].index + names[position][0].length, word.index).trim());
+      const alternative = bridges.length > 0 && bridges.every(bridge => /^(?:or|oder|ou|o)$/iu.test(bridge));
+      const conjunction = bridges.length > 0 && bridges.every(bridge => /^(?:and|und|et|e|&)$/iu.test(bridge));
+      const levelWords = [...String(row.quote).matchAll(/\b(?:[ABC][12]|native|mother tongue|madrelingua|muttersprache|langue maternelle|fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/giu)];
+      const levels = new Set(levelWords.map(word => rank(word[0])));
+      // A shared level must sit outside a directly joined language list.
+      // "German C1 and basic English" does not establish one shared minimum.
+      const sharedLevel = names.length === codes.length && levelWords.length > 0
+        && (levelWords.every(word => word.index + word[0].length <= names[0].index)
+          || levelWords.every(word => word.index >= names.at(-1).index + names.at(-1)[0].length));
       // Mixed clauses, different per-language levels and unspecified levels
       // need a complete analysis, never a guess from one positive language.
-      if (!profile || minimum < 0 || levels.size > 1 || alternative === conjunction) {
+      if (!profile || minimum < 0 || levels.size > 1 || !sharedLevel || alternative === conjunction) {
         return { status: 'unverified', reason: 'language_clause_unverified', gaps: [] };
       }
       const states = codes.map(code => {

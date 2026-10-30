@@ -113,7 +113,7 @@ describe('qualification before proposal publication', () => {
     const profile = { languagesExplicitList: true, languages: [{ language: 'French', level: 'C1' }] };
     expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: 'met', evidence: 'French C1' }], verdict: 'good' }, { profile }).status).toBe('compatible');
   });
-  it.each(['Strong German & English communication', 'German C1 and English B2 required', 'Native German and fluent English required', 'Fluent German and English B2 required', 'Fluent German / English required', 'Fluent German and English or French required'])('keeps ambiguous language clause %s a technical failure without inventing a gap', quote => {
+  it.each(['Strong German & English communication', 'German C1 and English B2 required', 'Native German and fluent English required', 'Fluent German and English B2 required', 'German C1 and working knowledge of English required', 'German C1 and basic English required', 'Fluent German and basic English required', 'Fluent German / English required', 'Fluent German and English or French required'])('keeps ambiguous language clause %s a technical failure without inventing a gap', quote => {
     const rows = { requirements: [{ requirement: quote, importance: 'high', basis: 'stated', quote }],
       languageRequirements: [{ language: 'German', level: '', quote }] };
     const profile = { languages: [{ language: 'English', level: 'C1' }] };
