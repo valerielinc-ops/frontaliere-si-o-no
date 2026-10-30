@@ -352,7 +352,15 @@ export default function ApplicationConciergePortal({
     setConfirmEmailStatus('sending');
     setError(null);
     try {
-      await requestConciergeAccessLink(accountEmail, locale);
+      const [{ getApp }, { getAuth, sendEmailVerification }] = await Promise.all([import('@/services/firebase'), import('firebase/auth')]);
+      const live = getAuth(await getApp()).currentUser;
+      // The site's link never verifies a password account (see
+      // shouldVerifyEmailOnLinkClick): only Firebase's own check can prove that one.
+      if (live?.providerData?.some((provider) => provider?.providerId === 'password')) {
+        await sendEmailVerification(live, { url: window.location.href });
+      } else {
+        await requestConciergeAccessLink(accountEmail, locale);
+      }
       setConfirmEmailStatus('sent');
     } catch {
       setConfirmEmailStatus('idle');

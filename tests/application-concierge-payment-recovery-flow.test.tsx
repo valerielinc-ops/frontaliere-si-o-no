@@ -4,7 +4,7 @@ import { useState } from 'react';
 const mocks = vi.hoisted(() => ({
   openChild: vi.fn(), childRender: vi.fn(), fetchService: vi.fn(), recoverSession: vi.fn(), signIn: vi.fn(), checkout: vi.fn(),
   widgetResponses: [] as Array<(type: string) => void>,
-  view: vi.fn(), click: vi.fn(), resume: vi.fn(), accessLink: vi.fn(), auth: { currentUser: null as any },
+  view: vi.fn(), click: vi.fn(), resume: vi.fn(), accessLink: vi.fn(), sendVerification: vi.fn(), auth: { currentUser: null as any },
 }));
 vi.mock('@/services/i18n', () => ({
   getLocale: () => 'it', useLocale: () => ['it'], useTranslation: () => ({ t: (key: string) => key }),
@@ -16,7 +16,7 @@ vi.mock('@/components/community/SignupPromptModal', () => ({
   requestConciergeAccessLink: mocks.accessLink,
 }));
 vi.mock('@/services/firebase', () => ({ getApp: async () => ({}) }));
-vi.mock('firebase/auth', () => ({ getAuth: () => mocks.auth }));
+vi.mock('firebase/auth', () => ({ getAuth: () => mocks.auth, sendEmailVerification: mocks.sendVerification }));
 vi.mock('@/services/applicationConciergeCheckout', () => ({ createApplicationConciergeCheckout: mocks.checkout }));
 vi.mock('@/services/analyticsProxy', () => ({ Analytics: {
   trackApplicationConciergeView: mocks.view, trackApplicationConciergeCheckoutClick: mocks.click,
@@ -227,6 +227,18 @@ describe('concierge reminder payment flow', () => {
     expect(mocks.accessLink).toHaveBeenCalledWith('account@example.test', 'it');
     expect(unverified.reload).toHaveBeenCalledOnce();
     expect(mocks.checkout).not.toHaveBeenCalled();
+  });
+
+  it('sends a password account the Firebase verification, because the site link cannot verify it', async () => {
+    const passwordUser = { ...verifiedOwner, emailVerified: false, providerData: [{ providerId: 'password' }], reload: vi.fn(async () => {}) };
+    mocks.auth.currentUser = passwordUser;
+    mocks.sendVerification.mockResolvedValue(undefined);
+    render(<ApplicationConciergePortal entry authUser={passwordUser} />);
+    fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
+    fireEvent.click(await screen.findByRole('button', { name: 'jobBoard.concierge.confirmEmailCta' }));
+    await screen.findByText('jobBoard.concierge.confirmEmailSent');
+    expect(mocks.sendVerification).toHaveBeenCalledWith(passwordUser, { url: window.location.href });
+    expect(mocks.accessLink).not.toHaveBeenCalled();
   });
 
   it('lets an account verified in another tab pay after re-reading it from Firebase', async () => {
