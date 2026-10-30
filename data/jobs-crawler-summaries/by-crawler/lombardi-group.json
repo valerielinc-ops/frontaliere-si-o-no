@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-10-29T21:21:27.051Z",
-  "total": 8,
+  "generatedAt": "2026-10-30T09:35:01.885Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 17722,
-  "avgDurationMs": 17722,
+  "removedCount": 1,
+  "unchangedCount": 5,
+  "durationMs": 16040,
+  "avgDurationMs": 16040,
   "durationHistory": [
-    17722
+    16040
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -95,8 +95,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Geotechnical Engineer (M/F/X)",
       "slug": "geotechnical-ingegnere-m-f-x-lombardi-group-giubiasco",
@@ -135,7 +134,9 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Senior Engineer / Project Manager for Hydropower and Dams (M/F/X)",
       "slug": "senior-engineer-project-manager-per-idroelettrico-e-dighe-m-f-x-lombardi-group-giubiasco",
@@ -335,5 +336,5 @@
       }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }
