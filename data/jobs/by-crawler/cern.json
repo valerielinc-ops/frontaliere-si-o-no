@@ -2491,10 +2491,10 @@
     },
     {
       "id": "cern-dc5985262e68",
-      "slug": "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva",
+      "slug": "tecnico-meccanico-elettromeccanico-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva",
-        "it": "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva",
+        "it": "tecnico-meccanico-elettromeccanico-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva-geneva-switzerland",
         "de": "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva",
         "fr": "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva"
       },
@@ -2556,7 +2556,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:32:07.201Z"
+      "firstSeenAt": "2026-10-30T09:32:07.201Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva"
+      ]
     },
     {
       "id": "cern-29618345ee01",

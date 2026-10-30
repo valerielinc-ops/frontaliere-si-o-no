@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-cddee7cac7a4",
-      "slug": "collaboratore-trice-buro-des-verwaltungsrats-m-w-d-die-mobiliar-bern",
+      "slug": "dipendente-dell-ufficio-del-consiglio-di-amministrazione-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "mitarbeiter-buro-des-verwaltungsrats-w-m-d-mobiliar-ch",
-        "it": "collaboratore-trice-buro-des-verwaltungsrats-m-w-d-die-mobiliar-bern",
-        "en": "mitarbeiter-buro-des-verwaltungsrats-w-m-d-mobiliar-ch",
-        "fr": "mitarbeiter-buro-des-verwaltungsrats-w-m-d-mobiliar-ch"
+        "it": "dipendente-dell-ufficio-del-consiglio-di-amministrazione-m-f-d-die-mobiliar-bern",
+        "en": "staff-office-of-the-board-of-directors-m-f-d-die-mobiliar-bern",
+        "fr": "personnel-bureau-du-conseil-d-administration-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -67,14 +67,21 @@
         ]
       },
       "sfJobId": "1165710655",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-buro-des-verwaltungsrats-w-m-d-mobiliar-ch",
+          "collaboratore-trice-buro-des-verwaltungsrats-m-w-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "mitarbeiter-buro-des-verwaltungsrats-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "mitarbeiter-buro-des-verwaltungsrats-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-buro-des-verwaltungsrats-w-m-d-mobiliar-ch"
+        "mitarbeiter-buro-des-verwaltungsrats-w-m-d-mobiliar-ch",
+        "collaboratore-trice-buro-des-verwaltungsrats-m-w-d-die-mobiliar-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7284,9 +7291,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7350,17 +7357,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

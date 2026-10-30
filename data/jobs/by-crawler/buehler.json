@@ -1295,12 +1295,12 @@
     },
     {
       "id": "buehler-9f86fd56212a",
-      "slug": "senior-software-developer-architect-net-c-buehler-uzwil",
+      "slug": "senior-software-sviluppatore-architetto-net-c-buhler-group-uzwil",
       "slugByLocale": {
         "en": "senior-software-developer-architect-net-c-buehler-uzwil",
-        "it": "senior-software-developer-architect-net-c-buehler-uzwil",
+        "it": "senior-software-sviluppatore-architetto-net-c-buhler-group-uzwil",
         "de": "senior-software-developer-architect-net-c-buehler-uzwil",
-        "fr": "senior-software-developer-architect-net-c-buehler-uzwil"
+        "fr": "senior-software-developpeur-architecte-net-c-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1359,7 +1359,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:33:07.363Z"
+      "firstSeenAt": "2026-10-30T09:33:07.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-developer-architect-net-c-buehler-uzwil"
+        ],
+        "fr": [
+          "senior-software-developer-architect-net-c-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "senior-software-developer-architect-net-c-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-0e4835288e97",
@@ -1367,7 +1378,7 @@
       "slugByLocale": {
         "it": "avviso-legale-buhler-group-uzwil",
         "en": "legal-counsel-buehler-uzwil",
-        "de": "rechtsberater-buhler-group-uzwil",
+        "de": "rechtsberatung-buhler-group-uzwil",
         "fr": "conseiller-juridique-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -1415,14 +1426,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-buehler-uzwil",
-        "rechtsberatung-buhler-group-uzwil"
+        "rechtsberater-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-buehler-uzwil"
         ],
         "de": [
-          "rechtsberatung-buhler-group-uzwil"
+          "rechtsberater-buhler-group-uzwil"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.078Z",

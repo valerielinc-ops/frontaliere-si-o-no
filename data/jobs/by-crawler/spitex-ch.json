@@ -1097,7 +1097,7 @@
         "it": "assistente-infermieristico-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "en": "nursing-assistant-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "de": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
-        "fr": "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "fr": "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1144,7 +1144,7 @@
       "previousSlugs": [
         "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
         "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1152,7 +1152,7 @@
         ],
         "fr": [
           "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-          "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+          "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:06.749Z",
@@ -1175,7 +1175,7 @@
       "slug": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
       "slugByLocale": {
         "de": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "en": "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten",
+        "en": "nurse-hf-psychiatry-40-80-spitex-region-olten-olten",
         "fr": "infirmiere-hf-psychiatrie-40-80-spitex-region-olten-olten",
         "it": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten"
       },
@@ -1228,12 +1228,12 @@
           "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
         ],
         "en": [
-          "nurse-hf-psychiatry-40-80-spitex-region-olten-olten"
+          "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten"
         ]
       },
       "previousSlugs": [
         "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "nurse-hf-psychiatry-40-80-spitex-region-olten-olten"
+        "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten"
       ],
       "salaryMin": 68000,
       "salaryMax": 95200,
@@ -1252,12 +1252,12 @@
     },
     {
       "id": "spitex-ch-abf7c77bd8df",
-      "slug": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental",
+      "slug": "dipl-infermiera-specialist-psichiatria-50-90-spitex-region-emmental-langnau-im-emmental",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental",
-        "it": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental",
-        "en": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental",
-        "fr": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+        "it": "dipl-infermiera-specialist-psichiatria-50-90-spitex-region-emmental-langnau-im-emmental",
+        "en": "dipl-nurse-specialist-psychiatry-50-90-spitex-region-emmental-langnau-im-emmental",
+        "fr": "c-est-quoi-infirmiere-specialiste-en-psychiatrie-50-90-spitex-region-emmental-langnau-im-emmental"
       },
       "company": "Spitex Region Emmental",
       "companyKey": "spitex-ch",
@@ -1316,16 +1316,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:36:41.433Z"
+      "firstSeenAt": "2026-10-30T09:36:41.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+        ],
+        "en": [
+          "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+      ]
     },
     {
       "id": "spitex-ch-93a5c1195539",
-      "slug": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach",
+      "slug": "esperto-infermieristico-esperto-infermieristico-apn-psychiatry-pensum-dal-60-ufficio-del-personale-spitex-regio",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach",
-        "it": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach",
-        "en": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach",
-        "fr": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+        "it": "esperto-infermieristico-esperto-infermieristico-apn-psychiatry-pensum-dal-60-ufficio-del-personale-spitex-regio",
+        "en": "nursing-expert-nursing-expert-apn-psychiatry-pensum-from-60-staff-office-spitex-regio-tannzapfenland-sirnach",
+        "fr": "expert-en-soins-infirmiers-expert-en-soins-infirmiers-apn-psychiatrie-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -1384,16 +1398,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:36:40.704Z"
+      "firstSeenAt": "2026-10-30T09:36:40.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+      ]
     },
     {
       "id": "spitex-ch-89ed60070327",
-      "slug": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach",
+      "slug": "responsabile-della-pianificazione-degli-interventi-con-esperienza-nel-settore-spitex-spitex-regio-tannzapfenland-sirnach",
       "slugByLocale": {
         "de": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach",
-        "it": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach",
-        "en": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach",
-        "fr": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+        "it": "responsabile-della-pianificazione-degli-interventi-con-esperienza-nel-settore-spitex-spitex-regio-tannzapfenland-sirnach",
+        "en": "operational-planner-operational-planner-with-spitex-experience-spitex-regio-tannzapfenland-sirnach",
+        "fr": "planificateur-operationnel-planificateur-operationnel-avec-experience-spitex-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -1412,7 +1440,6 @@
         "en": "Well-planned, your work makes the difference.\n You keep track even if much changes in the short term? You know Spitex from practice and would like to contribute to a reliable supply with a thoughtful operational planning? Then we look forward to meeting you.\n We are the Spitex Regio Tannzapfenland, a future-oriented non-profit organization with around 75 employees. In the municipalities of Bichelsee-Balterswil, Fischingen, Eschlikon, Münchwilen, Rickenbach, Sirnach and Wängi, we support people in making their everyday life at home as independent as possible.\n Operational planner / Operational planner with Spitex experience\n This is what awaits you\n\n• You plan and coordinate the assignments of our employees in Perigon and coordinate the needs of the clients with the available professional and human resources.\n\n• You are the telephone contact person for concerns about care and housekeeping.\n\n• You supervise the reception and support clients and relatives with information and advice.\n\n• You coordinate with GP practices and hospitals and prepare the first assignments administratively.\n\n• You ensure the flow of information between management, departmental management care and help at home, team leaders and employees as well as clients.\n\n• You take on further administrative tasks.\n\n• In alternation with your teammates, you take over the planning and the telephone picket in the home office at the weekend (every 5-6 weeks), from 06.30 until 11.00 o’clock at the latest.\n You bring that with you\n\n• Experience in Spitex and in operational planning in the Spitex environment is absolutely necessary for this position.\n\n• You work independently, structured and quality-conscious and think beyond your own area of responsibility.\n\n• Even with short-term changes, you set priorities and keep track.\n\n• You communicate clearly, kindly and patiently and meet different concerns with understanding.\n\n• You are team-oriented, flexible and bring a warm, humorous way.\n\n• You have very good knowledge of German in word and writing; Further language skills are welcome.\n\n• You are confident in using digital work equipment and MS Office. Perigonal knowledge is beneficial.\n\n• You are ready to develop professionally through training and further education.\n\n• You have a category B driving licence.\n You can look forward to that.\n\n• A meaningful, versatile task with a high level of personal responsibility\n\n• A dedicated, collegial team that supports each other\n\n• Careful familiarisation and regular training in the field of operational planning\n\n• At least five weeks of vacation\n\n• A BVG insurance without coordination deduction and without entry threshold\n\n• Additional family allowances to cantonal child and education allowances\n Are you planning your future with us?\n We look forward to your application to bewerbungen@srtzl.ch. If you have any questions, Nancy Walter, Stv. Managing Director, is at your disposal by calling 071 978 73 02.\n For this position, we only consider direct applications. Dossiers of recruitment agencies are not taken into account.\n\nPortrait\n The Spitex Regio Tannzapfenland is an important provider in the Bichelsee-Balterswil, Fischingen, Eschlikon, Münchwilen, Rickenbach, Sirnach and Wängi catchment areas in health care with a public service mandate.\n\nBenefits\n\n• Holidays Plus: 25 days for all employees up to 49 years, 29 days for all employees from 50 years, 32 days for all employees from 60 years\n\n• Provision Plus: No entry threshold for the pension fund. No coordination deduction, the full wage is IV pensions insured risk benefits better and death benefit capital insured\n\n• Social Security Plus: Employees under 8 hours of work per week are also covered by NBUV. The employer covers half of the premium with the NBU insurance.\n\n• Events for employees: An employee event and a Christmas dinner takes place every year.\n\n• Child allowances plus:\n• Voluntary family allowance in addition to cantonal child and education allowances\n• A subsidized kindergarten for professionals from 60% workload. Subsidy up to max. 50 francs a day\n\n• Gifts / gift of seniority: 10 to 20 years 1⁄2 month's wage or 10 days' holiday or combination 25 years 1 month's wage or 20 days of holiday or combination All further 5 years 1⁄2 month's wage or 10 days of holiday or combi\n\n• Health measures:\n• Common vaccinations such as hepatitis or flu are taken over, if desired\n• Massage: Once a week, a massage therapist is in the house and promotes the health of our employees\n\n• Entry bonus:\n• CHF 100 Professional Bonus if you join the shared service or switch your scheduled service to a shared service\n• CHF 50 bonus if you are short term ()",
         "fr": "Bien planifié, votre travail fait la différence.\n Vous gardez la trace même si beaucoup de changements à court terme? Vous connaissez Spitex de la pratique et souhaitez contribuer à un approvisionnement fiable avec une planification opérationnelle réfléchie? Alors nous avons hâte de vous rencontrer.\n Nous sommes le Spitex Regio Tannzapfenland, une organisation à but non lucratif orientée vers l'avenir avec environ 75 employés. Dans les communes de Bichelsee-Balterswil, Fischingen, Eschlikon, Münchwilen, Rickenbach, Sirnach et Wängi, nous soutenons les gens dans leur vie quotidienne à la maison aussi indépendante que possible.\n Planificateur opérationnel / planificateur opérationnel avec expérience Spitex\n C'est ce qui vous attend\n\n• Vous planifiez et coordonnez les affectations de nos employés à Perigon et coordonnez les besoins des clients avec les ressources professionnelles et humaines disponibles.\n\n• Vous êtes la personne-ressource téléphonique pour les préoccupations concernant les soins et l'entretien ménager.\n\n• Vous supervisez la réception et aidez les clients et les proches avec des informations et des conseils.\n\n• Vous coordonnez avec les médecins généralistes et les hôpitaux et préparez les premières affectations administrativement.\n\n• Vous assurez la circulation de l'information entre la direction, les soins de gestion ministériels et l'aide à domicile, les chefs d'équipe et les employés ainsi que les clients.\n\n• Vous assumez d'autres tâches administratives.\n\n• En alternance avec vos coéquipiers, vous prenez en charge la planification et le piquet téléphonique au bureau à domicile le week-end (toutes les 5-6 semaines), de 06h30 à 11h00 au plus tard.\n Apporte ça avec toi.\n\n• Expérience en Spitex et en planification opérationnelle dans l'environnement Spitex est absolument nécessaire pour cette position.\n\n• Vous travaillez de façon indépendante, structurée et soucieuse de la qualité et pensez au-delà de votre propre domaine de responsabilité.\n\n• Même avec les changements à court terme, vous fixez des priorités et suivez.\n\n• Vous communiquez clairement, avec bonté et patience et répondez à différentes préoccupations avec compréhension.\n\n• Vous êtes axé sur l'équipe, flexible et apportez une manière chaleureuse et humoristique.\n\n• Vous avez une très bonne connaissance de l'allemand en paroles et en écriture; D'autres compétences linguistiques sont les bienvenues.\n\n• Vous êtes confiant dans l'utilisation de l'équipement de travail numérique et MS Office. La connaissance périgonale est bénéfique.\n\n• Vous êtes prêt à vous développer professionnellement par la formation et la formation continue.\n\n• Vous avez un permis de conduire de catégorie B.\n Vous pouvez attendre avec impatience.\n\n• Une tâche significative et polyvalente avec un haut niveau de responsabilité personnelle\n\n• Une équipe collégiale dévouée qui se soutient les uns les autres\n\n• Connaissance attentive et formation régulière dans le domaine de la planification opérationnelle\n\n• Au moins cinq semaines de vacances\n\n• Une assurance BVG sans déduction de coordination et sans seuil d'entrée\n\n• Allocations familiales supplémentaires pour enfants cantonaux et allocations scolaires\n Vous planifiez votre avenir avec nous ?\n Nous nous réjouissons de votre candidature à bewerbungen@srtzl.ch. Si vous avez des questions, Nancy Walter, directrice générale de Stv., est à votre disposition en composant le 071 978 73 02.\n Pour cette position, nous ne considérons que les demandes directes. Les dossiers des agences de recrutement ne sont pas pris en compte.\n\nPortrait\n Le Spitex Regio Tannzapfenland est un important fournisseur dans les bassins versants de Bichelsee-Balterswil, Fischingen, Eschlikon, Münchwilen, Rickenbach, Sirnach et Wängi dans le domaine des soins de santé avec un mandat de service public.\n\nAvantages\n\n• Jours fériés Plus: 25 jours pour tous les employés jusqu'à 49 ans, 29 jours pour tous les employés à partir de 50 ans, 32 jours pour tous les employés à partir de 60 ans\n\n• Provision Plus: Pas de seuil de participation pour le fonds de pension. Pas de déduction de coordination, le plein salaire est IV pensions assurées prestations de risque mieux et décès capital assuré\n\n• Sécurité sociale Plus: Les employés de moins de 8 heures de travail par semaine sont également couverts par le NBUV. L'employeur couvre la moitié de la prime avec l'assurance NBU.\n\n• Événements pour les employés : Un événement pour les employés et un dîner de Noël ont lieu chaque année.\n\n• Allocations familiales plus:\n• Allocation familiale volontaire en plus des allocations scolaires et pour enfants cantonaux\n• Un jardin d'enfants subventionné pour les professionnels à partir de 60% de la charge de travail. Subvention jusqu'à max. 50 francs par jour\n\n• Cadeaux / cadeau d'ancienneté: 10 à 20 ans 1⁄2 mois de salaire ou 10 jours de congé ou combinaison 25 ans 1 mois de salaire ou 20 jours de congé ou combinaison Tous les autres 5 ans 1⁄2 mois de salaire ou 10 jours de congé ou combinaison\n\n• Mesures sanitaires\n• Les vaccinations courantes comme l'hépatite ou la grippe sont prises en charge, si désiré\n• Massage : Une fois par semaine, un massothérapeute est dans la maison et favorise la santé de nos employés\n\n• Prime d'entrée & #160;:\n• CHF 100 Prime professionnelle si vous rejoignez le service partagé ou changez votre service régulier en service partagé\n• CHF 50 bonus si vous êtes à court terme ()"
       },
-      "needsRetranslation": true,
       "location": "Sirnach",
       "canton": "TG",
       "url": "https://www.spitexjobs.ch/job/einsatzplanerin-einsatzplaner-mit-spitex-erfahrung/J997526",
@@ -1453,7 +1480,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:36:40.196Z"
+      "firstSeenAt": "2026-10-30T09:36:40.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+        ],
+        "en": [
+          "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+        ],
+        "fr": [
+          "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+        ]
+      },
+      "previousSlugs": [
+        "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+      ]
     },
     {
       "id": "spitex-ch-eabfcecab87e",

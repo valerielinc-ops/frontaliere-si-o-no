@@ -4110,12 +4110,12 @@
     },
     {
       "id": "etat-de-fribourg-a3152d6afcce",
-      "slug": "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de",
+      "slug": "avvocato-in-carica-presso-il-tribunal-des-prud-hommes-de-la-veveyse-etat-de-fribourg-chatel-st-denis",
       "slugByLocale": {
         "fr": "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de",
-        "it": "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de",
-        "en": "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de",
-        "de": "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
+        "it": "avvocato-in-carica-presso-il-tribunal-des-prud-hommes-de-la-veveyse-etat-de-fribourg-chatel-st-denis",
+        "en": "acting-advocate-workers-at-the-tribunal-des-prud-hommes-de-la-veveyse-etat-de-fribourg-chatel-st-denis",
+        "de": "stellvertretender-anwalt-arbeiter-beim-tribunal-des-prud-hommes-de-la-veveyse-etat-de-fribourg-chatel-st-denis"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4174,7 +4174,21 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:38.801Z"
+      "firstSeenAt": "2026-10-30T09:42:38.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
+        ],
+        "en": [
+          "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
+        ],
+        "de": [
+          "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
+        ]
+      },
+      "previousSlugs": [
+        "assesseur-e-suppleant-e-travailleurs-au-tribunal-des-prud-hommes-de-la-veveyse-etat-de"
+      ]
     },
     {
       "id": "etat-de-fribourg-dfd41c9cd898",
@@ -5369,12 +5383,12 @@
     },
     {
       "id": "etat-de-fribourg-a64beba5bca8",
-      "slug": "huissier-ere-etat-de-fribourg-ch",
+      "slug": "fuochi-d-artificio-etat-de-fribourg-estavayer-le-lac",
       "slugByLocale": {
         "fr": "huissier-ere-etat-de-fribourg-ch",
-        "it": "huissier-ere-etat-de-fribourg-ch",
-        "en": "huissier-ere-etat-de-fribourg-ch",
-        "de": "huissier-ere-etat-de-fribourg-ch"
+        "it": "fuochi-d-artificio-etat-de-fribourg-estavayer-le-lac",
+        "en": "bailiff-etat-de-fribourg-estavayer-le-lac",
+        "de": "feuerwerk-etat-de-fribourg-estavayer-le-lac"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5422,7 +5436,6 @@
       "pensumMin": 90,
       "pensumMax": 100,
       "pensum": "90-100%",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5437,16 +5450,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:29.234Z"
+      "firstSeenAt": "2026-10-30T09:42:29.234Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "huissier-ere-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "huissier-ere-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "huissier-ere-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "huissier-ere-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-bd390c58e4b8",
-      "slug": "chef-fe-du-projet-informatique-ict-project-leader-etat-de-fribourg-ch",
+      "slug": "leader-del-progetto-etat-de-fribourg-givisiez",
       "slugByLocale": {
         "fr": "chef-fe-du-projet-informatique-ict-project-leader-etat-de-fribourg-ch",
-        "it": "chef-fe-du-projet-informatique-ict-project-leader-etat-de-fribourg-ch",
-        "en": "chef-fe-du-projet-informatique-ict-project-leader-etat-de-fribourg-ch",
-        "de": "chef-fe-du-projet-informatique-ict-project-leader-etat-de-fribourg-ch"
+        "it": "leader-del-progetto-etat-de-fribourg-givisiez",
+        "en": "it-project-leader-etat-de-fribourg-givisiez",
+        "de": "it-projektleiter-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5508,16 +5535,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:28.547Z"
+      "firstSeenAt": "2026-10-30T09:42:28.547Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-du-projet-informatique-ict-project-leader-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "chef-fe-du-projet-informatique-ict-project-leader-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "chef-fe-du-projet-informatique-ict-project-leader-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-du-projet-informatique-ict-project-leader-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-b20065174c97",
-      "slug": "assesseur-e-au-tribunal-d-arrondissement-de-la-sarine-etat-de-fribourg-ch",
+      "slug": "avvocato-presso-il-tribunale-di-sarine-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "assesseur-e-au-tribunal-d-arrondissement-de-la-sarine-etat-de-fribourg-ch",
-        "it": "assesseur-e-au-tribunal-d-arrondissement-de-la-sarine-etat-de-fribourg-ch",
-        "en": "assesseur-e-au-tribunal-d-arrondissement-de-la-sarine-etat-de-fribourg-ch",
-        "de": "assesseur-e-au-tribunal-d-arrondissement-de-la-sarine-etat-de-fribourg-ch"
+        "it": "avvocato-presso-il-tribunale-di-sarine-etat-de-fribourg-fribourg",
+        "en": "advocate-at-the-sarine-district-court-etat-de-fribourg-fribourg",
+        "de": "anwalt-beim-bezirksgericht-sarine-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5577,16 +5618,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:27.866Z"
+      "firstSeenAt": "2026-10-30T09:42:27.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assesseur-e-au-tribunal-d-arrondissement-de-la-sarine-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "assesseur-e-au-tribunal-d-arrondissement-de-la-sarine-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "assesseur-e-au-tribunal-d-arrondissement-de-la-sarine-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assesseur-e-au-tribunal-d-arrondissement-de-la-sarine-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-79eba33da4f4",
-      "slug": "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de",
+      "slug": "vicepresidente-della-prima-commissione-d-inchiesta-e-di-ricognizione-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de",
-        "it": "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de",
-        "en": "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de",
-        "de": "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de"
+        "it": "vicepresidente-della-prima-commissione-d-inchiesta-e-di-ricognizione-etat-de-fribourg-fribourg",
+        "en": "vice-president-of-the-first-survey-and-renewal-appeals-board-etat-de-fribourg-fribourg",
+        "de": "vizeprasidentin-des-first-survey-and-renewal-appeals-board-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5646,16 +5701,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:27.198Z"
+      "firstSeenAt": "2026-10-30T09:42:27.198Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de"
+        ],
+        "en": [
+          "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de"
+        ],
+        "de": [
+          "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de"
+        ]
+      },
+      "previousSlugs": [
+        "vice-president-e-de-la-commission-de-recours-en-matiere-de-premier-releve-et-de"
+      ]
     },
     {
       "id": "etat-de-fribourg-ee89409c49e2",
-      "slug": "greffier-ere-de-1ere-instance-etat-de-fribourg-ch",
+      "slug": "registratore-di-primo-grado-etat-de-fribourg-chatel-st-denis",
       "slugByLocale": {
         "fr": "greffier-ere-de-1ere-instance-etat-de-fribourg-ch",
-        "it": "greffier-ere-de-1ere-instance-etat-de-fribourg-ch",
-        "en": "greffier-ere-de-1ere-instance-etat-de-fribourg-ch",
-        "de": "greffier-ere-de-1ere-instance-etat-de-fribourg-ch"
+        "it": "registratore-di-primo-grado-etat-de-fribourg-chatel-st-denis",
+        "en": "registrar-of-first-instance-etat-de-fribourg-chatel-st-denis",
+        "de": "registrar-der-ersten-instanz-etat-de-fribourg-chatel-st-denis"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5717,16 +5786,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:26.526Z"
+      "firstSeenAt": "2026-10-30T09:42:26.526Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-ere-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-ere-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-ere-de-1ere-instance-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-ere-de-1ere-instance-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-1cda637cc237",
-      "slug": "architecte-de-domaine-formation-affaires-culturelles-et-sport-ict-architect-etat-de",
+      "slug": "architetto-di-settore-formazione-affari-culturali-e-sport-ict-architect-etat-de-fribourg-givisiez",
       "slugByLocale": {
         "fr": "architecte-de-domaine-formation-affaires-culturelles-et-sport-ict-architect-etat-de",
-        "it": "architecte-de-domaine-formation-affaires-culturelles-et-sport-ict-architect-etat-de",
-        "en": "architecte-de-domaine-formation-affaires-culturelles-et-sport-ict-architect-etat-de",
-        "de": "architecte-de-domaine-formation-affaires-culturelles-et-sport-ict-architect-etat-de"
+        "it": "architetto-di-settore-formazione-affari-culturali-e-sport-ict-architect-etat-de-fribourg-givisiez",
+        "en": "field-architect-training-cultural-affairs-and-sport-ict-architect-etat-de-fribourg-givisiez",
+        "de": "field-architect-training-cultural-affairs-und-sport-ict-architect-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5774,7 +5857,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -5789,16 +5871,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:25.829Z"
+      "firstSeenAt": "2026-10-30T09:42:25.829Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "architecte-de-domaine-formation-affaires-culturelles-et-sport-ict-architect-etat-de"
+        ],
+        "en": [
+          "architecte-de-domaine-formation-affaires-culturelles-et-sport-ict-architect-etat-de"
+        ],
+        "de": [
+          "architecte-de-domaine-formation-affaires-culturelles-et-sport-ict-architect-etat-de"
+        ]
+      },
+      "previousSlugs": [
+        "architecte-de-domaine-formation-affaires-culturelles-et-sport-ict-architect-etat-de"
+      ]
     },
     {
       "id": "etat-de-fribourg-5a15e69882fc",
-      "slug": "verwaltungsmitarbeiter-in-weiterbildung-etat-de-fribourg-ch",
+      "slug": "addetto-a-amministrativo-a-formazione-etat-de-fribourg-mont-vully",
       "slugByLocale": {
         "de": "verwaltungsmitarbeiter-in-weiterbildung-etat-de-fribourg-ch",
-        "it": "verwaltungsmitarbeiter-in-weiterbildung-etat-de-fribourg-ch",
-        "en": "verwaltungsmitarbeiter-in-weiterbildung-etat-de-fribourg-ch",
-        "fr": "verwaltungsmitarbeiter-in-weiterbildung-etat-de-fribourg-ch"
+        "it": "addetto-a-amministrativo-a-formazione-etat-de-fribourg-mont-vully",
+        "en": "administrative-assistant-continuing-education-etat-de-fribourg-mont-vully",
+        "fr": "collaborateur-trice-administratif-trice-en-formation-etat-de-fribourg-mont-vully"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5846,7 +5942,6 @@
       "pensumMin": 45,
       "pensumMax": 50,
       "pensum": "45-50%",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5861,16 +5956,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:25.158Z"
+      "firstSeenAt": "2026-10-30T09:42:25.158Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungsmitarbeiter-in-weiterbildung-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verwaltungsmitarbeiter-in-weiterbildung-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verwaltungsmitarbeiter-in-weiterbildung-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungsmitarbeiter-in-weiterbildung-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-6f5ae1b5d07b",
-      "slug": "collaborateur-trice-administratif-ive-a-la-formation-etat-de-fribourg-ch",
+      "slug": "occupazione-e-affari-sociali-etat-de-fribourg-mont-vully",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ive-a-la-formation-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-administratif-ive-a-la-formation-etat-de-fribourg-ch",
-        "en": "collaborateur-trice-administratif-ive-a-la-formation-etat-de-fribourg-ch",
-        "de": "collaborateur-trice-administratif-ive-a-la-formation-etat-de-fribourg-ch"
+        "it": "occupazione-e-affari-sociali-etat-de-fribourg-mont-vully",
+        "en": "administrative-ive-training-worker-etat-de-fribourg-mont-vully",
+        "de": "verwaltungs-und-ausbildungspersonal-etat-de-fribourg-mont-vully"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5932,16 +6041,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:24.490Z"
+      "firstSeenAt": "2026-10-30T09:42:24.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ive-a-la-formation-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ive-a-la-formation-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ive-a-la-formation-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ive-a-la-formation-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-f1e65de6d621",
-      "slug": "greffier-ere-penal-e-de-1ere-instance-etat-de-fribourg-ch",
+      "slug": "registratore-di-primo-grado-etat-de-fribourg-granges-paccot",
       "slugByLocale": {
         "fr": "greffier-ere-penal-e-de-1ere-instance-etat-de-fribourg-ch",
-        "it": "greffier-ere-penal-e-de-1ere-instance-etat-de-fribourg-ch",
-        "en": "greffier-ere-penal-e-de-1ere-instance-etat-de-fribourg-ch",
-        "de": "greffier-ere-penal-e-de-1ere-instance-etat-de-fribourg-ch"
+        "it": "registratore-di-primo-grado-etat-de-fribourg-granges-paccot",
+        "en": "criminal-registrar-of-first-instance-etat-de-fribourg-granges-paccot",
+        "de": "strafregister-erster-instanz-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6003,16 +6126,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:23.796Z"
+      "firstSeenAt": "2026-10-30T09:42:23.796Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-ere-penal-e-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-ere-penal-e-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-ere-penal-e-de-1ere-instance-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-ere-penal-e-de-1ere-instance-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-17d016860608",
-      "slug": "juges-suppleant-e-s-au-tribunal-cantonal-etat-de-fribourg-ch",
+      "slug": "giudici-alternativi-della-corte-cantonale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "juges-suppleant-e-s-au-tribunal-cantonal-etat-de-fribourg-ch",
-        "it": "juges-suppleant-e-s-au-tribunal-cantonal-etat-de-fribourg-ch",
-        "en": "juges-suppleant-e-s-au-tribunal-cantonal-etat-de-fribourg-ch",
-        "de": "juges-suppleant-e-s-au-tribunal-cantonal-etat-de-fribourg-ch"
+        "it": "giudici-alternativi-della-corte-cantonale-etat-de-fribourg-fribourg",
+        "en": "alternate-judges-of-the-cantonal-court-etat-de-fribourg-fribourg",
+        "de": "stellvertreter-des-kantonalen-gerichts-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6072,16 +6209,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:23.126Z"
+      "firstSeenAt": "2026-10-30T09:42:23.126Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juges-suppleant-e-s-au-tribunal-cantonal-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "juges-suppleant-e-s-au-tribunal-cantonal-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "juges-suppleant-e-s-au-tribunal-cantonal-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juges-suppleant-e-s-au-tribunal-cantonal-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-97b2444bc0a6",
-      "slug": "beisitzer-in-beim-bezirksgericht-des-saanebezirks-etat-de-fribourg-ch",
+      "slug": "assistente-presso-il-tribunale-distrettuale-del-distretto-di-saane-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "beisitzer-in-beim-bezirksgericht-des-saanebezirks-etat-de-fribourg-ch",
-        "it": "beisitzer-in-beim-bezirksgericht-des-saanebezirks-etat-de-fribourg-ch",
-        "en": "beisitzer-in-beim-bezirksgericht-des-saanebezirks-etat-de-fribourg-ch",
-        "fr": "beisitzer-in-beim-bezirksgericht-des-saanebezirks-etat-de-fribourg-ch"
+        "it": "assistente-presso-il-tribunale-distrettuale-del-distretto-di-saane-etat-de-fribourg-fribourg",
+        "en": "assessor-at-the-district-court-of-the-saane-district-etat-de-fribourg-fribourg",
+        "fr": "assesseur-e-au-tribunal-de-district-du-district-de-la-sarine-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6126,7 +6277,6 @@
         "de": []
       },
       "department": "Justizrat",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6142,16 +6292,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:22.448Z"
+      "firstSeenAt": "2026-10-30T09:42:22.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "beisitzer-in-beim-bezirksgericht-des-saanebezirks-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "beisitzer-in-beim-bezirksgericht-des-saanebezirks-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "beisitzer-in-beim-bezirksgericht-des-saanebezirks-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "beisitzer-in-beim-bezirksgericht-des-saanebezirks-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-b411014d7919",
-      "slug": "ersatzrichter-innen-beim-kantonsgericht-etat-de-fribourg-ch",
+      "slug": "giudice-supplente-presso-il-tribunale-cantonale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "ersatzrichter-innen-beim-kantonsgericht-etat-de-fribourg-ch",
-        "it": "ersatzrichter-innen-beim-kantonsgericht-etat-de-fribourg-ch",
-        "en": "ersatzrichter-innen-beim-kantonsgericht-etat-de-fribourg-ch",
-        "fr": "ersatzrichter-innen-beim-kantonsgericht-etat-de-fribourg-ch"
+        "it": "giudice-supplente-presso-il-tribunale-cantonale-etat-de-fribourg-fribourg",
+        "en": "substitute-judges-at-the-cantonal-court-etat-de-fribourg-fribourg",
+        "fr": "juges-suppleants-au-tribunal-cantonal-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6196,7 +6360,6 @@
         "de": []
       },
       "department": "Justizrat",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6212,16 +6375,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:21.780Z"
+      "firstSeenAt": "2026-10-30T09:42:21.780Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ersatzrichter-innen-beim-kantonsgericht-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "ersatzrichter-innen-beim-kantonsgericht-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "ersatzrichter-innen-beim-kantonsgericht-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ersatzrichter-innen-beim-kantonsgericht-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-b5d614f58897",
-      "slug": "vizeprasident-in-der-rekurskommission-per-la-ersterhebung-e-erneuerung-etat-de-fribourg",
+      "slug": "vicepresidente-della-commissione-di-ricorso-per-la-prima-registrazione-e-il-rinnovo-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg",
-        "it": "vizeprasident-in-der-rekurskommission-per-la-ersterhebung-e-erneuerung-etat-de-fribourg",
-        "en": "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg",
-        "fr": "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg"
+        "it": "vicepresidente-della-commissione-di-ricorso-per-la-prima-registrazione-e-il-rinnovo-etat-de-fribourg-fribourg",
+        "en": "vice-president-of-the-appeals-commission-for-initial-assessment-and-renewal-etat-de-fribourg-fribourg",
+        "fr": "vice-president-e-de-la-commission-de-recours-pour-le-premier-recensement-et-le-renouvellement-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6266,14 +6443,21 @@
         "de": []
       },
       "department": "Justizrat",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg",
+          "vizeprasident-in-der-rekurskommission-per-la-ersterhebung-e-erneuerung-etat-de-fribourg"
+        ],
+        "en": [
+          "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg"
+        ],
+        "fr": [
           "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg"
         ]
       },
       "previousSlugs": [
-        "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg"
+        "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg",
+        "vizeprasident-in-der-rekurskommission-per-la-ersterhebung-e-erneuerung-etat-de-fribourg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6294,12 +6478,12 @@
     },
     {
       "id": "etat-de-fribourg-015618f4e9b2",
-      "slug": "fachfrau-fachmann-betriebsunterhalt-hauswart-in-etat-de-fribourg-ch",
+      "slug": "specialista-in-manutenzione-aziendale-custode-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "fachfrau-fachmann-betriebsunterhalt-hauswart-in-etat-de-fribourg-ch",
-        "it": "fachfrau-fachmann-betriebsunterhalt-hauswart-in-etat-de-fribourg-ch",
-        "en": "fachfrau-fachmann-betriebsunterhalt-hauswart-in-etat-de-fribourg-ch",
-        "fr": "fachfrau-fachmann-betriebsunterhalt-hauswart-in-etat-de-fribourg-ch"
+        "it": "specialista-in-manutenzione-aziendale-custode-etat-de-fribourg-fribourg",
+        "en": "specialist-in-operational-maintenance-caretaker-etat-de-fribourg-fribourg",
+        "fr": "specialiste-entretien-de-l-entreprise-concierge-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6347,7 +6531,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6363,16 +6546,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:20.418Z"
+      "firstSeenAt": "2026-10-30T09:42:20.418Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-betriebsunterhalt-hauswart-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-betriebsunterhalt-hauswart-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-betriebsunterhalt-hauswart-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-betriebsunterhalt-hauswart-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-f5ada379e5b6",
-      "slug": "agent-e-de-detention-cultures-maraicheres-etat-de-fribourg-ch",
+      "slug": "detention-officer-market-gardening-etat-de-fribourg-mont-vully",
       "slugByLocale": {
         "fr": "agent-e-de-detention-cultures-maraicheres-etat-de-fribourg-ch",
-        "it": "agent-e-de-detention-cultures-maraicheres-etat-de-fribourg-ch",
+        "it": "detention-officer-market-gardening-etat-de-fribourg-mont-vully",
         "en": "agent-e-de-detention-cultures-maraicheres-etat-de-fribourg-ch",
-        "de": "agent-e-de-detention-cultures-maraicheres-etat-de-fribourg-ch"
+        "de": "inhaftierter-market-gardening-etat-de-fribourg-mont-vully"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6434,16 +6631,27 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:19.744Z"
+      "firstSeenAt": "2026-10-30T09:42:19.744Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-de-detention-cultures-maraicheres-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "agent-e-de-detention-cultures-maraicheres-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-de-detention-cultures-maraicheres-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-2d1be0a0a874",
-      "slug": "secretaire-de-juge-etat-de-fribourg-ch",
+      "slug": "segretario-del-giudice-etat-de-fribourg-bulle",
       "slugByLocale": {
         "fr": "secretaire-de-juge-etat-de-fribourg-ch",
-        "it": "secretaire-de-juge-etat-de-fribourg-ch",
-        "en": "secretaire-de-juge-etat-de-fribourg-ch",
-        "de": "secretaire-de-juge-etat-de-fribourg-ch"
+        "it": "segretario-del-giudice-etat-de-fribourg-bulle",
+        "en": "secretary-of-judge-etat-de-fribourg-bulle",
+        "de": "richtersekretar-etat-de-fribourg-bulle"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6505,15 +6713,29 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:19.059Z"
+      "firstSeenAt": "2026-10-30T09:42:19.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-juge-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "secretaire-de-juge-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "secretaire-de-juge-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-juge-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-839520b2487c",
-      "slug": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch",
+      "slug": "responsabile-operativo-concierge-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch",
-        "it": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch",
-        "en": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch",
+        "it": "responsabile-operativo-concierge-etat-de-fribourg-fribourg",
+        "en": "operating-officer-concierge-etat-de-fribourg-fribourg",
         "de": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -6577,16 +6799,27 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:18.344Z"
+      "firstSeenAt": "2026-10-30T09:42:18.344Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-d-exploitation-concierge-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "agent-e-d-exploitation-concierge-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-d-exploitation-concierge-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-77b37f953ea3",
-      "slug": "professor-in-microbiology-etat-de-fribourg-ch",
+      "slug": "professore-in-microbiologia-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "professor-in-microbiology-etat-de-fribourg-ch",
-        "it": "professor-in-microbiology-etat-de-fribourg-ch",
-        "en": "professor-in-microbiology-etat-de-fribourg-ch",
-        "de": "professor-in-microbiology-etat-de-fribourg-ch"
+        "it": "professore-in-microbiologia-etat-de-fribourg-fribourg",
+        "en": "professor-in-microb-etat-de-fribourg-fribourg",
+        "de": "professor-fur-mikrobiologie-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6649,16 +6882,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:17.668Z"
+      "firstSeenAt": "2026-10-30T09:42:17.668Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professor-in-microbiology-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "professor-in-microbiology-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "professor-in-microbiology-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "professor-in-microbiology-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-5bd7fdfb2e44",
-      "slug": "fachmann-frau-per-justizvollzug-sektiongemusebau-etat-de-fribourg-mont-vully",
+      "slug": "specialista-penitenziario-sezione-orticoltura-etat-de-fribourg-mont-vully",
       "slugByLocale": {
         "de": "fachmann-frau-fur-justizvollzug-sektiongemusebau-etat-de-fribourg-ch",
-        "it": "fachmann-frau-per-justizvollzug-sektiongemusebau-etat-de-fribourg-mont-vully",
-        "en": "fachmann-frau-fur-justizvollzug-sektiongemusebau-etat-de-fribourg-ch",
-        "fr": "fachmann-frau-fur-justizvollzug-sektiongemusebau-etat-de-fribourg-ch"
+        "it": "specialista-penitenziario-sezione-orticoltura-etat-de-fribourg-mont-vully",
+        "en": "law-enforcement-specialist-vegetable-growing-section-etat-de-fribourg-mont-vully",
+        "fr": "specialiste-du-secteur-penitentiaire-section-de-l-horticulture-etat-de-fribourg-mont-vully"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6706,14 +6953,21 @@
       "pensumMin": 90,
       "pensumMax": 100,
       "pensum": "90-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-frau-fur-justizvollzug-sektiongemusebau-etat-de-fribourg-ch",
+          "fachmann-frau-per-justizvollzug-sektiongemusebau-etat-de-fribourg-mont-vully"
+        ],
+        "en": [
+          "fachmann-frau-fur-justizvollzug-sektiongemusebau-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "fachmann-frau-fur-justizvollzug-sektiongemusebau-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-fur-justizvollzug-sektiongemusebau-etat-de-fribourg-ch"
+        "fachmann-frau-fur-justizvollzug-sektiongemusebau-etat-de-fribourg-ch",
+        "fachmann-frau-per-justizvollzug-sektiongemusebau-etat-de-fribourg-mont-vully"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6733,12 +6987,12 @@
     },
     {
       "id": "etat-de-fribourg-56ec4d0deeb7",
-      "slug": "professor-in-microbiology-etat-de-fribourg-ch-2",
+      "slug": "professore-in-microbiologia-etat-de-fribourg-fribourg-b6b9a3",
       "slugByLocale": {
-        "de": "professor-in-microbiology-etat-de-fribourg-ch",
-        "it": "professor-in-microbiology-etat-de-fribourg-ch-2",
+        "de": "professor-in-microbiology-etat-de-fribourg-ch-jf4uny",
+        "it": "professore-in-microbiologia-etat-de-fribourg-fribourg-b6b9a3",
         "en": "professor-in-microbiology-etat-de-fribourg-ch-2",
-        "fr": "professor-in-microbiology-etat-de-fribourg-ch-2"
+        "fr": "professeur-de-microbiologie-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6786,7 +7040,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6805,21 +7058,29 @@
       "firstSeenAt": "2026-10-30T09:42:16.280Z",
       "previousSlugsByLocale": {
         "it": [
+          "professor-in-microbiology-etat-de-fribourg-ch",
+          "professor-in-microbiology-etat-de-fribourg-ch-2"
+        ],
+        "de": [
           "professor-in-microbiology-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "professor-in-microbiology-etat-de-fribourg-ch-2"
         ]
       },
       "previousSlugs": [
-        "professor-in-microbiology-etat-de-fribourg-ch"
+        "professor-in-microbiology-etat-de-fribourg-ch",
+        "professor-in-microbiology-etat-de-fribourg-ch-2"
       ]
     },
     {
       "id": "etat-de-fribourg-23764fd2b233",
-      "slug": "dozent-in-fh-etat-de-fribourg-ch",
+      "slug": "docente-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "dozent-in-fh-etat-de-fribourg-ch",
-        "it": "dozent-in-fh-etat-de-fribourg-ch",
-        "en": "dozent-in-fh-etat-de-fribourg-ch",
-        "fr": "dozent-in-fh-etat-de-fribourg-ch"
+        "it": "docente-etat-de-fribourg-fribourg",
+        "en": "lecturer-etat-de-fribourg-fribourg",
+        "fr": "charge-e-de-cours-hes-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6867,7 +7128,6 @@
       "pensumMin": 70,
       "pensumMax": 80,
       "pensum": "70-80%",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6883,16 +7143,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:15.591Z"
+      "firstSeenAt": "2026-10-30T09:42:15.591Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dozent-in-fh-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "dozent-in-fh-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "dozent-in-fh-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dozent-in-fh-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-d995ec79673d",
-      "slug": "doktorand-in-mit-schwerpunkt-nachhaltigkeit-etat-de-fribourg-ch",
+      "slug": "dottorando-con-specializzazione-in-sostenibilita-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "doktorand-in-mit-schwerpunkt-nachhaltigkeit-etat-de-fribourg-ch",
-        "it": "doktorand-in-mit-schwerpunkt-nachhaltigkeit-etat-de-fribourg-ch",
-        "en": "doktorand-in-mit-schwerpunkt-nachhaltigkeit-etat-de-fribourg-ch",
-        "fr": "doktorand-in-mit-schwerpunkt-nachhaltigkeit-etat-de-fribourg-ch"
+        "it": "dottorando-con-specializzazione-in-sostenibilita-etat-de-fribourg-fribourg",
+        "en": "phd-student-with-a-focus-on-sustainability-etat-de-fribourg-fribourg",
+        "fr": "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6940,7 +7214,6 @@
       "pensumMin": 70,
       "pensumMax": 80,
       "pensum": "70-80%",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6956,16 +7229,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:14.914Z"
+      "firstSeenAt": "2026-10-30T09:42:14.914Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-in-mit-schwerpunkt-nachhaltigkeit-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "doktorand-in-mit-schwerpunkt-nachhaltigkeit-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "doktorand-in-mit-schwerpunkt-nachhaltigkeit-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-in-mit-schwerpunkt-nachhaltigkeit-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-79ba9cace265",
-      "slug": "maitre-d-enseignement-hes-etat-de-fribourg-ch",
+      "slug": "maestro-hes-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "maitre-d-enseignement-hes-etat-de-fribourg-ch",
-        "it": "maitre-d-enseignement-hes-etat-de-fribourg-ch",
-        "en": "maitre-d-enseignement-hes-etat-de-fribourg-ch",
-        "de": "maitre-d-enseignement-hes-etat-de-fribourg-ch"
+        "it": "maestro-hes-etat-de-fribourg-fribourg",
+        "en": "teacher-hes-etat-de-fribourg-fribourg",
+        "de": "lehrer-hes-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7028,16 +7315,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:14.221Z"
+      "firstSeenAt": "2026-10-30T09:42:14.221Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maitre-d-enseignement-hes-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "maitre-d-enseignement-hes-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "maitre-d-enseignement-hes-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "maitre-d-enseignement-hes-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-63d5aba8564a",
-      "slug": "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-ch",
+      "slug": "dottorato-di-ricerca-in-sostenibilita-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-ch",
-        "it": "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-ch",
-        "en": "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-ch",
-        "de": "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-ch"
+        "it": "dottorato-di-ricerca-in-sostenibilita-etat-de-fribourg-fribourg",
+        "en": "ph-d-specialist-in-sustainability-etat-de-fribourg-fribourg",
+        "de": "ph-d-spezialist-fur-nachhaltigkeit-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7100,7 +7401,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:13.549Z"
+      "firstSeenAt": "2026-10-30T09:42:13.549Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctorant-e-specialise-e-en-durabilite-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-9a1d497b999c",
@@ -7685,12 +8000,12 @@
     },
     {
       "id": "etat-de-fribourg-c6523b728566",
-      "slug": "chef-fe-de-projets-infrastructures-de-mobilite-routiere-etat-de-fribourg-ch",
+      "slug": "leader-del-progetto-infrastrutture-per-la-mobilita-stradale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "chef-fe-de-projets-infrastructures-de-mobilite-routiere-etat-de-fribourg-ch",
-        "it": "chef-fe-de-projets-infrastructures-de-mobilite-routiere-etat-de-fribourg-ch",
-        "en": "chef-fe-de-projets-infrastructures-de-mobilite-routiere-etat-de-fribourg-ch",
-        "de": "chef-fe-de-projets-infrastructures-de-mobilite-routiere-etat-de-fribourg-ch"
+        "it": "leader-del-progetto-infrastrutture-per-la-mobilita-stradale-etat-de-fribourg-fribourg",
+        "en": "project-leader-road-mobility-infrastructure-etat-de-fribourg-fribourg",
+        "de": "projektleiter-stra-enmobilitatsinfrastruktur-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7753,16 +8068,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-30T09:42:07.729Z"
+      "firstSeenAt": "2026-10-30T09:42:07.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projets-infrastructures-de-mobilite-routiere-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "chef-fe-de-projets-infrastructures-de-mobilite-routiere-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "chef-fe-de-projets-infrastructures-de-mobilite-routiere-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projets-infrastructures-de-mobilite-routiere-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-c5e706c394d8",
-      "slug": "responsabile-di-progetto-infrastrukturen-strassenmobilitat-etat-de-fribourg",
+      "slug": "responsabile-di-progetto-infrastrutture-mobilita-stradale-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "projektleiter-in-infrastrukturen-strassenmobilitat-etat-de-fribourg-ch",
-        "it": "responsabile-di-progetto-infrastrukturen-strassenmobilitat-etat-de-fribourg",
-        "en": "projektleiter-in-infrastrukturen-strassenmobilitat-etat-de-fribourg-ch",
-        "fr": "projektleiter-in-infrastrukturen-strassenmobilitat-etat-de-fribourg-ch"
+        "it": "responsabile-di-progetto-infrastrutture-mobilita-stradale-etat-de-fribourg-fribourg",
+        "en": "project-manager-infrastructures-road-mobility-etat-de-fribourg-fribourg",
+        "fr": "chef-fe-de-projet-infrastructures-mobilite-routiere-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7810,14 +8139,21 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-infrastrukturen-strassenmobilitat-etat-de-fribourg-ch",
+          "responsabile-di-progetto-infrastrukturen-strassenmobilitat-etat-de-fribourg"
+        ],
+        "en": [
+          "projektleiter-in-infrastrukturen-strassenmobilitat-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "projektleiter-in-infrastrukturen-strassenmobilitat-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-infrastrukturen-strassenmobilitat-etat-de-fribourg-ch"
+        "projektleiter-in-infrastrukturen-strassenmobilitat-etat-de-fribourg-ch",
+        "responsabile-di-progetto-infrastrukturen-strassenmobilitat-etat-de-fribourg"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,

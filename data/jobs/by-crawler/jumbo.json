@@ -15796,7 +15796,7 @@
       "slug": "consulente-alla-vendita-deco-jumbo-chur-8a142896d7",
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-chur-xnhah1",
-        "it": "consulente-alla-vendita-deco-jumbo-chur-8a142896d7",
+        "it": "consulente-di-vendita-deco-jumbo-chur",
         "en": "sales-consultant-deco-jumbo-chur",
         "fr": "consultant-commercial-deco-jumbo-chur"
       },
@@ -15859,13 +15859,11 @@
       "needsRetranslation": false,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur",
-        "consulente-di-vendita-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-deco-jumbo-chur",
-          "consulente-di-vendita-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
           "verkaufsberater-in-deco-jumbo-chur"
@@ -18877,12 +18875,12 @@
     },
     {
       "id": "jumbo-4402bbc7-996",
-      "slug": "verkaufsberater-in-garten-jumbo-eppenberg-woschnau",
+      "slug": "consulente-di-vendita-settore-giardinaggio-jumbo-eppenberg-woschnau",
       "slugByLocale": {
         "de": "verkaufsberater-in-garten-jumbo-eppenberg-woschnau",
-        "it": "verkaufsberater-in-garten-jumbo-eppenberg-woschnau",
-        "en": "verkaufsberater-in-garten-jumbo-eppenberg-woschnau",
-        "fr": "verkaufsberater-in-garten-jumbo-eppenberg-woschnau"
+        "it": "consulente-di-vendita-settore-giardinaggio-jumbo-eppenberg-woschnau",
+        "en": "garden-sales-consultant-jumbo-eppenberg-woschnau",
+        "fr": "conseiller-ere-de-vente-en-jardinage-jumbo-eppenberg-woschnau"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18941,7 +18939,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -18956,7 +18953,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:26:41.766Z"
+      "firstSeenAt": "2026-10-30T09:26:41.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garten-jumbo-eppenberg-woschnau"
+        ],
+        "en": [
+          "verkaufsberater-in-garten-jumbo-eppenberg-woschnau"
+        ],
+        "fr": [
+          "verkaufsberater-in-garten-jumbo-eppenberg-woschnau"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garten-jumbo-eppenberg-woschnau"
+      ]
     },
     {
       "id": "jumbo-2895c90e-900",
@@ -19023,7 +19034,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -19115,7 +19125,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -19205,7 +19214,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [

@@ -1,188 +1,188 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-29T10:53:08.541Z",
+  "updatedAt": "2026-10-30T10:47:02.526Z",
   "cantons": {
     "AG": {
-      "headId": "2dabe012-0dd6-47cc-9226-f304e98ae7f1",
+      "headId": "e0651a37-abf8-4f9f-ae56-4af763f6bceb",
       "afterId": "39000d5f-aa22-474d-a62d-f74c93ac109d",
       "afterPageHint": 66,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:07:42.098Z"
+      "updatedAt": "2026-10-30T10:10:46.837Z"
     },
     "AI": {
-      "headId": "fa498bc3-ae4d-4ace-941a-6555561d0480",
+      "headId": "f794168d-bbf6-4990-bcb7-cc4689a90c60",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:07:54.605Z"
+      "updatedAt": "2026-10-30T10:10:49.220Z"
     },
     "AR": {
-      "headId": "423e648e-26c5-4954-abec-3bc928770772",
+      "headId": "7efc63cb-0969-4c4c-82e4-45d4b9b12752",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:08:09.593Z"
+      "updatedAt": "2026-10-30T10:10:50.598Z"
     },
     "BE": {
-      "headId": "28513cb5-14e7-468c-9945-fa769802a9ed",
-      "afterId": "9759fe5d-fe77-4ea3-a969-739780b27271",
-      "afterPageHint": 44,
+      "headId": "b2927608-b89c-41fd-8d42-71a61986a1c1",
+      "afterId": "349752c1-93fd-4b5e-bb2b-aa6034e09632",
+      "afterPageHint": 73,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:08:21.585Z"
+      "updatedAt": "2026-10-30T10:11:56.073Z"
     },
     "BL": {
-      "headId": "6a473ca3-679d-4426-8792-c01734df3173",
-      "afterId": null,
-      "afterPageHint": 0,
+      "headId": "ee3536ec-262e-4546-b59e-be04b399d7a4",
+      "afterId": "3d0f58b8-6716-4618-95f7-6434f083efc5",
+      "afterPageHint": 19,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:08:32.810Z"
+      "updatedAt": "2026-10-30T10:12:55.476Z"
     },
     "BS": {
-      "headId": "b632539e-1d61-429b-b4a9-e8e531b93033",
+      "headId": "dc8e0361-4023-4dce-b029-34f0c094c373",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:08:43.532Z"
+      "updatedAt": "2026-10-30T10:13:00.825Z"
     },
     "FR": {
-      "headId": "4f713df5-2be9-4f64-af33-63b4d24d4025",
+      "headId": "b3f9699e-97fa-4b00-92df-7a11038973ad",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:08:53.865Z"
+      "updatedAt": "2026-10-30T10:13:04.043Z"
     },
     "GE": {
-      "headId": "b636095e-cbe2-43c9-a869-07487671d86e",
+      "headId": "4a261fef-3305-426f-b671-a01683ce1d76",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:09:13.903Z"
+      "updatedAt": "2026-10-30T10:13:08.358Z"
     },
     "GL": {
-      "headId": "b1daaec9-5fa2-4414-800e-0ef2e7100c32",
+      "headId": "c4e3ec67-0593-4959-b5ca-3a3bad57b7a2",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:09:25.398Z"
+      "updatedAt": "2026-10-30T10:13:10.100Z"
     },
     "GR": {
-      "headId": "878b17e4-eec5-4ccf-b6f0-d2d2b4048bdc",
-      "afterId": null,
-      "afterPageHint": 0,
+      "headId": "024ff817-6d4c-4094-8bf2-5ed7c6d7631d",
+      "afterId": "ffe97aed-6d08-48c4-9938-fbcb3d585877",
+      "afterPageHint": 19,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:10:27.054Z"
+      "updatedAt": "2026-10-30T10:13:38.529Z"
     },
     "JU": {
-      "headId": "e7e9a34b-3a9b-4b46-8f0c-54bf6bf45e82",
+      "headId": "8866d6fc-0bde-448f-9668-84a7eb2ab73c",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:10:36.494Z"
+      "updatedAt": "2026-10-30T10:13:39.917Z"
     },
     "LU": {
-      "headId": "841c6dee-790a-4e69-b1fc-ea6b9ca9b022",
+      "headId": "967d915c-a1b3-4639-8d57-2ff133d6eb2f",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:11:18.821Z"
+      "updatedAt": "2026-10-30T10:13:45.385Z"
     },
     "NE": {
-      "headId": "1d6dc28b-5d42-41cd-97b2-d218bd34ac98",
+      "headId": "6e4ebdf6-35ba-44fc-9c4c-c6490137c9cd",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:11:30.164Z"
+      "updatedAt": "2026-10-30T10:13:46.814Z"
     },
     "NW": {
-      "headId": "fef58595-67fe-44f0-9395-78e88000e0ce",
+      "headId": "eef496f8-8ae5-4492-8814-87227b71fb14",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:11:42.840Z"
+      "updatedAt": "2026-10-30T10:13:49.607Z"
     },
     "OW": {
-      "headId": "feaa9b73-73ff-4db1-a0bb-2e19f14ade61",
+      "headId": "fe556cd4-6151-4d5c-aff4-6413ff14a84c",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:12:10.455Z"
+      "updatedAt": "2026-10-30T10:13:52.208Z"
     },
     "SG": {
-      "headId": "e4379d8a-7870-4adf-94ce-8769a5f86f67",
-      "afterId": "d4b83fc2-6672-4aeb-bc8d-7aab9e1f9fa3",
-      "afterPageHint": 49,
+      "headId": "8ff40b80-31ae-4b9a-b61d-9454b31d9ce8",
+      "afterId": null,
+      "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:15:07.284Z"
+      "updatedAt": "2026-10-30T10:14:17.896Z"
     },
     "SH": {
-      "headId": "30cdbf0a-7594-40e3-b9dd-64ea029e9ae5",
+      "headId": "31c4b0b3-99eb-4d96-8f52-9832eff4aee9",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:15:20.536Z"
+      "updatedAt": "2026-10-30T10:14:31.794Z"
     },
     "SO": {
-      "headId": "efaca4b6-41ce-4589-b705-d843935935c2",
+      "headId": "2ca8a0ef-5553-4af4-a265-d6db8c1d20a5",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:15:32.838Z"
+      "updatedAt": "2026-10-30T10:14:36.342Z"
     },
     "SZ": {
-      "headId": "69691d92-8264-47d9-851d-bcfb0f934c0f",
+      "headId": "47b2f123-cda9-4ada-ad79-c0d0bdf3be02",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:15:48.189Z"
+      "updatedAt": "2026-10-30T10:14:37.810Z"
     },
     "TG": {
-      "headId": "26b20541-fba6-4e2d-b1ad-e582c5010ba2",
+      "headId": "9f364c9d-a532-4a98-b876-83ea9643ee6f",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:17:11.731Z"
+      "updatedAt": "2026-10-30T10:14:42.041Z"
     },
     "TI": {
-      "headId": "f828b4c8-a655-42f1-9b9a-2be5f16f23e4",
+      "headId": "55b079a7-0fa1-470b-9d60-04f0da408047",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:17:22.339Z"
+      "updatedAt": "2026-10-30T10:14:43.318Z"
     },
     "UR": {
-      "headId": "0021a879-7b0a-4c24-ae01-8f6965602261",
+      "headId": "af3d4f62-a62a-4100-bf6e-9ef9b6223698",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:17:34.265Z"
+      "updatedAt": "2026-10-30T10:14:44.680Z"
     },
     "VD": {
-      "headId": "c4b8a71d-d843-4d03-8bca-27e93abe6835",
-      "afterId": null,
-      "afterPageHint": 0,
+      "headId": "d75ae384-1d6e-40d6-a04f-fcd7b33134ae",
+      "afterId": "242840e3-3733-4faf-9529-8e414150d02e",
+      "afterPageHint": 19,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:17:57.080Z"
+      "updatedAt": "2026-10-30T10:15:16.803Z"
     },
     "VS": {
-      "headId": "3250db08-94e7-4c01-ac2f-5ce06401c054",
+      "headId": "bb5462ac-a0c3-4c5e-aa55-eeb0f00f8c43",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:18:10.392Z"
+      "updatedAt": "2026-10-30T10:15:18.192Z"
     },
     "ZG": {
-      "headId": "1d1c335d-b95f-490b-a7c0-3da94f966b51",
+      "headId": "26f6d41d-2215-416b-83e1-473fea07ed6f",
       "afterId": null,
       "afterPageHint": 0,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:18:24.537Z"
+      "updatedAt": "2026-10-30T10:15:19.912Z"
     },
     "ZH": {
-      "headId": "93078f57-b978-4e72-bd6c-f6e562b7dc97",
+      "headId": "32daed10-5fc5-4014-9875-8c7a39e1e7a6",
       "afterId": "8e2cb259-75f9-482d-882a-f4e3d19a43a5",
       "afterPageHint": 99,
       "onlineSinceDays": 30,
-      "updatedAt": "2026-10-29T10:19:56.787Z"
+      "updatedAt": "2026-10-30T10:15:55.562Z"
     }
   }
 }

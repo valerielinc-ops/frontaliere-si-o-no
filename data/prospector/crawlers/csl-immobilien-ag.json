@@ -1,0 +1,21 @@
+{
+  "companyKey": "csl-immobilien-ag",
+  "companyName": "CSL Immobilien AG",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22?jp=ABACUS"
+  ],
+  "detailTemplate": "/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Assistenz GL/VR"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:54:07.986Z",
+  "candidateKey": "csl-immobilien@zurich"
+}

@@ -3503,12 +3503,12 @@
     },
     {
       "id": "srg-ssr-d04d6000465b",
-      "slug": "verwaltungsprasident-in-srg-ssr-srg-ssr-bern",
+      "slug": "presidente-amministrativo-a-della-srg-ssr-srg-ssr-bern",
       "slugByLocale": {
         "de": "verwaltungsprasident-in-srg-ssr-srg-ssr-bern",
-        "it": "verwaltungsprasident-in-srg-ssr-srg-ssr-bern",
-        "en": "verwaltungsprasident-in-srg-ssr-srg-ssr-bern",
-        "fr": "verwaltungsprasident-in-srg-ssr-srg-ssr-bern"
+        "it": "presidente-amministrativo-a-della-srg-ssr-srg-ssr-bern",
+        "en": "chair-of-the-board-of-directors-srg-ssr-srg-ssr-bern",
+        "fr": "president-e-du-conseil-d-administration-de-la-srg-ssr-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3576,7 +3576,6 @@
         "pensumMin": 50,
         "pensumMax": 50
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3591,16 +3590,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-30T09:30:25.978Z"
+      "firstSeenAt": "2026-10-30T09:30:25.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungsprasident-in-srg-ssr-srg-ssr-bern"
+        ],
+        "en": [
+          "verwaltungsprasident-in-srg-ssr-srg-ssr-bern"
+        ],
+        "fr": [
+          "verwaltungsprasident-in-srg-ssr-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungsprasident-in-srg-ssr-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-eb52fa7308d0",
       "slug": "presidente-del-consiglio-d-39-amministrazione-ssr-srg-ssr-bern",
       "slugByLocale": {
         "it": "presidente-del-consiglio-d-39-amministrazione-ssr-srg-ssr-bern",
-        "en": "presidente-del-consiglio-d-39-amministrazione-ssr-srg-ssr-bern",
-        "de": "presidente-del-consiglio-d-39-amministrazione-ssr-srg-ssr-bern",
-        "fr": "presidente-del-consiglio-d-39-amministrazione-ssr-srg-ssr-bern"
+        "en": "chairman-of-the-ssr-board-of-directors-srg-ssr-bern",
+        "de": "vorsitzender-des-verwaltungsrats-der-ssr-srg-ssr-bern",
+        "fr": "president-du-conseil-d-administration-de-la-ssr-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3686,12 +3699,12 @@
     },
     {
       "id": "srg-ssr-9dc52971d0e7",
-      "slug": "president-e-du-conseil-d-39-administration-ssr-srg-ssr-bern",
+      "slug": "presidente-e-del-consiglio-di-amministrazione-della-ssr-srg-ssr-bern",
       "slugByLocale": {
         "fr": "president-e-du-conseil-d-39-administration-ssr-srg-ssr-bern",
-        "it": "president-e-du-conseil-d-39-administration-ssr-srg-ssr-bern",
-        "en": "president-e-du-conseil-d-39-administration-ssr-srg-ssr-bern",
-        "de": "president-e-du-conseil-d-39-administration-ssr-srg-ssr-bern"
+        "it": "presidente-e-del-consiglio-di-amministrazione-della-ssr-srg-ssr-bern",
+        "en": "chairman-e-of-the-ssr-board-of-directors-srg-ssr-bern",
+        "de": "vorsitzender-e-des-verwaltungsrats-der-ssr-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3773,7 +3786,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-30T09:30:24.829Z"
+      "firstSeenAt": "2026-10-30T09:30:24.829Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "president-e-du-conseil-d-39-administration-ssr-srg-ssr-bern"
+        ],
+        "en": [
+          "president-e-du-conseil-d-39-administration-ssr-srg-ssr-bern"
+        ],
+        "de": [
+          "president-e-du-conseil-d-39-administration-ssr-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "president-e-du-conseil-d-39-administration-ssr-srg-ssr-bern"
+      ]
     }
   ]
 }

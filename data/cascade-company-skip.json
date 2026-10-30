@@ -1,23 +1,27 @@
 {
-  "run": 269,
+  "run": 270,
   "companies": {
-    "migrolino": {
-      "sterile": 0,
-      "signature": "b7c5f981ef83f8c3",
-      "skipUntilRun": 268
-    },
     "fielmann": {
-      "sterile": 1,
-      "signature": "8d912bf111bc74eb"
+      "sterile": 0,
+      "signature": "8d912bf111bc74eb",
+      "skipUntilRun": 273
     },
     "vaxcyte": {
       "sterile": 0,
       "signature": "fbae73aaf36293da",
       "skipUntilRun": 270
     },
+    "migrolino": {
+      "sterile": 1,
+      "signature": "b7c5f981ef83f8c3"
+    },
     "pemsa": {
       "sterile": 1,
       "signature": "d4cdb525ea223104"
+    },
+    "bosch-thermotechnik-ag": {
+      "sterile": 1,
+      "signature": "7265c545ae9fe9c4"
     }
   }
 }

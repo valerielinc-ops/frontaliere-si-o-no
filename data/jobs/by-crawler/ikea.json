@@ -773,9 +773,9 @@
       "slug": "collaborateur-trice-service-clientele-80-ikea-aubonne",
       "slugByLocale": {
         "fr": "collaborateur-trice-service-clientele-80-ikea-ch",
-        "it": "collaborateur-trice-service-clientele-80-ikea-aubonne",
+        "it": "collaboratore-trix-servizio-clienti-80-ikea-vernier-geneve-switzerland",
         "en": "collaborator-trix-customer-service-80-ikea-vernier-geneve-switzerland",
-        "de": "collaborateur-trice-service-clientele-80-ikea-aubonne"
+        "de": "mitarbeiter-trix-kundenservice-80-ikea-vernier-geneve-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -822,17 +822,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-service-clientele-80-ikea-ch",
-          "collaboratore-trix-servizio-clienti-80-ikea-vernier-geneve-switzerland"
-        ],
-        "de": [
-          "mitarbeiter-trix-kundenservice-80-ikea-vernier-geneve-switzerland"
+          "collaborateur-trice-service-clientele-80-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-service-clientele-80-ikea-ch",
-        "collaboratore-trix-servizio-clienti-80-ikea-vernier-geneve-switzerland",
-        "mitarbeiter-trix-kundenservice-80-ikea-vernier-geneve-switzerland"
+        "collaborateur-trice-service-clientele-80-ikea-ch"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -851,12 +845,12 @@
     },
     {
       "id": "ikea-4f57d2559c0c",
-      "slug": "collaboratore-trice-ikea-restaurant-koch-in-90-100-ikea-lyssach",
+      "slug": "addetto-a-al-ristorante-ikea-cuoco-a-90-100-ikea-lyssach-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-ikea-restaurant-koch-in-90-100-ikea-ch",
-        "it": "collaboratore-trice-ikea-restaurant-koch-in-90-100-ikea-lyssach",
-        "en": "mitarbeiter-in-ikea-restaurant-koch-in-90-100-ikea-ch",
-        "fr": "mitarbeiter-in-ikea-restaurant-koch-in-90-100-ikea-ch"
+        "it": "addetto-a-al-ristorante-ikea-cuoco-a-90-100-ikea-lyssach-bern",
+        "en": "ikea-restaurant-employee-cook-90-100-ikea-lyssach-bern",
+        "fr": "employe-e-au-restaurant-ikea-cuisinier-ere-90-a-100-ikea-lyssach-bern"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -901,14 +895,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-ikea-restaurant-koch-in-90-100-ikea-ch",
+          "collaboratore-trice-ikea-restaurant-koch-in-90-100-ikea-lyssach"
+        ],
+        "en": [
+          "mitarbeiter-in-ikea-restaurant-koch-in-90-100-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-ikea-restaurant-koch-in-90-100-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-ikea-restaurant-koch-in-90-100-ikea-ch"
+        "mitarbeiter-in-ikea-restaurant-koch-in-90-100-ikea-ch",
+        "collaboratore-trice-ikea-restaurant-koch-in-90-100-ikea-lyssach"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -931,7 +932,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -978,7 +979,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -986,7 +987,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",
