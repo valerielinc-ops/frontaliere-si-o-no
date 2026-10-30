@@ -347,6 +347,18 @@ describe('fill extension: JOIN steps', () => {
     expect(F.answerFor(city, { ...kit, answers: [] })).toEqual({ value: 'Como', family: 'city' });
   });
 
+  it.each([
+    ['<fieldset aria-label="Luogo di nascita">', '</fieldset>'],
+    ['<section aria-labelledby="owner"><span id="owner">Lieu de naissance</span>', '</section>'],
+    ['<fieldset><legend>Place of birth</legend>', '</fieldset>'],
+    ['<div role="group" aria-label="Geburtsort">', '</div>'],
+  ])('does not use residence for a birthplace owned by a named section', (open, close) => {
+    const { F, document, window } = page(`<form><h2>Personal information</h2>${open}<label for="city">City</label><input id="city" autocomplete="address-level2">${close}</form>`);
+    nativeFieldReading(window);
+    const city = F.collect(document).find((entry: any) => entry.element.id === 'city');
+    expect(F.answerFor(city, { ...kit, answers: [] })).toBeNull();
+  });
+
   it('stops on the review page with «Conferma e applica» and never presses it', async () => {
     const { F, document } = page(`<form><h2>Esamina la tua candidatura</h2><p>Inviando la candidatura accetto il JOIN Termini.</p>
       <button type="button"><span>Indietro</span></button><button type="submit"><span>Conferma e applica</span></button></form>`);

@@ -671,6 +671,7 @@
     const candidateAddress = (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       || RESIDENCE_CONTEXT_RE.test(addressContext))
       && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
+      && !BIRTHPLACE_RE.test(addressContext)
       // A browser autocomplete token describes a type, not its owner. An
       // explicit birthplace or another person's/company's label vetoes even
       // a genuine personal section before the autocomplete branch below.
