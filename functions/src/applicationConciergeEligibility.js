@@ -93,7 +93,8 @@ async function evaluateConciergePosting({ job, profile, answers = {}, answerEvid
   const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, sources.verificationText),
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
   const preliminary = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
-  const checked = await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources, preliminary, generate });
+  const checked = await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources, preliminary, generate,
+    unverifiedContext: Object.keys(answers).length ? { values: answers } : null });
   const result = checked.status === 'unverified'
     ? { status: 'unverified', reason: checked.reason, gaps: [], questions: [] } : preliminary;
   const entailment = checked.verification || { version: EVIDENCE_ENTAILMENT_VERSION, status: 'not_required' };

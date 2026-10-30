@@ -62,7 +62,7 @@ const TRANSIENT_RUN_ERROR_RE = /runner_infrastructure_unavailable|broker|timed[ 
 // runner_timeout is the watchdog's own verdict after its re-dispatches: not retried again.
 export function isTransientRunError(error) {
   const text = String(error || '');
-  return text !== 'runner_timeout' && TRANSIENT_RUN_ERROR_RE.test(text);
+  return text === 'evidence_entailment_unverified' || (text !== 'runner_timeout' && TRANSIENT_RUN_ERROR_RE.test(text));
 }
 
 /** Another run for a transient failure, or null once the attempts are used up. */

@@ -46,8 +46,19 @@ describe('draft failures', () => {
     expect(real.flow.state).toBe('owner_takeover');
   });
 
+  it('retries an uncertain qualification technically with the existing attempt cap', () => {
+    const current = { state: 'drafting', round: 1, dispatch: { mode: 'draft', round: 1, attempts: 1 } };
+    const event = { type: 'draft_failed', error: 'evidence_entailment_unverified' };
+    const retry = transition(current, event, { draft: cleanDraft, nowMs: T0 });
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: 2 }]);
+    expect(retry.flow.heldBy || []).not.toContain('candidate');
+    const last = transition({ ...current, dispatch: { ...current.dispatch, attempts: MAX_RUN_ATTEMPTS } }, event, { draft: cleanDraft, nowMs: T0 });
+    expect(last.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['draft_failed'] });
+    expect(last.effects.some(effect => effect.type === 'dispatch')).toBe(false);
+  });
+
   it('knows which errors another run can fix', () => {
-    for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded']) {
+    for (const error of [brokerError, 'evidence_entailment_unverified', 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded']) {
       expect(isTransientRunError(error)).toBe(true);
     }
     // runner_timeout: the watchdog already re-dispatched the silent run.

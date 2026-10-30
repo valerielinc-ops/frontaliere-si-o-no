@@ -111,6 +111,11 @@ function fakeCodex() {
         verdict: 'good', summaryIt: 'Buon profilo.', checksIt: [], questions: [],
       };
     }
+    if ((schema as any)?.properties?.assessments) {
+      const payload = JSON.parse(prompt.split('\n\n').at(-1)!);
+      return { assessments: payload.claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id,
+        verdict: 'supported', reason: 'explicit_fact' })) };
+    }
     if (schema === DOCUMENTS_SCHEMA) {
       return {
         coverLetter: {
@@ -158,7 +163,7 @@ describe('draft mode', () => {
     });
     // Profile, requirements, match, letter and the tailored ATS CV (career-ops extras), and the one repair
     // of the letter: the gate stops «7 anni» (below), so the texts are asked once more.
-    expect(codex).toHaveBeenCalledTimes(6);
+    expect(codex).toHaveBeenCalledTimes(7);
     expect(draft.tailoredCv).toMatchObject({ status: 'ready', dropped: ['astrofisica'] });
     expect(bucket.files.has(draft.tailoredCv.pdfKey)).toBe(true);
     expect(draft.ats.original.structural.grade).toBeTruthy();
@@ -190,6 +195,36 @@ describe('draft mode', () => {
     expect(draft.applicationEmail.body).toBe('Gentili signore e signori,\n\nin allegato CV e lettera.\n\nCordiali saluti\n\nMaria Rossi\nmaria.rossi@example.com\n+41 79 123 45 67');
     const documentsPrompt = (codex.mock.calls as any[]).find(([request]) => request.schema === DOCUMENTS_SCHEMA)[0].prompt;
     expect(documentsPrompt).toContain('emailBody is the message only: no greeting, no closing formula and no signature');
+  });
+
+  it.each(['generic_title', 'date_only', 'judge_unavailable'])('stops unsupported fresh-draft evidence before documents or artifacts: %s', async scenario => {
+    const base = fakeCodex();
+    const bucket = fakeBucket();
+    const codex = vi.fn(async (request: any) => {
+      if (request.schema === REQUIREMENTS_SCHEMA) {
+        const raw = await base(request);
+        // The hard missing qualification does not bypass verification of a low positive row used in documents.
+        return { ...raw, requirements: [raw.requirements[0], { requirement: 'Lavoro strutturato', importance: 'low', basis: 'stated', quote: 'esperienza di reparto' }] };
+      }
+      if (isMatchSchema(request.schema)) {
+        const payload = JSON.parse(request.prompt.split('\n\n<<<POSTING EXCERPT')[0].split('\n\n').at(-1)!);
+        const source = payload.candidateSourceExcerpts.find((item: any) => item.text.includes(scenario === 'date_only' ? '2018' : 'Maria Rossi'));
+        return { matches: [{ index: 0, status: 'missing', evidence: '' }, { index: 1, status: 'met', evidence: source.id }], verdict: 'poor', summaryIt: '', checksIt: [], questions: [] };
+      }
+      if (request.schema?.properties?.assessments) {
+        expect(request.timeoutMs).toBeLessThanOrEqual(5 * 60_000);
+        if (scenario === 'judge_unavailable') throw new Error('broker unavailable');
+        const { claims } = JSON.parse(request.prompt.split('\n\n').at(-1)!);
+        expect(claims).toHaveLength(1);
+        return { assessments: [{ index: claims[0].index, proofId: claims[0].proof.id, verdict: 'unsupported', reason: scenario === 'date_only' ? 'chronology_without_behavior' : 'title_without_activity' }] };
+      }
+      return base(request);
+    });
+    await expect(buildDraft({ order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null,
+      cvBuffer: cvPdf(), cvType: 'pdf', codex, bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+    })).rejects.toMatchObject({ eventType: 'draft_failed', code: 'evidence_entailment_unverified' });
+    expect(codex.mock.calls.some(([request]) => request.schema === DOCUMENTS_SCHEMA || request.schema === TAILORED_CV_SCHEMA)).toBe(false);
+    expect(bucket.files.size).toBe(0);
   });
 
   it('writes an apprenticeship’s subject from the trade, and the fact gate reads that subject as a name', async () => {
@@ -238,16 +273,16 @@ describe('draft mode', () => {
     const reused = await run({ ...first, profile: { ...first.profile, fullName: '  Maria   Rossi  ' } });
     // Match, documents and tailored CV only: profile and requirements are reused.
     // …and the one repair of the letter the gate stops («7 anni»), in every run of this fake.
-    expect(reused.calls).toBe(4);
+    expect(reused.calls).toBe(5);
     expect(reused.draft.profile.fullName).toBe('Maria Rossi');
     const { aptitudeTests, recognitions, projects, interests, references, drivingLicence, ...older } = first.profile;
     const reread = await run({ ...first, profile: { ...older, experience: older.experience.map(({ kind, ...role }: any) => role) } });
-    expect(reread.calls).toBe(6);
+    expect(reread.calls).toBe(7);
     // A CV text read before a fix of the reading (2026-10-07: the boxes of a PDF glued together) is read again.
     expect(first.cvTextVersion).toBe(CV_TEXT_VERSION);
     const { cvTextVersion, ...unversioned } = first;
-    expect((await run(unversioned)).calls).toBe(6);
-    expect((await run({ ...first, cvTextVersion: CV_TEXT_VERSION - 1 })).calls).toBe(6);
+    expect((await run(unversioned)).calls).toBe(7);
+    expect((await run({ ...first, cvTextVersion: CV_TEXT_VERSION - 1 })).calls).toBe(7);
   });
 
   it('writes once more the texts the fact gate stops, told what the gate did not find, and keeps only a better version', async () => {
@@ -374,15 +409,15 @@ describe('draft mode', () => {
       return { draft, elapsedMs: clock.elapsedMs(), calls: clock.codex.mock.calls.length };
     };
     const MINUTE = 60_000;
-    // Profile ∥ requirements, match ∥ tailored CV, documents: three half hours in a row, as before the repairs.
+    // Profile ∥ requirements, match, bounded evidence judge, tailored CV ∥ documents.
     const baseline = await run(false);
     expect(baseline.draft.factRepair).toBeUndefined();
-    expect(baseline).toMatchObject({ calls: 5, elapsedMs: 90 * MINUTE });
+    expect(baseline).toMatchObject({ calls: 6, elapsedMs: 95 * MINUTE });
     // Both repairs asked for, and both in vain: ten minutes more, never the two in a row.
     const worst = await run(true);
     expect(worst.draft.factRepair).toMatchObject({ before: 1, after: 0, method: 'verified_paragraphs' });
     expect(worst.draft.tailoredCv.status).toBe('fact_check_failed');
-    expect(worst).toMatchObject({ calls: 7, elapsedMs: 100 * MINUTE });
+    expect(worst).toMatchObject({ calls: 8, elapsedMs: 105 * MINUTE });
     expect(worst.elapsedMs).toBeLessThanOrEqual(120 * MINUTE);
   });
 

@@ -10,7 +10,9 @@
  */
 
 import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequirements.js';
-import { sourceCitations, citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
+import { citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
+import { qualificationSources, verifyQualificationEvidence, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
+import { conciergeProposalEligibility } from '../../../functions/src/assistedApplicationFitNotice.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
 import {
@@ -85,6 +87,7 @@ const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
 // One repair of a text the fact gate stopped (the letter, the tailored CV). Shorter than a first writing:
 // profile ∥ requirements, match, documents and the repair still fit the job's 120 minutes.
 const REPAIR_TIMEOUT_MS = 10 * 60 * 1000;
+const EVIDENCE_TIMEOUT_MS = 5 * 60 * 1000;
 const MAX_REPAIR_FINDINGS = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 
@@ -201,8 +204,32 @@ export async function buildDraft(ctx) {
   const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
   // Apprentice, first job or qualified, and the sector: the CV's sections and the letter's plan follow it.
   const kind = candidateType({ profile, postingTitle: title || order.jobTitle, postingText });
-  // The tailored ATS CV needs only the profile and the requirements: it runs
-  // while the match and the letter are written.
+  const reuseQualifiedMatch = qualification && !candidateNotes && !Object.keys(edited.overrides).length
+    && !Object.keys(answers).some(key => key !== 'salutation') && !flow?.feedback?.length;
+  const sources = qualificationSources({ sourceText: cvText, profile, answers, answerEvidence: ctx.answerEvidence || [] });
+  const candidateSources = sources.citations;
+  const matchRaw = reuseQualifiedMatch ? qualification.match : await codex({
+    prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
+      profile, requirements, answers: sources.modelAnswers, candidateNotes, postingExcerpt: postingText, candidateSourceExcerpts: candidateSources.excerpts,
+    })),
+    schema: citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources),
+    timeoutMs: CODEX_TIMEOUT_MS,
+  });
+  // A vetted cache is bound to the complete match, current CV, posting, answers and protocol.
+  // Other paths resolve only original CV / server-attested Q/A, never raw notes or corrections.
+  const match = reuseQualifiedMatch ? structuredClone(qualification.match)
+    : guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, sources.verificationText),
+      { profile, sourceText: cvText, answers, memory: flow?.questionAnswers || {}, locale });
+  const checked = reuseQualifiedMatch && hasVerifiedQualificationEvidence({ ...qualification, requirements, match })
+    ? { status: 'supported', verification: qualification.entailment }
+    : await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources,
+      preliminary: conciergeProposalEligibility(requirements, match, { profile, answers }), purpose: 'documents',
+      unverifiedContext: { values: answers, candidateNotes, corrections: edited.overrides, feedback: flow?.feedback || [] },
+      generate: (system, user, schema) => codex({ prompt: codexPrompt(system, user), schema, timeoutMs: EVIDENCE_TIMEOUT_MS }) });
+  if (checked.status === 'unverified') throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
+  // Start parallel artifact work only after the evidence gate: a technical abort above
+  // cannot leave a tailored-CV promise or an uploaded PDF behind.
+  // The tailored ATS CV runs alongside document writing after qualification.
   const tailoredCvPromise = buildTailoredCv({
     kind,
     rendererMode: await pdfRendererMode(),
@@ -210,20 +237,6 @@ export async function buildDraft(ctx) {
     cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT), flow,
     cvBuffer, cvType, cvKey: order.cvStorageKey, inPlace: ctx.inPlace,
   });
-  const reuseQualifiedMatch = qualification && !candidateNotes && !Object.keys(edited.overrides).length
-    && !Object.keys(answers).some(key => key !== 'salutation') && !flow?.feedback?.length;
-  const evidenceText = `${cvText}\n${JSON.stringify(answers)}\n${candidateNotes}\n${JSON.stringify(edited.overrides)}`;
-  const candidateSources = sourceCitations({ cv: cvText, answers: Object.keys(answers).length ? JSON.stringify(answers) : '', notes: candidateNotes,
-    corrections: Object.keys(edited.overrides).length ? JSON.stringify(edited.overrides) : '' });
-  const matchRaw = reuseQualifiedMatch ? qualification.match : await codex({
-    prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
-      profile, requirements, answers, candidateNotes, postingExcerpt: postingText, candidateSourceExcerpts: candidateSources.excerpts,
-    })),
-    schema: citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources),
-    timeoutMs: CODEX_TIMEOUT_MS,
-  });
-  const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, evidenceText),
-    { profile, sourceText: `${cvText}\n${candidateNotes}`, answers, memory: flow?.questionAnswers || {}, locale });
   let requiredDocuments = requiredDocumentsFromRequirements(requirements);
   // A document the posting requires is uploaded, not asked about (owner decision 2026-10-08): «do you hold the
   // driver qualification card?» next to that very card among the documents held the order twice for one
@@ -461,6 +474,7 @@ export async function buildDraft(ctx) {
     // The letter's recipient: every rebuild of the letter (candidate edits, owner edits, submission) prints it.
     letterAddress,
     matches: match.matches,
+    entailment: checked.verification || null,
     verdict: match.verdict,
     summaryIt: match.summaryIt,
     checksIt: match.checksIt,

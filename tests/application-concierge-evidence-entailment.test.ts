@@ -78,6 +78,36 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     expect(f.generate).not.toHaveBeenCalled();
   });
 
+  it('verifies document claims even when a missing hard requirement or source uncertainty already prevents a proposal', async () => {
+    for (const preliminary of [{ status: 'incompatible', gaps: [{ knownMissing: true }] }, { status: 'unverified', gaps: [] }]) {
+      const f = fixture();
+      f.generate.mockRejectedValue(new Error('judge unavailable'));
+      expect(await verifyQualificationEvidence({ ...f, preliminary, purpose: 'documents' })).toMatchObject({ status: 'unverified' });
+      expect(f.generate).toHaveBeenCalledTimes(1);
+    }
+  });
+
+  it('binds the entire match and employer scope, with stable object-key ordering', async () => {
+    const f = fixture();
+    const result = await verifyQualificationEvidence(f);
+    const cached = { ...f, result: { status: 'compatible' }, entailment: result.verification };
+    const reordered = { ...cached, match: { matches: f.match.matches.map(row => ({ evidence: row.evidence, status: row.status, index: row.index, evidenceUnverified: row.evidenceUnverified })), verdict: f.match.verdict } };
+    expect(hasVerifiedQualificationEvidence(reordered)).toBe(true);
+    expect(hasVerifiedQualificationEvidence({ ...cached, match: { ...f.match, verdict: 'poor' } })).toBe(false);
+    expect(hasVerifiedQualificationEvidence({ ...cached, requirements: { requirements: f.requirements.requirements.map(row => ({ ...row, quote: 'Different employer condition' })) } })).toBe(false);
+  });
+
+  it('exposes raw corrections only as unverified context and attested declarations only with full question provenance', async () => {
+    const f = fixture();
+    const record = { id: 'answer-de', question: { question: 'What is your current German level?' }, answer: 'A2', category: 'language', provenance: { actor: 'candidate', round: 2 } };
+    const sources = qualificationSources({ sourceText: f.match.matches.map(row => row.evidence).join('\n'), answerEvidence: [record] });
+    await verifyQualificationEvidence({ ...f, sources, unverifiedContext: { values: { question_unknown: 'C1' } } });
+    const payload = JSON.parse(f.generate.mock.calls[0][1]);
+    expect(payload.verifiedDeclarations[0]).toMatchObject({ question: record.question, answer: 'A2', provenance: { actor: 'candidate', round: 2 } });
+    expect(payload.unverifiedContext.values.question_unknown).toBe('C1');
+    expect(payload.claims.every((claim: any) => claim.proof.kind === 'cv_original')).toBe(true);
+  });
+
   it('does not label a profile projection or a bare answer as original primary evidence', async () => {
     const f = fixture([qualificationEvidenceCases()[3]]);
     const projection = qualificationSources({ profile: { degree: f.match.matches[0].evidence }, answers: { question_unknown: 'Yes' } });
