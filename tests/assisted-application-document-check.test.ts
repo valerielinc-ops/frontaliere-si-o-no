@@ -3,7 +3,8 @@
 // (owner decision 2026-10-02: a warning, never a block). Rolex: school
 // reports and the EVA test results.
 import { describe, expect, it } from 'vitest';
-import { classifyDocumentText } from '../services/assistedApplicationDocumentCheck';
+import { checkDocumentFile, classifyDocumentText, DOCUMENT_CHECK_VERSION } from '../services/assistedApplicationDocumentCheck';
+import { sanitizeClientCheck } from '../functions/src/assistedApplicationExtraDocuments.js';
 
 const REPORTS = { label: 'Bulletins des trois dernières années scolaires', kind: 'school_report', keywords: ['bulletin', 'Zeugnis', 'pagella', 'school report'] };
 const EVA = { label: 'Résultats du test EVA', kind: 'aptitude_test', keywords: ['EVA', 'evatech', 'test d\'aptitudes'] };
@@ -36,5 +37,31 @@ describe('the browser\'s check of a requested document', () => {
   it('matches whole words only, never part of another word', () => {
     // «eva» inside «evaluation» or «prevalere» is not the EVA test.
     expect(classifyDocumentText('Evaluation report: the project will prevalere over the previous plan, timeline and budget attached.', { ...EVA, keywords: ['EVA'] }).verdict).toBe('mismatch');
+  });
+
+  it.each([
+    'Università degli Studi. Si conferisce il titolo di dottore in informatica. Laurea conseguita con votazione finale.',
+    'Ministero dell’istruzione. Diploma di maturità scientifica conseguito al termine dell’esame di Stato.',
+    'Universität. Abschlusszeugnis über den erfolgreich abgeschlossenen Studiengang Informatik.',
+    'Université. Diplôme de licence délivré après validation des examens du cursus informatique.',
+    'University registrar. Bachelor of Science awarded upon successful completion of all examinations.',
+  ])('recognises a qualification in another language: %s', text => {
+    expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }).verdict).toBe('match');
+  });
+
+  it('recognises an Italian work reference requested in German and keeps unrelated documents and CVs distinct', () => {
+    expect(classifyDocumentText('Certificato di lavoro. Si attesta il rapporto di impiego e si descrivono le mansioni svolte.', { label: 'Arbeitszeugnisse', kind: 'reference', keywords: ['Arbeitszeugnisse'] }).verdict).toBe('match');
+    const degree = { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] };
+    expect(classifyDocumentText(CV + ' Diploma di laurea in informatica.', degree).verdict).toBe('looks_like_cv');
+    expect(classifyDocumentText('Comune. Certificato di residenza relativo alla persona iscritta in anagrafe, per uso amministrativo.', degree).verdict).toBe('mismatch');
+    expect(classifyDocumentText('Fattura per un master di formazione. Importo dovuto e modalità di pagamento, scadenza trenta giorni.', degree).verdict).toBe('mismatch');
+  });
+
+  it('versions new browser checks and preserves their version without storing extracted text', async () => {
+    const check = await checkDocumentFile({ name: 'scan.png', type: 'image/png' } as File, REPORTS);
+    expect(check).toEqual({ verdict: 'unreadable', matched: '', version: DOCUMENT_CHECK_VERSION });
+    expect(sanitizeClientCheck({ ...check, extractedText: 'private content' })).toEqual(check);
+    expect(sanitizeClientCheck({ verdict: 'mismatch', matched: '' })).toEqual({ verdict: 'mismatch', matched: '' });
+    expect(sanitizeClientCheck({ ...check, version: Infinity })).not.toHaveProperty('version');
   });
 });

@@ -1005,6 +1005,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.documents.checking': "Vérification et envoi…",
  'jobBoard.assisted.review.documents.remove': "Retirer",
  'jobBoard.assisted.review.documents.tooLarge': "« {name} » dépasse {mb} Mo : réduisez-le (par exemple un scan en plus basse résolution) et réessayez.",
+ 'jobBoard.assisted.review.documents.check.legacy': "Le fichier est chargé, mais la vérification précédente n’a pas reconnu son type. Vous pouvez le charger à nouveau pour le vérifier.",
  'jobBoard.assisted.review.documents.check.match': "Cela semble être le bon document.",
  'jobBoard.assisted.review.documents.check.mismatch': "Nous ne trouvons rien dans ce fichier qui indique « {label} ». Si ce n’est pas le document demandé, l’employeur pourrait écarter la candidature : nous vous conseillons de téléverser le bon. Le choix vous appartient.",
  'jobBoard.assisted.review.documents.check.looksLikeCv': "Ce fichier ressemble à votre CV, pas à « {label} ». Ainsi, la candidature pourrait être écartée : nous vous conseillons de téléverser le bon document. Le choix vous appartient.",

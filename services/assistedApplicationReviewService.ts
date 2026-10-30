@@ -47,7 +47,7 @@ export interface ReviewDocument {
     size: number;
     detectedType: string | null;
     uploadedAt: number | null;
-    clientCheck: { verdict: 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable'; matched: string };
+    clientCheck: { verdict: 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable'; matched: string; version?: number };
   }>;
 }
 
@@ -263,7 +263,7 @@ export async function sendReviewAction(
     documentId?: string;
     fileName?: string;
     contentBase64?: string;
-    clientCheck?: { verdict: string; matched: string };
+    clientCheck?: { verdict: string; matched: string; version?: number };
     fileId?: string;
   } = {},
 ): Promise<{ ok: true; state: string }> {

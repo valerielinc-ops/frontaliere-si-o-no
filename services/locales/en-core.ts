@@ -1028,6 +1028,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.documents.checking': "Checking and uploading…",
  'jobBoard.assisted.review.documents.remove': "Remove",
  'jobBoard.assisted.review.documents.tooLarge': "“{name}” is larger than {mb} MB: make it smaller (for example a lower-resolution scan) and try again.",
+ 'jobBoard.assisted.review.documents.check.legacy': "The file is uploaded, but the previous check did not recognise its type. You can upload it again for a new check.",
  'jobBoard.assisted.review.documents.check.match': "This looks like the right document.",
  'jobBoard.assisted.review.documents.check.mismatch': "We find nothing in this file that points to “{label}”. If it is not the document asked for, the employer may discard the application: we recommend uploading the right one. The choice is yours.",
  'jobBoard.assisted.review.documents.check.looksLikeCv': "This file looks like your CV, not “{label}”. The application may be discarded like this: we recommend uploading the right document. The choice is yours.",

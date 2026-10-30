@@ -1031,6 +1031,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.documents.checking': "Prüfen und hochladen…",
  'jobBoard.assisted.review.documents.remove': "Entfernen",
  'jobBoard.assisted.review.documents.tooLarge': "«{name}» ist grösser als {mb} MB: Verkleinere die Datei (zum Beispiel einen Scan mit geringerer Auflösung) und versuche es erneut.",
+ 'jobBoard.assisted.review.documents.check.legacy': "Die Datei ist hochgeladen, aber die frühere Prüfung hat ihren Typ nicht erkannt. Du kannst sie für eine neue Prüfung erneut hochladen.",
  'jobBoard.assisted.review.documents.check.match': "Das scheint die richtige Unterlage zu sein.",
  'jobBoard.assisted.review.documents.check.mismatch': "In dieser Datei finden wir nichts, was auf «{label}» hinweist. Ist es nicht die verlangte Unterlage, kann der Arbeitgeber die Bewerbung aussortieren: Wir empfehlen, die richtige hochzuladen. Die Entscheidung liegt bei dir.",
  'jobBoard.assisted.review.documents.check.looksLikeCv': "Diese Datei sieht aus wie dein Lebenslauf, nicht wie «{label}». So kann die Bewerbung aussortiert werden: Wir empfehlen, die richtige Unterlage hochzuladen. Die Entscheidung liegt bei dir.",

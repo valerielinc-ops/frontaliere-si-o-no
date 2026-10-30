@@ -17,7 +17,10 @@ export interface DocumentCheck {
   verdict: DocumentCheckVerdict;
   /** The word that matched, for a match. */
   matched: string;
+  version?: number;
 }
+
+export const DOCUMENT_CHECK_VERSION = 2;
 
 export interface CheckedDocument {
   label: string;
@@ -29,13 +32,22 @@ export interface CheckedDocument {
 const KIND_WORDS: Record<string, string[]> = {
   school_report: ['bulletin', 'bulletins', 'notes', 'moyenne', 'semestre', 'trimestre', 'zeugnis', 'zeugnisse', 'schulzeugnis', 'noten', 'schuljahr', 'pagella', 'scheda di valutazione', 'anno scolastico', 'voti', 'school report', 'grades', 'school year'],
   aptitude_test: ['test', 'resultats', 'resultat', 'ergebnis', 'ergebnisse', 'risultati', 'results', 'multicheck', 'basic check', 'stellwerk', 'eva', 'gri', 'aptitude', 'eignungstest'],
-  diploma: ['diplome', 'diplom', 'diploma', 'cfc', 'efz', 'afp', 'eba', 'attestato', 'certificat federal', 'fahigkeitszeugnis'],
+  diploma: ['diplome', 'diplom', 'diploma', 'cfc', 'efz', 'afp', 'eba', 'attestato', 'certificat federal', 'fahigkeitszeugnis', 'laurea', 'universita', 'dottore', 'dottorato', 'titolo di studio', 'maturita', 'bachelor', 'master', 'university', 'degree', 'graduation', 'abschluss', 'hochschule', 'universitat', 'baccalaureat', 'licence', 'universite'],
   certificate: ['certificat', 'certificate', 'zertifikat', 'certificato', 'attestato', 'attestation', 'bescheinigung'],
   reference: ['arbeitszeugnis', 'zwischenzeugnis', 'certificat de travail', 'lettre de recommandation', 'reference', 'referenza', 'empfehlungsschreiben', 'recommendation'],
   work_permit: ['permis', 'bewilligung', 'aufenthaltsbewilligung', 'grenzganger', 'permesso', 'frontaliere', 'ausweis', 'autorisation'],
   identity: ['passeport', 'passport', 'reisepass', 'carta d identita', 'identitatskarte', 'carte d identite', 'identity card'],
   portfolio: ['portfolio', 'projet', 'projekt', 'progetto', 'project'],
   other: [],
+};
+
+// These document titles identify the type across languages even when the
+// posting supplied keywords only in its own language. A CV still takes precedence.
+const KIND_TITLES: Record<string, string[]> = {
+  diploma: ['diploma di laurea', 'diploma di maturita', 'certificato di laurea', 'certificato di conseguimento del titolo', 'attestato di qualifica professionale', 'degree certificate', 'graduation certificate', 'bachelor of science', 'master of science', 'bachelor of arts', 'master of arts', 'bachelorzeugnis', 'masterzeugnis', 'abschlusszeugnis', 'diplome de licence', 'diplome de master', 'certificat de reussite'],
+  reference: ['attestato di lavoro', 'certificato di lavoro', 'lettera di referenza', 'lettera di raccomandazione', 'arbeitszeugnis', 'zwischenzeugnis', 'certificat de travail', 'lettre de recommandation', 'employment reference', 'reference letter'],
+  school_report: ['scheda di valutazione', 'bulletin scolaire', 'schulzeugnis', 'school report'],
+  identity: ['carta d identita', 'carte d identite', 'identity card', 'identitatskarte', 'reisepass', 'passeport', 'passport'],
 };
 
 // What a CV says about itself: in a file that should be something else, the candidate picked their CV.
@@ -63,9 +75,11 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
   if (haystack.trim().length < MIN_TEXT_CHARS) return { verdict: 'unreadable', matched: '' };
   const asked = found(haystack, document.keywords || []);
   const usual = found(haystack, KIND_WORDS[document.kind] || []);
+  const titles = found(haystack, KIND_TITLES[document.kind] || []);
   const cv = found(haystack, CV_WORDS);
   // Unless the CV is what the posting asked for, a file that reads as a CV is the CV.
   if (cv.length >= 3 && asked.length < 2) return { verdict: 'looks_like_cv', matched: '' };
+  if (titles.length && cv.length < 2) return { verdict: 'match', matched: titles[0] };
   if (asked.length) return { verdict: 'match', matched: asked[0] };
   if (usual.length >= 2) return { verdict: 'match', matched: usual[0] };
   if (cv.length >= 2) return { verdict: 'looks_like_cv', matched: '' };
@@ -104,5 +118,5 @@ export async function readDocumentText(file: File): Promise<string> {
 }
 
 export async function checkDocumentFile(file: File, document: CheckedDocument): Promise<DocumentCheck> {
-  return classifyDocumentText(await readDocumentText(file), document);
+  return { ...classifyDocumentText(await readDocumentText(file), document), version: DOCUMENT_CHECK_VERSION };
 }
