@@ -25,6 +25,159 @@ function extract(html: string) {
 }
 afterEach(() => vi.unstubAllGlobals());
 
+const mirrorPrompt = 'I accept the Candidates Privacy Notice. *';
+const mirrorQuestion = `<label for="resumator-questionnaire-q722664">${mirrorPrompt}</label><input type="hidden" id="resumator-questionnaire-q722664" name="resumator-questionnaire[722664]" value="I agree">`;
+const mirrorChoice = '<label><input type="checkbox" id="resumator-checkbox-722664-1" name="resumator-checkbox-722664-1" value="I agree">I agree</label>';
+const mirrorMarketing = '<label><input type="checkbox" id="marketing">Send me the newsletter</label>';
+const radioCards = (options = ['Yes', 'No']) => `<div>${options.map(option => `<div><div role="radio" aria-checked="false"><p>${option}</p></div></div>`).join('')}</div>`;
+function allQuestionReaders(html: string) {
+  const { dom, snapshot } = extract(html);
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  const F = (dom.window as any).CompilaCandidatura;
+  return { dom, F, source: snapshot.fields, bundle: (dom.window as any).CompilaRunnerFields().fields, filler: F.collect(dom.window.document) };
+}
+it('associates JazzHR hidden questionnaire metadata only with its unique keyed checkbox, never marketing', () => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${mirrorQuestion}${mirrorChoice}${mirrorMarketing}</div></form>`);
+  for (const fields of [source, bundle, filler]) {
+    expect(fields[0]).toMatchObject({ label: mirrorPrompt, required: true });
+    expect(fields[1]).toMatchObject({ label: 'Send me the newsletter', required: false });
+  }
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toEqual({ check: true });
+  expect(F.answerFor(filler[1], { identity: {}, documents: {} })).toBeNull();
+  expect(filler[0].element.checked).toBe(false); // A hidden value never proves a recorded check.
+  dom.window.close();
+});
+it('does not invent a hidden owner from an empty for and empty tracking ID', () => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><fieldset><legend>${mirrorPrompt}</legend><label for="">Tracking metadata</label><input type="hidden" id=""><input id="consent" type="checkbox" required></fieldset></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields[0]).toMatchObject({ label: mirrorPrompt, required: true });
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toEqual({ check: true });
+  dom.window.close();
+});
+it.each([
+  ['aria-describedby="description" aria-label="I agree"', '<span id="description">Newsletter</span>'],
+  ['aria-describedby="description"', '<span id="description">I do not agree</span>'],
+  ['aria-describedby="missing-description"', ''],
+  ['aria-details="description"', '<span id="description">I do not agree</span>'],
+  ['title="Newsletter"', ''],
+  ['placeholder="Newsletter"', ''],
+  ['aria-description="Newsletter"', ''],
+])('keeps contrary or unresolved own descriptive metadata distinct from the hidden privacy question: %s', (attributes, description) => {
+  const choice = mirrorChoice.replace('type="checkbox"', `type="checkbox" ${attributes}`);
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${mirrorQuestion}${description}${choice}</div></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields[0].label).not.toMatch(/privacy/i);
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).not.toEqual({ check: true });
+  const plan = guardPlan({ actions: [{ fieldId: source[0].id, action: 'check', source: 'consent' }], missingRequired: [] }, source);
+  expect(plan.actions).not.toContainEqual(expect.objectContaining({ fieldId: source[0].id, action: 'check' }));
+  dom.window.close();
+});
+it('preserves a verified mirror when the own ARIA description is also an affirmative acceptance', () => {
+  const choice = mirrorChoice.replace('type="checkbox"', 'type="checkbox" aria-describedby="description"');
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${mirrorQuestion}<span id="description">I agree</span>${choice}</div></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields[0]).toMatchObject({ label: mirrorPrompt, required: true });
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toEqual({ check: true });
+  dom.window.close();
+});
+it.each([
+  mirrorQuestion.replace('name="resumator-questionnaire[722664]"', 'name="resumator-questionnaire[9]"') + mirrorChoice,
+  mirrorQuestion + mirrorChoice.replace('name="resumator-checkbox-722664-1"', 'name="resumator-checkbox-9-1"'),
+  mirrorQuestion + mirrorChoice.replaceAll('resumator-checkbox-722664-1', 'resumator-checkbox-9-1'),
+  mirrorQuestion + mirrorQuestion + mirrorChoice,
+  mirrorQuestion + mirrorChoice + mirrorChoice,
+  mirrorQuestion + mirrorChoice + mirrorChoice.replaceAll('resumator-checkbox-722664-1', 'resumator-checkbox-722664-2'),
+  mirrorQuestion.replace(mirrorPrompt, '') + mirrorChoice,
+  mirrorQuestion + mirrorChoice.replace('>I agree</label>', '>Send me the newsletter</label>'),
+  mirrorQuestion + mirrorChoice.replace('>I agree</label>', '>I do not agree</label>'),
+  mirrorQuestion + mirrorChoice.replace('type="checkbox"', 'type="checkbox" aria-label="Send me the newsletter"'),
+  mirrorQuestion + '<span id="own-option">I do not agree</span>' + mirrorChoice.replace('type="checkbox"', 'type="checkbox" aria-labelledby="own-option"'),
+  mirrorQuestion.replace('type="hidden"', 'type="hidden" form="other-form"') + mirrorChoice,
+  `<div class="field">${mirrorQuestion}</div><div class="field">${mirrorChoice}</div>`,
+  `<div class="field">${mirrorQuestion}${mirrorChoice.replaceAll('722664', '9')}</div>${mirrorChoice}`,
+])('rejects mismatched, duplicate or foreign hidden-question ownership: %s', markup => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${markup}${mirrorMarketing}</div></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  for (const field of filler) expect(F.answerFor(field, { identity: {}, documents: {} })).not.toEqual({ check: true });
+  dom.window.close();
+});
+it('rejects a hidden questionnaire in another form even when its key matches', () => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form>${mirrorQuestion}</form><form>${mirrorChoice}${mirrorMarketing}</form>`);
+  for (const fields of [source, bundle, filler]) expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).not.toEqual({ check: true });
+  dom.window.close();
+});
+it.each([
+  mirrorQuestion.replaceAll('722664', '9') + mirrorChoice,
+  mirrorQuestion + mirrorChoice.replace('name="resumator-checkbox-722664-1"', 'name="other"'),
+  mirrorQuestion + mirrorChoice.replace('>I agree</label>', '>I do not agree</label>'),
+  mirrorQuestion + '<input type="checkbox" id="preference" name="preference" required>',
+  mirrorQuestion + mirrorQuestion + mirrorChoice,
+])('preserves an unassociated hidden prompt as a distinct owner even without another visible question: %s', markup => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${markup}</div></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  for (const field of filler) expect(F.answerFor(field, { identity: {}, documents: {} })).not.toEqual({ check: true });
+  dom.window.close();
+});
+it('reads a pure unnamed ARIA option list as one logical question in all three runtimes', () => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><h2>Hai la patente?</h2>${radioCards()}<button type="button">Continue</button></form>`);
+  for (const fields of [source, bundle, filler]) {
+    expect(fields).toHaveLength(1);
+    expect(fields[0].label).toBe('Hai la patente?');
+    expect(fields[0].options).toHaveLength(2);
+  }
+  expect(F.answerFor(filler[0], { identity: {}, documents: {}, answers: [] })).toBeNull();
+  expect([...dom.window.document.querySelectorAll('[role="radio"]')].every(node => node.getAttribute('aria-checked') === 'false')).toBe(true);
+  dom.window.close();
+});
+it.each([
+  '<input id="other">',
+  '<input id="other" type="checkbox">',
+  '<button type="button" aria-haspopup="listbox">Please select</button>',
+  '<div ui5-date-picker></div>',
+  `<h2>Another question?</h2>${radioCards(['Other yes', 'Other no'])}`,
+])('keeps an unnamed radio list and a sibling question distinct: %s', sibling => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><h2>I accept the Privacy Policy. *</h2>${radioCards()}${sibling}</form>`);
+  for (const fields of [source, bundle, filler]) expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  for (const field of filler) expect(F.answerFor(field, { identity: {}, documents: {} })).not.toEqual({ check: true });
+  dom.window.close();
+});
+it('does not merge ARIA choices across distinct semantic groups', () => {
+  const { dom, source, bundle, filler } = allQuestionReaders(`<form><h2>I accept the Privacy Policy. *</h2><div class="field"><div role="radio">Yes</div></div><div class="field"><div role="radio">No</div></div></form>`);
+  for (const fields of [source, bundle, filler]) {
+    expect(fields).toHaveLength(2);
+    expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  }
+  dom.window.close();
+});
+it('does not merge unnamed ARIA options across question headings in the same wrapper', () => {
+  const { dom, source, bundle, filler } = allQuestionReaders('<form><div><h2>First question?</h2><div role="radio">Yes</div><h2>Second question?</h2><div role="radio">No</div></div></form>');
+  for (const fields of [source, bundle, filler]) {
+    expect(fields).toHaveLength(2);
+    expect(fields.every((field: any) => !/question/i.test(field.label))).toBe(true);
+  }
+  dom.window.close();
+});
+it.each([
+  '<div aria-label="Newsletter"><div role="radio">Yes</div></div><div aria-label="Privacy acceptance"><div role="radio">No</div></div>',
+  '<span id="news">Newsletter</span><span id="privacy">Privacy acceptance</span><div aria-labelledby="news"><div role="radio">Yes</div></div><div aria-labelledby="privacy"><div role="radio">No</div></div>',
+])('does not merge ARIA options owned by separately named ancestors: %s', options => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><h2>I accept the Privacy Policy. *</h2><div>${options}</div></form>`);
+  for (const fields of [source, bundle, filler]) {
+    expect(fields).toHaveLength(2);
+    expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  }
+  for (const field of filler) expect(F.answerFor(field, { identity: {}, documents: {}, answers: [] })).toBeNull();
+  dom.window.close();
+});
+it.each(['form', 'div role="form"'])('never groups unnamed radio options across separate %s owners under a shared named section', tag => {
+  const close = tag.split(' ')[0];
+  const { dom, source, bundle, filler } = allQuestionReaders(`<section aria-label="I accept the Privacy Policy. *"><${tag}><div role="radio">Yes</div></${close}><${tag}><div role="radio">No</div></${close}></section>`);
+  for (const fields of [source, bundle, filler]) {
+    expect(fields).toHaveLength(2);
+    expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  }
+  dom.window.close();
+});
+
 it('reads the owned consent legend past an empty label and resolves it without a candidate question', () => {
   const { dom, snapshot } = extract(form);
   const field = snapshot.fields.find((item: any) => item.kind === 'checkbox');

@@ -1,7 +1,7 @@
 {
   "key": "kellerhals-carrard",
   "label": "Kellerhals Carrard",
-  "generatedAt": "2026-10-30T09:50:29.236Z",
+  "generatedAt": "2026-10-30T21:52:45.802Z",
   "total": 14,
   "discovered": null,
   "parsed": 14,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 10784,
-  "avgDurationMs": 10784,
+  "unchangedCount": 13,
+  "durationMs": 10028,
+  "avgDurationMs": 10028,
   "durationHistory": [
-    10784
+    10028
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kellerhals-carrard-888f2661dce3",
-      "slug": "avocat-e-collaborateur-trice-fiscaliste-100-kellerhals-carrard-geneve",
+      "slug": "assistente-fiscale-100-kellerhals-carrard-geneve",
       "company": "Kellerhals Carrard",
       "companyKey": "kellerhals-carrard",
       "companyDomain": "kellerhals-carrard.ch",
@@ -34,7 +35,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2868809",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:50:12.128Z",
+      "crawledAt": "2026-10-30T21:52:32.113Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,21 +52,21 @@
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2868809",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-30T09:50:12.128Z",
       "salaryMin": 69000,
       "salaryMax": 118000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-30T09:50:12.128Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "kellerhals-carrard-f573d17283df",
       "slug": "responsabile-del-rispetto-fiscale-kellerhals-carrard-geneve",
@@ -78,7 +79,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2867737",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:50:11.923Z",
+      "crawledAt": "2026-10-30T21:52:31.609Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -107,10 +108,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "kellerhals-carrard-75df663941cf",
       "slug": "assistente-di-ricerca-assistente-di-ricerca-50-kellerhals-carrard-basel",
@@ -123,7 +121,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2807915",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:11.368Z",
+      "crawledAt": "2026-10-30T21:52:31.103Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -165,7 +163,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2791565",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:10.910Z",
+      "crawledAt": "2026-10-30T21:52:30.877Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -207,7 +205,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:50:10.391Z",
+      "crawledAt": "2026-10-30T21:52:30.660Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -248,7 +246,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:09.820Z",
+      "crawledAt": "2026-10-30T21:52:30.308Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -290,7 +288,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2437629",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:50:09.596Z",
+      "crawledAt": "2026-10-30T21:52:30.071Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -332,7 +330,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2397991",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:09.085Z",
+      "crawledAt": "2026-10-30T21:52:29.417Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -373,7 +371,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:08.493Z",
+      "crawledAt": "2026-10-30T21:52:28.780Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -414,7 +412,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:08.297Z",
+      "crawledAt": "2026-10-30T21:52:28.512Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -456,7 +454,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:07.701Z",
+      "crawledAt": "2026-10-30T21:52:28.254Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -497,7 +495,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:07.049Z",
+      "crawledAt": "2026-10-30T21:52:27.636Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -539,7 +537,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:06.501Z",
+      "crawledAt": "2026-10-30T21:52:27.005Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -581,7 +579,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:50:05.890Z",
+      "crawledAt": "2026-10-30T21:52:26.364Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -611,5 +609,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

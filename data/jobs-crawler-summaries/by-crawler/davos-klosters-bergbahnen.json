@@ -1,19 +1,21 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-10-30T09:40:25.541Z",
+  "generatedAt": "2026-10-30T21:40:44.821Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5745,
-  "avgDurationMs": 5745,
+  "unchangedCount": 6,
+  "durationMs": 4499,
+  "avgDurationMs": 4499,
   "durationHistory": [
-    5745
+    4499
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "davos-klosters-bergbahnen-94e55ee0edbe",
       "slug": "meccatronico-a-per-impianti-a-fune-100-davos-klosters-bergbahnen-ag-davos",
@@ -36,7 +38,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahnmechatroniker-in-100_j_3958639",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:40:11.542Z",
+      "crawledAt": "2026-10-30T21:40:34.540Z",
       "firstSeenAt": "2026-10-29T21:33:16.262Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -74,9 +76,8 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-In-Service-Bar-100-Restaurant-Bolgen-Plaza_j_3958627",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:40:11.187Z",
+      "crawledAt": "2026-10-30T21:40:34.343Z",
       "firstSeenAt": "2026-10-29T09:39:58.206Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -113,7 +114,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hilfskoch-100-Restaurant-Bolgen-Plaza_j_3958637",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:40:10.974Z",
+      "crawledAt": "2026-10-30T21:40:34.148Z",
       "firstSeenAt": "2026-10-29T21:33:15.884Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -151,7 +152,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/BETRIEBSELEKTRIKER-IN-100-Parsenn_j_3958641",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:40:10.751Z",
+      "crawledAt": "2026-10-30T21:40:33.952Z",
       "firstSeenAt": "2026-10-29T21:33:15.697Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -189,7 +190,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-100-Immobilienunterhalt_j_3958640",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:40:10.539Z",
+      "crawledAt": "2026-10-30T21:40:33.753Z",
       "firstSeenAt": "2026-10-29T21:33:15.510Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -227,7 +228,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in-100_j_3958638",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:40:10.317Z",
+      "crawledAt": "2026-10-30T21:40:33.550Z",
       "firstSeenAt": "2026-10-29T21:33:15.324Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -244,7 +245,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }
