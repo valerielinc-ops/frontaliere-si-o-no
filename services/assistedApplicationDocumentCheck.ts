@@ -20,7 +20,7 @@ export interface DocumentCheck {
   version?: number;
 }
 
-export const DOCUMENT_CHECK_VERSION = 2;
+export const DOCUMENT_CHECK_VERSION = 3;
 
 export interface CheckedDocument {
   label: string;
@@ -49,6 +49,11 @@ const KIND_TITLES: Record<string, string[]> = {
   school_report: ['scheda di valutazione', 'bulletin scolaire', 'schulzeugnis', 'school report'],
   identity: ['carta d identita', 'carte d identite', 'identity card', 'identitatskarte', 'reisepass', 'passeport', 'passport'],
 };
+
+// Italian registrars also certify a completed degree exam without printing a
+// degree title. Require the certification and the completed exam together:
+// "certificato" alone also describes residence and other unrelated documents.
+const ITALIAN_DEGREE_CERTIFICATION = / (?:si certifica|si attesta) che (?:(?!\b(?:non|mai|dovra|deve)\b)[a-z0-9 ]){0,160}ha superato (?:con (?:voti|votazione) (?:[a-z0-9]+ ){1,10})?l esame di laurea /;
 
 // What a CV says about itself: in a file that should be something else, the candidate picked their CV.
 const CV_WORDS = [
@@ -81,6 +86,7 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
   if (cv.length >= 3 && asked.length < 2) return { verdict: 'looks_like_cv', matched: '' };
   if (asked.length) return { verdict: 'match', matched: asked[0] };
   if (titles.length && cv.length < 2) return { verdict: 'match', matched: titles[0] };
+  if (document.kind === 'diploma' && cv.length < 2 && ITALIAN_DEGREE_CERTIFICATION.test(haystack)) return { verdict: 'match', matched: 'esame di laurea' };
   if (usual.length >= 2) return { verdict: 'match', matched: usual[0] };
   if (cv.length >= 2) return { verdict: 'looks_like_cv', matched: '' };
   return { verdict: 'mismatch', matched: '' };
