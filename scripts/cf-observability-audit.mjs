@@ -134,10 +134,13 @@ export function evaluateChecks(s, now = new Date()) {
     {
       id: 'log-budget',
       title: 'volume log oltre l\'allowance Cloudflare',
+      // Volume is free before the cutover, and the owner keeps 100% sampling until
+      // then: an earlier issue would invite an autonomous fix to lower it too soon.
       failed:
-        volume.ingestGb > INCLUDED_INGEST_GB ||
-        volume.storageGbMonth > INCLUDED_STORAGE_GB_MONTH ||
-        (now.toISOString().slice(0, 10) >= SAMPLING_CUTOVER && s.samplingRate > 0.1),
+        now.toISOString().slice(0, 10) >= SAMPLING_CUTOVER &&
+        (volume.ingestGb > INCLUDED_INGEST_GB ||
+          volume.storageGbMonth > INCLUDED_STORAGE_GB_MONTH ||
+          s.samplingRate > 0.1),
       value: `~${volume.ingestGb.toFixed(0)} GB/mese, ~${volume.storageGbMonth.toFixed(1)} GB-mese, sampling ${s.samplingRate}`,
       target: `massimo ${INCLUDED_INGEST_GB} GB e ${INCLUDED_STORAGE_GB_MONTH} GB-mese; sampling massimo 0.1 dal ${SAMPLING_CUTOVER}`,
       fix: 'Controllare la PR del cutover del sampling, poi ridurre il traffico che genera eventi prima di abbassare ancora il rate.',
