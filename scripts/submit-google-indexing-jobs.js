@@ -55,10 +55,10 @@ import {
 } from './lib/indexing-jobs-planner.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
-// Google default quota: 200 publish requests/day per GCP project. 40 stay
-// reserved for scripts/notify-article-search-engines.mjs (10 articles × 4
-// locales), which shares the project when the service account is the owner.
-export const DAILY_BUDGET = 160;
+// Approved Google Indexing API quota: 2,000 publish requests/day for the GCP
+// project. Scheduled and deploy-triggered job runs share this cap through the
+// serialized ledger owned by monitor-gsc-seo.yml.
+export const DAILY_BUDGET = 2000;
 const DEFAULT_MAX = 15;
 const MAX_RETRIES = 2;
 const FETCH_TIMEOUT_MS = 20_000;
@@ -102,7 +102,7 @@ export function parseArgs(argv) {
  */
 export function runBudgetFor(args, spent) {
   // An explicit --max 0 (e.g. indexing_max=0 on dispatch) is a hard stop:
-  // the first-run share must never turn "send nothing" into 130 requests.
+  // the first-run share must never turn "send nothing" into 2,000 requests.
   if (!(args.max > 0)) return 0;
   const cap = spent === 0 && args.maxFirstRun > args.max ? args.maxFirstRun : args.max;
   return Math.max(0, Math.min(cap, DAILY_BUDGET - spent));

@@ -199,21 +199,21 @@ describe('judgeLive — never notify a non-job page, never delete a live one', (
 
 describe('submit-google-indexing-jobs CLI', () => {
   it('clamps --max to the daily job budget', () => {
-    expect(parseArgs(['--max', '999']).max).toBe(DAILY_BUDGET);
+    expect(parseArgs(['--max', '9999']).max).toBe(DAILY_BUDGET);
     expect(parseArgs([]).max).toBe(15);
     expect(parseArgs(['--max', '130', '--priority-file', '/tmp/p.json', '--dry-run'])).toMatchObject({ max: 130, priorityFile: '/tmp/p.json', dryRun: true });
   });
 
   it('the first run of the quota day takes the large share, later runs the small one, never past the budget', () => {
-    const args = parseArgs(['--max', '15', '--max-first-run', '130']);
-    expect(runBudgetFor(args, 0)).toBe(130);
-    expect(runBudgetFor(args, 130)).toBe(15);
-    expect(runBudgetFor(args, 159)).toBe(1);
+    const args = parseArgs(['--max', '15', '--max-first-run', '2000']);
+    expect(runBudgetFor(args, 0)).toBe(2000);
+    expect(runBudgetFor(args, 2000)).toBe(15);
+    expect(runBudgetFor(args, 1999)).toBe(1);
     expect(runBudgetFor(args, DAILY_BUDGET)).toBe(0);
   });
 
   it('an explicit --max 0 is a hard cap, even on the first run of the quota day', () => {
-    expect(runBudgetFor({ max: 0, maxFirstRun: 130 }, 0)).toBe(0);
-    expect(runBudgetFor(parseArgs(['--max', '0', '--max-first-run', '130']), 0)).toBe(0);
+    expect(runBudgetFor({ max: 0, maxFirstRun: 2000 }, 0)).toBe(0);
+    expect(runBudgetFor(parseArgs(['--max', '0', '--max-first-run', '2000']), 0)).toBe(0);
   });
 });
