@@ -39,12 +39,17 @@
   // «Continua con Google»: a sign-in, never the next step.
   const SOCIAL_RE = /(google|linkedin|facebook|apple|microsoft|xing|indeed|github)/i;
 
+  const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
+  const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
+
+  const BIRTH_FIELD_RE = /birth|geburt|nascita|\bnat[oa]\b|naissance/i;
+
   // Field families, on the normalized label (accents gone, lower case).
   // German compounds («Geburtsdatum», «Telefonnummer», «Postleitzahl»): a
   // family word may start a longer word.
   const FAMILIES = [
     ['email', /\b(e ?mail|email address|indirizzo e ?mail|adresse e ?mail)\b/],
-    ['birthDate', /(data di nascita|\bnascita\b|\bnato\b|\bnata\b|\bbirth|\bgeburt|naissance)/],
+    ['birthDate', DATE_OF_BIRTH_RE],
     ['fullName', /^(name|your name|il tuo nome|ihr name|votre nom)$|\b(full name|nome e cognome|nome completo|vor und nachname|vollstandiger name|nom complet)\b/],
     ['firstName', /\b(first name|given name|vorname|prenom|nome)\b/],
     ['lastName', /\b(last name|surname|family name|nachname|familienname|cognome|nom de famille|nom)\b/],
@@ -584,7 +589,11 @@
         required: true,
       });
     }
-    return entries.map(entry => ({ ...entry, section: runnerSectionOf(runner, entry.element) }));
+    return entries.map(entry => {
+      const field = runner.get(entry.element.getAttribute('data-aa-id'));
+      return { ...entry, section: runnerSectionOf(runner, entry.element), context: field?.context || '', nativeSection: field?.section || '',
+        ...(Object.hasOwn(field || {}, 'addressContext') ? { addressContext: field.addressContext } : {}) };
+    });
   }
 
   function isEmpty(entry) {
@@ -637,17 +646,54 @@
    * The kit answer whose question is one of the control's names (the
    * runner's own wording first): an exact match on any name, then a prefix.
    */
-  function kitAnswer(labels, kit) {
+  function kitAnswer(labels, kit, entry) {
     const wanted = (Array.isArray(labels) ? labels : [labels]).map(normalize).filter(Boolean);
     if (!wanted.length) return null;
-    const answers = kit.answers || [];
-    const exact = answers.find((item) => wanted.includes(normalize(item.question)));
-    if (exact) return exact;
+    const scopedAddress = Boolean(entry && addressEntryNeedsOwnership(entry));
+    const answers = (kit.answers || []).filter(item => !scopedAddress || ownedKitAddressAnswer(entry, item));
+    const pick = items => {
+      if (!items.length) return null;
+      if (scopedAddress && new Set(items.map(item => normalize(item.answer))).size !== 1) return null;
+      return items[0];
+    };
+    const exact = answers.filter((item) => wanted.includes(normalize(item.question)));
+    if (exact.length) return pick(exact);
+    if (scopedAddress) return null;
     // «Carica il tuo CV · Carica file»: the runner joins a heading and a label.
-    return answers.find((item) => {
+    return pick(answers.filter((item) => {
       const question = normalize(item.question);
       return question.length >= 6 && wanted.some((name) => name.length >= 6 && (question.startsWith(name) || name.startsWith(question) || question.includes(` ${name}`)));
-    }) || null;
+    }));
+  }
+
+  function addressEntryNeedsOwnership(entry) {
+    if (isPhoneCountryEntry(entry)) return false;
+    const text = normalize((entry.labels || [entry.label]).join(' '));
+    const auto = String(entry.element.getAttribute('autocomplete') || '').slice(0, 100);
+    const nativeBirthDate = /^(?:birth|nascita|geburt|naissance)$/iu.test(text) && (entry.kind === 'native-date' || entry.type === 'date' || ['date', 'ui5-date'].includes(entry.kind));
+    return FAMILIES.some(([family, pattern]) => ADDRESS_FAMILIES.has(family) && pattern.test(text))
+      || (BIRTH_FIELD_RE.test(text) && !DATE_OF_BIRTH_RE.test(text) && !nativeBirthDate) || BIRTH_LOCATION_RE.test(text) || /\b(?:city|citta|town|locality|ville|ort|comune|lieu|country|land|pays|nazione|paese|street|strasse|rue|address|adresse|indirizzo|cap|postal|postcode|zip|plz|npa)\b/.test(text)
+      || /(?:^|\s)(?:address-level[1-4]|street-address|address-line[1-3]|postal-code|country|country-name)(?:$|\s)/i.test(auto);
+  }
+
+  function validAddressContext(context) {
+    return Boolean(context && typeof context === 'object' && !Array.isArray(context)
+      && !Object.keys(context).some(key => !['section', 'owners', 'unknown'].includes(key))
+      && context.unknown === false && typeof context.section === 'string' && context.section.length <= 300
+      && Array.isArray(context.owners) && context.owners.length <= 16
+      && context.owners.every(owner => typeof owner === 'string' && owner.length <= 300));
+  }
+
+  function ownedKitAddressAnswer(entry, item) {
+    if (!['answers', 'candidate', 'user'].includes(item?.source)) return false;
+    if (entry.section === null) return false;
+    const current = entry.addressContext;
+    const prior = item.addressContext;
+    if (!validAddressContext(current) || !validAddressContext(prior)) return false;
+    return current.section === prior.section && JSON.stringify(current.owners) === JSON.stringify(prior.owners)
+      && normalize(item.context) === normalize(String(entry.context || '').slice(0, 240))
+      && normalize(item.section) === normalize(String(entry.nativeSection || '').slice(0, 240))
+      && String(item.autocomplete || '') === String(entry.element.getAttribute('autocomplete') || '').slice(0, 100);
   }
 
   // HTML autocomplete tokens (the last token: «section-x shipping postal-code»).
@@ -670,6 +716,11 @@
   }
 
   function familyOf(entry) {
+    if ((entry.labels || [entry.label]).some(name => BIRTH_LOCATION_RE.test(normalize(name)))) return null;
+    const nativeBirthDate = (entry.type === 'date' || entry.kind === 'date') && /^(?:birth|nascita|geburt|naissance)$/iu.test(normalize(entry.label));
+    if (BIRTH_FIELD_RE.test(normalize(`${entry.label || ''} ${entry.section || ''}`))
+      && !DATE_OF_BIRTH_RE.test(normalize(entry.label)) && !nativeBirthDate) return null;
+    if (nativeBirthDate) return 'birthDate';
     if (entry.type === 'email') return 'email';
     if (entry.type === 'tel') return 'phone';
     const labels = entry.labels || [entry.label];
@@ -679,8 +730,10 @@
     // Autocomplete identifies the value type, not whose address it is. Only
     // visible labels and the surrounding section may establish residence
     // provenance; a section-personal token alone must stay ownerless.
-    const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''}`);
-    const candidateAddress = entry.section !== null && (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
+    const nativeOwner = validAddressContext(entry.addressContext) ? [entry.addressContext.section, ...entry.addressContext.owners].join(' ') : '';
+    const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''} ${nativeOwner}`);
+    const candidateAddress = entry.section !== null
+      && (!Object.hasOwn(entry, 'addressContext') || validAddressContext(entry.addressContext)) && (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       || RESIDENCE_CONTEXT_RE.test(addressContext))
       && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       && !BIRTHPLACE_RE.test(addressContext)
@@ -747,7 +800,7 @@
 
   /** The value for one entry, or null: never invented, always from the kit. */
   function answerFor(entry, kit) {
-    const fromKit = kitAnswer(entry.labels || [entry.label], kit);
+    const fromKit = kitAnswer(entry.labels || [entry.label], kit, entry);
     if (entry.kind === 'file') {
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
       const accept = String(entry.element.getAttribute('accept') || '');
@@ -780,14 +833,15 @@
     // Contact facts are canonical identity data, not answers copied from the
     // last portal run. This is the boundary that prevents a stale «Schweiz»
     // answer from overwriting an Italian phone prefix or a blank residence.
-    if (['phone', 'phoneCountry', 'country'].includes(family)) {
+    if (['phone', 'phoneCountry', ...ADDRESS_FAMILIES].includes(family)) {
       const value = identityValue(family, kit);
-      return value ? { value, family } : null;
+      if (value) return { value, family };
+      if (['phone', 'phoneCountry', 'country'].includes(family)) return null;
     }
     // A generic country label has no residence provenance. Do not reuse a
     // portal answer whose meaning cannot be established from the page.
     const labelText = normalize((entry.labels || [entry.label]).join(' '));
-    if (!family && COUNTRY_WORD_RE.test(labelText) && !RESIDENCE_CONTEXT_RE.test(labelText)) return null;
+    if (!family && !fromKit && COUNTRY_WORD_RE.test(labelText) && !RESIDENCE_CONTEXT_RE.test(labelText)) return null;
     if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
     const value = family ? identityValue(family, kit) : '';
     // «Full time»/«Part time» describes the desired workload, not a notice
@@ -1310,7 +1364,7 @@
   }
 
   root.CompilaCandidatura = {
-    NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
+    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
     config, normalize, textOf, labelOf, questionOf, collect, isEmpty, answerFor, bestOption,
     parseDate, formatForInput, phoneFor, fillEntry, fillPage, pageState, cookieRefusal,
     pageSignature, nextButton, finalButton, press, setValue, sleep,

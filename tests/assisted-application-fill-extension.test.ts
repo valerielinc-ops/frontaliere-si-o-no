@@ -58,6 +58,56 @@ const continueButtons = '<button type="button"><span>Indietro</span></button><bu
 const ariaChoices = (question: string, options: string[]) => `<form><h2>${question}</h2><div>${options
   .map((option, index) => `<div><div role="radio" aria-checked="false" tabindex="0"><div><p>${String.fromCharCode(97 + index)}</p></div><p>${option}</p></div></div>`).join('')}</div>${continueButtons}</form>`;
 
+describe('fill extension: scoped saved geography answers', () => {
+  const personal = { section: 'Personal information', owners: [], unknown: false };
+  const employer = { section: 'Personal information', owners: ['Employer'], unknown: false };
+  function addressPage(scope: string, addressContext: unknown, label = 'City') {
+    const result = page(`<form><h2>Personal information</h2><fieldset aria-label="${scope}"><label for="city">${label}</label><input id="city" data-aa-id="a1" autocomplete="address-level2" required></fieldset></form>`);
+    Object.defineProperty(result.window.HTMLElement.prototype, 'getBoundingClientRect', { value: () => ({ width: 100, height: 24 }) });
+    // Consumer contract: the production source/bundle producer is tested
+    // separately. This fixture supplies a native read with an explicit owner.
+    (result.window as any).CompilaRunnerFields = () => ({ fields: [{ id: 'a1', label, context: label, section: 'Personal information', autocomplete: 'address-level2', addressContext }] });
+    return result;
+  }
+
+  it.each(['identity', 'profile', 'answers'])('does not use an unbound saved %s city for the employer', async (source) => {
+    const { window, document, F } = addressPage('Employer', employer);
+    await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Como', source }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
+  it.each(['Via', 'Wohnort', 'Località', 'Postleitzahl', 'Place of birth', 'Birthplace', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Nato a', 'Ort der Geburt'])('does not reuse unbound identity, profile or user geography for %s', async (label) => {
+    const { window, document, F } = addressPage('Employer', employer, label);
+    document.getElementById('city')?.removeAttribute('autocomplete');
+    for (const source of ['identity', 'profile', 'answers']) {
+      await F.fillPage(document, { ...kit, answers: [{ question: label, answer: 'Como', source }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+      expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    }
+    window.close();
+  });
+
+  it('requires a matching valid owner and preserves the same-owner user statement', async () => {
+    const { window, document, F } = addressPage('Employer', employer);
+    const entry = F.collect(document)[0];
+    const statement = { question: 'City', answer: 'Lugano', source: 'answers', context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext: employer };
+    expect(F.answerFor(entry, { ...kit, answers: [{ ...statement, addressContext: personal }] })).toBeNull();
+    expect(F.answerFor(entry, { ...kit, answers: [{ ...statement, source: 'identity' }] })).toBeNull();
+    expect(F.answerFor(entry, { ...kit, answers: [{ ...statement, addressContext: { ...employer, unknown: true } }] })).toBeNull();
+    expect(F.answerFor(entry, { ...kit, answers: [statement, { ...statement, answer: 'Zurich' }] })).toBeNull();
+    await F.fillPage(document, { ...kit, answers: [statement] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('Lugano');
+    window.close();
+  });
+
+  it('keeps current residence ahead of a stale saved profile projection', async () => {
+    const { window, document, F } = addressPage('Personal information', personal);
+    await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Zurich', source: 'identity', addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('Como');
+    window.close();
+  });
+});
+
 describe('fill extension: patterns', () => {
   it('shares URL-safe Apply selection with the runner', () => {
     const { F, document } = page('<a href="/wrong">https://jobs.example/?apply=true</a><a href="/email">mailto:apply+foo@example.ch</a><button>Apply now</button>');
