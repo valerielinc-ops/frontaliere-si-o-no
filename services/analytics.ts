@@ -384,7 +384,7 @@ function flushQueue() {
  while (_eventQueue.length > 0) {
  const event = _eventQueue.shift()!;
  if (event.type === 'log') {
- _doLog(event.args[0], event.args[1]);
+   _doLog(event.args[0], event.args[1], event.args[2]);
  } else {
  _doSetProps(event.args[0]);
  }
@@ -393,7 +393,7 @@ function flushQueue() {
 
 let configuredTelemetryLocation: string | null = null;
 
-function _doLog(eventName: string, params?: Record<string, any>) {
+function _doLog(eventName: string, params?: Record<string, any>, onSent?: () => void) {
  try {
  if (_analytics && _logEvent) {
  // Keep SDK-generated engagement events on the current SPA route as well.
@@ -407,12 +407,17 @@ function _doLog(eventName: string, params?: Record<string, any>) {
    configuredTelemetryLocation = locationKey;
   } catch { /* A default-context update must not discard the explicit event. */ }
  }
- _logEvent(_analytics, eventName as any, params);
+ // Keep the acknowledgement out of the application event object, then add
+ // it only at the Firebase→Google tag boundary where the SDK relays the
+ // documented processing callback. `logEvent` itself returns void and must
+ // not resolve the handoff synchronously.
+ const sdkParams = onSent ? { ...(params || {}), event_callback: onSent } : params;
+ _logEvent(_analytics, eventName as any, sdkParams);
  }
  } catch (error) {
  // If logEvent failed due to IndexedDB loss, re-queue the event and attempt recovery
  if (isIndexedDbError(error)) {
- _eventQueue.push({ type: 'log', args: [eventName, params] });
+ _eventQueue.push({ type: 'log', args: [eventName, params, onSent] });
  recoverFromIndexedDbLoss();
  return;
  }
@@ -436,6 +441,11 @@ function _doSetProps(properties: Record<string, string | null>) {
 }
 
 const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
+ const onSent = typeof params?.event_callback === 'function' ? params.event_callback as () => void : undefined;
+ if (params && 'event_callback' in params) {
+  const { event_callback: _eventCallback, ...eventParams } = params;
+  params = eventParams;
+ }
  // Override GA4's automatic document URL before the asynchronous auth exchange.
  params = sanitizeTelemetryProperties({
   ...(typeof window === 'undefined' ? {} : { page_location: window.location.href, page_referrer: typeof document === 'undefined' ? '' : document.referrer }),
@@ -446,9 +456,9 @@ const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
  // reads (see ./nonProductionHost).
  if (GA4_ERROR_EVENTS.has(eventName) && isNonProductionTelemetryHost()) return;
  if (_firebaseReady) {
-  _doLog(eventName, params);
+  _doLog(eventName, params, onSent);
  } else {
-  _eventQueue.push({ type: 'log', args: [eventName, params] });
+  _eventQueue.push({ type: 'log', args: [eventName, params, onSent] });
   ensureFirebase().then(() => {
    if (_analytics && _logEvent) {
     _firebaseReady = true;
