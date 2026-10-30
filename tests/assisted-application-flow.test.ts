@@ -188,18 +188,29 @@ describe('approval flow', () => {
     expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'candidate_approved' }]);
   });
 
-  it('holds on owner red flags until Valerie acts, even after the hour', () => {
-    const flagged = { ...cleanDraft, factCheck: { unsupported: [{ kind: 'number', token: '30' }] } };
-    let step = transition({ state: 'drafting' }, { type: 'draft_ready' }, { draft: flagged, nowMs: T0 });
-    expect(step.flow).toMatchObject({ state: 'owner_review', deadlineAt: null, heldBy: ['fact_check'] });
-    expect(step.effects[0]).toMatchObject({ kind: 'owner_review', held: true });
-    expect(transition(step.flow, { type: 'tick' }, { draft: flagged, nowMs: T0 + 10 * OWNER_REVIEW_MS }).ignored).toBe('nothing_due');
-    // Approving without acknowledging the flag is refused: the flow stays in owner review.
-    const refused = transition(step.flow, { type: 'owner_approve' }, { draft: flagged, nowMs: T0 + 2 * OWNER_REVIEW_MS });
-    expect(refused.ignored).toBe('owner_flags_open');
-    expect(refused.flow.state).toBe('owner_review');
-    step = transition(step.flow, { type: 'owner_approve' }, { draft: { ...flagged, factCheckAcknowledgedAt: T0 }, nowMs: T0 + 2 * OWNER_REVIEW_MS });
-    expect(step.flow.state).toBe('candidate_review');
+  it('repairs fact warnings without owner confirmation and rechecks the result before candidate review', () => {
+    const flagged = { ...cleanDraft, round: 1, factCheck: { unsupported: [{ kind: 'number', token: '30' }] } };
+    let step = transition({ state: 'drafting', shownRounds: [] }, { type: 'draft_ready' }, { draft: flagged, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'regenerating', round: 1, factRepairAttempts: 1, heldBy: [] });
+    expect(step.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'fact_repair' }]);
+    expect(transition(step.flow, { type: 'owner_approve' }, { draft: flagged, nowMs: T0 }).ignored).toBe('not_owner_review');
+    step = transition(step.flow, { type: 'draft_ready' }, { draft: cleanDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'candidate_review', factRepairAttempts: 1 });
+  });
+
+  it('recovers legacy fact holds and requires a fresh review when the old draft was shown', () => {
+    const draft = { ...cleanDraft, round: 2 };
+    const old = { state: 'owner_takeover', round: 2, shownRounds: [1, 2], heldBy: ['fact_check_not_acknowledged'] };
+    const step = transition(old, { type: 'repair_facts' }, { draft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'regenerating', round: 3, factRepairAttempts: 1 });
+    expect(step.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'fact_repair' }]);
+    expect(transition({ ...old, heldBy: ['owner'] }, { type: 'repair_facts' }, { draft, nowMs: T0 }).ignored).toBe('not_fact_held');
+    expect(transition({ ...old, factRepairAttempts: MAX_RUN_ATTEMPTS }, { type: 'repair_facts' }, { draft, nowMs: T0 }).flow)
+      .toMatchObject({ state: 'owner_takeover', heldBy: ['fact_repair_failed'] });
+    expect(transition({ state: 'owner_review', round: 2, shownRounds: [], heldBy: ['fact_check'] }, { type: 'tick' }, { draft, nowMs: T0 }).flow)
+      .toMatchObject({ state: 'regenerating', round: 2 });
+    expect(transition({ state: 'submitting', round: 2, shownRounds: [2] }, { type: 'submit_failed', error: 'fact_check_not_acknowledged' }, { draft, nowMs: T0 }).flow)
+      .toMatchObject({ state: 'regenerating', round: 3 });
   });
 
   it('needs an acknowledgement for every owner flag, the ones without a dedicated field by name', () => {

@@ -163,7 +163,8 @@ describe('draft mode', () => {
       expect.objectContaining({ id: 'salary_expectation', required: true, source: 'rule' }),
     ]);
     // "7 anni" is not in the CV: flagged for the operator.
-    expect(draft.factCheck.unsupported.map((item: any) => item.token)).toEqual(['7']);
+    expect(draft.factCheck).toMatchObject({ ok: true, unsupported: [] });
+    expect(draft.coverLetter.text).not.toContain('7 anni');
     expect(bucket.files.has(draft.coverLetterPdfKey)).toBe(true);
     const archive = JSON.parse(bucket.files.get(draft.archiveKey)!.toString('utf8'));
     expect(decryptJson(archive, KEY).postingText).toContain('Ospedale cerca');
@@ -185,7 +186,8 @@ describe('draft mode', () => {
     expect(draft.coverLetter.subject).toBe('Candidatura per un posto di tirocinio come impiegato/a di commercio AFC');
     expect(draft.applicationEmail.subject).toBe('Candidatura per un posto di tirocinio come impiegato/a di commercio AFC – Maria Rossi');
     // «AFC» in the subject is the trade's, not a diploma the CV must show: only the invented «7 anni» is flagged.
-    expect(draft.factCheck.unsupported.map((item: any) => item.token)).toEqual(['7']);
+    expect(draft.factCheck).toMatchObject({ ok: true, unsupported: [] });
+    expect(draft.coverLetter.text).not.toContain('7 anni');
   });
 
   it('writes the next round from the candidate as corrected on the review page', async () => {
@@ -266,19 +268,21 @@ describe('draft mode', () => {
     // The findings are no words of the candidate: they back no fact (flow.feedback would).
     expect(fixed.draft.factSources.answers).not.toContain('7');
 
-    // A repair that is no better (the same figure, or one more) leaves the first version and its warning.
+    // If rewriting still invents facts, keep verified paragraphs and remove
+    // the unsupported claims. The complete fact gate must then pass.
     const same = await draftWith(() => documents([backed, 'Ho 7 anni di esperienza.']));
-    expect(same.draft.factRepair).toEqual({ before: 1, after: 1 });
-    expect(same.draft.factCheck.unsupported.map((item: any) => item.token)).toEqual(['7']);
+    expect(same.draft.factRepair).toMatchObject({ before: 1, after: 0, method: 'verified_paragraphs' });
+    expect(same.draft.factCheck).toMatchObject({ ok: true, unsupported: [] });
+    expect(same.draft.coverLetter.text).toContain(backed);
+    expect(same.draft.coverLetter.text).not.toContain('7 anni');
     const worse = await draftWith(() => documents([backed, 'Ho 7 anni di esperienza con 99 colleghi.']));
-    expect(worse.draft.factRepair).toEqual({ before: 1, after: 1 });
+    expect(worse.draft.factCheck).toMatchObject({ ok: true, unsupported: [] });
     expect(worse.draft.coverLetter.text).not.toContain('99 colleghi');
-    expect(evaluateRedFlags(worse.draft).owner).toContain('fact_check');
-    // A repair that does not come (the broker, an empty answer) never fails the draft.
-    const lost = await draftWith(() => { throw new Error('broker timed out'); });
-    expect(lost.draft).toMatchObject({ status: 'ready', factRepair: { before: 1, after: 1 } });
-    const empty = await draftWith(() => documents([]));
-    expect(empty.draft).toMatchObject({ status: 'ready', factRepair: { before: 1, after: 1 } });
+    expect(evaluateRedFlags(worse.draft).owner).not.toContain('fact_check');
+    for (const repair of [() => { throw new Error('broker timed out'); }, () => documents([])]) {
+      const fallback = await draftWith(repair);
+      expect(fallback.draft).toMatchObject({ status: 'ready', factCheck: { ok: true, unsupported: [] }, factRepair: { before: 1, after: 0 } });
+    }
   });
 
   it('writes the tailored CV once more when its gate stops it, instead of dropping it for the original', async () => {
@@ -361,7 +365,7 @@ describe('draft mode', () => {
     expect(baseline).toMatchObject({ calls: 5, elapsedMs: 90 * MINUTE });
     // Both repairs asked for, and both in vain: ten minutes more, never the two in a row.
     const worst = await run(true);
-    expect(worst.draft.factRepair).toEqual({ before: 1, after: 1 });
+    expect(worst.draft.factRepair).toMatchObject({ before: 1, after: 0, method: 'verified_paragraphs' });
     expect(worst.draft.tailoredCv.status).toBe('fact_check_failed');
     expect(worst).toMatchObject({ calls: 7, elapsedMs: 100 * MINUTE });
     expect(worst.elapsedMs).toBeLessThanOrEqual(120 * MINUTE);

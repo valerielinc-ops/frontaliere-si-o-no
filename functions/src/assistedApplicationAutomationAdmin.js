@@ -145,7 +145,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       interviewWhen: item.interviewWhen || '',
       forwarded: item.forwarded?.status || null,
     }));
-  if (!flow && !draft && !inbox.length && !accounts.length && !followup) return null;
+  if (!flow && !draft && !inbox.length && !accounts.length && !followup && !orderSnapshot.data()?.candidateAlias?.address) return null;
   // One signature per key and load: the CV that left is usually the tailored CV signed here already.
   const signatures = new Map();
   const signed = (key) => {
@@ -158,6 +158,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const candidateState = draft ? candidateWithEdits({ order: orderSnapshot.data() || {}, draft, flow }) : { profile: {}, answers: {} };
   return {
     inbox,
+    candidateAlias: orderSnapshot.data()?.candidateAlias?.address || null,
     accounts,
     followup,
     interviewPrep: interviewPrep ? { status: interviewPrep.status || 'preparing', sentAt: interviewPrep.sentAt || null, questions: interviewPrep.questions || 0, stories: interviewPrep.stories || 0 } : null,
