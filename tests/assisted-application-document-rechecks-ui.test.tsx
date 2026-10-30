@@ -49,6 +49,19 @@ describe('automatic rechecks on the candidate review page', () => {
     await act(async () => { second.resolve(CHECK); }); await waitFor(() => expect(setData).toHaveBeenCalledTimes(1));
   });
 
+  it('restarts a pending read when only the requested-document quote changes', async () => {
+    const first = deferred(); const second = deferred();
+    vi.mocked(recheckReviewDocument).mockReturnValueOnce(first.promise).mockReturnValueOnce(second.promise);
+    const setData = vi.fn();
+    const hook = renderHook(({ data }) => useAssistedApplicationDocumentRechecks('token', data, setData), { initialProps: { data: payload() } });
+    const changed = payload(); changed.documents![0].quote = 'Current posting wording';
+    hook.rerender({ data: changed });
+    expect(recheckReviewDocument).toHaveBeenCalledTimes(2);
+    expect(vi.mocked(recheckReviewDocument).mock.calls[0][3].aborted).toBe(true);
+    await act(async () => { first.resolve(CHECK); }); expect(setData).not.toHaveBeenCalled();
+    await act(async () => { second.resolve(CHECK); }); await waitFor(() => expect(setData).toHaveBeenCalledTimes(1));
+  });
+
   it('keeps a failed attempt settled instead of retrying on every render', async () => {
     vi.mocked(recheckReviewDocument).mockRejectedValue(new Error('network'));
     const setData = vi.fn();

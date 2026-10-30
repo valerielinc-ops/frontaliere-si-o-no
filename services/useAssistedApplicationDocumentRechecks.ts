@@ -4,6 +4,7 @@ import { recheckReviewDocument, type ReviewDocument, type ReviewPayload } from '
 
 type Check = ReviewDocument['files'][number]['clientCheck'];
 type Result = { check: Check; uploadedAt: number | null; size: number };
+const documentIdentity = (document: ReviewDocument) => [document.id, document.label, document.kind, document.keywords, document.required, document.quote];
 
 /** Resume cancelled checks, preserve actual failures, and never apply a result to another token or file. */
 export function useAssistedApplicationDocumentRechecks(token: string, data: ReviewPayload | null, setData: Dispatch<SetStateAction<ReviewPayload | null>>) {
@@ -13,8 +14,8 @@ export function useAssistedApplicationDocumentRechecks(token: string, data: Revi
   currentToken.current = token;
   // A normal payload refresh or answer edit must not interrupt the same document read.
   const signature = JSON.stringify((data?.documents || []).map(document => ({
-    id: document.id, kind: document.kind, keywords: document.keywords,
-    files: document.files.map(file => [file.id, file.uploadedAt, file.size, file.clientCheck.version]),
+    document: documentIdentity(document),
+    files: document.files.map(file => [file.id, file.name, file.detectedType, file.uploadedAt, file.size, file.clientCheck.version]),
   })));
   const round = data?.round;
   const stale = data?.stale;
@@ -28,7 +29,7 @@ export function useAssistedApplicationDocumentRechecks(token: string, data: Revi
       for (const document of data.documents || []) {
         for (const file of document.files) {
           if (cancelled || (file.clientCheck.version || 1) >= DOCUMENT_CHECK_VERSION) continue;
-          const key = JSON.stringify([token, round, document.id, document.kind, document.keywords, file.id, file.uploadedAt, file.size, DOCUMENT_CHECK_VERSION]);
+          const key = JSON.stringify([token, round, documentIdentity(document), file.id, file.name, file.detectedType, file.uploadedAt, file.size, DOCUMENT_CHECK_VERSION]);
           const cached = completed.current.get(key);
           if (cached) { results.set(`${document.id}:${file.id}`, cached); continue; }
           if (attempted.current.has(key)) continue;
