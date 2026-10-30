@@ -331,7 +331,8 @@
       "id": "galenica-1a93eacc5398",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-apotheker-apothekerin-w-m-d-st-gallen"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-st-gallen",
+          "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen-nwl11p"
         ],
         "en": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-st-gallen"
@@ -341,7 +342,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-apotheker-apothekerin-w-m-d-st-gallen"
+        "galenica-galenica-apotheker-apothekerin-w-m-d-st-gallen",
+        "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen-nwl11p"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -606,7 +608,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-70edf8af43c1",
       "previousSlugsByLocale": {
         "it": [
@@ -981,7 +982,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -1803,7 +1805,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistent / Assistentin Schulungen & Events (w/m/d)",
@@ -2951,7 +2954,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-5669b04c0919",
       "previousSlugsByLocale": {
         "it": [
@@ -5349,7 +5351,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Specialista supporto vendite (f/m/d)",
@@ -22392,7 +22395,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
