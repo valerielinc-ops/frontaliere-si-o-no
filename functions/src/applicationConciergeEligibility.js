@@ -143,7 +143,8 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
     const ref = cache.doc(cacheId);
     const cached = (await ref.get()).data();
-    if (cached?.fingerprint === fingerprint && hasVerifiedQualificationEvidence(cached)) return { ...cached.result, fingerprint, cacheId };
+    if (cached?.fingerprint === fingerprint && cached.version === CONCIERGE_ELIGIBILITY_VERSION
+      && hasVerifiedQualificationEvidence(cached)) return { ...cached.result, fingerprint, cacheId };
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
     const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,

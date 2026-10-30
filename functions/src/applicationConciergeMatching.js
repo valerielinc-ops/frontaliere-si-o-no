@@ -497,7 +497,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
     const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, background: true, signal: eligibilitySignal });
     const checks = new Map();
-    const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile, profileRecord.applicationQuestionAnswers || {}])).digest('hex');
+    const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile,
+      profileRecord.applicationQuestionAnswers || {}, profileRecord.applicationQuestionAnswerEvidence || {}])).digest('hex');
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
     const dueRetries = await dueEligibilityRetries(serviceRef, Date.now());
     const relevantUrls = new Set(rankedWork.map(entry => entry.url));
