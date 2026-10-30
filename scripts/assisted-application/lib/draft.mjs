@@ -10,6 +10,7 @@
  */
 
 import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequirements.js';
+import { sourceCitations, citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
 import {
@@ -196,7 +197,6 @@ export async function buildDraft(ctx) {
   const personal = edited.personal;
 
   const locale = candidateLocale(order);
-  const profileJson = JSON.stringify(profile);
   const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
   const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
   // Apprentice, first job or qualified, and the sector: the CV's sections and the letter's plan follow it.
@@ -212,14 +212,17 @@ export async function buildDraft(ctx) {
   });
   const reuseQualifiedMatch = qualification && !candidateNotes && !Object.keys(edited.overrides).length
     && !Object.keys(answers).some(key => key !== 'salutation') && !flow?.feedback?.length;
+  const evidenceText = `${cvText}\n${JSON.stringify(answers)}\n${candidateNotes}\n${JSON.stringify(edited.overrides)}`;
+  const candidateSources = sourceCitations({ cv: cvText, answers: Object.keys(answers).length ? JSON.stringify(answers) : '', notes: candidateNotes,
+    corrections: Object.keys(edited.overrides).length ? JSON.stringify(edited.overrides) : '' });
   const matchRaw = reuseQualifiedMatch ? qualification.match : await codex({
     prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
-      profile, requirements, answers, candidateNotes, postingExcerpt: postingText, sourceText: cvText,
+      profile, requirements, answers, candidateNotes, postingExcerpt: postingText, candidateSourceExcerpts: candidateSources.excerpts,
     })),
-    schema: MATCH_SCHEMA,
+    schema: citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources),
     timeoutMs: CODEX_TIMEOUT_MS,
   });
-  const match = guardMobilityMatch(requirements, sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}\n${candidateNotes}`),
+  const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, evidenceText),
     { profile, sourceText: `${cvText}\n${candidateNotes}`, answers, memory: flow?.questionAnswers || {}, locale });
   let requiredDocuments = requiredDocumentsFromRequirements(requirements);
   // A document the posting requires is uploaded, not asked about (owner decision 2026-10-08): «do you hold the

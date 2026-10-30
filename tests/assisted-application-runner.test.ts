@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { isDeepStrictEqual } from 'node:util';
 import { renderPdf } from '../functions/src/assistedApplicationAiDocuments.js';
 import { JOB_ACTIVE_IDS_URL } from '../functions/src/assistedApplicationAiJob.js';
 import {
@@ -68,8 +69,17 @@ function fakeFetch({ employerStatus = 200, employerHtml = '<main><p>Descrizione 
   });
 }
 
+function isMatchSchema(schema: any) {
+  if (schema === MATCH_SCHEMA) return true;
+  const values = schema?.properties?.matches?.items?.properties?.evidence?.enum;
+  if (!Array.isArray(values) || !values.includes('') || !values.every(value => typeof value === 'string')) return false;
+  const contract = structuredClone(schema);
+  contract.properties.matches.items.properties.evidence = MATCH_SCHEMA.properties.matches.items.properties.evidence;
+  return isDeepStrictEqual(contract, MATCH_SCHEMA);
+}
+
 function fakeCodex() {
-  return vi.fn(async ({ schema }: { schema: unknown }) => {
+  return vi.fn(async ({ schema, prompt }: { schema: unknown; prompt: string }) => {
     if (schema === PROFILE_SCHEMA) {
       return {
         fullName: 'Maria Rossi', email: 'maria.rossi@example.com', phone: '+41 79 123 45 67', location: 'Como', linkedin: '', website: '',
@@ -91,9 +101,13 @@ function fakeCodex() {
         languageRequirements: [], workPermitQuote: '', salaryRequested: true, applicationEmail: 'hr@invented.ch', contactPerson: '', applicationInstructions: 'Inviare il CV con le pretese salariali.',
       };
     }
-    if (schema === MATCH_SCHEMA) {
+    if (isMatchSchema(schema)) {
+      const payload = JSON.parse(prompt.split('\n\n<<<POSTING EXCERPT')[0].split('\n\n').at(-1)!);
+      const sources = payload.candidateSourceExcerpts;
+      expect((schema as any).properties.matches.items.properties.evidence.enum).toEqual(['', ...sources.map((source: any) => source.id)]);
+      const originalLanguage = sources.find((source: any) => source.text.includes('tedesco B1'));
       return {
-        matches: [{ index: 1, status: 'met', evidence: 'tedesco B1' }, { index: 0, status: 'missing', evidence: 'diploma inventato nel CV' }],
+        matches: [{ index: 1, status: 'met', evidence: originalLanguage?.id || 'tedesco B1' }, { index: 0, status: 'missing', evidence: 'diploma inventato nel CV' }],
         verdict: 'good', summaryIt: 'Buon profilo.', checksIt: [], questions: [],
       };
     }
@@ -157,6 +171,7 @@ describe('draft mode', () => {
     expect(draft.requirementsRaw.applicationEmail).toBe('');
     // Evidence the CV does not contain is not kept as evidence.
     expect(draft.matches.find((item: any) => item.index === 0)).toMatchObject({ evidence: '', evidenceUnverified: true });
+    expect(draft.matches.find((item: any) => item.index === 1)).toMatchObject({ evidence: expect.stringContaining('tedesco B1'), evidenceUnverified: false });
     // The posting asks for a salary expectation: the question is added even though the model forgot it.
     // The unambiguous Italian first name already fills the form of address, so it is not asked again.
     expect(draft.questions).toEqual([
@@ -197,7 +212,7 @@ describe('draft mode', () => {
       order, orderId: ORDER_ID, flow, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
       codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
     });
-    const promptFor = (schema: unknown) => (codex.mock.calls as any[]).find(([request]) => request.schema === schema)[0].prompt;
+    const promptFor = (schema: unknown) => (codex.mock.calls as any[]).find(([request]) => schema === MATCH_SCHEMA ? isMatchSchema(request.schema) : request.schema === schema)[0].prompt;
     for (const schema of [MATCH_SCHEMA, DOCUMENTS_SCHEMA]) {
       expect(promptFor(schema)).toContain('Deutsch C1');
       expect(promptFor(schema)).toContain('"work_permit":"B"');
@@ -1009,7 +1024,7 @@ describe('submit mode', () => {
       if (request.schema === REQUIREMENTS_SCHEMA) {
         return { ...answer, requestedDocuments: [{ document: 'Diploma SUP', kind: 'diploma', required: true, quote: 'diploma SUP in cure infermieristiche', keywords: ['diploma SUP', 'Diplom FH'] }] };
       }
-      if (request.schema === MATCH_SCHEMA) {
+      if (isMatchSchema(request.schema)) {
         return { ...answer, questions: [question('sup_diploma', 'Possiedi il diploma SUP?', 'yes_no'), question('ward_years', 'Quanti anni di esperienza di reparto hai?', 'number')] };
       }
       return answer;
@@ -1044,7 +1059,7 @@ describe('submit mode', () => {
     // The document holds the send, once: no question beside it.
     expect(evaluateRedFlags(draft, { ward_years: '5', salary_expectation: 'CHF 80k', portal_turni_notturni: 'Sì' })).toMatchObject({ candidate: [], documents: ['diploma_sup', 'portal_document_references'] });
     // The model is told what the candidate uploads.
-    const matchPrompt = (codex.mock.calls as any[]).map(([request]) => request).find((request) => request.schema === MATCH_SCHEMA).prompt;
+    const matchPrompt = (codex.mock.calls as any[]).map(([request]) => request).find((request) => isMatchSchema(request.schema)).prompt;
     expect(matchPrompt).toContain('"requestedDocuments":[{"document":"Diploma SUP","required":true}]');
   });
 

@@ -14,7 +14,7 @@
  * the fact warnings.
  */
 
-import { languageCodesIn, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion } from './lib/languageFacts.js';
+import { languageCodesIn, languageCodeOf, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion, isLanguageNameOnly } from './lib/languageFacts.js';
 
 export const DECISIVE_REQUIREMENT_IMPORTANCES = ['critical', 'high'];
 const DECISIVE = DECISIVE_REQUIREMENT_IMPORTANCES;
@@ -65,11 +65,26 @@ export function fitNoticeWording(fit, { questions = false, edit = true } = {}) {
 export function conciergeProposalEligibility(requirements, match, { profile = null, answers = {} } = {}) {
   const rows = Array.isArray(requirements?.requirements) ? requirements.requirements : [];
   if (!rows.length || !Array.isArray(match?.matches)) return { status: 'unverified', gaps: [] };
+  // The separate language list must not bypass the numbered, evidence-checked
+  // requirements. An omitted clause is incomplete extraction, not a candidate gap.
+  if ((requirements?.languageRequirements || []).some(language => {
+    const quote = text(language?.quote, 300).toLocaleLowerCase();
+    return !quote || !rows.some(row => row.basis === 'stated' && !row.quoteUnverified
+      && text(row.quote, 400).toLocaleLowerCase().includes(quote));
+  })) return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
   const found = new Map();
   for (const row of match.matches) {
     if (found.has(row.index)) return { status: 'unverified', gaps: [] };
     found.set(row.index, row);
   }
+  // Bad citations and omitted rows are technical failures of the analysis,
+  // not missing candidate qualifications to cache or ask the person about.
+  if (rows.some((row, index) => {
+    if (!DECISIVE.includes(row.importance)) return false;
+    const evidence = found.get(index);
+    return row.basis !== 'stated' || !row.quote || row.quoteUnverified || !evidence
+      || evidence.evidenceUnverified || (evidence.status === 'met' && !String(evidence.evidence || '').trim());
+  })) return { status: 'unverified', reason: 'evidence_incomplete', gaps: [] };
   const gaps = rows.flatMap((row, index) => {
     if (!DECISIVE.includes(row.importance)) return [];
     const evidence = found.get(index);
@@ -79,27 +94,58 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     }
     return [];
   });
-  // A one-language must-have cannot be satisfied by evidence about a different language.
-  // Multi-language alternatives and combined clauses remain with the two-pass evaluator.
+  // A language must-have cannot be satisfied by evidence about another language.
   for (const [index, row] of rows.entries()) {
-    if (!profile || !DECISIVE.includes(row.importance) || !isLanguageAbilityQuestion(row.quote)) continue;
-    const codes = languageCodesIn(row.quote || '');
-    if (codes.length !== 1) continue;
-    const code = codes[0];
-    const entry = explicitLanguageEntry(profile, code);
-    const remembered = answers[`language_${code}_any_proficiency`];
-    const level = String(remembered || entry?.level || '');
+    const listedLanguages = (requirements?.languageRequirements || []).filter(language => language.quote && text(row.quote, 400).toLocaleLowerCase().includes(text(language.quote, 300).toLocaleLowerCase()));
+    if (!DECISIVE.includes(row.importance) || (!listedLanguages.length && !isLanguageAbilityQuestion(row.quote))) continue;
+    const codes = [...new Set([...languageCodesIn(row.quote || ''), ...listedLanguages.flatMap(({ language }) => {
+      const code = languageCodeOf(language);
+      return code ? [code] : languageCodesIn(language);
+    })])];
     const rank = value => {
       const label = String(value);
       const cefr = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(label.toUpperCase().match(/\b[ABC][12]\b/)?.[0]);
       if (cefr >= 0) return cefr;
-      if (/\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(label)) return 5;
-      return /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(label) ? 4 : -1;
+      if (/\b(?:native|mother tongue|madrelingua|muttersprache|muttersprachlich(?:e|en|er|es|em)?|langue maternelle)\b/iu.test(label)) return 5;
+      return /\b(?:fluent|fluente|fluenti|(?:fließend|fliessend|verhandlungssicher)(?:e|en|er|es|em)?|courant(?:e|es|s)?)\b/iu.test(label) ? 4 : -1;
     };
-    const requested = rank(row.quote);
-    const fluent = /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(row.quote || '');
-    const native = /\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(row.quote || '');
-    const minimum = requested >= 0 ? requested : native ? 5 : fluent ? 4 : -1;
+    const minimum = rank(row.quote);
+    if (codes.length > 1) {
+      const names = [...String(row.quote).matchAll(/\p{L}+/gu)].filter(word => isLanguageNameOnly(word[0]));
+      const bridges = names.slice(1).map((word, position) => row.quote.slice(names[position].index + names[position][0].length, word.index).trim());
+      const alternative = bridges.length > 0 && bridges.every(bridge => /^(?:or|oder|ou|o)$/iu.test(bridge));
+      const conjunction = bridges.length > 0 && bridges.every(bridge => /^(?:and|und|et|e|&)$/iu.test(bridge));
+      const levelWords = [...String(row.quote).matchAll(/\b(?:[ABC][12]|native|mother tongue|madrelingua|muttersprache|muttersprachlich(?:e|en|er|es|em)?|langue maternelle|fluent|fluente|fluenti|(?:fließend|fliessend|verhandlungssicher)(?:e|en|er|es|em)?|courant(?:e|es|s)?)\b/giu)];
+      const levels = new Set(levelWords.map(word => rank(word[0])));
+      // A shared level must sit outside a directly joined language list.
+      // "German C1 and basic English" does not establish one shared minimum.
+      const sharedLevel = names.length === codes.length && levelWords.length > 0
+        && (levelWords.every(word => word.index + word[0].length <= names[0].index)
+          || levelWords.every(word => word.index >= names.at(-1).index + names.at(-1)[0].length));
+      // Mixed clauses, different per-language levels and unspecified levels
+      // need a complete analysis, never a guess from one positive language.
+      if (!profile || minimum < 0 || levels.size > 1 || !sharedLevel || alternative === conjunction) {
+        return { status: 'unverified', reason: 'language_clause_unverified', gaps: [] };
+      }
+      const states = codes.map(code => {
+        const entry = explicitLanguageEntry(profile, code);
+        const remembered = answers[`language_${code}_any_proficiency`];
+        const level = rank(remembered || entry?.level || '');
+        const absent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
+        return { met: level >= minimum, knownMissing: absent || (level >= 0 && level < minimum) };
+      });
+      if (alternative ? states.some(state => state.met) : states.every(state => state.met)) continue;
+      const knownMissing = alternative ? states.every(state => state.knownMissing) : states.some(state => state.knownMissing);
+      const existing = gaps.find(gap => gap.index === index);
+      if (existing) existing.knownMissing = knownMissing;
+      else gaps.push({ index, requirement: row.requirement, importance: row.importance, status: 'unknown', knownMissing });
+      continue;
+    }
+    if (!profile || codes.length !== 1) continue;
+    const code = codes[0];
+    const entry = explicitLanguageEntry(profile, code);
+    const remembered = answers[`language_${code}_any_proficiency`];
+    const level = String(remembered || entry?.level || '');
     if (minimum < 0 && !/(?:knowledge|proficien|kenntnis|conoscenz|maîtrise|parlato|written|spoken)/iu.test(row.quote || '')) continue;
     const knownAbsent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
     if (knownAbsent || (!entry && !remembered) || (minimum >= 0 && (rank(level) < minimum))) {
@@ -107,6 +153,9 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
       const existing = gaps.find(gap => gap.index === index);
       if (existing) existing.knownMissing = knownMissing;
       else gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown', knownMissing });
+    } else if (minimum < 0 && found.get(index)?.status === 'met') {
+      const evidenceCodes = languageCodesIn(found.get(index)?.evidence || '');
+      if (evidenceCodes.length && !evidenceCodes.includes(code)) return { status: 'unverified', reason: 'evidence_incomplete', gaps: [] };
     }
   }
   const notice = fitNoticeOf({ requirements: rows, matches: match.matches, verdict: match.verdict });
