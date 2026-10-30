@@ -143,14 +143,15 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (element.tagName === 'INPUT' || !element.matches('[role="radio"]')) return null;
     const explicit = element.closest('[role="radiogroup"]');
     if (explicit) return explicit;
-    const owner = element.closest(QUESTION_GROUP_SELECTOR);
+    const ownerSelector = `${QUESTION_GROUP_SELECTOR}, section, article, dialog, [role="region"], [role="dialog"], [role="tabpanel"], [aria-label], [aria-labelledby]`;
+    const owner = element.parentElement?.closest(ownerSelector);
     const boundary = owner || element.closest('form') || element.ownerDocument.body;
     for (let node = element.parentElement; node; node = node.parentElement) {
       const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)].filter(control =>
         control.tagName !== 'INPUT' || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()));
       if (controls.length > 1) {
         return controls.every(control => control.tagName !== 'INPUT' && control.matches('[role="radio"]')
-          && control.closest(QUESTION_GROUP_SELECTOR) === owner)
+          && control.parentElement?.closest(ownerSelector) === owner)
           && !node.querySelector(QUESTION_LABEL_SELECTOR) ? node : null;
       }
       if (node === boundary) break;
@@ -173,6 +174,12 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (mirror.id !== `resumator-questionnaire-q${key[1]}` || mirror.name !== `resumator-questionnaire[${key[1]}]`
       || mirror.form !== form || mirror.closest(QUESTION_GROUP_SELECTOR) !== group) return null;
     const doc = element.ownerDocument;
+    const refs = (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean);
+    if (refs.some(id => !doc.getElementById(id))) return null;
+    const ownNames = [...element.labels || []].map(label => label.textContent || '');
+    ownNames.push(...refs.map(id => doc.getElementById(id).textContent || ''));
+    if (element.getAttribute('aria-label')) ownNames.push(element.getAttribute('aria-label'));
+    if (!ownNames.length || ownNames.some(text => !/^(?:i )?(?:agree|accept)[.!]?$/i.test(String(text).replace(/\s+/g, ' ').trim()))) return null;
     if ([...doc.querySelectorAll('[id]')].filter(node => node.id === mirror.id).length !== 1
       || [...doc.querySelectorAll('[id]')].filter(node => node.id === element.id).length !== 1) return null;
     const labels = [...doc.querySelectorAll('label[for]')].filter(label => label.getAttribute('for') === mirror.id);
