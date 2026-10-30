@@ -3288,10 +3288,10 @@
     },
     {
       "id": "ottos-4f3bf2bd8edf",
-      "slug": "assistent-in-einkauf-non-food-ottos-sursee",
+      "slug": "assistente-agli-acquisti-nel-settore-non-alimentare-otto-s-ag-sursee",
       "slugByLocale": {
         "de": "assistent-in-einkauf-non-food-ottos-sursee",
-        "it": "assistent-in-einkauf-non-food-ottos-sursee",
+        "it": "assistente-agli-acquisti-nel-settore-non-alimentare-otto-s-ag-sursee",
         "en": "non-food-purchasing-assistant-otto-s-ag-sursee",
         "fr": "assistant-e-en-achats-non-alimentaires-otto-s-ag-sursee"
       },
@@ -3356,7 +3356,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T10:02:42.763Z"
+      "firstSeenAt": "2026-10-30T10:02:42.763Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-einkauf-non-food-ottos-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-einkauf-non-food-ottos-sursee"
+      ]
     },
     {
       "id": "ottos-5e71c027473a",
