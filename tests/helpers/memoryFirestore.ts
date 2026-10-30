@@ -59,12 +59,17 @@ export function createMemoryFirestore(initial: Record<string, Data> = {}) {
     const list = () => [...docs.keys()]
       .filter((key) => key.startsWith(`${path}/`) && key.split('/').length === depth)
       .sort();
-    const query = (filters: Array<[string, string, any]>, max = Infinity): any => ({
-      where: (field: string, operator: string, value: any) => query([...filters, [field, operator, value]], max),
-      orderBy: () => query(filters, max),
-      limit: (value: number) => query(filters, value),
+    const query = (filters: Array<[string, string, any]>, max = Infinity, sortField?: string): any => ({
+      where: (field: string, operator: string, value: any) => query([...filters, [field, operator, value]], max, sortField),
+      orderBy: (field: string) => query(filters, max, field),
+      limit: (value: number) => query(filters, value, sortField),
+      count: () => ({ get: async () => ({ data: () => ({ count: list().filter(key => filters.every(([field, operator, value]) => OPERATORS[operator](docs.get(key)?.[field], value))).slice(0, max).length }) }) }),
       async get() {
         const matching = list().filter((key) => filters.every(([field, operator, value]) => OPERATORS[operator](docs.get(key)?.[field], value)));
+        if (sortField && sortField !== '__name__') matching.sort((a, b) => {
+          const left = docs.get(a)?.[sortField]; const right = docs.get(b)?.[sortField];
+          return left < right ? -1 : left > right ? 1 : a.localeCompare(b);
+        });
         const snapshots = await Promise.all(matching.slice(0, max).map((key) => docRef(key).get()));
         return { docs: snapshots, empty: snapshots.length === 0, size: snapshots.length };
       },

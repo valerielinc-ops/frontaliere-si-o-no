@@ -61,6 +61,13 @@ const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, mat
 beforeEach(() => { records = new Map(); queue = Promise.resolve(); deliveries.length = 0; vi.clearAllMocks(); });
 
 describe('concierge refresh and notification lifecycle', () => {
+  it('respects a future retry when discovery is complete, without postponing fresh discovery', () => {
+    const service = active({ matchingStatus: 'complete', matchingCompletedAt: now - 3600000,
+      matchingPendingCount: 0, matchingUnverifiedCount: 2, matchingRetryAt: now + 12 * 3600000 });
+    expect(conciergeRefreshDue(service, now)).toBe(false);
+    expect(conciergeRefreshDue(service, now + 12 * 3600000)).toBe(true);
+    expect(conciergeRefreshDue({ ...service, matchingPendingCount: 10 }, now)).toBe(true);
+  });
   it('continues an unfinished search hourly while respecting expiry and the assisted-application cap', () => {
     const service = active({ matchingStatus: 'complete', matchingCompletedAt: now - 60 * 60 * 1000, matchingPendingCount: 20, matchingUnverifiedCount: 0 });
     expect(conciergeRefreshDue(service, now)).toBe(true);

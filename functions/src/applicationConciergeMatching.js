@@ -8,6 +8,7 @@
  */
 
 import { normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
+import { MAX_ELIGIBILITY_RETRIES_PER_RUN, dueEligibilityRetries, eligibilityRetryRef, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
 import { createHash } from 'node:crypto';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
@@ -419,15 +420,15 @@ export function approvedRolePreference(job, proposals) {
 }
 
 /** A bounded, durable frontier replaces the static top-40 window. */
-export function conciergeMatchingWork(candidates, proposedUrls = new Set(), cursor = '') {
-  const priority = candidates.filter(candidate => proposedUrls.has(candidate.url));
+export function conciergeMatchingWork(candidates, proposedUrls = new Set(), cursor = '', retryUrls = new Set()) {
+  const priority = candidates.filter(candidate => proposedUrls.has(candidate.url)).slice(0, MAX_PROPOSALS_PER_RUN);
+  const retries = candidates.filter(candidate => retryUrls.has(candidate.url) && !proposedUrls.has(candidate.url)).slice(0, MAX_ELIGIBILITY_RETRIES_PER_RUN);
   const frontier = candidates.filter(candidate => !proposedUrls.has(candidate.url));
   const previous = frontier.findIndex(candidate => candidate.url === cursor);
   const start = previous >= 0 && previous + 1 < frontier.length ? previous + 1 : 0;
-  return {
-    work: [...priority, ...frontier.slice(start)].slice(0, MAX_ELIGIBILITY_WORK_PER_RUN),
-    frontier,
-  };
+  const fresh = frontier.slice(start).filter(candidate => !retryUrls.has(candidate.url));
+  return { work: [...priority, ...retries, ...fresh].slice(0, MAX_ELIGIBILITY_WORK_PER_RUN),
+    frontier, cursorUrls: new Set(fresh.map(candidate => candidate.url)) };
 }
 
 async function updateExistingProposal(db, ref, update, expectedStatus, nextStatus = null) {
@@ -493,32 +494,41 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
     const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord });
     const checks = new Map();
-    const scanContext = createHash('sha256').update(JSON.stringify([service.cvStorageKey, profile, profileRecord.applicationQuestionAnswers || {}])).digest('hex');
+    const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile, profileRecord.applicationQuestionAnswers || {}])).digest('hex');
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
-    const { work, frontier } = conciergeMatchingWork(rankedWork, proposedUrls,
-      service.matchingScanContext === scanContext ? service.matchingScanCursor : '');
-    const frontierUrls = new Set(frontier.map(entry => entry.url));
+    const dueRetries = await dueEligibilityRetries(serviceRef, Date.now());
+    const relevantUrls = new Set(rankedWork.map(entry => entry.url));
+    for (const retry of dueRetries) if (!relevantUrls.has(retry.data()?.jobUrl)) await retry.ref.delete();
+    const retryUrls = new Set(dueRetries.map(doc => doc.data()?.jobUrl).filter(url => relevantUrls.has(url)));
+    const { work, frontier, cursorUrls } = conciergeMatchingWork(rankedWork, proposedUrls,
+      service.matchingScanContext === scanContext ? service.matchingScanCursor : '', retryUrls);
     let scannedCursor = service.matchingScanContext === scanContext ? service.matchingScanCursor || '' : '';
     for (let offset = 0; offset < work.length; offset += 4) {
       // Leave time for a last batch with three bounded provider attempts and final ledger writes.
       if (Date.now() - runStartedAt > 280_000) break;
       const batch = work.slice(offset, offset + 4);
       await Promise.all(batch.map(async ({ job, url }) => {
-        try { checks.set(url, await evaluate(job)); }
-        catch { checks.set(url, { status: 'unverified', reason: 'analysis_unavailable' }); }
+        const retry = (await eligibilityRetryRef(serviceRef, url).get()).data();
+        let result;
+        if (retry?.context === scanContext && Number(retry.retryAt) > Date.now()) result = { status: 'unverified', reason: 'retry_backoff' };
+        else {
+          try { result = await evaluate(job); }
+          catch { result = { status: 'unverified', reason: 'analysis_unavailable' }; }
+        }
+        await recordEligibilityRetry({ db, serviceRef, url, result, context: scanContext, nowMs: Date.now() });
+        checks.set(url, result);
       }));
-      // Deferred or unverified work must stay at the cursor so the next run
-      // retries it before scanning later frontier entries. Completion order of
-      // concurrent provider calls is irrelevant.
+      // Unverified results are retained in the independent retry queue. They
+      // cannot pin new discovery; budget-deferred work remains at the cursor.
       for (const entry of batch) {
         const result = checks.get(entry.url);
-        if (result?.reason === 'analysis_deferred' || result?.status === 'unverified') break;
-        if (frontierUrls.has(entry.url)) scannedCursor = entry.url;
+        if (result?.reason === 'analysis_deferred') break;
+        if (cursorUrls.has(entry.url)) scannedCursor = entry.url;
       }
       await serviceRef.set({ matchingScanCursor: scannedCursor, matchingScanContext: scanContext }, { merge: true });
       if (batch.some(entry => {
         const result = checks.get(entry.url);
-        return result?.reason === 'analysis_deferred' || result?.status === 'unverified';
+        return result?.reason === 'analysis_deferred';
       })) break;
     }
     const candidates = rankedCandidates.filter(candidate => checks.get(candidate.url)?.status === 'compatible')
@@ -609,10 +619,12 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       });
       if (created) createdProposals += 1;
     }
+    const retrySummary = await eligibilityRetrySummary(serviceRef);
     await serviceRef.set({
       matchingStatus: 'complete',
       matchingPendingCount: Math.max(0, frontier.length - (frontier.findIndex(entry => entry.url === scannedCursor) + 1)),
-      matchingUnverifiedCount: Math.max(0, work.length - checks.size) + [...checks.values()].filter(result => result.status === 'unverified').length,
+      matchingUnverifiedCount: retrySummary.count,
+      matchingRetryAt: retrySummary.retryAt,
       matchingClarificationCount: [...checks.values()].filter(result => result.status === 'clarification_required').length,
       matchingJobCount: createdProposals + refreshedProposals,
       matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
