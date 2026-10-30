@@ -1,13 +1,19 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { EventEmitter } from 'node:events';
+import { readFileSync } from 'node:fs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
 import { chooseFiles } from '../scripts/assisted-application/lib/portal/fill.mjs';
 
 function documentWithDialog(text: string, buttons = '<button type="button">Rifiutare</button>') {
-  const dom = new JSDOM(`<div role="dialog">${text}${buttons}</div><button type="submit">Rifiutare</button>`);
+  const dom = new JSDOM(`<div role="dialog">${text}${buttons}</div><button type="submit">Rifiutare</button>`, { runScripts: 'outside-only' });
   Object.defineProperty(dom.window.HTMLElement.prototype, 'innerText', { get() { return this.textContent || ''; } });
-  dom.window.Element.prototype.getBoundingClientRect = () => ({ width: 20, height: 20 } as DOMRect);
+  dom.window.Element.prototype.getBoundingClientRect = function () {
+    for (let node: Element | null = this; node; node = node.parentElement) {
+      if (dom.window.getComputedStyle(node).display === 'none') return { width: 0, height: 0 } as DOMRect;
+    }
+    return { width: 20, height: 20 } as DOMRect;
+  };
   vi.stubGlobal('document', dom.window.document);
   vi.stubGlobal('getComputedStyle', dom.window.getComputedStyle);
   return dom;
@@ -41,6 +47,34 @@ it.each([
 it('does not choose between duplicate decline controls', () => {
   const dom = documentWithDialog(notice, '<button type="button">Rifiutare</button><button type="button">Rifiutare</button>');
   expect(markOptionalAutofillDeclineInPage()).toBe(false);
+  dom.window.close();
+});
+
+it.each(['No, grazie', 'Nein, danke', 'Non, merci'])('the extension waits for an asynchronous dialog and declines %s once', async label => {
+  const dom = documentWithDialog(notice, `<button type="button">${label}</button><button type="button">Accettare</button>`);
+  const { document } = dom.window;
+  const dialog = document.querySelector('[role="dialog"]') as HTMLElement;
+  dialog.style.display = 'none';
+  document.body.insertAdjacentHTML('afterbegin', '<form><label for="cv">Curriculum vitae *</label><input id="cv" type="file" required></form>');
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  const extension = (dom.window as any).CompilaCandidatura;
+  extension.config.waitMs = 250; extension.config.stepMs = 5;
+  const input = document.getElementById('cv') as HTMLInputElement;
+  Object.defineProperty(input, 'files', { value: null, writable: true });
+  (dom.window as any).DataTransfer = class { files: File[] = []; items = { add: (file: File) => { this.files.push(file); } }; };
+  input.addEventListener('change', () => dom.window.setTimeout(() => { dialog.style.display = 'block'; }, 30));
+  const upload = vi.fn(() => dialog.remove());
+  const accept = vi.fn(); const submit = vi.fn();
+  dialog.querySelectorAll('button')[0].addEventListener('click', upload);
+  dialog.querySelectorAll('button')[1].addEventListener('click', accept);
+  document.querySelector('button[type="submit"]')!.addEventListener('click', submit);
+  const cv = new dom.window.File(['%PDF-1.4'], 'CV.pdf', { type: 'application/pdf' });
+  const entry = extension.collect(document).find((item: any) => item.element === input);
+  expect(await extension.fillEntry(entry, { document: 'cv' }, { getFile: async () => cv })).toBe(true);
+  expect(upload).toHaveBeenCalledTimes(1);
+  expect(accept).not.toHaveBeenCalled(); expect(submit).not.toHaveBeenCalled();
+  expect(document.querySelector('[data-aa-autofill-decline]')).toBeNull();
   dom.window.close();
 });
 

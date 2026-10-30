@@ -416,6 +416,19 @@
       entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
         ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
     }
+    // Classic jQuery UI spans own a native select and its exact menu. The
+    // extension uses the same visible UI and verifies its submitted value.
+    for (const button of doc.querySelectorAll('.ui-selectmenu-button[role="combobox"]')) {
+      if (!isShown(button) || !button.id.endsWith('-button')) continue;
+      const nativeId = button.id.slice(0, -7);
+      const nativeSelect = doc.getElementById(nativeId);
+      if (nativeSelect?.tagName !== 'SELECT' || nativeSelect.multiple || nativeSelect.matches(':disabled')
+        || button.getAttribute('aria-owns') !== `${nativeId}-menu`) continue;
+      const label = labelOf(nativeSelect);
+      entries.push({ kind: 'combobox', widget: 'jquery-selectmenu', element: button, nativeSelect,
+        ownedList: `${nativeId}-menu`, label, labels: labelsOf(button, label, runnerLabelOf(runner, button)),
+        required: isRequiredControl(nativeSelect), type: 'select' });
+    }
     // Workday's dropdowns: buttons that open a listbox (the runner's «listbox» fields).
     for (const button of doc.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
       if (button.disabled || !isShown(button) || inPicker(button)) continue;
@@ -477,6 +490,7 @@
 
   function isEmpty(entry) {
     const { element } = entry;
+    if (entry.widget === 'jquery-selectmenu') return !entry.nativeSelect.value;
     if (entry.kind === 'checkbox') return !element.checked;
     if (entry.kind === 'file') return !(element.files && element.files.length);
     if (entry.kind === 'radio') return !entry.options.some((option) => option.element.checked);
@@ -975,10 +989,12 @@
         fire(element, 'change');
         // The same optional-parser disclosure rule as the automated runner;
         // decline only a scoped dialog that explicitly permits continuing.
-        await new Promise(resolve => view.setTimeout(resolve, 0));
-        if (view.CompilaOptionalAutofillDecline?.()) {
-          const button = element.ownerDocument.querySelector('[data-aa-autofill-decline="1"]');
-          if (button) press(button);
+        if (typeof view.CompilaOptionalAutofillDecline === 'function') {
+          const button = await waitFor(() => view.CompilaOptionalAutofillDecline()
+            && element.ownerDocument.querySelector('[data-aa-autofill-decline="1"]'));
+          if (button) {
+            try { press(button); } finally { button.removeAttribute('data-aa-autofill-decline'); }
+          }
         }
         return Boolean(element.files && element.files.length === (element.multiple ? files.length : 1));
       }
@@ -998,16 +1014,29 @@
         return true;
       }
       case 'select': {
-        const option = bestOption([...element.options].map((item) => ({ element: item, label: item.text })), answer.value, answer.family);
+        const option = bestOption([...element.options].filter(item => !item.matches(':disabled') && !item.closest('optgroup:disabled')).map((item) => ({ element: item, label: item.text })), answer.value, answer.family);
         if (!option) return false;
         setValue(element, option.element.value);
         return true;
       }
       case 'combobox':
+        if (entry.widget === 'jquery-selectmenu') {
+          const options = [...entry.nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')
+            && normalize(option.text) === normalize(answer.value));
+          if (options.length !== 1) return false;
+          const option = options[0];
+          press(element);
+          const menu = element.ownerDocument.getElementById(entry.ownedList);
+          const choices = [...(menu?.querySelectorAll('.ui-menu-item-wrapper, [role="option"]') || [])]
+            .filter(item => isShown(item) && normalize(textOf(item)) === normalize(option.text) && item.getAttribute('aria-disabled') !== 'true');
+          if (choices.length !== 1) return false;
+          press(choices[0]);
+          return entry.nativeSelect.value === option.value;
+        }
         return chooseInCombobox(element, answer.value, entry.selectLike, answer.family);
       case 'listbox': {
         if (entry.nativeSelect) {
-          const option = bestOption([...entry.nativeSelect.options].filter(option => !option.disabled).map(option => ({ element: option, label: option.text })), answer.value, answer.family);
+          const option = bestOption([...entry.nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ element: option, label: option.text })), answer.value, answer.family);
           if (!option) return false;
           press(element);
           const inputs = [...element.ownerDocument.getElementsByName(`multiselect_${entry.nativeSelect.id}`)]

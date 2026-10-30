@@ -434,7 +434,7 @@
       invalid: element.getAttribute('aria-invalid') === 'true',
     };
     if (tag === 'select') {
-      field.options = [...element.options].map((option) => ({ value: option.value, label: clean(option.textContent) }));
+      field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map((option) => ({ value: option.value, label: clean(option.textContent) }));
     }
     if (field.kind === 'combobox') {
       // jQuery UI selectmenu renders a visible span around a hidden native
@@ -447,7 +447,7 @@
         field.widget = 'jquery-selectmenu';
         field.nativeSelectId = nativeId;
         field.ownedList = `${nativeId}-menu`;
-        field.options = [...native.options].filter(option => !option.disabled).map(option => ({ value: option.value, label: clean(option.textContent) }));
+        field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) }));
         field.label = labelFor(native) || field.label;
         field.required ||= native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(field.label);
         field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
@@ -558,7 +558,7 @@
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
-        options: [...nativeSelect.options].filter(option => !option.disabled).map(option => ({ value: option.value, label: clean(option.textContent) })),
+        options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) })),
         required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
@@ -726,7 +726,7 @@
   const ai = /\b(?:artificial intelligence|intelligenza artificiale|intelligence artificielle|kunstliche intelligenz|ai|ia|ki)\b/;
   const parser = /(?:fill|compil|riemp|ausfull|vorausfull|rempliss|auswert|evaluat|valutat|analys|parsing)/;
   const optional = /(?:no (?:effect|impact)|does not affect|non ha alcun effetto|nessun effetto|keinen einfluss|keine auswirkung|aucune incidence|sans incidence|n['’]affecte pas)/;
-  const decline = /^(?:decline|reject|no,? thanks|rifiutare|rifiuta|rifiuto|ablehnen|refuser)$/;
+  const decline = /^(?:decline|reject|no,? ?(?:thanks|grazie)|nein,? ?danke|non,? ?merci|rifiutare|rifiuta|rifiuto|ablehnen|refuser)$/;
   for (const old of document.querySelectorAll('[data-aa-autofill-decline]')) old.removeAttribute('data-aa-autofill-decline');
   for (const dialog of document.querySelectorAll('[role="dialog"], dialog[open], .ui-dialog')) {
     if (!visible(dialog)) continue;

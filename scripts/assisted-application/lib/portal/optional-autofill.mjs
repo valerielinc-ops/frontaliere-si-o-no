@@ -8,7 +8,7 @@ export function markOptionalAutofillDeclineInPage() {
   const ai = /\b(?:artificial intelligence|intelligenza artificiale|intelligence artificielle|kunstliche intelligenz|ai|ia|ki)\b/;
   const parser = /(?:fill|compil|riemp|ausfull|vorausfull|rempliss|auswert|evaluat|valutat|analys|parsing)/;
   const optional = /(?:no (?:effect|impact)|does not affect|non ha alcun effetto|nessun effetto|keinen einfluss|keine auswirkung|aucune incidence|sans incidence|n['’]affecte pas)/;
-  const decline = /^(?:decline|reject|no,? thanks|rifiutare|rifiuta|rifiuto|ablehnen|refuser)$/;
+  const decline = /^(?:decline|reject|no,? ?(?:thanks|grazie)|nein,? ?danke|non,? ?merci|rifiutare|rifiuta|rifiuto|ablehnen|refuser)$/;
   for (const old of document.querySelectorAll('[data-aa-autofill-decline]')) old.removeAttribute('data-aa-autofill-decline');
   for (const dialog of document.querySelectorAll('[role="dialog"], dialog[open], .ui-dialog')) {
     if (!visible(dialog)) continue;
@@ -32,6 +32,7 @@ export async function dismissOptionalAutofill(page) {
     const button = frame.locator('[data-aa-autofill-decline="1"]');
     if (await button.count() !== 1) continue;
     await button.click({ timeout: 3000 });
+    if (typeof button.evaluate === 'function') await button.evaluate(element => element.removeAttribute('data-aa-autofill-decline')).catch(() => {});
     return true;
   }
   return false;

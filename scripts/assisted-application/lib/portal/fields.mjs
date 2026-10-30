@@ -443,7 +443,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       invalid: element.getAttribute('aria-invalid') === 'true',
     };
     if (tag === 'select') {
-      field.options = [...element.options].map((option) => ({ value: option.value, label: clean(option.textContent) }));
+      field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map((option) => ({ value: option.value, label: clean(option.textContent) }));
     }
     if (field.kind === 'combobox') {
       // jQuery UI selectmenu renders a visible span around a hidden native
@@ -456,7 +456,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
         field.widget = 'jquery-selectmenu';
         field.nativeSelectId = nativeId;
         field.ownedList = `${nativeId}-menu`;
-        field.options = [...native.options].filter(option => !option.disabled).map(option => ({ value: option.value, label: clean(option.textContent) }));
+        field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) }));
         field.label = labelFor(native) || field.label;
         field.required ||= native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(field.label);
         field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
@@ -567,7 +567,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
-        options: [...nativeSelect.options].filter(option => !option.disabled).map(option => ({ value: option.value, label: clean(option.textContent) })),
+        options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) })),
         required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
