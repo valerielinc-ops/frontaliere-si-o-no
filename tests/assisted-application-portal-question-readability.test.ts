@@ -200,6 +200,23 @@ it('routes unreadable source labels to a technical hold instead of manufacturing
     [{ fieldId: 'f1', question: 'A plausible but invented question?' }])).toMatchObject({ questions: [], unreadableFields: ['f1'] });
 });
 
+it.each([
+  ['required', '<option value="">Choose</option><option value="yes">Yes</option>', true],
+  ['aria-required="true"', '<option value="">No preference</option><option value="yes">Yes</option>', false],
+  ['required multiple', '<option value="">No preference</option><option value="yes">Yes</option>', false],
+  ['required size="2"', '<option value="">No preference</option><option value="yes">Yes</option>', false],
+  ['required', '<optgroup label="Answers"><option value="">No preference</option></optgroup><option value="yes">Yes</option>', false],
+  ['required', '<option value="yes">Yes</option><option value="">No preference</option>', false],
+  ['required', '<option disabled value="">Choose</option><option value="">No preference</option>', false],
+])('marks only the native placeholder label option: %s %s', (attributes, options, placeholder) => {
+  const { dom, snapshot } = extract(`<form><label for="choice">Choice</label><select id="choice" ${attributes}>${options}</select></form>`);
+  expect(Boolean(snapshot.fields[0].options.find((option: any) => option.placeholder))).toBe(placeholder);
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  dom.window.eval(readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8'));
+  expect(Boolean((dom.window as any).CompilaRunnerFields().fields[0].options.find((option: any) => option.placeholder))).toBe(placeholder);
+  dom.window.close();
+});
+
 it('hands off an unreadable required field during the real pre-read before translating other questions', async () => {
   const url = 'https://jobs.lever.co/example/1/apply';
   const snapshot = {

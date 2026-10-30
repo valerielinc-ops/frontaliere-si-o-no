@@ -13,6 +13,12 @@
 /* eslint-disable no-undef -- runs in the browser */
 export function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  const nativeOption = (option, select) => ({
+    value: option.value,
+    label: clean(option.textContent),
+    ...(select.required && !select.multiple && select.size <= 1 && select.options[0] === option
+      && option.parentElement === select && option.value === '' ? { placeholder: true } : {}),
+  });
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
   // The ATS classifier knows both vendor hosts and employer-branded
   // Jobs2Web routes. Keep this contract self-contained: this function is
@@ -499,7 +505,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       invalid: element.getAttribute('aria-invalid') === 'true',
     };
     if (tag === 'select') {
-      field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map((option) => ({ value: option.value, label: clean(option.textContent) }));
+      field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, element));
     }
     if (field.kind === 'combobox') {
       // jQuery UI selectmenu renders a visible span around a hidden native
@@ -512,7 +518,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
         field.widget = 'jquery-selectmenu';
         field.nativeSelectId = nativeId;
         field.ownedList = `${nativeId}-menu`;
-        field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) }));
+        field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, native));
         field.label = labelFor(native) || field.label;
         field.required ||= native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(field.label);
         field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
@@ -624,7 +630,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
-        options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) })),
+        options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, nativeSelect)),
         required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
