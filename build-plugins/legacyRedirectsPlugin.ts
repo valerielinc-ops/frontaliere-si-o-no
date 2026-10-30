@@ -8,6 +8,7 @@ import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { withPhaseInstrument } from './shared/phaseInstrument';
+import { isUnverifiedJobArchiveHtml } from './shared/unverifiedJobArchiveHtml';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { WEBSITE_ID } from '../services/seo/organizationLd';
 import {
@@ -700,12 +701,19 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  if (isUnshippablePath(from, unshippablePrefixes)) { skippedUnshippable++; continue; }
 
  const outDir = safeTargets.directoryPath;
- // Normal redirects preserve already emitted pages. These four historical
- // directory headings were never vacancies and must replace their stale detail HTML.
- if (fs.existsSync(path.join(outDir, 'index.html'))
+ // This canonical map has declared/record-backed targets; the generic GSC
+ // compatibility loop below keeps its separate, conservative ownership rule.
+ // Protect real content in either served representation, including warm dist.
+ const existingTargets = [safeTargets.indexPath, ...(safeTargets.flatPath ? [safeTargets.flatPath] : [])]
+   .filter((file) => fs.existsSync(file));
+ if (existingTargets.length
    && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from]
    && !BORDER_WAIT_LEGACY_REDIRECTS.has(from)
-   && !FORCE_CANONICAL_BRIDGE_PATHS.has(from)) continue;
+   && !FORCE_CANONICAL_BRIDGE_PATHS.has(from)
+   && !existingTargets.every((file) => {
+     try { return isUnverifiedJobArchiveHtml(fs.readFileSync(file, 'utf8'), from); }
+     catch { return false; } // Unreadable content does not establish an orphan.
+   })) continue;
  const fromUrl = `${BASE_URL}${from}`;
  const toUrl = `${BASE_URL}${to}`;
  const redirectLd = inlineScriptJson({
