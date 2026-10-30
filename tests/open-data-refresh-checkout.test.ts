@@ -1395,8 +1395,8 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
       const command = lines.slice(Math.max(0, index - 2), index + 1).join('\n');
       expect(command, `line ${index + 1}`).toContain('run_bounded "$PUSH_TIMEOUT_SECONDS" <label>');
     }
-    expect(helper).toMatch(/env GIT_NO_LAZY_FETCH=1 \\\n\s+git -c http\.https:\/\/github\.com\/\.extraheader= \\\n\s+-c pack\.window=0 -c pack\.threads=1 push --no-thin "\$token_url" "\$@"/);
-    expect(helper).toMatch(/git -c http\.https:\/\/github\.com\/\.extraheader= \\\n\s+-c pack\.window=0 -c pack\.threads=1 push --no-thin "\$token_url" "\$@"/);
+    expect(helper).toMatch(/env GIT_NO_LAZY_FETCH=1 \\\n\s+git -c http\.https:\/\/github\.com\/\.extraheader= -c pack\.window=0 -c pack\.threads=1 push --no-thin "\$token_url" "\$@"/);
+    expect(helper).toMatch(/git -c http\.https:\/\/github\.com\/\.extraheader= -c pack\.window=0 -c pack\.threads=1 push --no-thin "\$token_url" "\$@"/);
     expect(helper).toMatch(/elif push_new_stable_branch; then/);
     expect(helper).toContain('run_push_with_token "$FALLBACK_PUSH_URL"');
     expect(helper).toContain('GITHUB_PAT fallback');
