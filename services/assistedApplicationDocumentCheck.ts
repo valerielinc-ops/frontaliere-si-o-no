@@ -21,7 +21,7 @@ export interface DocumentCheck {
 }
 
 export { DOCUMENT_CHECK_VERSION } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
-import { DOCUMENT_CHECK_VERSION } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
+import { DOCUMENT_CHECK_VERSION, DOCUMENT_CHECK_MAX_TEXT_CHARS } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
 
 export interface CheckedDocument {
   label: string;
@@ -81,7 +81,7 @@ function found(haystack: string, words: string[]): string[] {
 
 /** The verdict on a file's text for the requested document (pure: the page and the tests use it). */
 export function classifyDocumentText(text: string, document: CheckedDocument): DocumentCheck {
-  const haystack = normalize(text);
+  const haystack = normalize(String(text || '').slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS));
   if (haystack.trim().length < MIN_TEXT_CHARS) return { verdict: 'unreadable', matched: '' };
   const asked = found(haystack, document.keywords || []);
   const usual = found(haystack, KIND_WORDS[document.kind] || []);
@@ -110,13 +110,13 @@ async function pdfText(file: File): Promise<string> {
     const content = await (await pdf.getPage(pageNum)).getTextContent();
     pages.push(content.items.map((item) => ('str' in item ? item.str : '')).join(' '));
   }
-  return pages.join('\n');
+  return pages.join('\n').slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS);
 }
 
 async function docxText(file: File): Promise<string> {
   const mammoth = await import('mammoth');
   const { value } = await mammoth.extractRawText({ arrayBuffer: await file.arrayBuffer() });
-  return value;
+  return value.slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS);
 }
 
 /** The file's readable text: PDF and Word; a photo, a scan or an old .doc has none here. */

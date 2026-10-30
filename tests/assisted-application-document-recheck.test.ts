@@ -2,6 +2,8 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { recheckStoredDocument } from '../functions/src/assistedApplicationDocumentRecheck.js';
+import { mintReviewToken } from '../functions/src/assistedApplicationReviewToken.js';
+import { handleAssistedApplicationReview, sendReviewResponse } from '../functions/src/assistedApplicationReview.js';
 import { DOCUMENT_CHECK_VERSION } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
 
 const NOW = Date.now();
@@ -43,6 +45,25 @@ beforeEach(() => {
 });
 
 describe('retained document browser recheck protocol', () => {
+  it('uses only authorized review tokens and never dispatches an automation event', async () => {
+    const secret = 's'.repeat(40);
+    const runEffect = vi.fn();
+    const deps = { db: store.db, bucket, getSecret: async () => secret, runEffect, nowMs: NOW };
+    const action = { action: 'document_recheck', documentId: 'degree', fileId: 'degree.pdf' };
+    const followup = mintReviewToken({ secret, orderId: ORDER, round: 1, nowMs: NOW, kind: 'followup' });
+    expect(await handleAssistedApplicationReview({ method: 'POST', body: { ...action, t: 'invalid' } }, deps)).toMatchObject({ status: 403 });
+    expect(await handleAssistedApplicationReview({ method: 'POST', body: { ...action, t: followup } }, deps)).toMatchObject({ status: 400, body: { error: 'invalid_action' } });
+    const t = mintReviewToken({ secret, orderId: ORDER, round: 1, nowMs: NOW });
+    const ready = await handleAssistedApplicationReview({ method: 'POST', body: { ...action, t } }, deps);
+    expect(ready).toMatchObject({ status: 200, noStore: true, body: { state: 'ready' } });
+    expect(await handleAssistedApplicationReview({ method: 'POST', body: { ...action, t, descriptor: ready.body.descriptor, sha256: HASH, clientCheck: CHECK } }, deps)).toMatchObject({ status: 200, body: { state: 'checked' } });
+    expect(runEffect).not.toHaveBeenCalled();
+    const set = vi.fn();
+    const res: any = { set, status: () => res, json: vi.fn() };
+    sendReviewResponse(res, ready);
+    expect(set).toHaveBeenCalledWith({ 'Cache-Control': 'private, no-store' });
+  });
+
   it('binds short-lived downloads to exact bytes, generation, document context and server version', async () => {
     const descriptor = await begin();
     expect(descriptor).toMatchObject({ state: 'ready', size: BYTES.length, sha256: HASH, generation: '123', version: DOCUMENT_CHECK_VERSION });
