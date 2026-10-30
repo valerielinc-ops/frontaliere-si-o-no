@@ -39,6 +39,11 @@ export type JobCardLocale = 'it' | 'en' | 'de' | 'fr';
  * callers permissive — missing fields just hide the corresponding chip.
  */
 export interface JobCardJob {
+  /** With `id` the card gets the save bookmark (see `renderSaveIsland`). */
+  id?: string;
+  /** Canonical slug: the card's href carries the localized one. */
+  slug?: string;
+  category?: string;
   title?: string;
   titleByLocale?: Partial<Record<JobCardLocale, string>>;
   company?: string;
@@ -277,6 +282,23 @@ function renderLogoSlot(job: JobCardJob, logoSrc: string): string {
   return `<div class="jc-logoslot"><img alt="${safeAlt}" class="jc-logoimg" width="40" height="40" loading="lazy" src="${safeSrc}"${onerror}></div>`;
 }
 
+// ── Save bookmark island ─────────────────────────────────────────────
+
+/**
+ * Placeholder hydrated by components/community/JobSaveMount.tsx, which portals
+ * the real button in — the save needs an account, so it has no no-JS form.
+ * Empty and unstyled on purpose: it takes no space until then, and the button
+ * positions itself against `.jc-card`. Sibling of the card's link, never nested
+ * in it. Title is not repeated here: the island reads it off `.jc-title`.
+ */
+function renderSaveIsland(job: JobCardJob, company: string): string {
+  const id = typeof job.id === 'string' ? job.id.trim() : '';
+  if (!id) return '';
+  const attr = (name: string, value: unknown) =>
+    typeof value === 'string' && value ? ` data-${name}="${escHtml(value)}"` : '';
+  return `<span data-job-save="${escHtml(id)}"${attr('slug', job.slug)}${attr('company', company)}${attr('canton', job.canton)}${attr('category', job.category)}></span>`;
+}
+
 // ── Main renderer ────────────────────────────────────────────────────
 
 /**
@@ -382,7 +404,7 @@ export function renderJobCardHtml(
  // landings. Use h2 so a card title never skips from the page h1 to h3 when
  // the listing has no separate section heading; the class keeps the visual
  // treatment unchanged wherever the card is reused.
- return `<article class="${articleClasses}"><a href="${escHtml(relativeHref)}" class="jc-link"><div class="jc-row">${renderLogoSlot(job, logoSrc)}<div class="jc-meta"><h2 class="jc-title">${escHtml(title)}${featuredBadge}${newBadge}</h2><p class="jc-sub">${companyAndLocation}</p>${salaryHtml}</div></div><div class="jc-chips">${locChip}${contractChip}${postedChip}</div></a></article>`;
+ return `<article class="${articleClasses}"><a href="${escHtml(relativeHref)}" class="jc-link"><div class="jc-row">${renderLogoSlot(job, logoSrc)}<div class="jc-meta"><h2 class="jc-title">${escHtml(title)}${featuredBadge}${newBadge}</h2><p class="jc-sub">${companyAndLocation}</p>${salaryHtml}</div></div><div class="jc-chips">${locChip}${contractChip}${postedChip}</div></a>${renderSaveIsland(job, company)}</article>`;
 }
 
 // ── List renderer ────────────────────────────────────────────────────

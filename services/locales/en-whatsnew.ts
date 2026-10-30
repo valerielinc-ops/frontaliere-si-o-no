@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+ "whatsNew.v3999.title": "Save any job, anywhere",
+ "whatsNew.v3999.jobSave.title": "The bookmark on every card",
+ "whatsNew.v3999.jobSave.desc": "You can now save a job from every card on the site: company, city and sector pages, and articles. If you don’t have an account yet, we ask you to create one and the job is saved right after.",
  "whatsNew.v3998.title": "More complete job details",
  "whatsNew.v3998.jobDetails.title": "Descriptions and requirements preserved",
  "whatsNew.v3998.jobDetails.desc": "Job pages preserve the original text and formatting, including archived listings. Free access continues to unlock all details while browsing.",

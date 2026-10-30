@@ -2409,9 +2409,11 @@ async function reportGA4(token) {
         body: JSON.stringify({
           ...baseRequest,
           dimensions: [
-            { name: 'customEvent:resource_type' },
+            // resource_type/resource_url/triggered_reload are not registered and
+            // the property is at its 50-dimension limit: an unregistered name
+            // fails the whole query, so the resource travels in error_type/error_message.
+            { name: 'customEvent:error_type' },
             { name: 'customEvent:ad_blocker' },
-            { name: 'customEvent:triggered_reload' },
           ],
           metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
           dimensionFilter: {
@@ -2429,9 +2431,8 @@ async function reportGA4(token) {
     if (resErrRes.ok) {
       const data = await resErrRes.json();
       reloadHealth.resourceErrors = (data.rows || []).map((r) => ({
-        resourceType: r.dimensionValues[0].value,
+        resourceType: r.dimensionValues[0].value.replace(/^resource_/, ''),
         adBlocker: r.dimensionValues[1].value === 'true',
-        triggeredReload: r.dimensionValues[2].value === 'true',
         count: parseInt(r.metricValues[0].value, 10),
         users: parseInt(r.metricValues[1].value, 10),
       }));
@@ -2453,7 +2454,7 @@ async function reportGA4(token) {
         body: JSON.stringify({
           ...baseRequest,
           dimensions: [
-            { name: 'customEvent:resource_url' },
+            { name: 'customEvent:error_message' },
             { name: 'customEvent:ad_blocker' },
           ],
           metrics: [{ name: 'eventCount' }],

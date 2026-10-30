@@ -234,6 +234,9 @@ function toLinkedJobs(
       addressLocality: typeof job.addressLocality === 'string' ? job.addressLocality : undefined,
       companyDomain: typeof job.companyDomain === 'string' ? job.companyDomain : undefined,
       url: typeof job.url === 'string' ? job.url : undefined,
+      id: typeof job.id === 'string' ? job.id : undefined,
+      slug: typeof job.slug === 'string' ? job.slug : undefined,
+      category: typeof job.category === 'string' ? job.category : undefined,
     };
   });
 }

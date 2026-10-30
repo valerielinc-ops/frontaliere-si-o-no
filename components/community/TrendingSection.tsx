@@ -8,8 +8,12 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { TrendingUp, Eye } from 'lucide-react';
+import JobSaveButton from '@/components/community/JobSaveButton';
+import { toSaveableJob } from '@/services/jobSaveGate';
 
 interface TrendingJob {
+ id?: string;
+ canton?: string | null;
  slug?: string;
  title: string;
  company: string;
@@ -154,18 +158,20 @@ function TrendingSection({ trendingJobs, popularity, onJobClick, heading, ariaLa
  >
  {trendingJobs.map((job) => {
  return (
+ <div key={job.slug || job.title} className="relative flex-shrink-0 w-[260px] sm:w-[280px]">
  <a
- key={job.slug || job.title}
  href={job.href || '#'}
  onClick={(e) => {
  e.preventDefault();
  if (job.slug) onJobClick(job.slug);
  }}
  aria-label={`${job.title} presso ${job.company}`}
- className="flex-shrink-0 w-[260px] sm:w-[280px] rounded-[6px] border border-edge bg-surface/50 p-3 hover:border-accent-border transition-colors motion-reduce:transition-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
+ className="block h-full rounded-[6px] border border-edge bg-surface/50 p-3 pr-12 hover:border-accent-border transition-colors motion-reduce:transition-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
  >
  {renderCardBody(job)}
  </a>
+ {job.id && <JobSaveButton job={toSaveableJob({ ...job, id: job.id })} surface="card_trending" />}
+ </div>
  );
  })}
  </div>

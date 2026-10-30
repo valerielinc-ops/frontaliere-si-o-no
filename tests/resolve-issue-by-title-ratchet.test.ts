@@ -35,6 +35,10 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 1,
     why: 'la CLI `--resolve` riceve solo `--title`: un passo `if: success()` chiude il titolo stabile del suo reporter',
   },
+  'scripts/cf-observability-audit.mjs': {
+    calls: 1,
+    why: 'audit settimanale di Workers Logs: un controllo tornato verde chiude il proprio titolo stabile, con exactTitle',
+  },
   'scripts/audit-duplicate-crawler-companies.mjs': {
     // 0 chiamate dirette: l'unico uso passa dal default iniettabile
     // `creator.resolveGithubIssue` di reportFindingIssues.

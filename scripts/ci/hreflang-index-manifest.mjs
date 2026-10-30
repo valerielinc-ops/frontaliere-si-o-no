@@ -13,13 +13,14 @@
  *   - `dist/`, the final HTML of the locales this leg owns (`BUILD_LOCALE`,
  *     all four when unset): judged against THIS run's manifest, exactly.
  *   - `<manifest-dir>/<locale>.json` for every locale this leg does NOT own:
- *     the newest manifest another leg saved (actions/cache). When one is
- *     missing or invalid, alternates into that locale are not judged — the
- *     behaviour before this step — and the summary says so.
+ *     the manifest another leg published, downloaded by
+ *     exchange-hreflang-manifests.mjs. When one is missing or invalid,
+ *     alternates into that locale are not judged — the behaviour before this
+ *     step — and the summary says so, unless --require-foreign-manifests.
  *
  * Outputs
- *   - `<manifest-dir>/<locale>.json` for every owned locale (saved to the
- *     cache by the workflow for the other legs and the next run).
+ *   - `<manifest-dir>/<locale>.json` for every owned locale (published as an
+ *     artifact by the workflow for the other legs of the same run).
  *   - Rewritten HTML (unless `--dry-run`), written only after EVERY decision
  *     has been made: a failure while reading leaves `dist/` untouched.
  *   - One summary line `[hreflang-index-manifest] {...}` with every counter.

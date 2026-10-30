@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+ "whatsNew.v3999.title": "Salva ogni offerta, ovunque",
+ "whatsNew.v3999.jobSave.title": "Il segnalibro su tutte le card",
+ "whatsNew.v3999.jobSave.desc": "Ora puoi salvare un’offerta da ogni card del sito: pagine azienda, città, settori e articoli. Se non hai ancora un account, ti chiediamo di crearlo e l’offerta viene salvata subito dopo.",
  "whatsNew.v3998.title": "Dettagli delle offerte più completi",
  "whatsNew.v3998.jobDetails.title": "Descrizioni e requisiti conservati",
  "whatsNew.v3998.jobDetails.desc": "Le pagine delle offerte conservano il testo originale e la formattazione, anche quando sono archiviate. L’accesso gratuito continua a sbloccare tutti i dettagli durante la navigazione.",
