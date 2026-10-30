@@ -16,8 +16,8 @@ import YAML from 'yaml';
 import {
   QUARANTINE_OUTCOMES_NOTICE_TITLE,
   QUARANTINE_REJOIN_GREEN_WAVES,
-  QUARANTINE_RETIRE_DAYS,
-  QUARANTINE_RETIRE_RED_WAVES,
+  QUARANTINE_FAILURE_ESCALATION_DAYS,
+  QUARANTINE_RED_ESCALATION_WAVES,
   applyQuarantineDecisions,
   assertQuarantineMembership,
   decideQuarantine,
@@ -199,16 +199,17 @@ describe('decideQuarantine', () => {
     expect(decision).toMatchObject({ action: 'mark-failing', failingSince: w[1].createdAt });
   });
 
-  it(`retires a known failure after ${QUARANTINE_RETIRE_RED_WAVES} red waves or ${QUARANTINE_RETIRE_DAYS} days, whichever first`, () => {
+  it(`keeps a known failure scheduled after ${QUARANTINE_RED_ESCALATION_WAVES} red waves or ${QUARANTINE_FAILURE_ESCALATION_DAYS} days`, () => {
     const known = entry({ failingSince: '2026-09-29T00:00:00Z', issue: 42 });
     const nineRed = waves(Array.from({ length: 9 }, () => ({ x: 'failure' })));
     expect(decideQuarantine({ registry: registryOf({ x: known }), waves: nineRed, now })[0])
-      .toMatchObject({ action: 'keep-failing', issue: 42, deadline: '2026-10-06' });
+      .toMatchObject({ action: 'keep-failing', issue: 42, deadline: '2026-10-06', escalationReached: false });
     const tenRed = waves(Array.from({ length: 10 }, () => ({ x: 'failure' })));
-    expect(decideQuarantine({ registry: registryOf({ x: known }), waves: tenRed, now })[0].action).toBe('retire');
+    expect(decideQuarantine({ registry: registryOf({ x: known }), waves: tenRed, now })[0])
+      .toMatchObject({ action: 'keep-failing', issue: 42, escalationReached: true });
     const old = entry({ failingSince: '2026-09-23T11:00:00Z', issue: 42 });
     expect(decideQuarantine({ registry: registryOf({ x: old }), waves: waves([{ x: 'failure' }]), now })[0])
-      .toMatchObject({ action: 'retire', reason: expect.stringMatching(/7 giorni/) });
+      .toMatchObject({ action: 'keep-failing', issue: 42, escalationReached: true });
   });
 
   it('drops the tolerance of a known failure that turned green', () => {

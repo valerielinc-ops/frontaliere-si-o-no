@@ -1,8 +1,9 @@
 /**
- * Crawler quarantine: the entry, the tolerated verdict and BOTH exits.
+ * Crawler quarantine: the entry, tolerated verdict, recovery and owner review.
  *
- * Il gruppo di quarantena (crawler-group-24) e' nato il 2026-09-22 (#9522) come
- * raccolta a mano dei crawler che fallivano, e da allora ci si entrava solo con
+ * Il gruppo di quarantena (ora crawler-group-25, prima crawler-group-24) e'
+ * nato il 2026-09-22 (#9522) come raccolta a mano dei crawler che fallivano,
+ * e da allora ci si entrava solo con
  * PR manuali (#9580, #9632, #9796, #9970, #10012, #10111) senza alcuna uscita:
  * il gruppo chiudeva rosso a ogni ondata per costruzione («16 succeeded, 4
  * failed» il 28-09), e un rosso nuovo dentro lo stesso gruppo non si vedeva.
@@ -14,20 +15,23 @@
  *     generatore) e la data di ingresso; il generatore rifiuta un membro senza
  *     voce e una voce il cui crawler e' pinnato altrove;
  *   - una voce con `failingSince` e' un fallimento NOTO: ha un'issue e una
- *     scadenza (`failingSince` + RETIRE_DAYS). Fino alla scadenza il suo rosso
+ *     scadenza (`failingSince` + FAILURE_ESCALATION_DAYS). Fino alla scadenza il suo rosso
  *     e' escluso dal verdetto del gruppo (warning, riga di summary); dopo, torna
  *     a far fallire il gruppo;
  *   - il rosso di qualunque altro membro (nuovo, o gia' verde: una regressione)
  *     fa fallire il gruppo come prima;
- *   - `retired` elenca i crawler ritirati: restano nel manifest (riattivarli e'
- *     togliere la voce) ma il generatore non li schedula.
+ *   - `retired` elenca i crawler ritirati con una decisione esplicita del
+ *     proprietario: restano nel manifest (riattivarli e' togliere la voce) ma
+ *     il generatore non li schedula. Le soglie di rosso da sole non ritirano.
  *
- * Le due uscite le decide `decideQuarantine()` sulle ondate osservate (le run
- * completate del gruppo), in modo deterministico:
+ * `decideQuarantine()` legge le ondate osservate (le run completate del gruppo)
+ * in modo deterministico:
  *
  *   - RIENTRO dopo REJOIN_GREEN_WAVES ondate verdi consecutive;
- *   - RITIRO quando la serie rossa corrente conta RETIRE_RED_WAVES ondate
- *     oppure dura RETIRE_DAYS giorni da `failingSince`, la prima che scatta.
+ *   - ESCALATION quando la serie rossa corrente conta RED_ESCALATION_WAVES ondate
+ *     oppure dura FAILURE_ESCALATION_DAYS da `failingSince`. La soglia mantiene
+ *     aperto il tracker e lascia il crawler schedulato; il ritiro richiede una
+ *     decisione esplicita del proprietario.
  *
  * Il gruppo pero' non si svuota mai (`holdLastQuarantineMember()`): il roster
  * di generazione rifiuta un gruppo senza crawler, quindi se tutti i membri
@@ -43,10 +47,10 @@
  *   - REJOIN_GREEN_WAVES = 4: due giorni puliti alla cadenza osservata, cioe'
  *     entrambe le finestre giornaliere viste due volte, e quanto la serie rossa
  *     piu' lunga che si e' poi risolta;
- *   - RETIRE_RED_WAVES = 10: 2,5 volte quella serie, ~5 giorni alla cadenza
- *     osservata; con i dispatch di recupero puo' arrivare prima di RETIRE_DAYS,
- *     ed e' voluto: dieci tentativi rossi di fila non sono un caso transitorio;
- *   - RETIRE_DAYS = 7: la stessa soglia oltre la quale
+ *   - RED_ESCALATION_WAVES = 10: 2,5 volte quella serie, ~5 giorni alla cadenza
+ *     osservata; con i dispatch di recupero puo' arrivare prima di FAILURE_ESCALATION_DAYS;
+ *     da qui in poi il guasto va trattato come escalation, non come ritiro;
+ *   - FAILURE_ESCALATION_DAYS = 7: la stessa soglia oltre la quale
  *     `scripts/check-crawler-health.mjs` considera stantio un crawler
  *     (STALE_AFTER_DAYS). Oltre, gli annunci pubblicati sono comunque vecchi.
  *
@@ -57,8 +61,11 @@
 import fs from 'node:fs';
 
 export const QUARANTINE_REJOIN_GREEN_WAVES = 4;
-export const QUARANTINE_RETIRE_RED_WAVES = 10;
-export const QUARANTINE_RETIRE_DAYS = 7;
+export const QUARANTINE_RED_ESCALATION_WAVES = 10;
+export const QUARANTINE_FAILURE_ESCALATION_DAYS = 7;
+// Legacy names stay exported for consumers of historical automatic retirements.
+export const QUARANTINE_RETIRE_RED_WAVES = QUARANTINE_RED_ESCALATION_WAVES;
+export const QUARANTINE_RETIRE_DAYS = QUARANTINE_FAILURE_ESCALATION_DAYS;
 export const QUARANTINE_OUTCOMES_NOTICE_TITLE = 'crawler-quarantine-outcomes';
 export const QUARANTINE_REGISTRY_SCHEMA_VERSION = 1;
 
@@ -75,13 +82,14 @@ function isIssueNumber(value) {
 }
 
 /**
- * The `reason` an AUTOMATIC retirement writes into `retired[slug]`, and its
- * recognizer, side by side so the two cannot drift (a test round-trips them).
+ * The legacy automatic-retirement `reason` format, kept with its recognizer so
+ * old registry entries remain distinguishable from owner-approved retirements.
  *
- * A threshold retirement says only "it stayed red long enough": it is not the
- * triangulated evidence DECISIONS 2026-09-23 asks for before calling a source
- * gone. `scripts/ci/close-retired-crawler-issues.mjs` uses the recognizer to
- * tell such a retirement apart from one whose reason was written by hand.
+ * Historical threshold retirements say only "it stayed red long enough": that
+ * is not the triangulated evidence DECISIONS 2026-09-23 asks for before calling
+ * a source gone. Current decisions keep the crawler scheduled. The retired
+ * issue closer uses the recognizer to leave historical automatic retirements
+ * visible instead of treating them as owner-approved source removals.
  */
 export function automaticRetireReason({ streak, retireRedWaves, days, failingSince, retireDays }) {
   return streak >= retireRedWaves
@@ -97,7 +105,7 @@ export function isAutomaticRetireReason(reason) {
 }
 
 /** YYYY-MM-DD of the last day a known failure is still excluded from the verdict. */
-export function quarantineDeadline(entry, retireDays = QUARANTINE_RETIRE_DAYS) {
+export function quarantineDeadline(entry, retireDays = QUARANTINE_FAILURE_ESCALATION_DAYS) {
   if (!entry?.failingSince) return null;
   return new Date(Date.parse(entry.failingSince) + retireDays * DAY_MS).toISOString().slice(0, 10);
 }
@@ -203,7 +211,7 @@ export function quarantineRegistryDoc(registry) {
       'Crawler quarantine registry (scripts/lib/crawler-quarantine.mjs). Every member of the',
       'quarantine group has an entry; failingSince + issue mark a KNOWN failure, excluded from',
       'the group verdict until failingSince + 7 days. scripts/crawler-quarantine-review.mjs',
-      'moves a crawler back after 4 green waves and retires it after 10 red waves or 7 days.',
+      'moves a crawler back after 4 green waves. Red-wave/day thresholds escalate the tracked failure; they do not unschedule a revenue crawler. Retirement requires an explicit owner decision.',
       'Edit together with data/crawler-group-assignments.json and re-run the generator.',
     ].join(' '),
     schemaVersion: QUARANTINE_REGISTRY_SCHEMA_VERSION,
@@ -341,8 +349,8 @@ export function decideQuarantine({
   waves,
   now,
   rejoinGreenWaves = QUARANTINE_REJOIN_GREEN_WAVES,
-  retireRedWaves = QUARANTINE_RETIRE_RED_WAVES,
-  retireDays = QUARANTINE_RETIRE_DAYS,
+  redEscalationWaves = QUARANTINE_RED_ESCALATION_WAVES,
+  failureEscalationDays = QUARANTINE_FAILURE_ESCALATION_DAYS,
 }) {
   const nowMs = Date.parse(now);
   if (!Number.isFinite(nowMs)) throw new Error(`decideQuarantine: invalid now ${JSON.stringify(now)}`);
@@ -360,21 +368,15 @@ export function decideQuarantine({
         continue;
       }
       const days = (nowMs - Date.parse(entry.failingSince)) / DAY_MS;
-      if (s.streak >= retireRedWaves || days >= retireDays) {
-        decisions.push({
-          slug,
-          action: 'retire',
-          homeGroup: entry.homeGroup,
-          issue: entry.issue,
-          failingSince: entry.failingSince,
-          reason: automaticRetireReason({
-            streak: s.streak, retireRedWaves, days, failingSince: entry.failingSince, retireDays,
-          }),
-          evidence,
-        });
-        continue;
-      }
-      decisions.push({ slug, action: 'keep-failing', issue: entry.issue, deadline: quarantineDeadline(entry, retireDays), evidence });
+      const escalationReached = s.streak >= redEscalationWaves || days >= failureEscalationDays;
+      decisions.push({
+        slug,
+        action: 'keep-failing',
+        issue: entry.issue,
+        deadline: quarantineDeadline(entry, failureEscalationDays),
+        escalationReached,
+        evidence,
+      });
       continue;
     }
     if (s.latest === 'success' && entry.failingSince) {

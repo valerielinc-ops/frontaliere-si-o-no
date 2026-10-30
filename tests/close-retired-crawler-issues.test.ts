@@ -65,8 +65,8 @@ const plan = (retired: Record<string, any>, openIssues: any[], opts: { roster?: 
   return { ...result, trackerReads };
 };
 
-describe('chi decide «ritiro da soglia automatica»', () => {
-  it('il motivo che decideQuarantine scrive viene riconosciuto, in entrambi i rami', () => {
+describe('separazione tra escalation e ritiro esplicito', () => {
+  it('le soglie mantengono schedulato il crawler e i motivi storici restano riconoscibili', () => {
     const member = { homeGroup: 13, enteredAt: '2026-09-20T00:00:00Z', failingSince: '2026-09-29T00:00:00Z', issue: 42 };
     const wave = (i: number) => ({
       runId: 1000 + i,
@@ -81,12 +81,13 @@ describe('chi decide «ritiro da soglia automatica»', () => {
       now: '2026-09-30T12:00:00Z',
     })[0];
     const byDays = decideQuarantine({ registry: registry('2026-09-20T11:00:00Z'), waves: [wave(0)], now: '2026-09-30T12:00:00Z' })[0];
-    expect(byWaves.action).toBe('retire');
-    expect(byDays.action).toBe('retire');
-    expect(byWaves.reason).not.toBe(byDays.reason);
-    expect(isAutomaticRetireReason(byWaves.reason)).toBe(true);
-    expect(isAutomaticRetireReason(byDays.reason)).toBe(true);
-    expect(byWaves.reason).toBe(automaticRetireReason({ streak: 12, retireRedWaves: 10, days: 1.5, failingSince: '2026-09-29T00:00:00Z', retireDays: 7 }));
+    expect(byWaves).toMatchObject({ action: 'keep-failing', escalationReached: true, issue: 42 });
+    expect(byDays).toMatchObject({ action: 'keep-failing', escalationReached: true, issue: 42 });
+    const legacyWaveReason = automaticRetireReason({ streak: 12, retireRedWaves: 10, days: 1.5, failingSince: '2026-09-29T00:00:00Z', retireDays: 7 });
+    const legacyDayReason = automaticRetireReason({ streak: 1, retireRedWaves: 10, days: 10, failingSince: '2026-09-20T11:00:00Z', retireDays: 7 });
+    expect(legacyWaveReason).not.toBe(legacyDayReason);
+    expect(isAutomaticRetireReason(legacyWaveReason)).toBe(true);
+    expect(isAutomaticRetireReason(legacyDayReason)).toBe(true);
   });
 
   it('il motivo reale di knowledge-lab e\' automatico, quelli scritti a mano no', () => {
