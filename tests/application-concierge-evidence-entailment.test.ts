@@ -108,6 +108,14 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     expect(payload.claims.every((claim: any) => claim.proof.kind === 'cv_original')).toBe(true);
   });
 
+  it('does not let a duplicate positive row bypass the document-purpose verifier', async () => {
+    const f = fixture();
+    const duplicate = { ...f.match, matches: [...f.match.matches, { ...f.match.matches[0], evidence: 'Unsupported second proof' }] };
+    expect(await verifyQualificationEvidence({ ...f, match: duplicate, preliminary: { status: 'unverified' }, purpose: 'documents' }))
+      .toMatchObject({ status: 'unverified', verification: { failure: 'invalid_match_rows' } });
+    expect(f.generate).not.toHaveBeenCalled();
+  });
+
   it('does not label a profile projection or a bare answer as original primary evidence', async () => {
     const f = fixture([qualificationEvidenceCases()[3]]);
     const projection = qualificationSources({ profile: { degree: f.match.matches[0].evidence }, answers: { question_unknown: 'Yes' } });

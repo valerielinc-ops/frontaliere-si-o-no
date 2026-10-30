@@ -197,7 +197,7 @@ describe('draft mode', () => {
     expect(documentsPrompt).toContain('emailBody is the message only: no greeting, no closing formula and no signature');
   });
 
-  it.each(['generic_title', 'date_only', 'judge_unavailable'])('stops unsupported fresh-draft evidence before documents or artifacts: %s', async scenario => {
+  it.each(['generic_title', 'date_only', 'judge_unavailable', 'conflicting_correction'])('stops unsupported fresh-draft evidence before documents or artifacts: %s', async scenario => {
     const base = fakeCodex();
     const bucket = fakeBucket();
     const codex = vi.fn(async (request: any) => {
@@ -216,12 +216,18 @@ describe('draft mode', () => {
         if (scenario === 'judge_unavailable') throw new Error('broker unavailable');
         const { claims } = JSON.parse(request.prompt.split('\n\n').at(-1)!);
         expect(claims).toHaveLength(1);
+        if (scenario === 'conflicting_correction') {
+          const payload = JSON.parse(request.prompt.split('\n\n').at(-1)!);
+          expect(payload.unverifiedContext.candidateNotes).toContain('never worked in a ward');
+          return { assessments: [{ index: claims[0].index, proofId: claims[0].proof.id, verdict: 'uncertain', reason: 'contradiction' }] };
+        }
         return { assessments: [{ index: claims[0].index, proofId: claims[0].proof.id, verdict: 'unsupported', reason: scenario === 'date_only' ? 'chronology_without_behavior' : 'title_without_activity' }] };
       }
       return base(request);
     });
     await expect(buildDraft({ order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null,
       cvBuffer: cvPdf(), cvType: 'pdf', codex, bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      intake: scenario === 'conflicting_correction' ? { emailNotes: 'I have never worked in a ward; the old CV assertion is incorrect.' } : {},
     })).rejects.toMatchObject({ eventType: 'draft_failed', code: 'evidence_entailment_unverified' });
     expect(codex.mock.calls.some(([request]) => request.schema === DOCUMENTS_SCHEMA || request.schema === TAILORED_CV_SCHEMA)).toBe(false);
     expect(bucket.files.size).toBe(0);

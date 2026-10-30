@@ -77,6 +77,12 @@ function schemaFor(claims) {
   } };
 }
 
+function uniqueMatchRows(match, count) {
+  const rows = match?.matches;
+  return Array.isArray(rows) && rows.every(row => Number.isInteger(row?.index) && row.index >= 0 && row.index < count)
+    && new Set(rows.map(row => row.index)).size === rows.length;
+}
+
 const unknown = failure => ({ status: 'unverified', reason: 'evidence_entailment_unverified',
   verification: { version: EVIDENCE_ENTAILMENT_VERSION, status: 'unverified', failure } });
 
@@ -90,6 +96,7 @@ export async function verifyQualificationEvidence({ requirements, match, rawMatc
   if (purpose === 'proposal' && preliminary.status === 'incompatible' && preliminary.gaps?.some(gap => gap.knownMissing === true)) return { status: 'not_required' };
   const rows = requirements.requirements || [];
   if (rows.length > 12) return unknown('claim_budget');
+  if (!uniqueMatchRows(match, rows.length)) return unknown('invalid_match_rows');
   const claims = [];
   for (const [index, row] of rows.entries()) {
     const evidence = match.matches.find(item => item.index === index);
@@ -146,7 +153,7 @@ export function hasVerifiedQualificationEvidence(cached) {
     found.add(proof.index);
   }
   const rows = cached.requirements?.requirements || [];
-  if (rows.length > 12) return false;
+  if (rows.length > 12 || !uniqueMatchRows(cached.match, rows.length)) return false;
   const positive = rows.map((row, index) => ({ index, match: cached.match?.matches?.find(item => item.index === index) }))
     .filter(row => ['met', 'partial'].includes(row.match?.status));
   if (positive.some(row => row.match.evidenceUnverified || (row.match.status === 'met' && !row.match.evidence))) return false;
