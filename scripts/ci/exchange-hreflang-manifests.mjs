@@ -30,9 +30,9 @@
 import { execFile } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { MANIFEST_LOCALES, parseHreflangManifest } from '../lib/hreflang-index-manifest.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { buildLocaleFromJobName } from './lib/deploy-job-failure-signature.mjs';
 
 const execFileAsync = promisify(execFile);
@@ -246,7 +246,7 @@ function parseArgs(argv) {
   return args;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (isInvokedDirectly(import.meta.url)) {
   try {
     const { manifestDir } = parseArgs(process.argv.slice(2));
     await exchangeHreflangManifests({
