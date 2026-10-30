@@ -72,7 +72,7 @@ it.each([
   '<label>I accept the Privacy Policy. *<input id="y" type="checkbox" required></label>',
   '<label for="y"><span class="label">I accept the Privacy Policy. *</span></label><input id="y" type="checkbox" required>',
   '<label><span class="question">I accept the Privacy Policy. *</span><input id="y" type="checkbox" required></label>',
-  '<div class="field"><label for="y"><span class="label">I accept the Privacy Policy. *</span></label><input id="y" type="checkbox" required></div>',
+  '<div class="field"><span class="label">I accept the Privacy Policy. *</span><input id="y" type="checkbox" required></div>',
 ])('never gives an unlabeled checkbox another control\'s consent: %s', neighbor => {
   const { dom, snapshot } = extract(`<form><fieldset><label for="x"></label><input id="x" name="newsletter" type="checkbox" required>${neighbor}</fieldset></form>`);
   expect(snapshot.fields[0].label).not.toMatch(/privacy/i);

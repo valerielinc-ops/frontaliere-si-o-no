@@ -251,7 +251,7 @@
     }
     // A field group (Zag/Ark, fieldset): its own label or legend.
     const group = element.closest(QUESTION_GROUP_SELECTOR);
-    for (const legend of ownedGroupLabels(group, 'label, legend', element)) {
+    for (const legend of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
       if (!legend.contains(element) && textOf(legend)) return textOf(legend);
     }
     return questionOf(element) || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
