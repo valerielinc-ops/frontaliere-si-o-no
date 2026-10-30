@@ -436,7 +436,8 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
   const raw = String(reason || '').trim();
   if (isInfrastructureRetryHold({ heldBy: [raw] }) && Number(portalAutoRetryAt) > 0) {
     return {
-      reason: raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio' : 'la connessione al portale non è riuscita',
+      reason: raw === 'portal:captcha_provider_unavailable' ? 'il servizio di verifica anti-robot non è disponibile'
+        : raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio' : 'la connessione al portale non è riuscita',
       hint: `La candidatura resta in coda. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')} e i tentativi proseguiranno mentre l’annuncio è disponibile. Non serve intervenire sulla singola candidatura.`,
       detail: '',
     };

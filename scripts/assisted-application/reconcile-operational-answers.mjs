@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /** Backfill legacy waits through the normal clock; defaults are never saved as CV facts. */
+import { createHash } from 'node:crypto';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { transition } from '../../functions/src/assistedApplicationFlow.js';
 import { OPERATIONAL_DEFAULTS_VERSION } from '../../functions/src/assistedApplicationOperationalAnswers.js';
-import { draftRefFor, flowRefFor } from '../../functions/src/assistedApplicationAutomation.js';
 
 export async function reconcileOperationalAnswers({ db, apply = false, nowMs = Date.now() }) {
   const counts = { scanned: 0, eligible: 0, queued: 0, alreadyQueued: 0 };
@@ -20,12 +20,18 @@ export async function reconcileOperationalAnswers({ db, apply = false, nowMs = D
       if (doc.data().paymentStatus !== 'paid' || doc.data().refundStatus === 'pending') continue;
       const outcome = await db.runTransaction(async transaction => {
         const [orderDoc, flowDoc, draftDoc] = await Promise.all([
-          transaction.get(doc.ref), transaction.get(flowRefFor(db, doc.id)), transaction.get(draftRefFor(db, doc.id)),
+          transaction.get(doc.ref), transaction.get(doc.ref.collection('automation').doc('flow')), transaction.get(doc.ref.collection('ai_drafts').doc('current')),
         ]);
         const order = orderDoc.data();
         if (order?.paymentStatus !== 'paid' || order.refundStatus === 'pending') return null;
-        if (order.operationalAnswerReconciledVersion === OPERATIONAL_DEFAULTS_VERSION) return 'alreadyQueued';
         const flow = flowDoc.data();
+        // A later portal step may create another wait on this same order.
+        // Deduplicate the wait episode, not every future use of this policy.
+        const waitKey = createHash('sha256').update(JSON.stringify([
+          OPERATIONAL_DEFAULTS_VERSION, flow?.round, [...(flow?.heldBy || [])].sort(),
+          flow?.dispatch?.requestedAt || null, flow?.heldSince || null,
+        ])).digest('hex');
+        if (order.operationalAnswerReconciledKey === waitKey) return 'alreadyQueued';
         const result = transition(flow, { type: 'tick' }, {
           draft: draftDoc.data(), answers: flow?.answers || {}, documents: flow?.documents || {}, nowMs,
         });
@@ -35,6 +41,7 @@ export async function reconcileOperationalAnswers({ db, apply = false, nowMs = D
         if (apply) transaction.set(doc.ref, {
           automationDueAt: nowMs,
           operationalAnswerReconciledVersion: OPERATIONAL_DEFAULTS_VERSION,
+          operationalAnswerReconciledKey: waitKey,
         }, { merge: true });
         return apply ? 'queued' : 'eligible';
       });

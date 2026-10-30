@@ -1137,7 +1137,7 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     // guard's marker is a constant of the real repository. Keep the two in step.
     const guard = fs.readFileSync(path.join(ROOT, 'scripts/lib/old-history-guard.mjs'), 'utf8');
     expect(guard).toContain("if (isShallowRepository(cwd)) args.push('--unshallow');");
-    expect(guard).toContain("'--filter=tree:0', fetchTarget.remote,");
+    expect(guard).toMatch(/'--filter=tree:0',\s*fetchTarget\.remote,/u);
     expect(guard).toContain("if (markerRef && !commitExists(markerRef, cwd)) args.push(markerRef);");
     const setup = movingMainFixture({ afterHistoryGuard: true });
     expect(git(setup.runner, ['rev-parse', '--is-shallow-repository'])).toBe('false');

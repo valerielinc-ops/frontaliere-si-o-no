@@ -38,7 +38,8 @@ import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 
-export const AUTOMATION_FLAG_KEY = 'ASSISTED_APPLICATION_AUTOMATION';
+import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
+export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export const AGENT_WORKFLOW = 'assisted-application-agent.yml';
 export const AUTOMATION_SUBCOLLECTION = 'automation';
 export const FLOW_DOC_ID = 'flow';
@@ -88,18 +89,6 @@ function candidateQuestionAnswersRefFor(db, userId) {
 function candidateQuestionAnswersOf(snapshot) {
   const memory = snapshot?.data()?.applicationQuestionAnswers;
   return memory && typeof memory === 'object' && !Array.isArray(memory) ? memory : {};
-}
-
-/**
- * The Remote Config flag: "true" automates every order; "false" or empty
- * none; anything else is a list of order ids (commas or spaces) and automates
- * only those — the final trial run, before switching on for everyone.
- */
-export function parseAutomationFlag(value) {
-  const text = String(value || '').trim();
-  if (text.toLowerCase() === 'true') return { all: true, orders: new Set() };
-  if (!text || text.toLowerCase() === 'false') return { all: false, orders: new Set() };
-  return { all: false, orders: new Set(text.split(/[\s,]+/).filter(Boolean)) };
 }
 
 /** Fails closed: any error reading Remote Config means "off". */

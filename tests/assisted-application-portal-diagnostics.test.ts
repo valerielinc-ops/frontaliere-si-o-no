@@ -153,6 +153,19 @@ describe('transient CAPTCHA provider failures', () => {
   ])('does not infer a provider outage from unrelated or non-transient responses: %j', entry => {
     expect(portalHandoffReason('captcha', { diagnostics: { responses: [entry] } })).toBe('captcha');
   });
+  it('recognizes a measured shared-IP rejection without requiring a later server error', () => {
+    const blocked = { host: 'api.nopecha.com', path: '/v1/status', status: 403, attempt: 1, errors: [{ message: ' Banned IP ' }] };
+    const context = { diagnostics: { responses: [blocked] }, attempt: 1 };
+    expect(portalHandoffReason('captcha', context)).toBe('captcha_provider_unavailable');
+    expect(portalHandoffReason('portal_needs_candidate', context)).toBe('captcha_provider_unavailable');
+    expect(portalHandoffReason('captcha', { ...context, finalClickAttempted: true })).toBe('captcha');
+    expect(portalHandoffReason('captcha', { ...context, attempt: 2 })).toBe('captcha');
+    for (const patch of [
+      { host: 'jobs.example.test' }, { path: '/unrelated' }, { status: 200 },
+      { errors: [{ message: 'Other access error' }] }, { errors: [] },
+    ]) expect(portalHandoffReason('captcha', { diagnostics: { responses: [{ ...blocked, ...patch }] }, attempt: 1 })).toBe('captcha');
+  });
+
   it('never converts a candidate-only action into a technical retry', () => {
     expect(portalHandoffReason('whatsapp', { diagnostics: { responses }, attempt: 1 })).toBe('whatsapp');
   });
