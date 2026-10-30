@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": {
+    "producer": "build-plugins/constants.ts",
+    "sanitizerSha256": "451139be2898dc0a6c0c6d1d7ae13daf89d43b3e6ca0917324001135f72c2ebd",
+    "guardSha256": "8c31e2152ca4d73ed600066c15ed89df69bb12d6bb8ecf47d1e42966b3f10140"
+  },
+  "assets": [
+    {
+      "name": "adsense-loader-c21af7515a16.js",
+      "sha256": "c21af7515a16fbe018fd23f2e7457d8513db29f7eae52f0301b2443c46d9c7dd"
+    },
+    {
+      "name": "partnerize-tag-a89366fbc3ed.js",
+      "sha256": "a89366fbc3edfcc805df07e2e7e12692b737292f8b2486eaf3e9ccf5d3a6e3e2"
+    }
+  ]
+}
