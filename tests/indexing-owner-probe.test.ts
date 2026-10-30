@@ -4,13 +4,17 @@ import {
   DEFAULT_OWNER_PROBE_URL,
   isOwnerProbeSuccess,
   probeOwnership,
+  resolveOwnerToken,
 } from '../scripts/lib/indexing-owner.mjs';
 import {
   parseArgs,
   verifyIndexingOwner,
 } from '../scripts/ci/verify-indexing-owner.mjs';
 
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+});
 
 describe('Indexing API owner probe', () => {
   it.each([
@@ -39,6 +43,23 @@ describe('Indexing API owner probe', () => {
     });
     expect(fetchMock).toHaveBeenCalledTimes(2);
     expect(fetchMock.mock.calls[0][0]).toContain('url=https%3A%2F%2Ffrontaliereticino.ch%2F');
+  });
+
+  it('does not resolve a publish token when the metadata probe returns 403', async () => {
+    vi.stubEnv('GSC_CLIENT_ID', 'client-id');
+    vi.stubEnv('GSC_CLIENT_SECRET', 'client-secret');
+    vi.stubEnv('GSC_REFRESH_TOKEN', 'refresh-token');
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ access_token: 'oauth-token' }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ error: { message: 'Failed to verify the URL ownership' } }), {
+        status: 403,
+        headers: { 'content-type': 'application/json' },
+      }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(resolveOwnerToken(DEFAULT_OWNER_PROBE_URL)).resolves.toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock.mock.calls[1][0]).toContain('/urlNotifications/metadata');
   });
 });
 
