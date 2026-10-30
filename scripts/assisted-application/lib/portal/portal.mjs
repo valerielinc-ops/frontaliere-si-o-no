@@ -3110,11 +3110,17 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
         const optionMap = portalOptionMap({ options: item.options, applicationOptions, optionMap: item.optionMap });
         let type = item.type;
         if (field) {
-          if (['select', 'radio', 'combobox'].includes(field.kind) || applicationOptions.length) type = 'choice';
+          if (['select', 'radio', 'combobox', 'listbox'].includes(field.kind) || applicationOptions.length) type = 'choice';
           else if (field.kind === 'checkbox') type = 'yes_no';
           else if (field.kind === 'date' || field.inputType === 'date') type = 'date';
           else if (field.inputType === 'number') type = 'number';
           else if (['text', 'textarea'].includes(field.kind)) type = 'text';
+        }
+        // A native choice with no usable catalogue needs another portal read,
+        // never a text question whose arbitrary answer the ATS cannot accept.
+        if (field && type === 'choice' && !applicationOptions.length) {
+          unreadableFields.push(field.id || item.fieldId || 'unknown');
+          continue;
         }
         readable.push({
           ...item,

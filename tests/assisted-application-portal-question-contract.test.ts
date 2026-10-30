@@ -30,6 +30,13 @@ describe('portal candidate question contract', () => {
     for (const option of question.options) expect(validateAnswer(option, question)).toEqual({ ok: true });
   });
 
+  it('keeps a native choice with no usable catalogue as a technical hold instead of free text', () => {
+    for (const options of [[], [{ value: '', label: 'Bitte auswählen', placeholder: true }]]) {
+      const result = portalRequirementsFromMissingRequired([{ ...field, options }], [planned]);
+      expect(result).toEqual({ questions: [], documents: [], unreadableFields: [field.id] });
+    }
+  });
+
   it('does not apply stale free-text rules to native choices while preserving free-text validation', () => {
     const validation = { minLength: 30, maxLength: 40, pattern: '^\\d+$' };
     const question = portalRequirementsFromMissingRequired([field], [{ ...planned, validation }]).questions[0];
