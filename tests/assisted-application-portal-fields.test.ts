@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { COOKIE_ACCEPT_RE, COOKIE_REJECT_RE, openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, unknown> = {}) {
@@ -32,6 +32,32 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it('recognizes the Deloitte login fields and optional-cookie controls', () => {
+    const snapshot = extract(`
+      <form aria-label="Deloitte login">
+        <label for="username">Username (private email address)</label>
+        <input id="username" name="username" type="email" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required>
+        <button type="submit">Login</button>
+      </form>
+      <div role="dialog" aria-label="Cookie preferences">
+        <button type="button">Customise Cookies</button>
+        <button type="button">Decline optional cookies</button>
+        <button type="button">Accept optional cookies</button>
+      </div>`, 'https://apply.deloitte.ch/CHCareers/Login');
+
+    expect(snapshot.fields).toEqual(expect.arrayContaining([
+      expect.objectContaining({ label: 'Username (private email address)', kind: 'text', inputType: 'email', required: true }),
+      expect.objectContaining({ label: 'Password', kind: 'text', inputType: 'password', required: true }),
+    ]));
+    expect(snapshot.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining([
+      'Login', 'Customise Cookies', 'Decline optional cookies', 'Accept optional cookies',
+    ]));
+    expect(findButton(snapshot.buttons, COOKIE_REJECT_RE)?.text).toBe('Decline optional cookies');
+    expect(findButton(snapshot.buttons, COOKIE_ACCEPT_RE)?.text).toBe('Accept optional cookies');
+  });
+
   it('uses the extracted SuccessFactors marker when a private-use upload button has only a generated snapshot id', async () => {
     let uploaded = false;
     const snapshot = extract(`

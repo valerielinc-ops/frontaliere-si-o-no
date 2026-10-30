@@ -684,10 +684,12 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
 // otherwise accept (the runner's own browser session, no candidate data).
 // SuccessFactors' own cookie manager (Rolex, 2026-10-03) names the cookies in
 // each button — «Refuser tous les cookies», «Alle Cookies ablehnen», «Reject
-// All Cookies», «Rifiuta tutti i cookie» — and, left open, takes every click
-// on the sign-in page behind it.
-export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?( cookies)?|decline( all)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
-export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
+// All Cookies» and «Rifiuta tutti i cookie» — and, left open, takes every
+// click on the sign-in page behind it. Deloitte's manager says «Decline
+// optional cookies» / «Accept optional cookies»; optional is still the
+// manager's decision, not its preferences control.
+export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
+export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
