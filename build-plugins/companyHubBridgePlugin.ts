@@ -565,7 +565,7 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
           const slug = slugifyCompanyName(company);
           if (!slug) continue;
           if (!archived || !displayNameByItSlug.has(slug)) displayNameByItSlug.set(slug, company);
-          const seedSlug = (candidateSlug: string): void => {
+          const seedSlug = (candidateSlug: string, displayName = company): void => {
             for (const locale of Object.keys(LOCALE_PREFIX) as Locale[]) {
               const key = `${locale}::${candidateSlug}`;
               if (!seen.has(key)) {
@@ -574,7 +574,7 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
                   companySlug: candidateSlug,
                   url: `${BASE_URL}${buildHubPath(locale, candidateSlug)}`,
                   kind: 'unmatched',
-                  displayName: company,
+                  displayName,
                   jobCount: 0,
                 });
               }
@@ -599,6 +599,12 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
             ? slugifyCompanyName(job.companyKey)
             : '';
           if (keySlug && keySlug !== slug) seedSlug(keySlug);
+          if (archived) {
+            for (const candidate of [slug, keySlug]) {
+              const primary = resolveBrandCanonical(candidate);
+              if (primary && primary !== candidate) seedSlug(primary, humanizeSlug(primary));
+            }
+          }
         }
       } catch { /* skip malformed crawler file */ }
     }

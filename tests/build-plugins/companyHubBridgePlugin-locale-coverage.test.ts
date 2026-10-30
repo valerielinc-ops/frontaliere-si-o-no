@@ -80,6 +80,7 @@ describe('companyHubBridgePlugin — autoDiscoverCompanyHubs locale coverage (#3
       { company: 'Bieri Elektrotechnik AG', companyKey: 'burkhalter-group', canton: 'SO' },
       { company: 'Arsanté (Clinique de Carouge) — Centre Médical de Lancy', companyKey: 'arsante-clinique-de-carouge', canton: 'GE' },
       { company: 'CURRENT CLINIC SA', companyKey: 'current-clinic', canton: 'GE' },
+      { company: 'Capri Holdings (Michael Kors / Versace)', companyKey: 'capri-holdings', canton: 'TI' },
       { company: '' }, null,
     ];
     fs.writeFileSync(path.join(archivedDir, 'fixture.json'), JSON.stringify(records));
@@ -95,6 +96,7 @@ describe('companyHubBridgePlugin — autoDiscoverCompanyHubs locale coverage (#3
     expect(hubs.filter((entry) => entry.companySlug === 'current-clinic-sa')).toHaveLength(4);
     expect(hubs.filter((entry) => entry.companySlug === 'current-clinic-sa').every((entry) => entry.displayName === 'Current Clinic SA')).toBe(true);
     expect(hubs.some((entry) => ['scratch-employer', 'wrong-shape'].includes(entry.companySlug))).toBe(false);
+    expect(hubs.filter((entry) => entry.companySlug === 'michael-kors')).toHaveLength(4);
 
     fs.mkdirSync(path.join(rootDir, 'dist'));
     const plugin = companyHubBridgePlugin(rootDir) as unknown as { closeBundle: { handler: () => Promise<void> } };
@@ -107,6 +109,8 @@ describe('companyHubBridgePlugin — autoDiscoverCompanyHubs locale coverage (#3
     }
     const italian = fs.readFileSync(path.join(rootDir, 'dist/cerca-lavoro-ticino/azienda-bieri-elektrotechnik-ag/index.html'), 'utf8');
     expect(italian).toContain('Nessun annuncio di Bieri Elektrotechnik AG in Ticino');
+    const brandTarget = fs.readFileSync(path.join(rootDir, 'dist/cerca-lavoro-ticino/azienda-michael-kors/index.html'), 'utf8');
+    expect(brandTarget).toContain('Nessun annuncio di Michael Kors in Ticino');
   });
 
   it('every seeded locale gets a distinct, correctly-prefixed URL and a non-empty display name (safe fallback content, never thin)', () => {
