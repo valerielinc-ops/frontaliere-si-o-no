@@ -359,6 +359,48 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     parts.push(headingBefore(element));
     return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
   };
+  // Address ownership is distinct from the flattened sibling-question text.
+  // A work-history or birthplace ancestor must survive an inner field group;
+  // a birth-date sibling must not become the owner of a residence control.
+  const ownedAddressContext = (element) => {
+    const boundary = element.closest('form, [role="form"], dialog, [role="dialog"], main, [role="main"]');
+    const result = { section: '', owners: [], unknown: false };
+    if (!boundary) return result;
+    const scopes = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
+    const add = (value) => {
+      if (String(value || '').replace(/\s+/g, ' ').trim().length > 300) { result.unknown = true; return false; }
+      const name = clean(value);
+      if (name && !result.owners.includes(name)) result.owners.push(name);
+      if (result.owners.length > 16) { result.owners = []; result.unknown = true; return false; }
+      return true;
+    };
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      if (node.matches(scopes)) {
+        if (!add(node.getAttribute('aria-label') || '')) return result;
+        for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+          const named = node.ownerDocument.getElementById(id);
+          const name = clean(named?.innerText || named?.textContent || '');
+          // Hidden text explicitly referenced by ARIA still names the owner.
+          if (!name) { result.unknown = true; return result; }
+          if (!add(name)) return result;
+        }
+        const legend = [...node.children].find(child => child.tagName === 'LEGEND');
+        if (legend && !add(legend.innerText || legend.textContent)) return result;
+      }
+      if (node === boundary) break;
+    }
+    const section = headingBefore(element);
+    const owned = [...boundary.querySelectorAll('h1, h2, h3, h4, legend')].some(heading => {
+      const owner = heading.closest(scopes);
+      const matches = owner?.contains(element) && shown(heading)
+        && Boolean(heading.compareDocumentPosition(element) & FOLLOWING)
+        && clean(heading.innerText || heading.textContent) === section;
+      if (matches && String(heading.innerText || heading.textContent || '').replace(/\s+/g, ' ').trim().length > 300) result.unknown = true;
+      return matches;
+    });
+    result.section = owned ? section : '';
+    return result;
+  };
   // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
   // nearest before it, else the first after it, so two unnamed fields in one
   // zone never share the first one's question.
@@ -438,6 +480,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       name: clean(picker.getAttribute('name') || ''),
       label,
       context: sectionContext(picker),
+      addressContext: ownedAddressContext(picker),
       required: picker.getAttribute('aria-required') !== 'false' && !picker.hasAttribute('data-optional'),
       value: clean(selected),
       search: false,
@@ -470,7 +513,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), addressContext: ownedAddressContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
       entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question))
         || hasRequiredMarker(element, question || labelFor(element));
@@ -494,7 +537,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       form: formOf(element),
       name: clean(element.getAttribute('name') || ''),
       label,
-      context: sectionContext(element),
+      context: sectionContext(element), addressContext: ownedAddressContext(element),
       section: headingBefore(element),
       required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
@@ -558,7 +601,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       inputType: 'date',
       name: '',
       label,
-      context: sectionContext(element),
+      context: sectionContext(element), addressContext: ownedAddressContext(element),
       required: element.hasAttribute('required') || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: clean(element.value || element.getAttribute('value') || ''),
       search: false,
@@ -596,7 +639,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element)
         || (hasSingleQuestionContext(element) ? headingBefore(element) : '');
-      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), addressContext: ownedAddressContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -626,7 +669,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       inputType: 'listbox',
       name: clean(element.getAttribute('name') || ''),
       label: fieldLabel,
-      context: sectionContext(element),
+      context: sectionContext(element), addressContext: ownedAddressContext(element),
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,

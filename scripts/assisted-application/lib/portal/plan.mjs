@@ -608,12 +608,13 @@ const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\
 const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&|\/)\s*(?:(?:house|street)\s*)?(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
 const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|npa)\b/i;
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
-const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
+const CITY_RE = /(?<![\p{L}\p{N}_])(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)(?![\p{L}\p{N}_])/iu;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 // A generic personal-data section can also contain unrelated labels such as
 // «Data di nascita». Only these residence-specific words override that noise
 // when a sibling-label context contains both kinds of information.
-const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:information|details|data)|contact\s+(?:details|information)|candidate\s+(?:personal\s+)?(?:information|details|data|profile)|dati\s+personali|données\s+personnelles|persönliche\s+(?:daten|angaben))\b/i;
+const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:information|details|data)|contact\s+(?:details|information)|candidate\s+(?:personal\s+)?(?:information|details|data|profile)|(?:dati|informazioni)\s+personali|(?:données|informations|coordonnées)\s+personnelles|persönliche\s+(?:daten|angaben|informationen))\b/i;
+const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
 const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|employeur|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro|emergency\s+contact|contact\s+d['’]urgence|contatto\s+di\s+emergenza|reference|referee|next\s+of\s+kin|contact\s+person|supervisor|recruiter|interviewer)\b/i;
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|(?:work|employment|professional|career|job)\s+(?:history|experience)|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
@@ -662,8 +663,19 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
 export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
   const surrounding = String(context || '').trim();
-  const section = String(metadata?.section || '').trim();
-  const fieldContext = [surrounding, section].filter(Boolean).join(' ');
+  const hasOwnership = Object.hasOwn(metadata || {}, 'addressContext');
+  const ownership = metadata?.addressContext;
+  if (hasOwnership && (!ownership || ownership.unknown !== false || typeof ownership.section !== 'string' || ownership.section.length > 300
+    || !Array.isArray(ownership.owners) || ownership.owners.length > 16
+    || ownership.owners.some(name => typeof name !== 'string' || name.length > 300))) return '';
+  const section = hasOwnership ? ownership.section : String(metadata?.section || '').trim();
+  // Only explicit owners of this control can establish or veto residence.
+  // Legacy callers retain their former section/context contract. The native
+  // reader supplies separate ownership so flattened sibling labels are not
+  // mistaken for the candidate/employer/birthplace owning this address.
+  const fieldContext = hasOwnership ? [section, ...ownership.owners].filter(Boolean).join(' ')
+    : [surrounding, section].filter(Boolean).join(' ');
+  if (hasOwnership && (NON_RESIDENCE_ADDRESS_RE.test(fieldContext) || WORK_HISTORY_SECTION_RE.test(fieldContext))) return '';
   const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(fieldContext);
   const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(fieldContext);
   const employmentContext = EMPLOYMENT_CONTEXT_RE.test(fieldContext) || WORK_HISTORY_SECTION_RE.test(section);
@@ -671,7 +683,7 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   // distinguish it from residence country. The portal context is often a
   // flattened list of every sibling label, though, so do not let a phone
   // label suppress a real residence address in the same personal section.
-  const phoneCodeContext = PHONE_CODE_FIELD_RE.test(fieldContext)
+  const phoneCodeContext = PHONE_CODE_FIELD_RE.test([surrounding, fieldContext].join(' '))
     && PHONE_COUNTRY_CODE_LABEL_RE.test(value);
   // `fieldContext` is a flattened list of sibling labels. A candidate-owned
   // label in that list must not reclassify an emergency/contact-person field
@@ -746,6 +758,10 @@ export function questionTopic(label, context = '', metadata = {}) {
   if (isCivilStatusField(text)) return 'civil_status';
   if (isNationalityField(text)) return 'nationality';
   if (isPermitField(text) && asksHeldStatus(text)) return 'permit';
+  // Birthplace is a separate hard fact. Neither the residence city nor the
+  // known date of birth answers it; an explicit matching answer can still be
+  // reused without assigning all birthplace questions a shared date topic.
+  if (BIRTH_LOCATION_RE.test(text)) return '';
   if (BIRTH_FIELD_RE.test(text)) return 'birth_date';
   if (isPhoneCountryQuestion(text, context, metadata)) return 'phone_country';
   if (PHONE_CODE_FIELD_RE.test(text)) return 'phone';
