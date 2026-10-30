@@ -30,6 +30,7 @@ import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } fr
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
+import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -383,7 +384,7 @@ export async function submitApplication(ctx) {
       // Failed for certain: nothing left, the attempt is no record. An ambiguous one keeps it.
       if (!ambiguous) await keepAttempt(null);
       await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous, sent: sentRecord }, key: runKey, nowMs });
-      return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : 'email_failed' };
+      return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : emailInfrastructureFailure(failed[0]) ? 'email_provider_unavailable' : 'email_failed' };
     }
     if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId, provider: sent[0]?.provider || null, sent: sentRecord }, nowMs);
     await storeEvidence({
@@ -557,6 +558,7 @@ export async function submitApplication(ctx) {
         if (attemptKept) await keepAttempt(null);
       }
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
+      if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable' };
       throw error;
     } finally {
       if (dir) await rm(dir, { recursive: true, force: true });

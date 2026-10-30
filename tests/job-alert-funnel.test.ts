@@ -8,6 +8,7 @@ import {
   formatJobAlertCount,
   formatJobAlertFunnelLines,
   formatJobAlertFunnelMarkdown,
+  formatJobAlertProviderLine,
   writeJobAlertStepSummary,
 } from '../scripts/lib/job-alert-funnel.mjs';
 import { read } from './helpers/senders';
@@ -198,6 +199,18 @@ describe('formatJobAlertFunnelMarkdown', () => {
   });
 });
 
+describe('formatJobAlertProviderLine', () => {
+  it('prints one line with each configured provider, its sends and the quota left today', () => {
+    expect(formatJobAlertProviderLine(PROVIDERS)).toBe(
+      '   📮 Provider: maileroo 1.380 inviate (residuo 4.347 di 8.064) · resend 0 inviate (residuo 100)',
+    );
+  });
+
+  it('prints nothing when no provider is configured', () => {
+    expect(formatJobAlertProviderLine([])).toBe('');
+  });
+});
+
 describe('formatJobAlertBatchLine', () => {
   it('prints one line per batch with the provider split', () => {
     expect(formatJobAlertBatchLine(3, {
@@ -250,19 +263,27 @@ describe('writeJobAlertStepSummary', () => {
 describe('send-job-alerts.mjs log contract', () => {
   const source = read('scripts/send-job-alerts.mjs');
 
-  it('gates the one-line-per-alert logs behind JOB_ALERT_LOG_DETAIL', () => {
-    expect(source).toMatch(/const JOB_ALERT_LOG_DETAIL = process\.env\.JOB_ALERT_LOG_DETAIL === '1'/);
+  it('keeps one line per alert in the log, switchable with JOB_ALERT_LOG_DETAIL=0', () => {
+    expect(source).toMatch(/const JOB_ALERT_LOG_DETAIL = process\.env\.JOB_ALERT_LOG_DETAIL !== '0'/);
     expect(source).not.toMatch(/console\.log\(`\s+📬 Alert/);
     expect(source).not.toMatch(/console\.log\(`\s+⏭️/);
     expect(source).not.toMatch(/console\.log\(`\s+🔗 Live-link check/);
   });
 
-  it('prints the provider table once per run, not once per batch', () => {
-    expect(source.match(/logProviderSummary\(\);/g)).toHaveLength(1);
+  it('keeps the provider table out of the log: it lives in the Job Summary', () => {
+    expect(source).not.toMatch(/logProviderSummary\(\);/);
+    expect(source).toMatch(/formatJobAlertProviderLine\(providers\)/);
   });
 
   it('asks the cascade for quiet batches in both the first send and the retry', () => {
     expect(source.match(/quiet: true,/g)).toHaveLength(2);
+  });
+
+  it('logs the reason for each filtered alert, one line each, through logDetail', () => {
+    expect(source).toMatch(/logDetail\(`\s+🚫 soppresso/);
+    expect(source).toMatch(/logDetail\(`\s+🚫 senza base di iscrizione/);
+    expect(source).toMatch(/logDetail\(`\s+📬 rinviato/);
+    expect(source).toMatch(/logDetail\(`\s+🪦 decaduto per cadenza/);
   });
 
   it('prints the cadence ceiling only when it is switched on (it was printing «nulld»)', () => {
