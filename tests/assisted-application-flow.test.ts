@@ -16,6 +16,7 @@ const {
   transition,
   roundWasSent,
 } = await import('../functions/src/assistedApplicationFlow.js');
+const { TRANSPORT_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
@@ -623,19 +624,19 @@ describe('measured CAPTCHA provider outage recovery', () => {
     expect(result.ignored).toBe('portal_retry_not_due');
     expect(result.effects).toEqual([]);
   });
-  it('waits without requesting human answers, retries the approved round, and remains bounded', () => {
+  it('waits without requesting human answers, retries the approved round, with a capped infrastructure delay', () => {
     const now = Date.now();
     const draft = { ...cleanDraft, round: 1 };
     const dispatch = { mode: 'submit', round: 1, attempts: 1 };
     let result = transition({ state: 'submitting', round: 1, dispatch }, { type: 'submit_handoff', reason: 'captcha_provider_unavailable' }, { draft, nowMs: now });
     expect(result.effects).toEqual([]);
-    expect(result.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: now + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
+    expect(result.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: now + TRANSPORT_AUTO_RETRY_DELAYS_MS[0] });
     expect(transition({ ...result.flow, dispatch }, { type: 'portal_auto_retry' }, { draft, nowMs: now }).ignored).toBe('portal_retry_not_due');
-    result = transition({ ...result.flow, dispatch }, { type: 'portal_auto_retry' }, { draft, nowMs: now + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
+    result = transition({ ...result.flow, dispatch }, { type: 'portal_auto_retry' }, { draft, nowMs: now + TRANSPORT_AUTO_RETRY_DELAYS_MS[0] });
     expect(result.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
-    expect(result.flow.portalAutoRetryCount).toBe(1);
-    const exhausted = transition({ state: 'submitting', round: 1, dispatch, portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length }, { type: 'submit_handoff', reason: 'captcha_provider_unavailable' }, { draft, nowMs: now });
-    expect(exhausted.flow.portalAutoRetryAt).toBeNull();
+    expect(result.flow.transportAutoRetryCount).toBe(1);
+    const exhausted = transition({ state: 'submitting', round: 1, dispatch, transportAutoRetryCount: TRANSPORT_AUTO_RETRY_DELAYS_MS.length }, { type: 'submit_handoff', reason: 'captcha_provider_unavailable' }, { draft, nowMs: now });
+    expect(exhausted.flow.portalAutoRetryAt).toBe(now + TRANSPORT_AUTO_RETRY_DELAYS_MS.at(-1)!);
     expect(exhausted.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover' })]);
   });
   it('does not retry a draft that the candidate has not approved', () => {

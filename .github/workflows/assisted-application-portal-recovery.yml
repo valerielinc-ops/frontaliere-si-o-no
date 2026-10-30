@@ -1,0 +1,57 @@
+name: Recover assisted applications after portal fixes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/assisted-application/lib/portal/**'
+      - 'scripts/assisted-application/extension/apply-control.js'
+      - 'scripts/assisted-application/lib/submit.mjs'
+      - 'scripts/assisted-application/agent.mjs'
+      - 'scripts/assisted-application/lib/portal-code-version.mjs'
+      - 'scripts/assisted-application/install-nopecha.sh'
+      - 'functions/src/assistedApplicationOperationalAnswers.js'
+      - 'functions/src/assistedApplicationCandidateEdits.js'
+      - 'functions/src/assistedApplicationFlow.js'
+      - 'functions/src/assistedApplicationPortalRetryPolicy.js'
+      - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'
+      - 'functions/src/lib/answerRules.js'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: assisted-portal-code-recovery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          sparse-checkout: |
+            functions
+            scripts
+            package.json
+            package-lock.json
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
+        working-directory: functions
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          test -n "$FIREBASE_SERVICE_ACCOUNT_JSON"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Queue recoverable applications through the normal clock
+        run: node scripts/assisted-application/reconcile-portal-code.mjs --apply
