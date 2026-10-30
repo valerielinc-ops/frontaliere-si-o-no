@@ -110,6 +110,18 @@ describe('latestReviewerVerdict: conta solo l\'ultima review del reviewer', () =
     expect(after.verdict).toBe('blocking');
     expect(reviewerSnapshotChanged(before, after)).toBe(true);
   });
+
+  it('rileva un body edit della stessa review anche quando l\'id resta uguale', () => {
+    const before = latestReviewerSnapshot([
+      { ...review(RED, HEAD, '2026-09-27T08:00:00Z'), id: 42 },
+    ], HEAD);
+    const after = latestReviewerSnapshot([
+      { ...review(`${RED}\nnota aggiornata`, HEAD, '2026-09-27T08:00:00Z'), id: 42 },
+    ], HEAD);
+    expect(before.verdict).toBe('blocking');
+    expect(after.verdict).toBe('blocking');
+    expect(reviewerSnapshotChanged(before, after)).toBe(true);
+  });
 });
 
 describe('needsHumanBlocksAutorebase: veto solo con un verdetto bloccante', () => {
@@ -172,6 +184,7 @@ exit 0
           GITHUB_REPOSITORY: 'owner/repo',
           GH_TOKEN: 'test-token',
           GITHUB_RUN_NUMBER: '1',
+          HEAD,
         },
       });
       return { result, out: `${result.stdout}${result.stderr}`, calls: readFileSync(callLog, 'utf8') };
@@ -215,12 +228,12 @@ exit 0
 
   it('rilegge il verdetto terminale subito prima del push e può fare reset senza pubblicare il merge locale', () => {
     const merge = PROCESS_PR.lastIndexOf("git(['merge', '--no-edit', 'origin/main'], { allowFail: true });");
-    const reread = PROCESS_PR.lastIndexOf('const reviewerBeforePush = readReviewerSnapshot(num, head);');
+    const reread = PROCESS_PR.lastIndexOf('const reviewInputBeforePush = readReviewInput(num);');
     const push = PROCESS_PR.lastIndexOf('const pushed = pushBranch(branch);');
     expect(merge).toBeGreaterThan(-1);
     expect(reread).toBeGreaterThan(merge);
     expect(reread).toBeLessThan(push);
-    expect(PROCESS_PR.slice(reread, push)).toContain('reviewerSnapshotChanged');
+    expect(PROCESS_PR.slice(reread, push)).toContain('reviewInputChanged');
     expect(PROCESS_PR.slice(reread, push)).toContain("git(['reset', '--hard', head]");
   });
 });

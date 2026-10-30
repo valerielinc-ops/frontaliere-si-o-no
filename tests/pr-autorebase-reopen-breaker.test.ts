@@ -28,6 +28,7 @@ import {
   renderReopenBudget,
   DEFAULT_MAX_REOPENS,
 } from '../scripts/ci/lib/reopen-breaker.mjs';
+import { reviewInputChanged } from '../scripts/ci/pr-autorebase.mjs';
 
 const script = readFileSync(resolve('scripts/ci/pr-autorebase.mjs'), 'utf8');
 
@@ -181,6 +182,29 @@ describe('needs-human: tracking, veto solo con un verdetto bloccante', () => {
 });
 
 describe("la guardia è sul percorso, non accanto ad esso", () => {
+  it('lega ogni decisione del breaker alla HEAD, al body PR e alla review riletti', () => {
+    const input = {
+      headSha: 'a'.repeat(40),
+      reviewRevision: 'body:first',
+      reviewerSnapshot: { verdict: 'lgtm', key: 'review:first' },
+    };
+    expect(reviewInputChanged(input, { ...input })).toBe(false);
+    expect(reviewInputChanged(input, { ...input, headSha: 'b'.repeat(40) })).toBe(true);
+    expect(reviewInputChanged(input, { ...input, reviewRevision: 'body:edited' })).toBe(true);
+    expect(reviewInputChanged(input, {
+      ...input,
+      reviewerSnapshot: { verdict: 'lgtm', key: 'review:edited' },
+    })).toBe(true);
+  });
+
+  it('rilegge il CAS prima del commento, della label e della coppia close+reopen', () => {
+    const guard = script.slice(script.indexOf('function guardedReopen'),
+      script.indexOf('function reviewGateRedOnFreshVerdict'));
+    expect(guard).toContain('reviewInputStableForMutation');
+    expect(guard.indexOf('reviewInputStableForMutation')).toBeLessThan(guard.indexOf('upsertStickyComment'));
+    expect(guard.lastIndexOf('reviewInputStableForMutation')).toBeLessThan(guard.indexOf('return reopenToRetrigger'));
+  });
+
   it('nessun call-site chiama reopenToRetrigger scavalcando il breaker', () => {
     // Senza questo, aggiungere un quarto ramo che chiama direttamente
     // `reopenToRetrigger(num)` rimette in piedi il loop con tutti i test

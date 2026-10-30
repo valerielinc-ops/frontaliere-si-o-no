@@ -113,6 +113,7 @@ import {
   generatedConflictPlan,
   generatedConflictWorktreePaths,
 } from './generated-files-registry.mjs';
+import { reviewInputRevisionFromPullRequest } from './lib/review-input-revision.mjs';
 import {
   duplicateOldEnough,
   electHandoffKeeper,
@@ -741,13 +742,13 @@ export function latestReviewerVerdict(reviews, head) {
  * chiamante non ribasa alla cieca mentre GitHub sta aggiornando la review.
  */
 export function latestReviewerSnapshot(reviews, head) {
-  if (!Array.isArray(reviews)) return { verdict: 'unknown', key: null };
+  if (!Array.isArray(reviews)) return { verdict: 'unknown', key: null, reviewRevision: null };
   const botReviews = reviews
     .map((review, index) => ({ review, index }))
     .filter(({ review }) => review && isReviewerBot(review.user));
-  if (!botReviews.length) return { verdict: 'none', key: null };
+  if (!botReviews.length) return { verdict: 'none', key: null, reviewRevision: null };
   const bot = botReviews.filter(({ review }) => isTerminalReviewState(review.state));
-  if (!bot.length) return { verdict: 'unknown', key: null };
+  if (!bot.length) return { verdict: 'unknown', key: null, reviewRevision: null };
   const onHead = bot.filter(({ review }) => head && review.commit_id === head);
   const pool = onHead.length ? onHead : bot;
   const at = ({ review }) => {
@@ -758,12 +759,22 @@ export function latestReviewerSnapshot(reviews, head) {
   // vince la posizione successiva nell'API, che è già cronologica.
   const latest = pool.reduce((best, cur) => (at(cur) - at(best) < 0 ? best : cur));
   const review = latest.review;
-  const key = String(
-    review.id ?? `${review.commit_id || ''}|${review.submitted_at || ''}|${review.body || ''}|${latest.index}`,
-  );
+  // The review id alone is not a revision: GitHub can edit a review body in
+  // place. Keep the body and terminal state in the identity so an edited
+  // verdict cannot cross the mutation boundary as if it were unchanged.
+  const reviewRevision = JSON.stringify({
+    id: review.id ?? null,
+    commitId: review.commit_id ?? null,
+    submittedAt: review.submitted_at ?? null,
+    updatedAt: review.updated_at ?? null,
+    state: review.state ?? null,
+    body: review.body ?? null,
+    ...(review.id == null ? { index: latest.index } : {}),
+  });
   return {
     verdict: String(review.body || '').includes('## LGTM') ? 'lgtm' : 'blocking',
-    key,
+    key: reviewRevision,
+    reviewRevision,
   };
 }
 
@@ -774,11 +785,26 @@ export function isTerminalReviewState(state) {
 }
 
 export function reviewerSnapshotChanged(before, after) {
+  const beforeRevision = before?.reviewRevision ?? before?.key ?? null;
+  const afterRevision = after?.reviewRevision ?? after?.key ?? null;
   return !before || !after
     || before.verdict === 'unknown'
     || after.verdict === 'unknown'
     || before.verdict !== after.verdict
-    || before.key !== after.key;
+    || beforeRevision !== afterRevision;
+}
+
+/**
+ * Identity of the review inputs consumed by a mutation. The HEAD and the
+ * trusted PR-body revision are the primary CAS; the reviewer snapshot is an
+ * additional guard for an in-place review edit or dismissal.
+ */
+export function reviewInputChanged(before, after) {
+  if (!before || !after) return true;
+  if (before.headSha !== after.headSha
+      || before.reviewRevision !== after.reviewRevision) return true;
+  if (!before.reviewerSnapshot && !after.reviewerSnapshot) return false;
+  return reviewerSnapshotChanged(before.reviewerSnapshot, after.reviewerSnapshot);
 }
 
 /**
@@ -798,6 +824,40 @@ function readReviewerSnapshot(num, head) {
   const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
   const snapshot = latestReviewerSnapshot(reviews, head);
   return typeof snapshot === 'string' ? { verdict: snapshot, key: null } : snapshot;
+}
+
+/** Read the current HEAD, trusted PR-body revision, and reviewer verdict. */
+function readReviewInput(num) {
+  const pr = gh(['api', `repos/${REPO}/pulls/${num}`], { allowFail: true });
+  const headSha = pr?.head?.sha;
+  if (!pr || typeof pr !== 'object' || Array.isArray(pr) || !PR_HEAD_SHA_RE.test(String(headSha || ''))) {
+    return null;
+  }
+  let reviewRevision;
+  try {
+    reviewRevision = reviewInputRevisionFromPullRequest(pr);
+  } catch {
+    return null;
+  }
+  return {
+    headSha: String(headSha),
+    reviewRevision,
+    reviewerSnapshot: readReviewerSnapshot(num, String(headSha)),
+  };
+}
+
+/**
+ * Re-read the complete review input immediately before a mutation that was
+ * selected from it. GitHub has no atomic HEAD+body+review CAS, so an unreadable
+ * or changed snapshot must simply defer the action to the next sweep.
+ */
+function reviewInputStableForMutation(num, expected, action) {
+  const observed = readReviewInput(num);
+  if (reviewInputChanged(expected, observed)) {
+    console.log(`PR #${num}: review input cambiato o non verificabile prima di ${action} — skip fail-closed.`);
+    return false;
+  }
+  return true;
 }
 
 /** Esiste ALMENO una review claude-bot (LGTM o 🔴, qualunque esito)? Serve a
@@ -938,7 +998,7 @@ function normalizedVitestConclusion(head) {
  * marker one-shot già consumato) in uno stato assorbente se il push-trigger
  * non parte — la stessa classe «zero archi uscenti» che lo stuck-red chiude.
  */
-function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
+function guardedReopen(num, head, { stuckRedReason = '', reviewInput } = {}) {
   const vitestConclusion = normalizedVitestConclusion(head);
   const fingerprint = reopenStateFingerprint(num, vitestConclusion);
   const body = readReopenBudgetBody(num);
@@ -972,11 +1032,15 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
     });
     console.log(`PR #${num}: NO reopen (${d.action}) — ${d.reason}`);
     if (!DRY && !labelsOf(num).includes(BREAKER_LABEL)) {
-      gh(['pr', 'edit', String(num), '--repo', REPO, '--add-label', BREAKER_LABEL],
-        { json: false, allowFail: true });
+      if (reviewInputStableForMutation(num, reviewInput, `l'etichetta ${BREAKER_LABEL}`)) {
+        gh(['pr', 'edit', String(num), '--repo', REPO, '--add-label', BREAKER_LABEL],
+          { json: false, allowFail: true });
+      }
     }
     if (body !== next) {
-      upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
+      if (DRY || reviewInputStableForMutation(num, reviewInput, 'il commento sticky del breaker')) {
+        upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
+      }
     }
     return false;
   }
@@ -989,8 +1053,13 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
     cause: d.cause, reviewGateUsed,
   });
   if (body !== next) {
-    upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
+    if (DRY || reviewInputStableForMutation(num, reviewInput, 'il commento sticky del breaker')) {
+      upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
+    } else {
+      return false;
+    }
   }
+  if (!DRY && !reviewInputStableForMutation(num, reviewInput, 'close+reopen')) return false;
   console.log(`PR #${num}: reopen consentito — ${d.reason}`);
   return reopenToRetrigger(num);
 }
@@ -1703,13 +1772,14 @@ const TESTS_MANUAL_MARKER_PREFIX = '<!-- AUTOREBASE_TESTS_MANUAL_CHECKPOINT:';
 /** Leave one durable, idempotent checkpoint when no safe pull_request run can
  * be re-run. A missing run must not be repaired through workflow_dispatch:
  * that API would execute workflow YAML selected by a PR-controlled ref. */
-function manualTestsCheckpoint(num, head, reason) {
+function manualTestsCheckpoint(num, head, reason, reviewInput) {
   const marker = `${TESTS_MANUAL_MARKER_PREFIX} pr=${num} head=${String(head).slice(0, 12)} -->`;
   if (hasCommentMarker(num, marker)) return false;
   if (DRY) {
     console.log(`[dry] ${marker} ${reason}`);
     return false;
   }
+  if (!reviewInputStableForMutation(num, reviewInput, 'il checkpoint tests')) return false;
   gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
     `${marker}\n⚠️ **tests checkpoint manuale**: ${reason}\n\nNessun workflow trusted è stato dispatchato su un ref della PR; il prossimo push sul branch deve generare pull_request.synchronize.`,
   ], { json: false, allowFail: true });
@@ -2383,8 +2453,9 @@ function handOffConflictToFixer(
   branch,
   head,
   lgtm,
-  { agentOwned = false, generatedResolution = null } = {},
+  { agentOwned = false, generatedResolution = null, reviewInput } = {},
 ) {
+  if (!reviewInputStableForMutation(num, reviewInput, 'l\'hand-off del conflitto')) return;
   const lock = readConflictResolutionLock(num, head);
   if (lock.release) removeConflictResolutionLock(num, lock);
   if (lock.state === 'active' || lock.state === 'unreadable') {
@@ -2610,7 +2681,7 @@ function resolveMergeConflict() {
  * generato. Un conflitto misto o un fallimento lascia al chiamante il normale
  * hand-off; il lock valido di una risoluzione manuale blocca entrambi.
  */
-function tryGeneratedConflictBeforeHandoff(num, branch, head, reviewerSnapshot) {
+function tryGeneratedConflictBeforeHandoff(num, branch, head, reviewInput) {
   const lock = readConflictResolutionLock(num, head);
   if (lock.release) removeConflictResolutionLock(num, lock);
   if (lock.state === 'active' || lock.state === 'unreadable') {
@@ -2653,8 +2724,8 @@ function tryGeneratedConflictBeforeHandoff(num, branch, head, reviewerSnapshot) 
     return { status: 'handoff', reason: resolvedDecision.reason, generated };
   }
 
-  const reviewerBeforePush = readReviewerSnapshot(num, head);
-  if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
+  const reviewInputBeforePush = readReviewInput(num);
+  if (reviewInputChanged(reviewInput, reviewInputBeforePush)) {
     console.log(`PR #${num}: review cambiata o non verificabile dopo la rigenerazione → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
     git(['reset', '--hard', head], { allowFail: true });
     return { status: 'not-applicable', reason: 'review-changed' };
@@ -2676,6 +2747,16 @@ async function processPR(pr) {
   const branch = pr.headRefName;
   const head = pr.headRefOid;
   let labels = (pr.labels || []).map((l) => l.name);
+
+  // Bind the discovery row to the trusted PR body and the reviewer snapshot
+  // before any later branch/comment decision. A changed HEAD is a new input,
+  // not a reason to reinterpret the old row.
+  const reviewInput = readReviewInput(num);
+  if (!reviewInput || reviewInput.headSha !== head) {
+    console.log(`PR #${num}: HEAD/body/review non leggibili o cambiati dopo la discovery — skip fail-closed.`);
+    return;
+  }
+  const reviewerSnapshot = reviewInput.reviewerSnapshot;
 
   // `behind` serve allo stuck-red e al flusso normale:
   // memoizzato per non pagare tre volte la compare API.
@@ -2733,7 +2814,6 @@ async function processPR(pr) {
 
   // GATE frugalità: solo near-merge. Conta l'ULTIMO verdetto del reviewer,
   // non un LGTM qualsiasi della storia della PR (`latestReviewerVerdict`).
-  const reviewerSnapshot = readReviewerSnapshot(num, head);
   const reviewerVerdict = reviewerSnapshot.verdict;
   const lgtm = reviewerVerdict === 'lgtm';
   let nearMerge =
@@ -2797,11 +2877,12 @@ async function processPR(pr) {
 
   if (!nearMerge) {
     if (agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels, headRefName: branch })) {
-      const generatedResolution = tryGeneratedConflictBeforeHandoff(num, branch, head, reviewerSnapshot);
+      const generatedResolution = tryGeneratedConflictBeforeHandoff(num, branch, head, reviewInput);
       if (generatedResolution.status === 'handoff') {
         handOffConflictToFixer(num, branch, head, lgtm, {
           agentOwned,
           generatedResolution: generatedResolution.generated,
+          reviewInput,
         });
       }
     }
@@ -2829,7 +2910,7 @@ async function processPR(pr) {
     // review sulla stessa HEAD; nessun ref PR viene usato per dispatch trusted.
     if (!headHasVitestCheck(head)) {
       console.log(`PR #${num} 0 dietro main ma head ${head.slice(0, 8)} SENZA check-run vitest → checkpoint manuale (nessun dispatch trusted).`);
-      manualTestsCheckpoint(num, head, 'head senza un check-run pull_request tests.yml');
+      manualTestsCheckpoint(num, head, 'head senza un check-run pull_request tests.yml', reviewInput);
     } else if (vitestVerdictIsTransient(head)) {
       // Il check vitest ESISTE ma il suo verdetto rosso è una CANCELLAZIONE da
       // concurrency, non un test rotto, e nessun run fresco è già pendente:
@@ -2840,7 +2921,7 @@ async function processPR(pr) {
       // Nessun dispatch trusted (heal), NESSUN rebase. Un `failure` REALE non passa
       // di qui → niente re-run gratis (AGENTS #5 + frugalità CI).
       console.log(`PR #${num} 0 dietro main, vitest rosso da CANCELLAZIONE (transient, nessun verdetto sul codice) → checkpoint manuale.`);
-      manualTestsCheckpoint(num, head, 'check-run vitest cancellato senza una nuova run pull_request');
+      manualTestsCheckpoint(num, head, 'check-run vitest cancellato senza una nuova run pull_request', reviewInput);
     } else {
       console.log(`PR #${num} 0 dietro main, vitest già presente sull'head — skip.`);
     }
@@ -2864,8 +2945,8 @@ async function processPR(pr) {
         const mg = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
         const resolution = mg === null ? resolveMergeConflict() : { resolved: false, mode: 'none' };
         if (resolution.resolved) {
-          const reviewerBeforePush = readReviewerSnapshot(num, head);
-          if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
+          const reviewInputBeforePush = readReviewInput(num);
+          if (reviewInputChanged(reviewInput, reviewInputBeforePush)) {
             console.log(`PR #${num}: review cambiata o non verificabile dopo il merge ${resolution.mode} → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
             git(['reset', '--hard', head], { allowFail: true });
             done = true;
@@ -2890,6 +2971,7 @@ async function processPR(pr) {
         handOffConflictToFixer(num, branch, head, lgtm, {
           agentOwned,
           generatedResolution: resolution.generated,
+          reviewInput,
         });
       }
       return;
@@ -2937,7 +3019,7 @@ async function processPR(pr) {
   });
   if (action === 'heal') {
     console.log(`PR #${num} LGTM non-collision, ${behind} dietro main, head ${head.slice(0, 8)} SENZA check-run vitest → checkpoint manuale (NO rebase, nessun dispatch trusted).`);
-    manualTestsCheckpoint(num, head, 'head senza un check-run pull_request tests.yml');
+    manualTestsCheckpoint(num, head, 'head senza un check-run pull_request tests.yml', reviewInput);
     return;
   }
   if (action === 'skip') {
@@ -3016,7 +3098,7 @@ async function processPR(pr) {
 
   if (action === 'reopen') {
     console.log(`PR #${num}: LGTM sulla HEAD ${head.slice(0, 8)} e il solo review gate rosso → close+reopen sulla stessa head, nessun merge di main.`);
-    if (guardedReopen(num, head)) clearStaleReviewLabel(num);
+    if (guardedReopen(num, head, { reviewInput })) clearStaleReviewLabel(num);
     return;
   }
 
@@ -3030,7 +3112,7 @@ async function processPR(pr) {
     console.log(`PR #${num} mergeable=CONFLICTING → label stale-review + comment once.`);
     ensureStaleLabel(num);
     commentConflictOnce(num, branch);
-    handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
+    handOffConflictToFixer(num, branch, head, lgtm, { agentOwned, reviewInput });
     return;
   }
 
@@ -3063,7 +3145,7 @@ async function processPR(pr) {
     }
     if (staleAction === 'retrigger') {
       console.log(`PR #${num}: stale-review senza review sulla HEAD — close+reopen sulla stessa head, nessun merge di main.`);
-      if (guardedReopen(num, head)) clearStaleReviewLabel(num);
+      if (guardedReopen(num, head, { reviewInput })) clearStaleReviewLabel(num);
       return;
     }
     console.log(`PR #${num}: stale-review con stuck-red — il merge di main resta il rimedio.`);
@@ -3093,6 +3175,7 @@ async function processPR(pr) {
       handOffConflictToFixer(num, branch, head, lgtm, {
         agentOwned,
         generatedResolution: resolution.generated,
+        reviewInput,
       });
       return;
     }
@@ -3103,8 +3186,8 @@ async function processPR(pr) {
   // oppure quella precedente può essere stata dismissata. Anche un verdetto
   // uguale non basta: confrontiamo la chiave della review, così una nuova
   // review bloccante non passa solo perché la precedente era già bloccante.
-  const reviewerBeforePush = readReviewerSnapshot(num, head);
-  if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
+  const reviewInputBeforePush = readReviewInput(num);
+  if (reviewInputChanged(reviewInput, reviewInputBeforePush)) {
     console.log(`PR #${num}: review cambiata o non verificabile dopo il merge locale → reset alla HEAD ${head.slice(0, 8)}, nessun push; riprovo al prossimo tick.`);
     git(['reset', '--hard', head], { allowFail: true });
     return;
