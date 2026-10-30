@@ -973,6 +973,13 @@
         element.files = transfer.files;
         fire(element, 'input');
         fire(element, 'change');
+        // The same optional-parser disclosure rule as the automated runner;
+        // decline only a scoped dialog that explicitly permits continuing.
+        await new Promise(resolve => view.setTimeout(resolve, 0));
+        if (view.CompilaOptionalAutofillDecline?.()) {
+          const button = element.ownerDocument.querySelector('[data-aa-autofill-decline="1"]');
+          if (button) press(button);
+        }
         return Boolean(element.files && element.files.length === (element.multiple ? files.length : 1));
       }
       case 'checkbox':

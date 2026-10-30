@@ -437,6 +437,23 @@
       field.options = [...element.options].map((option) => ({ value: option.value, label: clean(option.textContent) }));
     }
     if (field.kind === 'combobox') {
+      // jQuery UI selectmenu renders a visible span around a hidden native
+      // select. Its exact native/menu ownership exposes the full catalogue.
+      const nativeId = element.classList.contains('ui-selectmenu-button') && element.id.endsWith('-button')
+        ? element.id.slice(0, -7) : '';
+      const native = nativeId && document.getElementById(nativeId);
+      if (native?.tagName === 'SELECT' && !native.multiple
+        && element.getAttribute('aria-owns') === `${nativeId}-menu`) {
+        field.widget = 'jquery-selectmenu';
+        field.nativeSelectId = nativeId;
+        field.ownedList = `${nativeId}-menu`;
+        field.options = [...native.options].filter(option => !option.disabled).map(option => ({ value: option.value, label: clean(option.textContent) }));
+        field.label = labelFor(native) || field.label;
+        field.required ||= native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(field.label);
+        field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
+        fields.push(field);
+        continue;
+      }
       // SuccessFactors' picklists (Coop, 2026-10-03): an input that shows
       // «Bitte auswählen» and loads its options into the list it owns once
       // opened. A select by another name: its options are read (extractFields).
@@ -699,5 +716,28 @@
     errors,
     text: clean(document.body?.innerText || '').slice(0, 300) + ' ' + clean(document.body?.innerText || '').slice(-600),
   };
+};
+  root.CompilaOptionalAutofillDecline = function markOptionalAutofillDeclineInPage() {
+  const clean = value => String(value || '').normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/\s+/g, ' ').trim();
+  const visible = element => {
+    const rect = element.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0 && getComputedStyle(element).visibility !== 'hidden';
+  };
+  const ai = /\b(?:artificial intelligence|intelligenza artificiale|intelligence artificielle|kunstliche intelligenz|ai|ia|ki)\b/;
+  const parser = /(?:fill|compil|riemp|ausfull|vorausfull|rempliss|auswert|evaluat|valutat|analys|parsing)/;
+  const optional = /(?:no (?:effect|impact)|does not affect|non ha alcun effetto|nessun effetto|keinen einfluss|keine auswirkung|aucune incidence|sans incidence|n['’]affecte pas)/;
+  const decline = /^(?:decline|reject|no,? thanks|rifiutare|rifiuta|rifiuto|ablehnen|refuser)$/;
+  for (const old of document.querySelectorAll('[data-aa-autofill-decline]')) old.removeAttribute('data-aa-autofill-decline');
+  for (const dialog of document.querySelectorAll('[role="dialog"], dialog[open], .ui-dialog')) {
+    if (!visible(dialog)) continue;
+    const text = clean(dialog.innerText || dialog.textContent);
+    if (!ai.test(text) || !parser.test(text) || !optional.test(text) || !/(?:application|candidatur|bewerbung)/.test(text)) continue;
+    const buttons = [...dialog.querySelectorAll('button[type="button"], input[type="button"]')]
+      .filter(button => visible(button) && !button.disabled && decline.test(clean(button.innerText || button.textContent || button.value)));
+    if (buttons.length !== 1) continue;
+    buttons[0].setAttribute('data-aa-autofill-decline', '1');
+    return true;
+  }
+  return false;
 };
 })(globalThis);
