@@ -727,6 +727,10 @@ describe('fuel-daily page generation — observation date', () => {
       expect(html.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1], locale).not.toMatch(/oggi|today|heute|aujourd/);
       expect(html, locale).toContain('vs 19.04.2026');
       expect(html, locale).not.toMatch(/stabile vs ieri|unchanged vs yesterday|unverändert vs gestern|stable vs hier/);
+      expect(html, locale).not.toContain('Pagina generata');
+      expect(html, locale).not.toContain('Page generated');
+      expect(html, locale).not.toContain('Seite erstellt');
+      expect(html, locale).not.toContain('Page générée');
       // History must not fabricate a point for the later build date.
       const emittedDates = [...html.matchAll(/<td\b[^>]*>(\d{4}-\d{2}-\d{2})<\/td>/g)].map((match) => match[1]);
       expect(emittedDates, locale).toContain(observedAt.toISOString().slice(0, 10));

@@ -3055,12 +3055,10 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
       seriesByRange: stationSeriesByRange,
       currency: 'CHF',
     });
-    const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(inp.today.toISOString().slice(0, 10), inp.locale))}</p>`;
     return `<section class="s-ziawP1" aria-labelledby="stationHistory">
   <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeadingStation(inp.brand))}</h2>
   <p class="s-MZT5qc">${esc(labels.historyCaptionStation)}</p>
   ${chartCard}
-  ${lastUpdatedLine}
 </section>`;
   }
 
@@ -3089,12 +3087,10 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
     seriesByRange: zoneSeriesByRange,
     currency: 'CHF',
   });
-  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(inp.today.toISOString().slice(0, 10), inp.locale))}</p>`;
   return `<section class="s-ziawP1" aria-labelledby="stationHistory">
   <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeading(inp.zoneLabel))}</h2>
   <p class="s-YUEhlJ">${esc(labels.historyDisclaimer)}</p>
   ${chartCard}
-  ${lastUpdatedLine}
 </section>`;
 }
 
