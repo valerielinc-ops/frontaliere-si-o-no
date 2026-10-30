@@ -134,6 +134,9 @@ function serializeProposal(doc) {
     childApplicationState: optionalString(data.childApplicationState, 60),
     childSubmissionStatus: optionalString(data.childSubmissionStatus, 60),
     childCandidateStatus: optionalString(data.childCandidateStatus, 40),
+    childSendState: optionalString(data.childSendState, 20),
+    childRetryScheduled: data.childRetryScheduled === true,
+    withdrawnAt: timestampToIso(data.withdrawnAt),
     matchScore: Number.isFinite(Number(data.matchScore)) ? Number(data.matchScore) : null,
     matchReasons: Array.isArray(data.matchReasons) ? data.matchReasons.map((value) => boundedString(value, 180)).filter(Boolean).slice(0, 6) : [],
     matchedAt: timestampToIso(data.matchedAt),
@@ -210,10 +213,21 @@ async function loadService(db, serviceId) {
   const parent = snapshot.data() || {};
   const enriched = await Promise.all((proposals.docs || []).map(async proposal => {
     const data = proposal.data() || {};
-    if (data.status !== 'accepted' || !validId(data.childApplicationId)) return proposal;
-    const child = (await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(data.childApplicationId).get()).data();
+    if ((data.status !== 'accepted' && !data.withdrawnAt) || !validId(data.childApplicationId)) return proposal;
+    const childRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(data.childApplicationId);
+    const [childDoc, flowDoc, submissionDoc] = await Promise.all([
+      childRef.get(), childRef.collection('automation').doc('flow').get(), childRef.collection('automation').doc('submission').get(),
+    ]);
+    const child = childDoc.data();
     if (child?.userId !== parent.userId || child.parentServiceId !== serviceId || child.parentProposalId !== proposal.id) return proposal;
-    return { id: proposal.id, ref: proposal.ref || proposal, data: () => ({ ...data, childApplicationState: child.automationState || null, childSubmissionStatus: child.submissionStatus || null, childCandidateStatus: candidateStatusForAssistedApplication(child) }) };
+    const flow = flowDoc.data();
+    const childApplicationState = flow?.state || child.automationState || null;
+    const send = submissionDoc.data()?.[`r${Number(flow?.round) || 1}`];
+    return { id: proposal.id, ref: proposal.ref || proposal, data: () => ({ ...data,
+      childApplicationState, childSubmissionStatus: child.submissionStatus || null,
+      childCandidateStatus: candidateStatusForAssistedApplication({ ...child, automationState: childApplicationState }),
+      childSendState: send?.state || null, childRetryScheduled: childApplicationState === 'owner_takeover' && Number(flow?.portalAutoRetryAt) > 0,
+    }) };
   }));
   return { ref, snapshot, proposals: enriched };
 }
@@ -507,12 +521,13 @@ async function openChildReview(db, serviceId, proposalId, uid) {
   const parent = parentDoc.data();
   assertCandidateOwns(parent, uid);
   const proposal = proposalDoc.data();
-  if (proposal?.status !== 'accepted' || !validId(proposal.childApplicationId)) throw new ApplicationConciergeError('proposal_not_found', 404);
+  const withdrawn = proposal?.status === 'declined' && Boolean(proposal?.withdrawnAt);
+  if ((proposal?.status !== 'accepted' && !withdrawn) || !validId(proposal.childApplicationId)) throw new ApplicationConciergeError('proposal_not_found', 404);
   const childRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(proposal.childApplicationId);
   const [childDoc, flowDoc] = await Promise.all([childRef.get(), childRef.collection('automation').doc('flow').get()]);
   const child = childDoc.data();
   if (!childDoc.exists || child.userId !== uid || child.parentServiceId !== serviceId || child.parentProposalId !== proposalId
-    || child.paymentStatus !== 'paid' || child.retentionPurgedAt) throw new ApplicationConciergeError('proposal_not_found', 404);
+    || child.paymentStatus !== 'paid' || child.retentionPurgedAt || (withdrawn && !child.withdrawnAt)) throw new ApplicationConciergeError('proposal_not_found', 404);
   return mintReviewToken({ secret: await getReviewTokenSecret(), orderId: childRef.id, round: Number(flowDoc.data()?.round) || 1, ttlMs: 60 * 60 * 1000 });
 }
 

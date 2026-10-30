@@ -19,6 +19,7 @@ import {
   fetchApplicationConciergeService,
   recoverApplicationConciergePaymentSession,
   getCandidateVisibleApplicationConciergeProposals,
+  conciergeProposalDisplayStatus,
   saveApplicationConciergeProfile,
   type ApplicationConciergeProposal,
   type ApplicationConciergeService,
@@ -120,7 +121,7 @@ export default function ApplicationConciergePortal({
   const [childReviewError, setChildReviewError] = useState(false);
   const requestedChildId = new URLSearchParams(locationSearch).get('application_concierge_application_id');
   const childReviewToken = childReview?.childId === requestedChildId ? childReview.token : null;
-  const childProposalId = service?.proposals.find(proposal => proposal.status === 'accepted' && proposal.childApplicationId === requestedChildId)?.proposalId || null;
+  const childProposalId = service?.proposals.find(proposal => (proposal.status === 'accepted' || proposal.withdrawnAt) && proposal.childApplicationId === requestedChildId)?.proposalId || null;
   const [currentUser, setCurrentUser] = useState<any | null>(authUser);
   const [loading, setLoading] = useState(Boolean(serviceId) && !previewService);
   const [busy, setBusy] = useState<string | null>(null);
@@ -262,7 +263,7 @@ export default function ApplicationConciergePortal({
       if (!cancelled) setLoading(false);
     });
     return () => { cancelled = true; };
-  }, [authLoading, authUser, loadService, serviceId, previewService]);
+  }, [authLoading, authUser, loadService, serviceId, requestedChildId, previewService]);
 
   useEffect(() => {
     if (previewService || !serviceId || !service || (!isPending(service) && !isRetryablePayment(service) && !MATCHING_STATES.has(String(service.matchingStatus || '')))) return undefined;
@@ -964,6 +965,10 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     return () => { cancelled = true; controller.abort(); window.clearTimeout(timer); };
   }, [proposed, proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
   const state = proposal.childApplicationState;
+  const displayStatus = conciergeProposalDisplayStatus(proposal);
+  const statusTone = displayStatus === 'submitted' ? 'bg-success-subtle text-success'
+    : ['proposed', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
+    : 'bg-surface-raised text-muted';
   const childKey = state === 'needs_candidate_action' || state === 'candidate_handoff' ? 'childNeedsAnswers'
     : state === 'candidate_review' ? 'childNeedsReview'
     : proposal.childCandidateStatus === 'submitted' || state === 'submitted' ? 'childSubmitted'
@@ -976,7 +981,7 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
       <div className="min-w-0 flex-1"><h3 className="break-words font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>
         {proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div>
       </div>
-      <span className={`shrink-0 rounded-full px-2 py-1 text-xs font-bold ${proposed ? 'bg-warning-subtle text-warning' : accepted ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>{t(`jobBoard.concierge.proposalStatus.${proposal.status}`)}</span>
+      <span className={`max-w-[45%] shrink-0 rounded-full px-2 py-1 text-center text-xs font-bold ${statusTone}`}>{t(`jobBoard.concierge.proposalStatus.${displayStatus}`)}</span>
     </div>
     {proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}
     {accepted && proposal.childApplicationId && <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-surface-raised p-3">

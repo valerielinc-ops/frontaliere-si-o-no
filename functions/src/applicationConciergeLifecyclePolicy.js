@@ -25,7 +25,7 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
   if (service.matchingStatus === 'complete' && service.matchingVersion !== APPLICATION_CONCIERGE_MATCHING_VERSION) return true;
   const lastRefresh = timestampMillis(service.matchingCompletedAt)
     || timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt);
-  const interval = service.matchingStatus === 'failed' || Number(service.matchingUnverifiedCount) > 0 ? 60 * 60 * 1000 : CONCIERGE_REFRESH_INTERVAL_MS;
+  const interval = service.matchingStatus === 'failed' || Number(service.matchingUnverifiedCount) > 0 || Number(service.matchingPendingCount) > 0 ? 60 * 60 * 1000 : CONCIERGE_REFRESH_INTERVAL_MS;
   return lastRefresh > 0 && nowMs >= lastRefresh + interval;
 }
 

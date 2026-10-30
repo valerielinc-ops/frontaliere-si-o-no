@@ -1,14 +1,14 @@
 {
   "crawlerKey": "kanton-st-gallen",
-  "assembledAt": "2026-10-29T21:29:00.125Z",
-  "runId": "40955823566",
+  "assembledAt": "2026-10-30T09:24:35.287Z",
+  "runId": "41031747954",
   "jobs": [
     {
       "id": "kanton-st-gallen-4af0842ce224",
       "slug": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "it": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-        "en": "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil",
+        "en": "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
         "fr": "contremaitre-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/5496/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:53.208Z",
+      "crawledAt": "2026-10-30T09:24:27.539Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -58,7 +58,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
+        "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,7 +66,7 @@
         ],
         "en": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-          "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
+          "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
@@ -119,7 +119,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3931/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:52.334Z",
+      "crawledAt": "2026-10-30T09:24:26.692Z",
       "addressLocality": "Region Bodensee-Rheintal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -200,7 +200,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3932/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:51.413Z",
+      "crawledAt": "2026-10-30T09:24:25.853Z",
       "addressLocality": "Region Bodensee-Rheintal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -284,7 +284,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3935/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:50.513Z",
+      "crawledAt": "2026-10-30T09:24:25.029Z",
       "addressLocality": "Region Werdenberg-Sarganserland",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -365,7 +365,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3936/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:49.624Z",
+      "crawledAt": "2026-10-30T09:24:24.210Z",
       "addressLocality": "Region Werdenberg-Sarganserland",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -447,7 +447,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3937/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:48.752Z",
+      "crawledAt": "2026-10-30T09:24:23.349Z",
       "addressLocality": "Region Linthgebiet-Toggenburg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -528,7 +528,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3938/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:47.897Z",
+      "crawledAt": "2026-10-30T09:24:22.519Z",
       "addressLocality": "Region Linthgebiet-Toggenburg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -604,12 +604,13 @@
         "de": "Die Kantonspolizei St.Gallen sorgt rund um die Uhr für Ruhe, Sicherheit und Ordnung im Kanton St.Gallen. Sie klärt Straftaten auf und überwacht die Einhaltung der geltenden Gesetze. Bei der Arbeit auf einer Polizeistation nehmen Sie Tatbestände (Anzeigen) entgegen und rücken zu abwechslungsreichen sowie spannenden Einsätzen aus und stehen dem Bürger mit Rat zur Seite.\n\nWas Sie erwartet:\n\n• Als Mitarbeitende einer Polizeistation gehen Sie einer abwechslungsreichen, spannenden und verantwortungsvollen Arbeit nach\n• Sie sorgen für Ruhe, Ordnung und Sicherheit und verhindern Straftaten durch sichtbare Präsenz\n• Sie pflegen Kontakte zu Bürgern, Amtsstellen und Partnerorganisationen sowie zur örtlichen Verwaltung\n• Zu Ihren Aufgaben zählen das Ahnden von Gesetzesverstössen, selbständiges Erfassen, Bearbeiten sowie das Aufdecken von Straftaten und Fahnden nach der Täterschaft\n• Die umfassende schriftliche Berichterstattung rundet diese Tätigkeit ab\n\nWas Sie auszeichnet:\n\n• Sie verfügen über den eidgenössischen Fachausweis Polizist/in\n• Für dieses Tätigkeitsgebiet suchen wir motivierte, flexible und belastbare Mitarbeitende, die selbständig arbeiten sowie verantwortungsbewusst und teamfähig sind\n• Sie sind dabei offen und freundlich gegenüber anderen Kulturen und Menschen\n• In schwierigen Situationen behalten Sie einen kühlen Kopf und verfügen über Fachkenntnisse in der allgemeinen Polizeiarbeit\n• Sie leisten Nacht-, Wochenend- und Sonderdienste im Rahmen des Dienstbetriebs\n\nWas wir bieten:\n\n• Eine spannende und herausfordernde Tätigkeit in einem dynamischen Team\n• Weiterbildungsmöglichkeiten\n• Modernste Arbeitsgeräte wie Laptop und Mobiltelefon werden Ihnen zur Verfügung gestellt\n• Situatives mobiles Arbeiten (work anywhere)\n• Flexible Arbeitsmodelle mit 5-10 zusätzlichen Freitagen sowie gleitende Arbeitszeiten",
         "fr": "La police cantonale de Saint-Gall assure la paix, la sécurité et l'ordre dans le canton de Saint-Gall 24 heures sur 24. Elle enquête sur les crimes et veille au respect des lois applicables. Lorsque vous travaillez dans un poste de police, vous recevez des faits (annonces) et faites des missions variées et passionnantes et vous tenez à l'écoute du citoyen.\n\nÀ quoi s'attendre :\n\n• En tant qu'employé d'un poste de police, vous poursuivez un travail varié, passionnant et responsable\n• Ils assurent la paix, l'ordre et la sécurité et préviennent les crimes par une présence visible\n• Ils entretiennent des contacts avec les citoyens, les bureaux et les organisations partenaires ainsi qu'avec l'administration locale\n• Leur tâche consiste notamment à sanctionner les violations de la loi, à enregistrer, traiter et détecter les infractions et à rechercher les auteurs.\n• Des rapports écrits complets complètent cette activité\n\nCe qui le distingue:\n\n• Vous avez l'officier de police de la carte professionnelle fédérale\n• Dans ce domaine d'activité, nous recherchons des employés motivés, flexibles et résilients qui travaillent de façon indépendante et qui sont responsables et capables de travailler en équipe.\n• Ils sont ouverts et amis aux autres cultures et aux autres peuples.\n• Dans les situations difficiles, garder une tête froide et avoir une expertise en matière de police générale\n• Ils offrent des services de nuit, de fin de semaine et spéciaux dans le cadre des opérations de service.\n\nCe que nous offrons:\n\n• Un travail passionnant et stimulant dans une équipe dynamique\n• Possibilités de formation\n• Des appareils de pointe comme l'ordinateur portable et le téléphone mobile vous sont fournis.\n• Travail mobile (travaillez n'importe où)\n• Modèles de travail flexibles avec 5-10 vendredis supplémentaires et horaires de travail flexibles"
       },
+      "needsRetranslation": true,
       "location": "Region Fürstenland-Neckertal",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3939/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:47.024Z",
+      "crawledAt": "2026-10-30T09:24:21.704Z",
       "addressLocality": "Region Fürstenland-Neckertal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -657,8 +658,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kanton-st-gallen-c26b0f453224",
@@ -686,12 +686,13 @@
         "de": "Die Kantonspolizei St.Gallen sorgt rund um die Uhr für Ruhe, Sicherheit und Ordnung im Kanton St.Gallen. Sie klärt Straftaten auf und überwacht die Einhaltung der geltenden Gesetze. Die Mobile Polizei ist für die polizeiliche Grundversorgung der Bevölkerung im 24-Stunden Betrieb zuständig und somit erste Interventionsstelle.\n\nWas Sie erwartet:\n\n• Mitarbeitende der Mobilen Polizei leisten Einsätze im sicherheits-, verkehrs- und kriminalpolizeilichen Bereich und leiten im Rahmen aller polizeilichen Einsätze vor Ort die erforderlichen Massnahmen ein\n• Zu diesen spannenden Hauptaufgaben der Mobilen Polizei bildet die Unfallsachbearbeitung und der Vollzug des Strassenverkehrsrechtes ein Schwerpunkt\n• Sie leisten Nacht-, Wochenend- und Sonderdienste im Rahmen des Schichtbetriebs\n\nWas Sie auszeichnet:\n\n• Sie verfügen über den eidgenössischen Fachausweis Polizist/in\n• Für dieses Tätigkeitsgebiet suchen wir motivierte, flexible und belastbare Mitarbeitende, die selbständig arbeiten sowie verantwortungsbewusst und teamfähig sind\n• Sie sind dabei offen und freundlich gegenüber anderen Kulturen und Menschen\n• In schwierigen Situationen behalten Sie einen kühlen Kopf und verfügen über Fachkenntnisse in der allgemeinen Polizeiarbeit\n\nWas wir bieten:\n\n• Eine spannende und herausfordernde Tätigkeit in einem dynamischen Team\n• Weiterbildungsmöglichkeiten\n• Modernste Arbeitsgeräte wie Laptop und Mobiltelefon werden Ihnen zur Verfügung gestellt\n• Situatives mobiles Arbeiten (work anywhere)\n• Flexible Arbeitsmodelle mit 5-10 zusätzlichen Freitagen sowie gleitenden Arbeitszeiten",
         "fr": "La police cantonale de St.Gallen assure la paix, la sécurité et l'ordre dans le canton de St.Gallen 24 heures sur 24. Elle enquête sur les crimes et veille au respect des lois applicables. La police mobile est responsable des soins de base de la population 24 heures sur 24 et donc du premier organisme d'intervention.\n\nÀ quoi s'attendre :\n\n• Le personnel de police mobile effectue des missions dans les secteurs de la sécurité, de la circulation et de la police criminelle et prend les mesures nécessaires dans le cadre de toutes les missions de police sur place\n• Parmi ces principales tâches passionnantes de la police mobile, le traitement des accidents et l'application de la loi sur la circulation routière sont au centre des préoccupations\n• Ils fournissent des services de nuit, de week-end et spéciaux dans le cadre d'opérations par équipes\n\nCe qui le distingue:\n\n• Vous avez l'agent de police de carte de spécialiste fédéral\n• Dans ce domaine d'activité, nous recherchons des employés motivés, flexibles et résilients qui travaillent de façon indépendante et qui sont responsables et capables de travailler en équipe.\n• Ils sont ouverts et amis aux autres cultures et aux autres peuples.\n• Dans les situations difficiles, garder une tête froide et avoir une expertise en matière de police générale\n\nCe que nous offrons:\n\n• Un travail passionnant et stimulant dans une équipe dynamique\n• Possibilités de formation\n• Des appareils de travail de pointe tels que l'ordinateur portable et le téléphone mobile vous sont fournis\n• Travail mobile (travaillez n'importe où)\n• Modèles de travail flexibles avec 5-10 vendredis supplémentaires et horaires de travail mobiles"
       },
+      "needsRetranslation": true,
       "location": "Region Fürstenland-Neckertal",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3940/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:46.084Z",
+      "crawledAt": "2026-10-30T09:24:20.876Z",
       "addressLocality": "Region Fürstenland-Neckertal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -739,17 +740,16 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kanton-st-gallen-55fa5a628ff3",
       "slug": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
-        "it": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
-        "en": "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
+        "it": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
+        "en": "forester-m-w-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+        "fr": "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -768,12 +768,13 @@
         "de": "Der Forstbetrieb Staatswald ist einer von 300 öffentlichen Waldeigentümern im Kanton St.Gallen und mit neun Forstwarten und fünf Lernenden der grösste forstliche Arbeitgeber und Lehrbetrieb. Verteilt auf die Standorte Goldach und Oberuzwil werden die Waldungen des Kantons St.Gallen bewirtschaftet sowie eine Vielzahl an Arbeiten für Dritte ausgeführt.\n\nWas Sie erwartet:\n\n• Selbstständiges Ausführen sämtlicher Forstarbeiten\n• Bedienen, pflegen und unterhalten der Forstmaschinen (v.a. Rauptrac) und des Betriebsfahrzeuges\n• Ausführen von Arbeiten für Dritte\n• Mitarbeiten bei der Ausbildung der Lernenden\n• Unterstützen des Revierförsters\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Ausbildung als Forstwart/in EFZ oder eine gleichwertige Ausbildung\n• Freude im Umgang mit Lernenden\n• Interesse als ÜK-Instruktor/in oder Prüfungsexperte/-expertin an der Forstwartausbildung mitzuwirken, von Vorteil\n• Führerschein Kat. B / wenn möglich BE\n• Hohe Dienstleistungs- und Kundenorientierung\n• Gutes Planungs- und Organisationsgeschick\n• Flexibel und bereit für Arbeitseinsätze an beiden Standorten\n\nWas wir bieten:\n\n• Interessante, vielseitige und verantwortungsvolle Stelle\n• Zeitgemässe Anstellungsbedingungen\n• Modern eingerichteter Forstbetrieb\n• Möglichkeit für interne und externe Weiterbildungen z.B. als Forstwart-Vorarbeiter\n\nKontakt: Cornelia Lichtensteiger, HR Business Partnerin (Telefon 058 229 48 89) und",
         "fr": "Le Forstbetrieb Staatswald est l'un des 300 propriétaires forestiers publics du canton de Saint-Gall et, avec neuf observatoires forestiers et cinq apprentis, le plus grand employeur forestier et entreprise d'enseignement. Répartis sur les sites Goldach et Oberuzwil, les forêts du canton de Saint-Gall sont gérées et un grand nombre de travaux sont réalisés pour des tiers.\n\nÀ quoi s'attendre :\n\n• Travail indépendant de tous les travaux forestiers\n• Exploitation, entretien et entretien de machines forestières (en particulier Rauptrac) et de véhicules\n• Réalisation de travaux pour des tiers\n• Participation à la formation des apprenants\n• Soutenir le forester de district\n\nCe qui le distingue:\n\n• Formation des forestiers/EFZ ou équivalent\n• La joie de traiter avec les apprenants\n• L'intérêt de participer en tant qu'instructeur ÜK ou expert d'examen à la formation des gestionnaires forestiers est un avantage\n• Permis de conduire Cat B / si possible BE\n• Haut service et orientation client\n• Bonnes compétences en planification et organisation\n• Flexible et prêt à travailler sur les deux sites\n\nCe que nous offrons:\n\n• Position intéressante, polyvalente et responsable\n• Conditions d'emploi actuelles\n• Exploitation forestière moderne\n• Possibilité de formation interne et externe, par exemple en tant que contremaître des gardes forestiers\n\nPersonne-ressource : Cornelia Lichtensteiger, associée d'affaires RH (téléphone 058 229 48 89) et"
       },
+      "needsRetranslation": false,
       "location": "Oberuzwil",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6211/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:45.184Z",
+      "crawledAt": "2026-10-30T09:24:20.038Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -798,21 +799,23 @@
         "forstwart-in-m-w-d-kanton-st-gallen-ch",
         "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
         "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
-        "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil",
-        "forester-m-w-d-kanton-st-gallen-oberuzwil"
+        "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+        "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
+        "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil"
+          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
+          "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
           "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
-          "forester-m-w-d-kanton-st-gallen-oberuzwil"
+          "forest-manager-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
+          "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:09:13.851Z",
@@ -828,8 +831,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": false
+      }
     },
     {
       "id": "kanton-st-gallen-64bbf559bbfc",
@@ -863,7 +865,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6299/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:44.261Z",
+      "crawledAt": "2026-10-30T09:24:19.239Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -944,7 +946,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6325/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:43.346Z",
+      "crawledAt": "2026-10-30T09:24:18.401Z",
       "addressLocality": "9607 Mosnang",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1025,7 +1027,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6360/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:42.446Z",
+      "crawledAt": "2026-10-30T09:24:17.548Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1107,7 +1109,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6371/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:41.543Z",
+      "crawledAt": "2026-10-30T09:24:16.691Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1189,7 +1191,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6400/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:40.639Z",
+      "crawledAt": "2026-10-30T09:24:15.821Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1271,7 +1273,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6209/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:39.743Z",
+      "crawledAt": "2026-10-30T09:24:14.998Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1352,7 +1354,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6441/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:38.809Z",
+      "crawledAt": "2026-10-30T09:24:14.145Z",
       "addressLocality": "Rorschach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1436,7 +1438,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6350/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:37.961Z",
+      "crawledAt": "2026-10-30T09:24:13.359Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1523,7 +1525,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6347/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:37.116Z",
+      "crawledAt": "2026-10-30T09:24:12.517Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1614,7 +1616,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6465/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:36.211Z",
+      "crawledAt": "2026-10-30T09:24:11.651Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1702,7 +1704,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6475/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:35.339Z",
+      "crawledAt": "2026-10-30T09:24:10.822Z",
       "addressLocality": "Grossschlachthöfe im Kanton St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1788,7 +1790,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6463/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:34.457Z",
+      "crawledAt": "2026-10-30T09:24:09.999Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1869,7 +1871,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6462/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:33.583Z",
+      "crawledAt": "2026-10-30T09:24:09.203Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1951,7 +1953,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6480/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:32.717Z",
+      "crawledAt": "2026-10-30T09:24:08.347Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2033,7 +2035,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6440/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:31.844Z",
+      "crawledAt": "2026-10-30T09:24:07.542Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2115,7 +2117,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6485/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:30.984Z",
+      "crawledAt": "2026-10-30T09:24:06.706Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2197,7 +2199,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6445/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:30.060Z",
+      "crawledAt": "2026-10-30T09:24:05.923Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2279,7 +2281,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6495/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:29.138Z",
+      "crawledAt": "2026-10-30T09:24:05.088Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2361,7 +2363,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6490/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:28.230Z",
+      "crawledAt": "2026-10-30T09:24:04.307Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2443,7 +2445,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6477/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:27.340Z",
+      "crawledAt": "2026-10-30T09:24:03.476Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2525,7 +2527,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6483/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:26.405Z",
+      "crawledAt": "2026-10-30T09:24:02.677Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2607,7 +2609,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6510/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:25.830Z",
+      "crawledAt": "2026-10-30T09:24:01.814Z",
       "addressLocality": "Linthgebiet",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2689,7 +2691,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6511/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:25.254Z",
+      "crawledAt": "2026-10-30T09:24:00.954Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2773,7 +2775,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6478/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:24.338Z",
+      "crawledAt": "2026-10-30T09:24:00.094Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2857,7 +2859,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6438/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:23.447Z",
+      "crawledAt": "2026-10-30T09:23:59.236Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2939,7 +2941,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6534/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:22.536Z",
+      "crawledAt": "2026-10-30T09:23:58.397Z",
       "addressLocality": "Lichtensteig",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3021,7 +3023,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6522/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:21.679Z",
+      "crawledAt": "2026-10-30T09:23:57.609Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3103,7 +3105,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6504/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:20.756Z",
+      "crawledAt": "2026-10-30T09:23:56.772Z",
       "addressLocality": "Amden",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3185,7 +3187,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6537/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:19.848Z",
+      "crawledAt": "2026-10-30T09:23:55.979Z",
       "addressLocality": "Weesen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3267,7 +3269,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6540/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:18.953Z",
+      "crawledAt": "2026-10-30T09:23:55.175Z",
       "addressLocality": "Widnau",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3349,7 +3351,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6541/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:18.046Z",
+      "crawledAt": "2026-10-30T09:23:54.336Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3431,7 +3433,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6538/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:17.473Z",
+      "crawledAt": "2026-10-30T09:23:53.506Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3513,7 +3515,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6484/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:16.561Z",
+      "crawledAt": "2026-10-30T09:23:52.658Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3595,7 +3597,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6542/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:15.644Z",
+      "crawledAt": "2026-10-30T09:23:51.846Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3681,7 +3683,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6546/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:14.728Z",
+      "crawledAt": "2026-10-30T09:23:51.034Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3763,7 +3765,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6548/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:13.824Z",
+      "crawledAt": "2026-10-30T09:23:50.246Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3844,7 +3846,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/5803/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:12.885Z",
+      "crawledAt": "2026-10-30T09:23:49.460Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3926,7 +3928,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6549/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:11.960Z",
+      "crawledAt": "2026-10-30T09:23:48.638Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4008,7 +4010,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6516/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:11.037Z",
+      "crawledAt": "2026-10-30T09:23:47.781Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4090,7 +4092,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6528/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:10.105Z",
+      "crawledAt": "2026-10-30T09:23:46.937Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4172,7 +4174,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6497/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:09.206Z",
+      "crawledAt": "2026-10-30T09:23:46.084Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4250,7 +4252,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6550/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:08.631Z",
+      "crawledAt": "2026-10-30T09:23:45.596Z",
       "addressLocality": "St. Gallen und Unterterzen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4332,7 +4334,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6547/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:07.711Z",
+      "crawledAt": "2026-10-30T09:23:44.774Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4414,7 +4416,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6539/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:06.786Z",
+      "crawledAt": "2026-10-30T09:23:44.284Z",
       "addressLocality": "Müllheim",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4496,7 +4498,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6327/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:05.887Z",
+      "crawledAt": "2026-10-30T09:23:43.437Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4577,7 +4579,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6557/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:05.312Z",
+      "crawledAt": "2026-10-30T09:23:42.961Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4659,7 +4661,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6555/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:04.373Z",
+      "crawledAt": "2026-10-30T09:23:42.112Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4741,7 +4743,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6301/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:03.793Z",
+      "crawledAt": "2026-10-30T09:23:41.315Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4823,7 +4825,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6563/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:02.903Z",
+      "crawledAt": "2026-10-30T09:23:40.484Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4905,7 +4907,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6558/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:01.980Z",
+      "crawledAt": "2026-10-30T09:23:39.668Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4987,7 +4989,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6562/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:01.398Z",
+      "crawledAt": "2026-10-30T09:23:38.839Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5068,7 +5070,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6561/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:00.470Z",
+      "crawledAt": "2026-10-30T09:23:37.983Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5150,7 +5152,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6564/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:27:59.567Z",
+      "crawledAt": "2026-10-30T09:23:37.155Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5236,7 +5238,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6567/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:27:58.701Z",
+      "crawledAt": "2026-10-30T09:23:36.273Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5322,7 +5324,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6527/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:27:57.833Z",
+      "crawledAt": "2026-10-30T09:23:35.456Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5404,7 +5406,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6566/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:27:57.279Z",
+      "crawledAt": "2026-10-30T09:23:34.608Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5486,7 +5488,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6565/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:27:56.368Z",
+      "crawledAt": "2026-10-30T09:23:33.801Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5568,7 +5570,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6571/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:27:55.461Z",
+      "crawledAt": "2026-10-30T09:23:33.343Z",
       "addressLocality": "Kantonsschule Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5649,7 +5651,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6575/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:27:54.539Z",
+      "crawledAt": "2026-10-30T09:23:32.505Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5731,7 +5733,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6578/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:27:53.641Z",
+      "crawledAt": "2026-10-30T09:23:31.692Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5785,9 +5787,9 @@
       "id": "kanton-st-gallen-e3881de5532e",
       "slug": "commissario-a-fiscale-per-le-imposte-suppletive-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "de": "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch",
         "it": "commissario-a-fiscale-per-le-imposte-suppletive-m-f-d-kanton-st-gallen-st-gallen",
         "en": "tax-commissioner-subsequent-taxation-m-f-d-kanton-st-gallen-st-gallen",
+        "de": "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch",
         "fr": "commissaire-fiscal-e-en-matiere-de-rappels-d-impot-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
@@ -5795,24 +5797,25 @@
       "companyDomain": "sg.ch",
       "title": "Steuerkommissär/in Nachsteuern (m/w/d)",
       "titleByLocale": {
-        "de": "Steuerkommissär/in Nachsteuern (m/w/d)",
         "it": "Commissario/a fiscale per le imposte suppletive (m/f/d)",
         "en": "Tax Commissioner, Subsequent Taxation (m/f/d)",
+        "de": "Steuerkommissär/in Nachsteuern (m/w/d)",
         "fr": "Commissaire fiscal/e en matière de rappels d'impôt (h/f/d)"
       },
       "description": "Das Kantonale Steueramt ist für den Vollzug der Bestimmungen der Bundes-/Kantons- und Gemeindesteuern verantwortlich. Es sorgt für eine vollständige Erfassung aller Steuerpflichtigen, für die professionelle und kundenorientierte Steuerveranlagung und einen einheitlichen Steuerbezug . Die Hauptabteilung Natürliche Personen ist für die einheitliche Veranlagung der Einkommens- und Vermögenssteuern und die Prüfung der Rückerstattung der Verrechnungssteuer von rund 330'000 natürlichen Personen sowie für die Bewertung von rund 22'000 nicht kotierter Gesellschaften mit Sitz im Kanton St.Gallen zuständig.\n\nWas dich erwartet:\n\n• Du führst die Nachbesteuerung von selbst zur Anzeige gebrachten oder von der Steuerbehörde entdeckten Einkommens- und Vermögenswerten durch (ohne Steuerstrafverfahren)\n• Du nimmst die steuerrechtliche Beurteilung der bisher nicht deklarierten Werte vor\n• Du korrespondierst und verhandelst mit Steuerpflichtigen und/oder deren Vertreter\n• Du bearbeitest Einsprachen und fortgeführte Rechtsmittelverfahren an die Verwaltungsrekurskommission\n• Du beantwortest allgemeine Anfragen zu Nachsteuerverfahren\n\nWas dich auszeichnet:\n\n• Du hast Berufserfahrung im Bereich Steuern oder Treuhand\n• Im Idealfall hast du eine Weiterbildung im Finanzbereich abgeschlossen oder bist in Ausbildung dazu (z.B. Treuhänder/in mit eidg. Fachausweis, SSK-Kurs IIA, Gemeindefachschule GFS oder höhere betriebswirtschaftliche Ausbildung)\n• Du bist entscheidungsfreudig, belastbar und teamfähig\n• Eine selbständige und sorgfältige Arbeitsweise zeichnet dich aus\n• Du besitzt einen stilsicheren Ausdruck in Sprache und Schrift\n• Du hast ein sicheres Auftreten\n\nWas wir bieten:\n\n• Dich erwartet eine vielseitige und anspruchsvolle Tätigkeit mit hoher Eigenverantwortung in einem motivierenden, kollegialen Umfeld mit DU-Kultur\n• Du erhältst ausgezeichnete Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Du profitierst von zeitgemässen Arbeitsmodellen mit flexibler Arbeitszeitgestaltung und der Möglichkeit von Homeoffice\n• Ein attraktiver Arbeitsplatz im Zentrum der Stadt St.Gallen erwartet dich\n\nKontakt: Steueramt | sg.ch",
       "descriptionByLocale": {
-        "de": "Das Kantonale Steueramt ist für den Vollzug der Bestimmungen der Bundes-/Kantons- und Gemeindesteuern verantwortlich. Es sorgt für eine vollständige Erfassung aller Steuerpflichtigen, für die professionelle und kundenorientierte Steuerveranlagung und einen einheitlichen Steuerbezug . Die Hauptabteilung Natürliche Personen ist für die einheitliche Veranlagung der Einkommens- und Vermögenssteuern und die Prüfung der Rückerstattung der Verrechnungssteuer von rund 330'000 natürlichen Personen sowie für die Bewertung von rund 22'000 nicht kotierter Gesellschaften mit Sitz im Kanton St.Gallen zuständig.\n\nWas dich erwartet:\n\n• Du führst die Nachbesteuerung von selbst zur Anzeige gebrachten oder von der Steuerbehörde entdeckten Einkommens- und Vermögenswerten durch (ohne Steuerstrafverfahren)\n• Du nimmst die steuerrechtliche Beurteilung der bisher nicht deklarierten Werte vor\n• Du korrespondierst und verhandelst mit Steuerpflichtigen und/oder deren Vertreter\n• Du bearbeitest Einsprachen und fortgeführte Rechtsmittelverfahren an die Verwaltungsrekurskommission\n• Du beantwortest allgemeine Anfragen zu Nachsteuerverfahren\n\nWas dich auszeichnet:\n\n• Du hast Berufserfahrung im Bereich Steuern oder Treuhand\n• Im Idealfall hast du eine Weiterbildung im Finanzbereich abgeschlossen oder bist in Ausbildung dazu (z.B. Treuhänder/in mit eidg. Fachausweis, SSK-Kurs IIA, Gemeindefachschule GFS oder höhere betriebswirtschaftliche Ausbildung)\n• Du bist entscheidungsfreudig, belastbar und teamfähig\n• Eine selbständige und sorgfältige Arbeitsweise zeichnet dich aus\n• Du besitzt einen stilsicheren Ausdruck in Sprache und Schrift\n• Du hast ein sicheres Auftreten\n\nWas wir bieten:\n\n• Dich erwartet eine vielseitige und anspruchsvolle Tätigkeit mit hoher Eigenverantwortung in einem motivierenden, kollegialen Umfeld mit DU-Kultur\n• Du erhältst ausgezeichnete Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Du profitierst von zeitgemässen Arbeitsmodellen mit flexibler Arbeitszeitgestaltung und der Möglichkeit von Homeoffice\n• Ein attraktiver Arbeitsplatz im Zentrum der Stadt St.Gallen erwartet dich\n\nKontakt: Steueramt | sg.ch",
         "it": "L'Ufficio delle imposte cantonali è responsabile dell'applicazione delle disposizioni delle imposte federali/cantoneali e comunali. Assicura una registrazione completa di tutti i contribuenti, valutazione fiscale professionale e orientata al cliente e un riferimento fiscale uniforme. Il Dipartimento Generale delle Persone Naturali è responsabile della valutazione uniforme delle imposte sul reddito e sulle proprietà e dell'esame del rimborso dell'imposta di ritenuta di circa 330.000 persone fisiche, nonché della valutazione di circa 22.000 società non quotate con sede nel Canton St.Gallen.\n\nCosa aspettarsi:\n\n• Effettuate la ri-tassazione dell'autoriportata o scoperta dal reddito e dalle attività dell'autorità tributaria (senza procedimento penale)\n• Si effettua la valutazione fiscale dei valori precedentemente non dichiarati\n• Corrispondete e negoziate con i contribuenti e/o i loro rappresentanti\n• Tu gestisci obiezioni e continui appelli alla Commissione di ricorso amministrativo\n• Risponde alle domande generali sulle procedure post-tax\n\nCosa ti distingue:\n\n• Hai esperienza professionale in imposta o escrow\n• Idealmente, avete completato un'ulteriore formazione nel settore finanziario o siete in formazione per esso (ad esempio fiduciario con la legge federale). Scheda professionale, corso SSK IIA, scuola di comunità JFS o istruzione aziendale superiore\n• Sei decisivo, resiliente e capace di lavorare di squadra\n• Un metodo di lavoro indipendente e attento ti distingue\n• Hai un'espressione elegante nel linguaggio e nella scrittura\n• Hai una presenza sicura\n\nCosa offriamo:\n\n• Si può aspettarsi un lavoro versatile ed esigente con alta responsabilità personale in un ambiente motivante e collegiale con la cultura DU.\n• Ottenete ottime opportunità per lo sviluppo professionale e personale\n• Si beneficiano di modelli di lavoro contemporanei con orari di lavoro flessibili e la possibilità di ufficio domestico\n• Un posto di lavoro attraente nel centro della città di St.Gallen vi aspetta\n\nContatto: Ufficio fiscale | sg.ch",
         "en": "The Cantonal Tax Office is responsible for implementing the provisions of federal/cantonal and municipal taxes. It ensures a complete registration of all taxpayers, professional and customer-oriented tax assessment and a uniform tax reference. The General Department of Natural Persons is responsible for the uniform assessment of income and property taxes and the examination of the refund of the withholding tax of around 330,000 natural persons as well as for the valuation of around 22,000 non-listed companies based in the Canton of St.Gallen.\n\nWhat to expect:\n\n• You carry out the re-taxation of self-reported or discovered by the tax authority income and assets (without criminal tax proceedings)\n• You make the tax assessment of the previously undeclared values\n• You correspond and negotiate with taxpayers and/or their representatives\n• You are handling objections and continuing appeals to the Administrative Recourse Commission\n• You answer general questions about after-tax procedures\n\nWhat distinguishes you:\n\n• You have professional experience in tax or escrow\n• Ideally, you have completed a further education in the financial sector or are in training for it (e.g. trustee with federal law). Professional card, SSK course IIA, community school JFS or higher business education\n• You are decisive, resilient and capable of teamwork\n• An independent and careful working method distinguishes you\n• You have a stylish expression in language and writing\n• You have a safe presence\n\nWhat we offer:\n\n• You can expect a versatile and demanding job with high personal responsibility in a motivating, collegial environment with DU culture.\n• You get excellent opportunities for professional and personal development\n• You benefit from contemporary working models with flexible working hours and the possibility of home office\n• An attractive workplace in the center of the city of St.Gallen awaits you\n\nContact: Tax Office | sg.ch",
+        "de": "Das Kantonale Steueramt ist für den Vollzug der Bestimmungen der Bundes-/Kantons- und Gemeindesteuern verantwortlich. Es sorgt für eine vollständige Erfassung aller Steuerpflichtigen, für die professionelle und kundenorientierte Steuerveranlagung und einen einheitlichen Steuerbezug . Die Hauptabteilung Natürliche Personen ist für die einheitliche Veranlagung der Einkommens- und Vermögenssteuern und die Prüfung der Rückerstattung der Verrechnungssteuer von rund 330'000 natürlichen Personen sowie für die Bewertung von rund 22'000 nicht kotierter Gesellschaften mit Sitz im Kanton St.Gallen zuständig.\n\nWas dich erwartet:\n\n• Du führst die Nachbesteuerung von selbst zur Anzeige gebrachten oder von der Steuerbehörde entdeckten Einkommens- und Vermögenswerten durch (ohne Steuerstrafverfahren)\n• Du nimmst die steuerrechtliche Beurteilung der bisher nicht deklarierten Werte vor\n• Du korrespondierst und verhandelst mit Steuerpflichtigen und/oder deren Vertreter\n• Du bearbeitest Einsprachen und fortgeführte Rechtsmittelverfahren an die Verwaltungsrekurskommission\n• Du beantwortest allgemeine Anfragen zu Nachsteuerverfahren\n\nWas dich auszeichnet:\n\n• Du hast Berufserfahrung im Bereich Steuern oder Treuhand\n• Im Idealfall hast du eine Weiterbildung im Finanzbereich abgeschlossen oder bist in Ausbildung dazu (z.B. Treuhänder/in mit eidg. Fachausweis, SSK-Kurs IIA, Gemeindefachschule GFS oder höhere betriebswirtschaftliche Ausbildung)\n• Du bist entscheidungsfreudig, belastbar und teamfähig\n• Eine selbständige und sorgfältige Arbeitsweise zeichnet dich aus\n• Du besitzt einen stilsicheren Ausdruck in Sprache und Schrift\n• Du hast ein sicheres Auftreten\n\nWas wir bieten:\n\n• Dich erwartet eine vielseitige und anspruchsvolle Tätigkeit mit hoher Eigenverantwortung in einem motivierenden, kollegialen Umfeld mit DU-Kultur\n• Du erhältst ausgezeichnete Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Du profitierst von zeitgemässen Arbeitsmodellen mit flexibler Arbeitszeitgestaltung und der Möglichkeit von Homeoffice\n• Ein attraktiver Arbeitsplatz im Zentrum der Stadt St.Gallen erwartet dich\n\nKontakt: Steueramt | sg.ch",
         "fr": "Le Bureau cantonal des impôts est chargé de mettre en œuvre les dispositions relatives aux impôts fédéraux/cantonaux et municipaux. Il assure une inscription complète de tous les contribuables, une cotisation fiscale professionnelle et axée sur le client et une référence fiscale uniforme. Le Département général des personnes physiques est chargé de l'évaluation uniforme des impôts sur le revenu et les impôts fonciers et de l'examen du remboursement de la retenue à la source d'environ 330 000 personnes physiques ainsi que de l'évaluation d'environ 22 000 sociétés non cotées établies dans le canton de Saint-Gall.\n\nÀ quoi s'attendre :\n\n• Vous effectuez la re-imposition des revenus et avoirs autodéclarés ou découverts par l'administration fiscale (sans procédure fiscale pénale)\n• Vous faites l'évaluation fiscale des valeurs précédemment non déclarées\n• Vous correspondez et négociez avec les contribuables ou leurs représentants\n• Vous traitez les objections et les recours continus devant la Commission des recours administratifs\n• Vous répondez à des questions générales sur les procédures après impôts\n\nCe qui vous distingue :\n\n• Vous avez une expérience professionnelle en fiscalité ou en séquestre\n• Idéalement, vous avez suivi une formation complémentaire dans le secteur financier ou vous êtes en formation (p. ex. fiduciaire en droit fédéral). Carte professionnelle, cours SSK IIA, école communautaire JFS ou enseignement supérieur en entreprise\n• Vous êtes décisif, résilient et capable de travailler en équipe\n• Une méthode de travail indépendante et prudente vous distingue\n• Vous avez une expression élégante dans la langue et l'écriture\n• Vous avez une présence sûre\n\nCe que nous offrons:\n\n• Vous pouvez vous attendre à un travail polyvalent et exigeant avec une haute responsabilité personnelle dans un environnement stimulant et collégial avec la culture DU.\n• Vous obtenez d'excellentes opportunités de développement professionnel et personnel\n• Vous bénéficiez de modèles de travail contemporains avec des horaires flexibles et la possibilité de bureau à domicile\n• Un lieu de travail attrayant dans le centre de la ville de Saint-Gall vous attend\n\nPersonne-ressource: Bureau des impôts"
       },
+      "needsRetranslation": false,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6579/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:27:52.725Z",
+      "crawledAt": "2026-10-30T09:23:30.865Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5833,6 +5836,90 @@
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6579/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-29T14:28:10.576Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kanton-st-gallen-07528c0f666e",
+      "slug": "mechaniker-m-w-d-kanton-st-gallen-ch",
+      "slugByLocale": {
+        "de": "mechaniker-m-w-d-kanton-st-gallen-ch",
+        "it": "mechaniker-m-w-d-kanton-st-gallen-ch",
+        "en": "mechaniker-m-w-d-kanton-st-gallen-ch",
+        "fr": "mechaniker-m-w-d-kanton-st-gallen-ch"
+      },
+      "company": "Kanton St. Gallen",
+      "companyKey": "kanton-st-gallen",
+      "companyDomain": "sg.ch",
+      "title": "Mechaniker (m/w/d)",
+      "titleByLocale": {
+        "de": "Mechaniker (m/w/d)",
+        "it": "Mechaniker (m/w/d)",
+        "en": "Mechaniker (m/w/d)",
+        "fr": "Mechaniker (m/w/d)"
+      },
+      "description": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n• Schlosserarbeiten an Fahrzeugen, Signalisationen, Wildschutzzäunen etc.\n• Reparatur von sanitären Anlagen (WC, Waschboxen etc.) auf Rastplätzen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit\n• Strassenunterhalts- sowie Winterdienstpikett\n• Signalisationsarbeiten auf Nationalstrassen\n• Diverse Reinigungsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Erheben der Kilometerleistung LSVA\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in oder als Schlosser/in\n• Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger und verantwortungsbewusster Umgang mit Maschinen und Geräten\n• Hohe Einsatzbereitschaft sowie eine belastbare und flexible Persönlichkeit\n• Teamgeist und Freude an der Zusammenarbeit\n• Gute PC-Kenntnisse und ein sicherer Umgang mit digitalen Hilfsmitteln\n\nWas wir bieten:\n\n• Eine vielseitige und spannende Tätigkeit mit abwechslungsreichen Herausforderungen\n• Arbeiten mit einem modernen und gut ausgestatteten Fuhrpark\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n• Ein motiviertes Team und ein kollegiales Arbeitsumfeld\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33",
+      "descriptionByLocale": {
+        "de": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n• Schlosserarbeiten an Fahrzeugen, Signalisationen, Wildschutzzäunen etc.\n• Reparatur von sanitären Anlagen (WC, Waschboxen etc.) auf Rastplätzen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit\n• Strassenunterhalts- sowie Winterdienstpikett\n• Signalisationsarbeiten auf Nationalstrassen\n• Diverse Reinigungsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Erheben der Kilometerleistung LSVA\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in oder als Schlosser/in\n• Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger und verantwortungsbewusster Umgang mit Maschinen und Geräten\n• Hohe Einsatzbereitschaft sowie eine belastbare und flexible Persönlichkeit\n• Teamgeist und Freude an der Zusammenarbeit\n• Gute PC-Kenntnisse und ein sicherer Umgang mit digitalen Hilfsmitteln\n\nWas wir bieten:\n\n• Eine vielseitige und spannende Tätigkeit mit abwechslungsreichen Herausforderungen\n• Arbeiten mit einem modernen und gut ausgestatteten Fuhrpark\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n• Ein motiviertes Team und ein kollegiales Arbeitsumfeld\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33",
+        "it": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n• Schlosserarbeiten an Fahrzeugen, Signalisationen, Wildschutzzäunen etc.\n• Reparatur von sanitären Anlagen (WC, Waschboxen etc.) auf Rastplätzen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit\n• Strassenunterhalts- sowie Winterdienstpikett\n• Signalisationsarbeiten auf Nationalstrassen\n• Diverse Reinigungsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Erheben der Kilometerleistung LSVA\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in oder als Schlosser/in\n• Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger und verantwortungsbewusster Umgang mit Maschinen und Geräten\n• Hohe Einsatzbereitschaft sowie eine belastbare und flexible Persönlichkeit\n• Teamgeist und Freude an der Zusammenarbeit\n• Gute PC-Kenntnisse und ein sicherer Umgang mit digitalen Hilfsmitteln\n\nWas wir bieten:\n\n• Eine vielseitige und spannende Tätigkeit mit abwechslungsreichen Herausforderungen\n• Arbeiten mit einem modernen und gut ausgestatteten Fuhrpark\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n• Ein motiviertes Team und ein kollegiales Arbeitsumfeld\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33",
+        "en": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n• Schlosserarbeiten an Fahrzeugen, Signalisationen, Wildschutzzäunen etc.\n• Reparatur von sanitären Anlagen (WC, Waschboxen etc.) auf Rastplätzen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit\n• Strassenunterhalts- sowie Winterdienstpikett\n• Signalisationsarbeiten auf Nationalstrassen\n• Diverse Reinigungsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Erheben der Kilometerleistung LSVA\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in oder als Schlosser/in\n• Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger und verantwortungsbewusster Umgang mit Maschinen und Geräten\n• Hohe Einsatzbereitschaft sowie eine belastbare und flexible Persönlichkeit\n• Teamgeist und Freude an der Zusammenarbeit\n• Gute PC-Kenntnisse und ein sicherer Umgang mit digitalen Hilfsmitteln\n\nWas wir bieten:\n\n• Eine vielseitige und spannende Tätigkeit mit abwechslungsreichen Herausforderungen\n• Arbeiten mit einem modernen und gut ausgestatteten Fuhrpark\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n• Ein motiviertes Team und ein kollegiales Arbeitsumfeld\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33",
+        "fr": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen.\n\nWas Sie erwartet:\n\n• Unterhalt und Wartung an Fahrzeugen und Geräten sowie technischen Anlagen\n• Beschaffung und Verwaltung von Material- und Ersatzteilen\n• Schlosserarbeiten an Fahrzeugen, Signalisationen, Wildschutzzäunen etc.\n• Reparatur von sanitären Anlagen (WC, Waschboxen etc.) auf Rastplätzen\n• Fahrzeugpannendienst je nach Einsatzdringlichkeit auch ausserhalb der Normalarbeitszeit\n• Strassenunterhalts- sowie Winterdienstpikett\n• Signalisationsarbeiten auf Nationalstrassen\n• Diverse Reinigungsarbeiten sowie Pflege der Grünanlagen auf dem Werkhof\n• Erheben der Kilometerleistung LSVA\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Berufslehre als LKW- oder Landmaschinenmechaniker/in oder als Schlosser/in\n• Führerausweis der Kategorie C/CE oder die Bereitschaft, diesen zu erwerben\n• Sorgfältiger und verantwortungsbewusster Umgang mit Maschinen und Geräten\n• Hohe Einsatzbereitschaft sowie eine belastbare und flexible Persönlichkeit\n• Teamgeist und Freude an der Zusammenarbeit\n• Gute PC-Kenntnisse und ein sicherer Umgang mit digitalen Hilfsmitteln\n\nWas wir bieten:\n\n• Eine vielseitige und spannende Tätigkeit mit abwechslungsreichen Herausforderungen\n• Arbeiten mit einem modernen und gut ausgestatteten Fuhrpark\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsbedingungen\n• Eine sorgfältige Einarbeitung\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n• Ein motiviertes Team und ein kollegiales Arbeitsumfeld\n\nKontakt: Andreas Koller, Leiter Werkstatt, Tel. 058 229 85 33"
+      },
+      "needsRetranslation": true,
+      "location": "Thal",
+      "canton": "SG",
+      "url": "https://recruitingapp-2800.umantis.com/Vacancies/6576/Description/1",
+      "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-30T09:23:30.004Z",
+      "addressLocality": "Thal",
+      "addressRegion": "SG",
+      "streetAddress": "Lämmlisbrunnenstrasse 54",
+      "postalCode": "9425",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "workload": "80%-100%",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6576/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5846,21 +5933,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T14:28:10.576Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch"
-        ],
-        "en": [
-          "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch"
-        ],
-        "fr": [
-          "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch"
-        ]
-      },
-      "previousSlugs": [
-        "steuerkommissar-in-nachsteuern-m-w-d-kanton-st-gallen-ch"
-      ]
+      "firstSeenAt": "2026-10-30T09:23:30.004Z"
     },
     {
       "id": "kanton-st-gallen-406f1e8237a6",
@@ -5966,7 +6039,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "kanton-st-gallen-ba57f4a9d708",
@@ -6052,7 +6125,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "kanton-st-gallen-0a07eb732ebd",
@@ -6137,7 +6210,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "kanton-st-gallen-8d2c37cfcfba",
@@ -6220,7 +6293,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "kanton-st-gallen-6e9e732c5f3b",
@@ -6300,89 +6373,6 @@
           "@type": "QuantitativeValue",
           "minValue": 48500,
           "maxValue": 89500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "kanton-st-gallen-f04277c34d7c",
-      "slug": "responsabile-gesundheit-e-soziales-m-w-d-kanton-st-gallen",
-      "slugByLocale": {
-        "it": "responsabile-gesundheit-e-soziales-m-w-d-kanton-st-gallen",
-        "en": "head-of-health-and-social-affairs-m-f-d-kanton-st-gallen-st-gallen",
-        "de": "leiter-in-gesundheit-und-soziales-m-w-d-kanton-st-gallen-ch",
-        "fr": "responsable-de-la-sante-et-du-social-h-f-d-kanton-st-gallen-st-gallen"
-      },
-      "company": "Kanton St. Gallen",
-      "companyKey": "kanton-st-gallen",
-      "companyDomain": "sg.ch",
-      "title": "Leiter/in Gesundheit und Soziales (m/w/d)",
-      "titleByLocale": {
-        "it": "Responsabile della salute e del sociale (m/f/d)",
-        "en": "Head of Health and Social Affairs (m/f/d)",
-        "de": "Leiter/in Gesundheit und Soziales (m/w/d)",
-        "fr": "Responsable de la santé et du social (h/f/d)"
-      },
-      "description": "Wir schaffen für Menschen Perspektiven in ein eigenverantwortliches Leben ausserhalb der Kriminalität und leisten damit einen wichtigen Beitrag für eine sichere Gesellschaft. Das Amt für Justizvollzug des Sicherheits- und Justizdepartements beschäftigt rund 260 Mitarbeitende in verschiedenen Berufsfeldern. Das Regionalgefängnis Altstätten verfügt über 45 Plätze für die Unterbringung in Untersuchungs- und Sicherheitshaft sowie im Strafvollzug. Das Regionalgefängnis wird auf 126 Plätze erweitert.\n\nWas Sie erwartet:\n\n• Eine verantwortungsvolle, abwechslungsreiche Führungsposition mit drei unterstellten Fachbereichen\n• Sinnstiftende, interdisziplinäre Zusammenarbeit mit internen und externen Partnern, in einem anspruchsvollen Umfeld\n• Als Mitglied der Gefängnisleitung die Möglichkeit, die Zukunft des Regionalgefängnisses mitzugestalten\n• Ein funktionierendes Gefängnis mit bevorstehendem Wachstum auf die dreifache Grösse, gebaut nach modernen Standards\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Ausbildung in Sozialarbeit HF/FH oder Pflege HF/FH oder äquivalente Ausbildung\n• Langjährige Berufserfahrung und mehrjährige Führungserfahrung\n• Neben Ihrem Fachwissen bringen Sie eine grosse Portion Gestaltungswille und Machermentalität mit\n• Hohe Flexibilität, Belastbarkeit und Stressresistenz sowie risikoorientiertes Denken und verantwortungsbewusstes Handeln\n\nWas wir bieten:\n\n• Ein von Vertrauen und Offenheit geprägtes Umfeld, unterstützt durch eine zeitgemässe Infrastruktur\n• Abwechslungsreiche und anspruchsvolle Tätigkeit in einem spannenden, gesellschaftlich relevanten Themenfeld\n• Zeitgemässe Anstellungsbedingungen und die Möglichkeit zur persönlichen und fachlichen Aus- und Weiterbildung\n\nKontakt: Für weitere Auskünfte steht Ihnen Silvio Fausch, Co-Leiter Gefängnis, Telefon 058 229 64 40, gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Creiamo prospettive per le persone in una vita responsabile al di fuori del crimine e di conseguenza un contributo importante per una società sicura. L'Ufficio per l'Imprigione di Giustizia del Dipartimento di Sicurezza e Giustizia impiega circa 260 persone in vari settori professionali. La prigione regionale di Altstätten ha 45 posti per la custodia e la detenzione di sicurezza e la prigione. La prigione regionale sarà ampliata a 126 posti.\n\nCosa aspettarsi:\n\n• Una posizione di leadership responsabile e diversificata con tre aree tematiche\n• Cooperazione significativa e interdisciplinare con partner interni ed esterni, in un ambiente esigente\n• Come membro della gestione della prigione l'opportunità di plasmare il futuro della prigione regionale\n• Una prigione funzionante con crescita imminente a tre volte la dimensione, costruita secondo gli standard moderni\n\nCosa lo distingue:\n\n• Formazione completa nel lavoro sociale HF/FH o cura HF/FH o formazione equivalente\n• Molti anni di esperienza professionale e diversi anni di esperienza manageriale\n• Oltre alla vostra esperienza, si porta una gran parte di volontà creativa e mentalità del creatore\n• Alta flessibilità, resistenza e resistenza allo stress, pensiero orientato al rischio e azione responsabile\n\nCosa offriamo:\n\n• Un ambiente caratterizzato da fiducia e apertura, sostenuto da un'infrastruttura contemporanea\n• Lavoro variegato e impegnativo in un'area tematica emozionante e socialmente rilevante\n• Condizioni di lavoro contemporanee e opportunità di formazione personale e professionale\n\nContatto: Per ulteriori informazioni, Silvio Fausch, Co-Head of Prison, telefono 058 229 64 40, è a vostra disposizione.",
-        "en": "We create perspectives for people in a responsible life outside of crime and thus make an important contribution to a safe society. The Office for the Imprisonment of Justice of the Department of Security and Justice employs around 260 people in various professional fields. The Altstätten Regional Prison has 45 places for remand and security detention and prison. The regional prison will be expanded to 126 places.\n\nWhat to expect:\n\n• A responsible, varied leadership position with three subject areas\n• Meaningful, interdisciplinary cooperation with internal and external partners, in a demanding environment\n• As a member of the prison management the opportunity to shape the future of the regional prison\n• A functioning prison with imminent growth to three times the size, built to modern standards\n\nWhat sets it apart:\n\n• Completed training in social work HF/FH or care HF/FH or equivalent training\n• Many years of professional experience and several years of management experience\n• In addition to your expertise, you bring a large portion of creative will and maker mentality\n• High flexibility, resilience and stress resistance as well as risk-oriented thinking and responsible action\n\nWhat we offer:\n\n• An environment characterized by trust and openness, supported by a contemporary infrastructure\n• Varied and demanding work in an exciting, socially relevant topic area\n• Contemporary employment conditions and the opportunity for personal and professional education and training\n\nContact: For further information, Silvio Fausch, Co-Head of Prison, telephone 058 229 64 40, is at your disposal.",
-        "de": "Wir schaffen für Menschen Perspektiven in ein eigenverantwortliches Leben ausserhalb der Kriminalität und leisten damit einen wichtigen Beitrag für eine sichere Gesellschaft. Das Amt für Justizvollzug des Sicherheits- und Justizdepartements beschäftigt rund 260 Mitarbeitende in verschiedenen Berufsfeldern. Das Regionalgefängnis Altstätten verfügt über 45 Plätze für die Unterbringung in Untersuchungs- und Sicherheitshaft sowie im Strafvollzug. Das Regionalgefängnis wird auf 126 Plätze erweitert.\n\nWas Sie erwartet:\n\n• Eine verantwortungsvolle, abwechslungsreiche Führungsposition mit drei unterstellten Fachbereichen\n• Sinnstiftende, interdisziplinäre Zusammenarbeit mit internen und externen Partnern, in einem anspruchsvollen Umfeld\n• Als Mitglied der Gefängnisleitung die Möglichkeit, die Zukunft des Regionalgefängnisses mitzugestalten\n• Ein funktionierendes Gefängnis mit bevorstehendem Wachstum auf die dreifache Grösse, gebaut nach modernen Standards\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Ausbildung in Sozialarbeit HF/FH oder Pflege HF/FH oder äquivalente Ausbildung\n• Langjährige Berufserfahrung und mehrjährige Führungserfahrung\n• Neben Ihrem Fachwissen bringen Sie eine grosse Portion Gestaltungswille und Machermentalität mit\n• Hohe Flexibilität, Belastbarkeit und Stressresistenz sowie risikoorientiertes Denken und verantwortungsbewusstes Handeln\n\nWas wir bieten:\n\n• Ein von Vertrauen und Offenheit geprägtes Umfeld, unterstützt durch eine zeitgemässe Infrastruktur\n• Abwechslungsreiche und anspruchsvolle Tätigkeit in einem spannenden, gesellschaftlich relevanten Themenfeld\n• Zeitgemässe Anstellungsbedingungen und die Möglichkeit zur persönlichen und fachlichen Aus- und Weiterbildung\n\nKontakt: Für weitere Auskünfte steht Ihnen Silvio Fausch, Co-Leiter Gefängnis, Telefon 058 229 64 40, gerne zur Verfügung.",
-        "fr": "Nous créons des perspectives pour les gens dans une vie responsable en dehors du crime et ainsi apporter une contribution importante à une société sûre. Le Bureau de la justice du Département de la sécurité et de la justice emploie environ 260 personnes dans divers domaines professionnels. La prison régionale d'Altstätten compte 45 lieux de détention provisoire, de détention provisoire et de détention provisoire. La prison régionale sera étendue à 126 places.\n\nÀ quoi s'attendre :\n\n• Un poste de leadership responsable et varié avec trois domaines\n• Une coopération interdisciplinaire significative avec des partenaires internes et externes, dans un environnement exigeant\n• En tant que membre de la direction de la prison, la possibilité de façonner l'avenir de la prison régionale\n• Une prison qui fonctionne avec une croissance imminente à trois fois la taille, construite selon les normes modernes\n\nCe qui le distingue:\n\n• Formation complète en travail social HF/FH ou soins HF/FH ou formation équivalente\n• De nombreuses années d'expérience professionnelle et plusieurs années d'expérience en gestion\n• En plus de votre expertise, vous apportez une grande partie de la volonté créative et la mentalité du créateur\n• Haute flexibilité, résilience et résistance au stress ainsi que réflexion axée sur le risque et action responsable\n\nCe que nous offrons:\n\n• Un environnement caractérisé par la confiance et l'ouverture, soutenu par une infrastructure contemporaine\n• Travail varié et exigeant dans un domaine passionnant et socialement pertinent\n• Conditions d'emploi contemporaines et possibilités d'éducation et de formation personnelles et professionnelles\n\nContact: Pour plus d'informations, Silvio Fausch, Co-chef de la prison, téléphone 058 229 64 40, est à votre disposition."
-      },
-      "needsRetranslation": false,
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://recruitingapp-2800.umantis.com/Vacancies/6551/Description/1",
-      "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:06.527Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "streetAddress": "Lämmlisbrunnenstrasse 54",
-      "postalCode": "9000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "workload": "80-100%",
-      "experienceLevel": "senior",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6551/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiter-in-gesundheit-und-soziales-m-w-d-kanton-st-gallen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-gesundheit-und-soziales-m-w-d-kanton-st-gallen-ch"
-        ],
-        "en": [
-          "leiter-in-gesundheit-und-soziales-m-w-d-kanton-st-gallen-ch"
-        ],
-        "fr": [
-          "leiter-in-gesundheit-und-soziales-m-w-d-kanton-st-gallen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-09T09:20:38.062Z",
-      "salaryMin": 110500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 110500,
-          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },

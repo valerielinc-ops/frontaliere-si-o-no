@@ -73,6 +73,21 @@ describe('admin candidature revamp', () => {
     expect(alice).not.toBeInTheDocument();
   });
 
+  it('restores the refunded filter from the URL and opens the refunded user in Italian', async () => {
+    mocks.services.mockResolvedValue({ services: [service('s1', 'Alice'), { ...service('s3', 'Carla', 'refunded'), paymentStatus: 'refunded' }] });
+    window.history.replaceState(null, '', '/gestione-contenuti-xk9mp2q/servizio-candidature/?stato=refunded');
+    render(<ApplicationConciergeAdmin />);
+    const carla = await screen.findByRole('button', { name: /Carla.*Apri utente/ });
+    expect(screen.getByRole('combobox', { name: 'Stato' })).toHaveValue('refunded');
+    expect(screen.getByRole('option', { name: 'Rimborsato (1)' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Alice.*Apri utente/ })).not.toBeInTheDocument();
+    fireEvent.click(carla);
+    expect(await screen.findByRole('heading', { name: 'Carla' })).toBeInTheDocument();
+    expect(screen.getAllByText('Rimborsato')).toHaveLength(2);
+    expect(screen.queryByText('refunded')).not.toBeInTheDocument();
+    expect(screen.queryByText('Proponi una posizione manualmente')).not.toBeInTheDocument();
+  });
+
   it('restores search and payment filter when returning from a user after a shell remount', async () => {
     const view = render(<ApplicationConciergeAdmin key="list" />);
     await screen.findByRole('button', { name: /Bob.*Apri utente/ });

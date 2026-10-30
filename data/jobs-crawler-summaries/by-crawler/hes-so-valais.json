@@ -1,18 +1,19 @@
 {
   "key": "hes-so-valais",
   "label": "HES-SO Valais-Wallis",
-  "generatedAt": "2026-10-29T21:39:07.269Z",
+  "generatedAt": "2026-10-30T09:15:59.840Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7989,
-  "avgDurationMs": 7989,
+  "durationMs": 6588,
+  "avgDurationMs": 6588,
   "durationHistory": [
-    7989
+    6588
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
       "applyUrl": "https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
@@ -23,7 +24,7 @@
       "postalCode": "1950",
       "canton": "VS",
       "country": "CH",
-      "slug": "apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-hes-so-valais",
+      "slug": "dipendente-commerciale-cfc-o-dipendente-apprendista-hes-so-valais-wallis-sion",
       "category": "general",
       "datePosted": "",
       "postedDate": "",
@@ -42,26 +43,24 @@
         "de": "https://www.hevs.ch/de/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
         "en": "https://www.hevs.ch/en/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560"
       },
-      "needsRetranslation": true,
-      "crawledAt": "2026-10-29T21:38:55.675Z",
       "id": "hes-so-valais-6e6dcd0b615a",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-10-29T21:38:55.675Z",
+      "crawledAt": "2026-10-30T09:15:52.456Z",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
       "currency": "CHF",
       "salarySource": "estimated",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-29T21:38:55.675Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -95,7 +94,7 @@
       },
       "id": "hes-so-valais-2f031ec3361d",
       "firstSeenAt": "2026-09-29T21:13:13.966Z",
-      "crawledAt": "2026-10-29T21:38:55.675Z",
+      "crawledAt": "2026-10-30T09:15:52.456Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -111,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }

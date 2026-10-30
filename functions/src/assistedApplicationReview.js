@@ -18,6 +18,8 @@
 
 import { operationalEmailBody, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { MAX_REVIEW_ROUNDS, roundsShown } from './assistedApplicationFlow.js';
+import { canWithdrawApplication, withdrawAssistedApplication, WithdrawalError } from './assistedApplicationWithdrawal.js';
+import { submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { applicationFileName, checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { letterBlocksFor, rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
@@ -53,7 +55,7 @@ import {
   sanitizeClientCheck,
 } from './assistedApplicationExtraDocuments.js';
 
-const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'photo_upload', 'photo_remove', 'cv_lines']);
+const ACTIONS = new Set(['approve', 'reject', 'withdraw', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'photo_upload', 'photo_remove', 'cv_lines']);
 const PHOTO_ACTIONS = new Set(['photo_upload', 'photo_remove']);
 const DOCUMENT_ACTIONS = new Set(['document_upload', 'document_remove']);
 // Where the candidate can still give a document: their review, or a portal waiting for them.
@@ -284,7 +286,7 @@ export function sendReviewResponse(res, { status, body, file }) {
   return res.status(status).json(body);
 }
 
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, nowMs = Date.now() }) {
+export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
@@ -377,6 +379,7 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     can: {
       approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
       reject: !stale && state === 'candidate_review',
+      withdraw: !stale && canWithdrawApplication({ order, flow, draft, submission }),
       answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),
       uploadDocuments: !stale && DOCUMENT_STATES.has(state) && documents.length > 0,
       confirmSubmitted: !stale && state === 'candidate_handoff',
@@ -390,16 +393,18 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
 }
 
 async function loadAll(db, orderId) {
-  const [orderSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([
+  const [orderSnapshot, flowSnapshot, draftSnapshot, submissionSnapshot] = await Promise.all([
     orderRefFor(db, orderId).get(),
     flowRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
+    submissionRefFor(db, orderId).get(),
   ]);
   if (!orderSnapshot.exists || !flowSnapshot.exists) throw new ReviewError('not_found', 404);
   return {
     order: orderSnapshot.data() || {},
     flow: flowSnapshot.data() || {},
     draft: draftSnapshot.exists ? draftSnapshot.data() || null : null,
+    submission: submissionSnapshot.data() || {},
   };
 }
 
@@ -714,7 +719,7 @@ export async function handleAssistedApplicationReview(req, deps) {
         if (!orderSnapshot.exists || !followupSnapshot.exists) throw new ReviewError('not_found', 404);
         return { status: 200, body: followupReviewPayload({ order: orderSnapshot.data(), draft: draftSnapshot.data() || {}, followup: followupSnapshot.data(), n: round }) };
       }
-      const { order, flow, draft } = await loadAll(deps.db, orderId);
+      const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
       // One signature per key and request: the letter can be both the review's and a kept file.
       const signed = new Map();
       const sign = (key) => {
@@ -737,7 +742,7 @@ export async function handleAssistedApplicationReview(req, deps) {
           .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
           .filter((file) => file.url), kept.whatsapp),
       };
-      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, nowMs }) };
+      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }) };
     }
     if (method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 
@@ -756,6 +761,10 @@ export async function handleAssistedApplicationReview(req, deps) {
     }
     const { order, flow, draft } = await loadAll(deps.db, orderId);
     if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
+
+    if (action === 'withdraw') {
+      return { status: 200, body: await withdrawAssistedApplication({ db: deps.db, orderId, round, nowMs }) };
+    }
 
     if (action === 'cv_choice') {
       // Which CV leaves: no flow event, the next submission reads it.
@@ -828,7 +837,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409);
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
   } catch (error) {
-    if (error instanceof ReviewError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
+    if (error instanceof ReviewError || error instanceof WithdrawalError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     // A guarded commit refused (another request saved first) or no Storage for the rebuild.
     if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code } };
     throw error;

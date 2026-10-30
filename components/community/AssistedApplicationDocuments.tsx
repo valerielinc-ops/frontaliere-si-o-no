@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AlertTriangle, CheckCircle2, FileText, Loader2, Trash2, Upload } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { checkDocumentFile, type DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
+import { checkDocumentFile, DOCUMENT_CHECK_VERSION, type DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
 import type { ReviewDocument } from '@/services/assistedApplicationReviewService';
 
 /**
@@ -80,6 +80,7 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
               <ul className="space-y-2">
                 {document.files.map((file) => {
                   const ok = file.clientCheck.verdict === 'match';
+                  const legacy = !ok && (file.clientCheck.version || 1) < DOCUMENT_CHECK_VERSION;
                   return (
                     <li key={file.id} className="rounded-md border border-edge p-2">
                       <div className="flex items-center justify-between gap-2">
@@ -97,11 +98,11 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
                           {t('jobBoard.assisted.review.documents.remove')}
                         </button>
                       </div>
-                      <p className={`mt-1 flex items-start gap-1.5 text-xs ${ok ? 'text-success' : 'text-warning'}`} role="status">
+                      <p className={`mt-1 flex items-start gap-1.5 text-xs ${ok ? 'text-success' : legacy ? 'text-subtle' : 'text-warning'}`} role="status">
                         {ok
                           ? <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                          : <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
-                        <span>{checkMessage(document, file.clientCheck.verdict)}</span>
+                          : legacy ? <FileText className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" /> : <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
+                        <span>{legacy ? t('jobBoard.assisted.review.documents.check.legacy') : checkMessage(document, file.clientCheck.verdict)}</span>
                       </p>
                     </li>
                   );

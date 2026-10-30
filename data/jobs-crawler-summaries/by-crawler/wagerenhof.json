@@ -1,7 +1,7 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-10-29T21:28:40.536Z",
+  "generatedAt": "2026-10-30T09:53:09.808Z",
   "total": 9,
   "discovered": null,
   "parsed": 5,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8466,
-  "avgDurationMs": 8466,
+  "durationMs": 8281,
+  "avgDurationMs": 8281,
   "durationHistory": [
-    8466
+    8281
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "wagerenhof-9942c974229b",
       "slug": "apprendista-floristin-apprendista-florist-stiftung-wagerenhof-uster",
@@ -29,13 +30,13 @@
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Lernende Floristin / Lernender Florist",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-541&cHash=de259ef2619cc4713e70fc0475aa1773",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:25.659Z",
+      "crawledAt": "2026-10-30T09:52:57.046Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,32 +53,32 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-541&cHash=de259ef2619cc4713e70fc0475aa1773",
+      "firstSeenAt": "2026-10-29T21:28:25.659Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-29T21:28:25.659Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "wagerenhof-4a4dd9c3e6bd",
-      "slug": "lernende-fachperson-gesundheit-wagerenhof-uster",
+      "slug": "apprendista-operatore-trice-sociosanitario-a-stiftung-wagerenhof-uster",
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Lernende Fachperson Gesundheit",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-545&cHash=ddc6a12ed98a5820256f03d135d63013",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:24.783Z",
+      "crawledAt": "2026-10-30T09:52:56.123Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -94,15 +95,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-545&cHash=ddc6a12ed98a5820256f03d135d63013",
+      "firstSeenAt": "2026-10-29T21:28:24.783Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-29T21:28:24.783Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -113,13 +114,13 @@
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Lernende Fachperson Betreuung Kinder",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-542&cHash=cf5cc3f42159371e4211b602210ac0a0",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:23.881Z",
+      "crawledAt": "2026-10-30T09:52:55.177Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -136,32 +137,32 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-542&cHash=cf5cc3f42159371e4211b602210ac0a0",
+      "firstSeenAt": "2026-10-12T09:26:11.121Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-12T09:26:11.121Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "wagerenhof-4153d34d35f2",
-      "slug": "lernende-fachperson-hotellerie-hauswirtschaft-wagerenhof-uster",
+      "slug": "apprendista-specialista-in-hotelleria-economia-domestica-stiftung-wagerenhof-uster",
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Lernende Fachperson Hotellerie-Hauswirtschaft",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-538&cHash=b87d858cd6a9cb6eeeb53cd495cdeb2f",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:22.978Z",
+      "crawledAt": "2026-10-30T09:52:54.163Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -178,20 +179,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-538&cHash=b87d858cd6a9cb6eeeb53cd495cdeb2f",
+      "firstSeenAt": "2026-10-29T21:28:22.978Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-29T21:28:22.978Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -206,7 +206,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-559&cHash=e570f876125366becd686a847d3c8744",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:28:26.519Z",
+      "crawledAt": "2026-10-30T09:52:58.051Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -268,7 +268,7 @@
       "salaryMin": 82400,
       "salaryMax": 115200,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -311,7 +311,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -354,7 +354,7 @@
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -397,7 +397,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -407,5 +407,5 @@
       }
     }
   ],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }

@@ -63,7 +63,8 @@ export function detectDocumentType(head) {
 /** The browser's verdict as recorded: one of the known verdicts, the matched word bounded. */
 export function sanitizeClientCheck(raw) {
   const verdict = CLIENT_CHECK_VERDICTS.includes(raw?.verdict) ? raw.verdict : 'unreadable';
-  return { verdict, matched: text(raw?.matched, 60) };
+  const version = Number(raw?.version);
+  return { verdict, matched: text(raw?.matched, 60), ...(Number.isSafeInteger(version) && version > 0 && version < 100 ? { version } : {}) };
 }
 
 /** A file's id on the review page: the last part of its key (never the key's folder). */

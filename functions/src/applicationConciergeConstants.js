@@ -15,7 +15,7 @@ export const APPLICATION_CONCIERGE_DURATION_DAYS = 30;
 export const APPLICATION_CONCIERGE_MAX_POSITIONS = 10;
 export const APPLICATION_CONCIERGE_CONSENT_VERSION = 'application-concierge-v1';
 export const APPLICATION_CONCIERGE_CV_PREFIX = 'application-concierge-uploads';
-export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v6-full-requirements';
+export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v7-progressive-search';
 
 export const APPLICATION_CONCIERGE_SERVICE_STATUSES = Object.freeze([
   'awaiting_payment',
