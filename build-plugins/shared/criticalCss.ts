@@ -180,7 +180,7 @@ export const STATIC_AD_COLLAPSE_CSS =
 
 /**
  * The drive-by slot's inline 1100px reserve is the mobile/SSR floor. On wide
- * desktop the same slow company/fuel creative can occupy 1534px; reserve that
+ * desktop the same slow company/fuel creative can occupy 1790px; reserve that
  * measured wrapper height before the iframe arrives so a late fill cannot grow
  * the static SEO page. The collapse rule above still zeroes this wrapper after
  * an offscreen no-fill, so the ad remains enabled and revenue-capable.

@@ -27,6 +27,7 @@ describe('static AdSense layout recovery', () => {
 
   it('reserves the measured wide-screen drive-by fill in the critical sheet', () => {
     expect(DRIVEBY_AD_SNIPPET).toContain('class="my-6 ft-driveby-ad"');
+    expect(DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT).toBeGreaterThanOrEqual(1790);
     expect(DRIVEBY_AD_RESERVE_CSS).toBe(
       `@media(min-width:${MULTIPLEX_DESKTOP_MIN_WIDTH}px){.ft-driveby-ad{min-height:${DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT}px}}`,
     );

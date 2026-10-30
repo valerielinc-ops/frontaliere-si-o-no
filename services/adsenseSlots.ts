@@ -376,12 +376,13 @@ export const MULTIPLEX_DESKTOP_MIN_WIDTH = 1280;
 export const MULTIPLEX_DESKTOP_MIN_HEIGHT = 600;
 
 /**
- * Wide-screen reserve for the shared static drive-by wrapper. A slow company /
- * fuel creative was measured at 1534px after the slot's 1100px inline floor
- * had already painted; keeping that measurement in one constant lets the
- * critical CSS reserve the final box without changing the mobile floor.
+ * Wide-screen reserve for the shared static drive-by wrapper. The same slow
+ * company / fuel creative was measured at 1790px live on `/` on 2026-10-24
+ * after the slot's 1100px inline floor had already painted; keeping that
+ * measurement in one constant lets the critical CSS reserve the final box
+ * without changing the mobile floor.
  */
-export const DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT = 1534;
+export const DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT = 1790;
 
 /** Response observation budget. Manual slots report waiting_response after
  * this deadline and keep watching for late fills; only explicit failures are
