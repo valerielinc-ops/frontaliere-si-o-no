@@ -31,6 +31,27 @@ describe('source-version recovery of positively identified operational portal qu
     expect(store.list(`${base}/events/`)).toHaveLength(1);
   });
 
+  it('resumes the complete legacy draft only after referral metadata has native optional proof', async () => {
+    const store = fixture();
+    const referral = { id: 'source', source: 'portal', question: 'Come sono venuto a conoscenza del lavoro?', applicationQuestion: 'Come sono venuto a conoscenza del lavoro?', type: 'text', required: true, options: [], applicationOptions: Array.from({ length: 20 }, (_, index) => `Source ${index}`) };
+    const questions = [
+      { id: 'optional-match', source: 'match', question: 'Optional information', required: false, type: 'choice', options: ['A', 'B'] },
+      { id: 'optional-rule', source: 'rule', question: 'Optional preference', required: false, type: 'choice', options: ['A', 'B'] },
+      notice, { ...notice, id: 'whatsapp', question: 'Comunicazione via WhatsApp', type: 'yes_no' },
+      { ...notice, id: 'workload', question: 'Grado di occupazione desiderato' }, referral,
+    ];
+    const draft = { ...store.read(`${base}/ai_drafts/current`), questions };
+    store.docs.set(`${base}/ai_drafts/current`, draft);
+    expect(await reconcilePortalCode(context(store))).toMatchObject({ queued: 0 });
+    referral.required = false;
+    store.docs.set(`${base}/ai_drafts/current`, draft);
+    expect(await reconcilePortalCode(context(store))).toMatchObject({ queued: 0 });
+    (referral as any).portalNativeContract = { version: 'native-contract-v1', observedAt: now, required: false, requiredEvidence: 'aria-required:false', topic: 'recruitment_source', frame: 0, form: 0, fieldId: 'source-native', label: referral.applicationQuestion };
+    store.docs.set(`${base}/ai_drafts/current`, draft);
+    expect(await reconcilePortalCode(context(store))).toMatchObject({ queued: 1 });
+    expect(store.read(`${base}/automation/flow`).answers.notice).toBe('7 giorni');
+  });
+
   it.each([
     ['Notice period', '3 months'], ['Kündigungsfrist', '2 Monate'], ['Délai de préavis', 'deux mois'],
     ['Grado di occupazione desiderato', '80%'], ['Comunicazione via WhatsApp', 'No'],

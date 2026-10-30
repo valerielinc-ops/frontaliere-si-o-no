@@ -36,7 +36,7 @@ import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQu
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
-import { operationalAnswerForOption } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalAnswerForOption, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
@@ -457,7 +457,11 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
   const items = questions.map((question) => {
     const raw = String(answers[question.id] ?? '').trim();
     const projected = operationalAnswerForOption(question, raw) || raw;
-    const answer = portalAnswerForApplication(question, projected);
+    const mapped = portalAnswerForApplication(question, projected);
+    // Preserve an explicit operational statement even when today's catalogue
+    // cannot express it. Its presence vetoes a policy fallback; it is not a
+    // claim that the native control accepts the value.
+    const answer = mapped || (operationalQuestionTopic(question) ? raw : '');
     return {
       answerId: answer !== raw ? question.id : undefined,
       question: question.applicationQuestion || question.question,

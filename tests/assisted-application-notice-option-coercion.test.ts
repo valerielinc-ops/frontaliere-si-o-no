@@ -74,6 +74,27 @@ describe('notice duration projection onto the native catalogue', () => {
     }
   });
 
+  it('preserves an explicit unmappable statement even after the draft catalogue has already changed', () => {
+    const incompatibleQuestion = { ...question, id: 'legacy-notice', options: ['3 mesi'], applicationOptions: ['3 mesi'] };
+    const candidate = candidateForForm({ identity: {}, answers: { 'legacy-notice': '7 giorni' }, draft: {}, portalQuestions: [incompatibleQuestion] });
+    const incompatible = { ...field, options: [{ label: '3 mesi', value: '3' }] };
+    expect(candidate.portalQuestionsAnswered).toContainEqual(expect.objectContaining({ answer: '7 giorni', source: 'answers' }));
+    expect(candidateAnswerForField(candidate, incompatible)).toBeNull();
+    for (const source of ['policy_default', 'profile', 'rule']) {
+      const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 mesi', source }], missingRequired: [] }, [incompatible], candidate);
+      expect(guarded.actions).toEqual([]);
+      expect(guarded.missingRequired).toHaveLength(1);
+    }
+  });
+
+  it('does not collapse conflicting exact and qualified notice statements into one value', () => {
+    const candidate = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [
+      { question: 'Notice period', answer: '3 months', source: 'answers' },
+      { question: 'Notice period', answer: '3+ months', source: 'answers' },
+    ] };
+    expect(candidateAnswerForField(candidate, { ...field, label: 'Notice period' })).toBeNull();
+  });
+
   it('requires a real native catalogue before filling an operational select discovered during recovery', () => {
     const unknown = { ...field, options: [] };
     const candidate = candidateForForm({ identity: {}, answers: { notice: '7 giorni' }, draft: {}, portalQuestions: [question] });
@@ -84,6 +105,20 @@ describe('notice duration projection onto the native catalogue', () => {
     const requirements = portalRequirementsFromMissingRequired([unknown], guarded.missingRequired);
     expect(requirements.questions).toEqual([]);
     expect(requirements.unreadableFields).toHaveLength(1);
+  });
+
+  it('preserves an explicit WhatsApp refusal for checkbox actions from every planner source', () => {
+    const checkbox = { id: 'whatsapp', label: 'Comunicazione via WhatsApp', kind: 'checkbox', required: false, options: [] };
+    const refused = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [{ question: checkbox.label, answer: 'No', source: 'answers' }] };
+    for (const source of ['policy_default', 'profile', 'rule']) {
+      const guarded = guardPlan({ actions: [{ fieldId: checkbox.id, action: 'check', value: 'true', source }], missingRequired: [] }, [checkbox], refused);
+      expect(guarded.actions.some(action => action.action === 'check')).toBe(false);
+      expect(guarded.actions).toContainEqual(expect.objectContaining({ action: 'uncheck', source: 'answers' }));
+    }
+    const conflict = { ...refused, portalQuestionsAnswered: [...refused.portalQuestionsAnswered, { question: checkbox.label, answer: 'Yes', source: 'answers' }] };
+    expect(guardPlan({ actions: [{ fieldId: checkbox.id, action: 'check', value: 'true', source: 'rule' }], missingRequired: [] }, [checkbox], conflict).actions).toEqual([]);
+    const fresh = guardPlan({ actions: [{ fieldId: checkbox.id, action: 'check', value: 'true', source: 'policy_default' }], missingRequired: [] }, [checkbox], { identity: {}, profile: {}, answers: {} });
+    expect(fresh.actions).toContainEqual(expect.objectContaining({ action: 'check', source: 'policy_default' }));
   });
 
   it('gives the owner fill kit the explicit projected notice ahead of an old policy default', () => {

@@ -65,6 +65,13 @@ export function operationalAnswerForOption(question, answer) {
   return validateAnswer(value, { ...question, type: 'choice', options: options.map(option => option.label) }).ok ? value : null;
 }
 
+/** Compare stated notice values without deleting qualifiers or approximations. */
+export function equivalentOperationalAnswers(question, left, right) {
+  if (operationalQuestionTopic(question) !== 'notice_period') return false;
+  const a = noticeDuration(left); const b = noticeDuration(right);
+  return a && b ? a.unit === b.unit && a.amount === b.amount : literalAnswer(left) === literalAnswer(right);
+}
+
 /** Preliminary readiness permits a fresh native read, never a final send. */
 export function operationalAnswerReadyForDiscovery(question, answer) {
   const topic = operationalQuestionTopic(question);
@@ -172,11 +179,7 @@ export function isOperationalDefaultValue(question, value) {
   const expected = operationalDefaultAnswer(question);
   if (!expected) return false;
   if (expected.topic === 'notice_period') {
-    const wanted = noticeDuration(expected.value);
-    const stated = noticeDuration(value);
-    const equivalent = wanted && stated
-      ? wanted.amount === stated.amount && wanted.unit === stated.unit
-      : literalAnswer(expected.value) === literalAnswer(value);
+    const equivalent = equivalentOperationalAnswers(question, expected.value, value);
     const options = optionsOf(question);
     const rule = { ...question, type: question.type || (options.length ? 'choice' : question.inputType || 'text'), options: options.map(option => option.label) };
     return Boolean(equivalent && validateAnswer(value, rule).ok);

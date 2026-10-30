@@ -21,6 +21,7 @@ on:
       - 'functions/src/assistedApplicationPortalRetryPolicy.js'
       - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'
       - 'functions/src/assistedApplicationSubmissionGuard.js'
+      - 'functions/src/lib/portalNativeContract.js'
       - 'functions/src/lib/answerRules.js'
       - 'functions/src/lib/portalQuestionText.js'
   workflow_dispatch:

@@ -11,7 +11,7 @@
 import '../../extension/apply-control.js';
 const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
 
-import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuestionTopic, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuestionTopic, equivalentOperationalAnswers, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -924,6 +924,7 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
   const b = comparableAnswer(right);
   if (!a || !b) return false;
   const topic = questionTopic(question, context, metadata);
+  if (topic === 'notice_period') return equivalentOperationalAnswers({ ...metadata, question, context }, left, right);
   if (topic === 'preferred_workload') {
     if (a === b) return true;
     const leftPercentage = percentageAnswer(left);
@@ -1670,6 +1671,16 @@ export function guardPlan(plan, fields, candidate = null) {
       rejectedActionFields.add(field.id);
       ask(field);
       continue;
+    }
+    if (['check', 'uncheck'].includes(action.action) && operationalQuestionTopic(field)) {
+      const known = candidateAnswerForField(candidate, field);
+      const stated = known ? booleanAnswer(known.value) : null;
+      if (stated === null) {
+        rejectedActionFields.add(field.id);
+        ask(field);
+        continue;
+      }
+      action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value, source: known.source, evidence: '' };
     }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);

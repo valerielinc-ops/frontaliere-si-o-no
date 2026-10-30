@@ -1,4 +1,5 @@
 /** Only technical pre-send stops may resume after the portal engine changes. */
+import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { hasAssistedApplicationConsent } from './assistedApplicationConstants.js';
 import { operationalQuestionTopic, operationalAnswerReadyForDiscovery, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
@@ -30,7 +31,10 @@ export function portalRecoveryDefinitelyUnsent({ order, flow, draft, submission 
 /** This lane only schedules native discovery of resolved operational fields. */
 export function operationalPortalRecoveryReady({ order, flow, draft }) {
   if (flow?.heldBy?.[0] !== 'portal:portal_needs_candidate') return true;
-  const questions = Array.isArray(draft?.questions) ? draft.questions : [];
+  const questions = (Array.isArray(draft?.questions) ? draft.questions : []).filter(question => {
+    if (provenOptionalOperationalPortalQuestion(question)) return false;
+    return question?.source === 'portal' || question?.required !== false;
+  });
   if (!questions.length || !hasAssistedApplicationConsent(order)
     || flow.dispatch?.mode !== 'submit' || Number(flow.dispatch.round) !== Number(flow.round)
     || !(Number(draft.completedAt) > 0) || !(Number(flow.dispatch.requestedAt) >= Number(draft.completedAt))
