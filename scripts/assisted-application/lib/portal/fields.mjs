@@ -447,9 +447,26 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       invalid: element.getAttribute('aria-invalid') === 'true',
     };
     if (tag === 'select') {
-      field.options = [...element.options].map((option) => ({ value: option.value, label: clean(option.textContent) }));
+      field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map((option) => ({ value: option.value, label: clean(option.textContent) }));
     }
     if (field.kind === 'combobox') {
+      // jQuery UI selectmenu renders a visible span around a hidden native
+      // select. Its exact native/menu ownership exposes the full catalogue.
+      const nativeId = element.classList.contains('ui-selectmenu-button') && element.id.endsWith('-button')
+        ? element.id.slice(0, -7) : '';
+      const native = nativeId && document.getElementById(nativeId);
+      if (native?.tagName === 'SELECT' && !native.multiple
+        && element.getAttribute('aria-owns') === `${nativeId}-menu`) {
+        field.widget = 'jquery-selectmenu';
+        field.nativeSelectId = nativeId;
+        field.ownedList = `${nativeId}-menu`;
+        field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) }));
+        field.label = labelFor(native) || field.label;
+        field.required ||= native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(field.label);
+        field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
+        fields.push(field);
+        continue;
+      }
       // SuccessFactors' picklists (Coop, 2026-10-03): an input that shows
       // «Bitte auswählen» and loads its options into the list it owns once
       // opened. A select by another name: its options are read (extractFields).
@@ -554,7 +571,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
-        options: [...nativeSelect.options].filter(option => !option.disabled).map(option => ({ value: option.value, label: clean(option.textContent) })),
+        options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) })),
         required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
@@ -818,7 +835,7 @@ export async function extractFields(page, { listboxOptions = true, channelType =
     } catch {
       continue; // cross-origin or detached
     }
-    for (const field of listboxOptions && !includeHidden ? snapshot.fields.filter((item) => (item.kind === 'listbox' && item.widget !== 'jquery-multiselect') || item.selectLike).slice(0, 15) : []) {
+    for (const field of listboxOptions && !includeHidden ? snapshot.fields.filter((item) => (item.kind === 'listbox' && item.widget !== 'jquery-multiselect') || (item.selectLike && item.widget !== 'jquery-selectmenu')).slice(0, 15) : []) {
       field.options = field.selectLike ? await readOwnedListOptions(frame, field) : await readListboxOptions(frame, field.id);
     }
     result.frames.push({ index, url: snapshot.url });

@@ -39,6 +39,7 @@
  */
 export * from '../../functions/src/emailCascade.js';
 
+import { redactEmailAddresses } from '../../functions/src/lib/redactEmails.js';
 import { sendEmailCascade as baseSendEmailCascade } from '../../functions/src/emailCascade.js';
 import { auditSentEmail, formatAuditReport } from '../../functions/src/lib/emailLinkAudit.js';
 import { makeMailerooRefOnSent } from '../../functions/src/lib/mailerooRef.js';
@@ -123,7 +124,7 @@ export async function auditCanarySend(emails, result, opts = {}) {
     // rapporto a ogni batch; un audit con difetti stampa sempre.
     const { quiet = false, ...auditOpts } = opts;
     const audit = await auditSentEmail(html, { ...auditOpts, channel, live, requireUnsubscribe });
-    if (!quiet || !audit.ok) console.log(formatAuditReport(audit));
+    if (!quiet || !audit.ok) console.log(redactEmailAddresses(formatAuditReport(audit)));
     if (!canary && !quiet) {
       console.log(`   ℹ️  no canary recipient in this batch — static half only. Set CANARY_OWNER_EMAIL to an address of ours that is subscribed to ${channel} to get the live probes.`);
     }
@@ -134,7 +135,7 @@ export async function auditCanarySend(emails, result, opts = {}) {
     return audit;
   } catch (e) {
     // A broken audit must never look like a broken send.
-    console.warn(`⚠️ post-send link audit skipped: ${e?.message || e}`);
+    console.warn(`⚠️ post-send link audit skipped: ${redactEmailAddresses(e?.message || e)}`);
     return null;
   }
 }
