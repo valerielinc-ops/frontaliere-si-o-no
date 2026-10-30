@@ -7,12 +7,13 @@ const Autocomplete: React.FC<{
   onChange: (v: string) => void;
   suggestions: string[];
   disabled?: boolean;
+  invalid?: boolean;
   placeholder?: string;
   className?: string;
   autoComplete?: string;
   maxLength?: number;
   describedBy?: string;
-}> = ({ id, value, onChange, suggestions, disabled, placeholder, className, autoComplete, maxLength, describedBy }) => {
+}> = ({ id, value, onChange, suggestions, disabled, invalid, placeholder, className, autoComplete, maxLength, describedBy }) => {
   const [open, setOpen] = useState(false);
   const [filtered, setFiltered] = useState<string[]>([]);
   const [highlightIdx, setHighlightIdx] = useState(-1);
@@ -64,6 +65,7 @@ const Autocomplete: React.FC<{
         autoComplete={autoComplete}
         maxLength={maxLength}
         aria-describedby={describedBy}
+        aria-invalid={invalid || undefined}
         className={className}
         role="combobox"
         aria-expanded={open && filtered.length > 0}
