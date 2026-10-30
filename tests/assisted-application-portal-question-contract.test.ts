@@ -32,6 +32,14 @@ describe('portal candidate question contract', () => {
     expect(portalRequirementsFromMissingRequired([], [planned]).questions).toEqual([expect.objectContaining({ required: true, type: 'text', question: planned.question })]);
   });
 
+  it('does not borrow optionality from a neighboring or ambiguous label', () => {
+    const optional = { ...field, required: false, label: 'Recruitment source' };
+    const request = { ...planned, fieldId: 'not-extracted', question: 'Recruitment source details' };
+    expect(portalRequirementsFromMissingRequired([optional], [request]).questions).toHaveLength(1);
+    const ambiguous = [{ ...optional, id: 'first' }, { ...optional, id: 'second', required: true }];
+    expect(portalRequirementsFromMissingRequired(ambiguous, [{ ...request, question: optional.label }]).questions).toHaveLength(1);
+  });
+
   it('does not retain model choices for a live free text field', () => {
     const { questions } = portalRequirementsFromMissingRequired([{ ...field, kind: 'text', options: [] }], [{ ...planned, type: 'choice', options: ['Invented'], applicationOptions: ['Invented'] }]);
     expect(questions[0]).toMatchObject({ type: 'text', options: [] });

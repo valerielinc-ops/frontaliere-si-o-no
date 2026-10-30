@@ -3074,10 +3074,11 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     if (direct) return direct;
     const questions = [item?.applicationQuestion, item?.portalQuestion, item?.question].map(folded).filter(Boolean);
     if (!questions.length) return null;
-    return availableFields.find((field) => {
+    const matching = availableFields.filter((field) => {
       const label = folded(field?.label);
-      return label && questions.some((question) => label === question || question.includes(label) || label.includes(question));
-    }) || null;
+      return label && questions.includes(label);
+    });
+    return matching.length === 1 ? matching[0] : null;
   };
   const documents = [];
   const readable = [];
