@@ -54,7 +54,7 @@ import {
   requirementsUserText,
   resolveLetterLanguage,
 } from '../../../functions/src/assistedApplicationAiPrompts.js';
-import { vettedConciergeDraftInputs } from '../../../functions/src/applicationConciergeEligibility.js';
+import { eligibilityHash, vettedConciergeDraftInputs } from '../../../functions/src/applicationConciergeEligibility.js';
 import { canonicalizeEmployerAgeCitations } from '../../../functions/src/lib/employerFacts.js';
 import { atsReport } from '../../../functions/src/assistedApplicationAts.js';
 import { assessLegitimacy } from '../../../functions/src/assistedApplicationLegitimacy.js';
@@ -145,6 +145,7 @@ export async function buildDraft(ctx) {
 
   const reuse = previousDraft?.status === 'ready'
     && previousDraft.cvKey === order.cvStorageKey
+    && previousDraft.sourceCvHash === eligibilityHash(cvBuffer)
     && previousDraft.postingHash === hashText(postingText)
     && previousDraft.profile && previousDraft.requirementsRaw
     // A CV text read before a fix of the reading is read again, and the profile with it.
@@ -452,6 +453,7 @@ export async function buildDraft(ctx) {
     status: 'ready',
     round,
     cvKey: order.cvStorageKey,
+    sourceCvHash: eligibilityHash(cvBuffer),
     cvTextMethod: cvMethod,
     cvTextVersion: CV_TEXT_VERSION,
     postingHash: hashText(postingText),

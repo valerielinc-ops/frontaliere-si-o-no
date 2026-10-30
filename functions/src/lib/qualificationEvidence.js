@@ -193,7 +193,7 @@ function nativePrimarySources(sources) {
 }
 
 export function nativeFormAssessmentHash({ claims, sources, scope = {}, unverifiedContext = null }) {
-  return hash(JSON.stringify(canonical({ version: NATIVE_FORM_ENTAILMENT_VERSION, claims, scope, unverifiedContext,
+  return hash(JSON.stringify(canonical({ version: NATIVE_FORM_ENTAILMENT_VERSION, asOf: new Date().toISOString().slice(0, 10), claims, scope, unverifiedContext,
     sources: nativePrimarySources(sources).map(source => ({ id: source.id, kind: source.kind, documentHash: source.documentHash })) })));
 }
 

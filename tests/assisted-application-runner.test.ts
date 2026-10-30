@@ -166,6 +166,7 @@ describe('draft mode', () => {
     // Profile, requirements, match, letter and the tailored ATS CV (career-ops extras), and the one repair
     // of the letter: the gate stops «7 anni» (below), so the texts are asked once more.
     expect(codex).toHaveBeenCalledTimes(7);
+    expect(draft.sourceCvHash).toBe(eligibilityHash(cvPdf()));
     expect(draft.tailoredCv).toMatchObject({ status: 'ready', dropped: ['astrofisica'] });
     expect(bucket.files.has(draft.tailoredCv.pdfKey)).toBe(true);
     expect(draft.ats.original.structural.grade).toBeTruthy();
@@ -323,6 +324,7 @@ describe('draft mode', () => {
     // …and the one repair of the letter the gate stops («7 anni»), in every run of this fake.
     expect(reused.calls).toBe(5);
     expect(reused.draft.profile.fullName).toBe('Maria Rossi');
+    expect((await run({ ...first, sourceCvHash: 'changed-original-file' })).calls).toBe(7);
     const { aptitudeTests, recognitions, projects, interests, references, drivingLicence, ...older } = first.profile;
     const reread = await run({ ...first, profile: { ...older, experience: older.experience.map(({ kind, ...role }: any) => role) } });
     expect(reread.calls).toBe(7);
