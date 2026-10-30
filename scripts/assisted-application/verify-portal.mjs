@@ -97,15 +97,19 @@ export async function executePortalVerification({ db, bucket, orderId, round, no
   if (!mayStore) return { inspected: true, recorded: false, conclusion: 'unknown' };
   const proofPath = await storeEvidence({ bucket, orderId, name: 'portal-verification', key,
     payload: { round, nonce, version, binding: state.verification.binding, sourcePath, proof }, nowMs });
-  const recorded = await db.runTransaction(async transaction => {
+  let recorded = false;
+  try {
+    recorded = await db.runTransaction(async transaction => {
     const current = await readContext(transaction, ref);
     if (!verificationEligible({ ...current, round, nowMs: Date.now() }) || current.verification?.nonce !== nonce
       || current.verification.state !== 'running' || current.verification.version !== version
       || current.verification.binding !== verificationBinding(current)) return false;
     transaction.set(verificationRef, { state: 'completed', completedAt: Date.now(), proofPath, conclusion: 'unknown' }, { merge: true });
     return true;
-  });
-  if (!recorded) await bucket.file(proofPath).delete({ ignoreNotFound: true });
+    });
+  } finally {
+    if (!recorded) await bucket.file(proofPath).delete({ ignoreNotFound: true });
+  }
   return { inspected: true, recorded, conclusion: 'unknown' };
 }
 

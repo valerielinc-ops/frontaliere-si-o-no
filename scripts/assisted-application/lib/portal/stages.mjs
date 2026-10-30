@@ -47,7 +47,7 @@ function receiptTitleBound(text, title) {
 }
 
 /** Receipt copy must explicitly describe an application received for this posting. */
-export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, job = {} } = {}) {
+export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, submissionUrl, job = {} } = {}) {
   const text = String(snapshot?.text || '');
   if (!snapshot || !CONFIRM_RE.test(text) || REFUSED_RE.test(text) || PROFILE_CONTINUATION_RE.test(snapshot.text || '')
     || REVIEW_INSTRUCTIONS_RE.test(snapshot.text || '') || BEFORE_SEND_RE.test(snapshot.text || '')) return false;
@@ -57,9 +57,9 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, jo
   // A receipt naming a different posting never borrows the title from generic page chrome.
   if (actualJobKey && expectedJobKey && actualJobKey !== expectedJobKey) return false;
   const actual = parsed(url);
-  const source = parsed(applyUrl);
+  const source = parsed(submissionUrl || applyUrl);
   if (!actual || !source || actual.protocol !== 'https:' || actual.origin !== source.origin) return false;
-  return boundRoute(url, applyUrl) || receiptTitleBound(snapshot.text, job.title);
+  return Boolean(actualJobKey && expectedJobKey && actualJobKey === expectedJobKey) || receiptTitleBound(snapshot.text, job.title);
 }
 
 /**

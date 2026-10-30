@@ -4001,7 +4001,7 @@ export async function submitViaPortal(ctx) {
       finalClickAttempted = true;
       diagnostics.finalClick();
       await final.click();
-      const outcome = await waitForOutcome(page, Boolean(extensionPath), { applyUrl: ctx.applyUrl, job: ctx.job });
+      const outcome = await waitForOutcome(page, Boolean(extensionPath), { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, job: ctx.job });
       (evidence.finalOutcomes ||= []).push(outcome);
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');

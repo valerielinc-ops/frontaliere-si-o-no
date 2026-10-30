@@ -150,7 +150,12 @@ jobs:
         # client hints. Nothing is disguised (owner decision 2026-10-01).
         run: |
           if [ "$MODE" = 'verify_portal' ]; then
-            node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
+            if command -v xvfb-run >/dev/null 2>&1; then
+              export ASSISTED_APPLICATION_HEADED=1
+              xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
+            else
+              node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
+            fi
           elif command -v xvfb-run >/dev/null 2>&1; then
             export ASSISTED_APPLICATION_HEADED=1
             xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"

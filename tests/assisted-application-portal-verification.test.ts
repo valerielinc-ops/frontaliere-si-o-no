@@ -109,6 +109,26 @@ describe('protected read-only portal inspection', () => {
     expect(store.read(`${base}/automation/flow`).state).toBe('owner_takeover');
   });
 
+  it('removes the new encrypted proof when its final receipt transaction throws', async () => {
+    const store = fixture();
+    await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce, nowMs: now });
+    const key = Buffer.alloc(32, 7);
+    const source = { applyUrl, event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence: { finalUrl: targetUrl, finalOutcomes: ['ambiguous'] } };
+    const saves = new Map<string, string>();
+    const deleted = vi.fn(async (name: string) => { saves.delete(name); });
+    const bucket = { file: (name: string) => ({
+      download: async () => [Buffer.from(JSON.stringify(encryptJson(source, key)))],
+      save: async (data: string) => { saves.set(name, data); store.db.runTransaction = async () => { throw new Error('receipt_transaction_unavailable'); }; },
+      delete: async () => deleted(name),
+    }) };
+    const inspect = vi.fn(async () => ({ conclusion: 'unknown', pages: [] }));
+    await expect(executePortalVerification({ db: store.db, bucket, orderId, round: 1, nonce, version, key, nowMs: now + 10, inspect }))
+      .rejects.toThrow('receipt_transaction_unavailable');
+    expect(saves.size).toBe(0);
+    expect(deleted).toHaveBeenCalledTimes(1);
+    expect(store.read(`${base}/automation/submission`).r1).toMatchObject({ state: 'sending', clickedAt: now - 1000 });
+  });
+
   it('recovers an expired read-only lease with a new nonce, bounded per source, round and claim', async () => {
     const store = fixture();
     await requestPortalVerification({ db: store.db, orderId, round: 1, version, nonce, nowMs: now });

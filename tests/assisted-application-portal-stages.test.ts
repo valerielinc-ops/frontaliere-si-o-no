@@ -90,6 +90,12 @@ describe('application stage ownership', () => {
     expect(applicationReceipt({ ...receipt, text }, { applyUrl, job })).toBe(true);
   });
 
+  it('binds a receipt to a verified form origin after an employer-to-ATS handoff', () => {
+    const target = { ...receipt, url: 'https://ats.example/thank-you' };
+    expect(applicationReceipt(target, { applyUrl, submissionUrl: 'https://ats.example/review', job })).toBe(true);
+    expect(applicationReceipt(target, { applyUrl, job })).toBe(false);
+  });
+
   it('recognises an explicit receipt bound by the full known job title when there is no job URL key', () => {
     expect(applicationReceipt({ ...receipt, url: `${origin}/thank-you` }, { applyUrl, job })).toBe(true);
     expect(applicationReceipt({ ...receipt, text: 'Thank you for your application.', url: `${origin}/thank-you` }, { applyUrl, job })).toBe(false);
