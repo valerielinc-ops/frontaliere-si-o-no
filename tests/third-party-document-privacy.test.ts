@@ -82,6 +82,42 @@ describe('signed-origin autonomous SDK startup', () => {
    expect(dom.window.location.href).toBe('https://frontaliereticino.ch/');
   } finally { dom.window.close(); }
  });
+ it.each(['srcset', 'imagesrcset'])('attests each %s URL candidate without splitting SVG data or descriptors', (attribute) => {
+  const dom = new JSDOM('<!doctype html><body><img></body>', { url: 'https://frontaliereticino.ch/' });
+  try {
+   const image = dom.window.document.querySelector('img')!;
+   const win = dom.window as unknown as PrivacyWindow;
+   const check = (value: string) => {
+    image.setAttribute(attribute, value);
+    return isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document);
+   };
+   expect(check('https://img.example.test/a.png?size=100%25 1x, /images/b.png?variant=two%20large 2x')).toBe(false);
+   expect(check('data:image/svg+xml,%3Csvg%20viewBox=%220,0,100,100%22%3E%3Ctext%3E100%25%3C/text%3E%3C/svg%3E 1x, https://img.example.test/b.png 2x')).toBe(false);
+   expect(check('https://img.example.test/a.png 1x, https://synthetic:credential@img.example.test/b.png 2x')).toBe(true);
+   expect(check(`https://img.example.test/a.png?size=large 1x, https://img.example.test/b.png?redirect=${encodeURIComponent(signed)} 2x`)).toBe(true);
+   expect(check(`images/a.png?redirect=${encodeURIComponent(signed)} 320w, images/b.png 640w`)).toBe(true);
+   expect(check('https://img.example.test/a.png custom(1,2), https://synthetic:credential@img.example.test/b.png 2x')).toBe(true);
+   expect(check('images/a.png 320w, images/b.png 640w')).toBe(false);
+  } finally { dom.window.close(); }
+ });
+ it('attests semantic meta URLs while preserving ordinary description prose', () => {
+  const dom = new JSDOM('<!doctype html><head><meta></head><body></body>', { url: 'https://frontaliereticino.ch/' });
+  try {
+   const meta = dom.window.document.querySelector('meta')!;
+   const win = dom.window as unknown as PrivacyWindow;
+   meta.setAttribute('name', 'description');
+   meta.content = 'C# developers at 100%: ordinary prose, no URL field';
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
+   meta.setAttribute('property', 'og:url');
+   meta.content = `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`;
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(true);
+   meta.setAttribute('property', 'og:image');
+   meta.content = `/images/preview.png?url=${encodeURIComponent(signed)}`;
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(true);
+   meta.content = '/images/preview.png?size=100%25';
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
+  } finally { dom.window.close(); }
+ });
  it('conservatively captures every canonical browser-URL credential form without retaining raw copies', () => {
   // Fixtures for the canonical helper's supported aliases, not startup logic.
   const aliases = ['ac', 'at', 'authToken', 'ne', 'newsletter_email', 'email', 'newsletter_autologin', 'subscriber_key', 'token', 'access_token', 'id_token', 'refresh_token', 'oobCode'];

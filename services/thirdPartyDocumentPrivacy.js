@@ -47,8 +47,37 @@ export function isSensitiveThirdPartyDocument(sanitize, win, doc, attempted = fa
     const urlField = /^(?:@id|sameAs|image|logo|mainEntityOfPage|isBasedOn|license|target|item|hasMap)$/i.test(key) || /(?:url|uri|href|src)$/i.test(key);
     return !(urlField || /^(?:https?:|\/\/)[^\s]*$/i.test(value)) || unchanged(value);
    };
+   /** @param {string} value */
+   const srcsetUrlsClean = (value) => {
+    // Extract only srcset URL tokens: commas inside a data URL are not list
+    // separators; descriptors end at an unparenthesized comma (HTML whitespace).
+    const space = /[\t\n\f\r ]/;
+    let at = 0;
+    while (at < value.length) {
+     while (at < value.length && (space.test(value[at]) || value[at] === ',')) at++;
+     const start = at;
+     while (at < value.length && !space.test(value[at])) at++;
+     const token = value.slice(start, at);
+     if (!token) break;
+     if (!unchanged(token.replace(/,+$/, ''))) return false;
+     if (token.endsWith(',')) continue;
+     let parentheses = 0;
+     while (at < value.length) {
+      const char = value[at++];
+      if (char === '(') parentheses++;
+      else if (char === ')' && parentheses) parentheses--;
+      else if (char === ',' && !parentheses) break;
+     }
+    }
+    return true;
+   };
    for (const element of doc.querySelectorAll('*')) {
     for (const attribute of element.attributes) {
+     if (/^(?:srcset|imagesrcset)$/i.test(attribute.name) && !srcsetUrlsClean(attribute.value)) return deny();
+     if (element.tagName === 'META' && attribute.name.toLowerCase() === 'content') {
+      const key = (element.getAttribute('property') || element.getAttribute('name') || element.getAttribute('itemprop') || '').split(':').pop();
+      if (!structuredUrlsClean(attribute.value, key)) return deny();
+     }
      // Attribute semantics identify URL inputs. CSS, JavaScript and ordinary
      // prose can contain #/?/% syntax but are not whole URL references.
      if (/^(?:href|src|action|formaction|poster|data|cite|background|longdesc|manifest|xlink:href)$/i.test(attribute.name) || /(?:^|[-_:])(?:url|href|src)$/i.test(attribute.name)) {
