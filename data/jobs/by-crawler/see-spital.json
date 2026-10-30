@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-10-30T09:39:55.929Z",
-  "runId": "41031613811",
+  "assembledAt": "2026-10-30T21:24:36.061Z",
+  "runId": "41129129832",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
+        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:48.139Z",
+      "crawledAt": "2026-10-30T21:24:29.992Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -57,11 +57,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -118,7 +120,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:47.130Z",
+      "crawledAt": "2026-10-30T21:24:28.917Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -206,7 +208,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:46.079Z",
+      "crawledAt": "2026-10-30T21:24:27.907Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -284,7 +286,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:45.059Z",
+      "crawledAt": "2026-10-30T21:24:26.832Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -425,7 +427,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:44.007Z",
+      "crawledAt": "2026-10-30T21:24:25.802Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -560,7 +562,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:42.974Z",
+      "crawledAt": "2026-10-30T21:24:24.726Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -658,7 +660,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:41.927Z",
+      "crawledAt": "2026-10-30T21:24:23.678Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -742,9 +744,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -769,7 +771,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:40.941Z",
+      "crawledAt": "2026-10-30T21:24:22.672Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -822,18 +824,18 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
-        "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
+          "emergency-medical-technician-in-training-see-spital-horgen"
         ],
         "fr": [
-          "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -884,7 +886,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:39.890Z",
+      "crawledAt": "2026-10-30T21:24:21.653Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -988,7 +990,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:38.862Z",
+      "crawledAt": "2026-10-30T21:24:20.595Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1088,7 +1090,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:37.826Z",
+      "crawledAt": "2026-10-30T21:24:19.531Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1195,7 +1197,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:36.807Z",
+      "crawledAt": "2026-10-30T21:24:18.458Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1305,7 +1307,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:35.783Z",
+      "crawledAt": "2026-10-30T21:24:17.425Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1412,7 +1414,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:34.752Z",
+      "crawledAt": "2026-10-30T21:24:16.349Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1521,7 +1523,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:33.733Z",
+      "crawledAt": "2026-10-30T21:24:15.299Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1618,7 +1620,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:32.693Z",
+      "crawledAt": "2026-10-30T21:24:14.245Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1729,7 +1731,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:31.645Z",
+      "crawledAt": "2026-10-30T21:24:13.202Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1834,7 +1836,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:30.613Z",
+      "crawledAt": "2026-10-30T21:24:12.140Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1941,7 +1943,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:29.624Z",
+      "crawledAt": "2026-10-30T21:24:11.089Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2046,7 +2048,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:28.569Z",
+      "crawledAt": "2026-10-30T21:24:10.065Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2166,7 +2168,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:27.553Z",
+      "crawledAt": "2026-10-30T21:24:08.970Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2274,7 +2276,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:26.522Z",
+      "crawledAt": "2026-10-30T21:24:07.919Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2356,7 +2358,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:25.510Z",
+      "crawledAt": "2026-10-30T21:24:06.850Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2438,7 +2440,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:24.441Z",
+      "crawledAt": "2026-10-30T21:24:05.773Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2519,7 +2521,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:23.438Z",
+      "crawledAt": "2026-10-30T21:24:04.716Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2574,7 +2576,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "nursing-expert-see-spital-horgen",
+        "en": "nursingexpert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2601,7 +2603,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:22.406Z",
+      "crawledAt": "2026-10-30T21:24:03.628Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2625,7 +2627,7 @@
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
         "pflegeexpert-in-see-spital-horgen",
-        "nursingexpert-see-spital-horgen"
+        "nursing-expert-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2634,7 +2636,7 @@
         "en": [
           "care-expert-see-spital-horgen",
           "pflegeexpert-in-see-spital-horgen",
-          "nursingexpert-see-spital-horgen"
+          "nursing-expert-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"
@@ -2688,7 +2690,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:21.381Z",
+      "crawledAt": "2026-10-30T21:24:02.551Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2771,7 +2773,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:20.343Z",
+      "crawledAt": "2026-10-30T21:24:01.444Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2868,7 +2870,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:19.293Z",
+      "crawledAt": "2026-10-30T21:24:00.408Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2950,7 +2952,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:18.284Z",
+      "crawledAt": "2026-10-30T21:23:59.379Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3032,7 +3034,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:17.329Z",
+      "crawledAt": "2026-10-30T21:23:58.329Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3114,7 +3116,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:16.247Z",
+      "crawledAt": "2026-10-30T21:23:57.338Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3196,7 +3198,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:15.209Z",
+      "crawledAt": "2026-10-30T21:23:56.338Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3278,7 +3280,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:14.164Z",
+      "crawledAt": "2026-10-30T21:23:55.305Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3362,7 +3364,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:13.124Z",
+      "crawledAt": "2026-10-30T21:23:54.300Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3446,7 +3448,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:12.075Z",
+      "crawledAt": "2026-10-30T21:23:53.252Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3529,7 +3531,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:11.037Z",
+      "crawledAt": "2026-10-30T21:23:52.204Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3613,7 +3615,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:10.003Z",
+      "crawledAt": "2026-10-30T21:23:51.143Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3699,7 +3701,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1312/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:08.991Z",
+      "crawledAt": "2026-10-30T21:23:50.091Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3782,7 +3784,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1284/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:07.978Z",
+      "crawledAt": "2026-10-30T21:23:49.061Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3864,7 +3866,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:06.926Z",
+      "crawledAt": "2026-10-30T21:23:48.045Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3945,7 +3947,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:05.877Z",
+      "crawledAt": "2026-10-30T21:23:47.044Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4027,7 +4029,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-30T09:39:04.823Z",
+      "crawledAt": "2026-10-30T21:23:45.960Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4108,7 +4110,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1310/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:03.800Z",
+      "crawledAt": "2026-10-30T21:23:44.902Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4157,6 +4159,84 @@
         }
       },
       "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-fcf82d8d901b",
+      "slug": "fachspezialist-in-payroll-e-risorse-umane-controlling-see-spital-horgen",
+      "slugByLocale": {
+        "de": "fachspezialist-in-payroll-und-hr-controlling-see-spital-ch",
+        "it": "fachspezialist-in-payroll-e-risorse-umane-controlling-see-spital-horgen",
+        "en": "fachspezialist-in-payroll-und-hr-controlling-see-spital-ch",
+        "fr": "fachspezialist-in-payroll-und-hr-controlling-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Fachspezialist*in Payroll und HR-Controlling",
+      "titleByLocale": {
+        "de": "Fachspezialist*in Payroll und HR-Controlling",
+        "it": "Fachspezialist*in Payroll e Risorse Umane-Controlling",
+        "en": "Fachspezialist*in Payroll und HR-Controlling",
+        "fr": "Fachspezialist*in Payroll und Ressources Humaines-Controlling"
+      },
+      "description": "Per Februar 2027 oder nach Vereinbarung suchen wir eine*n Fachspezialist*in Payroll und HR-Controlling\n80–100%\n\nDein Aufgabengebiet:\n\n• In unserem dreiköpfigen Payroll-Team sorgst du dafür, dass die monatliche Lohnverarbeitung für rund 1'000 Mitarbeiter*innen professionell, zuverlässig und pünktlich über die Bühne geht.\n• Du unterstützt bei der gesamten Sozialversicherungsadministration, einschliesslich der Kontrolle und Abrechnung von AHV, EO, KTG, UVG, BVG, MSE sowie Familienzulagen und Quellensteuern.\n• Du unterstützt bei der Bearbeitung von Neueintritten, Mutationen, Austritten, Unfällen und Krankheiten.\n• Du bist die erste Anlaufstelle für unsere Mitarbeiter*innen bei Fragen rund um Lohn und Sozialversicherungen und unterstützt sie bei individuellen Anliegen.\n• Du betreust unser HR-Dashboard, entwickelst es kontinuierlich weiter und sorgst dafür, dass relevante Kennzahlen transparent, verständlich und aussagekräftig aufbereitet sind.\n• Du wertest HR-Daten mit deinen exzellenten Excel-Kenntnissen aus, erkennst Zusammenhänge und leitest daraus hilfreiche Erkenntnisse für die HR-Arbeit und das Management ab.\n\nDein Profil:\n\n• Du hast deine kaufmännische Ausbildung erfolgreich abgeschlossen.\n• Du bringst idealerweise erste Erfahrungen in Payroll, HR-Controlling, Finanzcontrolling oder Datenanalyse mit.\n• Du kennst die Grundlagen des Schweizer Lohn- und Sozialversicherungswesens.\n• Du bist fit in MS Office, insbesondere in Excel.\n• Du interessierst dich für HR-Prozesse und -Systeme wie NAV, Polypoint und UKA.\n• Du arbeitest sorgfältig, strukturiert und selbstständig und behältst gerne den Überblick.\n• Du hast Eigeninitiative und Freude daran, neue Funktionen, Tools und Lösungsansätze auszuprobieren und bestehende Lösungen zu hinterfragen.\n• Du bist ein Teamplayer , kommunizierst gerne und schätzt die Zusammenarbeit mit anderen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+      "descriptionByLocale": {
+        "de": "Per Februar 2027 oder nach Vereinbarung suchen wir eine*n Fachspezialist*in Payroll und HR-Controlling\n80–100%\n\nDein Aufgabengebiet:\n\n• In unserem dreiköpfigen Payroll-Team sorgst du dafür, dass die monatliche Lohnverarbeitung für rund 1'000 Mitarbeiter*innen professionell, zuverlässig und pünktlich über die Bühne geht.\n• Du unterstützt bei der gesamten Sozialversicherungsadministration, einschliesslich der Kontrolle und Abrechnung von AHV, EO, KTG, UVG, BVG, MSE sowie Familienzulagen und Quellensteuern.\n• Du unterstützt bei der Bearbeitung von Neueintritten, Mutationen, Austritten, Unfällen und Krankheiten.\n• Du bist die erste Anlaufstelle für unsere Mitarbeiter*innen bei Fragen rund um Lohn und Sozialversicherungen und unterstützt sie bei individuellen Anliegen.\n• Du betreust unser HR-Dashboard, entwickelst es kontinuierlich weiter und sorgst dafür, dass relevante Kennzahlen transparent, verständlich und aussagekräftig aufbereitet sind.\n• Du wertest HR-Daten mit deinen exzellenten Excel-Kenntnissen aus, erkennst Zusammenhänge und leitest daraus hilfreiche Erkenntnisse für die HR-Arbeit und das Management ab.\n\nDein Profil:\n\n• Du hast deine kaufmännische Ausbildung erfolgreich abgeschlossen.\n• Du bringst idealerweise erste Erfahrungen in Payroll, HR-Controlling, Finanzcontrolling oder Datenanalyse mit.\n• Du kennst die Grundlagen des Schweizer Lohn- und Sozialversicherungswesens.\n• Du bist fit in MS Office, insbesondere in Excel.\n• Du interessierst dich für HR-Prozesse und -Systeme wie NAV, Polypoint und UKA.\n• Du arbeitest sorgfältig, strukturiert und selbstständig und behältst gerne den Überblick.\n• Du hast Eigeninitiative und Freude daran, neue Funktionen, Tools und Lösungsansätze auszuprobieren und bestehende Lösungen zu hinterfragen.\n• Du bist ein Teamplayer , kommunizierst gerne und schätzt die Zusammenarbeit mit anderen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "it": "Per Februar 2027 oder nach Vereinbarung suchen wir eine*n Fachspezialist*in Payroll und HR-Controlling\n80–100%\n\nDein Aufgabengebiet:\n\n• In unserem dreiköpfigen Payroll-Team sorgst du dafür, dass die monatliche Lohnverarbeitung für rund 1'000 Mitarbeiter*innen professionell, zuverlässig und pünktlich über die Bühne geht.\n• Du unterstützt bei der gesamten Sozialversicherungsadministration, einschliesslich der Kontrolle und Abrechnung von AHV, EO, KTG, UVG, BVG, MSE sowie Familienzulagen und Quellensteuern.\n• Du unterstützt bei der Bearbeitung von Neueintritten, Mutationen, Austritten, Unfällen und Krankheiten.\n• Du bist die erste Anlaufstelle für unsere Mitarbeiter*innen bei Fragen rund um Lohn und Sozialversicherungen und unterstützt sie bei individuellen Anliegen.\n• Du betreust unser HR-Dashboard, entwickelst es kontinuierlich weiter und sorgst dafür, dass relevante Kennzahlen transparent, verständlich und aussagekräftig aufbereitet sind.\n• Du wertest HR-Daten mit deinen exzellenten Excel-Kenntnissen aus, erkennst Zusammenhänge und leitest daraus hilfreiche Erkenntnisse für die HR-Arbeit und das Management ab.\n\nDein Profil:\n\n• Du hast deine kaufmännische Ausbildung erfolgreich abgeschlossen.\n• Du bringst idealerweise erste Erfahrungen in Payroll, HR-Controlling, Finanzcontrolling oder Datenanalyse mit.\n• Du kennst die Grundlagen des Schweizer Lohn- und Sozialversicherungswesens.\n• Du bist fit in MS Office, insbesondere in Excel.\n• Du interessierst dich für HR-Prozesse und -Systeme wie NAV, Polypoint und UKA.\n• Du arbeitest sorgfältig, strukturiert und selbstständig und behältst gerne den Überblick.\n• Du hast Eigeninitiative und Freude daran, neue Funktionen, Tools und Lösungsansätze auszuprobieren und bestehende Lösungen zu hinterfragen.\n• Du bist ein Teamplayer , kommunizierst gerne und schätzt die Zusammenarbeit mit anderen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "en": "Per Februar 2027 oder nach Vereinbarung suchen wir eine*n Fachspezialist*in Payroll und HR-Controlling\n80–100%\n\nDein Aufgabengebiet:\n\n• In unserem dreiköpfigen Payroll-Team sorgst du dafür, dass die monatliche Lohnverarbeitung für rund 1'000 Mitarbeiter*innen professionell, zuverlässig und pünktlich über die Bühne geht.\n• Du unterstützt bei der gesamten Sozialversicherungsadministration, einschliesslich der Kontrolle und Abrechnung von AHV, EO, KTG, UVG, BVG, MSE sowie Familienzulagen und Quellensteuern.\n• Du unterstützt bei der Bearbeitung von Neueintritten, Mutationen, Austritten, Unfällen und Krankheiten.\n• Du bist die erste Anlaufstelle für unsere Mitarbeiter*innen bei Fragen rund um Lohn und Sozialversicherungen und unterstützt sie bei individuellen Anliegen.\n• Du betreust unser HR-Dashboard, entwickelst es kontinuierlich weiter und sorgst dafür, dass relevante Kennzahlen transparent, verständlich und aussagekräftig aufbereitet sind.\n• Du wertest HR-Daten mit deinen exzellenten Excel-Kenntnissen aus, erkennst Zusammenhänge und leitest daraus hilfreiche Erkenntnisse für die HR-Arbeit und das Management ab.\n\nDein Profil:\n\n• Du hast deine kaufmännische Ausbildung erfolgreich abgeschlossen.\n• Du bringst idealerweise erste Erfahrungen in Payroll, HR-Controlling, Finanzcontrolling oder Datenanalyse mit.\n• Du kennst die Grundlagen des Schweizer Lohn- und Sozialversicherungswesens.\n• Du bist fit in MS Office, insbesondere in Excel.\n• Du interessierst dich für HR-Prozesse und -Systeme wie NAV, Polypoint und UKA.\n• Du arbeitest sorgfältig, strukturiert und selbstständig und behältst gerne den Überblick.\n• Du hast Eigeninitiative und Freude daran, neue Funktionen, Tools und Lösungsansätze auszuprobieren und bestehende Lösungen zu hinterfragen.\n• Du bist ein Teamplayer , kommunizierst gerne und schätzt die Zusammenarbeit mit anderen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "fr": "Per Februar 2027 oder nach Vereinbarung suchen wir eine*n Fachspezialist*in Payroll und HR-Controlling\n80–100%\n\nDein Aufgabengebiet:\n\n• In unserem dreiköpfigen Payroll-Team sorgst du dafür, dass die monatliche Lohnverarbeitung für rund 1'000 Mitarbeiter*innen professionell, zuverlässig und pünktlich über die Bühne geht.\n• Du unterstützt bei der gesamten Sozialversicherungsadministration, einschliesslich der Kontrolle und Abrechnung von AHV, EO, KTG, UVG, BVG, MSE sowie Familienzulagen und Quellensteuern.\n• Du unterstützt bei der Bearbeitung von Neueintritten, Mutationen, Austritten, Unfällen und Krankheiten.\n• Du bist die erste Anlaufstelle für unsere Mitarbeiter*innen bei Fragen rund um Lohn und Sozialversicherungen und unterstützt sie bei individuellen Anliegen.\n• Du betreust unser HR-Dashboard, entwickelst es kontinuierlich weiter und sorgst dafür, dass relevante Kennzahlen transparent, verständlich und aussagekräftig aufbereitet sind.\n• Du wertest HR-Daten mit deinen exzellenten Excel-Kenntnissen aus, erkennst Zusammenhänge und leitest daraus hilfreiche Erkenntnisse für die HR-Arbeit und das Management ab.\n\nDein Profil:\n\n• Du hast deine kaufmännische Ausbildung erfolgreich abgeschlossen.\n• Du bringst idealerweise erste Erfahrungen in Payroll, HR-Controlling, Finanzcontrolling oder Datenanalyse mit.\n• Du kennst die Grundlagen des Schweizer Lohn- und Sozialversicherungswesens.\n• Du bist fit in MS Office, insbesondere in Excel.\n• Du interessierst dich für HR-Prozesse und -Systeme wie NAV, Polypoint und UKA.\n• Du arbeitest sorgfältig, strukturiert und selbstständig und behältst gerne den Überblick.\n• Du hast Eigeninitiative und Freude daran, neue Funktionen, Tools und Lösungsansätze auszuprobieren und bestehende Lösungen zu hinterfragen.\n• Du bist ein Teamplayer , kommunizierst gerne und schätzt die Zusammenarbeit mit anderen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant"
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1321/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-30T21:23:43.820Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1321/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-payroll-und-hr-controlling-see-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-payroll-und-hr-controlling-see-spital-ch"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-30T21:23:43.820Z"
     },
     {
       "id": "see-spital-e5e21772a53c",
@@ -4241,7 +4321,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
