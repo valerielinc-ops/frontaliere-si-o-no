@@ -923,6 +923,7 @@ const frCore: Record<string, string> = {
  'jobBoard.concierge.proposalStatus.preparing': "En préparation",
  'jobBoard.concierge.proposalStatus.accepted': 'Acceptée',
  'jobBoard.concierge.proposalStatus.declined': 'Refusée',
+ 'jobBoard.concierge.proposalStatus.withdrawn': 'Retirée',
  'jobBoard.concierge.proposalStatus.expired': 'Expirée',
  'jobBoard.concierge.proposalStatus.retracted': 'Retirée des suggestions',
  'jobBoard.concierge.errors.generic': 'Une erreur est survenue. Réessayez dans un instant.',

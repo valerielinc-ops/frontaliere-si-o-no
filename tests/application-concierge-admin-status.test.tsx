@@ -48,7 +48,6 @@ describe('concierge admin proposal decision and application progress', () => {
     [{ childApplicationState: 'submitting' }, 'In coda d’invio'],
     [{ childApplicationState: 'candidate_review', childSendState: 'sent' }, 'Inviata'],
     [{ childApplicationState: 'needs_candidate_action' }, 'Mancano informazioni'],
-    [{ childApplicationState: 'withdrawn' }, 'Ritirata'],
   ] satisfies Array<[Partial<ApplicationConciergeProposal>, string]>)('keeps acceptance separate from actual progress %s', async (overrides, label) => {
     const row = await renderProposal(overrides);
     expect(row.getByText('Decisione proposta:')).toBeInTheDocument();
@@ -81,13 +80,13 @@ describe('concierge admin proposal decision and application progress', () => {
 
   it('distinguishes a withdrawn application from a declined proposal using the persisted decision', async () => {
     const row = await renderProposal({ status: 'declined', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn' });
-    expect(row.getByText('Ritirata dal candidato')).toBeInTheDocument();
+    expect(row.getByText('Ritirata')).toBeInTheDocument();
     expect(row.queryByText('Rifiutata')).not.toBeInTheDocument();
   });
 
   it('preserves a declined proposal without withdrawal evidence', async () => {
     const row = await renderProposal({ status: 'declined' });
     expect(row.getByText('Rifiutata')).toBeInTheDocument();
-    expect(row.queryByText('Ritirata dal candidato')).not.toBeInTheDocument();
+    expect(row.queryByText('Ritirata')).not.toBeInTheDocument();
   });
 });

@@ -6,9 +6,14 @@ describe('proposal decision and actual application progress', () => {
   it.each([
     ['submitted', 'submitted'], ['candidate_review', 'needs_review'], ['needs_candidate_action', 'needs_answers'],
     ['submitting', 'queued'], ['drafting', 'preparing'], ['regenerating', 'preparing'],
-    ['owner_review', 'technical_review'], ['owner_takeover', 'technical_review'], ['withdrawn', 'declined'],
+    ['owner_review', 'technical_review'], ['owner_takeover', 'technical_review'], ['withdrawn', 'withdrawn'],
   ])('shows %s as %s', (state, expected) => {
     expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: state })).toBe(expected);
+  });
+  it('distinguishes a persisted withdrawal from a declined proposal and old submission evidence', () => {
+    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined', withdrawnAt: new Date().toISOString(), childSendState: 'sent' })).toBe('withdrawn');
+    expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: 'withdrawn', childSubmissionStatus: 'submitted' })).toBe('withdrawn');
+    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined', childSendState: 'sent' })).toBe('declined');
   });
   it('prefers durable submission evidence and distinguishes sending and scheduled retry', () => {
     expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: 'candidate_review', childSubmissionStatus: 'submitted' })).toBe('submitted');

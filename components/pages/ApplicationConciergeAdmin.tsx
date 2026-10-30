@@ -166,10 +166,10 @@ export default function ApplicationConciergeAdmin() {
                       <li key={proposal.proposalId} className="flex flex-wrap items-start justify-between gap-2 py-3 text-sm">
                         <div className="min-w-0"><p className="break-words font-semibold text-strong">{proposal.jobTitle}</p><p className="text-subtle">{proposal.companyName} · proposta il {date(proposal.proposedAt)}</p></div>
                         <dl className="text-subtle">
-                          <div><dt className="inline">Decisione proposta: </dt><dd className="inline">{proposal.withdrawnAt ? 'Ritirata dal candidato' : PROPOSAL_LABELS[proposal.status] || proposal.status}</dd></div>
-                          {displayStatus !== proposal.status && <div>
+                          <div><dt className="inline">Decisione proposta: </dt><dd className="inline">{displayStatus === 'withdrawn' ? t('jobBoard.concierge.proposalStatus.withdrawn') : PROPOSAL_LABELS[proposal.status] || proposal.status}</dd></div>
+                          {displayStatus !== proposal.status && displayStatus !== 'withdrawn' && <div>
                             <dt className="inline">{employerResponse ? 'Risposta azienda: ' : 'Candidatura: '}</dt>
-                            <dd className="inline font-semibold text-strong">{displayStatus === 'declined' ? 'Ritirata' : t(employerResponse ? `jobBoard.assisted.employerResponse.${displayStatus.slice(9)}` : `jobBoard.concierge.proposalStatus.${displayStatus}`)}</dd>
+                            <dd className="inline font-semibold text-strong">{t(employerResponse ? `jobBoard.assisted.employerResponse.${displayStatus.slice(9)}` : `jobBoard.concierge.proposalStatus.${displayStatus}`)}</dd>
                           </div>}
                         </dl>
                       </li>
