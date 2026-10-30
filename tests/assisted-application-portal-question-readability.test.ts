@@ -70,6 +70,8 @@ it.each(['text', 'radio'])('preserves the readable question and its required mar
 it.each([
   '<label for="y">I accept the Privacy Policy. *</label><input id="y" type="checkbox" required>',
   '<label>I accept the Privacy Policy. *<input id="y" type="checkbox" required></label>',
+  '<label for="y"><span class="label">I accept the Privacy Policy. *</span></label><input id="y" type="checkbox" required>',
+  '<label><span class="question">I accept the Privacy Policy. *</span><input id="y" type="checkbox" required></label>',
 ])('never gives an unlabeled checkbox another control\'s consent: %s', neighbor => {
   const { dom, snapshot } = extract(`<form><fieldset><label for="x"></label><input id="x" name="newsletter" type="checkbox" required>${neighbor}</fieldset></form>`);
   expect(snapshot.fields[0].label).not.toMatch(/privacy/i);
@@ -87,7 +89,7 @@ it.each([
 });
 
 it('does not name a radio group after any individual option', () => {
-  const { dom, snapshot } = extract('<form><fieldset><label class="label" for="x">Yes</label><input id="x" name="permit" type="radio"><label>No<input id="y" name="permit" type="radio"></label><legend>Work permit?</legend></fieldset></form>');
+  const { dom, snapshot } = extract('<form><fieldset><label class="label" for="x"><span class="question">Yes</span></label><input id="x" name="permit" type="radio"><label><span class="question">No</span><input id="y" name="permit" type="radio"></label><legend>Work permit?</legend></fieldset></form>');
   expect(snapshot.fields[0].label).toBe('Work permit?');
   (dom.window as any).CSS = { escape: (value: string) => value };
   for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));

@@ -128,9 +128,12 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     return node ? clean(node.innerText || node.textContent) : '';
   };
   const ownedGroupLabels = (group, selector, element) => [...(group?.querySelectorAll(selector) || [])]
-    .filter(label => !label.contains(element)
-      && !label.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
-      && (!label.matches('label[for]') || Boolean(element.id) && label.getAttribute('for') === element.id));
+    .filter(label => {
+      const owner = label.closest('label') || label;
+      return !owner.contains(element)
+        && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
+        && (!owner.matches('label[for]') || Boolean(element.id) && owner.getAttribute('for') === element.id);
+    });
   const labelFor = (element) => {
     if (element.id) {
       const direct = document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
@@ -337,7 +340,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   const groupQuestion = (element) => {
     const group = element.closest('fieldset, [role="radiogroup"], [role="group"], .application-question, .field, li');
     for (const legend of ownedGroupLabels(group, 'legend, .question, .label, h3, h4', element)) {
-      if (legend.matches('label[for]')) continue; // An option's label never names the whole group.
+      if (legend.closest('label')?.hasAttribute('for')) continue; // An option's label never names the whole group.
       const text = !legend.contains(element) && clean(legend.innerText || legend.textContent);
       if (text) return text;
     }

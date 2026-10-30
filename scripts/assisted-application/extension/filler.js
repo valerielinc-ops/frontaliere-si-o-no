@@ -222,9 +222,12 @@
 
   /** The words a person reads for this control. */
   const ownedGroupLabels = (group, selector, element) => [...(group?.querySelectorAll(selector) || [])]
-    .filter(label => !label.contains(element)
-      && !label.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
-      && (!label.matches('label[for]') || Boolean(element.id) && label.getAttribute('for') === element.id));
+    .filter(label => {
+      const owner = label.closest('label') || label;
+      return !owner.contains(element)
+        && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
+        && (!owner.matches('label[for]') || Boolean(element.id) && owner.getAttribute('for') === element.id);
+    });
 
   function labelOf(element) {
     const doc = element.ownerDocument;
@@ -461,7 +464,7 @@
       const question = questionOf(radios[0]);
       const group = radios[0].closest('fieldset, [role="radiogroup"], [role="group"]');
       const legend = ownedGroupLabels(group, 'legend, [role="heading"], label', radios[0])
-        .filter(node => !node.matches('label[for]')).map(textOf).find(Boolean) || '';
+        .filter(node => !node.closest('label')?.hasAttribute('for')).map(textOf).find(Boolean) || '';
       const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))];
       entries.push({
         kind: 'radio',
