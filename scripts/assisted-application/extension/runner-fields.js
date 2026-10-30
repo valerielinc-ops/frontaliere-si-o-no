@@ -119,11 +119,14 @@
     return node ? clean(node.innerText || node.textContent) : '';
   };
   const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
-  const ownedGroupLabels = (group, selector, element) => {
+  const oneQuestionGroup = (group, element) => {
     const controls = [...(group?.querySelectorAll('input:not([type="hidden"]), select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]') || [])];
-    const oneQuestion = controls.length === 1 || controls.length > 0 && controls.every(control =>
+    return controls.length === 1 || controls.length > 0 && controls.every(control =>
       control.matches('input[type="radio"], [role="radio"]') && (group.matches('[role="radiogroup"]')
         || control.matches('input[type="radio"]') && Boolean(element.name) && control.name === element.name));
+  };
+  const ownedGroupLabels = (group, selector, element) => {
+    const oneQuestion = oneQuestionGroup(group, element);
     return [...(group?.querySelectorAll(selector) || [])].filter(label => {
       const owner = label.closest('label') || label;
       const linked = [...owner.querySelectorAll('label[for]'), ...(owner.matches('label[for]') ? [owner] : [])];
@@ -155,12 +158,13 @@
     if (placeholder) return clean(placeholder);
     // Last resort: the closest container's own text before the control.
     const container = element.closest('li, .field, .form-group, [class*="question"], [class*="field"]');
-    const text = container ? clean((container.innerText || '').split('\n')[0]) : '';
+    const text = container && (!group || oneQuestionGroup(group, element)) ? clean((container.innerText || '').split('\n')[0]) : '';
     if (text) return text;
     // The first of name and id that is not generated ("input-7" never hides "email-address").
     const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
     const technical = names.find((value) => !GENERATED_ID_RE.test(value));
     if (technical) return technical;
+    if (group && !oneQuestionGroup(group, element)) return names[0] || '';
     // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
     // the heading the control sits under and the text of its zone say what it
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.

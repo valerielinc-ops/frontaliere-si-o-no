@@ -222,11 +222,14 @@
 
   /** The words a person reads for this control. */
   const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
-  const ownedGroupLabels = (group, selector, element) => {
+  const oneQuestionGroup = (group, element) => {
     const controls = [...(group?.querySelectorAll('input:not([type="hidden"]), select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]') || [])];
-    const oneQuestion = controls.length === 1 || controls.length > 0 && controls.every(control =>
+    return controls.length === 1 || controls.length > 0 && controls.every(control =>
       control.matches('input[type="radio"], [role="radio"]') && (group.matches('[role="radiogroup"]')
         || control.matches('input[type="radio"]') && Boolean(element.name) && control.name === element.name));
+  };
+  const ownedGroupLabels = (group, selector, element) => {
+    const oneQuestion = oneQuestionGroup(group, element);
     return [...(group?.querySelectorAll(selector) || [])].filter(label => {
       const owner = label.closest('label') || label;
       const linked = [...owner.querySelectorAll('label[for]'), ...(owner.matches('label[for]') ? [owner] : [])];
@@ -261,7 +264,8 @@
     for (const legend of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
       if (!legend.contains(element) && textOf(legend)) return textOf(legend);
     }
-    return questionOf(element) || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
+    return (!group || oneQuestionGroup(group, element) ? questionOf(element) : '')
+      || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
   }
 
   // «[Default] Comment», «[General] Salary Expectations»: a form's own name for a field.
@@ -469,8 +473,8 @@
       });
     }
     for (const radios of radiosByName.values()) {
-      const question = questionOf(radios[0]);
       const group = radios[0].closest(QUESTION_GROUP_SELECTOR);
+      const question = !group || oneQuestionGroup(group, radios[0]) ? questionOf(radios[0]) : '';
       const legend = ownedGroupLabels(group, 'legend, [role="heading"], label', radios[0])
         .filter(node => !node.closest('label')?.hasAttribute('for') && !node.querySelector('label[for]')).map(textOf).find(Boolean) || '';
       const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))];
