@@ -2012,6 +2012,13 @@ export function buildThinCantonHubHtml(args: {
   const canonicalPath = page === 1 ? basePath : paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const jobBoardHeadTag = jobBoardHeadTags(canonicalUrl);
+  // Only the actual canton hub roots form this four-locale family. The
+  // recency pages also use this renderer but have no translated equivalents.
+  const hreflangHtml = page === 1 && basePath === hubSlugFor(canton, locale, hub)
+    ? [...HUB_LOCALES, 'x-default' as const].map((alternate) =>
+        `<link rel="alternate" hreflang="${alternate}" href="${BASE_URL}${hubSlugFor(canton, alternate === 'x-default' ? 'it' : alternate, hub)}">`,
+      ).join('\n    ')
+    : '';
   const pageSuffix = totalPages > 1 && page > 1
     ? (locale === 'de' ? ` — Seite ${page}` : locale === 'fr' ? ` — Page ${page}` : ` — Pagina ${page}`)
     : '';
@@ -2224,6 +2231,7 @@ export function buildThinCantonHubHtml(args: {
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:alt" content="${esc(emittedPageTitle)}">
     <link rel="canonical" href="${canonicalUrl}">${prevLink}${nextLink}
+    ${hreflangHtml}
     <script type="application/ld+json">${breadcrumbLd}</script>${collectionLd ? `\n    <script type="application/ld+json">${collectionLd}</script>` : ''}
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
@@ -2342,7 +2350,9 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
 
 
   for (const canton of ALL_CANTON_CODES) {
-    if (canton === 'TI') continue; // TI already emitted with full body above
+    // TI's legacy jobs/sectors archives use the same paths and are emitted
+    // above. Its legacy company directory uses /companies-hiring/all/ (and
+    // localized equivalents), so it does not cover the canton company path.
     const total = cantonJobCounts.get(canton) ?? 0;
     const jobs = cantonJobs.get(canton) ?? [];
     // Use the same snapshot plan as the parent landing's archive navigator.
@@ -2378,7 +2388,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       // (cathedral-aware, points at `/{locale}/{section}/{slug}/`). Fall back
       // to the legacy `{sectionRoot}/{slug}/` form when the master map lacks
       // the slug (rare — job present in snapshot but not yet tracked).
-      {
+      if (canton !== 'TI') {
         const basePath = hubSlugFor(canton, locale, 'tutti');
         const tuttiPageSize = JOBS_PAGE_SIZE; // 100
         const tuttiTotalPages = archivePages;
@@ -2482,7 +2492,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       // (canton, sector) — recorded in the cross-plugin registry, so no 404 —
       // deep-link `/{section}/{sectorSlug}/`. Otherwise fall back to the canton
       // job-board root, an indexed, crawlable page.
-      {
+      if (canton !== 'TI') {
         const basePath = hubSlugFor(canton, locale, 'settori');
         const items = HUB_SECTORS.map((s) => {
           const curatedKey = (SECTOR_HUB_KEYS as readonly string[]).includes(s.key)
@@ -3099,8 +3109,9 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
   // prose, navigation and fallback template; it is never replaced by a
   // noindex bridge. Articles are NOT canton-scoped — they remain TI-only.
   //
-  // The TI hubs are already emitted above with the full paginated body — we
-  // explicitly skip TI here to preserve byte-identical TI invariance.
+  // TI's jobs/sectors hubs are already emitted above with the full paginated
+  // body. Its canton company index still needs emitting: the legacy company
+  // directory above lives at a different URL.
   emitThinCantonHubs({
     fs,
     np,

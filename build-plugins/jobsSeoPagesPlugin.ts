@@ -5398,6 +5398,14 @@ ${staticAnalyticsHtml}
  // indexable page first, defeating that bridge's file-exists guard and
  // duplicating umbrella content (brand-dedup main-red #1247 / PR #1274).
  if (isBrandAlias(cSlug)) continue;
+ // The canton-local TI company index needs the same emitted-slug registry
+ // as the other cantons; employer keys are not canonical company slugs.
+ markCantonCompanyHub('TI', {
+ slug: cSlug,
+ name: companyName,
+ jobs: companyJobs.length,
+ logoKey: String((companyJobs[0] as any)?.companyKey || (companyJobs[0] as any)?.employerKey || cSlug),
+ });
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompany = startTimer();
