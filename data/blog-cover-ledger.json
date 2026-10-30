@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 967,
+      "5": 968,
       "6": 5061
     },
-    "publishedCovers": 7710,
+    "publishedCovers": 7711,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -211740,6 +211740,39 @@
         "provider": "openai-codex",
         "assetId": "article-vivere-brunate-lavorare-ticino",
         "imageUrl": "/images/blog/article-vivere-brunate-lavorare-ticino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-glarona-detrazioni-energia": {
+      "cover": "/images/blog/article-glarona-detrazioni-energia.webp",
+      "hash": "10b492bd0b55790e4fd38bc08075c30879c8ed1c03bfd2493de8edebedfcbca4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gl",
+          "id": "glarona-detrazioni-energia",
+          "category": "fiscale",
+          "date": "2026-10-30T15:30:05.508Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-glarona-detrazioni-energia.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-glarona-detrazioni-energia",
+        "imageUrl": "/images/blog/article-glarona-detrazioni-energia.webp",
         "evidence": "generated-engine-record"
       }
     },
