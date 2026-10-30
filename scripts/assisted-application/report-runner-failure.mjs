@@ -7,7 +7,7 @@ import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assiste
 import { isUnconfirmedSubmission } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { runKeyFrom, storeEvidence } from './lib/secure-run.mjs';
 
-export async function reportRunnerFailure({ db, orderId, mode, round, runId, startedAt, nowMs = Date.now() }) {
+export async function reportRunnerFailure({ db, orderId, mode, round, runId, startedAt, dispatchAt, nowMs = Date.now() }) {
   if (!ASSISTED_APPLICATION_ORDER_ID_RE.test(String(orderId || '')) || !['draft', 'submit', 'dry_run'].includes(mode)
     || !Number.isSafeInteger(round) || round < 1 || !/^\d+$/.test(String(runId || '')) || !(startedAt > 0)) throw new Error('invalid_runner_failure_context');
   if (mode === 'dry_run') return { reported: false, reason: 'dry_run' };
@@ -25,13 +25,16 @@ export async function reportRunnerFailure({ db, orderId, mode, round, runId, sta
     if (order?.paymentStatus !== 'paid' || order.withdrawnAt || order.retentionPurgedAt
       || ['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus) || ['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
       || !expected.includes(flow?.state) || Number(flow.round || 1) !== round
+      || (dispatchAt && Number(dispatchAt) !== Number(flow.dispatch?.requestedAt))
+      || flow.executionId
       || Number(flow.dispatch?.requestedAt || 0) > startedAt) return { reported: false, reason: 'superseded' };
     const send = submissionDoc.data()?.[`r${round}`];
     const event = mode === 'submit' && send?.state === 'sent'
       ? { type: 'submit_succeeded', channel: send.channel }
       : { type: mode === 'draft' ? 'draft_failed' : 'submit_failed', error: mode === 'submit' && isUnconfirmedSubmission(send)
         ? send.channel === 'email' ? 'email_ambiguous' : 'portal_ambiguous' : 'runner_infrastructure_unavailable' };
-    transaction.set(eventRef, { ...event, round, mode, runId: String(runId), createdAt: nowMs });
+    transaction.set(eventRef, { ...event, round, mode, runId: String(runId), createdAt: nowMs,
+      dispatchAt: Number(flow.dispatch?.requestedAt) || null });
     return { reported: true, event: event.type };
   });
 }
@@ -58,5 +61,6 @@ if (isInvokedDirectly(import.meta.url)) {
       }
     }
   }
-  console.log(JSON.stringify(await reportRunnerFailure({ db, orderId, mode, round, runId, startedAt })));
+  console.log(JSON.stringify(await reportRunnerFailure({ db, orderId, mode, round, runId, startedAt,
+    dispatchAt: Number(process.env.ASSISTED_APPLICATION_DISPATCH_AT) || undefined })));
 }

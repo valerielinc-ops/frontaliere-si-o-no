@@ -11,6 +11,8 @@
 import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { isAssistedApplicationCvKey } from './assistedApplicationEligibility.js';
+export { isAssistedApplicationCvKey } from './assistedApplicationEligibility.js';
 
 /**
  * Bucket of every assisted-application file (CV, generated letters, run
@@ -36,14 +38,6 @@ export function detectCvFileType(head) {
     if (signature.bytes.every((value, index) => bytes[index] === value)) return signature.type;
   }
   return null;
-}
-
-export function isAssistedApplicationCvKey(orderId, key) {
-  const value = String(key || '');
-  const prefix = `assisted-application-uploads/${orderId}/`;
-  return value.startsWith(prefix)
-    && value.length <= 600
-    && /^[A-Za-z0-9._-]+$/.test(value.slice(prefix.length));
 }
 
 /**

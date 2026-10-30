@@ -28,7 +28,8 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
+import { isCvReady, automationEligibility } from './assistedApplicationEligibility.js';
+export { isCvReady, automationEligibility } from './assistedApplicationEligibility.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
@@ -37,6 +38,9 @@ import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './as
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { REMOTE_EXECUTOR_FLAG, REMOTE_EXECUTOR, prepareRemoteExecution, remoteExecutionReason, remoteExecutorReady,
+  recoveryReasonForDispatch, executionEligibility } from './assistedApplicationExecution.js';
+import { verifiedInfrastructureProof, infrastructureReasonForEvent } from './lib/portalInfrastructureEvidence.js';
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -66,8 +70,6 @@ const RUNNER_EVENT_TYPES = new Set([
   'submit_needs_candidate',
   'submit_failed',
 ]);
-const STARTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
-const SUPPORTED_CV_TYPES = new Set(['pdf', 'docx', 'doc']);
 
 export function orderRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
@@ -113,22 +115,6 @@ export async function isAutomationEnabledFor(orderId, read = null) {
   return flag.all || flag.orders.has(String(orderId || ''));
 }
 
-/** The order's CV passed the magic-byte check for its current key. */
-export function isCvReady(order) {
-  const check = order?.cvFileCheck;
-  return Boolean(order?.cvStorageKey && check && check.key === order.cvStorageKey && check.verdict === 'ok');
-}
-
-export function automationEligibility(order, orderId) {
-  if (!order || order.paymentStatus !== 'paid') return { eligible: false, reason: 'not_paid' };
-  if (!STARTABLE_STATUSES.has(order.submissionStatus)) return { eligible: false, reason: 'order_closed' };
-  if (order.refundStatus === 'pending') return { eligible: false, reason: 'refund_in_progress' };
-  if (!isAssistedApplicationCvKey(orderId, order.cvStorageKey)) return { eligible: false, reason: 'cv_missing' };
-  if (!isCvReady(order)) return { eligible: false, reason: 'cv_not_verified' };
-  if (!SUPPORTED_CV_TYPES.has(order.cvFileCheck.detectedType)) return { eligible: false, reason: 'cv_format_unsupported' };
-  return { eligible: true, reason: null };
-}
-
 /** Backfill old fact-held orders into the normal scheduled recovery, without dispatching here. */
 export async function reconcileFactRepairSchedule({ db, orderId, apply = false }) {
   return db.runTransaction(async (transaction) => {
@@ -138,7 +124,7 @@ export async function reconcileFactRepairSchedule({ db, orderId, apply = false }
     ]);
     const order = orderSnapshot.data() || {};
     const flow = flowSnapshot.data() || {};
-    if (order.paymentStatus !== 'paid' || !STARTABLE_STATUSES.has(order.submissionStatus)
+    if (!automationEligibility(order, orderId).eligible
       || order.refundStatus === 'pending' || !needsFactRepair(flow) || order.automationDueAt === 1) return { changed: false };
     if (apply) transaction.set(orderRef, { automationDueAt: 1 }, { merge: true });
     return { changed: true };
@@ -183,8 +169,8 @@ export async function claimWatchdogDispatch({ db, orderId, nowMs }) {
     if (!dueAt || dueAt > nowMs || attempts >= MAX_DISPATCH_ATTEMPTS) return null;
     const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
     const dispatch = { ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 };
-    const nextFlow = { ...flow, dispatch, updatedAt: nowMs };
-    transaction.set(flowRef, { dispatch, updatedAt: nowMs }, { merge: true });
+    const nextFlow = { ...flow, dispatch, executionId: null, updatedAt: nowMs };
+    transaction.set(flowRef, { dispatch, executionId: null, updatedAt: nowMs }, { merge: true });
     transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
     return nextFlow;
   });
@@ -213,13 +199,29 @@ export async function reconcilePortalRetrySchedule({ db, orderId, apply = false 
  * leave for GitHub: the repository is public, so nothing personal may appear
  * in the run's inputs.
  */
-export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = fetch, getRepoConfigImpl = getRepoConfig }) {
+export async function dispatchAgentWorkflow({ orderId, mode, round, db, flow, fetchImpl = fetch, getRepoConfigImpl = getRepoConfig,
+  readRemoteExecutor = getRemoteConfigValue }) {
   const { pat, owner, repo } = await getRepoConfigImpl();
   if (!pat) throw new Error('github_pat_not_configured');
+  const inputs = { order_id: String(orderId), mode, round: String(round) };
+  if (Number(flow?.dispatch?.requestedAt) > 0) inputs.dispatch_at = String(flow.dispatch.requestedAt);
+  if (db && remoteExecutionReason(flow, mode) && await readRemoteExecutor(REMOTE_EXECUTOR_FLAG) === REMOTE_EXECUTOR) {
+    const registry = (await db.collection('assisted_application_executors').doc(REMOTE_EXECUTOR).get()).data();
+    if (remoteExecutorReady(registry)) {
+      const sourceResponse = await fetchImpl(`${GITHUB_API}/repos/${owner}/${repo}/commits/main`, {
+        headers: githubApiHeaders(pat), signal: AbortSignal.timeout(DISPATCH_TIMEOUT_MS),
+      });
+      if (!sourceResponse.ok) throw new Error(`execution_source_unavailable:${sourceResponse.status}`);
+      const sourceSha = (await sourceResponse.json()).sha;
+      const execution = await prepareRemoteExecution({ db, orderId, flow, mode, round, sourceSha });
+      if (!execution) return { ok: false, skipped: 'remote_execution_not_admitted' };
+      Object.assign(inputs, { executor: execution.executor, source_sha: execution.sourceSha, execution_id: execution.id });
+    }
+  }
   const response = await fetchImpl(`${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/${AGENT_WORKFLOW}/dispatches`, {
     method: 'POST',
     headers: githubApiHeaders(pat, { 'Content-Type': 'application/json' }),
-    body: JSON.stringify({ ref: 'main', inputs: { order_id: String(orderId), mode, round: String(round) } }),
+    body: JSON.stringify({ ref: 'main', inputs }),
     signal: AbortSignal.timeout(DISPATCH_TIMEOUT_MS),
   });
   if (!response.ok) {
@@ -250,6 +252,14 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
+  const infrastructureProof = verifiedInfrastructureProof(event.infrastructureProof);
+  let expediteRemote = false;
+  if (infrastructureProof && event.type === 'submit_handoff') {
+    try {
+      expediteRemote = await getRemoteConfigValue(REMOTE_EXECUTOR_FLAG) === REMOTE_EXECUTOR
+        && remoteExecutorReady((await db.collection('assisted_application_executors').doc(REMOTE_EXECUTOR).get()).data(), nowMs);
+    } catch { /* Missing policy/readiness retains the existing bounded backoff. */ }
+  }
   let outcome = null;
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
@@ -276,6 +286,22 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    if (actor === 'runner' && event.dispatchAt && Number(event.dispatchAt) !== Number(flow.dispatch?.requestedAt)) {
+      claim('ignored:dispatch_superseded');
+      outcome = { ok: false, ignored: 'dispatch_superseded' };
+      return;
+    }
+    if (actor === 'runner' && (flow.executionId || event.executionId)) {
+      const execution = (await transaction.get(orderRef.collection('automation').doc('execution'))).data() || {};
+      if (event.executionId !== flow.executionId || execution.id !== event.executionId
+        || event.executionGeneration !== execution.generation
+        || execution.sourceSha !== event.sourceSha || (execution.engineVersion || null) !== (event.engineVersion || null)
+        || execution.materialVersion !== event.materialVersion) {
+        claim('ignored:execution_superseded');
+        outcome = { ok: false, ignored: 'execution_superseded' };
+        return;
+      }
+    }
     // Answers explicitly saved on this order win over the candidate-wide
     // ledger. The latter fills only semantic gaps, so a new posting can reuse
     // a confirmed answer without asking the same person again.
@@ -318,10 +344,21 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       ...(patchFlow ? patchFlow(flow) : {}),
       updatedAt: nowMs,
     };
+    if (event.type === 'submit_handoff') {
+      if (infrastructureProof && event.reason === infrastructureProof.class) nextFlow.infrastructureProof = infrastructureProof;
+      else if (event.reason !== 'remote_executor_unavailable') nextFlow.infrastructureProof = null;
+    }
+    if (expediteRemote && nextFlow.state === 'owner_takeover' && infrastructureProof
+      && JSON.stringify(flow.infrastructureProof) !== JSON.stringify(infrastructureProof)) {
+      const submission = (await transaction.get(orderRef.collection('automation').doc('submission'))).data();
+      if (!executionEligibility({ orderId, order: orderSnapshot.data(), flow: { ...nextFlow, state: 'submitting', dispatch: flow.dispatch },
+        draft, submission, round: nextFlow.round })) nextFlow.portalAutoRetryAt = nowMs;
+    }
     // A dispatch effect is recorded now, in the same write, so the watchdog
     // always knows when the run was asked for.
     const dispatch = result.effects.find((effect) => effect.type === 'dispatch');
     if (dispatch) {
+      nextFlow.executionId = null;
       nextFlow.dispatch = {
         mode: dispatch.mode,
         round: nextFlow.round,
@@ -329,6 +366,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         // A retry carries its count, so the watchdog and the flow share the limit.
         attempts: Number(dispatch.attempts) || 1,
         reason: dispatch.reason || null,
+        recoveryReason: recoveryReasonForDispatch(flow, dispatch.reason),
       };
     }
     claim('applied');
@@ -660,14 +698,24 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     await eventRef.set({ appliedAt: nowMs, result: 'unknown_type' }, { merge: true });
     return { ok: false, ignored: 'unknown_type' };
   }
+  const infrastructureProof = verifiedInfrastructureProof(data.infrastructureProof);
+  const infrastructureReason = infrastructureReasonForEvent(data.reason, infrastructureProof);
   const event = {
     type,
     round: Number(data.round) || null,
     error: data.error ? String(data.error).slice(0, 120) : undefined,
-    reason: data.reason ? String(data.reason).slice(0, 120) : undefined,
+    reason: infrastructureReason || (data.reason ? String(data.reason).slice(0, 120) : undefined),
+    infrastructureProof: infrastructureReason ? infrastructureProof : undefined,
     questions: Array.isArray(data.questions) ? data.questions.slice(0, 20) : undefined,
     questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, 20) : undefined,
     documents: Array.isArray(data.documents) ? data.documents.slice(0, 20) : undefined,
+    portalCodeVersion: /^[a-f0-9]{64}$/.test(data.portalCodeVersion || '') ? data.portalCodeVersion : undefined,
+    executionId: data.executionId,
+    executionGeneration: data.executionGeneration,
+    sourceSha: data.sourceSha,
+    engineVersion: data.engineVersion,
+    materialVersion: data.materialVersion,
+    dispatchAt: Number(data.dispatchAt) || undefined,
   };
   const result = await applyAutomationEvent({
     db,

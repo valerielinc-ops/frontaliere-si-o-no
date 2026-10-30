@@ -169,6 +169,16 @@ describe('transient CAPTCHA provider failures', () => {
   it('never converts a candidate-only action into a technical retry', () => {
     expect(portalHandoffReason('whatsapp', { diagnostics: { responses }, attempt: 1 })).toBe('whatsapp');
   });
+  it.each(['captcha', 'portal_needs_candidate', 'portal_antibot'])('recognises the measured untagged extension-worker IP rejection for %s', reason => {
+    const responses = [{ host: 'api.nopecha.com', path: '/v1/status', status: 403, errors: [{ message: 'Banned IP' }] }];
+    expect(portalHandoffReason(reason, { diagnostics: { responses }, attempt: 1 })).toBe('captcha_provider_unavailable');
+    expect(portalHandoffReason(reason, { diagnostics: { responses }, attempt: 1, finalClickAttempted: true })).toBe(reason);
+    expect(portalHandoffReason('posting_mismatch', { diagnostics: { responses }, attempt: 1 })).toBe('posting_mismatch');
+  });
+  it('keeps anonymous quota exhaustion in the technical lane', () => {
+    const responses = [{ host: 'api.nopecha.com', path: '/v1/status', status: 403, errors: [{ code: '16', message: 'Out of credit' }] }];
+    expect(portalHandoffReason('captcha', { diagnostics: { responses }, attempt: 1 })).toBe('captcha_provider_unavailable');
+  });
   it('ignores a provider outage recorded by a previous portal attempt', () => {
     expect(portalHandoffReason('portal_needs_candidate', {
       diagnostics: { responses: [{ host: 'api.nopecha.com', path: '/v1/recognition/recaptcha', status: 503, attempt: 1 }] },

@@ -45,12 +45,9 @@ import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 
-export const WAVE1_CHANNELS = new Set([
-  'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch',
-  // Workday and SuccessFactors: a guest application where the tenant allows
-  // it, otherwise an account on the order's alias (account.mjs).
-  'workday', 'successfactors',
-]);
+import { AUTOMATED_PORTAL_CHANNELS as WAVE1_CHANNELS } from '../../../../functions/src/lib/portalChannels.js';
+import { captchaInfrastructureProof } from '../../../../functions/src/lib/portalInfrastructureEvidence.js';
+export { WAVE1_CHANNELS };
 // Login pages in one run: create, verify, sign in, and one retry.
 const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
@@ -3252,6 +3249,8 @@ export async function submitViaPortal(ctx) {
   let finalClickAttempted = false;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason) => {
+    const infrastructureProof = captchaInfrastructureProof(reason, { diagnostics: evidence.diagnostics,
+      attempt: diagnostics?.currentAttempt(), finalClickAttempted });
     reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, attempt: diagnostics?.currentAttempt(), finalClickAttempted });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
@@ -3261,7 +3260,7 @@ export async function submitViaPortal(ctx) {
         evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
       }
     }
-    return { event: { type: 'submit_handoff', reason }, evidence };
+    return { event: { type: 'submit_handoff', reason, ...(infrastructureProof ? { infrastructureProof } : {}) }, evidence };
   };
   // What each portal taught earlier runs (level 2), read once per host.
   const knowledge = new Map();

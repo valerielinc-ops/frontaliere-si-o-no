@@ -9,6 +9,20 @@ on:
       - 'scripts/assisted-application/lib/submit.mjs'
       - 'scripts/assisted-application/agent.mjs'
       - 'scripts/assisted-application/lib/portal-code-version.mjs'
+      - 'scripts/assisted-application/lib/execution-runtime.mjs'
+      - 'scripts/assisted-application/lib/execution-artifacts.mjs'
+      - 'scripts/assisted-application/report-runner-failure.mjs'
+      - 'scripts/assisted-application/lib/execution-release.mjs'
+      - 'scripts/assisted-application/lib/darwin-isolation.mjs'
+      - 'scripts/assisted-application/remote-controller.mjs'
+      - 'scripts/assisted-application/remote-executor.mjs'
+      - 'scripts/assisted-application/supervised-agent.mjs'
+      - '.github/actions/setup-codex-darwin-broker/**'
+      - '.github/actions/setup-claude-haiku-fallback/**'
+      - 'functions/src/assistedApplicationExecution.js'
+      - 'functions/src/assistedApplicationEligibility.js'
+      - 'functions/src/lib/portalChannels.js'
+      - 'functions/src/lib/portalInfrastructureEvidence.js'
       - 'scripts/assisted-application/install-nopecha.sh'
       - 'functions/src/assistedApplicationOperationalAnswers.js'
       - 'functions/src/assistedApplicationCandidateEdits.js'
@@ -37,6 +51,7 @@ jobs:
         with:
           ref: main
           sparse-checkout: |
+            .github/actions
             functions
             scripts
             package.json

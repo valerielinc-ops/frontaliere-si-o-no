@@ -18,7 +18,7 @@ import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { appendFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../functions/src/assistedApplicationCvCheck.js';
-import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedApplicationConstants.js';
+import { ASSISTED_APPLICATION_ORDER_ID_RE, hasAssistedApplicationConsent } from '../../functions/src/assistedApplicationConstants.js';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
@@ -29,10 +29,13 @@ import { dedupePortalQuestions, portalQuestionKey, readPortalRequirements } from
 import { mergeRequiredDocuments, requiredDocumentLabelKey, requiredDocumentsOf } from '../../functions/src/assistedApplicationExtraDocuments.js';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
-import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
+import { submissionGuard, hasRecordedSubmission } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
+import { enterExecution } from './lib/execution-runtime.mjs';
+
+let executionRuntime = null;
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 // dry_run: the submission without the final click, for the owner's tests.
@@ -164,7 +167,7 @@ export async function writeDraft({ orderRef, bucket, draft, previousDraft }) {
   }
 }
 
-async function main() {
+export async function runAgent() {
   const { values } = parseArgs({
     options: { order: { type: 'string' }, mode: { type: 'string' }, round: { type: 'string' } },
   });
@@ -179,11 +182,12 @@ async function main() {
   const { getStorage } = await import('firebase-admin/storage');
   const bucket = getStorage().bucket(BUCKET);
   const orderRef = db.collection('assisted_applications').doc(orderId);
-  const [orderSnapshot, flowSnapshot, draftSnapshot, intakeSnapshot] = await Promise.all([
+  const [orderSnapshot, flowSnapshot, draftSnapshot, intakeSnapshot, submissionSnapshot] = await Promise.all([
     orderRef.get(),
     orderRef.collection('automation').doc('flow').get(),
     orderRef.collection('ai_drafts').doc('current').get(),
     orderRef.collection('automation').doc('intake').get(),
+    orderRef.collection('automation').doc('submission').get(),
   ]);
   if (!orderSnapshot.exists || !flowSnapshot.exists) {
     summary(`mode=${mode} skipped: no order or no flow`);
@@ -203,11 +207,30 @@ async function main() {
     summary(`mode=${mode} round=${round} skipped: flow is ${flow.state} round ${flow.round}`);
     return;
   }
+  if (process.env.ASSISTED_APPLICATION_DISPATCH_AT
+    && Number(process.env.ASSISTED_APPLICATION_DISPATCH_AT) !== Number(flow.dispatch?.requestedAt)) {
+    summary('run skipped: dispatch superseded');
+    return;
+  }
 
   if (Number(flow.factRepairAttempts) > 0 && !automationEligibility(order, orderId).eligible) {
     summary(`mode=${mode} round=${round} skipped: fact recovery order is no longer eligible`);
     return;
   }
+
+  if (mode === 'submit' && (!automationEligibility(order, orderId).eligible || !hasAssistedApplicationConsent(order))) {
+    summary('submit skipped: payment, verified CV or mandate is no longer eligible');
+    return;
+  }
+  const priorSubmission = submissionSnapshot.data() || {};
+  if (mode === 'submit' && hasRecordedSubmission({ order, flow, draft: previousDraft, submission: priorSubmission })
+    && priorSubmission[`r${round}`]?.state !== 'sent') {
+    summary('submit skipped: an earlier confirmed submission requires reconciliation');
+    return;
+  }
+
+  executionRuntime = await enterExecution({ db, orderId, flow, mode });
+  const execution = executionRuntime?.lease || null;
 
   const runKey = runKeyFrom();
   const events = orderRef.collection('automation_events');
@@ -215,9 +238,22 @@ async function main() {
   const report = async (event) => {
     // A dry run writes no event: whatever it finds (a closed ad, a question
     // for the candidate) must not move the flow, and the watchdog never sees it.
-    if (!dryRun) await events.add({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null });
+    if (!dryRun) {
+      const record = { ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null,
+        dispatchAt: Number(flow.dispatch?.requestedAt) || null };
+      if (execution) await execution.report(events.doc(), record);
+      else await events.add(record);
+    }
     summary(`mode=${mode} round=${round} event=${event.type}${event.error ? ` error=${event.error}` : ''}${event.channel ? ` channel=${event.channel}` : ''}`);
   };
+
+  if (mode === 'submit' && !execution && priorSubmission[`r${round}`]?.state === 'sent') {
+    const record = priorSubmission[`r${round}`];
+    const event = { type: 'submit_succeeded', channel: record.channel || 'portal', ...(record.sent ? { sent: record.sent } : {}) };
+    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun: false });
+    await report(event);
+    return;
+  }
 
   let cvBuffer;
   let cvType;
@@ -270,7 +306,7 @@ async function main() {
   const submitDraft = normalizedQuestions.length === (previousDraft.questions || []).length
     ? previousDraft
     : { ...previousDraft, questions: normalizedQuestions };
-  if (!dryRun && submitDraft !== previousDraft) {
+  if (!dryRun && !execution && submitDraft !== previousDraft) {
     await orderRef.collection('ai_drafts').doc('current').set({ questions: normalizedQuestions }, { merge: true });
   }
   try {
@@ -279,7 +315,7 @@ async function main() {
     const event = await submitApplication({
       order, orderId, flow, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
-      submissionGuard: dryRun ? null : submissionGuard(db, orderId, round),
+      submissionGuard: dryRun ? null : submissionGuard(db, orderId, round, { execution }),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
       // Portal accounts on the order's alias: passwords masked in the log, encrypted in Firestore.
       accounts: portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }),
@@ -397,7 +433,10 @@ async function main() {
 }
 
 const invokedDirectly = isInvokedDirectly(import.meta.url);
-if (invokedDirectly) main().catch((error) => {
+export async function runAgentAndClose() {
+  try { await runAgent(); } finally { await executionRuntime?.close(); }
+}
+if (invokedDirectly) runAgentAndClose().catch((error) => {
   console.error('[assisted-application] fatal', safeErrorCode(error));
   process.exitCode = 1;
 });

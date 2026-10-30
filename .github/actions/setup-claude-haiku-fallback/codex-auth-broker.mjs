@@ -47,6 +47,7 @@ import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
+import { brokerPermissionConfig as permissionConfig } from './broker-permissions.mjs';
 import {
   CODEX_FALLBACK_EFFORT,
   CODEX_FALLBACK_MODEL,
@@ -58,7 +59,6 @@ const CODEX_EFFORT = CODEX_FALLBACK_EFFORT;
 // existing text lanes. Image generation passes its explicitly attested CLI
 // version without changing that default.
 const CODEX_CLI_VERSION = argument('--codex-cli-version', '0.153.4');
-const CODEX_PROFILE = 'codex-luna-max';
 const MAX_REQUEST_BYTES = 1024 * 1024;
 const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 const MAX_AUTH_BYTES = 256 * 1024;
@@ -171,26 +171,6 @@ function validateSocketParent() {
 // code 1", frontaliere-articles run 36001495484). ":root" = "deny" nasconde gia'
 // il resto di /tmp: con `codex sandbox` 0.153.4 il workspace resta leggibile,
 // auth.json, config.toml e gli altri file di /tmp no, e TMPDIR resta negato.
-function permissionConfig() {
-  return `default_permissions = "${CODEX_PROFILE}"
-
-[permissions.${CODEX_PROFILE}]
-description = "Read-only Codex primary in an empty temporary workspace"
-extends = ":read-only"
-
-[permissions.${CODEX_PROFILE}.network]
-enabled = false
-
-[permissions.${CODEX_PROFILE}.filesystem]
-":root" = "deny"
-":minimal" = "read"
-":tmpdir" = "deny"
-
-[permissions.${CODEX_PROFILE}.filesystem.":workspace_roots"]
-"." = "read"
-`;
-}
-
 function childEnv(codexHome, codexTmp) {
   const env = {
     PATH: safePath(),

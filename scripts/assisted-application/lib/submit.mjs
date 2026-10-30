@@ -31,6 +31,7 @@ import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, sen
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
 import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
+import { navigationInfrastructureProof } from '../../../functions/src/lib/portalInfrastructureEvidence.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -561,7 +562,8 @@ export async function submitApplication(ctx) {
         if (attemptKept) await keepAttempt(null);
       }
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
-      if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable' };
+      if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable',
+        infrastructureProof: navigationInfrastructureProof(error) };
       throw error;
     } finally {
       if (dir) await rm(dir, { recursive: true, force: true });

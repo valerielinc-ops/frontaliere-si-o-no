@@ -38,7 +38,16 @@ export function submissionLeftAt(record) {
   return Number(record?.clickedAt || record?.startedAt) || 0;
 }
 
-export function submissionGuard(db, orderId, round) {
+/** AssistedApplicationUpload.tsx also stamps order.submittedAt when a CV is queued for this
+ * service. That legacy field alone never proves delivery to the employer. */
+export function hasRecordedSubmission({ order, flow, draft, submission = {} }) {
+  return order?.submissionStatus === 'submitted' || flow?.state === 'submitted' || Boolean(flow?.submittedAt) || Boolean(draft?.sent)
+    || Object.entries(submission || {}).some(([key, record]) => /^r\d+$/.test(key) && record?.state === 'sent')
+    || (Array.isArray(flow?.history) ? flow.history : []).some(entry => entry?.state === 'submitted'
+      && ['submit_succeeded', 'submit_acknowledged', 'owner_submitted'].includes(entry.event));
+}
+
+export function submissionGuard(db, orderId, round, { execution = null } = {}) {
   const ref = submissionRefFor(db, orderId);
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const flowRef = orderRef.collection('automation').doc('flow');
@@ -55,6 +64,7 @@ export function submissionGuard(db, orderId, round) {
     async claim(channel, nowMs = Date.now(), { resumable = false } = {}) {
       let outcome = null;
       await db.runTransaction(async (transaction) => {
+        const executionContext = execution ? await execution.assertInTransaction(transaction) : null;
         const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
           transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
         ]);
@@ -72,7 +82,9 @@ export function submissionGuard(db, orderId, round) {
           outcome = { status: 'in_flight', record: current };
           return;
         }
-        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null } }, { merge: true });
+        const identity = executionContext ? { executionId: executionContext.execution.id,
+          executionGeneration: executionContext.execution.lease.generation } : {};
+        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null, ...identity } }, { merge: true });
         outcome = { status: 'claimed', resumed: current?.state === 'sending' };
       });
       return outcome;
@@ -80,19 +92,36 @@ export function submissionGuard(db, orderId, round) {
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
     async markClicked(nowMs = Date.now()) {
       await db.runTransaction(async transaction => {
+        const executionContext = execution ? await execution.assertInTransaction(transaction) : null;
         const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
           transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
         ]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
           throw new Error('application_withdrawn');
         }
+        if (executionContext && (submissionDoc.data()?.[key]?.executionId !== executionContext.execution.id
+          || submissionDoc.data()?.[key]?.executionGeneration !== executionContext.execution.lease.generation)) throw new Error('execution_submission_superseded');
         transaction.set(ref, { [key]: { clickedAt: nowMs } }, { merge: true });
       });
     },
     async markSent(record = {}, nowMs = Date.now()) {
+      if (execution) return db.runTransaction(async transaction => {
+        const context = await execution.assertOutcomeInTransaction(transaction);
+        const current = (await transaction.get(ref)).data()?.[key];
+        if (current?.executionId !== context.execution.id || current?.executionGeneration !== context.execution.lease.generation
+          || !current.clickedAt) throw new Error('execution_submission_superseded');
+        transaction.set(ref, { [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
+      });
       await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
     },
     async release(reason, nowMs = Date.now()) {
+      if (execution) return db.runTransaction(async transaction => {
+        const context = await execution.assertInTransaction(transaction);
+        const current = (await transaction.get(ref)).data()?.[key];
+        if (current?.executionId !== context.execution.id || current?.executionGeneration !== context.execution.lease.generation) throw new Error('execution_submission_superseded');
+        if (current.clickedAt && !['portal_refused', 'portal_validation'].includes(reason)) throw new Error('execution_ambiguous_release_forbidden');
+        transaction.set(ref, { [key]: { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs } }, { merge: true });
+      });
       await ref.set({ [key]: { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs } }, { merge: true });
     },
   };

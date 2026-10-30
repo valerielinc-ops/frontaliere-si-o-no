@@ -13,7 +13,10 @@ const version = 'b'.repeat(64);
 const base = 'assisted_applications/order_code_test';
 function fixture() {
   return createMemoryFirestore({
-    [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover', automationDueAt: null },
+    [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover', automationDueAt: null,
+      cvStorageKey: 'assisted-application-uploads/order_code_test/cv.pdf',
+      cvFileCheck: { key: 'assisted-application-uploads/order_code_test/cv.pdf', verdict: 'ok', detectedType: 'pdf' },
+      consentVersion: 'assisted-application-v2', consentedAt: now - 1000 },
     [`${base}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal:account'], portalCodeVersion: 'a'.repeat(64),
       dispatch: { mode: 'submit', round: 1 }, portalAutoRetryCount: 2 },
     [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, questions: [], job: { source: 'job_detail' }, channel: { type: 'employer_site' }, factCheck: { ok: true } },
@@ -38,14 +41,14 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.list(`${base}/events/`)).toHaveLength(1);
   });
 
-  it.each(['not_approved', 'same_code', 'withdrawn', 'sent', 'ambiguous', 'clicked', 'hard_question', 'captcha', 'expired', 'disabled'])('does not resume %s', async kind => {
+  it.each(['not_approved', 'same_code', 'withdrawn', 'sent', 'ambiguous', 'clicked', 'hard_question', 'confirmed_history', 'expired', 'disabled'])('does not resume %s', async kind => {
     const store = fixture();
     const flowPath = `${base}/automation/flow`;
     if (kind === 'not_approved') store.docs.set(flowPath, { ...store.read(flowPath), dispatch: { mode: 'draft', round: 1 } });
     if (kind === 'same_code') store.docs.set(flowPath, { ...store.read(flowPath), portalCodeVersion: version });
     if (kind === 'withdrawn') store.docs.set(base, { ...store.read(base), withdrawnAt: now });
     if (kind === 'expired') store.docs.set(flowPath, { ...store.read(flowPath), postingExpiredAt: now });
-    if (kind === 'captcha') store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['portal:captcha'] });
+    if (kind === 'confirmed_history') store.docs.set(flowPath, { ...store.read(flowPath), history: [{ state: 'submitted', event: 'submit_succeeded' }] });
     if (kind === 'hard_question') store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions: [{ id: 'salary', question: 'Desired salary?', required: true, type: 'text' }] });
     if (['sent', 'ambiguous', 'clicked'].includes(kind)) store.docs.set(`${base}/automation/submission`, { r1: {
       state: kind === 'sent' ? 'sent' : kind === 'ambiguous' ? 'sending' : 'failed', channel: 'portal', clickedAt: now, releasedAt: now,
@@ -54,7 +57,7 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.read(base).automationDueAt).toBeNull();
   });
 
-  it.each(['portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
+  it.each(['portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable', 'portal:captcha', 'portal:portal_antibot', 'portal:remote_executor_unavailable'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: [reason] });
     const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
@@ -78,6 +81,14 @@ describe('automatic recovery after a portal fix', () => {
       'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
+      'functions/src/assistedApplicationExecution.js', 'functions/src/assistedApplicationEligibility.js',
+      'functions/src/lib/portalChannels.js', 'functions/src/lib/portalInfrastructureEvidence.js',
+      'scripts/assisted-application/remote-controller.mjs', 'scripts/assisted-application/remote-executor.mjs',
+      'scripts/assisted-application/supervised-agent.mjs', 'scripts/assisted-application/lib/execution-runtime.mjs',
+      'scripts/assisted-application/lib/execution-release.mjs', 'scripts/assisted-application/lib/execution-artifacts.mjs',
+      'scripts/assisted-application/lib/darwin-isolation.mjs', 'scripts/assisted-application/report-runner-failure.mjs',
+      '.github/actions/setup-codex-darwin-broker/bootstrap.mjs', '.github/actions/setup-codex-darwin-broker/sandbox-probe.mjs',
+      '.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs', '.github/actions/setup-claude-haiku-fallback/broker-permissions.mjs',
       ...['assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
         'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/answerRules.js', 'lib/portalQuestionText.js'].map(file => `functions/src/${file}`),
     ];
@@ -93,6 +104,7 @@ describe('automatic recovery after a portal fix', () => {
       write('functions/src/lib/portalQuestionText.js', 'fixed question readability');
       expect(currentPortalCodeVersion(root)).not.toBe(afterFields);
       const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/assisted-application-portal-recovery.yml', import.meta.url), 'utf8'));
+      expect(workflow.jobs.recover.steps.find((step: any) => step.uses?.startsWith('actions/checkout@')).with['sparse-checkout']).toContain('.github/actions');
       for (const file of sourceFiles) expect(workflow.on.push.paths.some((pattern: string) => pattern.endsWith('/**') ? file.startsWith(pattern.slice(0, -2)) : file === pattern)).toBe(true);
     } finally { rmSync(root, { recursive: true, force: true }); }
   });
