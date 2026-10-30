@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { candidateAnswerFact, candidateFactIdentity, candidateQuestionFact } from '../functions/src/lib/candidateAnswerFacts.js';
+import { candidateQuestionAnswerKey, candidateAnswersForQuestions, rememberCandidateQuestionAnswers } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 const today = new Date().toISOString().slice(0, 10);
@@ -52,6 +53,17 @@ describe('positive typed candidate answer contracts', () => {
     for (const label of ['What is your work permit status?', 'Do you need sponsorship in Switzerland?', 'Are you authorized to work for this employer?']) expect(candidateQuestionFact(question(label, 'choice'))).toBeNull();
     const q = question('What is your current Swiss work permit status?', 'choice');
     for (const value of ['Yes', 'Permit G pending', 'G or B']) expect(candidateAnswerFact(q, value)).toBeNull();
+  });
+  it('uses the same typed identity across equivalent language questions while preserving unit and subject', () => {
+    const source = question('How many years of experience do you have with Python?', 'number');
+    const translated = { ...question('Quanti anni di esperienza hai con Python?', 'number'), id: 'translated' };
+    const months = { ...question('How many months of experience do you have with Python?', 'number'), id: 'months' };
+    const sql = { ...question('How many years of experience do you have with SQL?', 'number'), id: 'sql' };
+    expect(candidateQuestionAnswerKey(source)).toBe(candidateQuestionAnswerKey(translated));
+    expect(candidateQuestionAnswerKey(source)).not.toBe(candidateQuestionAnswerKey(months));
+    expect(candidateQuestionAnswerKey(source)).not.toBe(candidateQuestionAnswerKey(sql));
+    const memory = rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: '3' } });
+    expect(candidateAnswersForQuestions([translated, months, sql], {}, memory)).toEqual({ translated: '3' });
   });
   it.each([{ context: 'This employer' }, { section: 'Dependent child' }, { autocomplete: 'other-fact' }, { source: 'policy_default' }, { applicationQuestion: 'What is your expected date of birth?' }])('refuses to erase contextual provenance: %j', metadata => {
     expect(candidateQuestionFact(question('What is your date of birth?', 'date', metadata))).toBeNull();

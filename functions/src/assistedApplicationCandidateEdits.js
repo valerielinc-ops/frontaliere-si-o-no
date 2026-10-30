@@ -1,3 +1,4 @@
+import { candidateFactIdentity, candidateQuestionFact } from './lib/candidateAnswerFacts.js';
 import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 /**
  * What the candidate may change on the review page before approving (owner
@@ -113,6 +114,8 @@ const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
 
 /** Stable fact key for an answer, independent of a model or ATS field id. */
 export function candidateQuestionAnswerKey(question) {
+  const fact = candidateQuestionFact(question);
+  if (fact) return `fact_${questionHash(candidateFactIdentity(fact))}`;
   const text = String(question?.question ?? '').trim();
   if (!text) return '';
   const languageCodes = languageCodesIn(text);
