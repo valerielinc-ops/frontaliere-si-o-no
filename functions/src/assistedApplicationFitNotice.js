@@ -70,6 +70,14 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     if (found.has(row.index)) return { status: 'unverified', gaps: [] };
     found.set(row.index, row);
   }
+  // Bad citations and omitted rows are technical failures of the analysis,
+  // not missing candidate qualifications to cache or ask the person about.
+  if (rows.some((row, index) => {
+    if (!DECISIVE.includes(row.importance)) return false;
+    const evidence = found.get(index);
+    return row.basis !== 'stated' || !row.quote || row.quoteUnverified || !evidence
+      || evidence.evidenceUnverified || (evidence.status === 'met' && !String(evidence.evidence || '').trim());
+  })) return { status: 'unverified', reason: 'evidence_incomplete', gaps: [] };
   const gaps = rows.flatMap((row, index) => {
     if (!DECISIVE.includes(row.importance)) return [];
     const evidence = found.get(index);
