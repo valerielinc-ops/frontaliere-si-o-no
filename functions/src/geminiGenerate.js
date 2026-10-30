@@ -65,7 +65,7 @@ async function callGemini({ apiKey, model, systemPrompt, userPrompt, maxTokens, 
 }
 
 /** Single-shot OpenAI-compatible chat call. Returns trimmed text, throws on failure. */
-async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPrompt, maxTokens, temperature }) {
+async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPrompt, maxTokens, temperature, apiFamily }) {
   const messages = [];
   if (systemPrompt.trim()) messages.push({ role: 'system', content: systemPrompt });
   messages.push({ role: 'user', content: userPrompt });
@@ -73,7 +73,7 @@ async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPro
   const res = await fetch(base, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify(serverTextFallbackBody({ model, messages, maxTokens, temperature })),
+    body: JSON.stringify(serverTextFallbackBody({ model, messages, maxTokens, temperature, apiFamily })),
     signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
   });
 
@@ -139,7 +139,7 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
     }
     attempts += 1;
     try {
-      const text = await callOpenAiCompatible({ base: fb.base, apiKey: key, model: fb.model, systemPrompt, userPrompt, maxTokens, temperature });
+      const text = await callOpenAiCompatible({ base: fb.base, apiKey: key, model: fb.model, apiFamily: fb.apiFamily, systemPrompt, userPrompt, maxTokens, temperature });
       console.log(`[geminiGenerate] served by fallback ${fb.label}`);
       return { status: 200, body: { ok: true, text, provider: fb.label } };
     } catch (err) {
