@@ -3966,12 +3966,12 @@
     },
     {
       "id": "mediamarkt-100890",
-      "slug": "collaboratore-trice-in-kasse-kundendienst-80-mediamarkt-granges-paccot",
+      "slug": "addetto-a-alla-cassa-e-al-servizio-clienti-80-mediamarkt-granges-paccot",
       "slugByLocale": {
         "de": "mitarbeiter-in-kasse-kundendienst-80-mediamarkt-granges-paccot-ch",
-        "it": "collaboratore-trice-in-kasse-kundendienst-80-mediamarkt-granges-paccot",
-        "en": "mitarbeiter-in-kasse-kundendienst-80-mediamarkt-granges-paccot-ch",
-        "fr": "mitarbeiter-in-kasse-kundendienst-80-mediamarkt-granges-paccot-ch"
+        "it": "addetto-a-alla-cassa-e-al-servizio-clienti-80-mediamarkt-granges-paccot",
+        "en": "cashier-customer-service-representative-80-mediamarkt-granges-paccot",
+        "fr": "employe-e-a-la-caisse-et-au-service-clientele-80-mediamarkt-granges-paccot"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -4021,11 +4021,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kasse-kundendienst-80-mediamarkt-granges-paccot-ch",
+          "collaboratore-trice-in-kasse-kundendienst-80-mediamarkt-granges-paccot"
+        ],
+        "en": [
+          "mitarbeiter-in-kasse-kundendienst-80-mediamarkt-granges-paccot-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-kasse-kundendienst-80-mediamarkt-granges-paccot-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kasse-kundendienst-80-mediamarkt-granges-paccot-ch"
+        "mitarbeiter-in-kasse-kundendienst-80-mediamarkt-granges-paccot-ch",
+        "collaboratore-trice-in-kasse-kundendienst-80-mediamarkt-granges-paccot"
       ],
       "salaryMin": 62000,
       "salaryMax": 94800,
@@ -4044,12 +4052,12 @@
     },
     {
       "id": "mediamarkt-100891",
-      "slug": "collaboratore-trice-in-vendita-60-mediamarkt-glis",
+      "slug": "addetto-a-alle-vendite-al-60-mediamarkt-glis",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-60-mediamarkt-glis-ch",
-        "it": "collaboratore-trice-in-vendita-60-mediamarkt-glis",
-        "en": "mitarbeiter-in-verkauf-60-mediamarkt-glis-ch",
-        "fr": "mitarbeiter-in-verkauf-60-mediamarkt-glis-ch"
+        "it": "addetto-a-alle-vendite-al-60-mediamarkt-glis",
+        "en": "sales-associate-60-mediamarkt-glis",
+        "fr": "collaborateur-trice-a-la-vente-60-mediamarkt-glis"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -4099,11 +4107,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-60-mediamarkt-glis-ch",
+          "collaboratore-trice-in-vendita-60-mediamarkt-glis"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-60-mediamarkt-glis-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-60-mediamarkt-glis-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-60-mediamarkt-glis-ch"
+        "mitarbeiter-in-verkauf-60-mediamarkt-glis-ch",
+        "collaboratore-trice-in-vendita-60-mediamarkt-glis"
       ],
       "salaryMin": 43200,
       "salaryMax": 66600,

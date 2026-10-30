@@ -1097,7 +1097,7 @@
         "it": "assistente-infermieristico-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "en": "nursing-assistant-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "de": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
-        "fr": "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "fr": "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1144,7 +1144,7 @@
       "previousSlugs": [
         "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
         "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1152,7 +1152,7 @@
         ],
         "fr": [
           "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-          "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+          "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:06.749Z",
@@ -1175,7 +1175,7 @@
       "slug": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
       "slugByLocale": {
         "de": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "en": "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten",
+        "en": "nurse-hf-psychiatry-40-80-spitex-region-olten-olten",
         "fr": "infirmiere-hf-psychiatrie-40-80-spitex-region-olten-olten",
         "it": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten"
       },
@@ -1228,12 +1228,12 @@
           "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
         ],
         "en": [
-          "nurse-hf-psychiatry-40-80-spitex-region-olten-olten"
+          "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten"
         ]
       },
       "previousSlugs": [
         "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "nurse-hf-psychiatry-40-80-spitex-region-olten-olten"
+        "pflegefachperson-hf-psychiatrie-40-80-spitex-region-olten"
       ],
       "salaryMin": 68000,
       "salaryMax": 95200,
@@ -1252,12 +1252,12 @@
     },
     {
       "id": "spitex-ch-abf7c77bd8df",
-      "slug": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental",
+      "slug": "dipl-infermiera-specialist-psichiatria-50-90-spitex-region-emmental-langnau-im-emmental",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental",
-        "it": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental",
-        "en": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental",
-        "fr": "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+        "it": "dipl-infermiera-specialist-psichiatria-50-90-spitex-region-emmental-langnau-im-emmental",
+        "en": "dipl-nurse-specialist-psychiatry-50-90-spitex-region-emmental-langnau-im-emmental",
+        "fr": "c-est-quoi-infirmiere-specialiste-en-psychiatrie-50-90-spitex-region-emmental-langnau-im-emmental"
       },
       "company": "Spitex Region Emmental",
       "companyKey": "spitex-ch",
@@ -1316,16 +1316,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:36:41.433Z"
+      "firstSeenAt": "2026-10-30T09:36:41.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+        ],
+        "en": [
+          "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-schwerpunkt-psychiatrie-50-90-spitex-ch-langnau-im-emmental"
+      ]
     },
     {
       "id": "spitex-ch-93a5c1195539",
-      "slug": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach",
+      "slug": "esperto-infermieristico-esperto-infermieristico-apn-psychiatry-pensum-dal-60-ufficio-del-personale-spitex-regio",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach",
-        "it": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach",
-        "en": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach",
-        "fr": "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+        "it": "esperto-infermieristico-esperto-infermieristico-apn-psychiatry-pensum-dal-60-ufficio-del-personale-spitex-regio",
+        "en": "nursing-expert-nursing-expert-apn-psychiatry-pensum-from-60-staff-office-spitex-regio-tannzapfenland-sirnach",
+        "fr": "expert-en-soins-infirmiers-expert-en-soins-infirmiers-apn-psychiatrie-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -1384,16 +1398,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:36:40.704Z"
+      "firstSeenAt": "2026-10-30T09:36:40.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-psychiatrie-pensum-ab-60-stabsstelle-spitex-ch-sirnach"
+      ]
     },
     {
       "id": "spitex-ch-89ed60070327",
-      "slug": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach",
+      "slug": "responsabile-della-pianificazione-degli-interventi-con-esperienza-nel-settore-spitex-spitex-regio-tannzapfenland-sirnach",
       "slugByLocale": {
         "de": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach",
-        "it": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach",
-        "en": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach",
-        "fr": "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+        "it": "responsabile-della-pianificazione-degli-interventi-con-esperienza-nel-settore-spitex-spitex-regio-tannzapfenland-sirnach",
+        "en": "operational-planner-operational-planner-with-spitex-experience-spitex-regio-tannzapfenland-sirnach",
+        "fr": "planificateur-operationnel-planificateur-operationnel-avec-experience-spitex-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -1452,7 +1480,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:36:40.196Z"
+      "firstSeenAt": "2026-10-30T09:36:40.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+        ],
+        "en": [
+          "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+        ],
+        "fr": [
+          "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+        ]
+      },
+      "previousSlugs": [
+        "einsatzplanerin-einsatzplaner-mit-spitex-erfahrung-spitex-ch-sirnach"
+      ]
     },
     {
       "id": "spitex-ch-eabfcecab87e",

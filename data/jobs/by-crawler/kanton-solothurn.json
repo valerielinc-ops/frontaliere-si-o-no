@@ -1596,12 +1596,12 @@
     },
     {
       "id": "kanton-solothurn-1833f6f47b36",
-      "slug": "stv-schlosswart-in-10-kanton-solothurn-olten",
+      "slug": "sostituto-manutenzione-serrature-10-kanton-solothurn-olten",
       "slugByLocale": {
         "de": "stv-schlosswart-in-10-kanton-solothurn-olten",
-        "it": "stv-schlosswart-in-10-kanton-solothurn-olten",
-        "en": "stv-schlosswart-in-10-kanton-solothurn-olten",
-        "fr": "stv-schlosswart-in-10-kanton-solothurn-olten"
+        "it": "sostituto-manutenzione-serrature-10-kanton-solothurn-olten",
+        "en": "deputy-castle-attendant-10-kanton-solothurn-olten",
+        "fr": "gardien-ne-de-chateau-adjoint-e-10-kanton-solothurn-olten"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1660,7 +1660,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:47:39.905Z"
+      "firstSeenAt": "2026-10-30T09:47:39.905Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-schlosswart-in-10-kanton-solothurn-olten"
+        ],
+        "en": [
+          "stv-schlosswart-in-10-kanton-solothurn-olten"
+        ],
+        "fr": [
+          "stv-schlosswart-in-10-kanton-solothurn-olten"
+        ]
+      },
+      "previousSlugs": [
+        "stv-schlosswart-in-10-kanton-solothurn-olten"
+      ]
     },
     {
       "id": "kanton-solothurn-b903ac3d8091",

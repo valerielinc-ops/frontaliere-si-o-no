@@ -9130,12 +9130,12 @@
     },
     {
       "id": "upd-7cdddbad68c9",
-      "slug": "dipl-pflegefachperson-o-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "infermiere-a-diplomato-a-o-educatore-educatrice-sociale-diplomato-a-nell-ambito-dell-assistenza-domiciliare-universitare",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-upd-bern",
-        "it": "dipl-pflegefachperson-o-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-universitare-psychiatrische-dienste-bern",
-        "fr": "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-universitare-psychiatrische-dienste-bern"
+        "it": "infermiere-a-diplomato-a-o-educatore-educatrice-sociale-diplomato-a-nell-ambito-dell-assistenza-domiciliare-universitare",
+        "en": "dipl-nurse-or-dipl-social-pedagogue-social-pedagogue-in-hometreatment-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "infirmiere-ou-dipl-pedagogue-sociale-pedagogue-sociale-a-domicile-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9183,11 +9183,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-upd-bern"
+          "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-upd-bern",
+          "dipl-pflegefachperson-o-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-universitare-psychiatrische-dienste-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-universitare-psychiatrische-dienste-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-upd-bern"
+        "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-upd-bern",
+        "dipl-pflegefachperson-o-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-universitare-psychiatrische-dienste-bern-upd-bern",
+        "dipl-pflegefachperson-oder-dipl-sozialpadagogin-sozialpadagoge-im-hometreatment-universitare-psychiatrische-dienste-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -9286,12 +9295,12 @@
     },
     {
       "id": "upd-66619b167049",
-      "slug": "controllerin-controller-im-gesundheitswesen-upd-bern",
+      "slug": "controllore-nella-sanita-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "controllerin-controller-im-gesundheitswesen-upd-bern",
-        "it": "controllerin-controller-im-gesundheitswesen-upd-bern",
-        "en": "controllerin-controller-im-gesundheitswesen-upd-bern",
-        "fr": "controllerin-controller-im-gesundheitswesen-upd-bern"
+        "it": "controllore-nella-sanita-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "controller-in-health-care-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "controleur-des-soins-de-sante-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9350,7 +9359,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:30:26.948Z"
+      "firstSeenAt": "2026-10-30T09:30:26.948Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controllerin-controller-im-gesundheitswesen-upd-bern"
+        ],
+        "en": [
+          "controllerin-controller-im-gesundheitswesen-upd-bern"
+        ],
+        "fr": [
+          "controllerin-controller-im-gesundheitswesen-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "controllerin-controller-im-gesundheitswesen-upd-bern"
+      ]
     }
   ]
 }

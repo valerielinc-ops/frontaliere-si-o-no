@@ -1988,7 +1988,7 @@
       "slug": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
       "slugByLocale": {
         "it": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
-        "en": "carrosseries-pengler-carrosserie-hess-ag-rothenburg",
+        "en": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
         "de": "carrosseriespengler-hess-rothenburg",
         "fr": "pengler-de-carrosseries-carrosserie-hess-ag-rothenburg"
       },
@@ -2039,7 +2039,8 @@
       "previousSlugs": [
         "carrosseriespengler-hess-rothenburg",
         "carrosseriespengler-carrosserie-hess-ag-rothenburg",
-        "body-spider-glider-carrosserie-hess-ag-rothenburg"
+        "body-spider-glider-carrosserie-hess-ag-rothenburg",
+        "carrosseries-pengler-carrosserie-hess-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2048,7 +2049,7 @@
         ],
         "en": [
           "body-spider-glider-carrosserie-hess-ag-rothenburg",
-          "carrosseriespengler-carrosserie-hess-ag-rothenburg"
+          "carrosseries-pengler-carrosserie-hess-ag-rothenburg"
         ],
         "fr": [
           "carrosseriespengler-carrosserie-hess-ag-rothenburg"
@@ -2317,12 +2318,12 @@
     },
     {
       "id": "hess-carrosserie-d2d94f868701",
-      "slug": "montagemitarbeiter-nutzfahrzeuge-m-w-d-hess-bellach",
+      "slug": "dipendenti-di-assemblaggio-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "de": "montagemitarbeiter-nutzfahrzeuge-m-w-d-hess-bellach",
-        "it": "montagemitarbeiter-nutzfahrzeuge-m-w-d-hess-bellach",
-        "en": "montagemitarbeiter-nutzfahrzeuge-m-w-d-hess-bellach",
-        "fr": "montagemitarbeiter-nutzfahrzeuge-m-w-d-hess-bellach"
+        "it": "dipendenti-di-assemblaggio-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach",
+        "en": "assembly-employees-commercial-vehicles-m-f-d-carrosserie-hess-ag-bellach",
+        "fr": "employes-d-assemblage-vehicules-commerciaux-h-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2383,7 +2384,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:38:27.677Z"
+      "firstSeenAt": "2026-10-30T09:38:27.677Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montagemitarbeiter-nutzfahrzeuge-m-w-d-hess-bellach"
+        ],
+        "en": [
+          "montagemitarbeiter-nutzfahrzeuge-m-w-d-hess-bellach"
+        ],
+        "fr": [
+          "montagemitarbeiter-nutzfahrzeuge-m-w-d-hess-bellach"
+        ]
+      },
+      "previousSlugs": [
+        "montagemitarbeiter-nutzfahrzeuge-m-w-d-hess-bellach"
+      ]
     },
     {
       "id": "hess-carrosserie-51b2f95e043f",
@@ -2632,12 +2647,12 @@
     },
     {
       "id": "hess-carrosserie-abec71b0f48a",
-      "slug": "technischer-projektspezialist-avor-m-w-d-hess-bellach",
+      "slug": "specialista-del-progetto-tecnico-avor-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "de": "technischer-projektspezialist-avor-m-w-d-hess-bellach",
-        "it": "technischer-projektspezialist-avor-m-w-d-hess-bellach",
-        "en": "technischer-projektspezialist-avor-m-w-d-hess-bellach",
-        "fr": "technischer-projektspezialist-avor-m-w-d-hess-bellach"
+        "it": "specialista-del-progetto-tecnico-avor-m-f-d-carrosserie-hess-ag-bellach",
+        "en": "technical-project-specialist-avor-m-f-d-carrosserie-hess-ag-bellach",
+        "fr": "specialiste-du-projet-technique-avor-h-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2698,7 +2713,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:38:25.955Z"
+      "firstSeenAt": "2026-10-30T09:38:25.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-projektspezialist-avor-m-w-d-hess-bellach"
+        ],
+        "en": [
+          "technischer-projektspezialist-avor-m-w-d-hess-bellach"
+        ],
+        "fr": [
+          "technischer-projektspezialist-avor-m-w-d-hess-bellach"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-projektspezialist-avor-m-w-d-hess-bellach"
+      ]
     },
     {
       "id": "hess-carrosserie-f70e30423f0c",

@@ -1161,8 +1161,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-patientenaufnahme-80-privatklinik-meiringen-meiringen",
         "it": "collaboratore-trice-patientenaufnahme-80-privatklinik-meiringen",
-        "en": "mitarbeiter-in-patientenaufnahme-80-privatklinik-meiringen-meiringen",
-        "fr": "mitarbeiter-in-patientenaufnahme-80-privatklinik-meiringen-meiringen"
+        "en": "associate-patientenaufnahme-80-privatklinik-meiringen-meiringen",
+        "fr": "collaborateur-trice-patientenaufnahme-80-privatklinik-meiringen-meiringen"
       },
       "company": "Privatklinik Meiringen",
       "companyKey": "privatklinik-meiringen",
@@ -1212,6 +1212,12 @@
       "department": "Administration",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-patientenaufnahme-80-privatklinik-meiringen-meiringen"
+        ],
+        "en": [
+          "mitarbeiter-in-patientenaufnahme-80-privatklinik-meiringen-meiringen"
+        ],
+        "fr": [
           "mitarbeiter-in-patientenaufnahme-80-privatklinik-meiringen-meiringen"
         ]
       },

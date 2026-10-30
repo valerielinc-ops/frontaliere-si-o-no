@@ -3292,8 +3292,8 @@
       "slugByLocale": {
         "de": "assistent-in-einkauf-non-food-ottos-sursee",
         "it": "assistent-in-einkauf-non-food-ottos-sursee",
-        "en": "assistent-in-einkauf-non-food-ottos-sursee",
-        "fr": "assistent-in-einkauf-non-food-ottos-sursee"
+        "en": "non-food-purchasing-assistant-otto-s-ag-sursee",
+        "fr": "assistant-e-en-achats-non-alimentaires-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3301,7 +3301,7 @@
       "title": "Assistent:in Einkauf Non-Food",
       "titleByLocale": {
         "de": "Assistent:in Einkauf Non-Food",
-        "it": "Assistent:in Einkauf Non-Food",
+        "it": "Assistente agli acquisti nel settore non alimentare",
         "en": "Non-Food Purchasing Assistant",
         "fr": "Assistant (e)en achats non alimentaires"
       },
@@ -3710,9 +3710,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3763,17 +3763,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -4311,12 +4312,12 @@
     },
     {
       "id": "ottos-2e55a462a568",
-      "slug": "kassierer-in-ottos-zurich",
+      "slug": "cassiere-otto-s-ag-zurich",
       "slugByLocale": {
         "de": "kassierer-in-ottos-zurich",
-        "it": "kassierer-in-ottos-zurich",
-        "en": "kassierer-in-ottos-zurich",
-        "fr": "kassierer-in-ottos-zurich"
+        "it": "cassiere-otto-s-ag-zurich",
+        "en": "cashier-otto-s-ag-zurich",
+        "fr": "caissier-ere-otto-s-ag-zurich"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4379,7 +4380,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T10:02:34.248Z"
+      "firstSeenAt": "2026-10-30T10:02:34.248Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kassierer-in-ottos-zurich"
+        ],
+        "en": [
+          "kassierer-in-ottos-zurich"
+        ],
+        "fr": [
+          "kassierer-in-ottos-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kassierer-in-ottos-zurich"
+      ]
     },
     {
       "id": "ottos-52eca6ab3315",

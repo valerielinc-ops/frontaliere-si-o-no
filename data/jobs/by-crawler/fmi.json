@@ -181,7 +181,7 @@
       "slug": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
-        "en": "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
+        "en": "psychiatric-nurse-spitaler-fmi-ag-unterseen",
         "de": "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
         "fr": "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
       },
@@ -235,7 +235,7 @@
         "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
         "psycholog-in-psychiatrie-80-fmi-unterseen",
         "psychologue-en-psychiatrie-80-spitaler-fmi-ag-unterseen",
-        "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+        "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -248,7 +248,7 @@
         ],
         "en": [
           "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
-          "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+          "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "psycholog-in-psychiatrie-80-fmi-unterseen"
@@ -1422,7 +1422,7 @@
       "slug": "personale-di-assistenza-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "personale-di-assistenza-spitaler-fmi-ag-unterseen",
-        "en": "nursing-staff-spitaler-fmi-ag-unterseen",
+        "en": "pflegepersonal-spitaler-fmi-ag-unterseen",
         "de": "pflegepersonal-fmi-unterseen",
         "fr": "personnel-soignant-spitaler-fmi-ag-unterseen"
       },
@@ -1497,7 +1497,7 @@
         "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
         "ergotherapeut-in-60-80-spitaler-fmi-ag-unterseen",
         "therapeute-en-ergotherapie-60-80-spitaler-fmi-ag-unterseen",
-        "pflegepersonal-spitaler-fmi-ag-unterseen"
+        "nursing-staff-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1525,7 +1525,7 @@
           "nutritionist-in-60-80-spitaler-fmi-ag-unterseen",
           "personnel-in-accounting-40-60-spitaler-fmi-ag-unterseen",
           "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
-          "pflegepersonal-spitaler-fmi-ag-unterseen"
+          "nursing-staff-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "ernahrungsberater-in-60-80-fmi-unterseen",
@@ -5495,12 +5495,12 @@
     },
     {
       "id": "fmi-c6c9214bfdb9",
-      "slug": "oberarztin-oberarzt-o-facharztin-facharzt-radiologie-80-100-spitaler-fmi-ag-unterseen",
+      "slug": "primario-o-specialista-in-radiologia-80-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-oder-facharztin-facharzt-radiologie-80-100-fmi-unterseen",
-        "it": "oberarztin-oberarzt-o-facharztin-facharzt-radiologie-80-100-spitaler-fmi-ag-unterseen",
-        "en": "oberarztin-oberarzt-oder-facharztin-facharzt-radiologie-80-100-fmi-unterseen",
-        "fr": "oberarztin-oberarzt-oder-facharztin-facharzt-radiologie-80-100-fmi-unterseen"
+        "it": "primario-o-specialista-in-radiologia-80-100-spitaler-fmi-ag-unterseen",
+        "en": "senior-physician-senior-physician-specialist-radiology-80-100-spitaler-fmi-ag-unterseen",
+        "fr": "medecin-principal-medecin-principal-radiologie-specialisee-80-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5547,11 +5547,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-oder-facharztin-facharzt-radiologie-80-100-fmi-unterseen",
+          "oberarztin-oberarzt-o-facharztin-facharzt-radiologie-80-100-spitaler-fmi-ag-unterseen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-oder-facharztin-facharzt-radiologie-80-100-fmi-unterseen"
+        ],
+        "fr": [
           "oberarztin-oberarzt-oder-facharztin-facharzt-radiologie-80-100-fmi-unterseen"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-oder-facharztin-facharzt-radiologie-80-100-fmi-unterseen"
+        "oberarztin-oberarzt-oder-facharztin-facharzt-radiologie-80-100-fmi-unterseen",
+        "oberarztin-oberarzt-o-facharztin-facharzt-radiologie-80-100-spitaler-fmi-ag-unterseen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

@@ -17481,12 +17481,12 @@
     },
     {
       "id": "physioswiss-272aa84ee01a",
-      "slug": "springer-stellvertretung-per-sofort-physio-swiss-heerbrugg",
+      "slug": "springer-deputato-al-momento-physio-swiss-9435-heerbrugg",
       "slugByLocale": {
         "de": "springer-stellvertretung-per-sofort-9435-heerbrugg-physioswiss-ch",
-        "it": "springer-stellvertretung-per-sofort-physio-swiss-heerbrugg",
-        "en": "springer-stellvertretung-per-sofort-physio-swiss-heerbrugg",
-        "fr": "springer-stellvertretung-per-sofort-physio-swiss-heerbrugg"
+        "it": "springer-deputato-al-momento-physio-swiss-9435-heerbrugg",
+        "en": "springer-deputy-as-of-now-physio-swiss-9435-heerbrugg",
+        "fr": "springer-depute-des-maintenant-physio-swiss-9435-heerbrugg"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -17533,11 +17533,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "springer-stellvertretung-per-sofort-9435-heerbrugg-physioswiss-ch"
+          "springer-stellvertretung-per-sofort-9435-heerbrugg-physioswiss-ch",
+          "springer-stellvertretung-per-sofort-physio-swiss-heerbrugg"
+        ],
+        "en": [
+          "springer-stellvertretung-per-sofort-physio-swiss-heerbrugg"
+        ],
+        "fr": [
+          "springer-stellvertretung-per-sofort-physio-swiss-heerbrugg"
         ]
       },
       "previousSlugs": [
-        "springer-stellvertretung-per-sofort-9435-heerbrugg-physioswiss-ch"
+        "springer-stellvertretung-per-sofort-9435-heerbrugg-physioswiss-ch",
+        "springer-stellvertretung-per-sofort-physio-swiss-heerbrugg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -17556,12 +17564,12 @@
     },
     {
       "id": "physioswiss-b9173cbbc875",
-      "slug": "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-physio-swiss-zurich",
+      "slug": "cercasi-fisioterapista-40-80-8008-zurigo-seefeld-physio-swiss-8008-zurich",
       "slugByLocale": {
         "de": "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-8008-zurich-physioswiss-ch",
-        "it": "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-physio-swiss-zurich",
-        "en": "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-physio-swiss-zurich",
-        "fr": "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-physio-swiss-zurich"
+        "it": "cercasi-fisioterapista-40-80-8008-zurigo-seefeld-physio-swiss-8008-zurich",
+        "en": "physiotherapist-40-80-wanted-8008-zurich-seefeld-physio-swiss-8008-zurich",
+        "fr": "recherche-kinesitherapeute-h-f-a-temps-partiel-40-a-80-8008-zurich-seefeld-physio-swiss-8008-zurich"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -17608,11 +17616,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-8008-zurich-physioswiss-ch"
+          "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-8008-zurich-physioswiss-ch",
+          "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-physio-swiss-zurich"
+        ],
+        "en": [
+          "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-physio-swiss-zurich"
+        ],
+        "fr": [
+          "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-physio-swiss-zurich"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-8008-zurich-physioswiss-ch"
+        "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-8008-zurich-physioswiss-ch",
+        "physiotherapeut-in-40-80-gesucht-8008-zurich-seefeld-physio-swiss-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -17631,12 +17647,12 @@
     },
     {
       "id": "physioswiss-bdecedbbfc9a",
-      "slug": "physiotherapeut-in-gesucht-physio-swiss-grabs",
+      "slug": "cercasi-fisioterapista-physio-swiss-ist-grabs",
       "slugByLocale": {
         "de": "physiotherapeut-in-gesucht-ist-grabs-physioswiss-ch",
-        "it": "physiotherapeut-in-gesucht-physio-swiss-grabs",
-        "en": "physiotherapeut-in-gesucht-physio-swiss-grabs",
-        "fr": "physiotherapeut-in-gesucht-physio-swiss-grabs"
+        "it": "cercasi-fisioterapista-physio-swiss-ist-grabs",
+        "en": "physiotherapist-wanted-physio-swiss-ist-grabs",
+        "fr": "physiotherapeute-recherche-physio-swiss-ist-grabs"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -17682,11 +17698,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-gesucht-ist-grabs-physioswiss-ch"
+          "physiotherapeut-in-gesucht-ist-grabs-physioswiss-ch",
+          "physiotherapeut-in-gesucht-physio-swiss-grabs"
+        ],
+        "en": [
+          "physiotherapeut-in-gesucht-physio-swiss-grabs"
+        ],
+        "fr": [
+          "physiotherapeut-in-gesucht-physio-swiss-grabs"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-gesucht-ist-grabs-physioswiss-ch"
+        "physiotherapeut-in-gesucht-ist-grabs-physioswiss-ch",
+        "physiotherapeut-in-gesucht-physio-swiss-grabs"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -17706,12 +17730,12 @@
     },
     {
       "id": "physioswiss-d060841dc8fb",
-      "slug": "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-physio-swiss-bern",
+      "slug": "fisioterapista-dello-sport-80-100-centro-di-competenza-per-lo-sport-di-berna-physio-swiss-3018-bern",
       "slugByLocale": {
         "de": "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-3018-bern-physioswiss-ch",
-        "it": "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-physio-swiss-bern",
-        "en": "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-physio-swiss-bern",
-        "fr": "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-physio-swiss-bern"
+        "it": "fisioterapista-dello-sport-80-100-centro-di-competenza-per-lo-sport-di-berna-physio-swiss-3018-bern",
+        "en": "sports-physical-therapist-80-100-competence-center-for-sports-bern-physio-swiss-3018-bern",
+        "fr": "kinesitherapeute-du-sport-80-a-100-centre-de-competence-du-sport-de-berne-physio-swiss-3018-bern"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -17758,11 +17782,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-3018-bern-physioswiss-ch"
+          "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-3018-bern-physioswiss-ch",
+          "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-physio-swiss-bern"
+        ],
+        "en": [
+          "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-physio-swiss-bern"
+        ],
+        "fr": [
+          "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-physio-swiss-bern"
         ]
       },
       "previousSlugs": [
-        "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-3018-bern-physioswiss-ch"
+        "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-3018-bern-physioswiss-ch",
+        "sportphysiotherapeut-in-80-100-kompetenzzentrum-sport-bern-physio-swiss-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
