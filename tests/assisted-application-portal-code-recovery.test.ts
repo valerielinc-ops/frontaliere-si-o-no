@@ -54,6 +54,17 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.read(base).automationDueAt).toBeNull();
   });
 
+  it.each(['portal:upload_failed', 'portal:cv_upload_failed'])('recovers a fixed upload stop only with pre-click failed proof: %s', async reason => {
+    const store = fixture();
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: [reason] });
+    const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ queued: 1 });
+    const ambiguous = fixture();
+    ambiguous.docs.set(`${base}/automation/flow`, { ...ambiguous.read(`${base}/automation/flow`), heldBy: [reason] });
+    ambiguous.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now } });
+    expect(await reconcilePortalCode({ ...ctx, db: ambiguous.db })).toMatchObject({ queued: 0 });
+  });
+
   it('retains the provider-outage lane instead of treating it as an unanswered personal question', async () => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: ['portal:captcha_provider_unavailable'] });
