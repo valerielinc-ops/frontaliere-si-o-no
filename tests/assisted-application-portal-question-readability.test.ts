@@ -48,6 +48,12 @@ it('associates JazzHR hidden questionnaire metadata only with its unique keyed c
   expect(filler[0].element.checked).toBe(false); // A hidden value never proves a recorded check.
   dom.window.close();
 });
+it('does not invent a hidden owner from an empty for and empty tracking ID', () => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><fieldset><legend>${mirrorPrompt}</legend><label for="">Tracking metadata</label><input type="hidden" id=""><input id="consent" type="checkbox" required></fieldset></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields[0]).toMatchObject({ label: mirrorPrompt, required: true });
+  expect(F.answerFor(filler[0], { identity: {}, documents: {} })).toEqual({ check: true });
+  dom.window.close();
+});
 it.each([
   mirrorQuestion.replace('name="resumator-questionnaire[722664]"', 'name="resumator-questionnaire[9]"') + mirrorChoice,
   mirrorQuestion + mirrorChoice.replace('name="resumator-checkbox-722664-1"', 'name="resumator-checkbox-9-1"'),

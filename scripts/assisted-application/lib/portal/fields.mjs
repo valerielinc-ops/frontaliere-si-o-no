@@ -193,7 +193,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const hiddenTargets = [...(group?.ownerDocument.querySelectorAll('input[type="hidden"][id]') || [])];
     for (const label of group?.querySelectorAll('label[for]') || []) {
       if (label.control?.matches(QUESTION_CONTROL_SELECTOR)) nodes.push(label.control);
-      if (!String(label.textContent || '').trim()) continue;
+      if (!label.getAttribute('for') || !String(label.textContent || '').trim()) continue;
       // A hidden input is not labelable in the DOM API. Resolve every exact
       // target instead of treating label.control === null as no other owner.
       for (const target of hiddenTargets.filter(control => control.id === label.getAttribute('for'))) {
