@@ -102,6 +102,14 @@ it('does not merge ARIA choices across distinct semantic groups', () => {
   }
   dom.window.close();
 });
+it('does not merge unnamed ARIA options across question headings in the same wrapper', () => {
+  const { dom, source, bundle, filler } = allQuestionReaders('<form><div><h2>First question?</h2><div role="radio">Yes</div><h2>Second question?</h2><div role="radio">No</div></div></form>');
+  for (const fields of [source, bundle, filler]) {
+    expect(fields).toHaveLength(2);
+    expect(fields.every((field: any) => !/question/i.test(field.label))).toBe(true);
+  }
+  dom.window.close();
+});
 
 it('reads the owned consent legend past an empty label and resolves it without a candidate question', () => {
   const { dom, snapshot } = extract(form);
