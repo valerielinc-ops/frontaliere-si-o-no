@@ -203,7 +203,20 @@ jobs:
           path: .cache/assemble-jobs
           key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
+      # Dry run (input dry_run, default true per i dispatch manuali): costruisce gli
+      # alert con i dati di produzione e stampa il motivo di ogni alert filtrato e il
+      # funnel, senza inviare né scrivere nulla. Lo step di invio resta fermo con dry_run.
+      - name: Build alerts without sending (dry run)
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        env:
+          ENABLE_JOB_ALERTS: 'true'
+          TARGET_EMAIL: ${{ inputs.target_email }}
+          SKIP_NEWSLETTER_COOLDOWN: ${{ inputs.target_email != '' && '1' || '' }}
+        run: |
+          node scripts/send-job-alerts.mjs --dry-run
+
       - name: Send job alert emails
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         id: send-alerts
         env:
@@ -217,12 +230,8 @@ jobs:
           EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
           # Bypass newsletter cooldown when targeting a single test recipient
           SKIP_NEWSLETTER_COOLDOWN: ${{ inputs.target_email != '' && '1' || '' }}
-          # dry_run (default true per i dispatch manuali): il sender legge e pianifica
-          # con i dati veri, stampa il motivo di ogni alert filtrato e non invia né
-          # scrive nulla. Il run pianificato non passa l'input, quindi invia come prima.
-          DRY_RUN_FLAG: ${{ inputs.dry_run == true && '--dry-run' || '' }}
         run: |
-          node scripts/send-job-alerts.mjs $DRY_RUN_FLAG
+          node scripts/send-job-alerts.mjs
 
       - name: Report failure to GitHub Issues
         if: steps.send-alerts.outcome == 'failure'
