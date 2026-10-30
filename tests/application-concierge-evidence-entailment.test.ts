@@ -122,4 +122,11 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     expect(f.generate).not.toHaveBeenCalled();
     expect(EVIDENCE_ENTAILMENT_VERSION).toBeTruthy();
   });
+
+  it('never expands a posting beyond twelve adjudication rows', async () => {
+    const cases = qualificationEvidenceCases();
+    const f = fixture(Array.from({ length: 13 }, (_, index) => cases[index % cases.length]));
+    expect(await verifyQualificationEvidence(f)).toMatchObject({ status: 'unverified', verification: { failure: 'claim_budget' } });
+    expect(f.generate).not.toHaveBeenCalled();
+  });
 });
