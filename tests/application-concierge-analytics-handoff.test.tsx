@@ -28,7 +28,7 @@ vi.mock('@/components/community/SumUpPaymentWidget', () => ({ default: () => <di
 // local recorder, so these tests cannot emit analytics or create real payments.
 import ApplicationConciergePortal from '@/components/community/ApplicationConciergePortal';
 // The production ErrorBoundary chunk also statically imports analytics.
-import { Analytics } from '@/services/analytics';
+import '@/services/analytics';
 const owner = { uid: 'handoff-owner', email: 'candidate@example.test', getIdToken: async () => 'test-token' };
 const service = {
   serviceId: 'service-test', paymentStatus: 'pending', serviceStatus: 'awaiting_payment',
@@ -224,20 +224,27 @@ describe('real concierge analytics acknowledgement before Stripe navigation', ()
     expect(assign).toHaveBeenCalledWith(stripeResult.url);
   });
 
-  it.each([undefined, {}, { processedAtMs: NaN }, { processedAtMs: Infinity }])('fails open for a missing or non-finite processing acknowledgement (%j)', async (acknowledgement) => {
+  it.each([NaN, Infinity])('fails open for a non-finite timestamp returned by the real SDK callback (%s)', async (timestamp) => {
     const assign = installRedirectRecorder();
-    vi.spyOn(Analytics, 'trackApplicationConciergeCheckoutResume').mockResolvedValueOnce(
-      acknowledgement as { processedAtMs: number },
-    );
     render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+    await vi.waitFor(() => expect(eventCalls('application_concierge_checkout_resume')).toHaveLength(1));
+    await act(async () => {
+      const clock = vi.spyOn(Date, 'now').mockReturnValueOnce(timestamp);
+      eventCalls('application_concierge_checkout_resume')[0][2].event_callback();
+      clock.mockRestore();
+    });
     await vi.waitFor(() => expect(assign).toHaveBeenCalledWith(stripeResult.url));
   });
 
-  it('bounds a future processing timestamp by the post-API cap', async () => {
+  it('bounds a clock jump in the processing timestamp by the post-API cap', async () => {
     const assign = installRedirectRecorder();
-    vi.spyOn(Analytics, 'trackApplicationConciergeCheckoutResume').mockResolvedValueOnce({ processedAtMs: Date.now() + 60000 });
     render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
-    await vi.waitFor(() => expect(mocks.checkout).toHaveBeenCalledOnce());
+    await vi.waitFor(() => expect(eventCalls('application_concierge_checkout_resume')).toHaveLength(1));
+    await act(async () => {
+      const clock = vi.spyOn(Date, 'now').mockReturnValueOnce(Date.now() + 60000);
+      eventCalls('application_concierge_checkout_resume')[0][2].event_callback();
+      clock.mockRestore();
+    });
     await act(async () => { await vi.advanceTimersByTimeAsync(5250); });
     expect(assign).toHaveBeenCalledWith(stripeResult.url);
   });
@@ -246,7 +253,7 @@ describe('real concierge analytics acknowledgement before Stripe navigation', ()
     const assign = installRedirectRecorder();
     mocks.checkout.mockResolvedValueOnce({ ok: true, paymentProvider: 'sumup', checkoutId: 'sumup-test', serviceId: 'service-test' });
     render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
-    await screen.findByRole('dialog', { name: 'SumUp' });
+    await vi.waitFor(() => expect(screen.getByRole('dialog', { name: 'SumUp' })).toBeTruthy());
     await vi.waitFor(() => expect(eventCalls('application_concierge_checkout_resume')).toHaveLength(1));
     expect(assign).not.toHaveBeenCalled();
   });
