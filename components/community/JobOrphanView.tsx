@@ -678,6 +678,7 @@ export default function JobOrphanView({ slug, findActiveJob, onBack, hasAccess: 
  <span className="block text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">{link.company}</span>
  )}
  </span>
+ </div>
  </a>
  {saveable && <JobSaveButton job={saveable} surface="card_related" />}
  </article>
