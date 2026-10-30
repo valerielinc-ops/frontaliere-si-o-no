@@ -78,6 +78,18 @@ describe('positive typed candidate answer contracts', () => {
     expect(candidateAnswersForQuestions([limited], {}, memory)).toEqual({});
     expect(candidateAnswersForQuestions([limited], { limited: '6' }, memory)).toEqual({ limited: '6' });
   });
+  it('projects a confirmed fact only to one equivalent native option without creating a new answer', () => {
+    const source = question('What is your current Swiss work permit status?', 'choice', { options: permitOptions('en') });
+    const translated = { ...question('Quel permis suisse possédez-vous actuellement?', 'choice', { options: permitOptions('fr') }), id: 'translated' };
+    const memory = rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: permitOptions('en')[1] } });
+    expect(candidateAnswersForQuestions([translated], {}, memory)).toEqual({ translated: permitOptions('fr')[1] });
+    const ambiguous = { ...translated, options: [...permitOptions('fr'), 'C'] };
+    expect(candidateAnswersForQuestions([ambiguous], {}, memory)).toEqual({});
+    const cert = question('Do you hold the PMP certification?', 'yes_no');
+    const certIt = { ...question('Possiedi la certificazione PMP?', 'yes_no', { options: ['Sì', 'No'] }), id: 'cert_it' };
+    const certMemory = rememberCandidateQuestionAnswers({ questions: [cert], answers: { synthetic: 'Yes' } });
+    expect(candidateAnswersForQuestions([certIt], {}, certMemory)).toEqual({ cert_it: 'Sì' });
+  });
   it.each([{ context: 'This employer' }, { section: 'Dependent child' }, { autocomplete: 'other-fact' }, { source: 'policy_default' }, { applicationQuestion: 'What is your expected date of birth?' }])('refuses to erase contextual provenance: %j', metadata => {
     expect(candidateQuestionFact(question('What is your date of birth?', 'date', metadata))).toBeNull();
   });

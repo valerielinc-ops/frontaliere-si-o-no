@@ -89,3 +89,20 @@ export function candidateFactIdentity(fact) {
   if (!fact) return '';
   return [CANDIDATE_FACTS_VERSION, fact.type, fact.subject, fact.unit, fact.relation, fact.jurisdiction || ''].join('|');
 }
+
+/** Render the same explicit fact in an unambiguous target option; never change its meaning or unit. */
+export function candidateFactAnswerForQuestion(question, answer) {
+  const fact = candidateAnswerFact(question, answer);
+  if (!fact) return null;
+  const options = Array.isArray(question.options) ? question.options.filter(option => typeof option === 'string') : [];
+  if (!options.length || options.includes(answer)) return answer;
+  let matches;
+  if (fact.type === 'permit_status') matches = options.filter(option => permitStatusOf(option) === fact.status);
+  else if (fact.type === 'credential_held') {
+    const truth = value => /^(?:yes|si|ja|oui|true)$/.test(fold(value)) ? true
+      : /^(?:no|nein|non|false)$/.test(fold(value)) ? false : null;
+    const source = truth(answer);
+    matches = options.filter(option => truth(option) === source);
+  } else return null;
+  return matches.length === 1 ? matches[0] : null;
+}
