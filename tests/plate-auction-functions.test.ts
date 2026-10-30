@@ -7,7 +7,7 @@ import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
 import { getPublicPlateAuctionSnapshot, PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionObservationChanged, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
 import { VD_BROWSER_USER_AGENT } from '../functions/src/plateAuctionsCore.js';
-import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from '../functions/src/plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, FR_ECARI_CATALOGUE_URL, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from '../functions/src/plateAuctionSourceUrls.js';
 import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
@@ -536,7 +536,7 @@ describe('plate-auction Cloud Function: FR e TI geo-fenced, raccolti da Zurigo',
   // Il 2026-09-25 FR e TI servono il catalogo eCari solo a IP svizzeri: la
   // function in europe-west6 è il loro unico collector diretto e il collector
   // statico legge le sue righe dal relay. Qui si prova che il giro li include.
-  const FR_URL = 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch';
+  const FR_URL = FR_ECARI_CATALOGUE_URL;
   const TI_URL = 'https://www.carieauktion.ti.ch/ecari-auktion/';
   const ECARI_FR = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction-fr.html'), 'utf8');
   const ECARI_IT = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction-it.html'), 'utf8');
