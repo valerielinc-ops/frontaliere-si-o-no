@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "bs-10378",
+      "sourceKey": "BS",
+      "sourceRecordId": "10378",
+      "canton": "Basilea Città",
+      "platePrefix": "BS",
+      "plateNumber": "10378",
+      "normalizedPlate": "BS10378",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 500,
+      "closedAt": "2026-10-30T05:52:48.488Z",
+      "officialAuctionUrl": "https://www.bs.ch/themen/mobilitaet/kontrollschilder/wunschkontrollschilder",
+      "officialDetailUrl": "https://media.bs.ch/original_file/61fc94b8c65472e21e24e3eaecf43d7530eebaf2/wuko-pw-35.pdf",
+      "sourceFetchedAt": "2026-10-30T05:52:48.488Z",
+      "lastVerifiedAt": "2026-10-30T05:52:48.488Z",
+      "firstSeenAt": "2026-09-15T06:51:07.559Z",
+      "lastSeenAt": "2026-10-30T05:52:48.488Z",
+      "sourceCategory": "fixed-price-order",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "5f5a4b207fff"
+    }
+  ]
+}
