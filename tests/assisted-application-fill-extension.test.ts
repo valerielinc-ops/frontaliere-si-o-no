@@ -61,12 +61,12 @@ const ariaChoices = (question: string, options: string[]) => `<form><h2>${questi
 describe('fill extension: scoped saved geography answers', () => {
   const personal = { section: 'Personal information', owners: [], unknown: false };
   const employer = { section: 'Personal information', owners: ['Employer'], unknown: false };
-  function addressPage(scope: string, addressContext: unknown, label = 'City') {
-    const result = page(`<form><h2>Personal information</h2><fieldset aria-label="${scope}"><label for="city">${label}</label><input id="city" data-aa-id="a1" autocomplete="address-level2" required></fieldset></form>`);
+  function addressPage(scope: string, addressContext: unknown, label = 'City', autocomplete = 'address-level2') {
+    const result = page(`<form><h2>Personal information</h2><fieldset aria-label="${scope}"><label for="city">${label}</label><input id="city" data-aa-id="a1" autocomplete="${autocomplete}" required></fieldset></form>`);
     Object.defineProperty(result.window.HTMLElement.prototype, 'getBoundingClientRect', { value: () => ({ width: 100, height: 24 }) });
     // Consumer contract: the production source/bundle producer is tested
     // separately. This fixture supplies a native read with an explicit owner.
-    (result.window as any).CompilaRunnerFields = () => ({ fields: [{ id: 'a1', label, context: label, section: 'Personal information', autocomplete: 'address-level2', addressContext }] });
+    (result.window as any).CompilaRunnerFields = () => ({ fields: [{ id: 'a1', label, context: label, section: 'Personal information', autocomplete, addressContext }] });
     return result;
   }
 
@@ -97,6 +97,41 @@ describe('fill extension: scoped saved geography answers', () => {
     expect(F.answerFor(entry, { ...kit, answers: [statement, { ...statement, answer: 'Zurich' }] })).toBeNull();
     await F.fillPage(document, { ...kit, answers: [statement] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
     expect((document.getElementById('city') as HTMLInputElement).value).toBe('Lugano');
+    window.close();
+  });
+
+  it.each(['Where would you like to work (City)?', 'In quale città vorresti lavorare?', 'In welcher Stadt möchten Sie arbeiten?', 'Dans quelle ville souhaitez-vous travailler?', 'Which country would you relocate to?'])('keeps residence separate from the candidate preference %s', async (label) => {
+    const autocomplete = /country/.test(label) ? 'country-name' : 'address-level2';
+    const answer = autocomplete === 'country-name' ? 'France' : 'Lugano';
+    const { window, document, F } = addressPage('Personal information', personal, label, autocomplete);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    await F.fillPage(document, { ...kit, answers: [{ question: label, answer, source: 'answers', current: true, context: label, section: 'Personal information', autocomplete, addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(answer);
+    window.close();
+  });
+
+  it.each([['Town', 'Como'], ['Straße', 'Via Roma 1']])('uses the positive %s role before a weak birth-date alias', async (label, expected) => {
+    const { window, document, F } = addressPage('Personal information', personal, label, '');
+    document.getElementById('city')?.setAttribute('placeholder', 'Date of birth');
+    await F.fillPage(document, { ...kit, profile: { dateOfBirth: '1990-01-02' }, identity: { ...kit.identity, address: { ...kit.identity.address, street: 'Via Roma 1' } }, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(expected);
+    window.close();
+  });
+
+  it('does not turn an unknown geographic preference into a weak birth-date alias', async () => {
+    const { window, document, F } = addressPage('Personal information', personal, 'In welcher Stadt möchten Sie arbeiten?', '');
+    document.getElementById('city')?.setAttribute('placeholder', 'Date of birth');
+    await F.fillPage(document, { ...kit, profile: { dateOfBirth: '1990-01-02' }, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
+  it.each([['Email address', 'text'], ['Email address', 'email'], ['Adresse e-mail', 'text'], ['Adresse e-mail', 'email']])('keeps %s/%s as contact identity rather than postal provenance', async (label, type) => {
+    const { window, document, F } = addressPage('Personal information', personal, label, 'email');
+    document.getElementById('city')?.setAttribute('type', type);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(kit.identity.email);
     window.close();
   });
 

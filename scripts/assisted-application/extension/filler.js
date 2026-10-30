@@ -30,7 +30,7 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
@@ -668,11 +668,12 @@
   }
 
   function addressEntryNeedsOwnership(entry) {
-    if (isPhoneCountryEntry(entry)) return false;
+    if (isIdentityEmailCaption(entry.label || entry.labels?.find(Boolean) || '')) return false;
+    if (isPhoneCountryEntry({ ...entry, labels: [entry.label || entry.labels?.find(Boolean) || ''] })) return false;
     const text = normalize((entry.labels || [entry.label]).join(' '));
     const auto = String(entry.element.getAttribute('autocomplete') || '').slice(0, 100);
     const nativeBirthDate = /^(?:birth|nascita|geburt|naissance)$/iu.test(text) && (entry.kind === 'native-date' || entry.type === 'date' || ['date', 'ui5-date'].includes(entry.kind));
-    return FAMILIES.some(([family, pattern]) => ADDRESS_FAMILIES.has(family) && pattern.test(text))
+    return mentionsResidenceFieldRole(entry.label || entry.labels?.find(Boolean) || '') || FAMILIES.some(([family, pattern]) => ADDRESS_FAMILIES.has(family) && pattern.test(text))
       || (BIRTH_FIELD_RE.test(text) && !DATE_OF_BIRTH_RE.test(text) && !nativeBirthDate) || BIRTH_LOCATION_RE.test(text) || /\b(?:city|citta|town|locality|ville|ort|comune|lieu|country|land|pays|nazione|paese|street|strasse|rue|address|adresse|indirizzo|cap|postal|postcode|zip|plz|npa)\b/.test(text)
       || /(?:^|\s)(?:address-level[1-4]|street-address|address-line[1-3]|postal-code|country|country-name)(?:$|\s)/i.test(auto);
   }
@@ -713,7 +714,8 @@
     const scope = entry.element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question');
     const scopeText = normalize(textOf(scope));
     const hasPhoneControl = Boolean(scope?.querySelector('input[type="tel"], input[autocomplete="tel"], [data-aa-phone]'));
-    return explicit || (hasPhoneControl && !RESIDENCE_CONTEXT_RE.test(scopeText));
+    return explicit || (residenceFieldRole(entry.label || labels.find(Boolean) || '') === 'country'
+      && hasPhoneControl && !RESIDENCE_CONTEXT_RE.test(scopeText));
   }
 
   function familyOf(entry) {
@@ -722,10 +724,9 @@
     if (BIRTH_FIELD_RE.test(normalize(`${entry.label || ''} ${entry.section || ''}`))
       && !DATE_OF_BIRTH_RE.test(normalize(entry.label)) && !nativeBirthDate) return null;
     if (nativeBirthDate) return 'birthDate';
-    if (entry.type === 'email') return 'email';
-    if (entry.type === 'tel') return 'phone';
     const labels = entry.labels || [entry.label];
-    if (isPhoneCountryEntry(entry)) return 'phoneCountry';
+    const primaryLabel = entry.label || labels.find(Boolean) || '';
+    if (isPhoneCountryEntry({ ...entry, labels: [primaryLabel] })) return 'phoneCountry';
     const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
     const autoFamily = AUTOCOMPLETE[auto];
     // Autocomplete identifies the value type, not whose address it is. Only
@@ -733,7 +734,8 @@
     // provenance; a section-personal token alone must stay ownerless.
     const nativeOwner = validAddressContext(entry.addressContext) ? [entry.addressContext.section, ...entry.addressContext.owners].join(' ') : '';
     const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''} ${nativeOwner}`);
-    const candidateAddress = entry.section !== null
+    const addressRole = residenceFieldRole(primaryLabel);
+    const candidateAddress = Boolean(addressRole) && entry.section !== null
       && (!Object.hasOwn(entry, 'addressContext') || validAddressContext(entry.addressContext)) && (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       || RESIDENCE_CONTEXT_RE.test(addressContext))
       && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
@@ -742,6 +744,15 @@
       // explicit birthplace or another person's/company's label vetoes even
       // a genuine personal section before the autocomplete branch below.
       && !labels.some(name => NOT_PERSON_RE.test(normalize(name)) || BIRTHPLACE_RE.test(normalize(name)));
+    if (addressRole) {
+      const family = { city: 'city', country: 'country', postalCode: 'postalCode', street: 'street', address: 'street' }[addressRole];
+      return candidateAddress && family ? family : null;
+    }
+    // A weak name/placeholder/autocomplete must not turn an unrecognized
+    // geographic question into another personal fact such as date of birth.
+    if (addressEntryNeedsOwnership({ ...entry, labels: [entry.label || labels.find(Boolean) || ''] })) return null;
+    if (entry.type === 'email') return 'email';
+    if (entry.type === 'tel') return 'phone';
     if (autoFamily) {
       // `postal-code`, `address-level2`, etc. identify a value type, not
       // whose address it is. Require explicit candidate-residence context.
