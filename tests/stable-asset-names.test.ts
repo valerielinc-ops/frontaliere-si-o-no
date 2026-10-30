@@ -28,6 +28,8 @@ import { SPA_ENTRY_JS_FILENAME } from '@/build-plugins/shared/spaEntryFilenames'
  * from HTML still cached under the previous name once the CDN janitor prunes
  * it — the two failure classes the stabilization removed. If a filename below
  * ever grows a hash again, this fails the moment the constant changes.
+ * Privacy bootstraps also emit hash-bound references for new HTML, while these
+ * stable aliases continue serving old pages during cache convergence.
  */
 describe('stable asset filenames', () => {
   it.each([

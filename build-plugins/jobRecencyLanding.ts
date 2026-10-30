@@ -23,6 +23,9 @@ import { buildCanonicalJobDetailPath, type CanonicalJobDetailJob } from './share
 export type JobRecencyVariant = 'last-3-days' | 'since-yesterday';
 
 export interface RecencyJobLink {
+  id?: string;
+  slug?: string;
+  category?: string;
   title: string;
   company: string;
   location: string;
@@ -532,6 +535,9 @@ export function buildJobRecencyLandingModel(options: {
         typeof j.addressLocality === 'string' ? j.addressLocality : undefined,
       companyDomain: typeof j.companyDomain === 'string' ? j.companyDomain : undefined,
       url: typeof j.url === 'string' ? j.url : undefined,
+      id: typeof j.id === 'string' ? j.id : undefined,
+      slug: typeof j.slug === 'string' ? j.slug : undefined,
+      category: typeof j.category === 'string' ? j.category : undefined,
     };
   });
 

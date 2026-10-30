@@ -1633,6 +1633,13 @@ export function guardPlan(plan, fields, candidate = null) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
     if (!field) continue;
+    // A planner's `consent` provenance never authorizes optional marketing
+    // or a box that also declares a candidate fact. Recheck the actual label.
+    if (action.action === 'check' && action.source === 'consent' && !ownConsent(field)) {
+      rejectedActionFields.add(field.id);
+      ask(field);
+      continue;
+    }
     // A planner's generic CV choice cannot replace a specifically requested
     // diploma/certificate, even when its label also contains the word CV.
     if (action.action === 'upload' && action.document === 'cv' && isNonCvDocumentLabel(field.label)) {

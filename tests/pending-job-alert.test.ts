@@ -178,14 +178,17 @@ describe('pendingJobAlert', () => {
     expect(salary).toContain('consumePendingSalaryAlert() ?? inMemoryPendingRef.current');
     expect(salary).toContain('pending_stored: stored');
 
-    const board = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
-    expect(board).toContain('pendingSaveFallbackRef.current = stored ? null : intent;');
-    // Every consumer of the pending save intent falls back to the ref.
-    const readers = board.match(/(?:consume|peek)PendingSaveJobIntent\(\)[^;\n]*/g) ?? [];
-    expect(readers.length).toBeGreaterThanOrEqual(3);
-    for (const reader of readers) expect(reader).toContain('?? pendingSaveFallbackRef.current');
+    // The save intent moved from JobBoard to the one gate every card shares.
+    const gate = readFileSync(resolve(root, 'services/jobSaveGate.ts'), 'utf8');
+    expect(gate).toContain('pendingFallback = stored ? null : intent;');
+    // Every consumer of the pending save intent falls back to the in-memory copy.
+    const readers = gate.match(/(?:consume|peek)PendingSaveJobIntent\(\)[^;\n]*/g) ?? [];
+    expect(readers.length).toBeGreaterThanOrEqual(2);
+    for (const reader of readers) expect(reader).toContain('?? pendingFallback');
     // No direct stash left that would drop the outcome again.
-    expect(board.match(/savePendingSaveJobIntent\(/g) ?? []).toHaveLength(1);
+    expect(gate.match(/savePendingSaveJobIntent\(/g) ?? []).toHaveLength(1);
+    const board = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
+    expect(board).not.toContain('savePendingSaveJobIntent(');
 
     const followButton = readFileSync(resolve(root, 'components/community/CompanyFollowButton.tsx'), 'utf8');
     expect(followButton).toContain('const parked = savePendingCompanyFollow({');

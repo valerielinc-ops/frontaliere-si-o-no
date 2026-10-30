@@ -353,7 +353,9 @@ function firstDateMs(...candidates: Array<string | undefined | null>): number {
 }
 
 export interface CorpusJob {
+  id?: string;
   slug?: string;
+  category?: string;
   slugByLocale?: Partial<Record<string, string>>;
   company?: string;
   companyKey?: string;
@@ -656,6 +658,9 @@ function renderProfileBody(
       return [{
         href,
         job: {
+          id: job.id,
+          slug: job.slug,
+          category: job.category,
           title: job.title,
           titleByLocale: job.titleByLocale,
           company: job.company,

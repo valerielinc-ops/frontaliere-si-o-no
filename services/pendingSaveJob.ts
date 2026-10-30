@@ -3,7 +3,7 @@
  * magic-link email that opens in a BRAND NEW tab (SaveSignInPromptModal's
  * email path, `services/newsletterSubscribers.ts` confirm-and-autologin).
  *
- * A ref-based stash (`useRef` in JobBoard.tsx) works for the Google/LinkedIn
+ * A ref-based stash (the in-memory fallback in services/jobSaveGate.ts) works for the Google/LinkedIn
  * popup case (same tab, same component instance) but is silently lost when
  * the auth completion happens in a fresh tab — nothing there ever set the
  * ref. Storage/TTL mechanics live in services/pendingIntentStore.ts, shared
@@ -28,7 +28,17 @@ const KEY = 'pending_save_job';
  * inside the unlocked detail's rate. Same separation as
  * `company_follow_gate` / `company_follow_button`.
  */
-export type SaveJobSurface = 'list' | 'detail' | 'detail_gate';
+export type SaveJobSurface =
+  | 'list'
+  | 'detail'
+  | 'detail_gate'
+  /** Prerendered card on a staticOverlay page (JobSaveMount island). */
+  | 'card_static'
+  | 'card_similar'
+  | 'card_trending'
+  | 'card_article'
+  | 'card_related'
+  | 'card_brand_hub';
 
 export type PendingSaveJobIntent =
   | { kind: 'save_job'; entry: Omit<SavedJobEntry, 'savedAt'>; surface: SaveJobSurface }

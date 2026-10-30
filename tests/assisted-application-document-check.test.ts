@@ -49,6 +49,38 @@ describe('the browser\'s check of a requested document', () => {
     expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }).verdict).toBe('match');
   });
 
+  it.each([
+    'Si certifica che il candidato ha superato, con voti 100 su 110, l’esame di laurea in ingegneria informatica.',
+    `Si certifica che il candidato ha superato in data ${new Intl.DateTimeFormat('it-IT').format(new Date())} con voti 100/110 l’esame di laurea in ingegneria informatica.`,
+    'Modello amministrativo 42. Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Si attesta che la candidata ha superato l’esame di laurea in ingegneria informatica.',
+    'SI CERTIFICA CHE IL CANDIDATO HA SUPERATO, CON VOTAZIONE 100/110, L’ESAME DI LAUREA IN INFORMATICA.',
+  ])('recognises completed degree exams certified without a degree title: %s', text => {
+    expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }))
+      .toEqual({ verdict: 'match', matched: 'esame di laurea' });
+  });
+
+  it.each([
+    'Non si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Mai si attesta che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Fattura per servizio di traduzione. Testo richiesto dal cliente: «Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica».',
+    'Template: si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Fac simile di certificato: si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Lettera di referenza. Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Si certifica che il candidato non ha superato l’esame di laurea in ingegneria informatica.',
+    'Si certifica che il candidato non ha ancora superato l’esame di laurea in ingegneria informatica.',
+    'Si certifica che il candidato deve sostenere l’esame di laurea in ingegneria informatica.',
+    'Il candidato ha superato un esame di formazione. Certificato di residenza per uso amministrativo.',
+  ])('requires a certified completed degree exam: %s', text => {
+    expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }).verdict).toBe('mismatch');
+  });
+
+  it('keeps CV warnings ahead of certified degree exam wording and scopes it to diplomas', () => {
+    const certificate = 'Si certifica che il candidato ha superato, con voti 100 su 110, l’esame di laurea in ingegneria informatica.';
+    expect(classifyDocumentText(CV + certificate, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }).verdict).toBe('looks_like_cv');
+    expect(classifyDocumentText(certificate, { label: 'Arbeitszeugnisse', kind: 'reference', keywords: ['Arbeitszeugnisse'] }).verdict).toBe('mismatch');
+  });
+
   it('recognises an Italian work reference requested in German and keeps unrelated documents and CVs distinct', () => {
     expect(classifyDocumentText('Certificato di lavoro. Si attesta il rapporto di impiego e si descrivono le mansioni svolte.', { label: 'Arbeitszeugnisse', kind: 'reference', keywords: ['Arbeitszeugnisse'] }).verdict).toBe('match');
     const degree = { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] };

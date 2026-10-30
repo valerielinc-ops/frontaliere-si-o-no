@@ -43,8 +43,12 @@ import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
+import JobSaveButton from '@/components/community/JobSaveButton';
+import type { SaveableJob } from '@/services/jobSaveGate';
 
 interface JobOrphanViewProps {
+ /** Resolves an active job from a link's slug, so its row can carry the bookmark. */
+ findActiveJob?: (slug: string) => SaveableJob | null;
  slug: string;
  onBack?: () => void;
  /** When true the user is already authenticated — hide the sign-in block. */
@@ -180,7 +184,7 @@ function extractActiveJobLinks(html: string): Array<{ href: string; title: strin
  return links;
 }
 
-export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
+export default function JobOrphanView({ slug, findActiveJob, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
  const [locale] = useLocale();
   const { headline: gateHeadline, variant: headlineVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
@@ -655,12 +659,14 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  {locale === 'it' ? 'Posizioni attive simili' : locale === 'de' ? 'Ähnliche offene Stellen' : locale === 'fr' ? 'Postes similaires ouverts' : 'Similar active jobs'}
  </h2>
  <ul className="space-y-2">
- {activeJobLinks.slice(0, 5).map((link) => (
- <li key={link.href}>
+ {activeJobLinks.slice(0, 5).map((link) => {
+ const saveable = findActiveJob?.(link.href.split('/').filter(Boolean).pop() ?? '') ?? null;
+ return (
+ <li key={link.href} className="relative">
  <a
  href={link.href}
  onClick={(e) => handleRelatedJobClick(e, link.href)}
- className="flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 hover:border-accent hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
+ className={`flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 ${saveable ? 'pr-12' : ''} hover:border-accent hover:shadow-sm transition-[color,background-color,border-color,box-shadow]`}
  >
  <span className="flex-1 min-w-0">
  <span className="block font-medium text-sm text-strong truncate">{link.title}</span>
@@ -670,8 +676,10 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </span>
  <ArrowRight size={14} className="text-muted shrink-0" />
  </a>
+ {saveable && <JobSaveButton job={saveable} surface="card_related" />}
  </li>
- ))}
+ );
+ })}
  </ul>
  </div>
  );

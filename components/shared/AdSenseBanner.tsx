@@ -22,6 +22,9 @@ import { classifyAdPageTemplate, documentHasJobPosting } from '@/services/adPage
 import { observeManualAd } from '@/services/manualAdLifecycle';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
 import { isAdSenseAllowed, onAdsConsentChange } from '@/services/adsConsent';
+import { sanitizeTelemetryProperties } from '@/services/analyticsUrlPrivacy.js';
+import { isSensitiveThirdPartyDocument } from '@/services/thirdPartyDocumentPrivacy.js';
+import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import {
  AD_BANNER_STATE_ATTR,
  AD_FILL_TIMEOUT_MS,
@@ -210,6 +213,9 @@ function AdSenseBannerInstance({
  // ── Load the AdSense script (singleton) ──────────────────
  const loadAdSenseScript = useCallback(() => {
  if (typeof document === 'undefined') return;
+ // Capture initial provenance even for a late chunk. Later SPA routes may
+ // initialize only after URL/referrer and residual DOM URLs attest clean.
+ if (isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, window, document, wasNewsletterAutologinAttempted())) return;
  // ── ADVERTISING CONSENT GATE (#5842) ──────────────────────
  // The single choke point for adsbygoogle.js in the SPA. Deliberately here and
  // not only in the effect below: this function is reached from four

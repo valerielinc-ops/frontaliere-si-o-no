@@ -49,8 +49,12 @@ import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/servi
 import { renderJobDescriptionContent } from '@/build-plugins/shared/jobDescriptionContent';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
+import JobSaveButton from '@/components/community/JobSaveButton';
+import { toSaveableJob } from '@/services/jobSaveGate';
 
 interface RelatedJob {
+ id?: string;
+ category?: string;
  slug: string;
  title?: string;
  titleByLocale?: Record<string, string>;
@@ -658,11 +662,12 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const card = (
  <article
  key={rjSlug}
- className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
+ className={`relative rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
  rj.featured ? 'border-warning-border bg-warning-subtle hover:border-warning' : 'border-edge bg-surface/50 hover:border-accent-border'
  }`}
  >
- <a href={rjPath} onClick={(e) => handleRelatedJobClick(e, rjSlug)} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg">
+ {rj.id && <JobSaveButton job={toSaveableJob({ ...rj, id: rj.id, title: rj.title || rjTitle, company: rj.company || '' })} surface="card_related" />}
+ <a href={rjPath} onClick={(e) => handleRelatedJobClick(e, rjSlug)} className="block pr-9 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg">
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
  {rjLogo ? (

@@ -6104,6 +6104,9 @@ ${companyFollowHtml}
      addressLocality?: string;
      companyDomain?: string;
      url?: string;
+     id?: string;
+     slug?: string;
+     category?: string;
    }>,
  ) => {
    if (items.length === 0) {
@@ -6112,6 +6115,9 @@ ${companyFollowHtml}
    return renderJobCardListHtml(
      items.map((item) => {
        const job: JobCardJob = {
+         id: item.id,
+         slug: item.slug,
+         category: item.category,
          title: item.title,
          company: item.company,
          location: item.location,
