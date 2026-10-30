@@ -103,8 +103,10 @@ export function candidateFactAnswerForQuestion(question, answer) {
   if (!options.length || options.includes(answer)) return answer;
   let matches;
   if (fact.type === 'permit_status') {
-    const regime = value => /\b(?:eu|efta|ue|aele|aels)\b/.test(fold(value));
-    matches = options.filter(option => positivePermitStatus(option) === fact.status && (!regime(option) || regime(answer)));
+    const regime = value => [...new Set(fold(value).split(' ').map(token => ['eu', 'ue'].includes(token) ? 'EU'
+      : ['efta', 'aele', 'aels'].includes(token) ? 'EFTA' : '').filter(Boolean))].sort().join('|');
+    const sourceRegime = regime(answer);
+    matches = options.filter(option => positivePermitStatus(option) === fact.status && (!regime(option) || regime(option) === sourceRegime));
   }
   else if (fact.type === 'credential_held') {
     const truth = value => /^(?:yes|si|ja|oui|true)$/.test(fold(value)) ? true
