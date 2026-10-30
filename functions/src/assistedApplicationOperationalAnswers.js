@@ -65,6 +65,23 @@ export function operationalAnswerForOption(question, answer) {
   return validateAnswer(value, { ...question, type: 'choice', options: options.map(option => option.label) }).ok ? value : null;
 }
 
+/** Preliminary readiness permits a fresh native read, never a final send. */
+export function operationalAnswerReadyForDiscovery(question, answer) {
+  const topic = operationalQuestionTopic(question);
+  if (!topic || !hasAnswer(answer)) return false;
+  const options = optionsOf(question);
+  if (options.length) {
+    const value = topic === 'notice_period' ? operationalAnswerForOption(question, answer) : String(answer).trim();
+    return Boolean(value && validateAnswer(value, { ...question, type: question.type || 'choice', options: options.map(option => option.label) }).ok);
+  }
+  if (topic === 'notice_period' && !noticeDuration(answer)) return false;
+  if (topic === 'preferred_workload' && !/^(?:100|[0-9]{1,2})(?:\s*%)?$/.test(String(answer).trim())) return false;
+  if (topic === 'whatsapp_contact' && !/^(?:si|yes|ja|oui|true|1|no|nein|non|false|0)$/.test(literalAnswer(answer))) return false;
+  // The old choice descriptor may have lost its catalogue. Only discovery
+  // may use this text validation; the live control must supply its real type.
+  return validateAnswer(String(answer), { ...question, type: question.type === 'choice' ? 'text' : question.type || 'text', options: [] }).ok;
+}
+
 function languageOf(text, locale) {
   if (['it', 'en', 'de', 'fr'].includes(locale)) return locale;
   if (/\b(?:preavviso|comunicazione|contatto|accetti|tramite|tuo|occupazione|desider\w*)\b/.test(text)) return 'it';

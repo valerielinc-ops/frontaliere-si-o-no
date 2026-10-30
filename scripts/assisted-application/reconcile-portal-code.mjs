@@ -4,8 +4,9 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { evaluateRedFlags, roundWasSent } from '../../functions/src/assistedApplicationFlow.js';
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
+import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/src/assistedApplicationRetention.js';
 import { getRemoteConfig } from 'firebase-admin/remote-config';
-import { portalCodeVersion, portalRecoveryDefinitelyUnsent } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
+import { portalCodeVersion, portalRecoveryDefinitelyUnsent, operationalPortalRecoveryReady } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 
 export async function reconcilePortalCode({ db, version, apply = false, nowMs = Date.now(), isEnabled = null }) {
   if (!portalCodeVersion(version)) throw new Error('invalid_portal_code_version');
@@ -34,7 +35,9 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         ]);
         const order = orderDoc.data(); const flow = flowDoc.data(); const draft = draftDoc.data();
         if (!portalRecoveryDefinitelyUnsent({ order, flow, draft, submission: submissionDoc.data(), version })
-          || !roundWasSent(flow) || flow.postingExpiredAt) return false;
+          || !roundWasSent(flow) || flow.postingExpiredAt || !operationalPortalRecoveryReady({ order, flow, draft })) return false;
+        if (flow.heldBy[0] === 'portal:portal_needs_candidate'
+          && !talentPoolConsentActive(order) && !(retentionPurgeDueAt(order) > nowMs)) return false;
         const flags = evaluateRedFlags(draft, flow.answers || {}, flow.documents || {}, flow.questionAnswers);
         if (flags.owner.length || flags.candidate.length || flags.documents.length) return false;
         const receipt = submissionDoc.data()?.portalCodeRecovery;

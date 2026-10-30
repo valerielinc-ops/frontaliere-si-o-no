@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { operationalAnswerForOption, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
-import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { candidateForForm, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { buildFillKit } from '../functions/src/assistedApplicationFillKit.js';
@@ -58,6 +58,27 @@ describe('notice duration projection onto the native catalogue', () => {
     expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text' }, '3months')).toBe(true);
     expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text', validation: { pattern: '^3 months$' } }, '3months')).toBe(false);
     expect(isOperationalDefaultValue({ question: 'Notice period', type: 'choice', options: ['3 mesi'] }, '3 months')).toBe(false);
+  });
+
+  it('never replaces an explicit unmatched duration with the three-month policy', () => {
+    const candidate = candidateForForm({ identity: {}, answers: { notice: '7 giorni' }, draft: {}, portalQuestions: [question] });
+    const incompatible = { ...field, options: [{ label: '3 mesi', value: '3' }] };
+    expect(candidateAnswerForField(candidate, incompatible)).toBeNull();
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [incompatible], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toHaveLength(1);
+  });
+
+  it('requires a real native catalogue before filling an operational select discovered during recovery', () => {
+    const unknown = { ...field, options: [] };
+    const candidate = candidateForForm({ identity: {}, answers: { notice: '7 giorni' }, draft: {}, portalQuestions: [question] });
+    expect(candidateAnswerForField(candidate, unknown)).toBeNull();
+    const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 mesi', source: 'policy_default' }], missingRequired: [] }, [unknown], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toHaveLength(1);
+    const requirements = portalRequirementsFromMissingRequired([unknown], guarded.missingRequired);
+    expect(requirements.questions).toEqual([]);
+    expect(requirements.unreadableFields).toHaveLength(1);
   });
 
   it('gives the owner fill kit the explicit projected notice ahead of an old policy default', () => {

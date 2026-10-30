@@ -11,7 +11,7 @@
 import '../../extension/apply-control.js';
 const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
 
-import { operationalDefaultAnswer, operationalAnswerForOption, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuestionTopic, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -1074,6 +1074,12 @@ function isChoiceField(field) {
   return Boolean(field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike);
 }
 
+function operationalChoiceHasNoCatalogue(field) {
+  return Boolean(operationalQuestionTopic(field)
+    && (['select', 'radio', 'listbox'].includes(field?.kind) || field?.selectLike || field?.nativeSelectId)
+    && !(field.options || []).some(option => option?.placeholder !== true && String(option?.label ?? '').trim()));
+}
+
 function optionForAnswer(field, answer) {
   const options = Array.isArray(field?.options) ? field.options : [];
   const topic = questionTopic(field.label, field.context, field);
@@ -1343,6 +1349,7 @@ function phoneCountryOption(candidate, field) {
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context, field);
+  if (operationalChoiceHasNoCatalogue(field)) return null;
   if (topic === 'phone') {
     const value = formatInternationalPhone(candidate?.identity?.phone);
     return value ? { value, source: 'identity' } : null;
@@ -1375,6 +1382,7 @@ export function candidateAnswerForField(candidate, field) {
   if (previous) {
     const value = optionForAnswer(field, previous);
     if (value) return { value, source: 'answers' };
+    if (operationalQuestionTopic(field)) return null;
     if (topic === 'permit') {
       const status = permitStatusOf(previous);
       const selected = permitAnswerForStatus(field, status);
@@ -1630,10 +1638,14 @@ export function guardPlan(plan, fields, candidate = null) {
   // turn an invalid nationality/permit answer into an unrelated automatic
   // answer instead of keeping the required question.
   const rejectedActionFields = new Set();
+  for (const field of fields) if (operationalChoiceHasNoCatalogue(field)) {
+    rejectedActionFields.add(field.id);
+    ask(field);
+  }
   for (const plannedAction of plan.actions || []) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
-    if (!field) continue;
+    if (!field || rejectedActionFields.has(field.id)) continue;
     // A planner's `consent` provenance never authorizes optional marketing
     // or a box that also declares a candidate fact. Recheck the actual label.
     if (action.action === 'check' && action.source === 'consent' && !ownConsent(field)) {
