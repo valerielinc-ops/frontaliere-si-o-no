@@ -23,6 +23,7 @@ export function safeSigninAction(action, pageUrl) {
   try {
     const url = new URL(action); const source = new URL(pageUrl);
     return url.protocol === 'https:' && url.origin === source.origin && !url.hash
+      && !/(?:submit|finali[sz]e|withdraw|delete|remove|applicationapply)/i.test(url.pathname)
       && /(?:^|\/)(?:application)?(?:login|signin|sign-in)\/?$/i.test(url.pathname)
       && [...url.searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key));
   } catch { return false; }
@@ -85,10 +86,10 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     let snapshot = await extractFields(page, { listboxOptions: false });
     if (snapshot.passwordVisible) {
       if (new URL(page.url()).origin !== origin || authPageKind(snapshot) !== 'sign_in') return proof;
-      const account = await accounts.load(new URL(page.url()).hostname);
       const { email, password } = loginFields(snapshot);
       const signin = findButton(snapshot.buttons, SIGN_IN_RE);
-      if (!account?.email || !account.password || !email || !password || !signin) return proof;
+      if (!email || !password || !signin || (signin.frame || 0) !== 0 || (email.frame || 0) !== (signin.frame || 0)
+        || (password.frame || 0) !== (signin.frame || 0)) return proof;
       const owned = await locatorFor(page, signin).evaluate((element, ids) => {
         const form = element.form || element.closest('form');
         return form ? { action: element.hasAttribute('formaction') ? element.formAction : form.action,
@@ -96,9 +97,11 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           credentialsOwned: ids.every(id => document.querySelector(`[data-aa-id="${id}"]`)?.form === form) } : null;
       }, [email.id, password.id]);
       if (!owned?.credentialsOwned || !safeSigninAction(owned.action, page.url()) || String(owned.method).toLowerCase() !== 'post') return proof;
+      const account = await accounts.load(new URL(page.url()).hostname);
+      if (!account?.email || !account.password) return proof;
       loginAction = owned.action;
       navigationTargets.add(loginAction);
-      await applyActions(page, snapshot.fields, [{ fieldId: email.id, action: 'fill', value: account.email }, { fieldId: password.id, action: 'fill', value: account.password }], {});
+      await applyActions(page, [email, password], [{ fieldId: email.id, action: 'fill', value: account.email }, { fieldId: password.id, action: 'fill', value: account.password }], {});
       loginArmed = true;
       await locatorFor(page, signin).click({ timeout: 6000 });
       await page.waitForLoadState('domcontentloaded').catch(() => {});
