@@ -1197,9 +1197,8 @@ function fallbackLocalizedQuestion(item, language) {
  * identified a required field. The ATS label and options remain attached so
  * the answer can be mapped back to the form's language at submission time.
  * The application copy remains exact and the candidate copy is translated in
- * one structured call. If that call fails, a planner sentence is retained only
- * when it is already different from the ATS label; an exact raw ATS label is
- * replaced with a candidate-language fallback and marked for diagnostics.
+ * one structured call. If that call fails or returns a generic placeholder,
+ * retain the actual question and mark the fallback for diagnostics.
  */
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
   const items = (Array.isArray(questions) ? questions : []).map(item => ({ ...item, question: portalQuestionText(item) }));

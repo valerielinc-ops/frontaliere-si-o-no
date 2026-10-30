@@ -7,6 +7,8 @@ import { localizePortalQuestions, portalRequirementsFromMissingRequired } from '
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
+import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { reconcileOperationalAnswers } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
 
 // Anonymous registration markup: an intentionally empty styled label and the
 // actual consent in the owned fieldset legend, as on the public Avature form.
@@ -62,6 +64,22 @@ const draft = { status: 'ready', round: 1, job: { source: 'job_detail' }, channe
 const approved = { state: 'needs_candidate_action', round: 1, heldBy: ['question:unreadable'], dispatch: { mode: 'submit', round: 1, attempts: 1 } };
 
 describe('legacy unreadable portal waits', () => {
+  it.each(Object.values(PORTAL_QUESTION_PLACEHOLDERS))('rejects decorative placeholder variants: %s', question => {
+    expect(questionsForCandidate([{ ...placeholder, question: `• ${question.toUpperCase()} *` }], {})).toEqual([]);
+  });
+  it('requeues a paid legacy wait once through the deployment reconciler without changing answers or approval', async () => {
+    const base = 'assisted_applications/unreadable_test';
+    const store = createMemoryFirestore({
+      [base]: { paymentStatus: 'paid', automationState: 'needs_candidate_action' },
+      [`${base}/automation/flow`]: approved,
+      [`${base}/ai_drafts/current`]: draft,
+    });
+    const context = { db: store.db, apply: true, nowMs: 2000 };
+    expect(await reconcileOperationalAnswers(context)).toMatchObject({ eligible: 1, queued: 1 });
+    expect(store.read(base).automationDueAt).toBe(2000);
+    expect(store.read(`${base}/automation/flow`)).toEqual(approved);
+    expect(await reconcileOperationalAnswers(context)).toMatchObject({ eligible: 0, alreadyQueued: 1 });
+  });
   it('does not expose placeholders or record a fictional answer, and resumes only the approved submission on its normal tick', () => {
     expect(questionsForCandidate([placeholder], {})).toEqual([]);
     const result = transition(approved, { type: 'tick' }, { draft });
