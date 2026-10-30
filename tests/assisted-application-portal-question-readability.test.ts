@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { localizePortalQuestions, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { localizePortalQuestions, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -51,6 +51,31 @@ it('routes unreadable source labels to a technical hold instead of manufacturing
   expect(result.unreadableFields).toEqual(['f1']);
   expect(portalRequirementsFromMissingRequired([{ id: 'f1', kind: 'text', label: '', required: true }],
     [{ fieldId: 'f1', question: 'A plausible but invented question?' }])).toMatchObject({ questions: [], unreadableFields: ['f1'] });
+});
+
+it('hands off an unreadable required field during the real pre-read before translating other questions', async () => {
+  const url = 'https://jobs.lever.co/example/1/apply';
+  const snapshot = {
+    url, buttons: [], captcha: false, passwordVisible: false, errors: [], text: '',
+    fields: [
+      { id: 'cv', kind: 'file', label: 'CV', required: true },
+      { id: 'x', kind: 'text', label: '', required: true },
+      { id: 'other', kind: 'text', label: 'What is your current employer?', required: true },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = { frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}) };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [{ fieldId: 'x' }, { fieldId: 'other', question: 'What is your current employer?' }] }));
+  const ctx = { channelType: 'lever', applyUrl: url, language: 'en', candidateLocale: 'it',
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser };
+  const result = await readPortalRequirements(ctx);
+  expect(result).toMatchObject({ handoff: 'question_label_unreadable', unreadableFields: ['x'], questions: [] });
+  expect(codex).toHaveBeenCalledTimes(1); // Planner only; no localization of an incomplete form.
+  expect(frame.evaluate).toHaveBeenCalled();
+  expect(browser.close).toHaveBeenCalledOnce();
+  expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
 });
 
 it('uses the actual source question if localization returns only a generic placeholder', async () => {

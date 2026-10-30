@@ -3121,8 +3121,9 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
  * identify ALL the questions before answering), so the candidate answers them
  * on the first review instead of in a second round at submit time. The form
  * is opened and read, never filled, and nothing is pressed but "apply".
- * Never fails the draft: any problem returns no questions.
- * @returns {Promise<{questions:Array<object>,documents:Array<object>}>} requirements for the review page
+ * Never fails the draft: browser failures return no questions. An unreadable
+ * required field is a technical handoff, never a question for the candidate.
+ * @returns {Promise<{questions:Array<object>,documents:Array<object>,handoff?:string,unreadableFields?:Array<string>}>} requirements for the review page
  */
 export async function readPortalRequirements(ctx) {
   const entryUrl = portalEntryUrl(ctx);
@@ -3165,6 +3166,10 @@ export async function readPortalRequirements(ctx) {
     if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };
     const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired);
+    if (requirements.unreadableFields?.length) {
+      (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
+      return { ...requirements, questions: [], handoff: 'question_label_unreadable' };
+    }
     return {
       ...requirements,
       questions: await localizePortalQuestions(requirements.questions, {
