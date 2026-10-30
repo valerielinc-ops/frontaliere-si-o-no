@@ -31,6 +31,7 @@ import {
   formatJobAlertBatchLine,
   formatJobAlertFunnelLines,
   formatJobAlertFunnelMarkdown,
+  formatJobAlertProviderLine,
   writeJobAlertStepSummary,
 } from './lib/job-alert-funnel.mjs';
 import { normalizeContract, formatSalary, emailTagChip } from '../services/newsletter-content.mjs';
@@ -220,11 +221,11 @@ const MATCHER_MONITOR_ISSUE_TITLE = '[Monitor] Job-alert zero-match rate above t
 const TARGET_EMAIL_RAW = (process.env.TARGET_EMAIL || '').trim().toLowerCase();
 const ALLOWED_EMAILS = TARGET_EMAIL_RAW ? new Set([TARGET_EMAIL_RAW]) : null;
 
-// Una riga per alert (ogni email inviata, ogni alert saltato) è la parte più
-// grossa del log, e il riepilogo di fine run le ha già contate nel funnel. Le
-// righe si riaccendono con JOB_ALERT_LOG_DETAIL=1 e restano accese per costruzione
-// nei run di test (TARGET_EMAIL) e a secco, dove il dettaglio serve davvero.
-const JOB_ALERT_LOG_DETAIL = process.env.JOB_ALERT_LOG_DETAIL === '1' || DRY_RUN || ALLOWED_EMAILS !== null;
+// Dettaglio per alert nel log: ogni alert inviato, saltato o scartato ha la sua
+// riga con il motivo, così si risale a chi è stato filtrato e perché. Il funnel
+// in fondo al log e nel Job Summary dà i totali. JOB_ALERT_LOG_DETAIL=0 spegne
+// le righe per alert; il funnel resta.
+const JOB_ALERT_LOG_DETAIL = process.env.JOB_ALERT_LOG_DETAIL !== '0';
 const logDetail = (...args) => {
   if (JOB_ALERT_LOG_DETAIL) console.log(...args);
 };
@@ -244,11 +245,13 @@ function noteCascadeResult(result) {
 // quelli senza alert o senza inventario: il numero delle email (zero compreso,
 // retry compresi) deve esserci in ogni run. Gli argomenti mancanti valgono zero.
 async function printJobAlertFunnel({ funnelIn = {}, zeroMatch = {}, sends = {}, retryOutcome }) {
+  // La tabella dei provider sta nel Job Summary, non nel log: nel log basta una riga.
   let providers = [];
   if (cascadeStats.calls > 0) {
-    const { logProviderSummary, getProviderStats } = await import('./lib/email-cascade.mjs');
-    logProviderSummary();
+    const { getProviderStats } = await import('./lib/email-cascade.mjs');
     providers = getProviderStats();
+    const providerLine = formatJobAlertProviderLine(providers);
+    if (providerLine) console.log(providerLine);
   }
   const funnel = buildJobAlertFunnel({
     ...funnelIn,
@@ -268,7 +271,9 @@ async function printJobAlertFunnel({ funnelIn = {}, zeroMatch = {}, sends = {}, 
   const mode = DRY_RUN ? 'DRY RUN' : (ALLOWED_EMAILS ? 'TEST' : 'LIVE');
   const linkAudit = { batches: cascadeStats.linkAuditBatches, defects: cascadeStats.linkAuditDefects };
   for (const line of formatJobAlertFunnelLines(funnel, { date: TODAY_ISO, mode, linkAudit })) console.log(line);
-  writeJobAlertStepSummary(formatJobAlertFunnelMarkdown(funnel, { date: TODAY_ISO, mode, providers, linkAudit }));
+  if (writeJobAlertStepSummary(formatJobAlertFunnelMarkdown(funnel, { date: TODAY_ISO, mode, providers, linkAudit }))) {
+    console.log('   📝 Job Summary aggiornato (GITHUB_STEP_SUMMARY)');
+  }
 }
 
 if (TARGET_EMAIL_RAW) {
@@ -2680,7 +2685,11 @@ async function main() {
   }
   if (suppressedEmails.size > 0) {
     const before = alerts.length;
-    alerts = alerts.filter((a) => !suppressedEmails.has(a.email.toLowerCase()));
+    alerts = alerts.filter((a) => {
+      if (!suppressedEmails.has(a.email.toLowerCase())) return true;
+      logDetail(`   🚫 soppresso — alert ${a.id} · ${a.email} · stop globale, bounce, reclamo o lista provider`);
+      return false;
+    });
     funnelIn.suppressed = before - alerts.length;
     console.log(`   🚫 Suppressed (global stop / bounced / complained / provider list): ${before - alerts.length} alert(s) skipped`);
   }
@@ -2705,6 +2714,9 @@ async function main() {
           checkedAt: consentCheckedAt,
         });
       }
+      if (consent.allowed !== true) {
+        logDetail(`   🚫 senza base di iscrizione — alert ${a.id} · ${a.email} · ${consent.reason || 'nessun consenso verificabile'}`);
+      }
       return consent.allowed === true;
     });
     funnelIn.backfill = before - alerts.length;
@@ -2717,7 +2729,11 @@ async function main() {
   }
   if (newsletterCooldownSet.size > 0) {
     const before = alerts.length;
-    alerts = alerts.filter((a) => !newsletterCooldownSet.has(a.email.toLowerCase()));
+    alerts = alerts.filter((a) => {
+      if (!newsletterCooldownSet.has(a.email.toLowerCase())) return true;
+      logDetail(`   📬 rinviato (newsletter inviata da poco) — alert ${a.id} · ${a.email}`);
+      return false;
+    });
     funnelIn.cooldown = before - alerts.length;
     console.log(`   📬 Newsletter cooldown (36h): ${before - alerts.length} alerts deferred (newsletter sent recently)`);
   }
@@ -2836,6 +2852,7 @@ async function main() {
     alert.cadenceManual = decision.manual;
     if (decision.decayed) {
       decayedSkipped++;
+      logDetail(`   🪦 decaduto per cadenza — alert ${alert.id} · ${alert.email}`);
       return false;
     }
     if (decision.ceilingApplied && ceilingHeld[decision.tier] != null) ceilingHeld[decision.tier]++;
