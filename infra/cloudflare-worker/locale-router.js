@@ -706,14 +706,42 @@ const COMPANY_HUB_RE =
 // Worker used to 301 every OTHER `ricerca-*` slug to the national board; that
 // generative redirect turned any invented cluster URL into a 301 to a listing,
 // which Google classifies as a soft 404. An unknown cluster slug now stays a
-// real 404 (with the localized page from renderNotFoundPage). The national
-// boards remain the primary link of that page.
+// real 404 (with the localized page from renderNotFoundPage) only if the board
+// cannot be served: see serveUnknownSearchCluster. The national boards remain the
+// primary link of that page.
 const NATIONAL_BOARD_BY_LOCALE = {
   it: '/cerca-lavoro-svizzera/',
   en: '/en/find-jobs-switzerland/',
   de: '/de/jobs-in-schweiz/',
   fr: '/fr/trouver-emploi-suisse/',
 };
+
+// Job pages link searches computed from the current posting, but a static page
+// exists only for the admitted candidates (scripts/lib/related-search-admission.mjs).
+// Every other search answers with the national board, whose SPA runs the query
+// from the URL, under an explicit noindex: reachable for people, and no soft 404
+// for search engines because nothing here can be indexed.
+const SEARCH_CLUSTER_WORD_BY_LOCALE = { it: 'ricerca', en: 'search', de: 'suche', fr: 'recherche' };
+const SEARCH_CLUSTER_PATH_RE = /^(?:\/(en|de|fr))?\/[a-z0-9-]+\/(ricerca|search|suche|recherche)-[a-z0-9]+(?:-[a-z0-9]+)*\/$/u;
+const SEARCH_CLUSTER_PATH_MAX_LENGTH = 120;
+const SEARCH_CLUSTER_FALLBACK_CACHE_CONTROL = 'public, max-age=300, s-maxage=3600';
+
+export async function serveUnknownSearchCluster(request, response, dispatch) {
+  if (response.status !== 404 || (request.method !== 'GET' && request.method !== 'HEAD')) return response;
+  const { pathname } = new URL(request.url);
+  const match = pathname.length <= SEARCH_CLUSTER_PATH_MAX_LENGTH && pathname.match(SEARCH_CLUSTER_PATH_RE);
+  if (!match) return response;
+  const locale = match[1] || 'it';
+  if (match[2] !== SEARCH_CLUSTER_WORD_BY_LOCALE[locale]) return response;
+  const board = await dispatch(new Request(new URL(NATIONAL_BOARD_BY_LOCALE[locale], request.url), { method: 'GET' }));
+  if (board.status !== 200) return response;
+  const headers = new Headers(board.headers);
+  headers.set('X-Robots-Tag', 'noindex, follow');
+  headers.set('Cache-Control', SEARCH_CLUSTER_FALLBACK_CACHE_CONTROL);
+  headers.delete('ETag');
+  headers.delete('Last-Modified');
+  return new Response(request.method === 'HEAD' ? null : board.body, { status: 200, headers });
+}
 
 // Legacy listing-pagination recovery. The old listing URL format
 //   /<locale>/<section>-<canton>/<filter>/page-<N>/   (filter ∈ the "all jobs"
@@ -3502,6 +3530,9 @@ export default {
       await router.fetch(request, env, ctx),
       () => router.fetch(new Request(request, { method: 'GET' }), env, ctx),
     );
-    return stripStaleAssetIntegrity(request, response);
+    const served = await serveUnknownSearchCluster(request, response, (boardRequest) =>
+      router.fetch(boardRequest, env, ctx),
+    );
+    return stripStaleAssetIntegrity(request, served);
   },
 };
