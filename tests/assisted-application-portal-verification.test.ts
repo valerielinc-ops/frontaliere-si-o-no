@@ -1,3 +1,4 @@
+import { runInNewContext } from 'node:vm';
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { requestPortalVerification, executePortalVerification, verificationBinding } from '../scripts/assisted-application/verify-portal.mjs';
@@ -69,7 +70,7 @@ describe('protected read-only portal inspection', () => {
 
   it('blocks service workers and alternate transports before visiting the protected page', async () => {
     const routeWebSocket = vi.fn(async () => {});
-    const addInitScript = vi.fn(async () => {});
+    const addInitScript = vi.fn(async (_fn: Function) => {});
     const close = vi.fn(async () => {});
     const context = { routeWebSocket, addInitScript, close, route: vi.fn(async () => {}),
       newPage: async () => ({ goto: async () => { throw new Error('test_stop_before_network'); } }) };
@@ -79,6 +80,12 @@ describe('protected read-only portal inspection', () => {
     expect(newContext).toHaveBeenCalledWith(expect.objectContaining({ serviceWorkers: 'block' }));
     expect(routeWebSocket).toHaveBeenCalledTimes(1);
     expect(addInitScript).toHaveBeenCalledTimes(1);
+    const sandbox: Record<string, any> = Object.fromEntries(['WebTransport', 'Worker', 'SharedWorker', 'RTCPeerConnection', 'webkitRTCPeerConnection'].map(name => [name, function Transport() {}]));
+    runInNewContext(`(${addInitScript.mock.calls[0][0].toString()})()`, sandbox);
+    for (const name of Object.keys(sandbox)) {
+      expect(sandbox[name]).toBeUndefined();
+      expect(Object.getOwnPropertyDescriptor(sandbox, name)).toMatchObject({ writable: false, configurable: false });
+    }
     expect(close).toHaveBeenCalledTimes(1);
   });
 
