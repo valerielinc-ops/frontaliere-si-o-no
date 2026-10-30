@@ -1,7 +1,8 @@
+import { isPortableCandidateLanguageQuestion } from './lib/candidateLanguageQuestion.js';
 import { addressContextContract } from './lib/addressContextContract.js';
 /** Shared answers keep their question and attested source. Opaque legacy values are never promoted. */
 import { createHash } from 'node:crypto';
-import { candidateQuestionAnswerKey, isGeneralCandidateLanguageQuestion, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { languageCodesIn, isLanguageAbilityQuestion } from './lib/languageFacts.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
@@ -43,9 +44,7 @@ function semantics(question, answer) {
   const language = /^language_([a-z]{2})_(any|oral|written)_(proficiency|ability|threshold_[abc][12])$/.exec(key);
   if ((language || languageCodesIn(question.question).length === 1 && isLanguageAbilityQuestion(question.question)) && LANGUAGE_QUESTION.test(label)) {
     const levelAnswer = ['text', 'choice'].includes(question.type) && LEVEL.test(norm(answer));
-    const portable = language?.[2] === 'any' && language?.[3] === 'proficiency' && levelAnswer && isGeneralCandidateLanguageQuestion(question.question)
-      && !question.context && !question.section && !question.autocomplete && !Object.hasOwn(question, 'addressContext')
-      && (!question.applicationQuestion || norm(question.applicationQuestion) === label);
+    const portable = language?.[2] === 'any' && language?.[3] === 'proficiency' && levelAnswer && isPortableCandidateLanguageQuestion(question);
     const unit = levelAnswer ? 'CEFR_or_stated_level' : ['yes_no', 'checkbox'].includes(question.type) ? 'boolean'
       : question.type === 'number' ? 'question_specific_number' : 'question_specific_text';
     return { category: 'language', unit, scope: portable ? 'candidate' : 'job' };

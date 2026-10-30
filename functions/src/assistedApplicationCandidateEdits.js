@@ -1,3 +1,4 @@
+import { LANGUAGE_LEVEL_RE, LANGUAGE_MODALITY_RE, LANGUAGE_ORAL_RE, isGeneralCandidateLanguageQuestion, normalizeCandidateQuestionValue as normalizeQuestionValue } from './lib/candidateLanguageQuestion.js';
 import { addressContextContract } from './lib/addressContextContract.js';
 import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 /**
@@ -34,17 +35,11 @@ import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitOptions, permitStatusOf } from './lib/permitStatus.js';
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
-import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
+import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
-const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
-const LANGUAGE_MODALITY_RE = /\b(?:written|schriftlich|ecrit|écrit|scritto|scritta)\b/i;
-const LANGUAGE_ORAL_RE = /\b(?:oral|spoken|muendlich|mündlich|parlato|parlata|parle|parlé)\b/i;
 
-function normalizeQuestionValue(value) {
-  return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
-    .replace(/[’‘`]/g, "'").replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim();
-}
+
 
 // ATS tenants often add a generic fieldset label when a question is observed
 // again (for example, `Candidate contact address`). It does not identify a
@@ -113,10 +108,7 @@ export function isPreferredWorkloadQuestion(value) {
 const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
 
 /** Complete general questions only: additional domain, future or employer clauses retain their own key. */
-export function isGeneralCandidateLanguageQuestion(value) {
-  const text = normalizeQuestionValue(value).split(' ').map(word => languageCodesIn(word).length === 1 && isLanguageNameOnly(word) ? 'language_target' : word).join(' ');
-  return /^(?:what is your (?:current )?(?:(?:written|spoken|oral) )?language_target (?:proficiency(?: level)?|fluency level|level)|what is your (?:current )?level of language_target|do you speak language_target(?: if so how would you describe your proficiency level)?|qual e il tuo (?:attuale )?livello di language_target|parli language_target|wie ist (?:ihr|dein) (?:aktuelles )?niveau in language_target|sprechen sie language_target|quel est votre niveau (?:actuel )?(?:en|de) language_target|parlez vous language_target)$/.test(text);
-}
+export { isGeneralCandidateLanguageQuestion } from './lib/candidateLanguageQuestion.js';
 
 /** Stable fact key for an answer, independent of a model or ATS field id. */
 export function candidateQuestionAnswerKey(question) {
