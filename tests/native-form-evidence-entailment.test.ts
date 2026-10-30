@@ -32,7 +32,7 @@ describe('blind native form answer evidence selection', () => {
     expect(JSON.stringify(result.verification)).not.toContain('[[cv:');
   });
 
-  it.each(['missing', 'duplicate', 'unknown_index', 'unknown_source', 'unsupported', 'uncertain', 'invalid_reason'])('fails technically closed on %s', async violation => {
+  it.each(['missing', 'duplicate', 'unknown_index', 'unknown_source', 'unsupported', 'uncertain', 'invalid_reason', 'contradiction_reason'])('fails technically closed on %s', async violation => {
     const f = fixture();
     const original = f.generate.getMockImplementation()!;
     f.generate.mockImplementation(async (...args) => {
@@ -43,11 +43,71 @@ describe('blind native form answer evidence selection', () => {
       if (violation === 'unknown_source') raw.assessments[0].sourceId = '[[profile:9999]]';
       if (violation === 'unsupported') raw.assessments[0].verdict = 'unsupported';
       if (violation === 'uncertain') raw.assessments[0].verdict = 'uncertain';
+      if (violation === 'contradiction_reason') raw.assessments[0].reason = 'contradiction';
       if (violation === 'invalid_reason') raw.assessments[0].reason = 'title_without_activity';
       return raw;
     });
     expect(await verifyNativeFormAnswers(f)).toMatchObject({ status: 'unverified', reason: 'evidence_entailment_unverified' });
     expect(f.generate).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps a deferred verdict bound to its owned input snapshot', async () => {
+    const f = fixture();
+    const counter = { correction: 'Current statement' };
+    const originalKey = nativeFormAssessmentHash({ ...f, unverifiedContext: counter });
+    let release!: (value: any) => void;
+    let payload: any;
+    f.generate.mockImplementation(async (_system, user) => {
+      payload = JSON.parse(user);
+      return new Promise(resolve => { release = resolve; });
+    });
+    const pending = verifyNativeFormAnswers({ ...f, unverifiedContext: counter });
+    f.claims[0].proposedAnswer = 'No';
+    f.claims[0].fieldId = 'changed-field';
+    f.scope.round = 3;
+    counter.correction = 'Changed while waiting';
+    f.sources.evidenceCatalog().forEach(source => { source.documentHash = 'changed-source'; });
+    release({ assessments: payload.claims.map((claim: any) => ({ index: claim.index,
+      sourceId: payload.sources.find((source: any) => source.quote.includes(claim.index ? 'eight years' : 'Master’s Degree')).sourceId,
+      verdict: 'supported', reason: 'explicit_fact' })) });
+    const result = await pending;
+    expect(result.status).toBe('supported');
+    expect(result.verification.assessmentHash).toBe(originalKey);
+    expect(result.verification.assessmentHash).not.toBe(nativeFormAssessmentHash({ ...f, unverifiedContext: counter }));
+    expect(result.verification.checks[0].fieldId).toBe('degree');
+    expect(result.verification.checks[0].sourceHash).not.toBe('changed-source');
+  });
+
+  it('does not stamp a verdict with another day when the judge crosses UTC midnight', async () => {
+    vi.useFakeTimers();
+    try {
+      const today = new Date();
+      today.setUTCHours(0, 0, 0, 0);
+      const midnight = today.getTime();
+      vi.setSystemTime(midnight - 500);
+      const f = fixture();
+      const original = f.generate.getMockImplementation()!;
+      f.generate.mockImplementation(async (...args) => {
+        const result = await original(...args);
+        vi.setSystemTime(midnight + 500);
+        return result;
+      });
+      expect(await verifyNativeFormAnswers(f)).toMatchObject({ status: 'unverified', verification: { failure: 'date_changed' } });
+    } finally { vi.useRealTimers(); }
+  });
+
+  it('preserves neighboring role/date attribution by original source IDs without duplicating CV text', async () => {
+    const f = fixture();
+    const sources = qualificationSources({ sourceText: `Software Engineer — Example Systems\n${new Date().getUTCFullYear() - 8} – Present` });
+    f.generate.mockImplementation(async (_system, user) => {
+      const payload = JSON.parse(user);
+      const date = payload.sources.find((source: any) => source.quote.includes('Present'));
+      const role = payload.sources.find((source: any) => source.quote.includes('Software Engineer'));
+      expect(date.contextSourceIds).toContain(role.sourceId);
+      expect(date).not.toHaveProperty('context');
+      return { assessments: [{ index: 0, sourceId: date.sourceId, verdict: 'supported', reason: 'relevant_role_or_tenure' }] };
+    });
+    expect((await verifyNativeFormAnswers({ ...f, sources, claims: [{ fieldId: 'tenure', nativeFormContract: { question: 'Have you worked as a software engineer for at least five years?' }, proposedAnswer: 'Yes' }] })).status).toBe('supported');
   });
 
   it('does not skip a negative answer or interpret a printed option as the actual attested answer', async () => {

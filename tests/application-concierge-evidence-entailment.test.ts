@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { qualificationSources, verifyQualificationEvidence, hasVerifiedQualificationEvidence,
-  EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
+  qualificationAssessmentHash, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
 import { qualificationEvidenceCases } from './fixtures/qualification-evidence-cases.mjs';
 
 function fixture(cases = qualificationEvidenceCases().filter(item => item.group === 'yellowshark-positive')) {
@@ -130,6 +130,25 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     expect(await verifyQualificationEvidence({ ...f, match: duplicate, preliminary: { status: 'unverified' }, purpose: 'documents' }))
       .toMatchObject({ status: 'unverified', verification: { failure: 'invalid_match_rows' } });
     expect(f.generate).not.toHaveBeenCalled();
+  });
+
+  it('keeps the proposal witness bound to the match judged before an asynchronous mutation', async () => {
+    const f = fixture();
+    const expectedHash = qualificationAssessmentHash(f.requirements, f.match);
+    let release!: (value: any) => void;
+    let payload: any;
+    f.generate.mockImplementation(async (_system, user) => {
+      payload = JSON.parse(user);
+      return new Promise(resolve => { release = resolve; });
+    });
+    const pending = verifyQualificationEvidence(f);
+    f.match.verdict = 'poor';
+    f.requirements.requirements[0].quote = 'Changed employer condition';
+    release({ assessments: payload.claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id, verdict: 'supported', reason: 'explicit_fact' })) });
+    const result = await pending;
+    expect(result.status).toBe('supported');
+    expect(result.verification.assessmentHash).toBe(expectedHash);
+    expect(result.verification.assessmentHash).not.toBe(qualificationAssessmentHash(f.requirements, f.match));
   });
 
   it('does not label a profile projection or a bare answer as original primary evidence', async () => {
