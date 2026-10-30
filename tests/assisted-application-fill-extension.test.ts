@@ -325,6 +325,28 @@ describe('fill extension: JOIN steps', () => {
     expect(F.answerFor(city, { ...kit, answers: [] })).toBeNull();
   });
 
+  it.each([
+    ['<fieldset aria-label="Employer">', '</fieldset>'],
+    ['<section aria-labelledby="owner"><span id="owner">Work history</span>', '</section>'],
+    ['<fieldset><legend>Company address</legend>', '</fieldset>'],
+  ])('keeps a named professional owner authoritative inside a personal form', (open, close) => {
+    const { F, document, window } = page(`<form><h2>Personal information</h2>${open}<label for="city">City</label><input id="city" autocomplete="address-level2">${close}</form>`);
+    nativeFieldReading(window);
+    const city = F.collect(document).find((entry: any) => entry.element.id === 'city');
+    expect(F.answerFor(city, { ...kit, answers: [] })).toBeNull();
+  });
+
+  it.each([
+    ['<fieldset aria-label="Personal information">', '</fieldset>'],
+    ['<section aria-labelledby="owner"><span id="owner">Informazioni personali</span>', '</section>'],
+    ['<fieldset><legend>Informations personnelles</legend>', '</fieldset>'],
+  ])('retains explicit personal section ownership without a heading', (open, close) => {
+    const { F, document, window } = page(`<form>${open}<label for="city">City</label><input id="city" autocomplete="address-level2">${close}</form>`);
+    nativeFieldReading(window);
+    const city = F.collect(document).find((entry: any) => entry.element.id === 'city');
+    expect(F.answerFor(city, { ...kit, answers: [] })).toEqual({ value: 'Como', family: 'city' });
+  });
+
   it('stops on the review page with «Conferma e applica» and never presses it', async () => {
     const { F, document } = page(`<form><h2>Esamina la tua candidatura</h2><p>Inviando la candidatura accetto il JOIN Termini.</p>
       <button type="button"><span>Indietro</span></button><button type="submit"><span>Conferma e applica</span></button></form>`);

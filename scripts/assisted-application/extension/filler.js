@@ -362,11 +362,25 @@
 
   /** Residence context stays separate from question labels and kit answers. */
   function runnerSectionOf(runner, element) {
-    const section = runner.get(element.getAttribute('data-aa-id'))?.section || '';
-    if (!section) return '';
-    const scopeSelector = 'form, [role="form"], fieldset, section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"]';
+    const field = runner.get(element.getAttribute('data-aa-id'));
+    if (!field) return '';
+    const section = field.section || '';
+    const scopeSelector = 'form, [role="form"], fieldset, section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], [role="group"], [role="radiogroup"], main, [role="main"]';
     const boundary = element.closest('form, [role="form"], dialog, [role="dialog"], main, [role="main"]');
     if (!boundary) return '';
+    const names = [];
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      if (node.matches(scopeSelector) && isShown(node)) {
+        names.push(node.getAttribute('aria-label') || '');
+        for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+          const label = node.ownerDocument.getElementById(id);
+          if (label && isShown(label)) names.push(textOf(label));
+        }
+        const legend = [...node.children].find(child => child.tagName === 'LEGEND');
+        if (legend && isShown(legend)) names.push(textOf(legend));
+      }
+      if (node === boundary) break;
+    }
     // The producer can see headings elsewhere in the document. A matching
     // heading must also belong to a visible section containing this control;
     // another form, step or fieldset cannot establish its address owner.
@@ -376,7 +390,7 @@
         && Boolean(heading.compareDocumentPosition(element) & 4)
         && normalize(textOf(heading)) === normalize(section);
     });
-    return owned ? section : '';
+    return [...new Set([...names, owned ? section : ''].map(value => String(value).trim().slice(0, 300)).filter(Boolean))].join(' · ');
   }
 
   function markerText(node) {
