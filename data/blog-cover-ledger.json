@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 968,
+      "5": 969,
       "6": 5061
     },
-    "publishedCovers": 7711,
+    "publishedCovers": 7712,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -211806,6 +211806,39 @@
         "provider": "openai-codex",
         "assetId": "article-scontro-fiscale-coppie-atto",
         "imageUrl": "/images/blog/article-scontro-fiscale-coppie-atto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tpf-nuovi-bus-elettrici-friburgo": {
+      "cover": "/images/blog/article-tpf-nuovi-bus-elettrici-friburgo.webp",
+      "hash": "4a0939d4284a2d2b28c586933c76488b1dd34277819c43bf76a5b1c37105aac7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "tpf-nuovi-bus-elettrici-friburgo",
+          "category": "novita",
+          "date": "2026-10-30T18:03:17.846Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tpf-nuovi-bus-elettrici-friburgo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tpf-nuovi-bus-elettrici-friburgo",
+        "imageUrl": "/images/blog/article-tpf-nuovi-bus-elettrici-friburgo.webp",
         "evidence": "generated-engine-record"
       }
     }
