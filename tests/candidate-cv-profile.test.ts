@@ -847,6 +847,7 @@ describe('progress through the complete relevant job pool', () => {
     const path = 'application_concierge_services/service-preference';
     const history = { jobId: 'previous', jobUrl: 'https://jobs.example.test/previous/',
       jobTitle: 'Infermiere medicina', status: withdrawn ? 'declined' : 'accepted', ...(withdrawn ? { withdrawnAt: now - 1_000 } : {}) };
+    const expectedHistory = structuredClone(history);
     const acceptedPositionsCount = withdrawn ? 0 : 1;
     const profile = { searchText: 'infermiere triage medicina', workPosition: 'Infermiere', skills: ['triage', 'medicina'], experienceSummary: [] };
     const { db, documents } = createMatchingDb({
@@ -870,7 +871,7 @@ describe('progress through the complete relevant job pool', () => {
       expect(proposals.map(([, value]) => value.jobId)).toEqual([expected]);
       expect(proposals[0][1].eligibilityStatus).toBe('compatible');
       expect(new Set(eligibility.mock.calls.map(([job]) => job.id))).toEqual(new Set(['first', 'second']));
-      expect(documents.get(`${path}/proposals/history`)).toEqual(history);
+      expect(documents.get(`${path}/proposals/history`)).toEqual(expectedHistory);
       expect(documents.get(path)?.acceptedPositionsCount).toBe(acceptedPositionsCount);
     } finally { vi.unstubAllGlobals(); }
   });
