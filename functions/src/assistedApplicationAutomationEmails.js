@@ -10,6 +10,7 @@
  * ad and its refund.
  */
 
+import { isInfrastructureRetryHold } from './assistedApplicationPortalRetryPolicy.js';
 import {
   brandButton,
   brandCallout,
@@ -431,6 +432,13 @@ const RUNNER_HINTS = {
  */
 export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt }) {
   const raw = String(reason || '').trim();
+  if (isInfrastructureRetryHold({ heldBy: [raw] }) && Number(portalAutoRetryAt) > 0) {
+    return {
+      reason: raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio' : 'la connessione al portale non è riuscita',
+      hint: `La candidatura resta in coda. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')} e i tentativi proseguiranno mentre l’annuncio è disponibile. Non serve intervenire sulla singola candidatura.`,
+      detail: '',
+    };
+  }
   if (TAKEOVER_REASONS[raw]) return { reason: TAKEOVER_REASONS[raw], hint: '', detail: '' };
   if (raw.startsWith('portal:')) {
     const code = raw.slice('portal:'.length);
@@ -573,7 +581,8 @@ export function buildOwnerAutomationEmail(kind, vars) {
     html.push(brandInfoCard('Sintesi', esc(vars.summary || '—')), brandParagraph(esc(facts.join(' · '))));
     text.push(`Sintesi: ${vars.summary || '—'}`, facts.join(' · '));
   } else if (kind === 'owner_takeover') {
-    const retryPending = String(vars.reason || '') === 'portal:portal_needs_candidate' && Number(vars.portalAutoRetryAt) > 0;
+    const retryPending = (String(vars.reason || '') === 'portal:portal_needs_candidate'
+      || isInfrastructureRetryHold({ heldBy: [String(vars.reason || '')] })) && Number(vars.portalAutoRetryAt) > 0;
     subject = retryPending
       ? `[Candidatura] Nuovo tentativo automatico previsto: ${job} — ${company}`
       : `[Candidatura] Presa in carico necessaria: ${job} — ${company}`;
