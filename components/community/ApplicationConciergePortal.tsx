@@ -980,15 +980,14 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     }).catch(() => { if (!cancelled) setJobLinkError(true); }).finally(() => window.clearTimeout(timer));
     return () => { cancelled = true; controller.abort(); window.clearTimeout(timer); };
   }, [proposed, proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
-  const state = proposal.childApplicationState;
   const displayStatus = conciergeProposalDisplayStatus(proposal);
   const statusTone = displayStatus === 'submitted' || displayStatus === 'employer_auto_acknowledgement' ? 'bg-success-subtle text-success'
     : ['proposed', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
     : 'bg-surface-raised text-muted';
-  const childKey = state === 'needs_candidate_action' || state === 'candidate_handoff' ? 'childNeedsAnswers'
-    : state === 'candidate_review' ? 'childNeedsReview'
-    : proposal.childCandidateStatus === 'submitted' || state === 'submitted' ? 'childSubmitted'
-    : state === 'owner_takeover' || state === 'owner_review' ? 'childProcessing'
+  const childKey = displayStatus === 'needs_answers' ? 'childNeedsAnswers'
+    : displayStatus === 'needs_review' ? 'childNeedsReview'
+    : displayStatus === 'submitted' || displayStatus.startsWith('employer_') ? 'childSubmitted'
+    : displayStatus === 'technical_review' || displayStatus === 'retry_scheduled' ? 'childProcessing'
     : 'childPreparing';
   return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border">
     <div className="flex flex-wrap items-start gap-3">
@@ -1001,8 +1000,8 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     </div>
     {proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}
     {accepted && proposal.childApplicationId && <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-surface-raised p-3">
-      <div className="min-w-0"><p className="text-sm font-semibold text-heading">{t(`jobBoard.concierge.${childKey}`)}</p><AssistedApplicationEmployerResponse response={proposal.childEmployerResponse} compact /></div>
-      <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${state === 'needs_candidate_action' || state === 'candidate_handoff' ? 'answerChild' : state === 'candidate_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
+      <div className="min-w-0"><p className="text-sm font-semibold text-heading">{t(displayStatus === 'withdrawn' ? 'jobBoard.concierge.proposalStatus.withdrawn' : `jobBoard.concierge.${childKey}`)}</p><AssistedApplicationEmployerResponse response={proposal.childEmployerResponse} compact /></div>
+      <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${displayStatus === 'needs_answers' ? 'answerChild' : displayStatus === 'needs_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
     </div>}
     {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">
       {jobHref ? <a href={jobHref} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a> : jobLinkError ? <button type="button" onClick={() => setLinkAttempt(value => value + 1)} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.retryJob')}</button> : <span className="text-xs text-subtle">{t('jobBoard.concierge.loading')}</span>}

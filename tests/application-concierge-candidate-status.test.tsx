@@ -54,6 +54,28 @@ describe('candidate proposal status with the shared progress helper', () => {
     expect(screen.getByText('1/10')).toBeInTheDocument();
   });
 
+  it('keeps a legacy accepted withdrawn child readable without claiming preparation or changing its slot count', () => {
+    render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{ ...service, proposals: [{ ...proposal, childApplicationState: 'withdrawn' }] }} locationSearch="" />);
+    const card = within(screen.getByRole('heading', { name: 'Posizione test' }).closest('article')!);
+    expect(card.getAllByText('Ritirata')).toHaveLength(2);
+    expect(card.queryByText(translations['jobBoard.concierge.childPreparing'])).not.toBeInTheDocument();
+    expect(card.getByRole('link', { name: translations['jobBoard.concierge.openChild'] })).toHaveAttribute('href', expect.stringContaining('application_concierge_application_id=child-test'));
+    expect(card.queryByRole('button')).not.toBeInTheDocument();
+    expect(screen.getByText('1/10')).toBeInTheDocument();
+  });
+
+  it.each(['candidate_review', 'withdrawn'])('uses confirmed sending for the child panel and link despite the flow state %s', (state) => {
+    render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{ ...service, proposals: [{ ...proposal, childApplicationState: state, childSendState: 'sent' }] }} locationSearch="" />);
+    const card = within(screen.getByRole('heading', { name: 'Posizione test' }).closest('article')!);
+    expect(card.getByText('Inviata')).toBeInTheDocument();
+    expect(card.getByText(translations['jobBoard.concierge.childSubmitted'])).toBeInTheDocument();
+    expect(card.queryByText('Ritirata')).not.toBeInTheDocument();
+    expect(card.queryByText(translations['jobBoard.concierge.childNeedsReview'])).not.toBeInTheDocument();
+    expect(card.getByRole('link', { name: translations['jobBoard.concierge.openChild'] })).toBeInTheDocument();
+    expect(card.queryByRole('button')).not.toBeInTheDocument();
+    expect(screen.getByText('1/10')).toBeInTheDocument();
+  });
+
   it.each([
     [{ childSendState: 'sent' }, 'Inviata'],
     [{ childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } }, 'Invito a colloquio'],
