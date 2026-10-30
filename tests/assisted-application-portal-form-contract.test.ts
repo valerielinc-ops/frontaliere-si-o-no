@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { extractFieldsInPage, readListboxOptions, readOwnedListOptions } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { preferredCvFields, uploadedPortalFieldKey } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { applyActions } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { candidateAnswerForField } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 const html = `<form><label id="workload-label">Grado di occupazione desiderato *</label>
 <select id="workload" aria-labelledby="workload-label" multiple aria-required="true" style="display:none">
@@ -104,4 +104,14 @@ it('keeps upload receipts distinct for required CV controls with identical label
   expect(uploaded.has(uploadedPortalFieldKey(url, second))).toBe(false);
   uploaded.add(uploadedPortalFieldKey(url, second));
   expect(uploaded.size).toBe(2);
+});
+
+
+it.each(['Degree certificates', 'CV / Diploma', 'Lebenslauf / Arbeitszeugnisse'])('rejects a model CV action for a specific document at the plan boundary: %s', label => {
+  const field = { id: 'degree', kind: 'file', label, required: true };
+  const plan = { actions: [{ fieldId: field.id, action: 'upload', document: 'cv', source: 'documents' }], missingRequired: [] };
+  const result = guardPlan(plan, [field], { identity: {}, profile: {}, answers: {} });
+  expect(result.actions).toEqual([]);
+  expect(result.missingRequired).toContainEqual(expect.objectContaining({ fieldId: 'degree' }));
+  expect(guardPlan({ ...plan, actions: [{ ...plan.actions[0], document: 'extra_1' }] }, [field]).actions).toHaveLength(1);
 });

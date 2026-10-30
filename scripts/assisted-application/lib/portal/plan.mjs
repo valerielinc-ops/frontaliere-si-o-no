@@ -8,6 +8,9 @@
  * consents the application itself needs are ticked.
  */
 
+import '../../extension/apply-control.js';
+const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
+
 import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
@@ -1630,6 +1633,13 @@ export function guardPlan(plan, fields, candidate = null) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
     if (!field) continue;
+    // A planner's generic CV choice cannot replace a specifically requested
+    // diploma/certificate, even when its label also contains the word CV.
+    if (action.action === 'upload' && action.document === 'cv' && isNonCvDocumentLabel(field.label)) {
+      rejectedActionFields.add(field.id);
+      ask(field);
+      continue;
+    }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);
       if (known?.value) action = { ...action, action: isChoiceField(field) ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
