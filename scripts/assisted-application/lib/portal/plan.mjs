@@ -9,7 +9,7 @@
  */
 
 import '../../extension/apply-control.js';
-const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
+const { isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption } = globalThis.AssistedApplyControls;
 
 import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
 import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
@@ -169,7 +169,7 @@ export const SENSITIVE = new RegExp(String.raw`^(?!${CONTACT_ADDRESS_ONLY_RE.sou
 
 export function isAddressLikeQuestion(question) {
   const label = questionFromLabel(question);
-  return ADDRESS_FIELD_RE.test(label) && !CONTACT_ADDRESS_ONLY_RE.test(label);
+  return ADDRESS_FIELD_RE.test(label) && !CONTACT_ADDRESS_ONLY_RE.test(label) && !isIdentityEmailCaption(label);
 }
 // Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
 // answered only with a quote of the candidate's data that supports the answer.
@@ -658,7 +658,7 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
       || (PHONE_CODE_FIELD_RE.test(fieldContext) && !RESIDENCE_CONTEXT_RE.test(fieldContext))))
     || (COUNTRY_RE.test(label) && PHONE_CODE_FIELD_RE.test(label));
   if (explicitPhoneCountry) return !RESIDENCE_CONTEXT_RE.test(label);
-  return COUNTRY_RE.test(label)
+  return residenceFieldRole(label) === 'country' && COUNTRY_RE.test(label)
     && PHONE_CODE_FIELD_RE.test(fieldContext)
     && !RESIDENCE_CONTEXT_RE.test(label)
     && !RESIDENCE_CONTEXT_RE.test(fieldContext);
@@ -666,6 +666,8 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
 
 export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
+  const role = residenceFieldRole(value);
+  if (!role) return '';
   const surrounding = String(context || '').trim();
   const hasOwnership = Object.hasOwn(metadata || {}, 'addressContext');
   const ownership = addressContextContract(metadata);
@@ -706,17 +708,13 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   // section or nearby residence context. The field extractor's section also
   // keeps an employer/work-history postal field out.
   // Bare «CAP» still needs explicit residence context.
-  if (STANDALONE_POSTAL_CODE_FIELD_RE.test(value) && (residenceContext || candidateResidenceProvenance)) return 'residence_postal_code';
-  if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
-  if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
-  if (COUNTRY_RE.test(value) && !isNationalityField(value)) return residenceContext ? 'residence_country' : '';
-  if (CITY_RE.test(value)) return residenceContext ? 'residence_city' : '';
-  const street = STREET_ADDRESS_RE.test(text);
-  const houseNumber = HOUSE_NUMBER_RE.test(text);
-  const streetNumberPair = STREET_NUMBER_PAIR_RE.test(text);
-  if (!street && !houseNumber) return '';
-  if ((street && houseNumber) || streetNumberPair) return 'address';
-  return houseNumber ? 'address_house_number' : 'address_street';
+  if (role === 'postalCode') return residenceContext || candidateResidenceProvenance ? 'residence_postal_code' : '';
+  if (role === 'country') return residenceContext && !isNationalityField(value) ? 'residence_country' : '';
+  if (role === 'city') return residenceContext ? 'residence_city' : '';
+  // Native street/house captions identify a type, not whose address it is.
+  if (hasOwnership && !residenceContext) return '';
+  if (role === 'address') return 'address';
+  return role === 'houseNumber' ? 'address_house_number' : role === 'street' ? 'address_street' : '';
 }
 
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
@@ -1006,8 +1004,9 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
 
 /** Address-like controls require a statement bound to this native owner, even after semantic fallback. */
 export function addressAnswerNeedsOwnership(question, metadata = {}) {
+  if (isIdentityEmailCaption(question)) return false;
   if (isPhoneCountryQuestion(question, metadata?.context || '', metadata)) return false;
-  return isAddressLikeQuestion(question) || CITY_RE.test(String(question || '')) || COUNTRY_RE.test(String(question || '')) || BIRTH_LOCATION_RE.test(String(question || ''))
+  return mentionsResidenceFieldRole(question) || isAddressLikeQuestion(question) || CITY_RE.test(String(question || '')) || COUNTRY_RE.test(String(question || '')) || BIRTH_LOCATION_RE.test(String(question || ''))
     || (BIRTH_FIELD_RE.test(String(question || '')) && questionTopic(question, metadata?.context || '', metadata) !== 'birth_date')
     || /(?:^|\s)(?:address-level[1-4]|street-address|address-line[1-3]|postal-code|country|country-name)(?:$|\s)/i.test(String(metadata?.autocomplete || ''));
 }

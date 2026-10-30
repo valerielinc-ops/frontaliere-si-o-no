@@ -23,7 +23,7 @@ function nativeField(html: string, reader: string, name = 'city') {
 
 describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => {
   it.each([
-    ['City', 'Personal information'], ['Città', 'Informazioni personali'],
+    ['City', 'Personal information'], ['Town', 'Personal information'], ['Città', 'Informazioni personali'],
     ['Citta', 'Dati personali'], ['Ort', 'Persönliche Informationen'],
     ['Ville', 'Informations personnelles'],
   ])('answers the candidate’s %s under %s from identity', (label, heading) => {
@@ -157,6 +157,37 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(portalRequirementsFromMissingRequired([{ ...field, consentOwnershipUnknown: true }], missing).unreadableFields).toEqual([field.id]);
     expect(portalRequirementsFromMissingRequired([field], missing).questions).toHaveLength(1);
     expect(portalRequirementsFromMissingRequired([{ ...field, consentOwnershipUnknown: false }], missing).questions).toHaveLength(1);
+  });
+
+  it.each([
+    ['Where would you like to work (City)?', 'address-level2'],
+    ['In quale città vorresti lavorare?', 'address-level2'],
+    ['In welcher Stadt möchten Sie arbeiten?', 'address-level2'],
+    ['Dans quelle ville souhaitez-vous travailler?', 'address-level2'],
+    ['Which country would you relocate to?', 'country-name'],
+    ['In quale paese vorresti trasferirti?', 'country-name'],
+    ['In welchem Land möchten Sie arbeiten?', 'country-name'],
+    ['Dans quel pays voulez-vous travailler?', 'country-name'],
+    ['Which postal code would you like to work in?', 'postal-code'],
+  ])('does not turn candidate ownership into residence intent for %s', (label, autocomplete) => {
+    const field = nativeField(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" name="city" autocomplete="${autocomplete}" required></form>`, reader);
+    expect(candidateAnswerForField(candidate, field)).toBeNull();
+    const answer = autocomplete === 'country-name' ? 'France' : autocomplete === 'postal-code' ? '8000' : 'Lugano';
+    const stated = candidateForForm({ identity: { name: 'Test User', email: 'test@example.test' }, profile: { address: { city: 'Como', country: 'Italia' } }, portalQuestions: [{ ...field, question: field.label, source: 'portal', type: 'text' }], answers: { [field.id]: answer }, currentAnswerIds: [field.id] });
+    expect(candidateAnswerForField(stated, field)).toEqual({ value: answer, source: 'answers' });
+  });
+
+  it('keeps a positive street caption distinct from an unrelated date alias', () => {
+    const field = nativeField('<form><h2>Personal information</h2><label for="city">Straße</label><input id="city" name="city" placeholder="Date of birth"></form>', reader);
+    expect(candidateAnswerForField({ ...candidate, identity: { address: { street: 'Via Roma 1' } } }, field)).toEqual({ value: 'Via Roma 1', source: 'identity' });
+  });
+
+  it.each([['Email address', 'text'], ['Email address', 'email'], ['Adresse e-mail', 'text'], ['Adresse e-mail', 'email']])('does not treat the contact caption %s/%s as a postal address', (label, type) => {
+    const field = nativeField(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" name="city" type="${type}" autocomplete="email" required></form>`, reader);
+    const person = { ...candidate, identity: { ...candidate.identity, email: 'alias@example.test' } };
+    expect(candidateAnswerForField(person, field)).toEqual({ value: 'alias@example.test', source: 'identity' });
+    const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: 'alias@example.test', source: 'identity' }], missingRequired: [] }, [field], person);
+    expect(guarded.actions[0]?.value).toBe('alias@example.test');
   });
 
   it('does not invent DOB when the profile has no date of birth', () => {
