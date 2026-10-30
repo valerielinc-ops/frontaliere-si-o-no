@@ -114,7 +114,12 @@ describe('recover-prev-slugs.yml — wiring del reconcile duplicate stable-id', 
     expect(carry?.run).toContain("branch='chore/recover-prev-slugs'");
     expect(carry?.run).toContain('git ls-remote "$remote_url"');
     expect(carry?.run).toContain('scripts/lib/restore-stable-refresh-files.sh');
-    expect(carry?.run).toContain('"refs/remotes/origin/${branch}"');
+    expect(carry?.run).toContain('scripts/ci/reconcile-data-refresh-main.mjs');
+    expect(carry?.run).toContain('--refresh-base "$merge_base"');
+    expect(carry?.run).toContain('Refresh snapshot is based on older main content');
+    expect(carry?.run).toContain('gh pr close "$open_pr_number"');
+    expect(carry?.run).toContain('git update-ref refs/recover-prev-slugs/carried-forward');
+    expect(carry?.run).toContain('refs/recover-prev-slugs/carried-forward');
     expect(carry?.run).not.toContain('git restore --source="refs/remotes/origin/${branch}" -- "$path"');
     expect(carry?.run).toContain('data/jobs/by-crawler/');
     expect(steps.indexOf(carry!)).toBeLessThan(steps.indexOf(reconcile));

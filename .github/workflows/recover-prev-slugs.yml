@@ -209,42 +209,142 @@ jobs:
           GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
+          run_bounded() {
+            node scripts/lib/run-bounded-command.mjs --timeout-seconds "$1" --label "$2" -- "${@:3}"
+          }
           branch='chore/recover-prev-slugs'
+          title='chore(data): recover lost previousSlugs'
           [ -n "$GH_TOKEN" ] || {
             echo "::error::No authenticated refresh token is available to carry forward the recovery PR"
             exit 1
           }
-          open_pr_number="$(gh pr list \
-            --repo "$GITHUB_REPOSITORY" \
-            --state open \
-            --base main \
-            --head "$branch" \
-            --json number \
-            --jq '.[0].number // empty')"
-          if [ -z "$open_pr_number" ]; then
-            echo "No open recovery PR; ignoring the orphaned stable branch."
-            exit 0
-          fi
           remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           probe="$RUNNER_TEMP/recover-prev-slugs-remote-head"
-          if ! git ls-remote "$remote_url" "refs/heads/${branch}" >"$probe" 2>/dev/null; then
+          if ! run_bounded 60 'git ls-remote previousSlugs recovery refs' \
+            git ls-remote "$remote_url" refs/heads/main "refs/heads/${branch}" >"$probe" 2>/dev/null; then
             echo "::error::Unable to authenticate or probe the stable previousSlugs recovery branch"
             exit 1
           fi
-          if [ ! -s "$probe" ]; then
+          remote_main="$(awk '$2 == "refs/heads/main" { print $1; exit }' "$probe")"
+          remote_refresh="$(awk -v ref="refs/heads/${branch}" '$2 == ref { print $1; exit }' "$probe")"
+          [ -n "$remote_main" ] || {
+            echo "::error::Unable to resolve current main while probing the stable previousSlugs recovery branch"
+            exit 1
+          }
+          if [ -z "$remote_refresh" ]; then
             echo "No in-flight previousSlugs recovery PR branch found."
             exit 0
           fi
-          if ! git fetch --no-tags --depth=1 "$remote_url" \
-            "refs/heads/${branch}:refs/remotes/origin/${branch}" >/dev/null 2>&1; then
-            echo "::error::Unable to fetch the stable previousSlugs recovery branch"
+
+          if ! open_pr_json="$(run_bounded 60 'gh pr list previousSlugs recovery PR' \
+            gh pr list --repo "$GITHUB_REPOSITORY" --state open --base main --head "$branch" \
+              --limit 1 --json number,title)"; then
+            echo "::error::Unable to determine whether the stable previousSlugs branch backs an open PR"
             exit 1
           fi
-          # Restore only blobs present in the pending branch. A directory
+          open_pr_number="$(printf '%s' "$open_pr_json" | jq -r '.[0].number // empty')"
+          open_pr_title="$(printf '%s' "$open_pr_json" | jq -r '.[0].title // empty')"
+          if [ -z "$open_pr_number" ]; then
+            echo "Stable previousSlugs branch has no open PR; the publisher will rebuild it from current main."
+            exit 0
+          fi
+          if [ "$open_pr_title" != "$title" ]; then
+            echo "::error::Stable previousSlugs branch is attached to unexpected PR title: $open_pr_title"
+            exit 1
+          fi
+
+          if ! run_bounded 300 'git fetch previousSlugs recovery and main refs' \
+            git fetch --no-tags --depth=1 "$remote_url" \
+              "+refs/heads/main:refs/remotes/origin/main" \
+              "+refs/heads/${branch}:refs/remotes/origin/${branch}" >/dev/null 2>&1; then
+            echo "::error::Unable to fetch current main and the stable previousSlugs recovery branch"
+            exit 1
+          fi
+          main_sha="$(git rev-parse --verify 'refs/remotes/origin/main^{commit}')"
+          refresh_sha="$(git rev-parse --verify "refs/remotes/origin/${branch}^{commit}")"
+          merge_base="$(run_bounded 60 'gh api previousSlugs recovery merge base' \
+            gh api "repos/${GITHUB_REPOSITORY}/compare/${main_sha}...${refresh_sha}" --jq '.merge_base_commit.sha')"
+          [ -n "$merge_base" ] && [ "$merge_base" != null ] || {
+            echo "::error::GitHub did not return a merge base for the pending previousSlugs recovery PR"
+            exit 1
+          }
+          if ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${merge_base}^{commit}" 2>/dev/null; then
+            run_bounded 300 'git fetch previousSlugs recovery merge base' \
+              git fetch --no-tags --depth=1 "$remote_url" "$merge_base" >/dev/null 2>&1 || {
+                echo "::error::Unable to fetch the pending previousSlugs recovery merge base"
+                exit 1
+              }
+          fi
+
+          probe_root="$(mktemp -d "$RUNNER_TEMP/recover-prev-slugs-preflight.XXXXXX")"
+          probe_worktree="$probe_root/worktree"
+          cleanup_probe() {
+            git worktree remove --force "$probe_worktree" >/dev/null 2>&1 || true
+            rm -rf -- "$probe_root"
+          }
+          trap cleanup_probe EXIT
+          if ! git worktree add --detach --no-checkout "$probe_worktree" "$refresh_sha" >/dev/null; then
+            echo "::error::Unable to create an isolated worktree for the pending previousSlugs recovery preflight"
+            exit 1
+          fi
+          preflight_log="$probe_root/reconcile.log"
+          if (
+            cd "$probe_worktree"
+            GIT_AUTHOR_NAME='frontaliere-automation[bot]' \
+              GIT_AUTHOR_EMAIL='296434481+frontaliere-automation[bot]@users.noreply.github.com' \
+              GIT_COMMITTER_NAME='frontaliere-automation[bot]' \
+              GIT_COMMITTER_EMAIL='296434481+frontaliere-automation[bot]@users.noreply.github.com' \
+            GIT_NO_LAZY_FETCH=1 \
+              node "$GITHUB_WORKSPACE/scripts/ci/reconcile-data-refresh-main.mjs" \
+                --base "$merge_base" --main "$main_sha" --refresh-base "$merge_base" \
+                --path data/jobs/by-crawler/ \
+                --path data/jobs/expired/by-crawler/ \
+                --path data/jobs-crawler-summaries/by-crawler/ \
+                --message 'previousSlugs recovery carry-forward preflight'
+          ) >"$preflight_log" 2>&1; then
+            cat "$preflight_log"
+            carry_sha="$(git -C "$probe_worktree" rev-parse --verify HEAD)"
+            echo "Pending previousSlugs recovery can be reconciled with current main."
+          elif grep -q 'Refresh snapshot is based on older main content' "$preflight_log"; then
+            cat "$preflight_log"
+            echo "::warning::Pending previousSlugs recovery PR is stale; closing it and restarting from current main."
+            live_head="$(run_bounded 60 'gh pr view previousSlugs recovery PR head' \
+              gh pr view "$open_pr_number" --repo "$GITHUB_REPOSITORY" --json state,headRefOid \
+                --jq '.headRefOid // empty')"
+            if [ "$live_head" != "$refresh_sha" ]; then
+              echo "::error::Pending previousSlugs recovery PR changed during preflight; refusing to close it"
+              exit 1
+            fi
+            if ! run_bounded 60 'close stale previousSlugs recovery PR' \
+              gh pr close "$open_pr_number" --repo "$GITHUB_REPOSITORY"; then
+              echo "::error::Unable to close the stale previousSlugs recovery PR"
+              exit 1
+            fi
+            stale_body="$RUNNER_TEMP/recover-prev-slugs-stale-pr.md"
+            cat > "$stale_body" <<'EOF'
+          <!-- RECOVERY_REFRESH_SUPERSEDED -->
+          Questa PR dati è stata chiusa perché il suo snapshot era basato su contenuti più vecchi di `main`; il prossimo giro della recovery riparte dal `main` corrente per non rimuovere slug già pubblicati.
+          EOF
+            run_bounded 60 'comment stale previousSlugs recovery PR' \
+              gh pr comment "$open_pr_number" --repo "$GITHUB_REPOSITORY" --body-file "$stale_body"
+            git checkout --detach "$main_sha"
+            exit 0
+          else
+            cat "$preflight_log"
+            echo "::error::Pending previousSlugs recovery preflight failed for a reason other than a stale snapshot"
+            exit 1
+          fi
+
+          # Restore from the reconciled preflight result, not the stale branch
+          # tip. A clean merge may include current-main updates that landed
+          # after the pending recovery PR was created.
+          git checkout --detach "$main_sha"
+          git update-ref refs/recover-prev-slugs/carried-forward "$carry_sha"
+          # Restore only blobs present in the reconciled branch. A directory
           # restore would also delete files added to current main after that
           # branch was created, turning stale branch absence into data loss.
           bash scripts/lib/restore-stable-refresh-files.sh \
-            "refs/remotes/origin/${branch}" \
+            refs/recover-prev-slugs/carried-forward \
             data/jobs/by-crawler/ \
             data/jobs/expired/by-crawler/ \
             data/jobs-crawler-summaries/by-crawler/
