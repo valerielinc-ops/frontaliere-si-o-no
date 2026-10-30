@@ -833,6 +833,7 @@
     // Contact facts are canonical identity data, not answers copied from the
     // last portal run. This is the boundary that prevents a stale «Schweiz»
     // answer from overwriting an Italian phone prefix or a blank residence.
+    if (ADDRESS_FAMILIES.has(family) && fromKit?.current === true) return { value: fromKit.answer };
     if (['phone', 'phoneCountry', ...ADDRESS_FAMILIES].includes(family)) {
       const value = identityValue(family, kit);
       if (value) return { value, family };

@@ -100,6 +100,13 @@ describe('fill extension: scoped saved geography answers', () => {
     window.close();
   });
 
+  it('honors an explicit current residence correction above the CV value', async () => {
+    const { window, document, F } = addressPage('Personal information', personal);
+    await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Lugano', source: 'answers', current: true, context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('Lugano');
+    window.close();
+  });
+
   it('keeps current residence ahead of a stale saved profile projection', async () => {
     const { window, document, F } = addressPage('Personal information', personal);
     await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Zurich', source: 'identity', addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
