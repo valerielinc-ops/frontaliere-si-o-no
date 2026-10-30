@@ -22,7 +22,6 @@ beforeEach(() => {
  localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted');
  Object.defineProperty(navigator, 'userAgent', { configurable: true, value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Version/17.5 Mobile/15E148 Safari/604.1' });
  delete (window as Window & { __FT_SENSITIVE_DOCUMENT__?: boolean }).__FT_SENSITIVE_DOCUMENT__;
- delete (window as Window & { __FT_STATIC_ADS_STARTED__?: boolean }).__FT_STATIC_ADS_STARTED__;
  window.adsbygoogle = [];
  vi.stubGlobal('requestIdleCallback', (cb: () => void) => { cb(); return 1; });
  vi.stubGlobal('cancelIdleCallback', () => {});

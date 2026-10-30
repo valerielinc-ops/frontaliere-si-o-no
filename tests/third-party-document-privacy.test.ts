@@ -50,6 +50,30 @@ describe('signed-origin autonomous SDK startup', () => {
   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, { referrer: '' })).toBe(false);
   expect(win.location.href).toBe(clean);
  });
+ it('conservatively captures every canonical browser-URL credential form without retaining raw copies', () => {
+  // Fixtures for the canonical helper's supported aliases, not startup logic.
+  const aliases = ['ac', 'at', 'authToken', 'ne', 'newsletter_email', 'email', 'newsletter_autologin', 'subscriber_key', 'token', 'access_token', 'id_token', 'refresh_token', 'oobCode'];
+  const inputs = [
+   ...aliases.flatMap((key) => [`https://example.test/?${key}=synthetic-code`, `https://example.test/?${key.toUpperCase()}=synthetic-code`]),
+   'https://synthetic:credential@example.test/',
+   `https://example.test/?redirect=${encodeURIComponent(signed)}`,
+   `https://example.test/#redirect=${encodeURIComponent(signed)}`,
+   `https://example.test/#${encodeURIComponent(signed)}`,
+   'https://example.test/#/checkout/?ac=synthetic-code',
+   'https://example.test/#ac=synthetic-code&bad=%ZZ',
+  ];
+  for (const href of inputs) {
+   expect(sanitizeTelemetryProperties({ page_location: href }).page_location !== href).toBe(true);
+   for (const asReferrer of [false, true]) {
+    const win = browser(asReferrer ? 'https://frontaliereticino.ch/' : href);
+    const doc = { referrer: asReferrer ? href : '' };
+    vm.runInContext(THIRD_PARTY_DOCUMENT_INITIAL_GUARD, vm.createContext({ window: win, document: doc }));
+    expect(win.__FT_SENSITIVE_DOCUMENT__).toBe(true);
+    expect(Object.keys(win).sort()).toEqual(['__FT_SENSITIVE_DOCUMENT__', 'location']);
+    expect(win.location.href).toBe(asReferrer ? 'https://frontaliereticino.ch/' : href);
+   }
+  }
+ });
  it('compiles the same self-contained controllers in Node and Vite SSR', async () => {
   const server = await createServer({ configFile: false, root: process.cwd(), optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true, watch: null, hmr: false } });
   try {
@@ -93,18 +117,56 @@ describe('signed-origin autonomous SDK startup', () => {
   }
   expect(vm.runInContext('new TextEncoder().encode("") instanceof Uint8Array', context)).toBe(false);
  });
- it('runs the full clean Ads bootstrap through eligibility and requests the SDK', () => {
-  const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: clean, runScripts: 'outside-only' });
+ it('allows an unsigned UTM visit with the full production HTML after conservative initial capture', () => {
+  const hook = staticScriptsPlugin('.').transformIndexHtml as { handler: (html: string) => string };
+  const dom = new JSDOM(hook.handler(readFileSync(new NodeURL('../index.html', import.meta.url), 'utf8')), { url: clean, runScripts: 'outside-only' });
   try {
    const idle: Array<() => void> = [];
    Object.defineProperty(dom.window.navigator, 'userAgent', { value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Version/17.5 Mobile/15E148 Safari/604.1' });
    Object.defineProperty(dom.window, 'requestIdleCallback', { value: (cb: () => void) => { idle.push(cb); return 1; } });
    Object.defineProperty(dom.window, 'setTimeout', { value: () => 1 });
    dom.window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted');
+   vm.runInContext(THIRD_PARTY_DOCUMENT_INITIAL_GUARD, dom.getInternalVMContext());
+   expect((dom.window as unknown as PrivacyWindow).__FT_SENSITIVE_DOCUMENT__).toBe(true);
    vm.runInContext(ADSENSE_LOADER_CONTENT, dom.getInternalVMContext());
    dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
    for (const cb of idle) cb();
    expect(dom.window.document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]') !== null).toBe(true);
+  } finally { dom.window.close(); }
+ });
+ it('reinitializes static consent/SDK lifecycle after DOM reset without a permanent window-wide sentinel', () => {
+  const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'https://frontaliereticino.ch/', runScripts: 'outside-only' });
+  try {
+   const idle: Array<() => void> = [];
+   Object.defineProperty(dom.window.navigator, 'userAgent', { value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Version/17.5 Mobile/15E148 Safari/604.1' });
+   Object.defineProperty(dom.window, 'requestIdleCallback', { value: (cb: () => void) => { idle.push(cb); return 1; } });
+   Object.defineProperty(dom.window, 'setTimeout', { value: () => 1 });
+   for (const decision of ['denied', 'granted']) {
+    dom.window.document.head.innerHTML = '';
+    dom.window.document.body.innerHTML = '';
+    dom.window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, decision);
+    vm.runInContext(ADSENSE_LOADER_CONTENT, dom.getInternalVMContext());
+    dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
+    for (const cb of idle.splice(0)) cb();
+    expect(dom.window.document.querySelectorAll('script[src*="adsbygoogle.js"]')).toHaveLength(1);
+    expect(dom.window.document.querySelector('script[src*="fundingchoicesmessages.google.com"]') !== null).toBe(true);
+   }
+  } finally { dom.window.close(); }
+ });
+ it('preserves the static CMP and bot-gated diagnostic emission', () => {
+  const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/', runScripts: 'outside-only' });
+  try {
+   const calls: Array<any[]> = [];
+   Object.assign(dom.window, { gtag: (...args: any[]) => calls.push(args), requestIdleCallback: (cb: () => void) => { cb(); return 1; } });
+   Object.defineProperty(dom.window.navigator, 'userAgent', { value: 'curl/8.4.0' });
+   Object.defineProperty(dom.window.document, 'visibilityState', { value: 'visible' });
+   Object.defineProperty(dom.window, 'setTimeout', { value: () => 1 });
+   dom.window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted');
+   vm.runInContext(ADSENSE_LOADER_CONTENT, dom.getInternalVMContext());
+   dom.window.dispatchEvent(new dom.window.Event('pagehide'));
+   expect(calls.filter((call) => call[0] === 'event' && call[2]?.ad_path === 'bot_gated')).toHaveLength(1);
+   expect(dom.window.document.querySelector('script[src*="fundingchoicesmessages.google.com"]') !== null).toBe(true);
+   expect(dom.window.document.querySelector('script[src*="adsbygoogle.js"]')).toBe(null);
   } finally { dom.window.close(); }
  });
  it.each([['Ads', ADSENSE_LOADER_CONTENT], ['Partnerize', PARTNERIZE_TAG_CONTENT]])('%s real bootstrap performs no work on a signed document, including retries', (_name, source) => {
@@ -252,6 +314,8 @@ describe('signed-origin autonomous SDK startup', () => {
   expect(ADSENSE_LAZY_LOADER).toContain(ADSENSE_LOADER_VERSIONED_FILENAME);
   expect(PARTNERIZE_TAG_SNIPPET).toBe(`<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`);
   expect(THIRD_PARTY_DOCUMENT_INITIAL_GUARD).not.toContain('</script');
+  expect(THIRD_PARTY_DOCUMENT_INITIAL_GUARD).not.toContain('**');
+  expect(Buffer.byteLength(THIRD_PARTY_DOCUMENT_INITIAL_GUARD, 'utf8')).toBeLessThan(256);
  });
  it('invalidates the transported fingerprint when either producer or helper changes', () => {
   const snapshot = thirdPartyShellAssetSnapshot();
