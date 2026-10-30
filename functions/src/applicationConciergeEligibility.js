@@ -12,12 +12,15 @@ import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SC
   requirementsUserText, MATCH_SCHEMA, matchSystemPrompt, matchUserText } from './assistedApplicationAiPrompts.js';
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
-import { SOURCE_CITATIONS_VERSION, sourceCitations, citationSchema, resolveCitations } from './lib/sourceCitations.js';
+import { SOURCE_CITATIONS_VERSION, citationSchema, resolveCitations } from './lib/sourceCitations.js';
+import { EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_PROMPT_HASH, qualificationSources,
+  verifyQualificationEvidence, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
 
-export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v3-${SOURCE_CITATIONS_VERSION}`;
+export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v4-${SOURCE_CITATIONS_VERSION}-${EVIDENCE_ENTAILMENT_VERSION}-${EVIDENCE_ENTAILMENT_PROMPT_HASH}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
+const PREFLIGHT_ANALYSIS_BUDGET_MS = 90_000; // The 120s checkout also needs time for its transaction and Stripe.
 
 export function normalizeConciergeJobRecord(job = {}) {
   return {
@@ -65,7 +68,14 @@ function profileForEligibility(profile = {}) {
   };
 }
 
-async function evaluateConciergePosting({ job, profile, answers = {}, locale = 'it', sourceText = '', generate = generateJson, readPosting = fetchJobPosting }) {
+async function evaluateConciergePosting({ job, profile, answers = {}, answerEvidence = [], locale = 'it', sourceText = '', generate = generateJson, readPosting = fetchJobPosting }) {
+  if (!sourceText) {
+    const deadline = AbortSignal.timeout(PREFLIGHT_ANALYSIS_BUDGET_MS);
+    const inference = generate; const read = readPosting;
+    generate = (system, user, schema, options = {}) => beforeCancellation(
+      () => inference(system, user, schema, { ...options, signal: deadline }), deadline);
+    readPosting = (order, options) => beforeCancellation(() => read(order, { ...options, signal: deadline }), deadline);
+  }
   job = normalizeConciergeJobRecord(job);
   const posting = await readPosting({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
   if (!posting.text || posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
@@ -76,17 +86,22 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
   const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
   const normalizedProfile = profileForEligibility(profile);
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
-  const candidateSources = sourceCitations({ cv: evidenceText, answers: Object.keys(answers).length ? JSON.stringify(answers) : '' });
-  const matchRaw = await generate(matchSystemPrompt(locale), matchUserText({ profile: normalizedProfile, requirements, answers,
+  const sources = qualificationSources({ sourceText, profile: normalizedProfile, answers, answerEvidence });
+  const candidateSources = sources.citations;
+  const matchRaw = await generate(matchSystemPrompt(locale), matchUserText({ profile: normalizedProfile, requirements, answers: sources.modelAnswers,
     postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
-  const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
+  const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, sources.verificationText),
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
-  const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
-  return { ...result, postingHash, requirements, match, posting };
+  const preliminary = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
+  const checked = await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources, preliminary, generate });
+  const result = checked.status === 'unverified'
+    ? { status: 'unverified', reason: checked.reason, gaps: [], questions: [] } : preliminary;
+  const entailment = checked.verification || { version: EVIDENCE_ENTAILMENT_VERSION, status: 'not_required' };
+  return { ...result, postingHash, requirements, match, posting, entailment };
 }
 
 export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = null, readPosting = fetchJobPosting, background = false, signal = null }) {
-  const generation = generate || ((system, user, schema) => generateJson(system, user, schema, { background, signal }));
+  const generation = generate || ((system, user, schema, options = {}) => generateJson(system, user, schema, { ...options, background, signal }));
   generate = (...args) => beforeCancellation(() => generation(...args), signal);
   const read = (order, options) => beforeCancellation(() => readPosting(order, { ...options, ...(signal ? { signal } : {}) }), signal);
   signal?.throwIfAborted();
@@ -128,15 +143,18 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
     const ref = cache.doc(cacheId);
     const cached = (await ref.get()).data();
-    if (cached?.fingerprint === fingerprint) return { ...cached.result, fingerprint, cacheId };
+    if (cached?.fingerprint === fingerprint && hasVerifiedQualificationEvidence(cached)) return { ...cached.result, fingerprint, cacheId };
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
     const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,
       readPosting: async () => posting });
-    const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, ...result } = analysis;
+    // A cancelled verifier is still budget-deferred work, not an ordinary
+    // technical retry that advances discovery past an unfinished assessment.
+    signal?.throwIfAborted();
+    const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, entailment, ...result } = analysis;
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
     if (result.status !== 'unverified') await ref.set({ fingerprint, cvHash, answerHash, postingHash, promptVersion: PROMPT_VERSION,
-      version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });
+      version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, entailment, updatedAt: FieldValue.serverTimestamp() });
     return { ...result, fingerprint, cacheId };
   };
 }
@@ -186,6 +204,7 @@ export async function vettedConciergeDraftInputs({ db, order, cvBuffer, postingT
   const cached = (await serviceRef.collection('eligibility').doc(proposal.eligibilityCacheId).get()).data();
   const answerHash = eligibilityHash(JSON.stringify(profileDoc.data()?.applicationQuestionAnswers || {}));
   if (cached?.result?.status !== 'compatible' || cached.promptVersion !== PROMPT_VERSION || cached.version !== CONCIERGE_ELIGIBILITY_VERSION
+    || !hasVerifiedQualificationEvidence(cached)
     || cached.fingerprint !== proposal.eligibilityFingerprint || cached.cvHash !== eligibilityHash(cvBuffer)
     || cached.postingHash !== sourceHash(postingText) || cached.answerHash !== answerHash) return null;
   return cached;

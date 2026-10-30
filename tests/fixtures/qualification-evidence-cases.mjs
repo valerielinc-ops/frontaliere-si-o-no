@@ -1,0 +1,34 @@
+/** Sanitized semantic equivalents of the production quotations; no candidate identifiers. */
+export function qualificationEvidenceCases() {
+  const chronology = `${new Date().getUTCFullYear() - 8} – Present | Example City`;
+  return [
+    { name: 'provider management is not established by a generic IT title', group: 'sgkb-negative', expected: 'unsupported',
+      requirement: 'Erfahrung im Provider-Management', quote: 'Mehrjährige Erfahrung im Betrieb und in der Betreuung komplexer IT-Systeme oder IT-Plattformen sowie Erfahrung im Provider-Management zeichnen dich aus.',
+      evidence: 'Senior IT Manager Group Application — Example Group' },
+    { name: 'change and incident activities are not established by a generic IT title', group: 'sgkb-negative', expected: 'unsupported',
+      requirement: 'Koordination von Changes und Incidents', quote: 'Du verfügst über ein fundiertes technisches Verständnis und bist mit der Koordination von Changes, Incidents und technischen Betriebsaufgaben vertraut.',
+      evidence: 'Senior IT Manager Group Application — Example Group' },
+    { name: 'chronology does not establish analytical or structured behavior', group: 'sgkb-negative', expected: 'unsupported',
+      requirement: 'Analytisches Denken und strukturierte Arbeitsweise', quote: 'Du denkst analytisch, arbeitest strukturiert und verantwortungsbewusst und erfasst auch komplexe technische Zusammenhänge rasch.', evidence: chronology },
+    { name: 'computer science degree', group: 'yellowshark-positive', expected: 'supported',
+      requirement: 'Ausbildung oder Studium in Informatik', quote: 'Eine Ausbildung oder ein Studium im Bereich Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder eine vergleichbare Qualifikation.', evidence: 'Master’s Degree in Computer Science' },
+    { name: 'explicit product capability', group: 'yellowshark-positive', expected: 'supported',
+      requirement: 'Erfahrung im Produktmanagement', quote: 'Erfahrung im Produktmanagement, idealerweise im IT- oder Softwareumfeld.', evidence: 'Product Portfolio Management' },
+    { name: 'software capability', group: 'yellowshark-positive', expected: 'supported',
+      requirement: 'Verständnis für Softwareentwicklung', quote: 'Ein gutes Verständnis für Softwareentwicklung, digitale Produkte und moderne Technologien.', evidence: 'Software Architecture' },
+    { name: 'market and entrepreneurial behavior', group: 'yellowshark-positive', expected: 'supported',
+      requirement: 'Analytisches und unternehmerisches Denken', quote: 'Analytisches und unternehmerisches Denken sowie ein ausgeprägtes Gespür für Markt- und Kundenbedürfnisse.', evidence: 'Co-founded AI-powered recipe search engine, building from scratch using Python, OpenNLP' },
+    { name: 'portfolio coordination', group: 'yellowshark-positive', expected: 'supported',
+      requirement: 'Priorisierung von Anforderungen und Produkt-Roadmaps', quote: 'Erfahrung in der Priorisierung von Anforderungen, der Planung von Produkt-Roadmaps und der Koordination unterschiedlicher Anspruchsgruppen.', evidence: 'Manage the global application portfolio for 16 luxury watch brands, leading 20 engineers' },
+    { name: 'communication through documented coaching', group: 'yellowshark-positive', expected: 'supported',
+      requirement: 'Kommunikationsstärke und Organisationstalent', quote: 'Kommunikationsstärke, Organisationstalent und die Fähigkeit, komplexe Themen verständlich zu vermitteln.', evidence: 'Coached 20-member technical team through weekly guild meetings and bi-weekly 1:1s' },
+    { name: 'structured delivery behavior', group: 'yellowshark-positive', expected: 'supported',
+      requirement: 'Selbstständige strukturierte Arbeitsweise', quote: 'Eine selbstständige, strukturierte Arbeitsweise und die Motivation, Produkte kontinuierlich besser zu machen.', evidence: 'Implemented Agile Scrum across 4 teams (Engineering, Planning, Analysis, QA)' },
+    { name: 'relevant professional title can establish that role', group: 'boundary-positive', expected: 'supported',
+      requirement: 'Software architecture experience', quote: 'Experience in software architecture required.', evidence: 'Software Architect — Example Systems' },
+    { name: 'a training attendance certificate is not a degree', group: 'boundary-negative', expected: 'unsupported',
+      requirement: 'Computer science degree', quote: 'A university degree in computer science is required.', evidence: 'Certificate of attendance — Product Coaching Workshop' },
+    { name: 'one language does not establish an AND clause', group: 'boundary-negative', expected: 'unsupported',
+      requirement: 'German and English fluency', quote: 'Fluent German and English required.', evidence: 'English C1' },
+  ];
+}
