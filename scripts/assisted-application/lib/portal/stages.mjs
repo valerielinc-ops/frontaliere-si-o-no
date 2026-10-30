@@ -53,7 +53,7 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
     || REVIEW_INSTRUCTIONS_RE.test(snapshot.text || '') || BEFORE_SEND_RE.test(snapshot.text || '')) return false;
   if ((snapshot.buttons || []).some(button => !button.chrome && SUBMIT_RE.test(button.text || ''))) return false;
   const actualJobKey = portalJobKey(url);
-  const expectedJobKey = portalJobKey(applyUrl);
+  const expectedJobKey = portalJobKey(submissionUrl || applyUrl);
   // A receipt naming a different posting never borrows the title from generic page chrome.
   if (actualJobKey && expectedJobKey && actualJobKey !== expectedJobKey) return false;
   const actual = parsed(url);
@@ -72,7 +72,8 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, job 
   const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
   const text = String(snapshot?.text || '').replace(/\s+/g, ' ');
   if (applicationReceipt(snapshot, { url, applyUrl, job })) return { kind: 'receipt' };
-  const mismatchedJob = portalJobKey(url) && portalJobKey(applyUrl) && portalJobKey(url) !== portalJobKey(applyUrl);
+  const mismatchedJob = parsed(url)?.origin === parsed(applyUrl)?.origin
+    && portalJobKey(url) && portalJobKey(applyUrl) && portalJobKey(url) !== portalJobKey(applyUrl);
   if (mismatchedJob) return { kind: 'posting_mismatch' };
   const bound = boundRoute(url, applyUrl) || titleBound(text, job.title);
   const finalReview = bound && REVIEW_INSTRUCTIONS_RE.test(text);

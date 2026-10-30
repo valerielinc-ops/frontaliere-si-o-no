@@ -90,6 +90,15 @@ describe('application stage ownership', () => {
     expect(applicationReceipt({ ...receipt, text }, { applyUrl, job })).toBe(true);
   });
 
+  it('keeps employer and ATS job-ID namespaces separate after a verified handoff', () => {
+    const snapshot = { ...review, url: 'https://ats.example/review?jobId=internal99' };
+    expect(applicationStage(snapshot, { applyUrl, job }).kind).toBe('final_review');
+    expect(applicationReceipt({ ...receipt, url: 'https://ats.example/receipt?jobId=internal99', text: 'Thank you for your application.' },
+      { applyUrl, submissionUrl: snapshot.url, job })).toBe(true);
+    expect(applicationReceipt({ ...receipt, url: 'https://ats.example/receipt?jobId=other99' },
+      { applyUrl, submissionUrl: snapshot.url, job })).toBe(false);
+  });
+
   it('binds a receipt to a verified form origin after an employer-to-ATS handoff', () => {
     const target = { ...receipt, url: 'https://ats.example/thank-you' };
     expect(applicationReceipt(target, { applyUrl, submissionUrl: 'https://ats.example/review', job })).toBe(true);
