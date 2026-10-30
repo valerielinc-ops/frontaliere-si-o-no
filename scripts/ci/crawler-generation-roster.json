@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 665,
+  "crawlerCount": 666,
   "groups": {
     "10": [
       "atec-personal",
@@ -182,6 +182,7 @@
       "kanton-aargau",
       "kanton-solothurn",
       "klinik-adelheid",
+      "knowledge-lab",
       "le-team",
       "mabetex",
       "octapharma",
@@ -1058,6 +1059,7 @@
     "klinik-susenberg": "data/jobs/by-crawler/klinik-susenberg.json",
     "klinik-wyssholzli": "data/jobs/by-crawler/klinik-wyssholzli.json",
     "kliniken-valens": "data/jobs/by-crawler/kliniken-valens.json",
+    "knowledge-lab": "data/jobs/by-crawler/knowledge-lab.json",
     "komax": "data/jobs/by-crawler/komax.json",
     "kone": "data/jobs/by-crawler/kone.json",
     "ksa": "data/jobs/by-crawler/ksa.json",
@@ -1384,5 +1386,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:b80ebba0ab838e1c80a678b3441a7447c7785ec5f3674c0bb030f0552d721e24"
+  "digest": "sha256:13572e6ec9046889994604ce17d3df7ead4b81e8bf27be43d33c36f0fbaf7fdb"
 }

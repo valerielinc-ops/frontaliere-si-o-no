@@ -4,20 +4,20 @@
   "generatorSha256": "2b983908c19b40f20ac2bb0fed5bfe12d505682822d5d41390137bb5140a35c4",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "00348a2d0d6b759f0978b1dea703024a24c62982",
+  "sourceCommit": "8dbb1230a61ccffaa3afc56c4c619429c82fe71a",
   "artifactObservation": {
     "generatorSha256": "2b983908c19b40f20ac2bb0fed5bfe12d505682822d5d41390137bb5140a35c4",
     "sourceRef": "main",
-    "sourceCommit": "00348a2d0d6b759f0978b1dea703024a24c62982"
+    "sourceCommit": "8dbb1230a61ccffaa3afc56c4c619429c82fe71a"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 665,
+  "crawlerCount": 666,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:b80ebba0ab838e1c80a678b3441a7447c7785ec5f3674c0bb030f0552d721e24",
+    "rosterDigest": "sha256:13572e6ec9046889994604ce17d3df7ead4b81e8bf27be43d33c36f0fbaf7fdb",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -341,6 +341,7 @@
     "scripts/update-klinik-susenberg-jobs.mjs",
     "scripts/update-klinik-wyssholzli-jobs.mjs",
     "scripts/update-kliniken-valens-jobs.mjs",
+    "scripts/update-knowledge-lab-jobs.mjs",
     "scripts/update-komax-group-jobs.mjs",
     "scripts/update-kone-jobs.mjs",
     "scripts/update-ksa-jobs.mjs",
@@ -1207,8 +1208,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "db01529d261146b5f7478b17a13f604ab7e225bf69d14e9ebf19615215495cdb",
-      "artifactSha256": "c2a8b5c036bc9cc3add455a5a53046d200e71e9971b10c8f59b4d9e55b3d2ce5",
+      "sourceSha256": "1f079e2f21cd751ea8afd156b58a53b26196bd434a0c5181efebd1cdc1cc453a",
+      "artifactSha256": "4c0074a8e404e52504d47a9a85a3a9a446ce96ee6b2672758af5813c777e58f3",
       "generatorSha256": "2b983908c19b40f20ac2bb0fed5bfe12d505682822d5d41390137bb5140a35c4",
       "members": [
         "kronenhof",
@@ -1240,7 +1241,8 @@
         "sonarsource",
         "elite-interim",
         "gipo",
-        "le-team"
+        "le-team",
+        "knowledge-lab"
       ]
     },
     {
