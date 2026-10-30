@@ -507,14 +507,19 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         try { checks.set(url, await evaluate(job)); }
         catch { checks.set(url, { status: 'unverified', reason: 'analysis_unavailable' }); }
       }));
-      // Deferred work consumed no analysis budget and must stay ahead of the
-      // next batch. Completion order of concurrent provider calls is irrelevant.
+      // Deferred or unverified work must stay at the cursor so the next run
+      // retries it before scanning later frontier entries. Completion order of
+      // concurrent provider calls is irrelevant.
       for (const entry of batch) {
-        if (checks.get(entry.url)?.reason === 'analysis_deferred') break;
+        const result = checks.get(entry.url);
+        if (result?.reason === 'analysis_deferred' || result?.status === 'unverified') break;
         if (frontierUrls.has(entry.url)) scannedCursor = entry.url;
       }
       await serviceRef.set({ matchingScanCursor: scannedCursor, matchingScanContext: scanContext }, { merge: true });
-      if (batch.some(entry => checks.get(entry.url)?.reason === 'analysis_deferred')) break;
+      if (batch.some(entry => {
+        const result = checks.get(entry.url);
+        return result?.reason === 'analysis_deferred' || result?.status === 'unverified';
+      })) break;
     }
     const candidates = rankedCandidates.filter(candidate => checks.get(candidate.url)?.status === 'compatible')
       .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));

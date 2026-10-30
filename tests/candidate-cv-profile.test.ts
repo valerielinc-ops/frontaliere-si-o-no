@@ -760,7 +760,7 @@ describe('dated historical positions as matching evidence', () => {
 });
 
 describe('progress through the complete relevant job pool', () => {
-  it('continues beyond repeated unverified jobs and beyond the old top-40 window', async () => {
+  it('retries an unavailable frontier entry before advancing beyond the old top-40 window', async () => {
     const path = 'application_concierge_services/service-progress';
     const { db, documents } = createMatchingDb({
       [path]: { userId: 'candidate-progress', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
@@ -771,20 +771,29 @@ describe('progress through the complete relevant job pool', () => {
       url: `https://jobs.example.test/job-${String(index).padStart(3, '0')}`, title: 'IT Support Manager', description: 'IT support responsibilities' }));
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => jobs })));
     const seen: string[][] = [];
+    const attempts = new Map<string, number>();
+    const unverifiedCounts: number[] = [];
     try {
-      for (let run = 0; run < 3; run++) {
+      for (let run = 0; run < 4; run++) {
         let budget = 0;
         const checked: string[] = [];
         await runApplicationConciergeMatching({ db, serviceId: 'service-progress', eligibility: async (job: any) => {
           if (budget++ >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
           checked.push(job.id);
-          return job.id === 'job-055' ? { status: 'compatible' } : { status: 'unverified', reason: 'analysis_unavailable' };
+          const attempt = (attempts.get(job.id) || 0) + 1;
+          attempts.set(job.id, attempt);
+          if (job.id === 'job-000' && attempt === 1) return { status: 'unverified', reason: 'analysis_unavailable' };
+          return job.id === 'job-055' ? { status: 'compatible' } : { status: 'incompatible' };
         } });
         seen.push(checked);
+        unverifiedCounts.push(documents.get(path)?.matchingUnverifiedCount || 0);
       }
-      expect(seen[0]).toEqual(jobs.slice(0, 20).map(job => job.id));
-      expect(seen[1]).toEqual(jobs.slice(20, 40).map(job => job.id));
-      expect(seen[2]).toEqual(jobs.slice(40, 60).map(job => job.id));
+      expect(seen[0]).toEqual(jobs.slice(0, 4).map(job => job.id));
+      expect(seen[1]).toEqual(jobs.slice(0, 20).map(job => job.id));
+      expect(seen[2]).toEqual(jobs.slice(20, 40).map(job => job.id));
+      expect(seen[3]).toEqual(jobs.slice(40, 60).map(job => job.id));
+      expect(attempts.get('job-000')).toBe(2);
+      expect(unverifiedCounts[0]).toBeGreaterThan(0);
       expect([...documents.entries()].filter(([key, value]) => key.startsWith(`${path}/proposals/`) && value.status === 'proposed').map(([, value]) => value.jobId)).toEqual(['job-055']);
       expect(documents.get(path)?.matchingPendingCount).toBe(10);
     } finally { vi.unstubAllGlobals(); }
