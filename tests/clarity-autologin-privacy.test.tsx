@@ -125,15 +125,20 @@ describe('Clarity initialization on signed payment links', () => {
  expect(scripts()).toHaveLength(0);
  });
 
- it('rechecks the current URL after configuration resolves', async () => {
+ it.each(['present', 'empty', 'rejected'])('latches the current URL when configuration is %s', async outcome => {
  let finishConfig!: (value: string) => void;
- config.getConfigValue.mockImplementationOnce(() => new Promise<string>(resolve => { finishConfig = resolve; }));
+ let failConfig!: (error: Error) => void;
+ config.getConfigValue.mockImplementationOnce(() => new Promise<string>((resolve, reject) => {
+ finishConfig = resolve;
+ failConfig = reject;
+ }));
  const { initClarity } = await loadClarity();
  const pending = initClarity();
  await vi.dynamicImportSettled();
  expect(config.getConfigValue).toHaveBeenCalledOnce();
  setUrl(signedUrl);
- finishConfig('test-project');
+ if (outcome === 'rejected') failConfig(new Error('configuration unavailable'));
+ else finishConfig(outcome === 'empty' ? '' : 'test-project');
  await pending;
  expect(scripts()).toHaveLength(0);
  expect(window.location.href).toBe(signedUrl);

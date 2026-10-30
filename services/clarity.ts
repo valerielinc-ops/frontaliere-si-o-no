@@ -56,15 +56,15 @@ export async function initClarity(): Promise<void> {
  const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  const projectId = await getConfigValue('CLARITY_PROJECT_ID');
 
+ // Capture sensitive context even when configuration disables the SDK.
+ if (_initialized || isSensitiveDocument() || !isAnalyticsGranted()) return;
+
  if (!projectId) {
  if (import.meta.env.DEV) {
  console.log('[Clarity] No project ID configured — skipping');
  }
  return;
  }
-
- // Capture any sensitive context introduced during the asynchronous work too.
- if (_initialized || isSensitiveDocument() || !isAnalyticsGranted()) return;
 
  _initialized = true;
 
@@ -84,6 +84,8 @@ export async function initClarity(): Promise<void> {
  console.log(`[Clarity] Initialized with project ${projectId}`);
  }
  } catch (error) {
+ // A failed config fetch must not let a later clean-URL retry bypass the latch.
+ isSensitiveDocument();
  if (import.meta.env.DEV) {
  console.warn('[Clarity] Failed to initialize:', error);
  }
