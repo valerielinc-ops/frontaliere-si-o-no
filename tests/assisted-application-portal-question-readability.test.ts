@@ -67,6 +67,25 @@ it.each(['text', 'radio'])('preserves the readable question and its required mar
   dom.window.close();
 });
 
+it.each([
+  '<label for="y">I accept the Privacy Policy. *</label><input id="y" type="checkbox" required>',
+  '<label>I accept the Privacy Policy. *<input id="y" type="checkbox" required></label>',
+])('never gives an unlabeled checkbox another control\'s consent: %s', neighbor => {
+  const { dom, snapshot } = extract(`<form><fieldset><label for="x"></label><input id="x" name="newsletter" type="checkbox" required>${neighbor}</fieldset></form>`);
+  expect(snapshot.fields[0].label).not.toMatch(/privacy/i);
+  expect(snapshot.fields[1].label).toBe('I accept the Privacy Policy. *');
+  const plan = guardPlan({ actions: [{ fieldId: snapshot.fields[0].id, action: 'check', source: 'consent' }], missingRequired: [] }, snapshot.fields);
+  expect(plan.actions).not.toContainEqual(expect.objectContaining({ action: 'check' }));
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  expect((dom.window as any).CompilaRunnerFields().fields[0].label).not.toMatch(/privacy/i);
+  const entries = (dom.window as any).CompilaCandidatura.collect(dom.window.document);
+  expect(entries[0].label).not.toMatch(/privacy/i);
+  expect((dom.window as any).CompilaCandidatura.answerFor(entries[0], { identity: {}, documents: {} })).not.toEqual({ check: true });
+  expect(entries[1].label).toBe('I accept the Privacy Policy. *');
+  dom.window.close();
+});
+
 it('routes unreadable source labels to a technical hold instead of manufacturing a required question', () => {
   const result = portalRequirementsFromMissingRequired([{ id: 'f1', kind: 'checkbox', label: '', required: true }], [{ fieldId: 'f1', question: '' }]);
   expect(result.questions).toEqual([]);
