@@ -100,7 +100,7 @@ describe('404 discovery workflows publish protected data through PRs', () => {
       'if [ "$RECONCILE_COMPAT" = true ] || [ "$RECONCILE_MAIN" = true ]; then',
     );
     expect(reconciler).toContain("if (flag === '--compat')");
-    expect(reconciler).toContain("['--base', '--main', '--message']");
+    expect(reconciler).toContain("['--base', '--main', '--message', '--refresh-base']");
   });
 
   it('anchors a new compat branch to reconciled main and cleans before retry checkout', () => {

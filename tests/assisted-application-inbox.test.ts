@@ -487,15 +487,20 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
 
   it('keeps the message processed when the settlement fails, and settles on the employer’s next message', async () => {
     const { store, effects, sendCascade, receive } = await ambiguousOrder();
-    let transactions = 0;
-    // The inbox claim goes through; the flow's transaction is aborted once.
+    let failFlow = true;
+    // Fail the flow settlement itself, independently of inbox/projection transactions.
     const flaky = {
       ...store.db,
-      runTransaction: async (callback: any) => {
-        transactions += 1;
-        if (transactions === 2) throw new Error('transaction aborted');
-        return store.db.runTransaction(callback);
-      },
+      runTransaction: async (callback: any) => store.db.runTransaction((tx: any) => callback({
+        ...tx,
+        get: async (ref: any) => {
+          if (ref.path === FLOW_PATH && failFlow) {
+            failFlow = false;
+            throw new Error('transaction aborted');
+          }
+          return tx.get(ref);
+        },
+      })),
     };
     expect(await receive('auto_acknowledgement', { db: flaky })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent' });
     expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', confirmedBy: 'acknowledgement', confirmedAt: 1000 });
