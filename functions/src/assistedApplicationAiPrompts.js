@@ -224,6 +224,7 @@ verdict:
 - weak: a critical requirement partial or missing, or several high ones missing;
 - poor: a knock-out clearly missing (required licence, language level or permit that the profile clearly lacks).
 A Swiss permit that an EU/EFTA national (euEftaNational true) does not hold yet is no knock-out clearly missing: under the free movement agreement it is requested with the employment contract.
+A work permit, cross-border permit or citizenship is NOT evidence of current residence or willingness to relocate. Evaluate an explicit residence/relocation condition separately; profile silence means partial and a required question, never met. A combined confirmation does not establish either individual fact for other forms.
 Fairness: never let the name, gender, age, nationality, photo, marital status, place of residence or cross-border status influence the verdict. Only explicit legal requirements of the posting (work permit, licence, language) count.
 
 summaryIt: 2-3 sentences in Italian for the operator: fit, main gaps, what is still unknown.
