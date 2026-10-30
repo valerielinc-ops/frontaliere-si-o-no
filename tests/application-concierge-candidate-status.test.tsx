@@ -58,7 +58,7 @@ describe('candidate proposal status with the shared progress helper', () => {
     [{ childSendState: 'sent' }, 'Inviata'],
     [{ childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } }, 'Invito a colloquio'],
   ] satisfies Array<[Partial<ApplicationConciergeProposal>, string]>)('keeps confirmed submission or employer replies visible despite a conflicting withdrawal %s', (evidence, label) => {
-    render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{ ...service, proposals: [{ ...proposal, status: 'declined', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn', ...evidence }] }} locationSearch="" />);
+    render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{ ...service, proposals: [{ ...proposal, status: 'declined', childApplicationId: null, withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn', ...evidence }] }} locationSearch="" />);
     const card = within(screen.getByRole('heading', { name: 'Posizione test' }).closest('article')!);
     expect(card.getByText(label)).toBeInTheDocument();
     expect(card.queryByText('Ritirata')).not.toBeInTheDocument();

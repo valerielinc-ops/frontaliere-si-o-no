@@ -75,7 +75,7 @@ export function getCandidateVisibleApplicationConciergeProposals(
 /** The decision to accept a proposal is separate from the progress of its application. */
 export function conciergeProposalDisplayStatus(proposal: ApplicationConciergeProposal): string {
   const state = proposal.childApplicationState;
-  if (proposal.status === 'accepted' || proposal.childApplicationId) {
+  if (proposal.status === 'accepted' || proposal.childApplicationId || proposal.withdrawnAt) {
     const response = parseEmployerResponse(proposal.childEmployerResponse);
     if (response) return `employer_${response.category}`;
     if (proposal.childCandidateStatus === 'submitted' || proposal.childSubmissionStatus === 'submitted' || proposal.childSendState === 'sent' || state === 'submitted') return 'submitted';

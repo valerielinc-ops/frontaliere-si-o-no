@@ -20,6 +20,8 @@ describe('proposal decision and actual application progress', () => {
     expect(conciergeProposalDisplayStatus({ ...withdrawn, childSubmissionStatus: 'submitted' })).toBe('submitted');
     expect(conciergeProposalDisplayStatus({ ...proposal, childApplicationState: 'withdrawn', childSubmissionStatus: 'submitted' })).toBe('submitted');
     expect(conciergeProposalDisplayStatus({ ...withdrawn, childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } })).toBe('employer_interview_invite');
+    expect(conciergeProposalDisplayStatus({ ...withdrawn, childApplicationId: null, childSendState: 'sent' })).toBe('submitted');
+    expect(conciergeProposalDisplayStatus({ ...withdrawn, childApplicationId: null, childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } })).toBe('employer_interview_invite');
     expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined', childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } })).toBe('declined');
   });
   it('prefers durable submission evidence and distinguishes sending and scheduled retry', () => {

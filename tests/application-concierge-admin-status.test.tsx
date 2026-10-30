@@ -80,8 +80,16 @@ describe('concierge admin proposal decision and application progress', () => {
 
   it('distinguishes a withdrawn application from a declined proposal using the persisted decision', async () => {
     const row = await renderProposal({ status: 'declined', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn' });
-    expect(row.getByText('Ritirata')).toBeInTheDocument();
-    expect(row.queryByText('Rifiutata')).not.toBeInTheDocument();
+    expect(row.getByText('Ritirata').closest('div')).toHaveTextContent('Candidatura: Ritirata');
+    expect(row.getByText('Rifiutata').closest('div')).toHaveTextContent('Decisione proposta: Rifiutata');
+    expect(row.getByText('Candidatura:')).toBeInTheDocument();
+  });
+
+  it('keeps an accepted decision distinct from a withdrawn child even without its id', async () => {
+    const row = await renderProposal({ childApplicationId: null, childApplicationState: 'withdrawn' });
+    expect(row.getByText('Accettata').closest('div')).toHaveTextContent('Decisione proposta: Accettata');
+    expect(row.getByText('Ritirata').closest('div')).toHaveTextContent('Candidatura: Ritirata');
+    expect(row.getByText('Candidatura:')).toBeInTheDocument();
   });
 
   it('preserves a declined proposal without withdrawal evidence', async () => {
@@ -94,7 +102,7 @@ describe('concierge admin proposal decision and application progress', () => {
     [{ childSendState: 'sent' }, 'Inviata'],
     [{ childEmployerResponse: { category: 'interview_invite', receivedAt: Date.now(), needsReply: true } }, 'Invito a colloquio'],
   ] satisfies Array<[Partial<ApplicationConciergeProposal>, string]>)('does not hide confirmed delivery or employer replies behind withdrawal %s', async (evidence, label) => {
-    const row = await renderProposal({ status: 'declined', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn', ...evidence });
+    const row = await renderProposal({ status: 'declined', childApplicationId: null, withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn', ...evidence });
     expect(row.getByText(label)).toBeInTheDocument();
     expect(row.queryByText('Ritirata')).not.toBeInTheDocument();
   });
