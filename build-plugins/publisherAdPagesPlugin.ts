@@ -516,7 +516,6 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
             ogType: 'article',
             ogLocale: OG_LOCALE[locale],
             hreflangHtml,
-            extraHeadHtml: `<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(metaTitle)}"><meta name="twitter:description" content="${esc(metaDesc)}"><meta name="twitter:image" content="${BASE_URL}/og-image.png">`,
             jsonLdScripts: jobPostingLd ? [jobPostingLd, breadcrumbLd] : [breadcrumbLd],
             bodyHtml,
             distDir,

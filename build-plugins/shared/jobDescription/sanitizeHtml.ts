@@ -1,3 +1,8 @@
+import { NON_DESCRIPTIVE_ANCHOR_TEXT } from '../../../scripts/lib/non-descriptive-anchor-text.mjs';
+import { escHtml } from '../htmlEscape';
+import { decodeHtmlText } from '../../../packages/articles/engine/shared/htmlEntities';
+import { decode } from 'html-entities';
+
 /**
  * Allowlist sanitizer for third-party job-description HTML (crawler / ATS).
  *
@@ -78,13 +83,10 @@ const TAG_RE = /<(\/?)([a-zA-Z][a-zA-Z0-9:-]*)((?:\s|\/)[^>]*)?>/y;
 const ATTR_RE = /([^\s"'<>/=]+)(?:\s*=\s*(?:"([^"]*)"?|'([^']*)'?|([^\s>]+)))?/g;
 
 function decodeHrefEntities(value: string): string {
-  return value
-    .replace(/&#x([0-9a-f]+);?/gi, (_m, hex: string) => String.fromCodePoint(Math.min(parseInt(hex, 16), 0x10ffff)))
-    .replace(/&#(\d+);?/g, (_m, dec: string) => String.fromCodePoint(Math.min(parseInt(dec, 10), 0x10ffff)))
-    .replace(/&colon;?/gi, ':')
-    .replace(/&tab;?/gi, '\t')
-    .replace(/&newline;?/gi, '\n')
-    .replace(/&amp;/gi, '&');
+  // Match the browser's single attribute-decoding pass, including quote/angle
+  // entities. html-entities 2.x drops the maximum valid scalar; preserve it.
+  const prepared = value.replace(/&#(?:x10ffff(?![0-9a-f])|1114111(?!\d));?/gi, String.fromCodePoint(0x10ffff));
+  return decode(prepared, { scope: 'attribute' });
 }
 
 /**
@@ -114,6 +116,24 @@ function rebuildAnchor(attrs: string): string {
   return '<a>';
 }
 
+/** Keep the employer's words and name the verified destination of filler links. */
+function describeGenericAnchors(html: string): string {
+  return html.replace(/<a href="([^"]+)">([\s\S]*?)<\/a>/g, (anchor, href: string, inner: string) => {
+    const text = decodeHtmlText(inner.replace(/<[^>]*>/g, ''))
+      .replace(/\s+/g, ' ').trim().toLowerCase();
+    if (!NON_DESCRIPTIVE_ANCHOR_TEXT.has(text)) return anchor;
+    const resolved = decodeHrefEntities(href);
+    let destination = resolved;
+    if (/^(?:https?:)?\/\//i.test(resolved)) {
+      try {
+        const url = new URL(resolved.startsWith('//') ? `https:${resolved}` : resolved);
+        destination = `${url.host}${url.pathname}`;
+      } catch { return anchor; }
+    }
+    return `<a href="${href}">${inner} (${escHtml(destination)})</a>`;
+  });
+}
+
 /** Position just past `</name …>` from `from`, or -1. */
 function findClosingTag(html: string, name: string, from: number): number {
   const re = new RegExp(`</${name}(?:\\s[^>]*)?>`, 'gi');
@@ -123,8 +143,8 @@ function findClosingTag(html: string, name: string, from: number): number {
 }
 
 /**
- * Sanitize third-party HTML to the allowlist above. Text, entities and the
- * order of allowed tags are kept as they are; nothing is re-balanced.
+ * Sanitize third-party HTML to the allowlist above. Original text, entities
+ * and tag order survive; filler links also name their safe destination.
  */
 export function sanitizeJobDescriptionHtml(input: string): string {
   const html = String(input ?? '');
@@ -175,5 +195,5 @@ export function sanitizeJobDescriptionHtml(input: string): string {
     }
     out += name === 'a' ? rebuildAnchor(tag[3] ?? '') : `<${name}>`;
   }
-  return out;
+  return describeGenericAnchors(out);
 }
