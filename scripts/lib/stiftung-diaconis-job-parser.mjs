@@ -7,7 +7,7 @@
  *   https://diaconis.abacuscity.ch/
  *
  * Listing structure:
- *   <a href="https://diaconis.abacuscity.ch/de/job_{INSTANCE}_{ID}/{title-slug}">
+ *   <a href="/de/job_{INSTANCE}_{ID}/{title-slug}">
  *     {ENCODED_TITLE}
  *   </a>
  *
@@ -85,12 +85,26 @@ const SPONTANEOUS_RE = /(spontan|berufswahlpraktikum|freiwillig\s+engagier|schnu
 export function parseListing(html = '') {
   const out = [];
   const seen = new Set();
-  // <a href="https://diaconis.abacuscity.ch/de/job_1_86/Köchin-Koch-100%">Köchin / Koch 100%</a>
-  const re = /<a[^>]+href="(https:\/\/diaconis\.abacuscity\.ch\/[a-z]{2,3}\/job_\d+_(\d+)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
+  // The portal currently emits relative links; older snapshots used absolute
+  // links. Resolve both forms against the listing URL before validating the
+  // destination so a same-shaped link from another host cannot be ingested.
+  const re = /<a\b[^>]*\bhref\s*=\s*(["'])([^"'<>]+)\1[^>]*>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
-    const url = m[1];
-    const jobId = m[2];
+    const rawHref = decodeEntities(m[2].trim());
+    let parsedUrl;
+    try {
+      parsedUrl = new URL(rawHref, LISTING_URL);
+    } catch {
+      continue;
+    }
+    if (parsedUrl.protocol !== 'https:' || parsedUrl.hostname.toLowerCase() !== 'diaconis.abacuscity.ch') {
+      continue;
+    }
+    const jobPath = parsedUrl.pathname.match(/^\/[a-z]{2,3}\/job_\d+_(\d+)(?:\/|$)/i);
+    if (!jobPath) continue;
+    const url = parsedUrl.toString();
+    const jobId = jobPath[1];
     const titleRaw = normalizeSpace(decodeEntities(m[3].replace(/<[^>]+>/g, ' ')));
     if (!titleRaw || titleRaw.length < 4) continue;
     if (SPONTANEOUS_RE.test(titleRaw)) continue;
