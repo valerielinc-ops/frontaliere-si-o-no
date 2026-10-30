@@ -1067,6 +1067,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.documents.checking': "Controllo e caricamento…",
  'jobBoard.assisted.review.documents.remove': "Rimuovi",
  'jobBoard.assisted.review.documents.tooLarge': "«{name}» supera {mb} MB: riducilo (per esempio una scansione a risoluzione più bassa) e riprova.",
+ 'jobBoard.assisted.review.documents.check.legacy': "Il file è caricato, ma il controllo precedente non ne ha riconosciuto il tipo. Puoi ricaricarlo per verificarlo di nuovo.",
  'jobBoard.assisted.review.documents.check.match': "Sembra il documento giusto.",
  'jobBoard.assisted.review.documents.check.mismatch': "In questo file non troviamo nulla che indichi «{label}». Se non è il documento richiesto, l’azienda potrebbe scartare la candidatura: ti consigliamo di caricare quello giusto. La scelta resta tua.",
  'jobBoard.assisted.review.documents.check.looksLikeCv': "Questo file sembra il tuo CV, non «{label}». Così la candidatura potrebbe essere scartata: ti consigliamo di caricare il documento giusto. La scelta resta tua.",
