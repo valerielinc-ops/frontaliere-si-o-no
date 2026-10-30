@@ -26,7 +26,7 @@ function retained(order, claims, nowMs) {
 function sourceOf({ order, flow, draft }, claims, documentId, fileId, nowMs) {
   retained(order, claims, nowMs);
   if (!flow || Number(flow.round || 1) !== claims.round || Number(draft?.round) !== claims.round) fail('stale_link');
-  if (['withdrawn', 'refunded', 'cancelled'].includes(flow.state)) fail('not_allowed', 403);
+  if ((claims.consentBound && flow.state !== 'submitted') || ['withdrawn', 'refunded', 'cancelled'].includes(flow.state)) fail('not_allowed', 403);
   const document = requiredDocumentsOf(draft).find(item => item.id === documentId);
   const files = flow.documents?.[documentId]?.files;
   const file = document && Array.isArray(files) && files.find(item => documentFileId(item.key) === fileId);
@@ -72,7 +72,8 @@ export async function recheckStoredDocument({ db, bucket, claims, documentId, fi
     if (prior?.version === DOCUMENT_CHECK_VERSION && prior.generation === generation && prior.md5Hash === md5Hash
       && prior.contextSha256 === initial.contextSha256 && /^[a-f0-9]{64}$/.test(prior.sha256 || '')
       && initial.file.clientCheck?.version === DOCUMENT_CHECK_VERSION) {
-      sourceOf(await load(), claims, documentId, fileId, now());
+      const latest = sourceOf(await load(), claims, documentId, fileId, now());
+      if (latest.contextSha256 !== initial.contextSha256) fail('file_changed');
       return { state: 'unchanged', clientCheck: sanitizeClientCheck(initial.file.clientCheck) };
     }
     const expiresAt = Math.min(now() + LIFETIME_MS, claims.expiresAt, retentionPurgeDueAt((await load()).order) ?? Infinity);
@@ -96,6 +97,9 @@ export async function recheckStoredDocument({ db, bucket, claims, documentId, fi
   return db.runTransaction(async transaction => {
     const current = sourceOf(stateOf(await Promise.all(refs.map(ref => transaction.get(ref)))), claims, documentId, fileId, now());
     if (current.contextSha256 !== initial.contextSha256) fail('file_changed');
+    if (descriptor.expiresAt <= now()) fail('check_expired');
+    const [currentMetadata] = await object.getMetadata();
+    if (String(currentMetadata.generation) !== generation || currentMetadata.md5Hash !== md5Hash || Number(currentMetadata.size) !== size) fail('file_changed');
     if (Number(current.file.clientCheck?.version || 0) > DOCUMENT_CHECK_VERSION) fail('check_version_changed');
     transaction.set(flowRef, { documents: { [documentId]: { files: current.files.map(file => file === current.file
       ? { ...file, clientCheck, documentCheckProof: proof } : file) } } }, { merge: true });
