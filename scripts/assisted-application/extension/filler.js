@@ -59,6 +59,7 @@
   ];
   // A place, not a date: «Luogo di nascita», «Geburtsort».
   const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;
+  const BIRTHPLACE_RE = /\b(?:luogo di nascita|geburtsort|lieu de naissance|place of birth|birthplace)\b/;
   const NOT_PERSON_RE = /\b(azienda|company|firma|unternehmen|entreprise|utente|user|benutzer|referenz|reference|riferimento)/;
   const ADDRESS_FAMILIES = new Set(['postalCode', 'city', 'street', 'country']);
   const COUNTRY_WORD_RE = /\b(paese|country|land|pays|nazione)\b/;
@@ -612,7 +613,7 @@
       // A browser autocomplete token describes a type, not its owner. An
       // explicit birthplace or another person's/company's label vetoes even
       // a genuine personal section before the autocomplete branch below.
-      && !labels.some(name => NOT_PERSON_RE.test(normalize(name)) || PLACE_RE.test(normalize(name)));
+      && !labels.some(name => NOT_PERSON_RE.test(normalize(name)) || BIRTHPLACE_RE.test(normalize(name)));
     if (autoFamily) {
       // `postal-code`, `address-level2`, etc. identify a value type, not
       // whose address it is. Require explicit candidate-residence context.
