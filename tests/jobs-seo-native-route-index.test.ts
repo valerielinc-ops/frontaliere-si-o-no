@@ -148,7 +148,9 @@ describe('native job route ownership with interned prefixes', () => {
     const base = 'https://frontaliereticino.ch';
     const alternates = JOB_SEO_LOCALES.map(locale => `<xhtml:link rel="alternate" hreflang="${locale}" href="${base}${canonical[locale]}" />`).join('');
     const xml = `<urlset>${JOB_SEO_LOCALES.map(locale => `<url><loc>${base}${canonical[locale]}</loc>${alternates}</url>`).join('')}</urlset>`;
-    const sanitized = sanitizeSitemapHreflangReciprocity([{ file: 'sitemap-jobs.xml', xml }]).get('sitemap-jobs.xml');
+    const changedFiles = sanitizeSitemapHreflangReciprocity([{ file: 'sitemap-jobs.xml', xml }]);
+    expect(changedFiles.size).toBe(0);
+    const sanitized = changedFiles.get('sitemap-jobs.xml') ?? xml;
     for (const locale of JOB_SEO_LOCALES) {
       expect(sanitized).toContain(`<loc>${base}${canonical[locale]}</loc>`);
       expect(sanitized).toContain(`hreflang="${locale}" href="${base}${canonical[locale]}"`);
