@@ -6,6 +6,7 @@ import { verificationIsPending, verificationOutcome } from '../scripts/assisted-
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
+import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
 
 const fields = [
   { id: 'f1', kind: 'text', label: 'First name', required: true },
@@ -393,7 +394,7 @@ describe('legacy portal sections', () => {
     };
     const frame = {
       url: () => snapshot.url,
-      evaluate: vi.fn(async () => snapshot),
+      evaluate: vi.fn(async (read: unknown) => read === markOptionalAutofillDeclineInPage ? false : snapshot),
       locator: vi.fn((selector: string) => selector === '[data-aa-id="resume-trigger"]'
         ? { first: () => trigger }
         : { count: vi.fn(async () => 0) }),
@@ -618,7 +619,7 @@ describe('legacy portal sections', () => {
     };
     const frame = {
       url: () => url,
-      evaluate: vi.fn(async () => snapshots[snapshotIndex]),
+      evaluate: vi.fn(async (read: unknown) => read === markOptionalAutofillDeclineInPage ? false : snapshots[snapshotIndex]),
       locator: vi.fn((selector: string) => {
         if (selector === '[role="dialog"]:visible input[type="file"]'
           || selector === '[aria-modal="true"]:visible input[type="file"]'
@@ -720,7 +721,7 @@ describe('legacy portal sections', () => {
       };
       const frame = {
         url: () => snapshot.url,
-        evaluate: vi.fn(async () => snapshot),
+        evaluate: vi.fn(async (read: unknown) => read === markOptionalAutofillDeclineInPage ? false : snapshot),
         locator: vi.fn((selector: string) => {
           if (selector === '[data-aa-id="resume-trigger"]') return { first: () => trigger };
           if (selector === 'input[type="file"]') return {
@@ -1267,7 +1268,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const frame = { locator: vi.fn(() => ({ first: () => control })) };
     const page = { frames: () => [frame], mainFrame: () => frame };
     const result = await applyActions(page as any, [{ id: 'privacy', kind: 'checkbox', label: 'Privacy', required: true }], [{ fieldId: 'privacy', action: 'check', value: '' }], {}, { pause: async () => {} });
-    expect(result).toEqual([{ fieldId: 'privacy', ok: false, error: 'choice_not_registered' }]);
+    expect(result).toEqual([expect.objectContaining({ fieldId: 'privacy', ok: false, error: 'choice_not_registered' })]);
   });
 
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {

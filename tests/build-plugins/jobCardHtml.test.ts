@@ -31,6 +31,25 @@ const baseJob: JobCardJob = {
   postedDate: '2026-03-07',
 };
 
+describe('jobCardHtml — save bookmark island', () => {
+  const href = '/cerca-lavoro-ticino/full-stack/';
+
+  it('emits the placeholder as a sibling of the link, never inside it', () => {
+    const html = renderJobCardHtml({ ...baseJob, id: 'alten-1', slug: 'full-stack', category: 'it' }, { href, locale: 'it' });
+    expect(html).toContain('</a><span data-job-save="alten-1" data-slug="full-stack" data-company="ALTEN Switzerland" data-canton="TI" data-category="it"></span></article>');
+  });
+
+  it('escapes crawler text in the attributes', () => {
+    const html = renderJobCardHtml({ ...baseJob, id: 'a"b', company: 'R&D "Lab"' }, { href, locale: 'it' });
+    expect(html).toContain('data-job-save="a&quot;b"');
+    expect(html).toContain('data-company="R&amp;D &quot;Lab&quot;"');
+  });
+
+  it('renders no placeholder without a job id', () => {
+    expect(renderJobCardHtml(baseJob, { href, locale: 'it' })).not.toContain('data-job-save');
+  });
+});
+
 describe('jobCardHtml — escHtml', () => {
   it('escapes HTML metacharacters', () => {
     expect(escHtml('<a href="x">"&"</a>')).toBe(

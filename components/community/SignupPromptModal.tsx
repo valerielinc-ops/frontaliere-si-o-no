@@ -14,7 +14,7 @@ import { useTranslation } from '@/services/i18n';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
-import { requestConfirmationEmail, upsertUnifiedEmailSubscriber } from '@/services/newsletterSubscribers';
+import { requestConfirmationEmail, upsertUnifiedEmailSubscriber, type UnifiedEmailConsentInput } from '@/services/newsletterSubscribers';
 import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { Analytics } from '@/services/analytics';
@@ -24,8 +24,9 @@ import { reportCaughtError } from '@/services/errorReporter';
 const FOLLOW_PROMPT_AUTH_ATTRIBUTION = { cta: 'company_follow_social', component: 'CompanyFollowButton' } as const;
 const SAVE_PROMPT_AUTH_ATTRIBUTION = { cta: 'save_signin_prompt_social', component: 'SaveSignInPromptModal' } as const;
 const ALERT_PROMPT_AUTH_ATTRIBUTION = { cta: 'job_alert_filter_cta', component: 'JobAlertAuthPrompt' } as const;
+const CONCIERGE_PROMPT_AUTH_ATTRIBUTION = { cta: 'application_concierge_activate', component: 'ApplicationConciergePortal' } as const;
 
-export type SignupPromptIntent = 'save' | 'follow' | 'alert';
+export type SignupPromptIntent = 'save' | 'follow' | 'alert' | 'concierge';
 
 export interface SignupPromptModalProps {
   locale: string;
@@ -48,6 +49,35 @@ function browserLocale(): string {
   return typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT';
 }
 
+/**
+ * Registers the address and sends the link that proves it. A new email-only
+ * registration already receives the DOI link from the unified upsert; existing
+ * proof needs the separate passwordless access link.
+ */
+export async function requestEmailAccessLink(
+  trimmed: string,
+  input: Omit<UnifiedEmailConsentInput, 'email' | 'accessOnly'>,
+): Promise<void> {
+  const firestore = getFirestore(await getApp());
+  const upsert = await upsertUnifiedEmailSubscriber(firestore, { ...input, email: trimmed, accessOnly: true });
+  if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
+    await requestConfirmationEmail(trimmed, 'login');
+  }
+}
+
+/** The concierge prompt and its "confirm your address" step send the same link. */
+export function requestConciergeAccessLink(email: string, locale: string): Promise<void> {
+  return requestEmailAccessLink(email, {
+    source: 'application_concierge_activate',
+    sourceChannel: 'application_concierge_unified',
+    sourcePage: pagePath(),
+    sourceCta: 'application_concierge_activate',
+    sourceComponent: 'ApplicationConciergePortal',
+    sourceRouteFamily: 'job-board',
+    locale,
+  });
+}
+
 export default function SignupPromptModal({
   locale,
   intent,
@@ -64,22 +94,29 @@ export default function SignupPromptModal({
   const [emailError, setEmailError] = useState('');
   const isFollow = intent === 'follow';
   const isAlert = intent === 'alert';
+  const isConcierge = intent === 'concierge';
   const companyName = company?.trim() || t('jobAlert.companyFollow.cta');
   const keywordLabel = keyword?.trim() || t('jobAlert.cardTitle');
   const title = isFollow
     ? t('jobAlert.companyFollow.authPrompt.title', { company: companyName })
     : isAlert
     ? t('jobAlert.boardFilterAuthPrompt.title', { keyword: keywordLabel })
+    : isConcierge
+    ? t('jobBoard.concierge.authPrompt.title')
     : t('jobBoard.saveAuthPrompt.title');
   const body = isFollow
     ? t('jobAlert.companyFollow.authPrompt.body', { company: companyName })
     : isAlert
     ? t('jobAlert.boardFilterAuthPrompt.body', { keyword: keywordLabel })
+    : isConcierge
+    ? t('jobBoard.concierge.authPrompt.body')
     : t('jobBoard.saveAuthPrompt.body');
   const successBody = isFollow
     ? t('jobAlert.companyFollow.authPrompt.checkEmailBody', { company: companyName })
     : isAlert
     ? t('jobAlert.boardFilterAuthPrompt.checkEmailBody', { keyword: keywordLabel })
+    : isConcierge
+    ? t('jobBoard.concierge.authPrompt.checkEmailBody')
     : t('jobBoard.saveAuthPrompt.checkEmailBody');
   const emailLabel = isFollow
     ? t('jobAlert.companyFollow.emailLabel')
@@ -90,9 +127,11 @@ export default function SignupPromptModal({
   const bodyId = `signup-prompt-${intent}-body`;
 
   const submitDefaultEmail = async (trimmed: string): Promise<void> => {
-    const firestore = getFirestore(await getApp());
-    const upsert = await upsertUnifiedEmailSubscriber(firestore, {
-      email: trimmed,
+    if (isConcierge) {
+      await requestConciergeAccessLink(trimmed, locale);
+      return;
+    }
+    await requestEmailAccessLink(trimmed, {
       source: isFollow ? 'company_follow_button' : isAlert ? 'job_alert_filter_cta' : 'save_signin_prompt_email',
       sourceChannel: isFollow ? 'company_follow_unified' : isAlert ? 'job_alert_filter_unified' : 'saved_job_unified',
       sourcePage: pagePath(),
@@ -100,16 +139,8 @@ export default function SignupPromptModal({
       sourceComponent: isFollow ? 'CompanyFollowButton' : isAlert ? 'JobAlertAuthPrompt' : 'SaveSignInPromptModal',
       sourceRouteFamily: isFollow ? 'company-follow' : isAlert ? 'job-board' : 'community',
       locale: isFollow || isAlert ? locale : browserLocale(),
-      accessOnly: true,
       ...(isFollow ? { jobContext: { company: companyName } } : {}),
     });
-
-    // A new email-only registration already receives the DOI link from the
-    // unified upsert. Existing proof needs the separate passwordless access
-    // link so the pending save/follow can be replayed after authentication.
-    if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
-      await requestConfirmationEmail(trimmed, 'login');
-    }
   };
 
   const handleEmailSubmit = async (event: React.FormEvent) => {
@@ -133,7 +164,8 @@ export default function SignupPromptModal({
         Analytics.trackJobAlertAuthHandoff('job_board_filters', 'email_requested', keywordLabel);
       } else {
         Analytics.trackEvent(
-          isFollow ? 'company_follow_prompt_email_sent' : 'save_signin_prompt_email_sent',
+          isFollow ? 'company_follow_prompt_email_sent'
+            : isConcierge ? 'application_concierge_prompt_email_sent' : 'save_signin_prompt_email_sent',
           { intent },
         );
       }
@@ -200,6 +232,8 @@ export default function SignupPromptModal({
                 ? FOLLOW_PROMPT_AUTH_ATTRIBUTION
                 : isAlert
                 ? ALERT_PROMPT_AUTH_ATTRIBUTION
+                : isConcierge
+                ? CONCIERGE_PROMPT_AUTH_ATTRIBUTION
                 : SAVE_PROMPT_AUTH_ATTRIBUTION}
             />
 

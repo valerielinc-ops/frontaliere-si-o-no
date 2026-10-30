@@ -13,6 +13,12 @@
 /* eslint-disable no-undef -- runs in the browser */
 export function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  const nativeOption = (option, select) => ({
+    value: option.value,
+    label: clean(option.textContent),
+    ...(select.required && !select.multiple && select.size <= 1 && select.options[0] === option
+      && option.parentElement === select && option.value === '' ? { placeholder: true } : {}),
+  });
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
   // The ATS classifier knows both vendor hosts and employer-branded
   // Jobs2Web routes. Keep this contract self-contained: this function is
@@ -128,19 +134,44 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     return node ? clean(node.innerText || node.textContent) : '';
   };
   const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
+  const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
+  const DATE_QUESTION_SELECTOR = '[ui5-date-picker], [data-scope="date-picker"][data-part="root"]';
+  const QUESTION_CONTROL_SELECTOR = `input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"], button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"], ${DATE_QUESTION_SELECTOR}`;
+  const questionControls = group => {
+    const nodes = [...(group?.querySelectorAll(QUESTION_CONTROL_SELECTOR) || [])];
+    for (const label of group?.querySelectorAll('label[for]') || []) {
+      if (label.control?.matches(QUESTION_CONTROL_SELECTOR)) nodes.push(label.control);
+    }
+    return [...new Set(nodes
+      .filter(control => control.tagName !== 'INPUT'
+        || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()))
+      .map(control => {
+        const widget = control.closest(`${DATE_QUESTION_SELECTOR}, [role="radiogroup"]`);
+        if (widget) return widget;
+        const nativeId = control.matches('.ui-selectmenu-button[role="combobox"]') && control.id.endsWith('-button') ? control.id.slice(0, -7) : '';
+        const native = nativeId && control.ownerDocument.getElementById(nativeId);
+        if (native?.tagName === 'SELECT' && control.getAttribute('aria-owns') === `${nativeId}-menu`) return native;
+        const previous = control.previousElementSibling;
+        if (control.classList.contains('ui-multiselect') && previous?.tagName === 'SELECT' && previous.id
+          && previous.getAttribute('aria-labelledby') && previous.getAttribute('aria-labelledby') === control.getAttribute('aria-labelledby')) return previous;
+        return control;
+      }))];
+  };
   const oneQuestionGroup = (group, element) => {
-    const controls = [...(group?.querySelectorAll('input:not([type="hidden"]), select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]') || [])];
+    const controls = questionControls(group);
     return controls.length === 1 || controls.length > 0 && controls.every(control =>
       control.matches('input[type="radio"], [role="radio"]') && (group.matches('[role="radiogroup"]')
         || control.matches('input[type="radio"]') && Boolean(element.name) && control.name === element.name));
   };
+  const hasSingleQuestionContext = (element, group) => oneQuestionGroup(
+    group || element.form || element.closest('form') || element.ownerDocument.body, element);
   const ownedGroupLabels = (group, selector, element) => {
     const oneQuestion = oneQuestionGroup(group, element);
     return [...(group?.querySelectorAll(selector) || [])].filter(label => {
       const owner = label.closest('label') || label;
       const linked = [...owner.querySelectorAll('label[for]'), ...(owner.matches('label[for]') ? [owner] : [])];
       return label.closest(QUESTION_GROUP_SELECTOR) === group && !owner.contains(element)
-        && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
+        && questionControls(owner).length === 0
         && linked.every(node => Boolean(element.id) && node.getAttribute('for') === element.id)
         && (linked.length > 0 || oneQuestion);
     });
@@ -159,21 +190,23 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const wrappingText = wrapping && clean(wrapping.innerText || wrapping.textContent);
     if (wrappingText) return wrappingText;
     const group = element.closest(QUESTION_GROUP_SELECTOR);
-    for (const legend of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
+    for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       const legendText = !legend.contains(element) && clean(legend.innerText || legend.textContent);
       if (legendText) return legendText;
     }
     const placeholder = element.getAttribute('placeholder');
     if (placeholder) return clean(placeholder);
+    const ownContext = hasSingleQuestionContext(element, group);
     // Last resort: the closest container's own text before the control.
     const container = element.closest('li, .field, .form-group, [class*="question"], [class*="field"]');
-    const text = container && (!group || oneQuestionGroup(group, element)) ? clean((container.innerText || '').split('\n')[0]) : '';
+    const text = container && ownContext && (!group || container === group || container.closest(QUESTION_GROUP_SELECTOR) === group)
+      ? clean((container.innerText || '').split('\n')[0]) : '';
     if (text) return text;
     // The first of name and id that is not generated ("input-7" never hides "email-address").
     const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
     const technical = names.find((value) => !GENERATED_ID_RE.test(value));
     if (technical) return technical;
-    if (group && !oneQuestionGroup(group, element)) return names[0] || '';
+    if (!ownContext || !hasSingleQuestionContext(element)) return names[0] || '';
     // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
     // the heading the control sits under and the text of its zone say what it
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
@@ -192,7 +225,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       if (node) labels.add(node);
     }
     const group = element.closest(QUESTION_GROUP_SELECTOR);
-    for (const groupLabel of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
+    for (const groupLabel of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       if (!groupLabel.contains(element)
         && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
     }
@@ -351,7 +384,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   };
   const groupQuestion = (element) => {
     const group = element.closest(QUESTION_GROUP_SELECTOR);
-    for (const legend of ownedGroupLabels(group, 'legend, .question, .label, h3, h4', element)) {
+    for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       if (legend.closest('label')?.hasAttribute('for') || legend.querySelector('label[for]')) continue; // An option's label never names the whole group.
       const text = !legend.contains(element) && clean(legend.innerText || legend.textContent);
       if (text) return text;
@@ -395,7 +428,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   const datePickerSelector = '[data-scope="date-picker"][data-part="root"]';
   for (const picker of document.querySelectorAll(datePickerSelector)) {
     if (!readable(picker)) continue;
-    const label = clean(picker.getAttribute('aria-label') || headingBefore(picker) || zoneText(picker));
+    const label = clean(labelFor(picker));
     const selected = picker.querySelector('[data-part="table-cell-trigger"][data-selected], [data-part="table-cell-trigger"][aria-selected="true"]')?.getAttribute('data-value') || '';
     fields.push({
       id: idFor(picker),
@@ -472,7 +505,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       invalid: element.getAttribute('aria-invalid') === 'true',
     };
     if (tag === 'select') {
-      field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map((option) => ({ value: option.value, label: clean(option.textContent) }));
+      field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, element));
     }
     if (field.kind === 'combobox') {
       // jQuery UI selectmenu renders a visible span around a hidden native
@@ -485,7 +518,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
         field.widget = 'jquery-selectmenu';
         field.nativeSelectId = nativeId;
         field.ownedList = `${nativeId}-menu`;
-        field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) }));
+        field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, native));
         field.label = labelFor(native) || field.label;
         field.required ||= native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(field.label);
         field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
@@ -561,7 +594,8 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (!label) continue;
     let entry = ariaGroups.get(container);
     if (!entry) {
-      const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
+      const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element)
+        || (hasSingleQuestionContext(element) ? headingBefore(element) : '');
       entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
@@ -596,7 +630,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
-        options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ value: option.value, label: clean(option.textContent) })),
+        options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, nativeSelect)),
         required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });

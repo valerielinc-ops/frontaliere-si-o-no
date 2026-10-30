@@ -184,7 +184,9 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   const successUrl = boundedString(body.successUrl, 1000);
   const cancelUrl = boundedString(body.cancelUrl, 1000);
   let resumeServiceId = boundedString(body.serviceId, 200);
-  let customerEmail = normalizedEmail(body.customerEmail) || normalizedEmail(decoded.email);
+  // The account's confirmed address is the only recipient a new checkout can
+  // name: anything typed in the browser would bypass the possession proof.
+  let customerEmail = decoded.email_verified === true ? normalizedEmail(decoded.email) : '';
   const locale = VALID_LOCALES.has(body.locale) ? body.locale : 'it';
   if (!userId || !requestKey) return { status: 400, body: { ok: false, error: 'invalid_request_key' } };
   if (body.serviceId && !/^[A-Za-z0-9_-]{1,200}$/.test(resumeServiceId)) {
@@ -193,8 +195,8 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   if (!validHttpsUrl(successUrl) || !validHttpsUrl(cancelUrl)) {
     return { status: 400, body: { ok: false, error: 'invalid_redirect_urls' } };
   }
-  if (!customerEmail && !resumeServiceId) {
-    return { status: 400, body: { ok: false, error: 'application_concierge_email_required' } };
+  if (!customerEmail && !resumeServiceId && !body.renewalOfServiceId) {
+    return { status: 403, body: { ok: false, error: 'application_concierge_email_not_verified' } };
   }
 
   const configuredPaymentProvider = await getAssistedApplicationPaymentProvider();
@@ -209,6 +211,9 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     if (source.renewedByServiceId) return { status: 200, body: { ok: true, url: appendServiceId(successUrl, source.renewedByServiceId), serviceId: source.renewedByServiceId, paymentComplete: true } };
     renewalOffer = conciergeRenewalOffer(source);
     if (!renewalOffer) return { status: 409, body: { ok: false, error: 'application_concierge_renewal_not_available' } };
+    // A legacy paid owner may still be anonymous; ownership was checked above.
+    customerEmail ||= normalizedEmail(source.customerEmail) || normalizedEmail(source.applicantEmail);
+    if (!customerEmail) return { status: 403, body: { ok: false, error: 'application_concierge_email_not_verified' } };
     if (Number(body.expectedAmountTotal) !== renewalOffer.amountTotal) return { status: 409, body: { ok: false, error: 'application_concierge_renewal_price_changed' } };
   }
   // One checkout per source service prevents duplicate renewal purchases from repeated clicks.
@@ -275,7 +280,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     }
     customerEmail ||= normalizedEmail(resumeService.customerEmail) || normalizedEmail(resumeService.applicantEmail);
     if (!customerEmail) {
-      return { status: 400, body: { ok: false, error: 'application_concierge_email_required' } };
+      return { status: 403, body: { ok: false, error: 'application_concierge_email_not_verified' } };
     }
     if (resumeService.customerEmail !== customerEmail) {
       await resumeServiceRef.set({ customerEmail, updatedAt: FieldValue.serverTimestamp() }, { merge: true });

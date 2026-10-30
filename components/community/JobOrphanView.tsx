@@ -9,7 +9,7 @@ import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
  * Unauthenticated: 3-column ad grid (left rail | content | right rail) with
  * auth gate, Eye icon header, social proof, and AUTHGATE_* ad slots.
  *
- * Authenticated: single-column with JOBDETAIL_END_MULTIPLEX + inline mobile ad.
+ * Authenticated: the standard 8/4 job-detail grid, with full-width related jobs.
  */
 
 import { Suspense, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
@@ -43,8 +43,12 @@ import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
+import JobSaveButton from '@/components/community/JobSaveButton';
+import type { SaveableJob } from '@/services/jobSaveGate';
 
 interface JobOrphanViewProps {
+ /** Resolves an active job from a link's slug, so its row can carry the bookmark. */
+ findActiveJob?: (slug: string) => SaveableJob | null;
  slug: string;
  onBack?: () => void;
  /** When true the user is already authenticated — hide the sign-in block. */
@@ -180,7 +184,7 @@ function extractActiveJobLinks(html: string): Array<{ href: string; title: strin
  return links;
 }
 
-export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
+export default function JobOrphanView({ slug, findActiveJob, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
  const [locale] = useLocale();
   const { headline: gateHeadline, variant: headlineVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
@@ -650,30 +654,38 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  );
 
  const activeJobsSection = activeJobLinks.length > 0 && (
- <div className="space-y-3">
- <h2 className="text-base font-semibold font-display text-strong">
+ <section className="rounded-2xl border border-edge bg-surface p-5">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? 'Posizioni attive simili' : locale === 'de' ? 'Ähnliche offene Stellen' : locale === 'fr' ? 'Postes similaires ouverts' : 'Similar active jobs'}
  </h2>
- <ul className="space-y-2">
- {activeJobLinks.slice(0, 5).map((link) => (
- <li key={link.href}>
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" data-job-orphan-related-grid>
+ {activeJobLinks.slice(0, 5).map((link) => {
+ const saveable = findActiveJob?.(link.href.split('/').filter(Boolean).pop() ?? '') ?? null;
+ return (
+ <article key={link.href} className="relative rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors">
  <a
  href={link.href}
  onClick={(e) => handleRelatedJobClick(e, link.href)}
- className="flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 hover:border-accent hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
+ className={`-m-3 block rounded-lg p-3 ${saveable ? 'pr-12' : ''} focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
  >
- <span className="flex-1 min-w-0">
- <span className="block font-medium text-sm text-strong truncate">{link.title}</span>
+ <div className="flex items-start gap-3">
+ <span className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center border border-edge shrink-0">
+ <Building2 className="w-5 h-5 text-muted" aria-hidden="true" />
+ </span>
+ <span className="min-w-0 flex-1">
+ <span className="block text-sm sm:text-base font-bold leading-tight text-heading line-clamp-2">{link.title}</span>
  {link.company && (
- <span className="block text-xs text-muted mt-0.5 truncate">{link.company}</span>
+ <span className="block text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">{link.company}</span>
  )}
  </span>
- <ArrowRight size={14} className="text-muted shrink-0" />
- </a>
- </li>
- ))}
- </ul>
  </div>
+ </a>
+ {saveable && <JobSaveButton job={saveable} surface="card_related" />}
+ </article>
+ );
+ })}
+ </div>
+ </section>
  );
 
  const ctaLink = (
@@ -701,11 +713,11 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </details>
  );
 
- // ── Logged-in view: single column with ads ──
+ // ── Logged-in view: standard 8/4 detail grid ──
 
  if (alreadySignedIn) {
  return (
- <div className="space-y-6">
+ <div className="space-y-6" data-orphan-layout="authenticated">
  {topBannerRow}
 
  {/* 3-column rail grid: left rail | content | right rail — same full-height
@@ -719,7 +731,8 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </aside>
 
  {/* ── Center content ── */}
- <div className="space-y-6 max-w-2xl mx-auto w-full">
+ <div className="min-w-0 w-full grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6" data-orphan-detail-grid>
+ <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
  {jobHeaderCard}
 
  {/* Mobile/tablet in-article ad */}
@@ -732,19 +745,13 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  )}
 
  {companyBanner}
- {activeJobsSection}
  {staticContentDetails}
+ </article>
+
+ <aside className="lg:col-span-4 lg:self-start space-y-4">
  <JobAlertSection initialKeyword={slugParts.title || ''} />
  {ctaLink}
-
- {/* End multiplex */}
- {AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot && (
- <AdSenseBanner
- adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot}
- adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format}
- className="mt-2"
- />
- )}
+ </aside>
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
@@ -752,6 +759,16 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  <ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} />
  </aside>
  </div>
+
+ {/* Keep related jobs below the detail grid and end ad, like active details. */}
+ {AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format}
+ className="mt-2"
+ />
+ )}
+ {activeJobsSection}
  </div>
  );
  }

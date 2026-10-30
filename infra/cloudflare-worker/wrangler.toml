@@ -42,6 +42,8 @@ routes = [
   # and therefore need their own wildcard route so query-string variants reach
   # the same deterministic 301/410 response in locale-router.js.
   { pattern = "frontaliereticino.ch/cookie*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap_index.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-jobs-ticino.xml*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/farmacie/ticino/castagnola/di-turno*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en/pharmacies/ticino/castagnola/on-duty*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/de/apotheken/ticino/castagnola/notdienst*", zone_name = "frontaliereticino.ch" },
@@ -330,11 +332,13 @@ routes = [
 # en/de/fr shard traffic PLUS the ticino/svizzera/zurigo sections across all four
 # locales (a chunk of the former IT bulk), so invocation volume is materially
 # higher than before.
-# 100% sampling is kept deliberately: on Workers Paid the Logs allowance has ample
-# headroom, and full sampling preserves complete visibility into the shard 5xx /
-# stale-if-error path (the exact path involved in the #3178 incident). If Logs
-# volume ever approaches the plan allowance, lower this rate rather than dropping
-# to zero — do NOT lose the 5xx visibility.
+# From 2026-12-01 Cloudflare bills Workers Logs by volume (50 GB ingested and
+# 10 GB-month stored included, then $0.25/GB and $0.10/GB-month). At ~5.9 KB per
+# event and ~50M events a month 100% sampling costs ~$70: the rate drops to 0.1 on
+# that date through cloudflare-logs-sampling-cutover.yml. Error counts stay complete
+# (they come from Analytics, not from these logs). Never drop to zero: the 5xx
+# visibility of the #3178 incident path depends on it. `redact_query_string` has no
+# wrangler field: scripts/cf-worker-observability-settings.mjs asserts it after deploy.
 [observability]
 enabled = true
 head_sampling_rate = 1

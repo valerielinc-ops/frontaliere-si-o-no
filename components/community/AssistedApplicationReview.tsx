@@ -10,6 +10,7 @@ import { AssistedApplicationFitNotice } from '@/components/community/AssistedApp
 import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
 import { AssistedApplicationKeptDocuments, WordCopyLink } from '@/components/community/AssistedApplicationKeptDocuments';
 import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
+import { useAssistedApplicationDocumentRechecks } from '@/services/useAssistedApplicationDocumentRechecks';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
@@ -198,15 +199,20 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const [editTouched, setEditTouched] = useState<Record<string, boolean>>({});
   const [editServerErrors, setEditServerErrors] = useState<Record<string, string>>({});
 
+  const currentToken = useRef(token);
+  currentToken.current = token;
+  const loadedToken = useRef<string | null>(null);
   const load = useCallback(async () => {
     try {
       const payload = await fetchReview(token);
+      if (currentToken.current !== token) return;
       if ('kind' in payload && payload.kind === 'followup') {
         setFollowup(payload);
         setError(null);
         return;
       }
       const review = payload as ReviewPayload;
+      loadedToken.current = token;
       setData(review);
       // An empty start date shows the proposed one; it counts only once saved.
       const proposed = Object.fromEntries((review.questions || [])
@@ -215,11 +221,13 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       setAnswers({ ...(review.answers || {}), ...proposed });
       setError(null);
     } catch (reason) {
-      setError(reason instanceof ReviewRequestError ? reason.code : 'network');
+      if (currentToken.current === token) setError(reason instanceof ReviewRequestError ? reason.code : 'network');
     }
   }, [token]);
 
   useEffect(() => { void load(); }, [load]);
+
+  useAssistedApplicationDocumentRechecks(token, loadedToken.current === token ? data : null, setData);
 
   // While the agent works (drafting, sending) the page refreshes itself.
   useEffect(() => {

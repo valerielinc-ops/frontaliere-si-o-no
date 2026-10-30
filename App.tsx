@@ -37,6 +37,7 @@ const NewsletterMount = React.lazy(() => import('@/components/community/Newslett
 // pages emit. Mounted unconditionally like NewsletterMount above — on every
 // other route the scan is one querySelectorAll that matches nothing.
 const CompanyFollowMount = React.lazy(() => import('@/components/community/CompanyFollowMount'));
+const JobSaveMount = React.lazy(() => import('@/components/community/JobSaveMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const SeasonalNaspiSimulator = lazyRetry(() => import('@/components/calculator/SeasonalNaspiSimulator'));
@@ -267,6 +268,7 @@ import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
 import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
 import { subscribeSavedJobsFirestore } from '@/services/savedJobsService';
+import { syncJobSaveAuth } from '@/services/jobSaveGate';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import {
  upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
@@ -490,11 +492,22 @@ const App: React.FC = () => {
  // Version badge commit hash — fetched at runtime (services/buildInfo.ts)
  // instead of a Vite `define`. Baking it into the bundle put a fresh value in
  // the entry every build → ~100% deploy churn.
+ // Only once the footer badge is on screen: an unconditional fetch at mount made
+ // /commit-hash.txt the most requested URL of the site (698k/week, 94% from
+ // JS-rendering crawlers that never read the badge).
  const [commitHash, setCommitHash] = useState('');
+ const commitBadgeRef = useRef<HTMLAnchorElement>(null);
  useEffect(() => {
+ const badge = commitBadgeRef.current;
+ if (!badge || typeof IntersectionObserver === 'undefined') return;
  let alive = true;
+ const observer = new IntersectionObserver(([entry]) => {
+ if (!entry?.isIntersecting) return;
+ observer.disconnect();
  fetchCommitHash().then((hash) => { if (alive && hash) setCommitHash(hash); });
- return () => { alive = false; };
+ });
+ observer.observe(badge);
+ return () => { alive = false; observer.disconnect(); };
  }, []);
 
  useEffect(() => {
@@ -1716,6 +1729,11 @@ const App: React.FC = () => {
  });
  return unsubscribe;
  }, [authUser?.uid, authEmail, locale]);
+
+ // Declared after the sync above: a pending bookmark replays into its cache.
+ useEffect(() => {
+ syncJobSaveAuth(authUser?.uid ?? null);
+ }, [authUser?.uid]);
 
  // GA4 user-scoped `is_registered` custom dimension (analytics Stage 1,
  // revenue-per-user segmentation) — keyed off the signed-in uid so it
@@ -3622,6 +3640,7 @@ const App: React.FC = () => {
  {/* Version badge with GitHub link */}
  <div className="flex items-center justify-center mt-2 mb-2">
  <a
+ ref={commitBadgeRef}
  href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${commitHash || 'unknown'}`}
  target="_blank"
  rel="noopener noreferrer"
@@ -4406,6 +4425,7 @@ const App: React.FC = () => {
  <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  <SafeLazy boundary="company-follow-mount"><CompanyFollowMount /></SafeLazy>
+ <SafeLazy boundary="job-save-mount"><JobSaveMount /></SafeLazy>
  {showWhatsNew && (
  <SafeLazy boundary="whats-new-modal">
  <WhatsNewModal

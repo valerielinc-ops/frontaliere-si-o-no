@@ -18,7 +18,6 @@ User-agent: Bingbot
 User-agent: msnbot
 User-agent: Slurp
 User-agent: DuckDuckBot
-User-agent: Baiduspider
 User-agent: YandexBot
 User-agent: facebot
 User-agent: ia_archiver
@@ -159,6 +158,16 @@ User-agent: DataForSeoBot
 Disallow: /
 
 User-agent: serpstatbot
+Disallow: /
+
+# Baidu (owner decision 2026-10-30): 1.53M requests a week against 220 referrals,
+# no Chinese-speaking audience for this site. Also blocked at the edge
+# (scripts/cf-locale-failover-setup.mjs), which is what actually stops the volume.
+User-agent: Baiduspider
+Disallow: /
+
+# Unidentified crawler running on Google Cloud (707k requests a week, no referrals).
+User-agent: CorsairBot
 Disallow: /
 
 # ─── Sitemaps ─────────────────────────────────────────────────────────────
