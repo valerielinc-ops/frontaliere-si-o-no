@@ -93,6 +93,26 @@ describe('compat-path-safety: fast == legacy', () => {
   });
 });
 
+describe('shared midPluginFlags facade', () => {
+  it('uses the same module-load snapshot for the constant and early rejection helper', async () => {
+    const fast = await loadWithFlag('1', async () => {
+      const flags = await import('../build-plugins/shared/midPluginFlags');
+      process.env.MID_PLUGINS_FAST = '0';
+      return flags;
+    });
+    expect(fast.MID_PLUGINS_FAST).toBe(true);
+    expect(fast.earlyRejectEnabled()).toBe(true);
+
+    const legacy = await loadWithFlag('0', async () => {
+      const flags = await import('../build-plugins/shared/midPluginFlags');
+      process.env.MID_PLUGINS_FAST = '1';
+      return flags;
+    });
+    expect(legacy.MID_PLUGINS_FAST).toBe(false);
+    expect(legacy.earlyRejectEnabled()).toBe(false);
+  });
+});
+
 describe('seo-hubs hasEmittedJobDetailPage: fast == legacy, memo only inside its window', () => {
   it('same verdict for plain and non-plain hrefs; memo does not leak outside the window', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'jobdetail-'));

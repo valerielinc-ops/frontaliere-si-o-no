@@ -123,6 +123,12 @@ const socialRobotClosurePaths = new Set([
   'scripts/load-rc-env.mjs',
 ]);
 const sourceTreeLintTests = new Map([
+  // The mid-plugin equivalence suite imports its variants dynamically and is
+  // the trusted oracle for the module-load flag contract. The shared facade
+  // is otherwise only consumed by build plugins, so a facade-only change can
+  // otherwise miss the suite in the reverse graph. Keep this edge explicit and
+  // let the normal full-checkout guard protect the verdict.
+  ['tests/mid-plugins-equivalence.test.ts', /^(?:build-plugins\/shared\/midPluginFlags\.ts|scripts\/lib\/mid-plugins-flag\.mjs)$/],
   // The pruner is executed in a disposable subprocess, never imported into
   // Vitest (importing it would execute cleanup). These are real runtime/read
   // dependencies that the static import graph cannot infer from path.join.
