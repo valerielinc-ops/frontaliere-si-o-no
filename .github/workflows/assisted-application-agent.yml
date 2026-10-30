@@ -74,6 +74,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # The agent imports shared Cloud Functions modules (the GitHub proxy
+      # reaches reCAPTCHA Enterprise), whose dependencies live under the
+      # separate functions lockfile rather than the site's root workspace.
+      - name: Install Functions dependencies
+        working-directory: functions
+        run: npm ci --no-audit --no-fund
+
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}

@@ -25,6 +25,7 @@
 //      LEGACY_LUGANO_COMPETITION_REDIRECTS, which the literal spreads first;
 //   2. BORDER_WAIT_LEGACY_REDIRECTS, added only where the literal is silent;
 //   3. data/article-redirects.json, added only where the literal is silent.
+//   4. enumerated salary-stats bridge families, only when no legacy entry wins.
 // NOT in it: the cathedral job map (derived from data/jobs.json at build time)
 // and the Search Console compat pages (derived from the compat store): neither
 // is static, and both stay noindex,follow bridges.
@@ -38,6 +39,14 @@
 import { readHardcodedRedirects, loadArticleRedirects } from './articleRedirects.mjs';
 import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './legacyLuganoCompetitionRedirects';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './borderWaitLegacyRedirects';
+import { listAllBrandAliases } from './brandCanonicalMap';
+import { COMPANY_ROUTE_PREFIX, SECTION_LEGACY_TI } from './cantonSection';
+import { listAllProfessionCantonPaths } from '../professionCantonData';
+import { PROFESSION_IDS, PROFESSION_LOCALES, buildProfessionLandingPath } from '../professionLandingsData';
+import { listAllSalaryProfessionCantonPaths } from '../salaryProfessionCantonData';
+import { SALARY_STATS_CANTON_SLUGS, buildSalaryStatsPath } from '../salaryStatsData';
+import { CH_CANTON_EMPLOYERS_CANTON_KEYS, buildCantonEmployersPath } from '../weeklyEmployersChCantonPathsData';
+import { CH_CANTON_SNAPSHOT_CANTON_KEYS, buildCantonSnapshotPath } from '../jobMarketSnapshotChCantonPathsData';
 
 export const EDGE_LEGACY_STUB_MODULE_PATH = 'infra/cloudflare-worker/legacy-stub-redirects.generated.mjs';
 export const EDGE_LEGACY_STUB_GENERATOR = 'npx tsx scripts/build-edge-legacy-stub-redirects.ts';
@@ -63,6 +72,33 @@ export function buildEdgeLegacyStubRedirects(rootDir: string): Record<string, st
   for (const [from, to] of Object.entries(loadArticleRedirects(rootDir, { warn: () => {} }) as Record<string, string>)) {
     put(from, to, false);
   }
+  // Declared company aliases use the same marked bridge as legacy paths.
+  // Recovering an archived alias must not expose a new 200 meta refresh.
+  for (const { alias, canonical } of listAllBrandAliases()) {
+    for (const locale of PROFESSION_LOCALES) {
+      const root = `${locale === 'it' ? '' : `/${locale}`}/${SECTION_LEGACY_TI[locale]}/${COMPANY_ROUTE_PREFIX[locale]}-`;
+      put(`${root}${alias}/`, `${root}${canonical}/`, false);
+    }
+  }
+  // These routes can alternate between a full page and a below-floor bridge
+  // as inventory changes. The Worker checks REDIRECT_STUB_MARKER before a
+  // 301, so listing the entire finite family never redirects a live page.
+  const salaryBridge = (from: string, locale: typeof PROFESSION_LOCALES[number], cantonKey: string) => {
+    put(from, buildSalaryStatsPath(locale, SALARY_STATS_CANTON_SLUGS[cantonKey][locale]), false);
+  };
+  for (const { path, locale, cantonKey } of [
+    ...listAllProfessionCantonPaths(),
+    ...listAllSalaryProfessionCantonPaths(),
+  ]) salaryBridge(path, locale, cantonKey);
+  for (const locale of PROFESSION_LOCALES) {
+    for (const id of PROFESSION_IDS) salaryBridge(buildProfessionLandingPath(locale, id), locale, 'TI');
+    for (const cantonKey of CH_CANTON_EMPLOYERS_CANTON_KEYS) {
+      salaryBridge(buildCantonEmployersPath(locale, SALARY_STATS_CANTON_SLUGS[cantonKey][locale]), locale, cantonKey);
+    }
+    for (const cantonKey of CH_CANTON_SNAPSHOT_CANTON_KEYS) {
+      salaryBridge(buildCantonSnapshotPath(locale, SALARY_STATS_CANTON_SLUGS[cantonKey][locale]), locale, cantonKey);
+    }
+  }
   return Object.fromEntries([...out.entries()].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)));
 }
 
@@ -71,7 +107,7 @@ export function renderEdgeLegacyStubModule(table: Record<string, string>): strin
   const rows = Object.entries(table).map(([from, to]) => `  ${JSON.stringify(from)}: ${JSON.stringify(to)},`);
   return [
     '// GENERATED — do not edit by hand.',
-    `// Source: build-plugins/shared/edgeLegacyStubRedirects.ts (legacyRedirectsPlugin static map).`,
+    `// Source: build-plugins/shared/edgeLegacyStubRedirects.ts (legacy aliases + salary-stats bridge families).`,
     `// Regenerate: ${EDGE_LEGACY_STUB_GENERATOR}`,
     '// Drift gate: tests/edge-legacy-stub-redirects.test.ts',
     '//',

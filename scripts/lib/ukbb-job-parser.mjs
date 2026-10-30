@@ -36,6 +36,7 @@ import { identifiedPostingPublication } from './identified-posting-publication.m
 import { extractJobPostingsLd, jobPostingDescriptionText } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -272,10 +273,14 @@ export async function fetchAllUkbbJobs() {
     if (title.length > 80 && /vielen dank|job-abo|momentan|im moment/i.test(title)) continue;
 
     const rendered = extractUkbbRenderedDescription(html);
-    const description = rendered.split(/\s+/).length >= 30 ? rendered : jsonLdDescription(ld);
-    const safeDescription = description && description.split(/\s+/).length >= 30
-      ? description
-      : `${title} — ${UKBB_COMPANY_NAME}, Basel.\n\n${description || ''}`.trim();
+    const description = meetsSourceBodyFloor(rendered) ? rendered : jsonLdDescription(ld);
+    if (!meetsSourceBodyFloor(description)) {
+      throw new Error(
+        `UKBB detail ${url} returned ${sourceBodyWordCount(description)} source-description words; `
+        + `refusing to publish below the ${MIN_SOURCE_BODY_WORDS}-word floor`,
+      );
+    }
+    const safeDescription = description;
 
     const loc = pickLocation(ld.jobLocation);
     const employmentType = pickEmploymentType(ld.employmentType, `${title} ${description}`);

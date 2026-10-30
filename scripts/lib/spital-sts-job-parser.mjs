@@ -45,6 +45,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -263,10 +264,13 @@ export async function fetchAllSpitalStsJobs() {
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
 
     const description = await fetchDetailDescription(r.detailHref, r.teaser);
-    const fallback = `${r.title} — ${SPITAL_STS_COMPANY_NAME}, ${r.location}${r.workload ? ` (${r.workload})` : ''}.`;
-    const safeDescription = description && description.split(/\s+/).length >= 30
-      ? description
-      : [fallback, description].filter(Boolean).join('\n\n');
+    if (!meetsSourceBodyFloor(description)) {
+      throw new Error(
+        `Spital STS detail ${r.detailHref} returned ${sourceBodyWordCount(description)} `
+        + `source-description words; refusing to publish below the ${MIN_SOURCE_BODY_WORDS}-word floor`,
+      );
+    }
+    const safeDescription = description;
 
     const canton = inferSwissTargetCanton(r.location) || 'BE';
     const sourceLang = detectLang(safeDescription || r.title, 'de');
