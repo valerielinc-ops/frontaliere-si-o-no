@@ -373,7 +373,9 @@
       if (node.matches(scopeSelector) && isShown(node)) {
         names.push(node.getAttribute('aria-label') || '');
         for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
-          const label = node.ownerDocument.getElementById(id);
+          const matches = [...node.ownerDocument.querySelectorAll('[id]')].filter(label => label.id === id);
+          if (matches.length !== 1) return null;
+          const label = matches[0];
           // Explicit ARIA references can name an owner through visually
           // hidden text. Dropping that name must not authorize an outer
           // personal heading; unreadable ownership remains unknown.
