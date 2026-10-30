@@ -41,7 +41,7 @@ describe('cf-observability-audit checks', () => {
     ['version-files-share', { versionRequests: 40_000 }],
     ['blocked-bot-leak', { blockedRequests: { Baiduspider: 101 } }],
     ['unknown-bot-share', { topUserAgents: [{ ua: 'NewBot/1.0', count: 60_000 }] }],
-    ['googlebot-301-share', { googlebot301: 20_000 }],
+    ['googlebot-301-share', { googlebot301: 31_000 }],
     ['log-privacy-settings', { redactQueryString: false }],
     ['log-budget', { total: 3_000_000 }],
   ])('%s fails alone on its own signal', (id, change) => {
