@@ -9430,7 +9430,6 @@
           "ubs-card-center-senior-cyber-security-engineer-100-w-m-d-ubs-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-20T09:15:31.518Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -9445,7 +9444,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "ubs-79e4ff42208e",

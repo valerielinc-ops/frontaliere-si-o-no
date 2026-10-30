@@ -122,6 +122,20 @@
       "jobReqId": "1367485555",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-07T15:07:37.249Z",
       "previousSlugs": [
         "responsabile-officina-bracciale-m-f-patek-philippe-plan-les-ouates",
         "head-of-workshop-bracelet-m-f-patek-philippe-plan-les-ouates",
@@ -147,20 +161,6 @@
           "werkstattleiter-armband-m-w-patek-philippe-plan-les-ouates",
           "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
         ]
-      },
-      "firstSeenAt": "2026-09-07T15:07:37.249Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -290,6 +290,21 @@
       "jobReqId": "1368154355",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 49000,
+      "salaryMax": 74500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49000,
+          "maxValue": 74500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "2300",
+      "firstSeenAt": "2026-10-08T09:22:32.106Z",
       "previousSlugs": [
         "lehrling-dressing-terminator-uhrmacher-m-w-patek-philippe-la-chaux-de-fonds",
         "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
@@ -305,22 +320,7 @@
         "en": [
           "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
         ]
-      },
-      "firstSeenAt": "2026-10-08T09:22:32.106Z",
-      "salaryMin": 49000,
-      "salaryMax": 74500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49000,
-          "maxValue": 74500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "2300"
+      }
     },
     {
       "id": "patek-philippe-e20c4339d889",
