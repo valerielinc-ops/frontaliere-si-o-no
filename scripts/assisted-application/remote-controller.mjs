@@ -7,6 +7,15 @@ import { executionController, CONTROLLER_HEARTBEAT_MS } from '../../functions/sr
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { writeExecutionArtifacts } from './lib/execution-artifacts.mjs';
 
+export function controllerWorkerSource({ checkoutSha, githubSha, githubRef, workerSourceSha }) {
+  if (githubRef !== 'refs/heads/main' || githubSha !== checkoutSha || !/^[a-f0-9]{40}$/.test(checkoutSha || '')
+    || !/^[a-f0-9]{40}$/.test(workerSourceSha || '')) throw new Error('remote_controller_source_mismatch');
+  // Controller code always comes from this run's trusted main. The older
+  // worker source is separately attested by the server-owned execution doc
+  // and the Mac compiler's origin/main ancestry + immutable release checks.
+  return workerSourceSha;
+}
+
 export async function waitForRemoteExecution({ db, orderId, executionId, sourceSha, runId, timeoutMs = 110 * 60_000 }) {
   const controller = executionController({ db, orderId, executionId, sourceSha, runId });
   await controller.ready();
@@ -43,9 +52,10 @@ export async function waitForRemoteExecution({ db, orderId, executionId, sourceS
 async function main() {
   const { values } = parseArgs({ options: { order: { type: 'string' }, execution: { type: 'string' }, source: { type: 'string' } } });
   const actualSource = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8', timeout: 5000 }).trim();
-  if (process.env.GITHUB_REF !== 'refs/heads/main' || process.env.GITHUB_SHA !== actualSource || values.source !== actualSource) throw new Error('remote_controller_source_mismatch');
+  const workerSourceSha = controllerWorkerSource({ checkoutSha: actualSource, githubSha: process.env.GITHUB_SHA,
+    githubRef: process.env.GITHUB_REF, workerSourceSha: values.source });
   const result = await waitForRemoteExecution({ db: await getFirestoreDb(), orderId: values.order, executionId: values.execution,
-    sourceSha: actualSource, runId: process.env.GITHUB_RUN_ID });
+    sourceSha: workerSourceSha, runId: process.env.GITHUB_RUN_ID });
   writeExecutionArtifacts(result.artifacts);
   // A completed executor is not an assertion of employer receipt. The normal
   // submission guard, event trigger and encrypted evidence own that outcome.

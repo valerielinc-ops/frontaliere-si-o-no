@@ -22,6 +22,9 @@ Non acquista crediti, non configura chiavi NopeCHA e non cambia provider.
 - Il solo `order.submittedAt` storico indica anche il caricamento del CV al
   servizio. Le prove di invio sono status canonico, flow/history, draft.sent e
   ledger di invio. Non si cancella né si modifica quel timestamp storico.
+- La conservazione deve avere una scadenza canonica finita ancora futura, oppure
+  un consenso talent pool attivo. Una scadenza non calcolabile resta sconosciuta
+  e impedisce l'ammissione; la deadline viene ricontrollata al click.
 
 ## Classi di recupero
 

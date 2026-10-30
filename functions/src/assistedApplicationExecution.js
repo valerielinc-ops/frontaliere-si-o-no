@@ -6,6 +6,7 @@ import { AUTOMATED_PORTAL_CHANNELS } from './lib/portalChannels.js';
 import { verifiedInfrastructureProof } from './lib/portalInfrastructureEvidence.js';
 import { hasRecordedSubmission } from './assistedApplicationSubmissionGuard.js';
 import { automationEligibility } from './assistedApplicationEligibility.js';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 
 export const REMOTE_EXECUTOR_FLAG = 'ASSISTED_APPLICATION_REMOTE_EXECUTOR';
 export const REMOTE_EXECUTOR = 'mac-agenti';
@@ -69,8 +70,9 @@ export function executionMaterialVersion({ order, flow, draft }) {
   }))).digest('hex');
 }
 
-export function executionEligibility({ orderId, order, flow, draft, submission, round, resumeExecution = null }) {
+export function executionEligibility({ orderId, order, flow, draft, submission, round, resumeExecution = null, nowMs = Date.now() }) {
   if (!automationEligibility(order, orderId).eligible) return 'order_ineligible';
+  if (!assistedApplicationRetained(order, nowMs)) return 'retention_expired';
   if (flow?.history != null && !Array.isArray(flow.history)) return 'submission_history_unknown';
   if (hasRecordedSubmission({ order, flow, draft, submission })) return 'submission_proven';
   if (order?.paymentStatus !== 'paid' || order.withdrawnAt || submission?.withdrawnAt || order.retentionPurgedAt
@@ -117,7 +119,7 @@ export async function prepareRemoteExecution({ db, orderId, flow, mode, round, s
     if (!reason || Number(current.dispatch?.requestedAt) !== Number(flow?.dispatch?.requestedAt)) return null;
     const previousProof = context.execution.outcome === 'deferred' && context.execution.fencedGeneration
       ? { id: context.execution.id, lease: { generation: context.execution.fencedGeneration } } : null;
-    if (executionEligibility({ ...context, round, resumeExecution: previousProof })) return null;
+    if (executionEligibility({ ...context, round, resumeExecution: previousProof, nowMs })) return null;
     if (context.execution.dispatchAt === Number(current.dispatch.requestedAt) && context.execution.sourceSha === sourceSha
       && context.execution.state === 'queued') return context.execution;
     if (context.execution.lease?.expiresAt > nowMs || context.execution.controller?.expiresAt > nowMs) throw new Error('execution_already_leased');
@@ -142,6 +144,7 @@ export function executionController({ db, orderId, executionId, sourceSha, runId
   const matches = context => {
     const execution = context.execution;
     if (!runId || execution.id !== executionId || context.flow.executionId !== executionId || execution.sourceSha !== sourceSha
+      || execution.protocol !== 1 || execution.executor !== REMOTE_EXECUTOR || execution.mode !== 'submit'
       || !SOURCE_SHA.test(sourceSha || '') || execution.dispatchAt !== Number(context.flow.dispatch?.requestedAt)) throw new Error('controller_execution_mismatch');
     return execution;
   };
@@ -150,7 +153,7 @@ export function executionController({ db, orderId, executionId, sourceSha, runId
       return db.runTransaction(async transaction => {
         const context = await contextIn(transaction, ref);
         const execution = matches(context);
-        const denied = executionEligibility({ ...context, round: execution.round, resumeExecution: execution.resumeProof
+        const denied = executionEligibility({ ...context, nowMs: now(), round: execution.round, resumeExecution: execution.resumeProof
           ? { id: execution.resumeProof.id, lease: { generation: execution.resumeProof.generation } } : null });
         if (denied || execution.materialVersion !== executionMaterialVersion(context)) throw new Error('controller_material_not_approved');
         if (execution.state !== 'queued' || execution.controller) throw new Error('controller_already_started');
@@ -182,7 +185,7 @@ export function executionController({ db, orderId, executionId, sourceSha, runId
         if (execution.controller?.runId !== runId || execution.state === 'finished') return false;
         const resume = execution.state === 'running' ? execution : execution.resumeProof
           ? { id: execution.resumeProof.id, lease: { generation: execution.resumeProof.generation } } : null;
-        if (executionEligibility({ ...context, round: execution.round, resumeExecution: resume })) return false;
+        if (executionEligibility({ ...context, nowMs: now(), round: execution.round, resumeExecution: resume })) return false;
         const records = Object.entries(context.submission).filter(([key]) => /^r\d+$/.test(key)).map(([, record]) => record);
         if (context.draft.sent || context.draft.sentAttempt || records.some(record => record?.state === 'sent' || record?.clickedAt)) return false;
         transaction.set(ref.execution, { state: 'finished', outcome: 'deferred', finishedAt: now(),
@@ -206,10 +209,11 @@ export function executionLease({ db, orderId, executionId, sourceSha, engineVers
     if (!executionId || execution.id !== executionId || context.flow.executionId !== executionId
       || execution.sourceSha !== sourceSha || !SOURCE_SHA.test(sourceSha || '')
       || !ENGINE_VERSION.test(engineVersion || '') || execution.executor !== REMOTE_EXECUTOR
+      || execution.protocol !== 1 || execution.mode !== 'submit'
       || execution.dispatchAt !== Number(context.flow.dispatch?.requestedAt)) throw new Error('execution_superseded');
     if (execution.engineVersion && execution.engineVersion !== engineVersion) throw new Error('execution_engine_changed');
     if (materials && execution.materialVersion !== executionMaterialVersion(context)) throw new Error('execution_material_changed');
-    if (context.order.paymentStatus !== 'paid' || context.order.withdrawnAt || context.submission.withdrawnAt || context.order.retentionPurgedAt
+    if (context.order.paymentStatus !== 'paid' || context.order.withdrawnAt || context.submission.withdrawnAt || !assistedApplicationRetained(context.order, now())
       || context.flow.submittedAt
       || ['pending', 'succeeded', 'refunded'].includes(context.order.refundStatus)
       || !['awaiting_upload', 'ready_for_manual_submission', 'in_progress'].includes(context.order.submissionStatus)
@@ -232,7 +236,7 @@ export function executionLease({ db, orderId, executionId, sourceSha, engineVers
       return db.runTransaction(async transaction => {
         const context = await contextIn(transaction, ref);
         const execution = identity(context);
-        const denied = executionEligibility({ ...context, round: execution.round,
+        const denied = executionEligibility({ ...context, nowMs: now(), round: execution.round,
           resumeExecution: execution.state === 'running' ? execution : execution.resumeProof
             ? { id: execution.resumeProof.id, lease: { generation: execution.resumeProof.generation } } : null });
         if (denied) throw new Error(`execution_${denied}`);

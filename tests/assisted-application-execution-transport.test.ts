@@ -2,8 +2,32 @@ import { describe, expect, it } from 'vitest';
 import { nextRemoteBatch } from '../scripts/assisted-application/remote-executor.mjs';
 import { executionArtifacts } from '../scripts/assisted-application/lib/execution-artifacts.mjs';
 import { privateBrowserEnvironment } from '../scripts/assisted-application/lib/darwin-isolation.mjs';
+import { controllerWorkerSource } from '../scripts/assisted-application/remote-controller.mjs';
+import { processGroupAlive, waitForDetachedChild } from '../scripts/assisted-application/lib/execution-process.mjs';
+import { spawn } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
 
 describe('remote executor transport boundaries', () => {
+  it('keeps the controller on trusted main when main advances after worker source selection', () => {
+    const previous = 'a'.repeat(40); const current = 'b'.repeat(40);
+    expect(controllerWorkerSource({ checkoutSha: current, githubSha: current, githubRef: 'refs/heads/main', workerSourceSha: previous })).toBe(previous);
+    expect(() => controllerWorkerSource({ checkoutSha: previous, githubSha: current, githubRef: 'refs/heads/main', workerSourceSha: previous })).toThrow('source_mismatch');
+    expect(() => controllerWorkerSource({ checkoutSha: current, githubSha: current, githubRef: 'refs/heads/feature', workerSourceSha: previous })).toThrow('source_mismatch');
+  });
+  it('reaps a TERM-resistant descendant even when the detached leader exits first', async () => {
+    const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'remote-process-fixture-')); const ready = path.join(temporary, 'ready');
+    const descendant = `require('node:fs').writeFileSync(${JSON.stringify(ready)},'ready');process.on('SIGTERM',()=>{});setInterval(()=>{},1000);`;
+    const leader = `require('node:child_process').spawn(process.execPath,['-e',${JSON.stringify(descendant)}],{stdio:'ignore',env:{}});process.on('SIGTERM',()=>process.exit(0));setInterval(()=>{},1000);`;
+    const child = spawn(process.execPath, ['-e', leader], { detached: true, stdio: 'ignore', env: {} });
+    try {
+      for (let count = 0; count < 100 && !fs.existsSync(ready); count++) await new Promise(resolve => setTimeout(resolve, 20));
+      expect(fs.existsSync(ready)).toBe(true);
+      await expect(waitForDetachedChild(child, 50)).rejects.toThrow('remote_executor_timeout');
+      expect(processGroupAlive(child.pid)).toBe(false);
+    } finally { try { process.kill(-child.pid!, 'SIGKILL'); } catch {} fs.rmSync(temporary, { recursive: true, force: true }); }
+  }, 12_000);
   it('visits pending orders beyond the first full batch and then starts a fresh fair sweep', async () => {
     const orders = Array.from({ length: 61 }, (_, index) => ({ id: String(index).padStart(3, '0') }));
     const db = { collection(name) {

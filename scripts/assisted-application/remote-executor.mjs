@@ -16,6 +16,7 @@ import { prepareDarwinBroker } from '../../.github/actions/setup-codex-darwin-br
 import { REMOTE_EXECUTOR, REMOTE_EXECUTOR_FLAG } from '../../functions/src/assistedApplicationExecution.js';
 import { parseCodexLogin } from '../../functions/src/codexFallback.js';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { processGroupAlive, waitForDetachedChild } from './lib/execution-process.mjs';
 
 const execute = promisify(execFile);
 const PAUSE_MS = 20_000;
@@ -30,22 +31,6 @@ async function freeProviderReady() {
   const response = await fetch('https://api.nopecha.com/v1/status', { signal: AbortSignal.timeout(10_000), redirect: 'error' });
   const quota = response.ok ? await response.json() : null;
   if (!response.ok || quota?.status !== 'Active' || !(Number(quota?.credit) > 0)) throw new Error('remote_free_provider_unavailable');
-}
-
-async function childExit(child, timeoutMs) {
-  return new Promise((resolve, reject) => {
-    let expired = false; let killTimer;
-    const timer = setTimeout(() => {
-      expired = true;
-      try { process.kill(-child.pid, 'SIGTERM'); } catch { child.kill('SIGTERM'); }
-      killTimer = setTimeout(() => {
-        try { process.kill(-child.pid, 'SIGKILL'); } catch { /* gone */ }
-        reject(new Error('remote_executor_timeout'));
-      }, 3000).unref();
-    }, timeoutMs);
-    child.once('error', () => { clearTimeout(timer); clearTimeout(killTimer); reject(new Error('remote_executor_spawn_failed')); });
-    child.once('exit', code => { clearTimeout(timer); clearTimeout(killTimer); !expired && code === 0 ? resolve() : reject(new Error('remote_executor_runtime_failed')); });
-  });
 }
 
 async function browserAndExtension(release, jobRoot) {
@@ -86,7 +71,7 @@ async function readiness({ release, stateDirectory, credentialsPath }) {
 
 async function runRequest({ db, repository, stateDirectory, credentialsPath, orderId, execution }) {
   const jobRoot = fs.mkdtempSync(path.join(stateDirectory, 'job-')); fs.chmodSync(jobRoot, 0o700);
-  let broker; let prepared;
+  let broker; let prepared; let unreaped = false;
   fs.writeFileSync(path.join(jobRoot, 'process.json'), JSON.stringify({ state: 'preparing', pid: process.pid }), { mode: 0o600 });
   try {
     await freeProviderReady();
@@ -117,8 +102,13 @@ async function runRequest({ db, repository, stateDirectory, credentialsPath, ord
     const child = spawn('/usr/bin/sandbox-exec', ['-f', isolation.agentProfile, process.execPath,
       path.join(release.root, 'scripts/assisted-application/supervised-agent.mjs'), '--order', orderId, '--mode', 'submit', '--round', String(execution.round)],
     { cwd: release.root, env, detached: true, stdio: ['ignore', 'ignore', 'ignore'] });
-    await childExit(child, JOB_TIMEOUT_MS);
+    if (child.pid) {
+      try { fs.writeFileSync(path.join(jobRoot, 'process.json'), JSON.stringify({ state: 'running', pid: child.pid, started: '' }), { mode: 0o600 }); }
+      catch { await waitForDetachedChild(child, 1); throw new Error('remote_executor_job_marker_failed'); }
+    }
+    await waitForDetachedChild(child, JOB_TIMEOUT_MS);
   } catch (error) {
+    unreaped = error?.processGroupUnreaped === true;
     const code = /^(execution|darwin|remote)_[a-z_]{1,80}$/.test(error?.message || '') ? error.message : 'remote_runtime_unavailable';
     // Candidate-free signal to the still-authoritative hosted controller.
     // Only that controller may return a pre-click delivery to the normal clock.
@@ -129,11 +119,12 @@ async function runRequest({ db, repository, stateDirectory, credentialsPath, ord
         { runtimeUnavailableAt: Date.now(), runtimeStatus: 'unavailable',
           runtimeCode: code }, { merge: true });
     });
+    if (unreaped) throw error;
     return { code };
   } finally {
     try { await broker?.cleanup(); } finally {
       if (!broker && prepared) removePrivateTree(path.dirname(prepared.manifest));
-      removePrivateTree(jobRoot);
+      if (!unreaped) removePrivateTree(jobRoot);
     }
   }
 }
@@ -165,7 +156,7 @@ async function main() {
         if (owner.state === 'running') {
           let started = '';
           try { started = execFileSync('/bin/ps', ['-p', String(owner.pid), '-o', 'lstart='], { encoding: 'utf8', timeout: 2000 }).trim(); } catch { /* no process */ }
-          if (started && (!owner.started || started === owner.started)) throw new Error('remote_executor_child_still_active');
+          if (processGroupAlive(owner.pid) || (started && (!owner.started || started === owner.started))) throw new Error('remote_executor_child_still_active');
         }
       }
       removePrivateTree(root);
@@ -202,11 +193,15 @@ async function main() {
         if (execution?.executor !== REMOTE_EXECUTOR || execution.protocol !== 1 || !claimable || execution.runtimeUnavailableAt
           || execution.controller?.expiresAt <= Date.now()) continue;
         const result = await runRequest({ db, repository: values.repository, stateDirectory, credentialsPath, orderId: doc.id, execution });
+        cursor = doc;
         if (result?.code === 'remote_free_provider_unavailable') {
           enabled = false; providerBlockedUntil = Date.now() + 10 * 60_000;
           await registry.set({ ready: false, heartbeatAt: Date.now() }, { merge: true });
           break;
         }
+        // Reload the operational switch after every job, not after an entire
+        // potentially long batch. The next sweep continues after this order.
+        break;
       }
       if (!cursor) await wait(PAUSE_MS);
     }

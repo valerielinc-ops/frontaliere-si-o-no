@@ -17,7 +17,7 @@ const measuredResponses = [{ host: 'api.nopecha.com', path: '/v1/status', status
 const CAPTCHA_PROOF = captchaInfrastructureProof('captcha', { diagnostics: { responses: measuredResponses }, attempt: 1 });
 function fixture() {
   const cv = `assisted-application-uploads/${ORDER}/cv.pdf`;
-  const order = { paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission', cvStorageKey: cv,
+  const order = { paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission', cvStorageKey: cv, cvUploadedAt: 10,
     cvFileCheck: { key: cv, verdict: 'ok', detectedType: 'pdf' }, consentVersion: 'assisted-application-v2', consentedAt: 10 };
   const flow = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, requestedAt: 100,
     recoveryReason: 'portal:captcha_provider_unavailable' }, infrastructureProof: CAPTCHA_PROOF };
@@ -140,6 +140,13 @@ describe('portal infrastructure host recovery', () => {
     expect(store.read(`${ROOT}/automation/flow`)!.remoteExecutionAttempts).toBeUndefined();
     expect(store.read(`${ROOT}/automation/execution`)!.state).toBe('ready');
   });
+  it('rejects an unknown execution protocol before a worker or controller can claim it', async () => {
+    const store = await prepared(); store.read(`${ROOT}/automation/execution`)!.protocol = 2;
+    await expect(lease(store).claim()).rejects.toThrow('execution_superseded');
+    store.read(`${ROOT}/automation/execution`)!.state = 'queued'; store.read(`${ROOT}/automation/execution`)!.controller = null;
+    await expect(executionController({ db: store.db, orderId: ORDER, executionId: 'execution-fixture', sourceSha: SHA,
+      runId: 'run-fixture', now: () => 100 }).ready()).rejects.toThrow('controller_execution_mismatch');
+  });
   it('returns an offline delivery to the normal clock without spending an admission', async () => {
     const store = await prepared();
     const controller = executionController({ db: store.db, orderId: ORDER, executionId: 'execution-fixture', sourceSha: SHA, runId: 'run-fixture', now: () => 115 });
@@ -174,6 +181,35 @@ describe('portal infrastructure host recovery', () => {
     store.read(ROOT)!.submittedAt = 95;
     expect(store.read(ROOT)!.submissionStatus).toBe('ready_for_manual_submission');
     await expect(lease(store).claim()).resolves.toMatchObject({ executionId: 'execution-fixture' });
+  });
+  it('denies expired CV retention even when the purge job has not run', async () => {
+    const store = await prepared(); store.read(ROOT)!.cvUploadedAt = 1;
+    const expired = 91 * 86400_000;
+    await expect(prepareRemoteExecution({ db: store.db, orderId: ORDER, flow: fixture().flow, mode: 'submit', round: 1,
+      sourceSha: SHA, nowMs: expired })).resolves.toBeNull();
+    store.read(`${ROOT}/automation/execution`)!.controller.expiresAt = expired + EXECUTION_LEASE_MS;
+    await expect(lease(store, { now: () => expired }).claim()).rejects.toThrow('execution_not_submittable');
+  });
+  it.each([undefined, 'not-a-timestamp'])('denies a missing or malformed retention anchor: %s', async anchor => {
+    const store = await prepared(); store.read(ROOT)!.cvUploadedAt = anchor;
+    await expect(lease(store).claim()).rejects.toThrow('execution_not_submittable');
+    expect(store.read(`${ROOT}/automation/flow`)!.remoteExecutionAttempts).toBeUndefined();
+  });
+  it('rechecks retention expiring after admission and before the click', async () => {
+    const store = await prepared(); let nowMs = 110; store.read(ROOT)!.cvUploadedAt = 1;
+    const actor = lease(store, { now: () => nowMs }); await actor.claim();
+    const guard = submissionGuard(store.db, ORDER, 1, { execution: actor }); await guard.claim('portal');
+    nowMs = 91 * 86400_000;
+    store.read(`${ROOT}/automation/execution`)!.controller.expiresAt = nowMs + EXECUTION_LEASE_MS;
+    store.read(`${ROOT}/automation/execution`)!.lease.expiresAt = nowMs + EXECUTION_LEASE_MS;
+    await expect(guard.markClicked(nowMs)).rejects.toThrow('execution_not_submittable');
+    expect(store.read(`${ROOT}/automation/submission`)!.r1.clickedAt).toBeNull();
+  });
+  it('preserves the canonical positive talent-pool retention exception', async () => {
+    const store = await prepared(); const nowMs = 91 * 86400_000;
+    store.read(ROOT)!.cvUploadedAt = 1; store.read(ROOT)!.talentPoolConsent = true;
+    store.read(`${ROOT}/automation/execution`)!.controller.expiresAt = nowMs + EXECUTION_LEASE_MS;
+    await expect(lease(store, { now: () => nowMs }).claim()).resolves.toMatchObject({ executionId: 'execution-fixture' });
   });
   it('preserves a real outcome after the runner stores its own sent record', async () => {
     const store = await prepared(); const guard = lease(store); await guard.claim();

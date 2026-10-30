@@ -34,6 +34,7 @@ import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailo
 import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 import { enterExecution } from './lib/execution-runtime.mjs';
+import { assistedApplicationRetained } from '../../functions/src/lib/assistedApplicationRetentionPolicy.js';
 
 let executionRuntime = null;
 
@@ -218,7 +219,8 @@ export async function runAgent() {
     return;
   }
 
-  if (mode === 'submit' && (!automationEligibility(order, orderId).eligible || !hasAssistedApplicationConsent(order))) {
+  if (mode === 'submit' && (!automationEligibility(order, orderId).eligible || !hasAssistedApplicationConsent(order)
+    || !assistedApplicationRetained(order))) {
     summary('submit skipped: payment, verified CV or mandate is no longer eligible');
     return;
   }

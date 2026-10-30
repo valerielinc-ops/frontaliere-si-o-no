@@ -352,7 +352,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       && JSON.stringify(flow.infrastructureProof) !== JSON.stringify(infrastructureProof)) {
       const submission = (await transaction.get(orderRef.collection('automation').doc('submission'))).data();
       if (!executionEligibility({ orderId, order: orderSnapshot.data(), flow: { ...nextFlow, state: 'submitting', dispatch: flow.dispatch },
-        draft, submission, round: nextFlow.round })) nextFlow.portalAutoRetryAt = nowMs;
+        draft, submission, round: nextFlow.round, nowMs })) nextFlow.portalAutoRetryAt = nowMs;
     }
     // A dispatch effect is recorded now, in the same write, so the watchdog
     // always knows when the run was asked for.

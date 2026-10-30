@@ -13,7 +13,7 @@ const version = 'b'.repeat(64);
 const base = 'assisted_applications/order_code_test';
 function fixture() {
   return createMemoryFirestore({
-    [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover', automationDueAt: null,
+    [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover', automationDueAt: null, cvUploadedAt: now - 1000,
       cvStorageKey: 'assisted-application-uploads/order_code_test/cv.pdf',
       cvFileCheck: { key: 'assisted-application-uploads/order_code_test/cv.pdf', verdict: 'ok', detectedType: 'pdf' },
       consentVersion: 'assisted-application-v2', consentedAt: now - 1000 },
@@ -120,10 +120,12 @@ describe('automatic recovery after a portal fix', () => {
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
       'functions/src/assistedApplicationExecution.js', 'functions/src/assistedApplicationEligibility.js',
+      'functions/src/lib/assistedApplicationRetentionPolicy.js',
       'functions/src/lib/portalChannels.js', 'functions/src/lib/portalInfrastructureEvidence.js',
       'scripts/assisted-application/remote-controller.mjs', 'scripts/assisted-application/remote-executor.mjs',
       'scripts/assisted-application/supervised-agent.mjs', 'scripts/assisted-application/lib/execution-runtime.mjs',
       'scripts/assisted-application/lib/execution-release.mjs', 'scripts/assisted-application/lib/execution-artifacts.mjs',
+      'scripts/assisted-application/lib/execution-process.mjs',
       'scripts/assisted-application/lib/darwin-isolation.mjs', 'scripts/assisted-application/report-runner-failure.mjs',
       '.github/actions/setup-codex-darwin-broker/bootstrap.mjs', '.github/actions/setup-codex-darwin-broker/sandbox-probe.mjs',
       '.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs', '.github/actions/setup-claude-haiku-fallback/broker-permissions.mjs',
