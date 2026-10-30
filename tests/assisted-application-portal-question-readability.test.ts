@@ -45,6 +45,18 @@ it('keeps an optional marketing notice distinct from the required application co
   dom.window.close();
 });
 
+it.each([
+  '<span class="label"></span><span class="question">Work permit?</span><input id="x">',
+  '<div class="question">Unrelated container text<input id="x"></div><span class="question">Work permit?</span>',
+])('reads the first nonempty group label that does not contain the control in both runners: %s', markup => {
+  const { dom, snapshot } = extract(`<form><fieldset>${markup}</fieldset></form>`);
+  expect(snapshot.fields[0].label).toBe('Work permit?');
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  dom.window.eval(readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8'));
+  expect((dom.window as any).CompilaRunnerFields().fields[0].label).toBe('Work permit?');
+  dom.window.close();
+});
+
 it('routes unreadable source labels to a technical hold instead of manufacturing a required question', () => {
   const result = portalRequirementsFromMissingRequired([{ id: 'f1', kind: 'checkbox', label: '', required: true }], [{ fieldId: 'f1', question: '' }]);
   expect(result.questions).toEqual([]);

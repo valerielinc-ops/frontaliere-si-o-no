@@ -132,9 +132,10 @@
     const wrappingText = wrapping && clean(wrapping.innerText || wrapping.textContent);
     if (wrappingText) return wrappingText;
     const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
-    const legend = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
-    const legendText = legend && !legend.contains(element) && clean(legend.innerText || legend.textContent);
-    if (legendText) return legendText;
+    for (const legend of group?.querySelectorAll('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]') || []) {
+      const legendText = !legend.contains(element) && clean(legend.innerText || legend.textContent);
+      if (legendText) return legendText;
+    }
     const placeholder = element.getAttribute('placeholder');
     if (placeholder) return clean(placeholder);
     // Last resort: the closest container's own text before the control.
