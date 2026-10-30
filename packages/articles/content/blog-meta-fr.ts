@@ -13632,6 +13632,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-brunate-lavorare-ticino.title': 'Vivre à Brunate et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Guide fiscal et des cotisations sociales pour les personnes qui vivent à Brunate et travaillent au Tessin, entre le nouvel Accord Frontalieri, l’impôt à la source, les exonérations et les rubriques du bulletin de salaire.',
     'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.sindacati-aumenti-infermieri-ticino.title': 'Infirmiers sociopsychiatriques: syndicats réclament hausse jusqu\'à 8\'941 F',
+    'blog.article.sindacati-aumenti-infermieri-ticino.excerpt': 'L’assemblée se réunit le 10 novembre à Mendrisio Augmentations annuelles demandées : de 5\'159 à 8\'941 francs Reclassement : classes 4→5 et 5→6 OCST et VPOD demandent',
+    'blog.article.sindacati-aumenti-infermieri-ticino.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

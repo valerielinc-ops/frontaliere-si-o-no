@@ -13629,6 +13629,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-brunate-lavorare-ticino.title': 'In Brunate leben und als Grenzgänger im Tessin arbeiten',
     'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Steuer- und Beitragsleitfaden für Personen, die in Brunate leben und im Tessin arbeiten, mit Blick auf das neue Grenzgängerabkommen, die Quellensteuer, Befreiungen und Lohnabrechnungsposten.',
     'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.sindacati-aumenti-infermieri-ticino.title': 'Psychiatrische Pflege: Gewerkschaften fordern Lohnerhöhungen bis 8\'941 Fr',
+    'blog.article.sindacati-aumenti-infermieri-ticino.excerpt': 'Am 10. November findet in Mendrisio die Mitgliederversammlung statt. Geforderte jährliche Lohnerhöhungen: von 5\'159 auf 8\'941 Franken. Neueinstufung: Klassen 4→5 und 5→6. OCST und VPOD fordern',
+    'blog.article.sindacati-aumenti-infermieri-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

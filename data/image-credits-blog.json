@@ -81691,6 +81691,80 @@
         }
       }
     },
+    "generated:article-chiusura-ponte-scheidgraben": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-30T20:11:28.237Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-30",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-chiusura-ponte-scheidgraben",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "bd89546c92f8b86610cfe32bbf6d85e0d7ce4f7e2627eb0a47050d58d9d81c0c",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "7911d2f450eb6173d6a9dcc1775113aa4914255f2faadd182d80e42a319f78f9",
+        "bytes": 212302,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-30T20:11:28.237Z",
+        "verifiedAt": "2026-10-30T20:11:37.620Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-chiusura-ponte-scheidgraben.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic bridge-closure scene with no readable text, logos, faces, or people."
+        }
+      }
+    },
     "generated:article-glarona-detrazioni-energia": {
       "source": "generated-provider",
       "commons": {
@@ -81762,6 +81836,228 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic synthetic alpine residential illustration with solar panels and no text, logos, people, or event-specific cues."
+        }
+      }
+    },
+    "generated:article-hergiswil-fattura-fiscale-online": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-30T19:39:06.099Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-30",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-hergiswil-fattura-fiscale-online",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "b798bf0192d09dea22840eaa72ca92fdf055434241a81f86d5595f0ab3a5dc22",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "e119e4d3c4048a9af41d2f58081ab5cd2861b8b381254d531402d61543d5b6bd",
+        "bytes": 59076,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-30T19:39:06.099Z",
+        "verifiedAt": "2026-10-30T19:39:12.841Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-hergiswil-fattura-fiscale-online.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial illustration of a Swiss home office with a laptop showing a non-readable generic online form; no people, logos, signage, watermarks, or readable text."
+        }
+      }
+    },
+    "generated:article-riduzione-premi-malattia-2027": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-30T20:01:22.584Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-30",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-riduzione-premi-malattia-2027",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "ffe9458d348483ac3b6b02647c36e93cfa3da50c7325b21fbcd87ec3d775ca89",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "f741ad1c8e6aed0de91cd92a73e258e96f95afce3abe18ea47ef1b9f0cf1bba1",
+        "bytes": 104430,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-30T20:01:22.584Z",
+        "verifiedAt": "2026-10-30T20:01:40.224Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-riduzione-premi-malattia-2027.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic Bern civic scene with anonymous back-facing residents; no readable text, logos, identifiable faces, or specific event."
+        }
+      }
+    },
+    "generated:article-schaffhausen-pharma-medtech-circolar": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-30T18:48:20.513Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-30",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-schaffhausen-pharma-medtech-circolar",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "9674fea8aa10f63ea1138df1e67f45c973792c40bb5ad5cdb72ca681910bce54",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "b3bbad62f1c338d42173ac2a4c6d9744e62e7a7265661b22eb1a77a8efa3d080",
+        "bytes": 180778,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-30T18:48:20.513Z",
+        "verifiedAt": "2026-10-30T18:48:27.913Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-schaffhausen-pharma-medtech-circolar.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic, photorealistic illustration of a modern sustainable industrial and research campus; no readable text, logos, or identifiable people."
         }
       }
     },
@@ -122683,8 +122979,24 @@
       "file": "generated:article-vivere-brunate-lavorare-ticino",
       "modified": "resized"
     },
+    "article-chiusura-ponte-scheidgraben": {
+      "file": "generated:article-chiusura-ponte-scheidgraben",
+      "modified": "resized"
+    },
     "article-glarona-detrazioni-energia": {
       "file": "generated:article-glarona-detrazioni-energia",
+      "modified": "resized"
+    },
+    "article-hergiswil-fattura-fiscale-online": {
+      "file": "generated:article-hergiswil-fattura-fiscale-online",
+      "modified": "resized"
+    },
+    "article-riduzione-premi-malattia-2027": {
+      "file": "generated:article-riduzione-premi-malattia-2027",
+      "modified": "resized"
+    },
+    "article-schaffhausen-pharma-medtech-circolar": {
+      "file": "generated:article-schaffhausen-pharma-medtech-circolar",
       "modified": "resized"
     },
     "article-scontro-fiscale-coppie-atto": {

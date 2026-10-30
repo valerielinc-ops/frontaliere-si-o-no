@@ -13631,6 +13631,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-brunate-lavorare-ticino.title': 'Vivere a Brunate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Guida fiscale e contributiva per chi vive a Brunate e lavora in Ticino, tra nuovo Accordo Frontalieri, imposta alla fonte, esenzioni e voci di busta paga.',
     'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.sindacati-aumenti-infermieri-ticino.title': 'Infermieri sociopsichiatrici: sindacati chiedono aumenti fino a 8\'941 franchi',
+    'blog.article.sindacati-aumenti-infermieri-ticino.excerpt': 'Il 10 novembre si riunisce l\'assemblea a Mendrisio Aumenti annui richiesti: da 5\'159 a 8\'941 franchi Riclassificazione: classi 4→5 e 5→6 OCST e VPOD chiedono',
+    'blog.article.sindacati-aumenti-infermieri-ticino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

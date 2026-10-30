@@ -13630,6 +13630,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-brunate-lavorare-ticino.title': 'Living in Brunate and working in Ticino as a cross-border commuter',
     'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Tax and social security guide for those who live in Brunate and work in Ticino, covering the new Cross-Border Agreement, withholding tax, exemptions, and payslip items.',
     'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.sindacati-aumenti-infermieri-ticino.title': 'Socio-psychiatric nurses: unions demand increases of up to 8\'941 francs',
+    'blog.article.sindacati-aumenti-infermieri-ticino.excerpt': 'The assembly meets in Mendrisio on November 10 Requested annual increases: from 5\'159 to 8\'941 francs Reclassification: classes 4→5 and 5→6 OCST and VPOD call for',
+    'blog.article.sindacati-aumenti-infermieri-ticino.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

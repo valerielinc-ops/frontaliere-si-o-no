@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 969,
+      "5": 973,
       "6": 5061
     },
-    "publishedCovers": 7712,
+    "publishedCovers": 7716,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -211743,6 +211743,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-chiusura-ponte-scheidgraben": {
+      "cover": "/images/blog/article-chiusura-ponte-scheidgraben.webp",
+      "hash": "7911d2f450eb6173d6a9dcc1775113aa4914255f2faadd182d80e42a319f78f9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-nw",
+          "id": "chiusura-ponte-scheidgraben",
+          "category": "pratico",
+          "date": "2026-10-30T20:11:37.696Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-chiusura-ponte-scheidgraben.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-chiusura-ponte-scheidgraben",
+        "imageUrl": "/images/blog/article-chiusura-ponte-scheidgraben.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-glarona-detrazioni-energia": {
       "cover": "/images/blog/article-glarona-detrazioni-energia.webp",
       "hash": "10b492bd0b55790e4fd38bc08075c30879c8ed1c03bfd2493de8edebedfcbca4",
@@ -211773,6 +211806,105 @@
         "provider": "openai-codex",
         "assetId": "article-glarona-detrazioni-energia",
         "imageUrl": "/images/blog/article-glarona-detrazioni-energia.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-hergiswil-fattura-fiscale-online": {
+      "cover": "/images/blog/article-hergiswil-fattura-fiscale-online.webp",
+      "hash": "e119e4d3c4048a9af41d2f58081ab5cd2861b8b381254d531402d61543d5b6bd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-nw",
+          "id": "hergiswil-fattura-fiscale-online",
+          "category": "fiscale",
+          "date": "2026-10-30T19:39:12.910Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-hergiswil-fattura-fiscale-online.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-hergiswil-fattura-fiscale-online",
+        "imageUrl": "/images/blog/article-hergiswil-fattura-fiscale-online.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-riduzione-premi-malattia-2027": {
+      "cover": "/images/blog/article-riduzione-premi-malattia-2027.webp",
+      "hash": "f741ad1c8e6aed0de91cd92a73e258e96f95afce3abe18ea47ef1b9f0cf1bba1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "riduzione-premi-malattia-2027",
+          "category": "novita",
+          "date": "2026-10-30T20:01:40.296Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-riduzione-premi-malattia-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-riduzione-premi-malattia-2027",
+        "imageUrl": "/images/blog/article-riduzione-premi-malattia-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-schaffhausen-pharma-medtech-circolar": {
+      "cover": "/images/blog/article-schaffhausen-pharma-medtech-circolar.webp",
+      "hash": "b3bbad62f1c338d42173ac2a4c6d9744e62e7a7265661b22eb1a77a8efa3d080",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "schaffhausen-pharma-medtech-circolar",
+          "category": "novita",
+          "date": "2026-10-30T18:48:27.993Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-schaffhausen-pharma-medtech-circolar.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-schaffhausen-pharma-medtech-circolar",
+        "imageUrl": "/images/blog/article-schaffhausen-pharma-medtech-circolar.webp",
         "evidence": "generated-engine-record"
       }
     },
