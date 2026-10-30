@@ -72,7 +72,7 @@ beforeEach(() => {
 });
 
 describe('starting the flow', () => {
-  it('seeds a new order with the candidate-wide answer ledger', async () => {
+  it('does not seed a new order from an opaque legacy answer ledger', async () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
@@ -84,7 +84,7 @@ describe('starting the flow', () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
 
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
-      questionAnswers: { [key]: 'Permit G' },
+      questionAnswers: {},
     });
   });
 
@@ -92,13 +92,15 @@ describe('starting the flow', () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
-    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }) });
+    const sourceOrder = paidOrder({ userId, cvUploadedAt: T0, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
+    store = createMemoryFirestore({ [ORDER_PATH]: sourceOrder });
 
     await saveAnswersWithCv({
       db: store.db,
       bucket: null,
       orderId: ORDER,
-      order: paidOrder({ userId }),
+      order: sourceOrder,
+      answerActor: 'candidate',
       flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: {} },
       draft: { round: 1, questions: [question] },
       answers: { work_permit: 'Permit G' },
@@ -657,7 +659,7 @@ describe('sweep', () => {
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
   });
 
-  it('reuses a candidate-wide answer when an older flow did not have the ledger yet', async () => {
+  it('asks again when only an opaque legacy answer exists on another order', async () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
@@ -684,11 +686,11 @@ describe('sweep', () => {
     });
 
     expect(result).toMatchObject({ ok: true, flow: {
-      state: 'owner_takeover',
-      heldBy: ['portal:portal_needs_candidate'],
-      questionAnswers: { [key]: 'Permit G' },
+      state: 'needs_candidate_action',
+      heldBy: ['question:work_permit'],
+      questionAnswers: {},
     } });
-    expect(effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit', attempts: 2 }]);
+    expect(effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
   });
 
   it('computes no due time for terminal flows', () => {

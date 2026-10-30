@@ -13,6 +13,7 @@ import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SC
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
 import { SOURCE_CITATIONS_VERSION, sourceCitations, citationSchema, resolveCitations } from './lib/sourceCitations.js';
+import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
 
 export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v3-${SOURCE_CITATIONS_VERSION}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
@@ -113,11 +114,12 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     profile = sanitizeProfile(raw, { cvText });
     await profileRef.set({ cvHash, promptVersion: PROMPT_VERSION, profile, updatedAt: FieldValue.serverTimestamp() });
   }
-  const answers = profileRecord.applicationQuestionAnswers || {};
-  const answerHash = eligibilityHash(JSON.stringify(answers));
+  const answerContextFor = await beforeCancellation(() => loadCandidateAnswerEvidence({ db, profileRecord, userId: service.userId }), signal);
   let analyses = 0;
   return async (job) => {
     job = normalizeConciergeJobRecord(job);
+    const { answers, answerEvidence, fingerprint: answerContext } = answerContextFor(job);
+    const answerHash = eligibilityHash(answerContext);
     const normalizedProfile = profileForEligibility(profile);
     if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
     const posting = await read({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
@@ -131,7 +133,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     if (cached?.fingerprint === fingerprint) return { ...cached.result, fingerprint, cacheId };
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
-    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,
+    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, answerEvidence, locale: service.locale, sourceText: cvText, generate,
       readPosting: async () => posting });
     const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, ...result } = analysis;
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
@@ -155,12 +157,13 @@ export async function preflightExistingCvEligibility({ db, userId, job, generate
   if (!record || record.status !== 'ready' || !record.profile || record.profile.extractedTextAvailable === false) {
     return { status: 'unverified', reason: 'profile_not_ready' };
   }
-  const answers = record.applicationQuestionAnswers && typeof record.applicationQuestionAnswers === 'object'
-    ? record.applicationQuestionAnswers : {};
+  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord: record, userId });
+  const { answers, answerEvidence } = contextFor(normalizeConciergeJobRecord(job));
   const result = await evaluateConciergePosting({
     job,
     profile: record.profile,
     answers,
+    answerEvidence,
     locale: record.locale || 'it',
     generate,
     readPosting,
@@ -184,7 +187,8 @@ export async function vettedConciergeDraftInputs({ db, order, cvBuffer, postingT
   const proposal = proposalDoc.data();
   if (serviceDoc.data()?.userId !== order.userId || !/^job-[a-f0-9]{32}$/.test(proposal?.eligibilityCacheId || '')) return null;
   const cached = (await serviceRef.collection('eligibility').doc(proposal.eligibilityCacheId).get()).data();
-  const answerHash = eligibilityHash(JSON.stringify(profileDoc.data()?.applicationQuestionAnswers || {}));
+  const answerContextFor = await loadCandidateAnswerEvidence({ db, profileRecord: profileDoc.data() || {}, userId: order.userId });
+  const answerHash = eligibilityHash(answerContextFor({ id: order.jobId || proposal.jobId, url: order.jobUrl || proposal.jobUrl }).fingerprint);
   if (cached?.result?.status !== 'compatible' || cached.promptVersion !== PROMPT_VERSION || cached.version !== CONCIERGE_ELIGIBILITY_VERSION
     || cached.fingerprint !== proposal.eligibilityFingerprint || cached.cvHash !== eligibilityHash(cvBuffer)
     || cached.postingHash !== sourceHash(postingText) || cached.answerHash !== answerHash) return null;

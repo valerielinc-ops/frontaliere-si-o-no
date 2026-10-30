@@ -37,6 +37,8 @@ import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './as
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
+import { rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -84,11 +86,6 @@ export function draftRefFor(db, orderId) {
 function candidateQuestionAnswersRefFor(db, userId) {
   const id = String(userId || '').trim();
   return id ? db.collection('user_cv_profiles').doc(id) : null;
-}
-
-function candidateQuestionAnswersOf(snapshot) {
-  const memory = snapshot?.data()?.applicationQuestionAnswers;
-  return memory && typeof memory === 'object' && !Array.isArray(memory) ? memory : {};
 }
 
 /** Fails closed: any error reading Remote Config means "off". */
@@ -276,14 +273,17 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const sharedAnswersFor = await loadCandidateAnswerEvidence({ db, profileRecord: candidateProfileSnapshot?.data() || {},
+      userId: orderSnapshot.data()?.userId, nowMs, getDocument: ref => transaction.get(ref) });
     // Answers explicitly saved on this order win over the candidate-wide
     // ledger. The latter fills only semantic gaps, so a new posting can reuse
     // a confirmed answer without asking the same person again.
     const flowForTransition = {
       ...flow,
       questionAnswers: {
-        ...candidateQuestionAnswersOf(candidateProfileSnapshot),
-        ...(flow.questionAnswers || {}),
+        ...sharedAnswersFor(orderSnapshot.data() || {}, { purpose: 'form' }).answers,
+        // Direct current-round answers remain authoritative; ambiguous legacy memory is not imported.
+        ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: flow.answers || {} }),
       },
     };
     // A runner event from a superseded round is stale: never let it move the
@@ -433,7 +433,9 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
     // A live flow is never restarted; a finished takeover can be restarted by the owner.
     if (existing && !(reason === 'owner_request' && existing.state === 'owner_takeover')) return;
     if (!automationEligibility(order, orderId).eligible) return;
-    const candidateQuestionAnswers = candidateQuestionAnswersOf(candidateProfileSnapshot);
+    const sharedAnswersFor = await loadCandidateAnswerEvidence({ db, profileRecord: candidateProfileSnapshot?.data() || {},
+      userId: order.userId, nowMs, getDocument: ref => transaction.get(ref) });
+    const candidateQuestionAnswers = sharedAnswersFor(order, { purpose: 'form' }).answers;
     const flow = {
       state: 'drafting',
       round: 1,

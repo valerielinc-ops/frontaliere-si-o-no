@@ -33,7 +33,7 @@ import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitOptions, permitStatusOf } from './lib/permitStatus.js';
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
-import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
+import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
@@ -111,12 +111,21 @@ export function isPreferredWorkloadQuestion(value) {
 
 const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
 
+/** Complete general questions only: additional domain, future or employer clauses retain their own key. */
+export function isGeneralCandidateLanguageQuestion(value) {
+  const text = normalizeQuestionValue(value).split(' ').map(word => isLanguageNameOnly(word) ? 'language_target' : word).join(' ');
+  return /^(?:what is your (?:current )?(?:(?:written|spoken|oral) )?language_target (?:proficiency(?: level)?|fluency level|level)|what is your (?:current )?level of language_target|do you speak language_target(?: if so how would you describe your proficiency level)?|qual e il tuo (?:attuale )?livello di language_target|parli language_target|wie ist (?:ihr|dein) (?:aktuelles )?niveau in language_target|sprechen sie language_target|quel est votre niveau (?:actuel )?(?:en|de) language_target|parlez vous language_target)$/.test(text);
+}
+
 /** Stable fact key for an answer, independent of a model or ATS field id. */
 export function candidateQuestionAnswerKey(question) {
   const text = String(question?.question ?? '').trim();
   if (!text) return '';
+  const context = questionContextKey(question?.context);
+  const section = normalizeQuestionValue(question?.section);
+  const autocomplete = normalizeQuestionValue(question?.autocomplete);
   const languageCodes = languageCodesIn(text);
-  if (languageCodes.length === 1 && isLanguageAbilityQuestion(text)) {
+  if (!context && !section && !autocomplete && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
     const normalized = normalizeQuestionValue(text);
     const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
     const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
@@ -125,11 +134,11 @@ export function candidateQuestionAnswerKey(question) {
   }
   const normalized = normalizeQuestionValue(text);
   if (!normalized) return '';
-  if (isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
-  const context = questionContextKey(question?.context);
+  if (!context && !section && !autocomplete && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
+  const scopedContext = section || autocomplete ? `${context}\u0000${section}\u0000${autocomplete}` : context;
   const type = normalizeQuestionValue(question?.type) || 'unknown';
   const options = [...new Set(optionValues(question))].sort().join('|');
-  return `question_${questionHash(`${type}\u0000${context}\u0000${normalized}\u0000${options}`)}`;
+  return `question_${questionHash(`${type}\u0000${scopedContext}\u0000${normalized}\u0000${options}`)}`;
 }
 
 /** Reuse answers across changed ids only when their topic is unambiguous and the answer fits. */
