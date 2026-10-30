@@ -113,7 +113,7 @@ describe('scope, languages and actual field options', () => {
     const candidate = { identity: { address: { street: 'Example Street 12' } }, profile: {}, answers: {} };
     expect(candidateAnswerForField(candidate, field)).toMatchObject({ value, source: 'policy_default' });
     const question = { ...field, question: label };
-    const result = transition({ ...approved, state: 'submitting' }, {
+    const result = transition({ ...approved, state: 'submitting', dispatch: { ...approved.dispatch, attempts: 2 } }, {
       type: 'submit_needs_candidate', questions: ['contact'], questionDetails: [question],
     }, { draft: { ...draft, questions: [question] } });
     expect(result.flow.state).toBe('owner_takeover');
