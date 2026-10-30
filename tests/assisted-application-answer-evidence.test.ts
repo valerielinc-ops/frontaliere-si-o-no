@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { loadCandidateAnswerEvidence, planCandidateAnswerEvidence, purgeCandidateAnswerEvidence, rememberCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
+import { loadCandidateAnswerEvidence, loadRunnerAnswerContext, planCandidateAnswerEvidence, purgeCandidateAnswerEvidence, rememberCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
 import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
 
 const now = Date.now();
@@ -158,5 +158,35 @@ describe('policy preferences are never confirmed candidate facts', () => {
     expect(f.records[f.key]).toMatchObject({ cleared: true });
     expect(f.records[f.key]).not.toHaveProperty('answer');
     expect(f.records[f.key]).not.toHaveProperty('question');
+  });
+});
+
+describe('birthplace is not a date of birth', () => {
+  it.each(['Place of birth', 'Geburtsort', 'Comune di nascita', 'Luogo di nascita', 'Lieu de naissance'])('does not alias %s to a birth date', label => {
+    const dob = { id: 'birth_date', question: 'Date of birth', type: 'date' };
+    const place = { id: 'birth_place', question: label, type: 'text' };
+    expect(candidateQuestionAnswerKey(place)).not.toBe(candidateQuestionAnswerKey(dob));
+    const f = fixture(place, 'Example municipality');
+    expect(f.records[f.key]).toMatchObject({ cleared: true });
+    expect(f.records[f.key]).not.toHaveProperty('answer');
+  });
+});
+
+
+describe('runner answer context preserves its raw lease/CAS snapshot', () => {
+  it('passes attested sources to the writer and filters legacy memory without changing raw flow or current hard answers', async () => {
+    const f = fixture();
+    f.store.docs.set('user_cv_profiles/candidate', f.profileRecord);
+    const local = { id: 'notice', question: 'What is your notice period in months?', type: 'number' };
+    const raw = { round: 1, state: 'submitting', answers: { notice: '2' }, questionAnswers: { question_legacy_consent: 'Yes' }, dispatch: { attempts: 2 } };
+    const before = structuredClone(raw);
+    const result = await loadRunnerAnswerContext({ db: f.store.db, order: { userId: 'candidate', jobId: target.id, jobUrl: target.url }, flow: raw,
+      draft: { round: 1, questions: [local] }, nowMs: now });
+    expect(result.answerEvidence).toHaveLength(1);
+    expect(result.answerEvidence[0].question.question).toBe(question.question);
+    expect(result.flow.questionAnswers).toMatchObject({ [f.key]: 'C1', [candidateQuestionAnswerKey(local)]: '2' });
+    expect(result.flow.questionAnswers).not.toHaveProperty('question_legacy_consent');
+    expect(result.flow.answers).toEqual({ notice: '2' });
+    expect(raw).toEqual(before);
   });
 });

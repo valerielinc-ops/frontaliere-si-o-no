@@ -1,6 +1,6 @@
 /** Shared answers keep their question and attested source. Opaque legacy values are never promoted. */
 import { createHash } from 'node:crypto';
-import { candidateQuestionAnswerKey, isGeneralCandidateLanguageQuestion } from './assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, isGeneralCandidateLanguageQuestion, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { languageCodesIn, isLanguageAbilityQuestion } from './lib/languageFacts.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
@@ -145,6 +145,15 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
     return { answers: Object.fromEntries(evidence.map(record => [record.key, record.answer])), answerEvidence: evidence,
       fingerprint: serialized({ version: ANSWER_EVIDENCE_VERSION, legacy, evidence }) };
   };
+}
+
+/** Runner reads keep the raw CAS/lease snapshot untouched and project only the execution's answer context. */
+export async function loadRunnerAnswerContext({ db, order, flow, draft, nowMs = Date.now() }) {
+  const profileRecord = order.userId ? (await db.collection('user_cv_profiles').doc(order.userId).get()).data() || {} : {};
+  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs });
+  return { flow: { ...flow, questionAnswers: { ...contextFor(order, { purpose: 'form' }).answers,
+    ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: flow?.answers || {} }) } },
+  answerEvidence: contextFor(order).answerEvidence };
 }
 
 /** A source purge removes only records/clocks still owned by that order, never newer confirmations. */

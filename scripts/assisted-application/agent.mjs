@@ -33,6 +33,7 @@ import { submissionGuard } from '../../functions/src/assistedApplicationSubmissi
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
+import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 // dry_run: the submission without the final click, for the owner's tests.
@@ -234,8 +235,10 @@ async function main() {
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const started = Date.now();
     try {
+      const confirmed = await loadRunnerAnswerContext({ db, order, flow, draft: previousDraft });
+      maskValues(confirmed.answerEvidence.map(record => record.answer));
       const draft = await buildDraft({
-        db, order, orderId, flow, previousDraft, cvBuffer, cvType, bucket, runKey,
+        db, order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
         // A portal form read ahead: its questions and required file fields reach the first review.
@@ -274,10 +277,12 @@ async function main() {
     await orderRef.collection('ai_drafts').doc('current').set({ questions: normalizedQuestions }, { merge: true });
   }
   try {
+    const confirmed = await loadRunnerAnswerContext({ db, order, flow, draft: submitDraft });
+    maskValues(confirmed.answerEvidence.map(record => record.answer));
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
-      order, orderId, flow, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
+      order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
       submissionGuard: dryRun ? null : submissionGuard(db, orderId, round),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
