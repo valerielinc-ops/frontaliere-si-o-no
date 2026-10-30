@@ -33,7 +33,6 @@ export function isSensitiveThirdPartyDocument(sanitize, win, doc, attempted = fa
   const context = { page_location: win.location.href, page_referrer: doc?.referrer || '' };
   const safe = sanitize(context);
   if (context.page_location === safe.page_location && context.page_referrer === safe.page_referrer) {
-   if (!win.__FT_SENSITIVE_DOCUMENT__) return false;
    // URL cleanup alone cannot authorize loading: an old iframe/src or JSON-LD
    // URL can still expose the signed URL. Inspect live, decoded URL fields without
    // rewriting it, and retain the initial-origin fact for every later retry.

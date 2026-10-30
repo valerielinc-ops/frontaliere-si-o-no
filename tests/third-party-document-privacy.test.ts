@@ -47,8 +47,37 @@ describe('signed-origin autonomous SDK startup', () => {
  });
  it('preserves ordinary unsigned visits and campaign/service context', () => {
   const win = browser(clean);
-  expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, { referrer: '' })).toBe(false);
+  expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, { referrer: '', querySelectorAll: () => [] })).toBe(false);
   expect(win.location.href).toBe(clean);
+ });
+ it.each(['iframe', 'href', 'jsonld'])('rejects a clean-origin document with a sensitive %s URL before SDK startup', (kind) => {
+  const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'https://frontaliereticino.ch/', runScripts: 'outside-only' });
+  try {
+   const element = dom.window.document.createElement(kind === 'iframe' ? 'iframe' : kind === 'href' ? 'a' : 'script');
+   const nested = `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`;
+   if (kind === 'jsonld') {
+    element.setAttribute('type', 'application/ld+json');
+    element.textContent = JSON.stringify({ mainEntity: [{ '@id': nested }] });
+   } else element.setAttribute(kind === 'href' ? 'href' : 'src', nested);
+   dom.window.document.body.appendChild(element);
+   const win = dom.window as unknown as PrivacyWindow;
+   expect(win.__FT_SENSITIVE_DOCUMENT__).toBe(undefined);
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(true);
+   expect(dom.window.location.href).toBe('https://frontaliereticino.ch/');
+   expect(win.__FT_SENSITIVE_DOCUMENT__).toBe(true);
+   element.remove();
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
+  } finally { dom.window.close(); }
+ });
+ it.each([['Ads', ADSENSE_LOADER_CONTENT], ['Partnerize', PARTNERIZE_TAG_CONTENT]])('%s bootstrap stays idle for clean-origin HTML containing a sensitive iframe', (_name, source) => {
+  const dom = new JSDOM('<!doctype html><head></head><body><iframe></iframe></body>', { url: 'https://frontaliereticino.ch/', runScripts: 'outside-only' });
+  try {
+   dom.window.document.querySelector('iframe')!.src = `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`;
+   vm.runInContext(source, dom.getInternalVMContext());
+   expect(dom.window.document.querySelectorAll('script')).toHaveLength(0);
+   expect((dom.window as unknown as PrivacyWindow).__FT_SENSITIVE_DOCUMENT__).toBe(true);
+   expect(dom.window.location.href).toBe('https://frontaliereticino.ch/');
+  } finally { dom.window.close(); }
  });
  it('conservatively captures every canonical browser-URL credential form without retaining raw copies', () => {
   // Fixtures for the canonical helper's supported aliases, not startup logic.
@@ -253,7 +282,7 @@ describe('signed-origin autonomous SDK startup', () => {
   const requests: Array<{ url: string; body: string }> = [];
   Object.assign(win, { crypto: { subtle: { digest: async () => new ArrayBuffer(20) } } });
   const doc = {
-   referrer: '', readyState: 'loading', createElement: () => ({}),
+   referrer: '', querySelectorAll: () => [], readyState: 'loading', createElement: () => ({}),
    body: { appendChild: (script: Record<string, unknown>) => appended.push(script) },
    addEventListener: (event: string, cb: () => void) => { listeners[event] = cb; },
   };
