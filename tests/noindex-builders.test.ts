@@ -187,8 +187,7 @@ describe('SEO builder noindex guards', () => {
 
     it('cross-locale mirrors skip legacy-TI paths the Worker recovers', () => {
       const helper = source.slice(source.indexOf('const legacyTiPathRecoveredByWorker'), source.indexOf('let crossLocaleExpiredCount = 0;'));
-      expect(helper).toContain("if (locale === 'it') return false;");
-      expect(helper).toContain('tracking[slug]?.[locale]');
+      expect(helper).toContain('return nativeJobPathRecoveredByWorker(locale, slug, relPath, tracking, nativeJobPrefixByLocaleAndSlug);');
       expect(source.match(/legacyTiPathRecoveredByWorker\(baseLocale, foreignSlug, relPath\)/g)).toHaveLength(2);
       // Explicit previousSlugs are durable producer ownership claims. They
       // deliberately override the generic Worker-recovery guard below, while

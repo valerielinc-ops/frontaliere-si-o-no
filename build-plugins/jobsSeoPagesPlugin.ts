@@ -381,6 +381,59 @@ const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+type JobSeoLocale = (typeof JOB_SEO_LOCALES)[number];
+type JobRouteTracking = Record<string, Partial<Record<JobSeoLocale, string>>>;
+const normalizedRoutePath = (value: string): string => `/${String(value || '').replace(/^\/+|\/+$/g, '')}/`;
+
+/** Snapshot native ownership before compat aliases overwrite tracking paths. */
+export function buildNativeJobPrefixIndex(
+ tracking: JobRouteTracking,
+ localePrefix: Record<JobSeoLocale, string>,
+ sectionByLocale: Record<JobSeoLocale, string>,
+): Map<string, string> {
+ const index = new Map<string, string>();
+ const prefixes = new Map<string, string>();
+ for (const paths of Object.values(tracking)) {
+  for (const locale of JOB_SEO_LOCALES) {
+   // IT never consults the snapshot; retain every other locale even in a
+   // single-locale build, whose ownership/hreflang passes read foreign paths.
+   if (locale === 'it') continue;
+   const value = paths?.[locale];
+   if (!value) continue;
+   const normalized = normalizedRoutePath(value);
+   const legacyPrefix = normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`);
+   const rest = normalized.slice(legacyPrefix.length);
+   if (normalized.startsWith(legacyPrefix) && rest.length > 1 && !rest.slice(0, -1).includes('/')) continue;
+   const slug = normalized.split('/').filter(Boolean).pop();
+   if (!slug) continue;
+   // For the same locale+slug, path inequality is exactly prefix inequality.
+   // Intern arbitrary prefixes rather than retaining one full path per key.
+   const prefix = normalized.slice(0, -(slug.length + 1));
+   const sharedPrefix = prefixes.get(prefix) ?? prefix;
+   prefixes.set(sharedPrefix, sharedPrefix);
+   index.set(`${locale}:${slug}`, sharedPrefix);
+  }
+ }
+ return index;
+}
+
+export function nativeJobPathRecoveredByWorker(
+ locale: JobSeoLocale,
+ slug: string,
+ relPath: string,
+ tracking: JobRouteTracking,
+ nativeJobPrefixByLocaleAndSlug: ReadonlyMap<string, string>,
+): boolean {
+ if (locale === 'it') return false;
+ const normalized = normalizedRoutePath(relPath);
+ const registryPath = tracking[slug]?.[locale];
+ if (registryPath && normalizedRoutePath(registryPath) !== normalized) return true;
+ const routeSlug = normalized.split('/').filter(Boolean).pop();
+ if (!routeSlug) return false;
+ const nativePrefix = nativeJobPrefixByLocaleAndSlug.get(`${locale}:${routeSlug}`);
+ return nativePrefix !== undefined && nativePrefix !== normalized.slice(0, -(routeSlug.length + 1));
+}
+
 // Shared anti-doorway floor (AGENTS.md non-negotiable #4 — no thin indexed
 // content): every GSC search-landing family needs at least this many
 // matching jobs before it can emit an HTML page or sitemap entry.
@@ -12638,22 +12691,7 @@ ${staticAnalyticsHtml}
  // rendered. The Worker needs the native path to remain the sole owner of a
  // non-IT job's URL, so both the expired loop and the self-healing fallback use
  // this immutable route index.
- const nativeJobPathByLocaleAndSlug = new Map<string, string>();
- const normalizedRoutePath = (value: string): string => `/${String(value || '').replace(/^\/+|\/+$/g, '')}/`;
- const isLegacyTiJobDetailPath = (locale: 'it' | 'en' | 'de' | 'fr', value: string): boolean => {
-  const normalized = normalizedRoutePath(value);
-  const prefix = normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`);
-  const rest = normalized.slice(prefix.length);
-  return normalized.startsWith(prefix) && rest.length > 1 && !rest.slice(0, -1).includes('/');
- };
- for (const paths of Object.values(tracking)) {
-  for (const locale of localeList) {
-   const value = paths?.[locale];
-   if (!value || isLegacyTiJobDetailPath(locale, value)) continue;
-   const slug = normalizedRoutePath(value).split('/').filter(Boolean).pop();
-   if (slug) nativeJobPathByLocaleAndSlug.set(`${locale}:${slug}`, normalizedRoutePath(value));
-  }
- }
+ const nativeJobPrefixByLocaleAndSlug = buildNativeJobPrefixIndex(tracking, localePrefix, sectionByLocale);
  // Remove search combo slugs from tracking — these are handled by the search
  // combo section, not the job crawler pipeline. They were incorrectly imported
  // from orphan-indexed-job-slugs.json in previous builds.
@@ -13313,13 +13351,7 @@ ${staticAnalyticsHtml}
  // same locale+slug. The registry entry may already have been compat-merged,
  // so checking `tracking[slug][locale]` alone is tautological here.
  const legacyTiPathRecoveredByWorker = (locale: 'it' | 'en' | 'de' | 'fr', slug: string, relPath: string): boolean => {
-  if (locale === 'it') return false;
-  const normalized = normalizedRoutePath(relPath);
-  const registryPath = tracking[slug]?.[locale];
-  if (registryPath && normalizedRoutePath(registryPath) !== normalized) return true;
-  const routeSlug = normalized.split('/').filter(Boolean).pop();
-  const nativePath = routeSlug ? nativeJobPathByLocaleAndSlug.get(`${locale}:${routeSlug}`) : undefined;
-  return Boolean(nativePath && nativePath !== normalized);
+  return nativeJobPathRecoveredByWorker(locale, slug, relPath, tracking, nativeJobPrefixByLocaleAndSlug);
  };
  // NB: the hub-pagination compound keys were already `delete`d from `tracking`
  // up at the reserved-hub strip block (before the tracking write AND before this
