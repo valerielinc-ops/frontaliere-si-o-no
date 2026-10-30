@@ -398,7 +398,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       try {
         await saveAnswersWithCv({
           db, bucket: deps.bucket, orderId, order: orderSnapshot.data() || {}, flow: flowSnapshot.data() || {},
-          draft: draftSnapshot.exists ? draftSnapshot.data() || null : null, answers, nowMs,
+          draft: draftSnapshot.exists ? draftSnapshot.data() || null : null, answers, nowMs, answerActor: 'owner',
         });
       } catch (error) {
         if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status);
