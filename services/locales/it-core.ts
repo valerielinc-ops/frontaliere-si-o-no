@@ -3155,5 +3155,16 @@ Regole:
 
 
   'profile.action.journalistDashboard': 'Redazione',
+  'jobBoard.assisted.employerResponse.heading': "Ultimo aggiornamento dell’azienda",
+  'jobBoard.assisted.employerResponse.auto_acknowledgement': "Ricezione confermata",
+  'jobBoard.assisted.employerResponse.interview_invite': "Invito a colloquio",
+  'jobBoard.assisted.employerResponse.rejection': "Candidatura non selezionata",
+  'jobBoard.assisted.employerResponse.documents_request': "Documenti richiesti",
+  'jobBoard.assisted.employerResponse.question': "Domanda dell’azienda",
+  'jobBoard.assisted.employerResponse.assessment': "Test da completare",
+  'jobBoard.assisted.employerResponse.offer': "Offerta ricevuta",
+  'jobBoard.assisted.employerResponse.needsReply': "L’azienda attende una tua risposta.",
+  'jobBoard.assisted.employerResponse.emailHint': "Il messaggio completo è nell’email che ti abbiamo inoltrato. Per rispondere all’azienda, rispondi a quell’email.",
+
 };
 export default translations;

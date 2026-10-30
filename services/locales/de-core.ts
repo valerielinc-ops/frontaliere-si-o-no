@@ -3069,6 +3069,17 @@ Regeln:
 
 
   'profile.action.journalistDashboard': 'Redaktion',
+  'jobBoard.assisted.employerResponse.heading': "Neueste Rückmeldung des Unternehmens",
+  'jobBoard.assisted.employerResponse.auto_acknowledgement': "Eingang bestätigt",
+  'jobBoard.assisted.employerResponse.interview_invite': "Einladung zum Vorstellungsgespräch",
+  'jobBoard.assisted.employerResponse.rejection': "Bewerbung nicht berücksichtigt",
+  'jobBoard.assisted.employerResponse.documents_request': "Unterlagen angefordert",
+  'jobBoard.assisted.employerResponse.question': "Frage des Unternehmens",
+  'jobBoard.assisted.employerResponse.assessment': "Test zu absolvieren",
+  'jobBoard.assisted.employerResponse.offer': "Angebot erhalten",
+  'jobBoard.assisted.employerResponse.needsReply': "Das Unternehmen erwartet deine Antwort.",
+  'jobBoard.assisted.employerResponse.emailHint': "Die vollständige Nachricht steht in der weitergeleiteten E-Mail. Antworte auf diese E-Mail, um dem Unternehmen zu antworten.",
+
 };
 
 export default deCore;
