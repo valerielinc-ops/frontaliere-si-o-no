@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 973,
+      "5": 979,
       "6": 5061
     },
-    "publishedCovers": 7716,
+    "publishedCovers": 7722,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -211743,6 +211743,72 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-aumento-soglie-reddito-2027": {
+      "cover": "/images/blog/article-aumento-soglie-reddito-2027.webp",
+      "hash": "9b5f9f65718fe2a68de286b0950512c9475b3fdcfa7e8c93b66174fbb0e84a2a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "aumento-soglie-reddito-2027",
+          "category": "fiscale",
+          "date": "2026-10-30T21:03:54.671Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-aumento-soglie-reddito-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-aumento-soglie-reddito-2027",
+        "imageUrl": "/images/blog/article-aumento-soglie-reddito-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cassa-pensione-snl-sev-attacca": {
+      "cover": "/images/blog/article-cassa-pensione-snl-sev-attacca.webp",
+      "hash": "e3a32e28161373313bca7614ac95856166018462040df8de0f92f707c95aacbb",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "cassa-pensione-snl-sev-attacca",
+          "category": "pensione",
+          "date": "2026-10-30T22:23:25.055Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cassa-pensione-snl-sev-attacca.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cassa-pensione-snl-sev-attacca",
+        "imageUrl": "/images/blog/article-cassa-pensione-snl-sev-attacca.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-chiusura-ponte-scheidgraben": {
       "cover": "/images/blog/article-chiusura-ponte-scheidgraben.webp",
       "hash": "7911d2f450eb6173d6a9dcc1775113aa4914255f2faadd182d80e42a319f78f9",
@@ -211773,6 +211839,39 @@
         "provider": "openai-codex",
         "assetId": "article-chiusura-ponte-scheidgraben",
         "imageUrl": "/images/blog/article-chiusura-ponte-scheidgraben.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-giornico-consiglio-stato-fermata": {
+      "cover": "/images/blog/article-giornico-consiglio-stato-fermata.webp",
+      "hash": "8391a8d89d28e2aec29068620b187d3703738680fd2719eed9fc22730c1ec3c2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "giornico-consiglio-stato-fermata",
+          "category": "novita",
+          "date": "2026-10-30T21:52:11.914Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-giornico-consiglio-stato-fermata.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-giornico-consiglio-stato-fermata",
+        "imageUrl": "/images/blog/article-giornico-consiglio-stato-fermata.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -211842,6 +211941,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-procedure-impianti-solari-eolici": {
+      "cover": "/images/blog/article-procedure-impianti-solari-eolici.webp",
+      "hash": "170791c40bb220c37996f473edfd99bd73c549efe65fd2426eca243bc95927b2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "procedure-impianti-solari-eolici",
+          "category": "novita",
+          "date": "2026-10-30T22:00:04.865Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-procedure-impianti-solari-eolici.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-procedure-impianti-solari-eolici",
+        "imageUrl": "/images/blog/article-procedure-impianti-solari-eolici.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-riduzione-premi-malattia-2027": {
       "cover": "/images/blog/article-riduzione-premi-malattia-2027.webp",
       "hash": "f741ad1c8e6aed0de91cd92a73e258e96f95afce3abe18ea47ef1b9f0cf1bba1",
@@ -211908,6 +212040,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-sciaffusa-ricarica-elettrica": {
+      "cover": "/images/blog/article-sciaffusa-ricarica-elettrica.webp",
+      "hash": "f538d1f4128c99467853913dc97036fb18038f63543df34adc4e1477a1ad3c13",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "sciaffusa-ricarica-elettrica",
+          "category": "pratico",
+          "date": "2026-10-30T21:05:24.930Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sciaffusa-ricarica-elettrica.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sciaffusa-ricarica-elettrica",
+        "imageUrl": "/images/blog/article-sciaffusa-ricarica-elettrica.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-scontro-fiscale-coppie-atto": {
       "cover": "/images/blog/article-scontro-fiscale-coppie-atto.webp",
       "hash": "9fadebcfdcfc85f13f2dba45866f7bdaa0b9ac2cefbe3eee355a8da723dc79f7",
@@ -211938,6 +212103,39 @@
         "provider": "openai-codex",
         "assetId": "article-scontro-fiscale-coppie-atto",
         "imageUrl": "/images/blog/article-scontro-fiscale-coppie-atto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sportello-virtuale-polizia-berna": {
+      "cover": "/images/blog/article-sportello-virtuale-polizia-berna.webp",
+      "hash": "7da7c2af152b5647e173a28453d0bcdb9eed2b3d3757a5292f336ef4f0cf4de2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "sportello-virtuale-polizia-berna",
+          "category": "pratico",
+          "date": "2026-10-30T21:27:08.006Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sportello-virtuale-polizia-berna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sportello-virtuale-polizia-berna",
+        "imageUrl": "/images/blog/article-sportello-virtuale-polizia-berna.webp",
         "evidence": "generated-engine-record"
       }
     },

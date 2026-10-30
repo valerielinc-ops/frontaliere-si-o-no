@@ -45999,6 +45999,27 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'giornico-consiglio-stato-fermata',
+ category: 'novita',
+ date: '2026-10-30T21:52:11.914Z',
+ image: '/images/blog/article-giornico-consiglio-stato-fermata.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'cassa-pensione-snl-sev-attacca',
+ category: 'pensione',
+ date: '2026-10-30T22:23:25.055Z',
+ image: '/images/blog/article-cassa-pensione-snl-sev-attacca.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

@@ -13634,6 +13634,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sindacati-aumenti-infermieri-ticino.title': 'Infermieri sociopsichiatrici: sindacati chiedono aumenti fino a 8\'941 franchi',
     'blog.article.sindacati-aumenti-infermieri-ticino.excerpt': 'Il 10 novembre si riunisce l\'assemblea a Mendrisio Aumenti annui richiesti: da 5\'159 a 8\'941 franchi Riclassificazione: classi 4→5 e 5→6 OCST e VPOD chiedono',
     'blog.article.sindacati-aumenti-infermieri-ticino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.giornico-consiglio-stato-fermata.title': 'Consiglio di Stato respinge riapertura fermata FFS a Giornico',
+    'blog.article.giornico-consiglio-stato-fermata.excerpt': 'Il Consiglio di Stato respinge la riapertura a Giornico La linea 120 serve Paese, Fraggio e Scuola Media Le coincidenze TILO passano dalla S10 a Biasca Nessuno',
+    'blog.article.giornico-consiglio-stato-fermata.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.cassa-pensione-snl-sev-attacca.title': 'Cassa pensione SNL: SEV contesta lettura risultati',
+    'blog.article.cassa-pensione-snl-sev-attacca.excerpt': 'UBS gestirà il patrimonio della Cassa pensione SNL ATIOZ impose una nuova procedura dopo un conflitto d\'interessi Il grado di copertura era del 104,1% a fine',
+    'blog.article.cassa-pensione-snl-sev-attacca.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
