@@ -28,6 +28,7 @@ import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForC
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
+import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
 import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
@@ -58,9 +59,11 @@ export function portalNeedsPlanner(draft) {
 /** Open required questions block the submission, whatever the channel. */
 export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {} } = {}) {
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
-  return questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers).filter((question) => question.required
+  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers);
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
+  return questions.filter((question) => question.required
     && !(deferPortal && question.source === 'portal')
-    && !String(candidateAnswers?.[question.id] ?? '').trim());
+    && !String(projected?.[question.id] ?? '').trim());
 }
 
 /** Project answers already recorded by the portal onto the current draft ids. */
@@ -73,7 +76,7 @@ function portalAnswersForFlow(questions, answers, recordedAnswers) {
     if (!key) continue;
     const values = new Map();
     for (const item of records) {
-      if (!item || typeof item !== 'object' || !String(item.answer || '').trim()) continue;
+      if (!item || typeof item !== 'object' || item.source === 'policy_default' || !String(item.answer || '').trim()) continue;
       const itemKey = String(item.semanticKey || '').trim() || portalQuestionKey(item);
       if (itemKey !== key) continue;
       const answer = String(item.answer).trim();
@@ -227,6 +230,7 @@ export async function submitApplication(ctx) {
     : (flow || {});
   const answers = submitFlow.answers || {};
   const edited = candidateWithEdits({ order, draft, flow: submitFlow });
+  const emailBody = operationalEmailBody(draft, edited.answers);
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   // The record of a send whose outcome may stay unknown, on the draft (agent.mjs: `sentAttempt`), or null
   // once the send failed for certain. It becomes the record of what left when the owner or the employer's
@@ -319,7 +323,7 @@ export async function submitApplication(ctx) {
       const sent = recordOf(await keep('dry-run'));
       await storeEvidence({
         bucket, orderId, name: 'dry-run-email',
-        payload: { to, subject: draft.applicationEmail?.subject || '', body: draft.applicationEmail?.body || '', attachments: attachments.map((item) => item.filename), cvSent, sent },
+        payload: { to, subject: draft.applicationEmail?.subject || '', body: emailBody, attachments: attachments.map((item) => item.filename), cvSent, sent },
         key: runKey, nowMs,
       });
       return { type: 'dry_run_ready', channel: 'email' };
@@ -331,8 +335,8 @@ export async function submitApplication(ctx) {
       from: `${senderName(identity.name)} <${OWNER_MAILBOX}>`,
       to: [to],
       subject: draft.applicationEmail.subject,
-      text: draft.applicationEmail.body,
-      html: textToHtml(draft.applicationEmail.body),
+      text: emailBody,
+      html: textToHtml(emailBody),
       ...(identity.email ? { replyTo: identity.email } : {}),
       headers: { 'Message-ID': messageId },
       attachments,

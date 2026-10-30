@@ -25,6 +25,7 @@ import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationRevi
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { fitNoticeOf, fitNoticeWording } from './assistedApplicationFitNotice.js';
 import { candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
+import { withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 
 const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
@@ -80,6 +81,7 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
   const { profile, answers } = candidateWithEdits({ order: {}, draft, flow });
   const candidateQuestions = questionsForCandidate(draft.questions, profile, answers, flow?.questionAnswers);
+  const formAnswers = withOperationalQuestionAnswers(candidateQuestions, answers).answers;
   const key = automationEmailKey(effect, flow);
   const isOwner = effect.kind.startsWith('owner_');
   // Build inside sendOrderNotification's claim (it hands us the fresh order).
@@ -91,7 +93,7 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   }
   // Open questions and the required documents still missing (school reports, test results…).
   const openQuestions = candidateQuestions.filter((question) => question.required
-    && !String(answers?.[question.id] ?? '').trim()).length
+    && !String(formAnswers?.[question.id] ?? '').trim()).length
     + openRequiredDocuments(draft, flow.documents || {}).length;
   // The profile is not a full match: said in the review e-mail too, worded as the page words it
   // (no list without gaps, no answers without questions).

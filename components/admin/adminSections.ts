@@ -48,9 +48,15 @@ export const ADMIN_SECTIONS: readonly AdminSection[] = [
   },
   {
     slug: 'candidature',
-    label: 'Candidature',
+    label: 'Candidature assistite',
     group: 'aziende',
     description: 'Coda operativa delle candidature assistite.',
+  },
+  {
+    slug: 'servizio-candidature',
+    label: 'Servizio candidature · 30 giorni',
+    group: 'aziende',
+    description: 'Utenti, pagamenti e proposte del servizio di 30 giorni.',
   },
   {
     slug: 'redazione',

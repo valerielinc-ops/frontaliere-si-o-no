@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { AlertTriangle, Bot, CheckCircle2, FileText, Loader2, Pause, Play, RefreshCw, Save, Send, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, FileText, Loader2, Pause, Play, RefreshCw, Save, Send, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
 import {
   runAutomationAdminAction,
   uploadAssistedApplicationCv,
@@ -67,18 +67,14 @@ const HELD_LABELS: Record<string, string> = {
   draft_failed: 'bozza non generata',
   posting_closed: 'annuncio chiuso (rimborso automatico)',
   portal_needs_candidate: 'il portale richiede il candidato',
-  fact_check_not_acknowledged: 'invio fermato dal controllo dei fatti: serve la tua conferma',
+  fact_check_not_acknowledged: 'correzione automatica dei testi prima di riprovare',
+  fact_repair_failed: 'correzione automatica non riuscita: serve una verifica tecnica',
   sent_files_not_stored: 'file della candidatura non salvati: l’email non è partita',
   sent_attempt_not_stored: 'tentativo d’invio non registrato: la candidatura non è partita',
   owner: 'presa in carico manuale',
 };
 
 const VERDICT_LABELS: Record<string, string> = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
-const INBOX_LABELS: Record<string, string> = {
-  interview_invite: 'Invito a colloquio', rejection: 'Rifiuto', documents_request: 'Documenti richiesti', question: 'Domanda',
-  assessment: 'Test', auto_acknowledgement: 'Conferma di ricezione', verification: 'Verifica account', offer: 'Offerta', other: 'Messaggio',
-  processing: 'In elaborazione',
-};
 const MATCH_STYLES: Record<string, string> = { met: 'text-success', partial: 'text-warning', missing: 'text-danger' };
 
 function formatMs(ms: number | null | undefined): string {
@@ -123,7 +119,6 @@ export default function AssistedApplicationAutomationPanel({
   const [emailSubject, setEmailSubject] = useState(draft?.applicationEmail?.subject || '');
   const [emailBody, setEmailBody] = useState(draft?.applicationEmail?.body || '');
   const [answers, setAnswers] = useState<Record<string, string>>(flow?.answers || {});
-  const [ackFacts, setAckFacts] = useState(false);
   const [ackFlags, setAckFlags] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -156,7 +151,7 @@ export default function AssistedApplicationAutomationPanel({
       expectedDuration: 'pochi minuti',
       confirmLabel: 'Riprova l’invio',
     });
-    if (confirmed) await act('automationRetrySubmit', needsFactAck ? { acknowledgeFactWarnings: ackFacts } : {}, 'Invio automatico rilanciato: parte entro pochi minuti.');
+    if (confirmed) await act('automationRetrySubmit', {}, 'Invio automatico rilanciato: parte entro pochi minuti.');
   };
 
   const markSubmitted = async () => {
@@ -338,22 +333,17 @@ export default function AssistedApplicationAutomationPanel({
   const unsupported = draft?.factCheck?.unsupported || [];
   // The runner checks the facts again before sending, with the gate of the day: a send it stopped
   // leaves again only with the tick an approval needs (the runner stored the facts it found).
-  const needsFactAck = (flow?.heldBy || []).includes('fact_check_not_acknowledged') && unsupported.length > 0;
+  const repairingFacts = (flow?.heldBy || []).some((held) => ['fact_check', 'fact_check_not_acknowledged'].includes(held));
   // Not blocking: words echoed from the posting, filler phrases, a letter out of 150-380 words.
   const advisories = draft?.factCheck?.advisories || [];
   const canUpload = order.paymentStatus === 'paid' && ['awaiting_upload', 'ready_for_manual_submission', 'in_progress', 'blocked'].includes(order.submissionStatus);
 
   return (
-    <div className="mt-4 space-y-4 rounded-stripe border border-info-border bg-info-subtle/30 p-4">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <h4 className="flex items-center gap-2 text-sm font-semibold text-strong">
-          <Bot size={16} className="text-info" aria-hidden="true" /> Automazione
-        </h4>
-        <span className="text-xs text-subtle">
-          {flow ? `${portalRetryDueAt(flow) ? 'Nuovo tentativo automatico programmato' : STATE_LABELS[flow.state || ''] || flow.state} · giro ${flow.round}` : 'Non avviata'}
-        </span>
-      </div>
-
+    <details className="mt-4 rounded-stripe border border-edge bg-surface-alt p-4">
+      <summary className="cursor-pointer text-sm font-semibold text-strong">Azioni e dettagli dell’automazione
+        <span className="ml-2 text-xs font-normal text-subtle">{flow ? STATE_LABELS[flow.state || ''] || flow.state : 'Non avviata'}</span>
+      </summary>
+      <div className="mt-4 space-y-4">
       {canUpload && (
         <label className={`${secondary} cursor-pointer`}>
           {busy === 'uploadCv' ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : <UploadCloud size={14} aria-hidden="true" />}
@@ -374,21 +364,6 @@ export default function AssistedApplicationAutomationPanel({
           <div><dt className="font-semibold uppercase tracking-wide text-muted">Fermo per</dt><dd>{flow.heldBy.length ? flow.heldBy.map(heldLabel).join(', ') : '—'}</dd></div>
           <div><dt className="font-semibold uppercase tracking-wide text-muted">Ultimo run</dt><dd>{flow.dispatch ? `${flow.dispatch.mode} · ${formatMs(flow.dispatch.requestedAt)} · tentativi ${flow.dispatch.attempts}` : '—'}</dd></div>
         </dl>
-      )}
-
-      {(automation?.inbox || []).length > 0 && (
-        <div className="rounded-stripe border border-edge bg-surface p-3 text-xs text-body">
-          <p className="font-semibold uppercase tracking-wide text-muted">Risposte del datore (alias)</p>
-          <ul className="mt-1 space-y-1">
-            {(automation?.inbox || []).map((item) => (
-              <li key={`${item.receivedAt}-${item.subject}`}>
-                <strong>{INBOX_LABELS[item.category] || item.category}</strong> · {formatMs(item.receivedAt)} · {item.summaryIt || item.subject}
-                {item.interviewWhen ? ` · quando: ${item.interviewWhen}` : ''}
-                {item.forwarded === 'skipped' ? ' · letto dal runner (verifica account portale), non inoltrato' : item.forwarded !== 'sent' ? ' · inoltro al candidato NON riuscito' : ''}
-              </li>
-            ))}
-          </ul>
-        </div>
       )}
 
       {(automation?.followup || automation?.interviewPrep || draft?.sent) && (
@@ -546,8 +521,7 @@ export default function AssistedApplicationAutomationPanel({
             <div className="rounded-stripe border border-danger-border bg-danger-subtle/50 p-3 text-xs text-body">
               <p className="flex items-center gap-1 font-semibold text-danger"><AlertTriangle size={14} aria-hidden="true" /> Fatti non trovati nel CV o nell’annuncio</p>
               <ul className="mt-1 list-disc pl-4">{unsupported.map((item) => <li key={`${item.field}-${item.token}`}><strong>{item.token}</strong> ({item.kind}) — «{item.context}»</li>)}</ul>
-              {/* A send the runner stopped is confirmed next to «Riprova l’invio automatico», with the same tick. */}
-              {!needsFactAck && <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti</label>}
+              <p className="mt-2 text-subtle">L’automazione riscrive o rimuove queste affermazioni e ripassa il controllo prima di mostrare la bozza al candidato. Non serve verificarle a mano.</p>
             </div>
           )}
           {advisories.length > 0 && (
@@ -617,8 +591,8 @@ export default function AssistedApplicationAutomationPanel({
           </details>
         )}
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
-          {flow.state === 'owner_review' && (
-            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFactWarnings: ackFacts, acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
+          {flow.state === 'owner_review' && !repairingFacts && (
+            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
               {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
             </button>
           )}
@@ -632,22 +606,14 @@ export default function AssistedApplicationAutomationPanel({
           {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && !flow.roundSent && (
             <p className="w-full text-xs text-subtle">Il candidato non ha ancora approvato la bozza di questo giro: l’invio automatico non è disponibile. «Riprendi automazione» la rimette in revisione.</p>
           )}
-          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && flow.roundSent && (
+          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && flow.roundSent && !repairingFacts && (
             <>
-              {needsFactAck && (
-                <div className="w-full text-xs text-body">
-                  <p id={`fact-retry-${order.orderId}`}>L’invio si è fermato sui fatti non trovati elencati sopra: senza la spunta non riparte.</p>
-                  <label className="mt-1 flex items-center gap-2">
-                    <input type="checkbox" aria-describedby={`fact-retry-${order.orderId}`} checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti
-                  </label>
-                </div>
-              )}
-              <button type="button" className={primary} disabled={Boolean(busy) || (needsFactAck && !ackFacts)} onClick={() => { void retrySubmit(); }}>
+              <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void retrySubmit(); }}>
                 {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
               </button>
             </>
           )}
-          {flow.state === 'owner_takeover' && draft?.round === flow.round && portalUrl && (extensionVersion ? (
+          {flow.state === 'owner_takeover' && draft?.round === flow.round && !repairingFacts && portalUrl && (extensionVersion ? (
             <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void fillWithExtension(); }}>
               {spinner('automationFillKit') || <Wand2 size={14} aria-hidden="true" />} Compila con l’estensione
             </button>
@@ -676,6 +642,7 @@ export default function AssistedApplicationAutomationPanel({
         </div>
         </>
       )}
-    </div>
+      </div>
+    </details>
   );
 }

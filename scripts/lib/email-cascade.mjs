@@ -119,9 +119,12 @@ export async function auditCanarySend(emails, result, opts = {}) {
     if (!html) return null;
 
     const live = !!canary && process.env.EMAIL_LINK_AUDIT_LIVE !== '0';
-    const audit = await auditSentEmail(html, { ...opts, channel, live, requireUnsubscribe });
-    console.log(formatAuditReport(audit));
-    if (!canary) {
+    // quiet (opt-in, dal chiamante): un audit riuscito non stampa il suo
+    // rapporto a ogni batch; un audit con difetti stampa sempre.
+    const { quiet = false, ...auditOpts } = opts;
+    const audit = await auditSentEmail(html, { ...auditOpts, channel, live, requireUnsubscribe });
+    if (!quiet || !audit.ok) console.log(formatAuditReport(audit));
+    if (!canary && !quiet) {
       console.log(`   ℹ️  no canary recipient in this batch — static half only. Set CANARY_OWNER_EMAIL to an address of ours that is subscribed to ${channel} to get the live probes.`);
     }
     if (!audit.ok && process.env.EMAIL_LINK_AUDIT_STRICT !== '0') {
@@ -138,8 +141,9 @@ export async function auditCanarySend(emails, result, opts = {}) {
 
 /**
  * Same signature and same return value as functions/src/emailCascade.js's
- * sendEmailCascade — this only appends the post-send audit. The explicit local
- * export shadows the `export *` above (ESM re-export precedence), so every
+ * sendEmailCascade — this only appends the post-send audit. The one addition is
+ * `linkAudit: { ok }`, and only for callers that pass `quiet: true`. The explicit
+ * local export shadows the `export *` above (ESM re-export precedence), so every
  * existing `import { sendEmailCascade } from './lib/email-cascade.mjs'` call
  * site picks up the audit with no edit.
  */
@@ -187,6 +191,11 @@ export async function sendEmailCascade(emails, opts = {}) {
     }),
   };
   const result = await baseSendEmailCascade(emails, optsWithRef);
-  await auditCanarySend(emails, result);
+  // Il chiamante quiet riceve l'esito dell'audit sul batch, per riassumerlo a
+  // fine run senza un rapporto per batch. Gli altri chiamanti ricevono il
+  // risultato invariato, com'era prima di questo campo.
+  const quiet = opts.quiet === true;
+  const audit = await auditCanarySend(emails, result, { quiet });
+  if (audit && quiet) result.linkAudit = { ok: audit.ok === true };
   return result;
 }

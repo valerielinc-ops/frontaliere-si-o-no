@@ -9,6 +9,7 @@
  * same, so only the two calls that depend on the feedback run again.
  */
 
+import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
 import {
   applicationEmailText,
@@ -321,6 +322,13 @@ export async function buildDraft(ctx) {
     if (repaired && repaired.factCheck.unsupported.length < before) texts = repaired;
     factRepair = { before, after: texts.factCheck.unsupported.length };
     log('fact repair', `${before} → ${factRepair.after}`);
+  }
+  if (!texts.factCheck.ok) {
+    const repaired = repairApplicationDocuments(texts.documents, factSources, { language, emailSubject: texts.emailSubject });
+    if (!repaired.factCheck.ok) throw new DraftAbort('draft_failed', 'fact_repair_failed');
+    texts = repaired;
+    factRepair = { ...factRepair, after: 0, removed: repaired.removed, method: 'verified_paragraphs' };
+    log('fact repair', 'unverified claims removed; full fact gate passed');
   }
   const { documents, letterBody, emailSubject, factCheck } = texts;
   const letterAddress = letterAddressOf(posting, contactPerson);

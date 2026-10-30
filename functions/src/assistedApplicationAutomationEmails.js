@@ -376,7 +376,8 @@ const RUNNER_ERRORS = [
   [/^cv_unreadable/, 'dal CV non si ricava testo leggibile'],
   [/^documents_empty$/, 'Codex ha restituito una lettera o un’email vuota'],
   [/^draft_missing_for_round$/, 'manca la bozza del round approvato'],
-  [/^fact_check_not_acknowledged$/, 'nei testi restano fatti non verificati senza la tua conferma'],
+  [/^fact_check_not_acknowledged$/, 'i testi richiedono una correzione automatica dei fatti'],
+  [/^fact_repair_failed$/, 'la correzione automatica dei testi non è riuscita'],
   [/^email_failed$/, 'nessun provider ha accettato l’email al datore'],
   [/^email_ambiguous$/, 'non è certo che l’email al datore sia partita: controlla prima di reinviarla'],
   [/^portal_ambiguous$/, 'non è certo che il portale abbia ricevuto la candidatura: controlla prima di reinviarla'],
@@ -418,7 +419,8 @@ const STAGE_HINTS = {
 const RUNNER_HINTS = {
   portal_refused: 'Non serve controllare il portale. Su un portale con controllo anti-robot (come JOIN) un nuovo invio automatico di solito viene rifiutato di nuovo: completala tu sul portale (link, risposte e documenti sono nel pannello) e poi premi «Segna come inviata».',
   // The gate is run again right before sending: nothing left, there is nothing to check at the employer.
-  fact_check_not_acknowledged: 'Non è partito nulla. Nel pannello della coda trovi i fatti che il controllo non trova nel CV: se sono corretti spunta «Ho verificato», altrimenti correggi i testi e salva le modifiche; poi premi «Riprova l’invio automatico».',
+  fact_check_not_acknowledged: 'Non è partito nulla. L’automazione riscrive i passaggi non verificati e ripropone la bozza al candidato; non serve controllare i fatti a mano.',
+  fact_repair_failed: 'Non è partito nulla. La correzione automatica dei testi ha esaurito i tentativi: serve una verifica tecnica del generatore. Non confermare fatti non supportati.',
   // The files are kept before the send is claimed: nothing left either.
   sent_files_not_stored: 'Non è partito nulla e non c’è niente da controllare presso il datore: «Riprova l’invio automatico».',
   sent_attempt_not_stored: 'Non è partito nulla e non c’è niente da controllare presso il datore: «Riprova l’invio automatico».',

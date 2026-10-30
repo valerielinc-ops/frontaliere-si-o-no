@@ -24,7 +24,7 @@ const routerDataAvailable = [
 ].every((file) => existsSync(resolve(__dirname, '..', 'services', file)));
 const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const EXPECTED_LIVE_SLUGS = [
-  '', 'crawler', 'automazioni', 'configurazione-crawler', 'aziende', 'candidature',
+  '', 'crawler', 'automazioni', 'configurazione-crawler', 'aziende', 'candidature', 'servizio-candidature',
   'redazione', 'giornalisti', 'newsletter', 'salute',
   'flag', 'registro',
 ] as const;

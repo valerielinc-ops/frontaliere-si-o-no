@@ -34,6 +34,7 @@ const CrawlerSection = lazy(() => import('./sections/CrawlerSection'));
 const AutomazioniSection = lazy(() => import('./sections/AutomazioniSection'));
 const ConfigurazioneCrawlerSection = lazy(() => import('./sections/ConfigurazioneCrawlerSection'));
 const AziendeSection = lazy(() => import('./sections/AziendeSection'));
+const ConciergeSection = lazy(() => import('@/components/pages/ApplicationConciergeAdmin'));
 const CandidatureSection = lazy(() => import('./sections/CandidatureSection'));
 const RedazioneSection = lazy(() => import('./sections/RedazioneSection'));
 const GiornalistiSection = lazy(() => import('./sections/GiornalistiSection'));
@@ -49,6 +50,7 @@ const SECTION_COMPONENTS: Record<string, LazyExoticComponent<ComponentType>> = {
   'configurazione-crawler': ConfigurazioneCrawlerSection,
   aziende: AziendeSection,
   candidature: CandidatureSection,
+  'servizio-candidature': ConciergeSection,
   redazione: RedazioneSection,
   giornalisti: GiornalistiSection,
   newsletter: NewsletterSection,
