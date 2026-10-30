@@ -115,6 +115,10 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  // tests/article-rename-redirects.test.ts fails on any key declared twice.
  const redirects: Record<string, string> = {
  ...LEGACY_LUGANO_COMPETITION_REDIRECTS,
+ // Obsolete search-combination bridges confirmed by SE Ranking. The Worker
+ // promotes the marked fallback to HTTP 301; a future real page still wins.
+ '/cerca-lavoro-ticino/ricerca-ambiente-bern/': '/cerca-lavoro-ticino/',
+ '/cerca-lavoro-ticino/ricerca-ambiente-luzern/': '/cerca-lavoro-ticino/',
  '/guida-frontalieri/': '/guida-frontaliere/',
  '/guida-frontalieri/calendario-fiscale/': '/tasse-e-pensione/scadenze-fiscali/',
  '/pianificatore-pensione/': '/tasse-e-pensione/calcola-previdenza/',

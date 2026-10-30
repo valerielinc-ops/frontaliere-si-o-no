@@ -586,6 +586,7 @@ export function buildActiveJobPageInput({
   relatedArticlesHtml,
   hreflangHtml = '',
   employerHubPath = '',
+  titleLocaleQualifier = '',
   renderDateBucket,
 }) {
   const minimalInput = buildMinimalJobInput(
@@ -613,6 +614,7 @@ export function buildActiveJobPageInput({
     relatedArticlesDigest: relatedArticlesFeedDigest(relatedArticlesHtml),
     hreflangDigest: activePageHreflangDigest(hreflangHtml),
     employerHubPath: String(employerHubPath ?? ''),
+    titleLocaleQualifier: String(titleLocaleQualifier ?? ''),
     renderDateBucket,
   };
 }

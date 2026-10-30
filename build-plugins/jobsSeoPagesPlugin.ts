@@ -127,6 +127,7 @@ import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { getEnsuredDirsSize, WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, finalizeJobBoardTitle, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
+import { JOB_TITLE_LOCALE_LABELS, jobTitleLocaleKeys, jobTitleLocaleQualifiers } from './shared/jobTitleLocaleCollision';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
 import { CRAWLED_COMPANY_LOGOS, logoUrlForRenderedOutput } from '../services/jobDataNormalization';
 import {
@@ -3232,12 +3233,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // and reserve a readable language label in every other colliding locale.
  // Compare the final composed title (including truncation) so this changes
  // only real cross-locale collisions.
- const titleLocaleLabels: Record<(typeof JOB_SEO_LOCALES)[number], string> = {
-  it: 'Italiano',
-  en: 'English',
-  de: 'Deutsch',
-  fr: 'Français',
- };
+ const titleLocaleLabels = JOB_TITLE_LOCALE_LABELS;
  const localeTitleBits = new Map<(typeof JOB_SEO_LOCALES)[number], number>(
   localeList.map((locale, index) => [locale, 1 << index] as const),
  );
@@ -3246,9 +3242,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   const title = jobDisplayTitle(job);
   const location = String(job.location || '').trim();
   for (const locale of localeList) {
-   const baseTitle = composeJobPageTitle(title, String(job.company || ''), location, locale, undefined, undefined, (s) => esc(s).length);
-   const key = titleCompareKey(baseTitle);
-   crossLocaleTitleMasks.set(key, (crossLocaleTitleMasks.get(key) || 0) | (localeTitleBits.get(locale) || 0));
+   for (const key of jobTitleLocaleKeys(stripLiteralMarkdownFromTitle(title), String(job.company || ''), location, locale, (s) => esc(s).length)) {
+    crossLocaleTitleMasks.set(key, (crossLocaleTitleMasks.get(key) || 0) | (localeTitleBits.get(locale) || 0));
+   }
   }
  }
  const titleLocaleQualifiersByJob = new WeakMap<object, Partial<Record<(typeof JOB_SEO_LOCALES)[number], string>>>();
@@ -3277,7 +3273,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const lt = jobDisplayTitle(job);
  const loc = String(job.location || '').trim();
  const unqualifiedTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, undefined, (s) => esc(s).length);
- const mask = crossLocaleTitleMasks.get(titleCompareKey(unqualifiedTitle)) || 0;
+ // City omission and final normalization can create a collision even when
+ // the original city-bearing titles had different locale connectors.
+ const mask = jobTitleLocaleKeys(stripLiteralMarkdownFromTitle(lt), String(job.company || ''), loc, locale, (s) => esc(s).length)
+  .reduce((bits, key) => bits | (crossLocaleTitleMasks.get(key) || 0), 0);
  let localeQualifier = '';
  if ((mask & (mask - 1)) !== 0) {
   const primaryLocale = localeList.find((candidate) => (mask & (localeTitleBits.get(candidate) || 0)) !== 0);
@@ -3914,6 +3913,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    relatedArticlesHtml: recentArticlesHtml,
    hreflangHtml,
    employerHubPath,
+   titleLocaleQualifier: titleLocaleQualifierForJob(job, locale),
    renderDateBucket: jobsSeoReuseBuildDay,
   })
  : null;
@@ -5398,6 +5398,14 @@ ${staticAnalyticsHtml}
  // indexable page first, defeating that bridge's file-exists guard and
  // duplicating umbrella content (brand-dedup main-red #1247 / PR #1274).
  if (isBrandAlias(cSlug)) continue;
+ // The canton-local TI company index needs the same emitted-slug registry
+ // as the other cantons; employer keys are not canonical company slugs.
+ markCantonCompanyHub('TI', {
+ slug: cSlug,
+ name: companyName,
+ jobs: companyJobs.length,
+ logoKey: String((companyJobs[0] as any)?.companyKey || (companyJobs[0] as any)?.employerKey || cSlug),
+ });
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompany = startTimer();
@@ -14028,6 +14036,12 @@ ${staticAnalyticsHtml}
  const jobContract = String(ejData?.contract || '');
  const jobDatePosted = resolveRolloutPostingDate(ejData || {}, () => String(ejData?.datePosted || '')) || '';
  const jobExpiredAt = String(ejData?.expiredAt || '');
+ const recordedJobTitle = hasRealTitle
+  ? stripLiteralMarkdownFromTitle(String(jobDisplayTitle(ejData) || jobDisplayTitle(gscInfo) || ''))
+  : '';
+ const expiredTitleLocaleQualifiers: Partial<Record<JobSeoLocale, string>> = recordedJobTitle
+  ? jobTitleLocaleQualifiers(recordedJobTitle, jobCompany, jobLocation, (s) => esc(s).length)
+  : {};
  const sameCompanyActiveJobs = jobCompany
  ? (companyActiveJobsMap.get(`${jobCanton}:${jobCompany.toLowerCase()}`) || [])
  : [];
@@ -14156,7 +14170,7 @@ ${staticAnalyticsHtml}
   && (noCityTitleCollisionByLocale[locale].get(__expiredNoCityProbe) || 0) <= 1;
  const __expiredCompose = (disambiguator?: string): string =>
   hasRealTitle
-   ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { disambiguator, cityOptional: __expiredCityDroppable, measureLength: (s) => esc(s).length })
+   ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { disambiguator: combineTitleDisambiguators(expiredTitleLocaleQualifiers[locale], disambiguator), cityOptional: __expiredCityDroppable, measureLength: (s) => esc(s).length })
    : composeSerpJobTitle(copy.title, '', jobLocation, locale, { disambiguator, measureLength: (s) => esc(s).length });
  let pageTitleRaw = __expiredCompose();
  // <h1> equality guard (audit:h1-title-duplicates): the static H1 below is
@@ -15945,7 +15959,11 @@ ${staticAnalyticsHtml}
   const section = buildCantonAwareSection(locale, canton);
   const listingPath = `${localePrefix[locale]}/${section}`.replace(/\/+/g, '/');
   const historicalUrl = `${BASE_URL}${withSlash(relPath)}`;
+  const archiveTitleQualifier = recordedIdentity
+   ? jobTitleLocaleQualifiers(titleRaw, company, location, (s) => esc(s).length)[locale]
+   : undefined;
   const pageTitleRaw = composeSerpJobTitle(titleRaw, company, location, locale, {
+   disambiguator: archiveTitleQualifier,
    measureLength: (s) => esc(s).length,
   });
   const pageTitle = esc(finalizeJobBoardTitle(pageTitleRaw));

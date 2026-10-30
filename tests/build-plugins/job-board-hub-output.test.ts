@@ -128,6 +128,18 @@ function allTypes(value: any): string[] {
 }
 
 describe('job-board emitted output', () => {
+  it.each(locales)('links the emitted TI company hub from the canton company index in %s', (locale) => {
+    const index = htmlDoc(hubSlugFor('TI', locale, 'aziende'));
+    const companyPrefix = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' }[locale];
+    const links = [...index.querySelectorAll('a[href]')]
+      .map((a) => a.getAttribute('href')!)
+      .filter((href) => href.startsWith(`${hubPath(locale, 'TI')}${companyPrefix}-`));
+    expect(links.length).toBeGreaterThan(0);
+    for (const href of links) {
+      expect(fs.existsSync(path.join(root, 'dist', href.slice(1), 'index.html')), href).toBe(true);
+    }
+  });
+
   it.each(locales)('emits full active, expired and previous-slug details with complete SEO in %s', (locale) => {
     const activePath = `${hubPath(locale, 'ZH')}audit-position-0/`;
     const expiredPath = `${hubPath(locale, 'TI')}archived-audit-position/`;
