@@ -81,6 +81,19 @@ describe('qualification before proposal publication', () => {
     expect(result.status).toBe('incompatible');
     expect(result.gaps).toContainEqual(expect.objectContaining({ knownMissing: true }));
   });
+  it.each(['Verhandlungssichere Deutschkenntnisse erforderlich', 'Fliessende Deutschkenntnisse erforderlich', 'Muttersprachliche Deutschkenntnisse erforderlich'])('uses the quoted language metadata for inflected requirement %s', quote => {
+    const rows = { requirements: [{ requirement: 'Tedesco', importance: 'critical', basis: 'stated', quote }],
+      languageRequirements: [{ language: 'Deutsch', level: '', quote }] };
+    const profile = { languages: [{ language: 'German', level: 'A2' }, { language: 'English', level: 'C1' }] };
+    expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: 'met', evidence: 'English C1' }], verdict: 'good' }, { profile }).status).toBe('incompatible');
+  });
+  it('does not use evidence in a different language when the quoted level is not a known minimum', () => {
+    const quote = 'Gute Deutschkenntnisse erforderlich';
+    const rows = { requirements: [{ requirement: 'Tedesco', importance: 'high', basis: 'stated', quote }],
+      languageRequirements: [{ language: 'Deutsch', level: 'gut', quote }] };
+    expect(conciergeProposalEligibility(rows, { matches: [{ index: 0, status: 'met', evidence: 'English C1' }], verdict: 'good' },
+      { profile: { languages: [{ language: 'German', level: 'A2' }] } })).toMatchObject({ status: 'unverified', reason: 'evidence_incomplete', gaps: [] });
+  });
   it('retries a language clause omitted from numbered requirements instead of publishing or caching it', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'IT Manager' }], verdict: 'strong' });
     const omitted = { requirements: [{ requirement: 'IT experience', importance: 'high', basis: 'stated', quote: 'IT operations' }],

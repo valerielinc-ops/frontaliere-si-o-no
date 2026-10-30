@@ -96,26 +96,23 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
   });
   // A language must-have cannot be satisfied by evidence about another language.
   for (const [index, row] of rows.entries()) {
-    const listedLanguage = (requirements?.languageRequirements || []).some(language => language.quote && text(row.quote, 400).includes(text(language.quote, 300)));
-    if (!DECISIVE.includes(row.importance) || (!listedLanguage && !isLanguageAbilityQuestion(row.quote))) continue;
-    const codes = languageCodesIn(row.quote || '');
+    const listedLanguages = (requirements?.languageRequirements || []).filter(language => language.quote && text(row.quote, 400).toLocaleLowerCase().includes(text(language.quote, 300).toLocaleLowerCase()));
+    if (!DECISIVE.includes(row.importance) || (!listedLanguages.length && !isLanguageAbilityQuestion(row.quote))) continue;
+    const codes = [...new Set([...languageCodesIn(row.quote || ''), ...listedLanguages.flatMap(language => languageCodesIn(language.language))])];
     const rank = value => {
       const label = String(value);
       const cefr = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(label.toUpperCase().match(/\b[ABC][12]\b/)?.[0]);
       if (cefr >= 0) return cefr;
-      if (/\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(label)) return 5;
-      return /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(label) ? 4 : -1;
+      if (/\b(?:native|mother tongue|madrelingua|muttersprache|muttersprachlich(?:e|en|er|es|em)?|langue maternelle)\b/iu.test(label)) return 5;
+      return /\b(?:fluent|fluente|fluenti|(?:fließend|fliessend|verhandlungssicher)(?:e|en|er|es|em)?|courant(?:e|es|s)?)\b/iu.test(label) ? 4 : -1;
     };
-    const requested = rank(row.quote);
-    const fluent = /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(row.quote || '');
-    const native = /\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(row.quote || '');
-    const minimum = requested >= 0 ? requested : native ? 5 : fluent ? 4 : -1;
+    const minimum = rank(row.quote);
     if (codes.length > 1) {
       const names = [...String(row.quote).matchAll(/\p{L}+/gu)].filter(word => isLanguageNameOnly(word[0]));
       const bridges = names.slice(1).map((word, position) => row.quote.slice(names[position].index + names[position][0].length, word.index).trim());
       const alternative = bridges.length > 0 && bridges.every(bridge => /^(?:or|oder|ou|o)$/iu.test(bridge));
       const conjunction = bridges.length > 0 && bridges.every(bridge => /^(?:and|und|et|e|&)$/iu.test(bridge));
-      const levelWords = [...String(row.quote).matchAll(/\b(?:[ABC][12]|native|mother tongue|madrelingua|muttersprache|langue maternelle|fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/giu)];
+      const levelWords = [...String(row.quote).matchAll(/\b(?:[ABC][12]|native|mother tongue|madrelingua|muttersprache|muttersprachlich(?:e|en|er|es|em)?|langue maternelle|fluent|fluente|fluenti|(?:fließend|fliessend|verhandlungssicher)(?:e|en|er|es|em)?|courant(?:e|es|s)?)\b/giu)];
       const levels = new Set(levelWords.map(word => rank(word[0])));
       // A shared level must sit outside a directly joined language list.
       // "German C1 and basic English" does not establish one shared minimum.
@@ -153,6 +150,9 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
       const existing = gaps.find(gap => gap.index === index);
       if (existing) existing.knownMissing = knownMissing;
       else gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown', knownMissing });
+    } else if (minimum < 0 && found.get(index)?.status === 'met') {
+      const evidenceCodes = languageCodesIn(found.get(index)?.evidence || '');
+      if (evidenceCodes.length && !evidenceCodes.includes(code)) return { status: 'unverified', reason: 'evidence_incomplete', gaps: [] };
     }
   }
   const notice = fitNoticeOf({ requirements: rows, matches: match.matches, verdict: match.verdict });
