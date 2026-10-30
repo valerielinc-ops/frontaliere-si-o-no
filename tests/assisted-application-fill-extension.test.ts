@@ -242,7 +242,7 @@ describe('fill extension: JOIN steps', () => {
   });
 
   it('picks a searched city among the options the portal lists', async () => {
-    const { F, document } = page(`<form><h2>Dati personali</h2><div role="group"><label for="_r_h_">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
+    const { F, document } = page(`<form><h2>Dati personali</h2><div role="group"><label for="city">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
       <div><input id="city" role="combobox" type="text" value=""></div></div></div></div><div id="menu"></div>${continueButtons}</form>`);
     const input = document.getElementById('city') as HTMLInputElement;
     const box = document.querySelector('[data-testid="CityName"] > div')!;
@@ -253,6 +253,44 @@ describe('fill extension: JOIN steps', () => {
     const result = await run(F, document);
     expect(result.filled).toEqual(['Città']);
     expect(box.textContent).toBe('Como');
+  });
+
+  it.each(['Informazioni personali', 'Personal information', 'Persönliche Informationen', 'Informations personnelles'])('uses the city control’s own identity meaning under %s', async (heading) => {
+    // The label target is broken, as in the observed JOIN-like wizard. It
+    // cannot name this control; its own placeholder and personal section can
+    // still identify residence without borrowing a neighbouring question.
+    const { F, document, window } = page(`<form><h2>${heading}</h2>
+      <div role="group"><label for="first">First name</label><input id="first"></div>
+      <div role="group"><label for="last">Last name</label><input id="last"></div>
+      <div role="group"><label for="nonexistent">Not this control</label><input id="city" role="combobox" placeholder="City"></div>
+      <div role="group"><label for="company-city">Company city</label><input id="company-city" autocomplete="address-level2"></div>
+      <div role="group"><label for="birthplace">Place of birth</label><input id="birthplace" autocomplete="address-level2"></div>
+      <div id="menu"></div></form>`);
+    window.eval(runnerFieldsSource);
+    const input = document.getElementById('city') as HTMLInputElement;
+    let chosen = '';
+    input.addEventListener('input', () => {
+      document.getElementById('menu')!.innerHTML = '<div role="option">Comano</div><div role="option">Como</div><div role="option">Comologno</div>';
+      for (const option of document.querySelectorAll('[role="option"]')) option.addEventListener('click', () => {
+        chosen = option.textContent || '';
+        input.parentElement!.innerHTML = `<p>${chosen}</p>`;
+        document.getElementById('menu')!.innerHTML = '';
+      });
+    });
+    const city = F.collect(document).find((entry: any) => entry.element === input);
+    expect(city.labels).not.toContain('Not this control');
+    expect(F.answerFor(city, { ...kit, answers: [] })).toEqual({ value: 'Como', family: 'city' });
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect(chosen).toBe('Como');
+    expect((document.getElementById('first') as HTMLInputElement).value).toBe('Luigi');
+    expect((document.getElementById('last') as HTMLInputElement).value).toBe('Prova');
+    expect((document.getElementById('company-city') as HTMLInputElement).value).toBe('');
+    expect((document.getElementById('birthplace') as HTMLInputElement).value).toBe('');
+  });
+
+  it.each(['Company information', 'Informazioni professionali', 'Berufliche Informationen', 'Informations professionnelles', 'Details'])('keeps an ownerless city unfilled under %s', (heading) => {
+    const { F, document } = page(`<form><h2>${heading}</h2><label for="city">City</label><input id="city" autocomplete="address-level2"></form>`);
+    expect(F.answerFor(F.collect(document)[0], { ...kit, answers: [] })).toBeNull();
   });
 
   it('stops on the review page with «Conferma e applica» and never presses it', async () => {
