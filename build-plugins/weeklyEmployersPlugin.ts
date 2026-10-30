@@ -208,6 +208,7 @@ const WEEKLY_EMPLOYERS_DISCOVER_MORE_CTAS: Record<WeeklyEmployersLocale, Readonl
 // ── Types ───────────────────────────────────────────────────────
 
 export interface WeeklyCountableJob {
+  id?: string;
   slug?: string;
   slugByLocale?: Partial<Record<WeeklyEmployersLocale, string>>;
   title?: string;
@@ -829,6 +830,10 @@ export function buildCityWeeklyStats(opts: {
 // ── Company × City aggregation (D-2 Expansion B) ───────────────
 
 export interface CompanyCityActiveJob {
+  /** Identify the job for the card bookmark; `slug` below is the localized one. */
+  id?: string;
+  canonicalSlug?: string;
+  category?: string;
   slug: string;
   title: string;
   detailPath: string;
@@ -1073,6 +1078,9 @@ export function buildCompanyCityStats(opts: {
       (typeof js.baseSalary?.currency === 'string' && js.baseSalary.currency) ||
       undefined;
     return {
+      id: typeof j.id === 'string' ? j.id : undefined,
+      canonicalSlug: typeof j.slug === 'string' ? j.slug : undefined,
+      category: typeof j.category === 'string' ? j.category : undefined,
       slug: localizedJobSlug(j, locale) || String(j.slug || ''),
       title: String(j.titleByLocale?.[locale] || j.title || '').trim(),
       detailPath: buildJobDetailPath(j, locale),
@@ -3598,6 +3606,9 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       ? `${JOB_CARD_ICON_SYMBOLS}<ol class="s-LqkLeN">${stats.activeJobs
           .map((job, idx) => {
             const cardJob: JobCardJob = {
+              id: job.id,
+              slug: job.canonicalSlug,
+              category: job.category,
               title: job.title || `${OPEN_POSITION_LABEL[locale]} ${idx + 1}`,
               company: employer,
               companyKey: stats.employerKey,

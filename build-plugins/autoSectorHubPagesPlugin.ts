@@ -161,6 +161,9 @@ function toCardItem(job: AutoSectorJob, locale: JobBoardLocale): JobCardListItem
   return {
     href: `${BASE_URL}${href}`,
     job: {
+      id: typeof job.id === 'string' ? job.id : undefined,
+      slug: typeof job.slug === 'string' ? job.slug : undefined,
+      category: typeof job.category === 'string' ? job.category : undefined,
       title: typeof job.title === 'string' ? job.title : undefined,
       titleByLocale: job.titleByLocale as JobCardJob['titleByLocale'],
       company: typeof job.company === 'string' ? job.company : undefined,
