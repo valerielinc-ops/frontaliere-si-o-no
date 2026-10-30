@@ -94,6 +94,12 @@ describe('signed-origin autonomous SDK startup', () => {
    expect(check('https://img.example.test/a.png?size=100%25 1x, /images/b.png?variant=two%20large 2x')).toBe(false);
    expect(check('data:image/svg+xml,%3Csvg%20viewBox=%220,0,100,100%22%3E%3Ctext%3E100%25%3C/text%3E%3C/svg%3E 1x, https://img.example.test/b.png 2x')).toBe(false);
    expect(check('https://img.example.test/a.png 1x, https://synthetic:credential@img.example.test/b.png 2x')).toBe(true);
+   // WHATWG 4.8.4.2.1/parse-a-srcset-attribute: without whitespace this is
+   // one relative URL, not a second candidate with a different authority.
+   const commaInsideUrl = 'clean.jpg,https://synthetic:credential@img.example.test/b.png';
+   expect(new NodeURL(commaInsideUrl, dom.window.location.href).hostname).toBe('frontaliereticino.ch');
+   expect(check(commaInsideUrl)).toBe(false);
+   expect(check('clean.jpg, https://synthetic:credential@img.example.test/b.png')).toBe(true);
    expect(check(`https://img.example.test/a.png?size=large 1x, https://img.example.test/b.png?redirect=${encodeURIComponent(signed)} 2x`)).toBe(true);
    expect(check(`images/a.png?redirect=${encodeURIComponent(signed)} 320w, images/b.png 640w`)).toBe(true);
    expect(check('https://img.example.test/a.png custom(1,2), https://synthetic:credential@img.example.test/b.png 2x')).toBe(true);
@@ -118,6 +124,24 @@ describe('signed-origin autonomous SDK startup', () => {
    expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
   } finally { dom.window.close(); }
  });
+ it.each([
+  ['0;url=https://synthetic:credential@ads.example.test/', true],
+  [`0;url=${signed}`, true],
+  [`1.5, URL = "https://ads.example.test/frame?redirect=${encodeURIComponent(signed)}"`, true],
+  [`0 '/next?redirect=${encodeURIComponent(signed)}' ignored tail`, true],
+  ['30', false],
+  ['0; URL=/next?size=100%25', false],
+  ['1.5, "https://img.example.test/clean.png?size=100%25" ignored tail', false],
+  ['. ;url="/next"', false],
+ ] as const)('attests the standard refresh target in %s', (content, sensitive) => {
+  const dom = new JSDOM('<!doctype html><head><meta http-equiv="Refresh"></head><body></body>', { url: 'https://frontaliereticino.ch/' });
+  try {
+   dom.window.document.querySelector('meta')!.content = content;
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, dom.window as unknown as PrivacyWindow, dom.window.document)).toBe(sensitive);
+   expect(dom.window.location.href).toBe('https://frontaliereticino.ch/');
+  } finally { dom.window.close(); }
+ });
+
  it('conservatively captures every canonical browser-URL credential form without retaining raw copies', () => {
   // Fixtures for the canonical helper's supported aliases, not startup logic.
   const aliases = ['ac', 'at', 'authToken', 'ne', 'newsletter_email', 'email', 'newsletter_autologin', 'subscriber_key', 'token', 'access_token', 'id_token', 'refresh_token', 'oobCode'];

@@ -51,6 +51,8 @@ export function isSensitiveThirdPartyDocument(sanitize, win, doc, attempted = fa
    const srcsetUrlsClean = (value) => {
     // Extract only srcset URL tokens: commas inside a data URL are not list
     // separators; descriptors end at an unparenthesized comma (HTML whitespace).
+    // WHATWG parse-a-srcset-attribute: a comma inside this URL token is not
+    // another candidate; descriptor-less candidates require intervening space.
     const space = /[\t\n\f\r ]/;
     let at = 0;
     while (at < value.length) {
@@ -71,12 +73,30 @@ export function isSensitiveThirdPartyDocument(sanitize, win, doc, attempted = fa
     }
     return true;
    };
+   /** @param {string} value */
+   const refreshTarget = (value) => {
+    // WHATWG shared declarative refresh steps: decimal timer, optional
+    // separator, optional URL= prefix, then an optionally quoted URL target.
+    const match = value.match(/^[\t\n\f\r ]*(?:[0-9][0-9.]*|\.[0-9.]*)(?:([;,][\t\n\f\r ]*|[\t\n\f\r ]+[;,]?[\t\n\f\r ]*)([\s\S]*))?$/);
+    if (!match) return ''; // No refresh URL is parsed from an invalid timer.
+    let target = (match[2] || '').replace(/^url[\t\n\f\r ]*=[\t\n\f\r ]*/i, '');
+    const quote = target[0];
+    if (quote === "'" || quote === '"') {
+     const end = target.indexOf(quote, 1);
+     target = target.slice(1, end < 0 ? undefined : end);
+    }
+    return target;
+   };
    for (const element of doc.querySelectorAll('*')) {
     for (const attribute of element.attributes) {
      if (/^(?:srcset|imagesrcset)$/i.test(attribute.name) && !srcsetUrlsClean(attribute.value)) return deny();
      if (element.tagName === 'META' && attribute.name.toLowerCase() === 'content') {
       const key = (element.getAttribute('property') || element.getAttribute('name') || element.getAttribute('itemprop') || '').split(':').pop();
       if (!structuredUrlsClean(attribute.value, key)) return deny();
+      if ((element.getAttribute('http-equiv') || '').toLowerCase() === 'refresh') {
+       const target = refreshTarget(attribute.value);
+       if (target && !unchanged(target)) return deny();
+      }
      }
      // Attribute semantics identify URL inputs. CSS, JavaScript and ordinary
      // prose can contain #/?/% syntax but are not whole URL references.
