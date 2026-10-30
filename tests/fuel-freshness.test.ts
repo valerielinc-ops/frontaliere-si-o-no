@@ -304,7 +304,10 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
         const municipality = municipalities.find((item) => item.province === body.province)!;
         return {
           ok: true,
-          json: async () => ({ success: true, array: [apiStation(observedAt, municipality)] }),
+          json: async () => ({
+            success: true,
+            array: [{ ...apiStation(observedAt, municipality), id: body.province }],
+          }),
         } as Response;
       },
     });
