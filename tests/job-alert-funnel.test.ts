@@ -106,6 +106,23 @@ describe('buildJobAlertFunnel', () => {
     expect(lines.join('\n')).toContain('Conteggio non quadrato');
   });
 
+  it('a day with no active alerts and no retries still balances and reports zero', () => {
+    const empty = buildJobAlertFunnel({});
+
+    expect(empty.balanced).toBe(true);
+    expect(empty.values.totalSent).toBe(0);
+    const lines = formatJobAlertFunnelLines(empty, { date: '2026-10-30', mode: 'LIVE' });
+    expect(lines[0]).toContain('EMAIL INVIATE OGGI: 0');
+  });
+
+  it('a day with no new alerts but a retry shows the retry in the headline', () => {
+    const retryOnly = buildJobAlertFunnel({ retrySent: 3, uniqueRecipients: 2 });
+
+    expect(retryOnly.balanced).toBe(true);
+    const lines = formatJobAlertFunnelLines(retryOnly, { date: '2026-10-30', mode: 'LIVE' });
+    expect(lines[0]).toBe('📬 EMAIL INVIATE OGGI: 3 — nuove 0 · retry 3 · destinatari unici 2');
+  });
+
   it('counts retries as sent today but keeps the new-send figure separate', () => {
     const funnel = buildJobAlertFunnel({ ...RUN_2026_10_30, retrySent: 12 });
 
@@ -144,7 +161,7 @@ describe('formatJobAlertFunnelLines', () => {
   });
 
   it('reports the link audit as a single line for the whole run', () => {
-    expect(lines.join('\n')).toContain('🔗 Link audit: 42 batch · 0 con difetti');
+    expect(lines.join('\n')).toContain('🔗 Link audit: 42 batch auditati · 0 con difetti');
   });
 
   it('says plainly that nothing was sent on a dry run', () => {
@@ -163,7 +180,7 @@ describe('formatJobAlertFunnelMarkdown', () => {
   });
 
   it('renders the funnel as a table with the reason for each excluded group', () => {
-    expect(markdown).toContain('## 📬 Job alert · 2026-10-30 · LIVE');
+    expect(markdown).toContain('## 📬 Funnel job alert · 2026-10-30 · LIVE');
     expect(markdown).toContain('| − in pausa | −39 |');
     expect(markdown).toContain('| = **Base attiva** | **14.305** |');
     expect(markdown).toContain('| − soppressi (stop globale, bounce, reclamo, lista provider) | −1.392 | nessun invio finché il consenso non torna |');
@@ -252,8 +269,11 @@ describe('send-job-alerts.mjs log contract', () => {
     expect(source).toMatch(/if \(JOB_ALERT_CADENCE_CEILING_DAYS != null\) console\.log/);
   });
 
-  it('prints the funnel before any early return, so a zero-send day still shows it', () => {
-    const funnelAt = source.indexOf('formatJobAlertFunnelLines(funnel');
+  it('prints the funnel before any early return, so a zero-send day still writes the Job Summary', () => {
+    // Il 🔴 del revisore: il ritorno «nessun alert attivo» usciva prima del funnel.
+    expect(source).toMatch(/await printJobAlertFunnel\(\{ retryOutcome \}\);\s*console\.log\('   No live inventory jobs/);
+    expect(source).toMatch(/await printJobAlertFunnel\(\{ funnelIn, retryOutcome \}\);\s*console\.log\('   No active alerts/);
+    const funnelAt = source.indexOf('await printJobAlertFunnel({');
     const noMatchAt = source.indexOf("'   No matches — no emails to send.'");
     expect(funnelAt).toBeGreaterThan(0);
     expect(noMatchAt).toBeGreaterThan(funnelAt);

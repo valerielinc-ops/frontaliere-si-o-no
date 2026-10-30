@@ -239,6 +239,37 @@ function noteCascadeResult(result) {
   }
 }
 
+// Stampa il funnel e scrive il Job Summary. La chiamano tutti i ritorni, anche
+// quelli senza alert o senza inventario: il numero delle email (zero compreso,
+// retry compresi) deve esserci in ogni run. Gli argomenti mancanti valgono zero.
+async function printJobAlertFunnel({ funnelIn = {}, zeroMatch = {}, sends = {}, retryOutcome }) {
+  let providers = [];
+  if (cascadeStats.calls > 0) {
+    const { logProviderSummary, getProviderStats } = await import('./lib/email-cascade.mjs');
+    logProviderSummary();
+    providers = getProviderStats();
+  }
+  const funnel = buildJobAlertFunnel({
+    ...funnelIn,
+    noCandidate: zeroMatch.noEligibleCandidateCount ?? 0,
+    emptyProfile: zeroMatch.emptyProfileCount ?? 0,
+    zeroMatch: zeroMatch.zeroMatchCount ?? 0,
+    // Gli alert non visitati dal ciclo (quota finita) restano per il giorno dopo:
+    // li conta la differenza con gli eleggibili, non un contatore a parte.
+    quotaDeferred: Math.max(0, (funnelIn.eligible ?? 0) - (zeroMatch.alertCount ?? 0)),
+    planned: sends.planned ?? 0,
+    sent: sends.sent ?? 0,
+    failed: sends.failed ?? 0,
+    ambiguous: sends.ambiguous ?? 0,
+    retrySent: retryOutcome.succeeded,
+    uniqueRecipients: new Set([...(sends.recipients ?? []), ...retryOutcome.recipients]).size,
+  });
+  const mode = DRY_RUN ? 'DRY RUN' : (ALLOWED_EMAILS ? 'TEST' : 'LIVE');
+  const linkAudit = { batches: cascadeStats.linkAuditBatches, defects: cascadeStats.linkAuditDefects };
+  for (const line of formatJobAlertFunnelLines(funnel, { date: TODAY_ISO, mode, linkAudit })) console.log(line);
+  writeJobAlertStepSummary(formatJobAlertFunnelMarkdown(funnel, { date: TODAY_ISO, mode, providers, linkAudit }));
+}
+
 if (TARGET_EMAIL_RAW) {
   console.log(`🎯 TARGET_EMAIL set — limiting send to: ${TARGET_EMAIL_RAW}`);
 }
@@ -2443,6 +2474,7 @@ async function main() {
   // the one-tap precision boost never materializes. Expected: ≫ 0.
   console.log(`   Geo index entries (slug/id → location): ${locationIndex.size}`);
   if (inventoryJobs.length === 0) {
+    await printJobAlertFunnel({ retryOutcome });
     console.log('   No live inventory jobs — skipping.');
     return;
   }
@@ -2520,6 +2552,7 @@ async function main() {
   funnelIn.base = alerts.length;
   console.log(`   Active alerts: ${alerts.length}`);
   if (alerts.length === 0) {
+    await printJobAlertFunnel({ funnelIn, retryOutcome });
     console.log('   No active alerts — skipping.');
     return;
   }
@@ -3417,33 +3450,19 @@ async function main() {
   }
 
   // Il funnel esce prima di ogni ritorno anticipato: è il numero che si legge ogni
-  // giorno, anche quando non c'è nulla da inviare. Provider e link audit si
-  // riassumono qui, una volta sola per run, non a ogni batch.
-  let providers = [];
-  if (cascadeStats.calls > 0) {
-    const { logProviderSummary, getProviderStats } = await import('./lib/email-cascade.mjs');
-    logProviderSummary();
-    providers = getProviderStats();
-  }
-  const funnel = buildJobAlertFunnel({
-    ...funnelIn,
-    noCandidate: zeroMatchSummary.noEligibleCandidateCount,
-    emptyProfile: zeroMatchSummary.emptyProfileCount,
-    zeroMatch: zeroMatchSummary.zeroMatchCount,
-    // Gli alert non visitati dal ciclo (quota finita) restano per il giorno dopo:
-    // li conta la differenza con gli eleggibili, non un contatore a parte.
-    quotaDeferred: Math.max(0, funnelIn.eligible - zeroMatchSummary.alertCount),
-    planned: runStats.planned,
-    sent: runStats.sent,
-    failed: runStats.failed,
-    ambiguous: runStats.ambiguous,
-    retrySent: retryOutcome.succeeded,
-    uniqueRecipients: new Set([...runStats.recipients, ...retryOutcome.recipients]).size,
+  // giorno, anche quando non c'è nulla da inviare.
+  await printJobAlertFunnel({
+    funnelIn,
+    zeroMatch: zeroMatchSummary,
+    sends: {
+      planned: runStats.planned,
+      sent: runStats.sent,
+      failed: runStats.failed,
+      ambiguous: runStats.ambiguous,
+      recipients: runStats.recipients,
+    },
+    retryOutcome,
   });
-  const mode = DRY_RUN ? 'DRY RUN' : (ALLOWED_EMAILS ? 'TEST' : 'LIVE');
-  const linkAudit = { batches: cascadeStats.linkAuditBatches, defects: cascadeStats.linkAuditDefects };
-  for (const line of formatJobAlertFunnelLines(funnel, { date: TODAY_ISO, mode, linkAudit })) console.log(line);
-  writeJobAlertStepSummary(formatJobAlertFunnelMarkdown(funnel, { date: TODAY_ISO, mode, providers, linkAudit }));
 
   if (runStats.planned === 0) {
     console.log('   No matches — no emails to send.');

@@ -66,9 +66,17 @@ const ROWS = [
  *   imbalance: number[],
  * }}
  */
-export function buildJobAlertFunnel(input) {
-  const c = {};
-  for (const key of Object.keys(input)) c[key] = num(input[key]);
+// Ogni contatore parte da zero: un input incompleto (il ritorno anticipato senza
+// alert passa solo quello che ha) non deve produrre NaN nella quadratura.
+const COUNT_KEYS = [
+  'archive', 'paused', 'companyImmediate', 'allowlist', 'base', 'suppressionDeferred',
+  'suppressed', 'backfill', 'cooldown', 'decayed', 'notDue', 'eligible', 'noCandidate',
+  'emptyProfile', 'zeroMatch', 'alreadySent', 'deadLinks', 'quotaDeferred', 'planned',
+  'failed', 'sent', 'ambiguous', 'retrySent', 'uniqueRecipients',
+];
+
+export function buildJobAlertFunnel(input = {}) {
+  const c = Object.fromEntries(COUNT_KEYS.map((key) => [key, num(input[key])]));
   const values = { ...c, totalSent: c.sent + c.retrySent };
 
   const rows = ROWS
@@ -117,7 +125,7 @@ export function formatJobAlertFunnelLines(funnel, { date, mode, linkAudit = null
   }
   if (!funnel.balanced) lines.push(`   ${imbalanceNote(funnel)}`);
   if (linkAudit && linkAudit.batches > 0) {
-    lines.push(`   🔗 Link audit: ${formatJobAlertCount(linkAudit.batches)} batch · ${formatJobAlertCount(linkAudit.defects)} con difetti`);
+    lines.push(`   🔗 Link audit: ${formatJobAlertCount(linkAudit.batches)} batch auditati · ${formatJobAlertCount(linkAudit.defects)} con difetti`);
   }
   return lines;
 }
@@ -136,7 +144,7 @@ export function formatJobAlertBatchLine(index, { sent = 0, failed = 0, ambiguous
  * run, senza aprire il log. Stesso modello del log, in tabella.
  */
 export function formatJobAlertFunnelMarkdown(funnel, { date, mode, providers = [], linkAudit = null } = {}) {
-  const out = [`## 📬 Job alert · ${date} · ${mode}`, ''];
+  const out = [`## 📬 Funnel job alert · ${date} · ${mode}`, ''];
   out.push(`**${headlineFor(funnel, mode).replace(/^📬 /, '')}**`, '');
   out.push('| Passo | Alert | Motivo |', '| --- | ---: | --- |');
   for (const row of funnel.rows) {
@@ -149,14 +157,14 @@ export function formatJobAlertFunnelMarkdown(funnel, { date, mode, providers = [
   }
   if (providers.length > 0) {
     out.push('', '### Provider email', '');
-    out.push('| Provider | Configurato | Inviate | Sospese | Residuo | Limite giornaliero |', '| --- | :---: | ---: | ---: | ---: | ---: |');
+    out.push('| Provider | Configurato | Inviate in questo run | Sospese | Residuo oggi | Limite giornaliero |', '| --- | :---: | ---: | ---: | ---: | ---: |');
     for (const p of providers) {
       out.push(`| ${p.id} | ${p.configured ? '✅' : '❌'} | ${formatJobAlertCount(p.sent)} | ${formatJobAlertCount(p.benched)} | ${formatJobAlertCount(p.remaining)} | ${formatJobAlertCount(p.dailyLimit)} |`);
     }
   }
   out.push('');
   if (linkAudit && linkAudit.batches > 0) {
-    out.push(`🔗 Link audit: ${formatJobAlertCount(linkAudit.batches)} batch · ${formatJobAlertCount(linkAudit.defects)} con difetti`, '');
+    out.push(`🔗 Link audit: ${formatJobAlertCount(linkAudit.batches)} batch auditati · ${formatJobAlertCount(linkAudit.defects)} con difetti`, '');
   }
   if (!funnel.balanced) out.push(imbalanceNote(funnel), '');
   return out.join('\n');
