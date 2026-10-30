@@ -34,6 +34,9 @@ annuncio, e resta noindex.
   esplicito, senza identità, date o candidature fabbricate.
 - Gli alias preservano il contenuto ma mantengono canonical e robots di
   consolidamento; non sono nuove offerte nelle sitemap.
+- Le Twitter card statiche usano il builder condiviso; il dettaglio idratato
+  aggiorna una sola copia per campo. I link sorgente generici conservano testo
+  e href, con la destinazione verificata resa esplicita nel nome del link.
 
 ## Verifica obbligatoria quando cambia questo comportamento
 

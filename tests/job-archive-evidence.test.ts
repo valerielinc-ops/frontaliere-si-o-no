@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import ts from 'typescript';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from '../build-plugins/shared/jobArchiveEvidence';
 import { resolveCantonSection, resolveJobCanton } from '../build-plugins/shared/cantonSection';
+import { jobTitleLocaleQualifiers } from '../build-plugins/shared/jobTitleLocaleCollision';
 
 describe('recorded versus URL-inferred job identity', () => {
   it.each(['it', 'en', 'de', 'fr'] as const)('does not assign a partial archive canton to unknown %s navigation', (locale) => {
@@ -49,7 +50,7 @@ describe('recorded versus URL-inferred job identity', () => {
       expect.soft(normalHtml).toContain(path);
       expect.soft(normalHtml).toContain(expectedLabel);
       const historicalHtml = execute(`${safety}\nreturn buildHistoricalArchiveHtml('url-reference', '/historical-reference/', locale, archive);`, {
-        ...bindings, archive, unverifiedJobCopy, buildArchivedJobPosting, renderJobDescriptionContent, knownEmployerProfileSlugs: new Set(),
+        ...bindings, archive, unverifiedJobCopy, buildArchivedJobPosting, renderJobDescriptionContent, jobTitleLocaleQualifiers, knownEmployerProfileSlugs: new Set(),
         finalizeJobBoardTitle: String, jobDisplayTitle: (job: { title?: string } | null | undefined) => job?.title || '',
         expiredDemandIndexable: true,
         historicalArchiveCopy: { [locale]: { notice: 'Archived', original: 'Original', next: 'Browse', cta: 'Browse', details: 'Details' } },
