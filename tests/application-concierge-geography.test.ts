@@ -64,6 +64,13 @@ describe('concierge geographic ranking', () => {
     expect(locationMatchPoints('Baden (Lower Austria), Österreich', { location: 'Baden', addressCountry: 'AT', canton: 'AG' })).toBe(8);
   });
 
+  it('compares the entire bilingual locality when a posting country is explicit', () => {
+    expect(locationMatchPoints('Biel/Bienne (Bern), Schweiz', { addressLocality: 'Biel/Bienne', addressCountry: 'CH', canton: 'BE' })).toBe(8);
+    expect(locationMatchPoints('Biel/Bienne (Bern), Schweiz', { location: 'Biel/Bienne', addressCountry: 'CH', canton: 'BE' })).toBe(8);
+    expect(locationMatchPoints('Biel/Bienne (Bern), Schweiz', { addressLocality: 'Biel/Other', addressCountry: 'CH', canton: 'BE' })).toBe(0);
+    expect(locationMatchPoints('Biel/Bienne (Bern), Schweiz', { addressLocality: 'Biel/Bienne', canton: 'BE' })).toBe(0);
+  });
+
   it('supports every country emitted by the current residence catalogue in all four locales', () => {
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const names = new Intl.DisplayNames([locale], { type: 'region' });

@@ -61,8 +61,7 @@ function locationParts(value) {
 }
 
 function locality(value, country) {
-  const text = String(value || '').replace(/\b\d{4,5}\b/g, ' ');
-  const part = text.split(/[;,|/]+/).find(part => fold(part).split(' ').some(token => !CANTON_CODES.has(token) && !NON_LOCALITY_WORDS.has(token))) || '';
+  const part = String(value || '').replace(/\b\d{4,5}\b/g, ' ').trim();
   const annotation = part.match(/\s+\(([^()]*)\)\s*$/);
   const key = value => fold(value).split(' ').filter(token => !CANTON_CODES.has(token) && !NON_LOCALITY_WORDS.has(token)).join(' ');
   const qualifier = annotation ? fold(annotation[1]) : '';
@@ -79,8 +78,10 @@ export function locationMatchPoints(candidateLocation, job) {
   if (!jobLocation) return 0;
   const candidate = locationParts(candidateLocation);
   const posting = locationParts(jobLocation);
-  if (candidate.unknownCountry || posting.unknownCountry) return 0;
   const country = structuredCountry(job?.addressCountry);
+  // An explicit posting country resolves compound locality names too. Keep
+  // their entire city text: the first side of a slash proves no equivalence.
+  if (candidate.unknownCountry || (posting.unknownCountry && !country)) return 0;
   if (job?.addressCountry && !country) return 0;
   if (country && posting.country && country !== posting.country) return 0;
   const jobCountry = country || posting.country;
