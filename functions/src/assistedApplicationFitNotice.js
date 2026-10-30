@@ -113,7 +113,7 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     if (codes.length > 1) {
       const alternative = /\b(?:or|oder|ou|o)\b/iu.test(row.quote);
       const conjunction = /(?:\b(?:and|und|et|e)\b|&)/iu.test(row.quote);
-      const levels = new Set(String(row.quote).toUpperCase().match(/\b[ABC][12]\b/g) || []);
+      const levels = new Set((String(row.quote).match(/\b(?:[ABC][12]|native|mother tongue|madrelingua|muttersprache|langue maternelle|fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/giu) || []).map(rank));
       // Mixed clauses, different per-language levels and unspecified levels
       // need a complete analysis, never a guess from one positive language.
       if (!profile || minimum < 0 || levels.size > 1 || alternative === conjunction) {
