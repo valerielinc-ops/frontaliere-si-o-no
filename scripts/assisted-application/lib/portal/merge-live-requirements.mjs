@@ -28,7 +28,8 @@ export function mergeLivePortalQuestions(existingQuestions = [], incomingQuestio
     // The pre-submit gate sends bounded descriptors of existing questions,
     // without native provenance. Keep the reference, never upgrade a contract
     // from that shortened descriptor.
-    if (live.source !== 'portal' && byId.length === 1) {
+    if (live.source !== 'portal') {
+      if (byId.length !== 1) return { questions, ids, ambiguous: true };
       matches.set(live, byId[0].id);
       references.add(live);
       continue;

@@ -49,6 +49,12 @@ describe('current runner updates a previously stored portal question contract', 
     expect(event.questions).toEqual(['notice']);
   });
 
+  it('never installs a bounded descriptor as a new native contract', () => {
+    const descriptor = { id: 'unknown', question: 'Notice period', type: 'text' };
+    expect(mergeLivePortalQuestions([], [descriptor]).ambiguous).toBe(true);
+    expect(mergeLivePortalQuestions([{ ...old, id: 'unknown' }, { ...live, id: 'unknown' }], [descriptor]).ambiguous).toBe(true);
+  });
+
   it('never chooses the first of two incoming fields for an old context-free answer', () => {
     const contextFree = { ...old, context: '' };
     const a = { ...live, id: 'section-a', context: 'Section A' };
