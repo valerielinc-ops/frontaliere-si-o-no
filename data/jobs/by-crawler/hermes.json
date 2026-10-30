@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-10-29T21:23:58.851Z",
-  "runId": "40954561200",
+  "assembledAt": "2026-10-30T09:32:52.080Z",
+  "runId": "41030709396",
   "jobs": [
     {
       "id": "hermes-da512457b984",
@@ -34,7 +34,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T21:23:53.136Z",
+      "crawledAt": "2026-10-30T09:32:46.057Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24472",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T21:23:52.493Z",
+      "crawledAt": "2026-10-30T09:32:45.408Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "hermes-87ce280f605c",
@@ -323,7 +323,7 @@
         }
       },
       "postalCode": "8001",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
