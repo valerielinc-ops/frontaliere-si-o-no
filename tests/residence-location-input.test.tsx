@@ -41,3 +41,13 @@ it('ignores a late country catalogue after the user has chosen another country',
   fireEvent.change(screen.getByLabelText('jobBoard.concierge.location'), { target: { value: 'Mi' } });
   await waitFor(() => expect(screen.queryByRole('option', { name: 'Milano' })).toBeNull());
 });
+
+
+it('disables both controls during a save and exposes the existing field validation error', () => {
+  loader.mockResolvedValue([]);
+  render(<ResidenceLocationInput value="Como, Italia" onChange={() => {}} disabled error="Check the residence" />);
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toBeDisabled();
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toBeDisabled();
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveAttribute('aria-invalid', 'true');
+  expect(screen.getByRole('alert')).toHaveTextContent('Check the residence');
+});

@@ -14,6 +14,9 @@ describe('international concierge residence', () => {
       expect(parseResidenceLocation(value)).toEqual({ town: 'Unlisted village', country: 'AL' });
     }
     expect(parseResidenceLocation(formatResidenceLocation('Tbilisi', 'GE', 'it'))).toEqual({ town: 'Tbilisi', country: 'GE' });
+    for (const locale of ['it', 'en', 'de', 'fr']) for (const country of Object.keys(manifest.countries)) {
+      expect(parseResidenceLocation(formatResidenceLocation('Town', country, locale)).country).toBe(country);
+    }
     expect(formatResidenceLocation('Como', '', 'it')).toBe('Como');
     expect(formatResidenceLocation('', 'IT', 'it')).toBe('');
   });
