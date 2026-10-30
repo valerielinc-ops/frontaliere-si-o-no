@@ -102,7 +102,10 @@ export function candidateFactAnswerForQuestion(question, answer) {
   const options = Array.isArray(question.options) ? question.options.filter(option => typeof option === 'string') : [];
   if (!options.length || options.includes(answer)) return answer;
   let matches;
-  if (fact.type === 'permit_status') matches = options.filter(option => positivePermitStatus(option) === fact.status);
+  if (fact.type === 'permit_status') {
+    const regime = value => /\b(?:eu|efta|ue|aele|aels)\b/.test(fold(value));
+    matches = options.filter(option => positivePermitStatus(option) === fact.status && (!regime(option) || regime(answer)));
+  }
   else if (fact.type === 'credential_held') {
     const truth = value => /^(?:yes|si|ja|oui|true)$/.test(fold(value)) ? true
       : /^(?:no|nein|non|false)$/.test(fold(value)) ? false : null;

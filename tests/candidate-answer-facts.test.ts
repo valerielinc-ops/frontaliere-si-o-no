@@ -87,6 +87,12 @@ describe('positive typed candidate answer contracts', () => {
     const target = { ...q, id: 'target', options: [conditional] };
     expect(candidateAnswersForQuestions([target], {}, memory)).toEqual({});
   });
+  it('does not add an EU/EFTA qualifier that the explicit permit answer did not contain', () => {
+    const source = question('What is your current Swiss work permit status?', 'choice', { options: ['B', 'B EU/EFTA'] });
+    const native = { ...source, id: 'native', options: ['B EU/EFTA'] };
+    expect(candidateAnswersForQuestions([native], {}, rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: 'B' } }))).toEqual({});
+    expect(candidateAnswersForQuestions([native], {}, rememberCandidateQuestionAnswers({ questions: [source], answers: { synthetic: 'B EU/EFTA' } }))).toEqual({ native: 'B EU/EFTA' });
+  });
   it.each(['it', 'en', 'de', 'fr'])('preserves all official permit labels in %s without a permissive parenthesis parser', locale => {
     const q = question('What is your current Swiss work permit status?', 'choice', { options: permitOptions(locale) });
     for (const answer of permitOptions(locale)) expect(candidateAnswerFact(q, answer)).not.toBeNull();
