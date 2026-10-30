@@ -2,7 +2,7 @@
 /**
  * WALTER ZOO AG GOSSAU job parser — Fetcher and job builder.
  *
- * Source: https://link.ostendis.com/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my
+ * Source: https://www.walterzoo.ch/unser-zoo/
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllWalterZooAgGossauJobs()  — Fetch and parse all jobs
@@ -27,7 +27,7 @@ export const WALTER_ZOO_AG_GOSSAU_KEY = 'walter-zoo-ag-gossau';
 export const WALTER_ZOO_AG_GOSSAU_COMPANY_NAME = 'WALTER ZOO AG GOSSAU';
 export const WALTER_ZOO_AG_GOSSAU_COMPANY_DOMAIN = 'link.ostendis.com';
 
-const CAREER_URL = 'https://link.ostendis.com/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my';
+const CAREER_URL = 'https://www.walterzoo.ch/unser-zoo/';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 

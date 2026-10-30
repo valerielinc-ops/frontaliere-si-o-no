@@ -17,6 +17,7 @@ import {
   fetchAllElettra1938Jobs,
   parseElettraDetailDescription,
 } from '../scripts/lib/elettra-1938-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const STABIO_CARD = `
@@ -200,6 +201,9 @@ describe('Elettra 1938 crawler parser', () => {
       fetchHtml.mockResolvedValueOnce(`<html><body>${NON_STABIO_CARD}</body></html>`);
       const jobs = await fetchAllElettra1938Jobs();
       expect(jobs).toEqual([]);
+      // A shared portal with non-target cards is not independently proving
+      // that Elettra's own inventory is empty; keep this path fail-closed.
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
     });
 
     it('accepts zero cards only when coherent markup and the live endpoint independently confirm an empty state', async () => {
@@ -207,6 +211,7 @@ describe('Elettra 1938 crawler parser', () => {
       fetchJson.mockResolvedValueOnce(EMPTY_AJAX_RESPONSE);
       const jobs = await fetchAllElettra1938Jobs();
       expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
       expect(fetchJson).toHaveBeenCalledWith(
         'https://inrecruiting.intervieweb.it/app.php?module=newcareer&ajax=1',
         expect.objectContaining({
