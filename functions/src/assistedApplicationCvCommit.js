@@ -9,7 +9,8 @@
  */
 
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
-import { rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { planCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
 import { rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvChanges } from './assistedApplicationTailoredCvPdf.js';
 
@@ -109,7 +110,7 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * renderer or a Storage that fails saves nothing; no bucket, no answers.
  * @returns {Promise<{rebuilt:boolean}>}
  */
-export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs }) {
+export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs, answerActor = null }) {
   const mergedAnswers = { ...(flow.answers || {}), ...answers };
   const questionAnswers = rememberCandidateQuestionAnswers({
     questions: draft?.questions || [],
@@ -120,21 +121,30 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers };
   const persistCandidateQuestionAnswers = async () => {
     const userId = String(order?.userId || '').trim();
-    if (!userId || !Object.keys(questionAnswers).length) return;
+    if (!userId || !Object.keys(questionAnswers).length || Number(draft?.round) !== Number(flow.round || 1)) return;
+    const changedKeys = new Set((draft?.questions || []).filter(question => Object.hasOwn(answers, question.id)).map(candidateQuestionAnswerKey));
     const profileRef = db.collection('user_cv_profiles').doc(userId);
     try {
       await db.runTransaction(async (transaction) => {
         const snapshot = await transaction.get(profileRef);
+        // This writer only augments an existing private projection; account deletion must not recreate it.
+        if (!snapshot.exists) return;
         const current = snapshot.data()?.applicationQuestionAnswers;
+        const update = planCandidateAnswerEvidence({ questions: draft?.questions || [], changed: answers,
+          previous: snapshot.data()?.applicationQuestionAnswerEvidence, latestWriteAt: Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0,
+          orderId, order, flow, draft: draft || {}, actor: answerActor, nowMs });
+        if (!update.accepted.size) return;
         const merged = { ...(current && typeof current === 'object' && !Array.isArray(current) ? current : {}) };
         for (const [key, value] of Object.entries(questionAnswers)) {
+          if (!changedKeys.has(key) || !update.accepted.has(key)) continue;
           delete merged[key];
-          merged[key] = value;
+          merged[key] = update.records[key]?.cleared ? '' : value;
         }
         transaction.set(profileRef, {
           applicationQuestionAnswers: Object.fromEntries(Object.entries(merged).slice(-80)),
-          applicationQuestionAnswersUpdatedAt: nowMs,
-        }, { merge: true });
+          applicationQuestionAnswerEvidence: update.records,
+          applicationQuestionAnswersUpdatedAt: Math.max(Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0, nowMs),
+        }, { mergeFields: ['applicationQuestionAnswers', 'applicationQuestionAnswerEvidence', 'applicationQuestionAnswersUpdatedAt'] });
       });
     } catch (error) {
       // The order-local answer is already authoritative. A profile-ledger
