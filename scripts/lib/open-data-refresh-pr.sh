@@ -169,10 +169,9 @@ if [ "${#OPTIONAL_PATHS[@]}" -gt 0 ]; then
   done
 fi
 
-# Preserve the producer-owned paths before the sparse publisher checkout
-# replaces PATHS with the files from this run's commit. Optional paths join the
-# reconciliation scope only when they are stageable in this refresh.
-RECONCILE_PATHS=("${PATHS[@]}")
+# Callers use --path as staging roots. Main reconciliation gets the exact files
+# committed by this run below, never every sibling under a declared directory.
+RECONCILE_PATHS=()
 
 REPOSITORY="${GITHUB_REPOSITORY:-}"
 [ -n "$REPOSITORY" ] || {
@@ -507,6 +506,12 @@ else
   fi
 fi
 
+if [ "$RECONCILE_REFRESH_PATHS" = true ] && [ -n "$REFRESH_COMMIT" ]; then
+  while IFS= read -r -d '' refresh_path; do
+    RECONCILE_PATHS+=("$refresh_path")
+  done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
+fi
+
 if [ -n "$REMOTE_HEAD" ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
   # The workflow checkout is intentionally shallow. The non-compat path needs
   # a filtered graph for its path-aware reconciler; compat only needs the
@@ -652,6 +657,7 @@ if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] \
     fi
     RECONCILE_ARGS=(--base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE")
     if [ "$RECONCILE_REFRESH_PATHS" = true ]; then
+      RECONCILE_ARGS+=(--refresh-base "$REFRESH_BASE")
       for refresh_path in "${RECONCILE_PATHS[@]}"; do
         RECONCILE_ARGS+=(--path "$refresh_path")
       done

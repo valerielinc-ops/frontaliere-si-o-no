@@ -1949,7 +1949,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -1999,13 +1999,11 @@
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
         "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
         "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
           "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
         ],
         "en": [
@@ -3038,7 +3036,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -3087,13 +3085,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
         "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
           "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
         ],
         "en": [
@@ -6441,7 +6437,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -6490,7 +6486,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6498,7 +6494,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -25741,7 +25737,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:52:50.968Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",

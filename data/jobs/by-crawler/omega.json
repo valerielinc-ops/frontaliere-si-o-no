@@ -650,12 +650,12 @@
     },
     {
       "id": "omega-33645",
-      "slug": "fire-protection-safety-officer-omega-biel-bienne",
+      "slug": "ufficio-di-sicurezza-sicurezza-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "fire-protection-safety-officer-omega-biel-bienne",
-        "it": "fire-protection-safety-officer-omega-biel-bienne",
+        "it": "ufficio-di-sicurezza-sicurezza-omega-sa-biel-bienne",
         "en": "fire-protection-safety-officer-omega-biel-bienne",
-        "de": "fire-protection-safety-officer-omega-biel-bienne"
+        "de": "brandschutz-sicherheitsangebot-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -730,7 +730,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:58:27.928Z"
+      "firstSeenAt": "2026-10-30T09:58:27.928Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fire-protection-safety-officer-omega-biel-bienne"
+        ],
+        "de": [
+          "fire-protection-safety-officer-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "fire-protection-safety-officer-omega-biel-bienne"
+      ]
     },
     {
       "id": "omega-33666",
@@ -738,8 +749,8 @@
       "slugByLocale": {
         "fr": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
         "it": "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
-        "en": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "de": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
+        "en": "learning-harlogue-cfc-production-eere-omega-sa-biel-bienne",
+        "de": "lernharloge-fkw-produktionseere-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -809,6 +820,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
+        ],
+        "de": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
         ]
       },

@@ -696,7 +696,6 @@
         ]
       },
       "firstSeenAt": "2026-10-26T21:19:46.299Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4654,12 +4653,12 @@
     },
     {
       "id": "ksw-839f287bb061",
-      "slug": "leistungskoordinatorin-leistungskoordinator-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "coordinatore-delle-prestazioni-coordinatore-delle-prestazioni-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "leistungskoordinatorin-leistungskoordinator-ksw-ch",
-        "it": "leistungskoordinatorin-leistungskoordinator-kantonsspital-winterthur-ksw-winterthur",
-        "en": "leistungskoordinatorin-leistungskoordinator-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "leistungskoordinatorin-leistungskoordinator-kantonsspital-winterthur-ksw-winterthur"
+        "it": "coordinatore-delle-prestazioni-coordinatore-delle-prestazioni-kantonsspital-winterthur-ksw-winterthur",
+        "en": "performance-coordinator-performance-coordinator-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "coordonnateur-du-rendement-coordonnateur-du-rendement-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4707,11 +4706,19 @@
       "department": "Management Support Klinischer Bereich B",
       "previousSlugsByLocale": {
         "it": [
-          "leistungskoordinatorin-leistungskoordinator-ksw-ch"
+          "leistungskoordinatorin-leistungskoordinator-ksw-ch",
+          "leistungskoordinatorin-leistungskoordinator-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "leistungskoordinatorin-leistungskoordinator-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "leistungskoordinatorin-leistungskoordinator-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "leistungskoordinatorin-leistungskoordinator-ksw-ch"
+        "leistungskoordinatorin-leistungskoordinator-ksw-ch",
+        "leistungskoordinatorin-leistungskoordinator-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6033,12 +6040,12 @@
     },
     {
       "id": "ksw-dedd80ff4319",
-      "slug": "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "assistente-medico-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-ksw-ch",
-        "it": "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur",
-        "en": "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur"
+        "it": "assistente-medico-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
+        "en": "assistant-doctor-assistant-doctor-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "assistant-medecin-assistant-medecin-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -6086,11 +6093,19 @@
       "department": "Klinik für Radio-Onkologie",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ksw-ch"
+          "assistenzarztin-assistenzarzt-ksw-ch",
+          "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-ksw-ch"
+        "assistenzarztin-assistenzarzt-ksw-ch",
+        "assistenzarztin-assistenzarzt-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

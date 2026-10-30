@@ -473,7 +473,7 @@
       "slugByLocale": {
         "de": "wir-suchen-dich-if-lehrperson-6-lektionen-3-klasse-schule-neumatt-in-belp-belp-37425",
         "it": "ti-stiamo-cercando-if-maestro-6-lezioni-di-terza-classe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425",
-        "en": "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp",
+        "en": "we-are-looking-for-you-if-teacher-6-lessons-3rd-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425",
         "fr": "nous-vous-recherchons-if-enseignant-6-lecons-3eme-classe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
       },
       "slugDisambiguator": "37425",
@@ -529,12 +529,12 @@
           "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-schule-neumatt-in-belp-belp-37425"
         ],
         "en": [
-          "we-are-looking-for-you-if-teacher-6-lessons-3rd-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
+          "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp"
         ]
       },
       "previousSlugs": [
         "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-schule-neumatt-in-belp-belp-37425",
-        "we-are-looking-for-you-if-teacher-6-lessons-3rd-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
+        "wir-suchen-dich-klassenlehrperson-3-klasse-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -1246,7 +1246,7 @@
           "teilpensenlehrperson-16-lektionen-schulen-krauchthal-krauchthal-40075"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:21:54.909Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -1260,7 +1260,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-91029c4bc9dc",
@@ -1947,12 +1948,12 @@
     },
     {
       "id": "ksml-276c44d33182",
-      "slug": "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625",
+      "slug": "3-grado-6-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625",
       "slugByLocale": {
         "de": "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625",
-        "it": "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625",
-        "en": "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625",
-        "fr": "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+        "it": "3-grado-6-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625",
+        "en": "3rd-grade-6-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625",
+        "fr": "3e-annee-6-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625"
       },
       "slugDisambiguator": "40625",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -2012,7 +2013,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:40:04.965Z"
+      "firstSeenAt": "2026-10-30T09:40:04.965Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+        ],
+        "en": [
+          "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+        ],
+        "fr": [
+          "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+        ]
+      },
+      "previousSlugs": [
+        "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+      ]
     },
     {
       "id": "ksml-3742e3b0c675",
@@ -3261,7 +3276,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-logopadie-35-schule-lengnau-lengnau-40624"
@@ -10914,8 +10928,8 @@
       "slugByLocale": {
         "de": "lehrperson-fur-10-bis-12-lektionen-zyklus-1-tavola-langenthal-40626",
         "it": "lehrperson-per-10-bis-12-lektionen-zyklus-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-langenthal",
-        "en": "lehrperson-fur-10-bis-12-lektionen-zyklus-1-tavola-langenthal-40626",
-        "fr": "lehrperson-fur-10-bis-12-lektionen-zyklus-1-tavola-langenthal-40626"
+        "en": "teacher-for-10-to-12-lessons-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40626",
+        "fr": "enseignant-pour-10-a-12-lecons-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40626"
       },
       "slugDisambiguator": "40626",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -10965,6 +10979,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-10-bis-12-lektionen-zyklus-1-tavola-langenthal-40626"
+        ],
+        "en": [
+          "lehrperson-fur-10-bis-12-lektionen-zyklus-1-tavola-langenthal-40626"
+        ],
+        "fr": [
+          "lehrperson-fur-10-bis-12-lektionen-zyklus-1-tavola-langenthal-40626"
         ]
       },
       "previousSlugs": [
@@ -10991,8 +11011,8 @@
       "slugByLocale": {
         "de": "lehrperson-fur-10-bis-15-lektionen-zyklus-1-2-kindergarten-tavola-langenthal-40627",
         "it": "lehrperson-per-10-bis-15-lektionen-zyklus-1-2-kindergarten-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-langenthal",
-        "en": "lehrperson-fur-10-bis-15-lektionen-zyklus-1-2-kindergarten-tavola-langenthal-40627",
-        "fr": "lehrperson-fur-10-bis-15-lektionen-zyklus-1-2-kindergarten-tavola-langenthal-40627"
+        "en": "teacher-for-10-to-15-lessons-cycle-1-2nd-kindergarten-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40627",
+        "fr": "enseignant-pour-10-a-15-lecons-cycle-1-2e-maternelle-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40627"
       },
       "slugDisambiguator": "40627",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -11039,9 +11059,14 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrperson-fur-10-bis-15-lektionen-zyklus-1-2-kindergarten-tavola-langenthal-40627"
+        ],
+        "en": [
+          "lehrperson-fur-10-bis-15-lektionen-zyklus-1-2-kindergarten-tavola-langenthal-40627"
+        ],
+        "fr": [
           "lehrperson-fur-10-bis-15-lektionen-zyklus-1-2-kindergarten-tavola-langenthal-40627"
         ]
       },
@@ -13146,7 +13171,7 @@
       "slug": "insegnante-di-classe-1-2-kl-dal-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40406",
       "slugByLocale": {
         "it": "insegnante-di-classe-1-2-kl-dal-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40406",
-        "en": "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
+        "en": "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
         "de": "klassenlehrperson-1-2-kl-ab-01-02-27-schule-laupen-laupen-40406",
         "fr": "professeur-1-2-kl-a-partir-du-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
       },
@@ -13197,7 +13222,8 @@
         "klassenlehrperson-1-2-kl-ab-01-02-27-schule-laupen-laupen-40406",
         "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
         "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
-        "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
+        "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
+        "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13207,7 +13233,7 @@
         "en": [
           "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
           "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
-          "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
+          "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
         ],
         "fr": [
           "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
@@ -13960,12 +13986,12 @@
     },
     {
       "id": "ksml-8c7ce23680ac",
-      "slug": "fachperson-logopadie-schule-signau-signau-40616",
+      "slug": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
       "slugByLocale": {
         "de": "fachperson-logopadie-schule-signau-signau-40616",
-        "it": "fachperson-logopadie-schule-signau-signau-40616",
-        "en": "fachperson-logopadie-schule-signau-signau-40616",
-        "fr": "fachperson-logopadie-schule-signau-signau-40616"
+        "it": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
+        "en": "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
+        "fr": "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
       },
       "slugDisambiguator": "40616",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -14012,30 +14038,33 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "fachperson-logopadie-schule-signau-signau-40617",
         "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
         "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
         "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
-        "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
+        "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
+        "fachperson-logopadie-schule-signau-signau-40616"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-logopadie-schule-signau-signau-40617",
           "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
-          "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
+          "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
+          "fachperson-logopadie-schule-signau-signau-40616"
         ],
         "en": [
           "fachperson-logopadie-schule-signau-signau-40617",
-          "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
+          "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
+          "fachperson-logopadie-schule-signau-signau-40616"
         ],
         "de": [
           "fachperson-logopadie-schule-signau-signau-40617"
         ],
         "fr": [
           "fachperson-logopadie-schule-signau-signau-40617",
-          "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
+          "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
+          "fachperson-logopadie-schule-signau-signau-40616"
         ]
       },
       "salaryMin": 59000,
@@ -16375,8 +16404,8 @@
       "slugByLocale": {
         "de": "eine-klassen-und-fachlehrperson-fur-25-lk-schulen-twann-ttl-twann-40566",
         "it": "eine-klassen-e-fachlehrperson-per-25-lk-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-twann",
-        "en": "eine-klassen-und-fachlehrperson-fur-25-lk-schulen-twann-ttl-twann-40566",
-        "fr": "eine-klassen-und-fachlehrperson-fur-25-lk-schulen-twann-ttl-twann-40566"
+        "en": "one-class-and-subject-teacher-for-25-lk-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-twann-40566",
+        "fr": "une-classe-et-professeur-de-matiere-pour-25-lk-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40566"
       },
       "slugDisambiguator": "40566",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -16423,9 +16452,14 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "eine-klassen-und-fachlehrperson-fur-25-lk-schulen-twann-ttl-twann-40566"
+        ],
+        "en": [
+          "eine-klassen-und-fachlehrperson-fur-25-lk-schulen-twann-ttl-twann-40566"
+        ],
+        "fr": [
           "eine-klassen-und-fachlehrperson-fur-25-lk-schulen-twann-ttl-twann-40566"
         ]
       },
@@ -19813,7 +19847,7 @@
       "id": "ksml-bdd13fb6330d",
       "slug": "docente-di-livello-base-13-2-lezioni-dic-gen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
       "slugByLocale": {
-        "it": "docente-di-livello-base-13-2-lezioni-dic-gen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "it": "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570",
         "en": "lehrperson-basisstufe-13-2-l-dez-jan-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570",
         "de": "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
         "fr": "professeur-de-base-13-2-l-dez-jan-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570"
@@ -19863,14 +19897,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
-        "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-        "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570"
+        "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
-          "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-          "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570"
+          "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
         ],
         "fr": [
           "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570"

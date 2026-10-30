@@ -2271,7 +2271,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-telecom-it-80-100-groupe-e-matran-mad-4",
         "en": "telecom-project-manager-it-80-100-groupe-e-matran-mad-4",
-        "de": "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4",
+        "de": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
         "fr": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
       },
       "company": "Groupe E",
@@ -2317,14 +2317,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
+        "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
+        "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
         ],
         "de": [
-          "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
+          "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4"
         ]
       },
       "firstSeenAt": "2026-09-26T14:03:08.792Z",
@@ -2882,12 +2883,12 @@
     },
     {
       "id": "groupe-e-e3a042d924b2",
-      "slug": "responsable-d-applications-rh-h-f-60-80-groupe-e-granges-paccot-plexus",
+      "slug": "responsabile-applicazioni-hr-m-f-60-80-groupe-e-granges-paccot-plexus",
       "slugByLocale": {
         "fr": "responsable-d-applications-rh-h-f-60-80-groupe-e-granges-paccot-plexus",
-        "it": "responsable-d-applications-rh-h-f-60-80-groupe-e-granges-paccot-plexus",
-        "en": "responsable-d-applications-rh-h-f-60-80-groupe-e-granges-paccot-plexus",
-        "de": "responsable-d-applications-rh-h-f-60-80-groupe-e-granges-paccot-plexus"
+        "it": "responsabile-applicazioni-hr-m-f-60-80-groupe-e-granges-paccot-plexus",
+        "en": "hr-application-manager-m-f-60-80-groupe-e-granges-paccot-plexus",
+        "de": "hr-application-manager-m-w-60-80-groupe-e-granges-paccot-plexus"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -2946,7 +2947,21 @@
         }
       },
       "streetAddress": "Route de Morat 135",
-      "firstSeenAt": "2026-10-30T09:31:58.728Z"
+      "firstSeenAt": "2026-10-30T09:31:58.728Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-applications-rh-h-f-60-80-groupe-e-granges-paccot-plexus"
+        ],
+        "en": [
+          "responsable-d-applications-rh-h-f-60-80-groupe-e-granges-paccot-plexus"
+        ],
+        "de": [
+          "responsable-d-applications-rh-h-f-60-80-groupe-e-granges-paccot-plexus"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-applications-rh-h-f-60-80-groupe-e-granges-paccot-plexus"
+      ]
     },
     {
       "id": "groupe-e-9c93f799ed59",
@@ -3113,7 +3128,7 @@
         "it": "installatore-sanitario-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen",
         "en": "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen-4e9411",
         "de": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
-        "fr": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
+        "fr": "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -3158,7 +3173,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen"
+          "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
         ],
         "it": [
           "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
@@ -3172,8 +3187,7 @@
       "previousSlugs": [
         "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
         "sanitar-e-heizungsinstallateur-m-w-d-80-100-groupe-e-guin-dudingen",
-        "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2",
-        "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen"
+        "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2"
       ],
       "firstSeenAt": "2026-10-01T09:17:45.121Z",
       "salaryMin": 73000,

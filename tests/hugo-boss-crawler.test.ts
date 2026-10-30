@@ -240,6 +240,25 @@ describe('fetchJobs national pagination', () => {
     ]);
   });
 
+  it('uses one provider session for every national pagination page', async () => {
+    const pages = new Map([
+      ['0', makeSearchPage(3, [makeSwissJob('session-1'), makeSwissJob('session-2')])],
+      ['2', makeSearchPage(3, [makeSwissJob('session-3')])],
+    ]);
+    const cookieJars: unknown[] = [];
+    const fetchHtml = vi.fn(async (url: string | URL, _timeoutMs: number, cookieJar: unknown) => {
+      cookieJars.push(cookieJar);
+      const from = new URL(String(url)).searchParams.get('from') || '';
+      return pages.get(from) || makeSearchPage(3, []);
+    });
+
+    await fetchJobs({ fetchHtml });
+
+    expect(fetchHtml).toHaveBeenCalledTimes(2);
+    expect(cookieJars[0]).toBeInstanceOf(Map);
+    expect(cookieJars[1]).toBe(cookieJars[0]);
+  });
+
   it('rejects a page without a Phenom DDO/data envelope as an unproven termination', async () => {
     const fetchHtml = vi.fn(async () => '<html><body>vendor error</body></html>');
 

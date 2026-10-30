@@ -3092,6 +3092,28 @@ const REMEDIATION_BY_CATEGORY = {
 };
 
 /**
+ * Normalizes deterministic-gate and LLM-verifier findings to the shared
+ * remediation contract consumed by the regeneration formatter.
+ *
+ * @param {object[]} issues
+ * @returns {Array<{claim: string, reason: string, severity: string, category: string,
+ *   sourceQuote: string, fix?: string}>}
+ */
+export function normalizeRemediationIssues(issues) {
+  if (!Array.isArray(issues)) return [];
+  return issues.map((issue = {}) => ({
+    claim: String(issue.claim ?? issue.evidence ?? ''),
+    reason: String(issue.reason ?? issue.message ?? ''),
+    severity: String(issue.severity ?? ''),
+    category: String(issue.category ?? issue.code ?? ''),
+    sourceQuote: String(issue.sourceQuote ?? ''),
+    // Deterministic gates compute exact replacement values. Keep them beside
+    // the shared issue shape instead of degrading to category-level advice.
+    ...(issue.fix ? { fix: String(issue.fix) } : {}),
+  }));
+}
+
+/**
  * Renders issues as CORRECTIVE INSTRUCTIONS for the regeneration prompt.
  *
  * The regeneration loop used to receive a bare list of complaints. Faced with
@@ -3100,21 +3122,26 @@ const REMEDIATION_BY_CATEGORY = {
  * it had and kept only the invented ones. Telling it exactly what to change,
  * with the corrected values, makes repair cheaper than removal.
  *
- * @param {object[]} issues
+ * @param {Array<{claim: string, reason: string, severity: string, category: string,
+ *   sourceQuote: string, fix?: string}>} issues
  * @param {{cap?: number}} [opts]
  */
 export function formatRemediation(issues, opts = {}) {
   const cap = opts.cap ?? 8;
-  const list = (issues || []).slice(0, cap);
+  const list = normalizeRemediationIssues(issues).slice(0, cap);
   if (!list.length) return '';
 
   const lines = list.map((i, n) => {
-    const what = i.message || i.reason || '';
+    const what = i.reason;
     const how = i.fix || REMEDIATION_BY_CATEGORY[i.category] || '';
-    const where = i.evidence || i.claim || '';
+    const where = i.claim;
+    const sourceQuote = i.sourceQuote
+      ? `   ESTRATTO FONTE: "${String(i.sourceQuote).slice(0, 180)}"`
+      : '';
     return [
       `${n + 1}. PROBLEMA: ${what}`,
       where ? `   TESTO: "${String(where).slice(0, 180)}"` : '',
+      sourceQuote,
       how ? `   CORREZIONE RICHIESTA: ${how}` : '',
     ].filter(Boolean).join('\n');
   });

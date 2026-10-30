@@ -1,0 +1,22 @@
+{
+  "companyKey": "sgl-online-ch",
+  "companyName": "sgl-online",
+  "companyHost": "fhnw.ch",
+  "platform": "fhnw.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.fhnw.ch/de/die-fhnw/karriere"
+  ],
+  "detailTemplate": "/de/die-fhnw/karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Arbeiten an der FHNW",
+    "Mandate- und Lehraufträge",
+    "Informationen zur Schweiz"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:54:03.283Z",
+  "candidateKey": "sgl-online.ch"
+}

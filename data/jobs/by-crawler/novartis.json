@@ -2507,12 +2507,12 @@
     },
     {
       "id": "novartis-104eed1d0945",
-      "slug": "scientific-ai-platform-lead-data-science-disease-area-x-novartis-ch",
+      "slug": "piattaforma-di-ai-scientifica-piombo-scienza-dei-dati-area-malattia-x-novartis-basel-city",
       "slugByLocale": {
         "en": "scientific-ai-platform-lead-data-science-disease-area-x-novartis-ch",
-        "it": "scientific-ai-platform-lead-data-science-disease-area-x-novartis-ch",
-        "de": "scientific-ai-platform-lead-data-science-disease-area-x-novartis-ch",
-        "fr": "scientific-ai-platform-lead-data-science-disease-area-x-novartis-ch"
+        "it": "piattaforma-di-ai-scientifica-piombo-scienza-dei-dati-area-malattia-x-novartis-basel-city",
+        "de": "wissenschaftliche-ki-plattform-lead-datenwissenschaft-krankheitszone-x-novartis-basel-city",
+        "fr": "plateforme-scientifique-sur-l-ia-responsable-data-science-zone-de-maladie-x-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2570,16 +2570,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-30T09:33:31.175Z"
+      "firstSeenAt": "2026-10-30T09:33:31.175Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientific-ai-platform-lead-data-science-disease-area-x-novartis-ch"
+        ],
+        "de": [
+          "scientific-ai-platform-lead-data-science-disease-area-x-novartis-ch"
+        ],
+        "fr": [
+          "scientific-ai-platform-lead-data-science-disease-area-x-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientific-ai-platform-lead-data-science-disease-area-x-novartis-ch"
+      ]
     },
     {
       "id": "novartis-576145d10eb9",
-      "slug": "device-packaging-senior-expert-engineering-novartis-ch",
+      "slug": "ingegneria-degli-esperti-senior-novartis-basel-city",
       "slugByLocale": {
         "en": "device-packaging-senior-expert-engineering-novartis-ch",
-        "it": "device-packaging-senior-expert-engineering-novartis-ch",
-        "de": "device-packaging-senior-expert-engineering-novartis-ch",
-        "fr": "device-packaging-senior-expert-engineering-novartis-ch"
+        "it": "ingegneria-degli-esperti-senior-novartis-basel-city",
+        "de": "gerate-verpackungen-senior-expert-engineering-novartis-basel-city",
+        "fr": "materiel-et-emballage-expert-en-genie-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2637,7 +2651,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-30T09:33:30.006Z"
+      "firstSeenAt": "2026-10-30T09:33:30.006Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "device-packaging-senior-expert-engineering-novartis-ch"
+        ],
+        "de": [
+          "device-packaging-senior-expert-engineering-novartis-ch"
+        ],
+        "fr": [
+          "device-packaging-senior-expert-engineering-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "device-packaging-senior-expert-engineering-novartis-ch"
+      ]
     },
     {
       "id": "novartis-43cf8e29b47b",

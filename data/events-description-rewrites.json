@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-29T21:21:45.115Z",
+  "generatedAt": "2026-10-30T13:22:10.422Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -7495,6 +7495,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-07T23:32:37.700Z"
+    },
+    "ge-agenda:festival-hallomania-18-evenements-frissonner-geneve::a8a7f8ffb63d94929740ee1f90db2ceb55fc8772f718e2fd8b37a94e2b44ede3": {
+      "id": "ge-agenda:festival-hallomania-18-evenements-frissonner-geneve",
+      "sourceDescriptionHash": "a8a7f8ffb63d94929740ee1f90db2ceb55fc8772f718e2fd8b37a94e2b44ede3",
+      "description": "Il festival propone 18 appuntamenti legati ad Halloween nella regione di Genève e al Salève. L’organizzazione è affidata a Ville de Genève Agenda e il prezzo indicato è di 25 CHF.",
+      "descriptionByLocale": {
+        "it": "Il festival propone 18 appuntamenti legati ad Halloween nella regione di Genève e al Salève. L’organizzazione è affidata a Ville de Genève Agenda e il prezzo indicato è di 25 CHF.",
+        "en": "The festival brings together 18 Halloween-related events in the canton of Geneva and at Salève. It is organized by Ville de Genève Agenda, and the listed price is CHF 25.",
+        "de": "Das Festival umfasst 18 Veranstaltungen rund um Halloween im Kanton Genf und am Salève. Veranstalter ist Ville de Genève Agenda; der Preis beträgt 25 CHF.",
+        "fr": "Ce festival réunit 18 rendez-vous autour d’Halloween dans le canton de Genève et au Salève. Il est organisé par Ville de Genève Agenda et l’entrée coûte 25 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-30T13:18:18.715Z"
     },
     "ge-agenda:festival-international-film-geneve-giff::cc463a9a13da5f45f36d501d5fb3fc5d1b18ae490296d8278ea8077efe85b9fd": {
       "id": "ge-agenda:festival-international-film-geneve-giff",
@@ -177842,6 +177856,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T05:17:51.311Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:hallomania-grand-chasse-bonbons-vieille-ville-geneve::cadc3bfe0d850d3df4bfe1be04f636f2eb36aa22b609b0bd6c720a0aae21f3fa": {
+      "id": "ge-agenda:hallomania-grand-chasse-bonbons-vieille-ville-geneve",
+      "sourceDescriptionHash": "cadc3bfe0d850d3df4bfe1be04f636f2eb36aa22b609b0bd6c720a0aae21f3fa",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-30T13:18:09.959Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

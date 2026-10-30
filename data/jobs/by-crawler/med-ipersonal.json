@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-region-meisterschwanden-ipersonal-ag-meisterschwanden-aargau",
         "it": "installatore-trice-elettrico-a-region-meisterschwanden-ipersonal-ag-meisterschwanden-aargau",
-        "en": "elektroinstallateur-region-meisterschwanden-ipersonal-ag-meisterschwanden-aargau",
-        "fr": "elektroinstallateur-region-meisterschwanden-ipersonal-ag-meisterschwanden-aargau"
+        "en": "electrical-installer-region-meisterschwanden-ipersonal-ag-meisterschwanden-aargau",
+        "fr": "installation-electrique-region-meisterschwanden-ipersonal-ag-meisterschwanden-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -55,6 +55,12 @@
         "it": [
           "elektroinstallateur-region-meisterschwanden-ipersonal-ag-meisterschwanden-aargau",
           "installatore-trice-elettrico-a-region-meisterschwanden-ipersonal-ag-meisterschwanden"
+        ],
+        "en": [
+          "elektroinstallateur-region-meisterschwanden-ipersonal-ag-meisterschwanden-aargau"
+        ],
+        "fr": [
+          "elektroinstallateur-region-meisterschwanden-ipersonal-ag-meisterschwanden-aargau"
         ]
       },
       "previousSlugs": [
@@ -81,9 +87,9 @@
       "slug": "automatiker-region-wettswil-ipersonal-ag-wettswil-zurich",
       "slugByLocale": {
         "de": "automatiker-region-wettswil-ipersonal-ag-wettswil-zurich",
-        "it": "automatiker-region-wettswil-ipersonal-ag-wettswil-zurich",
-        "en": "automatiker-region-wettswil-ipersonal-ag-wettswil-zurich",
-        "fr": "automatiker-region-wettswil-ipersonal-ag-wettswil-zurich"
+        "it": "automaticians-regione-di-wettswil-ipersonal-ag-wettswil-zurich",
+        "en": "automaticians-wettswil-region-ipersonal-ag-wettswil-zurich",
+        "fr": "automaticiens-region-de-wettswil-ipersonal-ag-wettswil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -144,9 +150,9 @@
       "slug": "heizungsinstallateur-region-unterageri-ipersonal-ag-unterageri-zug",
       "slugByLocale": {
         "de": "heizungsinstallateur-region-unterageri-ipersonal-ag-unterageri-zug",
-        "it": "heizungsinstallateur-region-unterageri-ipersonal-ag-unterageri-zug",
-        "en": "heizungsinstallateur-region-unterageri-ipersonal-ag-unterageri-zug",
-        "fr": "heizungsinstallateur-region-unterageri-ipersonal-ag-unterageri-zug"
+        "it": "installatore-di-riscaldamento-regione-unterageri-ipersonal-ag-unterageri-zug",
+        "en": "heating-installer-unterageri-region-ipersonal-ag-unterageri-zug",
+        "fr": "installation-de-chauffage-region-d-unterageri-ipersonal-ag-unterageri-zug"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -286,9 +292,9 @@
       "slug": "netzelektriker-region-celerina-schlarigna-ipersonal-ag-celerina-schlarigna-graubunden",
       "slugByLocale": {
         "de": "netzelektriker-region-celerina-schlarigna-ipersonal-ag-celerina-schlarigna-graubunden",
-        "it": "netzelektriker-region-celerina-schlarigna-ipersonal-ag-celerina-schlarigna-graubunden",
-        "en": "netzelektriker-region-celerina-schlarigna-ipersonal-ag-celerina-schlarigna-graubunden",
-        "fr": "netzelektriker-region-celerina-schlarigna-ipersonal-ag-celerina-schlarigna-graubunden"
+        "it": "griglia-elettrica-celerina-schlarigna-regione-ipersonal-ag-celerina-schlarigna-graubunden",
+        "en": "grid-electrician-celerina-schlarigna-region-ipersonal-ag-celerina-schlarigna-graubunden",
+        "fr": "electricien-du-reseau-region-de-celerina-schlarigna-ipersonal-ag-celerina-schlarigna-graubunden"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -349,9 +355,9 @@
       "slug": "schreiner-bankschreiner-region-birr-ipersonal-ag-birr-aargau",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-birr-ipersonal-ag-birr-aargau",
-        "it": "schreiner-bankschreiner-region-birr-ipersonal-ag-birr-aargau",
-        "en": "schreiner-bankschreiner-region-birr-ipersonal-ag-birr-aargau",
-        "fr": "schreiner-bankschreiner-region-birr-ipersonal-ag-birr-aargau"
+        "it": "falegname-da-banco-regione-birr-ipersonal-ag-birr-aargau",
+        "en": "carpenter-bank-carpenter-birr-region-ipersonal-ag-birr-aargau",
+        "fr": "menuisier-menuisier-de-banque-region-de-birr-ipersonal-ag-birr-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -392,7 +398,6 @@
       "postedDate": "2026-10-24",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-in-der-region-birr-stellenangebot/",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -413,9 +418,9 @@
       "slug": "immobilienvermarkter-region-opfikon-ipersonal-ag-opfikon-zurich",
       "slugByLocale": {
         "de": "immobilienvermarkter-region-opfikon-ipersonal-ag-opfikon-zurich",
-        "it": "immobilienvermarkter-region-opfikon-ipersonal-ag-opfikon-zurich",
-        "en": "immobilienvermarkter-region-opfikon-ipersonal-ag-opfikon-zurich",
-        "fr": "immobilienvermarkter-region-opfikon-ipersonal-ag-opfikon-zurich"
+        "it": "mercato-immobiliare-regione-opfikon-ipersonal-ag-opfikon-zurich",
+        "en": "real-estate-marketer-opfikon-region-ipersonal-ag-opfikon-zurich",
+        "fr": "marche-immobilier-region-d-opfikon-ipersonal-ag-opfikon-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -634,9 +639,9 @@
       "slug": "schreiner-bankschreiner-region-liestal-ipersonal-ag-liestal-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-liestal-ipersonal-ag-liestal-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-liestal-ipersonal-ag-liestal-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-liestal-ipersonal-ag-liestal-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-liestal-ipersonal-ag-liestal-basel-landschaft"
+        "it": "falegname-da-banco-regione-liestal-ipersonal-ag-liestal-basel-landschaft",
+        "en": "carpenter-bench-carpenter-liestal-region-ipersonal-ag-liestal-basel-landschaft",
+        "fr": "menuisier-menuisier-de-banque-region-de-liestal-ipersonal-ag-liestal-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -677,7 +682,6 @@
       "postedDate": "2026-10-24",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-in-der-region-liestal-temporaerbuero-ipersonal/",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -698,9 +702,9 @@
       "slug": "automatiker-region-bonstetten-ipersonal-ag-bonstetten-zurich",
       "slugByLocale": {
         "de": "automatiker-region-bonstetten-ipersonal-ag-bonstetten-zurich",
-        "it": "automatiker-region-bonstetten-ipersonal-ag-bonstetten-zurich",
-        "en": "automatiker-region-bonstetten-ipersonal-ag-bonstetten-zurich",
-        "fr": "automatiker-region-bonstetten-ipersonal-ag-bonstetten-zurich"
+        "it": "automatico-regione-di-bonstetten-ipersonal-ag-bonstetten-zurich",
+        "en": "automatician-bonstetten-region-ipersonal-ag-bonstetten-zurich",
+        "fr": "automatique-region-de-bonstetten-ipersonal-ag-bonstetten-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -761,9 +765,9 @@
       "slug": "immobilienvermarkter-region-zurich-ipersonal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "immobilienvermarkter-region-zurich-ipersonal-ag-zurich-zurich",
-        "it": "immobilienvermarkter-region-zurich-ipersonal-ag-zurich-zurich",
-        "en": "immobilienvermarkter-region-zurich-ipersonal-ag-zurich-zurich",
-        "fr": "immobilienvermarkter-region-zurich-ipersonal-ag-zurich-zurich"
+        "it": "mercato-immobiliare-regione-di-zurigo-ipersonal-ag-zurich-zurich",
+        "en": "real-estate-marketer-zurich-region-ipersonal-ag-zurich-zurich",
+        "fr": "marche-immobilier-region-de-zurich-ipersonal-ag-zurich-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",

@@ -2149,7 +2149,8 @@
       },
       "previousSlugs": [
         "inside-sales-video-security-w-m-d-925efbf9-0b23-4b4d-8c62-c907d6c37302"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in Unterwerke (w/m/d)",
@@ -2882,20 +2883,26 @@
       },
       "slugByLocale": {
         "it": "installatore-trice-di-servizio-elettrico-horw-m-f-d-ckw-horw",
-        "en": "elektro-serviceinstallateur-in-horw-m-w-d-ckw-horw",
+        "en": "electrical-service-installer-horw-m-f-d-ckw-horw",
         "de": "elektro-serviceinstallateur-in-horw-w-m-d-efe68860-142e-4470-ae6c-e078e01d8272",
-        "fr": "elektro-serviceinstallateur-in-horw-m-w-d-ckw-horw"
+        "fr": "installateur-de-services-electriques-horw-h-f-d-ckw-horw"
       },
       "crawledAt": "2026-10-30T09:38:36.548Z",
       "id": "axpo-group-231c2d002373",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektro-serviceinstallateur-in-horw-w-m-d-efe68860-142e-4470-ae6c-e078e01d8272"
+        ],
+        "en": [
+          "elektro-serviceinstallateur-in-horw-m-w-d-ckw-horw"
+        ],
+        "fr": [
+          "elektro-serviceinstallateur-in-horw-m-w-d-ckw-horw"
         ]
       },
       "previousSlugs": [
-        "elektro-serviceinstallateur-in-horw-w-m-d-efe68860-142e-4470-ae6c-e078e01d8272"
+        "elektro-serviceinstallateur-in-horw-w-m-d-efe68860-142e-4470-ae6c-e078e01d8272",
+        "elektro-serviceinstallateur-in-horw-m-w-d-ckw-horw"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,

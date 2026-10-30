@@ -1,0 +1,20 @@
+{
+  "companyKey": "sifloor",
+  "companyName": "sifloor",
+  "companyHost": "ch.uzin-utz.com",
+  "platform": "uzin-utz.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://ch.uzin-utz.com/detail/job/509/lehrstelle-als-produktionsmechaniker-efz-m-w-d"
+  ],
+  "detailTemplate": "/detail/job/509/lehrstelle-als-produktionsmechaniker-efz-m-w-d",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lehrstelle als Produktionsmechaniker EFZ (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-30T12:54:15.945Z",
+  "candidateKey": "sifloor.ch"
+}

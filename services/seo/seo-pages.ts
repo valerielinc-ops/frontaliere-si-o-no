@@ -3397,10 +3397,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  faq: {
  title: 'Domande Frequenti Frontalieri | FAQ Tasse e Lavoro CH-IT',
- description: 'Le 30 domande più frequenti sui frontalieri Svizzera-Italia: tasse, permessi, assicurazione LAMal, pensione AVS/LPP, comuni entro 20 km e accordo fiscale Italia-Svizzera del 2020.',
+ description: 'Le 30 domande più frequenti sui frontalieri Svizzera-Italia: tasse, permessi, assicurazione LAMal, pensione AVS/LPP, comuni entro 20 km e nuovo accordo 2026.',
  keywords: 'domande frequenti frontalieri, faq frontaliere svizzera, tasse frontalieri domande, permesso g domande, lamal frontaliere faq, pensione frontaliere domande, nuovo accordo frontalieri faq',
  ogTitle: 'FAQ Frontalieri 2026 | 30 Domande e Risposte',
- ogDescription: 'Le 30 domande più frequenti sui frontalieri Svizzera-Italia: tasse, permessi, LAMal, pensione e accordo fiscale Italia-Svizzera del 2020.',
+ ogDescription: 'Le 30 domande più frequenti sui frontalieri Svizzera-Italia: tasse, permessi, LAMal, pensione e nuovo accordo 2026.',
  canonicalPath: '/domande-frequenti-frontalieri/',
  structuredData: {
  "@context": "https://schema.org",

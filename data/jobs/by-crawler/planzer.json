@@ -641,10 +641,10 @@
     },
     {
       "id": "planzer-3bc145e4c319",
-      "slug": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
+      "slug": "chauffeur-cat-ce-regione-zurigo-m-f-d-planzer-buchs",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
-        "it": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
+        "it": "chauffeur-cat-ce-regione-zurigo-m-f-d-planzer-buchs",
         "en": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
         "fr": "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
       },
@@ -706,16 +706,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:36:21.191Z"
+      "firstSeenAt": "2026-10-30T09:36:21.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs"
+      ]
     },
     {
       "id": "planzer-21c8c5b56c0d",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-emmen",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-emmen",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-emmen",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-emmen",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-emmen",
         "en": "chauffeur-kat-ce-m-w-d-planzer-emmen",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-emmen"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-emmen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -775,7 +783,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:36:20.485Z"
+      "firstSeenAt": "2026-10-30T09:36:20.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-emmen"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-emmen"
+      ]
     },
     {
       "id": "planzer-559e150098b6",

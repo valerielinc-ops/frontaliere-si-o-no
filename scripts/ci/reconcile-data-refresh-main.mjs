@@ -59,13 +59,16 @@ for (let i = 2; i < process.argv.length; i += 1) {
     i += 1;
     continue;
   }
-  if (!['--base', '--main', '--message'].includes(flag) || !process.argv[i + 1]) {
-    throw new Error('Usage: reconcile-data-refresh-main.mjs [--compat] [--path PATH] --base SHA --main SHA --message TEXT');
+  if (!['--base', '--main', '--message', '--refresh-base'].includes(flag) || !process.argv[i + 1]) {
+    throw new Error('Usage: reconcile-data-refresh-main.mjs [--compat] [--path PATH --refresh-base SHA] --base SHA --main SHA --message TEXT');
   }
-  options[flag.slice(2)] = process.argv[i + 1];
+  options[flag === '--refresh-base' ? 'refreshBase' : flag.slice(2)] = process.argv[i + 1];
   i += 1;
 }
 if (!options.base || !options.main || !options.message) throw new Error('Missing main reconciliation arguments');
+if (options.paths.length > 0 && !options.refreshBase) {
+  throw new Error('--path requires --refresh-base so snapshot conflicts can be checked against their source');
+}
 
 function git(args, input) {
   return execFileSync('git', args, {
@@ -363,13 +366,31 @@ const carried = carriedRefreshRef();
 const continuedSourceState = new Set(
   conflicts.filter((file) => continuesCarriedState(file, { carried, head, main: options.main })),
 );
-const refreshPathConflicts = conflicts.filter((file) => (
+const eligibleRefreshPathConflict = (file) => (
   isRefreshPath(file)
     && !EVENT_CACHE_PATHS.has(file)
     && !derivedDatasetPaths.has(file)
     && !compatPaths.has(file)
     && !isEventSourceState(file)
     && !continuedSourceState.has(file)
+);
+// A complete snapshot is authoritative only if main still has the version this
+// refresh read. Otherwise the conflict needs a fresh generation, not a pick.
+const sameBlob = (left, right, file) => {
+  const leftContent = readBlob(left, file, { encoding: null });
+  const rightContent = readBlob(right, file, { encoding: null });
+  if (leftContent === null || rightContent === null) return leftContent === rightContent;
+  return leftContent.equals(rightContent);
+};
+const staleRefreshPathConflicts = new Set(
+  options.refreshBase
+    ? conflicts.filter((file) => (
+      eligibleRefreshPathConflict(file) && !sameBlob(options.refreshBase, options.main, file)
+    ))
+    : [],
+);
+const refreshPathConflicts = conflicts.filter((file) => (
+  eligibleRefreshPathConflict(file) && !staleRefreshPathConflicts.has(file)
 ));
 const blockers = conflicts.filter((file) =>
   !EVENT_CACHE_PATHS.has(file)
@@ -385,8 +406,11 @@ if (blockers.length > 0) {
   if (compatPaths.size > 0) resolvableParts.push('compatibility data');
   const resolvable = resolvableParts.join(', ').replace(/, ([^,]+)$/u, ' or $1');
   const sourceState = blockers.filter(isEventSourceState);
+  const staleRefreshPaths = blockers.filter((file) => staleRefreshPathConflicts.has(file));
   const why = sourceState.length === 0
-    ? ''
+    ? staleRefreshPaths.length === 0
+      ? ''
+      : `\nRefresh snapshot is based on older main content for: ${staleRefreshPaths.join(', ')}`
     : carried
       ? `\nNot a continuation of the refresh this crawl started from (main holds something else, or this branch dropped the file): ${sourceState.join(', ')}`
       : `\nNo starting refresh was recorded (EVENTS_REFRESH_CARRIED_REF), so a continuation cannot be told from a concurrent edit: ${sourceState.join(', ')}`;
