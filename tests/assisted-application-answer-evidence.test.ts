@@ -59,7 +59,7 @@ describe('attested shared candidate answer evidence', () => {
     expect(context({ id: order.jobId, url: order.jobUrl }, { purpose: 'form' }).answerEvidence[0]).toMatchObject({ question: expect.objectContaining(q), scope: 'job' });
     expect(context({ id: order.jobId, url: target.url }).answerEvidence).toEqual([]);
   });
-  it.each(['owner', 'round', 'question', 'answer', 'retention', 'unit', 'raw_value', 'section', 'deadline', 'missing_anchor'])('refuses evidence whose source or semantics changed: %s', async change => {
+  it.each(['owner', 'round', 'question', 'answer', 'retention', 'unit', 'raw_value', 'section', 'application_question', 'deadline', 'missing_anchor'])('refuses evidence whose source or semantics changed: %s', async change => {
     const f = fixture();
     if (change === 'owner') f.store.docs.set('assisted_applications/source', { ...order, userId: 'someone-else' });
     if (change === 'round') f.store.docs.set('assisted_applications/source/automation/flow', { round: 2, answers: { english: 'C1' } });
@@ -67,6 +67,7 @@ describe('attested shared candidate answer evidence', () => {
     if (change === 'answer') f.store.docs.set('assisted_applications/source/automation/flow', { round: 1, answers: { english: 'A1' } });
     if (change === 'retention') f.store.docs.set('assisted_applications/source', { ...order, retentionPurgedAt: now });
     if (change === 'section') f.store.docs.set('assisted_applications/source/ai_drafts/current', { round: 1, questions: [{ ...question, section: 'Written translations for this employer' }] });
+    if (change === 'application_question') f.store.docs.set('assisted_applications/source/ai_drafts/current', { round: 1, questions: [{ ...question, applicationQuestion: 'What is your English proficiency level for negotiating legal contracts?' }] });
     if (change === 'deadline') f.store.docs.set('assisted_applications/source', { ...order, cvUploadedAt: now - 91 * 86400000 });
     if (change === 'missing_anchor') { const { cvUploadedAt, ...missing } = order; f.store.docs.set('assisted_applications/source', missing); }
     if (change === 'unit') f.records[f.key].unit = 'different_unit';

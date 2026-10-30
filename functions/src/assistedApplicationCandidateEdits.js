@@ -124,8 +124,10 @@ export function candidateQuestionAnswerKey(question) {
   const context = questionContextKey(question?.context);
   const section = normalizeQuestionValue(question?.section);
   const autocomplete = normalizeQuestionValue(question?.autocomplete);
+  const originalQuestion = normalizeQuestionValue(question?.applicationQuestion);
+  const originalContext = originalQuestion && originalQuestion !== normalizeQuestionValue(text) ? originalQuestion : '';
   const languageCodes = languageCodesIn(text);
-  if (!context && !section && !autocomplete && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
+  if (!context && !section && !autocomplete && !originalContext && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
     const normalized = normalizeQuestionValue(text);
     const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
     const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
@@ -137,8 +139,9 @@ export function candidateQuestionAnswerKey(question) {
   }
   const normalized = normalizeQuestionValue(text);
   if (!normalized) return '';
-  if (!context && !section && !autocomplete && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
-  const scopedContext = section || autocomplete ? `${context}\u0000${section}\u0000${autocomplete}` : context;
+  if (!context && !section && !autocomplete && !originalContext && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
+  const metadataContext = section || autocomplete ? `${context}\u0000${section}\u0000${autocomplete}` : context;
+  const scopedContext = originalContext ? `${metadataContext}\u0000${originalContext}` : metadataContext;
   const type = normalizeQuestionValue(question?.type) || 'unknown';
   const options = [...new Set(optionValues(question))].sort().join('|');
   return `question_${questionHash(`${type}\u0000${scopedContext}\u0000${normalized}\u0000${options}`)}`;

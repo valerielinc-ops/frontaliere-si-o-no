@@ -175,6 +175,17 @@ describe('candidate edits', () => {
     expect(candidateQuestionAnswerKey(residence)).not.toBe(candidateQuestionAnswerKey(generic));
   });
 
+  it('keeps the original application question constraints in the reuse key', () => {
+    const general = { id: 'general', question: 'What is your English proficiency level?', type: 'text' };
+    const legal = { ...general, id: 'legal', applicationQuestion: 'What is your English proficiency level for negotiating legal contracts?' };
+    const casual = { ...general, id: 'casual', applicationQuestion: 'What is your English proficiency level for casual conversation?' };
+    expect(candidateQuestionAnswerKey(general)).not.toBe(candidateQuestionAnswerKey(legal));
+    expect(candidateQuestionAnswerKey(casual)).not.toBe(candidateQuestionAnswerKey(legal));
+    const memory = rememberCandidateQuestionAnswers({ questions: [legal], answers: { legal: 'C1' } });
+    expect(candidateAnswersForQuestions([casual, general], {}, memory)).toEqual({});
+    expect(candidateQuestionAnswerKey({ ...general, applicationQuestion: general.question })).toBe(candidateQuestionAnswerKey(general));
+  });
+
   it('keeps the alias and the fields a question asks locked, with the reason', () => {
     const current = draft({ questions: [{ id: 'work_permit', question: 'Permesso?', type: 'choice', options: ['G'], required: true }] });
     const views = Object.fromEntries(formAnswersWithEdits({ order, draft: current, flow: {} }).map((field) => [field.key, fieldView(field, { draft: current, locale: 'de' })]));
