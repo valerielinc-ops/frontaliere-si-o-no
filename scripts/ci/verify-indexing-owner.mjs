@@ -28,9 +28,8 @@ export function parseArgs(argv) {
 
     let url;
     try { url = new URL(rawUrl); } catch { throw new Error('--url must be a valid HTTPS URL'); }
-    if (url.protocol !== 'https:' || url.hostname !== 'frontaliereticino.ch') {
-      throw new Error('--url must belong to https://frontaliereticino.ch');
-    }
+    if (url.protocol !== 'https:') throw new Error('--url must use HTTPS');
+    if (url.hostname !== 'frontaliereticino.ch') throw new Error('--url must belong to https://frontaliereticino.ch');
     args.probeUrl = url.href;
   }
   return args;
