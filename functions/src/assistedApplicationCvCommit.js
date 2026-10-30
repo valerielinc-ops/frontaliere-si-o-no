@@ -127,6 +127,8 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     try {
       await db.runTransaction(async (transaction) => {
         const snapshot = await transaction.get(profileRef);
+        // This writer only augments an existing private projection; account deletion must not recreate it.
+        if (!snapshot.exists) return;
         const current = snapshot.data()?.applicationQuestionAnswers;
         const update = planCandidateAnswerEvidence({ questions: draft?.questions || [], changed: answers,
           previous: snapshot.data()?.applicationQuestionAnswerEvidence, latestWriteAt: Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0,

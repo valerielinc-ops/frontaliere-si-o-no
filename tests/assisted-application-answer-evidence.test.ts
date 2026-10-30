@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { loadCandidateAnswerEvidence, purgeCandidateAnswerEvidence, rememberCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
+import { loadCandidateAnswerEvidence, planCandidateAnswerEvidence, purgeCandidateAnswerEvidence, rememberCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
 import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
 
 const now = Date.now();
@@ -138,5 +138,15 @@ describe('positive portability and source retention', () => {
     await purgeCandidateAnswerEvidence({ db: f.store.db, userId: 'candidate', orderId: 'newer-source', nowMs: now + 3 });
     expect(f.store.read('user_cv_profiles/candidate').applicationQuestionAnswers).toEqual({});
     expect(f.store.read('user_cv_profiles/candidate').applicationQuestionAnswerEvidence).toEqual({});
+  });
+});
+
+
+describe('ordering survives source cleanup and bounded clocks', () => {
+  it.each([now - 1, now])('does not resurrect an evicted key from an older/equal writer at %i', nowMs => {
+    const plan = planCandidateAnswerEvidence({ questions: [question], changed: { english: 'C1' }, previous: {}, latestWriteAt: now,
+      orderId: 'source', order, flow: { round: 1 }, draft: { round: 1 }, actor: 'candidate', nowMs });
+    expect(plan.accepted.size).toBe(0);
+    expect(plan.records).toEqual({});
   });
 });

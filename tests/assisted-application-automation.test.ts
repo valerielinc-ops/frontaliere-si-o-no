@@ -26,6 +26,7 @@ const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DEL
 const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
+const { rememberCandidateAnswerEvidence } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
@@ -57,6 +58,30 @@ const readyDraft = (round = 1) => ({
   questions: [],
 });
 
+function attestedSource(userId: string, answer = 'C1') {
+  const question = { id: 'source_english', question: 'What is your English proficiency level?', type: 'text' };
+  const order = paidOrder({ userId, cvUploadedAt: T0, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
+  const sourceFlow = { round: 1, answers: { source_english: answer } };
+  const sourceDraft = { round: 1, questions: [question] };
+  const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: sourceFlow.answers,
+    orderId: 'answer-source', order, flow: sourceFlow, draft: sourceDraft, actor: 'candidate', nowMs: T0 });
+  return {
+    'assisted_applications/answer-source': order,
+    'assisted_applications/answer-source/automation/flow': sourceFlow,
+    'assisted_applications/answer-source/ai_drafts/current': sourceDraft,
+    [`user_cv_profiles/${userId}`]: { applicationQuestionAnswers: { [candidateQuestionAnswerKey(question)]: answer }, applicationQuestionAnswerEvidence: evidence },
+  };
+}
+
+function recordSourceTransactionReads(db: any) {
+  const reads: string[] = [];
+  const original = db.runTransaction.bind(db);
+  vi.spyOn(db, 'runTransaction').mockImplementation((callback: any) => original((tx: any) => callback({ ...tx,
+    get: (ref: any) => { reads.push(ref.path); return tx.get(ref); },
+  })));
+  return reads;
+}
+
 let store: ReturnType<typeof createMemoryFirestore>;
 let effects: any[];
 const runEffect = vi.fn(async (context: any) => {
@@ -72,6 +97,14 @@ beforeEach(() => {
 });
 
 describe('starting the flow', () => {
+  it('seeds a new order from a proven general fact with source reads in the same transaction', async () => {
+    const userId = 'candidate-1';
+    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }), ...attestedSource(userId) });
+    const reads = recordSourceTransactionReads(store.db);
+    await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
+    expect(store.read(`${ORDER_PATH}/automation/flow`).questionAnswers).toMatchObject({ language_en_any_proficiency: 'C1' });
+    expect(reads).toEqual(expect.arrayContaining(['assisted_applications/answer-source', 'assisted_applications/answer-source/automation/flow', 'assisted_applications/answer-source/ai_drafts/current']));
+  });
   it('does not seed a new order from an opaque legacy answer ledger', async () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
@@ -93,7 +126,7 @@ describe('starting the flow', () => {
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
     const sourceOrder = paidOrder({ userId, cvUploadedAt: T0, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
-    store = createMemoryFirestore({ [ORDER_PATH]: sourceOrder });
+    store = createMemoryFirestore({ [ORDER_PATH]: sourceOrder, [`user_cv_profiles/${userId}`]: { status: 'ready' } });
 
     await saveAnswersWithCv({
       db: store.db,
@@ -691,6 +724,21 @@ describe('sweep', () => {
       questionAnswers: {},
     } });
     expect(effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
+  });
+
+  it('uses a proven source answer for an equivalent portal question without asking again', async () => {
+    const userId = 'candidate-1';
+    const question = { id: 'portal_english', question: 'Qual è il tuo livello di inglese?', type: 'text' };
+    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }), ...attestedSource(userId),
+      [`${ORDER_PATH}/automation/flow`]: { state: 'submitting', round: 1, answers: {}, questionAnswers: {}, heldBy: [], dispatch: { mode: 'submit', round: 1, attempts: 2 } },
+      [`${ORDER_PATH}/ai_drafts/current`]: readyDraft(),
+    });
+    const reads = recordSourceTransactionReads(store.db);
+    const result = await applyAutomationEvent({ db: store.db, orderId: ORDER,
+      event: { type: 'submit_needs_candidate', questions: [{ id: question.id }], questionDetails: [question] }, runEffect, nowMs: T0 });
+    expect(result).toMatchObject({ ok: true, flow: { state: 'owner_takeover', questionAnswers: { language_en_any_proficiency: 'C1' } } });
+    expect(effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit', attempts: 2 }]);
+    expect(reads).toContain('assisted_applications/answer-source/automation/flow');
   });
 
   it('computes no due time for terminal flows', () => {

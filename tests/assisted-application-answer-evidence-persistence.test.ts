@@ -105,3 +105,13 @@ describe('shared confirmations are monotonic across orders', () => {
     expect(record.applicationQuestionAnswerEvidence[key]).toMatchObject({ cleared: true });
   });
 });
+
+describe('shared evidence never recreates deleted private profiles', () => {
+  it('keeps the order-local answer while skipping a missing or deleted profile', async () => {
+    const f = fixture();
+    f.store.docs.delete('user_cv_profiles/candidate');
+    await f.save({ english: 'C1' });
+    expect(f.store.read('user_cv_profiles/candidate')).toBeUndefined();
+    expect(f.store.read('assisted_applications/source/automation/flow').answers.english).toBe('C1');
+  });
+});
