@@ -54,7 +54,7 @@ const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
-export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls } = globalThis.AssistedApplyControls;
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
@@ -986,9 +986,11 @@ const isCvFileField = (field) => {
   const label = String(field.label || '');
   if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(label)) return false;
   if (CV_FILE_FIELD_RE.test(label)) return true;
+  if (isNonCvDocumentLabel(label)) return false;
   const metadata = `${field.name || ''} ${field.id || ''}`;
   if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(metadata)) return false;
   if (CV_FILE_FIELD_RE.test(metadata)) return true;
+  if (isNonCvDocumentLabel(metadata)) return false;
   const context = String(field.context || '');
   return CV_FILE_FIELD_RE.test(context) && !COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context);
 };
@@ -3677,13 +3679,10 @@ export async function submitViaPortal(ctx) {
         const automaticCvUploads = documentPaths(ctx.files, 'cv').length ? cvFields.map(field => ({
           fieldId: field.id, ref: field.ref, action: 'upload', value: '', document: 'cv', source: 'documents', evidence: '',
         })) : [];
-        const plannedActions = [...plan.actions];
-        for (const upload of automaticCvUploads) {
-          if (plannedActions.some(action => action.fieldId === upload.fieldId && action.action === 'upload' && action.document === 'cv')) continue;
-          const skipIndex = plannedActions.findIndex(action => action.fieldId === upload.fieldId && action.action === 'skip');
-          if (skipIndex >= 0) plannedActions.splice(skipIndex, 1);
-          plannedActions.push(upload);
-        }
+        // One file action per CV control: a model-selected different file
+        // must not overwrite the approved CV or leave two conflicting receipts.
+        const automaticCvIds = new Set(automaticCvUploads.map(upload => upload.fieldId));
+        const plannedActions = [...plan.actions.filter(action => !automaticCvIds.has(action.fieldId)), ...automaticCvUploads];
         const missingRequired = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
         // A required field with no readable label is no question for the
         // candidate ("select-input-_r_p_"): the agent finds its question on the page.

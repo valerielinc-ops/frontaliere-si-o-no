@@ -87,3 +87,10 @@ it.each(['listbox', 'owned'])('keeps complete ARIA option catalogues as well: %s
   const result = kind === 'owned' ? readOwnedListOptions(frame, { id: 'choice', ownedList: 'choices' }) : readListboxOptions(frame, 'choice');
   return expect(result).resolves.toHaveLength(301);
 });
+
+
+it.each(['Degree certificates', 'Certificati di studio', 'Arbeitszeugnisse', 'Diplômes', 'Other documents', 'degree_certificates'])('does not redirect the CV into a different required document: %s', label => {
+  const cv = { id: 'cv', kind: 'file', label: 'Curriculum vitae', required: false };
+  const other = { id: 'other', name: 'cv-upload', kind: 'file', label, required: true, context: 'CV and degree certificates' };
+  expect(preferredCvFields([cv, other]).map((field: any) => field.id)).toEqual(['cv']);
+});

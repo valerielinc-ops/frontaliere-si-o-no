@@ -881,3 +881,11 @@ it('uploads to the mandatory CV attachment instead of an optional profile import
   expect((document.getElementById('parser') as HTMLInputElement).files).toBeNull();
   expect((document.getElementById('cv') as HTMLInputElement).files?.[0]?.name).toBe('CV.pdf');
 });
+
+
+it('does not reuse an old CV answer for a specifically labelled degree-certificate field', () => {
+  const { F, document } = page('<form><label for="degree">Degree certificates</label><input type="file" id="degree" required></form>');
+  const entry = F.collect(document)[0];
+  const stale = { ...kit, answers: [{ question: 'CV · Degree certificates', answer: '[CV]', source: 'documents' }], documents: {} };
+  expect(F.answerFor(entry, stale)).toBeNull();
+});
