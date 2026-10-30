@@ -183,6 +183,41 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(stations.get('Como:CO')?.[0]).toEqual(expect.objectContaining({ priceEur: 1.7, dieselPriceEur: 1.65, benzinaUpdatedAt: day(observedAt) }));
   });
 
+  it('accepts the API short fuel labels when their explicit fuel IDs agree', () => {
+    const observedAt = daysAgo(0.5);
+    const apiStationWithShortLabels = {
+      ...apiStation(observedAt),
+      carburanti: undefined,
+      fuels: [
+        { name: 'Be', fuelId: 1, price: 1.7, isSelf: true },
+        { name: 'G', fuelId: 2, price: 1.65, isSelf: true },
+      ],
+    };
+    const apiRows = buildItalyRowsFromMimitApi({
+      municipalities: [COMO],
+      responses: [{ province: 'CO', results: [apiStationWithShortLabels] }],
+    });
+
+    expect(apiRows.pricesRows).toEqual(expect.arrayContaining([
+      expect.objectContaining({ descCarburante: 'Benzina', prezzo: '1.7' }),
+      expect.objectContaining({ descCarburante: 'Gasolio', prezzo: '1.65' }),
+    ]));
+  });
+
+  it('rejects a fuel label that conflicts with its explicit API fuel ID', () => {
+    expect(() => buildItalyRowsFromMimitApi({
+      municipalities: [COMO],
+      responses: [{
+        province: 'CO',
+        results: [{
+          ...apiStation(daysAgo(0.5)),
+          fuels: [{ name: 'Be', fuelId: 2, price: 1.7, isSelf: true }],
+          carburanti: undefined,
+        }],
+      }],
+    })).toThrow('no valid Benzina rows');
+  });
+
   it('accepts equivalent ISO and legacy observation aliases', () => {
     const observedAt = daysAgo(0.5);
     const observedDay = day(observedAt);
