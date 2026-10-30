@@ -1,5 +1,5 @@
 /** Read a public guest form without candidate data or any mutating browser request. */
-import { launchChromium } from '../../../lib/ensure-chromium.mjs';
+import { getChromium } from '../../../lib/ensure-chromium.mjs';
 import { extractFields } from './fields.mjs';
 import { hasApplicationSurface, postingMatch } from './portal.mjs';
 import { publicContractGet } from './public-contract-get.mjs';
@@ -9,7 +9,7 @@ const contractKey = fields => JSON.stringify(fields.map(field => ({ id: field.id
   kind: field.kind, inputType: field.inputType, required: field.required, invalid: field.invalid, options: field.options })));
 
 export async function readOnlyPortalContracts({ applyUrl, job, channelType = '', get = publicContractGet,
-  launch = () => launchChromium({ headless: true, timeout: timeoutMs }), now = Date.now, timeoutMs = 30_000 } = {}) {
+  launch = async () => (await getChromium()).launch({ headless: true, timeout: timeoutMs }), now = Date.now, timeoutMs = 30_000 } = {}) {
   const startedAt = performance.now();
   const controller = new AbortController();
   const deadline = AbortSignal.timeout(timeoutMs);
