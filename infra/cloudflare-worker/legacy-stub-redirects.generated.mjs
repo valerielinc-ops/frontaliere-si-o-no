@@ -6,7 +6,7 @@
 // Read by infra/cloudflare-worker/locale-router.js: a GET/HEAD on one of these
 // paths that the origin answers 200 with the legacy redirect stub becomes a
 // real 301 to the value. A live page at the same path is served untouched.
-// 4710 entries.
+// 4715 entries.
 export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/about/": "/en/about-us/",
   "/articoli-frontaliere/a9-chiusure-notturne-chiasso-como/": "/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri/",
@@ -68,6 +68,7 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/cerca-lavoro-soletta/snapshot/": "/stipendi-soletta/",
   "/cerca-lavoro-svitto/aziende-che-assumono/": "/stipendi-svitto/",
   "/cerca-lavoro-svitto/snapshot/": "/stipendi-svitto/",
+  "/cerca-lavoro-ticino/apprendistato-come-impiegata-o-di-commercio-afc-banca-la-posta-svizzera-lugano/": "/cerca-lavoro-ticino/apprendistato-come-impiegata-o-di-commercio-afc-banca-post/",
   "/cerca-lavoro-ticino/azienda-bewerbermanagement-stellen/": "/cerca-lavoro-ticino/azienda-tschuggen/",
   "/cerca-lavoro-ticino/azienda-bewerbungsmanagement-spital-davos/": "/cerca-lavoro-ticino/azienda-spital-davos/",
   "/cerca-lavoro-ticino/azienda-burgenstock-collection/": "/cerca-lavoro-ticino/azienda-buergenstock-hotels/",
@@ -76,6 +77,7 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/cerca-lavoro-ticino/azienda-casale-group/": "/cerca-lavoro-ticino/azienda-casale-sa/",
   "/cerca-lavoro-ticino/azienda-casale-lugano/": "/cerca-lavoro-ticino/azienda-casale-sa/",
   "/cerca-lavoro-ticino/azienda-casale/": "/cerca-lavoro-ticino/azienda-casale-sa/",
+  "/cerca-lavoro-ticino/azienda-dein-neuer-job-erfassen-modellieren-und-verarbeiten-von-strukturierten-sowie-unstrukturierten-daten-durchfuhren-von-ad-hoc-analysen-und-a/": "/cerca-lavoro-ticino/azienda-banca-cler/",
   "/cerca-lavoro-ticino/azienda-diakoniewerk-neumuenster/": "/cerca-lavoro-ticino/azienda-spital-zollikerberg/",
   "/cerca-lavoro-ticino/azienda-gkb-jobservice/": "/cerca-lavoro-ticino/azienda-gkb/",
   "/cerca-lavoro-ticino/azienda-gruppo-migros/": "/cerca-lavoro-ticino/azienda-migros/",
@@ -1246,6 +1248,7 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/de/jobs-im-tessin/unternehmen-casale-group/": "/de/jobs-im-tessin/unternehmen-casale-sa/",
   "/de/jobs-im-tessin/unternehmen-casale-lugano/": "/de/jobs-im-tessin/unternehmen-casale-sa/",
   "/de/jobs-im-tessin/unternehmen-casale/": "/de/jobs-im-tessin/unternehmen-casale-sa/",
+  "/de/jobs-im-tessin/unternehmen-dein-neuer-job-erfassen-modellieren-und-verarbeiten-von-strukturierten-sowie-unstrukturierten-daten-durchfuhren-von-ad-hoc-analysen-und-a/": "/de/jobs-im-tessin/unternehmen-banca-cler/",
   "/de/jobs-im-tessin/unternehmen-diakoniewerk-neumuenster/": "/de/jobs-im-tessin/unternehmen-spital-zollikerberg/",
   "/de/jobs-im-tessin/unternehmen-gkb-jobservice/": "/de/jobs-im-tessin/unternehmen-gkb/",
   "/de/jobs-im-tessin/unternehmen-gruppo-migros/": "/de/jobs-im-tessin/unternehmen-migros/",
@@ -1534,6 +1537,7 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/en/find-jobs-ticino/company-casale-group/": "/en/find-jobs-ticino/company-casale-sa/",
   "/en/find-jobs-ticino/company-casale-lugano/": "/en/find-jobs-ticino/company-casale-sa/",
   "/en/find-jobs-ticino/company-casale/": "/en/find-jobs-ticino/company-casale-sa/",
+  "/en/find-jobs-ticino/company-dein-neuer-job-erfassen-modellieren-und-verarbeiten-von-strukturierten-sowie-unstrukturierten-daten-durchfuhren-von-ad-hoc-analysen-und-a/": "/en/find-jobs-ticino/company-banca-cler/",
   "/en/find-jobs-ticino/company-diakoniewerk-neumuenster/": "/en/find-jobs-ticino/company-spital-zollikerberg/",
   "/en/find-jobs-ticino/company-gkb-jobservice/": "/en/find-jobs-ticino/company-gkb/",
   "/en/find-jobs-ticino/company-gruppo-migros/": "/en/find-jobs-ticino/company-migros/",
@@ -3594,6 +3598,7 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/fr/trouver-emploi-tessin/entreprise-casale-group/": "/fr/trouver-emploi-tessin/entreprise-casale-sa/",
   "/fr/trouver-emploi-tessin/entreprise-casale-lugano/": "/fr/trouver-emploi-tessin/entreprise-casale-sa/",
   "/fr/trouver-emploi-tessin/entreprise-casale/": "/fr/trouver-emploi-tessin/entreprise-casale-sa/",
+  "/fr/trouver-emploi-tessin/entreprise-dein-neuer-job-erfassen-modellieren-und-verarbeiten-von-strukturierten-sowie-unstrukturierten-daten-durchfuhren-von-ad-hoc-analysen-und-a/": "/fr/trouver-emploi-tessin/entreprise-banca-cler/",
   "/fr/trouver-emploi-tessin/entreprise-diakoniewerk-neumuenster/": "/fr/trouver-emploi-tessin/entreprise-spital-zollikerberg/",
   "/fr/trouver-emploi-tessin/entreprise-gkb-jobservice/": "/fr/trouver-emploi-tessin/entreprise-gkb/",
   "/fr/trouver-emploi-tessin/entreprise-gruppo-migros/": "/fr/trouver-emploi-tessin/entreprise-migros/",

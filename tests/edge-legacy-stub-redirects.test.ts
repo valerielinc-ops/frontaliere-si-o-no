@@ -124,6 +124,12 @@ beforeEach(() => vi.stubGlobal('caches', { default: { match: async () => undefin
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe('generated edge table', () => {
+  it('recovers the verified Post vacancy locale alias without redirecting an unrelated legacy employer filter', () => {
+    expect(legacyStubTarget('/cerca-lavoro-ticino/apprendistato-come-impiegata-o-di-commercio-afc-banca-la-posta-svizzera-lugano/'))
+      .toBe('/cerca-lavoro-ticino/apprendistato-come-impiegata-o-di-commercio-afc-banca-post/');
+    expect(legacyStubTarget('/cerca-lavoro-ticino/azienda-corporate-offices/')).toBeUndefined();
+  });
+
   it('promotes every declared company alias bridge to its primary hub in each locale', () => {
     for (const { alias, canonical } of listAllBrandAliases()) {
       for (const locale of PROFESSION_LOCALES) {

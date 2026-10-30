@@ -113,6 +113,40 @@ describe('companyHubBridgePlugin — autoDiscoverCompanyHubs locale coverage (#3
     expect(brandTarget).toContain('Nessun annuncio di Michael Kors in Ticino');
   });
 
+  it('consolidates the verified malformed Banca Cler archive label without dropping legitimate long company names', async () => {
+    const rootDir = makeCrawlerFixture('Banca Cler', 'banca-cler');
+    const archivedDir = path.join(rootDir, 'data/jobs/expired/by-crawler');
+    fs.mkdirSync(archivedDir, { recursive: true });
+    // The archived Data Scientist vacancy retains companyKey banca-cler and
+    // German slug data-scientist-w-m-banca-cler despite this corrupted label.
+    const malformed = '. Dein neuer Job Erfassen, Modellieren und Verarbeiten von strukturierten sowie unstrukturierten Daten Durchführen von Ad-hoc-Analysen und A';
+    const alias = 'dein-neuer-job-erfassen-modellieren-und-verarbeiten-von-strukturierten-sowie-unstrukturierten-daten-durchfuhren-von-ad-hoc-analysen-und-a';
+    const legitimate = 'Arsanté (Clinique de Carouge) — Centre de Pédiatrie Eaux-Vives Gare';
+    fs.writeFileSync(path.join(archivedDir, 'banca-cler.json'), JSON.stringify([
+      { company: malformed, companyKey: 'banca-cler', canton: 'BS' },
+      { company: legitimate, companyKey: 'arsante-clinique-de-carouge', canton: 'GE' },
+    ]));
+    const hubs = autoDiscoverCompanyHubs(rootDir);
+    const aliases = hubs.filter((entry) => entry.companySlug === alias);
+    expect(aliases).toHaveLength(4);
+    expect(hubs.filter((entry) => entry.displayName === legitimate)).toHaveLength(4);
+    fs.mkdirSync(path.join(rootDir, 'dist'));
+    const plugin = companyHubBridgePlugin(rootDir) as unknown as { closeBundle: { handler: () => Promise<void> } };
+    await plugin.closeBundle.handler();
+    for (const entry of aliases) {
+      const aliasPath = new URL(entry.url).pathname;
+      const target = aliasPath.replace(alias, 'banca-cler');
+      const html = fs.readFileSync(path.join(rootDir, 'dist', aliasPath, 'index.html'), 'utf8');
+      expect(html).toContain(`href="https://frontaliereticino.ch${target}"`);
+      expect(html).toMatch(/name="robots" content="noindex,\s*follow"/);
+      expect(html).not.toContain('"@type":"JobPosting"');
+      const primary = fs.readFileSync(path.join(rootDir, 'dist', target, 'index.html'), 'utf8');
+      expect(primary).toContain('Banca Cler');
+      expect(primary).not.toContain(malformed);
+      expect(primary).not.toMatch(/name="robots" content="noindex/);
+    }
+  });
+
   it('every seeded locale gets a distinct, correctly-prefixed URL and a non-empty display name (safe fallback content, never thin)', () => {
     const rootDir = makeCrawlerFixture('Solothurner Spitäler (soH)');
     const hubs = autoDiscoverCompanyHubs(rootDir).filter(
