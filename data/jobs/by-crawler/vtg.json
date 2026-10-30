@@ -570,7 +570,7 @@
     },
     {
       "id": "company-c9shg9",
-      "slug": "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-romont",
+      "slug": "vice-direttore-medico-della-regione-medica-militare-payerne-swiss-armed-forces-vtg-romont-fr",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Stellvertretende/-r Chefärztin/-arzt der Militärmedizinischen Region Payerne",
       "location": "Romont (FR)",
@@ -610,10 +610,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-romont",
-        "en": "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-romont",
+        "it": "vice-direttore-medico-della-regione-medica-militare-payerne-swiss-armed-forces-vtg-romont-fr",
+        "en": "deputy-chief-medical-officer-of-the-payerne-military-medical-region-swiss-armed-forces-vtg-romont-fr",
         "de": "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-romont",
-        "fr": "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-romont"
+        "fr": "medecin-chef-adjoint-de-la-region-medicale-militaire-de-payerne-swiss-armed-forces-vtg-romont-fr"
       },
       "sourceLang": "de",
       "postalCode": "1680",
@@ -623,21 +623,25 @@
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern",
-          "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern-c9shg9"
+          "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern-c9shg9",
+          "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-romont"
         ],
         "en": [
-          "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern-c9shg9"
+          "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern-c9shg9",
+          "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-romont"
         ],
         "de": [
           "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern-c9shg9"
         ],
         "fr": [
-          "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern-c9shg9"
+          "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern-c9shg9",
+          "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-romont"
         ]
       },
       "previousSlugs": [
         "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern",
-        "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern-c9shg9"
+        "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-bern-c9shg9",
+        "stellvertretende-r-chefarztin-arzt-der-militarmedizinischen-region-payerne-swiss-armed-forces-vtg-romont"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -10356,7 +10360,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "responsabile-del-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -10365,8 +10369,7 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -10377,8 +10380,7 @@
       },
       "previousSlugs": [
         "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {

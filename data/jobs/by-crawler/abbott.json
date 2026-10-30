@@ -1933,12 +1933,12 @@
     },
     {
       "id": "abbott-856a499f8803",
-      "slug": "manager-international-business-systems-abbott-ch",
+      "slug": "manager-sistemi-di-business-internazionali-abbott-zug",
       "slugByLocale": {
         "en": "manager-international-business-systems-abbott-ch",
-        "it": "manager-international-business-systems-abbott-ch",
-        "de": "manager-international-business-systems-abbott-ch",
-        "fr": "manager-international-business-systems-abbott-ch"
+        "it": "manager-sistemi-di-business-internazionali-abbott-zug",
+        "de": "manager-internationale-geschaftssysteme-abbott-zug",
+        "fr": "gestionnaire-systemes-d-affaires-internationaux-abbott-zug"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1997,7 +1997,21 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-29T21:27:52.327Z"
+      "firstSeenAt": "2026-10-29T21:27:52.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-international-business-systems-abbott-ch"
+        ],
+        "de": [
+          "manager-international-business-systems-abbott-ch"
+        ],
+        "fr": [
+          "manager-international-business-systems-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-international-business-systems-abbott-ch"
+      ]
     }
   ]
 }

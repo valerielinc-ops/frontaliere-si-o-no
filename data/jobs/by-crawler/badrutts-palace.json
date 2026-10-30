@@ -7,10 +7,10 @@
       "id": "badrutts-palace-7fc4aec52ba7",
       "slug": "elettricista-m-w-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "elettricista-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "electrician-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "it": "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "de": "elektriker-m-w-d-badrutts-palace-ch",
-        "fr": "electricien-ne-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "fr": "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -54,20 +54,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-m-w-d-badrutts-palace-ch",
-        "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
+        "electrician-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "electricien-ne-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-m-w-d-badrutts-palace-ch",
-          "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "elektriker-m-w-d-badrutts-palace-ch"
         ],
         "en": [
-          "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "electrician-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
-          "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
+          "electricien-ne-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-08-18T21:52:03.897Z",
@@ -92,7 +90,7 @@
       "slugByLocale": {
         "it": "ricevitore-di-cibo-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "food-receiver-m-f-d-badrutts-palace-ch",
-        "de": "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "recepteur-alimentaire-h-f-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
@@ -138,7 +136,7 @@
       "previousSlugs": [
         "food-receiver-m-f-d-badrutts-palace-ch",
         "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -146,7 +144,7 @@
         ],
         "de": [
           "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
-          "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "food-receiver-m-f-d-badrutts-palace-ch"

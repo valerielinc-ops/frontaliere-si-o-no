@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spruengli-36e5a7ef7107",
-      "slug": "weihnachtsaushilfe-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
+      "slug": "rilievo-di-natale-80-100-stazione-ferroviaria-di-berna-confiserie-sprungli-ag-bern",
       "slugByLocale": {
         "de": "weihnachtsaushilfe-80-100-bahnhof-bern-spruengli-bern",
-        "it": "weihnachtsaushilfe-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-        "en": "weihnachtsaushilfe-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-        "fr": "weihnachtsaushilfe-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
+        "it": "rilievo-di-natale-80-100-stazione-ferroviaria-di-berna-confiserie-sprungli-ag-bern",
+        "en": "christmas-relief-80-100-bern-train-station-confiserie-sprungli-ag-bern",
+        "fr": "relief-de-noel-80-100-gare-de-berne-confiserie-sprungli-ag-bern"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -60,11 +60,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "weihnachtsaushilfe-80-100-bahnhof-bern-spruengli-bern"
+          "weihnachtsaushilfe-80-100-bahnhof-bern-spruengli-bern",
+          "weihnachtsaushilfe-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
+        ],
+        "en": [
+          "weihnachtsaushilfe-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
+        ],
+        "fr": [
+          "weihnachtsaushilfe-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ]
       },
       "previousSlugs": [
-        "weihnachtsaushilfe-80-100-bahnhof-bern-spruengli-bern"
+        "weihnachtsaushilfe-80-100-bahnhof-bern-spruengli-bern",
+        "weihnachtsaushilfe-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,

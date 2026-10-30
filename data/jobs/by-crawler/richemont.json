@@ -410,7 +410,7 @@
       "slug": "progetto-e-struttura-tecnico-specializzato-richemont-bellevue",
       "slugByLocale": {
         "it": "progetto-e-struttura-tecnico-specializzato-richemont-bellevue",
-        "en": "project-facility-specialized-technician-richemont-bellevue",
+        "en": "project-facility-ground-level-richemont-bellevue",
         "de": "project-facility-specialized-technician-richemont-bellevue",
         "fr": "project-facility-specialized-technician-richemont-bellevue"
       },
@@ -460,6 +460,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "project-facility-specialized-technician-richemont-bellevue"
+        ],
+        "en": [
           "project-facility-specialized-technician-richemont-bellevue"
         ]
       },
@@ -2214,7 +2217,7 @@
       "slug": "sales-administration-coordinatore-80-100-cartier-villars-sur-glane",
       "slugByLocale": {
         "it": "sales-administration-coordinatore-80-100-cartier-villars-sur-glane",
-        "en": "sales-administration-coordinator-80-100-richemont-villars-sur-glane",
+        "en": "sales-administration-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         "de": "sales-administration-koordinator-80-100-cartier-villars-sur-glane",
         "fr": "sales-administration-coordinator-80-100-richemont-villars-sur-glane"
       },
@@ -2267,6 +2270,9 @@
           "sales-administration-coordinator-80-100-richemont-villars-sur-glane"
         ],
         "de": [
+          "sales-administration-coordinator-80-100-richemont-villars-sur-glane"
+        ],
+        "en": [
           "sales-administration-coordinator-80-100-richemont-villars-sur-glane"
         ]
       },
@@ -5285,12 +5291,12 @@
     },
     {
       "id": "richemont-bb0584ac00db",
-      "slug": "digital-media-project-manager-richemont-plan-les-ouates",
+      "slug": "responsabile-del-progetto-digital-media-piaget-plan-les-ouates",
       "slugByLocale": {
         "en": "digital-media-project-manager-richemont-plan-les-ouates",
-        "it": "digital-media-project-manager-richemont-plan-les-ouates",
-        "de": "digital-media-project-manager-richemont-plan-les-ouates",
-        "fr": "digital-media-project-manager-richemont-plan-les-ouates"
+        "it": "responsabile-del-progetto-digital-media-piaget-plan-les-ouates",
+        "de": "projektmanager-digital-media-piaget-plan-les-ouates",
+        "fr": "gestionnaire-de-projet-des-medias-numeriques-piaget-plan-les-ouates"
       },
       "company": "Piaget",
       "companyKey": "richemont",
@@ -5349,7 +5355,21 @@
         }
       },
       "postalCode": "1228",
-      "firstSeenAt": "2026-10-29T21:38:12.951Z"
+      "firstSeenAt": "2026-10-29T21:38:12.951Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-media-project-manager-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "digital-media-project-manager-richemont-plan-les-ouates"
+        ],
+        "fr": [
+          "digital-media-project-manager-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "digital-media-project-manager-richemont-plan-les-ouates"
+      ]
     },
     {
       "id": "richemont-216d63252c55",
@@ -5899,7 +5919,7 @@
         "it": "group-talent-communities-management-director-richemont-bellevue",
         "en": "group-talent-communities-management-director-richemont-bellevue",
         "de": "group-talent-communities-management-director-richemont-bellevue",
-        "fr": "groupe-talent-gestion-des-collectivites-directeur-richemont-bellevue"
+        "fr": "group-talent-communities-management-director-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -5943,11 +5963,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-talentcommunities-management-director-richemont-bellevue"
+        "group-talentcommunities-management-director-richemont-bellevue",
+        "groupe-talent-gestion-des-collectivites-directeur-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-talentcommunities-management-director-richemont-bellevue"
+        ],
+        "fr": [
+          "groupe-talent-gestion-des-collectivites-directeur-richemont-bellevue"
         ]
       },
       "firstSeenAt": "2026-09-16T09:31:35.839Z",

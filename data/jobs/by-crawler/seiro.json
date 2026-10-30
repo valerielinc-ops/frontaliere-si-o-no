@@ -84,12 +84,12 @@
     },
     {
       "id": "seiro-6d21a7a96140",
-      "slug": "facharztin-facharzt-psychiatrie-e-psychotherapie-zurich-seiro-gmbh-zurich",
+      "slug": "medica-specialista-medico-specialista-in-psichiatria-e-psicoterapia-zurigo-seiro-seiro-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch",
-        "it": "facharztin-facharzt-psychiatrie-e-psychotherapie-zurich-seiro-gmbh-zurich",
-        "en": "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch",
-        "fr": "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch"
+        "it": "medica-specialista-medico-specialista-in-psichiatria-e-psicoterapia-zurigo-seiro-seiro-gmbh-zurich-zurich",
+        "en": "specialist-psychiatry-and-psychotherapy-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "fr": "specialiste-en-psychiatrie-et-psychotherapie-zurich-seiro-gmbh-zurich-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -136,11 +136,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch",
+          "facharztin-facharzt-psychiatrie-e-psychotherapie-zurich-seiro-gmbh-zurich"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch"
+        ],
+        "fr": [
           "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch"
+        "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch",
+        "facharztin-facharzt-psychiatrie-e-psychotherapie-zurich-seiro-gmbh-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

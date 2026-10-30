@@ -7157,7 +7157,7 @@
       "slug": "client-advisor-global-window-gstaad-wm-bern-ubs-gstaad",
       "slugByLocale": {
         "it": "client-advisor-global-window-gstaad-wm-bern-ubs-gstaad",
-        "en": "client-advisor-global-window-gstaad-wm-bern-ubs-gstaad",
+        "en": "client-targeter-global-window-gstaad-wm-berne-ubs-gstaad",
         "de": "client-advisor-global-window-gstaad-wm-bern-ubs-gstaad",
         "fr": "client-advisor-global-window-gstaad-wm-bern-ubs-gstaad"
       },
@@ -9959,7 +9959,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -10012,11 +10012,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -11596,12 +11600,12 @@
     },
     {
       "id": "ubs-5166e805a9ed",
-      "slug": "associate-program-client-advisor-wealth-management-uk-intl-in-zurich-ubs-zurich",
+      "slug": "programma-associate-consulente-clienti-wealth-management-uk-intl-a-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "associate-program-client-advisor-wealth-management-uk-intl-in-zurich-ubs-zurich",
-        "it": "associate-program-client-advisor-wealth-management-uk-intl-in-zurich-ubs-zurich",
-        "de": "associate-program-client-advisor-wealth-management-uk-intl-in-zurich-ubs-zurich",
-        "fr": "associate-program-client-advisor-wealth-management-uk-intl-in-zurich-ubs-zurich"
+        "it": "programma-associate-consulente-clienti-wealth-management-uk-intl-a-zurigo-ubs-zurich",
+        "de": "associate-programm-kundenberater-vermogensverwaltung-uk-intl-in-zurich-ubs-zurich",
+        "fr": "programme-d-associe-conseiller-clientele-en-gestion-de-fortune-uk-intl-a-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11668,7 +11672,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-29T21:18:12.038Z"
+      "firstSeenAt": "2026-10-29T21:18:12.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-program-client-advisor-wealth-management-uk-intl-in-zurich-ubs-zurich"
+        ],
+        "de": [
+          "associate-program-client-advisor-wealth-management-uk-intl-in-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "associate-program-client-advisor-wealth-management-uk-intl-in-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "associate-program-client-advisor-wealth-management-uk-intl-in-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-531d9b8cfb33",
@@ -11676,7 +11694,7 @@
       "slugByLocale": {
         "en": "associate-program-client-advisor-wealth-management-team-wm-turkiye-ubs-zurich",
         "it": "associate-program-client-advisor-wealth-management-team-wm-turkiye-ubs-zurich",
-        "de": "associate-program-client-advisor-wealth-management-team-wm-turkiye-ubs-zurich",
+        "de": "associate-programm-kundenberater-im-vermogensverwaltungsteam-wm-turkiye-ubs-zurich",
         "fr": "associate-program-client-advisor-wealth-management-team-wm-turkiye-ubs-zurich"
       },
       "company": "UBS",
@@ -11749,12 +11767,12 @@
     },
     {
       "id": "ubs-5b484bec4e81",
-      "slug": "associate-program-client-advisor-wealth-management-iberia-in-zurich-ubs-zurich",
+      "slug": "programma-associate-consulente-clienti-wealth-management-iberia-a-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "associate-program-client-advisor-wealth-management-iberia-in-zurich-ubs-zurich",
-        "it": "associate-program-client-advisor-wealth-management-iberia-in-zurich-ubs-zurich",
-        "de": "associate-program-client-advisor-wealth-management-iberia-in-zurich-ubs-zurich",
-        "fr": "associate-program-client-advisor-wealth-management-iberia-in-zurich-ubs-zurich"
+        "it": "programma-associate-consulente-clienti-wealth-management-iberia-a-zurigo-ubs-zurich",
+        "de": "associate-programm-kundenberater-vermogensverwaltung-iberia-in-zurich-ubs-zurich",
+        "fr": "programme-d-associe-conseiller-clientele-en-gestion-de-fortune-iberia-a-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11821,7 +11839,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-29T21:18:10.960Z"
+      "firstSeenAt": "2026-10-29T21:18:10.960Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-program-client-advisor-wealth-management-iberia-in-zurich-ubs-zurich"
+        ],
+        "de": [
+          "associate-program-client-advisor-wealth-management-iberia-in-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "associate-program-client-advisor-wealth-management-iberia-in-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "associate-program-client-advisor-wealth-management-iberia-in-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-7ad26b10844b",

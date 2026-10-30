@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mistral-ai-c24d6a4a84d2",
-      "slug": "account-executive-enterprise-swiss-romande-mistral-ai-ch",
+      "slug": "account-executive-enterprise-svizzera-romanda-mistral-ai-zurich",
       "slugByLocale": {
         "en": "account-executive-enterprise-swiss-romande-mistral-ai-ch",
-        "it": "account-executive-enterprise-swiss-romande-mistral-ai-ch",
+        "it": "account-executive-enterprise-svizzera-romanda-mistral-ai-zurich",
         "de": "account-executive-enterprise-swiss-romande-mistral-ai-ch",
-        "fr": "account-executive-enterprise-swiss-romande-mistral-ai-ch"
+        "fr": "responsable-de-compte-entreprise-suisse-romande-mistral-ai-zurich"
       },
       "company": "Mistral AI",
       "companyKey": "mistral-ai",
@@ -68,7 +68,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-29T21:47:54.838Z"
+      "firstSeenAt": "2026-10-29T21:47:54.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-executive-enterprise-swiss-romande-mistral-ai-ch"
+        ],
+        "fr": [
+          "account-executive-enterprise-swiss-romande-mistral-ai-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-executive-enterprise-swiss-romande-mistral-ai-ch"
+      ]
     },
     {
       "id": "mistral-ai-01b2b0d2cc89",

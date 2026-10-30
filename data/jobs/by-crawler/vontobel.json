@@ -2072,11 +2072,11 @@
     },
     {
       "id": "vontobel-7fcca56bf90d",
-      "slug": "data-engineer-vontobel-ch",
+      "slug": "data-ingegnere-vontobel-zurich-bleicherweg-21",
       "slugByLocale": {
         "en": "data-engineer-vontobel-ch",
-        "it": "data-engineer-vontobel-ch",
-        "de": "data-engineer-vontobel-ch",
+        "it": "data-ingegnere-vontobel-zurich-bleicherweg-21",
+        "de": "data-ingenieur-vontobel-zurich-bleicherweg-21",
         "fr": "data-engineer-vontobel-ch"
       },
       "company": "Vontobel",
@@ -2136,7 +2136,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-29T21:33:32.935Z"
+      "firstSeenAt": "2026-10-29T21:33:32.935Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-engineer-vontobel-ch"
+        ],
+        "de": [
+          "data-engineer-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-engineer-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-7f28261cd8fb",

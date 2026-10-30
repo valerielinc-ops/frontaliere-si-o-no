@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "pks-bewerbung-ch-6cf3968ca115",
-      "slug": "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit",
+      "slug": "impiegato-a-amministrativo-a-hr-50-80-impiego-a-tempo-determinato-fino-a-circa-l-estate-2027-lavoro-operativo-delle",
       "slugByLocale": {
         "de": "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit",
-        "it": "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit",
-        "en": "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit",
-        "fr": "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit"
+        "it": "impiegato-a-amministrativo-a-hr-50-80-impiego-a-tempo-determinato-fino-a-circa-l-estate-2027-lavoro-operativo-delle",
+        "en": "hr-administrative-assistant-50-80-fixed-term-assignment-until-approx-summer-2027-operational-hr-work-that-is-truly",
+        "fr": "gestionnaire-rh-50-80-mission-temporaire-jusqu-a-env-l-ete-2027-travail-operationnel-des-ressources-humaines-dont-on-a"
       },
       "company": "pks-bewerbung",
       "companyKey": "pks-bewerbung-ch",
@@ -69,16 +69,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:49:28.682Z"
+      "firstSeenAt": "2026-10-29T21:49:28.682Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit"
+        ],
+        "en": [
+          "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit"
+        ],
+        "fr": [
+          "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit"
+      ]
     },
     {
       "id": "pks-bewerbung-ch-82a92461d441",
-      "slug": "berater-in-abacus-80-100-lohn-risorse-umane-perfekter-cambio-carriera-per-risorse-umane-profis-pks-bewerbung-binningen",
+      "slug": "consulente-abacus-80-100-paghe-hr-perfetto-ingresso-laterale-per-professionisti-hr-pks-bewerbung-4102-binningen",
       "slugByLocale": {
         "de": "berater-in-abacus-80-100-lohn-hr-perfekter-quereinstieg-fur-hr-profis-4102-binningen-pks",
-        "it": "berater-in-abacus-80-100-lohn-risorse-umane-perfekter-cambio-carriera-per-risorse-umane-profis-pks-bewerbung-binningen",
-        "en": "berater-in-abacus-80-100-lohn-hr-perfekter-quereinstieg-fur-hr-profis-4102-binningen-pks",
-        "fr": "berater-in-abacus-80-100-lohn-hr-perfekter-quereinstieg-fur-hr-profis-4102-binningen-pks"
+        "it": "consulente-abacus-80-100-paghe-hr-perfetto-ingresso-laterale-per-professionisti-hr-pks-bewerbung-4102-binningen",
+        "en": "abacus-consultant-80-100-payroll-hr-perfect-career-change-opportunity-for-hr-professionals-pks-bewerbung-4102-binningen",
+        "fr": "conseiller-ere-abacus-80-100-paie-rh-parfaite-transition-professionnelle-pour-les-professionnel-le-s-des-rh-pks"
       },
       "company": "pks-bewerbung",
       "companyKey": "pks-bewerbung-ch",
@@ -126,11 +140,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "berater-in-abacus-80-100-lohn-hr-perfekter-quereinstieg-fur-hr-profis-4102-binningen-pks",
+          "berater-in-abacus-80-100-lohn-risorse-umane-perfekter-cambio-carriera-per-risorse-umane-profis-pks-bewerbung-binningen"
+        ],
+        "en": [
+          "berater-in-abacus-80-100-lohn-hr-perfekter-quereinstieg-fur-hr-profis-4102-binningen-pks"
+        ],
+        "fr": [
           "berater-in-abacus-80-100-lohn-hr-perfekter-quereinstieg-fur-hr-profis-4102-binningen-pks"
         ]
       },
       "previousSlugs": [
-        "berater-in-abacus-80-100-lohn-hr-perfekter-quereinstieg-fur-hr-profis-4102-binningen-pks"
+        "berater-in-abacus-80-100-lohn-hr-perfekter-quereinstieg-fur-hr-profis-4102-binningen-pks",
+        "berater-in-abacus-80-100-lohn-risorse-umane-perfekter-cambio-carriera-per-risorse-umane-profis-pks-bewerbung-binningen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -149,12 +171,12 @@
     },
     {
       "id": "pks-bewerbung-ch-7b8befefd66e",
-      "slug": "risorse-umane-generalist-in-40-60-sie-verwalten-keine-patrimonio-dafur-das-wertvollste-kapital-risorse-umane-generalist-in-40-60-in-der-bankenbranche-pks-bewerbung-binningen",
+      "slug": "generalista-hr-40-60-non-gestite-patrimoni-bensi-il-capitale-piu-prezioso-generalista-hr-40-60-nel-settore-bancario-pks",
       "slugByLocale": {
         "de": "hr-generalist-in-40-60-sie-verwalten-keine-vermogen-dafur-das-wertvollste-kapital-hr",
-        "it": "risorse-umane-generalist-in-40-60-sie-verwalten-keine-patrimonio-dafur-das-wertvollste-kapital-risorse-umane-generalist-in-40-60-in-der-bankenbranche-pks-bewerbung-binningen",
-        "en": "hr-generalist-in-40-60-sie-verwalten-keine-vermogen-dafur-das-wertvollste-kapital-hr",
-        "fr": "hr-generalist-in-40-60-sie-verwalten-keine-vermogen-dafur-das-wertvollste-kapital-hr"
+        "it": "generalista-hr-40-60-non-gestite-patrimoni-bensi-il-capitale-piu-prezioso-generalista-hr-40-60-nel-settore-bancario-pks",
+        "en": "hr-generalist-40-60-you-do-not-manage-assets-instead-you-manage-the-most-valuable-capital-hr-generalist-40-60-in-the",
+        "fr": "generaliste-rh-40-60-vous-ne-gerez-pas-de-fortunes-mais-le-capital-le-plus-precieux-generaliste-rh-40-60-dans-le-secteur"
       },
       "company": "pks-bewerbung",
       "companyKey": "pks-bewerbung-ch",
@@ -202,11 +224,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hr-generalist-in-40-60-sie-verwalten-keine-vermogen-dafur-das-wertvollste-kapital-hr",
+          "risorse-umane-generalist-in-40-60-sie-verwalten-keine-patrimonio-dafur-das-wertvollste-kapital-risorse-umane-generalist-in-40-60-in-der-bankenbranche-pks-bewerbung-binningen"
+        ],
+        "en": [
+          "hr-generalist-in-40-60-sie-verwalten-keine-vermogen-dafur-das-wertvollste-kapital-hr"
+        ],
+        "fr": [
           "hr-generalist-in-40-60-sie-verwalten-keine-vermogen-dafur-das-wertvollste-kapital-hr"
         ]
       },
       "previousSlugs": [
-        "hr-generalist-in-40-60-sie-verwalten-keine-vermogen-dafur-das-wertvollste-kapital-hr"
+        "hr-generalist-in-40-60-sie-verwalten-keine-vermogen-dafur-das-wertvollste-kapital-hr",
+        "risorse-umane-generalist-in-40-60-sie-verwalten-keine-patrimonio-dafur-das-wertvollste-kapital-risorse-umane-generalist-in-40-60-in-der-bankenbranche-pks-bewerbung-binningen"
       ],
       "salaryMin": 37200,
       "salaryMax": 56400,

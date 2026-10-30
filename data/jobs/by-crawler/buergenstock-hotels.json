@@ -3046,12 +3046,12 @@
     },
     {
       "id": "buergenstock-hotels-c33bb94f4422",
-      "slug": "public-area-attendant-housekeeping-100-m-w-d-buergenstock-hotels-obburgen",
+      "slug": "assistente-di-area-pubblica-pulizia-100-m-f-d-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "public-area-attendant-housekeeping-100-m-w-d-buergenstock-hotels-obburgen",
-        "it": "public-area-attendant-housekeeping-100-m-w-d-buergenstock-hotels-obburgen",
+        "it": "assistente-di-area-pubblica-pulizia-100-m-f-d-burgenstock-hotels-ag-obburgen",
         "en": "public-area-attendant-housekeeping-100-m-w-d-buergenstock-hotels-obburgen",
-        "fr": "public-area-attendant-housekeeping-100-m-w-d-buergenstock-hotels-obburgen"
+        "fr": "accompagnateur-de-la-zone-publique-menage-100-h-f-d-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3109,7 +3109,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:34:03.621Z"
+      "firstSeenAt": "2026-10-29T21:34:03.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "public-area-attendant-housekeeping-100-m-w-d-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "public-area-attendant-housekeeping-100-m-w-d-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "public-area-attendant-housekeeping-100-m-w-d-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-d9671f408386",

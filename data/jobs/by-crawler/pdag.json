@@ -882,7 +882,7 @@
       "id": "pdag-ce9c143bc3fd",
       "slug": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
       "slugByLocale": {
-        "it": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "dipl-nursing-specialist-hf-fh-clinic-for-forensic-psychiatry-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-clinique-de-psychiatrie-legale-psychiatrische-dienste-aargau-pdag-windisch"
@@ -1114,7 +1114,7 @@
       "slug": "terapeuta-psicomotore-terapeuta-psicomotore-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-terapeuta-psicomotore-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "psychomotoriktherapeutin-psychomotoriktherapeut-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch",
         "fr": "psychomotherapeute-psychomotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       },
@@ -1175,7 +1175,7 @@
       "previousSlugs": [
         "psychomotor-therapist-psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch",
-        "psychomotoriktherapeutin-psychomotoriktherapeut-psychiatrische-dienste-aargau-pdag-windisch"
+        "psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1183,7 +1183,7 @@
         ],
         "en": [
           "psychomotor-therapist-psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
-          "psychomotoriktherapeutin-psychomotoriktherapeut-psychiatrische-dienste-aargau-pdag-windisch"
+          "psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.569Z",
@@ -4117,7 +4117,7 @@
       "id": "pdag-a3e59a5cafcc",
       "slug": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-f0c3f2bf89",
       "slugByLocale": {
-        "it": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-f0c3f2bf89",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "dipl-nursing-specialist-hf-fh-clinic-for-forensic-psychiatry-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-clinique-de-psychiatrie-legale-psychiatrische-dienste-aargau-pdag-windisch"
@@ -6018,9 +6018,9 @@
       "slug": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "fr": "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
+        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -6066,17 +6066,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+        "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
+        "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-pdag-windisch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+          "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
-          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+          "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T13:15:23.507Z",
@@ -6360,12 +6361,12 @@
     },
     {
       "id": "pdag-c78901b2119f",
-      "slug": "leiterin-leiter-personalpool-e-mitglied-der-bereichsleitung-pflege-bildung-e-sozialdienst-pbs-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "responsabile-del-pool-del-personale-e-membro-della-direzione-dell-area-cure-formazione-e-servizio-sociale-pbs",
       "slugByLocale": {
         "de": "leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und",
-        "it": "leiterin-leiter-personalpool-e-mitglied-der-bereichsleitung-pflege-bildung-e-sozialdienst-pbs-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und",
-        "fr": "leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und"
+        "it": "responsabile-del-pool-del-personale-e-membro-della-direzione-dell-area-cure-formazione-e-servizio-sociale-pbs",
+        "en": "head-of-staff-pool-and-member-of-divisional-management-care-education-and-social-service-pbs-psychiatrische-dienste",
+        "fr": "chef-du-groupe-d-employes-et-membre-de-la-direction-des-soins-de-l-education-et-des-services-sociaux-pbs-psychiatrische"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -6413,11 +6414,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und",
+          "leiterin-leiter-personalpool-e-mitglied-der-bereichsleitung-pflege-bildung-e-sozialdienst-pbs-psychiatrische-dienste-aargau-pdag-windisch"
+        ],
+        "en": [
+          "leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und"
+        ],
+        "fr": [
           "leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und"
+        "leiterin-leiter-personalpool-und-mitglied-der-bereichsleitung-pflege-bildung-und",
+        "leiterin-leiter-personalpool-e-mitglied-der-bereichsleitung-pflege-bildung-e-sozialdienst-pbs-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,

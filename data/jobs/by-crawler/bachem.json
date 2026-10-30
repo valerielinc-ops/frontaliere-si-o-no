@@ -770,10 +770,10 @@
     },
     {
       "id": "bachem-c96acca4bca2",
-      "slug": "manager-qa-quality-management-systems-qms-100-a-bachem-bubendorf",
+      "slug": "manager-qa-sistemi-di-gestione-della-qualita-qms-100-a-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "manager-qa-quality-management-systems-qms-100-a-bachem-bubendorf",
-        "it": "manager-qa-quality-management-systems-qms-100-a-bachem-bubendorf",
+        "it": "manager-qa-sistemi-di-gestione-della-qualita-qms-100-a-bachem-ag-bubendorf",
         "en": "manager-qa-quality-management-systems-qms-100-a-bachem-bubendorf",
         "fr": "manager-qa-quality-management-systems-qms-100-a-bachem-bubendorf"
       },
@@ -834,7 +834,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:30:16.762Z"
+      "firstSeenAt": "2026-10-29T21:30:16.762Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-qa-quality-management-systems-qms-100-a-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "manager-qa-quality-management-systems-qms-100-a-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-d523045dc43e",
@@ -4504,8 +4512,8 @@
       "slugByLocale": {
         "en": "data-scientist-digital-manufacturing-a-100-bachem-bubendorf",
         "it": "data-scientist-digital-manufacturing-a-100-bachem-bubendorf",
-        "de": "data-scientist-digital-manufacturing-a-100-bachem-bubendorf",
-        "fr": "data-scientist-digital-manufacturing-a-100-bachem-bubendorf"
+        "de": "datenwissenschaftler-digitale-fertigung-a-100-bachem-ag-bubendorf",
+        "fr": "scientifique-des-donnees-fabrication-numerique-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",

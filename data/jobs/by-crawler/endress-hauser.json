@@ -2061,9 +2061,9 @@
       "slug": "operatore-macchina-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
         "it": "operatore-macchina-m-f-d-endress-hauser-reinach",
-        "en": "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach",
+        "en": "machine-operator-m-f-d-endress-hauser-reinach",
         "de": "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-        "fr": "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
+        "fr": "operateur-de-machine-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -2110,8 +2110,8 @@
       "previousSlugs": [
         "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach",
         "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-        "machine-operator-m-f-d-endress-hauser-reinach",
-        "operateur-de-machine-h-f-d-endress-hauser-reinach"
+        "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach",
+        "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2119,14 +2119,14 @@
         ],
         "en": [
           "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-          "machine-operator-m-f-d-endress-hauser-reinach"
+          "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach"
         ],
         "de": [
           "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach"
         ],
         "fr": [
           "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-          "operateur-de-machine-h-f-d-endress-hauser-reinach"
+          "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
         ]
       },
       "firstSeenAt": "2026-10-20T15:11:02.473Z",
@@ -3209,7 +3209,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "taster-days-computerscientist-endress-hauser-reinach",
+        "en": "computer-science-experts-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -3257,7 +3257,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schnuppertage-informatiker-in-endress-hauser-reinach",
-        "computer-science-experts-endress-hauser-reinach"
+        "taster-days-computerscientist-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3265,7 +3265,7 @@
         ],
         "en": [
           "schnuppertage-informatiker-in-endress-hauser-reinach",
-          "computer-science-experts-endress-hauser-reinach"
+          "taster-days-computerscientist-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"

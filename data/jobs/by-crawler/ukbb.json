@@ -266,12 +266,12 @@
     },
     {
       "id": "ukbb-a8c7799cc9da",
-      "slug": "collaboratore-trice-in-patientengastronomie-60-universitats-kinderspital-beider-basel",
+      "slug": "collaboratore-trice-nella-ristorazione-dei-pazienti-60-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "mitarbeiter-in-patientengastronomie-60-ukbb-basel",
-        "it": "collaboratore-trice-in-patientengastronomie-60-universitats-kinderspital-beider-basel",
-        "en": "mitarbeiter-in-patientengastronomie-60-universitats-kinderspital-beider-basel-basel",
-        "fr": "mitarbeiter-in-patientengastronomie-60-universitats-kinderspital-beider-basel-basel"
+        "it": "collaboratore-trice-nella-ristorazione-dei-pazienti-60-universitats-kinderspital-beider-basel-basel",
+        "en": "patient-catering-employee-60-universitats-kinderspital-beider-basel-basel",
+        "fr": "collaborateur-trice-en-restauration-des-patients-60-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -319,11 +319,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-patientengastronomie-60-ukbb-basel"
+          "mitarbeiter-in-patientengastronomie-60-ukbb-basel",
+          "collaboratore-trice-in-patientengastronomie-60-universitats-kinderspital-beider-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-patientengastronomie-60-universitats-kinderspital-beider-basel-basel"
+        ],
+        "fr": [
+          "mitarbeiter-in-patientengastronomie-60-universitats-kinderspital-beider-basel-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-patientengastronomie-60-ukbb-basel"
+        "mitarbeiter-in-patientengastronomie-60-ukbb-basel",
+        "collaboratore-trice-in-patientengastronomie-60-universitats-kinderspital-beider-basel",
+        "mitarbeiter-in-patientengastronomie-60-universitats-kinderspital-beider-basel-basel"
       ],
       "salaryMin": 52800,
       "salaryMax": 73800,

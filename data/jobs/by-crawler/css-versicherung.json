@@ -3328,12 +3328,12 @@
     },
     {
       "id": "css-versicherung-bb91168e64ea",
-      "slug": "collaboratore-trice-kundenservice-reinach-bl-css-versicherung-reinach-bl",
+      "slug": "addetto-a-al-servizio-clienti-reinach-bl-css-versicherung-reinach-bl",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenservice-reinach-bl-css-versicherung-reinach-bl",
-        "it": "collaboratore-trice-kundenservice-reinach-bl-css-versicherung-reinach-bl",
-        "en": "mitarbeiter-in-kundenservice-reinach-bl-css-versicherung-reinach-bl",
-        "fr": "mitarbeiter-in-kundenservice-reinach-bl-css-versicherung-reinach-bl"
+        "it": "addetto-a-al-servizio-clienti-reinach-bl-css-versicherung-reinach-bl",
+        "en": "customer-service-representative-reinach-bl-css-versicherung-reinach-bl",
+        "fr": "collaborateur-trice-au-service-clientele-reinach-bl-css-versicherung-reinach-bl"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3381,11 +3381,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundenservice-reinach-bl-css-versicherung-reinach-bl",
+          "collaboratore-trice-kundenservice-reinach-bl-css-versicherung-reinach-bl"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenservice-reinach-bl-css-versicherung-reinach-bl"
+        ],
+        "fr": [
           "mitarbeiter-in-kundenservice-reinach-bl-css-versicherung-reinach-bl"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-reinach-bl-css-versicherung-reinach-bl"
+        "mitarbeiter-in-kundenservice-reinach-bl-css-versicherung-reinach-bl",
+        "collaboratore-trice-kundenservice-reinach-bl-css-versicherung-reinach-bl"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -196,7 +196,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -257,7 +257,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -265,7 +265,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -7986,12 +7986,12 @@
     },
     {
       "id": "emmi-31991c4563e5",
-      "slug": "working-student-excellent-leadership-emmi-ch",
+      "slug": "studente-di-lavoro-eccellente-leadership-emmi-luzern-luzern",
       "slugByLocale": {
         "de": "working-student-excellent-leadership-emmi-ch",
-        "it": "working-student-excellent-leadership-emmi-ch",
+        "it": "studente-di-lavoro-eccellente-leadership-emmi-luzern-luzern",
         "en": "working-student-excellent-leadership-emmi-ch",
-        "fr": "working-student-excellent-leadership-emmi-ch"
+        "fr": "un-etudiant-travailleur-excellent-leadership-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8065,7 +8065,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:34:16.009Z"
+      "firstSeenAt": "2026-10-29T21:34:16.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-excellent-leadership-emmi-ch"
+        ],
+        "fr": [
+          "working-student-excellent-leadership-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-excellent-leadership-emmi-ch"
+      ]
     },
     {
       "id": "emmi-15245c6db7d7-rdb8a847d",

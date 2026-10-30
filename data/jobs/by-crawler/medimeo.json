@@ -408,12 +408,12 @@
     },
     {
       "id": "medimeo-9caa44eddd98",
-      "slug": "oberarztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen",
+      "slug": "medico-dirigente-in-medicina-interna-generale-80-100-medicina-interna-ad-ampio-spettro-con-tutte-le-discipline",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen",
-        "it": "oberarztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen",
-        "en": "oberarztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen",
-        "fr": "oberarztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen"
+        "it": "medico-dirigente-in-medicina-interna-generale-80-100-medicina-interna-ad-ampio-spettro-con-tutte-le-discipline",
+        "en": "senior-physician-general-internal-medicine-80-100-broad-internal-medicine-with-all-special-disciplines-in-the-house",
+        "fr": "medecin-principal-medecine-generale-interne-80-100-medecine-interne-generale-avec-toutes-les-disciplines-speciales-de-la"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -471,16 +471,30 @@
         }
       },
       "postalCode": "4500",
-      "firstSeenAt": "2026-10-29T21:20:51.754Z"
+      "firstSeenAt": "2026-10-29T21:20:51.754Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen"
+      ]
     },
     {
       "id": "medimeo-c0d519772dde",
-      "slug": "hausarztin-hausarzt-60-100-zeit-per-patient-innen-statt-praxisfabrik-20-minuten-von-zurich-medimeo-ag-zurich",
+      "slug": "medico-di-famiglia-60-100-tempo-per-i-pazienti-invece-che-in-una-fabbrica-di-ambulatori-a-20-minuti-da-zurigo-medimeo-ag",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-60-100-zeit-fur-patient-innen-statt-praxisfabrik-20-minuten-von-zurich",
-        "it": "hausarztin-hausarzt-60-100-zeit-per-patient-innen-statt-praxisfabrik-20-minuten-von-zurich-medimeo-ag-zurich",
-        "en": "hausarztin-hausarzt-60-100-zeit-fur-patient-innen-statt-praxisfabrik-20-minuten-von-zurich",
-        "fr": "hausarztin-hausarzt-60-100-zeit-fur-patient-innen-statt-praxisfabrik-20-minuten-von-zurich"
+        "it": "medico-di-famiglia-60-100-tempo-per-i-pazienti-invece-che-in-una-fabbrica-di-ambulatori-a-20-minuti-da-zurigo-medimeo-ag",
+        "en": "general-practitioner-60-100-time-for-patients-instead-of-a-medical-practice-factory-20-minutes-from-zurich-medimeo-ag",
+        "fr": "medecin-generaliste-60-100-du-temps-pour-les-patient-e-s-plutot-qu-un-cabinet-usine-a-20-minutes-de-zurich-medimeo-ag"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -526,11 +540,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hausarztin-hausarzt-60-100-zeit-fur-patient-innen-statt-praxisfabrik-20-minuten-von-zurich",
+          "hausarztin-hausarzt-60-100-zeit-per-patient-innen-statt-praxisfabrik-20-minuten-von-zurich-medimeo-ag-zurich"
+        ],
+        "en": [
+          "hausarztin-hausarzt-60-100-zeit-fur-patient-innen-statt-praxisfabrik-20-minuten-von-zurich"
+        ],
+        "fr": [
           "hausarztin-hausarzt-60-100-zeit-fur-patient-innen-statt-praxisfabrik-20-minuten-von-zurich"
         ]
       },
       "previousSlugs": [
-        "hausarztin-hausarzt-60-100-zeit-fur-patient-innen-statt-praxisfabrik-20-minuten-von-zurich"
+        "hausarztin-hausarzt-60-100-zeit-fur-patient-innen-statt-praxisfabrik-20-minuten-von-zurich",
+        "hausarztin-hausarzt-60-100-zeit-per-patient-innen-statt-praxisfabrik-20-minuten-von-zurich-medimeo-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

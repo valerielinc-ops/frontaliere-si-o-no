@@ -9783,12 +9783,12 @@
     },
     {
       "id": "eth-zurich-61a1b6caebfe",
-      "slug": "berufsbildner-in-per-polymechaniker-innen-apprendista-m-w-d-eth-zurich",
+      "slug": "formatore-trice-professionale-per-apprendisti-e-polimeccanici-e-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "berufsbildner-in-fur-polymechaniker-innen-lernende-m-w-d-eth-zurich-ch",
-        "it": "berufsbildner-in-per-polymechaniker-innen-apprendista-m-w-d-eth-zurich",
-        "en": "berufsbildner-in-fur-polymechaniker-innen-lernende-m-w-d-eth-zurich-ch",
-        "fr": "berufsbildner-in-fur-polymechaniker-innen-lernende-m-w-d-eth-zurich-ch"
+        "it": "formatore-trice-professionale-per-apprendisti-e-polimeccanici-e-m-f-d-eth-zurich-zurich",
+        "en": "vocational-trainer-for-polymechanic-apprentices-m-f-d-eth-zurich-zurich",
+        "fr": "formateur-rice-professionnel-le-pour-apprenti-e-s-polymecanicien-ne-s-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9833,11 +9833,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "berufsbildner-in-fur-polymechaniker-innen-lernende-m-w-d-eth-zurich-ch",
+          "berufsbildner-in-per-polymechaniker-innen-apprendista-m-w-d-eth-zurich"
+        ],
+        "en": [
+          "berufsbildner-in-fur-polymechaniker-innen-lernende-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "berufsbildner-in-fur-polymechaniker-innen-lernende-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "berufsbildner-in-fur-polymechaniker-innen-lernende-m-w-d-eth-zurich-ch"
+        "berufsbildner-in-fur-polymechaniker-innen-lernende-m-w-d-eth-zurich-ch",
+        "berufsbildner-in-per-polymechaniker-innen-apprendista-m-w-d-eth-zurich"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9937,12 +9945,12 @@
     },
     {
       "id": "eth-zurich-934eab8d07cb",
-      "slug": "postdoctoral-position-in-science-technology-and-society-sts-eth-zurich-ch",
+      "slug": "posizione-post-dottorale-in-scienza-tecnologia-e-societa-sts-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-position-in-science-technology-and-society-sts-eth-zurich-ch",
-        "it": "postdoctoral-position-in-science-technology-and-society-sts-eth-zurich-ch",
-        "de": "postdoctoral-position-in-science-technology-and-society-sts-eth-zurich-ch",
-        "fr": "postdoctoral-position-in-science-technology-and-society-sts-eth-zurich-ch"
+        "it": "posizione-post-dottorale-in-scienza-tecnologia-e-societa-sts-eth-zurich-zurich",
+        "de": "postdoc-stelle-in-wissenschaft-technologie-und-gesellschaft-sts-eth-zurich-zurich",
+        "fr": "position-postdoctorale-en-science-technologie-et-societe-sts-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -10001,7 +10009,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-29T21:48:25.870Z"
+      "firstSeenAt": "2026-10-29T21:48:25.870Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-science-technology-and-society-sts-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoctoral-position-in-science-technology-and-society-sts-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-position-in-science-technology-and-society-sts-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-science-technology-and-society-sts-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-fcaca2b86374",

@@ -889,7 +889,7 @@
         "it": "libraio-70-a-orell-fussli-thalia-bern",
         "en": "bookseller-70-a-orell-fussli-thalia-bern",
         "de": "buchhandler-in-70-a-orell-fuessli-thalia-bern",
-        "fr": "libraire-70-a-orell-fussli-thalia-bern"
+        "fr": "librairie-70-a-orell-fussli-thalia-bern"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -937,7 +937,7 @@
       "previousSlugs": [
         "buchhandler-in-70-a-orell-fuessli-thalia-bern",
         "buchhandler-in-70-a-orell-fussli-thalia-bern",
-        "librairie-70-a-orell-fussli-thalia-bern"
+        "libraire-70-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -948,7 +948,7 @@
         ],
         "fr": [
           "buchhandler-in-70-a-orell-fussli-thalia-bern",
-          "librairie-70-a-orell-fussli-thalia-bern"
+          "libraire-70-a-orell-fussli-thalia-bern"
         ]
       },
       "firstSeenAt": "2026-10-16T09:32:54.743Z",
@@ -1925,12 +1925,12 @@
     },
     {
       "id": "orell-fuessli-thalia-462351896813",
-      "slug": "category-manager-in-80-a-orell-fuessli-thalia-zurich",
+      "slug": "responsabile-di-categoria-80-a-orell-fussli-thalia-zurich",
       "slugByLocale": {
         "de": "category-manager-in-80-a-orell-fuessli-thalia-zurich",
-        "it": "category-manager-in-80-a-orell-fuessli-thalia-zurich",
+        "it": "responsabile-di-categoria-80-a-orell-fussli-thalia-zurich",
         "en": "category-manager-in-80-a-orell-fuessli-thalia-zurich",
-        "fr": "category-manager-in-80-a-orell-fuessli-thalia-zurich"
+        "fr": "responsable-de-categorie-80-a-orell-fussli-thalia-zurich"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -1990,7 +1990,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:51:09.273Z"
+      "firstSeenAt": "2026-10-29T21:51:09.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "category-manager-in-80-a-orell-fuessli-thalia-zurich"
+        ],
+        "fr": [
+          "category-manager-in-80-a-orell-fuessli-thalia-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "category-manager-in-80-a-orell-fuessli-thalia-zurich"
+      ]
     }
   ]
 }

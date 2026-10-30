@@ -16339,12 +16339,12 @@
     },
     {
       "id": "usz-578129adfc91",
-      "slug": "fage-come-abteilungskoordinator-in-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "fage-come-coordinatore-trice-di-reparto-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "fage-als-abteilungskoordinator-in-80-100-usz-ch",
-        "it": "fage-come-abteilungskoordinator-in-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "fage-als-abteilungskoordinator-in-80-100-usz-ch",
-        "fr": "fage-als-abteilungskoordinator-in-80-100-usz-ch"
+        "it": "fage-come-coordinatore-trice-di-reparto-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "healthcare-assistant-as-department-coordinator-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "assc-en-tant-que-coordinateur-trice-de-service-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16391,11 +16391,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fage-als-abteilungskoordinator-in-80-100-usz-ch",
+          "fage-come-abteilungskoordinator-in-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "fage-als-abteilungskoordinator-in-80-100-usz-ch"
+        ],
+        "fr": [
           "fage-als-abteilungskoordinator-in-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "fage-als-abteilungskoordinator-in-80-100-usz-ch"
+        "fage-als-abteilungskoordinator-in-80-100-usz-ch",
+        "fage-come-abteilungskoordinator-in-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

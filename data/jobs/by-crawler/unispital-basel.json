@@ -5398,7 +5398,7 @@
       "slug": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
-        "en": "platform-manager-op-universitatsspital-basel",
+        "en": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
         "de": "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
         "fr": "gestionnaire-de-plateforme-gestionnaire-de-plateforme-op-universitatsspital-basel-basel"
       },
@@ -5445,7 +5445,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
-        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+        "platform-manager-op-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5453,7 +5454,7 @@
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
         ],
         "en": [
-          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+          "platform-manager-op-universitatsspital-basel"
         ],
         "fr": [
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
@@ -5722,7 +5723,7 @@
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "en": "physiotherapist-universitatsspital-basel",
+        "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapiste-universitatsspital-basel-basel"
       },
@@ -5771,7 +5772,7 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+        "physiotherapist-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5781,7 +5782,7 @@
         "en": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+          "physiotherapist-universitatsspital-basel"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
@@ -10627,12 +10628,12 @@
     },
     {
       "id": "unispital-basel-c4d59bf42003",
-      "slug": "stationssekretarin-stationssekretar-universitatsspital-basel-basel",
+      "slug": "sottosegretario-stazione-sottosegretario-stazione-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "stationssekretarin-stationssekretar-unispital-basel-ch",
-        "it": "stationssekretarin-stationssekretar-universitatsspital-basel-basel",
-        "en": "stationssekretarin-stationssekretar-universitatsspital-basel-basel",
-        "fr": "stationssekretarin-stationssekretar-universitatsspital-basel-basel"
+        "it": "sottosegretario-stazione-sottosegretario-stazione-universitatsspital-basel-basel",
+        "en": "station-secretary-station-secretary-universitatsspital-basel-basel",
+        "fr": "secretaire-de-station-secretaire-de-station-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10679,11 +10680,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "stationssekretarin-stationssekretar-unispital-basel-ch"
+          "stationssekretarin-stationssekretar-unispital-basel-ch",
+          "stationssekretarin-stationssekretar-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "stationssekretarin-stationssekretar-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "stationssekretarin-stationssekretar-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "stationssekretarin-stationssekretar-unispital-basel-ch"
+        "stationssekretarin-stationssekretar-unispital-basel-ch",
+        "stationssekretarin-stationssekretar-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10777,12 +10786,12 @@
     },
     {
       "id": "unispital-basel-19703e8669b2",
-      "slug": "collaboratore-trice-in-bautechnik-maler-in-universitatsspital-basel",
+      "slug": "collaboratore-trice-nella-tecnica-edilizia-pittore-trice-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "mitarbeiter-in-bautechnik-maler-in-unispital-basel-ch",
-        "it": "collaboratore-trice-in-bautechnik-maler-in-universitatsspital-basel",
-        "en": "mitarbeiter-in-bautechnik-maler-in-universitatsspital-basel-basel",
-        "fr": "mitarbeiter-in-bautechnik-maler-in-universitatsspital-basel-basel"
+        "it": "collaboratore-trice-nella-tecnica-edilizia-pittore-trice-universitatsspital-basel-basel",
+        "en": "building-technology-employee-painter-universitatsspital-basel-basel",
+        "fr": "employe-e-en-technique-du-batiment-peintre-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10829,11 +10838,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-bautechnik-maler-in-unispital-basel-ch"
+          "mitarbeiter-in-bautechnik-maler-in-unispital-basel-ch",
+          "collaboratore-trice-in-bautechnik-maler-in-universitatsspital-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-bautechnik-maler-in-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "mitarbeiter-in-bautechnik-maler-in-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-bautechnik-maler-in-unispital-basel-ch"
+        "mitarbeiter-in-bautechnik-maler-in-unispital-basel-ch",
+        "collaboratore-trice-in-bautechnik-maler-in-universitatsspital-basel",
+        "mitarbeiter-in-bautechnik-maler-in-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10852,10 +10870,10 @@
     },
     {
       "id": "unispital-basel-33abf3e42a98",
-      "slug": "quality-control-manager-gmp-uzti-unispital-basel-ch",
+      "slug": "gestione-del-controllo-di-qualita-gmp-uzti-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "quality-control-manager-gmp-uzti-unispital-basel-ch",
-        "it": "quality-control-manager-gmp-uzti-unispital-basel-ch",
+        "it": "gestione-del-controllo-di-qualita-gmp-uzti-universitatsspital-basel-basel",
         "en": "quality-control-manager-gmp-uzti-unispital-basel-ch",
         "fr": "quality-control-manager-gmp-uzti-unispital-basel-ch"
       },
@@ -10916,13 +10934,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:30:38.007Z"
+      "firstSeenAt": "2026-10-29T21:30:38.007Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-control-manager-gmp-uzti-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-control-manager-gmp-uzti-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-041d1e505678",
       "slug": "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel-ee839eaef9",
       "slugByLocale": {
-        "it": "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel-ee839eaef9",
+        "it": "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
         "en": "radiology-specialist-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
         "fr": "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
@@ -10972,16 +10998,14 @@
         "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
         "radiology-specialist-hf-fh-universitatsspital-basel-basel",
         "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel",
-        "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
-        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel"
+        "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
           "radiology-specialist-hf-fh-universitatsspital-basel-basel",
           "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel",
-          "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
-          "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel"
+          "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
         ],
         "en": [
           "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"

@@ -1974,7 +1974,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -2024,7 +2024,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2033,7 +2033,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -4608,12 +4608,12 @@
     },
     {
       "id": "unibe-2792200c4b77",
-      "slug": "phd-student-in-cancer-immunology-and-leukemia-stem-cell-biology-unibe-bern",
+      "slug": "phd-student-in-cancro-immunologia-e-leucemia-stem-cell-biology-universitat-bern-bern",
       "slugByLocale": {
         "en": "phd-student-in-cancer-immunology-and-leukemia-stem-cell-biology-unibe-bern",
-        "it": "phd-student-in-cancer-immunology-and-leukemia-stem-cell-biology-unibe-bern",
-        "de": "phd-student-in-cancer-immunology-and-leukemia-stem-cell-biology-unibe-bern",
-        "fr": "phd-student-in-cancer-immunology-and-leukemia-stem-cell-biology-unibe-bern"
+        "it": "phd-student-in-cancro-immunologia-e-leucemia-stem-cell-biology-universitat-bern-bern",
+        "de": "phd-student-in-krebs-immunologie-und-leukamie-stammzellbiologie-universitat-bern-bern",
+        "fr": "doctorant-en-immunologie-du-cancer-et-biologie-des-cellules-souches-de-leucemie-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4672,16 +4672,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:48:12.102Z"
+      "firstSeenAt": "2026-10-29T21:48:12.102Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-in-cancer-immunology-and-leukemia-stem-cell-biology-unibe-bern"
+        ],
+        "de": [
+          "phd-student-in-cancer-immunology-and-leukemia-stem-cell-biology-unibe-bern"
+        ],
+        "fr": [
+          "phd-student-in-cancer-immunology-and-leukemia-stem-cell-biology-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-in-cancer-immunology-and-leukemia-stem-cell-biology-unibe-bern"
+      ]
     },
     {
       "id": "unibe-3c5ae0243c35",
-      "slug": "doktorat-e-assistenz-per-altere-e-o-neuere-geschichte-des-christentums-universitat-bern",
+      "slug": "dottorato-e-assistenza-per-la-storia-antica-e-o-moderna-del-cristianesimo-universitat-bern-bern",
       "slugByLocale": {
         "de": "doktorat-und-assistenz-fur-altere-und-oder-neuere-geschichte-des-christentums-unibe-bern",
-        "it": "doktorat-e-assistenz-per-altere-e-o-neuere-geschichte-des-christentums-universitat-bern",
-        "en": "doktorat-und-assistenz-fur-altere-und-oder-neuere-geschichte-des-christentums-unibe-bern",
-        "fr": "doktorat-und-assistenz-fur-altere-und-oder-neuere-geschichte-des-christentums-unibe-bern"
+        "it": "dottorato-e-assistenza-per-la-storia-antica-e-o-moderna-del-cristianesimo-universitat-bern-bern",
+        "en": "doctorate-and-assistant-for-elder-and-or-modern-history-of-christianity-universitat-bern-bern",
+        "fr": "doctorat-et-assistant-pour-l-histoire-ancienne-et-ou-moderne-du-christianisme-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4729,11 +4743,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "doktorat-und-assistenz-fur-altere-und-oder-neuere-geschichte-des-christentums-unibe-bern",
+          "doktorat-e-assistenz-per-altere-e-o-neuere-geschichte-des-christentums-universitat-bern"
+        ],
+        "en": [
+          "doktorat-und-assistenz-fur-altere-und-oder-neuere-geschichte-des-christentums-unibe-bern"
+        ],
+        "fr": [
           "doktorat-und-assistenz-fur-altere-und-oder-neuere-geschichte-des-christentums-unibe-bern"
         ]
       },
       "previousSlugs": [
-        "doktorat-und-assistenz-fur-altere-und-oder-neuere-geschichte-des-christentums-unibe-bern"
+        "doktorat-und-assistenz-fur-altere-und-oder-neuere-geschichte-des-christentums-unibe-bern",
+        "doktorat-e-assistenz-per-altere-e-o-neuere-geschichte-des-christentums-universitat-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4752,12 +4774,12 @@
     },
     {
       "id": "unibe-8ece5de9c21c",
-      "slug": "direktionsassistent-in-administration-stellvertretung-hr-universitat-bern-bern",
+      "slug": "assistente-di-direzione-amministrazione-e-sostituzione-hr-universitat-bern-bern",
       "slugByLocale": {
         "de": "direktionsassistent-in-administration-amp-stellvertretung-hr-unibe-bern",
-        "it": "direktionsassistent-in-administration-stellvertretung-hr-universitat-bern-bern",
-        "en": "direktionsassistent-in-administration-stellvertretung-hr-universitat-bern-bern",
-        "fr": "direktionsassistent-in-administration-stellvertretung-hr-universitat-bern-bern"
+        "it": "assistente-di-direzione-amministrazione-e-sostituzione-hr-universitat-bern-bern",
+        "en": "executive-assistant-administration-hr-deputy-universitat-bern-bern",
+        "fr": "assistant-e-de-direction-administration-suppleance-rh-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4805,11 +4827,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "direktionsassistent-in-administration-amp-stellvertretung-hr-unibe-bern"
+          "direktionsassistent-in-administration-amp-stellvertretung-hr-unibe-bern",
+          "direktionsassistent-in-administration-stellvertretung-hr-universitat-bern-bern"
+        ],
+        "en": [
+          "direktionsassistent-in-administration-stellvertretung-hr-universitat-bern-bern"
+        ],
+        "fr": [
+          "direktionsassistent-in-administration-stellvertretung-hr-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "direktionsassistent-in-administration-amp-stellvertretung-hr-unibe-bern"
+        "direktionsassistent-in-administration-amp-stellvertretung-hr-unibe-bern",
+        "direktionsassistent-in-administration-stellvertretung-hr-universitat-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

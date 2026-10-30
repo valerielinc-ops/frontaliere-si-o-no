@@ -255,12 +255,12 @@
     },
     {
       "id": "caritas-schweiz-562c9fd7dc74",
-      "slug": "betreuende-fachperson-nacht-e-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+      "slug": "operatore-trice-specializzato-a-nell-assistenza-notturna-e-nei-fine-settimana-mna-40-a-tempo-determinato-a-zurigo-e",
       "slugByLocale": {
         "de": "betreuende-fachperson-nacht-und-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas",
-        "it": "betreuende-fachperson-nacht-e-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "en": "betreuende-fachperson-nacht-und-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas",
-        "fr": "betreuende-fachperson-nacht-und-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas"
+        "it": "operatore-trice-specializzato-a-nell-assistenza-notturna-e-nei-fine-settimana-mna-40-a-tempo-determinato-a-zurigo-e",
+        "en": "supervisor-night-and-weekend-mna-40-temporary-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+        "fr": "superviseur-nuit-et-week-end-mna-40-temporaire-a-zurich-uster-h-f-d-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -310,11 +310,19 @@
       "pensum": "40%",
       "previousSlugsByLocale": {
         "it": [
+          "betreuende-fachperson-nacht-und-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas",
+          "betreuende-fachperson-nacht-e-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
+        ],
+        "en": [
+          "betreuende-fachperson-nacht-und-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas"
+        ],
+        "fr": [
           "betreuende-fachperson-nacht-und-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas"
         ]
       },
       "previousSlugs": [
-        "betreuende-fachperson-nacht-und-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas"
+        "betreuende-fachperson-nacht-und-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas",
+        "betreuende-fachperson-nacht-e-wochenende-mna-40-befristet-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
       ],
       "salaryMin": 25200,
       "salaryMax": 46600,

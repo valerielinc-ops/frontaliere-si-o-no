@@ -2030,12 +2030,12 @@
     },
     {
       "id": "gzo-wetzikon-f3b4baf68e56",
-      "slug": "fachfrau-mann-gesundheit-cfc-per-la-medizinische-bettenstation-100-gzo-spital-wetzikon",
+      "slug": "operatore-trice-sociosanitario-a-afc-per-il-reparto-di-degenza-medica-100-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-fur-die-medizinische-bettenstation-100-gzo-wetzikon-ch",
-        "it": "fachfrau-mann-gesundheit-cfc-per-la-medizinische-bettenstation-100-gzo-spital-wetzikon",
-        "en": "fachfrau-mann-gesundheit-efz-fur-die-medizinische-bettenstation-100-gzo-wetzikon-ch",
-        "fr": "fachfrau-mann-gesundheit-efz-fur-die-medizinische-bettenstation-100-gzo-wetzikon-ch"
+        "it": "operatore-trice-sociosanitario-a-afc-per-il-reparto-di-degenza-medica-100-gzo-spital-wetzikon-wetzikon",
+        "en": "healthcare-specialist-efz-for-the-medical-inpatient-ward-100-gzo-spital-wetzikon-wetzikon",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-pour-le-service-de-medecine-stationnaire-100-gzo-spital-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -2084,11 +2084,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-fur-die-medizinische-bettenstation-100-gzo-wetzikon-ch",
+          "fachfrau-mann-gesundheit-cfc-per-la-medizinische-bettenstation-100-gzo-spital-wetzikon"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-fur-die-medizinische-bettenstation-100-gzo-wetzikon-ch"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-fur-die-medizinische-bettenstation-100-gzo-wetzikon-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-fur-die-medizinische-bettenstation-100-gzo-wetzikon-ch"
+        "fachfrau-mann-gesundheit-efz-fur-die-medizinische-bettenstation-100-gzo-wetzikon-ch",
+        "fachfrau-mann-gesundheit-cfc-per-la-medizinische-bettenstation-100-gzo-spital-wetzikon"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

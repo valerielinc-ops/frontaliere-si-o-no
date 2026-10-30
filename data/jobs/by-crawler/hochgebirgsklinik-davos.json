@@ -1090,12 +1090,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-8731a55dbeed",
-      "slug": "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos",
+      "slug": "assistente-scolastico-di-rappresentanza-m-f-d-100-temporaneo-12-mesi-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos-ch",
-        "it": "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos",
-        "en": "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos-ch",
-        "fr": "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos-ch"
+        "it": "assistente-scolastico-di-rappresentanza-m-f-d-100-temporaneo-12-mesi-hochgebirgsklinik-davos-davos",
+        "en": "representation-school-assistant-m-f-d-100-temporary-12-months-hochgebirgsklinik-davos-davos",
+        "fr": "representation-assistant-d-ecole-h-f-d-100-temporaire-12-mois-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1147,11 +1147,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos-ch",
+          "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos"
+        ],
+        "en": [
+          "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
           "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos-ch"
         ]
       },
       "previousSlugs": [
-        "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos-ch"
+        "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos-ch",
+        "vertretung-schulassistenz-m-w-d-100-befristet-12-monate-hochgebirgsklinik-davos"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

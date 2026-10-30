@@ -168,10 +168,10 @@
     },
     {
       "id": "abraxas-b1e9238dc3e3",
-      "slug": "solution-architekt-in-80-100-abraxas-st-gallen",
+      "slug": "architetto-a-di-soluzioni-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
         "de": "solution-architekt-in-80-100-abraxas-st-gallen",
-        "it": "solution-architekt-in-80-100-abraxas-st-gallen",
+        "it": "architetto-a-di-soluzioni-80-100-abraxas-informatik-ag-st-gallen",
         "en": "solution-architekt-in-80-100-abraxas-st-gallen",
         "fr": "solution-architekt-in-80-100-abraxas-st-gallen"
       },
@@ -236,7 +236,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:19:50.903Z"
+      "firstSeenAt": "2026-10-29T21:19:50.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architekt-in-80-100-abraxas-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "solution-architekt-in-80-100-abraxas-st-gallen"
+      ]
     },
     {
       "id": "abraxas-da46b9626554",
@@ -566,7 +574,7 @@
       "slug": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
         "it": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "servicenow-ai-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "en": "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
         "de": "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
         "fr": "servicenow-ki-solutions-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
@@ -619,7 +627,7 @@
       "previousSlugs": [
         "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
         "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8"
+        "servicenow-ai-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -627,7 +635,7 @@
         ],
         "en": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
-          "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8"
+          "servicenow-ai-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
         ]
       },
       "firstSeenAt": "2026-08-18T09:46:24.423Z",
@@ -1061,8 +1069,8 @@
       "slugByLocale": {
         "de": "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
         "it": "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
-        "fr": "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
+        "en": "head-of-solution-architecture-80-100-abraxas-informatik-ag-st-gallen",
+        "fr": "responsable-de-l-architecture-des-solutions-80-100-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
@@ -1114,6 +1122,12 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
+        ],
+        "en": [
+          "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
+        ],
+        "fr": [
           "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
         ]
       },

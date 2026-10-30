@@ -2313,7 +2313,7 @@
       "slug": "soc-ingegnere-dlp-audemars-piguet-le-brassus",
       "slugByLocale": {
         "it": "soc-ingegnere-dlp-audemars-piguet-le-brassus",
-        "en": "soc-engineer-dlp-audemars-piguet-le-brassus-vd-switzerland",
+        "en": "soc-lpd-audemars-piguet-le-brassus-vd-switzerland",
         "de": "soc-ingenieur-dlp-audemars-piguet-le-brassus",
         "fr": "soc-engineer-dlp-audemars-piguet-le-brassus-vd-switzerland"
       },
@@ -2367,6 +2367,9 @@
           "soc-engineer-dlp-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "de": [
+          "soc-engineer-dlp-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "en": [
           "soc-engineer-dlp-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
@@ -3093,12 +3096,12 @@
     },
     {
       "id": "audemars-piguet-6d2cb4ffc9eb",
-      "slug": "welcome-host-50-audemars-piguet-crans-montana-vs-switzerland",
+      "slug": "benvenuto-host-50-audemars-piguet-crans-montana-vs-switzerland",
       "slugByLocale": {
         "fr": "welcome-host-50-audemars-piguet-crans-montana-vs-switzerland",
-        "it": "welcome-host-50-audemars-piguet-crans-montana-vs-switzerland",
+        "it": "benvenuto-host-50-audemars-piguet-crans-montana-vs-switzerland",
         "en": "welcome-host-50-audemars-piguet-crans-montana-vs-switzerland",
-        "de": "welcome-host-50-audemars-piguet-crans-montana-vs-switzerland"
+        "de": "willkommen-gastgeber-50-audemars-piguet-crans-montana-vs-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -3158,7 +3161,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:28:04.475Z"
+      "firstSeenAt": "2026-10-29T21:28:04.475Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "welcome-host-50-audemars-piguet-crans-montana-vs-switzerland"
+        ],
+        "de": [
+          "welcome-host-50-audemars-piguet-crans-montana-vs-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "welcome-host-50-audemars-piguet-crans-montana-vs-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-d7388b141444",
@@ -3317,10 +3331,10 @@
     },
     {
       "id": "audemars-piguet-b75972f20693",
-      "slug": "content-production-expert-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "esperto-di-produzione-dei-contenuti-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "en": "content-production-expert-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "content-production-expert-audemars-piguet-le-brassus-vd-switzerland",
+        "it": "esperto-di-produzione-dei-contenuti-audemars-piguet-le-brassus-vd-switzerland",
         "de": "content-production-expert-audemars-piguet-le-brassus-vd-switzerland",
         "fr": "content-production-expert-audemars-piguet-le-brassus-vd-switzerland"
       },
@@ -3381,7 +3395,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:28:04.450Z"
+      "firstSeenAt": "2026-10-29T21:28:04.450Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "content-production-expert-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "content-production-expert-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-8552d7af3dda",

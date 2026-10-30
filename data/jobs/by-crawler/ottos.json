@@ -3721,9 +3721,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3774,17 +3774,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -8712,12 +8713,12 @@
     },
     {
       "id": "ottos-feccfe1c0a6a",
-      "slug": "abteilungsleiter-in-mobel-otto-s-ag-bremgarten",
+      "slug": "responsabile-di-reparto-mobili-otto-s-ag-bremgarten",
       "slugByLocale": {
         "de": "abteilungsleiter-in-mobel-ottos-bremgarten",
-        "it": "abteilungsleiter-in-mobel-otto-s-ag-bremgarten",
-        "en": "abteilungsleiter-in-mobel-otto-s-ag-bremgarten",
-        "fr": "abteilungsleiter-in-mobel-otto-s-ag-bremgarten"
+        "it": "responsabile-di-reparto-mobili-otto-s-ag-bremgarten",
+        "en": "furniture-department-manager-otto-s-ag-bremgarten",
+        "fr": "responsable-du-departement-meubles-otto-s-ag-bremgarten"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8769,11 +8770,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-mobel-ottos-bremgarten"
+          "abteilungsleiter-in-mobel-ottos-bremgarten",
+          "abteilungsleiter-in-mobel-otto-s-ag-bremgarten"
+        ],
+        "en": [
+          "abteilungsleiter-in-mobel-otto-s-ag-bremgarten"
+        ],
+        "fr": [
+          "abteilungsleiter-in-mobel-otto-s-ag-bremgarten"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-mobel-ottos-bremgarten"
+        "abteilungsleiter-in-mobel-ottos-bremgarten",
+        "abteilungsleiter-in-mobel-otto-s-ag-bremgarten"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

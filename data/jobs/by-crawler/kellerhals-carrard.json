@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "kellerhals-carrard-f573d17283df",
-      "slug": "tax-compliance-officer-kellerhals-carrard-geneve",
+      "slug": "responsabile-del-rispetto-fiscale-kellerhals-carrard-geneve",
       "slugByLocale": {
         "fr": "tax-compliance-officer-kellerhals-carrard-geneve",
-        "it": "tax-compliance-officer-kellerhals-carrard-geneve",
+        "it": "responsabile-del-rispetto-fiscale-kellerhals-carrard-geneve",
         "en": "tax-compliance-officer-kellerhals-carrard-geneve",
-        "de": "tax-compliance-officer-kellerhals-carrard-geneve"
+        "de": "steuer-compliance-beauftragter-kellerhals-carrard-geneve"
       },
       "company": "Kellerhals Carrard",
       "companyKey": "kellerhals-carrard",
@@ -68,7 +68,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:54:24.236Z"
+      "firstSeenAt": "2026-10-29T21:54:24.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tax-compliance-officer-kellerhals-carrard-geneve"
+        ],
+        "de": [
+          "tax-compliance-officer-kellerhals-carrard-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "tax-compliance-officer-kellerhals-carrard-geneve"
+      ]
     },
     {
       "id": "kellerhals-carrard-75df663941cf",

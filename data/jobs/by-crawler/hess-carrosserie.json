@@ -2083,7 +2083,7 @@
       "slug": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
       "slugByLocale": {
         "it": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
-        "en": "carrosseries-pengler-carrosserie-hess-ag-rothenburg",
+        "en": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
         "de": "carrosseriespengler-hess-rothenburg",
         "fr": "pengler-de-carrosseries-carrosserie-hess-ag-rothenburg"
       },
@@ -2134,7 +2134,8 @@
       "previousSlugs": [
         "carrosseriespengler-hess-rothenburg",
         "carrosseriespengler-carrosserie-hess-ag-rothenburg",
-        "body-spider-glider-carrosserie-hess-ag-rothenburg"
+        "body-spider-glider-carrosserie-hess-ag-rothenburg",
+        "carrosseries-pengler-carrosserie-hess-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2143,7 +2144,7 @@
         ],
         "en": [
           "body-spider-glider-carrosserie-hess-ag-rothenburg",
-          "carrosseriespengler-carrosserie-hess-ag-rothenburg"
+          "carrosseries-pengler-carrosserie-hess-ag-rothenburg"
         ],
         "fr": [
           "carrosseriespengler-carrosserie-hess-ag-rothenburg"
@@ -2494,12 +2495,12 @@
     },
     {
       "id": "hess-carrosserie-ad80f95ec2f3",
-      "slug": "kundendienstberater-nutzfahrzeuge-personenwagen-m-w-d-hess-rothenburg",
+      "slug": "consulenti-del-servizio-clienti-veicoli-commerciali-auto-passeggeri-m-f-d-carrosserie-hess-ag-rothenburg",
       "slugByLocale": {
         "de": "kundendienstberater-nutzfahrzeuge-personenwagen-m-w-d-hess-rothenburg",
-        "it": "kundendienstberater-nutzfahrzeuge-personenwagen-m-w-d-hess-rothenburg",
-        "en": "kundendienstberater-nutzfahrzeuge-personenwagen-m-w-d-hess-rothenburg",
-        "fr": "kundendienstberater-nutzfahrzeuge-personenwagen-m-w-d-hess-rothenburg"
+        "it": "consulenti-del-servizio-clienti-veicoli-commerciali-auto-passeggeri-m-f-d-carrosserie-hess-ag-rothenburg",
+        "en": "customer-service-consultants-commercial-vehicles-passenger-cars-m-f-d-carrosserie-hess-ag-rothenburg",
+        "fr": "consultants-en-services-a-la-clientele-vehicules-commerciaux-et-voitures-particulieres-h-f-d-carrosserie-hess-ag"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2560,16 +2561,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:19:21.169Z"
+      "firstSeenAt": "2026-10-29T21:19:21.169Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundendienstberater-nutzfahrzeuge-personenwagen-m-w-d-hess-rothenburg"
+        ],
+        "en": [
+          "kundendienstberater-nutzfahrzeuge-personenwagen-m-w-d-hess-rothenburg"
+        ],
+        "fr": [
+          "kundendienstberater-nutzfahrzeuge-personenwagen-m-w-d-hess-rothenburg"
+        ]
+      },
+      "previousSlugs": [
+        "kundendienstberater-nutzfahrzeuge-personenwagen-m-w-d-hess-rothenburg"
+      ]
     },
     {
       "id": "hess-carrosserie-728c80bf38e7",
-      "slug": "gestalter-werbetechnik-m-w-d-hess-bellach",
+      "slug": "tecnologia-pubblicitaria-progettata-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "de": "gestalter-werbetechnik-m-w-d-hess-bellach",
-        "it": "gestalter-werbetechnik-m-w-d-hess-bellach",
-        "en": "gestalter-werbetechnik-m-w-d-hess-bellach",
-        "fr": "gestalter-werbetechnik-m-w-d-hess-bellach"
+        "it": "tecnologia-pubblicitaria-progettata-m-f-d-carrosserie-hess-ag-bellach",
+        "en": "designed-advertising-technology-m-f-d-carrosserie-hess-ag-bellach",
+        "fr": "technologie-publicitaire-concue-h-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2629,7 +2644,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gestalter-werbetechnik-m-w-d-hess-bellach"
+        ],
+        "en": [
+          "gestalter-werbetechnik-m-w-d-hess-bellach"
+        ],
+        "fr": [
+          "gestalter-werbetechnik-m-w-d-hess-bellach"
+        ]
+      },
+      "previousSlugs": [
+        "gestalter-werbetechnik-m-w-d-hess-bellach"
+      ]
     },
     {
       "id": "hess-carrosserie-41be2347df5c",

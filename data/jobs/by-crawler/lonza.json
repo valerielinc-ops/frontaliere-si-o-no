@@ -7196,7 +7196,7 @@
       "slugByLocale": {
         "it": "linea-meccanica-m-f-d-lonza-visp",
         "en": "line-mechanic-f-m-d-lonza-ch",
-        "de": "streckenmechaniker-m-w-d-lonza-visp",
+        "de": "line-mechanic-m-w-d-lonza-visp",
         "fr": "mecanicien-de-ligne-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -7243,7 +7243,7 @@
         "line-mechanic-f-m-d-lonza-ch",
         "line-mechanic-f-m-d-lonza-visp",
         "leitungsmechaniker-m-w-d-lonza-visp",
-        "line-mechanic-m-w-d-lonza-visp"
+        "streckenmechaniker-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7252,7 +7252,7 @@
         "de": [
           "line-mechanic-f-m-d-lonza-visp",
           "leitungsmechaniker-m-w-d-lonza-visp",
-          "line-mechanic-m-w-d-lonza-visp"
+          "streckenmechaniker-m-w-d-lonza-visp"
         ],
         "fr": [
           "line-mechanic-f-m-d-lonza-ch"
@@ -14719,12 +14719,12 @@
     },
     {
       "id": "lonza-0f011197a1c4",
-      "slug": "associate-principal-scientist-cell-culture-development-lonza-ch",
+      "slug": "associate-principal-scientist-sviluppo-della-cultura-cellulare-lonza-visp",
       "slugByLocale": {
         "en": "associate-principal-scientist-cell-culture-development-lonza-ch",
-        "it": "associate-principal-scientist-cell-culture-development-lonza-ch",
-        "de": "associate-principal-scientist-cell-culture-development-lonza-ch",
-        "fr": "associate-principal-scientist-cell-culture-development-lonza-ch"
+        "it": "associate-principal-scientist-sviluppo-della-cultura-cellulare-lonza-visp",
+        "de": "associate-principal-scientist-zellkulturentwicklung-lonza-visp",
+        "fr": "chercheur-principal-associe-developpement-de-la-culture-cellulaire-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14783,15 +14783,29 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-29T21:20:30.051Z"
+      "firstSeenAt": "2026-10-29T21:20:30.051Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-principal-scientist-cell-culture-development-lonza-ch"
+        ],
+        "de": [
+          "associate-principal-scientist-cell-culture-development-lonza-ch"
+        ],
+        "fr": [
+          "associate-principal-scientist-cell-culture-development-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-principal-scientist-cell-culture-development-lonza-ch"
+      ]
     },
     {
       "id": "lonza-e87688105629",
-      "slug": "bioprocess-engineer-lonza-ch",
+      "slug": "bioprocess-ingegnere-lonza-visp",
       "slugByLocale": {
         "en": "bioprocess-engineer-lonza-ch",
-        "it": "bioprocess-engineer-lonza-ch",
-        "de": "bioprocess-engineer-lonza-ch",
+        "it": "bioprocess-ingegnere-lonza-visp",
+        "de": "bioprocess-ingenieur-lonza-visp",
         "fr": "bioprocess-engineer-lonza-ch"
       },
       "company": "Lonza",
@@ -14850,16 +14864,27 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "bioprocess-engineer-lonza-ch"
+        ],
+        "de": [
+          "bioprocess-engineer-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-engineer-lonza-ch"
+      ]
     },
     {
       "id": "lonza-6f7f1a0ec866",
-      "slug": "global-master-data-professional-fixed-term-contract-lonza-ch",
+      "slug": "global-master-data-professional-contratto-a-termine-fisso-lonza-visp",
       "slugByLocale": {
         "en": "global-master-data-professional-fixed-term-contract-lonza-ch",
-        "it": "global-master-data-professional-fixed-term-contract-lonza-ch",
-        "de": "global-master-data-professional-fixed-term-contract-lonza-ch",
-        "fr": "global-master-data-professional-fixed-term-contract-lonza-ch"
+        "it": "global-master-data-professional-contratto-a-termine-fisso-lonza-visp",
+        "de": "global-master-data-professional-befristeter-vertrag-lonza-visp",
+        "fr": "global-master-data-professional-contrat-a-duree-determinee-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14918,16 +14943,30 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-29T21:20:28.678Z"
+      "firstSeenAt": "2026-10-29T21:20:28.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-master-data-professional-fixed-term-contract-lonza-ch"
+        ],
+        "de": [
+          "global-master-data-professional-fixed-term-contract-lonza-ch"
+        ],
+        "fr": [
+          "global-master-data-professional-fixed-term-contract-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-master-data-professional-fixed-term-contract-lonza-ch"
+      ]
     },
     {
       "id": "lonza-df0685975d05",
-      "slug": "associate-director-integrated-biologics-r-d-execution-engagement-lead-lonza-ch",
+      "slug": "direttore-associato-responsabile-dell-implementazione-e-del-coinvolgimento-per-la-r-s-integrata-dei-farmaci-biologici",
       "slugByLocale": {
         "en": "associate-director-integrated-biologics-r-d-execution-engagement-lead-lonza-ch",
-        "it": "associate-director-integrated-biologics-r-d-execution-engagement-lead-lonza-ch",
-        "de": "associate-director-integrated-biologics-r-d-execution-engagement-lead-lonza-ch",
-        "fr": "associate-director-integrated-biologics-r-d-execution-engagement-lead-lonza-ch"
+        "it": "direttore-associato-responsabile-dell-implementazione-e-del-coinvolgimento-per-la-r-s-integrata-dei-farmaci-biologici",
+        "de": "stellvertretende-leitung-leitung-fur-die-umsetzung-und-das-engagement-im-bereich-forschung-und-entwicklung-integrierter",
+        "fr": "directeur-associe-responsable-de-l-execution-et-de-l-engagement-en-r-d-integree-des-produits-biologiques-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14986,7 +15025,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-29T21:20:27.916Z"
+      "firstSeenAt": "2026-10-29T21:20:27.916Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-integrated-biologics-r-d-execution-engagement-lead-lonza-ch"
+        ],
+        "de": [
+          "associate-director-integrated-biologics-r-d-execution-engagement-lead-lonza-ch"
+        ],
+        "fr": [
+          "associate-director-integrated-biologics-r-d-execution-engagement-lead-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-integrated-biologics-r-d-execution-engagement-lead-lonza-ch"
+      ]
     },
     {
       "id": "lonza-0105a6201bbb",

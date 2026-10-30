@@ -2331,10 +2331,10 @@
     },
     {
       "id": "livit-fa836d5fcbd2",
-      "slug": "werkstudent-in-ict-support-hardware-lifecycle-management-livit-zurich",
+      "slug": "studente-lavoratore-studentessa-lavoratrice-nel-supporto-ict-hardware-e-gestione-del-ciclo-di-vita-livit-ag-zurich",
       "slugByLocale": {
         "de": "werkstudent-in-ict-support-hardware-lifecycle-management-livit-zurich",
-        "it": "werkstudent-in-ict-support-hardware-lifecycle-management-livit-zurich",
+        "it": "studente-lavoratore-studentessa-lavoratrice-nel-supporto-ict-hardware-e-gestione-del-ciclo-di-vita-livit-ag-zurich",
         "en": "werkstudent-in-ict-support-hardware-lifecycle-management-livit-zurich",
         "fr": "werkstudent-in-ict-support-hardware-lifecycle-management-livit-zurich"
       },
@@ -2395,7 +2395,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:54:44.680Z"
+      "firstSeenAt": "2026-10-29T21:54:44.680Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-in-ict-support-hardware-lifecycle-management-livit-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-in-ict-support-hardware-lifecycle-management-livit-zurich"
+      ]
     },
     {
       "id": "livit-f5c340ccf2ee",
@@ -2467,12 +2475,12 @@
     },
     {
       "id": "livit-95f10f45a991",
-      "slug": "sachbearbeiter-in-team-bewirtschaftung-geschaftsflachen-livit-zurich",
+      "slug": "collaboratore-trice-amministrativo-a-del-team-di-gestione-delle-superfici-commerciali-livit-ag-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-team-bewirtschaftung-geschaftsflachen-livit-zurich",
-        "it": "sachbearbeiter-in-team-bewirtschaftung-geschaftsflachen-livit-zurich",
-        "en": "sachbearbeiter-in-team-bewirtschaftung-geschaftsflachen-livit-zurich",
-        "fr": "sachbearbeiter-in-team-bewirtschaftung-geschaftsflachen-livit-zurich"
+        "it": "collaboratore-trice-amministrativo-a-del-team-di-gestione-delle-superfici-commerciali-livit-ag-zurich",
+        "en": "administrative-officer-commercial-properties-management-team-livit-ag-zurich",
+        "fr": "collaborateur-trice-administratif-ve-equipe-de-gestion-des-surfaces-commerciales-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2531,7 +2539,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:54:44.649Z"
+      "firstSeenAt": "2026-10-29T21:54:44.649Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-team-bewirtschaftung-geschaftsflachen-livit-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-team-bewirtschaftung-geschaftsflachen-livit-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-team-bewirtschaftung-geschaftsflachen-livit-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-team-bewirtschaftung-geschaftsflachen-livit-zurich"
+      ]
     },
     {
       "id": "livit-db3c2313cc01",

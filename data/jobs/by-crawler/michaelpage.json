@@ -1083,8 +1083,8 @@
       "slugByLocale": {
         "en": "chief-operating-officer-implantable-medical-devices-michael-page-lausanne-vaud-4eeb09e4",
         "it": "chief-operating-officer-implantable-medical-devices-michael-page-lausanne-vaud-4eeb09e4",
-        "de": "chief-operating-officer-implantable-medical-devices-michael-page-lausanne-vaud-4eeb09e4",
-        "fr": "chief-operating-officer-implantable-medical-devices-michael-page-lausanne-vaud-4eeb09e4"
+        "de": "chief-operating-officer-implantierbare-medizinprodukte-michael-page-lausanne-vaud-4eeb09e4",
+        "fr": "chef-de-l-exploitation-instruments-medicaux-implantables-michael-page-lausanne-vaud-4eeb09e4"
       },
       "slugDisambiguator": "4eeb09e4",
       "company": "Michael Page",
@@ -1146,12 +1146,12 @@
     },
     {
       "id": "michaelpage-21e4c1ad1aee",
-      "slug": "vp-strategic-ventures-ai-michael-page-lucerne-switzerland-21e4c1ad",
+      "slug": "vp-avvisi-strategici-ai-michael-page-lucerne-switzerland-21e4c1ad",
       "slugByLocale": {
         "en": "vp-strategic-ventures-ai-michael-page-lucerne-switzerland-21e4c1ad",
-        "it": "vp-strategic-ventures-ai-michael-page-lucerne-switzerland-21e4c1ad",
-        "de": "vp-strategic-ventures-ai-michael-page-lucerne-switzerland-21e4c1ad",
-        "fr": "vp-strategic-ventures-ai-michael-page-lucerne-switzerland-21e4c1ad"
+        "it": "vp-avvisi-strategici-ai-michael-page-lucerne-switzerland-21e4c1ad",
+        "de": "vp-strategisches-unternehmen-ki-michael-page-lucerne-switzerland-21e4c1ad",
+        "fr": "vp-strategies-et-ai-michael-page-lucerne-switzerland-21e4c1ad"
       },
       "slugDisambiguator": "21e4c1ad",
       "company": "Michael Page",
@@ -1210,7 +1210,21 @@
         }
       },
       "postalCode": "6003",
-      "firstSeenAt": "2026-10-29T21:58:59.791Z"
+      "firstSeenAt": "2026-10-29T21:58:59.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vp-strategic-ventures-ai-michael-page-lucerne-switzerland-21e4c1ad"
+        ],
+        "de": [
+          "vp-strategic-ventures-ai-michael-page-lucerne-switzerland-21e4c1ad"
+        ],
+        "fr": [
+          "vp-strategic-ventures-ai-michael-page-lucerne-switzerland-21e4c1ad"
+        ]
+      },
+      "previousSlugs": [
+        "vp-strategic-ventures-ai-michael-page-lucerne-switzerland-21e4c1ad"
+      ]
     }
   ]
 }

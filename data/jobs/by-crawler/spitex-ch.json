@@ -1363,12 +1363,12 @@
     },
     {
       "id": "spitex-ch-b60dfccf17f5",
-      "slug": "fachfrau-fachmann-gesundheit-fage-40-bis-80-spitex-ch-muri-ag",
+      "slug": "salute-professionale-fage-dal-40-all-80-spitex-muri-und-umgebung-muri-ag",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fage-40-bis-80-spitex-ch-muri-ag",
-        "it": "fachfrau-fachmann-gesundheit-fage-40-bis-80-spitex-ch-muri-ag",
-        "en": "fachfrau-fachmann-gesundheit-fage-40-bis-80-spitex-ch-muri-ag",
-        "fr": "fachfrau-fachmann-gesundheit-fage-40-bis-80-spitex-ch-muri-ag"
+        "it": "salute-professionale-fage-dal-40-all-80-spitex-muri-und-umgebung-muri-ag",
+        "en": "professional-health-fage-40-to-80-spitex-muri-und-umgebung-muri-ag",
+        "fr": "sante-professionnelle-fage-40-a-80-spitex-muri-und-umgebung-muri-ag"
       },
       "company": "Spitex Muri und Umgebung",
       "companyKey": "spitex-ch",
@@ -1427,7 +1427,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:18:44.009Z"
+      "firstSeenAt": "2026-10-29T21:18:44.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-fage-40-bis-80-spitex-ch-muri-ag"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-fage-40-bis-80-spitex-ch-muri-ag"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-fage-40-bis-80-spitex-ch-muri-ag"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-fage-40-bis-80-spitex-ch-muri-ag"
+      ]
     },
     {
       "id": "spitex-ch-eaa24e604457",
@@ -1511,7 +1525,7 @@
         "de": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
         "it": "assistente-infermieristico-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "en": "nursing-assistant-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "fr": "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "fr": "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1562,12 +1576,12 @@
           "pflegehelfer-in-srk-spitex-ch-untersiggenthal"
         ],
         "fr": [
-          "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+          "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal"
         ]
       },
       "previousSlugs": [
         "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
-        "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

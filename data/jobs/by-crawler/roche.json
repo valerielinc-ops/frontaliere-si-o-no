@@ -5574,12 +5574,12 @@
     },
     {
       "id": "roche-e92c22ab097d",
-      "slug": "eccellenza-di-facility-compliance-lead-packaging-roche-kaiseraugst",
+      "slug": "responsabile-dell-eccellenza-degli-impianti-conformita-confezionamento-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "eccellenza-di-facility-compliance-lead-packaging-roche-kaiseraugst",
+        "it": "responsabile-dell-eccellenza-degli-impianti-conformita-confezionamento-roche-kaiseraugst",
         "en": "facility-excellence-compliance-lead-packaging-roche-ch",
         "de": "facility-excellence-compliance-lead-packaging-roche-ch",
-        "fr": "l-excellence-de-l-installation-conformite-roche-kaiseraugst"
+        "fr": "responsable-de-l-excellence-des-installations-conformite-conditionnement-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -5629,11 +5629,17 @@
         ]
       },
       "previousSlugs": [
-        "facility-excellence-compliance-lead-packaging-roche-ch"
+        "facility-excellence-compliance-lead-packaging-roche-ch",
+        "eccellenza-di-facility-compliance-lead-packaging-roche-kaiseraugst",
+        "l-excellence-de-l-installation-conformite-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facility-excellence-compliance-lead-packaging-roche-ch"
+          "facility-excellence-compliance-lead-packaging-roche-ch",
+          "eccellenza-di-facility-compliance-lead-packaging-roche-kaiseraugst"
+        ],
+        "fr": [
+          "l-excellence-de-l-installation-conformite-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -7312,12 +7318,12 @@
     },
     {
       "id": "roche-8f33e9db44fc",
-      "slug": "vicino-al-responsabile-della-soluzione-di-cura-del-paziente-m-f-d-roche-rotkreuz",
+      "slug": "responsabile-delle-soluzioni-near-patient-care-m-f-d-roche-rotkreuz",
       "slugByLocale": {
-        "it": "vicino-al-responsabile-della-soluzione-di-cura-del-paziente-m-f-d-roche-rotkreuz",
+        "it": "responsabile-delle-soluzioni-near-patient-care-m-f-d-roche-rotkreuz",
         "en": "near-patient-care-solution-manager-m-w-d-roche-ch",
         "de": "near-patient-care-solution-manager-m-w-d-roche-ch",
-        "fr": "gestionnaire-de-solutions-de-soins-pres-du-patient-h-f-d-roche-rotkreuz"
+        "fr": "responsable-des-solutions-near-patient-care-h-f-d-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7379,14 +7385,18 @@
         ]
       },
       "previousSlugs": [
-        "near-patient-care-solution-manager-m-w-d-roche-ch"
+        "near-patient-care-solution-manager-m-w-d-roche-ch",
+        "vicino-al-responsabile-della-soluzione-di-cura-del-paziente-m-f-d-roche-rotkreuz",
+        "gestionnaire-de-solutions-de-soins-pres-du-patient-h-f-d-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "near-patient-care-solution-manager-m-w-d-roche-ch"
+          "near-patient-care-solution-manager-m-w-d-roche-ch",
+          "vicino-al-responsabile-della-soluzione-di-cura-del-paziente-m-f-d-roche-rotkreuz"
         ],
         "fr": [
-          "near-patient-care-solution-manager-m-w-d-roche-ch"
+          "near-patient-care-solution-manager-m-w-d-roche-ch",
+          "gestionnaire-de-solutions-de-soins-pres-du-patient-h-f-d-roche-rotkreuz"
         ]
       },
       "needsRetranslation": true,

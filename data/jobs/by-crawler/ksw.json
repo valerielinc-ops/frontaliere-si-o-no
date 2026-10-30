@@ -549,12 +549,12 @@
     },
     {
       "id": "ksw-af9964e06dae",
-      "slug": "therapeutische-mitarbeiterin-therapeutischer-collaboratore-trice-per-kleinkinder-con-autismus-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "operatrice-terapeutica-operatore-terapeutico-per-bambini-piccoli-con-autismo-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "therapeutische-mitarbeiterin-therapeutischer-collaboratore-trice-per-kleinkinder-con-autismus-kantonsspital-winterthur-ksw-winterthur",
-        "en": "therapeutic-assistant-therapeutic-assistant-for-infants-with-autism-kantonsspital-winterthur-ksw-winterthur",
+        "it": "operatrice-terapeutica-operatore-terapeutico-per-bambini-piccoli-con-autismo-kantonsspital-winterthur-ksw-winterthur",
+        "en": "therapeutic-staff-member-for-toddlers-with-autism-kantonsspital-winterthur-ksw-winterthur",
         "de": "therapeutische-mitarbeiterin-therapeutischer-mitarbeiter-fur-kleinkinder-mit-autismus-ksw",
-        "fr": "assistant-therapeutique-assistant-therapeutique-pour-les-nourrissons-atteints-d-autisme-kantonsspital-winterthur-ksw"
+        "fr": "collaboratrice-therapeutique-collaborateur-therapeutique-pour-jeunes-enfants-autistes-kantonsspital-winterthur-ksw"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -604,17 +604,23 @@
       },
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugs": [
-        "therapeutische-mitarbeiterin-therapeutischer-mitarbeiter-fur-kleinkinder-mit-autismus-ksw"
+        "therapeutische-mitarbeiterin-therapeutischer-mitarbeiter-fur-kleinkinder-mit-autismus-ksw",
+        "therapeutische-mitarbeiterin-therapeutischer-collaboratore-trice-per-kleinkinder-con-autismus-kantonsspital-winterthur-ksw-winterthur",
+        "therapeutic-assistant-therapeutic-assistant-for-infants-with-autism-kantonsspital-winterthur-ksw-winterthur",
+        "assistant-therapeutique-assistant-therapeutique-pour-les-nourrissons-atteints-d-autisme-kantonsspital-winterthur-ksw"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "therapeutische-mitarbeiterin-therapeutischer-mitarbeiter-fur-kleinkinder-mit-autismus-ksw"
+          "therapeutische-mitarbeiterin-therapeutischer-mitarbeiter-fur-kleinkinder-mit-autismus-ksw",
+          "therapeutische-mitarbeiterin-therapeutischer-collaboratore-trice-per-kleinkinder-con-autismus-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "therapeutische-mitarbeiterin-therapeutischer-mitarbeiter-fur-kleinkinder-mit-autismus-ksw"
+          "therapeutische-mitarbeiterin-therapeutischer-mitarbeiter-fur-kleinkinder-mit-autismus-ksw",
+          "therapeutic-assistant-therapeutic-assistant-for-infants-with-autism-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "therapeutische-mitarbeiterin-therapeutischer-mitarbeiter-fur-kleinkinder-mit-autismus-ksw"
+          "therapeutische-mitarbeiterin-therapeutischer-mitarbeiter-fur-kleinkinder-mit-autismus-ksw",
+          "assistant-therapeutique-assistant-therapeutique-pour-les-nourrissons-atteints-d-autisme-kantonsspital-winterthur-ksw"
         ]
       },
       "firstSeenAt": "2026-10-26T21:19:46.299Z",

@@ -8907,12 +8907,12 @@
     },
     {
       "id": "equans-7b8442c27f83",
-      "slug": "hauswart-in-100-st-gallen-equans-st-gallen",
+      "slug": "housekeeper-al-100-san-gallo-equans-switzerland-st-gallen",
       "slugByLocale": {
         "de": "hauswart-in-100-st-gallen-equans-st-gallen",
-        "it": "hauswart-in-100-st-gallen-equans-st-gallen",
-        "en": "hauswart-in-100-st-gallen-equans-st-gallen",
-        "fr": "hauswart-in-100-st-gallen-equans-st-gallen"
+        "it": "housekeeper-al-100-san-gallo-equans-switzerland-st-gallen",
+        "en": "caretaker-100-st-gallen-equans-switzerland-st-gallen",
+        "fr": "menage-a-100-st-gallen-equans-switzerland-st-gallen"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8972,7 +8972,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:19:54.497Z"
+      "firstSeenAt": "2026-10-29T21:19:54.497Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-100-st-gallen-equans-st-gallen"
+        ],
+        "en": [
+          "hauswart-in-100-st-gallen-equans-st-gallen"
+        ],
+        "fr": [
+          "hauswart-in-100-st-gallen-equans-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-100-st-gallen-equans-st-gallen"
+      ]
     },
     {
       "id": "equans-e6bf5f438906",
@@ -9059,12 +9073,12 @@
     },
     {
       "id": "equans-4d28aebc72e0",
-      "slug": "teamleiter-in-facility-management-equans-baden",
+      "slug": "responsabile-del-team-facility-management-equans-switzerland-baden",
       "slugByLocale": {
         "de": "teamleiter-in-facility-management-equans-baden",
-        "it": "teamleiter-in-facility-management-equans-baden",
-        "en": "teamleiter-in-facility-management-equans-baden",
-        "fr": "teamleiter-in-facility-management-equans-baden"
+        "it": "responsabile-del-team-facility-management-equans-switzerland-baden",
+        "en": "facility-management-team-leader-equans-switzerland-baden",
+        "fr": "responsable-d-equipe-en-gestion-des-installations-equans-switzerland-baden"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9124,7 +9138,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-29T21:19:54.480Z"
+      "firstSeenAt": "2026-10-29T21:19:54.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-facility-management-equans-baden"
+        ],
+        "en": [
+          "teamleiter-in-facility-management-equans-baden"
+        ],
+        "fr": [
+          "teamleiter-in-facility-management-equans-baden"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-facility-management-equans-baden"
+      ]
     },
     {
       "id": "equans-1fb76e9efad8",

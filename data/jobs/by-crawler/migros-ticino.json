@@ -2818,8 +2818,8 @@
       "slugByLocale": {
         "de": "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-hxojs2",
         "en": "cook-genossenschaft-migros-ostschweiz-st-gallen",
-        "fr": "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen",
-        "it": "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2"
+        "fr": "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
+        "it": "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen"
       },
       "titleByLocale": {
         "en": "Cook/chef",
@@ -2866,7 +2866,8 @@
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
         "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
         "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
+        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
+        "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2878,7 +2879,7 @@
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "fr": [
-          "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen"
+          "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ]
       },
       "salaryMin": 99000,
@@ -7857,9 +7858,9 @@
       "firstSeenAt": "2026-09-17T07:39:05.465Z",
       "slugByLocale": {
         "it": "ricevimento-dei-dipendenti-fitnesspark-basel",
-        "en": "receptionist-fitnesspark-basel",
+        "en": "reception-of-employees-fitnesspark-basel",
         "de": "mitarbeiter-in-empfang-fitnesspark-basel-z5gqar",
-        "fr": "collaborateur-rice-a-l-accueil-fitnesspark-basel"
+        "fr": "reception-des-salaries-fitnesspark-basel"
       },
       "titleByLocale": {
         "de": "Mitarbeiter*in Empfang",
@@ -7892,17 +7893,17 @@
       "previousSlugsByLocale": {
         "en": [
           "mitarbeiter-in-empfang-fitnesspark-basel",
-          "reception-of-employees-fitnesspark-basel"
+          "receptionist-fitnesspark-basel"
         ],
         "fr": [
           "mitarbeiter-in-empfang-fitnesspark-basel",
-          "reception-des-salaries-fitnesspark-basel"
+          "collaborateur-rice-a-l-accueil-fitnesspark-basel"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-empfang-fitnesspark-basel",
-        "reception-of-employees-fitnesspark-basel",
-        "reception-des-salaries-fitnesspark-basel"
+        "receptionist-fitnesspark-basel",
+        "collaborateur-rice-a-l-accueil-fitnesspark-basel"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -11849,8 +11850,8 @@
       "firstSeenAt": "2026-10-23T21:33:33.048Z",
       "slugByLocale": {
         "de": "projektleiter-in-grossprojekte-genossenschaft-migros-basel-munchenstein-mtfv9h",
-        "en": "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein",
-        "fr": "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein",
+        "en": "project-manager-in-large-projects-genossenschaft-migros-basel-munchenstein",
+        "fr": "chef-de-projet-dans-les-grands-projets-genossenschaft-migros-basel-munchenstein",
         "it": "projektleiter-in-grossprojekte-genossenschaft-migros-basel-munchenstein"
       },
       "titleByLocale": {
@@ -11883,15 +11884,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "project-manager-in-large-projects-genossenschaft-migros-basel-munchenstein"
+          "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein"
         ],
         "fr": [
-          "chef-de-projet-dans-les-grands-projets-genossenschaft-migros-basel-munchenstein"
+          "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein"
         ]
       },
       "previousSlugs": [
-        "project-manager-in-large-projects-genossenschaft-migros-basel-munchenstein",
-        "chef-de-projet-dans-les-grands-projets-genossenschaft-migros-basel-munchenstein"
+        "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -17469,7 +17469,7 @@
       "firstSeenAt": "2026-10-21T09:59:45.247Z",
       "slugByLocale": {
         "it": "venditore-genossenschaft-migros-ostschweiz-hittnau",
-        "en": "salesperson-genossenschaft-migros-ostschweiz-hittnau",
+        "en": "seller-genossenschaft-migros-ostschweiz-hittnau",
         "de": "verkaufer-in-genossenschaft-migros-ostschweiz-hittnau-pyycs0",
         "fr": "vendeur-genossenschaft-migros-ostschweiz-hittnau"
       },
@@ -17499,7 +17499,7 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-genossenschaft-migros-ostschweiz-hittnau",
-          "seller-genossenschaft-migros-ostschweiz-hittnau"
+          "salesperson-genossenschaft-migros-ostschweiz-hittnau"
         ],
         "fr": [
           "verkaufer-in-genossenschaft-migros-ostschweiz-hittnau"
@@ -17507,7 +17507,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-genossenschaft-migros-ostschweiz-hittnau",
-        "seller-genossenschaft-migros-ostschweiz-hittnau"
+        "salesperson-genossenschaft-migros-ostschweiz-hittnau"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -26272,7 +26272,7 @@
       "firstSeenAt": "2026-09-24T00:08:05.620Z",
       "slugByLocale": {
         "de": "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2",
-        "it": "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f766808089",
+        "it": "istruttore-di-fitness-m-f-d-activ-fitness-allschwil",
         "fr": "instructeur-de-fitness-h-f-d-activ-fitness-allschwil-5908c4",
         "en": "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2"
       },
@@ -26307,8 +26307,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-allschwil",
-          "fitness-instructor-w-m-d-activ-fitness-allschwil-80604a80d7",
-          "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
+          "fitness-instructor-w-m-d-activ-fitness-allschwil-80604a80d7"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-allschwil"
@@ -26316,8 +26315,7 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-allschwil",
-        "fitness-instructor-w-m-d-activ-fitness-allschwil-80604a80d7",
-        "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
+        "fitness-instructor-w-m-d-activ-fitness-allschwil-80604a80d7"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -29099,7 +29097,7 @@
         "de": "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon-wbe5ko",
         "en": "business-mechanic-genossenschaft-migros-luzern-dierikon",
         "fr": "mecanicien-des-affaires-genossenschaft-migros-luzern-dierikon",
-        "it": "meccanico-a-di-stabilimento-genossenschaft-migros-luzern-dierikon"
+        "it": "meccanica-aziendale-genossenschaft-migros-luzern-dierikon"
       },
       "titleByLocale": {
         "de": "Betriebsmechaniker*in",
@@ -29145,13 +29143,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6036",
       "previousSlugs": [
-        "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon",
-        "meccanica-aziendale-genossenschaft-migros-luzern-dierikon"
+        "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon",
-          "meccanica-aziendale-genossenschaft-migros-luzern-dierikon"
+          "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon"
         ]
       },
       "salaryMin": 69500,
@@ -38201,7 +38197,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-take-away-migros-take-away-pfaffikon-9j7qz3",
-        "en": "employees-take-away-migros-take-away-pfaffikon",
+        "en": "employee-in-take-away-migros-take-away-pfaffikon",
         "de": "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3",
         "fr": "employe-en-deplacement-migros-take-away-pfaffikon"
       },
@@ -38227,7 +38223,7 @@
         ],
         "en": [
           "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3",
-          "employee-in-take-away-migros-take-away-pfaffikon"
+          "employees-take-away-migros-take-away-pfaffikon"
         ],
         "fr": [
           "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3"
@@ -38236,7 +38232,7 @@
       "previousSlugs": [
         "mitarbeiter-in-take-away-migros-take-away-pfaffikon",
         "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3",
-        "employee-in-take-away-migros-take-away-pfaffikon"
+        "employees-take-away-migros-take-away-pfaffikon"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -39131,7 +39127,7 @@
         "it": "collaboratore-trice-in-gastebetreuung-welle7-workspace-bern-iyldg0",
         "en": "guest-care-staff-welle7-workspace-bern",
         "de": "mitarbeiter-in-gastebetreuung-welle7-workspace-bern-iyldg0",
-        "fr": "responsable-accueil-des-clients-welle7-workspace-bern"
+        "fr": "personnel-soignant-welle7-workspace-bern"
       },
       "titleByLocale": {
         "it": "Membro del Team Accoglienza Ospiti",
@@ -39167,12 +39163,12 @@
         ],
         "fr": [
           "mitarbeiter-in-gastebetreuung-welle7-workspace-bern",
-          "personnel-soignant-welle7-workspace-bern"
+          "responsable-accueil-des-clients-welle7-workspace-bern"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-gastebetreuung-welle7-workspace-bern",
-        "personnel-soignant-welle7-workspace-bern"
+        "responsable-accueil-des-clients-welle7-workspace-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -40379,7 +40375,7 @@
         "it": "magaziner-in-collaboratore-trice-in-food-genossenschaft-migros-aare-olten-3i0wm4",
         "en": "warehouse-employee-food-genossenschaft-migros-aare-olten",
         "de": "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten-3i0wm4",
-        "fr": "magasinier-e-agent-e-food-genossenschaft-migros-aare-olten"
+        "fr": "magasin-employe-alimentation-genossenschaft-migros-aare-olten"
       },
       "requirementsByLocale": {
         "de": [
@@ -40404,13 +40400,13 @@
         ],
         "fr": [
           "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten-3i0wm4",
-          "magasin-employe-alimentation-genossenschaft-migros-aare-olten"
+          "magasinier-e-agent-e-food-genossenschaft-migros-aare-olten"
         ]
       },
       "previousSlugs": [
         "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten",
         "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten-3i0wm4",
-        "magasin-employe-alimentation-genossenschaft-migros-aare-olten"
+        "magasinier-e-agent-e-food-genossenschaft-migros-aare-olten"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -40949,7 +40945,7 @@
       "crawledAt": "2026-10-29T21:55:36.086Z",
       "firstSeenAt": "2026-09-24T00:08:05.620Z",
       "slugByLocale": {
-        "it": "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f9fe347b3f",
+        "it": "fitness-instructor-m-w-d-activ-fitness-allschwil",
         "en": "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe",
         "de": "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe",
         "fr": "instructeur-de-fitness-h-f-d-activ-fitness-allschwil"
@@ -41002,14 +40998,12 @@
       "previousSlugs": [
         "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5729b8",
         "fitness-instructor-w-m-d-activ-fitness-allschwil-0726797419",
-        "fitness-instructor-m-w-d-activ-fitness-allschwil",
         "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5729b8",
           "fitness-instructor-w-m-d-activ-fitness-allschwil-0726797419",
-          "fitness-instructor-m-w-d-activ-fitness-allschwil",
           "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
         ]
       },
@@ -45945,7 +45939,7 @@
         "it": "fornitore-specializzato-in-tutto-il-negozio-genossenschaft-migros-ostschweiz-davos-platz",
         "en": "specialist-vendor-throughout-the-shop-genossenschaft-migros-ostschweiz-davos-platz",
         "de": "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz-5a2o5x",
-        "fr": "detaillant-en-magasin-genossenschaft-migros-ostschweiz-davos-platz"
+        "fr": "vendeur-specialise-dans-toute-la-boutique-genossenschaft-migros-ostschweiz-davos-platz"
       },
       "requirementsByLocale": {
         "de": [
@@ -45968,13 +45962,13 @@
         ],
         "fr": [
           "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz-5a2o5x",
-          "vendeur-specialise-dans-toute-la-boutique-genossenschaft-migros-ostschweiz-davos-platz"
+          "detaillant-en-magasin-genossenschaft-migros-ostschweiz-davos-platz"
         ]
       },
       "previousSlugs": [
         "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz",
         "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz-5a2o5x",
-        "vendeur-specialise-dans-toute-la-boutique-genossenschaft-migros-ostschweiz-davos-platz"
+        "detaillant-en-magasin-genossenschaft-migros-ostschweiz-davos-platz"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -47186,7 +47180,7 @@
         "fr": "En tant qu'employé de cuisine dans la zone VIP, vous aidez l'équipe de cuisine dans la préparation, la production et la distribution de nourriture pour les invités dans l'accueil et l'environnement VIP. Vous contribuez à garantir, lors des journées de match et des événements, une offre de restauration de haute qualité, propre et efficace.\n\n## Mansioni\n- Vous êtes responsable de la préparation et de la préparation de la nourriture froide et chaude pour les invités VIP\n- Avec l'équipe de cuisine, vous assurez la qualité de première classe et une présentation attrayante de la nourriture\n- Soutien aux buffets et banquets\n- Les normes d'hygiène, de sécurité et de qualité selon HACCP sont mises en œuvre de manière cohérente et responsable.\n- Vous stockez des aliments professionnellement et faites attention à une utilisation prudente et durable de nos produits\n\n## Exigences\n- Expérience professionnelle: dans la gastronomie, avantageusement dans la restauration ou dans l'industrie événementielle\n- Formation initiale ou continue terminée: comme cuisinier\n- Vous avez une grande volonté pour la planification flexible des affectations et sont habitués à des heures de travail irrégulières\n- Vous aimez manipuler des aliments frais\n- Vous avez une capacité prononcée de travailler en équipe et de convaincre par une méthode de travail indépendante et précise\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Heures de travail sans heure de chambre: 41h semaine et heures de travail normales sans heure de chambre\n- Prestations de retraite professionnelles: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Assurance: Conditions de prestations dans diverses compagnies d'assurance\n- Points Cumulus: Points Cumulus multiples sur les produits alimentaires et non alimentaires\n- Abonnement mobile: conditions très avantageuses pour l'abonnement mobile privé également pour la famille et les amis\n\n## Contatto\n## Demande et contact Fischer Gabriela Chef du restaurant +41 58 712 03 52\n\n**Grade di occupation:** 590 %"
       },
       "slugByLocale": {
-        "it": "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
+        "it": "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
         "en": "cook-chef-genossenschaft-migros-ostschweiz-st-gallen",
         "de": "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
         "fr": "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
@@ -53875,7 +53869,7 @@
       "slugByLocale": {
         "de": "betriebselektriker-in-instandhaltung-fresh-food-beverage-group-bischofszell-czncgp",
         "en": "plant-electrician-maintenance-fresh-food-beverage-group-bischofszell",
-        "fr": "specialiste-de-la-maintenance-electrique-fresh-food-beverage-group-bischofszell",
+        "fr": "entretien-des-electriciens-d-usine-fresh-food-beverage-group-bischofszell",
         "it": "elettricista-in-manutenzione-fresh-food-beverage-group-bischofszell"
       },
       "titleByLocale": {
@@ -53910,12 +53904,12 @@
         ],
         "fr": [
           "spezialist-in-instandhaltung-elektro-fresh-food-beverage-group-bischofszell",
-          "entretien-des-electriciens-d-usine-fresh-food-beverage-group-bischofszell"
+          "specialiste-de-la-maintenance-electrique-fresh-food-beverage-group-bischofszell"
         ]
       },
       "previousSlugs": [
         "spezialist-in-instandhaltung-elektro-fresh-food-beverage-group-bischofszell",
-        "entretien-des-electriciens-d-usine-fresh-food-beverage-group-bischofszell"
+        "specialiste-de-la-maintenance-electrique-fresh-food-beverage-group-bischofszell"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -54577,7 +54571,7 @@
         "it": "collaboratore-trice-in-kinderparadies-activ-fitness-schwyz-u83e1x",
         "de": "mitarbeiter-in-kinderparadies-activ-fitness-schwyz-u83e1x",
         "en": "children-s-paradise-staff-member-activ-fitness-schwyz",
-        "fr": "employe-e-de-kinderparadies-activ-fitness-schwyz"
+        "fr": "collaborateur-collaboratrice-paradis-des-enfants-activ-fitness-schwyz"
       },
       "titleByLocale": {
         "de": "Mitarbeiter*in Kinderparadies",
@@ -54611,12 +54605,12 @@
         ],
         "fr": [
           "mitarbeiter-in-kinderparadies-activ-fitness-schwyz",
-          "collaborateur-collaboratrice-paradis-des-enfants-activ-fitness-schwyz"
+          "employe-e-de-kinderparadies-activ-fitness-schwyz"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-kinderparadies-activ-fitness-schwyz",
-        "collaborateur-collaboratrice-paradis-des-enfants-activ-fitness-schwyz"
+        "employe-e-de-kinderparadies-activ-fitness-schwyz"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -60294,7 +60288,7 @@
         "it": "operatore-di-impianti-f-m-d-delica-ag-birsfelden",
         "en": "plant-operator-f-m-d-delica-ag-birsfelden",
         "de": "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden-6ureux",
-        "fr": "operateur-de-ligne-m-w-d-torrefaction-de-noix-delica-ag-birsfelden"
+        "fr": "exploitant-d-usine-f-m-d-delica-ag-birsfelden"
       },
       "requirementsByLocale": {
         "de": [
@@ -60319,13 +60313,13 @@
         ],
         "fr": [
           "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden-6ureux",
-          "exploitant-d-usine-f-m-d-delica-ag-birsfelden"
+          "operateur-de-ligne-m-w-d-torrefaction-de-noix-delica-ag-birsfelden"
         ]
       },
       "previousSlugs": [
         "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden",
         "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden-6ureux",
-        "exploitant-d-usine-f-m-d-delica-ag-birsfelden"
+        "operateur-de-ligne-m-w-d-torrefaction-de-noix-delica-ag-birsfelden"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -67624,7 +67618,7 @@
       "crawledAt": "2026-10-29T21:55:36.086Z",
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "slugByLocale": {
-        "it": "cuoco-cuoca-migros-restaurant-stafa",
+        "it": "cook-migros-restaurant-stafa",
         "en": "cook-cook-migros-restaurant-stafa",
         "de": "koch-kochin-migros-restaurant-stafa-cd2cys",
         "fr": "cuisinier-cuisiniere-migros-restaurant-stafa"
@@ -67670,8 +67664,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-migros-restaurant-stafa",
-          "cook-migros-restaurant-stafa"
+          "koch-kochin-migros-restaurant-stafa"
         ],
         "en": [
           "koch-kochin-migros-restaurant-stafa-cd2cys",
@@ -67684,8 +67677,7 @@
       "previousSlugs": [
         "koch-kochin-migros-restaurant-stafa-cd2cys",
         "koch-kochin-migros-restaurant-stafa",
-        "cuoco-a-migros-restaurant-stafa",
-        "cook-migros-restaurant-stafa"
+        "cuoco-a-migros-restaurant-stafa"
       ],
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/3e4acce5-b176-4a05-8639-9579babfe45e",
       "datePosted": "2026-09-23T04:50:17+02:00",
@@ -68062,7 +68054,7 @@
       "firstSeenAt": "2026-09-26T14:22:42.719Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-genossenschaft-migros-zurich-hs5cgn",
-        "en": "cashier-genossenschaft-migros-zurich",
+        "en": "employee-cash-register-genossenschaft-migros-zurich-zurich",
         "de": "mitarbeiter-in-kasse-genossenschaft-migros-zurich-hs5cgn",
         "fr": "caisse-enregistreuse-pour-employes-genossenschaft-migros-zurich-zurich"
       },
@@ -68094,7 +68086,7 @@
       "previousSlugsByLocale": {
         "en": [
           "mitarbeiter-in-kasse-genossenschaft-migros-zurich",
-          "employee-cash-register-genossenschaft-migros-zurich-zurich"
+          "cashier-genossenschaft-migros-zurich"
         ],
         "fr": [
           "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
@@ -68102,7 +68094,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-kasse-genossenschaft-migros-zurich",
-        "employee-cash-register-genossenschaft-migros-zurich-zurich"
+        "cashier-genossenschaft-migros-zurich"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -72004,7 +71996,7 @@
         "fr": "Vous aimez l'artisanat traditionnel et êtes enthousiaste à l'égard des produits de boulangerie de haute qualité? (en milliers de dollars) Vous aimez conseiller et communiquer en toute sécurité avec nos clients ? Alors, vous avez exactement raison avec nous!\n\nLuogo di lavoro: Coopérative Migros Suisse orientale, maison boulangerie Rheinpark, centre commercial, 9430 St. Margrethen\n\n## Mansioni\n- Vous êtes un maître boulanger. Avec vos compétences, vous pouvez produire de façon professionnelle divers produits de pain et de pâtisserie.\n- Que vous travailliez sur la pâte, la table ou le four, vous accomplissez vos tâches avec précision et soin, y compris les tâches de nettoyage.\n- Tu es toujours au milieu. Dans les affaires quotidiennes, vous soutenez activement et vous assurez que tout fonctionne bien.\n- Vous avez des responsabilités. Avec votre engagement, vous assurez que nos clients sont fournis en tout temps avec des produits frais.\n- Vous faites attention aux plus hauts standards ♦. Les règles d'hygiène et de sécurité sont appliquées avec soin.\n\n## Exigences\n- Expérience professionnelle : en tant que boulanger* dans une confiserie*\n- Achevé l'enseignement de base ou l'enseignement complémentaire: en tant que boulanger\n- Vous êtes un professionnel dans votre domaine. Avec une solide expertise dans le secteur de la boulangerie et de la pâtisserie, vous brillez dans votre métier.\n- Vous êtes un joueur d'équipe. Votre personnalité ouverte, motivée et axée sur l'équipe rend la collaboration agréable et réussie.\n- Vous êtes résistant. Une bonne forme physique et la préparation pour les quarts de jour et de nuit vous distinguent.\n- Vous travaillez de manière indépendante et efficace. Votre sensibilisation de haute qualité assure des résultats de première classe.\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Abonnement mobile: conditions très avantageuses pour l'abonnement mobile privé également pour la famille et les amis\n- Prestations de retraite professionnelles: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Points de cumul multiples sur les produits alimentaires et non alimentaires\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n\n## Contatto\n Demande et contact * *\nOstoja Obrenovic\nChef de maison Bakery Rheinpark\n+41 58 712 8233\n\nGrade di occupation: 80-100 %"
       },
       "slugByLocale": {
-        "it": "baker-confectioner-genossenschaft-migros-ostschweiz-st-margrethen",
+        "it": "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen",
         "en": "baker-confectioner-pastry-chef-genossenschaft-migros-ostschweiz-st-margrethen",
         "de": "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
         "fr": "boulanger-patissier-confiseur-genossenschaft-migros-ostschweiz-st-margrethen"
@@ -72024,8 +72016,7 @@
       "previousSlugsByLocale": {
         "it": [
           "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen",
-          "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
-          "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen"
+          "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr"
         ],
         "en": [
           "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
@@ -72041,8 +72032,7 @@
         "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen",
         "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
         "sorry-i-can-t-help-with-that-genossenschaft-migros-ostschweiz-st-margrethen",
-        "boulangerie-confiserie-genossenschaft-migros-ostschweiz-st-margrethen",
-        "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen"
+        "boulangerie-confiserie-genossenschaft-migros-ostschweiz-st-margrethen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -77173,7 +77163,7 @@
         "it": "venditore-a-food-genossenschaft-migros-ostschweiz-appenzell",
         "en": "food-salesperson-genossenschaft-migros-ostschweiz-appenzell",
         "de": "verkaufer-in-food-genossenschaft-migros-ostschweiz-appenzell-5y5beh",
-        "fr": "aliments-pour-vendeurs-genossenschaft-migros-ostschweiz-appenzell"
+        "fr": "vendeur-ere-de-nourriture-genossenschaft-migros-ostschweiz-appenzell"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -77202,12 +77192,12 @@
       "previousSlugsByLocale": {
         "fr": [
           "verkaufer-in-food-genossenschaft-migros-ostschweiz-appenzell",
-          "vendeur-ere-de-nourriture-genossenschaft-migros-ostschweiz-appenzell"
+          "aliments-pour-vendeurs-genossenschaft-migros-ostschweiz-appenzell"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-genossenschaft-migros-ostschweiz-appenzell",
-        "vendeur-ere-de-nourriture-genossenschaft-migros-ostschweiz-appenzell"
+        "aliments-pour-vendeurs-genossenschaft-migros-ostschweiz-appenzell"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -80735,9 +80725,9 @@
       "firstSeenAt": "2026-08-17T21:57:32.195Z",
       "slugByLocale": {
         "de": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
-        "it": "panettiere-pasticcere-genossenschaft-migros-ostschweiz-schaffhausen",
+        "it": "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
         "en": "baker-in-confectioner-in-genossenschaft-migros-ostschweiz-schaffhausen",
-        "fr": "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
+        "fr": "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
       },
       "titleByLocale": {
         "en": "Baker-pastry chef",
@@ -80785,16 +80775,14 @@
         "pasticceria-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
         "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen",
         "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
-        "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
-        "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
+        "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen",
           "patissier-confiseur-genossenschaft-migros-ostschweiz-schaffhausen",
           "pasticceria-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
-          "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen",
-          "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen"
+          "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen"
         ],
         "en": [
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
@@ -80802,7 +80790,7 @@
         ],
         "fr": [
           "patissier-confiseur-genossenschaft-migros-ostschweiz-schaffhausen",
-          "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
+          "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
         ]
       },
       "postalCode": "8200",
@@ -81332,7 +81320,7 @@
         "it": "latticini-di-vendita-genossenschaft-migros-zurich-zurich",
         "en": "seller-dairy-genossenschaft-migros-zurich-zurich",
         "de": "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
-        "fr": "vendeur-dans-la-laiterie-genossenschaft-migros-zurich"
+        "fr": "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Molkerei",
@@ -81368,13 +81356,13 @@
         "fr": [
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
           "verkaufer-in-molkerei-genossenschaft-migros-zurich",
-          "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
+          "vendeur-dans-la-laiterie-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
         "verkaufer-in-molkerei-genossenschaft-migros-zurich",
-        "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
+        "vendeur-dans-la-laiterie-genossenschaft-migros-zurich"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -83191,7 +83179,7 @@
         "it": "baker-conditor-in-hausback-erei-sede-della-societa-monaco-di-baviera-genossenschaft-migros-basel-munchenstein",
         "en": "baker-conditor-in-hausbackerei-company-headquarters-munichstein-genossenschaft-migros-basel-munchenstein",
         "de": "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-        "fr": "boulanger-ere-patissier-ere-boulangerie-maison-centrale-d-exploitation-munchenstein-genossenschaft-migros-basel-munchenstein"
+        "fr": "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein"
       },
       "requirementsByLocale": {
         "de": [
@@ -83217,13 +83205,13 @@
         ],
         "fr": [
           "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-          "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein"
+          "boulanger-ere-patissier-ere-boulangerie-maison-centrale-d-exploitation-munchenstein-genossenschaft-migros-basel-munchenstein"
         ]
       },
       "previousSlugs": [
         "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein",
         "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-        "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein"
+        "boulanger-ere-patissier-ere-boulangerie-maison-centrale-d-exploitation-munchenstein-genossenschaft-migros-basel-munchenstein"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -86247,7 +86235,7 @@
       "firstSeenAt": "2026-09-24T00:08:05.620Z",
       "slugByLocale": {
         "de": "mitarbeiter-in-food-genossenschaft-migros-aare-bern-1cnlpc",
-        "fr": "employe-e-food-genossenschaft-migros-aare-bern",
+        "fr": "alimentation-du-personnel-genossenschaft-migros-aare-bern",
         "it": "collaboratore-tricein-food-genossenschaft-migros-aare-bern",
         "en": "food-employee-genossenschaft-migros-aare-bern"
       },
@@ -86288,14 +86276,14 @@
         ],
         "fr": [
           "mitarbeiter-in-food-genossenschaft-migros-aare-bern",
-          "alimentation-du-personnel-genossenschaft-migros-aare-bern"
+          "employe-e-food-genossenschaft-migros-aare-bern"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-food-genossenschaft-migros-aare-bern-1cnlpc",
         "mitarbeiter-in-food-genossenschaft-migros-aare-bern",
         "collaboratore-trice-in-food-genossenschaft-migros-aare-bern-1cnlpc",
-        "alimentation-du-personnel-genossenschaft-migros-aare-bern"
+        "employe-e-food-genossenschaft-migros-aare-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -90219,7 +90207,7 @@
         "fr": "Ici, les plats thaïlandais authentiques sont cuits en wok. Nous nous concentrons sur des produits de haute qualité et préparons les plats frais tous les jours. Pour notre équipe motivée, nous recherchons une personnalité orientée vers le service pour la compléter.\n\nLuogo di lavoro: KAIMUG, Glatt, Neue Winterthurerstrasse 99, 8304 Wallisellen\n\n## Informations importantes\nNous accueillons chaque demande, mais nous ne pouvons considérer que les demandes en ligne. Les demandes par la poste sont éliminées pour des raisons de protection des données et non renvoyées.\n\n## Mansioni\n- Préparation de plats asiatiques\n- Conseils et service aux clients avec recouvrement des dettes\n- Entretien des vitrines de vente et présentation des marchandises\n- Directives HACCP pour divers travaux de nettoyage\n- Soutenir l'équipe dans tous les travaux\n\n## Exigences\n- 1-2 ans d'expérience professionnelle: comme cuisinier/chef thaïlandais\n- Achevé l'enseignement de base ou l'enseignement complémentaire: en tant que cuisinier/chef est avantageux\n- Expérience professionnelle en vente/service avec recouvrement de créances\n- Expérience culinaire des plats asiatiques\n- Personnalité responsable et axée sur le service.\n- Flexible à utiliser du lundi au samedi\n- Efficacité et bon fonctionnement\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Travail en santé : offres de promotion de la santé telles que massages et contrôles de santé\n- Mobilité: Avec le bonus unique de loisirs par année de max. CHF 350.– nous participons à votre abonnement transport en commun\n- Abonnement pratique: Vous pouvez vous attendre à des conditions spéciales pour l'abonnement pratique\n- Prestation de retraite professionnelle: Excellentes prestations de fonds de retraite avec une forte participation de l'employeur\n- Prestations sociales: Prestations sociales équitables\n- Points Cumulus: Vous obtenez des points Cumulus supplémentaires lors des achats\n- Migros Bank: Intérêts privilégiés sur le compte privé et d'investissement, gestion de compte libre, prêts hypothécaires réduits et plus\n- Club School Migros: Participation au cours coûte dans l'école du club\n- Loisirs et offres culturelles: Vous pouvez bénéficier de billets réduits lors d'événements culturels sélectionnés\n- Offres de sport et de fitness: Vous pouvez obtenir un bonus total de temps libre de max une fois par an. CHF 1000.– par exemple, rachat d'un abonnement annuel au centre M-Fitness\n- Soutien ciblé: GMZ Young Talents Community: Vous participez à des projets passionnants de notre communauté et participez à des événements qui vous emmènent plus loin\n- Éducation et formation: soutien à l'enseignement et à la formation professionnels, prime annuelle pour l'éducation d'une valeur de CHF 1000. –\n- Conception et prise de décision : réalisez vos idées innovantes\n- Conseil social et personnel : Conseil social interne\n\n## Contatto\n Demande et contact * *\nCaméra Mirco\nPartenaire de recrutement junior\n\nProcessus de recrutement * *\n\n- Sélection préalable des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction: Jusqu'à trois semaines\n- Vidéo personnelle ou conversation téléphonique : Pour un grand nombre de candidats, nous effectuons en option une conversation téléphonique personnelle ou vidéo. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée de la rétroaction: Jusqu'à une semaine\n- Travail d'essai : Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction: Jusqu'à trois semaines\n- Offer & Contract Exhibition (Digital): Après notre offre d'emploi orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée de la rétroaction: Jusqu'à une semaine\n\nNote pour les fournisseurs de services au personnel* *\nPour cette position, nous ne considérons que les demandes directes.\n\nGrado di occupation: 70-80 %"
       },
       "slugByLocale": {
-        "it": "kaimug-glatt-wok-koch-chef-kaimug-wallisellen",
+        "it": "cucina-asiatica-kitchen-assistant-kaimug-wallisellen",
         "en": "asian-kitchen-cook-assistant-kaimug-wallisellen",
         "de": "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
         "fr": "cuisinier-asiatique-chef-de-cuisine-kaimug-wallisellen"
@@ -90243,8 +90231,7 @@
       "previousSlugsByLocale": {
         "it": [
           "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
-          "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen",
-          "cucina-asiatica-kitchen-assistant-kaimug-wallisellen"
+          "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen"
         ],
         "en": [
           "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd"
@@ -90255,8 +90242,7 @@
       },
       "previousSlugs": [
         "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
-        "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen",
-        "cucina-asiatica-kitchen-assistant-kaimug-wallisellen"
+        "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -97532,7 +97518,7 @@
       },
       "slugByLocale": {
         "it": "responsabile-take-away-migros-take-away-bern",
-        "en": "department-lead-take-away-migros-take-away-bern",
+        "en": "take-away-team-leader-migros-take-away-bern",
         "de": "fachleiter-in-take-away-migros-take-away-bern-ro9jjd",
         "fr": "responsable-take-away-migros-take-away-bern"
       },
@@ -97546,7 +97532,7 @@
         "en": [
           "fachleiter-in-take-away-migros-take-away-bern-ro9jjd",
           "director-in-take-away-migros-take-away-bern",
-          "take-away-team-leader-migros-take-away-bern"
+          "department-lead-take-away-migros-take-away-bern"
         ],
         "fr": [
           "fachleiter-in-take-away-migros-take-away-bern-ro9jjd",
@@ -97559,7 +97545,7 @@
         "direttore-in-take-away-migros-take-away-bern",
         "director-in-take-away-migros-take-away-bern",
         "directeur-a-take-away-migros-take-away-bern",
-        "take-away-team-leader-migros-take-away-bern"
+        "department-lead-take-away-migros-take-away-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -100598,7 +100584,7 @@
       },
       "slugByLocale": {
         "it": "corso-di-formazione-aziendale-tedesco-m-f-klubschule-migros-luzern",
-        "en": "teacher-german-company-course-m-w-d-klubschule-migros-luzern",
+        "en": "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern",
         "de": "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern-84hi12",
         "fr": "cours-de-professeur-d-entreprise-allemande-h-f-klubschule-migros-luzern"
       },
@@ -100624,7 +100610,7 @@
         "en": [
           "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern-84hi12",
           "teacher-german-company-course-m-f-klubschule-migros-luzern",
-          "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern"
+          "teacher-german-company-course-m-w-d-klubschule-migros-luzern"
         ],
         "fr": [
           "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern-84hi12"
@@ -100633,7 +100619,8 @@
       "previousSlugs": [
         "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern",
         "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern-84hi12",
-        "teacher-german-company-course-m-f-klubschule-migros-luzern"
+        "teacher-german-company-course-m-f-klubschule-migros-luzern",
+        "teacher-german-company-course-m-w-d-klubschule-migros-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -102361,9 +102348,9 @@
       "firstSeenAt": "2026-08-27T01:02:09.761Z",
       "slugByLocale": {
         "de": "verkaufer-in-food-genossenschaft-migros-zurich-xy1y6c",
-        "it": "assistente-alimentare-genossenschaft-migros-zurich",
+        "it": "venditore-nel-cibo-genossenschaft-migros-zurich-zurich-2f7535",
         "en": "seller-in-food-genossenschaft-migros-zurich-zurich-2f7535",
-        "fr": "assistant-alimentaire-genossenschaft-migros-zurich"
+        "fr": "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-zurich-2f7535"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Food",
@@ -102409,17 +102396,15 @@
       "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-genossenschaft-migros-zurich",
-          "venditore-nel-cibo-genossenschaft-migros-zurich-zurich-2f7535"
+          "verkaufer-in-food-genossenschaft-migros-zurich"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-zurich-2f7535"
+          "assistant-alimentaire-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-genossenschaft-migros-zurich",
-        "venditore-nel-cibo-genossenschaft-migros-zurich-zurich-2f7535",
-        "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-zurich-2f7535"
+        "assistant-alimentaire-genossenschaft-migros-zurich"
       ],
       "postalCode": "8001",
       "salaryMin": 73500,
@@ -103940,7 +103925,7 @@
     },
     {
       "id": "company-lc04dl",
-      "slug": "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau-lc04dl",
+      "slug": "autista-del-trasporto-aziendale-diurno-genossenschaft-migros-ostschweiz-gossau",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Werkverkehr-Chauffeur*in Tag",
       "location": "Gossau",
@@ -103996,10 +103981,10 @@
         "fr": "Vous aimez manœuvrer de grands véhicules et maîtriser les virages serrés? Dans le trafic des entreprises, vous êtes une partie importante de notre équipe et vous assurez que tout fonctionne bien. Le meilleur de tous : Les missions ont lieu exclusivement pendant la journée. Que ce soit à temps plein ou à temps partiel – vous décidez. Nous attendons avec impatience votre candidature!\n\nLuogo di lavoro: Coopérative Migros Suisse orientale, siège de Gossau, Industriestrasse 47, 9200 Gossau\n\n## Mansioni\n- Avec nos véhicules spéciaux (KAMAG), vous fournissez les remorques et les remorques parfaitement à la rampe pour l'expédition dans un délai très court.\n- Vous montrez également vos compétences dans la rue avec le soutien occasionnel des fournitures de magasin\n- Vous gérerez les transports internes dans nos locaux et participerez occasionnellement au chargement et au déchargement des véhicules.\n- Vous maintenez une communication active dans l'équipe et êtes en contact étroit avec le gestionnaire de quart\n\n## Exigences\n- Expérience professionnelle: une solide expérience professionnelle\n- Formation initiale ou continue terminée: permis de conduire\n- Vous êtes un vrai professionnel dans la manœuvre des semi-remorques et des trains de remorque et convaincre avec votre expertise\n- Vous êtes caractérisé par une personnalité flexible et capable d'équipe\n- Vous êtes confiant avec les applications de transport, les outils logistiques agricoles et les radios numériques – la technologie n'est pas un problème pour vous\n- Vous travaillez de façon indépendante, fiable et aimez assumer vos responsabilités\n- Allemand (bonne connaissance)\n\n## Cosa de friamo\n- L-GAV: Contrat de travail collectif attrayant Migros Land\n- Prestations de retraite professionnelle: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Points de cumul: Points de cumul multiples sur les produits alimentaires et non alimentaires\n- Assurances: conditions d'indemnisation dans diverses compagnies d'assurance\n- Abonnement pratique : conditions très avantageuses pour les abonnements mobiles privés également pour la famille et les amis\n\n## Contatto\n Demande et contact * *\nDenis Bobicanec\nChef des transports\n+41 58 712 25 25\n\nGrade di occupation: 60-80 %"
       },
       "slugByLocale": {
-        "it": "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau-lc04dl",
-        "en": "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau-lc04dl",
+        "it": "autista-del-trasporto-aziendale-diurno-genossenschaft-migros-ostschweiz-gossau",
+        "en": "company-transport-driver-day-shift-genossenschaft-migros-ostschweiz-gossau",
         "de": "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau-lc04dl",
-        "fr": "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau-lc04dl"
+        "fr": "chauffeur-euse-de-transport-d-entreprise-de-jour-genossenschaft-migros-ostschweiz-gossau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -104017,11 +104002,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau"
+          "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau",
+          "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau-lc04dl"
+        ],
+        "en": [
+          "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau-lc04dl"
+        ],
+        "fr": [
+          "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau-lc04dl"
         ]
       },
       "previousSlugs": [
-        "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau"
+        "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau",
+        "werkverkehr-chauffeur-in-tag-genossenschaft-migros-ostschweiz-gossau-lc04dl"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -104316,7 +104309,7 @@
         "it": "brand-communications-manager-m-w-d-galaxus-zurich-659y5v",
         "en": "brand-communications-manager-m-w-d-galaxus-zurich-659y5v",
         "de": "brand-communications-manager-m-w-d-galaxus-zurich-659y5v",
-        "fr": "brand-communications-manager-m-w-d-galaxus-zurich-659y5v"
+        "fr": "gestionnaire-de-communications-de-marque-h-f-d-galaxus-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -104466,7 +104459,7 @@
     },
     {
       "id": "company-iz4m9p",
-      "slug": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly",
+      "slug": "venditore-polivalente-m-f-d-societe-cooperative-migros-vaud-prilly",
       "company": "Société coopérative Migros Vaud",
       "title": "Vendeur polyvalent (H/F/D)",
       "location": "Prilly",
@@ -104518,9 +104511,9 @@
         "de": "Angetrieben vom Geschmack des Handels und dem Kontakt mit Kunden verkörpern Sie stolz die Werte unserer Marke. Dank Ihrer Energie und Professionalität schaffen Sie ein einzigartiges Kundenerlebnis und beteiligen sich aktiv an der Performance Ihres Shops.\n\n**Luogo di Lavoro:** Société coopérative Migros Vaud, M. Malley, Chemin du Viaduc 1, 1008 Prilly\n\n## Wichtige Anmerkungen\nAlle Bewerbungen sind willkommen, aber wir können nur Online-Bewerbungen berücksichtigen. Anträge per Post werden aus datenschutzrechtlichen Gründen eliminiert und nicht zurückgeschickt.\n\n## Mansioni\n- Bieten Sie ein herzliches und persönliches Willkommen zur Loyalität zu den Kunden.\n- Durchführung der Waren und Verwaltung der Eingänge und Sendungen\n- Einlösung der Waren und Verwaltung der Geldschublade\n\n## Anforderungen\n- Vorteil: Erste Erfahrungen im Einzelhandel\n- Ausgezeichnete Beziehungsfähigkeit und Fähigkeit, eine warme Atmosphäre für Kunden zu schaffen\n- Dynamisch, hilfreich und rigoros\n- Flexibilität und Flexibilität\n- Sehr gute Präsentation, ordentlich und professionell.\n- Erst- oder Weiterbildung abgeschlossen\n- Französisch (sehr gute Kenntnisse)\n\n## Cosa offeriamo\n- Cumulus Punkte: Zusätzliche Cumulus Punkte für Migros Mitarbeiter\n- Angebote für Arbeitnehmer: Und noch viel mehr!\n\n## Contatto\n**Kandidat und Kontakt**\nPersonalvermittlungszentrum\nMigros Waadt\n\n**Grado di occupazione:** 70%"
       },
       "slugByLocale": {
-        "it": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly",
-        "en": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-iz4m9p",
-        "de": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-iz4m9p",
+        "it": "venditore-polivalente-m-f-d-societe-cooperative-migros-vaud-prilly",
+        "en": "polyvalent-seller-m-f-d-societe-cooperative-migros-vaud-prilly",
+        "de": "polyvalenter-verkaufer-m-w-d-societe-cooperative-migros-vaud-prilly",
         "fr": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-iz4m9p"
       },
       "requirementsByLocale": {
@@ -104540,11 +104533,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-iz4m9p",
+          "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly"
+        ],
+        "en": [
+          "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-iz4m9p"
+        ],
+        "de": [
           "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-iz4m9p"
         ]
       },
       "previousSlugs": [
-        "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-iz4m9p"
+        "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-iz4m9p",
+        "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -104566,7 +104567,7 @@
     },
     {
       "id": "company-n3lhzg",
-      "slug": "abteilungsleiter-in-fruchte-gemuse-con-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg",
+      "slug": "responsabile-di-reparto-frutta-verdura-con-responsabilita-di-gestione-del-personale-genossenschaft-migros-ostschweiz",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Abteilungsleiter*in Früchte/Gemüse mit personeller Führung",
       "location": "Widnau",
@@ -104622,10 +104623,10 @@
         "fr": "Avez-vous un sentiment pour les produits frais et sont enthousiastes à propos de la variété de nos produits de supermarché de fruits et légumes? C'est-à-dire Vous êtes des ventes fortes et aimez communiquer en toute sécurité avec nos clients ? Alors, vous avez exactement raison avec nous!\n\nLuogo di lavoro: Coopérative Migros Suisse orientale, MM Widnau, Bahnhofstrasse 2, 9443 Widnau\n\n## Mansioni\n- Vous assumez la responsabilité professionnelle et le personnel pour la zone fruit/végétables -- et assurez que tout fonctionne bien.\n- Vous vous occupez de la promotion des ventes et de la planification du personnel. C'est-à-dire Avec votre talent organisationnel, vous assurez un processus en douceur.\n- Les revenus, les coûts, les stocks et la gestion des stocks sont parmi vos tâches principales – vous avez toujours l'aperçu et le contrôle spécifiquement.\n- Commande, contrôle des marchandises entrantes, présentation et disposition sont entre vos mains – vous assurez que tout fonctionne parfaitement.\n- Service à la clientèle amical et compétent et des conseils sont une question bien sûr pour vous et vous conseillez les clients avec votre expertise.\n\n## Exigences\n- Plusieurs années d'expérience professionnelle : commerce de détail, industrie alimentaire\n- Formation de base ou perfectionnement: dans le commerce de détail, l'industrie alimentaire\n- Vous apportez une très bonne expertise dans le domaine des fruits / légumes.\n- Fiabilité, flexibilité et un haut niveau d'engagement vous distinguent – vous êtes toujours là quand vous êtes nécessaire.\n- Avec votre travail indépendant et votre approche amicale, vous créez une atmosphère agréable pour les clients et l'équipe.\n- Vous êtes prêt à poursuivre votre éducation et restez toujours à jour. Idéalement, vous avez déjà une expérience de leadership qui vous aide à prendre vos responsabilités et à soutenir votre équipe.\n- Allemand (très bonne connaissance)\n\n## Cosa de friamo\n- Abonnement pratique : conditions très avantageuses pour les abonnements mobiles privés également pour la famille et les amis\n- Prestations de retraite professionnelle: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Points de cumul: Points de cumul multiples sur les produits alimentaires et non alimentaires\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n\n## Contatto\n Demande et contact * *\nHans-Pierre Wetter\nDirecteur du marché MM Widnau\n+41 58 712 77 62\n\nGrado di occupationazione: 80-100 %"
       },
       "slugByLocale": {
-        "it": "abteilungsleiter-in-fruchte-gemuse-con-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg",
-        "en": "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg",
+        "it": "responsabile-di-reparto-frutta-verdura-con-responsabilita-di-gestione-del-personale-genossenschaft-migros-ostschweiz",
+        "en": "department-manager-fruit-vegetables-with-staff-management-genossenschaft-migros-ostschweiz-widnau",
         "de": "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg",
-        "fr": "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg"
+        "fr": "responsable-du-departement-fruits-legumes-avec-gestion-du-personnel-genossenschaft-migros-ostschweiz-widnau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -104641,11 +104642,20 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau"
+          "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau",
+          "abteilungsleiter-in-fruchte-gemuse-con-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg"
+        ],
+        "en": [
+          "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg"
+        ],
+        "fr": [
+          "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau"
+        "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau",
+        "abteilungsleiter-in-fruchte-gemuse-con-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg",
+        "abteilungsleiter-in-fruchte-gemuse-mit-personeller-fuhrung-genossenschaft-migros-ostschweiz-widnau-n3lhzg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -104667,7 +104677,7 @@
     },
     {
       "id": "company-lvrefr",
-      "slug": "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau-lvrefr",
+      "slug": "addetto-a-alle-vendite-non-food-genossenschaft-migros-ostschweiz-widnau",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Verkäufer*in Non Food",
       "location": "Widnau",
@@ -104722,10 +104732,10 @@
         "fr": "Avez-vous un sentiment pour des produits de haute qualité et êtes-vous enthousiaste à propos de la variété de notre gamme dans le domaine des produits non alimentaires, tels que la vaisselle, les détergents à linge et bien plus encore? Vous êtes forte de ventes et aimez communiquer en toute sécurité avec nos clients ? Alors, vous avez exactement raison avec nous!\n\nLuogo di lavoro: Coopérative Migros Suisse orientale, MM Widnau, Bahnhofstrasse 2, 9443 Widnau\n\n## Mansioni\n- Vous assurez-vous que dans le domaine de Non Food, toutes les étagères sont toujours bien remplies et les marchandises sont gérées de manière optimale, de sorte que les clients trouvent toujours ce qu'ils recherchent.\n- Service à la clientèle amical et compétent et des conseils sont une question bien sûr pour vous et vous conseillez les clients avec votre expertise.\n- Vous vous assurez que les produits sont présentés de manière attrayante et efficace pour créer une expérience d'achat agréable et sont responsables de la conception de la présentation du produit.\n- Vous prenez la responsabilité de commander et de vérifier les marchandises de sorte qu'il n'y a pas trop ou trop peu sur l'étagère.\n- Avec votre engagement, vous contribuez à ce que votre région reste propre, propre et accueillante.\n\n## Exigences\n- L'expérience professionnelle est avantageuse: de préférence dans le commerce de détail\n- Formation de base ou perfectionnement: de préférence dans le commerce de détail\n- Vous apportez une bonne expertise en non-alimentaire.\n- Fiabilité, flexibilité et un haut niveau d'engagement vous distinguent – vous êtes toujours là quand vous êtes nécessaire.\n- Avec votre travail indépendant et votre approche amicale, vous créez une atmosphère agréable pour les clients et l'équipe.\n- Allemand (très bonne connaissance)\n\n## Cosa de friamo\n- Abonnement pratique : conditions très avantageuses pour les abonnements mobiles privés également pour la famille et les amis\n- Prestations de retraite professionnelle: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Points de cumul: Points de cumul multiples sur les produits alimentaires et non alimentaires\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n\n## Contatto\n Demande et contact * *\nHans-Pierre Wetter\nDirecteur du marché MM Widnau\n+41 58 712 77 62\n\nGrado di occupationazione: 80-100 %"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau-lvrefr",
-        "en": "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau-lvrefr",
+        "it": "addetto-a-alle-vendite-non-food-genossenschaft-migros-ostschweiz-widnau",
+        "en": "sales-assistant-non-food-genossenschaft-migros-ostschweiz-widnau",
         "de": "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau-lvrefr",
-        "fr": "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau-lvrefr"
+        "fr": "vendeur-euse-non-alimentaire-genossenschaft-migros-ostschweiz-widnau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -104741,11 +104751,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau"
+          "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau",
+          "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau-lvrefr"
+        ],
+        "en": [
+          "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau-lvrefr"
+        ],
+        "fr": [
+          "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau-lvrefr"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau"
+        "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau",
+        "verkaufer-in-non-food-genossenschaft-migros-ostschweiz-widnau-lvrefr"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -104826,8 +104844,8 @@
       },
       "slugByLocale": {
         "it": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-gzdnj7",
-        "en": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-gzdnj7",
-        "de": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-gzdnj7",
+        "en": "production-sector-manager-m-f-d-fresh-food-beverage-group-vuadens",
+        "de": "produktionssektormanager-m-w-d-fresh-food-beverage-group-vuadens",
         "fr": "responsable-de-secteur-de-production-m-w-d-fresh-food-beverage-group-vuadens-gzdnj7"
       },
       "requirementsByLocale": {
@@ -104869,7 +104887,7 @@
     },
     {
       "id": "company-oor23p",
-      "slug": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld-oor23p",
+      "slug": "insegnante-handlettering-chalk-lettering-in-salari-orali-genossenschaft-migros-ostschweiz-frauenfeld",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Lehrperson Handlettering / Chalk Lettering im Stundenlohn",
       "location": "Frauenfeld",
@@ -104923,10 +104941,10 @@
         "fr": "La Migros Club School est le plus grand fournisseur d'éducation pour adultes en Suisse. La coopérative Migros Eastern Switzerland exploite 7 écoles de club dans lesquelles nos clients offrent plus de 600 cours et cours différents dans une atmosphère d'enseignement agréable.\n\nLuogo di lavoro: Club School Migros, Club School Frauenfeld, Bahnhofstrasse 70-72, 8500 Frauenfeld\n\n## Mansioni\n- Vous concevrez les leçons de Handlettering / Chalk Lettering professionnellement selon les critères d'éducation des adultes, en tenant compte des différentes expériences de vie, styles d'apprentissage et besoins des participants\n- Votre joie dans l'enseignement, votre engagement et votre apparence gagnante inspirent les participants\n- Vous créez une atmosphère d'apprentissage positive qui encourage les apprenants à la motivation et à établir des relations fondées sur la confiance et le respect.\n- Grâce à des accords réguliers avec les personnes de contact concernées de l'administration de l'école du club, vous avez assuré une coopération sans heurts\n\n## Exigences\n- Expérience professionnelle: dans le domaine de l'éducation des adultes\n- Idéalement, vous aurez le certificat SVEB 1 ou un diplôme équivalent\n- Vous vous distinguez par la réflexion et l'empathie envers les participants\n- Vous concevez votre travail de manière responsable et indépendante\n- Vous communiquez clairement, efficacement et respectueusement\n- Formation initiale ou continue terminée\n- Allemand (très bonne connaissance)\n\n## Cosa de friamo\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n- Assurances: conditions d'indemnisation dans diverses compagnies d'assurance\n- Abonnement pratique : conditions très avantageuses pour les abonnements mobiles privés également pour la famille et les amis\n\n## Contatto\n Demande et contact * *\nRegula Styger\nSpécialiste responsable\n+41 58 712 43 27\n\nGrade di occupation: 5-10 %"
       },
       "slugByLocale": {
-        "it": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld-oor23p",
-        "en": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld-oor23p",
+        "it": "insegnante-handlettering-chalk-lettering-in-salari-orali-genossenschaft-migros-ostschweiz-frauenfeld",
+        "en": "teacher-handlettering-chalk-lettering-in-hourly-wages-genossenschaft-migros-ostschweiz-frauenfeld",
         "de": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld-oor23p",
-        "fr": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld-oor23p"
+        "fr": "enseignant-handletter-chalk-lettering-en-salaire-horaire-genossenschaft-migros-ostschweiz-frauenfeld"
       },
       "requirementsByLocale": {
         "it": [],
@@ -104945,11 +104963,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld"
+          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld",
+          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld-oor23p"
+        ],
+        "en": [
+          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld-oor23p"
+        ],
+        "fr": [
+          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld-oor23p"
         ]
       },
       "previousSlugs": [
-        "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld"
+        "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld",
+        "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-frauenfeld-oor23p"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -104971,7 +104997,7 @@
     },
     {
       "id": "company-439u9u",
-      "slug": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-439u9u",
+      "slug": "insegnante-handlettering-chalk-lettering-in-salari-orali-genossenschaft-migros-ostschweiz-chur",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Lehrperson Handlettering / Chalk Lettering im Stundenlohn",
       "location": "Chur",
@@ -105025,10 +105051,10 @@
         "fr": "La Migros Club School est le plus grand fournisseur d'éducation pour adultes en Suisse. La coopérative Migros Eastern Switzerland exploite 7 écoles de club dans lesquelles nos clients offrent plus de 600 cours et cours différents dans une atmosphère d'enseignement agréable.\n\nLuogo di lavoro: Club School Migros, Club School Chur, Garden Street 5, 7000 Chur\n\n## Mansioni\n- Vous concevrez les leçons de Handlettering / Chalk Lettering professionnellement selon les critères d'éducation des adultes, en tenant compte des différentes expériences de vie, styles d'apprentissage et besoins des participants\n- Votre joie dans l'enseignement, votre engagement et votre apparence gagnante inspirent les participants\n- Vous créez une atmosphère d'apprentissage positive qui encourage les apprenants à la motivation et à établir des relations fondées sur la confiance et le respect.\n- Grâce à des accords réguliers avec les personnes de contact concernées de l'administration de l'école du club, vous avez assuré une coopération sans heurts\n\n## Exigences\n- Expérience professionnelle: dans le domaine de l'éducation des adultes\n- Idéalement, vous aurez le certificat SVEB 1 ou un diplôme équivalent\n- Vous vous distinguez par la réflexion et l'empathie envers les participants\n- Vous concevez votre travail de manière responsable et indépendante\n- Vous communiquez clairement, efficacement et respectueusement\n- Formation initiale ou continue terminée\n- Allemand (très bonne connaissance)\n\n## Cosa de friamo\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n- Abonnement pratique : conditions très avantageuses pour les abonnements mobiles privés également pour la famille et les amis\n- Assurances: conditions d'indemnisation dans diverses compagnies d'assurance\n\n## Contatto\n Demande et contact * *\nRegula Styger\nSpécialiste responsable\n+41 58 712 43 27\n\nGrade di occupation: 5-10 %"
       },
       "slugByLocale": {
-        "it": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-439u9u",
-        "en": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-439u9u",
+        "it": "insegnante-handlettering-chalk-lettering-in-salari-orali-genossenschaft-migros-ostschweiz-chur",
+        "en": "teacher-handlettering-chalk-lettering-in-hourly-wages-genossenschaft-migros-ostschweiz-chur",
         "de": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-439u9u",
-        "fr": "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-439u9u"
+        "fr": "enseignant-handletter-chalk-lettering-en-salaire-horaire-genossenschaft-migros-ostschweiz-chur"
       },
       "requirementsByLocale": {
         "it": [],
@@ -105047,11 +105073,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur"
+          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur",
+          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-439u9u"
+        ],
+        "en": [
+          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-439u9u"
+        ],
+        "fr": [
+          "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-439u9u"
         ]
       },
       "previousSlugs": [
-        "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur"
+        "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur",
+        "lehrperson-handlettering-chalk-lettering-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-439u9u"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -105073,7 +105107,7 @@
     },
     {
       "id": "company-lt51ri",
-      "slug": "verkaufer-in-kosmetik-genossenschaft-migros-zurich-lt51ri",
+      "slug": "addetto-a-alle-vendite-cosmetici-genossenschaft-migros-zurich-zurich",
       "company": "Genossenschaft Migros Zürich",
       "title": "Verkäufer*in Kosmetik",
       "location": "Zürich",
@@ -105135,10 +105169,10 @@
         "fr": "Souhaitez-vous impressionner nos clients avec votre expertise dans le domaine des cosmétiques ? Faites partie de notre équipe dans la zone non-alimentaire de la branche Altstetten. Faites votre demande dès maintenant si vous vous souciez d'une satisfaction client élevée.\n\nLuogo di lavoro: Coopérative Migros Zurich, Altstetten, Altstetterstrasse 145, 8048 Zurich\n\n## Informations importantes\nNous accueillons chaque demande, mais nous ne pouvons considérer que les demandes en ligne. Les demandes par la poste sont éliminées pour des raisons de protection des données et ne sont pas retournées.\n\n## Mansioni\n- Vous nous soutenez activement dans le domaine des cosmétiques et contribuez à créer une expérience d'achat positive pour nos clients\n- Vous assumez la responsabilité de la gestion efficace des marchandises, de la présentation attrayante des produits et vous assurez que nos étagères sont toujours bien remplies\n- Vous inspirez nos clients à travers un conseil amical et compétent\n- Vous assurez la haute qualité de nos produits\n- Si nécessaire, vous pouvez également soutenir dans d'autres zones de magasin\n\n## Exigences\n- De rien. 1 an d'expérience professionnelle: dans le commerce de détail, dans le domaine des cosmétiques/non alimentaires\n- Formation de base ou continue: vente/détail\n- Vous êtes intéressé par les produits cosmétiques\n- Vous êtes orienté client et amical\n- Vous aimez travailler de façon indépendante et fiable\n- Êtes-vous flexible et prêt à travailler en dehors des heures de travail habituelles? Profitez de votre temps libre lorsque les autres travaillent!\n- Allemand (bonne connaissance)\n\n## Cosa de friamo\n- Travail en santé : offres de promotion de la santé telles que massages et contrôles de santé\n- Mobilité: Avec le bonus unique de loisirs par an de max. CHF 500.– nous participons à votre abonnement transport en commun\n- Abonnement pratique: Vous pouvez vous attendre à des conditions spéciales pour l'abonnement pratique\n- Pensions professionnelles: Excellentes prestations de fonds de pension avec une forte participation de l'employeur\n- Prestations sociales: Prestations sociales équitables\n- Points Cumulus: Vous obtenez des points Cumulus supplémentaires lors des achats\n- Migros Bank: Intérêts privilégiés sur compte privé et d'investissement, gestion de compte libre, hypothèques à taux réduit et plus\n- Offres des employés: Jusqu'à 1000 CHF par an (selon votre charge de travail) pour votre récupération et votre développement ultérieur – utilisables pour les abonnements fitness, cours, offres santé ou une subvention pour les transports en commun.\n- Offres sportives et de fitness: Vous pouvez obtenir un bonus total de temps libre de max une fois par an. CHF 1000.– par exemple, rachat d'un abonnement annuel au M-Fitnesscenter\n- éducation et formation: soutien à l'éducation et à la formation professionnelles,\n\n## Contatto\n Demande et contact * *\nBettina Erne\nPartenaires de recrutement\n\n Processus de recrutement * *\n\n- Pré-sélection des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancer ou de se retirer du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : Jusqu'à trois semaines\n- Débat d'experts: Lors d'une discussion spécialisée, le gestionnaire et/ou un autre spécialiste et, si nécessaire, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée de la rétroaction : Jusqu'à trois semaines\n- Travail d'essai : Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et inversement, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction : Jusqu'à trois semaines\n- Offer & Contract Exhibition: Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée de la rétroaction : Jusqu'à trois semaines\n\nNote pour les fournisseurs de services au personnel* *\nPour cette position, nous ne considérons que les demandes directes.\n\nGrado di occupationazione: 80-100 %"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kosmetik-genossenschaft-migros-zurich-lt51ri",
-        "en": "verkaufer-in-kosmetik-genossenschaft-migros-zurich-lt51ri",
+        "it": "addetto-a-alle-vendite-cosmetici-genossenschaft-migros-zurich-zurich",
+        "en": "cosmetics-salesperson-genossenschaft-migros-zurich-zurich",
         "de": "verkaufer-in-kosmetik-genossenschaft-migros-zurich-lt51ri",
-        "fr": "verkaufer-in-kosmetik-genossenschaft-migros-zurich-lt51ri"
+        "fr": "vendeur-euse-en-cosmetique-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -105156,11 +105190,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kosmetik-genossenschaft-migros-zurich"
+          "verkaufer-in-kosmetik-genossenschaft-migros-zurich",
+          "verkaufer-in-kosmetik-genossenschaft-migros-zurich-lt51ri"
+        ],
+        "en": [
+          "verkaufer-in-kosmetik-genossenschaft-migros-zurich-lt51ri"
+        ],
+        "fr": [
+          "verkaufer-in-kosmetik-genossenschaft-migros-zurich-lt51ri"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-kosmetik-genossenschaft-migros-zurich"
+        "verkaufer-in-kosmetik-genossenschaft-migros-zurich",
+        "verkaufer-in-kosmetik-genossenschaft-migros-zurich-lt51ri"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -105182,7 +105224,7 @@
     },
     {
       "id": "company-jzlbph",
-      "slug": "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly",
+      "slug": "responsabile-vendite-ultra-frais-m-f-d-societe-cooperative-migros-vaud-prilly",
       "company": "Société coopérative Migros Vaud",
       "title": "Gestionnaire de vente Ultra-Frais (H/F/D)",
       "location": "Prilly",
@@ -105244,9 +105286,9 @@
         "de": "Angetrieben vom Geschmack des Handels und dem Kontakt mit Kunden verkörpern Sie stolz die Werte unserer Marke. Dank Ihrer Energie und Professionalität schaffen Sie ein einzigartiges Kundenerlebnis und beteiligen sich aktiv an der Performance Ihres Shops.\n\n**Luogo di Lavoro:** Société coopérative Migros Vaud, M. Malley, Chemin du Viaduc 1, 1008 Prilly\n\n## Mansioni\n- Bieten Sie ein herzliches und persönliches Willkommen zur Loyalität zu den Kunden.\n- Lieferung und Nachverfolgung von Waren\n- Durchführung der Waren und Verwaltung der Eingänge und Sendungen\n- Analysieren Sie den Vertrieb und zielen Sie die Kundenbedürfnisse ab\n- Anwenden und Erfüllen der HACCP-Standards\n\n## Anforderungen\n- Haltung: Erste Erfahrungen im Handel mit frischem Ultra (Boulangerie, Obst & Gemüse, Milchprodukte, etc.)\n- Absolviertes Professional Learning (CFC): als Retail Specialist\n- Ausgezeichnete Beziehungsfähigkeit und Fähigkeit, eine warme Atmosphäre für Kunden zu schaffen\n- Organisatorischer Sinn, Autonomie und Beherrschung von Computerwerkzeugen.\n- Dynamisch, hilfreich und rigoros\n- Flexibilität und Flexibilität\n- Sehr gute Präsentation, ordentlich und professionell.\n- Französisch (sehr gute Kenntnisse)\n\n## Cosa offeriamo\n- Betriebsrente: vom Arbeitgeber zu 17% finanzierte Pensionskasse.\n- Cumulus Punkte: Zusätzliche Cumulus Punkte für Migros Mitarbeiter\n- Migros Bank: Vorzugstarife bei der Migros Bank\n- Angebote für Arbeitnehmer: Und noch viel mehr!\n- Urlaub: 5 bis 7 Wochen Urlaub pro Jahr, je nach Alter oder Dienstalter.\n- Migros Club School: Finanzielle Unterstützung für Kurse und Schulungen an der Migros Club School.\n- Mutterschafts- / Vaterschaftsurlaub: 18 Wochen Mutterschaftsurlaub und 4 Wochen Vaterschaftsurlaub, zu 100% bezahlt.\n- Freizeit- und Kulturangebot: Exklusive Angebote und Rabatte unserer Partner.\n- Sport- und Fitnessangebote: Abonnements in unseren Fitness- und Golfzentren zu einem günstigen Preis\n\n## Contatto\n**Kandidat und Kontakt**\nPersonalvermittlungszentrum\nMigros Waadt\n\n**Grado di occupazione:** 70%"
       },
       "slugByLocale": {
-        "it": "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly",
-        "en": "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly-jzlbph",
-        "de": "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly-jzlbph",
+        "it": "responsabile-vendite-ultra-frais-m-f-d-societe-cooperative-migros-vaud-prilly",
+        "en": "ultra-cost-sales-manager-m-f-d-societe-cooperative-migros-vaud-prilly",
+        "de": "ultra-cost-sales-manager-m-w-d-societe-cooperative-migros-vaud-prilly",
         "fr": "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly-jzlbph"
       },
       "requirementsByLocale": {
@@ -105266,11 +105308,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly-jzlbph",
+          "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly"
+        ],
+        "en": [
+          "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly-jzlbph"
+        ],
+        "de": [
           "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly-jzlbph"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly-jzlbph"
+        "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly-jzlbph",
+        "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-prilly"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -105292,7 +105342,7 @@
     },
     {
       "id": "company-4ja4l9",
-      "slug": "souschef-in-migros-golf-ag-otelfingen-4ja4l9",
+      "slug": "sous-chef-migros-golf-ag-otelfingen",
       "company": "Migros Golf AG",
       "title": "Souschef*In",
       "location": "Otelfingen",
@@ -105352,10 +105402,10 @@
         "fr": "En tant que sous-chef, vous assurerez dans notre restaurant dans le Golfpark Otelfingen avec votre équipe pour de beaux moments de plaisir. Vous organisez l'opération de cuisine dans les affaires quotidiennes, représentez le chef et incluez des cuisiniers et d'autres employés de cuisine. Pendant le service, vous gardez un aperçu, coordonnez les processus et trouvez des solutions lorsque les choses se serrent.\n\n**Luogo di lavoro:** Migros Golf AG, Golfpark Otelfingen, Neue Riedstrasse 72, 8112 Otelfingen\n\n## Mansioni\n- Organisation et planification des activités quotidiennes de cuisine en coordination avec le chef\n- Coordination des opérations pendant le service et solution rapide des goulets d'étranglement\n- Participation à la préparation et à la mise en œuvre des banquets, événements, tournois et mariages\n- Surveiller la préparation et la préparation des aliments et assurer le bon fonctionnement de la cuisine et du bureau.\n- Contrôle du respect des exigences en matière d'hygiène et de sécurité alimentaire\n\n## Exigences\n- Expérience professionnelle : plusieurs années d'expérience culinaire\n- Formation initiale ou continue terminée: comme cuisinier\n- Communication et compétences en équipe\n- Haute qualité et sensibilisation aux responsabilités\n- Flair organisationnel\n- Préparation aux affectations le week-end et aux heures de travail irrégulières\n- Allemand (très bonne connaissance)\n\n## Cosa de friamo\n- Partie du groupe Migros : Dans le cadre du groupe Migros, vous bénéficiez de structures stables, d'opportunités de carrière variées et d'avantages intéressants\n- Travail sain: Bénéficiez de notre gestion de la santé de l'entreprise et de prestations d'assurance attrayantes\n- Abonnement pratique: Les employés reçoivent des conditions très avantageuses pour l'abonnement privé Handy incl. Famille et amis\n- Caisse de retraite professionnelle : La Caisse de retraite Migros offre des services attrayants avec une forte participation des salariés\n- Points de Cumulus: Vous collectez des points de Cumulus supplémentaires dans la section Alimentation et non-alimentation\n- Club School Migros: Nous participons à des cours de club jusqu'à max. CHF 1000.- (en 100% frais)\n- Loisirs et offres culturelles: Nous offrons divers rabais et billets gratuits dans le domaine des loisirs et de la culture\n- Offres sportives et de fitness: Avec nous vous obtenez des abonnements de fitness à prix réduit dans l'Activ Fitness et Migros Fitness Park\n\n## Contatto\n** Demande et contact * *\nLeandra Studhalter\nConsultant en ressources humaines\n\n** Processus de recrutement * *\n\n- Pré-sélection des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancer ou de se retirer du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : Jusqu'à trois semaines\n- Débat d'experts: Lors d'une discussion spécialisée, le gestionnaire et/ou un autre spécialiste et, si nécessaire, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée de la rétroaction : Jusqu'à trois semaines\n- Apprendre à connaître l'équipe : La question de savoir si quelqu'un fait partie de l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'obtenir ou de refuser un emploi. Dans un cadre occasionnel, nous donnons donc l'occasion à chacun de se connaître.\n- Offer & Contract Exhibition (Digital): Après notre offre d'emploi orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée de la rétroaction: Jusqu'à une semaine\n\n**Grado di occupationazione:** 80-100 %"
       },
       "slugByLocale": {
-        "it": "souschef-in-migros-golf-ag-otelfingen-4ja4l9",
+        "it": "sous-chef-migros-golf-ag-otelfingen",
         "en": "souschef-in-migros-golf-ag-otelfingen-4ja4l9",
         "de": "souschef-in-migros-golf-ag-otelfingen-4ja4l9",
-        "fr": "souschef-in-migros-golf-ag-otelfingen-4ja4l9"
+        "fr": "sous-chef-fe-migros-golf-ag-otelfingen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -105374,11 +105424,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "souschef-in-migros-golf-ag-otelfingen"
+          "souschef-in-migros-golf-ag-otelfingen",
+          "souschef-in-migros-golf-ag-otelfingen-4ja4l9"
+        ],
+        "fr": [
+          "souschef-in-migros-golf-ag-otelfingen-4ja4l9"
         ]
       },
       "previousSlugs": [
-        "souschef-in-migros-golf-ag-otelfingen"
+        "souschef-in-migros-golf-ag-otelfingen",
+        "souschef-in-migros-golf-ag-otelfingen-4ja4l9"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

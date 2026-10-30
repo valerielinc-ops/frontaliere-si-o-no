@@ -186,12 +186,12 @@
     },
     {
       "id": "puk-zuerich-245c4c41bdcf",
-      "slug": "studentische-mitarbeitende-per-la-1-patientenbegleitung-psychiatrische-universitatsklinik-zurich",
+      "slug": "personale-studentesco-per-l-accompagnamento-1-1-dei-pazienti-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "de": "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-puk-zuerich-zurich",
-        "it": "studentische-mitarbeitende-per-la-1-patientenbegleitung-psychiatrische-universitatsklinik-zurich",
-        "en": "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-psychiatrische-universitatsklinik-zurich-zurich"
+        "it": "personale-studentesco-per-l-accompagnamento-1-1-dei-pazienti-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "student-staff-for-1-1-patient-support-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "personnel-etudiant-pour-1-1-patient-soutien-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -242,11 +242,20 @@
       "pensum": "10%",
       "previousSlugsByLocale": {
         "it": [
-          "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-puk-zuerich-zurich"
+          "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-puk-zuerich-zurich",
+          "studentische-mitarbeitende-per-la-1-patientenbegleitung-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-puk-zuerich-zurich"
+        "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-puk-zuerich-zurich",
+        "studentische-mitarbeitende-per-la-1-patientenbegleitung-psychiatrische-universitatsklinik-zurich",
+        "studentische-mitarbeitende-fur-die-1-1-patientenbegleitung-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4443,12 +4452,12 @@
     },
     {
       "id": "puk-zuerich-9196ad4333a5",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-e-akute-psychosen-psychiatrische-universitatsklinik-zurich",
+      "slug": "infermiera-diplomata-infermiere-diplomato-specializzazione-demenza-delirium-e-psicosi-acute-psychiatrische",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-und-akute-psychosen-puk",
-        "it": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-e-akute-psychosen-psychiatrische-universitatsklinik-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-und-akute-psychosen-puk",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-und-akute-psychosen-puk"
+        "it": "infermiera-diplomata-infermiere-diplomato-specializzazione-demenza-delirium-e-psicosi-acute-psychiatrische",
+        "en": "dipl-nursing-specialist-focus-dementia-delirium-and-acute-psychosis-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "dipl-specialiste-des-soins-infirmiers-demence-delire-et-psychose-aigue-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4499,11 +4508,19 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-und-akute-psychosen-puk",
+          "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-e-akute-psychosen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-und-akute-psychosen-puk"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-und-akute-psychosen-puk"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-und-akute-psychosen-puk"
+        "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-und-akute-psychosen-puk",
+        "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-demenz-delir-e-akute-psychosen-psychiatrische-universitatsklinik-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4858,12 +4875,12 @@
     },
     {
       "id": "puk-zuerich-06a1e25856b8",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-therapiestation-per-jugendliche-psychiatrische-universitatsklinik-zurich",
+      "slug": "infermiera-diplomata-infermiere-diplomato-oppure-educatrice-sociale-diplomata-educatore-sociale-diplomato-unita",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge",
-        "it": "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-therapiestation-per-jugendliche-psychiatrische-universitatsklinik-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge"
+        "it": "infermiera-diplomata-infermiere-diplomato-oppure-educatrice-sociale-diplomata-educatore-sociale-diplomato-unita",
+        "en": "dipl-nursing-professional-or-dipl-social-pedagogue-social-pedagogue-therapy-station-for-young-people-psychiatrische",
+        "fr": "dipl-professionnels-des-soins-infirmiers-ou-dipl-pedagogue-sociale-pedagogue-sociale-station-de-therapie-pour-les-jeunes"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4914,11 +4931,19 @@
       "pensum": "70%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge",
+          "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-therapiestation-per-jugendliche-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge"
+        "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge",
+        "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-therapiestation-per-jugendliche-psychiatrische-universitatsklinik-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

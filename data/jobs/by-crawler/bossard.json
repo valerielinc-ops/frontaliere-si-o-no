@@ -420,12 +420,12 @@
     },
     {
       "id": "bossard-7905df7fdafc",
-      "slug": "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug",
+      "slug": "addetto-a-all-elaborazione-degli-ordini-100-tutti-i-generi-bossard-ag-bossard-group-zug",
       "slugByLocale": {
         "de": "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
-        "it": "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug",
-        "en": "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
-        "fr": "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug"
+        "it": "addetto-a-all-elaborazione-degli-ordini-100-tutti-i-generi-bossard-ag-bossard-group-zug",
+        "en": "order-processing-employee-100-all-genders-bossard-ag-bossard-group-zug",
+        "fr": "collaborateur-rice-au-traitement-des-commandes-100-tous-genres-bossard-ag-bossard-group-zug"
       },
       "company": "Bossard Group",
       "companyKey": "bossard",
@@ -474,11 +474,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
+          "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug"
+        ],
+        "en": [
+          "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug"
+        ],
+        "fr": [
           "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug"
+        "mitarbeiter-in-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-zug",
+        "collaboratore-trice-auftragsbearbeitung-100-all-genders-bossard-ag-bossard-group-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hr-administration-60-80-w-m-d-bms-building-ch",
         "it": "collaboratore-trice-risorse-umane-administration-60-80-m-w-d-bms-building-materials-rumlang",
-        "en": "mitarbeiter-in-hr-administration-60-80-w-m-d-bms-building-ch",
-        "fr": "mitarbeiter-in-hr-administration-60-80-w-m-d-bms-building-ch"
+        "en": "hr-administration-employee-60-80-m-f-d-bms-building-materials-rumlang",
+        "fr": "collaborateur-trice-en-administration-rh-60-80-h-f-d-bms-building-materials-rumlang"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -82,6 +82,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hr-administration-60-80-w-m-d-bms-building-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-hr-administration-60-80-w-m-d-bms-building-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-hr-administration-60-80-w-m-d-bms-building-ch"
         ]
       },

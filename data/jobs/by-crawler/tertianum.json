@@ -88,8 +88,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-aktivierung-40-60-tertianum-thun",
         "it": "collaboratore-trice-aktivierung-40-60-tertianum-thun",
-        "en": "mitarbeiter-in-aktivierung-40-60-tertianum-thun",
-        "fr": "mitarbeiter-in-aktivierung-40-60-tertianum-thun"
+        "en": "activation-employee-40-60-tertianum-thun",
+        "fr": "collaborateur-rice-en-activation-40-60-tertianum-thun"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -136,6 +136,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-aktivierung-40-60-tertianum-thun"
+        ],
+        "en": [
+          "mitarbeiter-in-aktivierung-40-60-tertianum-thun"
+        ],
+        "fr": [
           "mitarbeiter-in-aktivierung-40-60-tertianum-thun"
         ]
       },

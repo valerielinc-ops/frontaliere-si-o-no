@@ -3304,12 +3304,12 @@
     },
     {
       "id": "srg-ssr-accfa385c6be",
-      "slug": "hochschulpraktikant-in-partnerschaften-amp-live-comm-km-srg-ssr-geneve-8",
+      "slug": "tirocinante-universitario-a-per-le-partnership-e-live-comm-km-srg-ssr-geneve-8",
       "slugByLocale": {
         "de": "hochschulpraktikant-in-partnerschaften-amp-live-comm-km-srg-ssr-geneve-8",
-        "it": "hochschulpraktikant-in-partnerschaften-amp-live-comm-km-srg-ssr-geneve-8",
-        "en": "hochschulpraktikant-in-partnerschaften-amp-live-comm-km-srg-ssr-geneve-8",
-        "fr": "hochschulpraktikant-in-partnerschaften-amp-live-comm-km-srg-ssr-geneve-8"
+        "it": "tirocinante-universitario-a-per-le-partnership-e-live-comm-km-srg-ssr-geneve-8",
+        "en": "university-intern-partnerships-live-comm-km-srg-ssr-geneve-8",
+        "fr": "stagiaire-universitaire-partenariats-communication-en-direct-km-srg-ssr-geneve-8"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3387,16 +3387,30 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-29T21:16:04.187Z"
+      "firstSeenAt": "2026-10-29T21:16:04.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-partnerschaften-amp-live-comm-km-srg-ssr-geneve-8"
+        ],
+        "en": [
+          "hochschulpraktikant-in-partnerschaften-amp-live-comm-km-srg-ssr-geneve-8"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-partnerschaften-amp-live-comm-km-srg-ssr-geneve-8"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-partnerschaften-amp-live-comm-km-srg-ssr-geneve-8"
+      ]
     },
     {
       "id": "srg-ssr-93de94af49ba",
-      "slug": "stagiaire-partenariats-amp-live-com-km-f-h-d-srg-ssr-geneve-8",
+      "slug": "stagista-partnership-live-com-km-m-f-d-srg-ssr-geneve-8",
       "slugByLocale": {
         "fr": "stagiaire-partenariats-amp-live-com-km-f-h-d-srg-ssr-geneve-8",
-        "it": "stagiaire-partenariats-amp-live-com-km-f-h-d-srg-ssr-geneve-8",
-        "en": "stagiaire-partenariats-amp-live-com-km-f-h-d-srg-ssr-geneve-8",
-        "de": "stagiaire-partenariats-amp-live-com-km-f-h-d-srg-ssr-geneve-8"
+        "it": "stagista-partnership-live-com-km-m-f-d-srg-ssr-geneve-8",
+        "en": "intern-partnerships-live-com-km-m-f-d-srg-ssr-geneve-8",
+        "de": "intern-partnerschaften-live-com-km-m-w-d-srg-ssr-geneve-8"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3474,7 +3488,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-29T21:16:03.607Z"
+      "firstSeenAt": "2026-10-29T21:16:03.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-partenariats-amp-live-com-km-f-h-d-srg-ssr-geneve-8"
+        ],
+        "en": [
+          "stagiaire-partenariats-amp-live-com-km-f-h-d-srg-ssr-geneve-8"
+        ],
+        "de": [
+          "stagiaire-partenariats-amp-live-com-km-f-h-d-srg-ssr-geneve-8"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-partenariats-amp-live-com-km-f-h-d-srg-ssr-geneve-8"
+      ]
     }
   ]
 }
