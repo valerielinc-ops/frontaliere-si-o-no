@@ -25,7 +25,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
-import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
@@ -69,11 +69,14 @@ export function openRequiredQuestions(draft, answers = {}, { deferPortal = false
 }
 
 /** Project answers already recorded by the portal onto the current draft ids. */
-function portalAnswersForFlow(questions, answers, recordedAnswers) {
+function portalAnswersForFlow(questions, answers, recordedAnswers, memory = {}) {
   const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
   const records = Array.isArray(recordedAnswers) ? recordedAnswers : [];
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id || String(result[question.id] ?? '').trim()) continue;
+    if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)
+      && (Object.hasOwn(result, question.id) || (Object.hasOwn(memory, candidateQuestionAnswerKey(question))
+        && !String(memory[candidateQuestionAnswerKey(question)] ?? '').trim()))) continue;
     const key = portalQuestionKey(question);
     if (!key) continue;
     const values = new Map();
@@ -231,7 +234,7 @@ export async function submitApplication(ctx) {
     job: { title: draft?.job?.title || order.jobTitle || '', company: order.companyName || '' },
   });
   const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers });
-  const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered);
+  const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered, flow?.questionAnswers || {});
   const mergedAnswers = { ...(flow?.answers || {}), ...rememberedAnswers, ...autoAnswers };
   const submitFlow = Object.keys(mergedAnswers).length
     ? { ...(flow || {}), answers: mergedAnswers }

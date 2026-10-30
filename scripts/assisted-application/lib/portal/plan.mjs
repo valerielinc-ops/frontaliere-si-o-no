@@ -1023,7 +1023,7 @@ function ownedRecordedAnswer(item, question, metadata) {
 }
 
 /** The candidate already answered this question, including a wording/ID variant. */
-function recordedAnswerForQuestion(candidate, question, context = '', metadata = {}) {
+function recordedAnswerForQuestion(candidate, question, context = '', metadata = {}, currentOnly = false) {
   const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.source !== 'policy_default' && String(item?.answer || '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
@@ -1046,6 +1046,7 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
     && comparableContext(item.section) === requestedSection
     && comparableContext(item.autocomplete) === requestedAutocomplete;
   const matches = items.filter((item) => {
+    if (currentOnly && item.current !== true) return false;
     if (!ownedRecordedAnswer(item, question, metadata)) return false;
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
     const itemTopic = questionTopic(item.question, item.context, item);
@@ -1078,7 +1079,8 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
   // Contact/address facts are canonical identity data. A prior portal answer
   // is only a compatibility fallback when the current candidate record has no
   // value; it must not overwrite a corrected country from the CV/profile.
-  return addressQuestionAnswer(candidate, topic)
+  return (addressQuestionAnswer(candidate, topic) && recordedAnswerForQuestion(candidate, question, context, metadata, true))
+    || addressQuestionAnswer(candidate, topic)
     || recordedAnswerForQuestion(candidate, question, context, metadata);
 }
 
@@ -1400,7 +1402,8 @@ export function candidateAnswerForField(candidate, field) {
   if (referralSource) return referralSource;
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const canonical = addressQuestionAnswer(candidate, topic);
-    const stated = canonical || previous;
+    const current = recordedAnswerForQuestion(candidate, field?.label, field?.context, field, true);
+    const stated = current || canonical || previous;
     if (!stated) return null;
     let value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     // Workday and similar ATSs split «Street Name» from the house number.
@@ -1412,7 +1415,7 @@ export function candidateAnswerForField(candidate, field) {
         .replace(/\s+[0-9]{1,5}[A-Za-z]?\s*$/, '')
         .trim();
     }
-    return value ? { value, source: canonical ? 'identity' : 'answers' } : null;
+    return value ? { value, source: current ? 'answers' : canonical ? 'identity' : 'answers' } : null;
   }
   if (previous) {
     const value = optionForAnswer(field, previous);

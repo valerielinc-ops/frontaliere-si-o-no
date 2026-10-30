@@ -129,6 +129,15 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(hard.unreadableFields).toBeUndefined();
   });
 
+  it('honors the current explicit residence correction above CV extraction', () => {
+    const field = nativeField('<form><h2>Personal information</h2><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></form>', reader);
+    const question = { ...field, question: field.label, source: 'portal', type: 'text' };
+    const form = candidateForForm({ identity: { name: 'Test User', email: 'test@example.test' }, profile: { address: { city: 'Como', country: 'Italia' } }, portalQuestions: [question], answers: { [field.id]: 'Lugano' } });
+    expect(candidateAnswerForField(form, field)).toEqual({ value: 'Lugano', source: 'answers' });
+    const cleared = candidateForForm({ identity: { name: 'Test User', email: 'test@example.test' }, portalQuestions: [{ ...question, addressContext: { ...field.addressContext, owners: ['Employer'] } }], answers: { [field.id]: '' }, draft: { portalAnswers: { answers: [{ question: field.label, context: field.context, section: field.section, autocomplete: field.autocomplete, addressContext: { ...field.addressContext, owners: ['Employer'] }, answer: 'Como', source: 'answers' }] } } });
+    expect(cleared.portalQuestionsAnswered).toEqual([]);
+  });
+
   it('does not invent DOB when the profile has no date of birth', () => {
     const field = nativeField('<form><label for="dob">DOB</label><input id="dob" name="dob" type="date" required></form>', reader, 'dob');
     const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: '1990-01-02', source: 'inferred' }], missingRequired: [] }, [field], { ...candidate, profile: {} });

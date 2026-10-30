@@ -61,6 +61,13 @@ describe('fill kit', () => {
     const kit = buildFillKit({ orderId: ORDER, order, draft: { ...draft, questions: [question], portalAnswers: { answers: [{ ...question, answer: 'Como', source }] } }, flow: { answers: { employer_city: 'Lugano' } } });
     expect(kit.answers).toEqual(expect.arrayContaining([expect.objectContaining({ question: 'City', answer: 'Lugano', source: 'answers', addressContext })]));
     expect(kit.answers[0].source).toBe('answers');
+    expect(kit.answers.some((answer: any) => answer.question === 'City' && answer.answer === 'Como')).toBe(false);
+  });
+  it('does not restore an explicitly cleared employer city from a prior bound answer', () => {
+    const addressContext = { section: 'Personal information', owners: ['Employer'], unknown: false };
+    const question = { id: 'employer_city', question: 'City', source: 'portal', context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext, type: 'text' };
+    const kit = buildFillKit({ orderId: ORDER, order, draft: { ...draft, questions: [question], portalAnswers: { answers: [{ ...question, answer: 'Como', source: 'answers' }] } }, flow: { answers: { employer_city: '' } } });
+    expect(kit.answers).toEqual([]);
   });
   it('preserves native owners and keeps same-label residence and employer statements separate', () => {
     const personal = { section: 'Personal information', owners: [], unknown: false };
@@ -70,7 +77,7 @@ describe('fill kit', () => {
     expect(kit.answers.map((answer: any) => [answer.answer, answer.addressContext])).toEqual([['Como', personal], ['Lugano', employer]]);
   });
 
-  it('carries what the runner would type: its portal answers first, the candidate’s edits, the documents', () => {
+  it('carries current candidate edits, the portal wording and the documents', () => {
     const kit = buildFillKit({
       orderId: ORDER,
       order,
@@ -82,12 +89,13 @@ describe('fill kit', () => {
     expect(kit.identity).toMatchObject({ firstName: 'Maria Luisa', lastName: 'Rossi', fullName: 'Maria Luisa Rossi', email: 'maria@example.com', phone: '+39 333 1234567', phoneCountry: 'Italien', location: 'Como, Italia' });
     expect(kit.identity.address).toEqual({ street: 'Via Roma 1', postalCode: '22100', city: 'Como', country: 'Italia' });
     expect(kit.profile).toMatchObject({ dateOfBirth: '1990-05-12', salary: 'CHF 80k' });
-    // The portal's own wording wins over the draft's question; empty answers never travel.
+    // Current edits win for the same question; other portal wording stays
+    // available, and empty answers never travel.
     expect(kit.answers).toEqual([
-      { question: 'Wann können Sie beginnen?', answer: 'Nach Vereinbarung', source: 'answers' },
-      { question: 'Lohnvorstellung', answer: '6500', source: 'answers' },
-      { question: 'Lebenslauf', answer: '[CV]', source: 'documents' },
       { question: 'Ab wann verfügbar?', answer: 'sofort', source: 'answers' },
+      { question: 'Lohnvorstellung', answer: 'CHF 80k', source: 'answers' },
+      { question: 'Wann können Sie beginnen?', answer: 'Nach Vereinbarung', source: 'answers' },
+      { question: 'Lebenslauf', answer: '[CV]', source: 'documents' },
     ]);
     expect(kit.texts).toMatchObject({ coverLetter: 'Sehr geehrte Damen und Herren', motivationShort: 'Motiviert' });
     expect(kit.documents).toEqual({
