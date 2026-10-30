@@ -374,7 +374,12 @@
         names.push(node.getAttribute('aria-label') || '');
         for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
           const label = node.ownerDocument.getElementById(id);
-          if (label && isShown(label)) names.push(textOf(label));
+          // Explicit ARIA references can name an owner through visually
+          // hidden text. Dropping that name must not authorize an outer
+          // personal heading; unreadable ownership remains unknown.
+          const name = label ? textOf(label) : '';
+          if (!name) return null;
+          names.push(name);
         }
         const legend = [...node.children].find(child => child.tagName === 'LEGEND');
         if (legend && isShown(legend)) names.push(textOf(legend));
@@ -668,7 +673,7 @@
     // visible labels and the surrounding section may establish residence
     // provenance; a section-personal token alone must stay ownerless.
     const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''}`);
-    const candidateAddress = (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
+    const candidateAddress = entry.section !== null && (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       || RESIDENCE_CONTEXT_RE.test(addressContext))
       && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       && !BIRTHPLACE_RE.test(addressContext)
