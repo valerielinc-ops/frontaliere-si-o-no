@@ -920,6 +920,7 @@ const enCore: Record<string, string> = {
  'jobBoard.concierge.proposalStatus.preparing': "Preparing",
  'jobBoard.concierge.proposalStatus.accepted': 'Accepted',
  'jobBoard.concierge.proposalStatus.declined': 'Declined',
+ 'jobBoard.concierge.proposalStatus.withdrawn': 'Withdrawn',
  'jobBoard.concierge.proposalStatus.expired': 'Expired',
  'jobBoard.concierge.proposalStatus.retracted': 'Removed from suggestions',
  'jobBoard.concierge.errors.generic': 'Something went wrong. Please try again shortly.',

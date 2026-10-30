@@ -914,6 +914,7 @@ const deCore: Record<string, string> = {
  'jobBoard.concierge.proposalStatus.preparing': "In Vorbereitung",
  'jobBoard.concierge.proposalStatus.accepted': 'Angenommen',
  'jobBoard.concierge.proposalStatus.declined': 'Abgelehnt',
+ 'jobBoard.concierge.proposalStatus.withdrawn': 'Zurückgezogen',
  'jobBoard.concierge.proposalStatus.expired': 'Abgelaufen',
  'jobBoard.concierge.proposalStatus.retracted': 'Aus den Vorschlägen entfernt',
  'jobBoard.concierge.errors.generic': 'Ein Fehler ist aufgetreten. Bitte versuche es gleich erneut.',

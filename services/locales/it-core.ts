@@ -959,6 +959,7 @@ const translations: Record<string, string> = {
  'jobBoard.concierge.proposalStatus.preparing': "In preparazione",
  'jobBoard.concierge.proposalStatus.accepted': 'Accettata',
  'jobBoard.concierge.proposalStatus.declined': 'Rifiutata',
+ 'jobBoard.concierge.proposalStatus.withdrawn': 'Ritirata',
  'jobBoard.concierge.proposalStatus.expired': 'Scaduta',
  'jobBoard.concierge.proposalStatus.retracted': 'Rimossa dai suggerimenti',
  'jobBoard.concierge.errors.generic': 'Si è verificato un errore. Riprova tra poco.',
