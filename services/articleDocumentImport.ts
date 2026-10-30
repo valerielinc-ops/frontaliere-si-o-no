@@ -27,17 +27,22 @@ async function extractFromPdf(file: File): Promise<string> {
   pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.mjs', import.meta.url).href;
 
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-  const pages: string[] = [];
-  for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-    const page = await pdf.getPage(pageNum);
-    const textContent = await page.getTextContent();
-    const pageText = textContent.items
-      .map((item) => ('str' in item ? item.str : ''))
-      .join(' ');
-    pages.push(pageText.trim());
+  const loading = pdfjsLib.getDocument({ data: arrayBuffer });
+  try {
+    const pdf = await loading.promise;
+    const pages: string[] = [];
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      const page = await pdf.getPage(pageNum);
+      const textContent = await page.getTextContent();
+      const pageText = textContent.items
+        .map((item) => ('str' in item ? item.str : ''))
+        .join(' ');
+      pages.push(pageText.trim());
+    }
+    return pages.join('\n\n').trim();
+  } finally {
+    await loading.destroy();
   }
-  return pages.join('\n\n').trim();
 }
 
 /** Throws DOC_LEGACY_UNSUPPORTED / UNSUPPORTED_FORMAT for unreadable formats — caller maps to a translated message. */

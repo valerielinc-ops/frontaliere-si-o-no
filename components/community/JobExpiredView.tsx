@@ -647,9 +647,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  );
 
  const relatedJobsSection = relatedJobs.length > 0 && (
- <div className="space-y-2">
- <h2 className="text-base font-semibold font-display text-strong">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
- <div className="space-y-2">
+ <section className="rounded-2xl border border-edge bg-surface p-5">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" data-job-related-grid>
  {relatedJobs.slice(0, 6).flatMap((rj, rjIdx, rjArr) => {
  const rjSlug = rj.slug;
  const rjTitle = jobDisplayTitle(rj) || rjSlug;
@@ -702,18 +702,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </a>
  </article>
  );
- // One in-feed ad after every Nth related card (shared `shouldPlaceInfeedAd`
- // cadence), never after the last — same logic as the main job list. The
- // `space-y-2` stack lets a full-width ad block slot cleanly between cards.
+ // Keep the standard job-detail cadence: one in-feed ad after each third
+ // related card, spanning the complete card grid, never after the last.
  if (rjIdx + 1 < rjArr.length && shouldPlaceInfeedAd(rjIdx + 1)) {
  const adCfg = isDesktopLg ? AD_SLOTS.JOBLIST_INFEED_DESKTOP : AD_SLOTS.JOBLIST_INFEED_MOBILE;
  return [
  card,
  // The banner owns the reserve so terminal no-fill leaves no orphan wrapper.
- <div
- key={`rel-infeed-${rjSlug}`}
-
- >
+ <div key={`rel-infeed-${rjSlug}`} className="col-span-full min-w-0" data-job-related-ad>
  <AdSenseBanner className="my-3" placement={`expired-related-${rjIdx}`} adSlot={adCfg.slot} adFormat={adCfg.format} fullWidthResponsive={adCfg.fullWidthResponsive} />
  </div>,
  ];
@@ -721,7 +717,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  return [card];
  })}
  </div>
- </div>
+ </section>
  );
 
  const ctaLink = (
@@ -773,7 +769,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </aside>
 
  {/* ── Center content (12-col job-detail grid) ── */}
- <div className="min-w-0 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
+ <div className="min-w-0 w-full grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
  {/* ── Main content (8 cols) ── */}
  <article className="lg:col-span-8 space-y-5">
  <div className="rounded-stripe border border-edge bg-surface p-5 sm:p-6 shadow-stripe-sm">
@@ -808,7 +804,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  />
  )}
 
- {relatedJobsSection}
  <JobAlertSection initialKeyword={job.title || ''} />
  {ctaLink}
  </article>
@@ -948,7 +943,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </aside>
  </div>
 
- {/* End multiplex */}
+ {/* End multiplex and related jobs follow the same full-width order as the
+     active job detail, below its 8/4 content-and-sidebar grid. */}
  {AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot && (
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot}
@@ -956,6 +952,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  className="mt-2"
  />
  )}
+ {relatedJobsSection}
  </div>
  );
  }
@@ -978,7 +975,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </aside>
 
  {/* ── Center content ── */}
- <div className="min-w-0 w-full max-w-3xl mx-auto">
+ <div className="min-w-0 w-full space-y-5" data-expired-gated-content>
 
  {/* Job header card */}
  <div onCopy={handleGateCopy}>
@@ -1144,13 +1141,19 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  fullWidthResponsive={AD_SLOTS.JOBDETAIL_AUTH_GATE.fullWidthResponsive}
  />
  )}
+
+ {/* Keep the remaining detail content inside the same full-width center
+     column as the gate and between the desktop ad rails. */}
+ {companyBanner}
+ {relatedJobsSection}
+ <JobAlertSection initialKeyword={job.title || ''} />
+ {ctaLink}
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
  <aside className={RAIL_ASIDE_CLASS_X}>
  <ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} />
  </aside>
-
  </div>
 
  {/* AdSense — end multiplex below 3-column layout */}
@@ -1162,19 +1165,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  />
  )}
 
- <div className="w-full max-w-3xl mx-auto space-y-6">
-  {/* Company banner */}
-  {companyBanner}
-
-  {/* Related active jobs */}
-  {relatedJobsSection}
-
-  {/* Job alert opt-in */}
-  <JobAlertSection initialKeyword={job.title || ''} />
-
-  {/* CTA */}
-  {ctaLink}
- </div>
  </div>
  );
 }
