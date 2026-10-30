@@ -549,6 +549,46 @@ describe('explicit paid concierge renewal', () => {
     });
     expect(mocks.store.get('application_concierge_services/original-service')?.renewedByServiceId).toBeUndefined();
   });
+  it.each([
+    ['stripe', 3 * day - 1, 2999], ['stripe', 3 * day, 3999],
+    ['sumup', 3 * day - 1, 2999], ['sumup', 3 * day, 3999],
+  ] as const)('uses the server price at the 72-hour boundary for %s: elapsed %i ms', async (provider, elapsed, expectedAmountTotal) => {
+    const current = Date.now();
+    const clock = vi.spyOn(Date, 'now').mockReturnValue(current);
+    try {
+      mocks.getAssistedApplicationPaymentProvider.mockResolvedValue(provider);
+      const original = source(current - elapsed);
+      const result = await handleCreateApplicationConciergeCheckout(request({ body: { ...original.body, expectedAmountTotal } }));
+      expect(result.body).toMatchObject({ amountTotal: expectedAmountTotal });
+      expect(mocks.store.get(`application_concierge_services/${result.body.serviceId}`)?.expectedAmountTotal).toBe(expectedAmountTotal);
+      if (provider === 'stripe') {
+        expect(mocks.stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
+          line_items: [expect.objectContaining({ price_data: expect.objectContaining({ unit_amount: expectedAmountTotal }) })],
+        }), expect.anything());
+      } else {
+        expect(mocks.createSumUpApplicationConciergeCheckout).toHaveBeenCalledWith(expect.objectContaining({
+          ...(expectedAmountTotal === 2999 ? { amountCents: 2999, validUntil: current + 1 } : { serviceId: result.body.serviceId }),
+        }));
+        if (expectedAmountTotal === 3999) {
+          const providerQuote = mocks.createSumUpApplicationConciergeCheckout.mock.calls[0][0];
+          expect(providerQuote).not.toHaveProperty('amountCents');
+          expect(providerQuote).not.toHaveProperty('validUntil');
+        }
+      }
+    } finally { clock.mockRestore(); }
+  });
+  it('reuses one source renewal even when repeated clicks supply different request keys', async () => {
+    const original = source();
+    const first = await handleCreateApplicationConciergeCheckout(original);
+    mocks.stripeCheckoutSessionsRetrieve.mockResolvedValue({
+      id: 'cs_concierge_1', status: 'open', payment_status: 'unpaid', url: first.body.url,
+      metadata: { product: 'application_concierge', serviceId: first.body.serviceId },
+    });
+    const second = await handleCreateApplicationConciergeCheckout(request({ body: { ...original.body, requestKey: 'different-renewal-request-key' } }));
+    expect(second.body).toMatchObject({ serviceId: first.body.serviceId, amountTotal: 2999 });
+    expect(mocks.stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(1);
+    expect([...mocks.store.keys()].filter(key => key.startsWith('application_concierge_services/'))).toHaveLength(2);
+  });
   it('rejects a stale discounted quote instead of charging the regular price silently', async () => {
     const result = await handleCreateApplicationConciergeCheckout(source(Date.now() - 3 * day));
     expect(result).toMatchObject({ status: 409, body: { error: 'application_concierge_renewal_price_changed' } });
