@@ -26,7 +26,7 @@ import { portalAccountStore } from './lib/portal/account.mjs';
 import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
 import { candidateValues, portalPassRecord, redactStopReport } from './lib/portal/stop-report.mjs';
 import { dedupePortalQuestions, portalQuestionKey, readPortalRequirements } from './lib/portal/portal.mjs';
-import { mergeRequiredDocuments, requiredDocumentLabelKey, requiredDocumentsOf } from '../../functions/src/assistedApplicationExtraDocuments.js';
+import { persistLivePortalRequirements } from './lib/portal/merge-live-requirements.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
@@ -289,6 +289,18 @@ async function main() {
       // for certain). A dry run sends nothing.
       keepSentAttempt: dryRun ? null : (sentAttempt) => orderRef.collection('ai_drafts').doc('current').set({ sentAttempt }, { merge: true }),
     });
+    // Refresh an existing question's live type/catalogue before the backend
+    // consumes this event. A superseded run cannot replace the current draft.
+    if (!dryRun && event.type === 'submit_needs_candidate'
+      && (Array.isArray(event.questions) || Array.isArray(event.documents))) {
+      if (!await persistLivePortalRequirements({ db, orderRef, expected: { order, flow, draft: submitDraft }, round, event })) {
+        summary(`mode=${mode} round=${round} skipped: requirement context changed`);
+        return;
+      }
+      const details = questionDetailsForEvent(event.questionDetails);
+      if (details.length) event.questionDetails = details;
+      else delete event.questionDetails;
+    }
     // What left (lib/submit.mjs), on the draft first: before the event marks the order sent (whatever it
     // sets off, the candidate's «inviata» e-mail and the review page, finds it there), and before every
     // other after-send write, so one of them failing never loses the record of a send that happened.
@@ -343,53 +355,6 @@ async function main() {
     // event moves the flow; never in the event or the log.
     const factCheckPatch = takeFactCheck(event, previousDraft);
     if (factCheckPatch && !dryRun) await orderRef.collection('ai_drafts').doc('current').set(factCheckPatch, { merge: true });
-    // Questions and file fields a portal asked become part of the draft, so
-    // the review page shows them and the flow waits for the answers/uploads.
-    // The event keeps every unresolved id, not only newly discovered ones: a
-    // question already present in the draft can still be unanswered after a
-    // live re-check.
-    if (!dryRun && event.type === 'submit_needs_candidate'
-      && (Array.isArray(event.questions) || Array.isArray(event.documents))) {
-      const existing = dedupePortalQuestions(submitDraft.questions || []);
-      const rawQuestions = Array.isArray(event.questions) ? event.questions : [];
-      const rawQuestionDetails = Array.isArray(event.questionDetails)
-        ? event.questionDetails
-        : rawQuestions.filter((question) => question && typeof question === 'object' && question.question);
-      const rawDocuments = Array.isArray(event.documents) ? event.documents : [];
-      const incoming = dedupePortalQuestions(rawQuestionDetails.filter((question) => question && typeof question === 'object' && question.question));
-      const known = new Set(existing.map((question) => portalQuestionKey(question) || question.id));
-      const added = [];
-      for (const question of incoming) {
-        const key = portalQuestionKey(question) || question.id;
-        if (known.has(key)) continue;
-        known.add(key);
-        added.push(question);
-      }
-      const questions = dedupePortalQuestions([...existing, ...added]);
-
-      const incomingDocuments = rawDocuments.filter((document) => document && typeof document === 'object');
-      const requiredDocuments = mergeRequiredDocuments(submitDraft.requiredDocuments || [], incomingDocuments);
-      const documentIdFor = (raw) => {
-        if (typeof raw === 'string') return raw;
-        const candidate = requiredDocumentsOf({ requiredDocuments: [raw] })[0];
-        if (!candidate) return '';
-        const folded = candidate.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
-        const normalized = requiredDocumentLabelKey(candidate.label);
-        return requiredDocuments.find((document) => document.id === candidate.id
-          || (normalized && requiredDocumentLabelKey(document.label) === normalized)
-          || document.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim() === folded)?.id || '';
-      };
-      const documentIds = [...new Set(rawDocuments.map(documentIdFor).filter(Boolean))];
-      const patch = {};
-      if (incoming.length || added.length) patch.questions = questions;
-      if (incomingDocuments.length) patch.requiredDocuments = requiredDocuments;
-      if (Object.keys(patch).length) await orderRef.collection('ai_drafts').doc('current').set(patch, { merge: true });
-      event.questions = rawQuestions.map((question) => typeof question === 'string' ? question : question?.id).filter(Boolean);
-      const questionDetails = questionDetailsForEvent(rawQuestionDetails);
-      if (questionDetails.length) event.questionDetails = questionDetails;
-      else delete event.questionDetails;
-      event.documents = documentIds;
-    }
     await report(event);
   } catch (error) {
     await report({ type: 'submit_failed', error: safeErrorCode(error) });

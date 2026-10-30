@@ -20,13 +20,49 @@ const CONTACT = /\b(?:comunicazion\w*|contatt\w*|contact\w*|communication|kommun
 const CONTACT_PREFERENCE_LABEL = /^(?:(?:comunicazione|contatto) (?:via|tramite|su) whatsapp|(?:contact|communication) (?:via|on|through) whatsapp|whatsapp (?:contact|communication)|(?:kommunikation|kontakt) (?:via|per|uber) whatsapp|(?:contact|communication) (?:via|par|sur) whatsapp)$/;
 const CONTACT_FACT = /\b(?:do you use|do you have|usi|utilizzi|possiedi|nutzen sie|verwenden sie|utilisez vous|avez vous|number|numero|nummer|telephone|telefono)\b/;
 const OTHER_NOTICE_TOPIC = /\b(?:availability|disponibilita|verfugbarkeit|disponibilite|workload|pensum|grado di occupazione|taux d activite|taux d occupation)\b/;
-const THREE_MONTHS = /\b(?:3|three|tre|drei|trois)\s*(?:months?|mesi|mese|monate?n?|mois)\b/;
 
 function optionsOf(question) {
   const raw = question?.options?.length ? question.options : question?.applicationOptions || [];
   return raw.map(option => typeof option === 'string' ? { label: option, value: option } : option)
-    .filter(option => option && String(option.label ?? option.value ?? '').trim())
+    .filter(option => option && option.placeholder !== true && String(option.label ?? option.value ?? '').trim())
     .map(option => ({ label: String(option.label ?? option.value), value: String(option.value ?? option.label) }));
+}
+
+const SMALL_NUMBERS = { zero: 0, uno: 1, one: 1, un: 1, une: 1, ein: 1, eins: 1, eine: 1, einen: 1,
+  two: 2, due: 2, zwei: 2, deux: 2, three: 3, tre: 3, drei: 3, trois: 3,
+  four: 4, quattro: 4, vier: 4, quatre: 4, five: 5, cinque: 5, funf: 5, fuenf: 5, cinq: 5,
+  six: 6, sei: 6, sechs: 6 };
+const literalAnswer = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
+function noticeDuration(value) {
+  const match = /^(\d{1,2}|[a-z]+)\s*(months?|mesi|mese|monate?n?|mois|days?|giorni|giorno|tage?n?|jours?)$/.exec(literalAnswer(value));
+  if (!match) return null;
+  const amount = /^\d+$/.test(match[1]) ? Number(match[1]) : SMALL_NUMBERS[match[1]];
+  if (!Number.isInteger(amount)) return null;
+  return { amount, unit: /^(?:days?|giorni|giorno|tage?n?|jours?)$/.test(match[2]) ? 'days' : 'months' };
+}
+
+/** Project a stated notice duration onto one actual option, without changing its value or provenance. */
+export function operationalAnswerForOption(question, answer) {
+  if (operationalQuestionTopic(question) !== 'notice_period') return null;
+  const options = optionsOf(question);
+  if (!options.length) return null;
+  const duration = noticeDuration(answer);
+  let matching;
+  if (duration) {
+    matching = options.filter(option => {
+      const offered = noticeDuration(option.label);
+      return offered && offered.unit === duration.unit && offered.amount === duration.amount;
+    });
+    if (matching.length > 1) return null;
+    // Every calendar month has at least 28 days. Do not approximate 28/30
+    // days as a month, nor infer that zero means employment has terminated.
+    if (!matching.length && duration.unit === 'days' && duration.amount > 0 && duration.amount < 28) {
+      matching = options.filter(option => /^(?:meno di (?:1|un) mese|less than (?:1|one) month|weniger als (?:1|ein|einen|einem) monat|moins (?:de|d) (?:1|un) mois)$/.test(literalAnswer(option.label).replace(/[’']/g, ' ').replace(/\s+/g, ' ')));
+    }
+  } else matching = options.filter(option => literalAnswer(option.label) === literalAnswer(answer));
+  if (matching.length !== 1) return null;
+  const value = matching[0].label;
+  return validateAnswer(value, { ...question, type: 'choice', options: options.map(option => option.label) }).ok ? value : null;
 }
 
 function languageOf(text, locale) {
@@ -70,9 +106,8 @@ export function operationalDefaultAnswer(question, { locale } = {}) {
   let value;
   if (topic === 'notice_period') {
     if (options.length) {
-      const matches = options.filter(option => THREE_MONTHS.test(norm(option.label)) || THREE_MONTHS.test(norm(option.value)));
-      if (matches.length !== 1) return null;
-      value = matches[0].label;
+      value = operationalAnswerForOption(question, '3 months');
+      if (!value) return null;
     } else if (question?.type === 'number' || question?.inputType === 'number') {
       if (!/\b(?:months?|mesi|mese|monate?n?|mois)\b/.test(text)) return null;
       value = '3';
@@ -101,7 +136,12 @@ export function withOperationalQuestionAnswers(questions, confirmedAnswers = {},
   const answers = { ...confirmedAnswers };
   const defaults = {};
   for (const question of Array.isArray(questions) ? questions : []) {
-    if (!question?.id || hasAnswer(answers[question.id])) continue;
+    if (!question?.id) continue;
+    if (hasAnswer(answers[question.id])) {
+      const projected = operationalAnswerForOption(question, answers[question.id]);
+      if (projected) answers[question.id] = projected;
+      continue;
+    }
     const answer = operationalDefaultAnswer(question, options);
     if (!answer) continue;
     answers[question.id] = answer.value;
@@ -113,7 +153,18 @@ export function withOperationalQuestionAnswers(questions, confirmedAnswers = {},
 /** An answer is permitted only by the policy for this exact field. */
 export function isOperationalDefaultValue(question, value) {
   const expected = operationalDefaultAnswer(question);
-  return Boolean(expected && norm(expected.value) === norm(value));
+  if (!expected) return false;
+  if (expected.topic === 'notice_period') {
+    const wanted = noticeDuration(expected.value);
+    const stated = noticeDuration(value);
+    const equivalent = wanted && stated
+      ? wanted.amount === stated.amount && wanted.unit === stated.unit
+      : literalAnswer(expected.value) === literalAnswer(value);
+    const options = optionsOf(question);
+    const rule = { ...question, type: question.type || (options.length ? 'choice' : question.inputType || 'text'), options: options.map(option => option.label) };
+    return Boolean(equivalent && validateAnswer(value, rule).ok);
+  }
+  return norm(expected.value) === norm(value);
 }
 
 /** Required form preferences also leave with an email application. Never edit the CV. */

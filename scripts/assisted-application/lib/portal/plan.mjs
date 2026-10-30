@@ -11,7 +11,7 @@
 import '../../extension/apply-control.js';
 const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
 
-import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalDefaultAnswer, operationalAnswerForOption, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -1083,6 +1083,7 @@ function optionForAnswer(field, answer) {
     if (permitAnswer) return permitAnswer;
   }
   if (!options.length) return String(answer || '').trim();
+  if (topic === 'notice_period') return operationalAnswerForOption(field, answer) || '';
   const exact = options.find((option) => comparableAnswer(option.label) === comparableAnswer(answer));
   if (exact) return exact.label;
   if (topic.startsWith('language:')) {
