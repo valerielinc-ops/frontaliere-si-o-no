@@ -1753,10 +1753,13 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  *   call so a caller with its own hang budget (e.g. a post-deploy live-check
  *   script) can bound the whole send. Omitted by default (no change for
  *   existing callers) — the cascade itself has no built-in timeout.
+ * @param {boolean} [opts.quiet=false] - Sopprime le righe informative di ogni
+ *   chiamata (cascade, provider, throttle, esito, scheduling). Avvisi ed errori
+ *   restano: il chiamante stampa il proprio riepilogo per batch.
  * @returns {{ sent: Array, accepted: Array, ambiguous: Array, failed: Array, providerBreakdown: Object, adaptiveThrottle?: Object }}
  */
 export async function sendEmailCascade(emails, opts = {}) {
-  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, providerMinIntervalMs, forceProvider, onSent, finalizeForProvider, signal } = opts;
+  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, providerMinIntervalMs, forceProvider, onSent, finalizeForProvider, signal, quiet = false } = opts;
   const sent = [];
   const accepted = [];
   const ambiguous = [];
@@ -1772,10 +1775,14 @@ export async function sendEmailCascade(emails, opts = {}) {
     return { sent: [], accepted: [], ambiguous: [], failed: emails, providerBreakdown: {} };
   }
 
+  // quiet: il chiamante stampa il proprio riepilogo (una riga per batch). Gli
+  // avvisi e gli errori restano sempre: non sono rumore.
   const totalQuota = available.reduce((sum, p) => sum + remainingQuota(p.id), 0);
-  console.log(`📧 Email cascade: ${emails.length} to send, ${totalQuota} daily quota remaining`);
-  console.log(`   Providers: ${available.map(p => `${p.id}(${remainingQuota(p.id)})`).join(' → ')}`);
-  console.log(`   Throttle: concurrency=${concurrency}, delay=${delayMs}ms between sends${adaptiveConfig ? `, adaptive max=${adaptiveConfig.maxDelayMs}ms step=${adaptiveConfig.stepMs}ms` : ''}${providerMinIntervalMs ? `, floors ${Object.entries(providerMinIntervalMs).map(([k, v]) => `${k}=${v}ms`).join(' ')}` : ''}`);
+  if (!quiet) {
+    console.log(`📧 Email cascade: ${emails.length} to send, ${totalQuota} daily quota remaining`);
+    console.log(`   Providers: ${available.map(p => `${p.id}(${remainingQuota(p.id)})`).join(' → ')}`);
+    console.log(`   Throttle: concurrency=${concurrency}, delay=${delayMs}ms between sends${adaptiveConfig ? `, adaptive max=${adaptiveConfig.maxDelayMs}ms step=${adaptiveConfig.stepMs}ms` : ''}${providerMinIntervalMs ? `, floors ${Object.entries(providerMinIntervalMs).map(([k, v]) => `${k}=${v}ms`).join(' ')}` : ''}`);
+  }
 
   // Per-provider last-send timestamps for throttling
   const _lastSend = {};
@@ -1845,15 +1852,17 @@ export async function sendEmailCascade(emails, opts = {}) {
     stats.ambiguous += 1;
     if (s.persistFailed) stats.persistFailed += 1;
   }
-  console.log(`✅ Sent: ${accepted.length} identified, ${ambiguous.length} ambiguous (provider-accepted=${sent.length}), Failed: ${failed.length}`);
-  if (Object.keys(providerBreakdown).length > 0) {
-    console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=identified:${v.identified},ambiguous:${v.ambiguous}${v.persistFailed ? `,persistFailed:${v.persistFailed}` : ''}`).join(', ')}`);
+  if (!quiet) {
+    console.log(`✅ Sent: ${accepted.length} identified, ${ambiguous.length} ambiguous (provider-accepted=${sent.length}), Failed: ${failed.length}`);
+    if (Object.keys(providerBreakdown).length > 0) {
+      console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=identified:${v.identified},ambiguous:${v.ambiguous}${v.persistFailed ? `,persistFailed:${v.persistFailed}` : ''}`).join(', ')}`);
+    }
+    // Per-message scheduled-send breakdown (feature #3798): how many of the
+    // successful sends were actually deferred provider-side vs sent immediately.
+    const scheduledCount = sent.filter(s => s.scheduledFor).length;
+    const immediateCount = sent.length - scheduledCount;
+    console.log(`   Scheduling: scheduled=${scheduledCount}, immediate=${immediateCount}`);
   }
-  // Per-message scheduled-send breakdown (feature #3798): how many of the
-  // successful sends were actually deferred provider-side vs sent immediately.
-  const scheduledCount = sent.filter(s => s.scheduledFor).length;
-  const immediateCount = sent.length - scheduledCount;
-  console.log(`   Scheduling: scheduled=${scheduledCount}, immediate=${immediateCount}`);
 
   return adaptiveThrottle
     ? { sent, accepted, ambiguous, failed, providerBreakdown, adaptiveThrottle: adaptiveThrottle.snapshot() }
