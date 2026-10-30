@@ -83,6 +83,11 @@ describe('retained document browser recheck protocol', () => {
     expect(await complete(descriptor)).toEqual({ state: 'checked', clientCheck: CHECK });
   });
 
+  it('returns the current requested-document context when the UI snapshot is stale', async () => {
+    await patch(DRAFT, { requiredDocuments: [{ id: 'degree', label: 'Work reference', kind: 'reference', keywords: ['Arbeitszeugnis'] }] });
+    expect(await begin()).toMatchObject({ state: 'ready', document: { label: 'Work reference', kind: 'reference', keywords: ['Arbeitszeugnis'] } });
+  });
+
   it.each(['png', 'jpg', 'doc'])('preserves unsupported %s checks and never issues a download', async detectedType => {
     const flow = store.read(FLOW);
     flow.documents.degree.files[0].detectedType = detectedType;

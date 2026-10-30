@@ -86,7 +86,7 @@ export async function recheckStoredDocument({ db, bucket, claims, documentId, fi
     const latest = sourceOf(await load(), claims, documentId, fileId, now());
     if (latest.contextSha256 !== initial.contextSha256 || expiresAt <= now()) fail('file_changed');
     const payload = Buffer.from(JSON.stringify({ ...identity, expiresAt, sha256 })).toString('base64url');
-    return { state: 'ready', url, descriptor: `${payload}.${signature(payload, secret)}`, size, generation, md5Hash, sha256, version: DOCUMENT_CHECK_VERSION };
+    return { state: 'ready', document: { label: initial.document.label, kind: initial.document.kind, keywords: initial.document.keywords }, url, descriptor: `${payload}.${signature(payload, secret)}`, size, generation, md5Hash, sha256, version: DOCUMENT_CHECK_VERSION };
   }
   const descriptor = verifyDescriptor(body.descriptor, secret, now());
   if (Object.entries(identity).some(([key, value]) => descriptor[key] !== value)) fail('file_changed');

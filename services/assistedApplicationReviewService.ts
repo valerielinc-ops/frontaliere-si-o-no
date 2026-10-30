@@ -1,3 +1,4 @@
+import type { CheckedDocument } from './assistedApplicationDocumentCheck';
 import type { EmployerResponse } from './assistedApplicationEmployerResponse';
 /**
  * Client of the candidate review page of the automated assisted application
@@ -290,6 +291,10 @@ export async function recheckReviewDocument(
   const descriptor = await request();
   if (descriptor.state === 'unchanged') return descriptor.clientCheck;
   if (descriptor.state !== 'ready') return null;
+  const context = descriptor.document;
+  if (!context || typeof context.label !== 'string' || typeof context.kind !== 'string'
+    || !Array.isArray(context.keywords) || !context.keywords.every((word: unknown) => typeof word === 'string')) throw new Error('invalid_check');
+  const checkedDocument: CheckedDocument = { label: context.label, kind: context.kind, keywords: context.keywords };
   if (descriptor.size !== file.size || descriptor.size > 10 * 1024 * 1024) throw new Error('invalid_file');
   const response = await fetch(descriptor.url, { signal, credentials: 'omit', cache: 'no-store', referrerPolicy: 'no-referrer' });
   if (!response.ok) throw new Error('file_unavailable');
@@ -301,7 +306,7 @@ export async function recheckReviewDocument(
   if (sha256 !== descriptor.sha256) throw new Error('file_changed');
   const { checkDocumentFile, DOCUMENT_CHECK_VERSION } = await import('./assistedApplicationDocumentCheck');
   if (descriptor.version !== DOCUMENT_CHECK_VERSION) throw new Error('check_version_changed');
-  const check = await checkDocumentFile(new File([buffer], file.name, { type: file.detectedType === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }), document);
+  const check = await checkDocumentFile(new File([buffer], file.name, { type: file.detectedType === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }), checkedDocument);
   if (signal.aborted) return null;
   const result = await request({ descriptor: descriptor.descriptor, sha256, clientCheck: check });
   return result.state === 'checked' ? result.clientCheck : null;
