@@ -91,6 +91,14 @@ jobs:
             timeout 180s node scripts/reconcile-assisted-application-transport-holds.mjs --apply
           fi
 
+      - name: Reconcile resolved operational preferences
+        # Run after the new receiver is deployed; the normal clock rechecks
+        # consent, hard questions and the submission guard before any send.
+        run: |
+          if [ -f scripts/assisted-application/reconcile-operational-answers.mjs ]; then
+            timeout 180s node scripts/assisted-application/reconcile-operational-answers.mjs --apply
+          fi
+
       - name: Deploy Firestore indexes
         run: firebase deploy --only firestore:indexes --project frontaliere-ticino
 

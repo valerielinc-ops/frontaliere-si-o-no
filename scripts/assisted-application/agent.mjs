@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 /**
  * Assisted-application agent — entry point of
  * .github/workflows/assisted-application-agent.yml.
@@ -291,6 +292,9 @@ async function main() {
     // What left (lib/submit.mjs), on the draft first: before the event marks the order sent (whatever it
     // sets off, the candidate's «inviata» e-mail and the review page, finds it there), and before every
     // other after-send write, so one of them failing never loses the record of a send that happened.
+    if (event.type === 'submit_handoff') {
+      try { event.portalCodeVersion = currentPortalCodeVersion(); } catch { /* A missing source marker cannot lose the real outcome. */ }
+    }
     await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun });
     // An application sent by e-mail gets its follow-ups (day 7 and 14); the
     // recipient and subject stay in Firestore, not in the automation event.

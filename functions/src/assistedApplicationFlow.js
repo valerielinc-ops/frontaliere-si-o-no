@@ -28,6 +28,7 @@
  */
 
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
+import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isInfrastructureRetryHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
@@ -219,6 +220,8 @@ function base(flow) {
     postingExpiredAt: Number(flow?.postingExpiredAt) || null,
     portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
     portalAutoRetryCount: Number(flow?.portalAutoRetryCount) || 0,
+    portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
+    portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
     transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,
     factRepairAttempts: Number(flow?.factRepairAttempts) || 0,
   };
@@ -421,6 +424,7 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
   next.deadlineAt = null;
   next.reminderAt = null;
   const reason = String(event.reason || 'portal_needs_candidate');
+  next.portalCodeVersion = portalCodeVersion(event.portalCodeVersion) || current.portalCodeVersion;
   next.heldBy = [`${reason === 'email_provider_unavailable' ? 'transport' : 'portal'}:${reason.slice(0, 60)}`];
   const infrastructure = isInfrastructureRetryHold(next);
   const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
@@ -431,7 +435,7 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
     : null;
   // Infrastructure retries continue after the short backoff ladder. Notify
   // operations once, without handing every affected application to a human.
-  if (next.portalAutoRetryAt && (reason === 'captcha_provider_unavailable'
+  if (next.portalAutoRetryAt && ((!infrastructure && reason === 'captcha_provider_unavailable')
     || (infrastructure && attempts !== delays.length))) return null;
   return {
     type: 'email',

@@ -15,6 +15,9 @@ const HARD_DECLARATION = /\b(?:experience|esperienz\w*|erfahrung|kenntnis\w*|con
 const NOTICE = /\b(?:notice period|notice time|period of notice|periodo di preavviso|preavviso|kundigungsfrist|delai de preavis|preavis)\b/;
 const CONSTRAINED_NOTICE = /\b(?:within|entro|max(?:imum)?|min(?:imum)?|al massimo|almeno|at least|no more|spatestens|mindestens|au moins|au plus|confirm|confermi|bestatigen|confirmez|can you|could you|would you|are you|do you|puoi|potresti|saresti|konnen sie|wurden sie|pouvez vous|pourriez vous|days?|giorni|tage|jours|weeks?|settimane|wochen|semaines)\b/;
 const CONTACT = /\b(?:comunicazion\w*|contatt\w*|contact\w*|communication|kommunikation|kontakt\w*|erreich\w*)\b/;
+// ATS adapters may expose a yes/no preference as a text input. Only a
+// complete, unconditional contact label can imply that binary meaning.
+const CONTACT_PREFERENCE_LABEL = /^(?:(?:comunicazione|contatto) (?:via|tramite|su) whatsapp|(?:contact|communication) (?:via|on|through) whatsapp|whatsapp (?:contact|communication)|(?:kommunikation|kontakt) (?:via|per|uber) whatsapp|(?:contact|communication) (?:via|par|sur) whatsapp)$/;
 const CONTACT_FACT = /\b(?:do you use|do you have|usi|utilizzi|possiedi|nutzen sie|verwenden sie|utilisez vous|avez vous|number|numero|nummer|telephone|telefono)\b/;
 const OTHER_NOTICE_TOPIC = /\b(?:availability|disponibilita|verfugbarkeit|disponibilite|workload|pensum|grado di occupazione|taux d activite|taux d occupation)\b/;
 const THREE_MONTHS = /\b(?:3|three|tre|drei|trois)\s*(?:months?|mesi|mese|monate?n?|mois)\b/;
@@ -28,9 +31,9 @@ function optionsOf(question) {
 
 function languageOf(text, locale) {
   if (['it', 'en', 'de', 'fr'].includes(locale)) return locale;
-  if (/\b(?:preavviso|comunicazione|accetti|tramite|tuo|occupazione|desider\w*)\b/.test(text)) return 'it';
+  if (/\b(?:preavviso|comunicazione|contatto|accetti|tramite|tuo|occupazione|desider\w*)\b/.test(text)) return 'it';
   if (/\b(?:kundigungsfrist|kommunikation|kontakt|pensum|beschaftigungsgrad|gewunscht\w*)\b/.test(text)) return 'de';
-  if (/\b(?:preavis|delai|votre|vous|souhait\w*|acceptez|taux)\b/.test(text)) return 'fr';
+  if (/\b(?:preavis|delai|votre|vous|souhait\w*|acceptez|taux)\b|\b(?:communication|contact) (?:par|sur) whatsapp\b/.test(text)) return 'fr';
   return 'en';
 }
 
@@ -50,7 +53,8 @@ export function operationalQuestionTopic(question) {
     if (/(?:whatsapp.{0,80}(?:marketing|newsletter|privacy|promoz|publicit|werbung|consent|consens|einwillig|processing|trattamento|traitement|verarbeitung)|(?:marketing|newsletter|privacy|promoz|publicit|werbung|consent|consens|einwillig|processing|trattamento|traitement|verarbeitung).{0,80}whatsapp)/.test(context)) return null;
     const options = optionsOf(question);
     const binary = ['yes_no', 'checkbox'].includes(question?.type || question?.kind)
-      || options.some(option => YES.test(norm(option.label)));
+      || options.some(option => YES.test(norm(option.label)))
+      || CONTACT_PREFERENCE_LABEL.test(norm(label));
     return binary ? 'whatsapp_contact' : null;
   }
   return null;

@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { operationalDefaultAnswer, withOperationalQuestionAnswers, operationalEmailBody } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { evaluateRedFlags, transition } from '../functions/src/assistedApplicationFlow.js';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
-import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { candidateAnswerForField, guardPlan, addressQuestionTopic, isAddressLikeQuestion } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { autoAnswersForPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { reconcileOperationalAnswers } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
 import { openRequiredQuestions } from '../scripts/assisted-application/lib/submit.mjs';
 
 const questions = [
@@ -101,10 +103,64 @@ describe('scope, languages and actual field options', () => {
     expect(candidate.answers).toEqual({});
   });
 
+  it.each([
+    ['Comunicazione via WhatsApp', 'Sì'], ['Contatto via WhatsApp', 'Sì'], ['Communication via WhatsApp', 'Yes'],
+    ['Kommunikation per WhatsApp', 'Ja'], ['Communication par WhatsApp', 'Oui'], ['Communication sur WhatsApp', 'Oui'],
+  ])('recognizes an unconditional contact preference even when the ATS reports text: %s', (label, value) => {
+    const field = { id: 'contact', label, kind: 'text', type: 'text', required: true, options: [] };
+    expect(addressQuestionTopic(label)).toBe('');
+    expect(isAddressLikeQuestion(label)).toBe(false);
+    const candidate = { identity: { address: { street: 'Example Street 12' } }, profile: {}, answers: {} };
+    expect(candidateAnswerForField(candidate, field)).toMatchObject({ value, source: 'policy_default' });
+    const question = { ...field, question: label };
+    const result = transition({ ...approved, state: 'submitting', dispatch: { ...approved.dispatch, attempts: 2 } }, {
+      type: 'submit_needs_candidate', questions: ['contact'], questionDetails: [question],
+    }, { draft: { ...draft, questions: [question] } });
+    expect(result.flow.state).toBe('owner_takeover');
+    expect(result.flow.heldBy).toEqual(['portal:portal_needs_candidate']);
+    expect(result.effects).not.toContainEqual(expect.objectContaining({ kind: 'candidate_action_needed' }));
+  });
+
+  it('uses the explicit locale when a contact label is shared by French and English', () => {
+    expect(operationalDefaultAnswer({ label: 'Communication via WhatsApp', type: 'text' }, { locale: 'fr' })?.value).toBe('Oui');
+  });
+
+  it.each(['Via', 'Via / Piazza', 'Nome della via', 'Qual è la tua via e il numero civico?', 'Via e numero'])('retains real street fields: %s', label => {
+    expect(addressQuestionTopic(label)).toMatch(/^address/);
+    expect(isAddressLikeQuestion(label)).toBe(true);
+  });
+
+  it.each(['Comunicazione via WhatsApp e consenso privacy', 'Explain communication via WhatsApp', 'Your WhatsApp number', 'Communication via WhatsApp for marketing'])('keeps other text questions unresolved: %s', question => {
+    expect(operationalDefaultAnswer({ question, type: 'text' })).toBeNull();
+    expect(addressQuestionTopic(question)).toBe('');
+  });
+
   it('includes required defaults in an email without editing its stored draft', () => {
     const emailDraft = { ...draft, language: 'it', applicationEmail: { body: 'Buongiorno' } };
     expect(operationalEmailBody(emailDraft)).toContain('3 mesi');
     expect(operationalEmailBody(emailDraft)).toContain('100%');
     expect(emailDraft.applicationEmail.body).toBe('Buongiorno');
+  });
+});
+
+
+describe('operational wait recovery after deployment', () => {
+  it('deduplicates one wait while recovering a later step on the same order and policy', async () => {
+    const base = 'assisted_applications/operational_test';
+    const flowPath = `${base}/automation/flow`;
+    const store = createMemoryFirestore({
+      [base]: { paymentStatus: 'paid', automationState: 'needs_candidate_action', operationalAnswerReconciledVersion: 'operational-preferences-v1' },
+      [flowPath]: { ...approved, heldSince: 1000, dispatch: { ...approved.dispatch, requestedAt: 500 } },
+      [`${base}/ai_drafts/current`]: draft,
+    });
+    const context = { db: store.db, apply: true, nowMs: 2000 };
+    expect(await reconcileOperationalAnswers(context)).toMatchObject({ eligible: 1, queued: 1 });
+    const firstKey = store.read(base).operationalAnswerReconciledKey;
+    expect(await reconcileOperationalAnswers(context)).toMatchObject({ eligible: 0, alreadyQueued: 1 });
+    store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['question:whatsapp'], heldSince: 3000, dispatch: { ...approved.dispatch, requestedAt: 2500 } });
+    expect(await reconcileOperationalAnswers({ ...context, nowMs: 4000 })).toMatchObject({ eligible: 1, queued: 1 });
+    expect(store.read(base).operationalAnswerReconciledKey).not.toBe(firstKey);
+    store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['question:unknown_fact'] });
+    expect(await reconcileOperationalAnswers(context)).toMatchObject({ eligible: 0, queued: 0 });
   });
 });

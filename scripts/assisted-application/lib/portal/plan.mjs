@@ -142,7 +142,10 @@ export function planUserText({ snapshot, candidate }) {
 // experience" is an eligibility question, not an age question.
 const AGE_UNDER_RE = /\b(?:(?:under|below)(?:\s+the\s+age\s+of)?|younger\s+than|less\s+than|moins\s+de|moins\s+d['’]|unter|j(?:ü|ue)nger\s+als|weniger\s+als|meno\s+di|minore\s+di|inferiore\s+a|sotto\s+(?:i|ai?))\s*(\d{1,3})\b/i;
 const AGE_EXPERIENCE_RE = /\b(?:experience|esperienza|exp[ée]rience|erfahrung|of\s+work|di\s+lavoro|d['’]exp[ée]rience)\b/i;
-const ADDRESS_FIELD_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street|cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|npa|residen\w*|domicil\w*|wohn(?:sitz|ort)\w*)\b/i;
+// Italian 'via' is also a preposition (communication via a channel).
+// Require a street-field phrase before treating it as postal identity.
+const ITALIAN_STREET_LABEL = String.raw`^\s*via(?:\s*[/]\s*(?:piazza|viale))?\s*[:*?]?\s*$|\b(?:nome\s+(?:della\s+)?via|(?:tua|vostra)\s+via|via\s+(?:e\s+(?:il\s+)?(?:numero|civico)|di\s+residenza))\b`;
+const ADDRESS_FIELD_RE = new RegExp(String.raw`(?:${ITALIAN_STREET_LABEL})|\b(?:address|adresse|indirizzo|rue|strasse|straße|street|cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|npa|residen\w*|domicil\w*|wohn(?:sitz|ort)\w*)\b`, 'i');
 const CONTACT_ADDRESS_RE = /\b(?:e[-\s]?mail|email|courriel|correo|contact\s+(?:address|adresse|indirizzo))\b/i;
 // «Candidate contact address» is the applicant's own postal address. Keep
 // the generic contact-address guard for emergency/contact-person fields, but
@@ -593,7 +596,7 @@ function isExactAvailableFromLabel(label) {
   return /^available from$/i.test(questionFromLabel(label));
 }
 
-const STREET_ADDRESS_RE = /\b(address|adresse|indirizzo|via|rue|strasse|straße|street)\b/i;
+const STREET_ADDRESS_RE = new RegExp(String.raw`(?:${ITALIAN_STREET_LABEL})|\b(address|adresse|indirizzo|rue|strasse|straße|street)\b`, 'i');
 const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\s+civico|num(?:ero)?\s+civico|civico|hausnummer|num[eé]ro\s+(?:civique|de la rue))\b/i;
 // SuccessFactors (Rolex, 2026-10-07) labels the combined field «Rue et numéro».
 // Its wording is one address question even though «numéro» is not followed by

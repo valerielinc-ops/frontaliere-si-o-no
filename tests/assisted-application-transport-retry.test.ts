@@ -12,10 +12,10 @@ const draft = { status: 'ready', round: 1, questions: [], job: { source: 'job_de
 const approved = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 } };
 
 describe('infrastructure failures use the scheduler without a manual retry', () => {
-  it.each(['navigation_unavailable', 'email_provider_unavailable'])('backs off %s, notifies operations once and continues without manual intervention', reason => {
+  it.each(['navigation_unavailable', 'email_provider_unavailable', 'captcha_provider_unavailable'])('backs off %s, notifies operations once and continues without manual intervention', reason => {
     let flow: any = approved;
     let at = now;
-    const fail = reason === 'navigation_unavailable' ? { type: 'submit_handoff', reason } : { type: 'submit_failed', error: reason };
+    const fail = reason === 'email_provider_unavailable' ? { type: 'submit_failed', error: reason } : { type: 'submit_handoff', reason };
     for (const delay of TRANSPORT_AUTO_RETRY_DELAYS_MS) {
       const held = transition(flow, fail, { draft, nowMs: at });
       // The persistence adapter preserves dispatch metadata across pure FSM transitions.
