@@ -37,11 +37,12 @@ describe('failed executor reconciliation', () => {
     if (kind !== 'sent') expect(event.error).toBe(`${kind}_ambiguous`);
   });
 
-  it.each(['dry_run', 'withdrawn', 'purged', 'unpaid', 'new_dispatch', 'new_round', 'already_stopped'])('does not move %s', async kind => {
+  it.each(['dry_run', 'withdrawn', 'purged', 'unpaid', 'submitted', 'new_dispatch', 'new_round', 'already_stopped'])('does not move %s', async kind => {
     const store = fixture();
     if (kind === 'withdrawn') store.docs.set(base, { ...store.read(base), withdrawnAt: now });
     if (kind === 'purged') store.docs.set(base, { ...store.read(base), retentionPurgedAt: now });
     if (kind === 'unpaid') store.docs.set(base, { paymentStatus: 'pending' });
+    if (kind === 'submitted') store.docs.set(base, { ...store.read(base), submissionStatus: 'submitted' });
     if (kind === 'new_dispatch') store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), dispatch: { requestedAt: now + 1 } });
     if (kind === 'new_round') store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), round: 2 });
     if (kind === 'already_stopped') store.docs.set(`${base}/automation/flow`, { state: 'owner_takeover', round: 1 });

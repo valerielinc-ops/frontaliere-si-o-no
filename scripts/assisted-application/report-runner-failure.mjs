@@ -22,7 +22,8 @@ export async function reportRunnerFailure({ db, orderId, mode, round, runId, sta
     const flow = flowDoc.data();
     if (previous.exists) return { reported: false, reason: 'already_reported' };
     const expected = mode === 'submit' ? ['submitting'] : ['drafting', 'regenerating'];
-    if (order?.paymentStatus !== 'paid' || order.withdrawnAt || order.retentionPurgedAt || order.refundStatus === 'pending'
+    if (order?.paymentStatus !== 'paid' || order.withdrawnAt || order.retentionPurgedAt
+      || ['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus) || ['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
       || !expected.includes(flow?.state) || Number(flow.round || 1) !== round
       || Number(flow.dispatch?.requestedAt || 0) > startedAt) return { reported: false, reason: 'superseded' };
     const send = submissionDoc.data()?.[`r${round}`];
