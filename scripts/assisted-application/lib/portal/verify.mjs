@@ -88,13 +88,16 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       if (new URL(page.url()).origin !== origin || authPageKind(snapshot) !== 'sign_in') return proof;
       const { email, password } = loginFields(snapshot);
       const signin = findButton(snapshot.buttons, SIGN_IN_RE);
-      if (!email || !password || !signin || (signin.frame || 0) !== 0 || (email.frame || 0) !== (signin.frame || 0)
+      if (!email || !password || !signin || new Set([email.id, password.id, signin.id]).size !== 3 || (signin.frame || 0) !== 0 || (email.frame || 0) !== (signin.frame || 0)
         || (password.frame || 0) !== (signin.frame || 0)) return proof;
       const owned = await locatorFor(page, signin).evaluate((element, ids) => {
         const form = element.form || element.closest('form');
         return form ? { action: element.hasAttribute('formaction') ? element.formAction : form.action,
           method: element.hasAttribute('formmethod') ? element.formMethod : form.method,
-          credentialsOwned: ids.every(id => document.querySelector(`[data-aa-id="${id}"]`)?.form === form) } : null;
+          credentialsOwned: ids.every(id => {
+            const nodes = document.querySelectorAll(`[data-aa-id="${id}"]`);
+            return nodes.length === 1 && nodes[0].form === form;
+          }) } : null;
       }, [email.id, password.id]);
       if (!owned?.credentialsOwned || !safeSigninAction(owned.action, page.url()) || String(owned.method).toLowerCase() !== 'post') return proof;
       const account = await accounts.load(new URL(page.url()).hostname);
