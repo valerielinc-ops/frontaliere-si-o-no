@@ -7,6 +7,10 @@ describe('international concierge residence', () => {
     for (const country of ['Italia', 'Italy', 'Italien', 'Italie']) expect(parseResidenceLocation(`Como, ${country}`)).toEqual({ town: 'Como', country: 'IT' });
     for (const value of ['Como', '6900', 'Albania', 'Paris, Texas', 'Lugano Switzerland', 'Atlanta, Georgia', 'Como, CO', 'Vasto, CH']) expect(parseResidenceLocation(value)).toEqual({ town: value, country: '' });
     expect(parseResidenceLocation('Tiranë, Albanie')).toEqual({ town: 'Tiranë', country: 'AL' });
+    expect(parseResidenceLocation('Jamestown, Saint Helena, Ascension and Tristan da Cunha')).toEqual({ town: 'Jamestown', country: 'SH' });
+    expect(parseResidenceLocation('Village, District, Saint Helena, Ascension and Tristan da Cunha')).toEqual({ town: 'Village, District', country: 'SH' });
+    expect(formatResidenceLocation(parseResidenceLocation('Jamestown, Saint Helena, Ascension and Tristan da Cunha').town, 'SH', 'en'))
+      .toBe(formatResidenceLocation('Jamestown', 'SH', 'en'));
   });
   it('preserves explicit country provenance on a round trip and supports manual entries', () => {
     for (const locale of ['it', 'en', 'de', 'fr']) {

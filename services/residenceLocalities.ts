@@ -25,15 +25,18 @@ for (const locale of ['it', 'en', 'de', 'fr']) {
 
 /** Only an explicit country suffix counts: a town or postal code proves no country. */
 export function parseResidenceLocation(value: string) {
-  const split = value.lastIndexOf(',');
-  if (split < 0) return { country: '', town: value };
-  const suffix = value.slice(split + 1).trim();
-  // Two-letter province/canton abbreviations (CO, CH, GE…) are not countries.
-  // Georgia is also a US state: require the explicit name-plus-country marker.
-  const encoded = suffix.match(/^(.+) \(([A-Z]{2})\)$/);
-  const named = countryNames.get(foldResidenceText(encoded?.[1] || suffix));
-  const country = encoded ? (named === encoded[2] ? named : null) : named === 'GE' ? null : named;
-  return country ? { country, town: value.slice(0, split).trim() } : { country: '', town: value };
+  // A country name can contain commas too. Match the complete known suffix,
+  // starting with the longest, rather than assuming the final token is a name.
+  for (let split = value.indexOf(','); split >= 0; split = value.indexOf(',', split + 1)) {
+    const suffix = value.slice(split + 1).trim();
+    // Two-letter province/canton abbreviations (CO, CH, GE…) are not countries.
+    // Georgia is also a US state: require the explicit name-plus-country marker.
+    const encoded = suffix.match(/^(.+) \(([A-Z]{2})\)$/);
+    const named = countryNames.get(foldResidenceText(encoded?.[1] || suffix));
+    const country = encoded ? (named === encoded[2] ? named : null) : named === 'GE' ? null : named;
+    if (country) return { country, town: value.slice(0, split).trim() };
+  }
+  return { country: '', town: value };
 }
 
 export function formatResidenceLocation(town: string, country: string, locale: string) {
