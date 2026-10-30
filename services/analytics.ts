@@ -384,7 +384,7 @@ function flushQueue() {
  while (_eventQueue.length > 0) {
  const event = _eventQueue.shift()!;
  if (event.type === 'log') {
- _doLog(event.args[0], event.args[1], event.args[2]);
+ _doLog(event.args[0], event.args[1]);
  } else {
  _doSetProps(event.args[0]);
  }
@@ -393,7 +393,7 @@ function flushQueue() {
 
 let configuredTelemetryLocation: string | null = null;
 
-function _doLog(eventName: string, params?: Record<string, any>, onSent?: () => void) {
+function _doLog(eventName: string, params?: Record<string, any>) {
  try {
  if (_analytics && _logEvent) {
  // Keep SDK-generated engagement events on the current SPA route as well.
@@ -408,10 +408,6 @@ function _doLog(eventName: string, params?: Record<string, any>, onSent?: () => 
   } catch { /* A default-context update must not discard the explicit event. */ }
  }
  _logEvent(_analytics, eventName as any, params);
- // Firebase's logEvent accepts arbitrary event parameters but does not
- // execute an `event_callback` parameter. Invoke the acknowledgement only
- // after the event has been handed to the SDK instead of serializing it.
- onSent?.();
  }
  } catch (error) {
  // If logEvent failed due to IndexedDB loss, re-queue the event and attempt recovery
@@ -440,11 +436,6 @@ function _doSetProps(properties: Record<string, string | null>) {
 }
 
 const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
- const onSent = typeof params?.event_callback === 'function' ? params.event_callback as () => void : undefined;
- if (params && 'event_callback' in params) {
-  const { event_callback: _eventCallback, ...eventParams } = params;
-  params = eventParams;
- }
  // Override GA4's automatic document URL before the asynchronous auth exchange.
  params = sanitizeTelemetryProperties({
   ...(typeof window === 'undefined' ? {} : { page_location: window.location.href, page_referrer: typeof document === 'undefined' ? '' : document.referrer }),
@@ -455,9 +446,9 @@ const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
  // reads (see ./nonProductionHost).
  if (GA4_ERROR_EVENTS.has(eventName) && isNonProductionTelemetryHost()) return;
  if (_firebaseReady) {
-  _doLog(eventName, params, onSent);
+  _doLog(eventName, params);
  } else {
-  _eventQueue.push({ type: 'log', args: [eventName, params, onSent] });
+  _eventQueue.push({ type: 'log', args: [eventName, params] });
   ensureFirebase().then(() => {
    if (_analytics && _logEvent) {
     _firebaseReady = true;
@@ -1446,7 +1437,12 @@ export const Analytics = {
   });
  },
 
- /** GA4-only click event for every attempt to open the checkout. */
+ /**
+  * GA4-only click event for every attempt to open the checkout.
+  * Firebase relays event_callback unchanged to gtag, which invokes it after
+  * event processing. logEvent returning void is not that acknowledgement.
+  * Control parameter reference: https://developers.google.com/tag-platform/gtagjs/reference/parameters
+  */
  trackApplicationConciergeCheckoutClick: () => {
   const pagePath = typeof window !== 'undefined'
    ? (() => {
@@ -1469,7 +1465,7 @@ export const Analytics = {
   }));
  },
 
- /** Automatic recovery is distinct from a user click. */
+ /** Automatic recovery uses the same gtag processing acknowledgement as clicks. */
  trackApplicationConciergeCheckoutResume: () => {
   const pagePath = typeof window !== 'undefined'
    ? (() => {

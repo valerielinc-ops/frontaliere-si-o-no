@@ -61,7 +61,7 @@ beforeEach(() => {
 afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe('real concierge analytics acknowledgement before Stripe navigation', () => {
-  it.each(['automatic', 'manual'])('waits until the event is handed to the SDK through the real proxy (%s) and sends no duplicate event', async (mode) => {
+  it.each(['automatic', 'manual'])('waits for the SDK callback through the real proxy (%s) and sends no duplicate event', async (mode) => {
     const manual = mode === 'manual';
     if (manual) {
       const entry = new URL(window.location.href);
@@ -73,12 +73,13 @@ describe('real concierge analytics acknowledgement before Stripe navigation', ()
     render(<ApplicationConciergePortal serviceId={manual ? null : 'service-test'} entry={manual} authUser={owner} />);
     if (manual) fireEvent.click(screen.getAllByRole('button', { name: /jobBoard.concierge.start/ })[0]);
     await waitFor(() => expect(eventCalls(eventName)).toHaveLength(1));
+    expect(assign).not.toHaveBeenCalled();
     const parameters = eventCalls(eventName)[0][2];
     expect(parameters).toMatchObject({ price_eur: 39.99, price_eur_cents: 3999 });
     expect(parameters.page_path).toContain('utm_medium=payment_reminder');
     if (!manual) expect(parameters.page_path).toContain('application_concierge_service_id=service-test');
     expect(JSON.stringify(parameters)).not.toMatch(/private-test-code|candidate|[?&](?:ac|ne)=/);
-    expect(parameters).not.toHaveProperty('event_callback');
+    await act(async () => { parameters.event_callback(); });
     await waitFor(() => expect(assign).toHaveBeenCalledWith(stripeResult.url));
     expect(eventCalls(eventName)).toHaveLength(1);
     expect(eventCalls(manual ? 'application_concierge_checkout_resume' : 'application_concierge_checkout_click')).toHaveLength(0);
@@ -99,6 +100,8 @@ describe('real concierge analytics acknowledgement before Stripe navigation', ()
     await waitFor(() => expect(eventCalls('application_concierge_checkout_click')).toHaveLength(1));
     await act(async () => { finishCheckout(stripeResult); });
     await act(async () => { view.rerender(<ApplicationConciergePortal entry authUser={owner} />); });
+    expect(assign).not.toHaveBeenCalled();
+    await act(async () => { eventCalls('application_concierge_checkout_click')[0][2].event_callback(); });
     await waitFor(() => expect(assign).toHaveBeenCalledWith(stripeResult.url));
   });
 
@@ -113,17 +116,13 @@ describe('real concierge analytics acknowledgement before Stripe navigation', ()
     // consume the later protection against a full-page navigation.
     await act(async () => { await new Promise((resolve) => setTimeout(resolve, 1100)); });
     await act(async () => { finishCheckout(stripeResult); });
+    expect(assign).not.toHaveBeenCalled();
     await waitFor(() => expect(assign).toHaveBeenCalledWith(stripeResult.url), { timeout: 1500 });
     expect(eventCalls('application_concierge_checkout_resume')).toHaveLength(1);
   });
 
-  it.each(['unmount', 'service-change', 'owner-change'])('clears the handoff timer when the checkout context changes after %s', async (change) => {
+  it.each(['unmount', 'service-change', 'owner-change', 'sdk-owner-change'])('clears the handoff timer and ignores a late callback after %s', async (change) => {
     const assign = installRedirectRecorder();
-    // Keep the SDK acknowledgement pending so the context invalidation, not
-    // the immediate send acknowledgement, owns the timer cleanup assertion.
-    mocks.logEvent.mockImplementation((_analytics, eventName) => {
-      if (eventName === 'application_concierge_checkout_resume') throw new Error('sdk unavailable');
-    });
     let finishCheckout!: (value: typeof stripeResult) => void;
     mocks.checkout.mockReturnValueOnce(new Promise((resolve) => { finishCheckout = resolve; }));
     const view = render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
@@ -140,8 +139,10 @@ describe('real concierge analytics acknowledgement before Stripe navigation', ()
     else {
       const anotherOwner = { ...owner, uid: 'another-owner' };
       mocks.auth.currentUser = anotherOwner;
-      view.rerender(<ApplicationConciergePortal serviceId="service-test" authUser={anotherOwner} authLoading />);
+      if (change !== 'sdk-owner-change') view.rerender(<ApplicationConciergePortal serviceId="service-test" authUser={anotherOwner} authLoading />);
     }
+    if (change !== 'sdk-owner-change') expect(cancel).toHaveBeenCalledWith(handoffTimer);
+    await act(async () => { eventCalls('application_concierge_checkout_resume')[0][2].event_callback(); });
     expect(cancel).toHaveBeenCalledWith(handoffTimer);
     expect(assign).not.toHaveBeenCalled();
   });
