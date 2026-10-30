@@ -57,7 +57,7 @@ function locationParts(value) {
     // Georgia can mean a US state. The residence control marks the country GE.
     if (country && (encoded ? country === encoded[2] : country !== 'GE')) return { town: text.slice(0, split), country };
   }
-  return { town: text, country: '' };
+  return { town: text, country: '', unknownCountry: /[,;|/]/.test(text) };
 }
 
 function locality(value, country) {
@@ -79,6 +79,7 @@ export function locationMatchPoints(candidateLocation, job) {
   if (!jobLocation) return 0;
   const candidate = locationParts(candidateLocation);
   const posting = locationParts(jobLocation);
+  if (candidate.unknownCountry || posting.unknownCountry) return 0;
   const country = structuredCountry(job?.addressCountry);
   if (job?.addressCountry && !country) return 0;
   if (country && posting.country && country !== posting.country) return 0;

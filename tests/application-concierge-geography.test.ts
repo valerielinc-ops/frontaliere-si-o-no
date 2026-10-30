@@ -84,4 +84,11 @@ describe('concierge geographic ranking', () => {
     expect(locationMatchPoints('Baden', { location: 'Baden', addressCountry: 'ZZ' })).toBe(0);
     expect(locationMatchPoints('Baden, Unknown Region', { location: 'Baden', addressCountry: 'ZZ' })).toBe(0);
   });
+
+  it.each([',', ';', '|', '/'])('does not reinterpret an unresolved %s suffix as legacy country absence', delimiter => {
+    const unresolved = `Paris${delimiter} Atlantis`;
+    expect(locationMatchPoints(unresolved, { addressLocality: unresolved })).toBe(0);
+    expect(locationMatchPoints(unresolved, { addressLocality: 'Paris' })).toBe(0);
+    expect(locationMatchPoints('Paris', { addressLocality: unresolved })).toBe(0);
+  });
 });
