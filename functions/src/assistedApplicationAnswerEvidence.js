@@ -105,7 +105,7 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, prev
 }
 export const rememberCandidateAnswerEvidence = input => planCandidateAnswerEvidence(input).records;
 
-function validRecord(key, record, userId, legacy) {
+function validRecord(key, record, userId, legacy, nowMs) {
   if (!userId || !record || !/^answer-[a-f0-9]{24}$/.test(record.id || '') || record.version !== ANSWER_EVIDENCE_VERSION || record.key !== key || !hasAnswer(record.answer)) return false;
   const { question, provenance: source } = record;
   const policy = semantics(question || {}, record.answer);
@@ -125,7 +125,7 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
   const startedAt = Date.now();
   const legacy = object(profileRecord.applicationQuestionAnswers);
   const candidates = Object.entries(object(profileRecord.applicationQuestionAnswerEvidence)).slice(-80)
-    .filter(([key, record]) => validRecord(key, record, userId, legacy) && record.provenance.confirmedAt <= nowMs).map(([, record]) => record);
+    .filter(([key, record]) => validRecord(key, record, userId, legacy, nowMs) && record.provenance.confirmedAt <= nowMs).map(([, record]) => record);
   const sources = new Map();
   await Promise.all([...new Set(candidates.map(record => record.provenance.orderId))].map(async orderId => {
     const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
