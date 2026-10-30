@@ -1465,7 +1465,7 @@
         "it": "fx-trader-di-esecuzione-swissquote-gland",
         "en": "fx-execution-trader-swissquote-gland",
         "de": "fx-ausfuhrungshandler-swissquote-gland",
-        "fr": "fx-executeur-swissquote-gland"
+        "fr": "operateur-de-change-d-execution-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1514,7 +1514,7 @@
       "previousSlugs": [
         "fx-execution-trader-swissquote-gland",
         "commerce-fx-execution-swissquote-gland",
-        "operateur-de-change-d-execution-swissquote-gland"
+        "fx-executeur-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1526,7 +1526,7 @@
         "fr": [
           "commerce-fx-execution-swissquote-gland",
           "fx-execution-trader-swissquote-gland",
-          "operateur-de-change-d-execution-swissquote-gland"
+          "fx-executeur-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-09-18T14:21:38.632Z",

@@ -4729,12 +4729,12 @@
     },
     {
       "id": "kanton-aargau-2e24b798bd89",
-      "slug": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
+      "slug": "insegnante-di-scuola-secondaria-matematica-50-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
-        "it": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
-        "en": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
-        "fr": "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+        "it": "insegnante-di-scuola-secondaria-matematica-50-kanton-aargau-aarau",
+        "en": "secondary-school-teacher-mathematics-50-kanton-aargau-aarau",
+        "fr": "professeur-d-ecole-secondaire-mathematiques-50-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4795,7 +4795,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:51:05.821Z"
+      "firstSeenAt": "2026-10-30T09:51:05.821Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+        ],
+        "en": [
+          "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+        ],
+        "fr": [
+          "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-67ed0e100107",
@@ -5541,12 +5555,12 @@
     },
     {
       "id": "kanton-aargau-3dbc188d2dc8",
-      "slug": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-specializzazione-hausdienst-100-kanton-aargau-wettingen",
+      "slug": "apprendistato-come-addetto-a-alla-manutenzione-aziendale-afc-indirizzo-servizi-domestici-100-kanton-aargau-wettingen",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton",
-        "it": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-specializzazione-hausdienst-100-kanton-aargau-wettingen",
-        "en": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton",
-        "fr": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
+        "it": "apprendistato-come-addetto-a-alla-manutenzione-aziendale-afc-indirizzo-servizi-domestici-100-kanton-aargau-wettingen",
+        "en": "apprenticeship-as-a-specialist-business-maintenance-specialist-efz-department-house-service-100-kanton-aargau-wettingen",
+        "fr": "apprentissage-en-tant-que-specialiste-specialiste-de-la-maintenance-d-entreprise-efz-service-menagere-100-kanton-aargau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5595,11 +5609,19 @@
       "department": "Hausdienst",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton",
+          "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-specializzazione-hausdienst-100-kanton-aargau-wettingen"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
+        ],
+        "fr": [
           "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
+        "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton",
+        "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-specializzazione-hausdienst-100-kanton-aargau-wettingen"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,

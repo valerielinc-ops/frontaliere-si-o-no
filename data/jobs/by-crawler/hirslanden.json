@@ -20724,7 +20724,7 @@
         "de": "stv-leitung-reception-guest-relations-a-80-100-hirslanden-hirslanden-klinik-st-anna",
         "it": "stv-leitung-reception-guest-relations-a-80-100-hirslanden-hirslanden-klinik-st-anna",
         "en": "stv-leitung-reception-guest-relations-a-80-100-hirslanden-hirslanden-klinik-st-anna",
-        "fr": "stv-leitung-reception-guest-relations-a-80-100-hirslanden-hirslanden-klinik-st-anna"
+        "fr": "chef-de-la-reception-et-des-relations-avec-les-clients-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26569,12 +26569,12 @@
     {
       "id": "hirslanden-2df15672723a",
       "externalId": "1452776333",
-      "slug": "mitarbeiterin-collaboratore-trice-a-hotelservice-abenddienst-20-hirslanden-klinik-hirslanden",
+      "slug": "addetto-a-a-al-servizio-alberghiero-turno-serale-20-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik",
-        "it": "mitarbeiterin-collaboratore-trice-a-hotelservice-abenddienst-20-hirslanden-klinik-hirslanden",
-        "en": "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik",
-        "fr": "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik"
+        "it": "addetto-a-a-al-servizio-alberghiero-turno-serale-20-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "en": "employee-a-hotel-service-evening-service-20-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "employes-a-services-hoteliers-en-soiree-20-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26621,11 +26621,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik",
+          "mitarbeiterin-collaboratore-trice-a-hotelservice-abenddienst-20-hirslanden-klinik-hirslanden"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik"
+        "mitarbeiterin-mitarbeiter-a-hotelservice-abenddienst-20-hirslanden-hirslanden-klinik",
+        "mitarbeiterin-collaboratore-trice-a-hotelservice-abenddienst-20-hirslanden-klinik-hirslanden"
       ],
       "salaryMin": 18300,
       "salaryMax": 25600,

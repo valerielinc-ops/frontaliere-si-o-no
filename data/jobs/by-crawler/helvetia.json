@@ -1555,7 +1555,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1624,14 +1624,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -8030,10 +8030,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8108,21 +8108,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -8983,7 +8982,7 @@
       "id": "helvetia-a0e74f7477fc",
       "slug": "responsabile-gestione-immobiliare-losanna-m-w-d-tempo-parziale-pieno-helvetia-versicherungen-lausanne",
       "slugByLocale": {
-        "it": "responsabile-gestione-immobiliare-losanna-m-w-d-tempo-parziale-pieno-helvetia-versicherungen-lausanne",
+        "it": "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne",
         "en": "team-leader-real-estate-management-lausanne-m-f-d-part-time-full-time-helvetia-versicherungen-lausanne",
         "de": "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
         "fr": "chef-d-equipe-gestion-immobiliere-lausanne-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-lausanne"
@@ -9062,13 +9061,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-        "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne"
+        "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-          "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne"
+          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
         ],
         "en": [
           "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
@@ -12131,12 +12128,12 @@
     },
     {
       "id": "helvetia-6c1b1393bc25",
-      "slug": "kundenberater-w-m-d-versicherung-stadt-winterthur-helvetia-winterthur",
+      "slug": "consulente-clienti-m-f-d-assicurazione-citta-di-winterthur-helvetia-versicherungen-winterthur",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-stadt-winterthur-helvetia-winterthur",
-        "it": "kundenberater-w-m-d-versicherung-stadt-winterthur-helvetia-winterthur",
-        "en": "kundenberater-w-m-d-versicherung-stadt-winterthur-helvetia-winterthur",
-        "fr": "kundenberater-w-m-d-versicherung-stadt-winterthur-helvetia-winterthur"
+        "it": "consulente-clienti-m-f-d-assicurazione-citta-di-winterthur-helvetia-versicherungen-winterthur",
+        "en": "customer-advisor-m-f-d-insurance-city-of-winterthur-helvetia-versicherungen-winterthur",
+        "fr": "conseiller-client-h-f-d-assurance-ville-de-winterthur-helvetia-versicherungen-winterthur"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12195,7 +12192,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:16:16.903Z"
+      "firstSeenAt": "2026-10-30T09:16:16.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-stadt-winterthur-helvetia-winterthur"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-stadt-winterthur-helvetia-winterthur"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-stadt-winterthur-helvetia-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-stadt-winterthur-helvetia-winterthur"
+      ]
     },
     {
       "id": "helvetia-bc79137f307c",

@@ -8,9 +8,9 @@
       "slug": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
-        "en": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
+        "en": "purchasing-clerk-ffs-officine-ferrovie-federali-bern",
         "de": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
-        "fr": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern"
+        "fr": "responsable-des-achats-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -108,11 +108,11 @@
     },
     {
       "id": "sbb-d7817e195ded",
-      "slug": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont",
+      "slug": "agente-di-pulizia-ffs-officine-ferrovie-federali-delemont",
       "slugByLocale": {
-        "it": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont",
-        "en": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont",
-        "de": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont",
+        "it": "agente-di-pulizia-ffs-officine-ferrovie-federali-delemont",
+        "en": "cleaning-agent-ffs-officine-ferrovie-federali-delemont",
+        "de": "reinigungsmittel-ffs-officine-ferrovie-federali-delemont",
         "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -206,15 +206,29 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2800",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/agente-de-nettoyage/31fa680e-bbaa-4336-860d-5da4f8dc5dfb",
-      "firstSeenAt": "2026-10-30T09:52:27.228Z"
+      "firstSeenAt": "2026-10-30T09:52:27.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont"
+        ],
+        "en": [
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont"
+        ],
+        "de": [
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont"
+      ]
     },
     {
       "id": "sbb-b749e2196978",
-      "slug": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg",
+      "slug": "agente-di-pulizia-ffs-officine-ferrovie-federali-fribourg",
       "slugByLocale": {
-        "it": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg",
-        "en": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg",
-        "de": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg",
+        "it": "agente-di-pulizia-ffs-officine-ferrovie-federali-fribourg",
+        "en": "cleaning-agent-ffs-officine-ferrovie-federali-fribourg",
+        "de": "reinigungsmittel-ffs-officine-ferrovie-federali-fribourg",
         "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -308,15 +322,29 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/agente-de-nettoyage/5e439060-ce38-4aa2-8230-b665dbd76093",
-      "firstSeenAt": "2026-10-30T09:52:27.688Z"
+      "firstSeenAt": "2026-10-30T09:52:27.688Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg"
+        ],
+        "en": [
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg"
+        ],
+        "de": [
+          "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg"
+      ]
     },
     {
       "id": "sbb-427ab1257b3e",
-      "slug": "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey",
+      "slug": "agente-di-pulizia-specializzato-ffs-officine-ferrovie-federali-vevey",
       "slugByLocale": {
-        "it": "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey",
-        "en": "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey",
-        "de": "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey",
+        "it": "agente-di-pulizia-specializzato-ffs-officine-ferrovie-federali-vevey",
+        "en": "specialist-cleaning-agent-ffs-officine-ferrovie-federali-vevey",
+        "de": "spezialisiertes-reinigungsmittel-ffs-officine-ferrovie-federali-vevey",
         "fr": "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -410,7 +438,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1800",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/agente-de-nettoyage-specialiste/67164180-3b00-411f-aaee-fa946250ecea",
-      "firstSeenAt": "2026-10-30T09:52:28.202Z"
+      "firstSeenAt": "2026-10-30T09:52:28.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey"
+        ],
+        "en": [
+          "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey"
+        ],
+        "de": [
+          "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey"
+      ]
     },
     {
       "id": "sbb-585e2f10bb82",
@@ -618,9 +660,9 @@
       "slug": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
-        "en": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
+        "en": "product-manager-ffs-officine-ferrovie-federali-olten",
         "de": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
-        "fr": "produktmanager-in-ffs-officine-ferrovie-federali-olten"
+        "fr": "chef-fe-de-produit-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -6612,7 +6654,7 @@
       "slugByLocale": {
         "it": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne-8def9eb896",
         "en": "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
-        "de": "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
+        "de": "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
         "fr": "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -6679,7 +6721,7 @@
       "crawledAt": "2026-10-30T09:52:48.201Z",
       "previousSlugs": [
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+        "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6690,7 +6732,7 @@
         ],
         "de": [
           "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-          "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+          "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
         ]
       },
       "salaryMin": 73000,
@@ -8966,9 +9008,9 @@
       "slug": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
-        "en": "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "en": "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
         "de": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "fr": "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
+        "fr": "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -9037,8 +9079,8 @@
       "crawledAt": "2026-10-30T09:53:27.213Z",
       "previousSlugs": [
         "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
-        "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+        "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9046,11 +9088,11 @@
         ],
         "en": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten"
+          "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+          "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-10-10T09:25:30.948Z",
@@ -11644,9 +11686,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11707,8 +11749,8 @@
       "crawledAt": "2026-10-30T09:52:53.699Z",
       "previousSlugs": [
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+        "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11716,11 +11758,11 @@
         ],
         "en": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf"
+          "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+          "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
       "firstSeenAt": "2026-10-24T21:25:04.967Z",

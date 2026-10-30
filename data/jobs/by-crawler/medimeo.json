@@ -327,12 +327,12 @@
     },
     {
       "id": "medimeo-6abce13c0c31",
-      "slug": "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten",
+      "slug": "ginecologia-messa-a-fuoco-operativa-senza-ostetricia-ore-di-lavoro-regolate-50-60-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten",
-        "it": "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten",
-        "en": "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten",
-        "fr": "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten"
+        "it": "ginecologia-messa-a-fuoco-operativa-senza-ostetricia-ore-di-lavoro-regolate-50-60-medimeo-ag-olten-aargau",
+        "en": "gynecology-operative-focus-without-obstetrics-regulated-working-hours-50-60-medimeo-ag-olten-aargau",
+        "fr": "gynecologie-concentration-operationnelle-sans-obstetrique-horaires-de-travail-reglementes-50-60-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -390,16 +390,30 @@
         }
       },
       "postalCode": "4600",
-      "firstSeenAt": "2026-10-30T09:32:09.784Z"
+      "firstSeenAt": "2026-10-30T09:32:09.784Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten"
+      ]
     },
     {
       "id": "medimeo-45ece271e83f",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf-sie-medimeo-ag-zurich",
+      "slug": "medico-specialista-in-ginecologia-e-ostetricia-50-100-la-vostra-avventura-in-svizzera-vi-aspetta-medimeo-ag-region",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf",
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf-sie-medimeo-ag-zurich",
-        "en": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf",
-        "fr": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf"
+        "it": "medico-specialista-in-ginecologia-e-ostetricia-50-100-la-vostra-avventura-in-svizzera-vi-aspetta-medimeo-ag-region",
+        "en": "senior-physician-gynecology-and-obstetrics-50-100-your-adventure-switzerland-is-waiting-for-you-medimeo-ag-region-zurich",
+        "fr": "medecin-senior-gynecologie-et-obstetrique-50-100-votre-aventure-la-suisse-vous-attend-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -445,11 +459,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf-sie-medimeo-ag-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf"
+        ],
+        "fr": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf-sie-medimeo-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -469,12 +491,12 @@
     },
     {
       "id": "medimeo-d82e0b717076",
-      "slug": "leitende-arztin-leitender-arzt-in-gynakologischer-praxis-80-100-region-zurich-medimeo-ch",
+      "slug": "medico-senior-nella-pratica-ginecologica-80-100-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-in-gynakologischer-praxis-80-100-region-zurich-medimeo-ch",
-        "it": "leitende-arztin-leitender-arzt-in-gynakologischer-praxis-80-100-region-zurich-medimeo-ch",
-        "en": "leitende-arztin-leitender-arzt-in-gynakologischer-praxis-80-100-region-zurich-medimeo-ch",
-        "fr": "leitende-arztin-leitender-arzt-in-gynakologischer-praxis-80-100-region-zurich-medimeo-ch"
+        "it": "medico-senior-nella-pratica-ginecologica-80-100-medimeo-ag-region-zurich",
+        "en": "senior-physician-in-gynecological-practice-80-100-medimeo-ag-region-zurich",
+        "fr": "medecin-principal-en-pratique-gynecologique-80-100-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -532,7 +554,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-30T09:32:09.778Z"
+      "firstSeenAt": "2026-10-30T09:32:09.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-in-gynakologischer-praxis-80-100-region-zurich-medimeo-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-in-gynakologischer-praxis-80-100-region-zurich-medimeo-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-in-gynakologischer-praxis-80-100-region-zurich-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-in-gynakologischer-praxis-80-100-region-zurich-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-2b12ef9640df",

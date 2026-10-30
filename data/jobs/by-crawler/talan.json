@@ -878,11 +878,11 @@
     },
     {
       "id": "talan-7d591d30432b",
-      "slug": "developpeur-agentique-talan-geneva-ge-switzerland",
+      "slug": "agente-sviluppatore-talan-geneva-ge-switzerland",
       "slugByLocale": {
         "fr": "developpeur-agentique-talan-geneva-ge-switzerland",
-        "it": "developpeur-agentique-talan-geneva-ge-switzerland",
-        "en": "developpeur-agentique-talan-geneva-ge-switzerland",
+        "it": "agente-sviluppatore-talan-geneva-ge-switzerland",
+        "en": "agent-developer-talan-geneva-ge-switzerland",
         "de": "developpeur-agentique-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
@@ -943,7 +943,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:46:18.726Z"
+      "firstSeenAt": "2026-10-30T09:46:18.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "developpeur-agentique-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "developpeur-agentique-talan-geneva-ge-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "developpeur-agentique-talan-geneva-ge-switzerland"
+      ]
     }
   ]
 }

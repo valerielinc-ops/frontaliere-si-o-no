@@ -8,7 +8,7 @@
       "slug": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "it": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-        "en": "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil",
+        "en": "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
         "fr": "contremaitre-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
@@ -58,7 +58,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
+        "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,7 +66,7 @@
         ],
         "en": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-          "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
+          "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
@@ -746,10 +746,10 @@
       "id": "kanton-st-gallen-55fa5a628ff3",
       "slug": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
-        "it": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
-        "en": "forester-m-w-d-kanton-st-gallen-oberuzwil",
+        "it": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+        "en": "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
+        "fr": "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -799,23 +799,21 @@
         "forstwart-in-m-w-d-kanton-st-gallen-ch",
         "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
         "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
-        "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
-        "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
-        "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+        "forester-m-w-d-kanton-st-gallen-oberuzwil",
+        "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-          "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil"
+          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
           "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
-          "forest-manager-m-f-d-kanton-st-gallen-oberuzwil"
+          "forester-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+          "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:09:13.851Z",
@@ -5867,12 +5865,12 @@
     },
     {
       "id": "kanton-st-gallen-07528c0f666e",
-      "slug": "mechaniker-m-w-d-kanton-st-gallen-ch",
+      "slug": "meccanica-m-f-d-kanton-st-gallen-thal",
       "slugByLocale": {
         "de": "mechaniker-m-w-d-kanton-st-gallen-ch",
-        "it": "mechaniker-m-w-d-kanton-st-gallen-ch",
-        "en": "mechaniker-m-w-d-kanton-st-gallen-ch",
-        "fr": "mechaniker-m-w-d-kanton-st-gallen-ch"
+        "it": "meccanica-m-f-d-kanton-st-gallen-thal",
+        "en": "mechanics-m-f-d-kanton-st-gallen-thal",
+        "fr": "mecanique-h-f-d-kanton-st-gallen-thal"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5932,7 +5930,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:23:30.004Z"
+      "firstSeenAt": "2026-10-30T09:23:30.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechaniker-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "mechaniker-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "mechaniker-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechaniker-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-406f1e8237a6",

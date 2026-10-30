@@ -46,7 +46,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "cyber-security-analista-in-professional-swiss-armed-forces-vtg-bern-1i2rzd",
-        "en": "cyber-security-analyst-in-professional-swiss-armed-forces-vtg-bern-1i2rzd",
+        "en": "professional-cybersecurity-analyst-swiss-armed-forces-vtg-bern",
         "de": "cyber-security-analyst-in-professional-swiss-armed-forces-vtg-bern-1i2rzd",
         "fr": "cyber-security-analyste-in-professional-swiss-armed-forces-vtg-bern-1i2rzd"
       },
@@ -58,10 +58,14 @@
       "previousSlugsByLocale": {
         "it": [
           "cyber-security-analyst-in-professional-swiss-armed-forces-vtg-bern"
+        ],
+        "en": [
+          "cyber-security-analyst-in-professional-swiss-armed-forces-vtg-bern-1i2rzd"
         ]
       },
       "previousSlugs": [
-        "cyber-security-analyst-in-professional-swiss-armed-forces-vtg-bern"
+        "cyber-security-analyst-in-professional-swiss-armed-forces-vtg-bern",
+        "cyber-security-analyst-in-professional-swiss-armed-forces-vtg-bern-1i2rzd"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -80,7 +84,7 @@
     },
     {
       "id": "company-xwin2t",
-      "slug": "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t",
+      "slug": "specialista-nella-gestione-degli-impianti-di-guida-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Spezialist/-in Betrieb Führungsanlagen",
       "location": "Bern",
@@ -120,10 +124,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t",
-        "en": "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t",
+        "it": "specialista-nella-gestione-degli-impianti-di-guida-swiss-armed-forces-vtg-bern",
+        "en": "operations-specialist-for-conveyor-systems-swiss-armed-forces-vtg-bern",
         "de": "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t",
-        "fr": "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t"
+        "fr": "specialiste-en-exploitation-des-installations-de-guidage-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "postalCode": "3004",
@@ -132,11 +136,19 @@
       "streetAddress": "Wylerringstrasse 36",
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern"
+          "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern",
+          "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t"
+        ],
+        "en": [
+          "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t"
+        ],
+        "fr": [
+          "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t"
         ]
       },
       "previousSlugs": [
-        "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern"
+        "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern",
+        "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -155,7 +167,7 @@
     },
     {
       "id": "company-6w729l",
-      "slug": "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l",
+      "slug": "assistente-tecnico-medico-a-centro-di-reclutamento-di-aarau-swiss-armed-forces-vtg-aarau",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Medizinisch-technische/-r Assistent/-in Rekrutierungszentrum Aarau",
       "location": "Aarau",
@@ -195,10 +207,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l",
-        "en": "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l",
+        "it": "assistente-tecnico-medico-a-centro-di-reclutamento-di-aarau-swiss-armed-forces-vtg-aarau",
+        "en": "medical-technician-aarau-recruitment-center-swiss-armed-forces-vtg-aarau",
         "de": "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l",
-        "fr": "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l"
+        "fr": "assistant-e-medico-technique-centre-de-recrutement-d-aarau-swiss-armed-forces-vtg-aarau"
       },
       "sourceLang": "de",
       "postalCode": "5000",
@@ -207,11 +219,19 @@
       "streetAddress": "Rekrutierungszentrum, Laurenzenvorstadt 62 (Gebäude 6)",
       "previousSlugsByLocale": {
         "it": [
-          "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau"
+          "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau",
+          "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l"
+        ],
+        "en": [
+          "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l"
+        ],
+        "fr": [
+          "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l"
         ]
       },
       "previousSlugs": [
-        "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau"
+        "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau",
+        "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -230,7 +250,7 @@
     },
     {
       "id": "company-nyhcdo",
-      "slug": "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo",
+      "slug": "responsabile-analisi-operativa-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Chef/-in Op Analysis",
       "location": "Bern",
@@ -270,10 +290,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo",
-        "en": "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo",
+        "it": "responsabile-analisi-operativa-swiss-armed-forces-vtg-bern",
+        "en": "head-of-operations-analysis-swiss-armed-forces-vtg-bern",
         "de": "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo",
-        "fr": "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo"
+        "fr": "responsable-de-l-analyse-operationnelle-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "postalCode": "3004",
@@ -282,11 +302,19 @@
       "streetAddress": "Papiermühlestrasse 20",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-op-analysis-swiss-armed-forces-vtg-bern"
+          "chef-in-op-analysis-swiss-armed-forces-vtg-bern",
+          "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo"
+        ],
+        "en": [
+          "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo"
+        ],
+        "fr": [
+          "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo"
         ]
       },
       "previousSlugs": [
-        "chef-in-op-analysis-swiss-armed-forces-vtg-bern"
+        "chef-in-op-analysis-swiss-armed-forces-vtg-bern",
+        "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -10386,7 +10414,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "responsabile-del-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -10395,8 +10423,7 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -10407,8 +10434,7 @@
       },
       "previousSlugs": [
         "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {

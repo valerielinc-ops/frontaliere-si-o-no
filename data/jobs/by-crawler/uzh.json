@@ -9120,12 +9120,12 @@
     },
     {
       "id": "uzh-674da8b1b741",
-      "slug": "cloud-engineer-w-m-x-uzh-zurich",
+      "slug": "cloud-ingegnere-w-m-x-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "cloud-engineer-w-m-x-uzh-zurich",
-        "it": "cloud-engineer-w-m-x-uzh-zurich",
+        "it": "cloud-ingegnere-w-m-x-universitat-zurich-zurich",
         "en": "cloud-engineer-w-m-x-uzh-zurich",
-        "fr": "cloud-engineer-w-m-x-uzh-zurich"
+        "fr": "cloud-ingenieur-w-m-x-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9184,7 +9184,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:21:36.189Z"
+      "firstSeenAt": "2026-10-30T09:21:36.189Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cloud-engineer-w-m-x-uzh-zurich"
+        ],
+        "fr": [
+          "cloud-engineer-w-m-x-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "cloud-engineer-w-m-x-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-c0dd95d28660",

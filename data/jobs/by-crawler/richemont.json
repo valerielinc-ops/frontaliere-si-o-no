@@ -2847,12 +2847,12 @@
     },
     {
       "id": "richemont-e75ed1f54bfa",
-      "slug": "client-advisor-richemont-zurich",
+      "slug": "client-consulente-panerai-zurich",
       "slugByLocale": {
         "en": "client-advisor-richemont-zurich",
-        "it": "client-advisor-richemont-zurich",
-        "de": "client-advisor-richemont-zurich",
-        "fr": "client-advisor-richemont-zurich"
+        "it": "client-consulente-panerai-zurich",
+        "de": "client-berater-panerai-zurich",
+        "fr": "client-conseiller-panerai-zurich"
       },
       "company": "Panerai",
       "companyKey": "richemont",
@@ -2910,7 +2910,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-advisor-richemont-zurich"
+        ],
+        "de": [
+          "client-advisor-richemont-zurich"
+        ],
+        "fr": [
+          "client-advisor-richemont-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-advisor-richemont-zurich"
+      ]
     },
     {
       "id": "richemont-2c03ec313211",

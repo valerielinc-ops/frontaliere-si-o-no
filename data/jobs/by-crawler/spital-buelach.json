@@ -796,9 +796,9 @@
       "slug": "parto-in-seconda-posizione-spital-bulach-bulach",
       "slugByLocale": {
         "it": "parto-in-seconda-posizione-spital-bulach-bulach",
-        "en": "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "en": "two-themed-birthplace-spital-bulach-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "maison-de-naissance-spital-bulach"
+        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -875,11 +875,11 @@
           "zweithebamme-geburtshaus-spital-bulach-bulach",
           "zweithebamme-geburtshaus-spital-bulach",
           "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
-          "two-themed-birthplace-spital-bulach-bulach"
+          "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach",
-          "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+          "maison-de-naissance-spital-bulach"
         ]
       },
       "previousSlugs": [
@@ -890,8 +890,8 @@
         "zweithebamme-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
-        "two-themed-birthplace-spital-bulach-bulach",
-        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "maison-de-naissance-spital-bulach"
       ],
       "firstSeenAt": "2026-05-19T12:20:48.647Z",
       "salaryMin": 91500,
@@ -1655,10 +1655,10 @@
       "id": "spital-buelach-b83414e4d472",
       "slug": "elettricisti-commerciali-spital-bulach",
       "slugByLocale": {
-        "it": "elettricisti-commerciali-spital-bulach",
+        "it": "elettricista-in-business-elettricista-in-spital-bulach-bulach",
         "en": "electrician-in-business-electrician-in-spital-bulach-bulach",
         "de": "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "fr": "electriciens-d-affaires-spital-bulach"
+        "fr": "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1704,16 +1704,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "elettricista-in-business-elettricista-in-spital-bulach-bulach",
-        "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+        "electriciens-d-affaires-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-          "elettricista-in-business-elettricista-in-spital-bulach-bulach"
+          "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
         ],
         "fr": [
-          "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+          "electriciens-d-affaires-spital-bulach"
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:51.572Z",
@@ -4878,12 +4876,12 @@
     },
     {
       "id": "spital-buelach-9d41c9feb7d2",
-      "slug": "chefarztin-chefarzt-medizin-spital-buelach-bulach",
+      "slug": "medico-principale-medicina-principale-medico-spital-bulach-bulach",
       "slugByLocale": {
         "de": "chefarztin-chefarzt-medizin-spital-buelach-bulach",
-        "it": "chefarztin-chefarzt-medizin-spital-buelach-bulach",
-        "en": "chefarztin-chefarzt-medizin-spital-buelach-bulach",
-        "fr": "chefarztin-chefarzt-medizin-spital-buelach-bulach"
+        "it": "medico-principale-medicina-principale-medico-spital-bulach-bulach",
+        "en": "chief-physician-chief-physician-medicine-spital-bulach-bulach",
+        "fr": "medecin-en-chef-medecin-en-chef-medecine-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4942,16 +4940,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:49:15.141Z"
+      "firstSeenAt": "2026-10-30T09:49:15.141Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztin-chefarzt-medizin-spital-buelach-bulach"
+        ],
+        "en": [
+          "chefarztin-chefarzt-medizin-spital-buelach-bulach"
+        ],
+        "fr": [
+          "chefarztin-chefarzt-medizin-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "chefarztin-chefarzt-medizin-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-f73828225a2c",
-      "slug": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
+      "slug": "dipl-professionista-dell-assistenza-medica-spital-bulach-bulach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
-        "it": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
-        "en": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
-        "fr": "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+        "it": "dipl-professionista-dell-assistenza-medica-spital-bulach-bulach",
+        "en": "dipl-medical-care-professional-spital-bulach-bulach",
+        "fr": "dipl-professionnels-de-soins-medicaux-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -5010,7 +5022,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:49:15.134Z"
+      "firstSeenAt": "2026-10-30T09:49:15.134Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-8ea7aa898bd3",
@@ -5018,8 +5044,8 @@
       "slugByLocale": {
         "de": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
         "it": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
-        "en": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
-        "fr": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach"
+        "en": "mpa-medical-secretary-pneumology-neurology-spital-bulach-bulach",
+        "fr": "mpa-secretaire-medical-en-pneumologie-neurologie-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
