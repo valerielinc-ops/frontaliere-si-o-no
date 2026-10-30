@@ -91,10 +91,16 @@ function parseArgs(argv) {
   return argv.filter((a) => a.startsWith('http'));
 }
 
+function ledgerPathFromArgs(argv) {
+  const index = argv.indexOf('--ledger');
+  return index === -1 ? undefined : argv[index + 1];
+}
+
 async function main() {
   const argv = process.argv.slice(2);
   const indexNowOnly = argv.includes('--indexnow-only');
   const urls = [...new Set(parseArgs(argv))];
+  const ledgerPath = ledgerPathFromArgs(argv);
   if (urls.length === 0) {
     console.log('[notify-search-engines] no URLs to submit — nothing to do');
     return;
@@ -114,7 +120,7 @@ async function main() {
 
   // Run both channels independently: one failing must not skip the other.
   const [google, indexnow] = await Promise.allSettled([
-    indexNowOnly ? Promise.resolve(null) : notifyGoogleIndexing(urls),
+    indexNowOnly ? Promise.resolve(null) : notifyGoogleIndexing(urls, { ledgerPath }),
     submitIndexNowUrls(urls),
   ]);
 

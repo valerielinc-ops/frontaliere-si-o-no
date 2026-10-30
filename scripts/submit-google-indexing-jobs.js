@@ -41,6 +41,7 @@
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { DEFAULT_OWNER_PROBE_URL, resolveOwnerToken } from './lib/indexing-owner.mjs';
+import { DAILY_BUDGET, DEFAULT_INDEXING_LEDGER } from './lib/indexing-api-quota.mjs';
 import {
   quotaDayKey,
   isJobDetailCandidate,
@@ -50,20 +51,17 @@ import {
   observeSitemap,
   planSubmissions,
   recordOutcome,
+  reserveQuota,
   judgeLive,
   spentOn,
 } from './lib/indexing-jobs-planner.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
-// Approved Google Indexing API quota: 2,000 publish requests/day for the GCP
-// project. Scheduled and deploy-triggered job runs share this cap through the
-// serialized ledger owned by monitor-gsc-seo.yml.
-export const DAILY_BUDGET = 2000;
 const DEFAULT_MAX = 15;
 const MAX_RETRIES = 2;
 const FETCH_TIMEOUT_MS = 20_000;
 const INDEXING_PUBLISH = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
-const DEFAULT_LEDGER = '/tmp/indexing-api-jobs-ledger.json';
+export { DAILY_BUDGET };
 const USER_AGENT = 'frontaliere-indexing-api/2.0 (+https://frontaliereticino.ch)';
 
 export {
@@ -83,7 +81,7 @@ function fetchWithTimeout(url, options = {}) {
 }
 
 export function parseArgs(argv) {
-  const args = { max: DEFAULT_MAX, maxFirstRun: 0, priorityFile: null, ledger: DEFAULT_LEDGER, dryRun: false };
+  const args = { max: DEFAULT_MAX, maxFirstRun: 0, priorityFile: null, ledger: DEFAULT_INDEXING_LEDGER, dryRun: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--dry-run') args.dryRun = true;
@@ -155,9 +153,31 @@ async function liveCheck(type, url) {
   }
 }
 
+export const LIVE_CHECK_CONCURRENCY = 32;
+
+/** Run live checks with a fixed worker pool so a full quota day fits the job deadline. */
+export async function runLiveChecks(plan, { concurrency = LIVE_CHECK_CONCURRENCY, check = liveCheck } = {}) {
+  const results = new Array(plan.length);
+  if (plan.length === 0) return results;
+  const requestedWorkers = Number.isFinite(concurrency) ? Math.floor(concurrency) : LIVE_CHECK_CONCURRENCY;
+  const workerCount = Math.min(Math.max(1, requestedWorkers), plan.length);
+  let cursor = 0;
+  const worker = async () => {
+    while (true) {
+      const index = cursor++;
+      if (index >= plan.length) return;
+      const item = plan[index];
+      results[index] = { item, verdict: await check(item.type, item.url) };
+    }
+  };
+  await Promise.all(Array.from({ length: workerCount }, worker));
+  return results;
+}
+
 // ── Publish ─────────────────────────────────────────────────
 
-async function publish(token, url, type, attempt = 1) {
+async function publish(token, url, type, attempt = 1, beforeRequest = () => true) {
+  if (!beforeRequest()) return { ok: false, status: 0, quotaExhausted: true, body: 'shared quota exhausted' };
   try {
     const res = await fetchWithTimeout(INDEXING_PUBLISH, {
       method: 'POST',
@@ -167,12 +187,15 @@ async function publish(token, url, type, attempt = 1) {
     if (res.ok) return { ok: true, status: res.status };
     if (res.status >= 500 && attempt <= MAX_RETRIES) {
       await sleep(500 * attempt);
-      return publish(token, url, type, attempt + 1);
+      return publish(token, url, type, attempt + 1, beforeRequest);
     }
     const text = await res.text().catch(() => '');
     return { ok: false, status: res.status, body: text.replace(/\s+/g, ' ').slice(0, 200) };
   } catch (err) {
-    if (attempt <= MAX_RETRIES) { await sleep(500 * attempt); return publish(token, url, type, attempt + 1); }
+    if (attempt <= MAX_RETRIES) {
+      await sleep(500 * attempt);
+      return publish(token, url, type, attempt + 1, beforeRequest);
+    }
     return { ok: false, status: 0, body: err.message };
   }
 }
@@ -210,6 +233,11 @@ async function main() {
   }
   observeSitemap(ledger, entries, today);
   const save = () => { if (!args.dryRun) writeFileSync(args.ledger, JSON.stringify(ledger)); };
+  const reserveRequest = () => {
+    const reserved = reserveQuota(ledger, today);
+    if (reserved) save();
+    return reserved;
+  };
 
   if (runBudget <= 0) { log('ℹ️', 'Daily budget reached — skipping'); save(); return; }
 
@@ -227,13 +255,15 @@ async function main() {
   // Bound the live fetches: landing pages share the job-detail URL shape, and
   // a backlog full of them must not turn one run into thousands of GETs.
   const maxChecks = runBudget * 4;
-  let checks = 0;
-  for (const item of plan) {
-    if (counts.sent >= runBudget || checks++ >= maxChecks) break;
-    const verdict = await liveCheck(item.type, item.url);
+  const checked = await runLiveChecks(plan.slice(0, maxChecks));
+  for (const { item, verdict } of checked) {
+    if (counts.sent >= runBudget) break;
     if (verdict !== 'ok') {
       counts.skipped += 1;
-      if (!args.dryRun && verdict !== 'transient') recordOutcome(ledger, item, verdict, today);
+      if (!args.dryRun && verdict !== 'transient') {
+        recordOutcome(ledger, item, verdict, today);
+        save();
+      }
       continue;
     }
     if (args.dryRun) {
@@ -242,12 +272,17 @@ async function main() {
       log('  ', `would ${item.type} [${item.tier}] ${item.url}`);
       continue;
     }
-    const res = await publish(token, item.url, item.type);
+    const res = await publish(token, item.url, item.type, 1, reserveRequest);
+    if (res.quotaExhausted) {
+      log('🛑', 'Shared Indexing API quota exhausted — stopping');
+      break;
+    }
     if (res.ok) {
       counts.sent += 1;
       consecutive429 = 0;
       byTier[item.tier] = (byTier[item.tier] || 0) + 1;
-      recordOutcome(ledger, item, 'sent', today);
+      recordOutcome(ledger, item, 'sent', today, { quotaReserved: true });
+      save();
       log('  ✅', `${item.type} [${item.tier}] ${item.url}`);
     } else {
       counts.failed += 1;

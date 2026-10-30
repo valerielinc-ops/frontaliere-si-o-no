@@ -14,15 +14,24 @@ import {
   observeSitemap,
   planSubmissions,
   recordOutcome,
+  recordNotification,
+  reserveQuota,
   judgeLive,
   spentOn,
   backlogRank,
   DELETE_SHARE,
   GONE_FORGET_DAYS,
 } from '../scripts/lib/indexing-jobs-planner.mjs';
-import { parseArgs, runBudgetFor, DAILY_BUDGET } from '../scripts/submit-google-indexing-jobs.js';
+import {
+  parseArgs,
+  runBudgetFor,
+  runLiveChecks,
+  LIVE_CHECK_CONCURRENCY,
+  DAILY_BUDGET,
+} from '../scripts/submit-google-indexing-jobs.js';
 
 const S = 'https://frontaliereticino.ch';
+const testDay = '2026-10-24';
 const job = (p: string) => `${S}${p}`;
 
 describe('quotaDayKey', () => {
@@ -80,6 +89,49 @@ describe('ledger', () => {
     observeSitemap(l, [], later);
     expect(l.urls[job('/cerca-lavoro-ticino/a/')]).toBeUndefined();
   });
+
+  it('shares the 2,000-request day between job and article callers', () => {
+    const l = createLedger(testDay);
+    l.days[testDay] = 1_960; // 1,960 job publishes already accounted for.
+    const articleUrls = Array.from({ length: 40 }, (_, i) => `${S}/articoli-frontaliere/article-${i}/`);
+
+    for (const url of articleUrls) {
+      expect(reserveQuota(l, testDay)).toBe(true);
+      recordNotification(l, { url, source: 'article' }, { ok: true, status: 200 }, testDay);
+    }
+
+    expect(spentOn(l, testDay)).toBe(DAILY_BUDGET);
+    expect(reserveQuota(l, testDay)).toBe(false);
+    expect(Object.keys(l.notifications)).toHaveLength(40);
+    expect(l.notifications[articleUrls[0]]).toMatchObject({ source: 'article', sent: testDay });
+  });
+});
+
+describe('bounded live-check queue', () => {
+  it('handles 2,000 timeout-equivalent checks without serial execution', async () => {
+    let active = 0;
+    let peak = 0;
+    const plan = Array.from({ length: 2_000 }, (_, i) => ({
+      url: `${S}/cerca-lavoro-ticino/job-${i}/`,
+      type: 'URL_UPDATED' as const,
+    }));
+    const started = Date.now();
+    const results = await runLiveChecks(plan, {
+      concurrency: LIVE_CHECK_CONCURRENCY,
+      check: async () => {
+        active += 1;
+        peak = Math.max(peak, active);
+        await new Promise((resolve) => setTimeout(resolve, 20));
+        active -= 1;
+        return 'transient' as const;
+      },
+    });
+
+    expect(results).toHaveLength(2_000);
+    expect(results.every(({ verdict }) => verdict === 'transient')).toBe(true);
+    expect(peak).toBeLessThanOrEqual(LIVE_CHECK_CONCURRENCY);
+    expect(Date.now() - started).toBeLessThan(5_000);
+  }, 10_000);
 });
 
 describe('planSubmissions', () => {

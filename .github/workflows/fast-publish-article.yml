@@ -84,6 +84,7 @@ concurrency:
 permissions:
   # The topic sitemap enters main through a stable PR so the required Vitest
   # check runs before publication.
+  actions: read
   contents: write
   pull-requests: write
   issues: write
@@ -91,6 +92,8 @@ permissions:
 jobs:
   fast-publish:
     runs-on: ubuntu-latest
+    outputs:
+      notify_search_engines: ${{ steps.stage_indexing_summary.outputs.notify }}
     timeout-minutes: 20
     # shard-secrets-overflow: same environment deploy.yml's build-locale job
     # declares — repo-level Actions secrets already hit GitHub's 100/repo cap
@@ -740,19 +743,31 @@ jobs:
             --title "chore(data): publish ${{ inputs.section }} topic-hub sitemap" \
             --body-file "$body"
 
-      # Google Indexing API AND IndexNow (Bing/Yandex), with the same verified
-      # URL list. IndexNow is included deliberately: its normal driver
-      # (scripts/submit-indexnow.js) discovers URLs from the DEPLOYED SITEMAPS,
-      # which are apex-only artifacts that do not change until the next full
-      # deploy — so without a direct submit here a fast-published article would
-      # reach Google in minutes and Bing/Yandex only hours later.
-      - name: Notify search engines (Google Indexing API + IndexNow)
-        if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        continue-on-error: true
+      # The notification job owns the shared quota ledger. It is a separate job
+      # because its concurrency group must be global across article, deploy and
+      # monitor workflows, while rendering remains concurrent per article.
+      - name: Stage verified URLs for shared Indexing API ledger
+        id: stage_indexing_summary
+        if: always()
         env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          VERIFY_OUTCOME: ${{ steps.verify.outcome }}
+          VERIFY_DELAYED: ${{ steps.verify.outputs.delayed }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
         run: |
-          node scripts/notify-article-search-engines.mjs --summary /tmp/fast-publish/summary.json
+          if [ "$VERIFY_OUTCOME" = "success" ] && [ "$VERIFY_DELAYED" != "true" ] && [ "$INPUT_DRY_RUN" != "true" ]; then
+            echo "notify=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "notify=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Hand verified URLs to the shared ledger owner
+        if: steps.stage_indexing_summary.outputs.notify == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: fast-publish-indexing-summary
+          path: /tmp/fast-publish/summary.json
+          if-no-files-found: error
+          retention-days: 2
 
       - name: Report failure to GitHub Issues
         if: failure()
@@ -780,3 +795,46 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+  notify-search-engines:
+    needs: fast-publish
+    if: needs.fast-publish.outputs.notify_search_engines == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: indexing-api-jobs-ledger
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Download verified URL summary
+        uses: actions/download-artifact@v8
+        with:
+          name: fast-publish-indexing-summary
+          path: /tmp/fast-publish
+
+      - name: Restore shared Indexing API ledger
+        uses: actions/cache@v6
+        with:
+          path: /tmp/indexing-api-jobs-ledger.json
+          key: indexing-api-jobs-ledger-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            indexing-api-jobs-ledger-
+
+      - name: Notify search engines through the shared ledger
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          node scripts/notify-article-search-engines.mjs \
+            --ledger /tmp/indexing-api-jobs-ledger.json \
+            --summary /tmp/fast-publish/summary.json

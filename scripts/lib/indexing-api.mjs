@@ -6,13 +6,21 @@
  *
  * No external dependencies — uses Node.js built-in `crypto` for JWT signing.
  *
- * Quota: 200 URL notifications/day (free).
- * Typical usage: ~32 notifications/day (8 articles × 4 locales).
+ * Quota: the approved 2,000-request project budget is shared with the job
+ * publisher through the serialized indexing-api-jobs-ledger.
  *
  * @see https://developers.google.com/search/apis/indexing-api/v3/quickstart
  */
 
 import { createJwtAssertion, exchangeAssertionForToken } from './google-service-account-token.mjs';
+import {
+  loadLedger,
+  quotaDayKey,
+  recordNotification,
+  reserveQuota,
+  spentOn,
+} from './indexing-jobs-planner.mjs';
+import { DAILY_BUDGET, DEFAULT_INDEXING_LEDGER } from './indexing-api-quota.mjs';
 import fs from 'node:fs';
 
 const INDEXING_API_URL = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
@@ -36,6 +44,16 @@ function loadCredentials() {
   return null;
 }
 
+function loadSharedLedger(ledgerPath, today) {
+  try {
+    const raw = ledgerPath && fs.existsSync(ledgerPath) ? fs.readFileSync(ledgerPath, 'utf8') : null;
+    return loadLedger(raw, today);
+  } catch (err) {
+    console.warn(`[indexing-api] ⚠️ Cannot read shared ledger: ${err.message}`);
+    return loadLedger(null, today);
+  }
+}
+
 /**
  * Notify Google Indexing API about one or more updated URLs.
  * Errors are logged but never thrown — the caller's workflow must not be blocked.
@@ -43,9 +61,18 @@ function loadCredentials() {
  * @param {string[]} urls - List of full canonical URLs to notify
  * @param {object} [options]
  * @param {'URL_UPDATED'|'URL_DELETED'} [options.type='URL_UPDATED'] - Notification type
+ * @param {string} [options.ledgerPath] - Shared serialized ledger path
+ * @param {string} [options.source='article'] - Ledger caller label
  * @returns {Promise<Array<{url: string, ok: boolean, error?: string}>>}
  */
-export async function notifyGoogleIndexing(urls, { type = 'URL_UPDATED' } = {}) {
+export async function notifyGoogleIndexing(
+  urls,
+  {
+    type = 'URL_UPDATED',
+    ledgerPath = process.env.INDEXING_API_LEDGER || DEFAULT_INDEXING_LEDGER,
+    source = 'article',
+  } = {},
+) {
   if (!urls || urls.length === 0) return [];
 
   const creds = loadCredentials();
@@ -63,8 +90,31 @@ export async function notifyGoogleIndexing(urls, { type = 'URL_UPDATED' } = {}) 
     return urls.map(url => ({ url, ok: false, error: err.message }));
   }
 
+  const today = quotaDayKey();
+  const ledger = loadSharedLedger(ledgerPath, today);
+  const available = Math.max(0, DAILY_BUDGET - spentOn(ledger, today));
+  if (available === 0) {
+    console.warn(`[indexing-api] ℹ️ Shared quota exhausted (${DAILY_BUDGET}/${DAILY_BUDGET}) — skipping ${urls.length} URL(s).`);
+    return urls.map(url => ({ url, ok: false, error: 'shared_quota_exhausted' }));
+  }
+  if (available < urls.length) {
+    console.warn(`[indexing-api] ℹ️ Shared quota leaves ${available} request(s) — ${urls.length - available} URL(s) deferred.`);
+  }
+
+  const saveLedger = () => {
+    try {
+      fs.writeFileSync(ledgerPath, JSON.stringify(ledger));
+    } catch (err) {
+      console.warn(`[indexing-api] ⚠️ Cannot persist shared ledger: ${err.message}`);
+    }
+  };
   const results = [];
-  for (const url of urls) {
+  for (const url of urls.slice(0, available)) {
+    // Reserve before POST: retries or a process interruption must not cause
+    // the next caller to spend the same quota slot again.
+    if (!reserveQuota(ledger, today)) break;
+    saveLedger();
+    let result;
     try {
       const res = await fetch(INDEXING_API_URL, {
         method: 'POST',
@@ -79,18 +129,20 @@ export async function notifyGoogleIndexing(urls, { type = 'URL_UPDATED' } = {}) 
       if (!res.ok) {
         const text = await res.text();
         console.error(`[indexing-api] ❌ ${url}: ${res.status} ${text}`);
-        results.push({ url, ok: false, error: `${res.status} ${text}` });
-        continue;
+        result = { url, ok: false, status: res.status, error: `${res.status} ${text}`.slice(0, 220) };
+      } else {
+        const data = await res.json();
+        const latestType = data?.urlNotificationMetadata?.latestUpdate?.type || type;
+        console.log(`[indexing-api] ✅ ${url} → ${latestType}`);
+        result = { url, ok: true, status: res.status };
       }
-
-      const data = await res.json();
-      const latestType = data?.urlNotificationMetadata?.latestUpdate?.type || type;
-      console.log(`[indexing-api] ✅ ${url} → ${latestType}`);
-      results.push({ url, ok: true });
     } catch (err) {
       console.error(`[indexing-api] ❌ ${url}: ${err.message}`);
-      results.push({ url, ok: false, error: err.message });
+      result = { url, ok: false, status: 0, error: err.message };
     }
+    recordNotification(ledger, { url, type, source }, result, today);
+    saveLedger();
+    results.push(result);
   }
 
   const succeeded = results.filter(r => r.ok).length;

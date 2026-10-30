@@ -26,8 +26,10 @@ import {
   JOB_BOARD_SECTION_PREFIX_SOURCE,
   JOB_BOARD_COMPANY_HUB_PATH_RX,
 } from './jobBoardSections.mjs';
+import { DAILY_BUDGET } from './indexing-api-quota.mjs';
 
 export const LEDGER_VERSION = 1;
+export { DAILY_BUDGET };
 /** Share of the run budget URL_DELETED may take, so deletions never starve updates (and vice versa). */
 export const DELETE_SHARE = 0.2;
 /** A priority URL (monitor: no Jobs rich result) is re-notified at most this often. */
@@ -115,7 +117,7 @@ function decodeXmlEntities(s) {
 
 /** Empty ledger. `createdAt` separates the bootstrap population from genuinely new jobs. */
 export function createLedger(today) {
-  return { version: LEDGER_VERSION, createdAt: today, days: {}, urls: {} };
+  return { version: LEDGER_VERSION, createdAt: today, days: {}, urls: {}, notifications: {} };
 }
 
 /** Parse a ledger, falling back to a fresh one on any shape mismatch. */
@@ -124,6 +126,7 @@ export function loadLedger(raw, today) {
     const l = typeof raw === 'string' ? JSON.parse(raw) : raw;
     if (l && l.version === LEDGER_VERSION && l.urls && typeof l.urls === 'object' && l.createdAt) {
       l.days = l.days && typeof l.days === 'object' ? l.days : {};
+      l.notifications = l.notifications && typeof l.notifications === 'object' ? l.notifications : {};
       return l;
     }
   } catch { /* fall through */ }
@@ -133,6 +136,25 @@ export function loadLedger(raw, today) {
 /** Requests already spent on the given quota day (by every caller sharing the ledger). */
 export function spentOn(ledger, day) {
   return Number(ledger.days?.[day]) || 0;
+}
+
+/** Reserve one real Indexing API publish request before making the POST. */
+export function reserveQuota(ledger, today) {
+  const spent = spentOn(ledger, today);
+  if (spent >= DAILY_BUDGET) return false;
+  ledger.days[today] = spent + 1;
+  return true;
+}
+
+/** Keep the latest non-job caller visible in the shared ledger. */
+export function recordNotification(ledger, { url, type = 'URL_UPDATED', source = 'article' }, outcome, today) {
+  if (!ledger.notifications || typeof ledger.notifications !== 'object') ledger.notifications = {};
+  ledger.notifications[url] = {
+    source,
+    type,
+    attempted: today,
+    ...(outcome.ok ? { sent: today } : { status: outcome.status ?? 0, error: outcome.error || 'request_failed' }),
+  };
 }
 
 /**
@@ -239,11 +261,11 @@ export function backlogRank(url) {
  *   so the URL stays plannable on the next run.
  * @param {string} today
  */
-export function recordOutcome(ledger, item, outcome, today) {
+export function recordOutcome(ledger, item, outcome, today, { quotaReserved = false } = {}) {
   const e = ledger.urls[item.url] || (ledger.urls[item.url] = { f: today });
   if (outcome === 'sent') {
     if (item.type === 'URL_DELETED') e.d = today; else { e.s = today; delete e.n; }
-    ledger.days[today] = spentOn(ledger, today) + 1;
+    if (!quotaReserved) ledger.days[today] = spentOn(ledger, today) + 1;
   } else if (outcome === 'not-job') {
     e.n = today;
   } else if (outcome === 'still-live') {
