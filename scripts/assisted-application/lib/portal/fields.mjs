@@ -443,7 +443,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       invalid: element.getAttribute('aria-invalid') === 'true',
     };
     if (tag === 'select') {
-      field.options = [...element.options].slice(0, 300).map((option) => ({ value: option.value, label: clean(option.textContent) }));
+      field.options = [...element.options].map((option) => ({ value: option.value, label: clean(option.textContent) }));
     }
     if (field.kind === 'combobox') {
       // SuccessFactors' picklists (Coop, 2026-10-03): an input that shows
@@ -550,7 +550,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
-        options: [...nativeSelect.options].filter(option => !option.disabled).slice(0, 300).map(option => ({ value: option.value, label: clean(option.textContent) })),
+        options: [...nativeSelect.options].filter(option => !option.disabled).map(option => ({ value: option.value, label: clean(option.textContent) })),
         required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
@@ -726,7 +726,7 @@ export async function readListboxOptions(frame, aaId) {
     const options = hasList ? list.locator('[role="option"]') : frame.locator('[role="option"]:visible');
     await options.first().waitFor({ state: 'attached', timeout: 4000 });
     // The list's prompt is no option of it («Select One» was offered to the candidate as a marital status).
-    const labels = (await options.allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim()).filter((label) => label && !LIST_PROMPT_RE.test(label)).slice(0, 300);
+    const labels = (await options.allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim()).filter((label) => label && !LIST_PROMPT_RE.test(label));
     await button.press('Escape').catch(() => {});
     return labels.map((label) => ({ value: label, label }));
   } catch {
@@ -749,7 +749,7 @@ export async function readOwnedListOptions(frame, field) {
     const labels = (await list.locator('[role="option"]').allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim())
       .filter((label) => label && !LIST_PROMPT_RE.test(label));
     await input.press('Escape').catch(() => {});
-    return labels.slice(0, 300).map((label) => ({ value: label, label }));
+    return labels.map((label) => ({ value: label, label }));
   } catch {
     await frame.page().keyboard.press('Escape').catch(() => {});
     return [];

@@ -434,7 +434,7 @@
       invalid: element.getAttribute('aria-invalid') === 'true',
     };
     if (tag === 'select') {
-      field.options = [...element.options].slice(0, 300).map((option) => ({ value: option.value, label: clean(option.textContent) }));
+      field.options = [...element.options].map((option) => ({ value: option.value, label: clean(option.textContent) }));
     }
     if (field.kind === 'combobox') {
       // SuccessFactors' picklists (Coop, 2026-10-03): an input that shows
@@ -541,7 +541,7 @@
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
-        options: [...nativeSelect.options].filter(option => !option.disabled).slice(0, 300).map(option => ({ value: option.value, label: clean(option.textContent) })),
+        options: [...nativeSelect.options].filter(option => !option.disabled).map(option => ({ value: option.value, label: clean(option.textContent) })),
         required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });

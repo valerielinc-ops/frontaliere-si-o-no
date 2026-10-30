@@ -1,6 +1,6 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { extractFieldsInPage, readListboxOptions, readOwnedListOptions } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { preferredCvFields } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { applyActions } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateAnswerForField } from '../scripts/assisted-application/lib/portal/plan.mjs';
@@ -56,4 +56,34 @@ it.each([true, false])('requires native selection proof after the checkbox is pr
   const result = await applyActions(page, [choice], [{ fieldId: choice.id, action: 'select', value: '100%' }], {}, { pause: async () => {} });
   expect(checkbox.setChecked).toHaveBeenCalledWith(true, { timeout: 6000 });
   expect(result).toEqual([committed ? { fieldId: choice.id, ok: true } : { fieldId: choice.id, ok: false, error: 'choice_not_registered' }]);
+});
+
+
+it.each(['native', 'jquery'])('keeps the full option domain beyond 300 entries: %s', widget => {
+  const options = Array.from({ length: 301 }, (_, i) => `<option value="v${i + 1}">Option ${i + 1}</option>`).join('');
+  const markup = `<label id="choice-label">Required choice *</label><select id="choice" aria-labelledby="choice-label" ${widget === 'jquery' ? 'style="display:none" multiple' : ''}>${options}</select>`
+    + (widget === 'jquery' ? '<button type="button" class="ui-multiselect" aria-haspopup="listbox" aria-labelledby="choice-label">Select</button>' : '');
+  const fields = extract(markup).fields;
+  const field = fields.find((field: any) => widget === 'jquery' ? field.widget === 'jquery-multiselect' : field.kind === 'select');
+  expect(field.options).toHaveLength(301);
+  expect(field.options[300]).toEqual({ value: 'v301', label: 'Option 301' });
+});
+
+it('selects option 301 of a checkbox-backed listbox with native confirmation', async () => {
+  const field = { id: 'choice', kind: 'listbox', widget: 'jquery-multiselect', nativeSelectId: 'choice', options: Array.from({ length: 301 }, (_, i) => ({ value: `v${i + 1}`, label: `Option ${i + 1}` })) };
+  let selected = false;
+  const button = { click: vi.fn(async () => {}), press: vi.fn(async () => {}) };
+  const checkbox = { count: async () => 1, setChecked: vi.fn(async () => { selected = true; }) };
+  const frame = { locator: vi.fn((selector: string) => selector.startsWith('input[') ? (expect(selector).toContain('[value="v301"]'), checkbox) : selector.startsWith('select[') ? { evaluate: async (_fn: any, value: string) => selected && value === 'v301' } : { first: () => button }) };
+  expect(await applyActions({ frames: () => [frame], mainFrame: () => frame }, [field], [{ fieldId: 'choice', action: 'select', value: 'Option 301' }], {}, { pause: async () => {} })).toEqual([{ fieldId: 'choice', ok: true }]);
+});
+
+it.each(['listbox', 'owned'])('keeps complete ARIA option catalogues as well: %s', kind => {
+  const labels = Array.from({ length: 301 }, (_, i) => `Option ${i + 1}`);
+  const button = { click: async () => {}, press: async () => {} };
+  const options = { first: () => ({ waitFor: async () => {} }), allInnerTexts: async () => labels };
+  const list = { waitFor: async () => {}, locator: () => options };
+  const frame = { locator: (selector: string) => selector.startsWith('[data-aa-id=') ? { first: () => button } : list };
+  const result = kind === 'owned' ? readOwnedListOptions(frame, { id: 'choice', ownedList: 'choices' }) : readListboxOptions(frame, 'choice');
+  return expect(result).resolves.toHaveLength(301);
 });
