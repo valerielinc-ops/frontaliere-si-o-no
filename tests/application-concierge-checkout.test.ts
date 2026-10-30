@@ -569,6 +569,11 @@ describe('explicit paid concierge renewal', () => {
         expect(mocks.createSumUpApplicationConciergeCheckout).toHaveBeenCalledWith(expect.objectContaining({
           ...(expectedAmountTotal === 2999 ? { amountCents: 2999, validUntil: current + 1 } : { serviceId: result.body.serviceId }),
         }));
+        if (expectedAmountTotal === 3999) {
+          const providerQuote = mocks.createSumUpApplicationConciergeCheckout.mock.calls[0][0];
+          expect(providerQuote).not.toHaveProperty('amountCents');
+          expect(providerQuote).not.toHaveProperty('validUntil');
+        }
       }
     } finally { clock.mockRestore(); }
   });
