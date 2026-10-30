@@ -104,8 +104,8 @@ describe('scope, languages and actual field options', () => {
   });
 
   it.each([
-    ['Comunicazione via WhatsApp', 'Sì'], ['Communication via WhatsApp', 'Yes'],
-    ['Kommunikation per WhatsApp', 'Ja'], ['Communication par WhatsApp', 'Oui'],
+    ['Comunicazione via WhatsApp', 'Sì'], ['Contatto via WhatsApp', 'Sì'], ['Communication via WhatsApp', 'Yes'],
+    ['Kommunikation per WhatsApp', 'Ja'], ['Communication par WhatsApp', 'Oui'], ['Communication sur WhatsApp', 'Oui'],
   ])('recognizes an unconditional contact preference even when the ATS reports text: %s', (label, value) => {
     const field = { id: 'contact', label, kind: 'text', type: 'text', required: true, options: [] };
     expect(addressQuestionTopic(label)).toBe('');
@@ -119,6 +119,10 @@ describe('scope, languages and actual field options', () => {
     expect(result.flow.state).toBe('owner_takeover');
     expect(result.flow.heldBy).toEqual(['portal:portal_needs_candidate']);
     expect(result.effects).not.toContainEqual(expect.objectContaining({ kind: 'candidate_action_needed' }));
+  });
+
+  it('uses the explicit locale when a contact label is shared by French and English', () => {
+    expect(operationalDefaultAnswer({ label: 'Communication via WhatsApp', type: 'text' }, { locale: 'fr' })?.value).toBe('Oui');
   });
 
   it.each(['Via', 'Via / Piazza', 'Nome della via', 'Qual è la tua via e il numero civico?', 'Via e numero'])('retains real street fields: %s', label => {

@@ -15,6 +15,7 @@ on:
       - 'functions/src/assistedApplicationFlow.js'
       - 'functions/src/assistedApplicationPortalRetryPolicy.js'
       - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'
+      - 'functions/src/assistedApplicationSubmissionGuard.js'
       - 'functions/src/lib/answerRules.js'
   workflow_dispatch:
 

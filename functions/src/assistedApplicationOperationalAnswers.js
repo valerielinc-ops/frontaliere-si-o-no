@@ -31,9 +31,9 @@ function optionsOf(question) {
 
 function languageOf(text, locale) {
   if (['it', 'en', 'de', 'fr'].includes(locale)) return locale;
-  if (/\b(?:preavviso|comunicazione|accetti|tramite|tuo|occupazione|desider\w*)\b/.test(text)) return 'it';
+  if (/\b(?:preavviso|comunicazione|contatto|accetti|tramite|tuo|occupazione|desider\w*)\b/.test(text)) return 'it';
   if (/\b(?:kundigungsfrist|kommunikation|kontakt|pensum|beschaftigungsgrad|gewunscht\w*)\b/.test(text)) return 'de';
-  if (/\b(?:preavis|delai|votre|vous|souhait\w*|acceptez|taux)\b|\b(?:communication|contact) par whatsapp\b/.test(text)) return 'fr';
+  if (/\b(?:preavis|delai|votre|vous|souhait\w*|acceptez|taux)\b|\b(?:communication|contact) (?:par|sur) whatsapp\b/.test(text)) return 'fr';
   return 'en';
 }
 
