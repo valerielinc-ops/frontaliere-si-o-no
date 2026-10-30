@@ -1,3 +1,4 @@
+import { addressContextContract } from './lib/addressContextContract.js';
 /**
  * The fill kit of one order, for the owner's browser extension
  * (scripts/assisted-application/extension). Owner decision 2026-10-01: when
@@ -36,16 +37,26 @@ function applicationAnswer(question, answer) {
 export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, documents = {} }) {
   const { identity, profile, answers } = candidateWithEdits({ order, draft, flow });
   const address = profile.address || {};
-  // The runner's own answers first: their questions are the portal's words.
+  // Keep the runner's portal wording and owner, with a current candidate
+  // correction taking precedence over a previous answer to that exact scope.
   const fromPortal = (draft.portalAnswers?.answers || [])
-    .map((item) => ({ question: item?.applicationQuestion || item?.question, answer: item?.answer, source: item?.source || 'portal' }));
+    .map((item) => ({ ...item, question: item?.applicationQuestion || item?.question, answer: item?.answer, source: item?.source || 'portal' }));
   const fromDraft = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers)
-    .map((question) => ({ question: question.applicationQuestion || question.question, answer: applicationAnswer(question, answers[question.id]), source: 'answers' }));
+    .map((question) => ({ ...question, question: question.applicationQuestion || question.question, answer: applicationAnswer(question, answers[question.id]), source: 'answers' }));
+  const boundedAnswer = item => ({
+    question: text(item.question, 300), answer: text(item.answer, 2000), source: text(item.source, 20),
+    context: text(item.context, 240), section: text(item.section, 240), autocomplete: text(item.autocomplete, 100),
+    ...(Object.hasOwn(item, 'addressContext') ? { addressContext: addressContextContract(item) } : {}),
+  });
+  const scopeKey = item => JSON.stringify([item.question.toLowerCase(), item.context, item.section, item.autocomplete,
+    Object.hasOwn(item, 'addressContext') ? item.addressContext : 'missing']);
+  const current = fromDraft.map(boundedAnswer).filter(item => item.question && item.answer);
+  const currentKeys = new Set(current.map(scopeKey));
+  const previous = fromPortal.map(boundedAnswer).filter(item => !currentKeys.has(scopeKey(item)));
   const seen = new Set();
-  const kitAnswers = [...fromPortal, ...fromDraft]
-    .map((item) => ({ question: text(item.question, 300), answer: text(item.answer, 2000), source: text(item.source, 20) }))
+  const kitAnswers = [...current, ...previous]
     .filter((item) => {
-      const key = item.question.toLowerCase();
+      const key = JSON.stringify([scopeKey(item), item.source, item.answer]);
       if (!item.question || !item.answer || seen.has(key)) return false;
       seen.add(key);
       return true;

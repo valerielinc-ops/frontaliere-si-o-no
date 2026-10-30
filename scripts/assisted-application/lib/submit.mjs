@@ -1,3 +1,4 @@
+import { addressContextContract } from '../../../functions/src/lib/addressContextContract.js';
 /**
  * Submit mode of the assisted-application agent (GitHub Actions).
  *
@@ -35,6 +36,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
@@ -77,6 +79,12 @@ function portalAnswersForFlow(questions, answers, recordedAnswers) {
     const values = new Map();
     for (const item of records) {
       if (!item || typeof item !== 'object' || item.source === 'policy_default' || !String(item.answer || '').trim()) continue;
+      if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)) {
+        const currentOwner = addressContextContract(question);
+        const previousOwner = addressContextContract(item);
+        if (!['answers', 'candidate', 'user'].includes(item.source) || !currentOwner || currentOwner.unknown
+          || !previousOwner || previousOwner.unknown || JSON.stringify(currentOwner) !== JSON.stringify(previousOwner)) continue;
+      }
       const itemKey = String(item.semanticKey || '').trim() || portalQuestionKey(item);
       if (itemKey !== key) continue;
       const answer = String(item.answer).trim();
@@ -273,6 +281,7 @@ export async function submitApplication(ctx) {
       ...(question.context ? { context: question.context } : {}),
       ...(question.section ? { section: question.section } : {}),
       ...(question.autocomplete ? { autocomplete: question.autocomplete } : {}),
+      ...(Object.hasOwn(question, 'addressContext') ? { addressContext: addressContextContract(question) } : {}),
       ...(question.type ? { type: question.type } : {}),
       ...(portalQuestionKey(question) ? { semanticKey: portalQuestionKey(question) } : {}),
       ...(Array.isArray(question.options) && question.options.length ? { options: question.options } : {}),

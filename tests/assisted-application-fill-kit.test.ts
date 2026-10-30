@@ -55,6 +55,21 @@ const takenOver = { state: 'owner_takeover', round: 1, heldBy: ['portal_refused'
 
 // Owner decision 2026-10-01: a portal the robot cannot pass is sent by Valerie, the extension types for her.
 describe('fill kit', () => {
+  it.each(['identity', 'answers'])('retains the current user answer above a stale same-owner %s projection', (source) => {
+    const addressContext = { section: 'Personal information', owners: ['Employer'], unknown: false };
+    const question = { id: 'employer_city', question: 'City', source: 'portal', context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext, type: 'text' };
+    const kit = buildFillKit({ orderId: ORDER, order, draft: { ...draft, questions: [question], portalAnswers: { answers: [{ ...question, answer: 'Como', source }] } }, flow: { answers: { employer_city: 'Lugano' } } });
+    expect(kit.answers).toEqual(expect.arrayContaining([expect.objectContaining({ question: 'City', answer: 'Lugano', source: 'answers', addressContext })]));
+    expect(kit.answers[0].source).toBe('answers');
+  });
+  it('preserves native owners and keeps same-label residence and employer statements separate', () => {
+    const personal = { section: 'Personal information', owners: [], unknown: false };
+    const employer = { section: 'Personal information', owners: ['Employer'], unknown: false };
+    const answers = [personal, employer].map((addressContext, index) => ({ question: 'City', answer: ['Como', 'Lugano'][index], source: 'answers', context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext }));
+    const kit = buildFillKit({ orderId: ORDER, order, draft: { ...draft, questions: [], portalAnswers: { answers } } });
+    expect(kit.answers.map((answer: any) => [answer.answer, answer.addressContext])).toEqual([['Como', personal], ['Lugano', employer]]);
+  });
+
   it('carries what the runner would type: its portal answers first, the candidate’s edits, the documents', () => {
     const kit = buildFillKit({
       orderId: ORDER,

@@ -8,6 +8,9 @@ const kit = { identity: { address: { city: 'Como', country: 'Italia' } }, profil
 function page(label: string, type = 'text') {
   const dom = new JSDOM(`<form><h2>Personal information</h2><label for="birth">${label}</label><input id="birth" type="${type}" required></form>`, { runScripts: 'outside-only', url: 'https://jobs.example.test/apply/' });
   for (const file of ['apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(file, directory), 'utf8'));
+  Object.defineProperty(dom.window.HTMLElement.prototype, 'getBoundingClientRect', { value: () => ({ width: 100, height: 24 }) });
+  Object.defineProperty(dom.window, 'CSS', { value: { escape: (value: string) => value } });
+  dom.window.eval(readFileSync(new URL('runner-fields.js', directory), 'utf8'));
   const F = (dom.window as any).CompilaCandidatura;
   return { dom, F, field: F.collect(dom.window.document)[0] };
 }
@@ -38,7 +41,7 @@ describe('birth fact boundaries in the extension', () => {
 
   it('can use the exact birthplace answer without borrowing it for birth country', () => {
     const one = page('Place of birth');
-    const stated = { ...kit, answers: [{ question: 'Place of birth', answer: 'Lugano', source: 'answers' }] };
+    const stated = { ...kit, answers: [{ question: 'Place of birth', answer: 'Lugano', source: 'answers', context: one.field.context, section: one.field.nativeSection, autocomplete: '', addressContext: one.field.addressContext }] };
     expect(one.F.answerFor(one.field, stated)).toEqual({ value: 'Lugano' });
     one.dom.window.close();
     const other = page('Country of birth');

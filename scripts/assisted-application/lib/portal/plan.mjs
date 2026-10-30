@@ -11,6 +11,7 @@
 import '../../extension/apply-control.js';
 const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
 
+import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
 import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
@@ -117,6 +118,7 @@ const trimField = (field) => ({
   kind: field.kind,
   label: field.label,
   ...(field.context ? { context: field.context } : {}),
+  ...(Object.hasOwn(field, 'addressContext') ? { addressContext: addressContextContract(field) } : {}),
   required: Boolean(field.required),
   ...(field.value ? { currentValue: field.value } : {}),
   ...(field.maxLength ? { maxLength: field.maxLength } : {}),
@@ -666,10 +668,8 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
   const surrounding = String(context || '').trim();
   const hasOwnership = Object.hasOwn(metadata || {}, 'addressContext');
-  const ownership = metadata?.addressContext;
-  if (hasOwnership && (!ownership || ownership.unknown !== false || typeof ownership.section !== 'string' || ownership.section.length > 300
-    || !Array.isArray(ownership.owners) || ownership.owners.length > 16
-    || ownership.owners.some(name => typeof name !== 'string' || name.length > 300))) return '';
+  const ownership = addressContextContract(metadata);
+  if (hasOwnership && (!ownership || ownership.unknown)) return '';
   const section = hasOwnership ? ownership.section : String(metadata?.section || '').trim();
   // Only explicit owners of this control can establish or veto residence.
   // Legacy callers retain their former section/context contract. The native
@@ -857,7 +857,7 @@ function ageAnswerMatches(candidate, question, answer) {
 }
 
 function comparableContext(context) {
-  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+  return String(context || '').slice(0, 240).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
 function topicNeedsMatchingContext(topic) {
@@ -1002,6 +1002,26 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
   return false;
 }
 
+/** Address-like controls require a statement bound to this native owner, even after semantic fallback. */
+export function addressAnswerNeedsOwnership(question, metadata = {}) {
+  if (isPhoneCountryQuestion(question, metadata?.context || '', metadata)) return false;
+  return isAddressLikeQuestion(question) || CITY_RE.test(String(question || '')) || COUNTRY_RE.test(String(question || '')) || BIRTH_LOCATION_RE.test(String(question || ''))
+    || (BIRTH_FIELD_RE.test(String(question || '')) && questionTopic(question, metadata?.context || '', metadata) !== 'birth_date')
+    || /(?:^|\s)(?:address-level[1-4]|street-address|address-line[1-3]|postal-code|country|country-name)(?:$|\s)/i.test(String(metadata?.autocomplete || ''));
+}
+
+function ownedRecordedAnswer(item, question, metadata) {
+  if (!addressAnswerNeedsOwnership(question, metadata)) return true;
+  // A previous projection of CV/profile data is not a candidate statement
+  // about another person's address. It must never be relabelled as one.
+  if (!['answers', 'candidate', 'user'].includes(item?.source)) return false;
+  const current = addressContextContract(metadata);
+  const previous = addressContextContract(item);
+  if (current === undefined && previous === undefined) return true; // legacy exact-context questions
+  if (!current || current.unknown || !previous || previous.unknown) return false;
+  return JSON.stringify(current) === JSON.stringify(previous);
+}
+
 /** The candidate already answered this question, including a wording/ID variant. */
 function recordedAnswerForQuestion(candidate, question, context = '', metadata = {}) {
   const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.source !== 'policy_default' && String(item?.answer || '').trim());
@@ -1021,11 +1041,12 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   const topic = questionTopic(question, context, metadata);
   if (topic === 'start_date_contextual' && !requestedContext) return '';
   const requestedSection = comparableContext(metadata?.section);
-  const requestedAutocomplete = comparableContext(metadata?.autocomplete);
+  const requestedAutocomplete = comparableContext(String(metadata?.autocomplete || '').slice(0, 100));
   const sameContext = (item) => comparableContext(item.context) === requestedContext
     && comparableContext(item.section) === requestedSection
     && comparableContext(item.autocomplete) === requestedAutocomplete;
   const matches = items.filter((item) => {
+    if (!ownedRecordedAnswer(item, question, metadata)) return false;
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
     const itemTopic = questionTopic(item.question, item.context, item);
     const exact = (sameContext(item) && itemQuestion === normalized)
@@ -1696,7 +1717,13 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     const addressTopic = questionTopic(field.label, field.context, field);
     const isAddressTopic = ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic);
-    const addressNeedsProvenance = isAddressLikeQuestion(field.label) && !isAddressTopic;
+    const addressNeedsProvenance = addressAnswerNeedsOwnership(field.label, field) && !isAddressTopic;
+    if (addressNeedsProvenance && ['fill', 'select'].includes(action.action)
+      && !answeredByCandidate(candidate, field.label, action.value, field.context, field)) {
+      rejectedActionFields.add(field.id);
+      ask(field);
+      continue;
+    }
     if (['fill', 'select'].includes(action.action) && isAddressTopic) {
       const answer = candidateAnswerForField(candidate, field);
       if (answer) {
