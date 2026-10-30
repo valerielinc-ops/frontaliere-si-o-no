@@ -88,7 +88,11 @@ export function locationMatchPoints(candidateLocation, job) {
   if ((candidate.country || jobCountry) && candidate.country !== jobCountry) return 0;
   const candidateLocality = locality(candidate.town, candidate.country);
   const jobLocality = locality(posting.town, jobCountry);
-  if (candidateLocality.qualifier && jobLocality.qualifier && candidateLocality.qualifier !== jobLocality.qualifier) return 0;
+  const canton = fold(job?.canton);
+  const postingCanton = jobCountry === 'CH' ? (CANTON_CODES.has(canton) ? canton : CANTON_NAMES.get(canton) || '') : '';
+  if (postingCanton && jobLocality.qualifier && postingCanton !== jobLocality.qualifier) return 0;
+  const jobQualifier = jobLocality.qualifier || postingCanton;
+  if (candidateLocality.qualifier && jobQualifier && candidateLocality.qualifier !== jobQualifier) return 0;
   if (candidateLocality.key && candidateLocality.key === jobLocality.key) return POINTS.sameLocality;
   const candidatePostcode = postcode(candidate.town);
   const jobPostcode = postcode(posting.town);

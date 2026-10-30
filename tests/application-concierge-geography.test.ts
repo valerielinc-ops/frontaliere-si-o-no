@@ -56,6 +56,14 @@ describe('concierge geographic ranking', () => {
     expect(locationMatchPoints('Jamestown, Saint Helena, Ascension and Tristan da Cunha', { location: 'Jamestown', addressCountry: 'SH' })).toBe(8);
   });
 
+  it('honours a structured Swiss canton without inferring the posting country from it', () => {
+    expect(locationMatchPoints('Buchs (Aargau), Schweiz', { location: 'Buchs', addressCountry: 'CH', canton: 'SG' })).toBe(0);
+    expect(locationMatchPoints('Buchs (Aargau), Schweiz', { location: 'Buchs', addressCountry: 'CH', canton: 'AG' })).toBe(8);
+    expect(locationMatchPoints('Buchs (Aargau), Schweiz', { location: 'Buchs (AG)', addressCountry: 'CH', canton: 'SG' })).toBe(0);
+    expect(locationMatchPoints('Buchs (Aargau), Schweiz', { location: 'Buchs', canton: 'AG' })).toBe(0);
+    expect(locationMatchPoints('Baden (Lower Austria), Österreich', { location: 'Baden', addressCountry: 'AT', canton: 'AG' })).toBe(8);
+  });
+
   it('supports every country emitted by the current residence catalogue in all four locales', () => {
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const names = new Intl.DisplayNames([locale], { type: 'region' });
