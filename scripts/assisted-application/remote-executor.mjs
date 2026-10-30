@@ -33,6 +33,13 @@ async function freeProviderReady() {
   if (!response.ok || quota?.status !== 'Active' || !(Number(quota?.credit) > 0)) throw new Error('remote_free_provider_unavailable');
 }
 
+async function preflightRelease(release, temporary) {
+  // Import only, exactly like the hosted entry-point check: no order argument,
+  // Admin credentials, model auth or candidate material is supplied.
+  await execute(process.execPath, ['--input-type=module', '-e', "await import('./scripts/assisted-application/agent.mjs')"],
+    { cwd: release.root, env: { ...plainEnvironment(temporary), TMPDIR: temporary }, timeout: 30_000, maxBuffer: 32 * 1024 });
+}
+
 async function browserAndExtension(release, jobRoot) {
   const require = createRequire(path.join(release.root, 'package.json'));
   const chromium = require('playwright').chromium;
@@ -53,6 +60,7 @@ async function readiness({ release, stateDirectory, credentialsPath }) {
   removePrivateTree(path.dirname(broker.manifest));
   const jobRoot = fs.mkdtempSync(path.join(stateDirectory, 'readiness-')); fs.chmodSync(jobRoot, 0o700);
   try {
+    await preflightRelease(release, jobRoot);
     const chromiumPath = await browserAndExtension(release, jobRoot);
     const isolation = await createDarwinIsolation({ jobRoot, releaseRoot: release.root,
       dependencyRoot: release.manifest.dependencyRoot, credentialsPath, brokerSocket: '/dev/null', chromiumPath });
@@ -76,6 +84,7 @@ async function runRequest({ db, repository, stateDirectory, credentialsPath, ord
   try {
     await freeProviderReady();
     const release = await compileExecutionRelease({ repository, stateDirectory, sourceSha: execution.sourceSha });
+    await preflightRelease(release, jobRoot);
     const native = await import(pathToFileURL(path.join(release.root, '.github/actions/setup-codex-darwin-broker/bootstrap.mjs')).href);
     prepared = await native.prepareDarwinBroker({ temporary: stateDirectory, workspace: release.root });
     const chromiumPath = await browserAndExtension(release, jobRoot);
