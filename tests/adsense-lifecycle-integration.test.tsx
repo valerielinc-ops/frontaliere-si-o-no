@@ -8,13 +8,15 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_CHANGE_EVENT } from '@/services/adsConsent';
 
 const eventSpy = vi.hoisted(() => vi.fn());
+const wasAutologin = vi.hoisted(() => vi.fn(() => false));
+vi.mock('@/services/newsletterAutologinSignal', () => ({ wasNewsletterAutologinAttempted: wasAutologin }));
 vi.mock('@/services/adAnalytics', () => ({ isLikelyBot: () => false, trackAdEvent: eventSpy }));
 let observers: Array<{ cb: IntersectionObserverCallback; options?: IntersectionObserverInit; targets: Element[]; disconnected: boolean }>;
 let position = 100;
 const adScript = () => document.querySelector<HTMLScriptElement>('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
 const boxRect = (top = position, height = 336) => ({ top, bottom: top + height, left: 0, right: 390, width: 390, height, x: 0, y: top, toJSON() {} });
 beforeEach(() => {
- vi.useFakeTimers(); observers = []; position = 100; eventSpy.mockClear();
+ vi.useFakeTimers(); observers = []; position = 100; eventSpy.mockClear(); wasAutologin.mockReturnValue(false);
  document.body.innerHTML = ''; document.head.innerHTML = ''; localStorage.clear();
  window.history.replaceState(null, '', '/cerca-lavoro-ticino/');
  localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted');
@@ -45,6 +47,7 @@ async function mount() { const { default: Banner } = await import('@/components/
 
 describe('SPA lifecycle and layout owner', () => {
  it('does not load signed-origin ads after cleanup, consent, idle, interaction or retry', async () => {
+  wasAutologin.mockReturnValue(true);
   window.history.replaceState(null, '', '/?ac=synthetic-code&ne=candidate%40example.test&utm_source=email');
   const { Banner, rerender } = await mount();
   expect(adScript()).toBeNull();
