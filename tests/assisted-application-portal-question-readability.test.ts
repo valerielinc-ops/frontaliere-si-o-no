@@ -106,8 +106,8 @@ it.each([
   ['<legend>I accept the Privacy Policy. *</legend>', ''],
   ['<span class="label">I accept the Privacy Policy. *</span>', 'aria-label="[Default] Preference"'],
   ['<legend>I accept the Privacy Policy. *</legend>', 'aria-label="[Default] Preference"'],
-])('keeps a shared heading ambiguous across distinct checkbox questions: %s %s', (heading, aria) => {
-  const { dom, snapshot } = extract(`<form><fieldset>${heading}<input id="x" name="preference" ${aria} type="checkbox" required><input id="y" name="updates" type="checkbox" required></fieldset></form>`);
+].flatMap(([heading, aria]) => ['fieldset', 'div'].map(wrapper => [heading, aria, wrapper])))('keeps a shared heading ambiguous across distinct checkbox questions: %s %s %s', (heading, aria, wrapper) => {
+  const { dom, snapshot } = extract(`<form><${wrapper}>${heading}<input id="x" name="preference" ${aria} type="checkbox" required><input id="y" name="updates" type="checkbox" required></${wrapper}></form>`);
   expect(snapshot.fields[0].label).not.toMatch(/privacy/i);
   (dom.window as any).CSS = { escape: (value: string) => value };
   for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
@@ -115,6 +115,80 @@ it.each([
   const entry = (dom.window as any).CompilaCandidatura.collect(dom.window.document)[0];
   expect(entry.label).not.toMatch(/privacy/i);
   expect((dom.window as any).CompilaCandidatura.answerFor(entry, { identity: {}, documents: {} })).not.toEqual({ check: true });
+  dom.window.close();
+});
+
+it.each(['', 'submit', 'button', 'reset', 'image'].flatMap(type => ['fieldset', 'div'].map(wrapper => [type, wrapper])))('keeps one question readable past bookkeeping and action inputs: %s %s', (type, wrapper) => {
+  const label = 'I accept the Privacy Policy. *';
+  const { dom, snapshot } = extract(`<form><${wrapper}><h3>${label}</h3><input id="input-1" type="checkbox" required><input type="hidden" name="unselected" value="0">${type ? `<input type="${type.toUpperCase()}" value="Continue">` : ''}</${wrapper}></form>`);
+  expect(snapshot.fields[0].label).toBe(label);
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  expect((dom.window as any).CompilaRunnerFields().fields[0].label).toBe(label);
+  const entry = (dom.window as any).CompilaCandidatura.collect(dom.window.document)[0];
+  expect(entry.label).toBe(label);
+  expect((dom.window as any).CompilaCandidatura.answerFor(entry, { identity: {}, documents: {} })).toEqual({ check: true });
+  dom.window.close();
+});
+
+it.each([
+  ['Country', '<button type="button" aria-haspopup="listbox">Please select</button>'],
+  ['Country', '<div role="button" aria-haspopup="listbox">Please select</div>'],
+  ['Country', '<div role="radiogroup"><div role="radio">Italy</div><div role="radio">Switzerland</div></div>'],
+  ['Birth date', '<div ui5-date-picker required></div>'],
+  ['Birth date', '<div data-scope="date-picker" data-part="root"><input role="combobox"><input role="combobox"></div>'],
+  ['Country', '<select id="country" style="display:none"><option value="">---</option><option value="IT">Italy</option></select><span id="country-button" class="ui-selectmenu-button" role="combobox" aria-owns="country-menu"></span>'],
+])('keeps a supported virtual widget as one question: %s %s', (label, control) => {
+  const { dom, snapshot } = extract(`<form><div class="field"><h3>${label}</h3>${control}<input type="submit" value="Continue"></div></form>`);
+  expect(snapshot.fields[0].label).toBe(label);
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  expect((dom.window as any).CompilaRunnerFields().fields[0].label).toBe(label);
+  expect((dom.window as any).CompilaCandidatura.collect(dom.window.document)[0].label).toBe(label);
+  dom.window.close();
+});
+
+it.each([
+  '<button type="button" aria-haspopup="listbox">Please select</button>',
+  '<div role="button" aria-haspopup="listbox">Please select</div>',
+  '<div ui5-date-picker></div>',
+  '<div data-scope="date-picker" data-part="root"><input role="combobox"><input role="combobox"></div>',
+  '<div role="radiogroup"><div role="radio">Yes</div><div role="radio">No</div></div>',
+])('does not borrow a shared consent heading when another question is a virtual widget: %s', control => {
+  const { dom, snapshot } = extract(`<form><div class="field"><h3>I accept the Privacy Policy. *</h3><input id="x" name="preference" type="checkbox" required>${control}</div></form>`);
+  expect(snapshot.fields.find((field: any) => field.kind === 'checkbox').label).not.toMatch(/privacy/i);
+  expect(snapshot.fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  expect((dom.window as any).CompilaRunnerFields().fields.find((field: any) => field.kind === 'checkbox').label).not.toMatch(/privacy/i);
+  const entry = (dom.window as any).CompilaCandidatura.collect(dom.window.document).find((field: any) => field.kind === 'checkbox');
+  expect(entry.label).not.toMatch(/privacy/i);
+  expect((dom.window as any).CompilaCandidatura.answerFor(entry, { identity: {}, documents: {} })).not.toEqual({ check: true });
+  dom.window.close();
+});
+
+it.each([
+  '<h3>I accept the Privacy Policy. *</h3><div class="field"><input id="x" name="preference" type="checkbox" required></div><div class="field"><input id="y" name="updates" type="checkbox" required></div>',
+  '<div class="field"><label for="y">I accept the Privacy Policy. *</label><input id="x" name="preference" type="checkbox" required></div><input id="y" type="checkbox" required>',
+])('does not let unstructured context escape the question owner: %s', markup => {
+  const { dom, snapshot } = extract(`<form>${markup}</form>`);
+  expect(snapshot.fields.find((field: any) => field.name === 'preference').label).not.toMatch(/privacy/i);
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  expect((dom.window as any).CompilaRunnerFields().fields.find((field: any) => field.name === 'preference').label).not.toMatch(/privacy/i);
+  const entry = (dom.window as any).CompilaCandidatura.collect(dom.window.document).find((field: any) => field.element.id === 'x');
+  expect(entry.label).not.toMatch(/privacy/i);
+  expect((dom.window as any).CompilaCandidatura.answerFor(entry, { identity: {}, documents: {} })).not.toEqual({ check: true });
+  dom.window.close();
+});
+
+it('keeps a radio heading owned by its field when a different question shares the form', () => {
+  const { dom, snapshot } = extract('<form><div class="field"><h3>Work permit?</h3><label for="yes">Yes</label><input id="yes" name="permit" type="radio"><label for="no">No</label><input id="no" name="permit" type="radio"></div><div class="field"><label for="email">Email</label><input id="email" type="email"></div></form>');
+  expect(snapshot.fields.find((field: any) => field.kind === 'radio').label).toBe('Work permit?');
+  (dom.window as any).CSS = { escape: (value: string) => value };
+  for (const file of ['runner-fields.js', 'apply-control.js', 'filler.js']) dom.window.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  expect((dom.window as any).CompilaRunnerFields().fields.find((field: any) => field.kind === 'radio').label).toBe('Work permit?');
+  expect((dom.window as any).CompilaCandidatura.collect(dom.window.document).find((field: any) => field.kind === 'radio').label).toBe('Work permit?');
   dom.window.close();
 });
 
