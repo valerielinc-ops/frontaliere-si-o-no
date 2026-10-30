@@ -36,7 +36,7 @@ function namedSubject(value, type) {
 }
 function unqualified(question) {
   const label = words(question.question);
-  return !question.context && !question.section && !question.autocomplete && question.source !== 'policy_default'
+  return !question.context && !question.section && !question.autocomplete && !Object.hasOwn(question, 'addressContext') && question.source !== 'policy_default'
     && (!question.applicationQuestion || words(question.applicationQuestion) === label);
 }
 
