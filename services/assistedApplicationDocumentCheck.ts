@@ -20,7 +20,8 @@ export interface DocumentCheck {
   version?: number;
 }
 
-export const DOCUMENT_CHECK_VERSION = 3;
+export { DOCUMENT_CHECK_VERSION } from '@/functions/src/lib/assistedApplicationDocumentCheckVersion.js';
+import { DOCUMENT_CHECK_VERSION } from '@/functions/src/lib/assistedApplicationDocumentCheckVersion.js';
 
 export interface CheckedDocument {
   label: string;

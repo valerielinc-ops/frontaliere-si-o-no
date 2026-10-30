@@ -9,15 +9,17 @@ import { AssistedApplicationDocuments } from '@/components/community/AssistedApp
 import { AssistedApplicationFitNotice } from '@/components/community/AssistedApplicationFitNotice';
 import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
 import { AssistedApplicationKeptDocuments, WordCopyLink } from '@/components/community/AssistedApplicationKeptDocuments';
-import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
+import { DOCUMENT_CHECK_VERSION, type DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
   fetchReview,
+  recheckReviewDocument,
   ReviewRequestError,
   sendReviewAction,
   type FollowupPayload,
   type ReviewAction,
+  type ReviewDocument,
   type ReviewFormField,
   type ReviewPayload,
   type ReviewQuestion,
@@ -198,15 +200,20 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const [editTouched, setEditTouched] = useState<Record<string, boolean>>({});
   const [editServerErrors, setEditServerErrors] = useState<Record<string, string>>({});
 
+  const currentToken = useRef(token);
+  currentToken.current = token;
+  const loadedToken = useRef<string | null>(null);
   const load = useCallback(async () => {
     try {
       const payload = await fetchReview(token);
+      if (currentToken.current !== token) return;
       if ('kind' in payload && payload.kind === 'followup') {
         setFollowup(payload);
         setError(null);
         return;
       }
       const review = payload as ReviewPayload;
+      loadedToken.current = token;
       setData(review);
       // An empty start date shows the proposed one; it counts only once saved.
       const proposed = Object.fromEntries((review.questions || [])
@@ -215,11 +222,43 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       setAnswers({ ...(review.answers || {}), ...proposed });
       setError(null);
     } catch (reason) {
-      setError(reason instanceof ReviewRequestError ? reason.code : 'network');
+      if (currentToken.current === token) setError(reason instanceof ReviewRequestError ? reason.code : 'network');
     }
   }, [token]);
 
   useEffect(() => { void load(); }, [load]);
+
+  // Revisit old advisory verdicts without asking the candidate to upload the same file again.
+  // Failed/unsupported checks are attempted once per token, round and file; their old status stays.
+  const rechecked = useRef(new Set<string>());
+  useEffect(() => {
+    if (!data || data.stale || loadedToken.current !== token) return undefined;
+    let cancelled = false;
+    const controller = new AbortController();
+    const round = data.round;
+    void (async () => {
+      const results = new Map<string, ReviewDocument['files'][number]['clientCheck']>();
+      for (const document of data.documents || []) {
+        for (const file of document.files) {
+          if ((file.clientCheck.version || 1) >= DOCUMENT_CHECK_VERSION) continue;
+          const key = `${token}:${round}:${document.id}:${file.id}:${DOCUMENT_CHECK_VERSION}`;
+          if (rechecked.current.has(key) || cancelled) continue;
+          rechecked.current.add(key);
+          try {
+            const check = await recheckReviewDocument(token, document, file, controller.signal);
+            if (check && !cancelled) results.set(`${document.id}:${file.id}`, check);
+          } catch { /* Keep the old, explicitly legacy verdict; never invent a successful check. */ }
+        }
+      }
+      if (!cancelled && currentToken.current === token && results.size) setData(current => !current || current.round !== round ? current : ({
+        ...current,
+        documents: (current.documents || []).map(document => ({ ...document, files: document.files.map(file => ({
+          ...file, clientCheck: results.get(`${document.id}:${file.id}`) || file.clientCheck,
+        })) })),
+      }));
+    })();
+    return () => { cancelled = true; controller.abort(); };
+  }, [data, token]);
 
   // While the agent works (drafting, sending) the page refreshes itself.
   useEffect(() => {
