@@ -113486,16 +113486,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-mozione-ticino-ristorni-salute': {
     title: 'Mozione in Ticino contro la tassa sulla salute',
-    description: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni.',
+    description: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
     keywords: 'frontalieri, ticino, svizzera, italia, mozione, contro, tassa, sulla',
     ogTitle: 'Ticino: mozione contro la tassa sulla salute',
-    ogDescription: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni.',
+    ogDescription: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
     canonicalPath: '/articoli-frontaliere/mozione-ticino-ristorni-salute/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Mozione in Ticino contro la tassa sulla salute",
-      "description": "Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull'articolo 9 Il Ticino minaccia il blocco dei ristorni.",
+      "description": "Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
