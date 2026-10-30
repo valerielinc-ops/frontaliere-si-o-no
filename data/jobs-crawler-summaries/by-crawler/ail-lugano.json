@@ -1,10 +1,10 @@
 {
   "key": "ail-lugano",
   "label": "AIL SA",
-  "generatedAt": "2026-10-29T21:30:44.566Z",
+  "generatedAt": "2026-10-30T09:50:42.813Z",
   "total": 1,
-  "discovered": 2,
-  "parsed": 2,
+  "discovered": 3,
+  "parsed": 3,
   "lastFetchOutcome": "ok",
   "authoritativeEmptySnapshot": false,
   "written": 1,
@@ -12,32 +12,32 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6194,
-  "avgDurationMs": 6194,
+  "durationMs": 5044,
+  "avgDurationMs": 5044,
   "durationHistory": [
-    6194
+    5044
   ],
   "newJobs": [],
   "updatedJobs": [
     {
-      "title": "Direttore area Finanze",
+      "title": "Impiegata/o amministrativa/o – Segretariato e gestione clienti B2B",
       "company": "Aziende Industriali di Lugano (AIL) SA",
       "companyKey": "ail-lugano",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
       "url": "https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro.html",
-      "applyUrl": "https://www.ail.ch/AIL/risorse-umane/concorsi.html?applicationId=5513f89d-f2f1-42ea-8f30-5fd9072285fe",
-      "category": "management",
+      "applyUrl": "https://www.ail.ch/AIL/risorse-umane/concorsi.html?applicationId=a4c3d7d6-c652-4b37-86e1-452ba2a3aa61",
+      "category": "admin",
       "sector": "Energia / Servizi pubblici",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
+      "experienceLevel": "MID",
       "source": "ail-lugano-crawler",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-29T21:30:26.672Z",
-      "validThrough": "2026-10-31",
+      "crawledAt": "2026-10-30T09:50:30.944Z",
+      "validThrough": "2026-11-14",
       "slug": "project-manager-delle-comunicazione-ail-lugano",
       "sourceLang": "it",
       "_targetScope": {
@@ -46,8 +46,8 @@
       },
       "id": "aziende-industriali-di-lugano-ail-sa-dff5ee00d3ee",
       "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddress": "Via della Posta 8",
@@ -55,16 +55,16 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "firstSeenAt": "2026-10-03T21:27:54.150Z",
-      "_qualityScore": 81,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
+        "richness": 20,
+        "translation": 21,
         "completeness": 22
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
+  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
 }
