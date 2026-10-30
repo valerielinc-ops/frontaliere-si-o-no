@@ -82,3 +82,42 @@ it('never truncates required facts when adding rule-derived questions', () => {
   expect(questions.some(q => q.id === 'salary_expectation' && q.required)).toBe(true);
   expect(hard.every(q => questions.some(result => result.id === q.id))).toBe(true);
 });
+
+
+it.each([
+  'Must reside in Switzerland.',
+  'Currently residing in Switzerland.',
+  'Willing to move to Switzerland.',
+  'Ready for moving to Switzerland.',
+  'Deve risiedere in Svizzera.',
+  'Vous devez résider en Suisse.',
+  'Sie müssen in der Schweiz wohnen.',
+])('guards ordinary residence and relocation verb forms: %s', clause => {
+  expect(swissMobilityRequirement(row(clause))).not.toBeNull();
+  expect(guardMobilityMatch({ requirements: [row(clause)] }, match, context).matches[0].status).toBe('partial');
+});
+
+it.each([
+  'Valid Swiss work permit and currently live in Switzerland.',
+  'Permesso di lavoro svizzero e residenza in Svizzera.',
+  'Permis de travail suisse et résidence en Suisse.',
+  'Arbeitsbewilligung und Wohnsitz in der Schweiz.',
+])('keeps independently required residence in a mixed legal clause: %s', clause => {
+  const reqs = { requirements: [row(clause)] };
+  const residenceOnly = { profile: { location: 'Examplecity, Switzerland' }, sourceText: 'Examplecity, Switzerland' };
+  const guarded = guardMobilityMatch(reqs, match, residenceOnly);
+  expect(guarded.matches[0].status).toBe('partial');
+  const question = guarded.questions[0];
+  expect(question.applicationQuestion).toBe(clause);
+  expect(guardMobilityMatch(reqs, match, { ...context, answers: { [question.id]: 'yes' } }).matches[0].status).toBe('met');
+});
+
+it.each([
+  'Swiss citizenship or currently reside in Switzerland.',
+  'Permis de travail suisse ou résidence en Suisse.',
+  'Swiss work permit and currently live in Italy.',
+  'Permis de séjour suisse requis.',
+  'Swiss residence permit or EU citizenship required.',
+])('preserves legal alternatives and does not borrow a permit country: %s', clause => {
+  expect(swissMobilityRequirement(row(clause))).toBeNull();
+});

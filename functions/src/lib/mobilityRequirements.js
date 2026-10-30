@@ -5,9 +5,12 @@ import { sanitizeValidation } from './answerRules.js';
 
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const SWISS = /\b(?:switzerland|swiss|svizzera|suisse|schweiz|ch)\b/;
-const RESIDENCE = /\b(?:resident\w*|residence|residency|residenza|domicil\w*|wohnsitz|wohnhaft|living|live)\b/;
-const RELOCATION = /\b(?:relocat\w*|trasferir\w*|trasferiment\w*|demenag\w*|umzug|umzieh\w*)\b/;
-const LEGAL_STATUS = /\b(?:permits?|permess\w*|bewilligung\w*|visa|citizen\w*|nationalit\w*|cittadin\w*|staatsangehor\w*|work authori\w*)\b/;
+const RESIDENCE = /\b(?:resid(?:e|es|ing|ent\w*|ence|ency|enza|er|ez|ant\w*)|risied\w*|domicil\w*|wohnsitz|wohnhaft|wohn(?:en|end\w*)|leb(?:en|t)|living|lives?|vivere|abitare|habit(?:er|e|ant\w*))\b/;
+const RELOCATION = /\b(?:relocat\w*|mov(?:e|es|ing)|trasferir\w*|trasferiment\w*|demenag\w*|umzug|umzieh\w*)\b/;
+const LEGAL_STATUS = /\b(?:permits?|permis|permess\w*|bewilligung\w*|visa|citizen\w*|citoyen\w*|nationalit\w*|cittadin\w*|staatsangehor\w*|staatsburger\w*|work authori\w*)\b/;
+const ALTERNATIVE = /\b(?:or|o|oppure|oder|ou)\b/;
+const CONJUNCTION = /\b(?:and|e|und|et)\b/;
+const RESIDENCE_PERMIT = /\b(?:residence permits?|permesso di soggiorno|permis de sejour|aufenthaltsbewilligung\w*)\b/g;
 const OPTIONAL = /\b(?:not required|not necessary|no residence requirement|non richiest\w*|non necessari\w*|nicht erforderlich|kein wohnsitz erforderlich|pas requis\w*|non obligatoire|optional|facoltativ\w*)\b/;
 const NEGATIVE_OR_CONDITIONAL = /\b(?:no|not|never|non|nicht|kein\w*|pas|sans|if|provided|unless|qualora|se|wenn|falls)\b/;
 const EMPLOYER = /\b(?:company|employer|office|headquarters|azienda|datore|arbeitgeber|entreprise|siege)\b/;
@@ -17,9 +20,20 @@ const WILLING = /\b(?:willing\w*|ready|available|disponib\w*|pr[eê]t\w*|bereit\
 export function swissMobilityRequirement(row) {
   if (!['critical', 'high'].includes(row?.importance) || row.basis !== 'stated' || row.quoteUnverified) return null;
   const value = norm(row.quote);
-  if (!SWISS.test(value) || LEGAL_STATUS.test(value) || OPTIONAL.test(value)) return null;
-  const residence = RESIDENCE.test(value); const relocation = RELOCATION.test(value);
-  return residence || relocation ? { residence, relocation, alternative: /\b(?:or|o|oppure|oder|ou)\b/.test(value) } : null;
+  if (!SWISS.test(value) || OPTIONAL.test(value)) return null;
+  // A permit noun is not a residence condition. Keep independently required
+  // mobility in mixed AND clauses, but do not turn a legal OR alternative
+  // into an obligation to relocate (citizenship OR Swiss residence).
+  const mobilityText = value.replace(RESIDENCE_PERMIT, '');
+  const hasMobility = clause => RESIDENCE.test(clause) || RELOCATION.test(clause);
+  if (LEGAL_STATUS.test(value)) {
+    if (mobilityText.split(ALTERNATIVE).some(part => LEGAL_STATUS.test(part) && !hasMobility(part))) return null;
+    // The country must qualify the mobility component itself, not just a
+    // neighboring Swiss permit while residence is required somewhere else.
+    if (!mobilityText.split(CONJUNCTION).some(part => !LEGAL_STATUS.test(part) && SWISS.test(part) && hasMobility(part))) return null;
+  }
+  const residence = RESIDENCE.test(mobilityText); const relocation = RELOCATION.test(mobilityText);
+  return residence || relocation ? { residence, relocation, alternative: ALTERNATIVE.test(value) } : null;
 }
 
 const COPY = {
@@ -44,7 +58,7 @@ function binary(value) {
 }
 // Country-only clauses can use country-level CV evidence. Extra words such
 // as a city, deadline or distance must be confirmed for the whole clause.
-const COUNTRY_CLAUSE_WORDS = new Set(('resident residents residence residency in switzerland swiss and or willingness willing to relocate relocation ready available must required currently live living ' +
+const COUNTRY_CLAUSE_WORDS = new Set(('resident residents residence residency in switzerland swiss and or willingness willing to relocate relocation ready available must required currently live lives living reside resides residing move moves moving ' +
   'residenza residente residenti svizzera o oppure disponibilita disponibile trasferimento trasferirsi al a di e richiesta richiesto ' +
   'wohnsitz wohnhaft schweiz der die ein eine oder bereitschaft bereit zum umzug umziehen erforderlich und ' +
   'domicile domicilie domiciliee en suisse ou volonte pret prete demenager demenagement et').split(' '));
