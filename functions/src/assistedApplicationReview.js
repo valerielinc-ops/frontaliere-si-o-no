@@ -16,6 +16,7 @@
  * submission.
  */
 
+import { DocumentRecheckError, recheckStoredDocument } from './assistedApplicationDocumentRecheck.js';
 import { employerResponseView, loadEmployerResponse } from './assistedApplicationEmployerResponse.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { MAX_REVIEW_ROUNDS, roundsShown } from './assistedApplicationFlow.js';
@@ -56,7 +57,7 @@ import {
   sanitizeClientCheck,
 } from './assistedApplicationExtraDocuments.js';
 
-const ACTIONS = new Set(['approve', 'reject', 'withdraw', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'photo_upload', 'photo_remove', 'cv_lines']);
+const ACTIONS = new Set(['approve', 'reject', 'withdraw', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'document_recheck', 'photo_upload', 'photo_remove', 'cv_lines']);
 const PHOTO_ACTIONS = new Set(['photo_upload', 'photo_remove']);
 const DOCUMENT_ACTIONS = new Set(['document_upload', 'document_remove']);
 // Where the candidate can still give a document: their review, or a portal waiting for them.
@@ -274,7 +275,8 @@ function withSuggestion(files, whatsapp) {
  * @param {{set:Function, status:Function}} res
  * @param {{status:number, body?:object, file?:{buffer:Buffer, contentType:string, fileName:string}}} answer handleAssistedApplicationReview's result
  */
-export function sendReviewResponse(res, { status, body, file }) {
+export function sendReviewResponse(res, { status, body, file, noStore }) {
+  if (noStore) res.set({ 'Cache-Control': 'private, no-store' });
   if (file) {
     res.set({
       'Content-Type': file.contentType,
@@ -752,7 +754,8 @@ export async function handleAssistedApplicationReview(req, deps) {
     const body = req.body && typeof req.body === 'object' ? req.body : {};
     const action = String(body.action || '');
     if (!ACTIONS.has(action) && !FOLLOWUP_ACTIONS.has(action)) throw new ReviewError('invalid_action');
-    const { orderId, round, kind } = await authorize(String(body.t || ''), { ...deps, nowMs });
+    const claims = await authorize(String(body.t || ''), { ...deps, nowMs });
+    const { orderId, round, kind } = claims;
     // A follow-up link acts only on its follow-up, a review link only on the review.
     if ((kind === 'followup') !== FOLLOWUP_ACTIONS.has(action)) throw new ReviewError('invalid_action');
     if (kind === 'followup') {
@@ -761,6 +764,13 @@ export async function handleAssistedApplicationReview(req, deps) {
       });
       if (!result.ok && result.error === 'not_pending') throw new ReviewError('not_allowed', 409);
       return { status: 200, body: { ok: true, sent: Boolean(result.sent), stopped: Boolean(result.stopped) } };
+    }
+    if (action === 'document_recheck') {
+      const check = await recheckStoredDocument({ db: deps.db, bucket: deps.bucket, claims,
+        documentId: String(body.documentId || ''), fileId: String(body.fileId || ''),
+        now: () => deps.nowMs ?? Date.now(), secret: await (deps.getSecret || getReviewTokenSecret)(), body,
+      });
+      return { status: 200, noStore: true, body: { ok: true, ...check } };
     }
     const { order, flow, draft } = await loadAll(deps.db, orderId);
     if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
@@ -840,7 +850,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409);
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
   } catch (error) {
-    if (error instanceof ReviewError || error instanceof WithdrawalError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
+    if (error instanceof ReviewError || error instanceof WithdrawalError || error instanceof DocumentRecheckError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     // A guarded commit refused (another request saved first) or no Storage for the rebuild.
     if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code } };
     throw error;
