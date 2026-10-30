@@ -189,13 +189,27 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   };
   const questionControls = group => {
     const nodes = [...(group?.querySelectorAll(QUESTION_CONTROL_SELECTOR) || [])];
+    const labelledHidden = new Set();
+    const hiddenTargets = [...(group?.ownerDocument.querySelectorAll('input[type="hidden"][id]') || [])];
     for (const label of group?.querySelectorAll('label[for]') || []) {
       if (label.control?.matches(QUESTION_CONTROL_SELECTOR)) nodes.push(label.control);
+      if (!String(label.textContent || '').trim()) continue;
+      // A hidden input is not labelable in the DOM API. Resolve every exact
+      // target instead of treating label.control === null as no other owner.
+      for (const target of hiddenTargets.filter(control => control.id === label.getAttribute('for'))) {
+        labelledHidden.add(target);
+        nodes.push(target);
+      }
     }
     return [...new Set(nodes
       .filter(control => control.tagName !== 'INPUT'
-        || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()))
+        || labelledHidden.has(control) || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()))
       .map(control => {
+        if (labelledHidden.has(control)) {
+          const linked = [...(control.form?.querySelectorAll('input[type="checkbox"]') || [])]
+            .filter(choice => mirroredQuestionLabel(choice)?.getAttribute('for') === control.id);
+          return linked.length === 1 ? linked[0] : control;
+        }
         const widget = control.closest(`${DATE_QUESTION_SELECTOR}, [role="radiogroup"]`) || ariaRadioCluster(control);
         if (widget) return widget;
         const nativeId = control.matches('.ui-selectmenu-button[role="combobox"]') && control.id.endsWith('-button') ? control.id.slice(0, -7) : '';

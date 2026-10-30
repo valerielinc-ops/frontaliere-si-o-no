@@ -75,6 +75,18 @@ it('rejects a hidden questionnaire in another form even when its key matches', (
   expect(F.answerFor(filler[0], { identity: {}, documents: {} })).not.toEqual({ check: true });
   dom.window.close();
 });
+it.each([
+  mirrorQuestion.replaceAll('722664', '9') + mirrorChoice,
+  mirrorQuestion + mirrorChoice.replace('name="resumator-checkbox-722664-1"', 'name="other"'),
+  mirrorQuestion + mirrorChoice.replace('>I agree</label>', '>I do not agree</label>'),
+  mirrorQuestion + '<input type="checkbox" id="preference" name="preference" required>',
+  mirrorQuestion + mirrorQuestion + mirrorChoice,
+])('preserves an unassociated hidden prompt as a distinct owner even without another visible question: %s', markup => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><div class="form-group">${markup}</div></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  for (const field of filler) expect(F.answerFor(field, { identity: {}, documents: {} })).not.toEqual({ check: true });
+  dom.window.close();
+});
 it('reads a pure unnamed ARIA option list as one logical question in all three runtimes', () => {
   const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><h2>Hai la patente?</h2>${radioCards()}<button type="button">Continue</button></form>`);
   for (const fields of [source, bundle, filler]) {
