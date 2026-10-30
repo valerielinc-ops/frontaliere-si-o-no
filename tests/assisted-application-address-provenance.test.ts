@@ -8,7 +8,7 @@ const bundle = readFileSync(new URL('../scripts/assisted-application/extension/r
 const candidate = { identity: { address: { city: 'Como', country: 'Italia' } }, profile: { dateOfBirth: '1990-01-02' }, answers: [] };
 
 function nativeField(html: string, reader: string, name = 'city') {
-  const dom = new JSDOM(`<main>${html}</main>`, { url: 'https://jobs.example.test/apply/', runScripts: 'outside-only' });
+  const dom = new JSDOM(`<!doctype html><body>${html}</body>`, { url: 'https://jobs.example.test/apply/', runScripts: 'outside-only' });
   const w = dom.window;
   Object.defineProperty(w.HTMLElement.prototype, 'getBoundingClientRect', { value: () => ({ width: 100, height: 24 }) });
   Object.defineProperty(w, 'CSS', { value: { escape: (value: string) => value } });
@@ -43,6 +43,11 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
   it('does not borrow a personal heading from a different form', () => {
     const field = nativeField('<form><h2>Personal information</h2><input name="first"></form><form><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></form>', reader);
     expect(candidateAnswerForField(candidate, field)).toBeNull();
+  });
+
+  it('retains an explicitly named personal group on a form-less page', () => {
+    const field = nativeField('<fieldset aria-label="Personal information"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></fieldset>', reader);
+    expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Como', source: 'identity' });
   });
 
   it('does not confuse a birth-date sibling with the residence owner', () => {

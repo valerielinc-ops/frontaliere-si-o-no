@@ -363,7 +363,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   // A work-history or birthplace ancestor must survive an inner field group;
   // a birth-date sibling must not become the owner of a residence control.
   const ownedAddressContext = (element) => {
-    const boundary = element.closest('form, [role="form"], dialog, [role="dialog"], main, [role="main"]');
+    const boundary = element.closest('form, [role="form"], dialog, [role="dialog"], main, [role="main"]') || document.body;
     const result = { section: '', owners: [], unknown: false };
     if (!boundary) return result;
     const scopes = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
