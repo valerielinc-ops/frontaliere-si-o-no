@@ -171,7 +171,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       const text = (await page.evaluate(() => document.body?.innerText || '')).slice(0, 60_000);
       const seen = { ...current, text };
       const stage = applicationStage(seen, { applyUrl, sourceProtocol, job, url: page.url() });
-      proof.pages.push({ url: page.url(), text, fields: current.fields.map(field => ({ label: field.label, kind: field.kind, required: field.required })),
+      proof.pages.push({ url: page.url(), ...(current.protocol ? { protocol: current.protocol } : {}), text, fields: current.fields.map(field => ({ label: field.label, kind: field.kind, required: field.required })),
         buttons: current.buttons, stage: stage.kind, receipt: applicationReceipt(seen, { applyUrl, sourceProtocol, job, url: page.url() }),
         screenshot: (await page.screenshot({ fullPage: true })).toString('base64') });
       return current;
