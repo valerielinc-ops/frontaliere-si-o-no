@@ -137,6 +137,49 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
   const DATE_QUESTION_SELECTOR = '[ui5-date-picker], [data-scope="date-picker"][data-part="root"]';
   const QUESTION_CONTROL_SELECTOR = `input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"], button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"], ${DATE_QUESTION_SELECTOR}`;
+  // Unnamed option cards are one question only inside a pure, bounded list.
+  // A heading or another control inside that list makes ownership ambiguous.
+  const ariaRadioCluster = element => {
+    if (element.tagName === 'INPUT' || !element.matches('[role="radio"]')) return null;
+    const explicit = element.closest('[role="radiogroup"]');
+    if (explicit) return explicit;
+    const owner = element.closest(QUESTION_GROUP_SELECTOR);
+    const boundary = owner || element.closest('form') || element.ownerDocument.body;
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)].filter(control =>
+        control.tagName !== 'INPUT' || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()));
+      if (controls.length > 1) {
+        return controls.every(control => control.tagName !== 'INPUT' && control.matches('[role="radio"]')
+          && control.closest(QUESTION_GROUP_SELECTOR) === owner)
+          && !node.querySelector(QUESTION_LABEL_SELECTOR) ? node : null;
+      }
+      if (node === boundary) break;
+    }
+    return null;
+  };
+  // JazzHR submits a hidden questionnaire value while its checkbox has an
+  // exact question/option key. The value alone never proves that relationship.
+  const mirroredQuestionLabel = element => {
+    if (!element.matches('input[type="checkbox"]') || !element.form) return null;
+    const key = /^resumator-checkbox-(\d+)-(\d+)$/.exec(element.id);
+    if (!key || element.name !== element.id) return null;
+    const form = element.form, group = element.closest(QUESTION_GROUP_SELECTOR);
+    const choices = [...form.querySelectorAll('input[type="checkbox"]')].filter(control =>
+      new RegExp(`^resumator-checkbox-${key[1]}-`).test(control.id) || new RegExp(`^resumator-checkbox-${key[1]}-`).test(control.name));
+    const hidden = [...form.querySelectorAll('input[type="hidden"]')].filter(control =>
+      control.id === `resumator-questionnaire-q${key[1]}` || control.name === `resumator-questionnaire[${key[1]}]`);
+    if (choices.length !== 1 || hidden.length !== 1) return null;
+    const mirror = hidden[0];
+    if (mirror.id !== `resumator-questionnaire-q${key[1]}` || mirror.name !== `resumator-questionnaire[${key[1]}]`
+      || mirror.closest(QUESTION_GROUP_SELECTOR) !== group) return null;
+    const doc = element.ownerDocument;
+    if ([...doc.querySelectorAll('[id]')].filter(node => node.id === mirror.id).length !== 1
+      || [...doc.querySelectorAll('[id]')].filter(node => node.id === element.id).length !== 1) return null;
+    const labels = [...doc.querySelectorAll('label[for]')].filter(label => label.getAttribute('for') === mirror.id);
+    const label = labels.length === 1 && labels[0];
+    return label && label.closest('form') === form && label.closest(QUESTION_GROUP_SELECTOR) === group
+      && !label.querySelector(QUESTION_CONTROL_SELECTOR) && String(label.textContent || '').trim() ? label : null;
+  };
   const questionControls = group => {
     const nodes = [...(group?.querySelectorAll(QUESTION_CONTROL_SELECTOR) || [])];
     for (const label of group?.querySelectorAll('label[for]') || []) {
@@ -146,7 +189,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       .filter(control => control.tagName !== 'INPUT'
         || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()))
       .map(control => {
-        const widget = control.closest(`${DATE_QUESTION_SELECTOR}, [role="radiogroup"]`);
+        const widget = control.closest(`${DATE_QUESTION_SELECTOR}, [role="radiogroup"]`) || ariaRadioCluster(control);
         if (widget) return widget;
         const nativeId = control.matches('.ui-selectmenu-button[role="combobox"]') && control.id.endsWith('-button') ? control.id.slice(0, -7) : '';
         const native = nativeId && control.ownerDocument.getElementById(nativeId);
@@ -177,6 +220,8 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     });
   };
   const labelFor = (element) => {
+    const mirrorLabel = mirroredQuestionLabel(element);
+    if (mirrorLabel) return clean(mirrorLabel.innerText || mirrorLabel.textContent);
     if (element.id) {
       const direct = document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
       const directText = direct && clean(direct.innerText || direct.textContent);
@@ -215,6 +260,8 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   const hasRequiredMarker = (element, labelText) => {
     if (element.hasAttribute('data-required')) return true;
     const labels = new Set();
+    const mirrorLabel = mirroredQuestionLabel(element);
+    if (mirrorLabel) labels.add(mirrorLabel);
     for (const label of element.labels || []) labels.add(label);
     const direct = element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
     if (direct) labels.add(direct);
@@ -579,11 +626,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   const ariaGroups = new Map();
   for (const element of document.querySelectorAll('[role="radio"]')) {
     if (element.tagName.toLowerCase() === 'input' || element.getAttribute('aria-disabled') === 'true' || !readable(element)) continue;
-    let container = element.closest('[role="radiogroup"]');
-    for (let node = element.parentElement; !container && node && node !== document.body; node = node.parentElement) {
-      if (node.querySelectorAll('[role="radio"]').length > 1) container = node;
-    }
-    container ||= element.parentElement;
+    const container = ariaRadioCluster(element) || element;
     const words = [];
     const walker = document.createTreeWalker(element, 4);
     for (let text = walker.nextNode(); text && words.length < 2; text = walker.nextNode()) {
