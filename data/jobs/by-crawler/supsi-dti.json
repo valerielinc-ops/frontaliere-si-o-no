@@ -1,7 +1,7 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-10-29T21:35:31.241Z",
-  "runId": "40957065122",
+  "assembledAt": "2026-10-30T10:06:37.232Z",
+  "runId": "41032781513",
   "jobs": [
     {
       "id": "company-l4ti2z",
@@ -35,7 +35,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-29T21:35:13.918Z",
+      "crawledAt": "2026-10-30T10:06:21.042Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
@@ -170,7 +170,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-29T21:35:13.918Z",
+      "crawledAt": "2026-10-30T10:06:21.042Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "titleByLocale": {
         "it": "Stagista 52 settimane",
@@ -186,9 +186,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagist-52-weeks-supsi-dti-manno",
-        "de": "stagist-52-wochen-supsi-dti-manno",
-        "fr": "stagiaire-52-semaines-supsi-dti-manno"
+        "en": "stagista-52-settimane-supsi-dti-manno",
+        "de": "stagista-52-settimane-supsi-dti-manno",
+        "fr": "stagista-52-settimane-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -237,6 +237,15 @@
           "stagist-52-weeks-supsi-dti-manno",
           "stagist-52-wochen-supsi-dti-manno",
           "stagiaire-52-semaines-supsi-dti-manno"
+        ],
+        "en": [
+          "stagist-52-weeks-supsi-dti-manno"
+        ],
+        "de": [
+          "stagist-52-wochen-supsi-dti-manno"
+        ],
+        "fr": [
+          "stagiaire-52-semaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
@@ -282,7 +291,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-29T21:35:13.918Z",
+      "crawledAt": "2026-10-30T10:06:21.042Z",
       "firstSeenAt": "2026-10-20T09:36:21.726Z",
       "titleByLocale": {
         "it": "Collaboratrice scientifica / Collaboratore scientifico nell’ambito dell’automazione e della robotica collaborativa applicate a sistemi di produzione human-centred”",
@@ -435,7 +444,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-29T21:35:13.918Z",
+      "crawledAt": "2026-10-30T10:06:21.042Z",
       "firstSeenAt": "2026-10-26T21:41:57.634Z",
       "titleByLocale": {
         "it": "Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva",
@@ -453,7 +462,7 @@
         "it": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno",
         "en": "assistant-with-bachelor-of-science-in-visual-communication-supsi-dti-manno",
         "de": "assistent-mit-bachelor-of-science-in-visual-communication-supsi-dti-manno",
-        "fr": "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
+        "fr": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -516,6 +525,9 @@
       "previousSlugsByLocale": {
         "it": [
           "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
+        ],
+        "fr": [
+          "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
@@ -560,7 +572,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-29T21:35:13.918Z",
+      "crawledAt": "2026-10-30T10:06:21.042Z",
       "firstSeenAt": "2026-10-26T21:41:57.634Z",
       "titleByLocale": {
         "it": "Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)",
@@ -704,7 +716,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-29T21:35:13.918Z",
+      "crawledAt": "2026-10-30T10:06:21.042Z",
       "firstSeenAt": "2026-10-27T22:00:22.154Z",
       "titleByLocale": {
         "it": "Assistente con Master in Robotica",
@@ -860,7 +872,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-29T21:35:13.918Z",
+      "crawledAt": "2026-10-30T10:06:21.042Z",
       "firstSeenAt": "2026-10-28T09:37:15.628Z",
       "titleByLocale": {
         "it": "Dottoranda / Dottorando in Intelligenza Artificiale – Modellazione causale e sistemi multi-agente",
@@ -877,7 +889,7 @@
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno",
         "en": "phd-student-in-artificial-intelligence-causal-modelling-and-multi-agent-systems-supsi-dti-manno",
-        "de": "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno",
+        "de": "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno",
         "fr": "phd-phd-en-intelligence-artificielle-modelisation-causale-et-systemes-multi-agents-supsi-dti-manno"
       },
       "requirementsByLocale": {
@@ -965,7 +977,15 @@
       "postalCode": "6928",
       "addressLocality": "Manno",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno"
+        ]
+      },
+      "previousSlugs": [
+        "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno"
+      ]
     }
   ]
 }
