@@ -1,19 +1,21 @@
 {
   "key": "csc-costruzioni",
   "label": "CSC Costruzioni",
-  "generatedAt": "2026-10-30T09:22:56.941Z",
+  "generatedAt": "2026-10-30T21:25:00.783Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 52630,
-  "avgDurationMs": 52630,
+  "unchangedCount": 7,
+  "durationMs": 54230,
+  "avgDurationMs": 54230,
   "durationHistory": [
-    52630
+    54230
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-j2eigp",
       "slug": "responsabile-pianificazione-senior-csc-costruzioni-sa-lugano",
@@ -33,7 +35,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T09:22:47.039Z",
+      "crawledAt": "2026-10-30T21:24:47.045Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "fr",
       "needsRetranslation": true,
@@ -51,10 +53,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-vwqmw",
       "slug": "accountant-di-cantiere-csc-costruzioni-sa-lugano-0vwqmw",
@@ -74,7 +73,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T09:22:47.039Z",
+      "crawledAt": "2026-10-30T21:24:47.045Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "it",
       "salaryMin": 85500,
@@ -111,7 +110,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T09:22:47.039Z",
+      "crawledAt": "2026-10-30T21:24:47.045Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "en",
       "salaryMin": 85500,
@@ -148,7 +147,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T09:22:47.039Z",
+      "crawledAt": "2026-10-30T21:24:47.045Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "fr",
       "salaryMin": 51500,
@@ -185,7 +184,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T09:22:47.039Z",
+      "crawledAt": "2026-10-30T21:24:47.045Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -222,7 +221,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T09:22:47.039Z",
+      "crawledAt": "2026-10-30T21:24:47.045Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -278,5 +277,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }
