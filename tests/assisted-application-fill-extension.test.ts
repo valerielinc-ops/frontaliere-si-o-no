@@ -10,12 +10,14 @@ import { APPLY_LATER_RE, APPLY_RE, COOKIE_REJECT_RE } from '../scripts/assisted-
 import { NOT_ADVANCE_RE } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
 const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'scripts/assisted-application/extension');
+const applyControlSource = readFileSync(resolve(extension, 'apply-control.js'), 'utf8');
 const fillerSource = readFileSync(resolve(extension, 'filler.js'), 'utf8');
 const runnerFieldsSource = readFileSync(resolve(extension, 'runner-fields.js'), 'utf8');
 
 /** The page engine loaded into a page, as the extension injects it. */
 function page(html: string, url = 'https://join.com/companies/acme/1/apply/step') {
   const dom = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url, runScripts: 'outside-only' });
+  dom.window.eval(applyControlSource);
   dom.window.eval(fillerSource);
   const F = (dom.window as any).CompilaCandidatura;
   F.config.waitMs = 200;
@@ -49,6 +51,14 @@ const ariaChoices = (question: string, options: string[]) => `<form><h2>${questi
   .map((option, index) => `<div><div role="radio" aria-checked="false" tabindex="0"><div><p>${String.fromCharCode(97 + index)}</p></div><p>${option}</p></div></div>`).join('')}</div>${continueButtons}</form>`;
 
 describe('fill extension: patterns', () => {
+  it('shares URL-safe Apply selection with the runner', () => {
+    const { F, document } = page('<a href="/wrong">https://jobs.example/?apply=true</a><a href="/email">mailto:apply+foo@example.ch</a><button>Apply now</button>');
+    expect(F.APPLY_RE.test('https://jobs.example/?apply=true')).toBe(false);
+    expect(F.APPLY_RE.test('mailto:apply+foo@example.ch')).toBe(false);
+    expect(F.APPLY_RE.test('Apply now')).toBe(true);
+    expect(F.pageState(document).start?.textContent).toBe('Apply now');
+  });
+
   it('uses the runner’s own patterns', () => {
     const { F } = page('');
     for (const [name, pattern] of Object.entries({ NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE })) {
@@ -72,7 +82,7 @@ describe('fill extension: patterns', () => {
     // alarms: the once-a-minute look at its own files on disk (it reloads itself after an update).
     expect(manifest.permissions.sort()).toEqual(['alarms', 'scripting', 'storage', 'tabs']);
     expect(manifest.content_scripts).toEqual([{ matches: ['https://frontaliereticino.ch/*gestione-contenuti-xk9mp2q/*'], js: ['bridge.js'], run_at: 'document_start' }]);
-    for (const file of ['background.js', 'bridge.js', 'content.js', 'filler.js']) {
+    for (const file of ['background.js', 'bridge.js', 'content.js', 'apply-control.js', 'filler.js']) {
       // The one thing kept across a reload is when the last reload happened (no candidate data).
       const source = readFileSync(resolve(extension, file), 'utf8')
         .replace(/chrome\.storage\.local\.(?:get\('lastReloadAt'\)|set\(\{ lastReloadAt: nowMs \}\))/g, '');
@@ -534,6 +544,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
     };
     (dom.window as any).CSS = { escape: (value: string) => String(value).replace(/["\\\]]/g, (match) => `\\${match}`) };
     dom.window.eval(runnerFieldsSource);
+    dom.window.eval(applyControlSource);
     dom.window.eval(fillerSource);
     return { window: dom.window, document: dom.window.document, F: (dom.window as any).CompilaCandidatura, read: (dom.window as any).CompilaRunnerFields };
   }
