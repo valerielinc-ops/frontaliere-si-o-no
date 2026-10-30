@@ -66,7 +66,7 @@ export function candidateAnswerFact(question, answer, { nowMs = Date.now() } = {
   const fact = candidateQuestionFact(question);
   if (!fact) return null;
   if (fact.type === 'birth_date') {
-    if (typeof answer !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(answer)) return null;
+    if (!Number.isFinite(nowMs) || typeof answer !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(answer)) return null;
     const date = new Date(`${answer}T00:00:00.000Z`);
     if (!Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== answer || date.getTime() > nowMs) return null;
   } else if (fact.type === 'experience_duration') {
@@ -74,7 +74,7 @@ export function candidateAnswerFact(question, answer, { nowMs = Date.now() } = {
     const value = Number(String(answer).replace(',', '.'));
     if (!Number.isFinite(value) || value < 0) return null;
   } else if (fact.type === 'credential_held') {
-    if (!(typeof answer === 'boolean' || /^(?:yes|no|si|ja|nein|oui|non|true|false)$/i.test(String(answer).trim()))) return null;
+    if (!(typeof answer === 'boolean' || /^(?:yes|no|si|ja|nein|oui|non|true|false)$/.test(fold(answer)))) return null;
   } else if (fact.type === 'permit_status') {
     const status = permitStatusOf(answer);
     if (!status) return null;

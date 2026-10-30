@@ -19,6 +19,7 @@ describe('positive typed candidate answer contracts', () => {
     for (const answer of ['20.02.1995', '30', 'Zurich', `${previousYear}-02-30`, '9999-01-01']) expect(candidateAnswerFact(q, answer)).toBeNull();
     expect(candidateQuestionFact({ ...q, type: 'text' })).toBeNull();
     expect(candidateAnswerFact(q, today)).not.toBeNull();
+    expect(candidateAnswerFact(q, '9999-01-01', { nowMs: Number.NaN })).toBeNull();
   });
   it.each(['How many years of experience do you have with Python?', 'Quanti anni di esperienza hai con Python?', 'Wie viele Jahre Erfahrung haben Sie mit Python?', "Combien d'années d'expérience avez-vous avec Python?"])('keeps the explicit experience subject and duration unit: %s', label => {
     expect(candidateAnswerFact(question(label, 'number'), '3.5')).toMatchObject({ type: 'experience_duration', subject: 'python', unit: 'years', scope: 'candidate' });
@@ -34,6 +35,9 @@ describe('positive typed candidate answer contracts', () => {
   });
   it.each(['Do you hold the PMP certification?', 'Possiedi la certificazione PMP?', 'Besitzen Sie die Zertifizierung PMP?', 'Possédez-vous la certification PMP?'])('records only the specifically named credential assertion: %s', label => {
     expect(candidateAnswerFact(question(label, 'yes_no'), 'Yes')).toMatchObject({ type: 'credential_held', subject: 'pmp', unit: 'boolean', relation: 'held_not_document_verified', scope: 'candidate' });
+  });
+  it.each(['Sì', 'No', 'Ja', 'Nein', 'Oui', 'Non', true, false])('preserves native boolean values without changing the answer: %s', answer => {
+    expect(candidateAnswerFact(question('Possiedi la certificazione PMP?', 'yes_no'), answer)).toMatchObject({ type: 'credential_held', unit: 'boolean' });
   });
   it('does not turn a vague credential, attachment or plan into a held certification', () => {
     for (const label of ['Do you hold the required certification?', 'Do you plan to obtain the PMP certification?', 'Have you attached the PMP certification?', 'Do you hold the PMP certification for this employer?']) expect(candidateQuestionFact(question(label, 'yes_no'))).toBeNull();
