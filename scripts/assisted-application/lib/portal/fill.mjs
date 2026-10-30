@@ -839,7 +839,9 @@ export async function applyActions(page, fields, actions, files, {
       } else if (action.action === 'check' || action.action === 'uncheck') {
         const wanted = action.action === 'check';
         choiceLocator = locator;
-        choiceObservation = await beginChoiceObservation(locator, wanted);
+        const frames = page.frames();
+        const frame = frames[field.frame || 0] || page.mainFrame();
+        choiceObservation = await beginChoiceObservation(locator, wanted, frame, frames.indexOf(frame));
         await setChoice(locator, wanted, choiceObservation);
         const registered = await locator.isChecked({ timeout: 2000 }).catch(() => null);
         choiceObservation.registeredChecked = registered;

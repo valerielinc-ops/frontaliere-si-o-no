@@ -8,7 +8,7 @@ const markup = `<input id="${sensitive}" name="private-control-name" value="priv
 const openDoms: JSDOM[] = [];
 afterEach(() => { for (const dom of openDoms) dom.window.close(); openDoms.length = 0; });
 
-type Mode = 'native' | 'uncommitted' | 'label' | 'linked-label' | 'label-timeout' | 'replace' | 'checker-fails';
+type Mode = 'native' | 'uncommitted' | 'label' | 'linked-label' | 'label-timeout' | 'replace' | 'checker-fails' | 'frame-reorder';
 function fixture(mode: Mode = 'native', collision = false) {
   const doms = Array.from({ length: collision ? 2 : 1 }, () => new JSDOM(markup, { runScripts: 'outside-only' }));
   for (const dom of doms) (dom.window as any).CSS = { escape: (value: string) => value };
@@ -17,6 +17,7 @@ function fixture(mode: Mode = 'native', collision = false) {
   const disposed = vi.fn(async () => {});
   const observers: AbortController[] = [];
   const targetFrame = collision ? 1 : 0;
+  let reorder = () => {};
   class Locator {
     constructor(readonly doc: Document, readonly selector: string, readonly frame: number) {}
     node() { const node = this.doc.querySelector(this.selector); if (!node) throw new Error('target missing'); return node as HTMLInputElement; }
@@ -34,6 +35,7 @@ function fixture(mode: Mode = 'native', collision = false) {
       calls.push(`${this.frame}:${options.force ? 'forced' : 'native'}`);
       if (['label', 'linked-label', 'label-timeout'].includes(mode)) throw new Error('hidden control');
       const node = this.node();
+      if (mode === 'frame-reorder') reorder();
       if (mode === 'native' || mode === 'checker-fails') node.checked = checked;
       if (mode === 'replace') {
         node.checked = checked;
@@ -52,7 +54,9 @@ function fixture(mode: Mode = 'native', collision = false) {
   }
   const controls = doms.map((dom, index) => new Locator(dom.window.document, '[data-aa-id="f22"]', index));
   const frames = doms.map((dom, index) => ({ locator: (selector: string) => new Locator(dom.window.document, selector, index) }));
-  const page = { frames: () => frames, mainFrame: () => frames[0] };
+  let liveFrames = frames;
+  reorder = () => { liveFrames = [...frames].reverse(); };
+  const page = { frames: () => liveFrames, mainFrame: () => frames[0] };
   const fields = collision
     ? [{ id: 'f22', kind: 'checkbox', frame: 0 }, { id: 'f22', kind: 'checkbox', frame: 1 }]
     : [{ id: 'f22', kind: 'checkbox', frame: 0 }];
@@ -115,6 +119,16 @@ describe('private failed-choice evidence', () => {
     for (const forbidden of [sensitive, 'private-control-name', 'private-value', 'Private label text', 'private-url']) {
       expect(serialized).not.toContain(forbidden);
     }
+  });
+
+  it('tracks the original locator frame even when frame ordering changes during the action', async () => {
+    const f = fixture('frame-reorder', true);
+    const [result] = await f.run();
+    expect(result).toMatchObject({ ok: false, error: 'choice_not_registered', choiceEvidence: {
+      selectedFrameIndexBefore: 1, selectedFrameIndex: 0,
+      identity: { sameNode: true }, logicalFrameIndices: [0, 1],
+    } });
+    expect(f.calls).toEqual(['1:native']);
   });
 
   it('removes a label observer even when the pointer action times out before dispatch', async () => {

@@ -25,16 +25,15 @@ export async function choiceControlState(locator) {
   }, null, { timeout: 2000 }); } catch { return null; }
 }
 
-export async function beginChoiceObservation(locator, requestedChecked) {
+export async function beginChoiceObservation(locator, requestedChecked, frame, frameIndexBefore) {
   let original = null;
   try { original = typeof locator.elementHandle === 'function' ? await locator.elementHandle({ timeout: 2000 }) : null; } catch { /* Observation cannot prevent the action. */ }
-  return { original, requestedChecked, before: await choiceControlState(locator), method: 'native', attempts: [] };
+  return { original, frame, frameIndexBefore, requestedChecked, before: await choiceControlState(locator), method: 'native', attempts: [] };
 }
 
 /** Returned only on a failed action, into the existing encrypted evidence. */
 export async function choiceFailureEvidence({ page, fields, field, locator, observation }) {
   const frames = typeof page.frames === 'function' ? page.frames() : [];
-  const selectedFrame = frames[field.frame || 0] || page.mainFrame();
   const frameMatches = await Promise.all(frames.map(async (frame, index) => {
     let count = null;
     try { count = await frame.locator(`[data-aa-id="${field.id}"]`).count(); } catch { /* A frame may have closed. */ }
@@ -55,6 +54,7 @@ export async function choiceFailureEvidence({ page, fields, field, locator, obse
     before: observation.before, after: await choiceControlState(locator), identity,
     logicalFieldCount: fields.filter(candidate => candidate.id === field.id).length,
     logicalFrameIndices: fields.filter(candidate => candidate.id === field.id).map(candidate => candidate.frame || 0),
-    selectedFrameIndex: frames.indexOf(selectedFrame), frameMatches,
+    selectedFrameIndexBefore: observation.frameIndexBefore,
+    selectedFrameIndex: frames.indexOf(observation.frame), frameMatches,
   };
 }
