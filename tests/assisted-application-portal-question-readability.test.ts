@@ -114,6 +114,18 @@ it('does not merge unnamed ARIA options across question headings in the same wra
   }
   dom.window.close();
 });
+it.each([
+  '<div aria-label="Newsletter"><div role="radio">Yes</div></div><div aria-label="Privacy acceptance"><div role="radio">No</div></div>',
+  '<span id="news">Newsletter</span><span id="privacy">Privacy acceptance</span><div aria-labelledby="news"><div role="radio">Yes</div></div><div aria-labelledby="privacy"><div role="radio">No</div></div>',
+])('does not merge ARIA options owned by separately named ancestors: %s', options => {
+  const { dom, F, source, bundle, filler } = allQuestionReaders(`<form><h2>I accept the Privacy Policy. *</h2><div>${options}</div></form>`);
+  for (const fields of [source, bundle, filler]) {
+    expect(fields).toHaveLength(2);
+    expect(fields.every((field: any) => !/privacy/i.test(field.label))).toBe(true);
+  }
+  for (const field of filler) expect(F.answerFor(field, { identity: {}, documents: {}, answers: [] })).toBeNull();
+  dom.window.close();
+});
 
 it('reads the owned consent legend past an empty label and resolves it without a candidate question', () => {
   const { dom, snapshot } = extract(form);
