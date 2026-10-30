@@ -303,12 +303,14 @@ describe('fill extension: JOIN steps', () => {
   });
 
   it.each(['Luogo di residenza', 'Lieu de résidence', 'Place of residence', 'Wohnort'])('preserves explicit residence autocomplete for %s', (label) => {
-    const { F, document } = page(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" autocomplete="address-level2"></form>`);
+    const { F, document, window } = page(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" autocomplete="address-level2"></form>`);
+    nativeFieldReading(window);
     expect(F.answerFor(F.collect(document)[0], { ...kit, answers: [] })).toEqual({ value: 'Como', family: 'city' });
   });
 
   it.each(['Luogo di nascita', 'Lieu de naissance', 'Place of birth', 'Geburtsort'])('does not substitute residence for %s despite autocomplete', (label) => {
-    const { F, document } = page(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" autocomplete="address-level2"></form>`);
+    const { F, document, window } = page(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" autocomplete="address-level2"></form>`);
+    nativeFieldReading(window);
     expect(F.answerFor(F.collect(document)[0], { ...kit, answers: [] })).toBeNull();
   });
 
