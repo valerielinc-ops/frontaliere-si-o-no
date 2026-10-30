@@ -1236,8 +1236,14 @@ async function sendViaMaileroo(email, scheduledAt, signal) {
       if (tag?.name) body.tags[tag.name] = String(tag.value ?? '');
     }
   }
-  // Forward custom email headers (List-Unsubscribe, Feedback-ID, etc.).
-  if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
+  // Message-ID belongs to Maileroo: forwarding a caller's header rejects the
+  // whole send with HTTP 400. Preserve application/thread/unsubscribe headers,
+  // but never send this reserved header, regardless of case or surrounding space.
+  if (email.headers && typeof email.headers === 'object' && !Array.isArray(email.headers)) {
+    const headers = Object.fromEntries(Object.entries(email.headers)
+      .filter(([name]) => name.normalize('NFKC').trim().toLowerCase() !== 'message-id'));
+    if (Object.keys(headers).length) body.headers = headers;
+  }
   if (Array.isArray(email.attachments) && email.attachments.length) {
     body.attachments = email.attachments.map((attachment) => ({
       file_name: String(attachment?.filename || attachment?.file_name || 'attachment').slice(0, 255),
@@ -1591,7 +1597,7 @@ function isProviderCoolingDown(providerId) {
 async function sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle, spacing) {
   const errors = [];
   const providers = forceProvider
-    ? PROVIDERS.filter(p => p.id === forceProvider)
+    ? PROVIDERS.filter(p => Array.isArray(forceProvider) ? forceProvider.includes(p.id) : p.id === forceProvider)
     : PROVIDERS;
 
   for (const provider of providers) {
@@ -1744,7 +1750,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @param {Record<string, number>} [opts.providerMinIntervalMs] - Opt-in
  *   per-provider spacing floor in ms (see BULK_PROVIDER_MIN_INTERVAL_MS); the
  *   effective spacing is max(delay or adaptive delay, floor).
- * @param {string} [opts.forceProvider] - Force a specific provider (skip cascade)
+ * @param {string|string[]} [opts.forceProvider] - Restrict to one provider or an eligible subset (retains cascade priority)
  * @param {Function} [opts.onSent] - Called after each provider-accepted send, including ambiguous ack: (item, result) => void
  * @param {Function} [opts.finalizeForProvider] - Called just before sending, once
  *   the provider is chosen: (payload, providerId) => void. May mutate the payload

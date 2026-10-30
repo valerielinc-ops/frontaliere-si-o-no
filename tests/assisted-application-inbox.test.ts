@@ -215,7 +215,7 @@ describe('employer messages on the alias', () => {
     const envelope = JSON.parse(bucket.files.get(inbox[0].rawKey)!);
     expect(Buffer.from(decryptJson(envelope, Buffer.from(RUN_KEY, 'base64')).raw, 'base64').toString('latin1')).toContain('Einladung zum Vorstellungsgespr');
     const [[items, options]] = sendCascade.mock.calls as any;
-    expect(options).toEqual({ delayMs: 0, forceProvider: 'maileroo' });
+    expect(options).toEqual({ delayMs: 0, forceProvider: ['maileroo', 'resend'] });
     expect(items[0].payload).toMatchObject({ to: ['maria@example.com'], replyTo: 'hr@arbeitgeber.ch', subject: '[Vorstellungsgespräch] Einladung zum Vorstellungsgespräch' });
     expect(items[0].payload.attachments).toMatchObject([{ filename: 'Einladung.pdf', contentType: 'application/pdf' }]);
     expect(items[0].payload.text).toContain('Einladung zum Gespräch am 12. Oktober');
@@ -237,7 +237,7 @@ describe('employer messages on the alias', () => {
     }));
     await deliver({ store, alias, raw: htmlEmployerMail({ subject: 'Domanda' }), classify, sendCascade });
     const [[, options]] = sendCascade.mock.calls as any;
-    expect(options).toEqual({ delayMs: 0, forceProvider: 'maileroo' });
+    expect(options).toEqual({ delayMs: 0, forceProvider: ['maileroo', 'resend'] });
   });
 
   it('keeps a real verification code and falls back to rules when Codex is unavailable', async () => {

@@ -27,7 +27,7 @@ import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.
 import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
-import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
+import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -368,7 +368,7 @@ export async function submitApplication(ctx) {
     }
     const { failed, sent } = await sendCascade(
       [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
-      { delayMs: 0, forceProvider: 'maileroo' },
+      { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS },
     );
     if (failed.length) {
       // An ambiguous delivery must never be retried blindly (career-ops: a
@@ -381,7 +381,8 @@ export async function submitApplication(ctx) {
       await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous, sent: sentRecord }, key: runKey, nowMs });
       return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : 'email_failed' };
     }
-    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId, provider: sent[0]?.provider || null, sent: sentRecord }, nowMs);
+    const threadMessageId = replyThreadMessageId(sent[0], messageId);
+    if (guard) await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId: threadMessageId, provider: sent[0]?.provider || null, sent: sentRecord }, nowMs);
     await storeEvidence({
       bucket,
       orderId,
@@ -403,7 +404,7 @@ export async function submitApplication(ctx) {
     });
     // What the follow-ups (7 and 14 days) need and the record of what left; agent.mjs
     // stores them, they never reach the automation event.
-    return { type: 'submit_succeeded', channel: 'email', followup: { to, subject: payload.subject, messageId, sentAt: nowMs }, sent: sentRecord };
+    return { type: 'submit_succeeded', channel: 'email', followup: { to, subject: payload.subject, messageId: threadMessageId, sentAt: nowMs }, sent: sentRecord };
   }
 
   // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login

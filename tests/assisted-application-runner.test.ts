@@ -509,11 +509,11 @@ describe('submit mode', () => {
       order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
     });
-    // The follow-ups (day 7 and 14) get the recipient, the subject and our Message-ID.
+    // Maileroo replaces our Message-ID. Do not reference an ID the employer never received.
     expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'email', followup: { to: 'hr@ospedale.ch', subject: 'Candidatura' } });
-    expect(event.followup.messageId).toMatch(/^<aa-.+@candidature\.frontaliereticino\.ch>$/);
+    expect(event.followup.messageId).toBeNull();
     const [[items, options]] = sendCascade.mock.calls as any;
-    expect(options).toEqual({ delayMs: 0, forceProvider: 'maileroo' });
+    expect(options).toEqual({ delayMs: 0, forceProvider: ['maileroo', 'resend'] });
     expect(items[0].payload).toMatchObject({ to: ['hr@ospedale.ch'], replyTo: 'maria.rossi@example.com', from: '"Maria Rossi via Frontaliere Ticino" <valerie@frontaliereticino.ch>' });
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf']);
     // Sent in the candidate's name: no rewritten links, no open pixel.
