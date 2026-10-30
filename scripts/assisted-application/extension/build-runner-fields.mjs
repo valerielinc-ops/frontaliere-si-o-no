@@ -15,6 +15,7 @@ import { isInvokedDirectly } from '../../lib/is-invoked-directly.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { extractFieldsInPage } from '../lib/portal/fields.mjs';
+import { markOptionalAutofillDeclineInPage } from '../lib/portal/optional-autofill.mjs';
 
 export const RUNNER_FIELDS_PATH = fileURLToPath(new URL('./runner-fields.js', import.meta.url));
 
@@ -24,6 +25,7 @@ export function renderRunnerFields() {
 (function (root) {
   'use strict';
   root.CompilaRunnerFields = ${extractFieldsInPage.toString()};
+  root.CompilaOptionalAutofillDecline = ${markOptionalAutofillDeclineInPage.toString()};
 })(globalThis);
 `;
 }
