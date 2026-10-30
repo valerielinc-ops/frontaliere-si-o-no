@@ -78,4 +78,16 @@ describe('concierge admin proposal decision and application progress', () => {
     expect(row.getByText('In attesa del candidato')).toBeInTheDocument();
     expect(row.queryByText('Candidatura:')).not.toBeInTheDocument();
   });
+
+  it('distinguishes a withdrawn application from a declined proposal using the persisted decision', async () => {
+    const row = await renderProposal({ status: 'declined', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn' });
+    expect(row.getByText('Ritirata dal candidato')).toBeInTheDocument();
+    expect(row.queryByText('Rifiutata')).not.toBeInTheDocument();
+  });
+
+  it('preserves a declined proposal without withdrawal evidence', async () => {
+    const row = await renderProposal({ status: 'declined' });
+    expect(row.getByText('Rifiutata')).toBeInTheDocument();
+    expect(row.queryByText('Ritirata dal candidato')).not.toBeInTheDocument();
+  });
 });
