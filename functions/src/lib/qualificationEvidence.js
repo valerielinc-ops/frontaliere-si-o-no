@@ -25,6 +25,7 @@ A generic IT management title alone does not establish provider management, inci
 CV proof: quote is the ONLY substantive evidence. context is original neighboring text provided only to identify the section, role, attribution or meaning of the quote; do not substitute a different, unquoted action from context. A future desired role is not a held role. A CV assertion is not an attached certificate. An academic claim does not establish an unrelated behavioral skill.
 Candidate-answer proof: the server-bound answerRecord is the authoritative Q/A unit. Interpret its actual answer against its complete question, context, options, validation, unit, scope and round. An option printed in a question is not the answer. An answer to a different question or target does not support this requirement. A desired or future skill is not a current ability. Never invent consent, willingness or a qualification.
 Other verifiedDeclarations are counter-evidence only: do not endorse an older proof contradicted by a relevant current attested answer. Do not substitute them for the selected proof to create support. unverifiedContext contains raw notes/corrections/values, never primary proof. If it explicitly conflicts with the proof and verified data cannot resolve the conflict, return uncertain, not a claim that the candidate lacks the skill. Do not infer a question or scope from a cryptic key.
+When nativeFormContract is supplied, this is a form-answer verification: assess whether the selected proof supports proposedAnswer as the actual answer to that ORIGINAL question, with its native context, options, units and validation. A question is not an affirmative assertion, and required merely means the form requires an answer; neither establishes candidate eligibility. Do not replace the question, choose a different option or assume Yes. A negative answer needs evidence too; silence about a capability is not proof of absence. candidateAssertion is only a label here and cannot change the native contract or proposedAnswer.
 Every AND part must be supported; an OR alternative may suffice. Do not invent a missing qualifier or apply one language's level to another. If only part is covered, return unsupported or uncertain, never supported.
 Return verdict supported/unsupported/uncertain and one allowed reason; supported may use only explicit_fact, documented_behavior or relevant_role_or_tenure.`;
 export const EVIDENCE_ENTAILMENT_PROMPT_HASH = hash(EVIDENCE_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16);
@@ -104,12 +105,17 @@ export async function verifyQualificationEvidence({ requirements, match, rawMatc
     if (evidence.evidenceUnverified || (evidence.status === 'met' && !evidence.evidence)) return unknown('source_unbound');
     if (!evidence.evidence) continue;
     if (row.basis !== 'inferred' && (!row.quote || row.quoteUnverified)) return unknown('requirement_unbound');
+    if (row.nativeFormContract && (!row.nativeFormContract.question || row.quote !== row.nativeFormContract.question
+      || !['string', 'boolean', 'number'].includes(typeof row.proposedAnswer)
+      || (typeof row.proposedAnswer === 'number' && !Number.isFinite(row.proposedAnswer))
+      || (typeof row.proposedAnswer === 'string' && !row.proposedAnswer.trim()))) return unknown('form_contract_unbound');
     const original = rawMatch?.matches?.find(item => item.index === index);
     const proof = sources.bind(evidence.evidence, original?.evidence);
     if (!proof || proof.kind === 'profile_projection') return unknown('source_unbound');
     if (proof.kind === 'candidate_answer' && (!proof.answerRecord?.question?.question
       || !['candidate', 'owner'].includes(proof.answerRecord.provenance?.actor))) return unknown('answer_context_missing');
     claims.push({ index, basis: row.basis, employerQuote: row.quote, candidateAssertion: row.requirement,
+      ...(row.nativeFormContract ? { nativeFormContract: row.nativeFormContract, proposedAnswer: row.proposedAnswer } : {}),
       proof: { ...proof, quote: evidence.evidence } });
   }
   if (!claims.length) return purpose === 'proposal' && preliminary.status === 'compatible' ? unknown('no_positive_evidence') : { status: 'not_required' };

@@ -114,7 +114,7 @@ function fakeCodex() {
       };
     }
     if ((schema as any)?.properties?.assessments) {
-      const payload = JSON.parse(prompt.split('\n\n').at(-1)!);
+      const payload = JSON.parse(prompt.split('\n\nReturn exactly one JSON object')[0].split('\n\n').at(-1)!);
       return { assessments: payload.claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id,
         verdict: 'supported', reason: 'explicit_fact' })) };
     }
@@ -216,10 +216,10 @@ describe('draft mode', () => {
       if (request.schema?.properties?.assessments) {
         expect(request.timeoutMs).toBeLessThanOrEqual(5 * 60_000);
         if (scenario === 'judge_unavailable') throw new Error('broker unavailable');
-        const { claims } = JSON.parse(request.prompt.split('\n\n').at(-1)!);
+        const { claims } = JSON.parse(request.prompt.split('\n\nReturn exactly one JSON object')[0].split('\n\n').at(-1)!);
         expect(claims).toHaveLength(1);
         if (scenario === 'conflicting_correction') {
-          const payload = JSON.parse(request.prompt.split('\n\n').at(-1)!);
+          const payload = JSON.parse(request.prompt.split('\n\nReturn exactly one JSON object')[0].split('\n\n').at(-1)!);
           expect(payload.unverifiedContext.candidateNotes).toContain('never worked in a ward');
           return { assessments: [{ index: claims[0].index, proofId: claims[0].proof.id, verdict: 'uncertain', reason: 'contradiction' }] };
         }

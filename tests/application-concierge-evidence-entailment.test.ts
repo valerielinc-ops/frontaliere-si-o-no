@@ -108,6 +108,22 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     expect(payload.claims.every((claim: any) => claim.proof.kind === 'cv_original')).toBe(true);
   });
 
+  it('verifies a proposed form answer against its complete native question contract', async () => {
+    const f = fixture([qualificationEvidenceCases()[3]]);
+    const nativeFormContract = { question: 'Do you hold a university degree?', context: 'Education', section: 'Qualifications', options: ['Yes', 'No'], validation: { required: true } };
+    const requirements = { requirements: [{ ...f.requirements.requirements[0], quote: nativeFormContract.question, nativeFormContract, proposedAnswer: 'Yes' }] };
+    const result = await verifyQualificationEvidence({ ...f, requirements, purpose: 'documents' });
+    expect(result.status).toBe('supported');
+    const claim = JSON.parse(f.generate.mock.calls[0][1]).claims[0];
+    expect(claim.nativeFormContract).toEqual(nativeFormContract);
+    expect(claim.proposedAnswer).toBe('Yes');
+    expect(hasVerifiedQualificationEvidence({ requirements: { requirements: [{ ...requirements.requirements[0], proposedAnswer: 'No' }] }, match: f.match, result: { status: 'compatible' }, entailment: result.verification })).toBe(false);
+    f.generate.mockClear();
+    expect(await verifyQualificationEvidence({ ...f, requirements: { requirements: [{ ...requirements.requirements[0], proposedAnswer: undefined }] }, purpose: 'documents' }))
+      .toMatchObject({ status: 'unverified', verification: { failure: 'form_contract_unbound' } });
+    expect(f.generate).not.toHaveBeenCalled();
+  });
+
   it('does not let a duplicate positive row bypass the document-purpose verifier', async () => {
     const f = fixture();
     const duplicate = { ...f.match, matches: [...f.match.matches, { ...f.match.matches[0], evidence: 'Unsupported second proof' }] };
