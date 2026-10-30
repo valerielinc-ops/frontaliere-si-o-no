@@ -10877,8 +10877,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  )}
 
- {((selectedJob as { applyMode?: string }).applyMode === 'in_house'
- || (selectedJob as { applyMode?: string }).applyMode === 'forward_email') ? (
+ {!conciergeAction.active && isInHouseApply ? (
  <div id="candidatura">
  <PublisherApplyForm
  jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}
@@ -11296,7 +11295,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   *   on-page form (writes the `applications` doc → CF emails the publisher).
   *   The /lavoro/<slug>/candidatura/ deep-link (router + useEffect ~2668)
   *   and every apply CTA scroll here. Anchor offset clears the sticky nav. */}
- {isInHouseApply && (
+ {!conciergeAction.active && isInHouseApply && (
  <div id="candidatura" className="scroll-mt-24">
  <PublisherApplyForm
  jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}

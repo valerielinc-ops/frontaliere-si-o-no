@@ -35,6 +35,6 @@ describe('job detail header apply actions', () => {
   it('mounts the in-house apply form (#candidatura) in the LIVE detail path, not only the dead hybrid block', () => {
     expect(livePath).toContain('id="candidatura"');
     expect(livePath).toContain('<PublisherApplyForm');
-    expect(livePath).toContain('{isInHouseApply && (');
+    expect(livePath).toContain('{!conciergeAction.active && isInHouseApply && (');
   });
 });
