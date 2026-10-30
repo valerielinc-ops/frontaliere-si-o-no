@@ -58,6 +58,7 @@ jobs:
         run: |
           [[ "$ORDER_ID" =~ ^[A-Za-z0-9_-]{6,128}$ ]] || { echo "invalid order id"; exit 1; }
           [[ "$ROUND" =~ ^[0-9]{1,2}$ ]] || { echo "invalid round"; exit 1; }
+          echo "AGENT_RUN_STARTED_AT=$(date +%s%3N)" >> "$GITHUB_ENV"
 
       - name: Checkout
         uses: actions/checkout@v7
@@ -74,6 +75,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Functions runtime dependencies
+        run: npm ci --prefix functions
+
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -87,6 +91,11 @@ jobs:
 
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
+
+      - name: Verify agent entry point before handling candidate data
+        env:
+          AGENT_BOOT_ERROR_FILE: ${{ runner.temp }}/agent-boot-error.txt
+        run: node --input-type=module -e "await import('./scripts/assisted-application/agent.mjs')" 2> "$AGENT_BOOT_ERROR_FILE"
 
       # Codex Luna Max at effort max: the same bounded broker as the article
       # lanes. The draft writes with it; the submit plans each portal page.
@@ -135,6 +144,15 @@ jobs:
           else
             node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
           fi
+
+      - name: Reconcile failed executor with the application queue
+        if: failure()
+        env:
+          ORDER_ID: ${{ inputs.order_id }}
+          MODE: ${{ inputs.mode }}
+          ROUND: ${{ inputs.round }}
+          AGENT_BOOT_ERROR_FILE: ${{ runner.temp }}/agent-boot-error.txt
+        run: node scripts/assisted-application/report-runner-failure.mjs
 
       - name: Cleanup Codex auth broker
         if: always()

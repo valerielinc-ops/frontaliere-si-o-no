@@ -55,7 +55,7 @@ export const MAX_REVIEW_ROUNDS = 3;
 // Transient draft/broker run failures are dispatched up to this many times.
 // Infrastructure send failures use their independent queue policy instead.
 export const MAX_RUN_ATTEMPTS = 3;
-const TRANSIENT_RUN_ERROR_RE = /broker|timed[ _]?out|timeout|rate[ _]?limit|(?:^|[^0-9])(?:429|5\d\d)(?![0-9])|econnreset|econnrefused|etimedout|enetunreach|ehostunreach|eai_again|socket|(?:service|temporarily)[ _]?unavailable|overloaded/i;
+const TRANSIENT_RUN_ERROR_RE = /runner_infrastructure_unavailable|broker|timed[ _]?out|timeout|rate[ _]?limit|(?:^|[^0-9])(?:429|5\d\d)(?![0-9])|econnreset|econnrefused|etimedout|enetunreach|ehostunreach|eai_again|socket|(?:service|temporarily)[ _]?unavailable|overloaded/i;
 
 /** Codex broker refusals, timeouts, rate limits, 5xx: worth another run. */
 // runner_timeout is the watchdog's own verdict after its re-dispatches: not retried again.
