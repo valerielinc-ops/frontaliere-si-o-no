@@ -26,6 +26,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -157,11 +158,13 @@ export async function fetchAllCliniqueDeLaPlaineJobs() {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     const description = await fetchDetail(r.url);
-    const fallback = `${r.title} à la ${CLINIQUE_DE_LA_PLAINE_COMPANY_NAME}, ${HQ_CITY} (${HQ_CANTON}). Établissement à taille humaine spécialisé en chirurgie ambulatoire et hospitalisations de courte durée au centre-ville de Genève.`;
-    const safeDescription =
-      description && description.split(/\s+/).length >= 30
-        ? description
-        : [fallback, description].filter(Boolean).join('\n\n');
+    if (!meetsSourceBodyFloor(description)) {
+      throw new Error(
+        `${CLINIQUE_DE_LA_PLAINE_COMPANY_NAME} detail ${r.url} returned ${sourceBodyWordCount(description)} `
+        + `source-description words; refusing to publish below the ${MIN_SOURCE_BODY_WORDS}-word floor`,
+      );
+    }
+    const safeDescription = description;
 
     const sourceLang = detectLang(safeDescription || r.title, 'fr');
     const jobSlug = slugify(`${r.title} ${CLINIQUE_DE_LA_PLAINE_KEY} ${HQ_CITY}`);

@@ -29,6 +29,7 @@ import { createHash } from 'node:crypto';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -177,10 +178,13 @@ export async function fetchAllSpitalAffolternJobs() {
     const r = rows[i];
     if (i > 0) await new Promise((r2) => setTimeout(r2, DETAIL_DELAY_MS));
     const description = await fetchDetailDescription(r.url);
-    const fallback = `${r.title} — Spital Affoltern AG, ${r.location || 'Affoltern am Albis'} (Start: ${r.startDate}).`;
-    const safeDescription = description && description.split(/\s+/).length >= 30
-      ? description
-      : [fallback, description].filter(Boolean).join('\n\n');
+    if (!meetsSourceBodyFloor(description)) {
+      throw new Error(
+        `Spital Affoltern detail ${r.url} returned ${sourceBodyWordCount(description)} `
+        + `source-description words; refusing to publish below the ${MIN_SOURCE_BODY_WORDS}-word floor`,
+      );
+    }
+    const safeDescription = description;
 
     const cityRaw = (r.location || 'Affoltern am Albis').replace(/^.*-\s*/, '').trim();
     const sourceLang = detectLang(safeDescription || r.title, 'de');

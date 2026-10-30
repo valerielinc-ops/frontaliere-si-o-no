@@ -38,6 +38,11 @@ import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
+  MIN_SOURCE_BODY_WORDS,
+  meetsSourceBodyFloor,
+  sourceBodyWordCount,
+} from './source-body-floor.mjs';
+import {
   fetchHtml,
   decodeEntities,
   normalizeSpace,
@@ -317,6 +322,16 @@ export async function fetchAllStiftungDiaconisJobs({
       }
       throw new Error(`Abacus JobPortal API returned ${payload.length} records but no trusted real opening was parsed`);
     }
+    const incompleteApiRows = rows
+      .filter((row) => !meetsSourceBodyFloor(parseApiDescription(row.sourceRecord).body))
+      .map((row) => row.jobId);
+    if (incompleteApiRows.length > 0) {
+      throw new Error(
+        `Abacus JobPortal API returned ${incompleteApiRows.length} trusted openings without `
+        + `a source description of at least ${MIN_SOURCE_BODY_WORDS} words `
+        + `(publication ids: ${incompleteApiRows.join(', ')})`,
+      );
+    }
   } catch (apiError) {
     console.warn(`⚠️ JobPortal API fetch/parse failed: ${apiError?.message || apiError}`);
     console.warn(`   Trying legacy HTML fallback: ${LEGACY_LISTING_URL}`);
@@ -343,11 +358,13 @@ export async function fetchAllStiftungDiaconisJobs({
     if (!r.sourceRecord && i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     const detail = r.sourceRecord ? parseApiDescription(r.sourceRecord) : await fetchDetail(r.url);
     const description = detail.body;
-    const fallback = `${r.title} bei der ${STIFTUNG_DIACONIS_COMPANY_NAME}, ${HQ_CITY} (${HQ_CANTON}). Stiftung Diaconis betreibt Palliative Care, Wohnen im Alter sowie Arbeitsintegration in Bern.`;
-    const safeDescription =
-      description && description.split(/\s+/).length >= 30
-        ? description
-        : [fallback, description].filter(Boolean).join('\n\n');
+    if (!meetsSourceBodyFloor(description)) {
+      throw new Error(
+        `Stiftung Diaconis ${sourceLabel} returned ${sourceBodyWordCount(description)} source-description words `
+        + `for publication ${r.jobId}; refusing to publish below the ${MIN_SOURCE_BODY_WORDS}-word floor`,
+      );
+    }
+    const safeDescription = description;
 
     const sourceLang = detectLang(safeDescription || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${STIFTUNG_DIACONIS_KEY} ${HQ_CITY}`);
