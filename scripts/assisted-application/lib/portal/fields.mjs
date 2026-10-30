@@ -128,14 +128,20 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     return node ? clean(node.innerText || node.textContent) : '';
   };
   const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
-  const ownedGroupLabels = (group, selector, element) => [...(group?.querySelectorAll(selector) || [])]
-    .filter(label => {
+  const ownedGroupLabels = (group, selector, element) => {
+    const controls = [...(group?.querySelectorAll('input:not([type="hidden"]), select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]') || [])];
+    const oneQuestion = controls.length === 1 || controls.length > 0 && controls.every(control =>
+      control.matches('input[type="radio"], [role="radio"]') && (group.matches('[role="radiogroup"]')
+        || control.matches('input[type="radio"]') && Boolean(element.name) && control.name === element.name));
+    return [...(group?.querySelectorAll(selector) || [])].filter(label => {
       const owner = label.closest('label') || label;
+      const linked = [...owner.querySelectorAll('label[for]'), ...(owner.matches('label[for]') ? [owner] : [])];
       return label.closest(QUESTION_GROUP_SELECTOR) === group && !owner.contains(element)
         && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
-        && (!owner.matches('label[for]') || Boolean(element.id) && owner.getAttribute('for') === element.id)
-        && [...owner.querySelectorAll('label[for]')].every(linked => Boolean(element.id) && linked.getAttribute('for') === element.id);
+        && linked.every(node => Boolean(element.id) && node.getAttribute('for') === element.id)
+        && (linked.length > 0 || oneQuestion);
     });
+  };
   const labelFor = (element) => {
     if (element.id) {
       const direct = document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
