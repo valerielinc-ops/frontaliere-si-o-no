@@ -3098,7 +3098,11 @@ async function processPR(pr) {
 
   if (action === 'reopen') {
     console.log(`PR #${num}: LGTM sulla HEAD ${head.slice(0, 8)} e il solo review gate rosso → close+reopen sulla stessa head, nessun merge di main.`);
-    if (guardedReopen(num, head, { reviewInput })) clearStaleReviewLabel(num);
+    if (guardedReopen(num, head, { reviewInput })) {
+      if (reviewInputStableForMutation(num, reviewInput, 'la rimozione di stale-review')) {
+        clearStaleReviewLabel(num);
+      }
+    }
     return;
   }
 
@@ -3145,7 +3149,11 @@ async function processPR(pr) {
     }
     if (staleAction === 'retrigger') {
       console.log(`PR #${num}: stale-review senza review sulla HEAD — close+reopen sulla stessa head, nessun merge di main.`);
-      if (guardedReopen(num, head, { reviewInput })) clearStaleReviewLabel(num);
+      if (guardedReopen(num, head, { reviewInput })) {
+        if (reviewInputStableForMutation(num, reviewInput, 'la rimozione di stale-review')) {
+          clearStaleReviewLabel(num);
+        }
+      }
       return;
     }
     console.log(`PR #${num}: stale-review con stuck-red — il merge di main resta il rimedio.`);
