@@ -126,6 +126,15 @@ describe('qualification before proposal publication', () => {
     expect(conciergeProposalEligibility(incomplete, { matches: [{ index: 0, status: 'met', evidence: 'German C2' }], verdict: 'good' }))
       .toMatchObject({ status: 'unverified', reason: 'requirements_incomplete', gaps: [] });
   });
+  it('keeps an empty partial mobility citation a technical failure before and after the guard', async () => {
+    const { guardMobilityMatch } = await import('../functions/src/lib/mobilityRequirements.js');
+    const rows = { requirements: [{ requirement: 'Residenza in Svizzera', importance: 'critical', basis: 'stated', quote: 'Residence in Switzerland required' }] };
+    const match = { matches: [{ index: 0, status: 'partial', evidence: '' }], verdict: 'good', questions: [] };
+    const guarded = guardMobilityMatch(rows, match, { profile: {}, sourceText: 'Experienced candidate without residence evidence.' });
+    expect(guarded.matches[0]).toMatchObject({ status: 'partial', evidence: '', evidenceUnverified: true });
+    expect(guarded.questions).toEqual([]);
+    expect(conciergeProposalEligibility(rows, guarded)).toMatchObject({ status: 'unverified', reason: 'evidence_incomplete', gaps: [] });
+  });
   it('does not convert a geographic reference into a language requirement', () => {
     const geographic = { requirements: [{ requirement: 'Office location', importance: 'critical', basis: 'stated', quote: 'Office in the German-speaking part of Switzerland' }] };
     expect(conciergeProposalEligibility(geographic, { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong' }, { profile: rawProfile }).status).toBe('compatible');
