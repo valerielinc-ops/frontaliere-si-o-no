@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "a076be690c6f64362e97681161eeb0c05e4a8c15",
+  "commit": "c525dedd7cc31e0a2f44b071b9cc36bf23d64193",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -42930,6 +42930,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic architectural illustration of a municipal building; no readable text, signage, logos, watermarks, or recognizable people."
+      }
+    },
+    "/images/blog/article-scontro-fiscale-coppie-atto.webp": {
+      "schema": 1,
+      "assetId": "article-scontro-fiscale-coppie-atto",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "600af83eebaee209ab1c7d782f407972b6cdc9a1cd2d9bd34ba0f5ada4afc424",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "9fadebcfdcfc85f13f2dba45866f7bdaa0b9ac2cefbe3eee355a8da723dc79f7",
+      "bytes": 158376,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-30T07:58:14.635Z",
+      "verifiedAt": "2026-10-30T07:58:21.254Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-scontro-fiscale-coppie-atto.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a fiscal debate in a Swiss civic setting; no people, text, signage, logos, or identifiable event."
       }
     },
     "/images/places/lugano-view.webp": {

@@ -2908,6 +2908,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sem-rinnovo-simic-paralisi': { it: 'sem-rinnovo-simic-paralisi', en: 'sem-simic-renewal-paralysis', de: 'sem-simic-erneuerung-blockade', fr: 'sem-renouvellement-simic-paralysie' },
  'farmaci-riserve-finanziamento': { it: 'farmaci-riserve-finanziamento', en: 'medicine-stock-funding', de: 'medikamente-reserven-finanzierung', fr: 'medicaments-reserves-financement' },
  'svizzera-rischi-climatici-strumenti': { it: 'svizzera-rischi-climatici-strumenti', en: 'switzerland-climate-risk-tools', de: 'schweiz-klima-risiken-werkzeuge', fr: 'suisse-risques-climatiques-outils' },
+ 'scontro-fiscale-coppie-atto': { it: 'scontro-fiscale-coppie-atto', en: 'tax-conflict-couples-act', de: 'steuerkonflikt-paare-akt', fr: 'conflit-fiscal-couples-acte' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

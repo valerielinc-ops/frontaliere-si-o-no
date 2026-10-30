@@ -8657,6 +8657,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-rischi-climatici-strumenti.title': 'Over 30 tools for future climate risks in Switzerland',
     'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Over 30 tools for future climate risks NCCS-Impacts launched in 2022 Five projects, over 100 people involved Approximately 9 million francs',
     'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.scontro-fiscale-coppie-atto.title': 'Modernizers vs. conservatives: Act II in the tax battle over couples',
+    'blog.article.scontro-fiscale-coppie-atto.excerpt': 'March 8 is presented as a “revolution” under threat The model identified as a threat is income pooling The source refers to the second act of the tax dispute',
+    'blog.article.scontro-fiscale-coppie-atto.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

@@ -28963,6 +28963,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'scontro-fiscale-coppie-atto',
+    category: 'fiscale',
+    date: '2026-10-30T07:58:21.985Z',
+    image: '/images/blog/article-scontro-fiscale-coppie-atto.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

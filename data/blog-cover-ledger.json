@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 966,
+      "5": 967,
       "6": 5061
     },
-    "publishedCovers": 7709,
+    "publishedCovers": 7710,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -211740,6 +211740,39 @@
         "provider": "openai-codex",
         "assetId": "article-vivere-brunate-lavorare-ticino",
         "imageUrl": "/images/blog/article-vivere-brunate-lavorare-ticino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-scontro-fiscale-coppie-atto": {
+      "cover": "/images/blog/article-scontro-fiscale-coppie-atto.webp",
+      "hash": "9fadebcfdcfc85f13f2dba45866f7bdaa0b9ac2cefbe3eee355a8da723dc79f7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "scontro-fiscale-coppie-atto",
+          "category": "fiscale",
+          "date": "2026-10-30T07:58:21.985Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-scontro-fiscale-coppie-atto.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-30",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-scontro-fiscale-coppie-atto",
+        "imageUrl": "/images/blog/article-scontro-fiscale-coppie-atto.webp",
         "evidence": "generated-engine-record"
       }
     }
