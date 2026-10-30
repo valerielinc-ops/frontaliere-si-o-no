@@ -99,6 +99,9 @@ describe('PostHog smoke tests', () => {
     // Pageviews handled manually via analytics.ts (avoid double-capture in SPA).
     expect(opts.capture_pageview).toBe(false);
 
+    // An ordinary document stays eligible for Session Replay.
+    expect(opts.disable_session_recording).toBe(false);
+
     // Autocapture disabled — explicit events only.
     expect(opts.autocapture).toBe(false);
 
@@ -206,6 +209,18 @@ describe('Silent consent guarantee', () => {
 });
 
 describe('PostHog email URL privacy', () => {
+ it('excludes a document opened from a credential link from Session Replay', async () => {
+  vi.resetModules();
+  Object.defineProperty(window, 'location', {
+   configurable: true,
+   value: { ...window.location, hostname: 'frontaliereticino.ch', href: 'https://frontaliereticino.ch/?ne=x&ac=secret' },
+  });
+  const freshModule = await vi.importActual<typeof import('@/services/posthog')>('@/services/posthog');
+  freshModule.initPostHog();
+  await waitFor(() => posthogMock.init.mock.calls.length > 0);
+  expect(posthogMock.init.mock.calls[0][1].disable_session_recording).toBe(true);
+ });
+
  it('filters SDK-added URLs before sending pageleave events', async () => {
   posthogModule.initPostHog();
   await waitFor(() => Boolean(lastInitOptions));
