@@ -130,16 +130,20 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   const labelFor = (element) => {
     if (element.id) {
       const direct = document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
-      if (direct) return clean(direct.innerText || direct.textContent);
+      const directText = direct && clean(direct.innerText || direct.textContent);
+      if (directText) return directText;
     }
     const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(textOf).filter(Boolean).join(' ');
     if (labelledBy) return labelledBy;
-    if (element.getAttribute('aria-label')) return clean(element.getAttribute('aria-label'));
+    const ariaLabel = clean(element.getAttribute('aria-label'));
+    if (ariaLabel) return ariaLabel;
     const wrapping = element.closest('label');
-    if (wrapping) return clean(wrapping.innerText || wrapping.textContent);
+    const wrappingText = wrapping && clean(wrapping.innerText || wrapping.textContent);
+    if (wrappingText) return wrappingText;
     const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
     const legend = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
-    if (legend && !legend.contains(element)) return clean(legend.innerText || legend.textContent);
+    const legendText = legend && !legend.contains(element) && clean(legend.innerText || legend.textContent);
+    if (legendText) return legendText;
     const placeholder = element.getAttribute('placeholder');
     if (placeholder) return clean(placeholder);
     // Last resort: the closest container's own text before the control.

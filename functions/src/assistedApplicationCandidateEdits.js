@@ -1,3 +1,4 @@
+import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 /**
  * What the candidate may change on the review page before approving (owner
  * decision 2026-09-30): the cover letter, the e-mail to the employer (only
@@ -187,13 +188,14 @@ export function rememberCandidateQuestionAnswers({ questions, answers = {}, prev
 
 /** Whether a language ability question still needs an answer after facts from the CV are applied. */
 export function questionNeedsCandidateAnswer(question, profile) {
-  return !languageExplicitlyAbsent(profile, question?.question);
+  return Boolean(question) && !unreadablePortalQuestion(question) && !languageExplicitlyAbsent(profile, question?.question);
 }
 
 /** Remove questions established by the CV and duplicate semantic requests, retaining required status. */
 export function questionsForCandidate(questions, profile, answers = {}, memory = {}) {
   const projectedAnswers = candidateAnswersForQuestions(questions, answers, memory);
-  const candidates = (Array.isArray(questions) ? questions : []).filter((question) => questionNeedsCandidateAnswer(question, profile));
+  const candidates = (Array.isArray(questions) ? questions : []).filter((question) => questionNeedsCandidateAnswer(question, profile))
+    .map(question => question?.source === 'portal' ? { ...question, question: portalQuestionText(question) } : question);
   const answerValues = new Map();
   const conflictingKeys = new Set();
   const questionsByKey = new Map();
