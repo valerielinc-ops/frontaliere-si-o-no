@@ -25,6 +25,8 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
     const parts = key.split('/');
     return {
       id: parts[parts.length - 1],
+      get ref() { return ref(key); },
+      async delete() { documents.delete(key); },
       async get() {
         return { exists: documents.has(key), data: () => documents.get(key) };
       },
@@ -41,17 +43,29 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
   };
   const collection = (path: string): any => {
     const key = normalize(path);
-    return {
-      doc(id?: string) {
-        return ref(`${key}/${id || `auto-${++autoId}`}`);
-      },
+    const query = (filters: Array<[string, string, any]> = [], limit = Infinity, order = ''): any => ({
+      where: (field: string, op: string, value: any) => query([...filters, [field, op, value]], limit, order),
+      orderBy: (field: string) => query(filters, limit, field),
+      limit: (value: number) => query(filters, value, order),
+      count: () => ({ get: async () => {
+        const snapshot = await query(filters, limit, order).get();
+        return { data: () => ({ count: snapshot.docs.length }) };
+      } }),
       async get() {
         const prefix = `${key}/`;
-        return {
-          docs: [...documents.keys()]
-            .filter((candidate) => candidate.startsWith(prefix) && !candidate.slice(prefix.length).includes('/'))
-            .map((candidate) => ref(candidate)),
-        };
+        const rows = [...documents.keys()].filter(candidate => candidate.startsWith(prefix) && !candidate.slice(prefix.length).includes('/'))
+          .filter(candidate => filters.every(([field, op, value]) => {
+            const actual: any = documents.get(candidate)?.[field];
+            return op === '==' ? actual === value : op === '<=' ? actual != null && actual <= value : actual != null && actual > value;
+          }));
+        if (order) rows.sort((a, b) => Number(documents.get(a)?.[order] || 0) - Number(documents.get(b)?.[order] || 0));
+        return { docs: rows.slice(0, limit).map(candidate => ref(candidate)) };
+      },
+    });
+    return {
+      ...query(),
+      doc(id?: string) {
+        return ref(`${key}/${id || `auto-${++autoId}`}`);
       },
     };
   };
@@ -75,6 +89,7 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
         const operations: Array<() => void> = [];
         const transaction = {
           get: (target: any) => target.get(),
+          delete: (target: any) => operations.push(() => target.delete()),
           set(target: any, data: Record<string, unknown>, options?: { merge?: boolean }) {
             operations.push(() => target.set(data, options));
           },
@@ -760,43 +775,48 @@ describe('dated historical positions as matching evidence', () => {
 });
 
 describe('progress through the complete relevant job pool', () => {
-  it('retries an unavailable frontier entry before advancing beyond the old top-40 window', async () => {
+  it('keeps unavailable jobs retryable without letting them pin discovery beyond the old top-40 window', async () => {
     const path = 'application_concierge_services/service-progress';
+    const now = Date.now();
     const { db, documents } = createMatchingDb({
       [path]: { userId: 'candidate-progress', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
-        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(Date.now() + 86400000) },
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86400000) },
       'user_cv_profiles/candidate-progress': { status: 'ready', profile: { searchText: 'IT support', workPosition: 'IT Support Manager', skills: ['support', 'IT'] } },
     });
     const jobs = Array.from({ length: 70 }, (_, index) => ({ id: `job-${String(index).padStart(3, '0')}`,
       url: `https://jobs.example.test/job-${String(index).padStart(3, '0')}`, title: 'IT Support Manager', description: 'IT support responsibilities' }));
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => jobs })));
+    const clock = vi.spyOn(Date, 'now').mockReturnValue(now);
     const seen: string[][] = [];
     const attempts = new Map<string, number>();
     const unverifiedCounts: number[] = [];
+    const run = async () => {
+      let budget = 0;
+      const checked: string[] = [];
+      await runApplicationConciergeMatching({ db, serviceId: 'service-progress', eligibility: async (job: any) => {
+        if (budget++ >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
+        checked.push(job.id);
+        attempts.set(job.id, (attempts.get(job.id) || 0) + 1);
+        if (job.id === 'job-000') return { status: 'unverified', reason: 'analysis_unavailable' };
+        return job.id === 'job-055' ? { status: 'compatible' } : { status: 'incompatible' };
+      } });
+      seen.push(checked);
+      unverifiedCounts.push(Number(documents.get(path)?.matchingUnverifiedCount || 0));
+    };
     try {
-      for (let run = 0; run < 4; run++) {
-        let budget = 0;
-        const checked: string[] = [];
-        await runApplicationConciergeMatching({ db, serviceId: 'service-progress', eligibility: async (job: any) => {
-          if (budget++ >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
-          checked.push(job.id);
-          const attempt = (attempts.get(job.id) || 0) + 1;
-          attempts.set(job.id, attempt);
-          if (job.id === 'job-000' && attempt === 1) return { status: 'unverified', reason: 'analysis_unavailable' };
-          return job.id === 'job-055' ? { status: 'compatible' } : { status: 'incompatible' };
-        } });
-        seen.push(checked);
-        unverifiedCounts.push(documents.get(path)?.matchingUnverifiedCount || 0);
-      }
-      expect(seen[0]).toEqual(jobs.slice(0, 4).map(job => job.id));
-      expect(seen[1]).toEqual(jobs.slice(0, 20).map(job => job.id));
-      expect(seen[2]).toEqual(jobs.slice(20, 40).map(job => job.id));
-      expect(seen[3]).toEqual(jobs.slice(40, 60).map(job => job.id));
+      for (let index = 0; index < 4; index++) await run();
+      expect(seen[0]).toEqual(jobs.slice(0, 20).map(job => job.id));
+      expect(seen[1]).toEqual(jobs.slice(20, 40).map(job => job.id));
+      expect(seen[2]).toEqual(jobs.slice(40, 60).map(job => job.id));
+      expect(attempts.get('job-000')).toBe(1);
+      expect(unverifiedCounts).toEqual([1, 1, 1, 1]);
+      expect(documents.get(path)?.matchingPendingCount).toBe(0);
+      clock.mockReturnValue(now + 3600001);
+      await run();
       expect(attempts.get('job-000')).toBe(2);
-      expect(unverifiedCounts[0]).toBeGreaterThan(0);
+      expect(unverifiedCounts.at(-1)).toBe(1);
       expect([...documents.entries()].filter(([key, value]) => key.startsWith(`${path}/proposals/`) && value.status === 'proposed').map(([, value]) => value.jobId)).toEqual(['job-055']);
-      expect(documents.get(path)?.matchingPendingCount).toBe(10);
-    } finally { vi.unstubAllGlobals(); }
+    } finally { clock.mockRestore(); vi.unstubAllGlobals(); }
   });
 
   it('revalidates current proposals, advances the frontier and starts another cycle after its end', () => {
