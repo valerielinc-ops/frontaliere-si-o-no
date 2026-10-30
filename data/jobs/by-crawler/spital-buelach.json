@@ -5040,10 +5040,10 @@
     },
     {
       "id": "spital-buelach-8ea7aa898bd3",
-      "slug": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
+      "slug": "assistente-medico-a-in-pneumologia-neurologia-spital-bulach-bulach",
       "slugByLocale": {
         "de": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
-        "it": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
+        "it": "assistente-medico-a-in-pneumologia-neurologia-spital-bulach-bulach",
         "en": "mpa-medical-secretary-pneumology-neurology-spital-bulach-bulach",
         "fr": "mpa-secretaire-medical-en-pneumologie-neurologie-spital-bulach-bulach"
       },
@@ -5104,7 +5104,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T09:49:15.125Z"
+      "firstSeenAt": "2026-10-30T09:49:15.125Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-11cdd9ee41ec",

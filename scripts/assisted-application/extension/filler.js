@@ -30,9 +30,9 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
-  const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?( cookies)?|decline( all)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
+  const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
   // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
   const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
@@ -221,6 +221,25 @@
   }
 
   /** The words a person reads for this control. */
+  const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
+  const oneQuestionGroup = (group, element) => {
+    const controls = [...(group?.querySelectorAll('input:not([type="hidden"]), select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]') || [])];
+    return controls.length === 1 || controls.length > 0 && controls.every(control =>
+      control.matches('input[type="radio"], [role="radio"]') && (group.matches('[role="radiogroup"]')
+        || control.matches('input[type="radio"]') && Boolean(element.name) && control.name === element.name));
+  };
+  const ownedGroupLabels = (group, selector, element) => {
+    const oneQuestion = oneQuestionGroup(group, element);
+    return [...(group?.querySelectorAll(selector) || [])].filter(label => {
+      const owner = label.closest('label') || label;
+      const linked = [...owner.querySelectorAll('label[for]'), ...(owner.matches('label[for]') ? [owner] : [])];
+      return label.closest(QUESTION_GROUP_SELECTOR) === group && !owner.contains(element)
+        && !owner.querySelector('input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"]')
+        && linked.every(node => Boolean(element.id) && node.getAttribute('for') === element.id)
+        && (linked.length > 0 || oneQuestion);
+    });
+  };
+
   function labelOf(element) {
     const doc = element.ownerDocument;
     const byIds = (ids) => ids.split(/\s+/).map((id) => textOf(doc.getElementById(id))).join(' ').trim();
@@ -236,15 +255,17 @@
     // the question the candidate reads, right before the field, comes first.
     const aria = element.getAttribute('aria-label') || '';
     if (aria && !INTERNAL_NAME_RE.test(aria)) return aria;
-    if (aria) {
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    if (aria && (!group || oneQuestionGroup(group, element))) {
       const nearby = nearbyText(element);
       if (nearby) return nearby;
     }
     // A field group (Zag/Ark, fieldset): its own label or legend.
-    const group = element.closest('[role="group"], fieldset');
-    const legend = group?.querySelector('label, legend');
-    if (legend && !legend.contains(element) && textOf(legend)) return textOf(legend);
-    return questionOf(element) || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
+    for (const legend of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
+      if (!legend.contains(element) && textOf(legend)) return textOf(legend);
+    }
+    return (!group || oneQuestionGroup(group, element) ? questionOf(element) : '')
+      || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
   }
 
   // «[Default] Comment», «[General] Salary Expectations»: a form's own name for a field.
@@ -283,8 +304,10 @@
    */
   function labelsOf(element, label, runnerLabel = '') {
     const doc = element.ownerDocument;
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    const ownContext = !group || oneQuestionGroup(group, element);
     const described = (element.getAttribute('aria-describedby') || '').split(/\s+/).map((id) => textOf(doc.getElementById(id))).join(' ');
-    const names = [runnerLabel, label, nearbyText(element), element.getAttribute('aria-label'), described, questionOf(element),
+    const names = [runnerLabel, label, ownContext ? nearbyText(element) : '', element.getAttribute('aria-label'), described, ownContext ? questionOf(element) : '',
       element.getAttribute('title'), element.getAttribute('placeholder'), humanize(element.getAttribute('name')), humanize(element.id)];
     return [...new Set(names.map((name) => String(name || '').trim()).filter(Boolean))];
   }
@@ -328,9 +351,10 @@
       const node = doc.getElementById(id);
       if (node) labels.add(node);
     }
-    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
-    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
-    if (groupLabel && !groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    for (const groupLabel of ownedGroupLabels(group, 'legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]', element)) {
+      if (!groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
+    }
     const marker = (node, adjacent = false) => {
       if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
       const text = markerText(node);
@@ -416,6 +440,19 @@
       entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
         ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
     }
+    // Classic jQuery UI spans own a native select and its exact menu. The
+    // extension uses the same visible UI and verifies its submitted value.
+    for (const button of doc.querySelectorAll('.ui-selectmenu-button[role="combobox"]')) {
+      if (!isShown(button) || !button.id.endsWith('-button')) continue;
+      const nativeId = button.id.slice(0, -7);
+      const nativeSelect = doc.getElementById(nativeId);
+      if (nativeSelect?.tagName !== 'SELECT' || nativeSelect.multiple || nativeSelect.matches(':disabled')
+        || button.getAttribute('aria-owns') !== `${nativeId}-menu`) continue;
+      const label = labelOf(nativeSelect);
+      entries.push({ kind: 'combobox', widget: 'jquery-selectmenu', element: button, nativeSelect,
+        ownedList: `${nativeId}-menu`, label, labels: labelsOf(button, label, runnerLabelOf(runner, button)),
+        required: isRequiredControl(nativeSelect), type: 'select' });
+    }
     // Workday's dropdowns: buttons that open a listbox (the runner's «listbox» fields).
     for (const button of doc.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
       if (button.disabled || !isShown(button) || inPicker(button)) continue;
@@ -423,8 +460,13 @@
       const label = own === textOf(button) ? questionOf(button) || nearbyText(button) || own : own;
       // The site's own language menu is not part of the application.
       if (/language.?selector|sprachauswahl/i.test(`${label} ${button.getAttribute('data-automation-id') || ''}`)) continue;
+      const previous = button.previousElementSibling;
+      const nativeSelect = button.classList.contains('ui-multiselect') && previous?.tagName === 'SELECT'
+        && previous.id && previous.getAttribute('aria-labelledby')
+        && previous.getAttribute('aria-labelledby') === button.getAttribute('aria-labelledby') ? previous : null;
       entries.push({
         kind: 'listbox',
+        ...(nativeSelect ? { nativeSelect } : {}),
         element: button,
         label,
         labels: labelsOf(button, label, runnerLabelOf(runner, button)),
@@ -433,9 +475,10 @@
       });
     }
     for (const radios of radiosByName.values()) {
-      const question = questionOf(radios[0]);
-      const group = radios[0].closest('fieldset, [role="radiogroup"], [role="group"]');
-      const legend = group ? textOf(group.querySelector('legend, [role="heading"], label')) : '';
+      const group = radios[0].closest(QUESTION_GROUP_SELECTOR);
+      const question = !group || oneQuestionGroup(group, radios[0]) ? questionOf(radios[0]) : '';
+      const legend = ownedGroupLabels(group, 'legend, [role="heading"], label', radios[0])
+        .filter(node => !node.closest('label')?.hasAttribute('for') && !node.querySelector('label[for]')).map(textOf).find(Boolean) || '';
       const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))];
       entries.push({
         kind: 'radio',
@@ -472,10 +515,12 @@
 
   function isEmpty(entry) {
     const { element } = entry;
+    if (entry.widget === 'jquery-selectmenu') return !entry.nativeSelect.value;
     if (entry.kind === 'checkbox') return !element.checked;
     if (entry.kind === 'file') return !(element.files && element.files.length);
     if (entry.kind === 'radio') return !entry.options.some((option) => option.element.checked);
     if (entry.kind === 'aria-radio') return !entry.options.some((option) => option.element.getAttribute('aria-checked') === 'true');
+    if (entry.kind === 'listbox' && entry.nativeSelect) return !entry.nativeSelect.selectedOptions.length;
     if (entry.kind === 'listbox') return LISTBOX_PLACEHOLDER_RE.test(normalize(textOf(element))) || !normalize(textOf(element));
     if (entry.kind === 'search-select') return !chosenPills(element).length && !String(element.value || '').trim();
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
@@ -628,11 +673,20 @@
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
       const accept = String(entry.element.getAttribute('accept') || '');
       if (/image|png|jpe?g/i.test(accept) && !/pdf|doc/i.test(accept)) return null;
+      const ownLabel = normalize(entry.label);
+      if (isNonCvDocumentLabel(entry.label)) {
+        const extra = extraDocumentFor(ownLabel, kit);
+        return extra ? { document: extra } : null;
+      }
+      if (!CV_RE.test(ownLabel) && isNonCvDocumentLabel(label)) {
+        const extra = extraDocumentFor(label, kit);
+        return extra ? { document: extra } : null;
+      }
       if (LETTER_RE.test(label) && !CV_RE.test(label)) return { document: 'coverLetter' };
       if (CV_RE.test(label)) return { document: 'cv' };
       const extra = extraDocumentFor(label, kit);
       if (extra) return { document: extra };
-      if (fromKit?.source === 'documents' || CV_RE.test(normalize(questionOf(entry.element)))) return { document: 'cv' };
+      if (fromKit?.source === 'documents' || (CV_RE.test(normalize(questionOf(entry.element))) && !isNonCvDocumentLabel(questionOf(entry.element)))) return { document: 'cv' };
       return null;
     }
     if (entry.kind === 'checkbox') {
@@ -958,6 +1012,15 @@
         element.files = transfer.files;
         fire(element, 'input');
         fire(element, 'change');
+        // The same optional-parser disclosure rule as the automated runner;
+        // decline only a scoped dialog that explicitly permits continuing.
+        if (typeof view.CompilaOptionalAutofillDecline === 'function') {
+          const button = await waitFor(() => view.CompilaOptionalAutofillDecline()
+            && element.ownerDocument.querySelector('[data-aa-autofill-decline="1"]'));
+          if (button) {
+            try { press(button); } finally { button.removeAttribute('data-aa-autofill-decline'); }
+          }
+        }
         return Boolean(element.files && element.files.length === (element.multiple ? files.length : 1));
       }
       case 'checkbox':
@@ -976,14 +1039,38 @@
         return true;
       }
       case 'select': {
-        const option = bestOption([...element.options].map((item) => ({ element: item, label: item.text })), answer.value, answer.family);
+        const option = bestOption([...element.options].filter(item => !item.matches(':disabled') && !item.closest('optgroup:disabled')).map((item) => ({ element: item, label: item.text })), answer.value, answer.family);
         if (!option) return false;
         setValue(element, option.element.value);
         return true;
       }
       case 'combobox':
+        if (entry.widget === 'jquery-selectmenu') {
+          const options = [...entry.nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')
+            && normalize(option.text) === normalize(answer.value));
+          if (options.length !== 1) return false;
+          const option = options[0];
+          press(element);
+          const menu = element.ownerDocument.getElementById(entry.ownedList);
+          const choices = [...(menu?.querySelectorAll('.ui-menu-item-wrapper, [role="option"]') || [])]
+            .filter(item => isShown(item) && normalize(textOf(item)) === normalize(option.text) && item.getAttribute('aria-disabled') !== 'true');
+          if (choices.length !== 1) return false;
+          press(choices[0]);
+          return entry.nativeSelect.value === option.value;
+        }
         return chooseInCombobox(element, answer.value, entry.selectLike, answer.family);
       case 'listbox': {
+        if (entry.nativeSelect) {
+          const option = bestOption([...entry.nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ element: option, label: option.text })), answer.value, answer.family);
+          if (!option) return false;
+          press(element);
+          const inputs = [...element.ownerDocument.getElementsByName(`multiselect_${entry.nativeSelect.id}`)]
+            .filter(input => input.matches('input[type="checkbox"], input[type="radio"]') && input.value === option.element.value);
+          if (inputs.length !== 1) return false;
+          if (!inputs[0].checked) press(inputs[0]);
+          fire(element, 'keydown', { key: 'Escape' });
+          return [...entry.nativeSelect.selectedOptions].some(selected => selected.value === option.element.value);
+        }
         // Open it, click the option the answer names (lib/portal/fill.mjs: exact label).
         press(element);
         const option = await waitFor(() => bestOption(openOptions(element.ownerDocument), answer.value, answer.family));
@@ -1064,15 +1151,29 @@
    * One pass on the page: answers every empty question the kit can answer.
    * @returns {Promise<{filled:string[], missing:Array<{label:string, answer:string}>, failed:string[], entries:number}>}
    */
+  const anonymousUploadIds = new WeakMap();
+  let anonymousUploadCounter = 0;
+  function uploadControlId(element) {
+    const stable = element.getAttribute('data-aa-id') || element.id;
+    if (stable) return stable;
+    // A name or label can be shared by several controls. Without a stable DOM
+    // id, remember this node only; a replacement node needs its own receipt.
+    if (!anonymousUploadIds.has(element)) anonymousUploadIds.set(element, `anonymous-${++anonymousUploadCounter}`);
+    return anonymousUploadIds.get(element);
+  }
+
   async function fillPage(doc, kit, { getFile, getFiles, attempts, uploaded = new Set() }) {
     const filled = [];
     const missing = [];
     const failed = [];
     const entries = collect(doc, kit?.channelType);
+    const cvControls = entries.filter(entry => entry.kind === 'file' && answerFor(entry, kit)?.document === 'cv');
+    const preferredCv = new Set(preferredDocumentControls(cvControls));
     for (const entry of entries) {
+      if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
       if (!isEmpty(entry)) continue;
       const answer = answerFor(entry, kit);
-      const documentKey = answer?.document ? `${doc.defaultView.location.pathname}|${answer.document}` : '';
+      const documentKey = answer?.document ? `${doc.defaultView.location.href}|${answer.document}|${uploadControlId(entry.element)}` : '';
       if (documentKey && uploaded.has(documentKey)) continue;
       if (!answer) {
         if (entry.required) missing.push({ label: entry.label || entry.kind, answer: '' });

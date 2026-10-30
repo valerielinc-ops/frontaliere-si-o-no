@@ -3,6 +3,7 @@ import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, 
 import { addressQuestionTopic, permitBooleanOptionLabel, questionTopic } from './plan.mjs';
 import { countryCodeOfLabel, formatPhoneForField, phoneCountryCode, phoneDialCode } from '../../../../functions/src/lib/phoneNormalization.js';
 import { residenceCountryCode } from './residence-address.mjs';
+import { dismissOptionalAutofill } from './optional-autofill.mjs';
 
 const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'residence_country';
 
@@ -724,6 +725,7 @@ async function observeFileUpload(page, setFiles, { settleMs = UPLOAD_SETTLE_MS, 
     const deadline = now() + settleMs;
     let quietSince = now();
     while (now() < deadline) {
+      await dismissOptionalAutofill(page);
       if (inFlight.size) quietSince = now();
       else if (now() - quietSince >= quietMs) break;
       await page.waitForTimeout(150);
@@ -789,6 +791,7 @@ export async function applyActions(page, fields, actions, files, {
     // How many files an upload set, for the record of what left (submit.mjs).
     let uploaded = 0;
     try {
+      await dismissOptionalAutofill(page);
       const locator = locatorFor(page, field);
       if (action.action === 'upload') {
         const paths = documentPaths(files, action.document);
@@ -824,6 +827,37 @@ export async function applyActions(page, fields, actions, files, {
               : residenceCountryOptionLabel(action.value, field.options || []));
           if (!selectedLabel) throw new Error('option_not_found');
           await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
+        } else if (field.widget === 'jquery-selectmenu') {
+          const matches = (field.options || []).filter(option => normalizedChoice(option.label) === normalizedChoice(action.value));
+          if (matches.length !== 1) throw new Error('option_owner_ambiguous');
+          const option = matches[0];
+          const frame = page.frames()[field.frame || 0] || page.mainFrame();
+          const quote = value => String(value).replace(/["\\]/g, '\\$&');
+          await locator.click({ timeout: ACTION_TIMEOUT_MS });
+          const menu = frame.locator(`[id="${quote(field.ownedList)}"]`);
+          const item = menu.getByText(option.label, { exact: true });
+          if (await item.count() !== 1) throw new Error('option_owner_ambiguous');
+          await item.click({ timeout: ACTION_TIMEOUT_MS });
+          const selected = await frame.locator(`select[id="${quote(field.nativeSelectId)}"]`).evaluate((select, value) => select.value === value, option.value);
+          if (!selected) throw new Error('choice_not_registered');
+          results.push({ fieldId: field.id, ok: true });
+          await pause();
+          continue;
+        } else if (field.widget === 'jquery-multiselect') {
+          const option = (field.options || []).find(option => normalizedChoice(option.label) === normalizedChoice(action.value));
+          if (!option) throw new Error('option_not_found');
+          await locator.click({ timeout: ACTION_TIMEOUT_MS });
+          const frame = page.frames()[field.frame || 0] || page.mainFrame();
+          const quote = value => String(value).replace(/["\\]/g, '\\$&');
+          const checkbox = frame.locator(`input[name="multiselect_${quote(field.nativeSelectId)}"][value="${quote(option.value)}"]`);
+          if (await checkbox.count() !== 1) throw new Error('option_owner_ambiguous');
+          await checkbox.setChecked(true, { timeout: ACTION_TIMEOUT_MS });
+          await locator.press('Escape').catch(() => {});
+          const selected = await frame.locator(`select[id="${quote(field.nativeSelectId)}"]`).evaluate((select, value) => [...select.selectedOptions].some(option => option.value === value), option.value);
+          if (!selected) throw new Error('choice_not_registered');
+          results.push({ fieldId: field.id, ok: true });
+          await pause();
+          continue;
         } else if (field.kind === 'listbox') {
           // Workday: open the listbox and click the option (OfferOS dom-fill, fillListboxButton).
           await locator.click({ timeout: ACTION_TIMEOUT_MS });
