@@ -67,6 +67,7 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 import { evaluateCeiling, familyEntry, readLedgerOrNull } from './lib/seoDefectRatchet.mjs';
+import { NON_DESCRIPTIVE_ANCHOR_TEXT } from './lib/non-descriptive-anchor-text.mjs';
 
 /**
  * Ledger family name for the NON-DESCRIPTIVE half of this gate (#5845 item 2 /
@@ -121,27 +122,7 @@ export const RATE_TOLERANCE_REL = 0.20;
  * Matches the Semrush A11 / issue 217 catalog. Kept byte-identical to the
  * vitest mirror's `NON_DESCRIPTIVE_ANCHOR_TEXT`.
  */
-export const NON_DESCRIPTIVE_ANCHOR_TEXT = new Set([
-  'qui',
-  'here',
-  'click here',
-  'clicca qui',
-  'leggi',
-  'leggi tutto',
-  'leggi di più',
-  'read more',
-  'scopri',
-  'scopri di più',
-  'continua',
-  'continue',
-  'vedi',
-  'vedi tutto',
-  'more',
-  'di più',
-  'mehr',
-  'plus',
-  'en savoir plus',
-]);
+export { NON_DESCRIPTIVE_ANCHOR_TEXT };
 
 /**
  * True when the anchor's outer markup provides any accessible name to

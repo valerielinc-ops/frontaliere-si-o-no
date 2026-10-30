@@ -189,6 +189,10 @@ export async function purgeExpiredAssistedApplicationFiles(
         interviewPrep: null,
         candidateAlias: null,
         emailEngagement: null,
+        employerResponse: null,
+        employerReplies: 0,
+        lastEmployerReplyAt: null,
+        lastEmployerReplyCategory: null,
         retentionPurgedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
