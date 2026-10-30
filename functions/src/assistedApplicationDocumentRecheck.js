@@ -39,11 +39,11 @@ function verifyDescriptor(value, secret, nowMs) {
   if (typeof value !== 'string' || value.length > 4096) fail('invalid_check', 400);
   const [payload, mac, extra] = value.split('.');
   const expected = signature(payload || '', secret);
-  if (extra || !mac || mac.length !== expected.length || !timingSafeEqual(Buffer.from(mac), Buffer.from(expected))) fail('invalid_check', 400);
+  if (extra || !/^[A-Za-z0-9_-]{43}$/.test(mac || '') || mac.length !== expected.length || !timingSafeEqual(Buffer.from(mac), Buffer.from(expected))) fail('invalid_check', 400);
   let descriptor;
   try { descriptor = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8')); }
   catch { fail('invalid_check', 400); }
-  if (!Number.isFinite(descriptor.expiresAt) || descriptor.expiresAt <= nowMs || descriptor.version !== DOCUMENT_CHECK_VERSION) fail('check_expired', 409);
+  if (!descriptor || typeof descriptor !== 'object' || !Number.isFinite(descriptor.expiresAt) || descriptor.expiresAt <= nowMs || descriptor.version !== DOCUMENT_CHECK_VERSION) fail('check_expired', 409);
   return descriptor;
 }
 
@@ -78,7 +78,7 @@ export async function recheckStoredDocument({ db, bucket, claims, documentId, fi
     }
     const expiresAt = Math.min(now() + LIFETIME_MS, claims.expiresAt, retentionPurgeDueAt((await load()).order) ?? Infinity);
     const [bytes] = await bucket.file(initial.file.key, { generation }).download({ start: 0, end: MAX_DOCUMENT_BYTES });
-    if (bytes.length !== size) fail('file_changed');
+    if (bytes.length !== size || createHash('md5').update(bytes).digest('base64') !== md5Hash) fail('file_changed');
     const sha256 = digest(bytes);
     const [after] = await object.getMetadata();
     if (String(after.generation) !== generation || after.md5Hash !== md5Hash || Number(after.size) !== size) fail('file_changed');

@@ -237,7 +237,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     const controller = new AbortController();
     const round = data.round;
     void (async () => {
-      const results = new Map<string, ReviewDocument['files'][number]['clientCheck']>();
+      const results = new Map<string, { check: ReviewDocument['files'][number]['clientCheck']; uploadedAt: number | null; size: number }>();
       for (const document of data.documents || []) {
         for (const file of document.files) {
           if ((file.clientCheck.version || 1) >= DOCUMENT_CHECK_VERSION) continue;
@@ -246,15 +246,18 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           rechecked.current.add(key);
           try {
             const check = await recheckReviewDocument(token, document, file, controller.signal);
-            if (check && !cancelled) results.set(`${document.id}:${file.id}`, check);
+            if (check && !cancelled) results.set(`${document.id}:${file.id}`, { check, uploadedAt: file.uploadedAt, size: file.size });
           } catch { /* Keep the old, explicitly legacy verdict; never invent a successful check. */ }
         }
       }
       if (!cancelled && currentToken.current === token && results.size) setData(current => !current || current.round !== round ? current : ({
         ...current,
-        documents: (current.documents || []).map(document => ({ ...document, files: document.files.map(file => ({
-          ...file, clientCheck: results.get(`${document.id}:${file.id}`) || file.clientCheck,
-        })) })),
+        documents: (current.documents || []).map(document => ({ ...document, files: document.files.map(file => {
+          const result = results.get(`${document.id}:${file.id}`);
+          return result && result.uploadedAt === file.uploadedAt && result.size === file.size
+            && (file.clientCheck.version || 1) <= (result.check.version || 1)
+            ? { ...file, clientCheck: result.check } : file;
+        }) })),
       }));
     })();
     return () => { cancelled = true; controller.abort(); };
