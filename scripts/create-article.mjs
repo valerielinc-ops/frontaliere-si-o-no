@@ -105,7 +105,7 @@ import {
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
   dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
-import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES, assertNoFabricatedNormAcronyms, mentionsWrongConventionDate, CONVENTION_DATE_IT } from './lib/article-factuality-gates.mjs';
+import { runFactualityGates, formatIssues, formatRemediation, normalizeRemediationIssues, buildSourceContract, FACT_CHECK_CATEGORIES, assertNoFabricatedNormAcronyms, mentionsWrongConventionDate, CONVENTION_DATE_IT } from './lib/article-factuality-gates.mjs';
 import { loadDefectMemory, learnedDenylist, learnedSuspects } from './lib/article-defect-memory.mjs';
 import { decodeControlEscapesByField } from './lib/unescape-ts-string.mjs';
 import {
@@ -4121,17 +4121,18 @@ function normalizeFactCheckIssues(issues, { isEvergreen = false } = {}) {
   if (!Array.isArray(issues)) return [];
   return issues.flatMap((issue) => {
     if (!issue || typeof issue !== 'object') return [];
-    const reason = String(issue.reason || '').toLowerCase();
-    if (issueLooksAffirmative(issue)) return [];
+    const normalized = normalizeRemediationIssues([issue])[0];
+    const reason = normalized.reason.toLowerCase();
+    if (issueLooksAffirmative(normalized)) return [];
     if (
       isEvergreen
-      && issue.severity === 'major'
+      && normalized.severity === 'major'
       && /\b(non (è|e')? presente nella fonte|non (è|e')? stato trovato nella fonte|non compare nella fonte|fonte originale)\b/i.test(reason)
       && !/\b(falso|sbagliat|errat|inesatt|inventat|inesistent|contraddic|non esist)\b/i.test(reason)
     ) {
-      return [{ ...issue, severity: 'minor' }];
+      return [{ ...normalized, severity: 'minor' }];
     }
-    return [issue];
+    return [normalized];
   });
 }
 
@@ -11064,7 +11065,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           // computed them), so the writer repairs the passage instead of
           // deleting it. Unlike the LLM verifier's issues, each of these is a
           // verified fact about the text, so the feedback cannot mislead.
-          lastFactCheckErrors = formatRemediation(gateResult.blocking);
+          lastFactCheckErrors = formatRemediation(normalizeRemediationIssues(gateResult.blocking));
           console.error(`  🔄 Rigenero contenuto IT per gate deterministici (${attempt}/${maxAttempts})...`);
           continue;
         }
@@ -11110,7 +11111,10 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           // formatRemediation() reports the overflow instead of dropping the
           // tail silently.
           const FACTCHECK_FEEDBACK_CAP = 8;
-          lastFactCheckErrors = formatRemediation(factResult.issues, { cap: FACTCHECK_FEEDBACK_CAP });
+          lastFactCheckErrors = formatRemediation(
+            normalizeRemediationIssues(factResult.issues),
+            { cap: FACTCHECK_FEEDBACK_CAP },
+          );
           console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${maxAttempts})...`);
           continue;
         }
