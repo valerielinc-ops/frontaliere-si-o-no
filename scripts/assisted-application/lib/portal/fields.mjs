@@ -111,7 +111,12 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (label.length > 1024) { complete = false; continue; }
     scopes.push({ tag: node.tagName, id: node.id || '', index: node.parentElement ? [...node.parentElement.children].indexOf(node) : -1, role: node.getAttribute('role') || '', label });
   }
-  const owner = { v: 1, tag: element?.tagName, type: element?.type, id: element?.id || '', name: element?.name || '',
+  const controlPath = [];
+  for (let node = element, depth = 0; node && node !== form && node !== doc?.body; node = node.parentElement, depth++) {
+    if (depth >= 64) { complete = false; break; }
+    controlPath.push({ tag: node.tagName, index: node.parentElement ? [...node.parentElement.children].indexOf(node) : -1 });
+  }
+  const owner = { v: 1, path: controlPath, tag: element?.tagName, type: element?.type, id: element?.id || '', name: element?.name || '',
     form: { tag: form?.tagName || '', id: form?.id || '', index: form ? [...doc.querySelectorAll('form, [role="form"]')].indexOf(form) : -1,
       action: actionPath, method: form?.method || '' }, autocomplete: element?.getAttribute('autocomplete') || '', scopes };
   let ownerKey = '';
