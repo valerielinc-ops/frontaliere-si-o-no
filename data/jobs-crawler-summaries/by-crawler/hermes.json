@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-10-31T09:19:43.901Z",
+  "generatedAt": "2026-10-31T21:18:32.368Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 15035,
-  "avgDurationMs": 15035,
+  "durationMs": 14185,
+  "avgDurationMs": 14185,
   "durationHistory": [
-    15035
+    14185
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:19:28.699Z",
+      "crawledAt": "2026-10-31T21:18:19.263Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24472",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:19:28.052Z",
+      "crawledAt": "2026-10-31T21:18:18.634Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -108,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-10-31T09:11:44.384Z",
+  "generatedAt": "2026-10-31T21:20:47.220Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 9638,
-  "avgDurationMs": 9638,
+  "durationMs": 11311,
+  "avgDurationMs": 11311,
   "durationHistory": [
-    9638
+    11311
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:11:30.272Z",
+      "crawledAt": "2026-10-31T21:20:29.219Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -79,7 +79,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:11:31.290Z",
+      "crawledAt": "2026-10-31T21:20:30.457Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -122,7 +122,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:11:31.270Z",
+      "crawledAt": "2026-10-31T21:20:30.430Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -165,7 +165,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:11:29.028Z",
+      "crawledAt": "2026-10-31T21:20:27.924Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -208,7 +208,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:11:28.282Z",
+      "crawledAt": "2026-10-31T21:20:27.283Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -251,7 +251,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:11:27.612Z",
+      "crawledAt": "2026-10-31T21:20:26.604Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -294,7 +294,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:11:27.034Z",
+      "crawledAt": "2026-10-31T21:20:25.300Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -319,5 +319,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }
