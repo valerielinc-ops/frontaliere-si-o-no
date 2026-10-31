@@ -51,7 +51,7 @@ import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath,
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { renderArticleLocaleVariantNavHtml } from './shared/localeVariantNav.mjs';
-import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, resolveArticleBylineNote } from './shared/aiDisclosure';
+import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, hasLinkedSources, resolveArticleBylineNote } from './shared/aiDisclosure';
 import {
   resolveArticleProvenance,
   resolveArticleTransparencyStatement,
@@ -1222,11 +1222,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // same copy. Provenance is resolved like resolveArticleProvenance(): an
  // explicit per-article declaration wins, with the Firebase identity kept as
  // the legacy default for records that predate that declaration.
- const buildArticleTransparencyAside = (locale: string, authorName: string | undefined, provenance: ArticleProvenance): string => {
+ const buildArticleTransparencyAside = (locale: string, authorName: string | undefined, provenance: ArticleProvenance, bodyHtml: string): string => {
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
   const statement = resolveArticleTransparencyStatement(locale, provenance, authorName);
-  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)} ${esc(tr.sources)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
+  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)}${hasLinkedSources(bodyHtml) ? ` ${esc(tr.sources)}` : ''}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
  };
 
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —
@@ -1761,7 +1761,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  }),
  url: full,
  inLanguage: locale,
- // Author matches the visible "Di {authorName}" byline below and the
+ // Author matches the visible localized byline ("Di/By/Von/Par {authorName}") below and the
  // SPA-side Organization schema (#3520) — Google's guidance: structured-data
  // author must match the byline. Organization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
@@ -1842,7 +1842,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+ { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}${breadcrumbLocale === 'it' ? '/' : `/${breadcrumbLocale}/`}` },
  { '@type': 'ListItem', position: 2, name: sectionName, item: sectionCrumbUrl },
  { '@type': 'ListItem', position: 3, name: localizedTitle },
  ],
@@ -2075,7 +2075,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
-${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">${ARTICLE_BYLINE[disclosureLocale(locale)].by} ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${articleBylineNote ? ` (${esc(articleBylineNote)})` : ''}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleAtfMarkup}${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">${ARTICLE_BYLINE[disclosureLocale(locale)].by} ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${articleBylineNote ? ` (${esc(articleBylineNote)})` : ''}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleAtfMarkup}${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance, articleBodyHtml)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

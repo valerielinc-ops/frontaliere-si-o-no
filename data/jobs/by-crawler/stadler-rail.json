@@ -13896,12 +13896,12 @@
     },
     {
       "id": "stadler-rail-99d9330fdf8b",
-      "slug": "einkaufer-in-systeme-stadler-rail-ch",
+      "slug": "addetto-a-agli-acquisti-di-sistemi-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "einkaufer-in-systeme-stadler-rail-ch",
-        "it": "einkaufer-in-systeme-stadler-rail-ch",
-        "en": "einkaufer-in-systeme-stadler-rail-ch",
-        "fr": "einkaufer-in-systeme-stadler-rail-ch"
+        "it": "addetto-a-agli-acquisti-di-sistemi-stadler-rail-bussnang",
+        "en": "systems-buyer-stadler-rail-bussnang",
+        "fr": "acheteur-euse-de-systemes-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13946,7 +13946,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -13960,7 +13959,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-31T09:50:17.075Z"
+      "firstSeenAt": "2026-10-31T09:50:17.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "einkaufer-in-systeme-stadler-rail-ch"
+        ],
+        "en": [
+          "einkaufer-in-systeme-stadler-rail-ch"
+        ],
+        "fr": [
+          "einkaufer-in-systeme-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "einkaufer-in-systeme-stadler-rail-ch"
+      ]
     }
   ]
 }

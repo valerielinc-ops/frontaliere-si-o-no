@@ -1262,3 +1262,43 @@ it.each([true, false])('retries only the failed CV control when labels and names
   expect(options.uploaded.size).toBe(2);
   expect(inputs[1].files?.[0]?.name).toBe('CV.pdf');
 });
+
+
+describe('fill extension: optional purposes share the runner consent guard', () => {
+  it.each([
+    'I accept privacy and cookies',
+    'I accept privacy and data sharing with partners',
+    'Ich akzeptiere Datenschutz und Weitergabe an Partnerfirmen',
+    'Accetto la privacy e la condivisione con i partner',
+    'J accepte la confidentialité et le partage avec nos partenaires',
+    'Accetto la privacy e la condivisione con terzi',
+    'Ich akzeptiere Datenschutz und Weitergabe an Dritte',
+    'J accepte la confidentialité et le partage avec des tiers',
+    'I accept privacy and third party marketing',
+    'I accept privacy and news\u00adletter',
+  ])('leaves a required mixed consent to the candidate: %s', (label) => {
+    const { document, F } = page(`<label><input id="mixedConsent" type="checkbox" required> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'mixedConsent');
+    expect(entry.required).toBe(true);
+    expect(F.answerFor(entry, kit)).toBe(null);
+    expect((document.getElementById('mixedConsent') as HTMLInputElement).checked).toBe(false);
+  });
+});
+
+
+describe('fill extension: native fact metadata vetoes a privacy label', () => {
+  it.each([
+    ['name', 'workPermit'], ['name', 'experienceYears'], ['name', 'experience\u00adYears'],
+    ['name', 'ｗｏｒｋＰｅｒｍｉｔ'], ['autocomplete', 'bday'], ['autocomplete', 'sex'],
+  ])('leaves %s=%s unchecked', (key, value) => {
+    const { document, F } = page(`<label><input id="nativeFact" type="checkbox" required ${key}="${value}"> I agree to the privacy policy</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'nativeFact');
+    expect(F.answerFor(entry, kit)).toBe(null);
+    expect((document.getElementById('nativeFact') as HTMLInputElement).checked).toBe(false);
+  });
+  it('includes a contradictory native ID in the shared veto', () => {
+    const { document, F } = page('<label><input id="workPermitCheckbox" type="checkbox" required> I agree to the privacy policy</label>');
+    const entry = F.collect(document).find((item: any) => item.element.id === 'workPermitCheckbox');
+    expect(F.answerFor(entry, kit)).toBe(null);
+  });
+});

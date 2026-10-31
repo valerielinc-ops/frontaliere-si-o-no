@@ -649,7 +649,8 @@
       ],
       "datePosted": "2026-09-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:21:09.281Z"
+      "crawledAt": "2026-10-31T09:21:09.281Z",
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Wil SG",
@@ -691,7 +692,7 @@
         "it": "addetto-a-al-commercio-al-dettaglio-cfc-wil-sg-sunrise-communications-ag-wil-sg",
         "en": "detailhandelsfachmann-frau-efz-wil-sg-sunrise-wil-sg",
         "de": "detailhandelsfachmann-frau-efz-wil-sg-sunrise-wil-sg",
-        "fr": "gestionnaire-du-commerce-de-detail-cfc-wil-sg-sunrise-communications-ag-wil-sg"
+        "fr": "detailhandelsfachmann-frau-efz-wil-sg-sunrise-wil-sg"
       },
       "id": "sunrise-sede-ticino-d17ba12c40b6",
       "salaryMin": 57500,
@@ -715,7 +716,7 @@
         ],
         "fr": [
           "twisthandelsfachmann-frau-efz-wil-sg-sunrise-communications-ag-wil-sg",
-          "detailhandelsfachmann-frau-efz-wil-sg-sunrise-wil-sg"
+          "gestionnaire-du-commerce-de-detail-cfc-wil-sg-sunrise-communications-ag-wil-sg"
         ],
         "it": [
           "detailhandelsfachmann-frau-efz-wil-sg-sunrise-wil-sg"
@@ -723,7 +724,8 @@
       },
       "previousSlugs": [
         "twisthandelsfachmann-frau-efz-wil-sg-sunrise-communications-ag-wil-sg",
-        "detailhandelsfachmann-frau-efz-wil-sg-sunrise-wil-sg"
+        "detailhandelsfachmann-frau-efz-wil-sg-sunrise-wil-sg",
+        "gestionnaire-du-commerce-de-detail-cfc-wil-sg-sunrise-communications-ag-wil-sg"
       ],
       "datePosted": "2026-09-02",
       "postingDateSource": "reported",
@@ -1406,7 +1408,8 @@
       },
       "previousSlugs": [
         "sales-agent-schaffhausen-herblingermarkt-60-100-sunrise-schaffhausen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Sales Agent Pfäffikon SZ Seedamm-Center 60-100%",

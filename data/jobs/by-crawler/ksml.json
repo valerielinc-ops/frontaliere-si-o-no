@@ -4429,7 +4429,6 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40633",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-8-klassen-15-lektionen-oberstufe-langnau-osla-langnau-40633"
@@ -14736,7 +14735,7 @@
       "slugByLocale": {
         "de": "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072",
         "it": "insegnante-di-classe-1-2-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
-        "en": "class-teacher-1-2-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
+        "en": "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
         "fr": "enseignant-1-2-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen-40072"
       },
       "slugDisambiguator": "40072",
@@ -14790,12 +14789,13 @@
           "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
         ],
         "en": [
-          "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
+          "class-teacher-1-2-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
         ]
       },
       "previousSlugs": [
         "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072",
-        "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
+        "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
+        "class-teacher-1-2-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -21109,9 +21109,9 @@
       "slug": "fachperson-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
       "slugByLocale": {
         "de": "fachperson-logopadie-schule-signau-signau-40616",
-        "it": "fachperson-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
-        "en": "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
-        "fr": "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
+        "it": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
+        "en": "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
+        "fr": "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
       },
       "slugDisambiguator": "40616",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -21158,7 +21158,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
         "fachperson-logopadie-schule-signau-signau-40617",
@@ -21166,28 +21165,25 @@
         "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
         "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
         "fachperson-logopadie-schule-signau-signau-40616",
-        "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
-        "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
-        "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
+        "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
           "fachperson-logopadie-schule-signau-signau-40617",
           "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
-          "fachperson-logopadie-schule-signau-signau-40616",
-          "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
+          "fachperson-logopadie-schule-signau-signau-40616"
         ],
         "en": [
           "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
-          "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
+          "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
         ],
         "de": [
           "fachperson-logopadie-schule-signau-signau-40617"
         ],
         "fr": [
           "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
-          "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
+          "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
         ]
       },
       "salaryMin": 59000,

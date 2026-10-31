@@ -590,7 +590,7 @@
       "slug": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "it": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
-        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
+        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
         "de": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
         "fr": "construction-de-bois-de-contremaitre-m-f-d-80-100-implenia-rumlang"
       },
@@ -641,7 +641,8 @@
         "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
         "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
-        "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
+        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -652,7 +653,7 @@
           "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
         ],
         "en": [
-          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3"
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
         ],
         "fr": [
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
@@ -2870,9 +2871,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "own-initiative-application-implenia-opfikon",
+        "en": "initiativbewerbung-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "demande-d-initiative-implenia-opfikon"
+        "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2926,17 +2927,18 @@
         ],
         "en": [
           "speculative-application-implenia-opfikon",
-          "initiativbewerbung-implenia-opfikon"
+          "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
-          "initiativbewerbung-implenia-ch"
+          "demande-d-initiative-implenia-opfikon"
         ]
       },
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
         "speculative-application-implenia-opfikon",
         "initiativebewerbung-implenia-opfikon",
-        "initiativbewerbung-implenia-opfikon"
+        "own-initiative-application-implenia-opfikon",
+        "demande-d-initiative-implenia-opfikon"
       ],
       "firstSeenAt": "2026-08-11T10:27:35.418Z",
       "salaryMin": 73500,
@@ -4772,7 +4774,7 @@
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
         "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
-        "fr": "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4827,13 +4829,13 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-          "depollution-m-j-implenia-glattpark-opfikon"
+          "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
         "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-        "depollution-m-j-implenia-glattpark-opfikon"
+        "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

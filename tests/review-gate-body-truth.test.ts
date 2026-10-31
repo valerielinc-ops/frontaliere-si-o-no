@@ -5,6 +5,7 @@ import {
   classifyReview,
   isContractDomainBodyFinding,
   renderStaleBodyFindingComment,
+  ReviewGateTransientError,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
 
@@ -113,6 +114,30 @@ describe('the deterministic body contract is the single source of truth', () => 
       classifyAndMintReviewFn, bodyContractPassed: false,
     });
     expect(red.approved).toBe(false);
+  });
+
+  it('keeps a transient lookup separate from the current body verdict', async () => {
+    const revision = `body:${'b'.repeat(64)}`;
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD,
+      reviewRevision: revision,
+      readReviewsFn: () => {
+        throw new ReviewGateTransientError('rate-limit reset pending', { resetAt: 1_800_000_002 });
+      },
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.failureKind).toBe('transient');
+    expect(result.headSha).toBe(HEAD);
+    expect(result.reviewRevision).toBe(revision);
+    expect(result.transientEvidence).toEqual({
+      headSha: HEAD,
+      reviewRevision: revision,
+      resetAt: 1_800_000_002,
+    });
   });
 });
 

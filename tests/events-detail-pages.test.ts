@@ -227,7 +227,6 @@ describe('eventLd canonical', () => {
       const ld = eventLd(stale as never, 'it', canonical) as Record<string, any>;
       expect(ld.sameAs).toEqual([homepage]);
       expect(ld.url).toBe(canonical);
-      expect(ld.offers.url).toBe(canonical);
     }
   });
   it('declares the schema.org context so Google recognizes the Event block', () => {
@@ -251,7 +250,7 @@ describe('eventLd canonical', () => {
 });
 
 describe('eventLd source attribution (#3125)', () => {
-  it('fills deterministic organizer/performer defaults without source metadata', () => {
+  it('fills the organizer default and no performer without source metadata', () => {
     const guidleEvent = { ...EVENT, id: 'guidle:abc', sourceKey: 'guidle', sourceName: 'Guidle' };
     const ld = eventLd(guidleEvent as never, 'it') as Record<string, any>;
     expect(ld.organizer).toEqual({
@@ -259,7 +258,7 @@ describe('eventLd source attribution (#3125)', () => {
       name: 'Guidle',
       url: 'https://www.guidle.com/de',
     });
-    expect(ld.performer).toEqual({ '@type': 'Organization', name: EVENT.venue });
+    expect(ld.performer).toBeUndefined();
   });
 
   it('emits named organizer/performer metadata when the crawler supplies it', () => {
@@ -326,17 +325,57 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('emits a complete zero-price Offer for a direct unpriced event input', () => {
+  it('emits no Offer for an unpriced event: zero would claim it is free', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(ld.offers).toMatchObject({
-      '@type': 'Offer',
-      price: 0,
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: EVENT.startDate,
-      url: EVENT.url,
-    });
+    expect(ld.offers).toBeUndefined();
     expect(ld.isAccessibleForFree).toBeUndefined();
+  });
+
+  it('keeps addresses out of performer and organizer', () => {
+    const ld = eventLd({
+      ...EVENT,
+      venue: 'Fiescheralp 4',
+      performer: { '@type': 'Organization', name: 'Fiescheralp 4' },
+      organizer: { '@type': 'Organization', name: 'Schweizer Skischule Fiesch Fiescheralp 4', url: 'https://example.com/e' },
+    } as never, 'it') as Record<string, any>;
+    expect(ld.performer).toBeUndefined();
+    expect(ld.organizer).toEqual({ '@type': 'Organization', name: 'Schweizer Skischule Fiesch', url: 'https://example.com/e' });
+  });
+
+  it('keeps a named act that only looks like an address, and a venue organizing its own show', () => {
+    const ld = eventLd({
+      ...EVENT,
+      venue: 'Teatro Sociale',
+      performer: { '@type': 'Organization', name: 'Maroon 5' },
+      organizer: { '@type': 'Organization', name: 'Teatro Sociale', url: 'https://example.com/t' },
+    } as never, 'it') as Record<string, any>;
+    expect(ld.performer.name).toBe('Maroon 5');
+    expect(ld.organizer.name).toBe('Teatro Sociale');
+  });
+
+  it('models a recurring series as first occurrence plus eventSchedule', () => {
+    const ld = eventLd({
+      ...EVENT,
+      startDate: '2026-12-30',
+      startTime: '16:30',
+      endDate: '2027-02-24',
+      recurring: true,
+    } as never, 'it') as Record<string, any>;
+    expect(ld.startDate).toBe('2026-12-30T16:30:00+01:00');
+    expect(ld.endDate).toBe(ld.startDate);
+    expect(ld.eventSchedule).toEqual({
+      '@type': 'Schedule',
+      startDate: '2026-12-30',
+      endDate: '2027-02-24',
+      startTime: '16:30:00',
+      scheduleTimezone: 'Europe/Zurich',
+    });
+  });
+
+  it('leaves a continuous multi-day event as one event', () => {
+    const ld = eventLd({ ...EVENT, startDate: '2026-12-01', endDate: '2026-12-05' } as never, 'it') as Record<string, any>;
+    expect(ld.endDate).toBe('2026-12-05');
+    expect(ld.eventSchedule).toBeUndefined();
   });
 
   it('emits verified price fields for a free event', () => {
@@ -716,7 +755,7 @@ describe('renderEventDetailPage', () => {
     const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
       .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
       .find((schema) => schema['@type'] === 'Event');
-    expect(eventSchema?.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(eventSchema?.offers).toBeUndefined();
     expect(eventSchema?.isAccessibleForFree).toBeUndefined();
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');

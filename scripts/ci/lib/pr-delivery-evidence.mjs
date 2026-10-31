@@ -18,6 +18,13 @@ import { realpathSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 
+import {
+  FIX_OUTCOME,
+  FIX_OUTCOME_CODES,
+} from '../close-recovered-failure-issues.mjs';
+
+export { FIX_OUTCOME, FIX_OUTCOME_CODES };
+
 export const DELIVERY_STATUS = Object.freeze({
   DELIVERED: 'verified-delivery',
   NONE: 'verified-none',
@@ -287,6 +294,33 @@ export function normalizeDeliveryEvidence(value) {
     reason: identityText(value.reason) || null,
     prNumber,
   };
+}
+
+/**
+ * Convert delivery evidence into the one terminal marker vocabulary.
+ * `unavailable` deliberately has no marker: an unreadable lookup is not proof
+ * of either delivery or an empty run. A verified empty result may use a
+ * context-specific non-delivery marker, but it can never become `pr-created`.
+ * @param {unknown} value
+ * @param {{noneOutcome?: string}} [options]
+ */
+export function outcomeFromDeliveryEvidence(value, { noneOutcome = FIX_OUTCOME.NO_PR_UNSPECIFIED } = {}) {
+  const evidence = normalizeDeliveryEvidence(value);
+  if (evidence.status === DELIVERY_STATUS.UNAVAILABLE) {
+    return { ...evidence, outcome: null };
+  }
+  if (evidence.status === DELIVERY_STATUS.DELIVERED) {
+    return { ...evidence, outcome: FIX_OUTCOME.PR_CREATED };
+  }
+  if (!FIX_OUTCOME_CODES.includes(noneOutcome) || noneOutcome === FIX_OUTCOME.PR_CREATED) {
+    return {
+      status: DELIVERY_STATUS.UNAVAILABLE,
+      reason: 'marker-outcome-invalid',
+      prNumber: null,
+      outcome: null,
+    };
+  }
+  return { ...evidence, outcome: noneOutcome };
 }
 
 /**
@@ -583,7 +617,13 @@ function main(argv) {
     process.exitCode = result.exitCode;
     return;
   }
-  throw new Error('usage: pr-delivery-evidence.mjs capture|evaluate|classify ...');
+  if (command === 'marker') {
+    const evidence = readEvidence(requiredArg(args, 'evidence'));
+    const noneOutcome = identityText(args['none-outcome']) || undefined;
+    console.log(JSON.stringify(outcomeFromDeliveryEvidence(evidence, { noneOutcome })));
+    return;
+  }
+  throw new Error('usage: pr-delivery-evidence.mjs capture|evaluate|classify|marker ...');
 }
 
 if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
