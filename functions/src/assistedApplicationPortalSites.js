@@ -34,6 +34,25 @@ export function exactPortalVerificationUrl(value, portalHost) {
   }
 }
 
+/**
+ * The one pending account that can be bound to an exact portal host. Account
+ * document keys are schema history, not identity: a canonical key and a
+ * legacy alias with the same host are an ambiguity, never a reason to pick a
+ * first or newest record.
+ */
+export function currentPendingPortalAccount(accounts, portalHost) {
+  const normalizedHost = String(portalHost || '').toLowerCase();
+  if (!normalizedHost) return null;
+  const matches = Object.values(accounts || {}).filter((entry) => entry && typeof entry === 'object'
+    && !Array.isArray(entry)
+    && String(entry.host || '').toLowerCase() === normalizedHost);
+  if (matches.length !== 1) return null;
+  const [entry] = matches;
+  const encryptedPassword = entry.passwordEnc;
+  return encryptedPassword && typeof encryptedPassword === 'object' && !Array.isArray(encryptedPassword)
+    && entry.verifiedAt == null ? entry : null;
+}
+
 /** A verification link on the portal's own site (or its ATS family), over https. */
 export function sameSite(url, portalHost) {
   let target;

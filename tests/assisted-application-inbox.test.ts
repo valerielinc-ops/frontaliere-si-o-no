@@ -15,7 +15,7 @@ const {
   orderIdForAlias,
   removeOrderAlias,
 } = await import('../functions/src/assistedApplicationAlias.js');
-const { classifyByRules, correctedCategory, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
+const { claimedByPortalAccount, classifyByRules, correctedCategory, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
 const { parseMimeMessage } = await import('../functions/src/lib/mimeMessage.js');
 const { candidateIdentity } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
@@ -265,6 +265,36 @@ describe('employer messages on the alias', () => {
     });
     const [ack] = again.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => again.store.read(path)!);
     expect(ack).toMatchObject({ category: 'auto_acknowledgement', classifiedBy: 'rules' });
+  });
+
+  it('keeps an authenticated verbatim OTP when the model also proposes multiple URLs', async () => {
+    const { store, alias } = await setupInbound();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ arbeitgeber_ch: { host: 'arbeitgeber.ch', passwordEnc: { v: 1 }, verifiedAt: null } });
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    const verificationUrl = 'https://arbeitgeber.ch/verify/123';
+    const text = `Verify your account. Your verification code is 123456. ${verificationUrl} https://arbeitgeber.ch/privacy`;
+    await deliver({
+      store,
+      alias,
+      raw: employerMail({ subject: 'Verify your account', text, authenticated: true }),
+      sendCascade,
+      classify: async () => ({
+        category: 'verification', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [],
+        // The proposed URL is verbatim and exact, but the second footer URL
+        // makes the URL path ambiguous, so only the OTP can claim.
+        verificationCode: '123456', verificationUrl, needsReply: false,
+      }),
+    });
+    const [inbox] = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
+    expect(inbox).toMatchObject({ portalVerificationHost: 'arbeitgeber.ch', verificationCode: '123456', verificationUrl, forwarded: { status: 'skipped', reason: 'portal_verification' } });
+    expect(sendCascade).not.toHaveBeenCalled();
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    expect(await claimedByPortalAccount(orderRef, {
+      category: 'verification', verificationCode: '999999', verificationUrl: 'https://evil.example/altered',
+    }, 'hr@arbeitgeber.ch', {
+      authenticated: true, verificationAsked: true, linkAsked: true, text,
+    })).toBe(false);
   });
 
   it('reads an HTML-only portal verification message and keeps its code for the waiting account', async () => {

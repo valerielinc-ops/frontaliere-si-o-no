@@ -214,6 +214,7 @@ describe('portal account store', () => {
 
   it('waits for the verification message received after the account was created, on the portal’s site', async () => {
     const store = createMemoryFirestore({
+      [ACCOUNTS]: { [hostKey(HOST)]: { host: HOST, passwordEnc: { v: 1 }, verifiedAt: null } },
       [`assisted_applications/${ORDER}/inbox/old`]: { receivedAt: 100, category: 'verification', verificationUrl: `https://${HOST}/old`, verificationCode: '' },
       [`assisted_applications/${ORDER}/inbox/phish`]: { receivedAt: 600, category: 'verification', verificationUrl: 'https://evil.example/verify', verificationCode: '' },
       [`assisted_applications/${ORDER}/inbox/ack`]: { receivedAt: 700, category: 'auto_acknowledgement', verificationUrl: '', verificationCode: '' },
@@ -237,8 +238,81 @@ describe('portal account store', () => {
     expect(await empty.waitForVerification({ host: HOST, sinceMs: 0, timeoutMs: 30_000 })).toBeNull();
   });
 
+  it('migrates only a proven legacy URL for the same fresh pending account', async () => {
+    const legacyPath = `assisted_applications/${ORDER}/inbox/legacy`;
+    const account = { [hostKey(HOST)]: { host: HOST, passwordEnc: { v: 1 }, verifiedAt: null } };
+    const waitFor = async (patch: Record<string, unknown>, orderId = ORDER, accounts = account) => {
+      const store = createMemoryFirestore({
+        [`assisted_applications/${orderId}/automation/accounts`]: accounts,
+        [legacyPath.replace(ORDER, orderId)]: {
+          receivedAt: 600,
+          category: 'verification',
+          host: HOST,
+          verificationUrl: `https://${HOST}/verify/123`,
+          verificationCode: '',
+          schemaVersion: 1,
+          tenant: orderId,
+          ...patch,
+        },
+      });
+      let now = 500;
+      const portal = portalAccountStore({ db: store.db, orderId, key: KEY, nowMs: () => now, sleep: async (ms: number) => { now += ms; } });
+      return portal.waitForVerification({ host: HOST, sinceMs: 500, timeoutMs: 10 });
+    };
+
+    await expect(waitFor({})).resolves.toMatchObject({ url: `https://${HOST}/verify/123`, messageId: 'legacy' });
+    await expect(waitFor({ verificationUrl: 'https://evil.example/verify/123' })).resolves.toBeNull();
+    await expect(waitFor({ host: `${HOST}.evil.example` })).resolves.toBeNull();
+    await expect(waitFor({ receivedAt: 499 })).resolves.toBeNull();
+    await expect(waitFor({ senderAuthenticated: false })).resolves.toBeNull();
+    // A new marker, even a bad one, is authoritative and never falls back to
+    // the old host field.
+    await expect(waitFor({ portalVerificationHost: 'other.example' })).resolves.toBeNull();
+    // Another tenant's host cannot claim this order's pending account.
+    await expect(waitFor({ host: 'other.portal.example', verificationUrl: 'https://other.portal.example/verify' })).resolves.toBeNull();
+    // A verified or missing current target prevents any in-memory migration.
+    await expect(waitFor({}, ORDER, { [hostKey(HOST)]: { host: HOST, passwordEnc: { v: 1 }, verifiedAt: 700 } })).resolves.toBeNull();
+    await expect(waitFor({}, ORDER, { [hostKey(HOST)]: { host: 'lookalike.example', passwordEnc: { v: 1 }, verifiedAt: null } })).resolves.toBeNull();
+    await expect(waitFor({}, ORDER, { [hostKey(HOST)]: { host: HOST, passwordEnc: { v: 1 }, createdAt: 700, verifiedAt: null } })).resolves.toBeNull();
+
+    const crossOrder = createMemoryFirestore({
+      [`assisted_applications/${ORDER}/automation/accounts`]: account,
+      [`assisted_applications/other-order/inbox/legacy`]: {
+        receivedAt: 600, category: 'verification', host: HOST, verificationUrl: `https://${HOST}/verify/123`, verificationCode: '',
+      },
+    });
+    let now = 500;
+    const currentOrder = portalAccountStore({ db: crossOrder.db, orderId: ORDER, key: KEY, nowMs: () => now, sleep: async (ms: number) => { now += ms; } });
+    await expect(currentOrder.waitForVerification({ host: HOST, sinceMs: 500, timeoutMs: 10 })).resolves.toBeNull();
+  });
+
+  it('requires one exact pending account record across canonical and legacy keys', async () => {
+    const markerPath = `assisted_applications/${ORDER}/inbox/marker`;
+    const marker = {
+      receivedAt: 600,
+      category: 'verification',
+      portalVerificationHost: HOST,
+      verificationUrl: `https://${HOST}/verify/marker`,
+      verificationCode: '',
+    };
+    const waitFor = async (accounts: Record<string, unknown>) => {
+      const store = createMemoryFirestore({ [ACCOUNTS]: accounts, [markerPath]: marker });
+      let now = 500;
+      const portal = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => now, sleep: async (ms: number) => { now += ms; } });
+      return portal.waitForVerification({ host: HOST, sinceMs: 500, timeoutMs: 10 });
+    };
+    const pending = { host: HOST, passwordEnc: { v: 1 }, verifiedAt: null };
+
+    await expect(waitFor({ portal: pending })).resolves.toMatchObject({ url: `https://${HOST}/verify/marker`, messageId: 'marker' });
+    await expect(waitFor({ portal: { ...pending, host: 'other.example' } })).resolves.toBeNull();
+    await expect(waitFor({ portal: { ...pending, verifiedAt: 700 } })).resolves.toBeNull();
+    await expect(waitFor({ portal: { ...pending, passwordEnc: null } })).resolves.toBeNull();
+    await expect(waitFor({ portal: pending, [hostKey(HOST)]: { ...pending } })).resolves.toBeNull();
+  });
+
   it('excludes verification messages that existed before a resend, even when their receipt timestamp is delayed', async () => {
     const store = createMemoryFirestore({
+      [ACCOUNTS]: { [hostKey(HOST)]: { host: HOST, passwordEnc: { v: 1 }, verifiedAt: null } },
       [`assisted_applications/${ORDER}/inbox/old`]: { receivedAt: 1000, category: 'verification', verificationUrl: '', verificationCode: '111111' },
     });
     let now = 5000;

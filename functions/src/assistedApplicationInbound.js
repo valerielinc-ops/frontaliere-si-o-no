@@ -27,7 +27,7 @@ import { randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
-import { exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL } from './assistedApplicationPortalSites.js';
+import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
@@ -129,7 +129,7 @@ const REJECTION_RE = phrases(String.raw`regret to inform|unsuccessful|not succes
 const OTHER_CANDIDATE_RE = phrases(String.raw`(?:other|another|anderen?|andere|autres?|altr[aeio]) (?:\p{L}+ )?(?:candidat\p{L}*|applicant\p{L}*|kandidat\p{L}*|bewerber\p{L}*|person\p{L}*|profil\p{L}*)`);
 const DECISION_RE = phrases(String.raw`decided|chosen|selected|(?:proceed\p{L}*|mov\p{L}* forward) with (?:an)?other|entschieden|gewählt|ausgewählt|retenu\p{L}*|choisi\p{L}*|scelto|scelta|selezionat\p{L}*|preferit\p{L}*|optato`);
 const REFUSAL_WORD_RE = phrases(String.raw`absag\p{L}*|abgesagt|abgelehnt|rejected|declined|respint\p{L}*|rifiutat\p{L}*|rejet[ée]e?|refus[ée]e?`);
-const OFFER_RE = phrases(String.raw`(?:pleased|happy|delighted) to offer you|offer you the (?:position|role|job)|your (?:job|employment) offer|freuen uns\s+${words(5)}anzubieten|lieti di (?:offrir|proporl)\p{L}*|offre de poste`);
+const OFFER_RE = phrases(String.raw`(?:pleased|happy|delighted) to offer you|offer you the (?:position|role|job)|your (?:job|employment) offer|freuen uns[,:;]?\s+${words(5)}anzubieten|lieti di (?:offrir|proporl)\p{L}*|offre de poste`);
 const CONTRACT_RE = phrases(String.raw`employment contract|arbeitsvertrag|contratto di lavoro|contrat de travail`);
 const CONTRACT_SENT_RE = phrases(String.raw`attached|enclosed|anbei|beigefügt|allegato|ci-jointe?|sign\p{L}*|unterschreib\p{L}*|unterzeich\p{L}*|firmar\p{L}*`);
 const ASSESSMENT_RE = phrases(String.raw`assessment\p{L}*|online[- ]test|test online|case study|video[- ]interview|hirevue|codility`);
@@ -487,20 +487,32 @@ const PROCESSING_STALE_MS = 10 * 60 * 1000;
  * messages go to the candidate as usual; the runner still reads a code from
  * the inbox, so forwarding a doubtful one never blocks it.
  */
-async function portalAccountsWaiting(orderRef) {
+async function portalAccountsForOrder(orderRef) {
   const snapshot = await orderRef.collection('automation').doc(PORTAL_ACCOUNTS_DOC_ID).get();
-  return Object.values(snapshot.data() || {}).filter((entry) => entry?.passwordEnc && !entry.verifiedAt);
+  return snapshot.data() || {};
 }
 
 async function verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked, linkAsked, text } = {}) {
   if (!authenticated || !verificationAsked || classification.category !== 'verification') return '';
-  const waiting = await portalAccountsWaiting(orderRef);
+  const accounts = await portalAccountsForOrder(orderRef);
   const link = classification.verificationUrl;
-  const senderHost = String(sender || '').split('@')[1] || '';
-  const account = waiting.find((entry) => link
-    ? Boolean(linkAsked && soleSecureLink(String(text || '')) === link && exactPortalVerificationUrl(link, entry.host))
-    : Boolean(classification.verificationCode && containsVerbatimCode(String(text || ''), classification.verificationCode)
-      && senderHost === String(entry.host || '').toLowerCase()));
+  const sourceText = String(text || '');
+  const senderMatch = /^[^@\s]+@([^@\s]+)$/i.exec(String(sender || ''));
+  const senderHost = senderMatch?.[1].toLowerCase() || '';
+  const soleLink = linkAsked ? soleSecureLink(sourceText) : '';
+  const verbatimCode = classification.verificationCode
+    && containsVerbatimCode(sourceText, classification.verificationCode);
+  let account = null;
+  if (link && soleLink === link) {
+    try {
+      const linkHost = new URL(link).hostname.toLowerCase();
+      const candidate = currentPendingPortalAccount(accounts, linkHost);
+      if (candidate && exactPortalVerificationUrl(link, candidate.host)) account = candidate;
+    } catch {
+      account = null;
+    }
+  }
+  if (!account && verbatimCode && senderHost) account = currentPendingPortalAccount(accounts, senderHost);
   return account ? String(account.host).toLowerCase() : '';
 }
 
@@ -519,7 +531,14 @@ export async function claimedByPortalAccount(orderRef, classification, sender = 
 async function linkOfWaitingAccount(orderRef, { sourceText, linkAsked, authenticated }) {
   const link = linkAsked && authenticated ? soleSecureLink(sourceText) : '';
   if (!link) return '';
-  return (await portalAccountsWaiting(orderRef)).some((entry) => exactPortalVerificationUrl(link, entry.host)) ? link : '';
+  const accounts = await portalAccountsForOrder(orderRef);
+  try {
+    const linkHost = new URL(link).hostname.toLowerCase();
+    const account = currentPendingPortalAccount(accounts, linkHost);
+    return account && exactPortalVerificationUrl(link, account.host) ? link : '';
+  } catch {
+    return '';
+  }
 }
 
 /**

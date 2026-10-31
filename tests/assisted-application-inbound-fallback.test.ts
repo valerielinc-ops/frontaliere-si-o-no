@@ -8,7 +8,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 
 const { ensureOrderAlias } = await import('../functions/src/assistedApplicationAlias.js');
 const { buildForward, classifyByRules, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
-const { portalAccountStore } = await import('../scripts/assisted-application/lib/portal/account.mjs');
+const { hostKey, portalAccountStore } = await import('../scripts/assisted-application/lib/portal/account.mjs');
 const { employerResponseOf, employerResponseView } = await import('../functions/src/assistedApplicationEmployerResponse.js');
 
 const ORDER = 'order_FALLBACK1';
@@ -173,6 +173,9 @@ describe('fallback classification by the purpose of the message', () => {
     ['documents_request', 'Bewerbung', 'Bitte senden Sie uns Ihre Zeugnisse.', 'documents asked'],
     ['other', 'Bewerbung', 'Bitte senden Sie uns keine Zeugnisse per Post.', 'documents refused'],
     ['offer', 'Your application', 'We are pleased to offer you the position.', 'offer'],
+    ['offer', 'Bewerbung', 'Wir freuen uns, Ihnen die Stelle anzubieten.', 'German offer with ordinary punctuation'],
+    ['other', 'Bewerbung', 'Wir freuen uns nicht, Ihnen die Stelle anzubieten.', 'negated German offer'],
+    ['rejection', 'Bewerbung', 'Leider können wir Ihre Bewerbung nicht weiter berücksichtigen. Wir freuen uns, Ihnen die Stelle anzubieten.', 'rejection vetoes neighboring German offer'],
     ['other', 'Application', 'The role comes with a permanent employment contract.', 'a contract only named'],
     ['other', 'Application', 'Your application for this job offer is being reviewed.', 'the job ad named'],
   ];
@@ -420,7 +423,7 @@ describe('attachments left out of the forward', () => {
       '',
       Buffer.from('Grüße aus Zürich: anbei die Unterlagen.', 'utf8').toString('base64'),
       ...part('filename="kept.bin"', 'K'.repeat(6 * MIB)),
-      ...part("filename*=utf-8''Zeugnis%20M%C3%BCller.bin", `OMITTEDBYTES${'O'.repeat(5 * MIB)}`),
+      ...part("filename*=utf-8''https%3A%2F%2Fevil.example%2Fpay.pdf", `OMITTEDBYTES${'O'.repeat(5 * MIB)}`),
       ...part('filename="small.txt"', 'tiny'),
       '--m--',
       '',
@@ -432,8 +435,12 @@ describe('attachments left out of the forward', () => {
     const forwardedBytes = payload.attachments.reduce((sum: number, item: any) => sum + Buffer.from(item.content, 'base64').length, 0);
     expect(forwardedBytes).toBeLessThanOrEqual(10 * MIB);
     expect(payload.text).toContain('1 Anhang wurde nicht weitergeleitet');
-    expect(payload.text).toContain('Nicht weitergeleitet: Zeugnis Müller.bin');
-    expect(payload.html).toContain('Zeugnis Müller.bin');
+    // This is the causal MIME regression: the oversized hostile URI filename
+    // reaches the omission warning, but its attacker-controlled display text
+    // does not. The bytes stay omitted as well.
+    expect(payload.text).toContain('Nicht weitergeleitet: Anhang');
+    expect(payload.text).not.toContain('evil.example');
+    expect(payload.html).toContain('Nicht weitergeleitet: Anhang');
     expect(payload.text).toContain('Grüße aus Zürich');
     expect(payload.text).not.toContain('https://');
     expect(JSON.stringify(payload)).not.toContain('OMITTEDBYTES');
@@ -461,6 +468,7 @@ describe('attachments left out of the forward', () => {
       ...part("filename*=utf-8''https%3A%2F%2Fevil.example%2Fpay.pdf", 'y'),
       ...part("filename*=utf-8''a%E2%80%AEgnp.exe", 'z'),
       ...part('filename="https%3A%2F%2Fevil.example%2Fencoded.pdf"', 'w'),
+      ...part("filename*=utf-8''Zeugnis%20M%C3%BCller.bin", 'u'),
       '--m--',
       '',
     ].join('\r\n'), 'latin1');
@@ -473,10 +481,13 @@ describe('attachments left out of the forward', () => {
       'https://evil.example/pay.pdf',
       'a\u202egnp.exe',
       'https%3A%2F%2Fevil.example%2Fencoded.pdf',
+      'Zeugnis Müller.bin',
     ]);
     expect(payload.attachments[0].filename).toBe('kept.bin');
     expect(payload.attachments[0].contentType).toBe('application/octet-stream');
     expect(Buffer.from(payload.attachments[0].content, 'base64')).toEqual(Buffer.from(keptContent, 'ascii'));
+    expect(payload.attachments[5].filename).toBe('Zeugnis Müller.bin');
+    expect(Buffer.from(payload.attachments[5].content, 'base64')).toEqual(Buffer.from('u', 'ascii'));
     expect(payload.text).toContain('The original message body is preserved.');
     for (const leaked of ['private/offer.pdf', 'evil.example', 'pay.pdf', 'gnp.exe', 'encoded.pdf', '\u202e']) {
       expect(payload.text).not.toContain(leaked);
@@ -600,6 +611,25 @@ describe('inbound-to-runner account binding', () => {
     expect(inbox).toMatchObject({ verificationUrl: link, portalVerificationHost: host });
     expect(await wait(store, host)).toMatchObject({ url: link });
     expect(await wait(store, 'other.employer.example')).toBeNull();
+  });
+  it('forwards an exact-host verification when canonical and legacy records make the account ambiguous', async () => {
+    const host = 'careers.employer.example';
+    const { store, alias } = await setup('it', host);
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ [hostKey(host)]: { host, passwordEnc: { v: 1 }, verifiedAt: null } }, { merge: true });
+    const link = `https://${host}/verify?t=duplicate`;
+    const { inbox, sendCascade } = await deliverWithoutModel({
+      store,
+      alias,
+      raw: plainMail({
+        subject: 'Verify your email',
+        text: `Please verify your email: ${link}`,
+        headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'],
+      }),
+    });
+    expect(inbox).toMatchObject({ verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'sent' } });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(await wait(store, host)).toBeNull();
   });
   it('does not consume a legacy unverified link or unrelated code', async () => {
     const { store } = await setup();
