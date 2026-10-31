@@ -1,3 +1,7 @@
+import { consentOwnershipContract } from './lib/consentOwnershipContract.js';
+import { canonicalQuestionJson } from './lib/applicationQuestionContract.js';
+import { LANGUAGE_LEVEL_RE, LANGUAGE_MODALITY_RE, LANGUAGE_ORAL_RE, isGeneralCandidateLanguageQuestion, normalizeCandidateQuestionValue as normalizeQuestionValue } from './lib/candidateLanguageQuestion.js';
+import { addressContextContract } from './lib/addressContextContract.js';
 import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 /**
  * What the candidate may change on the review page before approving (owner
@@ -36,14 +40,8 @@ import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, per
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
-const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
-const LANGUAGE_MODALITY_RE = /\b(?:written|schriftlich|ecrit|écrit|scritto|scritta)\b/i;
-const LANGUAGE_ORAL_RE = /\b(?:oral|spoken|muendlich|mündlich|parlato|parlata|parle|parlé)\b/i;
 
-function normalizeQuestionValue(value) {
-  return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
-    .replace(/[’‘`]/g, "'").replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim();
-}
+
 
 // ATS tenants often add a generic fieldset label when a question is observed
 // again (for example, `Candidate contact address`). It does not identify a
@@ -111,25 +109,48 @@ export function isPreferredWorkloadQuestion(value) {
 
 const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
 
+/** Complete general questions only: additional domain, future or employer clauses retain their own key. */
+export { isGeneralCandidateLanguageQuestion } from './lib/candidateLanguageQuestion.js';
+
 /** Stable fact key for an answer, independent of a model or ATS field id. */
 export function candidateQuestionAnswerKey(question) {
   const text = String(question?.question ?? '').trim();
   if (!text) return '';
+  const context = questionContextKey(question?.context);
+  const section = normalizeQuestionValue(question?.section);
+  const autocomplete = normalizeQuestionValue(question?.autocomplete);
+  const originalQuestion = normalizeQuestionValue(question?.applicationQuestion);
+  const originalContext = originalQuestion && originalQuestion !== normalizeQuestionValue(text) ? originalQuestion : '';
+  const consent = consentOwnershipContract(question);
+  if (consent === null || consent?.consentOwnershipUnknown || consent?.ownConsentMetadataComplete === false || question?.ownershipUnknown === true || question?.metadataComplete === false) return '';
+  const extra = { ...(question?.why ? { why: String(question.why) } : {}), ...(consent || {}),
+    ...(Object.hasOwn(question, 'originalNativeContract') ? { originalNativeContract: question.originalNativeContract } : {}),
+    ...Object.fromEntries(['applicationOptions', 'optionMap'].filter(field => Object.hasOwn(question, field)).map(field => [field, question[field]])) };
+  let extraContext; try { extraContext = Object.keys(extra).length ? canonicalQuestionJson(extra) : ''; } catch { return ''; }
+  const ownership = addressContextContract(question);
+  if (ownership === null || ownership?.unknown) return '';
+  const ownershipKey = ownership === undefined ? '' : JSON.stringify(ownership);
   const languageCodes = languageCodesIn(text);
-  if (languageCodes.length === 1 && isLanguageAbilityQuestion(text)) {
+  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && !extraContext && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
     const normalized = normalizeQuestionValue(text);
     const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
     const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
     const kind = threshold ? `threshold_${threshold}` : LANGUAGE_LEVEL_RE.test(normalized) ? 'proficiency' : 'ability';
-    return `language_${languageCodes[0]}_${modality}_${kind}`;
+    const levelField = kind === 'proficiency' && ['text', 'choice'].includes(question?.type || 'text')
+      && !optionValues(question).some(option => /^(?:yes|no|si|ja|nein|oui|non|true|false)$/.test(option));
+    const binaryField = kind === 'ability' && ['yes_no', 'checkbox'].includes(question?.type);
+    if (levelField || binaryField) return `language_${languageCodes[0]}_${modality}_${kind}`;
   }
   const normalized = normalizeQuestionValue(text);
   if (!normalized) return '';
-  if (isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
-  const context = questionContextKey(question?.context);
+  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && !extraContext && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
+  const metadataContext = section || autocomplete ? `${context}\u0000${section}\u0000${autocomplete}` : context;
+  const originalQuestionContext = originalContext ? `${metadataContext}\u0000${originalContext}` : metadataContext;
+  const ownedContext = ownershipKey ? `${originalQuestionContext}\u0000${ownershipKey}` : originalQuestionContext;
+  const scopedContext = extraContext ? `${ownedContext}\u0000${extraContext}` : ownedContext;
   const type = normalizeQuestionValue(question?.type) || 'unknown';
   const options = [...new Set(optionValues(question))].sort().join('|');
-  return `question_${questionHash(`${type}\u0000${context}\u0000${normalized}\u0000${options}`)}`;
+  return `question_${questionHash(`${type}\u0000${scopedContext}\u0000${normalized}\u0000${options}`)}`;
 }
 
 /** Reuse answers across changed ids only when their topic is unambiguous and the answer fits. */

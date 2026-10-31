@@ -33,7 +33,7 @@ function applicationAnswer(question, answer) {
  *     extra?:Array<{slot:string, label:string, kind:string, keywords?:string[], files:Array<{url:string, detectedType:string}>}>}}} input
  * @returns {object} the kit (no secret: what the extension types and attaches)
  */
-export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, documents = {} }) {
+export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, documents = {}, localAnswerEvidence = [], policyAuthority = null }) {
   const { identity, profile, answers } = candidateWithEdits({ order, draft, flow });
   const address = profile.address || {};
   // The runner's own answers first: their questions are the portal's words.
@@ -68,6 +68,8 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
   return {
     version: 1,
     orderId,
+    round: Number(flow.round || 1),
+    policyAuthority,
     applyUrl: text(draft.channel?.applyUrl || draft.job?.applyUrl, 2000),
     channelType,
     job: { title: text(draft.job?.title || order.jobTitle, 200), company: text(order.companyName, 200) },
@@ -99,6 +101,12 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
       salary: text(answers.salary_expectation, 200),
     },
     answers: kitAnswers,
+    // Only current order-local receipts, verified by the server loader; never the account-wide ledger.
+    localAnswerEvidence: localAnswerEvidence.map(record => ({
+      id: record.id, version: record.version, sourceCounterChanged: record.sourceCounterChanged, contractHash: record.contractHash, question: record.question, answer: record.answer,
+      provenance: { actor: record.provenance.actor, orderId: record.provenance.orderId, round: record.provenance.round,
+        confirmedAt: record.provenance.confirmedAt, cvHash: record.provenance.cvHash, sourceCounterHash: record.provenance.sourceCounterHash },
+    })),
     texts: {
       coverLetter: text(draft.coverLetter?.text, 8000),
       motivationShort: text(motivation.motivationShort, 2000),

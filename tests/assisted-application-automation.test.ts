@@ -1,3 +1,4 @@
+import { answerContractsFor, planAnswerConfirmations } from '../functions/src/assistedApplicationAnswerConfirmation.js';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
@@ -26,6 +27,7 @@ const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DEL
 const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
+const { rememberCandidateAnswerEvidence } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
@@ -57,6 +59,32 @@ const readyDraft = (round = 1) => ({
   questions: [],
 });
 
+function attestedSource(userId: string, answer = 'C1', at = Date.now()) {
+  const question = { id: 'source_english', question: 'What is your English proficiency level?', type: 'text' };
+  const order = paidOrder({ userId, cvUploadedAt: at, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
+  const sourceFlow = { round: 1, answers: { source_english: answer } };
+  const sourceDraft = { round: 1, questions: [question] };
+  const confirmations = planAnswerConfirmations({ orderId: 'answer-source', order, flow: sourceFlow, draft: sourceDraft, answers: sourceFlow.answers,
+    answerContracts: answerContractsFor({ orderId: 'answer-source', order, flow: sourceFlow, draft: sourceDraft }), actor: 'candidate', nowMs: at }).confirmations;
+  const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: sourceFlow.answers, confirmations,
+    orderId: 'answer-source', order, flow: sourceFlow, draft: sourceDraft, actor: 'candidate', nowMs: at });
+  return {
+    'assisted_applications/answer-source': order,
+    'assisted_applications/answer-source/automation/flow': { ...sourceFlow, answerConfirmations: confirmations },
+    'assisted_applications/answer-source/ai_drafts/current': sourceDraft,
+    [`user_cv_profiles/${userId}`]: { applicationQuestionAnswers: { [candidateQuestionAnswerKey(question)]: answer }, applicationQuestionAnswerEvidence: evidence },
+  };
+}
+
+function recordSourceTransactionReads(db: any) {
+  const reads: string[] = [];
+  const original = db.runTransaction.bind(db);
+  vi.spyOn(db, 'runTransaction').mockImplementation((callback: any) => original((tx: any) => callback({ ...tx,
+    get: (ref: any) => { reads.push(ref.path); return tx.get(ref); },
+  })));
+  return reads;
+}
+
 let store: ReturnType<typeof createMemoryFirestore>;
 let effects: any[];
 const runEffect = vi.fn(async (context: any) => {
@@ -72,7 +100,22 @@ beforeEach(() => {
 });
 
 describe('starting the flow', () => {
-  it('seeds a new order with the candidate-wide answer ledger', async () => {
+  it('starts a normal eligible order without an event or an existing flow', async () => {
+    const result = await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
+    expect(result.ok).toBe(true);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'drafting', round: 1 });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_request' }]);
+  });
+  it('seeds a new order from a proven general fact with source reads in the same transaction', async () => {
+    const userId = 'candidate-1';
+    const at = Date.now();
+    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }), ...attestedSource(userId, 'C1', at) });
+    const reads = recordSourceTransactionReads(store.db);
+    await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: at });
+    expect(store.read(`${ORDER_PATH}/automation/flow`).questionAnswers).toMatchObject({ language_en_any_proficiency: 'C1' });
+    expect(reads).toEqual(expect.arrayContaining(['assisted_applications/answer-source', 'assisted_applications/answer-source/automation/flow', 'assisted_applications/answer-source/ai_drafts/current']));
+  });
+  it('does not seed a new order from an opaque legacy answer ledger', async () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
@@ -84,7 +127,7 @@ describe('starting the flow', () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
 
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
-      questionAnswers: { [key]: 'Permit G' },
+      questionAnswers: {},
     });
   });
 
@@ -92,17 +135,25 @@ describe('starting the flow', () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
-    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }) });
+    const at = Date.now();
+    const sourceOrder = paidOrder({ userId, cvUploadedAt: at, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
+    const sourceFlow = { state: 'submitted', round: 1, answers: {}, questionAnswers: {} };
+    const sourceDraft = { round: 1, questions: [question] };
+    store = createMemoryFirestore({ [ORDER_PATH]: sourceOrder,
+      [`${ORDER_PATH}/automation/flow`]: sourceFlow, [`${ORDER_PATH}/ai_drafts/current`]: sourceDraft,
+      [`user_cv_profiles/${userId}`]: { status: 'ready' } });
 
     await saveAnswersWithCv({
       db: store.db,
       bucket: null,
       orderId: ORDER,
-      order: paidOrder({ userId }),
-      flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: {} },
-      draft: { round: 1, questions: [question] },
+      order: sourceOrder,
+      answerActor: 'candidate',
+      flow: sourceFlow,
+      draft: sourceDraft,
+      answerContracts: answerContractsFor({ orderId: ORDER, order: sourceOrder, flow: sourceFlow, draft: sourceDraft }),
       answers: { work_permit: 'Permit G' },
-      nowMs: T0,
+      nowMs: at,
     });
 
     expect(store.read(`user_cv_profiles/${userId}`)).toMatchObject({
@@ -366,6 +417,43 @@ describe('closed ad refund', () => {
 });
 
 describe('owner queue', () => {
+  beforeEach(() => { store.read(ORDER_PATH).cvUploadedAt = T0; });
+  it.each(['expired', 'purging', 'sent'])('does not publish an owner letter when the source becomes %s during upload', async reason => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    store.docs.set(`${ORDER_PATH}/ai_drafts/current`, { ...readyDraft(), language: 'it', profile: {}, coverLetter: { text: 'Original letter' } });
+    const removed: string[] = [];
+    let metadata: any;
+    const bucket = { file: (key: string) => ({ save: async (_bytes: any, options: any) => {
+      metadata = { generation: '1', metadata: options.metadata.metadata };
+      if (reason === 'expired') store.read(ORDER_PATH).cvUploadedAt = T0 - 90 * 86400000 - 1;
+      else if (reason === 'purging') store.read(ORDER_PATH).retentionPurgingAt = T0;
+      else store.docs.set(`${ORDER_PATH}/automation/submission`, { r1: { state: 'sent', channel: 'portal' } });
+    }, getMetadata: async () => [metadata], delete: async () => { removed.push(key); } }) };
+    await expect(handleAutomationAdminAction(store.db, { action: 'automationEditDraft', orderId: ORDER, coverLetterText: 'Gentili signore e signori,\n\nMi candido per il ruolo.\n\nCordiali saluti' }, 'owner@example.com', { bucket, runEffect, nowMs: T0 }))
+      .rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`).coverLetterPdfKey).toBeUndefined();
+    expect(removed).toHaveLength(1);
+  });
+  it('keeps an owner letter upload manifest after an unknown ACK and never publishes it after purge', async () => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    const { cleanupPendingArtifacts } = await import('../functions/src/lib/assistedApplicationArtifactRetention.js');
+    store.docs.set(`${ORDER_PATH}/ai_drafts/current`, { ...readyDraft(), language: 'it', profile: {}, coverLetter: { text: 'Original' } });
+    let metadata: any; const deletes: any[] = [];
+    const bucket = { file: () => ({ save: async (_bytes: any, options: any) => {
+      expect(options.preconditionOpts.ifGenerationMatch).toBe(0);
+      metadata = { generation: '19', metadata: options.metadata.metadata };
+      store.read(ORDER_PATH).retentionPurgingAt = T0;
+      throw new Error('synthetic_ack_lost');
+    }, getMetadata: async () => [metadata], delete: async (options: any) => { deletes.push(options); } }) };
+    await expect(handleAutomationAdminAction(store.db, { action: 'automationEditDraft', orderId: ORDER, coverLetterText: 'Gentili signore e signori,\n\nMi candido.\n\nCordiali saluti' }, 'owner@example.com', { bucket, runEffect, nowMs: T0 }))
+      .rejects.toThrow('synthetic_ack_lost');
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`).coverLetterPdfKey).toBeUndefined();
+    const manifestPaths = [...store.docs.keys()].filter(path => path.startsWith(`${ORDER_PATH}/pending_artifacts/`));
+    expect(manifestPaths).toHaveLength(1);
+    await cleanupPendingArtifacts({ db: store.db, bucket, orderRef: store.db.collection('assisted_applications').doc(ORDER) });
+    expect(deletes).toEqual([{ ifGenerationMatch: '19', ignoreNotFound: true }]);
+    expect(store.docs.has(manifestPaths[0])).toBe(true); // A transport retry can still arrive after cleanup.
+  });
   // The owner's edit is written only on the draft it was built from, as the candidate's own writes are.
   it('refuses an owner edit when the candidate changed the draft meanwhile, and writes it otherwise', async () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
@@ -394,8 +482,8 @@ describe('owner queue', () => {
     once.mockRestore();
 
     // Two owner edits of the letter in the same millisecond: one wins, and the file it points to survives.
-    const saved = new Map<string, Buffer>();
-    const bucket = { file: (key: string) => ({ save: async (data: Buffer) => { saved.set(key, data); }, delete: async () => { saved.delete(key); } }) };
+    const saved = new Map<string, Buffer>(); const metadata = new Map<string, any>();
+    const bucket = { file: (key: string) => ({ save: async (data: Buffer, options: any) => { saved.set(key, data); metadata.set(key, { generation: '1', metadata: options.metadata.metadata }); }, getMetadata: async () => [metadata.get(key)], delete: async () => { saved.delete(key); } }) };
     const letter = (text: string) => ({ action: 'automationEditDraft', orderId: ORDER, coverLetterText: `Gentili signore e signori,\n\n${text}\n\nCordiali saluti` });
     const results = await Promise.allSettled([
       handleAutomationAdminAction(store.db, letter('Mi candido per il posto di infermiere in reparto.'), 'owner@example.com', { runEffect, bucket, nowMs: T0 + 5 }),
@@ -657,7 +745,7 @@ describe('sweep', () => {
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
   });
 
-  it('reuses a candidate-wide answer when an older flow did not have the ledger yet', async () => {
+  it('asks again when only an opaque legacy answer exists on another order', async () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
@@ -684,11 +772,27 @@ describe('sweep', () => {
     });
 
     expect(result).toMatchObject({ ok: true, flow: {
-      state: 'owner_takeover',
-      heldBy: ['portal:portal_needs_candidate'],
-      questionAnswers: { [key]: 'Permit G' },
+      state: 'needs_candidate_action',
+      heldBy: ['question:work_permit'],
+      questionAnswers: {},
     } });
+    expect(effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
+  });
+
+  it('uses a proven source answer for an equivalent portal question without asking again', async () => {
+    const userId = 'candidate-1';
+    const at = Date.now();
+    const question = { id: 'portal_english', question: 'Qual è il tuo livello di inglese?', type: 'text' };
+    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }), ...attestedSource(userId, 'C1', at),
+      [`${ORDER_PATH}/automation/flow`]: { state: 'submitting', round: 1, answers: {}, questionAnswers: {}, heldBy: [], dispatch: { mode: 'submit', round: 1, attempts: 2 } },
+      [`${ORDER_PATH}/ai_drafts/current`]: readyDraft(),
+    });
+    const reads = recordSourceTransactionReads(store.db);
+    const result = await applyAutomationEvent({ db: store.db, orderId: ORDER,
+      event: { type: 'submit_needs_candidate', questions: [{ id: question.id }], questionDetails: [question] }, runEffect, nowMs: at });
+    expect(result).toMatchObject({ ok: true, flow: { state: 'owner_takeover', questionAnswers: { language_en_any_proficiency: 'C1' } } });
     expect(effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit', attempts: 2 }]);
+    expect(reads).toContain('assisted_applications/answer-source/automation/flow');
   });
 
   it('computes no due time for terminal flows', () => {

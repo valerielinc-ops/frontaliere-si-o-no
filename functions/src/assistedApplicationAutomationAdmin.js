@@ -1,3 +1,7 @@
+import { OWNER_NATIVE_PROOF_PROTOCOL, ownerFinalIntent } from './lib/ownerFinalIntent.js';
+import { loadRunnerAnswerContext } from './assistedApplicationAnswerEvidence.js';
+import { answerQuestionDescriptor, nativeQuestionOptionsView } from './lib/applicationQuestionContract.js';
+import { answerContractsFor, currentAnswerReviewRequired, answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
 /**
  * Owner-queue side of the automated assisted application: what Valerie sees
  * (state, clocks, why the flow is held, the full draft with the operator
@@ -14,7 +18,7 @@ import {
   letterText,
   parseLetterText,
 } from './assistedApplicationAiDraftCore.js';
-import { randomUUID } from 'node:crypto';
+import { randomUUID, createHash } from 'node:crypto';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
@@ -24,10 +28,10 @@ import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 import {
   AUTOMATION_SUBCOLLECTION,
   applyAutomationEvent,
-  confirmSentAttempt,
   isAutomationEnabledFor,
   draftRefFor,
   flowRefFor,
@@ -37,8 +41,10 @@ import {
 import { ensureOrderAlias } from './assistedApplicationAlias.js';
 import { factCheckTokens, roundWasSent } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
-import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
-import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
+import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, documentFileId, extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
+import { retainedArtifactStore } from './lib/assistedApplicationArtifactRetention.js';
+import { submissionIrreversibility, publicSubmissionState } from './assistedApplicationSubmissionState.js';
+import { submissionGuard, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 
@@ -62,10 +68,11 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
 const OWNER_FLAGS = new Set(['fact_check', 'no_posting', 'channel_unknown', 'legitimacy']);
 
 export class AutomationAdminError extends Error {
-  constructor(code, status = 400) {
+  constructor(code, status = 400, details = null) {
     super(code);
     this.code = code;
     this.status = status;
+    this.details = details;
   }
 }
 
@@ -121,6 +128,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const interviewPrep = orderSnapshot.data()?.interviewPrep || null;
   const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+  const answerContracts = answerContractsFor({ orderId, order: orderSnapshot.data() || {}, flow: flow || {}, draft: draft || {} });
+  const reviewRequired = currentAnswerReviewRequired(flow || {}, draft || {});
   // Portal accounts the runner created on the alias: never the password here.
   // A registration the portal refused left no account (`discarded`, no password).
   const accounts = Object.values(accountsSnapshot.exists ? accountsSnapshot.data() || {} : {})
@@ -157,6 +166,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const [letterUrl, tailoredCvUrl, inPlaceUrl, sent] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey), sentView(draft?.sent, signed)]);
   const candidateState = draft ? candidateWithEdits({ order: orderSnapshot.data() || {}, draft, flow }) : { profile: {}, answers: {} };
   return {
+    answerContracts,
+    reviewRequired,
     inbox,
     candidateAlias: orderSnapshot.data()?.candidateAlias?.address || null,
     accounts,
@@ -164,6 +175,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
     interviewPrep: interviewPrep ? { status: interviewPrep.status || 'preparing', sentAt: interviewPrep.sentAt || null, questions: interviewPrep.questions || 0, stories: interviewPrep.stories || 0 } : null,
     flow: flow ? {
       state: flow.state || null,
+      answerReviewRequired: reviewRequired,
       round: Number(flow.round) || 1,
       deadlineAt: flow.deadlineAt || null,
       reminderAt: flow.reminderAt || null,
@@ -190,7 +202,13 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       checksIt: draft.checksIt || [],
       requirements: draft.requirements || [],
       matches: draft.matches || [],
-      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers),
+      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers).map(question => {
+        const descriptor = answerQuestionDescriptor(question);
+        return { ...question, originalQuestionContext: descriptor?.originalNativeContract?.context || '',
+          originalQuestionSection: descriptor?.originalNativeContract?.section || '',
+          ...(descriptor ? nativeQuestionOptionsView(descriptor) : {}),
+          ...(!answerContracts[question.id] ? { contractUnavailable: true } : {}) };
+      }),
       coverLetter: draft.coverLetter || null,
       applicationEmail: draft.applicationEmail || null,
       formAnswers: formAnswersWithEdits({ order: orderSnapshot.data() || {}, draft, flow }),
@@ -231,14 +249,20 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
 }
 
 async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
+  const startedAt = Date.now();
+  const freshNow = () => nowMs + Math.max(0, Date.now() - startedAt);
   const orderRef = orderRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
-  const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([orderRef.get(), draftRef.get(), flowRefFor(db, orderId).get()]);
+  const submissionRef = submissionRefFor(db, orderId);
+  const [orderSnapshot, draftSnapshot, flowSnapshot, submissionSnapshot] = await Promise.all([orderRef.get(), draftRef.get(), flowRefFor(db, orderId).get(), submissionRef.get()]);
+  const initialIrreversibility = submissionIrreversibility({ submission: submissionSnapshot.data() });
+  if (initialIrreversibility) throw new AutomationAdminError(initialIrreversibility, 409, { state: publicSubmissionState({ order: orderSnapshot.data(), flow: flowSnapshot.data(), submission: submissionSnapshot.data() }) });
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
   if (!draft || draft.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
   // Sent: the letter that left is the candidate's to keep, a later edit would only change their Word copy (P8).
   if (flowSnapshot.data()?.state === 'submitted') throw new AutomationAdminError('draft_submitted', 409);
   const order = orderSnapshot.data() || {};
+  if (!orderSnapshot.exists || !answerSourceRetained(order, freshNow())) throw new AutomationAdminError('changed_meanwhile', 409);
   const letterRaw = cleanBlock(raw.coverLetterText, 8000);
   const emailSubject = clean(raw.emailSubject, 300);
   const emailBody = cleanBlock(raw.emailBody, 8000);
@@ -269,7 +293,8 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
     // refused below deletes only its own PDF, never the one the committed draft points to.
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
     coverLetterRenderer = rebuilt.renderer;
-    await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
+    const store = retainedArtifactStore({ db, bucket, orderId, round: draft.round || 1, now: freshNow });
+    if (!await store.save(coverLetterPdfKey, rebuilt.pdf, { contentType: 'application/pdf' })) throw new AutomationAdminError('changed_meanwhile', 409);
   }
   // Written only on the draft it was built from, as the candidate's own writes are
   // (assistedApplicationReview.js commitRebuild): a candidate edit, a line choice or
@@ -281,8 +306,9 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
     && (current.candidateEditedAt || null) === (draft.candidateEditedAt || null)
     && (current.editedAt || null) === (draft.editedAt || null);
   const committed = await db.runTransaction(async (transaction) => {
-    const current = await transaction.get(draftRef);
-    if (!current.exists || !unchanged(current.data())) return false;
+    const [current, currentOrder, currentSubmission] = await Promise.all([transaction.get(draftRef), transaction.get(orderRef), transaction.get(submissionRef)]);
+    if (submissionIrreversibility({ submission: currentSubmission.data() })) return false;
+    if (!current.exists || !unchanged(current.data()) || !currentOrder.exists || !answerSourceRetained(currentOrder.data(), freshNow())) return false;
     transaction.set(draftRef, {
       coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },
       applicationEmail,
@@ -389,21 +415,25 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
         orderRefFor(db, orderId).get(), flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(),
       ]);
       if (!flowSnapshot.exists) throw new AutomationAdminError('no_flow', 404);
+      const allowedIds = new Set((draftSnapshot.data()?.questions || []).map(question => question?.id).filter(id => typeof id === 'string' && id.length <= 1000));
       const answers = {};
       for (const [id, value] of Object.entries(raw.answers && typeof raw.answers === 'object' ? raw.answers : {})) {
-        if (/^[a-z0-9_]{1,60}$/.test(id)) answers[id] = clean(value, 500);
+        if (allowedIds.has(id)) answers[id] = clean(value, 500);
       }
       // An answer the tailored CV prints (the permit status, the availability): rebuilt and committed with the
       // answers, before the event can dispatch the submission (decision 7), as the candidate's answers are.
+      let saved;
       try {
-        await saveAnswersWithCv({
+        saved = await saveAnswersWithCv({
           db, bucket: deps.bucket, orderId, order: orderSnapshot.data() || {}, flow: flowSnapshot.data() || {},
-          draft: draftSnapshot.exists ? draftSnapshot.data() || null : null, answers, nowMs,
+          draft: draftSnapshot.exists ? draftSnapshot.data() || null : null, answers, nowMs, answerActor: 'owner',
+          answerContracts: raw.answerContracts, requireAnswerContracts: deps.requireAnswerContracts === true,
         });
       } catch (error) {
-        if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status);
+        if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status, error.details);
         throw error;
       }
+      if (saved.reviewRequired) return { ok: true, ...saved };
       const result = await applyAutomationEvent({ db, orderId, event: { type: 'candidate_answers' }, actor, runEffect: deps.runEffect, nowMs });
       return { ok: true, state: result.flow?.state || flowSnapshot.data()?.state };
     }
@@ -412,35 +442,43 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       // created on the alias. Who looked and when is recorded; the password
       // itself is only returned, never stored in clear or logged.
       const host = clean(raw.host, 200).toLowerCase();
-      const ref = orderRefFor(db, orderId).collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID);
-      const [key, entry] = Object.entries((await ref.get()).data() || {}).find(([, value]) => value?.host === host) || [];
+      const started = Date.now();
+      const freshNow = () => nowMs + Math.max(0, Date.now() - started);
+      const orderRef = orderRefFor(db, orderId);
+      const ref = orderRef.collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID);
+      const [order, accounts] = await Promise.all([orderRef.get(), ref.get()]);
+      if (!order.exists || !assistedApplicationRetained(order.data(), freshNow())) throw new AutomationAdminError('account_retention_closed', 409);
+      const [key, entry] = Object.entries(accounts.data() || {}).find(([, value]) => value?.host === host) || [];
       if (!entry?.passwordEnc) throw new AutomationAdminError('no_account', 404);
       const rawKey = deps.runKey ? await deps.runKey() : '';
       if (!rawKey) throw new AutomationAdminError('run_key_missing', 500);
       const { password } = decryptJson(entry.passwordEnc, runKeyFrom(rawKey));
-      await ref.set({ [key]: { ...entry, revealedAt: nowMs, revealedBy: adminEmail } }, { merge: true });
+      const sameSource = current => current?.host === entry.host && current?.email === entry.email
+        && JSON.stringify(current?.passwordEnc) === JSON.stringify(entry.passwordEnc);
+      await db.runTransaction(async transaction => {
+        const [currentOrder, currentAccounts] = await Promise.all([transaction.get(orderRef), transaction.get(ref)]);
+        if (!currentOrder.exists || !assistedApplicationRetained(currentOrder.data(), freshNow())) throw new AutomationAdminError('account_retention_closed', 409);
+        if (!sameSource(currentAccounts.data()?.[key])) throw new AutomationAdminError('account_source_changed', 409);
+        // Metadata only: never copy a previously read credential back to disk.
+        transaction.set(ref, { [key]: { revealedAt: nowMs, revealedBy: adminEmail } }, { merge: true });
+      });
+      const [finalOrder, finalAccounts] = await Promise.all([orderRef.get(), ref.get()]);
+      if (!finalOrder.exists || !assistedApplicationRetained(finalOrder.data(), freshNow())) throw new AutomationAdminError('account_retention_closed', 409);
+      if (!sameSource(finalAccounts.data()?.[key])) throw new AutomationAdminError('account_source_changed', 409);
       return { ok: true, host, email: entry.email || '', password };
     }
     case 'automationFillKit':
-      return { ok: true, kit: await fillKitFor(db, orderId, deps, { confirmNotReceived: raw.confirmNotReceived === true, nowMs }) };
-    case 'automationMarkClicked': {
-      // Valerie pressed the highlighted send button: the extension reports it
-      // on the press, before the portal answers. From here the round may have
-      // left; no new kit is handed out until the portal confirms or she says
-      // it is not there (review of #10759).
-      const flow = (await flowRefFor(db, orderId).get()).data() || {};
-      if (!FILL_KIT_STATES.has(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
-      const guard = submissionGuard(db, orderId, flow.round || 1);
-      const claim = await guard.claim('owner_extension', nowMs, { resumable: true });
-      if (claim.status === 'claimed') await guard.markClicked(nowMs);
-      return { ok: true, state: flow.state, guard: claim.status === 'already_sent' ? 'sent' : 'sending' };
-    }
+      return { ok: true, kit: await fillKitFor(db, orderId, deps, { confirmNotReceived: raw.confirmNotReceived === true, nativeProofProtocol: raw.nativeProofProtocol, nowMs }) };
+    case 'automationMarkClicked':
+      return authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs);
     case 'automationVerificationLink':
       return { ok: true, ...(await verificationLinkFor(db, orderId, { sinceMs: Number(raw.since) || 0 })) };
     case 'automationMarkSubmitted': {
-      // The fill extension saw the portal's confirmation, or Valerie says so.
+      // Both callers name their command explicitly; an incomplete automatic report never becomes a human assertion.
+      // Deploy only after the compatible owner client sends manual_owner (the previous backend already accepts it).
+      if (!['extension', 'manual_owner'].includes(raw.via)) throw new AutomationAdminError('submission_command_required', 409);
       const via = raw.via === 'extension' ? 'owner_extension' : 'owner';
-      const result = await recordOwnerSubmission({ db, orderId, adminEmail, via, runEffect: deps.runEffect, nowMs });
+      const result = await recordOwnerSubmission({ db, orderId, adminEmail, via, round: raw.round, ownerIntent: raw.ownerIntent, runEffect: deps.runEffect, nowMs });
       if (!result.ok) throw new AutomationAdminError(result.ignored, 409);
       return result;
     }
@@ -458,16 +496,33 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
  * that attempt becomes the record of what left.
  * @returns {Promise<{ok:boolean, state?:string, ignored?:string}>}
  */
-export async function recordOwnerSubmission({ db, orderId, adminEmail, via = 'owner', runEffect, nowMs = Date.now() }) {
+export async function recordOwnerSubmission({ db, orderId, adminEmail, via = 'owner', round, ownerIntent = null, runEffect, nowMs = Date.now() }) {
+  const startedAt = Date.now(); const freshNow = () => nowMs + Math.max(0, Date.now() - startedAt);
   const flow = (await flowRefFor(db, orderId).get()).data() || {};
+  const automatic = via === 'owner_extension';
+  const targetRound = automatic ? Number(round) : Number(round ?? flow.round);
+  if (!Number.isInteger(targetRound) || targetRound < 1 || targetRound > 20) throw new AutomationAdminError('submission_receipt_invalid_round', 409);
+  if (!automatic && flow.state && !['owner_takeover', 'candidate_handoff', 'submitted'].includes(flow.state)) return { ok: false, ignored: 'not_taken_over' };
+  // The new outcome writer is part of the atomic backend/runner deployment. No legacy automatic fallback.
+  const { adoptConfirmedOwnerIntentReceipt } = await import('./assistedApplicationSubmissionGuard.js');
+  if (typeof adoptConfirmedOwnerIntentReceipt !== 'function') throw new AutomationAdminError('submission_receipt_unverified', 409);
+  let outcome;
+  try {
+    outcome = automatic
+      ? await adoptConfirmedOwnerIntentReceipt({ db, orderId, round: targetRound, ownerIntent,
+        record: { channel: 'owner_extension', confirmedBy: 'owner_extension', confirmedAt: freshNow() }, nowMs: freshNow(), receiptClock: freshNow })
+      : await submissionGuard(db, orderId, targetRound, { outcomeAuthority: { kind: 'manual_owner', actor: adminEmail }, receiptClock: freshNow })
+        .markSent({ channel: 'owner', by: adminEmail, confirmedBy: 'owner', confirmedAt: freshNow() }, freshNow());
+  } catch (error) {
+    if (/^submission_(?:intent|receipt|claim)_/.test(String(error?.code || error?.message || ''))) throw new AutomationAdminError(String(error.code || error.message), 409);
+    throw error;
+  }
+  // An observed send survives a later purge/revocation, but can no longer recreate a dossier or notify.
+  if (outcome?.minimal) return { ok: true, state: 'submitted', receiptOnly: true };
   const result = await applyAutomationEvent({
-    db, orderId, event: { type: 'owner_submitted' }, actor: `owner:${adminEmail}`, runEffect, nowMs, patchFlow: () => ({ submittedVia: via }),
+    db, orderId, event: { type: 'owner_submitted', round: targetRound }, actor: `owner:${adminEmail}`, runEffect, nowMs: freshNow(), patchFlow: () => ({ submittedVia: via }),
   });
-  if (!result.ok) return { ok: false, ignored: result.ignored || 'not_allowed' };
-  await submissionGuard(db, orderId, flow.round || 1).markSent({ channel: via, by: adminEmail }, nowMs);
-  // Best effort: the flow is closed; without a record the candidate's page shows the prepared files.
-  await confirmSentAttempt({ db, orderId, round: flow.round || 1, confirmedBy: 'owner', nowMs })
-    .catch((error) => console.warn('[assisted-application] sent record not confirmed', orderId, error instanceof Error ? error.message : String(error)));
+  if (!result.ok) return { ok: true, state: result.state || 'submitted', receiptRecorded: true };
   return { ok: true, state: result.flow.state };
 }
 
@@ -488,7 +543,7 @@ const millis = (value) => (typeof value?.toMillis === 'function' ? value.toMilli
  */
 async function verificationLinkFor(db, orderId, { sinceMs = 0 } = {}) {
   const flow = (await flowRefFor(db, orderId).get()).data() || {};
-  if (!['owner_takeover', 'submitted'].includes(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
+  if (!['owner_takeover', 'candidate_handoff', 'submitted'].includes(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
   const clickedAt = Number((await submissionGuard(db, orderId, flow.round || 1).read())?.clickedAt) || 0;
   if (clickedAt) sinceMs = clickedAt;
   const inbox = await orderRefFor(db, orderId).collection('inbox').get();
@@ -500,6 +555,16 @@ async function verificationLinkFor(db, orderId, { sinceMs = 0 } = {}) {
 
 // The orders Valerie completes herself: the robot stopped (owner_takeover).
 const FILL_KIT_STATES = new Set(['owner_takeover']);
+export { OWNER_NATIVE_PROOF_PROTOCOL } from './lib/ownerFinalIntent.js';
+function requireNativeProofProtocol(value) {
+  if (value !== OWNER_NATIVE_PROOF_PROTOCOL) throw new AutomationAdminError('extension_update_required', 409);
+}
+async function ownerSourceFence(work) {
+  try { return await work(); } catch (error) {
+    if (['evidence_source_changed', 'submission_retention_changed', 'submission_approval_changed', 'submission_claim_changed', 'submission_already_sent'].includes(error?.code)) throw new AutomationAdminError(error.code, 409);
+    throw error;
+  }
+}
 
 /**
  * The fill kit of one order (assistedApplicationFillKit.js), with signed
@@ -508,11 +573,15 @@ const FILL_KIT_STATES = new Set(['owner_takeover']);
  * the adapted lines when they chose it and it is ready, otherwise the
  * tailored one unless they chose their original.
  */
-async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs = Date.now() } = {}) {
-  const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
+async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nativeProofProtocol, nowMs = Date.now() } = {}) {
+  requireNativeProofProtocol(nativeProofProtocol);
+  const startedAt = Date.now();
+  const freshNow = () => nowMs + Math.max(0, Date.now() - startedAt);
+  const [orderSnapshot, draftSnapshot, flowSnapshot, intakeSnapshot] = await Promise.all([
     orderRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
     flowRefFor(db, orderId).get(),
+    orderRefFor(db, orderId).collection('automation').doc('intake').get(),
   ]);
   const flow = flowSnapshot.data() || {};
   const draft = draftSnapshot.data() || {};
@@ -543,11 +612,116 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     ...document,
     files: (await Promise.all(document.files.map(async (file) => ({ url: await sign(file.key), detectedType: file.detectedType })))).filter((file) => file.url),
   })));
-  return buildFillKit({
+  const confirmed = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, intake: intakeSnapshot.data() || null, nowMs: freshNow() });
+  if (!confirmed.answerSourceGuard) throw new AutomationAdminError('evidence_source_changed', 409);
+  const kit = buildFillKit({
     orderId,
     order,
     draft,
-    flow,
+    flow: confirmed.flow,
+    localAnswerEvidence: confirmed.localAnswerEvidence, policyAuthority: confirmed.policyAuthority,
     documents: { cv: cvUrl ? { url: cvUrl, extension: cv.extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
+  await ownerSourceFence(() => db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction)));
+  return { ...kit, nativeProofProtocol: OWNER_NATIVE_PROOF_PROTOCOL, answerSourceFingerprint: confirmed.answerSourceGuard.fingerprint };
+}
+
+
+/** One stopped human intent is acknowledged only after complete server proof and the atomic send fence. */
+async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
+  requireNativeProofProtocol(raw.nativeProofProtocol);
+  const startedAt = Date.now(); const freshNow = () => nowMs + Math.max(0, Date.now() - startedAt);
+  const orderRef = orderRefFor(db, orderId);
+  const [orderSnapshot, flowSnapshot, draftSnapshot, intakeSnapshot] = await Promise.all([
+    orderRef.get(), flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(), orderRef.collection('automation').doc('intake').get(),
+  ]);
+  const order = orderSnapshot.data() || {}; const flow = flowSnapshot.data() || {}; const draft = draftSnapshot.data() || {};
+  if (!orderSnapshot.exists || !answerSourceRetained(order, freshNow())) throw new AutomationAdminError('evidence_source_changed', 409);
+  if (!FILL_KIT_STATES.has(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
+  let request;
+  try { request = ownerFinalIntent(raw, { round: Number(flow.round || 1), nowMs: freshNow() }); }
+  catch { throw new AutomationAdminError('native_proof_invalid', 409); }
+  // A syntactically valid form from another job/portal is never this order's destination.
+  // Redirected/embedded destinations require an explicitly verified server namespace before they can be allowed.
+  let expectedFrameUrl;
+  try {
+    const expected = new URL(String(draft.channel?.applyUrl || draft.job?.applyUrl || ''));
+    expectedFrameUrl = expected.href;
+    if (expected.href !== new URL(request.proof.frameUrl).href) throw new Error('destination_changed');
+  } catch { throw new AutomationAdminError('native_proof_destination_changed', 409); }
+  const intake = intakeSnapshot.data() || null;
+  const confirmed = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, intake, nowMs: freshNow() });
+  if (!confirmed.answerSourceGuard || confirmed.answerSourceGuard.fingerprint !== request.answerSourceFingerprint) throw new AutomationAdminError('evidence_source_changed', 409);
+  if (!deps.bucket) throw new AutomationAdminError('native_proof_source_unavailable', 409);
+  const digest = bytes => createHash('sha256').update(bytes).digest('hex');
+  const material = new Map();
+  const readMaterial = async (key, keepBytes = false) => {
+    if (!isAssistedApplicationCvKey(orderId, key) || !answerSourceRetained(order, freshNow())) throw new AutomationAdminError('native_proof_source_unavailable', 409);
+    if (material.has(key)) return material.get(key);
+    try {
+      const [metadata] = await deps.bucket.file(key).getMetadata();
+      if (!Number.isSafeInteger(Number(metadata.size)) || Number(metadata.size) < 1 || Number(metadata.size) > 12 * 1024 * 1024
+        || !/^\d+$/.test(String(metadata.generation || ''))) throw new Error('invalid_material');
+      const [bytes] = await deps.bucket.file(key, { generation: String(metadata.generation) }).download();
+      if (!Buffer.isBuffer(bytes) || bytes.length !== Number(metadata.size)) throw new Error('invalid_material');
+      const result = { sha256: digest(bytes), size: bytes.length, generation: String(metadata.generation), ...(keepBytes ? { bytes } : {}) };
+      material.set(key, result); return result;
+    } catch { throw new AutomationAdminError('native_proof_source_unavailable', 409); }
+  };
+  const original = await readMaterial(order.cvStorageKey, true);
+  const selectedCv = cvToSend(draft, flow, order);
+  const available = [{ slot: 'cv', kind: 'cv', key: selectedCv.key },
+    ...(draft.coverLetterPdfKey ? [{ slot: 'cover_letter', kind: 'cover_letter', key: draft.coverLetterPdfKey }] : []),
+    ...extraDocumentsToSend(draft, flow, orderId).flatMap(document => document.files.map(file => ({ slot: document.slot,
+      kind: document.kind, key: file.key, documentId: document.id, fileId: documentFileId(file.key),
+      requestedDocument: (draft.requiredDocuments || []).find(required => required?.id === document.id) || null })))];
+  const docsManifest = [];
+  // Only slots actually selected in the fresh DOM need bytes; no parallel buffers of every stored document.
+  for (const file of available.filter(file => request.proof.attachments.some(attachment => attachment.slot === file.slot))) {
+    const { sha256, size, generation } = await readMaterial(file.key);
+    docsManifest.push({ slot: file.slot, kind: file.kind, sha256, size, generation, ...(file.documentId ? {
+      documentId: file.documentId, fileId: file.fileId, assigned: true, requestedDocument: file.requestedDocument,
+      scope: { orderId, round: Number(flow.round || 1), jobId: order.jobId || null, sourceJobUrl: order.jobUrl || draft.job?.applyUrl || '' },
+    } : {}) });
+  }
+  if (request.proof.attachments.some(file => !docsManifest.some(expected => expected.slot === file.slot && expected.sha256 === file.sha256 && expected.size === file.size))) {
+    throw new AutomationAdminError('native_proof_material_changed', 409);
+  }
+  // These imports exist only in the coherent backend/runner integration. An older callee never grants by ignoring extra arguments.
+  let nativeQualificationContext; let verifyNativeApplicationProof;
+  try {
+    ({ nativeQualificationContext } = await import('./lib/nativeQualificationContext.js'));
+    ({ verifyNativeApplicationProof } = await import('./assistedApplicationNativeProof.js'));
+  } catch { throw new AutomationAdminError('native_proof_unverified', 409); }
+  if (typeof nativeQualificationContext !== 'function' || typeof verifyNativeApplicationProof !== 'function') throw new AutomationAdminError('native_proof_unverified', 409);
+  const context = nativeQualificationContext({ order, orderId, draft, cvBuffer: original.bytes, flow: confirmed.flow,
+    answerEvidence: confirmed.answerEvidence, localAnswerEvidence: confirmed.localAnswerEvidence,
+    answerCounterContext: confirmed.answerCounterContext, answerSourceConflicts: confirmed.answerSourceConflicts,
+    rawCounterContext: confirmed.rawCounterContext, policyAuthority: confirmed.policyAuthority,
+    applicationIdentity: buildFillKit({ orderId, order, draft, flow: confirmed.flow }).identity, docsManifest, intake });
+  if (!context?.scope || context.scope.orderId !== orderId || context.scope.round !== Number(flow.round || 1)) throw new AutomationAdminError('native_proof_unverified', 409);
+  context.scope = { ...context.scope, expectedFrameUrls: [expectedFrameUrl] };
+  await ownerSourceFence(() => db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction)));
+  const verified = await verifyNativeApplicationProof({ proof: request.proof, context, docsManifest });
+  if (verified?.status !== 'supported' || !/^[a-f0-9]{64}$/.test(verified.verification?.assessmentHash || '')) throw new AutomationAdminError('native_proof_unverified', 409);
+  const ownerIntent = { idHash: digest(Buffer.from(request.intent.id)), nativeDigest: request.intent.nativeDigest,
+    materialDigest: request.intent.materialDigest, submitterDigest: request.intent.submitterDigest, assessmentHash: verified.verification.assessmentHash };
+  const sourceGuard = Object.freeze({ fingerprint: confirmed.answerSourceGuard.fingerprint,
+    async assertInTransaction(transaction) {
+      await confirmed.answerSourceGuard.assertInTransaction(transaction);
+      // No awaited work follows: a proof timeout cannot arm a later, different intent.
+      if (freshNow() - request.intent.capturedAt > 120_000) throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
+    },
+  });
+  // A source changed during the verifier must not create even a resumable pre-click claim.
+  await ownerSourceFence(() => db.runTransaction(transaction => sourceGuard.assertInTransaction(transaction)));
+  const guard = submissionGuard(db, orderId, flow.round || 1, { answerSourceGuard: sourceGuard });
+  const claim = await guard.claim('owner_extension', freshNow(), { resumable: true });
+  if (claim.status !== 'claimed') throw new AutomationAdminError(claim.status === 'already_sent' ? 'already_sent' : 'submission_unconfirmed', 409);
+  await ownerSourceFence(() => guard.markClicked(freshNow(), { answerSourceGuard: sourceGuard, ownerIntent }));
+  const acknowledgedAt = freshNow();
+  return { ok: true, state: flow.state, guard: 'sending', nativeProofProtocol: OWNER_NATIVE_PROOF_PROTOCOL,
+    finalIntentId: request.intent.id, round: Number(flow.round || 1), ownerIntent, answerSourceFingerprint: request.answerSourceFingerprint,
+    nativeDigest: request.intent.nativeDigest, materialDigest: request.intent.materialDigest, submitterDigest: request.intent.submitterDigest,
+    acknowledgedAt, expiresAt: acknowledgedAt + 5000 };
 }

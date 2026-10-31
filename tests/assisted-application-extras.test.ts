@@ -212,7 +212,7 @@ describe('tailored ATS CV (career-ops modes/pdf.md)', () => {
 
 function followupStore(extra: Record<string, any> = {}) {
   return createMemoryFirestore({
-    [ORDER_PATH]: { submissionStatus: 'submitted', locale: 'it', applicantName: 'Maria Rossi', customerEmail: 'maria.rossi@example.com', jobTitle: 'Infermiera', companyName: 'Ospedale', ...extra },
+    [ORDER_PATH]: { submissionStatus: 'submitted', cvUploadedAt: T0, locale: 'it', applicantName: 'Maria Rossi', customerEmail: 'maria.rossi@example.com', jobTitle: 'Infermiera', companyName: 'Ospedale', ...extra },
     [`${ORDER_PATH}/ai_drafts/current`]: {
       language: 'it', job: { title: 'Infermiera' }, profile: { fullName: 'Maria Rossi' },
       applicationEmail: { body: 'Gentili Signori, in allegato la mia candidatura.' },

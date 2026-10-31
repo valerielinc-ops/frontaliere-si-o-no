@@ -1,4 +1,5 @@
 import { requirementLanguageCodes } from './lib/requirementLanguageCodes.js';
+import { qualificationCounterContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 /** Full-posting qualification before a concierge proposal is published. All caches are owner-private. */
 import { createHash } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
@@ -18,7 +19,8 @@ import { currentJobLanguageEvidence } from './lib/currentJobLanguageEvidence.js'
 import { projectAttestedLanguageFacts } from './lib/attestedLanguageProjection.js';
 import { SOURCE_CITATIONS_VERSION, citationSchema, resolveCitations } from './lib/sourceCitations.js';
 import { EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_PROMPT_HASH, qualificationSources,
-  verifyQualificationEvidence, verifiedQualificationAnswerIds, qualificationCounterContext, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
+  verifyQualificationEvidence, verifiedQualificationAnswerIds, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
+import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
 
 export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v5-${SOURCE_CITATIONS_VERSION}-${EVIDENCE_ENTAILMENT_VERSION}-${EVIDENCE_ENTAILMENT_PROMPT_HASH}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
@@ -144,11 +146,13 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     profile = sanitizeProfile(raw, { cvText });
     await profileRef.set({ cvHash, promptVersion: PROMPT_VERSION, profile, updatedAt: FieldValue.serverTimestamp() });
   }
-  const answers = profileRecord.applicationQuestionAnswers || {};
-  const answerHash = eligibilityHash(JSON.stringify(answers));
+  const answerContextFor = await beforeCancellation(() => loadCandidateAnswerEvidence({ db, profileRecord, userId: service.userId }), signal);
   let analyses = 0;
   return async (job) => {
     job = normalizeConciergeJobRecord(job);
+    const { answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterAnswers, fingerprint: answerContext } = answerContextFor(job);
+    const rawCounterContext = qualificationCounterContext({ order: service, flow: { questionAnswers: rawCounterAnswers }, answerCounterContext });
+    const answerHash = eligibilityHash(JSON.stringify([answerContext, qualificationCounterContextHash(rawCounterContext)]));
     const normalizedProfile = profileForEligibility(profile);
     if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
     const posting = await read({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
@@ -163,7 +167,8 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
       && hasVerifiedQualificationEvidence(cached)) return { ...cached.result, fingerprint, cacheId };
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
-    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, cvHash, generate,
+    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterContext, locale: service.locale, sourceText: cvText, cvHash, generate,
+
       readPosting: async () => posting });
     // A cancelled verifier is still budget-deferred work, not an ordinary
     // technical retry that advances discovery past an unfinished assessment.
@@ -190,12 +195,17 @@ export async function preflightExistingCvEligibility({ db, userId, job, generate
   if (!record || record.status !== 'ready' || !record.profile || record.profile.extractedTextAvailable === false) {
     return { status: 'unverified', reason: 'profile_not_ready' };
   }
-  const answers = record.applicationQuestionAnswers && typeof record.applicationQuestionAnswers === 'object'
-    ? record.applicationQuestionAnswers : {};
+  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord: record, userId });
+  const { answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterAnswers } = contextFor(normalizeConciergeJobRecord(job));
+  const rawCounterContext = qualificationCounterContext({ flow: { questionAnswers: rawCounterAnswers }, answerCounterContext });
   const result = await evaluateConciergePosting({
     job,
     profile: record.profile,
     answers,
+    answerEvidence,
+    answerCounterContext,
+    answerSourceConflicts,
+    rawCounterContext,
     locale: record.locale || 'it',
     generate,
     readPosting,
@@ -219,7 +229,10 @@ export async function vettedConciergeDraftInputs({ db, order, cvBuffer, postingT
   const proposal = proposalDoc.data();
   if (serviceDoc.data()?.userId !== order.userId || !/^job-[a-f0-9]{32}$/.test(proposal?.eligibilityCacheId || '')) return null;
   const cached = (await serviceRef.collection('eligibility').doc(proposal.eligibilityCacheId).get()).data();
-  const answerHash = eligibilityHash(JSON.stringify(profileDoc.data()?.applicationQuestionAnswers || {}));
+  const answerContextFor = await loadCandidateAnswerEvidence({ db, profileRecord: profileDoc.data() || {}, userId: order.userId });
+  const context = answerContextFor({ id: order.jobId || proposal.jobId, url: order.jobUrl || proposal.jobUrl });
+  const rawCounterContext = qualificationCounterContext({ order: serviceDoc.data() || {}, flow: { questionAnswers: context.rawCounterAnswers }, answerCounterContext: context.answerCounterContext });
+  const answerHash = eligibilityHash(JSON.stringify([context.fingerprint, qualificationCounterContextHash(rawCounterContext)]));
   if (cached?.result?.status !== 'compatible' || cached.promptVersion !== PROMPT_VERSION || cached.version !== CONCIERGE_ELIGIBILITY_VERSION
     || !hasVerifiedQualificationEvidence(cached)
     || cached.fingerprint !== proposal.eligibilityFingerprint || cached.cvHash !== eligibilityHash(cvBuffer)

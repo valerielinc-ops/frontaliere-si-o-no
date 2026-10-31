@@ -1,3 +1,4 @@
+import { answerSourceRetained, currentAnswerReviewRequired } from './assistedApplicationAnswerConfirmation.js';
 /**
  * Orchestrator of the automated assisted application (the second half of the
  * 1,99 € service, formerly done by hand).
@@ -33,10 +34,13 @@ import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, needsFactRepair, transition
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
-import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
+import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
+import { publicSubmissionState, submissionIrreversibility } from './assistedApplicationSubmissionState.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
+import { rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -84,11 +88,6 @@ export function draftRefFor(db, orderId) {
 function candidateQuestionAnswersRefFor(db, userId) {
   const id = String(userId || '').trim();
   return id ? db.collection('user_cv_profiles').doc(id) : null;
-}
-
-function candidateQuestionAnswersOf(snapshot) {
-  const memory = snapshot?.data()?.applicationQuestionAnswers;
-  return memory && typeof memory === 'object' && !Array.isArray(memory) ? memory : {};
 }
 
 /** Fails closed: any error reading Remote Config means "off". */
@@ -247,6 +246,8 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  *   an event marked applied with the flow unchanged (a redelivery then applies it)
  */
 export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), patchFlow = null, claimRef = null }) {
+  const operationStartedAt = Date.now();
+  const freshNow = () => nowMs + Math.max(0, Date.now() - operationStartedAt);
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
@@ -254,11 +255,12 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
     const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, orderSnapshot.data()?.userId);
-    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot] = await Promise.all([
+    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot, submissionSnapshot] = await Promise.all([
       transaction.get(flowRef),
       transaction.get(draftRef),
       claimRef ? transaction.get(claimRef) : Promise.resolve(null),
       candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
+      transaction.get(submissionRefFor(db, orderId)),
     ]);
     if (claimSnapshot?.data()?.appliedAt) {
       outcome = { ok: false, ignored: 'already_applied' };
@@ -276,14 +278,39 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const submission = submissionSnapshot.data() || {};
+    const irreversible = submissionIrreversibility({ submission });
+    const currentSend = submission[`r${Number(flow.round) || 1}`];
+    const currentIrreversible = currentSend?.state === 'sent' || isUnconfirmedSubmission(currentSend);
+    const confirmsSubmission = ['submit_succeeded', 'submit_acknowledged', 'owner_submitted', 'candidate_confirmed_submitted'].includes(event.type);
+    const recordsOutcome = ['submit_failed', 'submit_handoff'].includes(event.type);
+    const ignoreIrreversible = () => {
+      // No workflow/round/slot writes, including the event claim, for a refused new execution.
+      outcome = { ok: false, ignored: irreversible, state: publicSubmissionState({ order: orderSnapshot.data(), flow, submission }) };
+    };
+    if (irreversible && (!currentIrreversible || (!confirmsSubmission && !(irreversible === 'submission_unconfirmed' && recordsOutcome)))) {
+      ignoreIrreversible();
+      return;
+    }
+    if (currentAnswerReviewRequired(flow, draft || {}) && ['candidate_approve', 'owner_approve', 'owner_retry_submit'].includes(event.type)) {
+      claim('ignored:answer_contract_required');
+      outcome = { ok: false, ignored: 'answer_contract_required' };
+      return;
+    }
+    if (event.type === 'owner_submitted' && Number(event.round) !== Number(flow.round || 1)) {
+      outcome = { ok: false, ignored: 'stale_round', state: flow.state }; return;
+    }
+    const sharedAnswersFor = event.type === 'owner_submitted' ? () => ({ answers: {} }) : await loadCandidateAnswerEvidence({ db, profileRecord: candidateProfileSnapshot?.data() || {},
+      userId: orderSnapshot.data()?.userId, nowMs, getDocument: ref => transaction.get(ref) });
     // Answers explicitly saved on this order win over the candidate-wide
     // ledger. The latter fills only semantic gaps, so a new posting can reuse
     // a confirmed answer without asking the same person again.
     const flowForTransition = {
       ...flow,
       questionAnswers: {
-        ...candidateQuestionAnswersOf(candidateProfileSnapshot),
-        ...(flow.questionAnswers || {}),
+        ...sharedAnswersFor(orderSnapshot.data() || {}, { purpose: 'form' }).answers,
+        // Direct current-round answers remain authoritative; ambiguous legacy memory is not imported.
+        ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: flow.answers || {} }),
       },
     };
     // A runner event from a superseded round is stale: never let it move the
@@ -294,6 +321,12 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       return;
     }
     const result = transition(flowForTransition, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    // An ambiguous send may record an outcome; it cannot dispatch another attempt or refund a slot.
+    if (irreversible && (result.effects.some(effect => ['dispatch', 'refund'].includes(effect.type))
+      || (result.flow.state !== 'submitted' && Number(result.flow.portalAutoRetryAt) > 0))) {
+      ignoreIrreversible();
+      return;
+    }
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
     // continuing a fact-repair chain, including its candidate-review emails.
@@ -330,6 +363,9 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         attempts: Number(dispatch.attempts) || 1,
         reason: dispatch.reason || null,
       };
+    }
+    if (confirmsSubmission && !answerSourceRetained(orderSnapshot.data(), freshNow())) {
+      outcome = { ok: false, ignored: 'retention_expired', state: 'submitted' }; return;
     }
     claim('applied');
     transaction.set(flowRef, nextFlow);
@@ -433,7 +469,9 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
     // A live flow is never restarted; a finished takeover can be restarted by the owner.
     if (existing && !(reason === 'owner_request' && existing.state === 'owner_takeover')) return;
     if (!automationEligibility(order, orderId).eligible) return;
-    const candidateQuestionAnswers = candidateQuestionAnswersOf(candidateProfileSnapshot);
+    const sharedAnswersFor = await loadCandidateAnswerEvidence({ db, profileRecord: candidateProfileSnapshot?.data() || {},
+      userId: order.userId, nowMs, getDocument: ref => transaction.get(ref) });
+    const candidateQuestionAnswers = sharedAnswersFor(order, { purpose: 'form' }).answers;
     const flow = {
       state: 'drafting',
       round: 1,

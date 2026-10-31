@@ -7,7 +7,8 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { handleAssistedApplicationReview, minDateFor, sendReviewResponse } = await import('../functions/src/assistedApplicationReview.js');
+const { localAnswerEvidence } = await import('../functions/src/assistedApplicationAnswerConfirmation.js');
+const { handleAssistedApplicationReview: reviewHandler, minDateFor, sendReviewResponse } = await import('../functions/src/assistedApplicationReview.js');
 const { permitOptions } = await import('../functions/src/lib/permitStatus.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { CANDIDATE_REVIEW_MS } = await import('../functions/src/assistedApplicationFlow.js');
@@ -26,6 +27,15 @@ const { runAutomationAdminAction } = await import('../services/assistedApplicati
 const SECRET = 'r'.repeat(40);
 const T0 = Date.UTC(2026, 8, 30, 10, 0, 0);
 const ORDER = 'order_REV123';
+// Existing API behavior tests act as the current client: GET the opaque hash before confirming.
+// Protocol-specific tests pass answerContracts:{} explicitly to exercise the legacy provisional path.
+async function handleAssistedApplicationReview(req: any, dependencies: any) {
+  if (req.method === 'POST' && req.body?.action === 'answers' && !Object.hasOwn(req.body, 'answerContracts')) {
+    const shown = await reviewHandler({ method: 'GET', query: { t: req.body.t } }, dependencies);
+    req = { ...req, body: { ...req.body, answerContracts: shown.body?.answerContracts || {} } };
+  }
+  return reviewHandler(req, dependencies);
+}
 const BASE = `assisted_applications/${ORDER}`;
 
 function draft(extra: Record<string, any> = {}) {
@@ -57,13 +67,64 @@ const token = (round = 1) => mintReviewToken({ secret: SECRET, orderId: ORDER, r
 beforeEach(() => {
   effects.length = 0;
   store = createMemoryFirestore({
-    [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Infermiera', companyName: 'Clinica', locale: 'it', applicantName: 'Maria Rossi' },
+    [BASE]: { cvUploadedAt: T0, paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Infermiera', companyName: 'Clinica', locale: 'it', applicantName: 'Maria Rossi' },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [] },
     [`${BASE}/ai_drafts/current`]: draft(),
   });
 });
 
 describe('candidate review API', () => {
+  it('does not mark its own successful answer stale when the normal event cleans a derived legacy memory cache', async () => {
+    store.read(`${BASE}/automation/flow`).questionAnswers = { question_legacy: 'Yes' };
+    const response = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } }, deps());
+    expect(response.status).toBe(200);
+    expect(store.read(`${BASE}/automation/flow`).questionAnswers).not.toHaveProperty('question_legacy');
+    const records = localAnswerEvidence({ orderId: ORDER, order: store.read(BASE), flow: store.read(`${BASE}/automation/flow`), draft: store.read(`${BASE}/ai_drafts/current`), nowMs: T0 });
+    expect(records).toHaveLength(1); expect(records[0].sourceCounterChanged).toBe(false);
+  });
+  it('shows complete original native constraints for non-checkbox questions before confirmation', async () => {
+    const context = 'Only University X degrees qualify. ' + 'Complete original requirement. '.repeat(30);
+    store.read(`${BASE}/ai_drafts/current`).questions = [{ id: 'degree', question: 'Degree?', type: 'choice', options: ['Yes', 'No'], required: true,
+      originalNativeContract: { question: 'Degree?', kind: 'select', options: ['Yes', 'No'], context, section: 'Accredited education' } }];
+    const response = await reviewHandler({ method: 'GET', query: { t: token() } }, deps());
+    expect(response.body.questions[0]).toMatchObject({ originalQuestionContext: context, originalQuestionSection: 'Accredited education' });
+    expect(response.body.answerContracts.degree).toMatch(/^[a-f0-9]{64}$/);
+  });
+  it('discloses each full native choice and its exact localized mapping before confirming', async () => {
+    const native = ['Yes', 'No, I do not hold a permit'];
+    const q: any = { id: 'mapped_permit', question: 'Do you hold a permit?', type: 'choice', options: ['Yes', 'No'],
+      applicationOptions: native, optionMap: [{ candidate: 'Yes', application: native[0] }, { candidate: 'No', application: native[1] }],
+      originalNativeContract: { question: 'Do you hold a permit?', kind: 'select', options: native,
+        optionValues: [{ label: native[0], value: '1' }, { label: native[1], value: '0' }] } };
+    store.read(`${BASE}/ai_drafts/current`).questions = [q];
+    const shown = await reviewHandler({ method: 'GET', query: { t: token() } }, deps());
+    expect(shown.body.questions[0]).toMatchObject({ originalQuestionOptions: q.originalNativeContract.optionValues, originalQuestionOptionMap: q.optionMap });
+    expect(shown.body.answerContracts.mapped_permit).toMatch(/^[a-f0-9]{64}$/);
+    const saved = await reviewHandler({ method: 'POST', body: { t: token(), action: 'answers', answers: { mapped_permit: 'No' }, answerContracts: shown.body.answerContracts } }, deps());
+    expect(saved.status).toBe(200);
+    expect(store.read(`${BASE}/automation/flow`).answerConfirmations.mapped_permit.question.optionMap).toEqual(q.optionMap);
+    delete q.optionMap;
+    const changed = await reviewHandler({ method: 'GET', query: { t: token() } }, deps());
+    expect(changed.body.questions[0].contractUnavailable).toBe(true); expect(changed.body.answerContracts.mapped_permit).toBeUndefined();
+  });
+  it('returns a preparing payload when the first draft does not exist yet', async () => {
+    store.docs.delete(`${BASE}/ai_drafts/current`);
+    store.read(`${BASE}/automation/flow`).state = 'drafting';
+    const response = await reviewHandler({ method: 'GET', query: { t: token() } }, deps());
+    expect(response).toMatchObject({ status: 200, body: { ready: false, reviewRequired: false, questions: [], answerContracts: {} } });
+  });
+  it('exposes the current GET hash, keeps legacy saves provisional and requires a fresh explicit confirmation', async () => {
+    const provisional = await reviewHandler({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } }, deps());
+    expect(provisional).toMatchObject({ status: 200, body: { reviewRequired: true, rawSaved: true, answerConfirmation: { authority: false } } });
+    expect(effects).toEqual([]);
+    const shown = await reviewHandler({ method: 'GET', query: { t: token() } }, deps());
+    expect(shown.body).toMatchObject({ reviewRequired: true, can: { approve: false }, answers: { work_permit: 'G' } });
+    expect(shown.body.answerContracts.work_permit).toMatch(/^[a-f0-9]{64}$/);
+    const confirmed = await reviewHandler({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' }, answerContracts: shown.body.answerContracts } }, deps());
+    expect(confirmed.status).toBe(200);
+    expect(store.read(`${BASE}/automation/flow`).answerReviewRequired).toBe(false);
+    expect(store.read(`${BASE}/automation/flow`).answerConfirmations.work_permit).toMatchObject({ answer: 'G', contractHash: shown.body.answerContracts.work_permit });
+  });
   it('shows the texts and the questions, never the operator analysis', async () => {
     const { status, body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
     expect(status).toBe(200);
@@ -561,7 +622,7 @@ describe('the candidate’s Swiss status on the review page', () => {
     const body = await view();
     expect(body.questions[0].options).toEqual([...labels, 'Permesso B in rinnovo']);
     expect(body.answers.work_permit).toBe('Permesso B in rinnovo');
-    expect(await answer({ work_permit: 'Permesso B in rinnovo', notice: '3 mesi' })).toMatchObject({ status: 200 });
+    expect(await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'Permesso B in rinnovo', notice: '3 mesi' }, answerContracts: {} } }, deps())).toMatchObject({ status: 200 });
     expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ work_permit: 'Permesso B in rinnovo', notice: '3 mesi' });
     // Any other text is still no option.
     expect(await answer({ work_permit: 'Permesso B scaduto' })).toMatchObject({ status: 400, body: { fields: { work_permit: 'Scegli una delle opzioni.' } } });

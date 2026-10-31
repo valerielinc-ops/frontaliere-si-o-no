@@ -1,3 +1,6 @@
+import { answerContractsFor, currentAnswerReviewRequired, sameAnswerMaterial } from './assistedApplicationAnswerConfirmation.js';
+import { answerQuestionDescriptor, nativeQuestionOptionsView } from './lib/applicationQuestionContract.js';
+import { CONSENT_OWNERSHIP_FIELDS } from './lib/consentOwnershipContract.js';
 /**
  * Candidate review page API of the automated assisted application.
  *
@@ -21,6 +24,7 @@ import { operationalEmailBody, withOperationalQuestionAnswers } from './assisted
 import { MAX_REVIEW_ROUNDS, roundsShown } from './assistedApplicationFlow.js';
 import { canWithdrawApplication, withdrawAssistedApplication, WithdrawalError } from './assistedApplicationWithdrawal.js';
 import { submissionRefFor } from './assistedApplicationSubmissionGuard.js';
+import { publicSubmissionState, submissionIrreversibility } from './assistedApplicationSubmissionState.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { applicationFileName, checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { letterBlocksFor, rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
@@ -130,9 +134,15 @@ export function defaultStartDate(nowMs = Date.now()) {
 }
 
 function questionView(question, nowMs = Date.now()) {
+  const descriptor = answerQuestionDescriptor(question);
   return {
+    ...(descriptor ? Object.fromEntries(['applicationQuestion', 'context', 'section', 'autocomplete', ...CONSENT_OWNERSHIP_FIELDS].filter(field => Object.hasOwn(descriptor, field)).map(field => [field, descriptor[field]])) : { contractUnavailable: true }),
     id: question.id,
     question: question.question,
+    applicationQuestion: question.applicationQuestion || descriptor?.originalNativeContract?.question || '',
+    originalQuestionContext: descriptor?.originalNativeContract?.context || '',
+    originalQuestionSection: descriptor?.originalNativeContract?.section || '',
+    ...(descriptor ? nativeQuestionOptionsView(descriptor) : {}),
     why: question.why || '',
     type: question.type,
     options: question.options || [],
@@ -287,9 +297,16 @@ export function sendReviewResponse(res, { status, body, file }) {
   return res.status(status).json(body);
 }
 
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
+export function buildReviewPayload({ orderId, order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
-  const state = flow?.state || 'drafting';
+  const state = publicSubmissionState({ order, flow, submission });
+  const irreversible = submissionIrreversibility({ submission });
+  const sentRecord = submission?.[`r${current}`];
+  // With a canonical receipt, only its exact recorded snapshot can substantiate kept files.
+  const keptBoundToSend = sentRecord?.state !== 'sent'
+    || Boolean(sentRecord.sent && draft?.sent && sameAnswerMaterial(sentRecord.sent, draft.sent) && keptDocuments?.source === 'sent');
+  const answerContracts = answerContractsFor({ orderId, order, flow, draft });
+  const reviewRequired = currentAnswerReviewRequired(flow, draft);
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, flow?.questionAnswers).map((question) => {
@@ -316,6 +333,7 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     // being prepared, which is what the page says (not "an older version").
     preparingNext: stale && current === Number(round) + 1 && ['regenerating', 'drafting', 'owner_review'].includes(state),
     state,
+    reviewRequired,
     round: current,
     // Of the drafts the candidate was shown, not of the round's number: one Valerie regenerated before it
     // reached them cost them nothing (assistedApplicationFlow.js roundsShown).
@@ -342,7 +360,8 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     formAnswers: formAnswers.map((field) => fieldView(field, { draft, locale })),
     editLimits: TEXT_LIMITS,
     editedAt: draft?.candidateEditedAt || null,
-    questions,
+    questions: questions.map(question => ({ ...question, ...(!answerContracts[question.id] ? { contractUnavailable: true } : {}) })),
+    answerContracts,
     // The posting's decisive requirements the CV does not show, said above the questions (null: a full match).
     fit: ready ? fitNoticeOf(draft) : null,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
@@ -375,20 +394,21 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     // The editable Word copies the server builds on request: never stored, never a CV choice.
     word: wordCopiesOf({ flow, draft }),
     // After the sending: what the candidate keeps (keptDocumentsOf), with signed links.
-    keptDocuments: state === 'submitted' && keptDocuments?.files?.length ? keptDocuments : null,
+    // Projection proves that a send happened, never that today's draft files left.
+    keptDocuments: flow?.state === 'submitted' && keptBoundToSend && keptDocuments?.files?.length ? keptDocuments : null,
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
-      approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
-      reject: !stale && state === 'candidate_review',
+      approve: !stale && !irreversible && !reviewRequired && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
+      reject: !stale && !irreversible && state === 'candidate_review',
       withdraw: !stale && canWithdrawApplication({ order, flow, draft, submission }),
-      answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),
-      uploadDocuments: !stale && DOCUMENT_STATES.has(state) && documents.length > 0,
-      confirmSubmitted: !stale && state === 'candidate_handoff',
-      chooseCv: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
+      answer: !stale && !irreversible && (state === 'candidate_review' || state === 'needs_candidate_action'),
+      uploadDocuments: !stale && !irreversible && DOCUMENT_STATES.has(state) && documents.length > 0,
+      confirmSubmitted: !stale && !irreversible && state === 'candidate_handoff',
+      chooseCv: !stale && !irreversible && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
       // A tailored CV kept on the draft can be rebuilt with a photo (drafts from before it was kept cannot).
-      uploadPhoto: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
-      reviewCvLines: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
-      edit: !stale && state === 'candidate_review' && ready,
+      uploadPhoto: !stale && !irreversible && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
+      reviewCvLines: !stale && !irreversible && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
+      edit: !stale && !irreversible && state === 'candidate_review' && ready,
     },
   };
 }
@@ -644,6 +664,21 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
  * else: a required document is given, or the application waits
  * (assistedApplicationExtraDocuments.js).
  */
+async function mutableReviewFlowInTransaction({ transaction, db, orderId, round, states }) {
+  const [orderDoc, flowDoc, submissionDoc] = await Promise.all([
+    transaction.get(orderRefFor(db, orderId)), transaction.get(flowRefFor(db, orderId)), transaction.get(submissionRefFor(db, orderId)),
+  ]);
+  const order = orderDoc.data() || {};
+  const current = flowDoc.data() || {};
+  const submission = submissionDoc.data() || {};
+  const irreversible = submissionIrreversibility({ submission });
+  if (irreversible) throw new ReviewError(irreversible, 409, { state: publicSubmissionState({ order, flow: current, submission }) });
+  if (!orderDoc.exists || !flowDoc.exists || order.withdrawnAt || order.retentionPurgedAt || order.retentionPurgingAt
+    || ['withdrawn', 'closed', 'cancelled', 'refunded'].includes(order.submissionStatus)
+    || Number(current.round || 1) !== Number(round) || !states.has(current.state)) throw new ReviewError('not_allowed', 409);
+  return current;
+}
+
 async function saveDocumentChange({ db, bucket, orderId, flow, requested, action, body, nowMs }) {
   const flowRef = flowRefFor(db, orderId);
   const filesOf = (current) => (Array.isArray(current?.documents?.[requested.id]?.files) ? current.documents[requested.id].files : []);
@@ -663,13 +698,20 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     if (!bucket) throw new ReviewError('storage_unavailable', 503);
     await bucket.file(key).save(buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false });
     const file = { key, name: clean(body.fileName, 120) || `${requested.id}.${type}`, size: buffer.length, detectedType: type, uploadedAt: nowMs, clientCheck: sanitizeClientCheck(body.clientCheck) };
-    const added = await db.runTransaction(async (transaction) => {
-      const current = (await transaction.get(flowRef)).data() || {};
-      const files = filesOf(current);
-      if (files.length >= MAX_FILES_PER_DOCUMENT) return false;
-      transaction.set(flowRef, { documents: { [requested.id]: { files: [...files, file] } }, updatedAt: nowMs }, { merge: true });
-      return true;
-    });
+    let added;
+    try {
+      added = await db.runTransaction(async (transaction) => {
+        const current = await mutableReviewFlowInTransaction({ transaction, db, orderId, round: flow.round || 1, states: DOCUMENT_STATES });
+        const files = filesOf(current);
+        if (files.length >= MAX_FILES_PER_DOCUMENT) return false;
+        transaction.set(flowRef, { documents: { [requested.id]: { files: [...files, file] } }, updatedAt: nowMs }, { merge: true });
+        return true;
+      });
+    } catch (error) {
+      // Only this request's unassociated upload is safe to remove after a deterministic refusal.
+      if (error instanceof ReviewError) await bucket.file(key).delete().catch(() => {});
+      throw error;
+    }
     if (!added) {
       await bucket.file(key).delete().catch(() => {});
       throw new ReviewError('too_many_files', 409);
@@ -680,7 +722,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     const fileId = String(body.fileId || '');
     let removed = null;
     await db.runTransaction(async (transaction) => {
-      const current = (await transaction.get(flowRef)).data() || {};
+      const current = await mutableReviewFlowInTransaction({ transaction, db, orderId, round: flow.round || 1, states: DOCUMENT_STATES });
       const files = filesOf(current);
       removed = files.find((file) => documentFileId(file.key) === fileId) || null;
       if (!removed) return;
@@ -743,7 +785,7 @@ export async function handleAssistedApplicationReview(req, deps) {
           .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
           .filter((file) => file.url), kept.whatsapp),
       };
-      return { status: 200, body: { ...buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
+      return { status: 200, body: { ...buildReviewPayload({ orderId, order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
         employerResponse: employerResponseView(await loadEmployerResponse(orderRefFor(deps.db, orderId), order)),
       } };
     }
@@ -762,19 +804,26 @@ export async function handleAssistedApplicationReview(req, deps) {
       if (!result.ok && result.error === 'not_pending') throw new ReviewError('not_allowed', 409);
       return { status: 200, body: { ok: true, sent: Boolean(result.sent), stopped: Boolean(result.stopped) } };
     }
-    const { order, flow, draft } = await loadAll(deps.db, orderId);
+    const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
     if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
 
     if (action === 'withdraw') {
       return { status: 200, body: await withdrawAssistedApplication({ db: deps.db, orderId, round, nowMs }) };
     }
 
+    const irreversible = submissionIrreversibility({ submission });
+    if (irreversible && action !== 'confirm_submitted') throw new ReviewError(irreversible, 409,
+      { state: publicSubmissionState({ order, flow, submission }) });
+
     if (action === 'cv_choice') {
       // Which CV leaves: no flow event, the next submission reads it.
       const choice = String(body.cvChoice || '');
       if (!CV_CHOICES.has(choice) || draft?.tailoredCv?.status !== 'ready' || (choice === 'inplace' && !inPlaceReady(draft))) throw new ReviewError('invalid_cv_choice');
       if (flow.state !== 'candidate_review') throw new ReviewError('not_allowed', 409);
-      await flowRefFor(deps.db, orderId).set({ cvChoice: choice, updatedAt: nowMs }, { merge: true });
+      await deps.db.runTransaction(async transaction => {
+        await mutableReviewFlowInTransaction({ transaction, db: deps.db, orderId, round, states: new Set(['candidate_review']) });
+        transaction.set(flowRefFor(deps.db, orderId), { cvChoice: choice, updatedAt: nowMs }, { merge: true });
+      });
       return { status: 200, body: { ok: true, state: flow.state, cvChoice: choice } };
     }
     if (action === 'edit') {
@@ -825,7 +874,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       }
       // A status or an availability the tailored CV prints: rebuilt and committed with the answers, before the
       // event can dispatch the submission (decision 7).
-      await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers, nowMs });
+      const saved = await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers, nowMs, answerActor: 'candidate', answerContracts: body.answerContracts, requireAnswerContracts: deps.requireAnswerContracts === true });
+      if (saved.reviewRequired) return { status: 200, body: { ok: true, ...saved } };
     }
     const event = {
       approve: { type: 'candidate_approve' },
@@ -837,12 +887,13 @@ export async function handleAssistedApplicationReview(req, deps) {
     const result = await applyAutomationEvent({
       db: deps.db, orderId, event, actor: 'candidate', runEffect: deps.runEffect, nowMs,
     });
-    if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409);
+    if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409,
+      result.state ? { state: result.state } : null);
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
   } catch (error) {
     if (error instanceof ReviewError || error instanceof WithdrawalError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     // A guarded commit refused (another request saved first) or no Storage for the rebuild.
-    if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code } };
+    if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     throw error;
   }
 }

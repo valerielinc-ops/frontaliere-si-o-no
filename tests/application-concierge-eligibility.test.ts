@@ -38,6 +38,16 @@ function supportedEvidence(user: string) {
 }
 
 describe('qualification before proposal publication', () => {
+  it('invalidates a cached assessment when only service candidate notes change', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] });
+    const job = { id: 'notes-cache', url: 'https://example.test/jobs/notes-cache/' };
+    const before = await (await prepareConciergeEligibility({ ...f, profileRecord: {} }))(job);
+    const priorCalls = f.generate.mock.calls.length;
+    const service = { ...f.service, candidateNotes: 'Correction: I do not hold the required degree.' };
+    const after = await (await prepareConciergeEligibility({ ...f, service, profileRecord: {} }))(job);
+    expect(after.fingerprint).not.toBe(before.fingerprint);
+    expect(f.generate.mock.calls.length).toBeGreaterThan(priorCalls);
+  });
   it('allows all three bounded primary/fallback attempts without the long-running Codex rung', async () => {
     const match = { matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] };
     const f = fixture(match);
