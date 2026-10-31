@@ -715,8 +715,15 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   // Bind every field and action to its actual owner, so a site-search field
   // cannot turn a nearby Apply link into the application's final form.
   for (const field of fields) {
-    const node = document.querySelector(`[data-aa-id="${field.id}"]`);
-    const form = node?.form || node?.closest('form');
+    // Widget ownership was proved by the producer. Its nativeSelectId is a
+    // raw DOM id: never borrow the span/button proxy's surrounding form, or
+    // choose the first of several controls carrying the native id.
+    const native = field.nativeSelectId
+      ? [...document.querySelectorAll('[id]')].filter(element => element.id === field.nativeSelectId) : null;
+    const node = native
+      ? (native.length === 1 && native[0].tagName === 'SELECT' ? native[0] : null)
+      : document.querySelector(`[data-aa-id="${field.id}"]`);
+    const form = native ? node?.form : node?.form || node?.closest('form');
     field.formId = form ? idFor(form) : '';
   }
   // Saved after the buttons got their ids too, or the next scan hands them out again.
