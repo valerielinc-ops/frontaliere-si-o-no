@@ -257,6 +257,51 @@ describe('spec.pagination', () => {
     expect((rows as any).fetchOutcome).toBe('selector_miss');
   });
 
+  it('normalizza una lista di oggetti metadata strutturati', async () => {
+    const listingExtractor = () => ([
+      { fetchOutcome: 'ok', discoveredCount: 1 },
+      { url: `${ORIGIN}/job/sa1/`, title: 'Platform Engineer' },
+    ]);
+    const { rows } = await collect(
+      specWith(),
+      { [`${ORIGIN}/`]: listingPage({ ids: ['sa1'], page: 1 }) },
+      { listingExtractor },
+    );
+
+    expect(rows).toHaveLength(1);
+    expect((rows as any).fetchOutcome).toBe('ok');
+    expect((rows as any).discoveredCount).toBe(1);
+  });
+
+  it('aggregates free-text metadata from every paginated page', async () => {
+    const seed = `${ORIGIN}/`;
+    const secondPage = `${ORIGIN}/?sf_paged=2`;
+    const pages = {
+      [seed]: listingPage({ ids: ['sa1'], page: 1, total: 2, next: secondPage }),
+      [secondPage]: listingPage({ ids: ['sa2'], page: 2, total: 2 }),
+    };
+    const listingExtractor = (_html: string, pageUrl: string) => {
+      const pageNumber = new URL(pageUrl).searchParams.get('sf_paged');
+      const metadata = pageNumber === '2'
+        ? { fetchOutcome: 'free_text_llm_failure', freeTextFailure: 'timeout', freeTextRejectedReasons: ['timeout'] }
+        : { fetchOutcome: 'ok', freeTextApplications: [] };
+      return [
+        metadata,
+        { url: `${ORIGIN}/job/sa${pageNumber === '2' ? '2' : '1'}/`, title: 'Platform Engineer' },
+      ];
+    };
+
+    const { rows } = await collect(
+      specWith({ pagination: PAGINATION }),
+      pages,
+      { listingExtractor },
+    );
+
+    expect((rows as any).freeTextApplications).toEqual([]);
+    expect((rows as any).freeTextFailure).toBe('timeout');
+    expect((rows as any).freeTextRejectedReasons).toEqual(['timeout']);
+  });
+
   it('può misurare la copertura sulle righe source duplicate prima del dedup', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 4, next: `${ORIGIN}/?sf_paged=2` }),

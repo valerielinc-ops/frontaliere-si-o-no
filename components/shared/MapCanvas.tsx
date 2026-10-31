@@ -1,6 +1,7 @@
 import React from 'react';
 import { CircleMarker, MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
+import { useTranslation } from '@/services/i18n';
 import type { LatLngBoundsExpression, LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -103,7 +104,12 @@ export default function MapCanvas({
   tabIndex,
   children,
 }: MapCanvasProps) {
+  const { t } = useTranslation();
   const ready = active;
+  // Su touch un dito deve scorrere la pagina: con il dragging attivo Leaflet
+  // imposta touch-action:none e una mappa alta quasi quanto lo schermo
+  // intrappola lo scroll. Il pinch resta attivo e con due dita sposta la mappa.
+  const touchDevice = Boolean(leafletRuntime?.Browser?.mobile);
 
   return (
     // `relative z-0` isolates Leaflet's high z-index panes from the page chrome.
@@ -119,10 +125,16 @@ export default function MapCanvas({
           zoom={zoom}
           bounds={bounds}
           scrollWheelZoom={scrollWheelZoom}
+          dragging={!touchDevice}
           className="h-full w-full"
         >
           <TileLayer attribution={OSM_ATTRIBUTION} url={OSM_TILE_URL} />
           {typeof children === 'function' ? children(leafletBundle) : children}
+          {touchDevice && (
+            <span className="absolute right-2 top-2 z-[1000] pointer-events-none rounded-md bg-surface/90 px-2 py-1 text-xs font-medium text-body shadow-sm">
+              {t('map.twoFingerHint')}
+            </span>
+          )}
         </MapContainer>
       ) : (
         placeholder

@@ -204,7 +204,7 @@ import {
   isLocaleVariantSitemapFile,
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
-import { routeModulePreloadTags } from './shared/modulePreloads';
+import { declareRouteHintEmitter, routeChunksMetaTag } from './shared/modulePreloads';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 import {
   glossaryTermSlugFromItalianPath,
@@ -774,6 +774,32 @@ function replaceHomepageSeoHead(html: string, locale: HpSeoLocale): string {
  out = replaceTagAttribute(out, 'meta', 'name', 'twitter:url', 'content', BASE_URL + '/' + locale + '/');
  out = replaceTagAttribute(out, 'link', 'rel', 'canonical', 'href', BASE_URL + '/' + locale + '/');
  return out;
+}
+
+/**
+ * The locale home's own `WebPage`, in place of the Italian root one that
+ * index.html ships, and without the index.html blocks that have no translation.
+ */
+export function localizeHomepageStructuredData(html: string, locale: 'en' | 'de' | 'fr'): string {
+ const copy = HOMEPAGE_SEO_META[locale];
+ const url = BASE_URL + '/' + locale + '/';
+ const webPage = inlineScriptJson({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': url + '#webpage',
+  name: copy.title,
+  url,
+  description: copy.description,
+  screenshot: BASE_URL + '/og-image.png',
+  author: { '@id': BASE_URL + '/#organization' },
+  inLanguage: locale,
+ });
+ return html
+  .replace(/<script\b[^>]*\bdata-hp-it-only\b[^>]*>[\s\S]*?<\/script>\s*/gi, '')
+  .replace(
+   /<script\b[^>]*\bid=["']?hp-webpage-ld["']?[^>]*>[\s\S]*?<\/script>/i,
+   () => '<script type="application/ld+json" id="hp-webpage-ld">' + webPage + '</script>',
+  );
 }
 
 const HOMEPAGE_STATIC_H1_TEXT: Record<HpSeoLocale, string> = {
@@ -1692,7 +1718,7 @@ export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'):
    de: ['Die interaktiven Rechner benötigen JavaScript. Sie können weiterhin die Ratgeber lesen und die folgenden Links nutzen.', 'Website erkunden'],
    fr: ['Les calculateurs interactifs nécessitent JavaScript. Vous pouvez toujours lire les guides et parcourir les liens ci-dessous.', 'Parcourir le site'],
  }[locale];
- let out = replaceHomepageSeoHead(html, locale);
+ let out = localizeHomepageStructuredData(replaceHomepageSeoHead(html, locale), locale);
  // Replace only the content fallback; stylesheet noscript blocks must survive.
  out = out.replace(/<noscript\b[^>]*\bid="homepage-nojs"[^>]*>[\s\S]*?<\/noscript>/i,
    `<noscript id="homepage-nojs"><p>${noJsCopy[0]} <a href="/${SITE_MAP_PAGE_DIR[locale]}/">${noJsCopy[1]}</a></p></noscript>`);
@@ -1834,14 +1860,21 @@ const STATIC_ONLY_PATHS = new Set([
 export function staticPagesPlugin(rootDir: string): Plugin {
   const plugin = buildStaticPagesPlugin(rootDir);
   const inner = plugin.closeBundle as (this: unknown, ...args: unknown[]) => unknown;
+  const innerBuildStart = plugin.buildStart as ((this: unknown, ...args: unknown[]) => unknown) | undefined;
+  let endRouteHints = (): void => {};
   return withPhaseInstrument('static-pages', {
     ...plugin,
+    buildStart: function (this: unknown, ...args: unknown[]) {
+      endRouteHints = declareRouteHintEmitter();
+      return innerBuildStart?.apply(this, args);
+    } as Plugin['buildStart'],
     closeBundle: async function (this: unknown, ...args: unknown[]) {
       beginJobDetailExistenceMemo();
       try {
         return await inner.apply(this, args);
       } finally {
         endJobDetailExistenceMemo();
+        endRouteHints();
       }
     } as Plugin['closeBundle'],
   });
@@ -2484,14 +2517,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // branches that still gate template fragments on it; it's tautologically
  // `true` here.
  const hasSpaBundle = spaBundle.hasSpaBundle;
- const corePreloads = [
- vendorReactChunk ? `<link rel="modulepreload" crossorigin href="/assets/${vendorReactChunk}">` : '',
- ...itCriticalChunks.map(c => `<link rel="modulepreload" href="/assets/${c}">`),
- ].filter(Boolean).join('\n ');
- const preloadTag = corePreloads ? '\n ' + corePreloads : '';
- // What `corePreloads` already hints: the page list below must not repeat it
- // (shared/modulePreloads.ts — /calcola-stipendio/ shipped it-calculator twice).
- const corePreloadedChunks: ReadonlySet<string> = new Set([vendorReactChunk, ...itCriticalChunks].filter(Boolean));
+ // Core chunks of every SPA-shell page. They reach the browser as a hint for the
+ // release bootstrap, never as a preload of the root alias (shared/modulePreloads.ts).
+ const corePreloadChunks: string[] = [vendorReactChunk, ...itCriticalChunks].filter(Boolean);
 
  /* ── 0b. Build page-component modulepreload map ────────────── */
  // Maps URL path prefixes → component chunk filename prefixes so static HTML
@@ -2762,7 +2790,10 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  const segs = urlPath.split('/').filter(Boolean);
  const localePrefixes = ['en', 'de', 'fr'];
  const firstSeg = (segs.length > 0 && localePrefixes.includes(segs[0])) ? (segs[1] ?? '') : (segs[0] ?? '');
- if (!firstSeg) return '';
+ if (!firstSeg) {
+ const coreHint = routeChunksMetaTag(corePreloadChunks);
+ return coreHint ? '\n ' + coreHint : '';
+ }
 
  const tags: string[] = [];
  // The first two article cards are marked fetchpriority="high" by the
@@ -2782,7 +2813,8 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // Add locale-specific translation chunk (e.g., it-guide-xxx.js)
  const localeChunkKey = sectionLocaleChunks[firstSeg];
  if (localeChunkKey) routeChunks.push(stableChunkFile(`${locale}-${localeChunkKey}`));
- tags.push(...routeModulePreloadTags(routeChunks, corePreloadedChunks));
+ const routeHint = routeChunksMetaTag([...corePreloadChunks, ...routeChunks]);
+ if (routeHint) tags.push(routeHint);
  // Preload the first-paint hero image on article listing and detail pages.
  // #5001: su una pagina di DETTAGLIO va preloadata la hero DI QUELL'ARTICOLO.
  // Preloadare quella dell'hub significava un fetch ad alta priorita' per
@@ -4319,7 +4351,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
 
  // Block 4: Contributi Sociali e Previdenza
  `<h2>Contributi sociali e sistema previdenziale svizzero</h2>`,
- `I contributi sociali obbligatori in Svizzera vengono trattenuti direttamente dalla busta paga. L'AVS/AI/IPG (Assicurazione Vecchiaia e Superstiti / Invalidità / Indennità per Perdita di Guadagno) corrisponde al 5,3% del salario lordo a carico del lavoratore, con un identico 5,3% a carico del datore di lavoro. L'assicurazione contro la disoccupazione (AD/AC) è pari all'1,1% del salario fino a CHF 148.200/anno, con un contributo di solidarietà dello 0,5% sulla parte eccedente. L'assicurazione infortuni non professionali (LAINF/UVG) varia dallo 0,5% al 2% a seconda del settore e dell'assicuratore, ed è interamente a carico del lavoratore.`,
+ `I contributi sociali obbligatori in Svizzera vengono trattenuti direttamente dalla busta paga. L'AVS/AI/IPG (Assicurazione Vecchiaia e Superstiti / Invalidità / Indennità per Perdita di Guadagno) corrisponde al 5,3% del salario lordo a carico del lavoratore, con un identico 5,3% a carico del datore di lavoro. L'assicurazione contro la disoccupazione (AD/AC) è pari all'1,1% del salario fino a CHF 148.200/anno, senza contributo sulla parte eccedente. L'assicurazione infortuni non professionali (LAINF/UVG) varia dallo 0,5% al 2% a seconda del settore e dell'assicuratore, ed è interamente a carico del lavoratore.`,
  `Il secondo pilastro (LPP/BVG) è la previdenza professionale obbligatoria. I contributi variano per fascia d'età: 7% del salario coordinato (25-34 anni), 10% (35-44 anni), 15% (45-54 anni) e 18% (55-65 anni). Questi contributi sono ripartiti tra lavoratore e datore di lavoro, con il datore che copre almeno il 50%. Il salario coordinato è la parte del salario annuo compresa tra la deduzione di coordinamento (CHF 26.460 nel 2026) e il limite superiore (CHF 90.720). Al termine del rapporto di lavoro, il capitale segue le regole del libero passaggio. Il rientro in Italia non consente da solo il prelievo della parte obbligatoria: se la persona resta soggetta all’assicurazione obbligatoria italiana per vecchiaia, invalidità e superstiti, tale parte resta vincolata. La parte sovraobbligatoria ha condizioni distinte; verifica con la cassa pensioni. <a href="https://www.ahv-iv.ch/p/880.i">Fonte AVS/AI, previdenza professionale</a>.`,
  `Il terzo pilastro 3a è previdenza individuale vincolata. La possibilità di versare contributi e la deducibilità fiscale sono questioni distinte: non basta possedere un permesso G per ottenere una deduzione. Per i frontalieri fiscali dell’accordo Italia–Svizzera la TOU è esclusa; prima di versare per ragioni fiscali occorre verificare lo status e il trattamento applicabile. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">ESTV / AFC</a>.`,
 
@@ -4337,7 +4369,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
 
  // Block 7: Dichiarazione dei Redditi
  `<h2>Dichiarazione dei redditi: obblighi in Italia e in Svizzera</h2>`,
- `Per i nuovi frontalieri, la dichiarazione dei redditi italiana è obbligatoria. Il reddito da lavoro dipendente in Svizzera deve essere dichiarato nel Modello 730 (scadenza 30 settembre) o nel Modello Redditi PF (scadenza 30 novembre). Il reddito in CHF va convertito in EUR al tasso di cambio medio annuo pubblicato dall'Agenzia delle Entrate. Nella dichiarazione si applica la franchigia di EUR 10.000 e si richiede il credito d'imposta per le imposte pagate in Svizzera (imposta alla fonte), compilando il quadro CE (crediti per redditi prodotti all'estero). I vecchi frontalieri (ante 17 luglio 2023, entro 20 km) sono generalmente esenti dalla dichiarazione per il reddito da lavoro svizzero, ma devono comunque dichiarare eventuali altri redditi italiani.`,
+ `Per i nuovi frontalieri, la dichiarazione dei redditi italiana è obbligatoria. Il reddito da lavoro dipendente in Svizzera deve essere dichiarato nel Modello 730 (scadenza 30 settembre) o nel Modello Redditi PF (per il 2026, invio telematico entro il 2 novembre). Il reddito in CHF va convertito in EUR al tasso di cambio medio annuo pubblicato dall'Agenzia delle Entrate. Nella dichiarazione si applica la franchigia di EUR 10.000 e si richiede il credito d'imposta per le imposte pagate in Svizzera (imposta alla fonte), compilando il quadro CE (crediti per redditi prodotti all'estero). I vecchi frontalieri (ante 17 luglio 2023, entro 20 km) sono generalmente esenti dalla dichiarazione per il reddito da lavoro svizzero, ma devono comunque dichiarare eventuali altri redditi italiani.`,
  `La rettifica di errori nella tariffa o nei dati dell’imposta alla fonte non coincide con la richiesta di deduzioni individuali tramite tassazione ordinaria ulteriore (TOU). La FAQ 5.3 dell’ESTV esclude la TOU per i frontalieri fiscali dell’accordo Italia–Svizzera. Non si può quindi promettere un rimborso per versamenti 3a, trasporti o custodia dei figli a ogni titolare di permesso G. Verifica procedura e termini presso l’autorità cantonale in base al tuo status. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">ESTV / AFC</a>.`,
  `Nella dichiarazione italiana il credito per l’imposta svizzera segue le regole applicabili ai redditi esteri: non è una percentuale automatica del lordo né un rimborso garantito del certificato di salario. Conserva il Lohnausweis, la prova dell’imposta pagata e i documenti relativi alle spese; verifica le istruzioni dell’anno del modello utilizzato e la tua posizione fiscale. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">ESTV / AFC</a>.`,
 
@@ -5248,7 +5280,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // H.7 — enriched intro + conclusion to raise text/HTML ratio above 0.10
  // Definition block for AI extraction (intro 150+ words)
  editorialBlocks.push(
- `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (accordo Italia–Svizzera del 2020, applicabile dal 2024, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica definitiva del telelavoro fino a 45 giorni, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano le fonti utilizzate, che possono essere documenti ufficiali o notizie giornalistiche attribuite, e gli strumenti pertinenti della piattaforma. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
+ `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (accordo Italia–Svizzera del 2020, applicabile dal 2024, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica del Protocollo sul telelavoro fino al 25%, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano le fonti utilizzate, che possono essere documenti ufficiali o notizie giornalistiche attribuite, e gli strumenti pertinenti della piattaforma. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
  );
  // Visible CTA → full A-Z archive. Critical for crawler reachability:
  // closes the BFS path from this index to /articoli-frontaliere/tutti/
@@ -6234,7 +6266,7 @@ ${hrefTags}
  ${CRITICAL_CSS_LINK}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
- ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
+ ${stylesheetMarkup}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
  ${SPA_ANALYTICS_SNIPPET}${jobBoardHeadTags(fullUrl)}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}

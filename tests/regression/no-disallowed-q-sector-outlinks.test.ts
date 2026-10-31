@@ -21,8 +21,8 @@
  * Matching both pre-empts a reintroduction via the alternate (concat) form
  * slipping past a template-literal-only guard.
  *
- * `?q=` tokens inside explanatory comments, external ATS URLs (literal `?q=&…`),
- * and the JSON-LD SearchAction template (`?q={search_term_string}`) stay inert:
+ * `?q=` tokens inside explanatory comments and external ATS URLs (literal `?q=&…`)
+ * stay inert:
  * none is followed by `${` or by a closing quote/backtick then `+`.
  *
  * Scope is the whole `build-plugins/` tree (walked recursively) plus the

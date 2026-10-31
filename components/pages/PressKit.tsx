@@ -163,7 +163,7 @@ const PressKit: React.FC = () => {
             <Mail size={16} /> Scrivi alla redazione
           </a>
           <a
-            href="https://www.linkedin.com/company/frontaliere-ticino"
+            href="https://www.linkedin.com/company/frontaliere-ticino/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => Analytics.trackUIInteraction('press-kit', 'contact', 'linkedin', 'click')}
