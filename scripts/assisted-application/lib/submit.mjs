@@ -278,10 +278,13 @@ export async function submitApplication(ctx) {
   // e-mail confirms the send (assistedApplicationAutomation.js confirmSentAttempt). Whether it is durable:
   // without it an unknown outcome could never be confirmed, so the send or the final click waits for it.
   const keepAttempt = async (attempt) => {
-    if (!ctx.keepSentAttempt) return true;
+    if (typeof ctx.keepSentAttempt !== 'function') return !ctx.submissionGuard;
     try {
       const binding = attempt && ctx.submissionGuard?.attemptBinding?.();
-      await ctx.keepSentAttempt(binding ? { ...attempt, submissionAttempt: binding } : attempt);
+      // This server-created photo is also used by markSent and the returned
+      // outcome. Bind that same photo before its durable pre-handoff write.
+      if (binding) attempt.submissionAttempt = binding;
+      await ctx.keepSentAttempt(attempt);
       return true;
     } catch {
       log('send attempt not kept on the draft');
