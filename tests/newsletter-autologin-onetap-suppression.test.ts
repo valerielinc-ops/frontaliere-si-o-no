@@ -201,7 +201,7 @@ describe('promptOneTap suppression wiring', () => {
   /import \{ useNewsletterAutologinInFlight \} from ['"]@\/hooks\/useNewsletterAutologinInFlight['"]/,
  );
  expect(jobBoardSource).toMatch(
-  /if \(!authResolved \|\| newsletterAutologinInFlight\) \{[\s\S]*?return <SkeletonJobDetail \/>;/,
+  /if \((?:!isCrawlerVisitor && )?\(!authResolved \|\| newsletterAutologinInFlight\)\) \{[\s\S]*?return <SkeletonJobDetail \/>/,
  );
  });
 });
