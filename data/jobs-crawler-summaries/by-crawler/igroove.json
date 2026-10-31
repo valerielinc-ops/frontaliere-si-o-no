@@ -1,7 +1,7 @@
 {
   "key": "igroove",
   "label": "iGroove AG",
-  "generatedAt": "2026-10-30T21:30:38.051Z",
+  "generatedAt": "2026-10-31T09:29:45.677Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3036,
-  "avgDurationMs": 3036,
+  "durationMs": 3755,
+  "avgDurationMs": 3755,
   "durationHistory": [
-    3036
+    3755
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://igroove.jobs.personio.de/job/2839848",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T21:30:28.254Z",
+      "crawledAt": "2026-10-31T09:29:32.713Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "streetAddress": "Churerstrasse 135",
@@ -70,5 +70,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

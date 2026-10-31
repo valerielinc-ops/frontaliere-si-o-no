@@ -1,7 +1,7 @@
 {
   "key": "recruitingapp-2563",
   "label": "Switch Bewerbermanagement Stellen",
-  "generatedAt": "2026-10-30T21:22:18.916Z",
+  "generatedAt": "2026-10-31T09:35:49.667Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5725,
-  "avgDurationMs": 5725,
+  "durationMs": 5803,
+  "avgDurationMs": 5803,
   "durationHistory": [
-    5725
+    5803
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/560/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:22:07.944Z",
+      "crawledAt": "2026-10-31T09:35:36.189Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }
