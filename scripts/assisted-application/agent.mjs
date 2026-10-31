@@ -153,6 +153,23 @@ export async function keepSentRecord(event, { draftRef, dryRun, artifactStore = 
   }
 }
 
+/** A receipt-bearing send differs from a link the candidate still has to open. */
+export function hasRecordedSubmissionOutcome(event) {
+  return event?.type === 'submit_succeeded' && event.channel !== 'whatsapp'
+    && Boolean(event.sent || event.replayed === true || event.retentionMinimal === true);
+}
+
+/** Keep the handoff photo and publish success before any optional draft projection. */
+export async function keepAndReportSubmissionOutcome(event, { draftRef, dryRun, artifactStore = null, report }) {
+  const recorded = hasRecordedSubmissionOutcome(event);
+  await keepSentRecord(event, { draftRef, dryRun, artifactStore });
+  if (!recorded) return false;
+  await report({ type: event.type, channel: event.channel,
+    ...(event.replayed === true ? { replayed: true } : {}),
+    ...(event.retentionMinimal === true ? { retentionMinimal: true } : {}) });
+  return true;
+}
+
 /**
  * The run's draft, written whole in place of the previous one. The previous
  * tailored CV, when it carried the candidate's photo, is then named by no
@@ -332,6 +349,7 @@ export async function runAgent() {
       return;
     }
   }
+  let confirmedOutcome = false;
   try {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
@@ -359,11 +377,11 @@ export async function runAgent() {
     if (event.type === 'submit_handoff') {
       try { event.portalCodeVersion = currentPortalCodeVersion(); } catch { /* A missing source marker cannot lose the real outcome. */ }
     }
-    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun, artifactStore });
-    if (!dryRun && !(await artifactStore.retained())) {
-      if (event.type === 'submit_succeeded' && execution) await report({ type: event.type, channel: event.channel, retentionMinimal: true });
-      return;
-    }
+    confirmedOutcome = hasRecordedSubmissionOutcome(event);
+    const successReported = await keepAndReportSubmissionOutcome(event, {
+      draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun, artifactStore, report,
+    });
+    if (!dryRun && !(await artifactStore.retained())) return;
     // An application sent by e-mail gets its follow-ups (day 7 and 14); the
     // recipient and subject stay in Firestore, not in the automation event.
     if (event.followup && !dryRun) {
@@ -458,9 +476,10 @@ export async function runAgent() {
       else delete event.questionDetails;
       event.documents = documentIds;
     }
-    await report(event);
+    if (!successReported) await report(event);
   } catch (error) {
-    await report({ type: 'submit_failed', error: safeErrorCode(error) });
+    if (confirmedOutcome) summary(`confirmed submit postprocessing incomplete: ${safeErrorCode(error)}`);
+    else await report({ type: 'submit_failed', error: safeErrorCode(error) });
   }
 }
 

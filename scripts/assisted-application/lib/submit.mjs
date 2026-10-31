@@ -243,7 +243,7 @@ export async function submitApplication(ctx) {
   // e-mail confirms the send (assistedApplicationAutomation.js confirmSentAttempt). Whether it is durable:
   // without it an unknown outcome could never be confirmed, so the send or the final click waits for it.
   const keepAttempt = async (attempt) => {
-    if (!ctx.keepSentAttempt) return true;
+    if (typeof ctx.keepSentAttempt !== 'function') return !ctx.submissionGuard;
     try {
       await ctx.keepSentAttempt(attempt);
       return true;
@@ -533,14 +533,12 @@ export async function submitApplication(ctx) {
           // From here the outcome may stay unknown: what the form holds goes on the draft first, durably, or
           // the click does not happen (submitViaPortal does not catch this throw: see the catch below).
           const attempt = await portalRecord(form.uploads, 'sent').catch(() => null);
-          if (attempt) {
-            if (!(await keepAttempt(attempt))) {
-              attemptNotStored = true;
-              throw new Error('sent_attempt_not_stored');
-            }
-            attemptKept = true;
-            armedRecord = attempt;
+          if (!attempt || !(await keepAttempt(attempt))) {
+            attemptNotStored = true;
+            throw new Error('sent_attempt_not_stored');
           }
+          attemptKept = true;
+          armedRecord = attempt;
           await guard.markClicked(Date.now(), { receiptWaitMs: form.receiptWaitMs ?? 60_000 });
           clicked = true;
         } : null,
@@ -554,13 +552,10 @@ export async function submitApplication(ctx) {
       }
       const portalPass = portalPassFrom({ applyUrl, channel: channelType, event, evidence, dryRun: Boolean(ctx.dryRun) });
       // A dry run keeps its files under dry-run-… and its record in the evidence only.
-      const sentRecord = succeeded || event.type === 'dry_run_ready' ? await portalRecord(evidence.uploads, ctx.dryRun ? 'dry-run' : 'sent') : null;
-      if (succeeded && guard && sentRecord) {
-        // The receipt is already durable. Enrich its file record only through
-        // the same immutable outcome authority and current retention fence.
-        const receipt = await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord });
-        if (receipt?.minimal) return { type: 'submit_succeeded', channel: channelType, retentionMinimal: true };
-      }
+      // The first durable receipt and the draft must describe the same bytes
+      // handed off. A later observation cannot replace its file photograph.
+      const sentRecord = succeeded && guard ? armedRecord
+        : succeeded || event.type === 'dry_run_ready' ? await portalRecord(evidence.uploads, ctx.dryRun ? 'dry-run' : 'sent') : null;
       if (guard) {
         // Sent: on record. After the final click any other outcome (ambiguous,
         // a CAPTCHA or an error page that appeared afterwards) is left

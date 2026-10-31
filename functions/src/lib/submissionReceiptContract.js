@@ -20,3 +20,11 @@ export function minimalSubmissionReceipt({ record, attemptHash, round, at }) {
 }
 export const isMinimalSubmissionReceipt = (receipt, attemptHash, round) => receipt?.status === 'sent' && receipt.attempt === attemptHash
   && receipt.round === round && /^[a-f0-9]{64}$/.test(receipt.hash || '') && Number.isFinite(receipt.at) && receipt.at > 0;
+
+const OWNER_INTENT_HASH_FIELDS = ['idHash', 'nativeDigest', 'materialDigest', 'submitterDigest', 'assessmentHash'];
+/** Audit metadata of an already verified server intent; these digests never grant by themselves. */
+export function submissionOwnerIntent(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).length !== OWNER_INTENT_HASH_FIELDS.length
+    || !OWNER_INTENT_HASH_FIELDS.every(key => Object.hasOwn(value, key) && typeof value[key] === 'string' && /^[a-f0-9]{64}$/.test(value[key]))) return null;
+  return Object.fromEntries(OWNER_INTENT_HASH_FIELDS.map(key => [key, value[key]]));
+}

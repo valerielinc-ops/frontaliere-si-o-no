@@ -382,7 +382,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
   }: any = {}) {
     const { store, alias } = await setupInbound();
     const orderRef = store.db.collection('assisted_applications').doc(ORDER);
-    await orderRef.set({ submissionStatus: 'ready_for_manual_submission' }, { merge: true });
+    await orderRef.set({ submissionStatus: 'ready_for_manual_submission', cvUploadedAt: 500 }, { merge: true });
     await orderRef.collection('automation').doc('flow').set(flow);
     await orderRef.collection('automation').doc('submission').set({ r1: guard });
     if (draft) await orderRef.collection('ai_drafts').doc('current').set(draft);

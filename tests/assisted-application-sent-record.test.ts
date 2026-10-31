@@ -14,9 +14,18 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 }));
 
 const { keepSentFiles, portalUploads, recordOfSend, submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
-const { keepSentRecord } = await import('../scripts/assisted-application/agent.mjs');
+const { keepSentRecord, keepAndReportSubmissionOutcome } = await import('../scripts/assisted-application/agent.mjs');
 const { decryptJson } = await import('../scripts/assisted-application/lib/secure-run.mjs');
-const { submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
+const { submissionGuard: createSubmissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
+// Record fixtures use the runner's durable draft callback, unless a test explicitly removes it.
+const fixtureAttemptKeepers = new WeakMap<object, (attempt: unknown) => Promise<void>>();
+function submissionGuard(db: any, orderId: string, round: number, options: any = {}) {
+  const guard = createSubmissionGuard(db, orderId, round, options);
+  fixtureAttemptKeepers.set(guard, async attempt => {
+    await db.collection('assisted_applications').doc(orderId).collection('ai_drafts').doc('current').set({ sentAttempt: attempt }, { merge: true });
+  });
+  return guard;
+}
 const { executionLease, executionController, prepareRemoteExecution } = await import('../functions/src/assistedApplicationExecution.js');
 const { captchaInfrastructureProof } = await import('../functions/src/lib/portalInfrastructureEvidence.js');
 const { retainedArtifactStore } = await import('../functions/src/lib/assistedApplicationArtifactRetention.js');
@@ -182,6 +191,7 @@ async function submit({ draft = draftFor(), flow = TWO_DOCUMENTS, bucket = fakeB
     order, orderId: ORDER, flow, draft, bucket, runKey: KEY, nowMs, sendCascade,
     cvBuffer: pdfOf('Lebenslauf Maria Rossi'), cvType: 'pdf',
     resolve: publicDns, fetchImpl: fakeFetch(), log: (...args: unknown[]) => lines.push(args.join(' ')),
+    keepSentAttempt: extra.submissionGuard ? fixtureAttemptKeepers.get(extra.submissionGuard) : undefined,
     ...extra,
   });
 }
@@ -448,10 +458,48 @@ describe('what a portal and WhatsApp received', () => {
     expect(runner).toHaveBeenCalledTimes(1);
   }, 60_000);
 
+  it('does not click or hand off when a guarded caller omits the durable photo keeper', async () => {
+    const store = createMemoryFirestore();
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const markClicked = vi.spyOn(guard, 'markClicked');
+    const sendCascade = vi.fn();
+    let finalClicks = 0;
+    const runner = vi.fn(async ({ onBeforeSubmit }: any) => {
+      await onBeforeSubmit({ uploads: UPLOADED });
+      finalClicks += 1;
+      return { event: { type: 'submit_succeeded' }, evidence: { steps: [] } };
+    });
+    expect(await submit({ draft: portalDraft(), codex: vi.fn(), portalRunner: runner,
+      submissionGuard: guard, keepSentAttempt: null, sendCascade })).toMatchObject({ type: 'submit_failed', error: 'sent_attempt_not_stored' });
+    expect(markClicked).not.toHaveBeenCalled();
+    expect(finalClicks).toBe(0);
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it('keeps the first acknowledged handoff photograph when later portal bookkeeping differs', async () => {
+    const store = createMemoryFirestore();
+    const bucket = fakeBucket();
+    const runner = vi.fn(async ({ onBeforeSubmit, onReceipt }: any) => {
+      await onBeforeSubmit({ uploads: UPLOADED });
+      await onReceipt({ finalUrl: 'https://employer.example/received' });
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: [] } };
+    });
+    const event: any = await submit({ draft: portalDraft(), bucket, codex: vi.fn(), portalRunner: runner,
+      submissionGuard: submissionGuard(store.db, ORDER, 1) });
+    expect(event.type).toBe('submit_succeeded');
+    expect(event.sent.files).toHaveLength(3);
+    expect(store.read(`${BASE}/automation/submission`)!.r1.sent).toEqual(event.sent);
+    expect(evidence(bucket, 'submit-portal-submit_succeeded').sent).toEqual(event.sent);
+  });
+
   it('records the files the form’s fields received, keeps the letter, and hands the record over on a replay', async () => {
     const store = createMemoryFirestore();
     const bucket = fakeBucket();
-    const runner = vi.fn(async () => ({ event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: UPLOADED } }));
+    const runner = vi.fn(async ({ onBeforeSubmit, onReceipt }: any) => {
+      await onBeforeSubmit?.({ uploads: UPLOADED });
+      await onReceipt?.({ finalUrl: 'https://employer.example/received' });
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: UPLOADED } };
+    });
     const run = () => submit({ draft: portalDraft(), bucket, codex: vi.fn(), portalRunner: runner, submissionGuard: submissionGuard(store.db, ORDER, 1) });
     const event: any = await run();
     expect(event.sent).toMatchObject({ at: NOW, channel: 'lever', packaging: 'portal', letterRenderer: 'typst', letterKey: SENT_KEY('letter') });
@@ -731,5 +779,39 @@ describe('the owner’s view of what left', () => {
       .toBe('un PDF unico con lettera, CV e documenti richiesti (lo chiede l’annuncio) · 1 documento firmato digitalmente a parte — lettera composta con Typst');
     expect(line({ packaging: 'separate', reason: 'default', confirmedBy: 'acknowledgement', files: [file('cv'), file('letter')] }))
       .toBe('lettera e CV separati · invio dall’esito incerto, confermato dalla risposta del datore — lettera composta con Typst');
+  });
+});
+
+
+describe('durable success before optional draft projections', () => {
+  it('defers WhatsApp success until its candidate link and instructions are stored', async () => {
+    const draftRef = { set: vi.fn(async () => {}) };
+    const report = vi.fn();
+    const event = { type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: 'https://employer.invalid/whatsapp', sent: { files: [] } };
+    expect(await keepAndReportSubmissionOutcome(event, { draftRef, dryRun: false, report })).toBe(false);
+    expect(report).not.toHaveBeenCalled();
+    expect(draftRef.set).toHaveBeenCalledOnce();
+    expect(event.whatsappUrl).toBe('https://employer.invalid/whatsapp');
+  });
+
+  it('publishes only the whitelisted success after keeping the exact durable photograph', async () => {
+    const store = createMemoryFirestore({
+      [BASE]: { paymentStatus: 'paid', cvUploadedAt: NOW },
+      [`${BASE}/ai_drafts/current`]: { round: 1, status: 'ready' },
+    });
+    const artifactStore = retainedArtifactStore({ db: store.db, bucket: {}, orderId: ORDER, round: 1, now: () => NOW });
+    const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
+    const sent = { at: NOW, channel: 'portal', files: [{ kind: 'cv', key: TAILORED_KEY }] };
+    const event: any = { type: 'submit_succeeded', channel: 'portal', sent, portalAnswers: { answers: [{ answer: 'private' }] }, followup: { to: 'private@example.com' } };
+    const report = vi.fn(async clean => {
+      expect(store.read(`${BASE}/ai_drafts/current`)!.sent).toEqual(sent);
+      expect(store.read(`${BASE}/ai_drafts/current`)!.portalAnswers).toBeUndefined();
+      expect(clean).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    });
+    expect(await keepAndReportSubmissionOutcome(event, { draftRef, artifactStore, dryRun: false, report })).toBe(true);
+    expect(report).toHaveBeenCalledTimes(1);
+    expect(event.sent).toBeUndefined();
+    await artifactStore.mergeDraft(draftRef, { portalAnswers: event.portalAnswers });
+    expect(store.read(`${BASE}/ai_drafts/current`)!.sent).toEqual(sent);
   });
 });
