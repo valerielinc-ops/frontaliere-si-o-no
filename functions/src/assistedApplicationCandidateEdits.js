@@ -1,4 +1,5 @@
 import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
+import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 /**
  * What the candidate may change on the review page before approving (owner
  * decision 2026-09-30): the cover letter, the e-mail to the employer (only
@@ -187,15 +188,18 @@ export function rememberCandidateQuestionAnswers({ questions, answers = {}, prev
 }
 
 /** Whether a language ability question still needs an answer after facts from the CV are applied. */
-export function questionNeedsCandidateAnswer(question, profile) {
-  return Boolean(question) && !unreadablePortalQuestion(question) && !languageExplicitlyAbsent(profile, question?.question);
+export function questionNeedsCandidateAnswer(question, profile, draft) {
+  return Boolean(question) && !provenOptionalOperationalPortalQuestion(question, draft)
+    && !unreadablePortalQuestion(question) && !languageExplicitlyAbsent(profile, question?.question);
 }
 
 /** Remove questions established by the CV and duplicate semantic requests, retaining required status. */
-export function questionsForCandidate(questions, profile, answers = {}, memory = {}) {
+export function questionsForCandidate(questions, profile, answers = {}, memory = {}, draft = null) {
   const projectedAnswers = candidateAnswersForQuestions(questions, answers, memory);
-  const candidates = (Array.isArray(questions) ? questions : []).filter((question) => questionNeedsCandidateAnswer(question, profile))
-    .map(question => question?.source === 'portal' ? { ...question, question: portalQuestionText(question) } : question);
+  const candidates = (Array.isArray(questions) ? questions : []).filter((question) => questionNeedsCandidateAnswer(question, profile, draft))
+    .map(question => question?.source === 'portal' ? { ...question, question: portalQuestionText(question),
+      ...(question.portalNativeContract && question.required === false
+        && !provenOptionalOperationalPortalQuestion(question, draft) ? { required: true } : {}) } : question);
   const answerValues = new Map();
   const conflictingKeys = new Set();
   const questionsByKey = new Map();

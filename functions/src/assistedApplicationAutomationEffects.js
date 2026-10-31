@@ -80,7 +80,7 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   const draftSnapshot = await draftRefFor(db, orderId).get();
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
   const { profile, answers } = candidateWithEdits({ order: {}, draft, flow });
-  const candidateQuestions = questionsForCandidate(draft.questions, profile, answers, flow?.questionAnswers);
+  const candidateQuestions = questionsForCandidate(draft.questions, profile, answers, flow?.questionAnswers, draft);
   const formAnswers = withOperationalQuestionAnswers(candidateQuestions, answers).answers;
   const key = automationEmailKey(effect, flow);
   const isOwner = effect.kind.startsWith('owner_');
