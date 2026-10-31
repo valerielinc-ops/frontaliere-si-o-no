@@ -392,8 +392,23 @@ function nativeQuestionText(value, counter = null) {
   // A work-history or birthplace ancestor must survive an inner field group;
   // a birth-date sibling must not become the owner of a residence control.
   const ownedAddressContext = (element) => {
-    const boundary = element.closest('form, [role="form"], dialog, [role="dialog"], main, [role="main"]') || document.body;
     const result = { section: '', owners: [], unknown: false };
+    const containingForm = element.closest('form');
+    const actualForm = element.form || containingForm;
+    if ((actualForm && containingForm && actualForm !== containingForm)
+      || ('form' in element && element.hasAttribute('form') && !element.form)) {
+      result.unknown = true;
+      return result;
+    }
+    let boundary = actualForm || element.closest('[role="form"], dialog, [role="dialog"], main, [role="main"]') || document.body;
+    if (actualForm) {
+      const container = actualForm.closest('main, [role="main"], section');
+      const forms = container ? [...container.querySelectorAll('form')] : [];
+      // A containing semantic section with one actual form can own its
+      // preceding heading. A document body or another form cannot.
+      if (container?.contains(element) && forms.length === 1 && forms[0] === actualForm) boundary = container;
+      else if (!containingForm) { result.unknown = true; return result; }
+    }
     if (!boundary) return result;
     const scopes = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
     const add = (value) => {
@@ -404,7 +419,15 @@ function nativeQuestionText(value, counter = null) {
       return true;
     };
     const ownQuestion = clean(labelFor(element));
+    const scopesToRead = [];
     for (let node = element.parentElement; node; node = node.parentElement) {
+      // A control explicitly associated with this sole form keeps the
+      // submitted form's own names as well as its visible containing scopes.
+      if (node === boundary && actualForm && !containingForm) scopesToRead.push(actualForm);
+      scopesToRead.push(node);
+      if (node === boundary) break;
+    }
+    for (const node of scopesToRead) {
       if (node.matches(scopes)) {
         const names = [];
         const addName = value => {
@@ -417,7 +440,7 @@ function nativeQuestionText(value, counter = null) {
           return true;
         };
         const heading = [...node.children].filter(child => /^H[1-4]$/.test(child.tagName)
-          && shown(child) && (child.compareDocumentPosition(element) & FOLLOWING)).at(-1);
+          && shown(child) && (node === actualForm && !containingForm || child.compareDocumentPosition(element) & FOLLOWING)).at(-1);
         if (heading && clean(captionText(heading, element)) !== ownQuestion
           && !addName(captionText(heading, element))) return result;
         if (!addName(node.getAttribute('aria-label') || '')) return result;

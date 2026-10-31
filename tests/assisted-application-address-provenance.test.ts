@@ -267,6 +267,42 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField(candidate, field)?.value).toBe('Italia');
   });
 
+  it.each<[string, boolean]>([
+    ['<main><h2>My Information</h2><form>FIELD</form></main>', true],
+    ['<section><h2>Personal information</h2><form>FIELD</form></section>', true],
+    ['<main><h2>My Information</h2><form>FIELD</form><form></form></main>', false],
+    ['<h2>My Information</h2><form>FIELD</form>', false],
+    ['<main><section><h2>My Information</h2></section><form>FIELD</form></main>', false],
+    ['<main aria-label="Work preferences"><h2>My Information</h2><form>FIELD</form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Work preferences">FIELD</fieldset></form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Employer">FIELD</fieldset></form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Place of birth">FIELD</fieldset></form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Telephone">FIELD</fieldset></form></main>', false],
+  ])('uses a full candidate heading only in a semantic container with one actual form: %s', (html, allowed) => {
+    const label = html.includes('Telephone') ? 'City' : 'Country*';
+    const field = nativeField(html.replace('FIELD', `<label for="city">${label}</label><input id="city" name="city">`), reader);
+    expect(candidateAnswerForField(candidate, field)?.value || '').toBe(allowed ? 'Italia' : '');
+  });
+
+  it.each<[string, boolean]>([['personal', true], ['employer', false]])('preserves the submitted form names for an external associated control: %s', (owner, allowed) => {
+    const title = allowed ? 'Personal information' : 'Employer';
+    const field = nativeField(`<main><h2>My Information</h2><form id="${owner}" aria-label="${title}"></form><label for="city">Country</label><input id="city" name="city" form="${owner}"></main>`, reader);
+    expect(field.addressContext.owners).toContain(title);
+    expect(candidateAnswerForField(candidate, field)?.value || '').toBe(allowed ? 'Italia' : '');
+  });
+
+  it('rejects an explicit association with another native form', () => {
+    const field = nativeField('<main><h2>My Information</h2><form><label for="city">Country</label><input id="city" name="city" form="employer"></form></main><form id="employer"></form>', reader);
+    expect(field.addressContext.unknown).toBe(true);
+    expect(candidateAnswerForField(candidate, field)).toBeNull();
+  });
+
+  it.each(['Email address/login *', 'E-Mail-Adresse erneut eingeben: *', 'Verify Email Address', 'Please enter your email address', 'Adresse e-mail / identifiant'])('does not reinterpret the registration contact %s as postal evidence', label => {
+    const field = nativeField(`<form><label for="city">${label}</label><input id="city" name="city" type="text" autocomplete="email"></form>`, reader);
+    const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: 'alias@example.test', source: 'identity' }], missingRequired: [] }, [field], { ...candidate, identity: { email: 'alias@example.test' } });
+    expect(guarded.actions[0]?.value).toBe('alias@example.test');
+  });
+
   it('does not invent DOB when the profile has no date of birth', () => {
     const field = nativeField('<form><label for="dob">DOB</label><input id="dob" name="dob" type="date" required></form>', reader, 'dob');
     const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: '1990-01-02', source: 'inferred' }], missingRequired: [] }, [field], { ...candidate, profile: {} });

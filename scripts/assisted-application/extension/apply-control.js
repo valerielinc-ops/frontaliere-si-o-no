@@ -120,8 +120,8 @@ function individualApplicationOriginQuestion(value) {
     const text = String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
       .replace(/[＊*]/g, '').replace(/\s+/g, ' ').trim();
     if (!text || text.length > 300) return false;
-    const caption = withoutCanonicalCounter(text).replace(/\s*\((?:required|mandatory|optional|obbligatorio|facoltativo|erforderlich|pflichtfeld|obligatoire|facultatif)\)\s*$/, '').replace(/[?:;.]\s*$/, '').trim();
-    return /^(?:(?:confirm|repeat|re-enter|confirmez|confirmer|repeter|ripeti|conferma|erneut|wiederholen|bestatigen)\s+)?(?:(?:your|my|the|personal|primary|contact|votre|il tuo|la tua|ihr|ihre)\s+)?(?:(?:e[- ]?mail|email|courriel|correo)(?:[- ]*(?:address|adresse|indirizzo))?|(?:address|adresse|indirizzo)[- ]*(?:e[- ]?mail|email|courriel))$/.test(caption);
+    const caption = withoutCanonicalCounter(text).replace(/\s*\((?:required|mandatory|optional|obbligatorio|facoltativo|erforderlich|pflichtfeld|obligatoire|facultatif)\)\s*$/, '').replace(/[?:;.!]+\s*$/, '').trim();
+    return /^(?:(?:please )?(?:enter|provide|confirm|verify|repeat|re-enter|confirmez|confirmer|repeter|ripeti|conferma|erneut|wiederholen|bestatigen)\s+)?(?:(?:your|my|the|personal|primary|contact|votre|il tuo|la tua|ihr|ihre)\s+)?(?:(?:e[- ]?mail|email|courriel|correo)(?:[- ]*(?:address|adresse|indirizzo))?|(?:address|adresse|indirizzo)[- ]*(?:e[- ]?mail|email|courriel))(?:(?:\s*[/|]\s*(?:login|identifiant))|(?:\s+(?:(?:erneut|nochmals)\s+)?eingeben))?$/.test(caption);
   };
   // A lexical hint can require provenance, never authorize an address value.
   // Derive it from the same positive vocabulary instead of a second alias list.
