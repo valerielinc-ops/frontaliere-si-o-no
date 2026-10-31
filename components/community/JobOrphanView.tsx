@@ -46,7 +46,7 @@ import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/servi
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
 import JobSaveButton from '@/components/community/JobSaveButton';
-import { toSaveableJob } from '@/services/jobSaveGate';
+import { toSaveableJob, type SaveableJob } from '@/services/jobSaveGate';
 import { formatDaysAgo, formatJobContractLabel, formatJobSalary } from '@/services/jobs/jobCardMetadata';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
@@ -206,19 +206,51 @@ function getStaticBodyHtml(): string | null {
  return null;
 }
 
+interface ActiveJobLink {
+ href: string;
+ title: string;
+ company: string;
+ location: string;
+ /** From the `data-job-*` attributes: the bookmark works without the jobs dataset. */
+ save?: SaveableJob;
+}
+
+function decodeAttr(value: string): string {
+ return value
+  .replace(/&lt;/g, '<')
+  .replace(/&gt;/g, '>')
+  .replace(/&quot;/g, '"')
+  .replace(/&#0?39;/g, "'")
+  .replace(/&amp;/g, '&');
+}
+
 /** Extract links from the recent-active-jobs section of static HTML. */
-export function extractActiveJobLinks(html: string): Array<{ href: string; title: string; company: string; location: string }> {
- const links: Array<{ href: string; title: string; company: string; location: string }> = [];
+export function extractActiveJobLinks(html: string): ActiveJobLink[] {
+ const links: ActiveJobLink[] = [];
  // The current static renderer emits <li><a href="...">Title</a> — Location</li>.
- const liRegex = /<li><a href="([^"]+)"[^>]*>([^<]+)<\/a>\s*(?:—|&mdash;)\s*([^<]+)<\/li>/g;
+ const liRegex = /<li><a href="([^"]+)"([^>]*)>([^<]+)<\/a>\s*(?:—|&mdash;)\s*([^<]+)<\/li>/g;
  let match;
  while ((match = liRegex.exec(html)) !== null) {
- const fullText = match[3].trim();
+ const attrs = match[2];
+ const attr = (name: string) => decodeAttr(new RegExp(` data-job-${name}="([^"]*)"`).exec(attrs)?.[1] ?? '');
+ const fullText = match[4].trim();
+ const title = match[3].trim();
+ const id = attr('id');
  links.push({
  href: match[1].replace(/^https?:\/\/[^/]+/, ''),
- title: match[2].trim(),
+ title,
    company: '',
    location: fullText,
+ ...(id ? {
+  save: {
+   id,
+   slug: attr('slug') || null,
+   title: decodeAttr(title),
+   company: attr('company'),
+   canton: attr('canton') || null,
+   category: attr('category') || null,
+  },
+ } : {}),
  });
  }
  return links;
@@ -721,9 +753,10 @@ export default function JobOrphanView({ slug, findActiveJob, onBack, hasAccess: 
  const salary = activeJob ? formatJobSalary(activeJob, locale) : null;
  const contract = activeJob ? formatJobContractLabel(activeJob.contract || activeJob.employmentType || activeJob.contractType, locale) : null;
  const posted = activeJob ? formatDaysAgo(resolveReportedPostingDate(activeJob) ?? undefined, locale) : null;
+ const saveJob = activeJob?.id ? toSaveableJob(activeJob) : link.save;
  const card = (
  <article key={link.href} className="relative rounded-xl border border-edge bg-surface/50 p-3 sm:p-4 transition-colors min-h-[72px] hover:border-accent-border">
- {activeJob?.id && <JobSaveButton job={toSaveableJob(activeJob)} surface="card_related" />}
+ {saveJob && <JobSaveButton job={saveJob} surface="card_related" />}
  <a
   href={link.href}
   onClick={(e) => handleRelatedJobClick(e, link.href)}
