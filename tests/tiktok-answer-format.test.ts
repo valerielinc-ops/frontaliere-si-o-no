@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
+  answerMatchesQuestion,
   articleBodyApiPath,
   buildAnswerCaption,
   buildAnswerCards,
@@ -29,11 +30,13 @@ describe('published article FAQ', () => {
     expect(parseArticleFaq({ translations: { faq } })).toEqual([{ question: 'Come funziona?', answer: 'Così e basta.' }]);
     expect(parseArticleFaq({ translations: { faq: '{broken' } })).toEqual([]);
     expect(parseArticleFaq({})).toEqual([]);
+    const linked = JSON.stringify([{ q: 'Come si calcola?', a: 'Usa il [calcolatore stipendio](nav:calculator) del sito.' }]);
+    expect(parseArticleFaq({ translations: { faq: linked } })[0].answer).toBe('Usa il calcolatore stipendio del sito.');
   });
 });
 
 describe('selectAnswerFaq', () => {
-  const question = 'Come viene tassato il reddito dei frontalieri oltre 20 km?';
+  const question = 'Come viene tassato il reddito dei frontalieri?';
 
   it('takes the first searched question that fits the spoken budget', () => {
     const faq = selectAnswerFaq([
@@ -47,6 +50,19 @@ describe('selectAnswerFaq', () => {
     expect(selectAnswerFaq([{ question: 'Come viene tassato il reddito dei frontalieri.', answer: ANSWER }])).toBeNull();
     expect(selectAnswerFaq([{ question, answer: 'Dipende dal caso.' }])).toBeNull();
     expect(selectAnswerFaq([{ question, answer: `${'parola '.repeat(80)}fine.` }])).toBeNull();
+  });
+
+  it('refuses an answer that only makes sense under its article', () => {
+    const answer = "Gli insegnanti frontalieri devono presentare una domanda all'Autorità di competenza, accompagnata da una copia del contratto di lavoro e da una dichiarazione dell'impiego.";
+    expect(answerMatchesQuestion('Quali sono i requisiti per ottenere il permesso G?', answer)).toBe(false);
+    expect(selectAnswerFaq([{ question: 'Quali sono i requisiti per ottenere il permesso G?', answer }])).toBeNull();
+    expect(answerMatchesQuestion('Come viene tassato il reddito dei frontalieri?', ANSWER)).toBe(true);
+  });
+
+  it('refuses speculative news FAQs and answers bound to the page', () => {
+    expect(selectAnswerFaq([{ question: 'Quali sono le implicazioni della tassa sui frontalieri?', answer: `La tassa sui frontalieri cambia. ${ANSWER}` }])).toBeNull();
+    expect(selectAnswerFaq([{ question: 'Come viene tassato il reddito dei frontalieri?', answer: `L'articolo chiarisce come viene tassato il reddito dei frontalieri. ${ANSWER}` }])).toBeNull();
+    expect(selectAnswerFaq([{ question: 'Come cambia il prezzo dei carburanti per i frontalieri?', answer: `Il prezzo dei carburanti per i frontalieri cambia. ${ANSWER}` }])).toBeNull();
   });
 
   it('cuts only at a sentence boundary and keeps the words unchanged', () => {
