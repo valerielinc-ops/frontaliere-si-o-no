@@ -18,3 +18,15 @@ export function answerContractsChanged<Q extends { id: string }>(
   const ids = new Set([...snapshot.questions, ...questions].map(question => question.id));
   return [...ids].some(id => snapshot.contracts[id] !== contracts[id]);
 }
+
+/** Every native assertion is visible; translated copy cannot hide an owned declaration. */
+export function nativeAnswerDetails(question: { question?: string; applicationQuestion?: string; ownConsentText?: string[]; ownConsentLinks?: string[] }) {
+  const canonical = (value: unknown) => typeof value === 'string' ? value.replace(/\s+/g, ' ').trim() : '';
+  const shown = canonical(question.question || '');
+  const texts = [...new Set([question.applicationQuestion || '', ...(Array.isArray(question.ownConsentText) ? question.ownConsentText : [])]
+    .map(canonical).filter(value => value && value !== shown))];
+  const links = [...new Set(Array.isArray(question.ownConsentLinks) ? question.ownConsentLinks : [])].filter(value => {
+    try { return new URL(value).protocol === 'https:'; } catch { return false; }
+  });
+  return { texts, links };
+}

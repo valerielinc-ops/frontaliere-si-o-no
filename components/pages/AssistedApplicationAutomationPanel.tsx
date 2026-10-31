@@ -1,4 +1,4 @@
-import { captureAnswerContracts, answerContractsChanged, type AnswerContractSnapshot } from '@/services/assistedApplicationAnswerContracts';
+import { captureAnswerContracts, answerContractsChanged, nativeAnswerDetails, type AnswerContractSnapshot } from '@/services/assistedApplicationAnswerContracts';
 import { useEffect, useRef, useState } from 'react';
 import { AlertTriangle, CheckCircle2, FileText, Loader2, Pause, Play, RefreshCw, Save, Send, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
 import {
@@ -538,6 +538,8 @@ export default function AssistedApplicationAutomationPanel({
               {answerSnapshot.questions.map((question) => (
                 <label key={question.id} className="block text-xs text-body">
                   {question.question}{question.required ? ' *' : ''}
+                  {nativeAnswerDetails(question).texts.map(text => <span key={text} className="mt-1 block font-normal">{text}</span>)}
+                  {nativeAnswerDetails(question).links.map(href => <a key={href} href={href} target="_blank" rel="noreferrer" className="mt-1 block font-normal text-link underline">Leggi il documento collegato</a>)}
                   <input value={answers[question.id] || ''} onChange={(event) => setAnswers((current) => ({ ...current, [question.id]: event.target.value }))} className="mt-1 w-full rounded border border-edge bg-surface-alt px-2 py-1.5 text-sm" />
                 </label>
               ))}

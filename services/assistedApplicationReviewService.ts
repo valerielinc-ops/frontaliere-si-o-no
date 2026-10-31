@@ -68,6 +68,15 @@ export interface FollowupPayload {
 }
 
 export interface ReviewQuestion {
+  /** Full native assertions displayed before the answer is confirmed. */
+  applicationQuestion?: string;
+  ownConsentText?: string[];
+  ownConsentQuestionLabels?: string[];
+  ownConsentLinks?: string[];
+  ownConsentMetadataComplete?: boolean;
+  ownConsentQuestionOwned?: boolean;
+  ownConsentOwnerKey?: string;
+  consentOwnershipUnknown?: boolean;
   id: string;
   question: string;
   why: string;

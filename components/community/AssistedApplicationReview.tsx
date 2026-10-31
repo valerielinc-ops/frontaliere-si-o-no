@@ -1,4 +1,4 @@
-import { captureAnswerContracts, answerContractsChanged, type AnswerContractSnapshot } from '@/services/assistedApplicationAnswerContracts';
+import { captureAnswerContracts, answerContractsChanged, nativeAnswerDetails, type AnswerContractSnapshot } from '@/services/assistedApplicationAnswerContracts';
 import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
@@ -83,6 +83,7 @@ function QuestionField({ question, value, onChange, disabled, error }: {
   error?: string;
 }) {
   const { t } = useTranslation();
+  const native = nativeAnswerDetails(question);
   // min-w-0 / max-w-full: iOS Safari gives date inputs an intrinsic width that
   // ignores w-full and pushes them out of the card (giro di prova 2026-10-01).
   const inputClass = 'mt-1 block w-full min-w-0 max-w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading';
@@ -92,6 +93,8 @@ function QuestionField({ question, value, onChange, disabled, error }: {
   return (
     <label className="block text-sm font-medium text-body">
       {question.question}{question.required && <span className="text-danger"> *</span>}
+      {native.texts.map(text => <span key={text} className="mt-1 block text-xs font-normal text-body">{text}</span>)}
+      {native.links.map(href => <a key={href} href={href} target="_blank" rel="noreferrer" className="mt-1 block text-xs font-normal text-link underline">{t('jobBoard.assisted.review.openConsentNotice', 'Leggi il documento collegato')}</a>)}
       {question.why && <span className="mt-0.5 block text-xs font-normal text-subtle">{question.why}</span>}
       {question.type === 'yes_no' ? (
         <select value={value} onChange={(event) => onChange(event.target.value)} disabled={disabled} className={inputClass}>

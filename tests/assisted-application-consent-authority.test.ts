@@ -159,6 +159,15 @@ describe('native consent authority shared by planner and browser', () => {
     expect(localized[0].originalNativeContract).toEqual(source[0].originalNativeContract);
     expect(localized[0].ownConsentText).toEqual(source[0].ownConsentText);
   });
+  it('preserves a full native question beyond300characters and holds oversize text technically', () => {
+    const label = 'I agree to the Privacy Policy. '.repeat(12) + 'I hold a degree.';
+    const { source } = readers(box(label));
+    const question = portalRequirementsFromMissingRequired(source, [{ fieldId: source[0].id, question: label }]).questions[0];
+    expect(question.applicationQuestion).toBe(label);
+    expect(question.applicationQuestion).toContain('I hold a degree.');
+    const unknown = portalRequirementsFromMissingRequired([{ ...source[0], label: 'x'.repeat(8001) }], [{ fieldId: source[0].id, question: label }]);
+    expect(unknown).toMatchObject({ questions: [], unreadableFields: [source[0].id] });
+  });
   it('generates the same policy and reader into both browser runtimes', () => {
     const apply = readFileSync(new URL('../scripts/assisted-application/extension/apply-control.js', import.meta.url), 'utf8');
     const fields = readFileSync(new URL('../scripts/assisted-application/lib/portal/fields.mjs', import.meta.url), 'utf8');

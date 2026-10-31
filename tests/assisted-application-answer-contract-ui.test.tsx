@@ -41,6 +41,17 @@ const reviewSave = () => screen.getByRole('button', { name: 'jobBoard.assisted.r
 const reviewApprove = () => screen.getByRole('button', { name: 'jobBoard.assisted.review.approve' }) as HTMLButtonElement;
 
 describe('answer contract CAS in actual Review and Admin renderers', () => {
+  it('renders own hard assertions and legal links in both confirmation forms', async () => {
+    const detailed = { ...question, applicationQuestion: 'Original privacy question', ownConsentText: ['Original privacy question', 'I hold a work permit'], ownConsentLinks: ['https://jobs.example/privacy-policy'] };
+    api.fetchReview.mockResolvedValue(payload([detailed]));
+    render(<Review token="token-details" />);
+    expect(await screen.findByText('I hold a work permit')).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Leggi il documento collegato' }).getAttribute('href')).toBe('https://jobs.example/privacy-policy');
+    cleanup();
+    render(<Admin order={order([detailed])} user={null} onChanged={vi.fn()} />);
+    expect(screen.getByText('I hold a work permit')).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Leggi il documento collegato' }).getAttribute('href')).toBe('https://jobs.example/privacy-policy');
+  });
   it('Review sends the displayed hash, preserves input after409, and requires explicit reread then confirmation', async () => {
     render(<Review token="token-one" />);
     const input = await screen.findByLabelText(/Original privacy question/);

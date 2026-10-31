@@ -1062,7 +1062,7 @@ function questionsFrom(missingRequired) {
     const key = portalQuestionKey(item);
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
-    const applicationQuestion = String(item.applicationQuestion || item.portalQuestion || item.question || '').trim().slice(0, 300);
+    const applicationQuestion = String(item.applicationQuestion || item.portalQuestion || item.question || '').trim();
     const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
@@ -3114,7 +3114,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           continue;
         }
         const applicationQuestion = String(field ? field.label || '' : item.applicationQuestion || item.portalQuestion || item.question || '').trim();
-        if (!readablePortalQuestionText(applicationQuestion) || machineLabel(applicationQuestion)) {
+        if (applicationQuestion.length > 8000 || !readablePortalQuestionText(applicationQuestion) || machineLabel(applicationQuestion)) {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
         }

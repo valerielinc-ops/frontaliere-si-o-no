@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { captureAnswerContracts, answerContractsChanged } from '../services/assistedApplicationAnswerContracts';
+import { captureAnswerContracts, answerContractsChanged, nativeAnswerDetails } from '../services/assistedApplicationAnswerContracts';
 
 const privacy = { id: 'consent', question: 'I agree to the privacy policy', required: true };
 describe('answer form contract snapshot', () => {
@@ -32,6 +32,13 @@ describe('answer form contract snapshot', () => {
     const actual = captureAnswerContracts('order', [], {});
     expect(answerContractsChanged(actual, 'order', [], {})).toBe(false);
     expect(actual.questions).toEqual([]);
+  });
+  it('shows the complete own assertion and original native text, without hiding a qualifying tail', () => {
+    const tail = 'I hold a work permit';
+    const actual = 'Privacy '.repeat(50) + tail;
+    expect(nativeAnswerDetails({ question: 'Accetto la privacy', applicationQuestion: actual,
+      ownConsentText: [actual, 'I hold a degree'], ownConsentLinks: ['https://jobs.example/privacy-policy', 'javascript:alert(1)'] }))
+      .toEqual({ texts: [actual.trim(), 'I hold a degree'], links: ['https://jobs.example/privacy-policy'] });
   });
   it('preserves stable contracts and distinguishes same-ID validation changes', () => {
     const original = { ...privacy, validation: { pattern: '^Yes$' } };
