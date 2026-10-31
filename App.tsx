@@ -880,7 +880,7 @@ const App: React.FC = () => {
  if (!cleanupBlocked && shouldStripNewsletterParams) {
  try {
  const u = new URL(window.location.href);
-  const currentAttemptKey = newsletterAutologinAttemptKey(u.searchParams);
+ const currentAttemptKey = newsletterAutologinAttemptKey(u.searchParams);
   if (!claimedAttemptKey || currentAttemptKey === claimedAttemptKey) {
    for (const p of NEWSLETTER_PARAMS) u.searchParams.delete(p);
    window.history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
