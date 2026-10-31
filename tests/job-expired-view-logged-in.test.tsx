@@ -76,8 +76,8 @@ describe('JobExpiredView (logged-in)', () => {
   const mobileSidebar = container.querySelector('[data-job-detail-mobile-sidebar]');
   expect(mobileSidebar).not.toBeNull();
   expect(
-   within(mobileSidebar as HTMLElement).getByRole('button', { name: /Vedi offerte simili attive/i }),
-  ).toBeInTheDocument();
+   within(mobileSidebar as HTMLElement).getByRole('link', { name: /Vedi offerte simili attive/i }),
+  ).toHaveAttribute('href', '/cerca-lavoro-ticino/');
  });
 
  it('renders safely with minimal job data and keeps the expiry status visible', () => {

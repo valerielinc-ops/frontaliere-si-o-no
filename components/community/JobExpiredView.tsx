@@ -798,13 +798,13 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
   </div>
  )}
  </dl>
- <button
-  type="button"
+ <a
+  href={listingPath}
   onClick={handleCtaClick}
   className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 min-h-[48px] text-base font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg"
  >
   {t('jobBoard.expiredAdviceCta')}
- </button>
+ </a>
  </section>
 
  {/* Mobile/tablet in-article ad */}
