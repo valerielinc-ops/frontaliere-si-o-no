@@ -43,6 +43,7 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
     it('flattens *ByLocale into the requested locale', () => {
       const seed = buildSlimSeed(sampleJob, 'de');
       expect(seed.slug).toBe('assistant-front-office-de');
+      expect(seed.descriptionPreview).toBe('lange Beschreibung');
     });
 
     it("keeps the employer's original title in every locale (only the UI is translated)", () => {
@@ -63,6 +64,7 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       }
       // Detail-only fields that would bloat the inline <script> must be absent.
       expect(seed).not.toHaveProperty('description');
+      expect(seed).toHaveProperty('descriptionPreview');
       expect(seed).not.toHaveProperty('descriptionByLocale');
       expect(seed).not.toHaveProperty('requirements');
       expect(seed).not.toHaveProperty('baseSalary');
