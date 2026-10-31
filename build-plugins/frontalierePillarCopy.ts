@@ -125,7 +125,7 @@ const IT: FrontalierePillarCopy = {
     {
       question: 'Che differenza c\'è tra vecchi e nuovi frontalieri per le tasse?',
       answer:
-        'Chi rientra nell\'articolo 9 (attività frontaliera tra il 31 dicembre 2018 e il 17 luglio 2023) resta tassato esclusivamente in Svizzera. I nuovi frontalieri sono in tassazione concorrente: pagano un\'imposta alla fonte svizzera ridotta e dichiara il reddito anche in Italia, con credito per le imposte svizzere.',
+        'Chi rientra nell\'articolo 9 (attività frontaliera tra il 31 dicembre 2018 e il 17 luglio 2023) resta tassato esclusivamente in Svizzera. I nuovi frontalieri sono in tassazione concorrente: pagano un\'imposta alla fonte svizzera ridotta e dichiarano il reddito anche in Italia, con credito per le imposte svizzere.',
     },
     {
       question: 'Il frontaliere deve pagare la cassa malati svizzera?',
