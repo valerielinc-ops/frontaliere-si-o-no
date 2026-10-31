@@ -1,4 +1,4 @@
-import { answerContractsFor, localAnswerEvidence } from './assistedApplicationAnswerConfirmation.js';
+import { answerContractsFor, localAnswerEvidence, currentAnswerReviewRequired } from './assistedApplicationAnswerConfirmation.js';
 /**
  * Owner-queue side of the automated assisted application: what Valerie sees
  * (state, clocks, why the flow is held, the full draft with the operator
@@ -124,6 +124,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
   const answerContracts = answerContractsFor({ orderId, order: orderSnapshot.data() || {}, flow: flow || {}, draft: draft || {} });
+  const reviewRequired = currentAnswerReviewRequired(flow || {}, draft || {});
   // Portal accounts the runner created on the alias: never the password here.
   // A registration the portal refused left no account (`discarded`, no password).
   const accounts = Object.values(accountsSnapshot.exists ? accountsSnapshot.data() || {} : {})
@@ -161,7 +162,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const candidateState = draft ? candidateWithEdits({ order: orderSnapshot.data() || {}, draft, flow }) : { profile: {}, answers: {} };
   return {
     answerContracts,
-    reviewRequired: Boolean(flow?.answerReviewRequired),
+    reviewRequired,
     inbox,
     candidateAlias: orderSnapshot.data()?.candidateAlias?.address || null,
     accounts,
@@ -169,7 +170,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
     interviewPrep: interviewPrep ? { status: interviewPrep.status || 'preparing', sentAt: interviewPrep.sentAt || null, questions: interviewPrep.questions || 0, stories: interviewPrep.stories || 0 } : null,
     flow: flow ? {
       state: flow.state || null,
-      answerReviewRequired: Boolean(flow.answerReviewRequired),
+      answerReviewRequired: reviewRequired,
       round: Number(flow.round) || 1,
       deadlineAt: flow.deadlineAt || null,
       reminderAt: flow.reminderAt || null,

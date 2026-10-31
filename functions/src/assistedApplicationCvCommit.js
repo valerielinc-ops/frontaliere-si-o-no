@@ -114,6 +114,7 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * @returns {Promise<{rebuilt:boolean}>}
  */
 export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs, answerActor = null, answerContracts = {}, requireAnswerContracts = false }) {
+  if (!answers || !Object.keys(answers).length) throw new CvCommitError('no_valid_answers', 400);
   const startedAt = Date.now();
   const currentTime = () => nowMs + Math.max(0, Date.now() - startedAt);
   let confirmation;

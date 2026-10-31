@@ -60,6 +60,12 @@ export function answerContractsFor(input) {
   }));
 }
 
+/** Withdrawn questions do not keep a current round in an unresolvable review hold. */
+export function currentAnswerReviewRequired(flow = {}, draft = {}) {
+  const ids = new Set((Array.isArray(draft.questions) ? draft.questions : []).map(question => question?.id));
+  return Object.entries(object(flow.answerConfirmations)).some(([id, record]) => ids.has(id) && record?.provisional === true);
+}
+
 /** Missing hashes are provisional; a supplied stale hash never confirms a changed question. */
 export function planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts = {}, actor, nowMs }) {
   if (!['candidate', 'owner'].includes(actor) || !answerSourceRetained(order, nowMs)
@@ -68,24 +74,22 @@ export function planAnswerConfirmations({ orderId, order, flow, draft, answers, 
   const previous = object(flow.answerConfirmations);
   const currentIds = new Set((draft.questions || []).map(question => question?.id));
   const confirmations = Object.fromEntries(Object.entries(previous).filter(([id, record]) => currentIds.has(id) && record?.provenance?.round === Number(flow.round || 1)));
-  let reviewRequired = false;
   for (const [id, answer] of Object.entries(answers)) {
     const question = draft.questions.find(item => item?.id === id);
     const supplied = object(answerContracts)[id];
     if (!question || !contracts[id] || supplied != null && supplied !== contracts[id]) throw new AnswerConfirmationError('answer_contract_changed');
     if (Number(previous[id]?.provenance?.confirmedAt) > nowMs) throw new AnswerConfirmationError('answer_contract_changed');
-    if (!supplied) reviewRequired = true;
     const provenance = { actor, orderId, userId: String(order.userId || ''), round: Number(flow.round || 1), confirmedAt: nowMs,
       cvHash: confirmedCvHash(order, draft), jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || '') };
     const checked = validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) });
     if (supplied && hasAnswer(answer) && !checked.ok) throw new AnswerConfirmationError('invalid_answers', 400);
     const valid = Boolean(supplied) && hasAnswer(answer) && checked.ok;
-    const record = { version: ANSWER_CONFIRMATION_VERSION, contractHash: contracts[id], provenance,
+    const record = { version: ANSWER_CONFIRMATION_VERSION, contractHash: contracts[id], provisional: !supplied, provenance,
       ...(valid ? { question: answerQuestionDescriptor(question), answer } : { cleared: true }) };
     confirmations[id] = { id: `confirmation-${hash(record)}`, ...record };
   }
   if (Object.keys(confirmations).length > 80) throw new AnswerConfirmationError('answer_contract_changed');
-  return { confirmations, reviewRequired };
+  return { confirmations, reviewRequired: currentAnswerReviewRequired({ answerConfirmations: confirmations }, draft) };
 }
 
 /** Recheck the current pointer, raw value, native contract and source retention. */

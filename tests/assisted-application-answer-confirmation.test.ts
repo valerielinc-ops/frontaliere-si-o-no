@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { answerContractRequired, answerContractsFor, localAnswerEvidence } from '../functions/src/assistedApplicationAnswerConfirmation.js';
+import { answerContractRequired, answerContractsFor, localAnswerEvidence, currentAnswerReviewRequired } from '../functions/src/assistedApplicationAnswerConfirmation.js';
 import { loadRunnerAnswerContext, purgeCandidateAnswerEvidence, rememberCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
 import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from '../functions/src/assistedApplicationCandidateEdits.js';
 vi.mock('../functions/src/assistedApplicationAutomation.js', () => ({
@@ -26,6 +26,19 @@ function fixture(question: any = q) {
 }
 
 describe('question confirmation protocol', () => {
+  it('keeps a different current pending question on hold, but lets withdrawn/empty question sets recover', async () => {
+    const first = { ...q, id: 'first' }; const second = { id: 'second', question: 'Which value?', type: 'text' };
+    const f = fixture(first); f.read('assisted_applications/source/ai_drafts/current').questions.push(second);
+    await f.save({ first: 'C1', second: 'Synthetic' }, { answerContracts: {} });
+    const partial = await f.save({ first: 'C1' });
+    expect(partial.reviewRequired).toBe(true);
+    expect(currentAnswerReviewRequired(f.input().flow, f.input().draft)).toBe(true);
+    f.read('assisted_applications/source/ai_drafts/current').questions = [first];
+    expect(currentAnswerReviewRequired(f.input().flow, f.input().draft)).toBe(false);
+    f.read('assisted_applications/source/ai_drafts/current').questions = [];
+    expect(currentAnswerReviewRequired(f.input().flow, f.input().draft)).toBe(false);
+    expect(f.input().flow.answers.second).toBe('Synthetic');
+  });
   it('does not claim confirmation for a supplied-hash value outside its original option catalog', async () => {
     const f = fixture({ id: 'choice', question: 'Which option?', type: 'choice', options: ['First', 'Second'] });
     await expect(f.save({ choice: 'Unlisted' })).rejects.toMatchObject({ code: 'invalid_answers', status: 400 });

@@ -1,4 +1,4 @@
-import { answerContractsFor } from './assistedApplicationAnswerConfirmation.js';
+import { answerContractsFor, currentAnswerReviewRequired } from './assistedApplicationAnswerConfirmation.js';
 import { answerQuestionDescriptor } from './lib/applicationQuestionContract.js';
 import { CONSENT_OWNERSHIP_FIELDS } from './lib/consentOwnershipContract.js';
 /**
@@ -297,6 +297,7 @@ export function buildReviewPayload({ orderId, order, flow, draft, round, coverLe
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const answerContracts = answerContractsFor({ orderId, order, flow, draft });
+  const reviewRequired = currentAnswerReviewRequired(flow, draft);
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, flow?.questionAnswers).map((question) => {
@@ -323,7 +324,7 @@ export function buildReviewPayload({ orderId, order, flow, draft, round, coverLe
     // being prepared, which is what the page says (not "an older version").
     preparingNext: stale && current === Number(round) + 1 && ['regenerating', 'drafting', 'owner_review'].includes(state),
     state,
-    reviewRequired: Boolean(flow.answerReviewRequired),
+    reviewRequired,
     round: current,
     // Of the drafts the candidate was shown, not of the round's number: one Valerie regenerated before it
     // reached them cost them nothing (assistedApplicationFlow.js roundsShown).
@@ -387,7 +388,7 @@ export function buildReviewPayload({ orderId, order, flow, draft, round, coverLe
     keptDocuments: state === 'submitted' && keptDocuments?.files?.length ? keptDocuments : null,
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
-      approve: !stale && !flow.answerReviewRequired && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
+      approve: !stale && !reviewRequired && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
       reject: !stale && state === 'candidate_review',
       withdraw: !stale && canWithdrawApplication({ order, flow, draft, submission }),
       answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),

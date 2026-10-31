@@ -1,7 +1,7 @@
 /** Private server-only source fence, evaluated in the same transaction as the irreversible send marker. */
 import { createHash } from 'node:crypto';
 import { canonicalQuestionJson } from './lib/applicationQuestionContract.js';
-import { answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
+import { answerSourceRetained, currentAnswerReviewRequired } from './assistedApplicationAnswerConfirmation.js';
 import { roundWasSent } from './assistedApplicationFlow.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
@@ -45,7 +45,7 @@ export function createAnswerSourceGuard({ db, orderId, order, flow, draft, intak
         const dep = expected[i]; const data = current[i].data();
         if (canonicalQuestionJson(dep.material(data)) !== dep.expected || dep.retention && !answerSourceRetained(data, now)) throw evidenceSourceChanged();
       }
-      if (flow.answerReviewRequired) throw evidenceSourceChanged();
+      if (currentAnswerReviewRequired(flow, draft || {})) throw evidenceSourceChanged();
     },
   });
 }
