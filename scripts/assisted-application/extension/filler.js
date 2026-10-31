@@ -30,7 +30,7 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
@@ -366,30 +366,35 @@
   const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id'))?.label || '';
 
   /** Residence context stays separate from question labels and kit answers. */
-  function runnerSectionOf(runner, element) {
-    const field = runner.get(element.getAttribute('data-aa-id'));
-    if (!field) return '';
+  function runnerSectionOf(runner, element, suppliedField) {
+    const field = suppliedField || runner.get(element.getAttribute('data-aa-id'));
+    if (!field) return { section: '', scopes: [] };
     const section = field.section || '';
     const scopeSelector = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
     const boundary = element.closest('form, [role="form"], dialog, [role="dialog"], main, [role="main"]');
-    if (!boundary) return '';
+    if (!boundary) return { section: '', scopes: [] };
     const names = [];
     for (let node = element.parentElement; node; node = node.parentElement) {
       if (node.matches(scopeSelector) && isShown(node)) {
-        names.push(node.getAttribute('aria-label') || '');
+        const scopeNames = [];
+        const heading = [...node.children].filter(child => /^H[1-4]$/.test(child.tagName)
+          && isShown(child) && (child.compareDocumentPosition(element) & 4)).at(-1);
+        if (heading && normalize(textOf(heading)) !== normalize(field.label || labelOf(element))) scopeNames.push(textOf(heading));
+        if (node.getAttribute('aria-label')) scopeNames.push(node.getAttribute('aria-label'));
         for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
           const matches = [...node.ownerDocument.querySelectorAll('[id]')].filter(label => label.id === id);
           if (matches.length !== 1) return null;
           const label = matches[0];
-          // Explicit ARIA references can name an owner through visually
-          // hidden text. Dropping that name must not authorize an outer
-          // personal heading; unreadable ownership remains unknown.
           const name = label ? textOf(label) : '';
           if (!name) return null;
-          names.push(name);
+          scopeNames.push(name);
         }
         const legend = [...node.children].find(child => child.tagName === 'LEGEND');
-        if (legend && isShown(legend)) names.push(textOf(legend));
+        if (legend && isShown(legend)) scopeNames.push(textOf(legend));
+        if (scopeNames.length > 16) return null;
+        const group = [...new Set(scopeNames.map(value => String(value).replace(/\s+/g, ' ').trim()).filter(Boolean))].join(' · ');
+        if (group.length > 300) return null;
+        if (group) names.push(group);
       }
       if (node === boundary) break;
     }
@@ -407,7 +412,7 @@
     }
     const context = [...new Set([...names, owned ? section : ''].map(value => String(value).replace(/\s+/g, ' ').trim()).filter(Boolean))];
     if (context.length > 16 || context.some(value => value.length > 300)) return null;
-    return context.join(' · ');
+    return { section: context.join(' · '), scopes: context };
   }
 
   function markerText(node) {
@@ -512,7 +517,7 @@
         : element.tagName === 'SELECT' ? 'select'
           : element.getAttribute('role') === 'combobox' ? 'combobox'
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
-      const label = labelOf(element);
+      const label = runnerLabelOf(runner, element) || labelOf(element);
       const labels = labelsOf(element, label, runnerLabelOf(runner, element));
       entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
         ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
@@ -591,8 +596,12 @@
     }
     return entries.map(entry => {
       const field = runner.get(entry.element.getAttribute('data-aa-id'));
+      // A styled select's proxy is a locator; the native successful control
+      // owns the submitted meaning and its containing scopes.
+      const purpose = runnerSectionOf(runner, entry.nativeSelect || entry.element, field);
       return { ...entry, ...(field?.consentOwnershipUnknown === true ? { consentOwnershipUnknown: true } : {}),
-        section: runnerSectionOf(runner, entry.element), context: field?.context || '', nativeSection: field?.section || '',
+        section: purpose === null ? null : purpose.section, purposeScopes: purpose === null ? null : purpose.scopes,
+        context: field?.context || '', nativeSection: field?.section || '',
         ...(Object.hasOwn(field || {}, 'addressContext') ? { addressContext: field.addressContext } : {}) };
     });
   }
@@ -707,15 +716,19 @@
 
   function isPhoneCountryEntry(entry) {
     const labels = entry.labels || [entry.label];
-    const labelText = normalize(labels.join(' '));
+    const primary = entry.label || labels.find(Boolean) || '';
+    const labelText = normalize(primary);
     if (!COUNTRY_WORD_RE.test(labelText) || RESIDENCE_CONTEXT_RE.test(labelText)) return false;
-    const explicit = PHONE_COUNTRY_CODE_RE.test(labelText)
-      || (COUNTRY_WORD_RE.test(labelText) && /\b(?:phone|telephone|telefon|telefono|mobile|natel)\b/.test(labelText));
-    const scope = entry.element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question');
-    const scopeText = normalize(textOf(scope));
-    const hasPhoneControl = Boolean(scope?.querySelector('input[type="tel"], input[autocomplete="tel"], [data-aa-phone]'));
-    return explicit || (residenceFieldRole(entry.label || labels.find(Boolean) || '') === 'country'
-      && hasPhoneControl && !RESIDENCE_CONTEXT_RE.test(scopeText));
+    if (Object.hasOwn(entry, 'addressContext') && !validAddressContext(entry.addressContext)) return false;
+    const ownerText = normalize(Object.hasOwn(entry, 'addressContext')
+      ? [entry.addressContext.section, ...entry.addressContext.owners].join(' ') : entry.section || '');
+    if (NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(ownerText) || BIRTHPLACE_RE.test(ownerText)) return false;
+    const phoneLabel = /\b(?:phone|telephone|telefon|telefono|mobile|natel)\b/.test(labelText);
+    const phoneScope = hasTelephonePurpose(Object.hasOwn(entry, 'addressContext')
+      ? [...entry.addressContext.owners, entry.addressContext.section] : entry.purposeScopes || []);
+    const explicit = (PHONE_COUNTRY_CODE_RE.test(labelText) && (phoneLabel || phoneScope))
+      || (COUNTRY_WORD_RE.test(labelText) && phoneLabel);
+    return explicit || (residenceFieldRole(primary) === 'country' && phoneScope);
   }
 
   function familyOf(entry) {
@@ -736,8 +749,9 @@
     const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''} ${nativeOwner}`);
     const addressRole = residenceFieldRole(primaryLabel);
     const candidateAddress = Boolean(addressRole) && entry.section !== null
-      && (!Object.hasOwn(entry, 'addressContext') || validAddressContext(entry.addressContext)) && (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
-      || RESIDENCE_CONTEXT_RE.test(addressContext))
+      && (!Object.hasOwn(entry, 'addressContext') || validAddressContext(entry.addressContext))
+      && hasResidencePurpose(validAddressContext(entry.addressContext)
+        ? [...entry.addressContext.owners, entry.addressContext.section] : entry.purposeScopes || [], primaryLabel)
       && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       && !BIRTHPLACE_RE.test(addressContext)
       // A browser autocomplete token describes a type, not its owner. An

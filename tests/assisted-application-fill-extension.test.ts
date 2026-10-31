@@ -135,6 +135,44 @@ describe('fill extension: scoped saved geography answers', () => {
     window.close();
   });
 
+  it.each(['<section aria-label="Work preferences">', '<section><h3>Work preferences</h3>', '<section aria-label="Additional questions">'])('does not inherit residence across a closer unknown purpose', async open => {
+    const { window, document, F } = page(`<form><section aria-label="Personal details">${open}<label for="city">City</label><input id="city" name="city"></section></section></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
+  it.each([['', 'it'], ['<fieldset><legend>Telephone</legend>', 'ch']])('distinguishes a named phone prefix scope from a generic personal country', async (phoneScope, expected) => {
+    const { window, document, F } = page(`<form><fieldset><legend>Personal information</legend>${phoneScope}<label for="phone">Phone</label><input id="phone" type="tel"><label for="country">Country</label><select id="country"><option value="">Select</option><option value="it">Italy</option><option value="ch">Switzerland</option></select>${phoneScope ? '</fieldset>' : ''}</fieldset></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, identity: { ...kit.identity, phone: '+41 79 1234567' }, answers: [], language: 'en' }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('country') as HTMLSelectElement).value).toBe(expected);
+    window.close();
+  });
+
+  it.each([
+    '<form aria-label="Work preferences"><h2>Personal information</h2>',
+    '<form><section aria-label="Work preferences"><h2>Personal details</h2>',
+  ])('requires all names of the same physical scope to agree', async open => {
+    const { window, document, F } = page(`${open}<label for="city">City</label><input id="city" name="city"></section></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
+  it.each([
+    ['Telephone', 'Residence', 'it'], ['Residence', 'Telephone', 'ch'],
+    ['Telephone', 'Work preferences', ''],
+  ])('keeps the nearest %s/%s purpose authoritative', async (outer, inner, expected) => {
+    const { window, document, F } = page(`<form><fieldset aria-label="${outer}"><section aria-label="${inner}"><label for="country">Country</label><select id="country"><option value="">Select</option><option value="it">Italy</option><option value="ch">Switzerland</option></select></section></fieldset></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, identity: { ...kit.identity, phone: '+41 79 1234567' }, answers: [], language: 'en' }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('country') as HTMLSelectElement).value).toBe(expected);
+    window.close();
+  });
+
   it('honors an explicit current residence correction above the CV value', async () => {
     const { window, document, F } = addressPage('Personal information', personal);
     await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Lugano', source: 'answers', current: true, context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
