@@ -122,6 +122,12 @@ function exactSourceEvidence(sourceText, pageText) {
   return page.includes(source);
 }
 
+function titleSourceEvidence(title, pageText) {
+  const titleTokens = evidenceText(title).split(' ').filter(Boolean);
+  const pageTokens = new Set(evidenceText(pageText).split(' ').filter(Boolean));
+  return titleTokens.length > 0 && titleTokens.every((token) => pageTokens.has(token));
+}
+
 function dateEvidence(value, pageText) {
   const raw = clean(value, 80);
   if (!raw) return false;
@@ -249,6 +255,9 @@ export function validateFreeTextOffer(offer, {
     || isSpontaneousApplicationTitle(title)
     || PERMANENT_APPLICATION_RE.test(`${title} ${sourceText}`)) {
     return { valid: false, reason: 'generic_or_spontaneous_title' };
+  }
+  if (!titleSourceEvidence(title, pageText)) {
+    return { valid: false, reason: 'title_source_evidence_missing' };
   }
   if (!exactSourceEvidence(sourceText, pageText)) return { valid: false, reason: 'source_evidence_missing' };
   if (words(description).length < FREE_TEXT_DESCRIPTION_MIN_WORDS

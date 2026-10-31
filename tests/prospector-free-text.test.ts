@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { extractFreeTextOffers } from '../scripts/lib/prospector/free-text-extract.mjs';
+import { extractFreeTextOffers, validateFreeTextOffer } from '../scripts/lib/prospector/free-text-extract.mjs';
 import { synthesizeSpec } from '../scripts/lib/prospector/synthesize.mjs';
 import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 
@@ -7,6 +7,9 @@ const URL = 'https://tecno.example/';
 const SOURCE_TEXT = 'Cerchiamo un elettricista per il nostro team.';
 const DESCRIPTION = 'Cerchiamo un elettricista per installazioni, manutenzione e assistenza presso i nostri clienti. La persona si occuperà delle attività quotidiane, collaborerà con il team, seguirà le procedure di sicurezza e potrà candidarsi inviando il proprio CV. Sono richieste autonomia, affidabilità, competenze tecniche e disponibilità al lavoro sul territorio. Offriamo un ambiente professionale e un contratto stabile.';
 const PAGE = `<html><body><h1>Offerta di lavoro</h1><p>${SOURCE_TEXT}</p><p>${DESCRIPTION}</p><p>Luogo di lavoro: Lugano, TI.</p></body></html>`;
+const GENERIC_SOURCE_TEXT = 'Posizioni aperte: cerchiamo una persona per il nostro team.';
+const GENERIC_DESCRIPTION = 'La persona svolgerà mansioni operative, collaborerà con il team, seguirà le procedure di sicurezza e potrà candidarsi inviando il proprio CV. Sono richieste autonomia, affidabilità, competenze tecniche e disponibilità al lavoro sul territorio. Offriamo un ambiente professionale e un contratto stabile. Il luogo di lavoro è Lugano e la posizione prevede attività quotidiane con responsabilità definite.';
+const GENERIC_SOURCE_PAGE = `<html><body><h1>Offerta di lavoro</h1><p>${GENERIC_SOURCE_TEXT}</p><p>${GENERIC_DESCRIPTION}</p><p>Luogo di lavoro: Lugano, TI.</p></body></html>`;
 
 const location = {
   city: 'Lugano',
@@ -145,5 +148,27 @@ describe('Prospector free-text offers', () => {
 
     expect(result.vacancies).toEqual([]);
     expect(result.rejectedReasons).toContain('generic_or_spontaneous_title');
+  });
+
+  it('rejects a non-generic title that has no evidence on the hiring page', () => {
+    const result = validateFreeTextOffer({
+      title: 'Responsabile marketing',
+      description: GENERIC_DESCRIPTION,
+      sourceText: GENERIC_SOURCE_TEXT,
+      location: 'Lugano, TI',
+      addressLocality: 'Lugano',
+      addressRegion: 'TI',
+      postalCode: '6900',
+      streetAddress: '',
+      employmentType: 'FULL_TIME',
+      datePosted: '',
+      applyUrl: '',
+    }, {
+      html: GENERIC_SOURCE_PAGE,
+      pageUrl: URL,
+      context: { companyName: 'Tecno Montaggi', sourceLocation: sourceLocation() },
+    });
+
+    expect(result).toMatchObject({ valid: false, reason: 'title_source_evidence_missing' });
   });
 });

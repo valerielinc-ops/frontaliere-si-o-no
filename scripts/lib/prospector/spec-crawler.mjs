@@ -1431,10 +1431,17 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
   const recordSourceFetchMetadata = (extracted) => {
     const source = extracted?.sourceFetchMetadata;
     if (!source) return;
-    const sources = Array.isArray(source) ? [source] : [source];
+    // Structured extractors historically attached metadata directly to their
+    // candidate array, while newer extractors may return one metadata object
+    // per page. Inspect both shapes: wrapping an array as one entry hides the
+    // properties carried by its objects, while inspecting only its objects
+    // would lose metadata attached to the array itself.
+    const sources = Array.isArray(source) ? [source, ...source] : [source];
     for (const entry of sources) {
+      if (!entry || (typeof entry !== 'object' && typeof entry !== 'function')) continue;
       if (['fetchOutcome', 'discoveredCount', 'fetchDetail', 'authoritativeEmptyState',
-        'freeTextFailure', 'freeTextApplications', 'freeTextRejectedReasons']
+        'freeTextFailure', 'freeTextApplications', 'freeTextRejectedReasons',
+        'freeTextContractVersion']
         .some((key) => Object.prototype.hasOwnProperty.call(entry, key))) {
         sourceFetchMetadata.push(entry);
       }
@@ -1969,25 +1976,39 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         metadata.authoritativeEmptyState = source.authoritativeEmptyState;
       }
     }
-    // Free-text metadata is source evidence, not a job field. Keep it on the
-    // non-enumerable result so validation can show that permanent applications
-    // were seen without ever feeding them into the JobPosting population.
-    const freeTextSource = sourceFetchMetadata.find((entry) => (
+    // Free-text metadata is source evidence, not a job field. Aggregate every
+    // page before attaching it to the non-enumerable result so a later rescue
+    // page cannot be hidden by an earlier successful/empty page.
+    const freeTextSources = sourceFetchMetadata.filter((entry) => (
       Object.prototype.hasOwnProperty.call(entry, 'freeTextApplications')
         || Object.prototype.hasOwnProperty.call(entry, 'freeTextFailure')
+        || Object.prototype.hasOwnProperty.call(entry, 'freeTextRejectedReasons')
+        || Object.prototype.hasOwnProperty.call(entry, 'freeTextContractVersion')
     ));
-    if (freeTextSource) {
-      if (Array.isArray(freeTextSource.freeTextApplications)) {
-        metadata.freeTextApplications = freeTextSource.freeTextApplications;
+    if (freeTextSources.length) {
+      if (freeTextSources.some((entry) => (
+        Object.prototype.hasOwnProperty.call(entry, 'freeTextApplications')
+      ))) {
+        metadata.freeTextApplications = freeTextSources.flatMap((entry) => (
+          Array.isArray(entry.freeTextApplications) ? entry.freeTextApplications : []
+        ));
       }
-      if (typeof freeTextSource.freeTextFailure === 'string') {
-        metadata.freeTextFailure = freeTextSource.freeTextFailure;
+      const failures = freeTextSources
+        .map((entry) => typeof entry.freeTextFailure === 'string' ? entry.freeTextFailure : '')
+        .filter(Boolean);
+      if (failures.length) metadata.freeTextFailure = failures.join('; ');
+      if (freeTextSources.some((entry) => (
+        Object.prototype.hasOwnProperty.call(entry, 'freeTextRejectedReasons')
+      ))) {
+        metadata.freeTextRejectedReasons = freeTextSources.flatMap((entry) => (
+          Array.isArray(entry.freeTextRejectedReasons) ? entry.freeTextRejectedReasons : []
+        ));
       }
-      if (Array.isArray(freeTextSource.freeTextRejectedReasons)) {
-        metadata.freeTextRejectedReasons = freeTextSource.freeTextRejectedReasons;
-      }
-      if (Number.isInteger(freeTextSource.freeTextContractVersion)) {
-        metadata.freeTextContractVersion = freeTextSource.freeTextContractVersion;
+      const contractVersions = freeTextSources
+        .map((entry) => entry.freeTextContractVersion)
+        .filter((version) => Number.isInteger(version));
+      if (contractVersions.length) {
+        metadata.freeTextContractVersion = contractVersions[contractVersions.length - 1];
       }
     }
     copySpecFetchMetadata(rows, metadata);
