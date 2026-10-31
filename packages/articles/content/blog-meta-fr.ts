@@ -13618,7 +13618,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate aura près de 500 mila euro de moins au titre des rétrocessions.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.mozione-ticino-ristorni-salute.title': 'Motion au Tessin contre la taxe sur la santé',
-    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Motion interpartite déposée au Grand Conseil La mesure italienne est contestée sur l\'article 9 Le Tessin menace le blocage des restaurants.',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Motion interpartite déposée au Grand Conseil La mesure italienne est contestée sur l\'article 9 Le Tessin menace le blocage des restaurants Objet',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.ristorni-malnate-meno-500mila.title': 'Restaurants frontaliers, 500 000 euros de moins à Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate recevra près de 500 000 euros de moins Le fonds national passe de 89 à 108 millions Les restaurations arriveront début novembre Près de 1 700 malnatesi',
@@ -13632,6 +13632,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-brunate-lavorare-ticino.title': 'Vivre à Brunate et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Guide fiscal et des cotisations sociales pour les personnes qui vivent à Brunate et travaillent au Tessin, entre le nouvel Accord Frontalieri, l’impôt à la source, les exonérations et les rubriques du bulletin de salaire.',
     'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.sindacati-aumenti-infermieri-ticino.title': 'Infirmiers sociopsychiatriques: syndicats réclament hausse jusqu\'à 8\'941 F',
+    'blog.article.sindacati-aumenti-infermieri-ticino.excerpt': 'L’assemblée se réunit le 10 novembre à Mendrisio Augmentations annuelles demandées : de 5\'159 à 8\'941 francs Reclassement : classes 4→5 et 5→6 OCST et VPOD demandent',
+    'blog.article.sindacati-aumenti-infermieri-ticino.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.giornico-consiglio-stato-fermata.title': 'Le Conseil d\'État rejette la réouverture de l\'arrêt FFS à Giornico',
+    'blog.article.giornico-consiglio-stato-fermata.excerpt': 'Le Conseil d\'État rejette la réouverture à Giornico La ligne 120 dessert Paese, Fraggio et Scuola Media Les correspondances TILO passent par la S10 à Biasca Personne',
+    'blog.article.giornico-consiglio-stato-fermata.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.cassa-pensione-snl-sev-attacca.title': 'Caisse de pension SNL : le SEV conteste l’interprétation des résultats',
+    'blog.article.cassa-pensione-snl-sev-attacca.excerpt': 'UBS gérera le patrimoine de la Caisse de pension SNL ATIOZ a imposé une nouvelle procédure après un conflit d’intérêts Le taux de couverture était de 104,1% à la fin',
+    'blog.article.cassa-pensione-snl-sev-attacca.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;
