@@ -35,7 +35,7 @@ const deGuide: Record<string, string> = {
  'permits.g.duration': '5 Jahre (verlängerbar)',
  'permits.g.forWhom': 'Arbeitnehmer, die in einem EU/EFTA-Staat wohnen und in der Schweiz arbeiten, mindestens 1x pro Woche zurückkehren',
  'permits.g.description': 'Der Ausweis G ist die Standardbewilligung für Grenzgänger. Er erlaubt das Arbeiten in der Schweiz bei Wohnsitz im Herkunftsland.',
- 'permits.g.directAnswer': 'Die G-Bewilligung ist die Standard-Grenzgängerbewilligung: Sie erlaubt EU/EFTA-Bürgern mit Wohnsitz in einem EU/EFTA-Staat, in der Schweiz zu arbeiten und im Ausland wohnhaft zu bleiben, sofern sie mindestens einmal wöchentlich an ihren Wohnort zurückkehren. Gültig für 5 Jahre, verlängerbar. (Quelle: SEM — Staatssekretariat für Migration, Juli 2026)',
+ 'permits.g.directAnswer': 'Die G-Bewilligung ist die Standard-Grenzgängerbewilligung: Sie erlaubt EU/EFTA-Bürgern mit Wohnsitz in einem EU/EFTA-Staat, in der Schweiz zu arbeiten und im Ausland wohnhaft zu bleiben, sofern sie mindestens einmal wöchentlich an ihren Wohnort zurückkehren. Gültig für 5 Jahre bei einem Vertrag über einem Jahr, sonst für die Vertragsdauer. (Quelle: SEM — Staatssekretariat für Migration, Juli 2026)',
  'permits.g.req1': 'EU/EFTA-Staatsangehörigkeit',
  'permits.g.req2': 'Schweizer Arbeitsvertrag (oder Zusicherung)',
  'permits.g.req3': 'Wohnsitz in einem EU/EFTA-Staat',
