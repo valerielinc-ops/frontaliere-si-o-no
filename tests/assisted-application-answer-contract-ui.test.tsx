@@ -41,6 +41,21 @@ const reviewSave = () => screen.getByRole('button', { name: 'jobBoard.assisted.r
 const reviewApprove = () => screen.getByRole('button', { name: 'jobBoard.assisted.review.approve' }) as HTMLButtonElement;
 
 describe('answer contract CAS in actual Review and Admin renderers', () => {
+  it('keeps an incomplete native contract technical in both forms, without asking for another Yes', async () => {
+    const unavailable = { ...question, contractUnavailable: true };
+    api.fetchReview.mockResolvedValue(payload([unavailable]));
+    render(<Review token="token-unavailable" />);
+    expect((await screen.findByLabelText(/Original privacy question/))!.hasAttribute('disabled')).toBe(true);
+    expect((reviewSave() as HTMLButtonElement).disabled).toBe(true);
+    expect(reviewApprove().disabled).toBe(true);
+    cleanup();
+    render(<Admin order={order([unavailable])} user={null} onChanged={vi.fn()} />);
+    expect(screen.getByLabelText(/Original privacy question/).hasAttribute('disabled')).toBe(true);
+    expect((screen.getByRole('button', { name: /Salva risposte/ }) as HTMLButtonElement).disabled).toBe(true);
+    expect((screen.getByRole('button', { name: /Approva ora/ }) as HTMLButtonElement).disabled).toBe(true);
+    expect(api.sendReviewAction).not.toHaveBeenCalled();
+    expect(api.adminAction).not.toHaveBeenCalled();
+  });
   it('renders own hard assertions and legal links in both confirmation forms', async () => {
     const detailed = { ...question, applicationQuestion: 'Original privacy question', ownConsentText: ['Original privacy question', 'I hold a work permit'], ownConsentLinks: ['https://jobs.example/privacy-policy'] };
     api.fetchReview.mockResolvedValue(payload([detailed]));

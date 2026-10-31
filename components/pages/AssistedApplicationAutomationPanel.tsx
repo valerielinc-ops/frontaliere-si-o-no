@@ -540,10 +540,11 @@ export default function AssistedApplicationAutomationPanel({
                   {question.question}{question.required ? ' *' : ''}
                   {nativeAnswerDetails(question).texts.map(text => <span key={text} className="mt-1 block font-normal">{text}</span>)}
                   {nativeAnswerDetails(question).links.map(href => <a key={href} href={href} target="_blank" rel="noreferrer" className="mt-1 block font-normal text-link underline">Leggi il documento collegato</a>)}
-                  <input value={answers[question.id] || ''} onChange={(event) => setAnswers((current) => ({ ...current, [question.id]: event.target.value }))} className="mt-1 w-full rounded border border-edge bg-surface-alt px-2 py-1.5 text-sm" />
+                  {question.contractUnavailable && <span role="status" className="mt-1 block font-normal text-subtle">Stiamo verificando questa domanda. Le risposte già scritte sono conservate qui.</span>}
+                  <input disabled={Boolean(busy) || Boolean(question.contractUnavailable)} value={answers[question.id] || ''} onChange={(event) => setAnswers((current) => ({ ...current, [question.id]: event.target.value }))} className="mt-1 w-full rounded border border-edge bg-surface-alt px-2 py-1.5 text-sm" />
                 </label>
               ))}
-              <button type="button" className={secondary} disabled={Boolean(busy) || answerReviewRequired} onClick={() => { void act('automationSetAnswers', { answers, answerContracts: answerSnapshot.contracts }, 'Risposte salvate.'); }}>
+              <button type="button" className={secondary} disabled={Boolean(busy) || answerReviewRequired || answerSnapshot.questions.some(question => question.contractUnavailable)} onClick={() => { void act('automationSetAnswers', { answers, answerContracts: answerSnapshot.contracts }, 'Risposte salvate.'); }}>
                 {spinner('automationSetAnswers') || <Save size={14} aria-hidden="true" />} Salva risposte
               </button>
             </div>
@@ -624,7 +625,7 @@ export default function AssistedApplicationAutomationPanel({
         )}
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
           {flow.state === 'owner_review' && !repairingFacts && (
-            <button type="button" className={primary} disabled={Boolean(busy) || answerReviewRequired || answerConfirmationRequired} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
+            <button type="button" className={primary} disabled={Boolean(busy) || answerReviewRequired || answerConfirmationRequired || answerSnapshot.questions.some(question => question.contractUnavailable)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
               {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
             </button>
           )}

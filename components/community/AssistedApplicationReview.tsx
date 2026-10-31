@@ -95,6 +95,7 @@ function QuestionField({ question, value, onChange, disabled, error }: {
       {question.question}{question.required && <span className="text-danger"> *</span>}
       {native.texts.map(text => <span key={text} className="mt-1 block text-xs font-normal text-body">{text}</span>)}
       {native.links.map(href => <a key={href} href={href} target="_blank" rel="noreferrer" className="mt-1 block text-xs font-normal text-link underline">{t('jobBoard.assisted.review.openConsentNotice', 'Leggi il documento collegato')}</a>)}
+      {question.contractUnavailable && <span role="status" className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.contractUnavailable', 'Stiamo verificando questa domanda. Le risposte già scritte sono conservate qui.')}</span>}
       {question.why && <span className="mt-0.5 block text-xs font-normal text-subtle">{question.why}</span>}
       {question.type === 'yes_no' ? (
         <select value={value} onChange={(event) => onChange(event.target.value)} disabled={disabled} className={inputClass}>
@@ -310,7 +311,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   }, [answerSnapshot, answers, locale]);
 
   const saveAnswers = () => {
-    if (answerReviewRequired || !answerSnapshot || answerSnapshot.scope !== token) return;
+    if (answerReviewRequired || !answerSnapshot || answerSnapshot.scope !== token || answerSnapshot.questions.some(question => question.contractUnavailable)) return;
     if (Object.keys(clientErrors).length) {
       setTouched(Object.fromEntries(Object.keys(clientErrors).map((id) => [id, true])));
       return;
@@ -594,11 +595,11 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                   setTouched((current) => ({ ...current, [question.id]: true }));
                   setFieldErrors((current) => ({ ...current, [question.id]: '' }));
                 }}
-                disabled={Boolean(busy)}
+                disabled={Boolean(busy) || Boolean(question.contractUnavailable)}
                 error={fieldErrors[question.id] || (touched[question.id] ? clientErrors[question.id] : '')}
               />
             ))}
-            <button type="submit" disabled={Boolean(busy) || answerReviewRequired} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-accent px-4 text-sm font-semibold text-accent hover:bg-accent-subtle disabled:opacity-60">
+            <button type="submit" disabled={Boolean(busy) || answerReviewRequired || Boolean(answerSnapshot?.questions.some(question => question.contractUnavailable))} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-accent px-4 text-sm font-semibold text-accent hover:bg-accent-subtle disabled:opacity-60">
               {busy === 'answers' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
               {busy === 'answers' ? t('jobBoard.assisted.review.checkingAnswers') : t('jobBoard.assisted.review.saveAnswers')}
             </button>
@@ -701,7 +702,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                   </fieldset>
                 )}
                 <div className="flex flex-wrap gap-2">
-                  <button type="submit" disabled={Boolean(busy) || answerReviewRequired} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:opacity-60">
+                  <button type="submit" disabled={Boolean(busy) || answerReviewRequired || Boolean(answerSnapshot?.questions.some(question => question.contractUnavailable))} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:opacity-60">
                     {busy === 'edit' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
                     {t('jobBoard.assisted.review.saveEdits')}
                   </button>
@@ -876,7 +877,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <button
               type="button"
               onClick={() => { void run('approve'); }}
-              disabled={Boolean(busy) || !data.can.approve || editing || answerReviewRequired || answerConfirmationRequired}
+              disabled={Boolean(busy) || !data.can.approve || editing || answerReviewRequired || answerConfirmationRequired || Boolean(answerSnapshot?.questions.some(question => question.contractUnavailable))}
               className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
             >
               {busy === 'approve' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Send className="h-4 w-4" aria-hidden="true" />}

@@ -68,6 +68,7 @@ export interface FollowupPayload {
 }
 
 export interface ReviewQuestion {
+  contractUnavailable?: boolean;
   /** Full native assertions displayed before the answer is confirmed. */
   applicationQuestion?: string;
   ownConsentText?: string[];

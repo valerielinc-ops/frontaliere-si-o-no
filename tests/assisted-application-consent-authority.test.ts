@@ -25,6 +25,7 @@ function readers(html: string) {
 const box = (label: string, attrs = '', extra = '') => `<label for="consent">${label}</label><input id="consent" type="checkbox" required ${attrs}>${extra}`;
 const positives = [
   'I have read and accept the Privacy Policy.',
+  'I accept the Privacy Policy (required)',
   'Ho letto l’informativa privacy e acconsento al trattamento dei dati.',
   'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
   'J’ai lu et j’accepte la politique de confidentialité.',
