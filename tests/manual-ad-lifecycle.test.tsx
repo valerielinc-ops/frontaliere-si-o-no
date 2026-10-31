@@ -38,6 +38,49 @@ function intersect(index: number, ratio: number) {
   const record = observers[index];
   record.callback([{ target: record.target, isIntersecting: ratio > 0, intersectionRatio: ratio } as IntersectionObserverEntry], {} as IntersectionObserver);
 }
+describe('ResizeObserver delivery safety', () => {
+  function resizeStub() {
+    const log: string[] = [];
+    let deliver: () => void = () => {};
+    vi.stubGlobal('ResizeObserver', class {
+      constructor(callback: ResizeObserverCallback) { deliver = () => callback([], this as unknown as ResizeObserver); }
+      observe(target: Element) { log.push(`observe:${target.tagName}`); }
+      disconnect() { log.push('disconnect'); }
+    });
+    return { log, deliver: () => deliver() };
+  }
+  it('never re-observes inside a delivery: the rewiring waits for the next frame', async () => {
+    const { log, deliver } = resizeStub();
+    const { el, lifecycle } = setup();
+    lifecycle.request();
+    const frame = document.createElement('iframe');
+    frame.getBoundingClientRect = () => rect(top, 0);
+    el.append(frame);
+    await status(el, 'filled');
+    log.length = 0;
+    frame.getBoundingClientRect = () => rect(top, 250);
+    deliver();
+    expect(log).toEqual([]);
+    vi.advanceTimersByTime(16);
+    expect(log).toEqual(['disconnect', 'observe:INS', 'observe:IFRAME']);
+  });
+  it('drops the pending rewiring on stop', async () => {
+    const { log, deliver } = resizeStub();
+    const { el, lifecycle } = setup();
+    lifecycle.request();
+    const frame = document.createElement('iframe');
+    frame.getBoundingClientRect = () => rect(top, 0);
+    el.append(frame);
+    await status(el, 'filled');
+    vi.advanceTimersByTime(16);
+    frame.getBoundingClientRect = () => rect(top, 250);
+    deliver();
+    lifecycle.stop();
+    log.length = 0;
+    vi.advanceTimersByTime(16);
+    expect(log).toEqual([]);
+  });
+});
 describe('manual ad lifecycle shared by SPA and static', () => {
   it('starts no response deadline before a real request (consent or below fold)', () => {
     const { states, events } = setup();
