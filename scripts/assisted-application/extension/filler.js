@@ -559,12 +559,19 @@
       const nativeId = button.id.slice(0, -7);
       const nativeTargets = [...doc.querySelectorAll('[id]')].filter(node => node.id === nativeId);
       const nativeSelect = nativeTargets.length === 1 ? nativeTargets[0] : null;
-      if ([...doc.querySelectorAll('[id]')].filter(node => node.id === button.id).length !== 1) continue;
-      if (nativeSelect?.tagName !== 'SELECT' || nativeSelect.multiple || nativeSelect.matches(':disabled')
-        || button.getAttribute('aria-owns') !== `${nativeId}-menu`) continue;
+      if ([...doc.querySelectorAll('[id]')].filter(node => node.id === button.id).length !== 1) {
+        entries.push({ kind: 'combobox', element: button, label: labelOf(button), nativeContractUnavailable: true, required: false });
+        continue;
+      }
+      if (nativeSelect?.tagName !== 'SELECT' || nativeSelect.multiple
+        || button.getAttribute('aria-owns') !== `${nativeId}-menu`) {
+        entries.push({ kind: 'combobox', element: button, label: labelOf(button), nativeContractUnavailable: true, required: false });
+        continue;
+      }
+      if (nativeSelect.matches(':disabled')) continue;
       const label = labelOf(nativeSelect);
       entries.push({ kind: 'combobox', widget: 'jquery-selectmenu', element: button, nativeSelect,
-        ownedList: `${nativeId}-menu`, label, labels: labelsOf(button, label, runnerLabelOf(runner, button)),
+        ownedList: `${nativeId}-menu`, label, labels: labelsOf(nativeSelect, label, runnerLabelOf(runner, button)),
         required: isRequiredControl(nativeSelect), type: 'select' });
     }
     // Workday's dropdowns: buttons that open a listbox (the runner's «listbox» fields).
@@ -576,15 +583,19 @@
       if (/language.?selector|sprachauswahl/i.test(`${label} ${button.getAttribute('data-automation-id') || ''}`)) continue;
       const previous = button.previousElementSibling;
       const nativeSelect = button.classList.contains('ui-multiselect') && previous?.tagName === 'SELECT'
-        && previous.id && previous.getAttribute('aria-labelledby')
-        && previous.getAttribute('aria-labelledby') === button.getAttribute('aria-labelledby') ? previous : null;
+        && previous.id && [...doc.querySelectorAll('[id]')].filter(node => node.id === previous.id).length === 1
+        && previous.getAttribute('aria-labelledby')
+        && previous.getAttribute('aria-labelledby') === button.getAttribute('aria-labelledby')
+        && previous.getAttribute('aria-labelledby').trim().split(/\s+/).every(id => [...doc.querySelectorAll('[id]')].filter(node => node.id === id).length === 1) ? previous : null;
+      if (nativeSelect?.matches(':disabled')) continue;
       entries.push({
         kind: 'listbox',
         ...(nativeSelect ? { nativeSelect } : {}),
         element: button,
-        label,
-        labels: labelsOf(button, label, runnerLabelOf(runner, button)),
-        required: isRequiredControl(button) || REQUIRED_RE.test(label),
+        label: nativeSelect ? labelOf(nativeSelect) : label,
+        labels: labelsOf(nativeSelect || button, nativeSelect ? labelOf(nativeSelect) : label, runnerLabelOf(runner, button)),
+        ...(button.classList.contains('ui-multiselect') && !nativeSelect ? { nativeContractUnavailable: true } : {}),
+        required: isRequiredControl(nativeSelect || button) || REQUIRED_RE.test(nativeSelect ? labelOf(nativeSelect) : label),
         type: 'listbox',
       });
     }
@@ -704,7 +715,7 @@
     if (!COUNTRY_WORD_RE.test(labelText) || RESIDENCE_CONTEXT_RE.test(labelText)) return false;
     const explicit = PHONE_COUNTRY_CODE_RE.test(labelText)
       || (COUNTRY_WORD_RE.test(labelText) && /\b(?:phone|telephone|telefon|telefono|mobile|natel)\b/.test(labelText));
-    const scope = entry.element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question');
+    const scope = (entry.nativeSelect || entry.element).closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question');
     const scopeText = normalize(textOf(scope));
     const hasPhoneControl = Boolean(scope?.querySelector('input[type="tel"], input[autocomplete="tel"], [data-aa-phone]'));
     return explicit || (hasPhoneControl && !RESIDENCE_CONTEXT_RE.test(scopeText));
@@ -715,7 +726,7 @@
     if (entry.type === 'tel') return 'phone';
     const labels = entry.labels || [entry.label];
     if (isPhoneCountryEntry(entry)) return 'phoneCountry';
-    const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
+    const auto = String((entry.nativeSelect || entry.element).getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
     const autoFamily = AUTOCOMPLETE[auto];
     // Autocomplete identifies the value type, not whose address it is. Only
     // visible labels and the surrounding section may establish residence
@@ -784,6 +795,7 @@
   /** The value for one entry, or null: never invented, always from the kit. */
   const consentReceipts = new WeakMap();
   function answerFor(entry, kit) {
+    if (entry.nativeContractUnavailable === true) return null;
     const fromKit = kitAnswer(entry.labels || [entry.label], kit);
     if (entry.kind === 'file') {
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
@@ -1301,6 +1313,11 @@
     const preferredCv = new Set(preferredDocumentControls(cvControls));
     for (const entry of entries) {
       if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
+      if (entry.nativeContractUnavailable === true) {
+        failed.push(entry.label || entry.kind);
+        missing.push({ label: entry.label || entry.kind, answer: '', reason: 'native_contract_unavailable' });
+        continue;
+      }
       if (entry.kind === 'checkbox' && entry.element.checked) {
         const fresh = { kind: 'checkbox', label: labelOf(entry.element), name: entry.element.name,
           required: entry.required, ...consentMetadataFor(entry.element, labelOf(entry.element)) };

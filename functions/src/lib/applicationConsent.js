@@ -44,7 +44,7 @@ export function createApplicationConsentGuard(factSources = {}) {
 
   const GENERIC_TERMS = /\bterms\b|nutzungsbedingungen|teilnahmebedingungen|\bagb\b|termini|condizioni|conditions generales|conditions d utilisation/;
   const context = field => {
-    if (field?.kind !== 'checkbox' || field.consentOwnershipUnknown === true || field.ownConsentMetadataComplete !== true
+    if (field?.kind !== 'checkbox' || field.nativeContractUnavailable === true || field.consentOwnershipUnknown === true || field.ownConsentMetadataComplete !== true
       || field.ownConsentQuestionOwned !== true || !Array.isArray(field.ownConsentText)
       || !Array.isArray(field.ownConsentQuestionLabels) || !Array.isArray(field.ownConsentLinks) || typeof field.ownConsentOwnerKey !== 'string') return null;
     if (field.ownConsentText.length > 64 || field.ownConsentQuestionLabels.length > 64

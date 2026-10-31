@@ -196,6 +196,18 @@ describe('native consent authority shared by planner and browser', () => {
     expect(duplicate.some((item: any) => item.nativeSelectId === 'country')).toBe(false);
     expect(duplicate.some((item: any) => item.nativeContractUnavailable === true)).toBe(true);
   });
+  it.each([['Work preferences', 'Personal information', false], ['Personal information', 'Employer', true]])('uses the native provider semantic owner %s instead of proxy %s', (nativeHeading, proxyHeading, expected) => {
+    const markup = `<form id="native-form"><h2>${nativeHeading}</h2><label for="city">City</label><select id="city" name="native-city" autocomplete="address-level2" style="display:none"><option value="">---</option><option value="Como">Como</option></select></form>`
+      + `<form id="proxy-form"><h2>${proxyHeading}</h2><span id="city-button" class="ui-selectmenu-button" role="combobox" aria-owns="city-menu">Please select</span></form>`;
+    const { source, F, entries } = readers(markup);
+    const field = source.find((item: any) => item.nativeSelectId === 'city');
+    expect(field).toMatchObject({ formId: 'native-form', inputType: 'select', name: 'native-city', autocomplete: 'address-level2', section: nativeHeading });
+    expect(field.context).not.toContain(proxyHeading);
+    const candidate = candidateForForm({ identity: { name: 'Test Candidate' }, profile: { location: 'Como, Italia', address: { city: 'Como', country: 'Italia' } } });
+    expect(Boolean(candidateAnswerForField(candidate, field)?.value)).toBe(expected);
+    const entry = entries.find((item: any) => item.nativeSelect);
+    expect(Boolean(F.answerFor(entry, { identity: { address: { city: 'Como', country: 'Italia' } }, answers: [] })?.value)).toBe(expected);
+  });
   it('distinguishes anonymous controls in the same form without using input values', () => {
     const markup = '<label>I agree to the Privacy Policy<input type="checkbox" required></label>';
     const { source } = readers(markup + markup);

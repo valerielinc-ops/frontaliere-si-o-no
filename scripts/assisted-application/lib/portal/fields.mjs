@@ -661,6 +661,15 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   // that also asks for the CV is the application's own (account.mjs).
   const forms = [...document.forms];
   const formOf = (element) => (element.form ? forms.indexOf(element.form) : -1);
+  const submittedSelectMetadata = native => {
+    const label = labelFor(native);
+    return { ...dialogMeta(native), label, context: sectionContext(native), section: headingBefore(native),
+      name: clean(native.getAttribute('name') || ''), inputType: 'select', form: formOf(native), formId: native.form?.id || '',
+      autocomplete: clean(native.getAttribute('autocomplete') || ''), invalid: native.getAttribute('aria-invalid') === 'true',
+      search: false, maxLength: null,
+      required: native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(label) || hasRequiredMarker(native, label),
+    };
+  };
   const radios = new Map();
   const HONEYPOT_LABEL = /\b(?:for|nur für|solo per|pour les) (?:robots?|bots?|roboter)\b|\bif you(?:'|’)?re (?:a )?human\b|\bif you are (?:a )?human\b/i;
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
@@ -733,8 +742,9 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
         field.formId = native.form?.id || '';
         field.ownedList = `${nativeId}-menu`;
         field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, native));
-        field.label = labelFor(native) || field.label;
-        field.required ||= native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(field.label);
+        if (native.matches(':disabled')) continue;
+        // The proxy is only a locator; semantic ownership is the submitted select's.
+        Object.assign(field, submittedSelectMetadata(native));
         field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
         fields.push(field);
         continue;
@@ -836,8 +846,11 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     // owner; a neighboring unrelated select is not an option source.
     const native = element.previousElementSibling;
     const nativeSelect = element.classList.contains('ui-multiselect') && native?.tagName === 'SELECT'
-      && native.id && native.getAttribute('aria-labelledby')
-      && native.getAttribute('aria-labelledby') === element.getAttribute('aria-labelledby') ? native : null;
+      && native.id && [...document.querySelectorAll('[id]')].filter(node => node.id === native.id).length === 1
+      && native.getAttribute('aria-labelledby')
+      && native.getAttribute('aria-labelledby') === element.getAttribute('aria-labelledby')
+      && native.getAttribute('aria-labelledby').trim().split(/\s+/).every(id => [...document.querySelectorAll('[id]')].filter(node => node.id === id).length === 1) ? native : null;
+    if (nativeSelect?.matches(':disabled')) continue;
     fields.push({
       id: idFor(element),
       kind: 'listbox',
@@ -848,10 +861,10 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       context: sectionContext(element),
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
-      ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
+      ...(nativeSelect ? { ...submittedSelectMetadata(nativeSelect), widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
         options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, nativeSelect)),
-        required: nativeSelect.required || nativeSelect.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) } : {}),
-      invalid: element.getAttribute('aria-invalid') === 'true',
+        } : element.classList.contains('ui-multiselect') ? { nativeContractUnavailable: true, options: [] } : {}),
+      invalid: (nativeSelect || element).getAttribute('aria-invalid') === 'true',
     });
   }
   // aria-hidden is about the accessibility tree, not about what is drawn: a button with it is still one to

@@ -3114,7 +3114,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
       if (!field || (field.kind !== 'file' && field.inputType !== 'file')) {
         // A live field is authoritative. An agent's candidate-language copy
         // must never replace the exact label/options read from the ATS.
-        if (field?.consentOwnershipUnknown === true) {
+        if (field?.consentOwnershipUnknown === true || field?.nativeContractUnavailable === true) {
           unreadableFields.push(field.id || item.fieldId || 'unknown');
           continue;
         }

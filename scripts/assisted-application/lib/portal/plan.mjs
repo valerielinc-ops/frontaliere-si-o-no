@@ -1322,6 +1322,7 @@ function phoneCountryOption(candidate, field) {
 
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
+  if (field?.nativeContractUnavailable === true) return null;
   const topic = questionTopic(field?.label, field?.context, field);
   if (topic === 'phone') {
     const value = formatInternationalPhone(candidate?.identity?.phone);
@@ -1626,6 +1627,7 @@ export function guardPlan(plan, fields, candidate = null, { refuses } = {}) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
     if (!field || refused.has(field.id)) continue;
+    if (field.nativeContractUnavailable === true) { ask(field); continue; }
     // A planner's `consent` provenance never authorizes optional marketing
     // or a box that also declares a candidate fact. Recheck the actual label.
     if (action.action === 'check' && action.source === 'consent' && !ownConsent(field)) {
