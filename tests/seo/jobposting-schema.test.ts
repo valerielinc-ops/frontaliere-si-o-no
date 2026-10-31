@@ -75,9 +75,9 @@ function assertComplete(schema: JobPostingSchema) {
   expect(addr).toBeTruthy();
   expect(addr['@type']).toBe('PostalAddress');
 
-  // postalCode / streetAddress: always present and well-formed.
+  // postalCode: always present and well-formed. The street needs evidence.
   expect(/^\d{4,5}$/.test(addr.postalCode)).toBe(true);
-  expect(addr.streetAddress.length).toBeGreaterThan(0);
+  if (addr.streetAddress !== undefined) expect(addr.streetAddress.length).toBeGreaterThan(0);
 
   // plus addressLocality + addressRegion + country
   expect(addr.addressLocality).toBeTruthy();
@@ -95,8 +95,9 @@ function assertComplete(schema: JobPostingSchema) {
   }
   expect(schema.baseSalary.value.unitText).toBe('YEAR');
 
-  expect(schema.validThrough).toBeTruthy();
-  expect(Number.isNaN(new Date(schema.validThrough).getTime())).toBe(false);
+  if (schema.validThrough !== undefined) {
+    expect(Number.isNaN(new Date(schema.validThrough).getTime())).toBe(false);
+  }
 }
 
 describe('buildJobPostingSchema — complete input', () => {
@@ -225,10 +226,10 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
     expect(schema.jobLocation.address.addressRegion).toBe('TI');
     expect(schema.jobLocation.address.addressCountry).toBe('CH');
     expect(schema.jobLocation.address.postalCode).toBe('6500');
-    expect(schema.jobLocation.address.streetAddress).toBe('Piazza Governo');
+    expect(schema.jobLocation.address.streetAddress).toBeUndefined();
     expect(schema.baseSalary).toBeTruthy();
     expect(schema.employmentType).toBe('FULL_TIME');
-    expect(schema.validThrough).toBeTruthy();
+    expect(schema.validThrough).toBeUndefined();
   });
 
   it('uses a coherent locality fallback when PEMSA omits its street', () => {
@@ -252,7 +253,6 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
     assertComplete(schema);
     expect(schema.jobLocation.address).toEqual({
       '@type': 'PostalAddress',
-      streetAddress: 'Piazza Riforma 1',
       postalCode: '6900',
       addressLocality: 'Lugano',
       addressRegion: 'TI',
@@ -274,15 +274,15 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
     expect(inHqCity.jobLocation.address.streetAddress).toBe('Via Pian Scairolo 9');
     expect(inHqCity.jobLocation.address.postalCode).toBe('6912');
     const otherCity = buildJobPostingSchema({ ...base, addressLocality: 'Bellinzona' }, OPTS);
-    expect(otherCity.jobLocation.address.streetAddress).toBe('Piazza Governo');
+    expect(otherCity.jobLocation.address.streetAddress).toBeUndefined();
     expect(otherCity.jobLocation.address.postalCode).toBe('6500');
     // The listing names another CAP of the HQ city: another site, not the HQ.
     const otherCap = buildJobPostingSchema({ ...base, addressLocality: 'Lugano', postalCode: '6900' }, OPTS);
-    expect(otherCap.jobLocation.address.streetAddress).toBe('Via Pian Scairolo 9');
+    expect(otherCap.jobLocation.address.streetAddress).toBeUndefined();
     expect(otherCap.jobLocation.address.postalCode).toBe('6900');
   });
 
-  it('drops a stored "street" that is just the locality name and uses the locality tuple', () => {
+  it('drops a stored "street" that is just the locality name', () => {
     const schema = buildJobPostingSchema({
       title: 'Magazziniere',
       description: 'Gestione merci in entrata e in uscita, inventario e preparazione ordini per la logistica regionale.',
@@ -290,7 +290,7 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
       addressLocality: 'Mendrisio',
       streetAddress: 'Mendrisio',
     }, OPTS);
-    expect(schema.jobLocation.address.streetAddress).toBe('Via Luigi Benteler 1');
+    expect(schema.jobLocation.address.streetAddress).toBeUndefined();
   });
 });
 
@@ -383,7 +383,7 @@ describe('buildJobPostingSchema — empty-minimum input', () => {
     // Google requires a locality: the TI canton capital supplies the complete
     // coherent fallback tuple.
     expect(schema.jobLocation.address.addressRegion).toBe('TI');
-    expect(schema.jobLocation.address.streetAddress).toBe('Piazza Governo');
+    expect(schema.jobLocation.address.streetAddress).toBeUndefined();
     expect(schema.jobLocation.address.postalCode).toBe('6500');
     expect(schema.jobLocation.address.addressCountry).toBe('CH');
     // Hiring org falls back to a localised "azienda riservata"
@@ -459,10 +459,10 @@ describe('buildJobPostingSchema — empty-minimum input', () => {
     expect(MANDATORY_JOBPOSTING_FIELDS).toContain('jobLocation.address.addressLocality');
     expect(MANDATORY_JOBPOSTING_FIELDS).toContain('jobLocation.address.addressCountry');
     expect(MANDATORY_JOBPOSTING_FIELDS).toContain('baseSalary');
-    expect(MANDATORY_JOBPOSTING_FIELDS).toContain('jobLocation.address.streetAddress');
+    expect(MANDATORY_JOBPOSTING_FIELDS).not.toContain('jobLocation.address.streetAddress');
     expect(MANDATORY_JOBPOSTING_FIELDS).toContain('jobLocation.address.postalCode');
     expect(MANDATORY_JOBPOSTING_FIELDS).toContain('employmentType');
-    expect(MANDATORY_JOBPOSTING_FIELDS).toContain('validThrough');
+    expect(MANDATORY_JOBPOSTING_FIELDS).not.toContain('validThrough');
   });
 });
 
@@ -540,7 +540,7 @@ describe('buildJobPostingSchema — out-of-canton job', () => {
     expect(addr.addressRegion).toBe('ZH');
     expect(addr.addressLocality).toBe('Zürich');
     expect(addr.postalCode).toBe('8001');
-    expect(addr.streetAddress).toBe('Bahnhofstrasse 1');
+    expect(addr.streetAddress).toBeUndefined();
   });
 });
 
@@ -731,9 +731,9 @@ describe('buildJobPostingSchema — hiringOrganization.logo absolutization (#347
   });
 });
 
-// validThrough is source-first and always present. Missing deadlines use the
-// canonical active-window fallback so every emitted JobPosting has a date.
-describe('buildJobPostingSchema — validThrough source-first fallback', () => {
+// validThrough comes from the source or is absent. Missing deadlines used the
+// rolling crawl window, which kept stale postings valid.
+describe('buildJobPostingSchema — validThrough only from the source', () => {
   const daysFromNow = (n: number): Date => {
     const d = new Date();
     d.setUTCDate(d.getUTCDate() + n);
@@ -750,23 +750,12 @@ describe('buildJobPostingSchema — validThrough source-first fallback', () => {
     ...over,
   });
 
-  it('derives validThrough when the source states no deadline', () => {
+  it('omits validThrough when the source states no deadline', () => {
     const now = new Date('2026-10-26T00:00:00.000Z');
-    const fromCrawl = buildJobPostingSchema(job({ crawledAt: '2026-10-01T00:00:00.000Z', postedDate: '2026-09-20' }), { ...OPTS, now });
-    expect(fromCrawl.validThrough).toBe('2026-11-30T00:00:00.000Z');
+    const fromCrawl = buildJobPostingSchema(job({ crawledAt: '2026-10-01T00:00:00.000Z', postedDate: '2026-09-01' }), { ...OPTS, now });
+    expect(fromCrawl).not.toHaveProperty('validThrough');
     const fromPosted = buildJobPostingSchema(job({ postedDate: '2025-09-20' }), { ...OPTS, now });
-    expect(Number.isNaN(new Date(fromPosted.validThrough).getTime())).toBe(false);
-  });
-
-  it('derives the deadline from the last sighting, never from the build date', () => {
-    const now = new Date('2026-10-26T00:00:00.000Z');
-    const stale = buildJobPostingSchema(job({ crawledAt: '2026-08-01T00:00:00.000Z', postedDate: '2026-07-20' }), { ...OPTS, now });
-    expect(stale.validThrough).toBe('2026-09-30T00:00:00.000Z');
-    const otherBuild = buildJobPostingSchema(job({ crawledAt: '2026-08-01T00:00:00.000Z', postedDate: '2026-07-20' }), {
-      ...OPTS,
-      now: new Date('2026-12-01T00:00:00.000Z'),
-    });
-    expect(otherBuild.validThrough).toBe(stale.validThrough);
+    expect(fromPosted).not.toHaveProperty('validThrough');
   });
 
   it('keeps a future source deadline verbatim', () => {

@@ -19,6 +19,11 @@ statiche pubbliche conservate dal router anche dopo il boot della shell:
 restano complete come prima. `/candidatura/` è un modulo, non un secondo
 annuncio, e resta noindex.
 
+Decisione del proprietario del 31 ottobre 2026: l'audit SEO proponeva di
+togliere il gate agli utenti anonimi e di omettere `baseSalary` stimato; il
+gate resta come nella tabella qui sopra e `baseSalary` resta la stima del
+sito, senza etichette e senza rimozioni.
+
 ## SEO e semantica
 
 - Un H1 di identità per documento; descrizione con heading e liste reali,

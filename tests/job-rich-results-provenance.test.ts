@@ -106,10 +106,10 @@ describe('rich-result eligibility validation', () => {
   it('accepts safe defaults when the source lacks non-critical values', () => {
     const result = validate('reported', {
       ...posting,
-      validThrough: new Date(Date.now() + 45 * 86400000).toISOString(),
+      validThrough: undefined,
       employmentType: 'FULL_TIME',
       baseSalary: { currency: 'CHF', value: { minValue: 61000, maxValue: 77000, unitText: 'YEAR' } },
-      jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900', streetAddress: 'Piazza Riforma 1' } },
+      jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900' } },
     }, {
       job: { salaryMin: 61000, salaryMax: 77000, salarySource: 'estimated' },
     });
@@ -131,12 +131,31 @@ describe('rich-result eligibility validation', () => {
    ...posting,
    jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI' } },
   };
-  const result = validate('reported', schemaWithoutStreetOrPostal, {
+  const withoutPostal = validate('reported', schemaWithoutStreetOrPostal, {
    job: { ...SOURCE_FIELDS, streetAddress: 'Via Nassa 1', postalCode: '6900' },
   });
+  expect(withoutPostal.status).toBe(1);
+  expect(withoutPostal.stdout).toContain('missing:jobLocation.address.postalCode');
+  const withoutStreet = validate('reported', {
+   ...posting,
+   jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900' } },
+  }, {
+   job: { ...SOURCE_FIELDS, streetAddress: 'Via Nassa 1', postalCode: '6900' },
+  });
+  expect(withoutStreet.status).toBe(1);
+  expect(withoutStreet.stdout).toContain('streetAddress:source_value_not_preserved');
+ });
+ it('rejects a street or a deadline the source does not state', () => {
+  const result = validate('reported', {
+   ...posting,
+   validThrough: new Date(Date.now() + 45 * 86400000).toISOString(),
+   jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900', streetAddress: 'Piazza Riforma 1' } },
+  }, {
+   job: { salaryMin: 61000, salaryMax: 77000, salarySource: 'estimated' },
+  });
   expect(result.status).toBe(1);
-  expect(result.stdout).toContain('missing:jobLocation.address.streetAddress');
-  expect(result.stdout).toContain('missing:jobLocation.address.postalCode');
+  expect(result.stdout).toContain('validThrough:not_from_source');
+  expect(result.stdout).toContain('streetAddress:not_from_source');
  });
  it('rejects an incoherent fallback CAP even when the source CAP is formally valid', () => {
   const schemaWithWrongFallbackPostal = {

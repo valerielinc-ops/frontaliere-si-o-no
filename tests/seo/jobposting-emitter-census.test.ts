@@ -51,14 +51,13 @@ describe('public JobPosting emitter census', () => {
 
     expect(hydrated).toEqual(staticAddress);
     // 8600 is Dübendorf's CAP: the stamped HQ tuple is dropped as a pair and
-    // replaced by the coherent Chur canton-capital tuple.
+    // replaced by the coherent Chur CAP, without a street.
     expect(hydrated).toEqual({
       '@type': 'PostalAddress',
       addressLocality: 'Chur',
       addressRegion: 'GR',
       addressCountry: 'CH',
       postalCode: '7000',
-      streetAddress: 'Poststrasse 33',
     });
   });
 });

@@ -224,6 +224,7 @@ import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { isFullyRemoteListing } from '@/scripts/lib/jobposting-field-provenance.mjs';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
 import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
@@ -6456,9 +6457,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ''
  ).trim();
  const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
- const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${localizedTitle} ${description || ''} ${job.location || ''}`
- );
+ const isRemote = isFullyRemoteListing({ title: job.title, location: job.location });
  // JSON-LD hiringOrganization.logo needs a fetchable URL — companyLogoUrl can
  // now return an inlined initials data: URI (fine for <img>, not for schema),
  // so fall back to the site icon for those rather than emitting a data URI.
@@ -10672,9 +10671,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // deterministic template + canonical schema builder that services/seoService.ts
  // uses for the runtime FAQPage JSON-LD on client-side navigation, so the
  // visible accordion here never desyncs from the structured data (or from the
- // SSG-prerendered static page for this same job). isRemote detection mirrors
- // the regex used elsewhere for the same purpose (jobsSeoPagesPlugin.ts,
- // services/seoService.ts).
+ // SSG-prerendered static page for this same job). isRemote detection uses the
+ // predicate shared with jobsSeoPagesPlugin.ts and services/seoService.ts.
  const faqJobInput: JobInput = {
  id: selectedJob.id,
  slug: selectedJob.slug,
@@ -10706,9 +10704,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  url: selectedJob.url,
  applyUrl: selectedJob.applyUrl,
  };
- const faqIsRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${selectedJobTitle} ${detailDescription} ${selectedJob.location || ''}`
- );
+ const faqIsRemote = isFullyRemoteListing({ title: selectedJob.title, location: selectedJob.location });
  const faqIsTicino = detailJobCanton === 'TI';
  const faqCantonDisplay = getCantonDisplayName(detailJobCanton, locale);
  const faqSchema = buildJobPostingFacts(faqJobInput, locale, { fallbackUrl: detailPageUrl });

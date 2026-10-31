@@ -20,10 +20,8 @@ const FIELD_CASES = [
   ['jobLocation.address.addressRegion', 'jobLocation.address.addressRegion'],
   ['jobLocation.address.addressCountry', 'jobLocation.address.addressCountry'],
   ['jobLocation.address.postalCode', 'jobLocation.address.postalCode'],
-  ['jobLocation.address.streetAddress', 'jobLocation.address.streetAddress'],
   ['employmentType', 'employmentType'],
   ['baseSalary', 'baseSalary'],
-  ['validThrough', 'validThrough'],
 ] as const;
 
 type MutableJsonObject = Record<string, unknown>;
@@ -72,7 +70,7 @@ function deletePath(target: MutableJsonObject, path: string) {
 describe('JobPosting mandatory-field contract (#10499)', () => {
   it('requires exactly the complete JobPosting field paths', () => {
     expect(MANDATORY_JOBPOSTING_FIELDS).toEqual(FIELD_CASES.map(([, field]) => field));
-    expect(OPTIONAL_JOBPOSTING_FIELDS).toEqual([]);
+    expect(OPTIONAL_JOBPOSTING_FIELDS).toEqual(['jobLocation.address.streetAddress', 'validThrough']);
   });
 
   it('accepts several stated employment types and a salary without an upper bound', () => {

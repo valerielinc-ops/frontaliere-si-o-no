@@ -7,7 +7,7 @@ import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 import { COMPANY_HQ_ADDRESSES, resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { resolveJobEmploymentTypes } from './lib/job-employment-type.mjs';
-import { isSalaryReportedBySource, isSourceStreetAddress } from './lib/jobposting-field-provenance.mjs';
+import { isSalaryReportedBySource, isSourceStreetAddress, resolveSourceDeadline } from './lib/jobposting-field-provenance.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -231,17 +231,21 @@ const sameInstant = (a, b) => {
 };
 
 /**
- * Owner decision 2026-10-24: source values win, but the canonical builder
- * always emits the complete JobPosting contract. This observer checks that
- * source values are preserved when available and accepts deterministic safe
- * fallbacks when a crawler omitted a non-critical value.
+ * Owner decision 2026-10-24: source values win. This observer checks that
+ * they are preserved and accepts deterministic safe fallbacks for the mandatory
+ * fields. Street and deadline have no fallback: a value without a source is an
+ * invented one, so it fails here instead of passing as a default.
  */
 function validateFieldProvenance(jobPosting, job) {
   const errors = [];
-  const sourceValidThrough = isIsoDate(job?.validThrough) ? job.validThrough : null;
-  if (!isIsoDate(jobPosting?.validThrough)) errors.push('invalid:validThrough');
-  else if (sourceValidThrough && !sameInstant(jobPosting.validThrough, sourceValidThrough)) {
-    errors.push('validThrough:not_from_source');
+  const sourceValidThrough = resolveSourceDeadline(job?.validThrough);
+  if (jobPosting?.validThrough !== undefined) {
+    if (!isIsoDate(jobPosting.validThrough)) errors.push('invalid:validThrough');
+    else if (!sourceValidThrough || !sameInstant(jobPosting.validThrough, sourceValidThrough)) {
+      errors.push('validThrough:not_from_source');
+    }
+  } else if (sourceValidThrough) {
+    errors.push('validThrough:source_value_not_preserved');
   }
 
   const reportedSalary = isSalaryReportedBySource(job) && Number(job?.salaryMin) > 0;
@@ -272,8 +276,15 @@ function validateFieldProvenance(jobPosting, job) {
     const v = String(value ?? '').trim();
     return v === String(sourceValue ?? '').trim() || (hqValue !== undefined && v === String(hqValue ?? '').trim());
   };
-  if (!String(address.streetAddress || '').trim()) errors.push('streetAddress:missing');
-  else if (sourceStreetCanEmit && !fromSourceOrHq(address.streetAddress, job?.streetAddress, hq?.streetAddress)) {
+  const emittedStreet = String(address.streetAddress || '').trim();
+  if (emittedStreet && !fromSourceOrHq(emittedStreet, job?.streetAddress, hq?.streetAddress)) {
+    errors.push('streetAddress:not_from_source');
+  } else if (
+    !emittedStreet
+    && sourceStreetCanEmit
+    // An incoherent source CAP takes its street with it (issue 9108).
+    && (!sourcePostalCode || String(address.postalCode ?? '').trim() === sourcePostalCode)
+  ) {
     errors.push('streetAddress:source_value_not_preserved');
   }
   if (!/^\d{4,5}$/.test(String(address.postalCode || '').trim())) errors.push('postalCode:missing_or_invalid');
@@ -305,11 +316,9 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
     ['hiringOrganization.name', jobPosting?.hiringOrganization?.name],
     ['employmentType', jobPosting?.employmentType],
     ['baseSalary', jobPosting?.baseSalary],
-    ['validThrough', jobPosting?.validThrough],
     ['jobLocation.address.addressLocality', jobPosting?.jobLocation?.address?.addressLocality],
     ['jobLocation.address.addressRegion', jobPosting?.jobLocation?.address?.addressRegion],
     ['jobLocation.address.addressCountry', jobPosting?.jobLocation?.address?.addressCountry],
-    ['jobLocation.address.streetAddress', jobPosting?.jobLocation?.address?.streetAddress],
     ['jobLocation.address.postalCode', jobPosting?.jobLocation?.address?.postalCode],
   ];
   for (const [field, value] of required) {

@@ -7,12 +7,18 @@
  * because a copy drifted (issue #10499).
  *
  * Owner decision 2026-10-24: the JobPosting is always emitted for an active
- * job, and the site's structured-data contract always includes the complete
- * rich-result payload. Source values win; safe defaults are expected when a
- * crawler omitted a non-critical field. Missing = error for every field below.
+ * job and source values win. Safe defaults are expected when a crawler omitted
+ * a non-critical field. Missing = error for every mandatory field below.
+ *
+ * Street and deadline are optional: Google requires neither, and without
+ * source evidence any value would be invented (docs/SEO-RULES.md). When
+ * present they must be well formed, and a "<city> city centre" street is an
+ * error.
  *
  * Consumer-specific checks stay in their callers.
  */
+
+import { isPlaceholderStreetAddress } from './jobposting-field-provenance.mjs';
 
 export const MANDATORY_JOBPOSTING_FIELDS = Object.freeze([
   'title',
@@ -24,14 +30,15 @@ export const MANDATORY_JOBPOSTING_FIELDS = Object.freeze([
   'jobLocation.address.addressRegion',
   'jobLocation.address.addressCountry',
   'jobLocation.address.postalCode',
-  'jobLocation.address.streetAddress',
   'employmentType',
   'baseSalary',
-  'validThrough',
 ]);
 
-/** Kept as an explicit empty list for callers that report optional fields. */
-export const OPTIONAL_JOBPOSTING_FIELDS = Object.freeze([]);
+/** Emitted only with source evidence; validated when present. */
+export const OPTIONAL_JOBPOSTING_FIELDS = Object.freeze([
+  'jobLocation.address.streetAddress',
+  'validThrough',
+]);
 
 export const JOBPOSTING_EMPLOYMENT_TYPES = new Set([
   'FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY',
@@ -122,8 +129,15 @@ export function validateMandatoryJobPostingFields(schema) {
           `jobLocation.address.postalCode="${address.postalCode || ''}" missing/invalid`,
         );
       }
-      if (!isNonEmptyString(address.streetAddress)) {
-        add('jobLocation.address.streetAddress', 'jobLocation.address.streetAddress missing/empty');
+      if (address.streetAddress !== undefined) {
+        if (!isNonEmptyString(address.streetAddress)) {
+          add('jobLocation.address.streetAddress', 'jobLocation.address.streetAddress empty');
+        } else if (isPlaceholderStreetAddress(address.streetAddress)) {
+          add(
+            'jobLocation.address.streetAddress',
+            `jobLocation.address.streetAddress="${address.streetAddress}" is a placeholder`,
+          );
+        }
       }
     }
   }
@@ -160,7 +174,9 @@ export function validateMandatoryJobPostingFields(schema) {
     }
   }
 
-  if (!isValidIsoDate(posting.validThrough)) add('validThrough', 'validThrough missing/invalid');
+  if (posting.validThrough !== undefined && !isValidIsoDate(posting.validThrough)) {
+    add('validThrough', 'validThrough invalid');
+  }
 
   return errors;
 }

@@ -74,7 +74,7 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).toBe('Lugano');
     // The Bellinzona HQ tuple is rejected; Lugano receives its own fallback.
     expect(addr.postalCode).toBe('6900');
-    expect(addr.streetAddress).toBe('Piazza Riforma 1');
+    expect(addr.streetAddress).toBeUndefined();
   });
 
   it('job in the HQ city keeps the curated HQ street/CAP', () => {
@@ -114,7 +114,7 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).toBe('Zürich');
     expect(addr.addressRegion).toBe('ZH');
     expect(addr.postalCode).toBe('8001');
-    expect(addr.streetAddress).toBe('Bahnhofstrasse 1');
+    expect(addr.streetAddress).toBeUndefined();
   });
 
   it('region name shipped as locality ("Ticino") normalizes to a coherent capital locality', () => {
@@ -125,7 +125,7 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     const addr = s.jobLocation.address;
     expect(addr.addressLocality).toBe('Bellinzona'); // never a region as locality
     expect(addr.postalCode).toBe('6500'); // the source CAP, coherent with Bellinzona
-    expect(addr.streetAddress).toBe('Piazza Governo');
+    expect(addr.streetAddress).toBeUndefined();
   });
 
   it('explicit source street+CAP always win over defaults', () => {
@@ -153,7 +153,7 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressRegion).toBe('TI');
     // The incoherent pair is dropped whole; Lugano receives its own tuple.
     expect(addr.postalCode).toBe('6900');
-    expect(addr.streetAddress).toBe('Piazza Riforma 1');
+    expect(addr.streetAddress).toBeUndefined();
   });
 
   it('uses the complete postal snapshot for a municipality outside the curated aliases', () => {
@@ -171,7 +171,7 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).toBe('Novaggio');
     expect(addr.addressRegion).toBe('TI');
     expect(addr.postalCode).toBe('6986');
-    expect(addr.streetAddress).toBe('Novaggio');
+    expect(addr.streetAddress).toBeUndefined();
   });
 
   it('garbage/leaked free-text locality (Hirslanden Arbeitsort leak) never survives into the schema', () => {
@@ -189,7 +189,7 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).not.toBe('Bern - Futsal Minerva Besetzung per: 1');
     expect(addr.addressLocality).toBe('Bern'); // BE canton-capital fallback, no HQ/city match
     expect(addr.addressRegion).toBe('BE');
-    expect(addr.streetAddress).toBe('Bundesplatz 3');
+    expect(addr.streetAddress).toBeUndefined();
   });
 
   it('real city from the WRONG canton (Bellinzona/TI text with addressRegion BE) never pairs mismatched', () => {
@@ -208,7 +208,7 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).toBe('Bern'); // coherent with the authoritative BE region
     expect(addr.addressRegion).toBe('BE');
     expect(addr.postalCode).toBe('3001');
-    expect(addr.streetAddress).toBe('Bundesplatz 3');
+    expect(addr.streetAddress).toBeUndefined();
   });
 });
 
@@ -238,7 +238,7 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     const addr = buildJobPostingSchema({ ...baseJob, addressLocality: locality, addressRegion: region }, OPTS)
       .jobLocation.address;
     expect(addr).toMatchObject({ '@type': 'PostalAddress', addressLocality: locality, addressRegion: region, addressCountry: 'CH' });
-    expect(addr.streetAddress).toBe(locality);
+    expect(addr.streetAddress).toBeUndefined();
     expect(/^\d{4}$/.test(addr.postalCode)).toBe(true);
     expectNoCapitalTupleBesideAnotherLocality(addr);
   });
@@ -252,7 +252,6 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     ).jobLocation.address;
     expect(addr).toMatchObject({
       '@type': 'PostalAddress',
-      streetAddress: 'Villars-sur-Ollon',
       postalCode: '1884',
       addressLocality: 'Villars-sur-Ollon',
       addressRegion: 'VD',
@@ -267,7 +266,8 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
       OPTS,
     ).jobLocation.address;
     expect(arisdorf).toMatchObject({ addressLocality: 'Arisdorf' });
-    expect(arisdorf).toMatchObject({ postalCode: '4422', streetAddress: 'Arisdorf' });
+    expect(arisdorf).toMatchObject({ postalCode: '4422' });
+    expect(arisdorf.streetAddress).toBeUndefined();
     expectNoCapitalTupleBesideAnotherLocality(arisdorf);
 
     const liestal = buildJobPostingSchema(
@@ -282,7 +282,7 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
       OPTS,
     ).jobLocation.address;
     expect(brutten).toMatchObject({ addressLocality: 'Brütten' });
-    expect(brutten).toMatchObject({ postalCode: '8311', streetAddress: 'Brütten' });
+    expect(brutten).toMatchObject({ postalCode: '8311' });
     // A default CAP that IS the locality's own stays (Massagno shares 6900).
     const massagno = buildJobPostingSchema(
       { ...baseJob, addressLocality: 'Massagno', addressRegion: 'TI', postalCode: '6900' },
@@ -299,7 +299,7 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     expect(addr.addressLocality).toBe('Oerlikon');
     expect(addr.addressRegion).toBe('ZH');
     expect(addr.postalCode).toBe('8001');
-    expect(addr.streetAddress).toBe('Oerlikon');
+    expect(addr.streetAddress).toBeUndefined();
     expect(buildJobPostingSchema({ ...baseJob, addressLocality: 'Oerlikon', addressRegion: 'ZH' }, OPTS)
       .jobLocation.address.addressLocality).toBe('Oerlikon');
   });
@@ -321,7 +321,6 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
 
     expect(expected).toMatchObject({
       '@type': 'PostalAddress',
-      streetAddress: 'Pully',
       postalCode: '1009',
       addressLocality: 'Pully',
       addressRegion: 'VD',
@@ -364,7 +363,6 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     }, false, 'it');
     expect(multi.jobLocation.address).toEqual({
       '@type': 'PostalAddress',
-      streetAddress: CANTON_CAPITAL_ADDRESSES.TI.streetAddress,
       postalCode: CANTON_CAPITAL_ADDRESSES.TI.postalCode,
       addressLocality: CANTON_CAPITAL_ADDRESSES.TI.addressLocality,
       addressRegion: 'TI',
@@ -654,7 +652,6 @@ describe('JobBoard runtime JobPosting — remote and multi-location address (rev
     expect(address.addressRegion).not.toBe('CH');
     expect(address).toEqual({
       '@type': 'PostalAddress',
-      streetAddress: CANTON_CAPITAL_ADDRESSES.TI.streetAddress,
       postalCode: CANTON_CAPITAL_ADDRESSES.TI.postalCode,
       addressLocality: CANTON_CAPITAL_ADDRESSES.TI.addressLocality,
       addressRegion: 'TI',
@@ -672,7 +669,6 @@ describe('JobBoard runtime JobPosting — remote and multi-location address (rev
     }, false);
     expect(posting.jobLocation.address).toEqual({
       '@type': 'PostalAddress',
-      streetAddress: 'Pully',
       postalCode: '1009',
       addressLocality: 'Pully',
       addressRegion: 'VD',

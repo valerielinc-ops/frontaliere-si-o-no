@@ -62,12 +62,12 @@ describe('promoted Prospector parsers — JobPosting required fields', () => {
       expect(verified).not.toBeNull();
       expect(verified?.datePosted).toBe(sourceDate);
       // Source values win; the canonical builder supplies safe defaults for
-      // omitted street/CAP, salary provenance, and contract values.
+      // omitted CAP, salary provenance, and contract values, never a street.
       expect(verified?.jobLocation.address.postalCode).toBe('6900');
-      expect(verified?.jobLocation.address.streetAddress).toBe('Piazza Riforma 1');
+      expect(verified?.jobLocation.address.streetAddress).toBeUndefined();
       expect(verified?.baseSalary?.value.minValue).toBeGreaterThan(0);
       expect(verified?.employmentType).toBe('FULL_TIME');
-      expect(verified?.validThrough).toBeTruthy();
+      expect(verified?.validThrough).toBeUndefined();
     }
   });
 });

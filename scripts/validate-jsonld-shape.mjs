@@ -15,7 +15,7 @@
  *     audit-jsonld-no-nested-scripts but checked here for completeness)
  *   - Missing required fields per @type:
  *       JobPosting: title, description, datePosted, hiringOrganization,
- *                   jobLocation, employmentType, baseSalary, validThrough,
+ *                   jobLocation, employmentType, baseSalary,
  *                   and the complete PostalAddress
  *       Article / BlogPosting: headline, datePublished, author, publisher
  *       Person: name
@@ -61,7 +61,7 @@ const JSONLD_RE = /<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<
 const REQUIRED = {
   JobPosting: [
     'title', 'description', 'datePosted', 'hiringOrganization', 'jobLocation',
-    'employmentType', 'baseSalary', 'validThrough',
+    'employmentType', 'baseSalary',
   ],
   Article: ['headline', 'datePublished', 'author', 'publisher'],
   BlogPosting: ['headline', 'datePublished', 'author', 'publisher'],
@@ -126,7 +126,7 @@ function validateEntity(entity) {
   }
   if (t === 'JobPosting') {
     const address = entity.jobLocation?.address;
-    for (const field of ['streetAddress', 'postalCode', 'addressLocality', 'addressRegion', 'addressCountry']) {
+    for (const field of ['postalCode', 'addressLocality', 'addressRegion', 'addressCountry']) {
       if (!address || address[field] === null || address[field] === undefined || address[field] === '') {
         violations.push({ '@type': t, missing: `jobLocation.address.${field}` });
       }

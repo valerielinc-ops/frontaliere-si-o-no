@@ -231,9 +231,9 @@ describe('publisher-ads JobPosting structured data — complete mandatory contra
       if ('salaryMin' in rec) expect(schema.baseSalary?.value?.minValue).toBe(rec.salaryMin);
       else expect(schema.baseSalary?.value?.minValue).toBeGreaterThan(0);
       expect(schema.jobLocation?.address?.postalCode).toMatch(/^\d{4}$/);
-      expect(schema.jobLocation?.address?.streetAddress).toBeTruthy();
+      expect(schema.jobLocation?.address?.streetAddress).toBeUndefined();
       expect(schema.employmentType).toBe('FULL_TIME');
-      expect(schema.validThrough).toBeTruthy();
+      expect(schema.validThrough).toBeUndefined();
       expect(schema.jobLocation?.address?.addressLocality).toBeTruthy();
       expect(schema.title).toBeTruthy();
       expect(schema.description?.length).toBeGreaterThanOrEqual(50);
@@ -242,7 +242,7 @@ describe('publisher-ads JobPosting structured data — complete mandatory contra
       expect(schema.jobLocation).toBeTruthy();
       // Cross-check against the canonical required-field list so this test
       // regresses if the shared list ever changes without a matching assertion.
-      expect(MANDATORY_JOBPOSTING_FIELDS.length).toBe(13);
+      expect(MANDATORY_JOBPOSTING_FIELDS.length).toBe(11);
     }
   });
 });
