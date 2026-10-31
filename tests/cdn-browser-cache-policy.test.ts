@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 // @ts-expect-error — plain .mjs script, no type declarations
-import { cachePolicyProblem, parseReleaseId } from '@/scripts/ci/assert-cdn-cache-policy.mjs';
+import { cachePolicyProblem, parseReleaseId, runCachePolicyCheck } from '@/scripts/ci/assert-cdn-cache-policy.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SETUP = readFileSync(resolve(ROOT, 'scripts/cf-locale-failover-setup.mjs'), 'utf8');
@@ -69,6 +69,7 @@ describe('assert-cdn-cache-policy', () => {
 
   it('reads the release id out of the bootstrap', () => {
     expect(parseReleaseId('const FRONTALIERE_RELEASE_ID="1793418491958";')).toBe('1793418491958');
+    expect(parseReleaseId('const FRONTALIERE_RELEASE_ID=123;')).toBe('123');
     expect(parseReleaseId('import "./App.js";')).toBeNull();
   });
 
@@ -83,5 +84,51 @@ describe('assert-cdn-cache-policy', () => {
     ['early-boot', 'public, max-age=600, must-revalidate', true],
   ])('%s with "%s"', (kind, value, wrong) => {
     expect(cachePolicyProblem(kind, value) !== null).toBe(wrong);
+  });
+});
+
+describe('runCachePolicyCheck', () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  const LONG = 'public,max-age=31536000,immutable';
+  const SHORT = 'public, max-age=600, must-revalidate';
+  const ok = (cacheControl: string, body = '') =>
+    new Response(body, { status: 200, headers: { 'cache-control': cacheControl } });
+
+  function cdn(overrides: Record<string, () => Response | Promise<Response>> = {}) {
+    return vi.fn(async (url: string) => {
+      const path = new URL(url).pathname;
+      if (overrides[path]) return overrides[path]();
+      if (path === '/assets/index-entry.js') return ok(SHORT, 'const FRONTALIERE_RELEASE_ID="123";');
+      if (path === '/assets/early-boot.js') return ok('no-cache, must-revalidate');
+      return ok(path.includes('/releases/') ? LONG : SHORT);
+    });
+  }
+  const run = (fetchImpl: unknown) => runCachePolicyCheck({ fetchImpl, retryDelayMs: 0 });
+
+  it('passes on the intended policy', async () => {
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    await expect(run(cdn())).resolves.toBe(0);
+  });
+
+  it('fails on the regression it exists for: a release served at 600 s', async () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const fetchImpl = cdn({ '/assets/releases/123/index-entry.js': () => ok(SHORT) });
+    await expect(run(fetchImpl)).resolves.toBe(1);
+    expect(log.mock.calls.flat().join('\n')).toContain('::error::');
+  });
+
+  it('fails when the CDN answers 404 on a release probe, after the retries', async () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const fetchImpl = cdn({ '/assets/releases/123/index-entry.js': () => new Response('', { status: 404 }) });
+    await expect(run(fetchImpl)).resolves.toBe(1);
+    expect(log.mock.calls.flat().join('\n')).toMatch(/::error::.*HTTP 404/);
+    expect(fetchImpl.mock.calls.filter(([url]) => url.endsWith('/releases/123/index-entry.js'))).toHaveLength(3);
+  });
+
+  it('only warns when the runner cannot reach the CDN', async () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    await expect(run(vi.fn().mockRejectedValue(new TypeError('fetch failed')))).resolves.toBe(0);
+    expect(log.mock.calls.flat().join('\n')).toContain('::warning::');
   });
 });
