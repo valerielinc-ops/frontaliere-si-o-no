@@ -15,12 +15,13 @@ const base = 'assisted_applications/order_contract_test';
 const label = 'Come sono venuto a conoscenza del lavoro?';
 const question = { id: 'portal_source', source: 'portal', required: true, question: label, applicationQuestion: label,
   context: 'Additional data', section: 'Additional data', type: 'text', options: [], validation: {} };
-const native = { id: 'f_source', frame: 0, form: 0, kind: 'select', label, required: false, explicitlyOptional: true,
+const nativeAttestation = { nativeControlOwned: true, nativeLabelOwned: true, nativeReferencesComplete: true };
+const native = { ...nativeAttestation, id: 'f_source', frame: 0, form: 0, kind: 'select', label, required: false, explicitlyOptional: true,
   context: 'Additional data', section: 'Additional data', options: [{ value: 'site', label: 'Company website' }, { value: 'event', label: 'Event' }] };
 function proof(overrides = {}) {
   return { complete: true, stable: true, readOnly: true, observedAt: now, sourceUrl: url, url,
-    fields: [native, { id: 'f_cv', frame: 0, form: 0, kind: 'file', inputType: 'file', label: 'CV', required: true },
-      { id: 'f_email', frame: 0, form: 0, kind: 'text', inputType: 'email', label: 'Email', required: true }], ...overrides };
+    fields: [native, { ...nativeAttestation, id: 'f_cv', frame: 0, form: 0, kind: 'file', inputType: 'file', label: 'CV', required: true },
+      { ...nativeAttestation, id: 'f_email', frame: 0, form: 0, kind: 'text', inputType: 'email', label: 'Email', required: true }], ...overrides };
 }
 function fixture(id = 'order_contract_test') {
   const path = `assisted_applications/${id}`;

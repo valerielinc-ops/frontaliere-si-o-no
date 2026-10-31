@@ -20,7 +20,7 @@ async function withAbort(promise, signal) {
 
 async function publicContractRequest(value, {
   resolve = lookup, requestImpl = request, signal = AbortSignal.timeout(12_000), maxBytes = 1_500_000,
-  onBytes = () => {}, onRequest = () => {}, method = 'GET', requestBody = null, followRedirects = true, cookieHeader = null, statusOnlyOn5xx = false, xmlHttpRequest = false, beforeRequest = () => {},
+  onBytes = () => {}, onRequest = () => {}, method = 'GET', requestBody = null, followRedirects = true, cookieHeader = null, statusOnlyOn5xx = false, xmlHttpRequest = false, acceptJson = false, beforeRequest = () => {},
 } = {}) {
   let current = String(value || '');
   for (let hop = 0; hop <= 3; hop += 1) {
@@ -40,6 +40,7 @@ async function publicContractRequest(value, {
           : callback(null, pinned.address, pinned.family),
         headers: { 'User-Agent': 'FrontaliereTicino-PublicContractProbe/1.0', 'Accept-Encoding': 'identity',
           ...(cookieHeader ? { Cookie: cookieHeader } : {}),
+          ...(acceptJson ? { Accept: 'application/json' } : {}),
           ...(method === 'POST' || xmlHttpRequest ? { 'X-Requested-With': 'XMLHttpRequest' } : {}),
           ...(method === 'POST' ? { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Content-Length': Buffer.byteLength(requestBody) } : {}) },
       }, response => {
@@ -76,7 +77,15 @@ async function publicContractRequest(value, {
 }
 
 export function publicContractGet(value, options = {}) {
-  return publicContractRequest(value, { ...options, method: 'GET', requestBody: null, cookieHeader: null, statusOnlyOn5xx: false, xmlHttpRequest: false, beforeRequest: undefined });
+  return publicContractRequest(value, { ...options, method: 'GET', requestBody: null, cookieHeader: null, statusOnlyOn5xx: false, xmlHttpRequest: false, acceptJson: false, beforeRequest: undefined });
+}
+
+/** The public consent loader explicitly requests JSON from this named GET. */
+export async function publicContractConsentGeoGet(value, options = {}) {
+  if (value !== 'https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location') throw fail('contract_consent_geo_invalid');
+  return publicContractRequest(value, { ...options, method: 'GET', requestBody: null,
+    maxBytes: Math.min(Number(options.maxBytes) || 4096, 4096), followRedirects: false, cookieHeader: null,
+    statusOnlyOn5xx: false, xmlHttpRequest: false, acceptJson: true, beforeRequest: undefined });
 }
 
 /** The only semantic read using POST: no cookies/auth, no redirects, bounded JSON. */
@@ -86,7 +95,7 @@ export async function publicContractTimeZoneLookup(value, { timeZone, protocol, 
   if (!protocol || protocol.name !== 'rexx-timezone-lookup-v1' || protocol.lookupUrl !== url.href
     || new URL(protocol.scriptUrl).origin !== url.origin || !/^[a-f0-9]{64}$/.test(protocol.scriptHash || '')
     || !url.pathname.endsWith('/timezone.html') || !requestBody || Buffer.byteLength(requestBody) > 256 || url.search || url.hash) throw fail('contract_lookup_invalid');
-  const response = await publicContractRequest(url.href, { ...options, maxBytes: 2048, method: 'POST', requestBody, followRedirects: false, cookieHeader: null, statusOnlyOn5xx: false, xmlHttpRequest: false, beforeRequest: undefined });
+  const response = await publicContractRequest(url.href, { ...options, maxBytes: 2048, method: 'POST', requestBody, followRedirects: false, cookieHeader: null, statusOnlyOn5xx: false, xmlHttpRequest: false, acceptJson: false, beforeRequest: undefined });
   if (!validRexxTimeZoneResponse(response)) throw Object.assign(fail(response.status >= 500 || response.status === 429
     ? 'contract_lookup_transient' : 'contract_lookup_response_unknown'), { status: response.status, responseReason: rexxTimeZoneResponseReason(response) });
   return response;
@@ -100,7 +109,7 @@ export async function publicContractGuestCookieCheck(value, { protocol, guest, .
     || !/^[a-f0-9]{64}$/.test(protocol.scriptHash || '')
     || new URL(protocol.scriptUrl).origin !== guest?.origin || !matchesRexxGuestProbe(protocol, guest, value)) throw fail('contract_guest_probe_invalid');
   const requestOptions = { ...options, maxBytes: 4096, method: 'GET', requestBody: null,
-    cookieHeader: `${guest.name}=${guest.value}`, followRedirects: false, xmlHttpRequest: true,
+    cookieHeader: `${guest.name}=${guest.value}`, followRedirects: false, xmlHttpRequest: true, acceptJson: false,
     beforeRequest: () => { if (!(guest.expiresAt === Infinity || Number.isFinite(guest.expiresAt) && guest.expiresAt > Date.now())) throw fail('contract_guest_probe_expired'); } };
   let response = await publicContractRequest(value, { ...requestOptions, statusOnlyOn5xx: true });
   let requests = 1;

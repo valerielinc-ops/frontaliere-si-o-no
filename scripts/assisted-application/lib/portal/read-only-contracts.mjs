@@ -1,5 +1,6 @@
 /** Read a public guest form without candidate data or any mutating browser request. */
 import { cookielessTelemetryProtocol, officialConsentGeoLoader, derivedConsentPublicReads, officialConsentUiAssets, observationalBeaconQuerySender, matchesObservationalTelemetry, officialConsentSvgGetter, consentPublicLogo } from './public-consent-bootstrap.mjs';
+import { nativeControlEvidenceInPage, snapshotWithNativeControlEvidence, observeNativeControlContractInPage, installNativeGroupIdentityInPage } from './native-control-contract.mjs';
 import { getChromium } from '../../../lib/ensure-chromium.mjs';
 import { extractFields } from './fields.mjs';
 import { hasApplicationSurface, postingMatch } from './portal.mjs';
@@ -7,14 +8,15 @@ import { publicAssetSources, literalScriptAssetUrls, matchesScriptAsset, isPubli
 import { createHash } from 'node:crypto';
 import { rexxTimeZoneSources, rexxTimeZoneProtocol, runtimeTimeZone, validRexxTimeZoneHeaders, validRexxTimeZoneRequest, validRexxTimeZoneResponse } from './rexx-timezone-contract.mjs';
 import { initialRexxGuestSession, rexxGuestSessionProtocol, matchesRexxGuestProbe, validRexxGuestResponse } from './rexx-guest-session-contract.mjs';
-import { publicContractGet, publicContractTimeZoneLookup, publicContractGuestCookieCheck } from './public-contract-get.mjs';
+import { publicContractGet, publicContractTimeZoneLookup, publicContractGuestCookieCheck, publicContractConsentGeoGet } from './public-contract-get.mjs';
 
+export const PUBLIC_CONTRACT_BYTE_BUDGET = 8 * 1024 * 1024;
 const contractKey = fields => JSON.stringify(fields.map(field => ({ id: field.id, frame: field.frame, label: field.label,
   form: field.form, context: field.context, section: field.section, autocomplete: field.autocomplete,
-  kind: field.kind, inputType: field.inputType, required: field.required, invalid: field.invalid, options: field.options })));
+  kind: field.kind, inputType: field.inputType, nativeReferencesComplete: field.nativeReferencesComplete, required: field.required, invalid: field.invalid, options: field.options })));
 
 export async function readOnlyPortalContracts({ applyUrl, job, channelType = '', get = publicContractGet,
-  launch = null, lookup = publicContractTimeZoneLookup, guestProbe = publicContractGuestCookieCheck, now = Date.now, timeoutMs = 30_000 } = {}) {
+  launch = null, lookup = publicContractTimeZoneLookup, guestProbe = publicContractGuestCookieCheck, geoLookup = publicContractConsentGeoGet, now = Date.now, timeoutMs = 30_000 } = {}) {
   const startedAt = performance.now();
   const controller = new AbortController();
   const deadline = AbortSignal.timeout(timeoutMs);
@@ -25,6 +27,9 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
   let page;
   let candidateProof;
   let nativeContractChanged = false;
+  let nativeContractFailure = null;
+  let nativeMutation = null;
+  let probePhase = 'bootstrap';
   let capturedTimeZone;
   let timezoneProtocol;
   let timeZoneAttempts = 0;
@@ -85,7 +90,7 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
     if (endpoint) resourceFailureEndpoint ||= publicEndpoint(endpoint);
     const causes = ['script_asset_unknown', 'public_config_unknown', 'public_style_unknown', 'public_svg_unknown',
       'resource_unavailable', 'timezone_lookup_unknown', 'guest_protocol_ambiguous', 'timezone_protocol_ambiguous',
-      'contract_redirect_not_allowed', 'contract_response_too_large', 'contract_encoding_unsupported', 'transient_resource',
+      'contract_byte_budget', 'contract_request_budget', 'contract_redirect_not_allowed', 'contract_response_too_large', 'contract_encoding_unsupported', 'transient_resource',
       'EAI_AGAIN', 'ENOTFOUND', 'ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT'];
     resourceFailureCause ||= causes.includes(error?.code) ? error.code : causes.includes(error?.message) ? error.message : 'resource_unknown';
     if (deadline.aborted || ['AbortError', 'TimeoutError'].includes(error?.name)
@@ -100,12 +105,16 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
   const abortBrowser = () => { void closeBrowser(); };
   signal.addEventListener('abort', abortBrowser, { once: true });
   const deniedRequests = [];
-  const unknown = reason => exportProof({ complete: false, readOnly: true, observedAt: now(), reason, deniedRequests, ...(resourceFailureCause ? { resourceFailureCause, resourceFailureClass, resourceFailureEndpoint } : {}),
+  const unknown = reason => exportProof({ complete: false, readOnly: true, observedAt: now(), reason, deniedRequests,
+    ...(nativeContractFailure || nativeMutation ? { nativeContractDiagnostics: { failure: nativeContractFailure || 'observer_mutated', phase: probePhase, ...(nativeMutation ? { mutation: nativeMutation } : {}) } } : {}), ...(resourceFailureCause ? { resourceFailureCause, resourceFailureClass, resourceFailureEndpoint } : {}),
     ...(deniedCapabilities.size ? { deniedCapabilities: [...deniedCapabilities] } : {}), ...(guestProof ? { guestSessionProof: guestProof } : {}),
     ...(oneTrustLoaderProof || observedStaticScripts.size || telemetryScriptObserved ? { publicAssetProof: assetProof() } : {}),
     ...(timezoneProtocol ? { readOnlyProtocol: { ...timezoneProtocol, lookupObserved: timeZoneRead, ...(timeZoneStatus ? { status: timeZoneStatus } : {}), ...(timeZoneRejection ? { rejection: timeZoneRejection } : {}) } } : {}) });
-  const incomplete = () => unknown(!blocked && (resourceTransient || deadline.aborted || performance.now() - startedAt >= timeoutMs)
+  const incomplete = () => {
+    if (deadline.aborted && ['first_snapshot', 'second_snapshot', 'quiet_window', 'third_snapshot', 'final_validation'].includes(probePhase)) nativeContractFailure ||= 'pending_quiet_timeout';
+    return unknown(!blocked && (resourceTransient || deadline.aborted || performance.now() - startedAt >= timeoutMs)
     ? 'transient_probe_failure' : 'incomplete_public_form');
+  };
   const publicEndpoint = value => {
     const url = new URL(value);
     let endpoint = ['https:', 'http:'].includes(url.protocol) ? (url.origin + url.pathname) : 'unsupported_protocol';
@@ -122,6 +131,8 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
       resourceType: ['document', 'stylesheet', 'script', 'xhr', 'fetch', 'ping', 'other', 'image', 'font', 'media'].includes(resourceType) ? resourceType : 'unknown' });
   };
   const read = async (url, maxBytes = 1_500_000, reader = get, extra = {}) => {
+    maxBytes = Math.min(maxBytes, PUBLIC_CONTRACT_BYTE_BUDGET - totalBytes);
+    if (maxBytes <= 0) throw Object.assign(new Error('contract_byte_budget'), { code: 'contract_byte_budget' });
     let counted = 0;
     let requested = 0;
     const attempt = () => {
@@ -134,12 +145,13 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
     const consume = bytes => {
       counted += bytes;
       totalBytes += bytes;
-      if (totalBytes > 5_000_000) {
+      if (totalBytes > PUBLIC_CONTRACT_BYTE_BUDGET) {
         controller.abort(new Error('contract_byte_budget'));
         throw new Error('contract_byte_budget');
       }
     };
     const response = await reader(url, { ...extra, signal, maxBytes, onBytes: consume, onRequest: attempt });
+    if (response.body.length > maxBytes) throw Object.assign(new Error('contract_response_too_large'), { code: 'contract_response_too_large' });
     if (!requested) attempt();
     if (!counted) consume(response.body.length);
     return response;
@@ -169,9 +181,15 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
     if (signal.aborted) return unknown('transient_probe_failure');
     context = await browser.newContext({ javaScriptEnabled: true, offline: true, serviceWorkers: 'block', acceptDownloads: false });
     if (guestSession) await context.addCookies([guestSession.browserCookie]);
+    await context.addInitScript(installNativeGroupIdentityInPage);
     await context.routeWebSocket('**/*', async socket => { blocked = true; deniedCapabilities.add('WebSocket'); await socket.close().catch(() => {}); });
-    await context.exposeBinding('__portalContractProbeNativeChanged', source => {
-      if (page && source.frame === page.mainFrame()) nativeContractChanged = true;
+    await context.exposeBinding('__portalContractProbeNativeChanged', (source, detail) => {
+      if (!page || source.frame !== page.mainFrame()) return;
+      nativeContractChanged = true;
+      const kinds = ['reference_budget', 'reference_unknown', 'visibility_unknown', 'visibility', 'attribute', 'child_list', 'character_data'];
+      const attributes = ['required', 'aria-required', 'aria-invalid', 'disabled', 'type', 'name', 'form', 'id', 'class', 'style', 'hidden', 'aria-hidden', 'role', 'aria-owns', 'aria-controls', 'aria-label', 'aria-labelledby', 'aria-describedby', 'aria-details', 'multiple', 'size', 'value', 'for', 'label', 'data-aa-id'];
+      nativeMutation ||= { kind: kinds.includes(detail?.kind) ? detail.kind : 'unknown',
+        attribute: attributes.includes(detail?.attribute) ? detail.attribute : null };
     });
     await context.exposeBinding('__portalContractProbeDenied', (_source, name) => {
       blocked = true;
@@ -290,15 +308,16 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
         await route.abort().catch(() => {});
         return;
       }
-      if (requestCount > 40 || totalBytes > 5_000_000 || signal.aborted) {
+      if (requestCount > 40 || totalBytes > PUBLIC_CONTRACT_BYTE_BUDGET || signal.aborted) {
         resourceFailed = true;
         await route.abort().catch(() => {});
         return;
       }
       try {
-        const response = mainDocument ? html : await read(request.url(), consentUiSvg ? 64_000 : consentGeo ? 4096 : (oneTrustConfig || consentUiStyle) ? 256_000 : 1_000_000, get,
+        const response = mainDocument ? html : await read(request.url(), consentUiSvg ? 64_000 : consentGeo ? 4096 : (oneTrustConfig || consentUiStyle) ? 256_000 : PUBLIC_CONTRACT_BYTE_BUDGET, consentGeo ? geoLookup : get,
           { followRedirects: !(xhrScript || oneTrustConfig || consentGeo || consentUiStyle || consentUiSvg || request.resourceType() === 'script') });
-        if (response.status < 200 || response.status >= 300 || totalBytes > 5_000_000) throw Object.assign(new Error('resource_unavailable'),
+        if (totalBytes > PUBLIC_CONTRACT_BYTE_BUDGET) throw Object.assign(new Error('contract_byte_budget'), { code: 'contract_byte_budget' });
+        if (response.status < 200 || response.status >= 300) throw Object.assign(new Error('resource_unavailable'),
           { code: response.status >= 500 || response.status === 429 ? 'transient_resource' : 'resource_unavailable' });
         if (mainDocument) rootDelivered = true;
         if (xhrScript && (response.status !== 200 || response.url !== request.url() || !isPublicJavaScriptResponse(response))) throw new Error('script_asset_unknown');
@@ -340,7 +359,7 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
         if (activeScript) {
           for (const url of literalScriptAssetUrls(response.body.toString('utf8'), assets.baseUrl, new URL(applyUrl).origin)) allowedXhrScripts.add(url);
           if (xhrScript) observedStaticScripts.add(new URL(request.url()).origin + pathname);
-          if (assets.oneTrust?.loaderUrls.includes(request.url())) {
+          if (assets.oneTrust?.loaderUrl === request.url()) {
             consentGeoLoader = officialConsentGeoLoader(response.body.toString('utf8'));
             oneTrustLoaderProof = {
             sourceUrl: request.url(), sourceHash: createHash('sha256').update(response.body).digest('hex'),
@@ -376,51 +395,58 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
     await page.goto(applyUrl, { waitUntil: 'load', timeout: timeoutMs });
     await page.waitForLoadState('networkidle', { timeout: Math.min(5_000, timeoutMs) });
     if (blocked || resourceFailed || signal.aborted || page.url() !== applyUrl) return incomplete();
-    const first = await extractFields(page, { listboxOptions: false, channelType });
+    if (guestProtocol && !guestProof?.cookieAllowed) return unknown('public_initialization_unknown');
+    if (timezoneProtocol && !timeZoneRead && await page.evaluate(() => {
+      const field = document.getElementById('timezone');
+      return Boolean(field && !field.value);
+    }) === true) return unknown('public_initialization_unknown');
+    const readSnapshot = async () => {
+      const raw = await extractFields(page, { listboxOptions: false, channelType });
+      const markers = await page.evaluate(nativeControlEvidenceInPage, raw.fields.filter(field => field.frame === 0));
+      return { snapshot: snapshotWithNativeControlEvidence(raw, markers), markers };
+    };
+    probePhase = 'first_snapshot';
+    const firstRead = await readSnapshot();
+    const first = firstRead.snapshot;
     const applicationForms = new Set(first.fields.filter(field => field.frame === 0 && field.kind === 'file'
       && Number.isInteger(field.form) && field.form >= 0).map(field => field.form));
     const ownedFields = fields => fields.filter(field => field.frame === 0 && applicationForms.has(field.form));
     const ownedIds = new Set(ownedFields(first.fields).map(field => field.id));
-    const optionalMarkers = () => page.evaluate(() => [...document.querySelectorAll('[data-aa-id]')]
-      .filter(element => typeof element.required === 'boolean')
-      .map(element => ({ id: element.getAttribute('data-aa-id'), nativeRequired: element.required,
-        explicitlyOptional: element.getAttribute('aria-required') === 'false' }))).then(markers => markers.filter(marker => ownedIds.has(marker.id)));
-    const firstMarkers = await optionalMarkers();
+    const ownedMarkers = markers => markers.filter(marker => ownedIds.has(marker.id));
+    const firstMarkers = ownedMarkers(firstRead.markers);
     await page.waitForTimeout(150);
-    const snapshot = await extractFields(page, { listboxOptions: false, channelType });
-    const finalMarkers = await optionalMarkers();
+    probePhase = 'second_snapshot';
+    const secondRead = await readSnapshot();
+    const snapshot = secondRead.snapshot;
+    const finalMarkers = ownedMarkers(secondRead.markers);
     // Observe the final contract through a quiet window. A late conditional
     // requirement invalidates this read instead of retiring its existing hold.
-    await page.evaluate(ids => {
-      const initialControls = new Set([...document.querySelectorAll('[data-aa-id]')]
-        .filter(element => ids.includes(element.getAttribute('data-aa-id')) && element.form));
-      const forms = [...new Set([...initialControls].map(element => element.form))];
-      const owned = node => initialControls.has(node) || forms.some(form => node === form || form.contains(node) || node.form === form);
-      window.__portalNativeContractChanged = false;
-      const observer = new MutationObserver(records => {
-        if (records.some(record => record.type === 'childList' ? owned(record.target)
-          || [...record.addedNodes, ...record.removedNodes].some(node => owned(node) || forms.some(form => node.contains?.(form)) || [...initialControls].some(control => node.contains?.(control)))
-          : owned(record.target) && ['required', 'aria-required', 'disabled', 'type', 'name', 'form'].includes(record.attributeName))) {
-          window.__portalNativeContractChanged = true;
-          void window.__portalContractProbeNativeChanged().catch(() => {});
-        }
-      });
-      observer.observe(document.documentElement, { subtree: true, childList: true, attributes: true });
-    }, [...ownedIds]);
+    await page.evaluate(observeNativeControlContractInPage, ownedFields(first.fields).map(field => ({
+      id: field.id, nativeSelectId: field.nativeSelectId, nativeControlOwned: field.nativeControlOwned,
+    })));
+    probePhase = 'quiet_window';
     await page.waitForTimeout(300);
-    const quietSnapshot = await extractFields(page, { listboxOptions: false, channelType });
-    const quietMarkers = await optionalMarkers();
+    probePhase = 'third_snapshot';
+    const thirdRead = await readSnapshot();
+    const quietSnapshot = thirdRead.snapshot;
+    const quietMarkers = ownedMarkers(thirdRead.markers);
     if (blocked || resourceFailed || signal.aborted || first.captcha || snapshot.captcha || quietSnapshot.captcha) return unknown('challenge_or_incomplete_form');
     if (first.passwordVisible || snapshot.passwordVisible || quietSnapshot.passwordVisible) return unknown('account_form_unknown');
     if (!hasApplicationSurface(snapshot) || !snapshot.fields.some(field => field.kind === 'file')) return unknown('application_form_unknown');
+    probePhase = 'final_validation';
     const pageText = await page.locator('body').innerText({ timeout: 2_000 });
     if (blocked || resourceFailed || signal.aborted || page.url() !== applyUrl) return incomplete();
-    const contractChanged = await page.evaluate(() => window.__portalNativeContractChanged === true);
-    if (contractChanged === true || contractKey(ownedFields(snapshot.fields)) !== contractKey(ownedFields(quietSnapshot.fields))
-      || JSON.stringify(finalMarkers) !== JSON.stringify(quietMarkers)) return unknown('native_contract_unstable');
+    const contractChanged = await page.evaluate(() => window.__portalNativeContractChanged === true
+      || window.__portalNativeContractStillStable?.() === false);
+    if (contractChanged === true) nativeContractFailure = 'observer_mutated';
+    else if (contractKey(ownedFields(snapshot.fields)) !== contractKey(ownedFields(quietSnapshot.fields))) nativeContractFailure = 'snapshot_fingerprint_drift';
+    else if (JSON.stringify(finalMarkers) !== JSON.stringify(quietMarkers)) nativeContractFailure = 'snapshot_marker_drift';
+    if (nativeContractFailure) return unknown('native_contract_unstable');
     if (blocked || resourceFailed || signal.aborted || page.url() !== applyUrl) return incomplete();
     if (postingMatch(pageText, job, applyUrl) !== 'match') return unknown('posting_mismatch');
-    if (contractKey(ownedFields(first.fields)) !== contractKey(ownedFields(snapshot.fields)) || JSON.stringify(firstMarkers) !== JSON.stringify(finalMarkers)) return unknown('native_contract_unstable');
+    if (contractKey(ownedFields(first.fields)) !== contractKey(ownedFields(snapshot.fields))) nativeContractFailure = 'snapshot_fingerprint_drift';
+    else if (JSON.stringify(firstMarkers) !== JSON.stringify(finalMarkers)) nativeContractFailure = 'snapshot_marker_drift';
+    if (nativeContractFailure) return unknown('native_contract_unstable');
     candidateProof = { complete: true, readOnly: true, stable: true,
       ...(guestProof ? { guestSessionProof: guestProof } : {}),
       ...(oneTrustLoaderProof || observedStaticScripts.size || telemetryScriptObserved ? { publicAssetProof: assetProof() } : {}),
@@ -429,6 +455,7 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
         explicitlyOptional: field.frame === 0 && finalMarkers.filter(marker => marker.id === field.id
           && marker.explicitlyOptional && marker.nativeRequired === false).length === 1 })) };
   } catch (error) {
+    if (deadline.aborted && ['first_snapshot', 'second_snapshot', 'quiet_window', 'third_snapshot', 'final_validation'].includes(probePhase)) nativeContractFailure ||= 'pending_quiet_timeout';
     return unknown(/^contract_(?:url|dns|redirect|encoding|response_too_large)/.test(String(error?.code || ''))
       ? 'public_contract_unsupported' : 'transient_probe_failure');
   } finally {

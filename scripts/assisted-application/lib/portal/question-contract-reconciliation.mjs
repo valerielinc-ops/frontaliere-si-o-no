@@ -9,6 +9,7 @@ import { isFetchablePublicUrl } from '../../../../functions/src/assistedApplicat
 import { portalAnswerForApplication } from './question-key.mjs';
 import { portalRequirementsFromMissingRequired, preferredCvFields } from './portal.mjs';
 import { operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { hasNativeApplicantIdentity } from './native-control-contract.mjs';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../../../functions/src/lib/portalNativeContract.js';
 
 export const PORTAL_CONTRACT_RECONCILIATION_VERSION = PORTAL_NATIVE_CONTRACT_VERSION;
@@ -80,10 +81,9 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   if (!proof?.complete || !proof.readOnly || !proof.stable || proof.sourceUrl !== portalContractSourceUrl(draft)
     || proof.url !== proof.sourceUrl || !Array.isArray(proof.fields)) return { changed: false, reason: 'proof_unknown' };
   const fields = proof.fields;
-  const forms = [...new Set(preferredCvFields(fields).filter(field => field.frame === 0
+  const forms = [...new Set(preferredCvFields(fields).filter(field => field.nativeControlOwned === true && field.nativeLabelOwned === true && field.nativeReferencesComplete === true && field.frame === 0
     && Number.isInteger(field.form) && field.form >= 0).map(field => field.form))];
-  if (forms.length !== 1 || !fields.some(field => field.frame === 0 && field.form === forms[0]
-    && (field.inputType === 'email' || /^(?:email|name|given-name|family-name)$/.test(field.autocomplete || '')))) {
+  if (forms.length !== 1 || !hasNativeApplicantIdentity(fields, forms[0], draft.job?.title || order.jobTitle || '')) {
     return { changed: false, reason: 'application_form_owner_unknown' };
   }
   const answers = candidateWithEdits({ order, draft, flow }).answers;
@@ -98,7 +98,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
     const matching = fields.filter(field => text(field.label) === text(question.applicationQuestion));
     if (matching.length !== 1) return question;
     const field = matching[0];
-    if (fields.filter(other => other.id === field.id).length !== 1 || field.frame !== 0
+    if (field.nativeControlOwned !== true || field.nativeLabelOwned !== true || field.nativeReferencesComplete !== true || fields.filter(other => other.id === field.id).length !== 1 || field.frame !== 0
       || field.form !== forms[0] || ['context', 'section', 'autocomplete'].some(key => text(question[key])
         && text(question[key]) !== text(field[key]))
       || !['text', 'textarea', 'select', 'radio', 'checkbox', 'date'].includes(field.kind)
@@ -115,7 +115,8 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
       optionMap: contract.optionMap || [], validation: contract.validation, required: field.required,
       portalNativeContract: {
         version: PORTAL_CONTRACT_RECONCILIATION_VERSION, round: Number(draft.round), observedAt: proof.observedAt, url: proof.url,
-        fieldId: field.id, frame: field.frame, label: field.label, kind: field.kind,
+        fieldId: field.id, nativeControlId: text(field.nativeControlId).slice(0, 200),
+        nativeSelectId: text(field.nativeSelectId).slice(0, 200), frame: field.frame, label: field.label, kind: field.kind,
         form: field.form, topic: relaxablePortalQuestionTopic(question), requiredEvidence: field.explicitlyOptional ? 'aria-required:false' : 'required',
         context: text(field.context).slice(0, 240), section: text(field.section).slice(0, 240), required: field.required,
       },
