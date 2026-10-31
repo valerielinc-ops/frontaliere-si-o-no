@@ -1,4 +1,11 @@
-/** Persist only the live contract observed by this still-current, unsent run. */
+/**
+ * Persist only the live contract observed by this still-current, unsent run.
+ *
+ * Recovery contract: this file changes what held applications may resume, so
+ * currentPortalCodeVersion() hashes every .mjs in this directory and
+ * assisted-application-portal-recovery.yml triggers on it both through the
+ * directory glob and by explicit path. Keep the two workflow entries together.
+ */
 import { isDeepStrictEqual } from 'node:util';
 import { dedupePortalQuestions, portalQuestionKey } from './portal.mjs';
 import { mergeRequiredDocuments, requiredDocumentLabelKey, requiredDocumentsOf } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
