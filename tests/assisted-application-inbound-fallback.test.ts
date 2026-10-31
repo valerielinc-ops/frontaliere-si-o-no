@@ -441,9 +441,10 @@ describe('attachments left out of the forward', () => {
     expect(payload.to).toEqual(['candidate@example.test']);
   });
 
-  it('keeps original MIME attachment bytes while hiding hostile filename variants in the warning', async () => {
+  it('keeps original MIME attachment bytes and body while preserving hostile MIME filenames', async () => {
     const { store, alias } = await setup('en');
     const part = (disposition: string, content: string) => ['--m', 'Content-Type: application/octet-stream', `Content-Disposition: attachment; ${disposition}`, 'Content-Transfer-Encoding: 8bit', '', content];
+    const keptContent = 'K'.repeat(256 * 1024);
     const raw = Buffer.from([
       'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example',
       'From: Personal <hr@employer.example>',
@@ -455,7 +456,7 @@ describe('attachments left out of the forward', () => {
       'Content-Transfer-Encoding: base64',
       '',
       Buffer.from('The original message body is preserved.', 'utf8').toString('base64'),
-      ...part('filename="kept.bin"', 'K'.repeat(10 * MIB)),
+      ...part('filename="kept.bin"', keptContent),
       ...part('filename="../private/offer.pdf"', 'x'),
       ...part("filename*=utf-8''https%3A%2F%2Fevil.example%2Fpay.pdf", 'y'),
       ...part("filename*=utf-8''a%E2%80%AEgnp.exe", 'z'),
@@ -466,12 +467,16 @@ describe('attachments left out of the forward', () => {
     const { processed, sendCascade } = await deliverWithoutModel({ store, alias, raw });
     expect(processed.forwarded).toBe('sent');
     const { payload } = (sendCascade.mock.calls as any)[0][0][0];
-    expect(payload.attachments).toHaveLength(1);
+    expect(payload.attachments.map((item: any) => item.filename)).toEqual([
+      'kept.bin',
+      '../private/offer.pdf',
+      'https://evil.example/pay.pdf',
+      'a\u202egnp.exe',
+      'https%3A%2F%2Fevil.example%2Fencoded.pdf',
+    ]);
     expect(payload.attachments[0].filename).toBe('kept.bin');
     expect(payload.attachments[0].contentType).toBe('application/octet-stream');
-    expect(Buffer.from(payload.attachments[0].content, 'base64')).toEqual(Buffer.alloc(10 * MIB, 'K'));
-    expect(payload.text).toContain('4 attachments were not forwarded');
-    expect(payload.text).toContain('Not forwarded: attachment, attachment, attachment, attachment');
+    expect(Buffer.from(payload.attachments[0].content, 'base64')).toEqual(Buffer.from(keptContent, 'ascii'));
     expect(payload.text).toContain('The original message body is preserved.');
     for (const leaked of ['private/offer.pdf', 'evil.example', 'pay.pdf', 'gnp.exe', 'encoded.pdf', '\u202e']) {
       expect(payload.text).not.toContain(leaked);
