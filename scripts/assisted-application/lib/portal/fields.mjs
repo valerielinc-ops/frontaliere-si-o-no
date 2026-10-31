@@ -1,3 +1,4 @@
+import { avatureProtocolMatches, readPortalProtocolInPage } from './protocol.mjs';
 /**
  * Form-field discovery for the portal runner. `extractFieldsInPage` runs
  * inside the page (Playwright `evaluate`) and is self-contained on purpose.
@@ -773,10 +774,25 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
+      formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       ...(isSiteChromeControl(element) ? { chrome: true } : {}),
     }))
     .filter((button) => button.text)
     .slice(0, 60);
+  // Bind every field and action to its actual owner, so a site-search field
+  // cannot turn a nearby Apply link into the application's final form.
+  for (const field of fields) {
+    // Widget ownership was proved by the producer. Its nativeSelectId is a
+    // raw DOM id: never borrow the span/button proxy's surrounding form, or
+    // choose the first of several controls carrying the native id.
+    const native = field.nativeSelectId
+      ? [...document.querySelectorAll('[id]')].filter(element => element.id === field.nativeSelectId) : null;
+    const node = native
+      ? (native.length === 1 && native[0].tagName === 'SELECT' ? native[0] : null)
+      : document.querySelector(`[data-aa-id="${field.id}"]`);
+    const form = native ? node?.form : node?.form || node?.closest('form');
+    field.formId = form ? idFor(form) : '';
+  }
   // Saved after the buttons got their ids too, or the next scan hands them out again.
   document.documentElement.setAttribute('data-aa-counter', String(counter));
   // Only a CAPTCHA a person must act on counts (career-ops: fill, and hand
@@ -970,7 +986,11 @@ export async function extractFields(page, { listboxOptions = true, channelType =
     result.captcha ||= snapshot.captcha;
     result.passwordVisible ||= snapshot.passwordVisible;
     result.errors.push(...snapshot.errors);
-    if (index === 0) result.text = snapshot.text;
+    if (index === 0) {
+      result.text = snapshot.text;
+      const protocol = await frame.evaluate(readPortalProtocolInPage).catch(() => null);
+      if (avatureProtocolMatches(protocol, snapshot.url)) result.protocol = protocol;
+    }
   }
   return result;
 }

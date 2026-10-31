@@ -25,12 +25,17 @@ on:
         type: choice
         # dry_run: fill the portal pages (or prepare the e-mail) and stop
         # before the final click; nothing is sent and the flow never moves.
-        options: [draft, submit, dry_run]
+        options: [draft, submit, dry_run, verify_portal]
       round:
         description: 'Review round the run belongs to'
         required: true
         type: string
         default: '1'
+      verification_nonce:
+        description: 'One-use read-only inspection request nonce'
+        required: false
+        type: string
+        default: ''
 
 run-name: assisted-application ${{ inputs.mode }} r${{ inputs.round }}
 
@@ -104,6 +109,7 @@ jobs:
       # Codex Luna Max at effort max: the same bounded broker as the article
       # lanes. The draft writes with it; the submit plans each portal page.
       - id: codex
+        if: inputs.mode != 'verify_portal'
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
@@ -118,7 +124,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Install NopeCHA for portal submissions
-        if: inputs.mode != 'draft'
+        if: inputs.mode != 'draft' && inputs.mode != 'verify_portal'
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/assisted-application/install-nopecha.sh "${{ runner.temp }}/nopecha"
@@ -127,6 +133,7 @@ jobs:
         env:
           ORDER_ID: ${{ inputs.order_id }}
           MODE: ${{ inputs.mode }}
+          VERIFICATION_NONCE: ${{ inputs.verification_nonce }}
           ROUND: ${{ inputs.round }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
           CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
@@ -137,12 +144,19 @@ jobs:
           ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
           # Candidate-free proof used to close stale portal-stop issues after a pass.
           ASSISTED_APPLICATION_PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
-          NOPECHA_EXTENSION_PATH: ${{ inputs.mode != 'draft' && format('{0}/nopecha/extension', runner.temp) || '' }}
+          NOPECHA_EXTENSION_PATH: ${{ inputs.mode != 'draft' && inputs.mode != 'verify_portal' && format('{0}/nopecha/extension', runner.temp) || '' }}
         # A real (headed) Chromium on a virtual screen: some ATS turn away a
         # browser that calls itself HeadlessChrome, in its user agent and in its
         # client hints. Nothing is disguised (owner decision 2026-10-01).
         run: |
-          if command -v xvfb-run >/dev/null 2>&1; then
+          if [ "$MODE" = 'verify_portal' ]; then
+            if command -v xvfb-run >/dev/null 2>&1; then
+              export ASSISTED_APPLICATION_HEADED=1
+              xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
+            else
+              node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
+            fi
+          elif command -v xvfb-run >/dev/null 2>&1; then
             export ASSISTED_APPLICATION_HEADED=1
             xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
           else
@@ -150,7 +164,7 @@ jobs:
           fi
 
       - name: Reconcile failed executor with the application queue
-        if: failure()
+        if: failure() && inputs.mode != 'verify_portal'
         env:
           ORDER_ID: ${{ inputs.order_id }}
           MODE: ${{ inputs.mode }}

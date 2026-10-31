@@ -113,11 +113,12 @@ describe('automatic recovery after a portal fix', () => {
   it('changes the fingerprint only for runner sources and covers those files in the workflow trigger', () => {
     const root = mkdtempSync(path.join(tmpdir(), 'portal-source-version-'));
     const sourceFiles = [
-      'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
+      'scripts/lib/prospector/public-fetch-policy.mjs',
+      'scripts/assisted-application/verify-portal.mjs', 'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
       ...['assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
-        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/answerRules.js', 'lib/portalQuestionText.js', 'lib/portalNativeContract.js'].map(file => `functions/src/${file}`),
+        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationRetention.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/answerRules.js', 'lib/portalQuestionText.js', 'lib/portalNativeContract.js'].map(file => `functions/src/${file}`),
     ];
     const write = (file: string, text: string) => { mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); writeFileSync(path.join(root, file), text); };
     try {

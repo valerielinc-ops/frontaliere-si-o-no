@@ -575,11 +575,12 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(controls.accept).toMatchObject({ id: 'dpcs-accept', disabled: true });
   });
 
-  it('takes an address as a confirmation only when it is not a review step and the send button is gone', () => {
+  it('never treats an address alone as a receipt, including a profile confirmation', () => {
     const sendButton = { buttons: [{ text: 'Submit application', disabled: false }] };
     expect(urlConfirms('https://jobs.example/apply/review-and-confirm', { buttons: [] })).toBe(false);
     expect(urlConfirms('https://jobs.example/apply/thank-you', sendButton)).toBe(false);
-    expect(urlConfirms('https://jobs.example/apply/thank-you', { buttons: [{ text: 'Back to jobs' }] })).toBe(true);
+    expect(urlConfirms('https://jobs.example/apply/thank-you', { buttons: [{ text: 'Back to jobs' }] })).toBe(false);
+    expect(urlConfirms('https://jobs.example/apply/confirmation?jobId=42', { text: 'Thank you for your application.', buttons: [] }, { applyUrl: 'https://jobs.example/apply?jobId=42' })).toBe(true);
     expect(urlConfirms('https://jobs.example/apply/step-3', { buttons: [] })).toBe(false);
   });
 

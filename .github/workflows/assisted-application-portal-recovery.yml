@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'scripts/lib/prospector/public-fetch-policy.mjs'
       - 'scripts/assisted-application/lib/portal/**'
       - 'scripts/assisted-application/extension/apply-control.js'
       - 'scripts/assisted-application/lib/submit.mjs'
@@ -18,6 +19,7 @@ on:
       - 'functions/src/assistedApplicationFlow.js'
       - 'functions/src/assistedApplicationPortalRetryPolicy.js'
       - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'
+      - 'functions/src/assistedApplicationRetention.js'
       - 'functions/src/assistedApplicationSubmissionGuard.js'
       - 'functions/src/lib/answerRules.js'
       - 'functions/src/lib/portalQuestionText.js'
