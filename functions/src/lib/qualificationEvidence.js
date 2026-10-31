@@ -4,6 +4,7 @@ import { qualificationCounterContextHash } from './qualificationCounterContext.j
 import { parseEndpoint } from './cvPeriod.js';
 import { sourceCitations } from './sourceCitations.js';
 import { projectAttestedLanguageFacts } from './attestedLanguageProjection.js';
+import { nativeAnswerSourceConflicts } from './answerSourceConflicts.js';
 import { languageCodesIn } from './languageFacts.js';
 import { isPortableCandidateLanguageQuestion } from './candidateLanguageQuestion.js';
 import { nativeCvDomainConstraint, sameNativeQuestion, typedNativeAnswerConstraint } from './nativeAnswerConstraints.js';
@@ -253,7 +254,7 @@ Evaluate the TRUTH OF THE PROPOSED VALUE, not whether the source mentions the qu
 Candidate-answer records: actual answer is authoritative; printed options are never the answer. A2 does not support proposed C1; an actual No does not support proposed Yes. Scope, target, unit and original question must match. Future wishes/training do not establish present ability. Do not infer consent, status or qualifications.
 CV sources: a generic management title does not establish a degree, provider/change processes or analytical ability. Dates establish tenure only with the clearly identified role/domain. Original positions identify the paragraph/ordinal of each source. A role and its dates must both be selected; unselected neighboring text will never reach the adjudicator. All AND conditions must be supported; one OR alternative may suffice.
 Attested declarations and unverifiedContext may contradict older CV text: do not select an unresolved contradicted assertion. Raw notes/corrections never become primary sources. Use empty sourceIds when meaning, scope or coverage cannot be established.`;
-export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-local-contract1-cv-revision1-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
+export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-sourceconflict1-local-contract1-cv-revision1-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
 
 function nativePrimarySources(sources) {
   const seenAnswers = new Set();
@@ -323,6 +324,8 @@ export async function verifyNativeFormAnswers({ claims, sources, generate, scope
     || !Number.isInteger(source.position?.ordinal) || !Number.isInteger(source.position?.block)
     || !Number.isInteger(source.position?.blockSize))) return fail('source_unbound');
   for (const claim of claims) {
+    if (nativeAnswerSourceConflicts({ nativeFormContract: claim.nativeFormContract,
+      answerSourceConflicts: scope.answerSourceConflicts, currentCvHash: scope.sourceCvHash }).length) return fail('answer_source_conflict');
     for (const source of catalog.filter(item => item.kind === 'candidate_answer')) {
       if (source.authority === 'native_local' && (source.localBinding?.orderId !== scope.orderId
         || source.localBinding?.round !== scope.round || !sameLocalNativeContract(claim, source))) continue;

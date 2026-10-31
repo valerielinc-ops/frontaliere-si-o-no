@@ -13,11 +13,13 @@ const booleanValue = value => {
   if (['no', 'false', 'nein', 'non'].includes(text)) return false;
   return null;
 };
+const AMBIGUOUS_OPTION = Symbol('ambiguous native option');
 function nativeOptionScalar(value, question) {
   if (typeof value === 'boolean' || !Array.isArray(question?.optionValues)) return value;
   const text = normalized(value);
   const matches = question.optionValues.filter(option => option && (normalized(option.label) === text
     || (Object.hasOwn(option, 'value') && normalized(option.value) === text)));
+  if (matches.length > 1) return AMBIGUOUS_OPTION;
   return matches.length === 1 && typeof matches[0].label === 'string' ? matches[0].label : value;
 }
 const cefr = value => /^[ABC][12]$/u.test(String(value ?? '').trim().toUpperCase()) ? String(value).trim().toUpperCase() : '';
@@ -102,6 +104,7 @@ export function typedNativeAnswerConstraint(claim, record) {
   if (!exact) return 'unrelated';
   if (record.category === 'language' && cefr(actual) && cefr(claim.proposedAnswer)) return cefr(actual) === cefr(claim.proposedAnswer) ? 'supports' : 'contradicts';
   const actualScalar = nativeOptionScalar(actual, original); const proposedScalar = nativeOptionScalar(claim.proposedAnswer, native);
+  if (actualScalar === AMBIGUOUS_OPTION || proposedScalar === AMBIGUOUS_OPTION) return 'unknown';
   if (record.unit === 'boolean' || typeof actual === 'boolean'
     || (booleanValue(actualScalar) !== null && booleanValue(proposedScalar) !== null)) {
     const stated = booleanValue(actualScalar); const proposed = booleanValue(proposedScalar);

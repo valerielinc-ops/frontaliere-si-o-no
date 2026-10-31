@@ -4,7 +4,7 @@ vi.mock('../functions/src/geminiGenerate.js', () => ({ generateServerText: vi.fn
 const { generateServerText } = await import('../functions/src/geminiGenerate.js');
 vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn() }));
 const { extractCvText } = await import('../functions/src/assistedApplicationAiDocuments.js');
-const { prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
+const { evaluateConciergePosting, prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
 const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
 const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
 const { EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } = await import('../functions/src/lib/qualificationEvidence.js');
@@ -369,5 +369,28 @@ describe('qualification before proposal publication', () => {
       generate: f.generate,
       readPosting: f.readPosting,
     })).toEqual({ status: 'unverified', reason: 'profile_not_ready' });
+  });
+});
+
+
+describe('retained clear metadata before known-missing language guards', () => {
+  it.each(['de', 'fr'])('uses the verified sidecar for compound German captions (cleared %s)', async languageCode => {
+    const quote = 'Verhandlungssichere Deutschkenntnisse erforderlich';
+    const requirements = { requirements: [{ requirement: 'Deutschkenntnisse', quote, basis: 'stated', importance: 'high' }],
+      languageRequirements: [{ language: 'de-CH', level: 'verhandlungssicher', quote }] };
+    const generate = vi.fn(async (system: string) => system === REQUIREMENTS_SYSTEM_PROMPT ? requirements
+      : { matches: [{ index: 0, status: 'met', evidence: '[[cv:0]]' }], verdict: 'good', questions: [] });
+    const result = await evaluateConciergePosting({ job: { id: 'compound-language' }, profile: { languages: [{ language: 'de', level: 'A2' }], languagesExplicitList: true },
+      sourceText: 'Current German A2', cvHash: 'a'.repeat(64), answerSourceConflicts: [{ key: `language_${languageCode}_any_proficiency`, property: 'language_proficiency',
+        languageCode, scope: 'candidate', cvHash: 'a'.repeat(64), reason: 'explicit_clear', at: 1 }], generate,
+      readPosting: async () => ({ text: quote + '. ' + 'Company and role duties. '.repeat(10), source: 'job_detail', textTruncated: false }) });
+    if (languageCode === 'de') {
+      expect(result).toMatchObject({ status: 'unverified', reason: 'answer_source_conflict', gaps: [], questions: [] });
+      expect(generate).toHaveBeenCalledTimes(1);
+    } else {
+      expect(result.status).toBe('incompatible');
+      expect(result.gaps).toEqual(expect.arrayContaining([expect.objectContaining({ knownMissing: true })]));
+      expect(generate).toHaveBeenCalledTimes(2);
+    }
   });
 });

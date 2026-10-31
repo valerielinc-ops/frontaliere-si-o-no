@@ -14,7 +14,9 @@
  * the fact warnings.
  */
 
-import { languageCodesIn, languageCodeOf, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion, isLanguageNameOnly } from './lib/languageFacts.js';
+import { languageCodesIn, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion, isLanguageNameOnly } from './lib/languageFacts.js';
+
+import { listedRequirementLanguages, requirementLanguageCodes } from './lib/requirementLanguageCodes.js';
 
 export const DECISIVE_REQUIREMENT_IMPORTANCES = ['critical', 'high'];
 const DECISIVE = DECISIVE_REQUIREMENT_IMPORTANCES;
@@ -96,12 +98,9 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
   });
   // A language must-have cannot be satisfied by evidence about another language.
   for (const [index, row] of rows.entries()) {
-    const listedLanguages = (requirements?.languageRequirements || []).filter(language => language.quote && text(row.quote, 400).toLocaleLowerCase().includes(text(language.quote, 300).toLocaleLowerCase()));
+    const listedLanguages = listedRequirementLanguages(requirements, row);
     if (!DECISIVE.includes(row.importance) || (!listedLanguages.length && !isLanguageAbilityQuestion(row.quote))) continue;
-    const codes = [...new Set([...languageCodesIn(row.quote || ''), ...listedLanguages.flatMap(({ language }) => {
-      const code = languageCodeOf(language);
-      return code ? [code] : languageCodesIn(language);
-    })])];
+    const codes = requirementLanguageCodes(requirements, row);
     const rank = value => {
       const label = String(value);
       const cefr = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(label.toUpperCase().match(/\b[ABC][12]\b/)?.[0]);

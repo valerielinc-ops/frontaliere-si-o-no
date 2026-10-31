@@ -316,3 +316,44 @@ describe('native-only local candidate receipts', () => {
     expect((await verifyNativeFormAnswers({ ...input, claims: [{ ...input.claims[0], proposedAnswer: '0' }] })).status).toBe('unverified');
   });
 });
+
+describe('retained source revocation metadata', () => {
+  it('holds a pertinent cleared language before inference without retaining the old answer', async () => {
+    const f = fixture();
+    const marker = { key: 'language_en_any_proficiency', property: 'language_proficiency', languageCode: 'en', scope: 'candidate',
+      cvHash: 'a'.repeat(64), reason: 'explicit_clear', at: 1 };
+    const claims = [{ fieldId: 'language', nativeFormContract: { question: 'Do you speak English at C1?', context: 'Languages' }, proposedAnswer: 'Yes' }];
+    const result = await verifyNativeFormAnswers({ ...f, claims, scope: { ...f.scope, sourceCvHash: marker.cvHash, answerSourceConflicts: [marker] } });
+    expect(result).toMatchObject({ status: 'unverified', verification: { failure: 'answer_source_conflict' } });
+    expect(f.generate).not.toHaveBeenCalled();
+    expect((await verifyNativeFormAnswers({ ...f, scope: { ...f.scope, sourceCvHash: marker.cvHash, answerSourceConflicts: [marker] } })).status).toBe('supported');
+  });
+});
+
+
+describe('native boolean option ambiguity', () => {
+  it.each([false, true])('never interprets a label/value collision as the attested boolean (%s)', async reverse => {
+    for (const actual of [false, true]) {
+      const optionValues = [{ label: 'Yes', value: 'No' }, { label: 'No', value: 'Yes' }];
+      if (reverse) optionValues.reverse();
+      const nativeFormContract = { question: 'Do you hold a degree?', optionValues };
+      const receipt = { id: 'local-degree', version: 'native-answer-confirmation-v1', category: 'local_answer', unit: 'boolean', scope: 'job',
+        question: { originalNativeContract: nativeFormContract }, answer: actual, provenance: { actor: 'candidate', orderId: 'guest-order', round: 1 } };
+      const generate = vi.fn();
+      expect((await verifyNativeFormAnswers({ sources: qualificationSources({ localAnswerEvidence: [receipt], purpose: 'native_form' }), generate,
+        scope: { orderId: 'guest-order', round: 1 }, claims: [{ fieldId: 'degree', nativeFormContract, proposedAnswer: actual ? 'Yes' : 'No' }] })).status).toBe('unverified');
+      expect(generate).not.toHaveBeenCalled();
+    }
+  });
+});
+
+
+it('vetoes a retained German clear for a native compound proficiency caption before either model pass', async () => {
+  const generate = vi.fn();
+  const marker = { key: 'language_de_any_proficiency', property: 'language_proficiency', languageCode: 'de', scope: 'candidate', cvHash: 'a'.repeat(64), reason: 'explicit_clear', at: 1 };
+  const result = await verifyNativeFormAnswers({ sources: qualificationSources({ sourceText: 'Current German A2' }), generate,
+    scope: { sourceCvHash: marker.cvHash, answerSourceConflicts: [marker] },
+    claims: [{ fieldId: 'german', nativeFormContract: { question: 'Verfügen Sie über verhandlungssichere Deutschkenntnisse?' }, proposedAnswer: 'Nein' }] });
+  expect(result).toMatchObject({ status: 'unverified', verification: { failure: 'answer_source_conflict' } });
+  expect(generate).not.toHaveBeenCalled();
+});

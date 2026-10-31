@@ -1,3 +1,4 @@
+import { requirementLanguageCodes } from './lib/requirementLanguageCodes.js';
 /** Full-posting qualification before a concierge proposal is published. All caches are owner-private. */
 import { createHash } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
@@ -12,8 +13,8 @@ import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SC
   requirementsUserText, MATCH_SCHEMA, matchSystemPrompt, matchUserText } from './assistedApplicationAiPrompts.js';
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
+import { languageAnswerSourceConflicts } from './lib/answerSourceConflicts.js';
 import { projectAttestedLanguageFacts } from './lib/attestedLanguageProjection.js';
-import { languageCodesIn } from './lib/languageFacts.js';
 import { SOURCE_CITATIONS_VERSION, citationSchema, resolveCitations } from './lib/sourceCitations.js';
 import { EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_PROMPT_HASH, qualificationSources,
   verifyQualificationEvidence, qualificationCounterContext, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
@@ -70,7 +71,7 @@ function profileForEligibility(profile = {}) {
   };
 }
 
-async function evaluateConciergePosting({ job, profile, answers = {}, answerEvidence = [], answerCounterContext = [], locale = 'it', sourceText = '', cvHash = '', generate = generateJson, readPosting = fetchJobPosting }) {
+export async function evaluateConciergePosting({ job, profile, answers = {}, answerEvidence = [], answerCounterContext = [], answerSourceConflicts = [], locale = 'it', sourceText = '', cvHash = '', generate = generateJson, readPosting = fetchJobPosting }) {
   if (!sourceText) {
     const deadline = AbortSignal.timeout(PREFLIGHT_ANALYSIS_BUDGET_MS);
     const inference = generate; const read = readPosting;
@@ -88,7 +89,10 @@ async function evaluateConciergePosting({ job, profile, answers = {}, answerEvid
   const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
   const projected = projectAttestedLanguageFacts({ profile: profileForEligibility(profile), answerEvidence, currentCvHash: cvHash });
   const conflictedLanguages = new Set(projected.conflicts.map(conflict => conflict.languageCode));
-  if (requirements.requirements.some(row => languageCodesIn(row.quote || row.requirement).some(code => conflictedLanguages.has(code)))) {
+  if (requirements.requirements.some(row => languageAnswerSourceConflicts({ text: row.quote || row.requirement, languageCodes: requirementLanguageCodes(requirements, row), answerSourceConflicts, currentCvHash: cvHash }).length)) {
+    return { status: 'unverified', reason: 'answer_source_conflict', gaps: [], questions: [] };
+  }
+  if (requirements.requirements.some(row => requirementLanguageCodes(requirements, row).some(code => conflictedLanguages.has(code)))) {
     return { status: 'unverified', reason: 'language_evidence_conflict', gaps: [], questions: [] };
   }
   const normalizedProfile = projected.profile;

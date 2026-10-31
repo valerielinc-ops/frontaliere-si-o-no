@@ -190,3 +190,11 @@ describe('language facts stay conservative when a CV entry or question is ambigu
     })).toEqual({ value: 'Italian C1', source: 'profile' });
   });
 });
+
+
+it('recognizes bounded German proficiency compounds without treating country/company prefixes as language names', async () => {
+  const { languageCodesIn } = await import('../functions/src/lib/languageFacts.js');
+  expect(languageCodesIn('Verhandlungssichere Deutschkenntnisse und Englischkenntnisse')).toEqual(['de', 'en']);
+  expect(languageCodesIn('Französischkenntnissen auf Niveau C1')).toEqual(['fr']);
+  expect(languageCodesIn('Deutschland GmbH / Englishman Industries')).toEqual([]);
+});

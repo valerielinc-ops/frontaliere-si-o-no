@@ -1,3 +1,4 @@
+import { requirementLanguageCodes } from '../../../functions/src/lib/requirementLanguageCodes.js';
 /**
  * Draft mode of the assisted-application agent (GitHub Actions).
  *
@@ -11,8 +12,8 @@
 
 import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequirements.js';
 import { citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
+import { languageAnswerSourceConflicts } from '../../../functions/src/lib/answerSourceConflicts.js';
 import { projectAttestedLanguageFacts } from '../../../functions/src/lib/attestedLanguageProjection.js';
-import { languageCodesIn } from '../../../functions/src/lib/languageFacts.js';
 import { qualificationSources, originalCvLanguageProfile, qualificationCounterContext, qualificationSourcesFingerprint, verifyQualificationEvidence, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
 import { conciergeProposalEligibility } from '../../../functions/src/assistedApplicationFitNotice.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
@@ -208,7 +209,11 @@ export async function buildDraft(ctx) {
   profile = edited.profile;
   const projected = projectAttestedLanguageFacts({ profile, answerEvidence: ctx.answerEvidence || [], currentCvHash: eligibilityHash(cvBuffer) });
   const conflictedLanguages = new Set(projected.conflicts.map(conflict => conflict.languageCode));
-  if (requirements.requirements.some(row => languageCodesIn(row.quote || row.requirement).some(code => conflictedLanguages.has(code)))) {
+  if (requirements.requirements.some(row => languageAnswerSourceConflicts({ text: row.quote || row.requirement, languageCodes: requirementLanguageCodes(requirements, row),
+    answerSourceConflicts: ctx.answerSourceConflicts || [], currentCvHash: eligibilityHash(cvBuffer) }).length)) {
+    throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
+  }
+  if (requirements.requirements.some(row => requirementLanguageCodes(requirements, row).some(code => conflictedLanguages.has(code)))) {
     throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
   }
   profile = projected.profile;

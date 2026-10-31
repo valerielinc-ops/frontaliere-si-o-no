@@ -70,7 +70,10 @@ const LANGUAGE_CONTEXT_LABEL_SUFFIXES = [
 function includesName(text, name) {
   const normalizedName = fold(name).replace(/\s+/g, ' ');
   const escaped = normalizedName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
-  return new RegExp(`(?:^|[^\\p{L}])${escaped}(?![\\p{L}])`, 'u').test(text);
+  // German attaches a language name to an explicit proficiency noun. This
+  // is the same named language, not an arbitrary prefix (e.g. Deutschland).
+  const proficiencyCompound = '(?:kenntnis(?:se|sen)?|sprachkenntnis(?:se|sen)?|kompetenz(?:en)?|niveau)';
+  return new RegExp(`(?:^|[^\\p{L}])${escaped}(?:${proficiencyCompound})?(?![\\p{L}])`, 'u').test(text);
 }
 
 /** Language codes named in a question or CV entry. */
