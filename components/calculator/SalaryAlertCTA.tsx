@@ -24,7 +24,6 @@ import { useAuth } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { upsertUnifiedEmailSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
-import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { reportCaughtError } from '@/services/errorReporter';
 import {
@@ -220,6 +219,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
     setCaptureStatus('submitting');
     setCaptureError('');
     try {
+      const { getFirestore } = await import('firebase/firestore');
       const firestore = getFirestore(await getApp());
       const upsert = await upsertUnifiedEmailSubscriber(firestore, {
         email: trimmed,

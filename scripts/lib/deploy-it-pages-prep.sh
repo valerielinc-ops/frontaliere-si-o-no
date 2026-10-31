@@ -342,7 +342,7 @@ _publish_cdn_r2() {
         fi
       done
     else
-      if ! _image_lease_context="$(node "$_lease_cli" acquire --namespace "$_image_lease_namespaces")" || [ -z "$_image_lease_context" ]; then
+      if ! _image_lease_context="$(FRONTALIERE_R2_IMAGE_LEASE_PRIORITY=1 node "$_lease_cli" acquire --namespace "$_image_lease_namespaces")" || [ -z "$_image_lease_context" ]; then
         echo "::error::[r2] could not acquire the image namespace lease; skipping images/ sync"
         return 1
       fi
