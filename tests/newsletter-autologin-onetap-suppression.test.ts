@@ -179,6 +179,7 @@ describe('promptOneTap suppression wiring', () => {
  expect(effect).not.toContain('if (cancelled) return;');
  expect(effect).toContain('if (!cleanupBlocked && shouldStripNewsletterParams)');
  expect(effect).toContain('currentAttemptKey === claimedAttemptKey');
+ expect(effect).toContain('(!claimedAttemptKey && !cleanupBlocked)');
  expect(effect.slice(0, finallyStart)).not.toContain('settleNewsletterAutologin();');
  expect(effect.slice(finallyStart, settleCall)).toContain('window.history.replaceState');
  });
