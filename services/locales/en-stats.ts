@@ -182,7 +182,7 @@ const enStats: Record<string, string> = {
  'glossary.terms.cu.example': 'If you only have Swiss income, no CU is issued; you use the Lohnausweis for your return.',
  'glossary.terms.ral.title': 'RAL – Gross Annual Salary',
  'glossary.terms.ral.desc': 'Annual gross salary before taxes and social contributions. Base for tax calculation.',
- 'glossary.terms.ral.example': 'RAL CHF 80,000: after AVS, AC, LPP and withholding tax, about CHF 58,000-62,000 net remains.',
+ 'glossary.terms.ral.example': 'RAL CHF 80,000: after AVS, AC, LPP and withholding tax, about CHF 62,000-64,000 remains; new cross-border workers then declare the income in Italy.',
  'glossary.terms.modello730.title': 'Form 730',
  'glossary.terms.modello730.desc': 'Simplified Italian tax return. NOT usable by cross-border workers with foreign income (Redditi PF required).',
  'glossary.terms.modello730.example': 'Common mistake: using Form 730 for Swiss income. Cross-border workers must use the Redditi PF model.',

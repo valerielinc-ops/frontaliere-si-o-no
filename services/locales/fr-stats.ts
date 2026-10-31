@@ -182,7 +182,7 @@ const frStats: Record<string, string> = {
  'glossary.terms.cu.example': 'Avec uniquement des revenus suisses, aucune CU n\'est émise ; on utilise le Lohnausweis.',
  'glossary.terms.ral.title': 'RAL – Salaire annuel brut',
  'glossary.terms.ral.desc': 'Salaire annuel brut avant impôts et cotisations sociales. Base pour le calcul fiscal.',
- 'glossary.terms.ral.example': 'RAL CHF 80 000 : après AVS, AC, LPP et impôt à la source, il reste environ CHF 58 000-62 000 nets.',
+ 'glossary.terms.ral.example': 'RAL CHF 80 000 : après AVS, AC, LPP et impôt à la source, il reste environ CHF 62 000-64 000 ; le nouveau frontalier déclare ensuite le revenu en Italie.',
  'glossary.terms.modello730.title': 'Formulaire 730',
  'glossary.terms.modello730.desc': 'Déclaration de revenus italienne simplifiée. NON utilisable par les frontaliers avec revenus étrangers (Redditi PF requis).',
  'glossary.terms.modello730.example': 'Erreur courante : utiliser le 730 pour les revenus suisses. Les frontaliers doivent utiliser Redditi PF.',
