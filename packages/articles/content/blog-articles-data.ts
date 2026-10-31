@@ -46020,6 +46020,40 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'lavori-barriere-antirumore-a8',
+ category: 'pratico',
+ date: '2026-10-31T08:27:33.922Z',
+ image: '/images/blog/article-lavori-barriere-antirumore-a8.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bellinzona-imposte-piu-salate-2028',
+ category: 'fiscale',
+ date: '2026-10-31T08:56:46.770Z',
+ image: '/images/blog/article-bellinzona-imposte-piu-salate-2028.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+];
+
+const RAW_ARTICLES_CHUNK_19: Article[] = [
+ {
+ id: 'infermieri-osc-sindacati-stipendi',
+ category: 'novita',
+ date: '2026-10-31T09:38:45.209Z',
+ image: '/images/blog/article-assemblea-ccti-rotta-economia.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
@@ -46041,6 +46075,7 @@ const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_16,
  ...RAW_ARTICLES_CHUNK_17,
  ...RAW_ARTICLES_CHUNK_18,
+ ...RAW_ARTICLES_CHUNK_19,
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
