@@ -567,6 +567,7 @@ describe('generateFuelStationPages() — Ticino only', () => {
       city: 'Chiasso',
       slug: `cap-station-${index}`,
       brandDisplay: 'Test',
+      brandName: 'Test',
       streetDisplay: `Via Cap ${index}`,
       prices: { diesel: 1.95, benzina: 1.8 },
     }));
@@ -579,6 +580,27 @@ describe('generateFuelStationPages() — Ticino only', () => {
     const grownPages = generateFuelStationPages({ dataset: DATASET, today, contexts: grownContexts as never });
     expect(Object.keys(grownPages)).toHaveLength(2056);
     expect(Object.keys(grownPages).filter((path) => path.includes('/cap-station-256/'))).toHaveLength(8);
+  });
+});
+
+describe('GasStation brand', () => {
+  it('leaves the slug disambiguator in the title and out of the structured data', () => {
+    const context = {
+      station: { ...DATASET.municipalities[0].swiss.nearbyStations[0], id: 'brand-1', brand: 'ENI', address: 'Via Cantonale 36, 6987 Caslano' },
+      zone: 'chiasso' as const,
+      city: 'Caslano',
+      slug: 'eni-via-cantonale-3',
+      brandDisplay: 'Eni 3',
+      brandName: 'Eni',
+      streetDisplay: 'Via Cantonale 36',
+      prices: { diesel: 1.95, benzina: 1.8 },
+    };
+    const pages = generateFuelStationPages({ dataset: DATASET, today: new Date('2026-04-20T06:00:00.000Z'), contexts: [context] as never });
+    const html = Object.values(pages)[0] as string;
+    const block = html.match(/<script type="application\/ld\+json">({[^<]*"@type":"GasStation"[^<]*})<\/script>/);
+    const station = JSON.parse(block![1]);
+    expect(station.brand).toBe('Eni');
+    expect(station.name).toBe('Eni Via Cantonale 36');
   });
 });
 

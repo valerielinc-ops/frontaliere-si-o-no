@@ -1373,6 +1373,7 @@ export const EDGE_PUSHED_FILES = {
   // on workflow_dispatch — manual, not an automatic producer).
   '/llms.txt': { cdnKey: '/edge/llms.txt', contentType: 'text/plain; charset=utf-8', source: 'generated', producer: 'build' },
   '/llms-full.txt': { cdnKey: '/edge/llms-full.txt', contentType: 'text/plain; charset=utf-8', source: 'generated', producer: 'build' },
+  '/llms-index.txt': { cdnKey: '/edge/llms-index.txt', contentType: 'text/plain; charset=utf-8', source: 'generated', producer: 'build' },
   '/.well-known/llms.txt': {
     cdnKey: '/edge/.well-known/llms.txt',
     contentType: 'text/plain; charset=utf-8',

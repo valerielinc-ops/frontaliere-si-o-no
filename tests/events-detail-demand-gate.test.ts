@@ -117,7 +117,7 @@ describe('event detail demand gate (P1 noindex plan)', () => {
       'ge-upcoming': false,
       'ge-past': true, // historical archive is exempt from the demand gate
     };
-    // The date rule: indexable or not, an event that has ended is never listed.
+    // An ended event stays indexable but never returns to the sitemap.
     const ended = new Set(['ti-past', 'ge-past']);
     for (const [key, indexable] of Object.entries(expected)) {
       const detail = details.get(key);

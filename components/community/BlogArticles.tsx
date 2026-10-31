@@ -38,7 +38,7 @@ import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
-import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from '@/packages/articles/engine/shared/aiDisclosure';
+import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, resolveArticleBylineNote } from '@/packages/articles/engine/shared/aiDisclosure';
 import { resolveArticleProvenance, resolveArticleTransparencyStatement } from '@/services/articleProvenance';
 import { articleSourceDate, articleSchemaDates, compareArticleSourceDates } from '@/services/articleSourceDates';
 import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, AD_ELIGIBLE_MIN_WORDS, AD_ELIGIBLE_MIN_CHARS, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
@@ -1793,6 +1793,7 @@ function BlogArticlesContent({
  name: ldAuthorName,
  url: `https://frontaliereticino.ch/autori/${ldAuthor.slug}/`,
  description: ldAuthor.role,
+ disambiguatingDescription: ARTICLE_BYLINE[disclosureLocale(locale)].editorialSignature,
  ...(ldAuthor.linkedin ? { sameAs: [ldAuthor.linkedin] } : {}),
  parentOrganization: { '@type': 'Organization', '@id': EDITORIAL_TEAM_ID, name: 'Redazione Frontaliere Ticino', url: 'https://frontaliereticino.ch/chi-siamo/' },
  }
@@ -1830,8 +1831,9 @@ function BlogArticlesContent({
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
  // An article without a documented publication date is an evergreen page,
- // not a NewsArticle with an unknown timestamp.
- '@type': schemaDates.datePublished ? 'NewsArticle' : 'WebPage',
+ // not a NewsArticle with an unknown timestamp. A dated guide the generator
+ // declared evergreen is an Article, as on the static page.
+ '@type': !schemaDates.datePublished ? 'WebPage' : article.articleType === 'evergreen' ? 'Article' : 'NewsArticle',
  '@id': `${canonicalUrl}#article`,
  headline: title,
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
@@ -2382,6 +2384,11 @@ function BlogArticlesContent({
  const resolvedAuthor = {
   provenance: resolveArticleProvenance(article, canonicalAuthor),
  };
+ const bylineNote = resolveArticleBylineNote(
+  locale,
+  effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined,
+  resolvedAuthor.provenance.aiAssisted,
+ );
  // One statement resolver is used by the static article HTML too, so a
  // hydration round-trip cannot change the disclosure on whitespace or locale
  // fallback alone.
@@ -2671,6 +2678,7 @@ function BlogArticlesContent({
  {t('blog.byline')}
  </span>
  )}
+ {bylineNote && <span className="text-xs text-muted">({bylineNote})</span>}
  {articleSourceDate(article.date) && (<>
  <span className="text-edge">|</span>
  <span className="flex items-center gap-1">

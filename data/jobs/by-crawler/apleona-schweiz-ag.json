@@ -1,7 +1,7 @@
 {
   "crawlerKey": "apleona-schweiz-ag",
-  "assembledAt": "2026-10-30T21:39:21.671Z",
-  "runId": "41130098233",
+  "assembledAt": "2026-10-31T09:52:22.460Z",
+  "runId": "41188195639",
   "jobs": [
     {
       "id": "apleona-schweiz-ag-deb3689fb1d1",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2575/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:15.210Z",
+      "crawledAt": "2026-10-31T09:52:15.824Z",
       "addressLocality": "Köniz-Liebefeld",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2530/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:14.908Z",
+      "crawledAt": "2026-10-31T09:52:15.522Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2535/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:14.607Z",
+      "crawledAt": "2026-10-31T09:52:15.220Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -275,7 +275,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2592/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:14.306Z",
+      "crawledAt": "2026-10-31T09:52:14.919Z",
       "addressLocality": "Zürich und Umgebung",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -351,7 +351,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2526/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:14.003Z",
+      "crawledAt": "2026-10-31T09:52:14.616Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -402,8 +402,8 @@
       "slugByLocale": {
         "de": "immobilienbewirtschafter-retail-und-center-management-m-w-d-apleona-schweiz-ag-wallisellen",
         "it": "immobilienbewirtschafter-retail-e-center-management-m-w-d-apleona-schweiz-ag-wallisellen",
-        "en": "immobilienbewirtschafter-retail-und-center-management-m-w-d-apleona-schweiz-ag-wallisellen",
-        "fr": "immobilienbewirtschafter-retail-und-center-management-m-w-d-apleona-schweiz-ag-wallisellen"
+        "en": "real-estate-manager-retail-and-center-management-m-f-d-apleona-schweiz-ag-wallisellen",
+        "fr": "gestionnaire-immobilier-gestion-de-centre-et-de-detail-h-f-d-apleona-schweiz-ag-wallisellen"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -427,7 +427,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2593/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:13.702Z",
+      "crawledAt": "2026-10-31T09:52:14.315Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -444,28 +444,31 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2593/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "immobilienbewirtschafter-retail-und-center-management-m-w-d-apleona-schweiz-ag-wallisellen"
+        ],
+        "en": [
+          "immobilienbewirtschafter-retail-und-center-management-m-w-d-apleona-schweiz-ag-wallisellen"
+        ],
+        "fr": [
           "immobilienbewirtschafter-retail-und-center-management-m-w-d-apleona-schweiz-ag-wallisellen"
         ]
       },
       "previousSlugs": [
         "immobilienbewirtschafter-retail-und-center-management-m-w-d-apleona-schweiz-ag-wallisellen"
       ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -503,7 +506,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2582/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:13.400Z",
+      "crawledAt": "2026-10-31T09:52:14.013Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -555,7 +558,7 @@
         "de": "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag",
         "it": "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag",
         "en": "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag",
-        "fr": "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag"
+        "fr": "stagiaire-zhaw-coc-centre-de-competences-en-gestion-des-installations-apleona-schweiz-ag-wallisellen"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -579,7 +582,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2589/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:13.098Z",
+      "crawledAt": "2026-10-31T09:52:13.711Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -596,10 +599,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2589/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -623,7 +623,7 @@
         "de": "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen",
         "it": "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen",
         "en": "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen",
-        "fr": "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen"
+        "fr": "stagiaire-zhaw-en-gestion-des-comptes-cles-apleona-schweiz-ag-wallisellen"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -647,7 +647,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2590/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:12.797Z",
+      "crawledAt": "2026-10-31T09:52:13.409Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -664,10 +664,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2590/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -691,7 +688,7 @@
         "de": "zhaw-praktikant-in-facility-management-apleona-schweiz-ag-zurich-oerlikon",
         "it": "zhaw-praktikant-in-facility-management-apleona-schweiz-ag-zurich-oerlikon",
         "en": "zhaw-praktikant-in-facility-management-apleona-schweiz-ag-zurich-oerlikon",
-        "fr": "zhaw-praktikant-in-facility-management-apleona-schweiz-ag-zurich-oerlikon"
+        "fr": "stagiaire-zhaw-en-gestion-des-installations-apleona-schweiz-ag-zurich-oerlikon"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -715,7 +712,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2591/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:12.495Z",
+      "crawledAt": "2026-10-31T09:52:13.106Z",
       "addressLocality": "Zürich Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -732,10 +729,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2591/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -832,7 +826,7 @@
         }
       },
       "postalCode": "3806",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "apleona-schweiz-ag-07ee4f748e16",
@@ -912,7 +906,7 @@
         }
       },
       "postalCode": "5400",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "apleona-schweiz-ag-e266b542b1ee",
@@ -992,7 +986,7 @@
         }
       },
       "postalCode": "4001",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "apleona-schweiz-ag-8f9e74ea2614",
@@ -1072,90 +1066,6 @@
         }
       },
       "postalCode": "4001",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "apleona-schweiz-ag-480f8fb65147",
-      "slug": "contabile-cliente-m-f-d-apleona-schweiz-ag-wallisellen-7341e4",
-      "slugByLocale": {
-        "de": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-kh0ug5",
-        "it": "contabile-cliente-m-f-d-apleona-schweiz-ag-wallisellen-7341e4",
-        "en": "customer-accountant-m-f-d-apleona-schweiz-ag-wallisellen-7341e4",
-        "fr": "comptable-client-h-f-d-apleona-schweiz-ag-wallisellen-7341e4"
-      },
-      "company": "Apleona Schweiz AG",
-      "companyKey": "apleona-schweiz-ag",
-      "companyDomain": "recruitingapp-2765.umantis.com",
-      "title": "Kundenbuchhalter (m/w/d)",
-      "titleByLocale": {
-        "it": "Contabile cliente (m/f/d)",
-        "en": "Customer Accountant (m/f/d)",
-        "de": "Kundenbuchhalter (m/w/d)",
-        "fr": "Comptable client (h/f/d)"
-      },
-      "description": "Deine Aufgaben\n• Bereinigung und Abstimmung von Konti in einem Mandat\n• Bereinigung von Altlasten aus der Datenübernahme REM → GARAIO REM\n• Fachliche und administrative Unterstützung des bestehenden Teams\n\nDeine Anforderungen\n• Abgeschlossene kaufmännische Grundausbildung oder vergleichbare Qualifikation\n• Weiterbildung als Sachbearbeiter:in Buchhaltung oder höhere Ausbildung\n• Mehrjährige Berufserfahrung in der Buchhaltung, idealerweise in der Immobilienbranche\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Fremdsprachenkenntnisse sind ein Vorteil\n• Lösungsorientierte Arbeitsweise und Offenheit für neue Aufgaben\n• Erfahrung auf GRem ist ein Pluspunkt\n• Selbständige und proaktive Mitarbeit",
-      "descriptionByLocale": {
-        "it": "I tuoi compiti\n• Pulizia e voto dei contingenti in un mandato\n• Pulizia di siti contaminati dal trasferimento dati REM → GARAIO REM\n• Supporto professionale e amministrativo del team esistente\n\nLe vostre esigenze\n• Formazione commerciale di base o qualifica equivalente completata\n• Ulteriori studi come impiegato: nella contabilità o nell'istruzione superiore\n• Diversi anni di esperienza professionale nella contabilità, idealmente nel settore immobiliare\n• Conoscenza molto buona del tedesco nelle parole e nella scrittura, ulteriore conoscenza delle lingue straniere è un vantaggio\n• Metodo di lavoro orientato alla soluzione e apertura a nuovi compiti\n• Esperienza su GRem è un plus\n• Cooperazione indipendente e proattiva",
-        "en": "Your tasks\n• Cleaning up and voting of contingents in a mandate\n• Cleaning up contaminated sites from the data transfer REM → GARAIO REM\n• Professional and administrative support of the existing team\n\nYour requirements\n• Basic commercial training or equivalent qualification completed\n• Further education as a clerk: in accounting or higher education\n• Several years of professional experience in accounting, ideally in the real estate industry\n• Very good knowledge of German in words and writing, further knowledge of foreign languages is an advantage\n• Solution-oriented working method and openness to new tasks\n• Experience on GRem is a plus\n• Independent and proactive cooperation",
-        "de": "Deine Aufgaben\n• Bereinigung und Abstimmung von Konti in einem Mandat\n• Bereinigung von Altlasten aus der Datenübernahme REM → GARAIO REM\n• Fachliche und administrative Unterstützung des bestehenden Teams\n\nDeine Anforderungen\n• Abgeschlossene kaufmännische Grundausbildung oder vergleichbare Qualifikation\n• Weiterbildung als Sachbearbeiter:in Buchhaltung oder höhere Ausbildung\n• Mehrjährige Berufserfahrung in der Buchhaltung, idealerweise in der Immobilienbranche\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Fremdsprachenkenntnisse sind ein Vorteil\n• Lösungsorientierte Arbeitsweise und Offenheit für neue Aufgaben\n• Erfahrung auf GRem ist ein Pluspunkt\n• Selbständige und proaktive Mitarbeit",
-        "fr": "Vos tâches\n• Nettoyage et vote des contingents dans un mandat\n• Nettoyage des sites contaminés du transfert de données REM → GARAIO REM\n• Appui professionnel et administratif de l ' équipe existante\n\nVos besoins\n• Formation commerciale de base ou qualification équivalente terminée\n• Formation continue en tant que commis: en comptabilité ou en enseignement supérieur\n• Plusieurs années d'expérience professionnelle en comptabilité, idéalement dans le secteur immobilier\n• Très bonne connaissance de l'allemand en mots et en écriture, une connaissance plus approfondie des langues étrangères est un avantage\n• Méthode de travail axée sur la solution et ouverture aux nouvelles tâches\n• Expérience sur GRem est un plus\n• Coopération indépendante et proactive"
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2765.umantis.com/Vacancies/2581/Description/1",
-      "source": "Apleona Schweiz AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:32:47.136Z",
-      "addressLocality": "Wallisellen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2581/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen",
-        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
-        ],
-        "it": [
-          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
-        ],
-        "en": [
-          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
-        ],
-        "fr": [
-          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:25:51.028Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8304",
       "crawlerMissStreak": 2
     }
   ]

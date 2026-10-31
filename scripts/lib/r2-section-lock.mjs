@@ -507,19 +507,28 @@ export async function acquireSectionLock(
   };
 
   let candidateMayExist = false;
+  let lockSeenHeld = false;
   try {
     while (now() <= deadline) {
       let currentAfterWrite;
       let created;
-      try {
-        created = await putLock(request, section, payload, { name: 'if-none-match', value: '*' });
-      } catch (error) {
-        if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
-        candidateMayExist = true;
-        const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
-        if (reconciled.lock) return reconciled.lock;
-        currentAfterWrite = reconciled.current;
+      // A waiter polls with GET and only writes once the lock looks free: a
+      // conditional PUT on a held lock is a failed Class A operation, and nine
+      // waiters at this poll interval were 150k 412s a day, two thirds of every
+      // PutObject on the bucket. The conditional PUT remains the only way in,
+      // so mutual exclusion does not depend on this read.
+      if (!lockSeenHeld) {
+        try {
+          created = await putLock(request, section, payload, { name: 'if-none-match', value: '*' });
+        } catch (error) {
+          if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
+          candidateMayExist = true;
+          const reconciled = await reconcileAmbiguousLockWrite(request, section, payload, error);
+          if (reconciled.lock) return reconciled.lock;
+          currentAfterWrite = reconciled.current;
+        }
       }
+      lockSeenHeld = false;
       if (created) {
         candidateMayExist = true;
         return { section, owner, leaseId: payload.leaseId, key: lockKey(section), etag: created.etag };
@@ -563,6 +572,7 @@ export async function acquireSectionLock(
       const remaining = deadline - now();
       if (remaining <= 0) break;
       await sleep(Math.min(pollMs, remaining));
+      lockSeenHeld = true;
     }
     throw new Error(`[r2-section-lock] timed out waiting for section ${section}`);
   } catch (error) {

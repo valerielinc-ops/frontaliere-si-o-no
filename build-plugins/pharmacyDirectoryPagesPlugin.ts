@@ -1191,7 +1191,12 @@ function pageEligibility(
       : descriptor.kind === 'duty-hub'
         ? Boolean(dutyCoverage?.releaseReady)
         : true;
-  const indexable = releaseReady && descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;
+  // A town with one pharmacy repeats its detail page in about 200 words (GEO
+  // audit 2026-10-31): the detail is the page to rank, and the canton and
+  // province listings link it directly, so the town stays a useful noindex
+  // waypoint without orphaning anything.
+  const singleEntryCity = descriptor.kind === 'city' && pagePharmacies(descriptor, dataset, now).length <= 1;
+  const indexable = releaseReady && descriptor.kind !== 'duty-city' && !singleEntryCity && wordCount >= MIN_INDEXABLE_WORDS;
   return { wordCount, releaseReady, indexable };
 }
 

@@ -37,6 +37,8 @@ import {
   isFuelSitemapFile,
 } from './fuelDailyData';
 import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
+import { deriveSitemapLastmods, newestSitemapDay } from './shared/sitemapDerivedLastmod';
+import { pruneSeededPagesAlreadyListed } from './shared/sitemapUrlsetDedupe';
 import {
   dropOverwrittenLocs,
   dropUrlBlocksByLoc,
@@ -105,31 +107,21 @@ const ARTICLE_SITEMAP_FILE_PATTERN = /^sitemap-(?:blog(?:-ch)?|locale-variants(?
 
 export interface DiscoveredSitemap {
   file: string;
-  /** Newest `<lastmod>` of the file's URLs (YYYY-MM-DD), absent when it has none. */
+  /** Newest `<lastmod>` the file lists (YYYY-MM-DD); absent when it dates nothing. */
   lastmod?: string;
-}
-
-const SITEMAP_LASTMOD_RX = /<lastmod>\s*(\d{4}-\d{2}-\d{2})/g;
-
-/**
- * The date the index may claim for a child sitemap: the newest `<lastmod>` it
- * declares. The file's mtime is not that date: every build rewrites every file,
- * so 159 of 159 index entries used to carry the same build day (SEO audit
- * 2026-10-31). A sitemap with no dates of its own gets none here either.
- */
-export function newestSitemapLastmod(xml: string): string | undefined {
-  let newest: string | undefined;
-  for (const match of xml.matchAll(SITEMAP_LASTMOD_RX)) {
-    if (!newest || match[1] > newest) newest = match[1];
-  }
-  return newest;
 }
 
 /**
  * Discover every `sitemap-*.xml` in `distDir` and return a de-duplicated,
- * alphabetically sorted list with each file's real last-modified date.
+ * alphabetically sorted list with the date of each file's newest entry.
  * `sitemap.xml` itself, `sitemap_news.xml` and the index-retired families are
  * excluded.
+ *
+ * The date comes from the file's content, never from its mtime: every sitemap
+ * is rewritten on every build, so the mtime only ever said "built today" and
+ * gave all 159 index entries the same value (GEO audit 2026-10-31). A file that
+ * dates none of its URLs has no honest date, and `lastmod` is optional in a
+ * sitemap index.
  *
  * The function is pure (no writes) so unit tests can exercise it with a
  * seeded tmpdir.
@@ -148,10 +140,11 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
     seen.add(file);
     let lastmod: string | undefined;
     try {
-      lastmod = newestSitemapLastmod(fs.readFileSync(path.join(distDir, file), 'utf-8'));
+      lastmod = newestSitemapDay(fs.readFileSync(path.join(distDir, file), 'utf-8'));
     } catch {
-      // A date is optional in the index: a file that cannot be read still
-      // deserves its entry rather than a crashed build.
+      // Unreadable: list it undated rather than crash the build over a
+      // transient filesystem hiccup.
+      lastmod = undefined;
     }
     discovered.push({ file, lastmod });
   }
@@ -265,10 +258,10 @@ export function buildSitemapIndexXml(
   baseUrl: string,
 ): string {
   const entries = sitemaps
-    .map((s) => {
-      const lastmod = s.lastmod ? `\n    <lastmod>${s.lastmod}</lastmod>` : '';
-      return `  <sitemap>\n    <loc>${baseUrl}/${s.file}</loc>${lastmod}\n  </sitemap>`;
-    })
+    .map(
+      (s) =>
+        `  <sitemap>\n    <loc>${baseUrl}/${s.file}</loc>\n${s.lastmod ? `    <lastmod>${s.lastmod}</lastmod>\n` : ''}  </sitemap>`,
+    )
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -660,6 +653,18 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
           );
         }
 
+        // 1-pre-b. A URL its own family lists leaves the seeded sitemap-pages.xml,
+        //    so the two copies cannot disagree in the guard below.
+        const yielded = pruneSeededPagesAlreadyListed(sitemapFiles);
+        for (const [file, xml] of yielded) {
+          fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
+        }
+        if (yielded.size > 0) {
+          sitemapFiles = sitemapFiles.map((f) =>
+            yielded.has(f.file) ? { file: f.file, xml: yielded.get(f.file)! } : f,
+          );
+        }
+
         const __tSanitize = performance.now();
         const sanitized = sanitizeSitemapHreflangReciprocity(sitemapFiles);
         console.log(`[sitemap-alias-detail] hreflang-sanitize wall_s=${((performance.now() - __tSanitize) / 1000).toFixed(1)} files=${sitemapFiles.length}`);
@@ -671,6 +676,24 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
             `\x1b[36m[sitemap-alias]\x1b[0m Stripped one-sided hreflang groups from ${sanitized.size} sitemap(s): ${[...sanitized.keys()].join(', ')}`,
           );
         }
+
+        // 1-post. Dates the undated listing pages can prove. Last rewrite of the
+        //    urlsets: it needs the final <loc> set and the final HTML.
+        const __tLastmod = performance.now();
+        const dated = deriveSitemapLastmods(
+          sitemapFiles.map((f) => (sanitized.has(f.file) ? { file: f.file, xml: sanitized.get(f.file)! } : f)),
+          (loc) => {
+            try {
+              return fs.readFileSync(path.join(distDir, new URL(loc).pathname, 'index.html'), 'utf-8');
+            } catch {
+              return null;
+            }
+          },
+        );
+        for (const [file, xml] of dated) {
+          fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
+        }
+        console.log(`[sitemap-alias-detail] derived-lastmod wall_s=${((performance.now() - __tLastmod) / 1000).toFixed(1)} files=${dated.size}`);
 
         // 2. Legacy alias: sitemap-news.xml → sitemap_news.xml
         //    Must run BEFORE discovery so the alias file exists when the
