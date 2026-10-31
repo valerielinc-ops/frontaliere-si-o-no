@@ -3213,6 +3213,7 @@ function BlogArticlesContent({
  <strong className="text-body">{transparencyCopy.label}:</strong>{' '}
  {transparencyStatement}
  {hasLinkedSources(collectArticleBodySegments(article.id, t)) ? ` ${transparencyCopy.sources}` : null}
+ {' '}{transparencyCopy.disclaimer}
  </p>
  <p className="text-xs">
  <a

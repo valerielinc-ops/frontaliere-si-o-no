@@ -1226,7 +1226,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
   const statement = resolveArticleTransparencyStatement(locale, provenance, authorName);
-  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)}${hasLinkedSources(bodyHtml) ? ` ${esc(tr.sources)}` : ''}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
+  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)}${hasLinkedSources(bodyHtml) ? ` ${esc(tr.sources)}` : ''} ${esc(tr.disclaimer)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
  };
 
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —

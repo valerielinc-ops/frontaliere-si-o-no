@@ -153,4 +153,19 @@ describe('per-call hard cap', () => {
     // No timer advance at all: a responsive provider must settle on microtasks.
     await expect(p).resolves.toBe('fast');
   });
+
+  it('ignores a malformed caller deadline instead of creating a zero-timeout cap', async () => {
+    globalThis.fetch = (async (url: string) => (
+      url.endsWith('/catalog/models') ? githubCatalogResponse() : okResponse('fast')
+    )) as unknown as typeof globalThis.fetch;
+
+    const p = callLLM(MESSAGES, {
+      chain: ['gpt-4o'],
+      timeout: 1000,
+      maxRetriesPerModel: 1,
+      deadlineMs: 'not-a-number',
+    });
+
+    await expect(p).resolves.toBe('fast');
+  });
 });
