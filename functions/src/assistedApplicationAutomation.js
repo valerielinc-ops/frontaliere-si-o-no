@@ -798,7 +798,7 @@ export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, run
     await confirmSentAttempt({ db, orderId, round: flow.round, confirmedBy: 'acknowledgement', nowMs })
       .catch((error) => console.warn('[assistedApplicationAutomation] sent record not confirmed', orderId, error instanceof Error ? error.message : String(error)));
   }
-  if (result.ok && record.channel === 'email') await scheduleConfirmedEmailFollowups(db, orderId, leftAt);
+  if (result.ok && record.channel === 'email') await scheduleConfirmedEmailFollowups(db, orderId, leftAt, nowMs);
   return result;
 }
 
@@ -807,11 +807,11 @@ export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, run
  * through; this one's outcome was unknown, so it had none. Its Message-ID is
  * not on record: the "Re:" subject threads them anyway.
  */
-async function scheduleConfirmedEmailFollowups(db, orderId, sentAt) {
+async function scheduleConfirmedEmailFollowups(db, orderId, sentAt, nowMs) {
   const draft = (await draftRefFor(db, orderId).get()).data() || {};
   const to = String(draft.applicationEmail?.to || draft.channel?.email || '').trim().toLowerCase();
   if (!to) return null;
-  return scheduleFollowups(db, orderId, { to, subject: draft.applicationEmail?.subject || '', messageId: '', sentAt });
+  return scheduleFollowups(db, orderId, { to, subject: draft.applicationEmail?.subject || '', messageId: '', sentAt }, nowMs);
 }
 
 export function newRequestId() {

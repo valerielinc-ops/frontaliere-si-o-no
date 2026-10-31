@@ -20,6 +20,7 @@
  */
 
 import { ASSISTED_APPLICATIONS_COLLECTION, FOLLOWUP_DOC_ID } from './assistedApplicationConstants.js';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 
 export const DAY_MS = 24 * 60 * 60 * 1000;
 export const FOLLOWUP_DAYS = [7, 14];
@@ -42,8 +43,9 @@ export function followupDueAt(submittedAt, n) {
  * Called by the runner when the e-mail application left: follow-up 1 at day 7.
  * The order mirrors the next due time (`followupDueAt`) for the sweep's query.
  */
-export async function scheduleFollowups(db, orderId, { to, subject, messageId, sentAt }) {
+export async function scheduleFollowups(db, orderId, { to, subject, messageId, sentAt }, nowMs = Date.now()) {
   const ref = followupRefFor(db, orderId);
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const dueAt = followupDueAt(sentAt, 1);
   let created = false;
   let existingDueAt = null;
@@ -53,7 +55,9 @@ export async function scheduleFollowups(db, orderId, { to, subject, messageId, s
   await db.runTransaction(async (transaction) => {
     created = false;
     existingDueAt = null;
-    const current = (await transaction.get(ref)).data();
+    const [order, currentDoc] = await Promise.all([transaction.get(orderRef), transaction.get(ref)]);
+    if (!order.exists || !assistedApplicationRetained(order.data(), nowMs)) return;
+    const current = currentDoc.data();
     if (current) {
       existingDueAt = current.dueAt ?? null;
       return;
@@ -70,10 +74,10 @@ export async function scheduleFollowups(db, orderId, { to, subject, messageId, s
       stopReason: null,
       history: [{ at: sentAt, event: 'scheduled' }],
     });
+    transaction.set(orderRef, { followupDueAt: dueAt }, { merge: true });
     created = true;
   });
   if (!created) return existingDueAt;
-  await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).set({ followupDueAt: dueAt }, { merge: true });
   return dueAt;
 }
 

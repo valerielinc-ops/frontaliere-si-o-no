@@ -176,8 +176,36 @@ describe('what the portal answers', () => {
 });
 
 describe('portal account store', () => {
+  it('does not restore credentials when purge conflicts with the account mutation transaction', async () => {
+    const orderPath = `assisted_applications/${ORDER}`;
+    const store = createMemoryFirestore({ [orderPath]: { cvUploadedAt: 1 } });
+    const accounts = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => 1000 });
+    await accounts.save(HOST, { email: ALIAS, password: 'Secret123Aa7!' });
+    const run = store.db.runTransaction.bind(store.db);
+    let conflicted = false;
+    store.db.runTransaction = async callback => {
+      const writes: Array<() => Promise<void>> = []; const reads: string[] = [];
+      const result = await callback({ get: ref => { reads.push(ref.path); return ref.get(); },
+        set: (ref, patch, options) => writes.push(() => ref.set(patch, options)) });
+      expect(reads).toContain(orderPath);
+      if (!conflicted) {
+        conflicted = true;
+        Object.assign(store.read(orderPath)!, { retentionPurgingAt: 1001 });
+        store.docs.delete(ACCOUNTS);
+        // Firestore retries a transaction when its order read was changed by
+        // the purger before commit. The first attempt's writes never commit.
+        return run(callback);
+      }
+      for (const write of writes) await write();
+      return result;
+    };
+    expect(await accounts.mark(HOST, { status: 'created' })).toBe(false);
+    expect(conflicted).toBe(true);
+    expect(store.read(ACCOUNTS)).toBeUndefined();
+    await expect(accounts.save(HOST, { email: ALIAS, password: 'Secret123Aa7!' })).rejects.toThrow('application_retention_closed');
+  });
   it('keeps only the encrypted password in Firestore and masks it on every read and write', async () => {
-    const store = createMemoryFirestore();
+    const store = createMemoryFirestore({ [`assisted_applications/${ORDER}`]: { cvUploadedAt: 1 } });
     const mask = vi.fn();
     const accounts = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, mask, nowMs: () => 1000 });
     await accounts.save(HOST, { email: ALIAS, password: 'Secret123Aa7!' });
@@ -199,7 +227,7 @@ describe('portal account store', () => {
   });
 
   it('keeps a credential pending until the portal confirms the registration, and forgets a refused one', async () => {
-    const store = createMemoryFirestore();
+    const store = createMemoryFirestore({ [`assisted_applications/${ORDER}`]: { cvUploadedAt: 1 } });
     const accounts = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => 1000 });
     await accounts.save(HOST, { email: ALIAS, password: 'Secret123Aa7!' });
     expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toMatchObject({ status: 'pending' });
@@ -255,8 +283,35 @@ describe('portal account store', () => {
 });
 
 describe('owner queue: portal accounts', () => {
+  it('rechecks the retention deadline using elapsed time after awaiting the key', async () => {
+    vi.useFakeTimers(); vi.setSystemTime(1000);
+    try {
+      const store = createMemoryFirestore({ [`assisted_applications/${ORDER}`]: { cvUploadedAt: 1 } });
+      await portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => 1000 })
+        .save(HOST, { email: ALIAS, password: 'Secret123Aa7!' });
+      const runKey = async () => { vi.setSystemTime(1002); return RAW_KEY; };
+      await expect(handleAutomationAdminAction(store.db, { action: 'automationRevealAccount', orderId: ORDER, host: HOST },
+        'owner@example.com', { runKey, nowMs: 90 * 24 * 60 * 60_000 })).rejects.toMatchObject({ code: 'account_retention_closed' });
+      expect(store.read(ACCOUNTS)![hostKey(HOST)]).not.toHaveProperty('revealedAt');
+    } finally { vi.useRealTimers(); }
+  });
+  it.each(['purge', 'sourceChange'])('does not reveal a stale credential after the key await (%s)', async change => {
+    const orderPath = `assisted_applications/${ORDER}`;
+    const store = createMemoryFirestore({ [orderPath]: { cvUploadedAt: 1 } });
+    await portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => 1000 })
+      .save(HOST, { email: ALIAS, password: 'Secret123Aa7!' });
+    const runKey = async () => {
+      if (change === 'purge') { store.read(orderPath)!.retentionPurgingAt = 5001; store.docs.delete(ACCOUNTS); }
+      else store.read(ACCOUNTS)![hostKey(HOST)].email = 'changed@example.invalid';
+      return RAW_KEY;
+    };
+    await expect(handleAutomationAdminAction(store.db, { action: 'automationRevealAccount', orderId: ORDER, host: HOST },
+      'owner@example.com', { runKey, nowMs: 5000 })).rejects.toMatchObject({ code: change === 'purge' ? 'account_retention_closed' : 'account_source_changed' });
+    if (change === 'purge') expect(store.read(ACCOUNTS)).toBeUndefined();
+    else expect(store.read(ACCOUNTS)![hostKey(HOST)]).not.toHaveProperty('revealedAt');
+  });
   it('lists the accounts without their password and reveals one on request, recording who looked', async () => {
-    const store = createMemoryFirestore({ [`assisted_applications/${ORDER}`]: { status: 'in_progress' } });
+    const store = createMemoryFirestore({ [`assisted_applications/${ORDER}`]: { status: 'in_progress', cvUploadedAt: 1 } });
     await portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => 1000 }).save(HOST, { email: ALIAS, password: 'Secret123Aa7!' });
 
     const view = await loadAutomationForAdmin(store.db, ORDER);

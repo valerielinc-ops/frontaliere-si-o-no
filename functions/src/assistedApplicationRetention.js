@@ -12,6 +12,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATIONS_COLLECTION, FOLLOWUP_DOC_ID, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { SUBMISSION_DOC_ID } from './assistedApplicationSubmissionGuard.js';
+import { artifactKeyForOrder, cleanupPendingArtifacts } from './lib/assistedApplicationArtifactRetention.js';
 
 import { ASSISTED_APPLICATION_RETENTION_DAYS, timestampMillis, retentionAnchor } from './lib/assistedApplicationRetentionPolicy.js';
 export { ASSISTED_APPLICATION_RETENTION_DAYS, retentionPurgeDueAt, talentPoolConsentActive } from './lib/assistedApplicationRetentionPolicy.js';
@@ -48,6 +49,19 @@ async function candidateDocs(collection, field, cutoff) {
   return candidates;
 }
 
+async function pendingArtifactOrders(collection) {
+  const out = []; let cursor = null;
+  while (true) {
+    let query = collection.where('artifactCleanupPending', '==', true).orderBy('__name__').limit(RETENTION_PAGE_SIZE);
+    if (cursor) query = query.startAfter(cursor);
+    const page = await query.get(); const docs = page.docs || []; out.push(...docs);
+    if (docs.length < RETENTION_PAGE_SIZE) return out;
+    const next = docs[docs.length - 1];
+    if (!next || next.id === cursor?.id) throw new Error('artifact_cleanup_cursor_stalled');
+    cursor = next;
+  }
+}
+
 /**
  * The automated flow (assistedApplicationAutomation.js) adds more personal
  * data next to the CV: generated cover letters and encrypted run evidence in
@@ -61,6 +75,8 @@ async function purgeAutomationData(bucket, orderRef, orderId) {
     await bucket.deleteFiles({ prefix: `${ASSISTED_STORAGE_PREFIX}${orderId}/` });
   }
   if (typeof orderRef?.collection !== 'function') return;
+  const execution = orderRef.collection('automation').doc('execution');
+  if ((await execution.get()).exists) await execution.set({ artifacts: null }, { merge: true });
   for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake'], ['automation', PORTAL_ACCOUNTS_DOC_ID], ['automation', FOLLOWUP_DOC_ID]]) {
     await orderRef.collection(collection).doc(id).delete();
   }
@@ -87,10 +103,11 @@ export async function purgeExpiredAssistedApplicationFiles(
   const cutoffMillis = nowMs - retentionDays * 86400000;
   const cutoff = Timestamp.fromMillis(cutoffMillis);
   const collection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
-  const [submittedDocs, refundedDocs, uploadedDocs] = await Promise.all([
+  const [submittedDocs, refundedDocs, uploadedDocs, pendingDocs] = await Promise.all([
     candidateDocs(collection, 'submittedAt', cutoff),
     candidateDocs(collection, 'refundedAt', cutoff),
     candidateDocs(collection, 'cvUploadedAt', cutoff),
+    pendingArtifactOrders(collection),
   ]);
 
   const candidates = new Map();
@@ -98,6 +115,7 @@ export async function purgeExpiredAssistedApplicationFiles(
     ...submittedDocs,
     ...refundedDocs,
     ...uploadedDocs,
+    ...pendingDocs,
   ]) {
     candidates.set(snapshot.id, snapshot);
   }
@@ -108,7 +126,17 @@ export async function purgeExpiredAssistedApplicationFiles(
   let failed = 0;
 
   for (const snapshot of candidates.values()) {
-    const order = snapshot.data() || {};
+    let order = snapshot.data() || {};
+    if (order.retentionPurgedAt || order.retentionPayloadPurgedAt) {
+      if (order.artifactCleanupPending) {
+        try {
+          const cleanup = await cleanupPendingArtifacts({ db: firestore, bucket, orderRef: snapshot.ref });
+          if (!cleanup.pending && !order.retentionPurgedAt) await snapshot.ref.set({ retentionPurgedAt: FieldValue.serverTimestamp(), artifactCleanupPending: false }, { merge: true });
+        }
+        catch { failed += 1; }
+      }
+      continue;
+    }
     const anchorMillis = timestampMillis(retentionAnchor(order));
     if (order.talentPoolConsent === true || anchorMillis === null || anchorMillis >= cutoffMillis) {
       skipped += 1;
@@ -131,10 +159,22 @@ export async function purgeExpiredAssistedApplicationFiles(
       continue;
     }
     try {
-      for (const key of keys) {
+      const admitted = await firestore.runTransaction(async transaction => {
+        const fresh = await transaction.get(snapshot.ref); const current = fresh.data() || {};
+        const anchor = timestampMillis(retentionAnchor(current));
+        if (!fresh.exists || current.retentionPurgedAt || current.talentPoolConsent === true || anchor === null || anchor >= cutoffMillis) return null;
+        const currentKeys = [current.cvStorageKey, current.coverLetterStorageKey].map(value => String(value || '').trim()).filter(Boolean);
+        if (!currentKeys.every(key => artifactKeyForOrder(snapshot.id, key))) throw new Error('artifact_retention_key_invalid');
+        transaction.set(snapshot.ref, { retentionPurgingAt: FieldValue.serverTimestamp(), automationDueAt: null, followupDueAt: null }, { merge: true });
+        return { order: current, keys: currentKeys };
+      });
+      if (!admitted) { skipped += 1; continue; }
+      order = admitted.order;
+      for (const key of admitted.keys) {
         await bucket.file(key).delete({ ignoreNotFound: true });
       }
       await purgeAutomationData(bucket, snapshot.ref, snapshot.id);
+      const cleanup = await cleanupPendingArtifacts({ db: firestore, bucket, orderRef: snapshot.ref });
       if (order.candidateAlias?.address) {
         const { removeOrderAlias } = await import('./assistedApplicationAlias.js');
         await removeOrderAlias({ db: firestore, order });
@@ -152,7 +192,9 @@ export async function purgeExpiredAssistedApplicationFiles(
         employerReplies: 0,
         lastEmployerReplyAt: null,
         lastEmployerReplyCategory: null,
-        retentionPurgedAt: FieldValue.serverTimestamp(),
+        retentionPayloadPurgedAt: FieldValue.serverTimestamp(),
+        retentionPurgedAt: cleanup.pending ? null : FieldValue.serverTimestamp(),
+        artifactCleanupPending: cleanup.pending,
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
       purged += 1;

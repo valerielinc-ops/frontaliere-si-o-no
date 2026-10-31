@@ -34,7 +34,8 @@ describe('infrastructure failures use the scheduler without a manual retry', () 
     expect(persistent.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover' })]);
     const email = buildOwnerAutomationEmail('owner_takeover', { reason: persistent.flow.heldBy[0], portalAutoRetryAt: nextAt, job: 'Test role', company: 'Test employer' });
     expect(email.subject).toContain('Nuovo tentativo automatico');
-    expect(email.text).toContain('Non serve intervenire sulla singola candidatura');
+    expect(email.text).toContain('Per questo tentativo non serve intervenire sulla singola candidatura');
+    expect(email.text).toContain('dopo aver verificato che non sia già stata inviata');
     expect(email.text).not.toContain('Controlla dalla coda');
     const again = transition({ ...persistent.flow, dispatch: flow.dispatch }, { type: 'portal_auto_retry' }, { draft, nowMs: nextAt });
     const nextFailure = transition({ ...again.flow, dispatch: flow.dispatch }, fail, { draft, nowMs: nextAt });

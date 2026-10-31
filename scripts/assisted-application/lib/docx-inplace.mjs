@@ -62,7 +62,7 @@ async function pagesOf(docx, run) {
  * @param {Function} [input.run] how a program is started (execFile; tests pass a fake)
  * @returns {Promise<object|null>} the draft's `tailoredCv.inplace`, null when the switch is off or the CV is a PDF
  */
-export async function inPlaceCvRecord({ mode = docxInPlaceMode(), cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log = () => {}, run = execFile }) {
+export async function inPlaceCvRecord({ mode = docxInPlaceMode(), cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log = () => {}, run = execFile, artifactStore = null }) {
   if (mode !== 'on' || (cvType !== 'docx' && cvType !== 'doc')) return null;
   // LibreOffice (about 300 MB) only when it is needed: a DOC to convert, or a page count to compare.
   let office = null;
@@ -90,10 +90,14 @@ export async function inPlaceCvRecord({ mode = docxInPlaceMode(), cvBuffer, cvTy
     let baseKey = cvKey;
     if (cvType === 'doc') {
       baseKey = `assisted-application-uploads/${orderId}/ai-cv-inplace-base-r${round}-${nowMs}.docx`;
-      await bucket.file(baseKey).save(base, { contentType: DOCX_CONTENT_TYPE, resumable: false });
+      if (artifactStore) {
+        if (!(await artifactStore.save(baseKey, base, { contentType: DOCX_CONTENT_TYPE, resumable: false }))) throw new Error('application_retention_closed');
+      } else await bucket.file(baseKey).save(base, { contentType: DOCX_CONTENT_TYPE, resumable: false });
     }
     const docxKey = `assisted-application-uploads/${orderId}/ai-cv-inplace-r${round}-${nowMs}.docx`;
-    await bucket.file(docxKey).save(built.docx, { contentType: DOCX_CONTENT_TYPE, resumable: false });
+    if (artifactStore) {
+      if (!(await artifactStore.save(docxKey, built.docx, { contentType: DOCX_CONTENT_TYPE, resumable: false }))) throw new Error('application_retention_closed');
+    } else await bucket.file(docxKey).save(built.docx, { contentType: DOCX_CONTENT_TYPE, resumable: false });
     log('in-place docx', `${built.patched.length} lines`, `${built.skipped.length} kept`, `${pages} pages`);
     return {
       status: 'ready',

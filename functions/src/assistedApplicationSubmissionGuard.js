@@ -18,6 +18,7 @@
 
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { createHash } from 'node:crypto';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 
 function executionRecordOf(execution) {
   return { executionId: execution.id, executionGeneration: execution.lease.generation, executionSourceSha: execution.sourceSha,
@@ -99,8 +100,8 @@ export function submissionGuard(db, orderId, round, { execution = null } = {}) {
       return outcome;
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
-    async markClicked(nowMs = Date.now()) {
-      await db.runTransaction(async transaction => {
+    async markClicked(nowMs = Date.now(), { receiptWaitMs = 60_000 } = {}) {
+      const deadline = await db.runTransaction(async transaction => {
         const executionContext = execution ? await execution.assertInTransaction(transaction) : null;
         const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
           transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
@@ -109,16 +110,42 @@ export function submissionGuard(db, orderId, round, { execution = null } = {}) {
           throw new Error('application_withdrawn');
         }
         if (executionContext && !matchesExecutionRecord(submissionDoc.data()?.[key], executionContext.execution)) throw new Error('execution_submission_superseded');
+        if (executionContext) {
+          if (!Number.isFinite(receiptWaitMs) || receiptWaitMs <= 0) throw new Error('execution_receipt_wait_invalid');
+          const prior = executionContext.execution.clickProof;
+          if (prior && !matchesExecutionRecord(prior, executionContext.execution)) throw new Error('execution_click_superseded');
+          if (!prior) transaction.set(orderRef.collection('automation').doc('execution'), {
+            clickProof: { ...executionRecordOf(executionContext.execution), clickedAt: nowMs,
+              drainUntil: nowMs + Math.min(90_000, receiptWaitMs) },
+          }, { merge: true });
+        }
         transaction.set(ref, { [key]: { clickedAt: nowMs } }, { merge: true });
+        return executionContext ? executionContext.execution.clickProof?.drainUntil || nowMs + Math.min(90_000, receiptWaitMs) : null;
       });
+      return deadline;
     },
     async markSent(record = {}, nowMs = Date.now()) {
+      const observedAt = Date.now();
       if (execution) return db.runTransaction(async transaction => {
         const context = await execution.assertOutcomeInTransaction(transaction);
         const current = (await transaction.get(ref)).data()?.[key];
+        const proof = context.execution.clickProof;
+        if (!matchesExecutionRecord(proof, context.execution) || !proof.clickedAt) throw new Error('execution_receipt_unproven');
+        const observed = { hash: createHash('sha256').update(JSON.stringify(record)).digest('hex'),
+          attempt: proof.executionTokenHash, at: nowMs, status: 'sent', round: Number(round) || 1 };
+        const receipt = context.execution.minimalReceipt || observed;
+        if (receipt.attempt !== observed.attempt || receipt.round !== observed.round || receipt.status !== 'sent'
+          || !/^[a-f0-9]{64}$/.test(receipt.hash || '')) throw new Error('execution_receipt_superseded');
+        const currentNowMs = nowMs + Math.max(0, Date.now() - observedAt);
+        if (!assistedApplicationRetained(context.order, currentNowMs)) {
+          transaction.set(orderRef.collection('automation').doc('execution'), { minimalReceipt: receipt }, { merge: true });
+          return { minimal: true };
+        }
         if (!matchesExecutionRecord(current, context.execution)
           || !current.clickedAt) throw new Error('execution_submission_superseded');
+        transaction.set(orderRef.collection('automation').doc('execution'), { minimalReceipt: receipt }, { merge: true });
         transaction.set(ref, { [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
+        return { minimal: false };
       });
       await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
     },

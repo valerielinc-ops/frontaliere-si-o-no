@@ -8,7 +8,7 @@ const orderId = 'order_boot_test';
 const base = `assisted_applications/${orderId}`;
 function fixture() {
   return createMemoryFirestore({
-    [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress' },
+    [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress', cvUploadedAt: now },
     [`${base}/automation/flow`]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, requestedAt: now - 1000, attempts: 1 } },
   });
 }
@@ -37,10 +37,13 @@ describe('failed executor reconciliation', () => {
     if (kind !== 'sent') expect(event.error).toBe(`${kind}_ambiguous`);
   });
 
-  it.each(['dry_run', 'withdrawn', 'purged', 'unpaid', 'submitted', 'new_dispatch', 'new_round', 'already_stopped'])('does not move %s', async kind => {
+  it.each(['dry_run', 'withdrawn', 'purged', 'purging', 'expired', 'missing_anchor', 'unpaid', 'submitted', 'new_dispatch', 'new_round', 'already_stopped'])('does not move %s', async kind => {
     const store = fixture();
     if (kind === 'withdrawn') store.docs.set(base, { ...store.read(base), withdrawnAt: now });
     if (kind === 'purged') store.docs.set(base, { ...store.read(base), retentionPurgedAt: now });
+    if (kind === 'purging') store.read(base).retentionPurgingAt = now;
+    if (kind === 'expired') store.read(base).cvUploadedAt = now - 91 * 86400_000;
+    if (kind === 'missing_anchor') delete store.read(base).cvUploadedAt;
     if (kind === 'unpaid') store.docs.set(base, { paymentStatus: 'pending' });
     if (kind === 'submitted') store.docs.set(base, { ...store.read(base), submissionStatus: 'submitted' });
     if (kind === 'new_dispatch') store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), dispatch: { requestedAt: now + 1 } });

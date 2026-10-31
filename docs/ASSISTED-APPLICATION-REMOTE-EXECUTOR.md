@@ -62,6 +62,30 @@ workflow. Le notifiche tecniche conservano l'idempotenza per ordine/round e
 indicano il prossimo tentativo pianificato, senza promettere invii o retry
 infiniti all'utente.
 
+Se l'autorità normale viene meno dopo il proprio click registrato, il worker
+passa soltanto all'osservazione della risposta già iniziata. Il termine è il
+minimo fra l'attesa già prevista dal portale e 90 secondi dal click; nessun
+heartbeat lo rinnova. Il guard privato delle risposte condivise viene legato
+una volta e riletto nella stessa transazione dei controlli di continuazione:
+un cambio della fonte non è nascosto dall'hash invariato dell'ordine figlio.
+Non si fanno nuove richieste al modello, solve CAPTCHA o correzioni del form.
+Mantenere la pagina aperta richiede l'ACK di quiescenza dei componenti che
+controlliamo. L'estensione attuale non espone tale ACK: il context viene chiuso,
+il click resta incerto e si passa alla verifica in sola lettura. Il termine
+limita l'osservazione, non la validità della prova: una ricevuta forte tardiva
+resta associata al tentativo immutabile, senza autorizzare un altro invio.
+
+La cancellazione dei documenti persiste `retentionPurgingAt` prima di eliminare
+il primo oggetto. Ogni writer rilegge conservazione e embargo; gli upload
+registrano prima un manifest privato, usano creazione esclusiva e ricontrollano
+l'embargo dopo l'ACK. Una corsa elimina soltanto la propria generazione. Anche
+un errore finale 412 può seguire un upload riuscito con ACK perso: il manifest
+rimane rileggibile dal purger. Un upload dall'esito sconosciuto non viene
+dichiarato concluso perché l'oggetto manca durante un controllo. Il purger
+riesamina i manifest anche dopo la cancellazione dei payload. Dopo l'embargo
+una ricevuta conserva solo hash, tempo, stato, round e hash del tentativo;
+non ricrea CV, allegati, draft, eventi con dati personali o notifiche.
+
 ## Installazione e attivazione
 
 Usare esclusivamente il clone del sito e il service account già autorizzati sul
@@ -140,6 +164,16 @@ modifica Remote Config deve preservare il template e usare il relativo ETag.
 Il default vuoto arresta nuove ammissioni senza autorizzare reinvii ambigui.
 
 ## Prove richieste
+
+L'attivazione richiede anche l'unione del producer e del writer delle ricevute
+comuni per portale, SMTP ed estensione owner, con prova effettiva
+producer → arresto prima dell'evento → lettura anticipata senza nuovo invio.
+Il reader anticipato non inventa il binding dei ledger storici: un SENT privo
+del frame completo ferma comunque il runner e richiede riconciliazione.
+La copertura della cancellazione fisica va verificata sui singoli writer:
+runner, account e reveal non certificano da soli gli upload e le copie dei
+builder CV o degli editor Functions. Questi caller devono usare lo stesso
+manifest e conservare i propri controlli di fonte, round e pubblicazione.
 
 I test riproducono i metadati sanitizzati dei precedenti errori 403 free-IP,
 fencing di generazione, scadenza controller, ritiro e cambio materiali, host

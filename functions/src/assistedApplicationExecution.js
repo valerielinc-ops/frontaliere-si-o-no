@@ -228,11 +228,21 @@ export function executionLease({ db, orderId, executionId, sourceSha, engineVers
     const context = await contextIn(transaction, ref);
     const execution = identity(context, options);
     if (options?.materials !== false && hasRecordedSubmission(context)) throw new Error('execution_submission_proven');
+    if (!options?.outcome && execution.receiptOnlyAt) throw new Error('execution_receipt_only');
     if (execution.state !== 'running' || execution.lease?.token !== token || execution.lease?.owner !== owner
       || execution.lease?.generation !== execution.generation
       || (!options?.outcome && (execution.lease.expiresAt <= now() || execution.controller?.expiresAt <= now()
         || !execution.controller?.runId))) throw new Error('execution_lease_lost');
     return context;
+  };
+  const ownClickedProof = execution => {
+    const proof = execution.clickProof;
+    return proof && Number(proof.clickedAt) > 0 && proof.clickedAt <= now() && Number.isFinite(proof.drainUntil)
+      && proof.drainUntil > proof.clickedAt && proof.drainUntil <= proof.clickedAt + 90_000
+      && proof.executionId === executionId && proof.executionGeneration === execution.generation
+      && proof.executionSourceSha === sourceSha && proof.executionEngineVersion === engineVersion
+      && proof.executionMaterialVersion === execution.materialVersion && proof.executionRound === execution.round
+      && proof.executionTokenHash === createHash('sha256').update(token).digest('hex');
   };
   let reportedType = null;
   return {
@@ -262,25 +272,60 @@ export function executionLease({ db, orderId, executionId, sourceSha, engineVers
     assertInTransaction,
     assertOutcomeInTransaction: transaction => assertInTransaction(transaction, { materials: false, outcome: true }),
     async assert() { return db.runTransaction(assertInTransaction); },
-    async heartbeat() {
+    async heartbeat({ answerSourceGuard = null } = {}) {
       return db.runTransaction(async transaction => {
-        await assertInTransaction(transaction, { materials: false });
+        const context = await contextIn(transaction, ref); const clicked = ownClickedProof(context.execution);
+        if (clicked && context.execution.minimalReceipt?.status === 'sent'
+          && context.execution.minimalReceipt.attempt === context.execution.clickProof.executionTokenHash
+          && context.execution.minimalReceipt.round === context.execution.round
+          && /^[a-f0-9]{64}$/.test(context.execution.minimalReceipt.hash || '')) {
+          await assertInTransaction(transaction, { materials: false, outcome: true });
+          transaction.set(ref.execution, { lease: { expiresAt: now() + EXECUTION_LEASE_MS } }, { merge: true });
+          return { receiptComplete: true };
+        }
+        try {
+          await assertInTransaction(transaction);
+          if (answerSourceGuard) await answerSourceGuard.assertInTransaction(transaction);
+        } catch (error) {
+          if (!clicked) throw error;
+          const current = await assertInTransaction(transaction, { materials: false, outcome: true });
+          const until = current.execution.clickProof.drainUntil;
+          transaction.set(ref.execution, { receiptOnlyAt: current.execution.receiptOnlyAt || now(),
+            receiptDrainOutcome: until > now() ? 'handover' : 'unknown', requiresReadonlyVerification: true,
+            lease: { expiresAt: Math.min(until, now() + EXECUTION_LEASE_MS) } }, { merge: true });
+          return { receiptOnly: true, until };
+        }
         transaction.set(ref.execution, { lease: { expiresAt: now() + EXECUTION_LEASE_MS } }, { merge: true });
+        return { receiptOnly: false };
       });
     },
     async complete({ artifacts = {} } = {}) {
       return db.runTransaction(async transaction => {
-        const execution = (await transaction.get(ref.execution)).data();
+        const [executionDoc, orderDoc] = await Promise.all([transaction.get(ref.execution), transaction.get(ref.order)]);
+        const execution = executionDoc.data();
         if (execution?.id !== executionId || execution.sourceSha !== sourceSha || execution.engineVersion !== engineVersion
           || execution.lease?.token !== token || execution.lease.owner !== owner || execution.lease.generation !== execution.generation) return;
         const outcome = reportedType === 'submit_succeeded' ? 'sent' : reportedType ? 'evidenced_failure' : 'unknown';
-        transaction.set(ref.execution, { state: 'finished', outcome, artifacts, finishedAt: now(), lease: null }, { merge: true });
+        transaction.set(ref.execution, { state: 'finished', outcome,
+          artifacts: assistedApplicationRetained(orderDoc.data(), now()) ? artifacts : null, finishedAt: now(), lease: null }, { merge: true });
       });
     },
     async report(eventRef, event) {
       await db.runTransaction(async transaction => {
         const receipt = event.type === 'submit_succeeded';
         const context = await assertInTransaction(transaction, { materials: false, outcome: receipt });
+        if (receipt && !assistedApplicationRetained(context.order, now())) {
+          const proof = context.execution.clickProof; const marker = context.execution.minimalReceipt;
+          const tokenHash = createHash('sha256').update(token).digest('hex');
+          if (!proof?.clickedAt || proof.executionId !== executionId || proof.executionGeneration !== context.execution.generation
+            || proof.executionSourceSha !== sourceSha || proof.executionEngineVersion !== engineVersion
+            || proof.executionMaterialVersion !== context.execution.materialVersion || proof.executionRound !== context.execution.round
+            || proof.executionTokenHash !== tokenHash || marker?.status !== 'sent' || marker.attempt !== tokenHash
+            || marker.round !== context.execution.round || !/^[a-f0-9]{64}$/.test(marker.hash || '')) throw new Error('execution_receipt_unproven');
+          // The minimal receipt already lives in the surviving execution doc.
+          // Do not recreate events, drafts, attachments or candidate emails.
+          return;
+        }
         if (receipt) {
           const sent = context.submission[`r${context.execution.round}`];
           if (sent?.state !== 'sent' || !sent.clickedAt || sent.executionId !== executionId

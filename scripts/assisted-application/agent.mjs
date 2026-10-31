@@ -30,11 +30,13 @@ import { mergeRequiredDocuments, requiredDocumentLabelKey, requiredDocumentsOf }
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard, hasRecordedSubmission } from '../../functions/src/assistedApplicationSubmissionGuard.js';
+import { retainedArtifactStore } from '../../functions/src/lib/assistedApplicationArtifactRetention.js';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 import { enterExecution } from './lib/execution-runtime.mjs';
 import { assistedApplicationRetained } from '../../functions/src/lib/assistedApplicationRetentionPolicy.js';
+import { reconcileCanonicalSubmissionReceipt } from '../../functions/src/assistedApplicationReceiptReconcile.js';
 
 let executionRuntime = null;
 
@@ -138,13 +140,14 @@ function portalAnswersForDraft(portalAnswers) {
  * write that fails never turns a sent application into a failure: the submission guard and the
  * encrypted evidence hold the same record.
  */
-export async function keepSentRecord(event, { draftRef, dryRun }) {
+export async function keepSentRecord(event, { draftRef, dryRun, artifactStore = null }) {
   if (!event?.sent) return;
   const { sent } = event;
   delete event.sent;
   if (dryRun) return;
   try {
-    await draftRef.set({ sent, sentAttempt: null }, { merge: true });
+    if (artifactStore) await artifactStore.mergeDraft(draftRef, { sent, sentAttempt: null });
+    else await draftRef.set({ sent, sentAttempt: null }, { merge: true });
   } catch (error) {
     summary(`sent record not kept on the draft: ${safeErrorCode(error)}`);
   }
@@ -157,8 +160,11 @@ export async function keepSentRecord(event, { draftRef, dryRun }) {
  * folder is the backstop), so a photo taken back in a later round is in no
  * PDF left behind.
  */
-export async function writeDraft({ orderRef, bucket, draft, previousDraft }) {
-  await orderRef.collection('ai_drafts').doc('current').set(draft);
+export async function writeDraft({ orderRef, bucket, draft, previousDraft, artifactStore = null }) {
+  const target = orderRef.collection('ai_drafts').doc('current');
+  if (artifactStore) {
+    if (!(await artifactStore.writeDraft(target, draft))) throw new DraftAbort('draft_failed', 'draft_context_changed');
+  } else await target.set(draft);
   const superseded = supersededPhotoPdf(previousDraft);
   if (!superseded || superseded === draft.tailoredCv?.pdfKey) return;
   try {
@@ -190,6 +196,13 @@ export async function runAgent() {
     orderRef.collection('automation').doc('intake').get(),
     orderRef.collection('automation').doc('submission').get(),
   ]);
+  if (mode === 'submit') {
+    const receipt = await reconcileCanonicalSubmissionReceipt({ db, orderId, round });
+    if (receipt.handled) {
+      summary(`submit skipped: durable receipt ${receipt.reason} round=${round}`);
+      return;
+    }
+  }
   if (!orderSnapshot.exists || !flowSnapshot.exists) {
     summary(`mode=${mode} skipped: no order or no flow`);
     return;
@@ -233,6 +246,7 @@ export async function runAgent() {
 
   executionRuntime = await enterExecution({ db, orderId, flow, mode });
   const execution = executionRuntime?.lease || null;
+  const artifactStore = retainedArtifactStore({ db, bucket, orderId, round, dispatchAt: flow.dispatch?.requestedAt, execution });
 
   const runKey = runKeyFrom();
   const events = orderRef.collection('automation_events');
@@ -244,7 +258,10 @@ export async function runAgent() {
       const record = { ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null,
         dispatchAt: Number(flow.dispatch?.requestedAt) || null };
       if (execution) await execution.report(events.doc(), record);
-      else await events.add(record);
+      else await db.runTransaction(async transaction => {
+        const current = await transaction.get(orderRef);
+        if (current.exists && assistedApplicationRetained(current.data())) transaction.set(events.doc(), record);
+      });
     }
     summary(`mode=${mode} round=${round} event=${event.type}${event.error ? ` error=${event.error}` : ''}${event.channel ? ` channel=${event.channel}` : ''}`);
   };
@@ -252,7 +269,7 @@ export async function runAgent() {
   if (mode === 'submit' && !execution && priorSubmission[`r${round}`]?.state === 'sent') {
     const record = priorSubmission[`r${round}`];
     const event = { type: 'submit_succeeded', channel: record.channel || 'portal', ...(record.sent ? { sent: record.sent } : {}) };
-    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun: false });
+    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun: false, artifactStore });
     await report(event);
     return;
   }
@@ -274,12 +291,13 @@ export async function runAgent() {
     try {
       const draft = await buildDraft({
         db, order, orderId, flow, previousDraft, cvBuffer, cvType, bucket, runKey,
+        artifactStore,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
         // A portal form read ahead: its questions and required file fields reach the first review.
         readPortalRequirements,
       });
-      await writeDraft({ orderRef, bucket, draft, previousDraft });
+      await writeDraft({ orderRef, bucket, draft, previousDraft, artifactStore });
       summary(`draft ready in ${Math.round((Date.now() - started) / 1000)}s: verdict=${draft.verdict} channel=${draft.channel?.type} questions=${draft.questions.length} factWarnings=${draft.factCheck.unsupported.length}`);
       await report({ type: 'draft_ready' });
     } catch (error) {
@@ -309,13 +327,18 @@ export async function runAgent() {
     ? previousDraft
     : { ...previousDraft, questions: normalizedQuestions };
   if (!dryRun && !execution && submitDraft !== previousDraft) {
-    await orderRef.collection('ai_drafts').doc('current').set({ questions: normalizedQuestions }, { merge: true });
+    if (!(await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), { questions: normalizedQuestions }))) {
+      summary('submit skipped: draft or retention context changed');
+      return;
+    }
   }
   try {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
       fetchImpl: executionRuntime?.fetchImpl,
+      receiptControl: executionRuntime?.receiptControl,
+      artifactStore,
       order, orderId, flow, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
       submissionGuard: dryRun ? null : submissionGuard(db, orderId, round, { execution }),
@@ -326,7 +349,9 @@ export async function runAgent() {
       knowledge: portalKnowledgeStore({ db }),
       // The record of a send whose outcome may stay unknown, on the draft before the send (null: it failed
       // for certain). A dry run sends nothing.
-      keepSentAttempt: dryRun ? null : (sentAttempt) => orderRef.collection('ai_drafts').doc('current').set({ sentAttempt }, { merge: true }),
+      keepSentAttempt: dryRun ? null : async (sentAttempt) => {
+        if (!(await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), { sentAttempt }))) throw new Error('application_retention_closed');
+      },
     });
     // What left (lib/submit.mjs), on the draft first: before the event marks the order sent (whatever it
     // sets off, the candidate's «inviata» e-mail and the review page, finds it there), and before every
@@ -334,7 +359,11 @@ export async function runAgent() {
     if (event.type === 'submit_handoff') {
       try { event.portalCodeVersion = currentPortalCodeVersion(); } catch { /* A missing source marker cannot lose the real outcome. */ }
     }
-    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun });
+    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun, artifactStore });
+    if (!dryRun && !(await artifactStore.retained())) {
+      if (event.type === 'submit_succeeded' && execution) await report({ type: event.type, channel: event.channel, retentionMinimal: true });
+      return;
+    }
     // An application sent by e-mail gets its follow-ups (day 7 and 14); the
     // recipient and subject stay in Firestore, not in the automation event.
     if (event.followup && !dryRun) {
@@ -344,7 +373,7 @@ export async function runAgent() {
     // A WhatsApp application: its link goes on the order, for the candidate's
     // «inviata» e-mail with the steps (assistedApplicationNotifications.js).
     if (event.whatsappUrl) {
-      if (!dryRun) await orderRef.set({ submissionChannel: 'whatsapp', whatsappApplyUrl: String(event.whatsappUrl).slice(0, 1000) }, { merge: true });
+      if (!dryRun) await artifactStore.mergeOrder({ submissionChannel: 'whatsapp', whatsappApplyUrl: String(event.whatsappUrl).slice(0, 1000) });
       delete event.whatsappUrl;
     }
     // What the portal received (career-ops application-answers), next to the
@@ -352,7 +381,7 @@ export async function runAgent() {
     if (event.portalAnswers) {
       event.portalAnswers = portalAnswersForDraft(event.portalAnswers);
       if (!dryRun && Array.isArray(event.portalAnswers?.answers) && event.portalAnswers.answers.length) {
-        await orderRef.collection('ai_drafts').doc('current').set({ portalAnswers: event.portalAnswers }, { merge: true });
+        await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), { portalAnswers: event.portalAnswers });
       }
       delete event.portalAnswers;
     }
@@ -381,7 +410,7 @@ export async function runAgent() {
     // The fact gate's result of a stopped submit, next to the draft before the
     // event moves the flow; never in the event or the log.
     const factCheckPatch = takeFactCheck(event, previousDraft);
-    if (factCheckPatch && !dryRun) await orderRef.collection('ai_drafts').doc('current').set(factCheckPatch, { merge: true });
+    if (factCheckPatch && !dryRun) await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), factCheckPatch);
     // Questions and file fields a portal asked become part of the draft, so
     // the review page shows them and the flow waits for the answers/uploads.
     // The event keeps every unresolved id, not only newly discovered ones: a
@@ -422,7 +451,7 @@ export async function runAgent() {
       const patch = {};
       if (incoming.length || added.length) patch.questions = questions;
       if (incomingDocuments.length) patch.requiredDocuments = requiredDocuments;
-      if (Object.keys(patch).length) await orderRef.collection('ai_drafts').doc('current').set(patch, { merge: true });
+      if (Object.keys(patch).length) await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), patch);
       event.questions = rawQuestions.map((question) => typeof question === 'string' ? question : question?.id).filter(Boolean);
       const questionDetails = questionDetailsForEvent(rawQuestionDetails);
       if (questionDetails.length) event.questionDetails = questionDetails;

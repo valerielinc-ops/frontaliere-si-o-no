@@ -24,6 +24,7 @@ import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 import {
   AUTOMATION_SUBCOLLECTION,
   applyAutomationEvent,
@@ -412,13 +413,29 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       // created on the alias. Who looked and when is recorded; the password
       // itself is only returned, never stored in clear or logged.
       const host = clean(raw.host, 200).toLowerCase();
-      const ref = orderRefFor(db, orderId).collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID);
-      const [key, entry] = Object.entries((await ref.get()).data() || {}).find(([, value]) => value?.host === host) || [];
+      const started = Date.now();
+      const freshNow = () => nowMs + Math.max(0, Date.now() - started);
+      const orderRef = orderRefFor(db, orderId);
+      const ref = orderRef.collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID);
+      const [order, accounts] = await Promise.all([orderRef.get(), ref.get()]);
+      if (!order.exists || !assistedApplicationRetained(order.data(), freshNow())) throw new AutomationAdminError('account_retention_closed', 409);
+      const [key, entry] = Object.entries(accounts.data() || {}).find(([, value]) => value?.host === host) || [];
       if (!entry?.passwordEnc) throw new AutomationAdminError('no_account', 404);
       const rawKey = deps.runKey ? await deps.runKey() : '';
       if (!rawKey) throw new AutomationAdminError('run_key_missing', 500);
       const { password } = decryptJson(entry.passwordEnc, runKeyFrom(rawKey));
-      await ref.set({ [key]: { ...entry, revealedAt: nowMs, revealedBy: adminEmail } }, { merge: true });
+      const sameSource = current => current?.host === entry.host && current?.email === entry.email
+        && JSON.stringify(current?.passwordEnc) === JSON.stringify(entry.passwordEnc);
+      await db.runTransaction(async transaction => {
+        const [currentOrder, currentAccounts] = await Promise.all([transaction.get(orderRef), transaction.get(ref)]);
+        if (!currentOrder.exists || !assistedApplicationRetained(currentOrder.data(), freshNow())) throw new AutomationAdminError('account_retention_closed', 409);
+        if (!sameSource(currentAccounts.data()?.[key])) throw new AutomationAdminError('account_source_changed', 409);
+        // Metadata only: never copy a previously read credential back to disk.
+        transaction.set(ref, { [key]: { revealedAt: nowMs, revealedBy: adminEmail } }, { merge: true });
+      });
+      const [finalOrder, finalAccounts] = await Promise.all([orderRef.get(), ref.get()]);
+      if (!finalOrder.exists || !assistedApplicationRetained(finalOrder.data(), freshNow())) throw new AutomationAdminError('account_retention_closed', 409);
+      if (!sameSource(finalAccounts.data()?.[key])) throw new AutomationAdminError('account_source_changed', 409);
       return { ok: true, host, email: entry.email || '', password };
     }
     case 'automationFillKit':

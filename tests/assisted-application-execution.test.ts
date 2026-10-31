@@ -1,10 +1,11 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { executionController, executionLease, executionMaterialVersion, prepareRemoteExecution, remoteExecutionReason,
   recoveryReasonForDispatch, remoteExecutorReady, EXECUTION_LEASE_MS } from '../functions/src/assistedApplicationExecution.js';
 import { captchaInfrastructureProof, infrastructureReasonForEvent, navigationInfrastructureProof,
   verifiedInfrastructureProof } from '../functions/src/lib/portalInfrastructureEvidence.js';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
+import { enterExecution } from '../scripts/assisted-application/lib/execution-runtime.mjs';
 
 const ORDER = 'order_remote_fixture';
 const ROOT = `assisted_applications/${ORDER}`;
@@ -231,7 +232,7 @@ describe('portal infrastructure host recovery', () => {
     const event = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events').doc('receipt');
     await guard.report(event, { type: 'submit_succeeded' });
     expect(store.read(`${ROOT}/automation_events/receipt`)?.executionId).toBe('execution-fixture');
-    await guard.complete(); await expect(guard.assert()).rejects.toThrow('execution_lease_lost');
+    await guard.complete(); await expect(store.db.runTransaction(guard.assertOutcomeInTransaction)).rejects.toThrow('execution_lease_lost');
     expect(store.read(`${ROOT}/automation/execution`)!.outcome).toBe('sent');
   });
   it.each(['payment', 'consent', 'withdrawal', 'state', 'newRound'])('preserves a clicked receipt after %s changes without authorising another click', async change => {
@@ -264,5 +265,151 @@ describe('portal infrastructure host recovery', () => {
     if (change === 'materials') current.materialVersion = 'c'.repeat(64);
     await expect(guard.markSent({ channel: 'portal' }, 114)).rejects.toThrow();
     expect(store.read(`${ROOT}/automation/submission`)!.r1.state).toBe('sending');
+  });
+  it.each(['beforeReceipt', 'beforeReport'])('keeps only a minimum receipt if purge happens %s', async phase => {
+    const store = await prepared(); const actor = lease(store); await actor.claim();
+    const guard = submissionGuard(store.db, ORDER, 1, { execution: actor });
+    await guard.claim('portal'); await guard.markClicked(111);
+    const record = { channel: 'portal', finalUrl: 'https://employer.example/private-receipt', sent: { files: ['private-file-name'] } };
+    if (phase === 'beforeReport') await guard.markSent(record, 112);
+    Object.assign(store.read(ROOT)!, { retentionPurgingAt: 113, retentionPurgedAt: 114 });
+    for (const path of ['automation/flow', 'automation/submission', 'ai_drafts/current']) store.docs.delete(`${ROOT}/${path}`);
+    if (phase === 'beforeReceipt') await expect(guard.markSent(record, 115)).resolves.toEqual({ minimal: true });
+    const event = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events').doc('purged-receipt');
+    await actor.report(event, { type: 'submit_succeeded', privateValue: 'must-not-return' });
+    await actor.complete({ artifacts: { stop: { privateValue: 'must-not-return' } } });
+    const execution = store.read(`${ROOT}/automation/execution`)!;
+    expect(execution).toMatchObject({ outcome: 'sent', artifacts: null, minimalReceipt: { status: 'sent', round: 1 } });
+    expect(execution.minimalReceipt.hash).toMatch(/^[a-f0-9]{64}$/);
+    expect(JSON.stringify(execution)).not.toMatch(/private-file-name|private-receipt|must-not-return/);
+    expect(store.read(`${ROOT}/automation_events/purged-receipt`)).toBeUndefined();
+    expect(store.read(`${ROOT}/automation/submission`)).toBeUndefined();
+    expect(store.read(`${ROOT}/ai_drafts/current`)).toBeUndefined();
+    await expect(actor.claim()).rejects.toThrow();
+  });
+  it('uses fresh retention time after receipt reads while preserving the observed timestamp', async () => {
+    vi.useFakeTimers(); vi.setSystemTime(110);
+    try {
+      const store = await prepared(); const actor = lease(store); await actor.claim();
+      const guard = submissionGuard(store.db, ORDER, 1, { execution: actor }); await guard.claim('portal'); await guard.markClicked(111);
+      const run = store.db.runTransaction.bind(store.db);
+      store.db.runTransaction = callback => run(transaction => callback({ ...transaction, async get(ref) {
+        const value = await transaction.get(ref);
+        if (ref.path === `${ROOT}/automation/submission`) vi.setSystemTime(112);
+        return value;
+      } }));
+      const observedAt = 10 + 90 * 24 * 60 * 60_000 - 1;
+      await expect(guard.markSent({ channel: 'portal', private: 'must-not-write' }, observedAt)).resolves.toEqual({ minimal: true });
+      expect(store.read(`${ROOT}/automation/execution`)!.minimalReceipt.at).toBe(observedAt);
+      expect(store.read(`${ROOT}/automation/submission`)!.r1).not.toHaveProperty('private');
+      expect(store.read(`${ROOT}/automation/submission`)!.r1.state).toBe('sending');
+    } finally { vi.useRealTimers(); }
+  });
+  it('caps receipt observation at the original wait and never renews it with heartbeats', async () => {
+    const store = await prepared(); let nowMs = 110;
+    const actor = lease(store, { now: () => nowMs }); await actor.claim();
+    const guard = submissionGuard(store.db, ORDER, 1, { execution: actor }); await guard.claim('portal');
+    await expect(guard.markClicked(111, { receiptWaitMs: 240_000 })).resolves.toBe(90_111);
+    nowMs = 112; store.read(ROOT)!.withdrawnAt = 112;
+    expect(await actor.heartbeat()).toEqual({ receiptOnly: true, until: 90_111 });
+    nowMs = 91_000;
+    expect(await actor.heartbeat()).toEqual({ receiptOnly: true, until: 90_111 });
+    expect(store.read(`${ROOT}/automation/execution`)!.lease.expiresAt).toBe(90_111);
+    await expect(guard.markClicked(nowMs)).rejects.toThrow();
+    // The observation deadline is not a proof TTL: a strong late acknowledgement
+    // still belongs to the immutable original attempt and cannot trigger a resend.
+    await guard.markSent({ channel: 'portal' }, nowMs);
+    expect(store.read(`${ROOT}/automation/submission`)!.r1.state).toBe('sent');
+  });
+  it('hands over after a live shared-answer change despite unchanged child materials', async () => {
+    const store = await prepared(); let nowMs = 110; let currentSource = 'source-A'; let sourceChecks = 0;
+    const actor = lease(store, { now: () => nowMs }); await actor.claim();
+    const guard = submissionGuard(store.db, ORDER, 1, { execution: actor }); await guard.claim('portal');
+    const sourceGuard = { async assertInTransaction() { sourceChecks++; if (currentSource !== 'source-A') throw new Error('evidence_source_changed'); } };
+    const originalMaterial = store.read(`${ROOT}/automation/execution`)!.materialVersion;
+    await expect(actor.heartbeat({ answerSourceGuard: sourceGuard })).resolves.toEqual({ receiptOnly: false });
+    expect(sourceChecks).toBe(1);
+    await guard.markClicked(110);
+    await expect(actor.heartbeat({ answerSourceGuard: sourceGuard })).resolves.toEqual({ receiptOnly: false });
+    expect(sourceChecks).toBe(2);
+    nowMs = 112; currentSource = 'source-C';
+    await expect(actor.heartbeat({ answerSourceGuard: sourceGuard })).resolves.toEqual({ receiptOnly: true, until: 60_110 });
+    expect(sourceChecks).toBe(3);
+    expect(store.read(`${ROOT}/automation/execution`)!.materialVersion).toBe(originalMaterial);
+    await expect(guard.markClicked(113)).rejects.toThrow();
+    await guard.markSent({ channel: 'portal' }, 114);
+    expect(store.read(`${ROOT}/automation/submission`)!.r1.state).toBe('sent');
+  });
+  it.each([false, true])('requires a quiescence ACK before retaining the page after authority loss (ACK=%s)', async ack => {
+    vi.useFakeTimers(); vi.setSystemTime(110);
+    const store = await prepared(); const closed = vi.fn(async () => {}); const lost = vi.fn();
+    const runtime = await enterExecution({ db: store.db, orderId: ORDER, flow: store.read(`${ROOT}/automation/flow`),
+      mode: 'submit', sourceSha: SHA, engineVersion: ENGINE, onLeaseLost: lost,
+      env: { ASSISTED_APPLICATION_EXECUTION_ID: 'execution-fixture', ASSISTED_APPLICATION_EXECUTOR: 'mac-agenti',
+        ASSISTED_APPLICATION_SOURCE_SHA: SHA, GITHUB_RUN_ID: 'run-fixture' } });
+    try {
+      runtime!.receiptControl.register({ quiesce: async () => ack, close: closed });
+      const guard = submissionGuard(store.db, ORDER, 1, { execution: runtime!.lease });
+      await guard.claim('portal'); await guard.markClicked(110, { receiptWaitMs: 5_000 });
+      store.read(ROOT)!.withdrawnAt = 111; vi.setSystemTime(112);
+      expect(await runtime!.receiptControl.authorizeContinuation()).toBe(false);
+      expect(runtime!.receiptControl.receiptOnly).toBe(true);
+      expect(closed).toHaveBeenCalledTimes(ack ? 0 : 1);
+      if (ack) {
+        await vi.advanceTimersByTimeAsync(5_001);
+        expect(closed).toHaveBeenCalledTimes(1);
+      }
+      expect(runtime!.receiptControl.closed).toBe(true);
+      expect(await runtime!.receiptControl.authorizeContinuation()).toBe(false);
+      expect(lost).not.toHaveBeenCalled();
+      expect(store.read(`${ROOT}/automation/submission`)!.r1).toMatchObject({ state: 'sending', clickedAt: 110 });
+    } finally { await runtime!.close(); vi.useRealTimers(); }
+  });
+  it.each(['pending', 'rejected'])('terminates boundedly when context cleanup is %s across the receipt deadline', async failure => {
+    vi.useFakeTimers(); vi.setSystemTime(110);
+    const store = await prepared(); const lost = vi.fn();
+    const runtime = await enterExecution({ db: store.db, orderId: ORDER, flow: store.read(`${ROOT}/automation/flow`),
+      mode: 'submit', sourceSha: SHA, engineVersion: ENGINE, onLeaseLost: lost,
+      env: { ASSISTED_APPLICATION_EXECUTION_ID: 'execution-fixture', ASSISTED_APPLICATION_EXECUTOR: 'mac-agenti',
+        ASSISTED_APPLICATION_SOURCE_SHA: SHA, GITHUB_RUN_ID: 'run-fixture' } });
+    try {
+      const close = vi.fn(() => failure === 'pending' ? new Promise<void>(() => {}) : Promise.reject(new Error('synthetic_close_failed')));
+      runtime!.receiptControl.register({ quiesce: async () => true, close });
+      const guard = submissionGuard(store.db, ORDER, 1, { execution: runtime!.lease });
+      await guard.claim('portal'); await guard.markClicked(110, { receiptWaitMs: 20 });
+      store.read(ROOT)!.withdrawnAt = 111; vi.setSystemTime(112);
+      expect(await runtime!.receiptControl.authorizeContinuation()).toBe(false);
+      // A pending/failed cleanup never unregisters the close capability.
+      void close().catch(() => {});
+      await vi.advanceTimersByTimeAsync(3050);
+      expect(close.mock.calls.length).toBeGreaterThanOrEqual(2);
+      expect(lost).toHaveBeenCalledTimes(1);
+      expect(runtime!.receiptControl.closed).toBe(true);
+      expect(await runtime!.receiptControl.authorizeContinuation()).toBe(false);
+      expect(store.read(`${ROOT}/automation/submission`)!.r1.state).toBe('sending');
+    } finally { await runtime!.close(); vi.useRealTimers(); }
+  });
+  it('closes boundedly after a durable ACK even if cleanup stalls and the order is purged', async () => {
+    vi.useFakeTimers(); vi.setSystemTime(110);
+    const store = await prepared(); const lost = vi.fn();
+    const runtime = await enterExecution({ db: store.db, orderId: ORDER, flow: store.read(`${ROOT}/automation/flow`),
+      mode: 'submit', sourceSha: SHA, engineVersion: ENGINE, onLeaseLost: lost,
+      env: { ASSISTED_APPLICATION_EXECUTION_ID: 'execution-fixture', ASSISTED_APPLICATION_EXECUTOR: 'mac-agenti',
+        ASSISTED_APPLICATION_SOURCE_SHA: SHA, GITHUB_RUN_ID: 'run-fixture' } });
+    try {
+      const close = vi.fn(() => new Promise<void>(() => {}));
+      runtime!.receiptControl.register({ quiesce: async () => true, close });
+      const guard = submissionGuard(store.db, ORDER, 1, { execution: runtime!.lease });
+      await guard.claim('portal'); await guard.markClicked(110); await guard.markSent({ channel: 'portal' }, 111);
+      const closing = runtime!.receiptControl.received();
+      Object.assign(store.read(ROOT)!, { retentionPurgingAt: 112, retentionPurgedAt: 113 });
+      for (const suffix of ['automation/flow', 'automation/submission', 'ai_drafts/current']) store.docs.delete(`${ROOT}/${suffix}`);
+      await vi.advanceTimersByTimeAsync(3050); await closing;
+      expect(close).toHaveBeenCalledTimes(1); expect(lost).toHaveBeenCalledTimes(1);
+      expect(runtime!.receiptControl.closed).toBe(true);
+      expect(await runtime!.receiptControl.authorizeContinuation()).toBe(false);
+      expect(store.read(`${ROOT}/automation/execution`)!.minimalReceipt).toMatchObject({ status: 'sent', round: 1 });
+      expect(store.read(`${ROOT}/ai_drafts/current`)).toBeUndefined();
+    } finally { await runtime!.close(); vi.useRealTimers(); }
   });
 });

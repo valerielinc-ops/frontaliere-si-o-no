@@ -6,6 +6,8 @@ import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedAp
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
 import { isUnconfirmedSubmission } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { runKeyFrom, storeEvidence } from './lib/secure-run.mjs';
+import { retainedArtifactStore } from '../../functions/src/lib/assistedApplicationArtifactRetention.js';
+import { assistedApplicationRetained } from '../../functions/src/lib/assistedApplicationRetentionPolicy.js';
 
 export async function reportRunnerFailure({ db, orderId, mode, round, runId, startedAt, dispatchAt, nowMs = Date.now() }) {
   if (!ASSISTED_APPLICATION_ORDER_ID_RE.test(String(orderId || '')) || !['draft', 'submit', 'dry_run'].includes(mode)
@@ -22,7 +24,7 @@ export async function reportRunnerFailure({ db, orderId, mode, round, runId, sta
     const flow = flowDoc.data();
     if (previous.exists) return { reported: false, reason: 'already_reported' };
     const expected = mode === 'submit' ? ['submitting'] : ['drafting', 'regenerating'];
-    if (order?.paymentStatus !== 'paid' || order.withdrawnAt || order.retentionPurgedAt
+    if (order?.paymentStatus !== 'paid' || order.withdrawnAt || !assistedApplicationRetained(order, nowMs)
       || ['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus) || ['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
       || !expected.includes(flow?.state) || Number(flow.round || 1) !== round
       || (dispatchAt && Number(dispatchAt) !== Number(flow.dispatch?.requestedAt))
@@ -52,7 +54,9 @@ if (isInvokedDirectly(import.meta.url)) {
     if (bootError && process.env.ASSISTED_APPLICATION_RUN_KEY) {
       try {
         const { getStorage } = await import('firebase-admin/storage');
-        await storeEvidence({ bucket: getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET), orderId,
+        const bucket = getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
+        const artifactStore = retainedArtifactStore({ db, bucket, orderId, round });
+        await storeEvidence({ bucket, orderId, artifactStore,
           name: 'runner-boot-failed', key: runKeyFrom(), payload: { runId, mode, round, bootError: bootError.slice(0, 60000) } });
       } catch {
         // Evidence is best-effort: a Storage or encryption failure must not

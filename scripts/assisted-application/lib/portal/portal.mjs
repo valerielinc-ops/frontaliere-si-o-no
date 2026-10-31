@@ -2980,16 +2980,27 @@ export function urlConfirms(url, snapshot) {
   return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && Boolean(snapshot) && !findButton(snapshot.buttons || [], SUBMIT_RE, { includeDisabled: true });
 }
 
-async function waitForOutcome(page, captchaEnabled = false) {
+async function waitForOutcome(page, captchaEnabled = false, receiptControl = null, receiptEvidence = null) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS + (captchaEnabled ? CAPTCHA_TIMEOUT_MS : 0);
   while (Date.now() < deadline) {
-    await page.waitForTimeout(1000);
+    if (receiptControl) await receiptControl.authorizeContinuation();
+    if (receiptControl?.closed) return 'ambiguous';
+    try { await page.waitForTimeout(1000); }
+    catch (error) { if (receiptControl?.closed) return 'ambiguous'; throw error; }
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     // The portal says it did not send: nothing left, by its own word.
     if (REFUSED_RE.test(text)) return 'refused';
     // Refusal takes precedence when an error page retains generic thank-you copy.
-    if (CONFIRM_RE.test(text)) return 'confirmed';
+    const confirmation = CONFIRM_RE.exec(text);
+    if (confirmation) {
+      if (receiptEvidence) receiptEvidence.receiptObservation = { kind: 'confirmation_text', at: Date.now(), url: page.url(),
+        text: text.slice(Math.max(0, confirmation.index - 400), confirmation.index + 1200) };
+      return 'confirmed';
+    }
+    // Handover permits only observing the already-started request. No plugin,
+    // validation repair, model request or new form interaction is authorised.
+    if (receiptControl?.receiptOnly) continue;
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (snapshot?.captcha && captchaEnabled) {
       snapshot = await awaitCaptcha(page, snapshot, { enabled: true, timeoutMs: Math.max(0, deadline - Date.now()) });
@@ -2997,7 +3008,11 @@ async function waitForOutcome(page, captchaEnabled = false) {
       // never press the final button a second time.
       if (!snapshot.captcha) continue;
     }
-    if (urlConfirms(page.url(), snapshot)) return 'confirmed';
+    if (urlConfirms(page.url(), snapshot)) {
+      if (receiptEvidence) receiptEvidence.receiptObservation = { kind: 'confirmation_url_without_submit', at: Date.now(),
+        url: page.url(), text: text.slice(0, 1600), submitButtonAbsent: true };
+      return 'confirmed';
+    }
     if (snapshot?.captcha) return 'captcha';
     if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
   }
@@ -3252,6 +3267,7 @@ export async function submitViaPortal(ctx) {
   let page = null;
   let diagnostics = null;
   let finalClickAttempted = false;
+  let unregisterReceiptObserver = null;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason) => {
     const infrastructureProof = captchaInfrastructureProof(reason, { diagnostics: evidence.diagnostics,
@@ -3292,6 +3308,12 @@ export async function submitViaPortal(ctx) {
     context = extensionPath
       ? await launchNopechaContext(extensionPath, { ...contextOptions, headless: !headedBrowser() })
       : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
+    if (ctx.receiptControl) unregisterReceiptObserver = ctx.receiptControl.register({
+      // The installed CAPTCHA extension exposes no attestable stop/ACK API.
+      // Closing its context is the only supported quiescence on handover.
+      quiesce: async () => !extensionPath,
+      close: () => context.close(),
+    });
     registerPortalChannelType(context, channelType);
     await registerCookieSessionRecovery(context, { log: ctx.log });
     diagnostics = startPortalDiagnostics(context, (evidence.submitHttpFailures = []));
@@ -4012,12 +4034,23 @@ export async function submitViaPortal(ctx) {
       await diagnostics.beforeSubmit(page);
       // From here the outcome may be unknown: the submission guard records the click, and
       // submit.mjs what the form holds (the record of an attempt whose outcome may stay unknown).
-      if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads });
+      if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads,
+        receiptWaitMs: OUTCOME_TIMEOUT_MS + (extensionPath ? CAPTCHA_TIMEOUT_MS : 0) });
       finalClickAttempted = true;
       diagnostics.finalClick();
       await final.click();
-      const outcome = await waitForOutcome(page, Boolean(extensionPath));
+      const outcome = await waitForOutcome(page, Boolean(extensionPath), ctx.receiptControl, evidence);
       (evidence.finalOutcomes ||= []).push(outcome);
+      if (outcome === 'confirmed') {
+        evidence.finalUrl = page.url();
+        // Persist the observation before diagnostics, optional bookkeeping or
+        // cleanup can stall. A just-closed page cannot erase an observed ACK.
+        const receipt = ctx.onReceipt ? await ctx.onReceipt(evidence) : null;
+        if (receipt?.minimal || ctx.receiptControl?.receiptOnly || ctx.receiptControl?.closed) {
+          return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
+        }
+      }
+      if (ctx.receiptControl?.closed) return { event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence };
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
@@ -4034,6 +4067,9 @@ export async function submitViaPortal(ctx) {
       }
       if (outcome === 'captcha') return await handoff('captcha');
       if (outcome === 'validation' && validationRetries < 1) {
+        if (ctx.receiptControl && !(await ctx.receiptControl.authorizeContinuation())) {
+          return { event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence };
+        }
         validationRetries += 1;
         // A server-side validation response can clear a required agreement
         // that was accepted in the same URL (SIX resets its data privacy
@@ -4071,9 +4107,15 @@ export async function submitViaPortal(ctx) {
     }
     return await handoff('portal_needs_candidate');
   } finally {
-    await diagnostics?.finish();
-    await context?.close().catch(() => {});
-    await browser?.close().catch(() => {});
+    try { await diagnostics?.finish(); }
+    finally {
+      const contextClosed = context ? await context.close().then(() => true, () => false) : false;
+      const browserClosed = browser ? await browser.close().then(() => true, () => false) : false;
+      // Keep the deadline's close/termination capability during every await
+      // above. An unfinished cleanup is not a quiescence acknowledgement.
+      if (ctx.receiptControl && !contextClosed && !(browser && browserClosed)) await ctx.receiptControl.cleanupFailed();
+      else unregisterReceiptObserver?.();
+    }
   }
 }
 
