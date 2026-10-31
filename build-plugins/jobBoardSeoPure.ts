@@ -2,8 +2,7 @@
  * Dynamic SEO copy for the main job board landing pages.
  *
  * Generates title and description variants that include a live job count
- * computed at build time from `data/jobs.json`. A count ≥ FIRE_EMOJI_THRESHOLD
- * adds a 🔥 emoji to signal freshness and boost CTR on high-impression queries
+ * computed at build time from `data/jobs.json`, for high-impression queries
  * like "offerte di lavoro ticino".
  *
  * F3a — Job Page CTR Optimization (2026-04-20): the primary `title` is now
@@ -32,8 +31,6 @@ export interface JobBoardSeoEntry {
   /** On-page H1 aimed at the head query (no year, live count). */
   h1: string
 }
-
-export const FIRE_EMOJI_THRESHOLD = 500
 
 // Per-locale legacy TI landing paths — kept as exports for callers that need
 // the explicit TI URL string (e.g. canonical builders, redirect maps).
@@ -144,14 +141,13 @@ export function buildJobBoardSeo(
   year: number,
 ): JobBoardSeoEntry {
   const safeCount = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0
-  const useFire = safeCount >= FIRE_EMOJI_THRESHOLD
   // The short `<title>` is delegated to the shared module so per-city / per-role
   // pages share the same template. The OG title keeps the legacy "| Frontaliere
   // Ticino" brand suffix because OG renderers don't truncate at 60 chars.
   const title = buildListingHubTitle({ locale, count: safeCount, year })
   const desc = buildListingHubMeta({ locale, count: safeCount })
   const h1 = buildListingHubH1({ locale, count: safeCount })
-  const ogPrefix = safeCount > 0 ? (useFire ? `🔥 ${safeCount} ` : `${safeCount} `) : ''
+  const ogPrefix = safeCount > 0 ? `${safeCount} ` : ''
 
   switch (locale) {
     case 'it': {
