@@ -1,7 +1,7 @@
 {
   "key": "elektriker-elektromonteur-jobs-ch",
   "label": "elektriker-elektromonteur-jobs",
-  "generatedAt": "2026-10-31T09:46:35.687Z",
+  "generatedAt": "2026-10-31T22:00:40.213Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6855,
-  "avgDurationMs": 6855,
+  "durationMs": 6560,
+  "avgDurationMs": 6560,
   "durationHistory": [
-    6855
+    6560
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:46:26.426Z",
+      "crawledAt": "2026-10-31T22:00:30.826Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -56,7 +56,7 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-31T09:46:26.426Z",
+      "firstSeenAt": "2026-10-31T22:00:30.826Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -77,7 +77,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalist-in-40-60-in-der-bankenbranche/basel/hrm/1c106405",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:46:26.425Z",
+      "crawledAt": "2026-10-31T22:00:30.825Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "salaryMin": 37200,
       "salaryMax": 56400,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-31T09:46:26.425Z",
+      "firstSeenAt": "2026-10-31T22:00:30.825Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -112,5 +112,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

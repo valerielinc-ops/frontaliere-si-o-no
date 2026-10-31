@@ -1,7 +1,7 @@
 {
   "crawlerKey": "crr-suva-sion",
-  "assembledAt": "2026-10-31T09:53:04.467Z",
-  "runId": "41187673067",
+  "assembledAt": "2026-10-31T21:48:13.310Z",
+  "runId": "41242445754",
   "jobs": [
     {
       "id": "crr-suva-sion-a1375f10b321",
@@ -35,7 +35,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:00.471Z",
+      "crawledAt": "2026-10-31T21:48:03.853Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:00.023Z",
+      "crawledAt": "2026-10-31T21:48:03.327Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -239,7 +239,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

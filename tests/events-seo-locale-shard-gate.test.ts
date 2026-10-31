@@ -41,19 +41,30 @@ afterEach(() => {
 
 describe('#5130 — events-seo-pages does not render locales this shard discards', () => {
   it('gates every render loop, not just the biggest one', () => {
-    // Count only locale loops inside closeBundle that actually render/emit
-    // pages. The two title-disambiguation loops earlier in the file must run
-    // for every locale to keep all shards deterministic; the inbound-link
-    // patch loop is also intentionally ungated because it only touches files
-    // that already exist on disk.
-    const handlerAt = CODE.indexOf('async closeBundle()');
-    const handler = CODE.slice(handlerAt);
-    const localeLoops = [...handler.matchAll(/for \(const locale of LOCALES\) \{([\s\S]*?)(?=for \(const locale of LOCALES\) \{|$)/g)];
-    const renderLoops = localeLoops
-      .map((match) => match[1]!)
-      .filter((body) => /\b(?:emit|render[A-Z]\w*)\s*\(/.test(body));
-    expect(renderLoops.length).toBeGreaterThanOrEqual(3);
-    for (const body of renderLoops) expect(body).toContain('if (!shouldEmitLocale(locale))');
+    // A source-wide count also includes two title-disambiguation passes that
+    // compute stable metadata without emitting pages, plus the inbound-link
+    // patch loop after the collector flush. The four locale loops between
+    // sitemap collection and that patch render the actual pages.
+    const renderSectionStart = CODE.indexOf('const perCantonSitemap: Array<');
+    const renderSectionEnd = CODE.indexOf('await staticPagesFlushed', renderSectionStart);
+    expect(renderSectionStart).toBeGreaterThan(-1);
+    expect(renderSectionEnd).toBeGreaterThan(renderSectionStart);
+    const renderSection = CODE.slice(renderSectionStart, renderSectionEnd);
+    const renderLoops = renderSection.match(/for \(const locale of LOCALES\) \{/g) ?? [];
+    const gatedRenderLoops = renderSection.match(
+      /for \(const locale of LOCALES\) \{\s*if \(!shouldEmitLocale\(locale\)\)/g,
+    ) ?? [];
+    expect(renderLoops).toHaveLength(4);
+    expect(gatedRenderLoops).toHaveLength(renderLoops.length);
+
+    // Live slug migrations use a compact locale loop, so their shared helper
+    // must guard before rendering or writing each redirect page.
+    expect(CODE).toContain(
+      'for (const migration of liveSlugMigrations) for (const locale of LOCALES) emitSlugRedirect(locale, migration);',
+    );
+    expect(CODE).toMatch(
+      /const emitSlugRedirect = \(locale: Locale, migration: EventSlugMigration\) => \{\s*if \(!shouldEmitLocale\(locale\)\) return;/,
+    );
   });
 
   it('imports the shared filter rather than re-deriving locale ownership', () => {

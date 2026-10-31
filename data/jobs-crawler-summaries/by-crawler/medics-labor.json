@@ -1,7 +1,7 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-10-31T09:28:44.939Z",
+  "generatedAt": "2026-10-31T21:48:23.909Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5242,
-  "avgDurationMs": 5242,
+  "durationMs": 7016,
+  "avgDurationMs": 7016,
   "durationHistory": [
-    5242
+    7016
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://app.reflinejobs.io/1474/0144/pub/107/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:30.680Z",
+      "crawledAt": "2026-10-31T21:48:05.538Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://app.reflinejobs.io/1474/0141/pub/105/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:30.126Z",
+      "crawledAt": "2026-10-31T21:48:04.938Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://app.reflinejobs.io/1474/0138/pub/103/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:29.482Z",
+      "crawledAt": "2026-10-31T21:48:04.263Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -153,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

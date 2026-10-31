@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hrc",
-  "assembledAt": "2026-10-31T09:31:41.860Z",
-  "runId": "41188347631",
+  "assembledAt": "2026-10-31T21:47:28.977Z",
+  "runId": "41243204704",
   "jobs": [
     {
       "id": "hrc-206aba495c80",
@@ -35,7 +35,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/3-apprenti-logisticien-hf-cfc-option-stockage-660",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:31:36.283Z",
+      "crawledAt": "2026-10-31T21:47:22.665Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/agent-dexploitation-hf-a-100-664",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:31:36.281Z",
+      "crawledAt": "2026-10-31T21:47:22.662Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/apprenties-assistantes-en-soins-et-sante-communautaire-assc-cfc-656",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:31:36.278Z",
+      "crawledAt": "2026-10-31T21:47:22.660Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -274,7 +274,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-aux-permanences-medicales-a-60-100-666",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:31:36.275Z",
+      "crawledAt": "2026-10-31T21:47:22.657Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -356,7 +356,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-en-readaptation-geriatrique-a-80-669",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:31:36.255Z",
+      "crawledAt": "2026-10-31T21:47:22.635Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -482,7 +482,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
