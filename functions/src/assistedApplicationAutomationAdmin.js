@@ -540,6 +540,12 @@ export { OWNER_NATIVE_PROOF_PROTOCOL } from './lib/ownerFinalIntent.js';
 function requireNativeProofProtocol(value) {
   if (value !== OWNER_NATIVE_PROOF_PROTOCOL) throw new AutomationAdminError('extension_update_required', 409);
 }
+async function ownerSourceFence(work) {
+  try { return await work(); } catch (error) {
+    if (['evidence_source_changed', 'submission_retention_changed', 'submission_approval_changed', 'submission_claim_changed', 'submission_already_sent'].includes(error?.code)) throw new AutomationAdminError(error.code, 409);
+    throw error;
+  }
+}
 
 /**
  * The fill kit of one order (assistedApplicationFillKit.js), with signed
@@ -597,7 +603,7 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nativ
     localAnswerEvidence: confirmed.localAnswerEvidence,
     documents: { cv: cvUrl ? { url: cvUrl, extension: cv.extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
-  await db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction));
+  await ownerSourceFence(() => db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction)));
   return { ...kit, nativeProofProtocol: OWNER_NATIVE_PROOF_PROTOCOL, answerSourceFingerprint: confirmed.answerSourceGuard.fingerprint };
 }
 
@@ -662,7 +668,7 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
     answerEvidence: confirmed.answerEvidence, localAnswerEvidence: confirmed.localAnswerEvidence,
     answerCounterContext: confirmed.answerCounterContext, answerSourceConflicts: confirmed.answerSourceConflicts,
     rawCounterContext: confirmed.rawCounterContext, intake });
-  await db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction));
+  await ownerSourceFence(() => db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction)));
   const verified = await verifyNativeApplicationProof({ proof: request.proof, context, docsManifest });
   if (verified?.status !== 'supported' || !/^[a-f0-9]{64}$/.test(verified.verification?.assessmentHash || '')) throw new AutomationAdminError('native_proof_unverified', 409);
   const ownerIntent = { idHash: digest(Buffer.from(request.intent.id)), nativeDigest: request.intent.nativeDigest,
@@ -677,7 +683,7 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
   const guard = submissionGuard(db, orderId, flow.round || 1, { answerSourceGuard: sourceGuard });
   const claim = await guard.claim('owner_extension', freshNow(), { resumable: true });
   if (claim.status !== 'claimed') throw new AutomationAdminError(claim.status === 'already_sent' ? 'already_sent' : 'submission_unconfirmed', 409);
-  await guard.markClicked(freshNow(), { answerSourceGuard: sourceGuard, ownerIntent });
+  await ownerSourceFence(() => guard.markClicked(freshNow(), { answerSourceGuard: sourceGuard, ownerIntent }));
   const acknowledgedAt = freshNow();
   return { ok: true, state: flow.state, guard: 'sending', nativeProofProtocol: OWNER_NATIVE_PROOF_PROTOCOL,
     finalIntentId: request.intent.id, answerSourceFingerprint: request.answerSourceFingerprint,
