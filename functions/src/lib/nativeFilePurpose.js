@@ -4,7 +4,7 @@
 import { nativeQuestionText } from './nativeQuestionText.js';
 import { nativeFieldFromContract, nativeScopeAllows } from './nativeFormContract.js';
 
-export const NATIVE_FILE_PURPOSE_VERSION = 'native-file-purpose-v1';
+export const NATIVE_FILE_PURPOSE_VERSION = 'native-file-purpose-v2';
 export const NATIVE_DOCUMENT_TRANSPORT_VERSION = 'server-native-document-transport-v1';
 
 /** Closed native purposes only; extra qualifications or instructions are not transport. */
@@ -30,6 +30,32 @@ export function nativeFilePurposeCaption(value) {
 
 export const nativeApprovedFilePurpose = value => nativeFilePurposeCaption(value)?.family || '';
 
+/** A whole document instruction is a set of transport requests, never a
+ * candidate assertion. Every item and every remaining word must be recognised.
+ */
+export function nativeDocumentInstruction(value) {
+  if (typeof value !== 'string' || !value || value.length >= 8000 || /(?:\.{2,}|…)/u.test(value)) return null;
+  let text = nativeQuestionText(value);
+  let framed = false;
+  const instruction = /^(?:please )?(?:(?:click(?: on)?|select) (?:"apply(?: now)?"|'apply(?: now)?'|“apply(?: now)?”|‘apply(?: now)?’|«apply(?: now)?») to )?(?:submit|send|provide|upload) (?:a |your )?(?:complete )?application,? (?:including|with|containing) (.+)$/iu.exec(text);
+  const heading = /^(?:application documents|required documents|supporting documents|documents(?: required| to submit| to upload)?|documenti(?: di candidatura| richiesti| da allegare)?|bewerbungsunterlagen|erforderliche unterlagen|benötigte dokumente|dokumente|documents de candidature|documents requis|documents à fournir)\s*:\s*(.+)$/iu.exec(text);
+  if (instruction || heading) { text = (instruction || heading)[1]; framed = true; }
+  text = text.replace(/\.$/u, '').trim();
+  const parts = text.split(/\s*,\s*(?:(?:and|und|et|e)\s+)?|\s+(?:and|und|et|e)\s+/iu);
+  if ((!framed && parts.length < 2) || parts.length > 16 || parts.some(part => !part.trim())) return null;
+  const purposes = [];
+  const families = new Set();
+  for (const part of parts) {
+    const purpose = nativeFilePurposeCaption(part)
+      || (/^(?:(?:work )?references?|(?:work )?reference letters?|referenze(?: di lavoro)?|referenzen|arbeitszeugnis(?:se)?|références|certificats? de travail)$/iu.test(part)
+        ? { family: 'reference_document', constraints: {} } : null);
+    if (!purpose || families.has(purpose.family)) return null;
+    families.add(purpose.family);
+    purposes.push(purpose);
+  }
+  return { purposes };
+}
+
 /** Requires a complete, validated native contract. Unknown or competing owned
  * scopes cannot be discarded merely because the control's own label is clear.
  */
@@ -41,8 +67,11 @@ export function nativeFilePurposeContract(native) {
   const constraints = { ...purpose.constraints };
   try {
     if (!nativeScopeAllows(field, text => {
-      const contextual = nativeFilePurposeCaption(text);
-      if (!contextual || contextual.family !== purpose.family) return false;
+      const caption = nativeFilePurposeCaption(text);
+      const contexts = caption ? [caption] : nativeDocumentInstruction(text)?.purposes || [];
+      const matching = contexts.filter(contextual => contextual.family === purpose.family);
+      if (matching.length !== 1) return false;
+      const contextual = matching[0];
       for (const [key, value] of Object.entries(contextual.constraints)) {
         if (constraints[key] != null && constraints[key] !== value) return false;
         constraints[key] = value;
