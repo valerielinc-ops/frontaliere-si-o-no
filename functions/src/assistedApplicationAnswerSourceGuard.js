@@ -10,7 +10,7 @@ const selected = (source, fields) => Object.fromEntries(fields.map(field => [fie
 const orderMaterial = order => selected(order, ['candidateNotes', 'userId', 'jobId', 'jobUrl', 'cvStorageKey', 'cvUploadedAt', 'refundedAt', 'submissionStatus', 'submittedAt', 'retentionPurgingAt', 'retentionPurgedAt', 'talentPoolConsent', 'talentPoolConsentAt', 'talentPoolConsentWithdrawnAt']);
 const flowMaterial = flow => ({ ...selected(flow, ['candidateNotes', 'state', 'round', 'answers', 'questionAnswers', 'answerConfirmations', 'answerReviewRequired', 'formOverrides', 'feedback', 'retentionPurgedAt']),
   dispatch: selected(flow?.dispatch, ['mode', 'round', 'requestedAt']), roundWasSent: roundWasSent(flow) });
-const draftMaterial = draft => selected(draft, ['status', 'round', 'questions', 'cvKey', 'sourceCvHash', 'channel', 'job']);
+const draftMaterial = draft => selected(draft, ['status', 'round', 'questions', 'cvKey', 'sourceCvHash', 'qualificationCvLanguageProfile', 'channel', 'job']);
 const profileMaterial = record => selected(record, ['applicationQuestionAnswers', 'applicationQuestionAnswerEvidence', 'applicationQuestionAnswersUpdatedAt']);
 
 export function evidenceSourceChanged() {
