@@ -1708,6 +1708,7 @@ const enCore: Record<string, string> = {
  'newsletter.consentRequired': 'You must accept the consent to subscribe.',
  'newsletter.popup.title': 'Stay Updated!',
  'newsletter.popup.subtitle': 'Subscribe to the weekly newsletter: CHF/EUR rate, traffic and tax news every Monday.',
+ 'map.twoFingerHint': 'Use two fingers to move the map',
  'newsletter.popup.close': 'Close',
  'newsletter.popup.googleSignIn': 'Continue with Google',
  'newsletter.popup.facebookSignIn': 'Continue with Facebook',

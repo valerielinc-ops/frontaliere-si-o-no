@@ -25,9 +25,9 @@ const DonationBanner: React.FC<DonationBannerProps> = ({ variant = 'inline' }) =
 
  if (variant === 'inline') {
  return (
- <div className="flex items-center gap-3 p-3 bg-warning-subtle/50 rounded-xl border border-warning-border">
+ <div className="flex flex-wrap items-center gap-3 p-3 bg-warning-subtle/50 rounded-xl border border-warning-border">
  <Coffee className="w-5 h-5 text-warning flex-shrink-0" />
- <div className="flex-1 min-w-0">
+ <div className="flex-1 basis-40 min-w-0">
  <p className="text-xs text-body">
  {t('donation.message')}
  </p>

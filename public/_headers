@@ -8,6 +8,16 @@
 /assets/releases/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Content-addressed loaders: the name carries the hash of the bytes.
+/assets/gtag-init-*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/adsense-loader-*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/partnerize-tag-*
+  Cache-Control: public, max-age=31536000, immutable
+
 /assets/*
   Cache-Control: public, max-age=600, must-revalidate
 

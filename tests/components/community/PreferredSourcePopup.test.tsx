@@ -42,10 +42,25 @@ afterEach(() => {
   vi.useRealTimers();
 });
 
+function readPastThreshold(ratio = 0.5) {
+  Object.defineProperty(document.documentElement, 'scrollHeight', { value: 2000, configurable: true });
+  Object.defineProperty(window, 'innerHeight', { value: 1000, configurable: true });
+  Object.defineProperty(window, 'scrollY', { value: 1000 * ratio, configurable: true });
+  act(() => { window.dispatchEvent(new Event('scroll')); });
+}
+
 describe('PreferredSourcePopup', () => {
+  it('resta nascosto finché il lettore non supera il 40% della pagina', () => {
+    render(<PreferredSourcePopup articleId="article-1" />);
+    readPastThreshold(0.2);
+    expect(screen.queryByTestId('bottom-prompt')).toBeNull();
+    readPastThreshold(0.5);
+    expect(screen.getByTestId('bottom-prompt')).toBeTruthy();
+  });
+
   it('mostra la CTA a destra e il dismiss a sinistra', () => {
     render(<PreferredSourcePopup articleId="article-1" />);
-    act(() => { vi.advanceTimersByTime(20_000); });
+    readPastThreshold();
 
     const prompt = screen.getByTestId('bottom-prompt');
     const dismiss = screen.getByRole('button', { name: '[[preferredSource.popupDismiss]]' });
@@ -61,7 +76,7 @@ describe('PreferredSourcePopup', () => {
 
   it('sopprime il prompt per sette giorni dopo il dismiss', () => {
     render(<PreferredSourcePopup articleId="article-1" />);
-    act(() => { vi.advanceTimersByTime(20_000); });
+    readPastThreshold();
     fireEvent.click(screen.getByRole('button', { name: '[[preferredSource.popupDismiss]]' }));
 
     expect(screen.queryByTestId('bottom-prompt')).toBeNull();
@@ -71,7 +86,7 @@ describe('PreferredSourcePopup', () => {
 
   it('registra il click e non ripropone il prompt dopo l apertura', () => {
     render(<PreferredSourcePopup articleId="article-1" />);
-    act(() => { vi.advanceTimersByTime(20_000); });
+    readPastThreshold();
     fireEvent.click(screen.getByRole('link', { name: '[[preferredSource.popupAccept]]' }));
 
     expect(localStorage.getItem(ACCEPTED_KEY)).toBe('true');
@@ -85,7 +100,7 @@ describe('PreferredSourcePopup', () => {
   it('non si mostra durante il cooldown esistente', () => {
     localStorage.setItem(DISMISS_KEY, String(Date.now() + 60_000));
     render(<PreferredSourcePopup articleId="article-1" />);
-    act(() => { vi.advanceTimersByTime(20_000); });
+    readPastThreshold();
 
     expect(screen.queryByTestId('bottom-prompt')).toBeNull();
   });
@@ -93,7 +108,7 @@ describe('PreferredSourcePopup', () => {
   it('ignora una deadline localStorage corrotta e mostra il prompt', () => {
     localStorage.setItem(DISMISS_KEY, '1700000000000junk');
     render(<PreferredSourcePopup articleId="article-1" />);
-    act(() => { vi.advanceTimersByTime(20_000); });
+    readPastThreshold();
 
     expect(screen.getByTestId('bottom-prompt')).toBeTruthy();
   });
@@ -101,7 +116,7 @@ describe('PreferredSourcePopup', () => {
   it('non si ripropone su un altro articolo nella stessa sessione dopo essere apparso', () => {
     sessionStorage.setItem(SEEN_KEY, 'true');
     render(<PreferredSourcePopup articleId="article-2" />);
-    act(() => { vi.advanceTimersByTime(20_000); });
+    readPastThreshold();
 
     expect(screen.queryByTestId('bottom-prompt')).toBeNull();
   });

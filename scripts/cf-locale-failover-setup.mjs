@@ -688,7 +688,42 @@ const APEX_PERMISSIONS_POLICY = 'camera=(), microphone=(), geolocation=(self)';
 // one-way, so it needs the authoritative DNS zone export, not a public sample.
 const APEX_STRICT_TRANSPORT_SECURITY = 'max-age=31536000; includeSubDomains';
 
+// `cdn-assets-revalidate` was a foreign rule: it rewrote the BROWSER-facing
+// Cache-Control of EVERY /assets/* response to a 600 s revalidation. That was
+// right when every chunk had a stable name, and silently wrong once the
+// executable graph moved to /assets/releases/<BUILD_ID>/: R2 stamps those objects
+// `max-age=31536000,immutable` and the edge honours it (`age: 6055` on a GET,
+// 2026-10-31), but the browser was told 600 s and revalidated ~90 modules on
+// every repeat visit. The exclusion list is the set of URLs whose bytes can never
+// change: the build-scoped release plus the three content-addressed loaders
+// (`<name>-<sha256/12>.js`, build-plugins/constants.ts). The trailing `-` keeps
+// the stable aliases (`gtag-init.js`, `adsense-loader.js`, `partnerize-tag.js`)
+// under the rule. Prefixes, not `matches`: this zone is on the Free plan.
+const CDN_BROWSER_LONG_CACHE_PREFIXES = [
+  '/assets/releases/',
+  '/assets/gtag-init-',
+  '/assets/adsense-loader-',
+  '/assets/partnerize-tag-',
+];
+const LEGACY_CDN_ASSETS_REVALIDATE_DESCRIPTION =
+  'cdn-assets-revalidate: override GitHub Pages immutable on stable-named SPA chunks (max-age=600 must-revalidate, matches public/_headers)';
+
 const MANAGED_RESPONSE_HEADER_RULES = [
+  {
+    description:
+      'cdn-assets-revalidate: stable-named /assets/* revalidate every 600s; build-scoped releases and content-addressed loaders keep the R2 immutable header (managed by scripts/cf-locale-failover-setup.mjs)',
+    legacyDescriptions: [LEGACY_CDN_ASSETS_REVALIDATE_DESCRIPTION],
+    expression:
+      '(http.host eq "cdn.frontaliereticino.ch" and starts_with(http.request.uri.path, "/assets/")' +
+      CDN_BROWSER_LONG_CACHE_PREFIXES.map((prefix) => ` and not starts_with(http.request.uri.path, "${prefix}")`).join('') +
+      ')',
+    headers: {
+      'Cache-Control': {
+        operation: 'set',
+        value: 'public, max-age=600, must-revalidate',
+      },
+    },
+  },
   {
     description:
       'apex-security-headers: HSTS + CSP + Permissions-Policy + X-Frame-Options + nosniff + Referrer-Policy on apex responses (managed by scripts/cf-locale-failover-setup.mjs)',

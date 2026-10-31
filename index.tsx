@@ -1,4 +1,5 @@
 import './index.css';
+import { startScrollRegionObserver } from './services/scrollRegions';
 import { shouldWaitForJobBoardLcp, waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
 import type { StaticFallbackKind } from './services/staticFallbackHandoff';
 
@@ -6,6 +7,8 @@ const rootElement = document.getElementById('root');
 if (!rootElement) {
  throw new Error("Could not find root element to mount to");
 }
+
+startScrollRegionObserver();
 
 /** Paths where i18n must be preloaded before render (avoid flash of untranslated text) */
 const HOME_CRITICAL_PATHS = new Set([

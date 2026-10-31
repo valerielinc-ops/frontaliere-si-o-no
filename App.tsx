@@ -3162,7 +3162,7 @@ const App: React.FC = () => {
  <SafeLazy boundary="rail-ad-left"><ArticleRailAdStack side="left" narrow onEmptyResolved={handleLeftRailEmpty} /></SafeLazy>
  </aside>
  )}
- <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
+ <main id="main-content" tabIndex={-1} className={`flex-grow min-h-dvh mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : activeTab === 'job-board' ? '!max-w-[2400px] w-full min-w-0 px-3 sm:px-4' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'plate-auctions') ? ' xlw:!w-full' : ''}`
  }`}>
  <Suspense fallback={staticSnapshotOwnsBody ? null : <LazyFallback />}>
@@ -3670,14 +3670,14 @@ const App: React.FC = () => {
  <div className="flex items-center justify-center mt-2 mb-2">
  <a
  ref={commitBadgeRef}
- href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${commitHash || 'unknown'}`}
+ href={commitHash ? `https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${commitHash}` : undefined}
  target="_blank"
  rel="noopener noreferrer"
- className="text-sm font-mono text-muted hover:text-accent px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+ className={`inline-flex items-center min-h-[44px] text-sm font-mono text-muted hover:text-accent px-1 rounded transition-colors ${commitHash ? '' : 'invisible'}`}
  title="Versione del sito: commit GitHub deploy"
  >
  <span>v</span>
- <span>{commitHash ? commitHash.slice(0, 7) : 'unknown'}</span>
+ <span>{commitHash.slice(0, 7)}</span>
  </a>
  </div>
 

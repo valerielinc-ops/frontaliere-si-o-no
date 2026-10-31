@@ -404,7 +404,7 @@ const CommunityForum: React.FC = () => {
  <div className="p-2 bg-success-subtle rounded-xl">
  <MessageSquare className="w-6 h-6 text-success" />
  </div>
- <h2 className="text-2xl font-bold font-display text-success">{t('forum.title')}</h2>
+ <h1 className="text-2xl font-bold font-display text-success">{t('forum.title')}</h1>
  </div>
  <p className="text-success text-sm">{t('forum.subtitle')}</p>
  </div>
