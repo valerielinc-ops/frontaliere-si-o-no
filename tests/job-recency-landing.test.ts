@@ -140,10 +140,10 @@ describe('jobRecencyLanding — isWithinWindow', () => {
 });
 
 describe('jobRecencyLanding — buildRecencyTitle', () => {
-  it('Italian last-3-days title with live count and fire emoji', () => {
+  it('Italian last-3-days title with live count and no emoji', () => {
     const title = buildRecencyTitle('last-3-days', 'it', 42);
     expect(title).toContain('42');
-    expect(title).toContain('🔥');
+    expect(title).not.toMatch(/\p{Extended_Pictographic}/u);
     expect(title).toMatch(/Ticino/i);
     expect(title.toLowerCase()).toContain('ultimi 3 giorni');
   });
