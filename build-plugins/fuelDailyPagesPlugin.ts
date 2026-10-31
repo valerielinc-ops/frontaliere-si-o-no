@@ -2010,7 +2010,7 @@ function renderPage(inp: PageInputs): string {
 
   // Main body markup (kept plain + inline-styled so we don't depend on the
   // SPA bundle and the static page ranks on its own).
-  const bodyHtml = `<article class="s-xzWvwM">
+  const bodyHtml = `<article class="s-xzWvwM" data-ft-driveby-top-ad="true">
   <nav class="s-bcr">
     <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
