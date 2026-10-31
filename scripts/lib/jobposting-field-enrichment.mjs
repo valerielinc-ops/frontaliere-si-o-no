@@ -59,6 +59,8 @@ function isGeneratedCityAddress(value, locality, region) {
  * street-level evidence exists, preserve the best already-known location and
  * mark it `to-enrich`; the mandatory schema field remains covered while the
  * report keeps this lower-quality case visible.
+ * @param {unknown} job
+ * @param {{ addressLocality?: string, addressRegion?: string, postalCode?: string }} [context]
  */
 export function resolveJobPostingStreetAddress(job, {
   addressLocality,

@@ -517,8 +517,12 @@ export interface JobListing {
  sourceContract?: string;
  employmentType?: string;
  contractType?: string;
+ /** Canonical employer slug carried by the job-detail payload. */
+ companySlug?: JobInput['companySlug'];
  /** Source deadline hint; the canonical builder supplies a fallback when absent. */
  validThrough?: string;
+ /** Provenance of the source or derived deadline; never emitted in JSON-LD. */
+ validThroughSource?: JobInput['validThroughSource'];
  salaryMin?: number;
  salaryMax?: number;
  /** Provenance of the salary band — 'estimated' bands get an «(stima)»-style
@@ -540,6 +544,10 @@ export interface JobListing {
  requirements: string[];
  requirementsByLocale?: Partial<Record<Locale, string[]>>;
  streetAddress?: string;
+ /** Internal provenance for the retained street value; never emitted in JSON-LD. */
+ streetAddressSource?: JobInput['streetAddressSource'];
+ companyRegisteredAddress?: JobInput['companyRegisteredAddress'];
+ companyKnownAddress?: JobInput['companyKnownAddress'];
  postalCode?: string;
  addressLocality?: string;
  addressCountry?: string;
@@ -551,6 +559,10 @@ export interface JobListing {
  postedDate: string;
  crawledAt?: string;
  firstSeenAt?: string;
+ lastSeenAt?: JobInput['lastSeenAt'];
+ lastObservedAt?: JobInput['lastObservedAt'];
+ scrapedAt?: JobInput['scrapedAt'];
+ updatedAt?: JobInput['updatedAt'];
  url?: string;
  applyUrl?: string;
  source?: string;
