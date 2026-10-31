@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { operationalAnswerForOption, equivalentOperationalAnswers, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalAnswerForOption, operationalAnswerReadyForDiscovery, operationalDefaultAnswer, equivalentOperationalAnswers, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { candidateForForm, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { candidateAnswerForField, guardPlan, answeredByCandidate } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
@@ -115,6 +115,27 @@ describe('notice duration projection onto the native catalogue', () => {
         .map(answer => ({ question: native.label, answer, source: 'answers' })) };
       expect(candidateAnswerForField(candidate, native)).toBeNull();
     }
+  });
+
+  it.each([['Preferred workload', '80%'], ['Comunicazione via WhatsApp', 'No']])('projects an explicit %s answer onto string options', (label, answer) => {
+    const stored = { id: 'q', source: 'portal', question: label, applicationQuestion: label, type: 'choice', required: true, options: [answer], applicationOptions: [answer] };
+    const candidate = candidateForForm({ identity: {}, answers: { q: answer }, draft: {}, portalQuestions: [stored] });
+    expect(candidateAnswerForField(candidate, { id: 'native', kind: 'select', label, options: [answer] })).toMatchObject({ value: answer, source: 'answers' });
+  });
+
+  it.each(['Notice period in months', 'Periodo di preavviso in mesi', 'Kündigungsfrist in Monaten', 'Délai de préavis en mois'])('admits only numeric discovery with an explicit month unit: %s', label => {
+    const numeric = { question: label, type: 'number', source: 'portal' };
+    expect(operationalDefaultAnswer(numeric)?.value).toBe('3');
+    expect(operationalAnswerReadyForDiscovery(numeric, '3')).toBe(true);
+    expect(operationalAnswerReadyForDiscovery({ ...numeric, validation: { min: 4 } }, '3')).toBe(false);
+    expect(operationalAnswerReadyForDiscovery({ question: label, inputType: 'number', validation: { min: 4 } }, '3')).toBe(false);
+    expect(operationalAnswerReadyForDiscovery({ question: label, type: 'text', inputType: 'number', validation: { max: 2 } }, '3')).toBe(false);
+    expect(operationalDefaultAnswer({ question: label, type: 'text', inputType: 'number', validation: { max: 2 } })).toBeNull();
+    for (const answer of ['3+', '~3', '3-4', '2.5', '-3']) expect(operationalAnswerReadyForDiscovery(numeric, answer)).toBe(false);
+  });
+
+  it.each(['Notice period', 'Notice period in days', 'Notice period of maximum 3 months', 'Experience in months'])('does not invent the numeric notice unit or topic: %s', question => {
+    expect(operationalAnswerReadyForDiscovery({ question, type: 'number', source: 'portal' }, '3')).toBe(false);
   });
 
   it('preserves string labels when an explicit unmatched notice needs a candidate action', () => {

@@ -32,6 +32,7 @@ const SMALL_NUMBERS = { zero: 0, uno: 1, one: 1, un: 1, une: 1, ein: 1, eins: 1,
   two: 2, due: 2, zwei: 2, deux: 2, three: 3, tre: 3, drei: 3, trois: 3,
   four: 4, quattro: 4, vier: 4, quatre: 4, five: 5, cinque: 5, funf: 5, fuenf: 5, cinq: 5,
   six: 6, sei: 6, sechs: 6 };
+const NOTICE_MONTH_UNIT = /\b(?:months?|mesi|mese|monate?n?|mois)\b/;
 const literalAnswer = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
 function noticeDuration(value) {
   const match = /^(\d{1,2}|[a-z]+)\s*(months?|mesi|mese|monate?n?|mois|days?|giorni|giorno|tage?n?|jours?)$/.exec(literalAnswer(value));
@@ -78,16 +79,20 @@ export function operationalAnswerReadyForDiscovery(question, answer) {
   const topic = operationalQuestionTopic(question);
   if (!topic || !hasAnswer(answer)) return false;
   const options = optionsOf(question);
+  const numericNotice = topic === 'notice_period' && (question?.type === 'number' || question?.inputType === 'number');
   if (options.length) {
     const value = topic === 'notice_period' ? operationalAnswerForOption(question, answer) : String(answer).trim();
     return Boolean(value && validateAnswer(value, { ...question, type: question.type || 'choice', options: options.map(option => option.label) }).ok);
   }
-  if (topic === 'notice_period' && !noticeDuration(answer)) return false;
+  if (topic === 'notice_period' && !noticeDuration(answer)) {
+    const label = norm(question?.applicationQuestion || question?.question || question?.label);
+    if (!numericNotice || !NOTICE_MONTH_UNIT.test(label) || !/^(?:0|[1-9]\d?)$/.test(literalAnswer(answer))) return false;
+  }
   if (topic === 'preferred_workload' && !/^(?:100|[0-9]{1,2})(?:\s*%)?$/.test(String(answer).trim())) return false;
   if (topic === 'whatsapp_contact' && !/^(?:si|yes|ja|oui|true|1|no|nein|non|false|0)$/.test(literalAnswer(answer))) return false;
   // The old choice descriptor may have lost its catalogue. Only discovery
   // may use this text validation; the live control must supply its real type.
-  return validateAnswer(String(answer), { ...question, type: question.type === 'choice' ? 'text' : question.type || 'text', options: [] }).ok;
+  return validateAnswer(String(answer), { ...question, type: numericNotice ? 'number' : question.type === 'choice' ? 'text' : question.type || 'text', options: [] }).ok;
 }
 
 function languageOf(text, locale) {
@@ -134,7 +139,7 @@ export function operationalDefaultAnswer(question, { locale } = {}) {
       value = operationalAnswerForOption(question, '3 months');
       if (!value) return null;
     } else if (question?.type === 'number' || question?.inputType === 'number') {
-      if (!/\b(?:months?|mesi|mese|monate?n?|mois)\b/.test(text)) return null;
+      if (!NOTICE_MONTH_UNIT.test(text)) return null;
       value = '3';
     } else value = { it: '3 mesi', en: '3 months', de: '3 Monate', fr: '3 mois' }[language];
   } else if (topic === 'preferred_workload') {
@@ -151,7 +156,8 @@ export function operationalDefaultAnswer(question, { locale } = {}) {
     } else value = question?.kind === 'checkbox' || question?.type === 'checkbox'
       ? 'true' : { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
   }
-  const validationQuestion = { ...question, type: question.type || (options.length ? 'choice' : question.inputType || 'text'), options: options.map(option => option.label) };
+  const validationQuestion = { ...question, type: question.type === 'number' || question.inputType === 'number'
+    ? 'number' : question.type || (options.length ? 'choice' : question.inputType || 'text'), options: options.map(option => option.label) };
   if (!validateAnswer(value, validationQuestion).ok) return null;
   return { value, topic, source: 'policy_default', version: OPERATIONAL_DEFAULTS_VERSION };
 }

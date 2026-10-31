@@ -1092,7 +1092,10 @@ function operationalChoiceHasNoCatalogue(field) {
 }
 
 function optionForAnswer(field, answer) {
-  const options = Array.isArray(field?.options) ? field.options : [];
+  const rawOptions = Array.isArray(field?.options) ? field.options : [];
+  const options = rawOptions.map(option => typeof option === 'string' ? { label: option, value: option } : option)
+    .filter(option => option && option.placeholder !== true && String(option.label || '').trim());
+  if (rawOptions.length && !options.length) return '';
   const topic = questionTopic(field.label, field.context, field);
   if (topic === 'permit') {
     const status = permitStatusOf(answer) || permitOptionCode(answer);
