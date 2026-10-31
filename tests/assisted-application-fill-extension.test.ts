@@ -173,6 +173,14 @@ describe('fill extension: scoped saved geography answers', () => {
     window.close();
   });
 
+  it('keeps a bare city autocomplete and an unbound saved answer unknown', async () => {
+    const { window, document, F } = page('<form><label for="city">City</label><input id="city" role="combobox" aria-required="true"></form>');
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Como', source: 'answers' }] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
   it('honors an explicit current residence correction above the CV value', async () => {
     const { window, document, F } = addressPage('Personal information', personal);
     await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Lugano', source: 'answers', current: true, context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
@@ -390,8 +398,9 @@ describe('fill extension: JOIN steps', () => {
   });
 
   it('picks a searched city among the options the portal lists', async () => {
-    const { F, document } = page(`<form><h2>Dati personali</h2><div role="group"><label for="city">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
+    const { F, document, window } = page(`<form><h2>Dati personali</h2><div role="group"><label for="city">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
       <div><input id="city" role="combobox" type="text" value=""></div></div></div></div><div id="menu"></div>${continueButtons}</form>`);
+    nativeFieldReading(window);
     const input = document.getElementById('city') as HTMLInputElement;
     const box = document.querySelector('[data-testid="CityName"] > div')!;
     input.addEventListener('input', () => {
@@ -771,7 +780,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
   });
 
   it('types into a required non-SuccessFactors ARIA autocomplete', async () => {
-    const { F, document, read } = runnerPage(`<form>
+    const { F, document, read } = runnerPage(`<form><h2>Personal information</h2>
       <label for="city">City</label>
       <div><div><input id="city" type="text" role="combobox" class="rcmpaginatedselectinput" aria-controls="city-options" aria-required="true"></div></div>
       <ul id="city-options" role="listbox"></ul>
@@ -1087,8 +1096,8 @@ describe('fill extension: other portals', () => {
   });
 
   it('keeps phone country and residence country separate from stale portal answers', async () => {
-    const { F, document } = page(`<form>
-      <div role="group">
+    const { F, document, window } = page(`<form><h2>Personal information</h2>
+      <div role="group" aria-label="Telephone">
         <label for="phone-country">Land</label>
         <select id="phone-country"><option value="">Bitte wählen</option><option value="CH">Schweiz</option><option value="IT">Italien</option></select>
         <button type="button" aria-haspopup="dialog">+39</button>
@@ -1101,6 +1110,7 @@ describe('fill extension: other portals', () => {
       </div>
       <button type="button">Weiter</button>
     </form>`, 'https://jobs.example.ch/apply');
+    nativeFieldReading(window);
     const identity = {
       ...kit.identity,
       phone: '+39 324 0753275',
