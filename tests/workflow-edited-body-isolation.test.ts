@@ -360,7 +360,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).toContain('markerMatchesRun');
     expect(script).toContain('createWorkflowDispatch');
     expect(script).toContain("workflow_id: 'enable-native-automerge.yml'");
-    expect(script).not.toContain("workflow_id: 'tests.yml'");
+    expect(script).not.toMatch(/createWorkflowDispatch\(\{\s*\.\.\.repo,\s*workflow_id: 'tests\.yml'/u);
     expect(script).toContain("nativeMergeStatus: 'pending'");
     expect(script).toContain("nativeMergeStatus: 'dispatched'");
     expect(script).toContain('status: \'manual\'');

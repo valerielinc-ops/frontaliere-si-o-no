@@ -579,7 +579,7 @@ jobs:
               pr = currentPr;
               const currentRun = await github.rest.actions.getWorkflowRun({ ...repo, run_id: latest.id });
               const observedAttempt = validRunAttempt(currentRun.data?.run_attempt);
-                if (observedAttempt === null) {
+              if (observedAttempt === null) {
                 throw new Error(`run ${latest.id} attempt non verificabile: marker resta pending`);
               }
               if (currentRun.data.status !== 'completed') {
