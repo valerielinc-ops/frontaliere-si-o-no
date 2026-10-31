@@ -36,6 +36,8 @@ import {
   isFuelSitemapFile,
 } from './fuelDailyData';
 import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
+import { deriveSitemapLastmods, newestSitemapDay } from './shared/sitemapDerivedLastmod';
+import { pruneSeededPagesAlreadyListed } from './shared/sitemapUrlsetDedupe';
 import {
   dropOverwrittenLocs,
   dropUrlBlocksByLoc,
@@ -78,13 +80,20 @@ const ARTICLE_SITEMAP_FILE_PATTERN = /^sitemap-(?:blog(?:-ch)?|locale-variants(?
 
 export interface DiscoveredSitemap {
   file: string;
-  lastmod: string; // YYYY-MM-DD
+  /** Newest `<lastmod>` the file lists (YYYY-MM-DD); absent when it dates nothing. */
+  lastmod?: string;
 }
 
 /**
  * Discover every `sitemap-*.xml` in `distDir` and return a de-duplicated,
- * alphabetically sorted list with each file's last-modified date (YYYY-MM-DD).
+ * alphabetically sorted list with the date of each file's newest entry.
  * `sitemap.xml` itself and `sitemap_news.xml` are excluded.
+ *
+ * The date comes from the file's content, never from its mtime: every sitemap
+ * is rewritten on every build, so the mtime only ever said "built today" and
+ * gave all 159 index entries the same value (GEO audit 2026-10-31). A file that
+ * dates none of its URLs has no honest date, and `lastmod` is optional in a
+ * sitemap index.
  *
  * The function is pure (no writes) so unit tests can exercise it with a
  * seeded tmpdir.
@@ -95,30 +104,18 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
   const entries = fs.readdirSync(distDir);
   const seen = new Set<string>();
   const discovered: DiscoveredSitemap[] = [];
-  // Solo banco (deploy-matrix-experiment con freeze_clock/compare_variants):
-  // `mtime` e' l'orologio REALE del filesystem, che il clock congelato non
-  // tocca, quindi due gambe costruite a ore di distanza (a cavallo della
-  // mezzanotte UTC) davano `lastmod` diversi e un `sitemap.xml` diverso per
-  // il solo fuso orario del run. In produzione la variabile non esiste e il
-  // `lastmod` resta la data di modifica del file.
-  const frozenMs = Number(process.env.BENCH_FROZEN_CLOCK_MS);
-  const frozenDate = /^\d{10,16}$/.test(process.env.BENCH_FROZEN_CLOCK_MS ?? '') ? new Date(frozenMs) : null;
-  const frozenLastmod = frozenDate && !Number.isNaN(frozenDate.getTime())
-    ? frozenDate.toISOString().slice(0, 10)
-    : null;
   for (const file of entries) {
     if (EXCLUDED_SITEMAP_FILES.has(file)) continue;
     if (!SITEMAP_FILE_PATTERN.test(file)) continue;
     if (seen.has(file)) continue;
     seen.add(file);
-    let lastmod: string;
+    let lastmod: string | undefined;
     try {
-      const stat = fs.statSync(path.join(distDir, file));
-      lastmod = frozenLastmod ?? stat.mtime.toISOString().slice(0, 10);
+      lastmod = newestSitemapDay(fs.readFileSync(path.join(distDir, file), 'utf-8'));
     } catch {
-      // If stat fails, fall back to today — keeps the index valid rather
-      // than crashing the build over a transient filesystem hiccup.
-      lastmod = new Date().toISOString().slice(0, 10);
+      // Unreadable: list it undated rather than crash the build over a
+      // transient filesystem hiccup.
+      lastmod = undefined;
     }
     discovered.push({ file, lastmod });
   }
@@ -234,7 +231,7 @@ export function buildSitemapIndexXml(
   const entries = sitemaps
     .map(
       (s) =>
-        `  <sitemap>\n    <loc>${baseUrl}/${s.file}</loc>\n    <lastmod>${s.lastmod}</lastmod>\n  </sitemap>`,
+        `  <sitemap>\n    <loc>${baseUrl}/${s.file}</loc>\n${s.lastmod ? `    <lastmod>${s.lastmod}</lastmod>\n` : ''}  </sitemap>`,
     )
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -627,6 +624,18 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
           );
         }
 
+        // 1-pre-b. A URL its own family lists leaves the seeded sitemap-pages.xml,
+        //    so the two copies cannot disagree in the guard below.
+        const yielded = pruneSeededPagesAlreadyListed(sitemapFiles);
+        for (const [file, xml] of yielded) {
+          fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
+        }
+        if (yielded.size > 0) {
+          sitemapFiles = sitemapFiles.map((f) =>
+            yielded.has(f.file) ? { file: f.file, xml: yielded.get(f.file)! } : f,
+          );
+        }
+
         const __tSanitize = performance.now();
         const sanitized = sanitizeSitemapHreflangReciprocity(sitemapFiles);
         console.log(`[sitemap-alias-detail] hreflang-sanitize wall_s=${((performance.now() - __tSanitize) / 1000).toFixed(1)} files=${sitemapFiles.length}`);
@@ -638,6 +647,24 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
             `\x1b[36m[sitemap-alias]\x1b[0m Stripped one-sided hreflang groups from ${sanitized.size} sitemap(s): ${[...sanitized.keys()].join(', ')}`,
           );
         }
+
+        // 1-post. Dates the undated listing pages can prove. Last rewrite of the
+        //    urlsets: it needs the final <loc> set and the final HTML.
+        const __tLastmod = performance.now();
+        const dated = deriveSitemapLastmods(
+          sitemapFiles.map((f) => (sanitized.has(f.file) ? { file: f.file, xml: sanitized.get(f.file)! } : f)),
+          (loc) => {
+            try {
+              return fs.readFileSync(path.join(distDir, new URL(loc).pathname, 'index.html'), 'utf-8');
+            } catch {
+              return null;
+            }
+          },
+        );
+        for (const [file, xml] of dated) {
+          fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
+        }
+        console.log(`[sitemap-alias-detail] derived-lastmod wall_s=${((performance.now() - __tLastmod) / 1000).toFixed(1)} files=${dated.size}`);
 
         // 2. Legacy alias: sitemap-news.xml → sitemap_news.xml
         //    Must run BEFORE discovery so the alias file exists when the

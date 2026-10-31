@@ -544,7 +544,7 @@ const HOME_LABEL: Record<Locale, string> = {
 
 // Notice banner for the permanent archive page kept for events that already
 // ended (see `allEndedEvents` in scripts/lib/events-retention.mjs). Historical
-// pages stay indexable and are included in the sitemap, but omit stale Event
+// pages stay online and indexable but leave the sitemap, and omit stale Event
 // rich-result markup — see closeBundle()'s past-events emission pass.
 const PAST_EVENT_NOTICE: Record<Locale, string> = {
   it: 'Questo evento si è già svolto: le informazioni restano visibili solo per consultazione.',
@@ -4826,7 +4826,7 @@ export function buildSitemap(
   for (let page = 1; page <= historicalArchivePageCount; page += 1) {
     if (isPaginationSitemapEligible(page)) entries.push(historicalEventsArchiveSitemapUrl(page));
   }
-  // Per-event detail pages, including the indexable historical archive.
+  // Per-event detail pages: upcoming and ongoing only, see closeBundle().
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp, e.imageUrl));
   // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
   // hub <loc> twice within this one file — dedupe keep-first at assembly.
@@ -5626,9 +5626,9 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // this permanent archive pass the URL would 404 on a later rebuild.
       // These pages use their own slug namespace and comune grouping, kept
       // separate from `detailSlugs`/`cantonStats`; their routes are added to the
-      // sitemap and historical archive index below, while their stale Event
-      // JSON-LD remains omitted. The archive index supplies the inbound links
-      // that the live listings cannot provide after these events expire.
+      // historical archive index below, while their stale Event JSON-LD remains
+      // omitted. The archive index supplies the inbound links that the live
+      // listings cannot provide after these events expire.
       const historicalDetailEntries: HistoricalDetailEntry[] = [];
       for (const [canton, events] of pastEventsByCanton) {
         const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
@@ -5733,8 +5733,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
 
       // A demand-gated upcoming detail stays 200 and linked from its listing
       // and the archive, but a sitemap must only list URLs that also cleared
-      // the rendered-content floor. Past archive details are exempt from the
-      // demand gate, not from content quality.
+      // the rendered-content floor. An ended event is out by definition (GEO
+      // audit 2026-10-31: up to 6,067 of 8,120 dated URLs had already happened):
+      // a sitemap asks for a recrawl of pages worth refreshing, and those will
+      // never change again. They stay 200, so nothing 404s, and stay reachable
+      // from the archive, whose first page is still listed. `allEndedEvents`
+      // compares `endDate`, so a multi-day event stays in until its last day.
       const detailContentIndexable = (entry: { canton: string; comune: string; slug: string }): boolean => {
         const wordCount = detailMinWordCounts.get(detailKey(entry.canton, entry.comune, entry.slug));
         // A locale shard that did not render this URL cannot contribute a
@@ -5742,11 +5746,8 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         // cross-shard sitemap assembly until that shard's output is merged.
         return wordCount === undefined || wordCount >= MIN_INDEXABLE_WORDS;
       };
-      const detailEntries = [
-        ...[...detailSlugs.values()].filter((entry) => demandIndexable(entry, false) && detailContentIndexable(entry)),
-        ...historicalDetailEntries.filter((entry) => demandIndexable(entry, true) && detailContentIndexable(entry)),
-      ];
-      console.log(`[events-seo] detail pages indexable by demand/archive/content: ${detailEntries.length}/${detailSlugs.size + historicalDetailEntries.length}`);
+      const detailEntries = [...detailSlugs.values()].filter((entry) => demandIndexable(entry, false) && detailContentIndexable(entry));
+      console.log(`[events-seo] upcoming detail pages in sitemap: ${detailEntries.length}/${detailSlugs.size} (ended, archive only: ${historicalDetailEntries.length})`);
       const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries, historicalArchivePageCount);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');

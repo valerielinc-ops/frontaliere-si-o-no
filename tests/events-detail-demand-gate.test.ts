@@ -115,12 +115,14 @@ describe('event detail demand gate (P1 noindex plan)', () => {
       'ge-upcoming': false,
       'ge-past': true, // historical archive is exempt from the demand gate
     };
+    // An ended event stays indexable but never returns to the sitemap.
+    const ended = new Set(['ti-past', 'ge-past']);
     for (const [key, indexable] of Object.entries(expected)) {
       const detail = details.get(key);
       expect(detail, key).toBeDefined();
       if (indexable) {
         expect(robotsOf(detail!.html), key).not.toMatch(/noindex/);
-        expect(inSitemap(detail!.urlPath), key).toBe(true);
+        expect(inSitemap(detail!.urlPath), key).toBe(!ended.has(key));
       } else {
         expect(robotsOf(detail!.html), key).toBe('noindex,follow');
         expect(inSitemap(detail!.urlPath), key).toBe(false);
