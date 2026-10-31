@@ -1,3 +1,6 @@
+import { localAnswerEvidence, sameAnswerMaterial } from './assistedApplicationAnswerConfirmation.js';
+import { createAnswerSourceGuard } from './assistedApplicationAnswerSourceGuard.js';
+import { answerQuestionDescriptor as descriptor } from './lib/applicationQuestionContract.js';
 import { isPortableCandidateLanguageQuestion } from './lib/candidateLanguageQuestion.js';
 import { addressContextContract } from './lib/addressContextContract.js';
 /** Shared answers keep their question and attested source. Opaque legacy values are never promoted. */
@@ -23,28 +26,18 @@ const LANGUAGE_QUESTION = /^(?:what is your|what are your|how would you describe
 const MOBILITY_QUESTION = /^(?:can you|are you|do you|puoi|sei|hai|konnen sie|sind sie|haben sie|pouvez vous|etes vous|avez vous)\b/;
 const LEVEL = /^(?:[abc][12]|native|mother tongue|madrelingua|muttersprache|langue maternelle)$/;
 
-function descriptor(question) {
-  const q = object(question);
-  const ownership = addressContextContract(q);
-  if (ownership === null) return null;
-  const fields = ['id', 'question', 'applicationQuestion', 'context', 'section', 'autocomplete', 'source', 'minDate'];
-  if (fields.some(field => String(q[field] || '').length > 1000) || Array.isArray(q.options) && q.options.length > 100) return null;
-  if (!['text', 'number', 'date', 'yes_no', 'choice', 'checkbox', 'multi_choice'].includes(q.type)
-    || q.required != null && typeof q.required !== 'boolean') return null;
-  return { ...Object.fromEntries(fields.map(field => [field, String(q[field] || '').trim()])),
-    ...(ownership === undefined ? {} : { addressContext: ownership }),
-    required: Boolean(q.required), type: String(q.type || 'text'), options: Array.isArray(q.options) ? q.options : [], validation: object(q.validation) };
-}
+
 function semantics(question, answer) {
   const key = candidateQuestionAnswerKey(question);
   const label = norm(question.question);
-  const text = norm([question.question, question.applicationQuestion, question.context, question.section].join(' '));
-  if (addressContextContract(question)?.unknown) return null;
+  const native = question.originalNativeContract || {};
+  const text = norm([question.question, question.applicationQuestion, question.context, question.section, ...(question.ownConsentText || []), ...(question.ownConsentLinks || []), native.question, native.context, native.section, ...(native.ownConsentText || []), ...(native.ownConsentLinks || [])].join(' '));
+  if (addressContextContract(question)?.unknown || question.ownershipUnknown === true || question.metadataComplete === false) return null;
   if (!key || question.source === 'policy_default' || PRIVACY.test(text)) return null;
   const language = /^language_([a-z]{2})_(any|oral|written)_(proficiency|ability|threshold_[abc][12])$/.exec(key);
   if ((language || languageCodesIn(question.question).length === 1 && isLanguageAbilityQuestion(question.question)) && LANGUAGE_QUESTION.test(label)) {
     const levelAnswer = ['text', 'choice'].includes(question.type) && LEVEL.test(norm(answer));
-    const portable = language?.[2] === 'any' && language?.[3] === 'proficiency' && levelAnswer && isPortableCandidateLanguageQuestion(question);
+    const portable = language?.[2] === 'any' && language?.[3] === 'proficiency' && levelAnswer && !question.why && !Object.hasOwn(question, 'originalNativeContract') && isPortableCandidateLanguageQuestion(question);
     const unit = levelAnswer ? 'CEFR_or_stated_level' : ['yes_no', 'checkbox'].includes(question.type) ? 'boolean'
       : question.type === 'number' ? 'question_specific_number' : 'question_specific_text';
     return { category: 'language', unit, scope: portable ? 'candidate' : 'job' };
@@ -71,7 +64,7 @@ function provenance({ actor, order, orderId, round, nowMs }) {
 }
 
 /** One transaction applies the same accepted keys to raw values and their evidence/clear clocks. */
-export function planCandidateAnswerEvidence({ questions = [], changed = {}, previous = {}, latestWriteAt = 0, orderId, order = {}, flow = {}, draft = {}, actor, nowMs }) {
+export function planCandidateAnswerEvidence({ questions = [], changed = {}, previous = {}, latestWriteAt = 0, orderId, order = {}, flow = {}, draft = {}, actor, nowMs, limit = 80, confirmations = null }) {
   const records = { ...object(previous) };
   const accepted = new Set();
   const round = Number(flow.round || 1);
@@ -91,13 +84,15 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, prev
     if (Number(old?.provenance?.confirmedAt) > nowMs) continue;
     const raw = group[0]; const answer = changed[raw.id];
     if (old?.provenance?.confirmedAt === nowMs && (same(old.answer, answer) || old.cleared && !hasAnswer(answer))) continue;
-    const source = provenance({ actor, order, orderId, round, nowMs });
+    const receipt = confirmations?.[raw.id];
+    const source = { ...provenance({ actor, order, orderId, round, nowMs }),
+      ...(receipt ? { confirmationId: receipt.id, contractHash: receipt.contractHash, cvHash: receipt.provenance.cvHash } : {}) };
     const question = descriptor(raw); const policy = question && semantics(question, answer);
     const conflict = old?.provenance?.confirmedAt === nowMs
       || group.some(q => !same(changed[q.id], answer) || !same(descriptor(q), question));
     accepted.add(key);
     delete records[key];
-    if (conflict || !policy || !hasAnswer(answer) || !validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok || policy.scope === 'job' && !order.jobUrl) {
+    if (conflict || confirmations !== null && (!receipt || receipt.cleared) || !policy || !hasAnswer(answer) || !validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok || policy.scope === 'job' && !order.jobUrl) {
       // Keep only the ordering clock after a clear; never retain the removed Q/A.
       records[key] = { version: ANSWER_EVIDENCE_VERSION, key, cleared: true, provenance: source };
       continue;
@@ -105,7 +100,7 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, prev
     const record = { version: ANSWER_EVIDENCE_VERSION, key, question, answer, ...policy, provenance: source };
     records[key] = { id: `answer-${createHash('sha256').update(serialized(record)).digest('hex').slice(0, 24)}`, ...record };
   }
-  return { records: Object.fromEntries(Object.entries(records).slice(-80)), accepted };
+  return { records: limit == null ? records : Object.fromEntries(Object.entries(records).slice(-limit)), accepted };
 }
 export const rememberCandidateAnswerEvidence = input => planCandidateAnswerEvidence(input).records;
 
@@ -138,7 +133,11 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
   }));
   const verified = candidates.filter(record => {
     const source = sources.get(record.provenance.orderId); const current = source?.draft?.questions?.find(question => question.id === record.question.id);
-    return source?.order?.userId === userId && retained(source.order, nowMs) && !source.flow?.retentionPurgedAt
+    const receipt = localAnswerEvidence({ orderId: record.provenance.orderId, order: source?.order, flow: source?.flow, draft: source?.draft, nowMs })
+      .find(item => item.id === record.provenance.confirmationId);
+    return receipt && sameAnswerMaterial(receipt.question, record.question) && sameAnswerMaterial(receipt.answer, record.answer)
+      && receipt.contractHash === record.provenance.contractHash && receipt.provenance.cvHash === record.provenance.cvHash
+      && source?.order?.userId === userId && retained(source.order, nowMs) && !source.flow?.retentionPurgedAt
       && Number(source.flow?.round) === record.provenance.round && Number(source.draft?.round) === record.provenance.round
       && current && same(descriptor(current), record.question) && same(source.flow?.answers?.[record.question.id], record.answer)
       && (record.scope === 'candidate' || samePosting(record.provenance, { jobId: source.order.jobId, jobUrl: source.order.jobUrl }));
@@ -153,12 +152,21 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
 }
 
 /** Runner reads keep the raw CAS/lease snapshot untouched and project only the execution's answer context. */
-export async function loadRunnerAnswerContext({ db, order, flow, draft, nowMs = Date.now() }) {
-  const profileRecord = order.userId ? (await db.collection('user_cv_profiles').doc(order.userId).get()).data() || {} : {};
-  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs });
-  return { flow: { ...flow, questionAnswers: { ...contextFor(order, { purpose: 'form' }).answers,
-    ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: flow?.answers || {} }) } },
-  answerEvidence: contextFor(order).answerEvidence };
+export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft, intake = null, nowMs = Date.now() }) {
+  const profileRef = order.userId ? db.collection('user_cv_profiles').doc(order.userId) : null;
+  const profileRecord = profileRef ? (await profileRef.get()).data() || {} : {};
+  const sources = new Map();
+  const getDocument = async ref => { const snapshot = await ref.get(); sources.set(ref.path, { ref, data: snapshot.data() }); return snapshot; };
+  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs, getDocument });
+  const local = orderId ? localAnswerEvidence({ orderId, order, flow, draft, nowMs }) : [];
+  const verifiedLocalAnswers = Object.fromEntries(local.map(record => [record.question.id, record.answer]));
+  // Unattested current raw values remain on the DB snapshot for CAS. Only explicit No is retained as a conservative veto.
+  const refusals = Object.fromEntries(Object.entries(flow.answers || {}).filter(([, value]) => /^(?:no|nein|non|false)$/i.test(String(value).trim())));
+  const safeAnswers = { ...refusals, ...verifiedLocalAnswers };
+  return { flow: { ...flow, answers: safeAnswers, questionAnswers: { ...contextFor(order, { purpose: 'form' }).answers,
+    ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: verifiedLocalAnswers }) } },
+    answerEvidence: contextFor(order).answerEvidence, localAnswerEvidence: local,
+    answerSourceGuard: orderId ? createAnswerSourceGuard({ db, orderId, order, flow, draft, intake, profileRef, profileRecord, sources: [...sources.values()], nowMs }) : null };
 }
 
 /** A source purge removes only records/clocks still owned by that order, never newer confirmations. */

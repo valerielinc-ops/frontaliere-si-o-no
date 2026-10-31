@@ -1,0 +1,99 @@
+/** Server-owned confirmation of the exact question shown in one order/round. */
+import { createHash } from 'node:crypto';
+import { answerQuestionDescriptor, canonicalQuestionJson } from './lib/applicationQuestionContract.js';
+import { validateAnswer } from './lib/answerRules.js';
+import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
+
+export const ANSWER_CONFIRMATION_VERSION = 'native-answer-confirmation-v1';
+export const ANSWER_CONTRACT_REQUIRED_RC_KEY = 'ASSISTED_APPLICATION_ANSWER_CONTRACT_REQUIRED';
+/** Compatibility rollout only: source proof is mandatory regardless of this switch. Server template cache refreshes in five minutes. */
+export async function answerContractRequired(getValue) {
+  try { return String(await getValue(ANSWER_CONTRACT_REQUIRED_RC_KEY)).trim().toLowerCase() === 'true'; }
+  catch { return false; }
+}
+export const sameAnswerMaterial = (left, right) => canonicalQuestionJson(left ?? null) === canonicalQuestionJson(right ?? null);
+const hash = value => createHash('sha256').update(canonicalQuestionJson(value)).digest('hex');
+const object = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+const hasAnswer = value => typeof value === 'boolean' || typeof value === 'number' && Number.isFinite(value)
+  || typeof value === 'string' && Boolean(value.trim()) || Array.isArray(value) && value.length > 0;
+
+export class AnswerConfirmationError extends Error {
+  constructor(code) { super(code); this.code = code; this.status = 409; this.details = {
+    reviewRequired: true, answerConfirmation: { status: 'review_required', authority: false },
+  }; }
+}
+
+export function answerSourceRetained(order, nowMs) {
+  if (!order || order.retentionPurgedAt != null || !Number.isFinite(nowMs)) return false;
+  const due = retentionPurgeDueAt(order);
+  return talentPoolConsentActive(order) || Number.isFinite(due) && nowMs < due;
+}
+
+export function confirmedCvHash(order = {}, draft = {}) {
+  return draft.cvKey && draft.cvKey === order.cvStorageKey && /^[a-f0-9]{64}$/.test(draft.sourceCvHash || '') ? draft.sourceCvHash : '';
+}
+
+function contractOf({ orderId, order = {}, flow = {}, draft = {}, question }) {
+  const descriptor = answerQuestionDescriptor(question);
+  const native = descriptor?.originalNativeContract;
+  const round = Number(flow.round || 1);
+  if (!orderId || !descriptor || !descriptor.id || !Number.isInteger(round) || round < 1 || Number(draft.round) !== round
+    || descriptor.addressContext?.unknown || descriptor.ownershipUnknown || descriptor.metadataComplete === false
+    || descriptor.consentOwnershipUnknown || descriptor.ownConsentMetadataComplete === false
+    || native?.addressContext?.unknown || native?.consentOwnershipUnknown || native?.ownConsentMetadataComplete === false) return null;
+  return { version: ANSWER_CONFIRMATION_VERSION, orderId, userId: String(order.userId || ''), round,
+    jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || ''),
+    applyUrl: String(draft.channel?.applyUrl || draft.job?.applyUrl || ''), cvHash: confirmedCvHash(order, draft), question: descriptor };
+}
+
+/** GET exposes hashes only; clients return them verbatim and cannot attest native metadata. */
+export function answerContractsFor(input) {
+  const entries = (Array.isArray(input.draft?.questions) ? input.draft.questions : []).slice(0, 80);
+  const duplicate = new Set(entries.filter((q, i) => q?.id && entries.findIndex(other => other?.id === q.id) !== i).map(q => q.id));
+  return Object.fromEntries(entries.flatMap(question => {
+    const contract = contractOf({ ...input, question });
+    return contract && !duplicate.has(question.id) ? [[question.id, hash(contract)]] : [];
+  }));
+}
+
+/** Missing hashes are provisional; a supplied stale hash never confirms a changed question. */
+export function planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts = {}, actor, nowMs }) {
+  if (!['candidate', 'owner'].includes(actor) || !answerSourceRetained(order, nowMs)
+    || flow.retentionPurgedAt != null || Number(draft?.round) !== Number(flow.round || 1)) throw new AnswerConfirmationError('answer_contract_changed');
+  const contracts = answerContractsFor({ orderId, order, flow, draft });
+  const previous = object(flow.answerConfirmations);
+  const currentIds = new Set((draft.questions || []).map(question => question?.id));
+  const confirmations = Object.fromEntries(Object.entries(previous).filter(([id, record]) => currentIds.has(id) && record?.provenance?.round === Number(flow.round || 1)));
+  let reviewRequired = false;
+  for (const [id, answer] of Object.entries(answers)) {
+    const question = draft.questions.find(item => item?.id === id);
+    const supplied = object(answerContracts)[id];
+    if (!question || !contracts[id] || supplied != null && supplied !== contracts[id]) throw new AnswerConfirmationError('answer_contract_changed');
+    if (Number(previous[id]?.provenance?.confirmedAt) > nowMs) throw new AnswerConfirmationError('answer_contract_changed');
+    if (!supplied) reviewRequired = true;
+    const provenance = { actor, orderId, userId: String(order.userId || ''), round: Number(flow.round || 1), confirmedAt: nowMs,
+      cvHash: confirmedCvHash(order, draft), jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || '') };
+    const valid = Boolean(supplied) && hasAnswer(answer) && validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok;
+    const record = { version: ANSWER_CONFIRMATION_VERSION, contractHash: contracts[id], provenance,
+      ...(valid ? { question: answerQuestionDescriptor(question), answer } : { cleared: true }) };
+    confirmations[id] = { id: `confirmation-${hash(record)}`, ...record };
+  }
+  if (Object.keys(confirmations).length > 80) throw new AnswerConfirmationError('answer_contract_changed');
+  return { confirmations, reviewRequired };
+}
+
+/** Recheck the current pointer, raw value, native contract and source retention. */
+export function localAnswerEvidence({ orderId, order, flow, draft, nowMs = Date.now() }) {
+  if (!answerSourceRetained(order, nowMs) || flow?.retentionPurgedAt != null) return [];
+  const contracts = answerContractsFor({ orderId, order, flow, draft });
+  return Object.entries(object(flow?.answerConfirmations)).slice(0, 80).flatMap(([id, record]) => {
+    const source = record?.provenance;
+    if (!record || record.cleared || record.version !== ANSWER_CONFIRMATION_VERSION || !/^confirmation-[a-f0-9]{64}$/.test(record.id || '')
+      || source?.orderId !== orderId || source.userId !== String(order.userId || '') || source.round !== Number(flow.round || 1)
+      || !['candidate', 'owner'].includes(source.actor) || !Number.isFinite(source.confirmedAt) || source.confirmedAt <= 0 || source.confirmedAt > nowMs
+      || record.contractHash !== contracts[id] || !sameAnswerMaterial(record.answer, flow.answers?.[id])
+      || !sameAnswerMaterial(record.question, answerQuestionDescriptor(draft?.questions?.find(q => q?.id === id)))
+      || !validateAnswer(record.answer, record.question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok) return [];
+    return [{ ...record, category: 'local_answer', scope: 'job', unit: ['yes_no', 'checkbox'].includes(record.question.type) ? 'boolean' : 'question_specific_value' }];
+  });
+}

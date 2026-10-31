@@ -1,3 +1,4 @@
+import { answerContractsFor, planAnswerConfirmations } from '../functions/src/assistedApplicationAnswerConfirmation.js';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
@@ -63,11 +64,13 @@ function attestedSource(userId: string, answer = 'C1', at = Date.now()) {
   const order = paidOrder({ userId, cvUploadedAt: at, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
   const sourceFlow = { round: 1, answers: { source_english: answer } };
   const sourceDraft = { round: 1, questions: [question] };
-  const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: sourceFlow.answers,
+  const confirmations = planAnswerConfirmations({ orderId: 'answer-source', order, flow: sourceFlow, draft: sourceDraft, answers: sourceFlow.answers,
+    answerContracts: answerContractsFor({ orderId: 'answer-source', order, flow: sourceFlow, draft: sourceDraft }), actor: 'candidate', nowMs: at }).confirmations;
+  const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: sourceFlow.answers, confirmations,
     orderId: 'answer-source', order, flow: sourceFlow, draft: sourceDraft, actor: 'candidate', nowMs: at });
   return {
     'assisted_applications/answer-source': order,
-    'assisted_applications/answer-source/automation/flow': sourceFlow,
+    'assisted_applications/answer-source/automation/flow': { ...sourceFlow, answerConfirmations: confirmations },
     'assisted_applications/answer-source/ai_drafts/current': sourceDraft,
     [`user_cv_profiles/${userId}`]: { applicationQuestionAnswers: { [candidateQuestionAnswerKey(question)]: answer }, applicationQuestionAnswerEvidence: evidence },
   };

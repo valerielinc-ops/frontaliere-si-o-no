@@ -9,17 +9,20 @@
  */
 
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
-import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { answerContractsFor, planAnswerConfirmations, localAnswerEvidence, sameAnswerMaterial, AnswerConfirmationError } from './assistedApplicationAnswerConfirmation.js';
+import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { planCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
 import { rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvChanges } from './assistedApplicationTailoredCvPdf.js';
 
 /** A refused commit or rebuild, answered with its status and code (409 changed_meanwhile, 503 storage_unavailable). */
 export class CvCommitError extends Error {
-  constructor(code, status) {
+  constructor(code, status, details = null) {
     super(code);
     this.code = code;
     this.status = status;
+    this.details = details;
   }
 }
 
@@ -110,63 +113,98 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * renderer or a Storage that fails saves nothing; no bucket, no answers.
  * @returns {Promise<{rebuilt:boolean}>}
  */
-export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs, answerActor = null }) {
+export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs, answerActor = null, answerContracts = {}, requireAnswerContracts = false }) {
+  let confirmation;
+  try {
+    confirmation = planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts, actor: answerActor, nowMs });
+  } catch (error) {
+    if (error instanceof AnswerConfirmationError) throw new CvCommitError(error.code, error.status, error.details);
+    throw error;
+  }
+  if (confirmation.reviewRequired && requireAnswerContracts) throw new CvCommitError('answer_contract_required', 409,
+    { reviewRequired: true, answerConfirmation: { status: 'review_required', authority: false } });
   const mergedAnswers = { ...(flow.answers || {}), ...answers };
-  const questionAnswers = rememberCandidateQuestionAnswers({
-    questions: draft?.questions || [],
-    answers: mergedAnswers,
-    previous: flow.questionAnswers || {},
-    changed: answers,
-  });
-  const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers };
+  const questionAnswers = rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: mergedAnswers,
+    previous: flow.questionAnswers || {}, changed: answers });
+  const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers, answerConfirmations: confirmation.confirmations };
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  const flowRef = flowRefFor(db, orderId);
+  const draftRef = draftRefFor(db, orderId);
   const persistCandidateQuestionAnswers = async () => {
     const userId = String(order?.userId || '').trim();
-    if (!userId || !Object.keys(questionAnswers).length || Number(draft?.round) !== Number(flow.round || 1)) return;
-    const changedKeys = new Set((draft?.questions || []).filter(question => Object.hasOwn(answers, question.id)).map(candidateQuestionAnswerKey));
+    if (!userId || confirmation.reviewRequired) return;
     const profileRef = db.collection('user_cv_profiles').doc(userId);
     try {
-      await db.runTransaction(async (transaction) => {
-        const snapshot = await transaction.get(profileRef);
-        // This writer only augments an existing private projection; account deletion must not recreate it.
-        if (!snapshot.exists) return;
+      await db.runTransaction(async transaction => {
+        const [snapshot, sourceOrder, sourceFlow, sourceDraft] = await Promise.all([
+          transaction.get(profileRef), transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
+        ]);
+        if (!snapshot.exists || !sourceOrder.exists || !sourceFlow.exists || !sourceDraft.exists) return;
+        const local = localAnswerEvidence({ orderId, order: sourceOrder.data(), flow: sourceFlow.data(), draft: sourceDraft.data(), nowMs });
+        const confirmed = Object.fromEntries(local.map(record => [record.question.id, record]));
+        // A late mirror cannot resurrect a receipt that a later save cleared/replaced.
+        const changed = Object.fromEntries(Object.entries(answers).filter(([id]) =>
+          sameAnswerMaterial(sourceFlow.data().answerConfirmations?.[id], confirmation.confirmations[id])));
+        if (!Object.keys(changed).length) return;
         const current = snapshot.data()?.applicationQuestionAnswers;
-        const update = planCandidateAnswerEvidence({ questions: draft?.questions || [], changed: answers,
-          previous: snapshot.data()?.applicationQuestionAnswerEvidence, latestWriteAt: Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0,
-          orderId, order, flow, draft: draft || {}, actor: answerActor, nowMs });
+        const update = planCandidateAnswerEvidence({ questions: sourceDraft.data().questions || [], changed,
+          confirmations: { ...Object.fromEntries(Object.entries(sourceFlow.data().answerConfirmations || {}).filter(([, receipt]) => receipt?.cleared)), ...confirmed }, previous: snapshot.data()?.applicationQuestionAnswerEvidence,
+          latestWriteAt: Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0,
+          orderId, order: sourceOrder.data(), flow: sourceFlow.data(), draft: sourceDraft.data(), actor: answerActor, nowMs, limit: null });
         if (!update.accepted.size) return;
         const merged = { ...(current && typeof current === 'object' && !Array.isArray(current) ? current : {}) };
-        for (const [key, value] of Object.entries(questionAnswers)) {
-          if (!changedKeys.has(key) || !update.accepted.has(key)) continue;
-          delete merged[key];
-          merged[key] = update.records[key]?.cleared ? '' : value;
+        // One selection owns both maps, including eviction and metadata-only clear clocks.
+        for (const key of update.accepted) {
+          const record = update.records[key];
+          if (!record) continue;
+          delete merged[key]; merged[key] = record.cleared ? '' : record.answer;
         }
-        transaction.set(profileRef, {
-          applicationQuestionAnswers: Object.fromEntries(Object.entries(merged).slice(-80)),
-          applicationQuestionAnswerEvidence: update.records,
+        const selected = Object.fromEntries(Object.entries(merged).slice(-80));
+        const evidence = Object.fromEntries(Object.entries(update.records).filter(([key, record]) => record && Object.hasOwn(selected, key)
+          && sameAnswerMaterial(selected[key], record.cleared ? '' : record.answer)));
+        transaction.set(profileRef, { applicationQuestionAnswers: selected, applicationQuestionAnswerEvidence: evidence,
           applicationQuestionAnswersUpdatedAt: Math.max(Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0, nowMs),
         }, { mergeFields: ['applicationQuestionAnswers', 'applicationQuestionAnswerEvidence', 'applicationQuestionAnswersUpdatedAt'] });
       });
     } catch (error) {
-      // The order-local answer is already authoritative. A profile-ledger
-      // failure must not make the candidate lose a saved answer or block the
-      // current application; the next save can repair the ledger.
+      // The local confirmed receipt remains valid; a failed optional account mirror grants no extra authority.
       console.warn('[assistedApplicationCvCommit] candidate answer ledger failed', orderId, error instanceof Error ? error.message : String(error));
     }
   };
   const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && !['submitted', 'failed'].includes(flow.state);
-  if (!live || !tailoredCvChanges({ order, draft, flow, nextFlow })) {
-    await flowRefFor(db, orderId).set({ answers, questionAnswers, updatedAt: nowMs }, { merge: true });
-    await persistCandidateQuestionAnswers();
-    return { rebuilt: false };
+  const needsRebuild = !confirmation.reviewRequired && live && tailoredCvChanges({ order, draft, flow, nextFlow });
+  if (needsRebuild && !bucket) throw new CvCommitError('storage_unavailable', 503);
+  const rebuilt = needsRebuild ? await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs }) : null;
+  let committed;
+  try {
+    committed = await db.runTransaction(async transaction => {
+      const [os, fs, ds] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef)]);
+      if (!os.exists || !fs.exists || !ds.exists) return false;
+      const currentFlow = fs.data(); const currentDraft = ds.data();
+      const unchanged = sameAnswerMaterial(answerContractsFor({ orderId, order, flow, draft }),
+        answerContractsFor({ orderId, order: os.data(), flow: currentFlow, draft: currentDraft }))
+        && ['state', 'round', 'answers', 'questionAnswers', 'answerConfirmations', 'photo', 'formOverrides'].every(field => sameAnswerMaterial(flow[field], currentFlow[field]))
+        && ['tailoredCv', 'candidateEditedAt', 'coverLetterPdfKey'].every(field => sameAnswerMaterial(draft[field], currentDraft[field]));
+      if (!unchanged) return false;
+      // Revalidate source retention and all supplied contracts inside the write transaction.
+      planAnswerConfirmations({ orderId, order: os.data(), flow: currentFlow, draft: currentDraft, answers, answerContracts, actor: answerActor, nowMs });
+      transaction.set(flowRef, { answers: mergedAnswers, questionAnswers, answerConfirmations: confirmation.confirmations,
+        answerReviewRequired: confirmation.reviewRequired, updatedAt: nowMs },
+      { mergeFields: ['answers', 'questionAnswers', 'answerConfirmations', 'answerReviewRequired', 'updatedAt'] });
+      if (rebuilt) transaction.set(draftRef, { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } }, { merge: true });
+      return true;
+    });
+  } catch (error) {
+    // A transaction may have committed before a transport failure; never delete its possibly referenced PDF.
+    if (error instanceof AnswerConfirmationError) throw new CvCommitError(error.code, error.status, error.details);
+    throw error;
   }
-  if (!bucket) throw new CvCommitError('storage_unavailable', 503);
-  const rebuilt = await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
-  await commitRebuild({
-    db, bucket, orderId, flow, draft, state: flow.state, nowMs, created: [rebuilt.pdfKey],
-    flowPatch: { answers, questionAnswers },
-    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
-  });
-  await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
+  if (!committed) {
+    if (rebuilt) await deleteStored(bucket, orderId, [rebuilt.pdfKey]);
+    throw new CvCommitError('answer_contract_changed', 409, { reviewRequired: true, answerConfirmation: { status: 'review_required', authority: false } });
+  }
+  if (rebuilt) await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
   await persistCandidateQuestionAnswers();
-  return { rebuilt: true };
+  return { rebuilt: Boolean(rebuilt), reviewRequired: confirmation.reviewRequired, rawSaved: true,
+    answerConfirmation: { status: confirmation.reviewRequired ? 'review_required' : 'confirmed', authority: !confirmation.reviewRequired } };
 }

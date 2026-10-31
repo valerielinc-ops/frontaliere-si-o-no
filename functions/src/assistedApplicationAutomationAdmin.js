@@ -1,3 +1,4 @@
+import { answerContractsFor, localAnswerEvidence } from './assistedApplicationAnswerConfirmation.js';
 /**
  * Owner-queue side of the automated assisted application: what Valerie sees
  * (state, clocks, why the flow is held, the full draft with the operator
@@ -62,10 +63,11 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
 const OWNER_FLAGS = new Set(['fact_check', 'no_posting', 'channel_unknown', 'legitimacy']);
 
 export class AutomationAdminError extends Error {
-  constructor(code, status = 400) {
+  constructor(code, status = 400, details = null) {
     super(code);
     this.code = code;
     this.status = status;
+    this.details = details;
   }
 }
 
@@ -157,6 +159,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const [letterUrl, tailoredCvUrl, inPlaceUrl, sent] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey), sentView(draft?.sent, signed)]);
   const candidateState = draft ? candidateWithEdits({ order: orderSnapshot.data() || {}, draft, flow }) : { profile: {}, answers: {} };
   return {
+    answerContracts: answerContractsFor({ orderId, order: orderSnapshot.data() || {}, flow: flow || {}, draft: draft || {} }),
     inbox,
     candidateAlias: orderSnapshot.data()?.candidateAlias?.address || null,
     accounts,
@@ -190,7 +193,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       checksIt: draft.checksIt || [],
       requirements: draft.requirements || [],
       matches: draft.matches || [],
-      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers),
+      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers).map(question => ({ ...question,
+        ...(!answerContractsFor({ orderId, order: orderSnapshot.data() || {}, flow: flow || {}, draft })[question.id] ? { contractUnavailable: true } : {}) })),
       coverLetter: draft.coverLetter || null,
       applicationEmail: draft.applicationEmail || null,
       formAnswers: formAnswersWithEdits({ order: orderSnapshot.data() || {}, draft, flow }),
@@ -389,21 +393,25 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
         orderRefFor(db, orderId).get(), flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(),
       ]);
       if (!flowSnapshot.exists) throw new AutomationAdminError('no_flow', 404);
+      const allowedIds = new Set((draftSnapshot.data()?.questions || []).map(question => question?.id).filter(id => typeof id === 'string' && id.length <= 1000));
       const answers = {};
       for (const [id, value] of Object.entries(raw.answers && typeof raw.answers === 'object' ? raw.answers : {})) {
-        if (/^[a-z0-9_]{1,60}$/.test(id)) answers[id] = clean(value, 500);
+        if (allowedIds.has(id)) answers[id] = clean(value, 500);
       }
       // An answer the tailored CV prints (the permit status, the availability): rebuilt and committed with the
       // answers, before the event can dispatch the submission (decision 7), as the candidate's answers are.
+      let saved;
       try {
-        await saveAnswersWithCv({
+        saved = await saveAnswersWithCv({
           db, bucket: deps.bucket, orderId, order: orderSnapshot.data() || {}, flow: flowSnapshot.data() || {},
           draft: draftSnapshot.exists ? draftSnapshot.data() || null : null, answers, nowMs, answerActor: 'owner',
+          answerContracts: raw.answerContracts, requireAnswerContracts: deps.requireAnswerContracts === true,
         });
       } catch (error) {
-        if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status);
+        if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status, error.details);
         throw error;
       }
+      if (saved.reviewRequired) return { ok: true, ...saved };
       const result = await applyAutomationEvent({ db, orderId, event: { type: 'candidate_answers' }, actor, runEffect: deps.runEffect, nowMs });
       return { ok: true, state: result.flow?.state || flowSnapshot.data()?.state };
     }
@@ -548,6 +556,7 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     order,
     draft,
     flow,
+    localAnswerEvidence: localAnswerEvidence({ orderId, order, flow, draft, nowMs }),
     documents: { cv: cvUrl ? { url: cvUrl, extension: cv.extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
 }

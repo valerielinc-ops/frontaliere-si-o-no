@@ -1,3 +1,5 @@
+import { consentOwnershipContract } from './lib/consentOwnershipContract.js';
+import { canonicalQuestionJson } from './lib/applicationQuestionContract.js';
 import { LANGUAGE_LEVEL_RE, LANGUAGE_MODALITY_RE, LANGUAGE_ORAL_RE, isGeneralCandidateLanguageQuestion, normalizeCandidateQuestionValue as normalizeQuestionValue } from './lib/candidateLanguageQuestion.js';
 import { addressContextContract } from './lib/addressContextContract.js';
 import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
@@ -119,11 +121,16 @@ export function candidateQuestionAnswerKey(question) {
   const autocomplete = normalizeQuestionValue(question?.autocomplete);
   const originalQuestion = normalizeQuestionValue(question?.applicationQuestion);
   const originalContext = originalQuestion && originalQuestion !== normalizeQuestionValue(text) ? originalQuestion : '';
+  const consent = consentOwnershipContract(question);
+  if (consent === null || consent?.consentOwnershipUnknown || consent?.ownConsentMetadataComplete === false || question?.ownershipUnknown === true || question?.metadataComplete === false) return '';
+  const extra = { ...(question?.why ? { why: String(question.why) } : {}), ...(consent || {}),
+    ...(Object.hasOwn(question, 'originalNativeContract') ? { originalNativeContract: question.originalNativeContract } : {}) };
+  let extraContext; try { extraContext = Object.keys(extra).length ? canonicalQuestionJson(extra) : ''; } catch { return ''; }
   const ownership = addressContextContract(question);
   if (ownership === null || ownership?.unknown) return '';
   const ownershipKey = ownership === undefined ? '' : JSON.stringify(ownership);
   const languageCodes = languageCodesIn(text);
-  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
+  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && !extraContext && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
     const normalized = normalizeQuestionValue(text);
     const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
     const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
@@ -135,10 +142,11 @@ export function candidateQuestionAnswerKey(question) {
   }
   const normalized = normalizeQuestionValue(text);
   if (!normalized) return '';
-  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
+  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && !extraContext && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
   const metadataContext = section || autocomplete ? `${context}\u0000${section}\u0000${autocomplete}` : context;
   const originalQuestionContext = originalContext ? `${metadataContext}\u0000${originalContext}` : metadataContext;
-  const scopedContext = ownershipKey ? `${originalQuestionContext}\u0000${ownershipKey}` : originalQuestionContext;
+  const ownedContext = ownershipKey ? `${originalQuestionContext}\u0000${ownershipKey}` : originalQuestionContext;
+  const scopedContext = extraContext ? `${ownedContext}\u0000${extraContext}` : ownedContext;
   const type = normalizeQuestionValue(question?.type) || 'unknown';
   const options = [...new Set(optionValues(question))].sort().join('|');
   return `question_${questionHash(`${type}\u0000${scopedContext}\u0000${normalized}\u0000${options}`)}`;

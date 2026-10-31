@@ -1,3 +1,4 @@
+import { answerContractsFor } from '../functions/src/assistedApplicationAnswerConfirmation.js';
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
@@ -23,8 +24,10 @@ function fixture() {
     'assisted_applications/source/ai_drafts/current': draft,
     'user_cv_profiles/candidate': { status: 'ready', profile: { languages: [{ language: 'English', level: 'B2' }] } },
   });
-  const save = (answers: any, extra = {}) => saveAnswersWithCv({ db: store.db, bucket: null, orderId: 'source', order,
-    flow: store.read('assisted_applications/source/automation/flow'), draft, answers, nowMs: now, answerActor: 'candidate', ...extra });
+  const save = (answers: any, extra: any = {}) => {
+    const input = { db: store.db, bucket: null, orderId: 'source', order, flow: store.read('assisted_applications/source/automation/flow'), draft, answers, nowMs: now, answerActor: 'candidate', ...extra };
+    return saveAnswersWithCv({ ...input, answerContracts: answerContractsFor(input) });
+  };
   return { store, save };
 }
 
@@ -56,6 +59,9 @@ describe('shared evidence producer uses the explicit answer writer', () => {
     const f = fixture();
     await f.save({ english: 'C1' });
     const salary = { id: 'salary', question: 'What is your requested salary in CHF per year?', type: 'number' };
+    f.store.docs.set('assisted_applications/second', order);
+    f.store.docs.set('assisted_applications/second/automation/flow', { state: 'candidate_review', round: 1, answers: {}, questionAnswers: { [key]: 'A1' } });
+    f.store.docs.set('assisted_applications/second/ai_drafts/current', { round: 1, questions: [salary] });
     await f.save({ salary: '80000' }, { orderId: 'second', draft: { round: 1, questions: [salary] },
       flow: { state: 'candidate_review', round: 1, answers: {}, questionAnswers: { [key]: 'A1' } } });
     expect(f.store.read('user_cv_profiles/candidate').applicationQuestionAnswers[key]).toBe('C1');
@@ -63,10 +69,10 @@ describe('shared evidence producer uses the explicit answer writer', () => {
   });
   it('does not attest an unknown writer or publish a stale round to the shared profile', async () => {
     const f = fixture();
-    await f.save({ english: 'C1' }, { answerActor: null });
+    await expect(f.save({ english: 'C1' }, { answerActor: null })).rejects.toMatchObject({ code: 'answer_contract_changed' });
     expect(f.store.read('user_cv_profiles/candidate').applicationQuestionAnswerEvidence).toBeUndefined();
     const before = structuredClone(f.store.read('user_cv_profiles/candidate'));
-    await f.save({ english: 'A1' }, { flow: { ...flow, round: 2 } });
+    await expect(f.save({ english: 'A1' }, { flow: { ...flow, round: 2 } })).rejects.toMatchObject({ code: 'answer_contract_changed' });
     expect(f.store.read('user_cv_profiles/candidate')).toEqual(before);
   });
 });
@@ -89,7 +95,7 @@ describe('shared confirmations are monotonic across orders', () => {
     const f = fixture();
     await f.save({ english: 'C1' }, { nowMs: now + 1 });
     await f.save({ english: '' }, { nowMs: now + 3 });
-    await f.save({ english: 'C1' }, { nowMs: now + 2 });
+    await expect(f.save({ english: 'C1' }, { nowMs: now + 2 })).rejects.toMatchObject({ code: 'answer_contract_changed' });
     const record = f.store.read('user_cv_profiles/candidate');
     expect(record.applicationQuestionAnswers[key]).toBe('');
     expect(record.applicationQuestionAnswerEvidence[key]).toMatchObject({ cleared: true, provenance: { confirmedAt: now + 3 } });

@@ -1,3 +1,6 @@
+import { answerContractsFor } from './assistedApplicationAnswerConfirmation.js';
+import { answerQuestionDescriptor } from './lib/applicationQuestionContract.js';
+import { CONSENT_OWNERSHIP_FIELDS } from './lib/consentOwnershipContract.js';
 /**
  * Candidate review page API of the automated assisted application.
  *
@@ -130,9 +133,12 @@ export function defaultStartDate(nowMs = Date.now()) {
 }
 
 function questionView(question, nowMs = Date.now()) {
+  const descriptor = answerQuestionDescriptor(question);
   return {
+    ...(descriptor ? Object.fromEntries(['applicationQuestion', 'context', 'section', 'autocomplete', ...CONSENT_OWNERSHIP_FIELDS].filter(field => Object.hasOwn(descriptor, field)).map(field => [field, descriptor[field]])) : { contractUnavailable: true }),
     id: question.id,
     question: question.question,
+    applicationQuestion: question.applicationQuestion || descriptor?.originalNativeContract?.question || '',
     why: question.why || '',
     type: question.type,
     options: question.options || [],
@@ -287,7 +293,7 @@ export function sendReviewResponse(res, { status, body, file }) {
   return res.status(status).json(body);
 }
 
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
+export function buildReviewPayload({ orderId, order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
@@ -342,7 +348,8 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     formAnswers: formAnswers.map((field) => fieldView(field, { draft, locale })),
     editLimits: TEXT_LIMITS,
     editedAt: draft?.candidateEditedAt || null,
-    questions,
+    questions: questions.map(question => ({ ...question, ...(!answerContractsFor({ orderId, order, flow, draft })[question.id] ? { contractUnavailable: true } : {}) })),
+    answerContracts: answerContractsFor({ orderId, order, flow, draft }),
     // The posting's decisive requirements the CV does not show, said above the questions (null: a full match).
     fit: ready ? fitNoticeOf(draft) : null,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
@@ -743,7 +750,7 @@ export async function handleAssistedApplicationReview(req, deps) {
           .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
           .filter((file) => file.url), kept.whatsapp),
       };
-      return { status: 200, body: { ...buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
+      return { status: 200, body: { ...buildReviewPayload({ orderId, order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
         employerResponse: employerResponseView(await loadEmployerResponse(orderRefFor(deps.db, orderId), order)),
       } };
     }
@@ -825,7 +832,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       }
       // A status or an availability the tailored CV prints: rebuilt and committed with the answers, before the
       // event can dispatch the submission (decision 7).
-      await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers, nowMs, answerActor: 'candidate' });
+      const saved = await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers, nowMs, answerActor: 'candidate', answerContracts: body.answerContracts, requireAnswerContracts: deps.requireAnswerContracts === true });
+      if (saved.reviewRequired) return { status: 200, body: { ok: true, ...saved } };
     }
     const event = {
       approve: { type: 'candidate_approve' },
@@ -842,7 +850,7 @@ export async function handleAssistedApplicationReview(req, deps) {
   } catch (error) {
     if (error instanceof ReviewError || error instanceof WithdrawalError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     // A guarded commit refused (another request saved first) or no Storage for the rebuild.
-    if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code } };
+    if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     throw error;
   }
 }

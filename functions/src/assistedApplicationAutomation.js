@@ -273,6 +273,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    if (flow.answerReviewRequired && ['candidate_approve', 'owner_approve', 'owner_retry_submit'].includes(event.type)) {
+      claim('ignored:answer_contract_required');
+      outcome = { ok: false, ignored: 'answer_contract_required' };
+      return;
+    }
     const sharedAnswersFor = await loadCandidateAnswerEvidence({ db, profileRecord: candidateProfileSnapshot?.data() || {},
       userId: orderSnapshot.data()?.userId, nowMs, getDocument: ref => transaction.get(ref) });
     // Answers explicitly saved on this order win over the candidate-wide

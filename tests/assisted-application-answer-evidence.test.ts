@@ -1,3 +1,4 @@
+import { answerContractsFor, planAnswerConfirmations } from '../functions/src/assistedApplicationAnswerConfirmation.js';
 import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { loadCandidateAnswerEvidence, loadRunnerAnswerContext, planCandidateAnswerEvidence, purgeCandidateAnswerEvidence, rememberCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
@@ -9,13 +10,17 @@ const order = { userId: 'candidate', jobId: 'source-job', jobUrl: 'https://examp
 const target = { id: 'other-job', url: 'https://example.test/jobs/other/' };
 function fixture(q = question, answer: any = 'C1', actor = 'candidate') {
   const key = candidateQuestionAnswerKey(q);
+  const sourceFlow = { round: 1, answers: { [q.id]: answer } };
+  const sourceDraft = { round: 1, questions: [q] };
+  const confirmations = planAnswerConfirmations({ orderId: 'source', order, flow: sourceFlow, draft: sourceDraft, answers: sourceFlow.answers,
+    answerContracts: answerContractsFor({ orderId: 'source', order, flow: sourceFlow, draft: sourceDraft }), actor, nowMs: now }).confirmations;
   const records = rememberCandidateAnswerEvidence({ questions: [q], changed: { [q.id]: answer }, orderId: 'source', order,
-    flow: { round: 1 }, draft: { round: 1 }, actor, nowMs: now });
+    flow: sourceFlow, draft: sourceDraft, actor, nowMs: now, confirmations });
   const profileRecord = { applicationQuestionAnswers: { [key]: answer }, applicationQuestionAnswerEvidence: records };
   const store = createMemoryFirestore({
     'assisted_applications/source': order,
-    'assisted_applications/source/automation/flow': { round: 1, answers: { [q.id]: answer } },
-    'assisted_applications/source/ai_drafts/current': { round: 1, questions: [q] },
+    'assisted_applications/source/automation/flow': { ...sourceFlow, answerConfirmations: confirmations },
+    'assisted_applications/source/ai_drafts/current': sourceDraft,
   });
   return { key, records, profileRecord, store, load: () => loadCandidateAnswerEvidence({ db: store.db, userId: 'candidate', profileRecord }) };
 }
@@ -183,9 +188,13 @@ describe('runner answer context preserves its raw lease/CAS snapshot', () => {
     f.store.docs.set('user_cv_profiles/candidate', f.profileRecord);
     const local = { id: 'notice', question: 'What is your notice period in months?', type: 'number' };
     const raw = { round: 1, state: 'submitting', answers: { notice: '2' }, questionAnswers: { question_legacy_consent: 'Yes' }, dispatch: { attempts: 2 } };
+    const localOrder = { userId: 'candidate', jobId: target.id, jobUrl: target.url, cvUploadedAt: now };
+    const localDraft = { round: 1, questions: [local] };
+    Object.assign(raw, { answerConfirmations: planAnswerConfirmations({ orderId: 'target', order: localOrder, flow: raw, draft: localDraft, answers: raw.answers,
+      answerContracts: answerContractsFor({ orderId: 'target', order: localOrder, flow: raw, draft: localDraft }), actor: 'candidate', nowMs: now }).confirmations });
     const before = structuredClone(raw);
-    const result = await loadRunnerAnswerContext({ db: f.store.db, order: { userId: 'candidate', jobId: target.id, jobUrl: target.url }, flow: raw,
-      draft: { round: 1, questions: [local] }, nowMs: now });
+    const result = await loadRunnerAnswerContext({ db: f.store.db, orderId: 'target', order: localOrder, flow: raw,
+      draft: localDraft, nowMs: now });
     expect(result.answerEvidence).toHaveLength(1);
     expect(result.answerEvidence[0].question.question).toBe(question.question);
     expect(result.flow.questionAnswers).toMatchObject({ [f.key]: 'C1', [candidateQuestionAnswerKey(local)]: '2' });
