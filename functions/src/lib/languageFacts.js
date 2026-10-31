@@ -67,13 +67,13 @@ const LANGUAGE_CONTEXT_LABEL_SUFFIXES = [
   'idiomas', 'idioma', 'linguagens', 'linguagem', 'lingue', 'lingua',
 ].map(fold).sort((a, b) => b.length - a.length);
 
-function includesName(text, name) {
+function includesName(text, name, compoundOnly = false) {
   const normalizedName = fold(name).replace(/\s+/g, ' ');
   const escaped = normalizedName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
   // German attaches a language name to an explicit proficiency noun. This
   // is the same named language, not an arbitrary prefix (e.g. Deutschland).
   const proficiencyCompound = '(?:kenntnis(?:se|sen)?|sprachkenntnis(?:se|sen)?|kompetenz(?:en)?|niveau)';
-  return new RegExp(`(?:^|[^\\p{L}])${escaped}(?:${proficiencyCompound})?(?![\\p{L}])`, 'u').test(text);
+  return new RegExp(`(?:^|[^\\p{L}])${escaped}(?:${proficiencyCompound})${compoundOnly ? '' : '?'}(?![\\p{L}])`, 'u').test(text);
 }
 
 /** Language codes named in a question or CV entry. */
@@ -147,7 +147,8 @@ export function isLanguageAbilityQuestion(value) {
   const text = fold(value);
   if (LANGUAGE_PREFERENCE_RE.test(text) || STRONG_LANGUAGE_INTENT_RE.test(text)) return false;
   if (MODAL_LANGUAGE_INTENT_RE.test(text) && !LANGUAGE_CAPABILITY_AUX_RE.test(text) && !LANGUAGE_LEVEL_DESCRIPTION_RE.test(text)) return false;
-  return LANGUAGE_ABILITY_QUESTION_RE.test(text)
+  const namedProficiency = Object.values(LANGUAGE_NAMES).some(names => names.some(name => includesName(text, name, true)));
+  return (LANGUAGE_ABILITY_QUESTION_RE.test(text) || namedProficiency)
     && (languageCodesIn(text).length > 0 || LANGUAGE_CONTEXT_RE.test(text));
 }
 

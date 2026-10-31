@@ -1,6 +1,8 @@
+import { createHash } from 'node:crypto';
+import { nativeQualificationContext } from '../functions/src/lib/nativeQualificationContext.js';
 import { describe, expect, it, vi } from 'vitest';
 import { nativeEvidenceCatalog } from './helpers/nativeEvidenceCatalog';
-import { nativeFormAssessmentHash, NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT, qualificationSources, originalCvLanguageProfile, verifyNativeFormAnswers } from '../functions/src/lib/qualificationEvidence.js';
+import { nativeFormAssessmentHash, NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT, qualificationSources, originalCvLanguageProfile, nativeLanguageEvidenceConflict, verifyNativeFormAnswers } from '../functions/src/lib/qualificationEvidence.js';
 
 function fixture() {
   const sources = qualificationSources({ sourceText: 'Senior IT Manager\nMaster’s Degree in Computer Science\nWorked as a software engineer for eight years' });
@@ -356,4 +358,36 @@ it('vetoes a retained German clear for a native compound proficiency caption bef
     claims: [{ fieldId: 'german', nativeFormContract: { question: 'Verfügen Sie über verhandlungssichere Deutschkenntnisse?' }, proposedAnswer: 'Nein' }] });
   expect(result).toMatchObject({ status: 'unverified', verification: { failure: 'answer_source_conflict' } });
   expect(generate).not.toHaveBeenCalled();
+});
+
+
+describe('actual CV bytes versus previously attested language answers', () => {
+  it.each(['portable', 'local', 'unknown_bytes'])('holds %s before selection when the original CV is no longer bound', async mode => {
+    const bytesA = Buffer.from('Original synthetic CV A');
+    const bytesB = Buffer.from('Replacement synthetic CV B');
+    const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
+    const oldHash = sha(bytesA);
+    const originalNativeContract = { question: 'Do you speak English at C1?', kind: 'text', controlType: 'text', options: [] };
+    const portable = { id: 'answer-language', version: 'confirmed-question-evidence-v1', key: 'language_en_any_proficiency',
+      question: { question: 'What is your current English proficiency level?', type: 'text' }, answer: 'C1', category: 'language',
+      scope: 'candidate', unit: 'CEFR_or_stated_level', provenance: { actor: 'candidate', round: 1, confirmedAt: Date.now(), cvHash: oldHash } };
+    const local = { id: 'local-language', version: 'native-answer-confirmation-v1', category: 'local_answer', scope: 'job', unit: 'boolean',
+      question: { originalNativeContract }, answer: true, provenance: { actor: 'candidate', orderId: 'fixture-order', round: 1, confirmedAt: Date.now(), cvHash: oldHash } };
+    const record = mode === 'local' ? local : portable;
+    const context = nativeQualificationContext({ orderId: 'fixture-order', order: { cvStorageKey: 'same-key.pdf' },
+      draft: { round: 1, cvKey: 'same-key.pdf', sourceCvHash: oldHash, factSources: { text: 'English A2' } },
+      cvBuffer: mode === 'unknown_bytes' ? undefined : bytesB,
+      answerEvidence: mode === 'local' ? [] : [portable], localAnswerEvidence: mode === 'local' ? [local] : [] });
+    const claim = { fieldId: 'language', nativeFormContract: mode === 'local' ? originalNativeContract
+      : { question: portable.question.question, kind: 'text', controlType: 'text', options: [] }, proposedAnswer: mode === 'local' ? true : 'C1' };
+    expect(context.scope.sourceCvHash).toBe(mode === 'unknown_bytes' ? null : sha(bytesB));
+    expect(context.scope.sourceUnbound).toBe(true);
+    expect(context.documentsCurrent).toBe(false);
+    expect(context.sources.evidenceCatalog().some(source => source.kind === 'cv_original')).toBe(false);
+    expect(nativeLanguageEvidenceConflict({ claim, record, scope: context.scope, sources: context.sources })).toBe(true);
+    const generate = vi.fn();
+    expect(await verifyNativeFormAnswers({ claims: [claim], sources: context.sources, scope: context.scope,
+      unverifiedContext: context.unverifiedContext, generate })).toMatchObject({ status: 'unverified', verification: { failure: 'language_revision_unverified' } });
+    expect(generate).not.toHaveBeenCalled();
+  });
 });

@@ -5,7 +5,7 @@ import { parseEndpoint } from './cvPeriod.js';
 import { sourceCitations } from './sourceCitations.js';
 import { projectAttestedLanguageFacts } from './attestedLanguageProjection.js';
 import { nativeAnswerSourceConflicts } from './answerSourceConflicts.js';
-import { languageCodesIn } from './languageFacts.js';
+import { languageCodesIn, isLanguageAbilityQuestion } from './languageFacts.js';
 import { isPortableCandidateLanguageQuestion } from './candidateLanguageQuestion.js';
 import { nativeCvDomainConstraint, sameNativeQuestion, typedNativeAnswerConstraint } from './nativeAnswerConstraints.js';
 
@@ -262,7 +262,7 @@ Evaluate the TRUTH OF THE PROPOSED VALUE, not whether the source mentions the qu
 Candidate-answer records: actual answer is authoritative; printed options are never the answer. A2 does not support proposed C1; an actual No does not support proposed Yes. Scope, target, unit and original question must match. Future wishes/training do not establish present ability. Do not infer consent, status or qualifications.
 CV sources: a generic management title does not establish a degree, provider/change processes or analytical ability. Dates establish tenure only with the clearly identified role/domain. Original positions identify the paragraph/ordinal of each source. A role and its dates must both be selected; unselected neighboring text will never reach the adjudicator. All AND conditions must be supported; one OR alternative may suffice.
 Attested declarations and unverifiedContext may contradict older CV text: do not select an unresolved contradicted assertion. Raw notes/corrections never become primary sources. Use empty sourceIds when meaning, scope or coverage cannot be established.`;
-export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-sourceconflict1-local-contract1-cv-revision1-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
+export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-sourceconflict1-local-contract1-cv-revision2-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
 
 function nativePrimarySources(sources) {
   const seenAnswers = new Set();
@@ -298,8 +298,17 @@ function dateOnlyUnit(quote) {
 }
 
 function nativeLanguageRevisionConflict(claim, record, scope, catalog, constraint) {
-  if (!scope.sourceCvHash || constraint === 'unrelated' || record?.category !== 'language' || record.scope !== 'candidate'
-    || !isPortableCandidateLanguageQuestion(record.question) || record.provenance?.cvHash === scope.sourceCvHash) return false;
+  if (constraint === 'unrelated') return false;
+  const portable = record?.category === 'language' && record.scope === 'candidate' && isPortableCandidateLanguageQuestion(record.question);
+  const original = record?.question?.originalNativeContract;
+  const exactJobLanguage = record?.scope === 'job' && original && sameNativeQuestion(claim, record)
+    && languageCodesIn(original.question).length > 0 && isLanguageAbilityQuestion(original.question);
+  if (!portable && !exactJobLanguage) return false;
+  if (!scope.sourceCvHash) return scope.sourceUnbound === true;
+  if (record.provenance?.cvHash === scope.sourceCvHash) return false;
+  // A local language answer is exact-contract evidence, not a portable CV
+  // revision override. A changed or unknown revision needs re-confirmation.
+  if (exactJobLanguage) return true;
   const raw = scope.cvLanguageProfile;
   const cv = catalog.filter(source => source.kind === 'cv_original');
   if (raw?.version !== 'cv-language-profile-v1' || raw.purpose !== 'conflict_only' || raw.cvHash !== scope.sourceCvHash
@@ -308,6 +317,11 @@ function nativeLanguageRevisionConflict(claim, record, scope, catalog, constrain
   const projected = projectAttestedLanguageFacts({ profile: raw.profile, answerEvidence: [record], currentCvHash: scope.sourceCvHash });
   const targets = languageCodesIn(`${claim.nativeFormContract.question} ${claim.nativeFormContract.context || ''}`);
   return projected.conflicts.some(conflict => targets.includes(conflict.languageCode));
+}
+
+/** The same revision veto is also used before a deterministic Q/A fast path. */
+export function nativeLanguageEvidenceConflict({ claim, record, scope = {}, sources }) {
+  return nativeLanguageRevisionConflict(claim, record, scope, nativePrimarySources(sources), typedNativeAnswerConstraint(claim, record));
 }
 
 /** One source-selecting, blind assessment for all native claims on a page. */
