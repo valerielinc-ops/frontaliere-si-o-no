@@ -73,7 +73,9 @@ const startsApplication = (text) => {
     let owner;
     try { owner = JSON.parse(field.ownConsentOwnerKey); } catch { return null; }
     if (owner?.v !== 1 || !Array.isArray(owner.scopes)) return null;
-    const text = plain(own), veto = `${own} ${field.name || ''} ${field.autocomplete || ''}`;
+    const text = plain(own);
+    const nativeNames = `${field.name || ''} ${field.autocomplete || ''}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[_:-]+/g, ' ');
+    const veto = `${own} ${nativeNames}`;
     const normalizedVeto = plain(veto);
     if (NEGATED.test(normalizedVeto) || OTHER_TERMS.test(normalizedVeto)
       || FACTS.test(veto) || FACTS.test(normalizedVeto) || ACCURACY.test(normalizedVeto)
@@ -87,11 +89,12 @@ const startsApplication = (text) => {
       if (url.protocol !== 'https:' && !(url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname))) return null;
       try { purposes.push(plain(decodeURIComponent(`${url.pathname} ${url.search} ${url.hash}`)).replace(/[-_/?=&.]+/g, ' ')); } catch { return null; }
     }
-    return { text, purposes, positive: positiveLanguage(text), optionalPositive: positiveLanguage(text, true) };
+    return { text, veto: normalizedVeto, purposes, nativePurposeConflict: OPTIONAL.test(plain(nativeNames)) && !OPTIONAL.test(text),
+      positive: positiveLanguage(text), optionalPositive: positiveLanguage(text, true) };
   };
   const isConsentOnly = field => {
     const value = context(field);
-    return Boolean(value && value.optionalPositive && (PRIVACY.test(value.text) || APPLICATION_TERMS.test(value.text) || OPTIONAL.test(value.text))
+    return Boolean(value && !value.nativePurposeConflict && value.optionalPositive && (PRIVACY.test(value.text) || APPLICATION_TERMS.test(value.text) || OPTIONAL.test(value.text))
       && value.purposes.every(purpose => positivePurpose(purpose, true) && !OTHER_TERMS.test(purpose) && !FACTS.test(purpose) && (PRIVACY.test(purpose) || APPLICATION_TERMS.test(purpose) || OPTIONAL.test(purpose))));
   };
   const isConsentRefusal = value => value === false || value === 0
@@ -100,7 +103,7 @@ const startsApplication = (text) => {
     const value = context(field);
     if (!value || !value.positive || (!PRIVACY.test(value.text) && !APPLICATION_TERMS.test(value.text))) return false;
     if (!field.required && !ACCEPTANCE.test(value.text)) return false;
-    if (OPTIONAL.test(value.text) || value.purposes.some(purpose => !positivePurpose(purpose) || OPTIONAL.test(purpose) || OTHER_TERMS.test(purpose) || FACTS.test(purpose) || !PRIVACY.test(purpose) && !APPLICATION_TERMS.test(purpose))) return false;
+    if (OPTIONAL.test(value.veto) || value.purposes.some(purpose => !positivePurpose(purpose) || OPTIONAL.test(purpose) || OTHER_TERMS.test(purpose) || FACTS.test(purpose) || !PRIVACY.test(purpose) && !APPLICATION_TERMS.test(purpose))) return false;
     if (GENERIC_TERMS.test(`${value.text} ${value.purposes.join(' ')}`) && !APPLICATION_TERMS.test(value.text)) return false;
     return true;
   };
