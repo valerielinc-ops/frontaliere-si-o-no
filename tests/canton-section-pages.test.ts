@@ -423,7 +423,7 @@ describe.each(SECTIONS)('%s thematic hubs', (section) => {
         expect(ld[2].creator).toEqual(ORGANIZATION_LD);
         expect(ld[2].license).toBe('https://creativecommons.org/licenses/by/4.0/');
         expect(ld[0].itemListElement.map((i: any) => i.item)).toEqual([
-          `${BASE}/`, `${BASE}${landingPath(section, locale)}`, `${BASE}${paths[locale]}`,
+          `${BASE}${locale === 'it' ? '/' : `/${locale}/`}`, `${BASE}${landingPath(section, locale)}`, `${BASE}${paths[locale]}`,
         ]);
         expect(ld[0].itemListElement[1].name).toBe(cantonSectionLabel(section, locale));
         // The other 5 hubs are linked, the current one is not linked from its own nav.
