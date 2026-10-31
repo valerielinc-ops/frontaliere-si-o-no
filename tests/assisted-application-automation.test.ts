@@ -411,6 +411,20 @@ describe('closed ad refund', () => {
 });
 
 describe('owner queue', () => {
+  beforeEach(() => { store.read(ORDER_PATH).cvUploadedAt = T0; });
+  it.each(['expired', 'purging'])('does not publish an owner letter when retention becomes %s during upload', async reason => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    store.docs.set(`${ORDER_PATH}/ai_drafts/current`, { ...readyDraft(), language: 'it', profile: {}, coverLetter: { text: 'Original letter' } });
+    const removed: string[] = [];
+    const bucket = { file: (key: string) => ({ save: async () => {
+      if (reason === 'expired') store.read(ORDER_PATH).cvUploadedAt = T0 - 90 * 86400000 - 1;
+      else store.read(ORDER_PATH).retentionPurgingAt = T0;
+    }, delete: async () => { removed.push(key); } }) };
+    await expect(handleAutomationAdminAction(store.db, { action: 'automationEditDraft', orderId: ORDER, coverLetterText: 'Gentili signore e signori,\n\nMi candido per il ruolo.\n\nCordiali saluti' }, 'owner@example.com', { bucket, runEffect, nowMs: T0 }))
+      .rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`).coverLetterPdfKey).toBeUndefined();
+    expect(removed).toHaveLength(1);
+  });
   // The owner's edit is written only on the draft it was built from, as the candidate's own writes are.
   it('refuses an owner edit when the candidate changed the draft meanwhile, and writes it otherwise', async () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');

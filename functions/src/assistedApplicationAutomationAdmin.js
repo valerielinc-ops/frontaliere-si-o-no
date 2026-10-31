@@ -1,5 +1,5 @@
 import { answerQuestionDescriptor } from './lib/applicationQuestionContract.js';
-import { answerContractsFor, localAnswerEvidence, currentAnswerReviewRequired } from './assistedApplicationAnswerConfirmation.js';
+import { answerContractsFor, localAnswerEvidence, currentAnswerReviewRequired, answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
 /**
  * Owner-queue side of the automated assisted application: what Valerie sees
  * (state, clocks, why the flow is held, the full draft with the operator
@@ -244,6 +244,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
 }
 
 async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
+  const startedAt = Date.now();
+  const freshNow = () => nowMs + Math.max(0, Date.now() - startedAt);
   const orderRef = orderRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
   const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([orderRef.get(), draftRef.get(), flowRefFor(db, orderId).get()]);
@@ -252,6 +254,7 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   // Sent: the letter that left is the candidate's to keep, a later edit would only change their Word copy (P8).
   if (flowSnapshot.data()?.state === 'submitted') throw new AutomationAdminError('draft_submitted', 409);
   const order = orderSnapshot.data() || {};
+  if (!orderSnapshot.exists || !answerSourceRetained(order, freshNow())) throw new AutomationAdminError('changed_meanwhile', 409);
   const letterRaw = cleanBlock(raw.coverLetterText, 8000);
   const emailSubject = clean(raw.emailSubject, 300);
   const emailBody = cleanBlock(raw.emailBody, 8000);
@@ -294,8 +297,8 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
     && (current.candidateEditedAt || null) === (draft.candidateEditedAt || null)
     && (current.editedAt || null) === (draft.editedAt || null);
   const committed = await db.runTransaction(async (transaction) => {
-    const current = await transaction.get(draftRef);
-    if (!current.exists || !unchanged(current.data())) return false;
+    const [current, currentOrder] = await Promise.all([transaction.get(draftRef), transaction.get(orderRef)]);
+    if (!current.exists || !unchanged(current.data()) || !currentOrder.exists || !answerSourceRetained(currentOrder.data(), freshNow())) return false;
     transaction.set(draftRef, {
       coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },
       applicationEmail,
