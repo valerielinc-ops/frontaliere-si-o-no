@@ -91,7 +91,7 @@ const IT: FrontalierePillarCopy = {
     {
       heading: 'Tasse del frontaliere: vecchi e nuovi, imposta alla fonte',
       paragraphsHtml: [
-        'Dal 2024 convivono due regimi: i <strong>«vecchi» frontalieri</strong> (assunti prima del 17 luglio 2023) restano tassati solo in Svizzera, mentre i <strong>«nuovi»</strong> pagano l\'imposta alla fonte svizzera ridotta e dichiarano anche in Italia con credito d\'imposta. La <a href="/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/">simulazione per nuovi frontalieri</a> stima l\'impatto reale; le <a href="/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/">aliquote alla fonte Ticino 2026</a> e la guida alla <a href="/tasse-e-pensione/dichiarazione-redditi/">dichiarazione dei redditi</a> completano il quadro.',
+        'Dal 2024 convivono due regimi: i <strong>«vecchi» frontalieri</strong> dell\'articolo 9 (attività frontaliera in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023) restano tassati esclusivamente in Svizzera, mentre i <strong>«nuovi»</strong> sono in tassazione concorrente: pagano l\'imposta alla fonte svizzera ridotta e dichiarano anche in Italia con credito d\'imposta. La <a href="/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/">simulazione per nuovi frontalieri</a> stima l\'impatto reale; le <a href="/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/">aliquote alla fonte Ticino 2026</a> e la guida alla <a href="/tasse-e-pensione/dichiarazione-redditi/">dichiarazione dei redditi</a> completano il quadro.',
       ],
     },
     {
@@ -125,7 +125,7 @@ const IT: FrontalierePillarCopy = {
     {
       question: 'Che differenza c\'è tra vecchi e nuovi frontalieri per le tasse?',
       answer:
-        'Chi era già assunto in Svizzera prima del 17 luglio 2023 resta tassato solo alla fonte in Svizzera. Chi è stato assunto dopo paga un\'imposta alla fonte svizzera ridotta e dichiara il reddito anche in Italia, con credito per le imposte svizzere.',
+        'Chi rientra nell\'articolo 9 (attività frontaliera tra il 31 dicembre 2018 e il 17 luglio 2023) resta tassato esclusivamente in Svizzera. I nuovi frontalieri sono in tassazione concorrente: pagano un\'imposta alla fonte svizzera ridotta e dichiara il reddito anche in Italia, con credito per le imposte svizzere.',
     },
     {
       question: 'Il frontaliere deve pagare la cassa malati svizzera?',
@@ -194,7 +194,7 @@ const EN: FrontalierePillarCopy = {
     {
       heading: 'Taxes: “old” vs “new” cross-border workers',
       paragraphsHtml: [
-        'Since the 2023 CH-IT agreement two regimes coexist: workers hired before 17 July 2023 are taxed at source in Switzerland only, while those hired later pay a reduced Swiss withholding tax and also file in Italy with a tax credit. The Italian-language tax simulator estimates the real impact for new hires.',
+        'Since the 2023 CH-IT agreement two regimes coexist: workers meeting Article 9 (cross-border work between 31 December 2018 and 17 July 2023) are taxed exclusively in Switzerland, while new cross-border workers are under concurrent taxation and pay a reduced Swiss withholding tax and also file in Italy with a tax credit. The Italian-language tax simulator estimates the real impact for new hires.',
       ],
     },
     {
@@ -228,7 +228,7 @@ const EN: FrontalierePillarCopy = {
     {
       question: 'What changed with the 2023 tax agreement?',
       answer:
-        'Workers already employed in Switzerland before 17 July 2023 remain taxed at source in Switzerland only. Those hired later pay a reduced Swiss withholding tax and also declare the income in Italy with a credit for Swiss taxes.',
+        'Workers meeting Article 9 (cross-border work between 31 December 2018 and 17 July 2023) remain taxed exclusively in Switzerland. New cross-border workers are under concurrent taxation and pay a reduced Swiss withholding tax and also declare the income in Italy with a credit for Swiss taxes.',
     },
     {
       question: 'Do cross-border workers pay Swiss health insurance?',
@@ -296,7 +296,7 @@ const DE: FrontalierePillarCopy = {
     {
       heading: 'Steuern: «alte» vs. «neue» Grenzgänger',
       paragraphsHtml: [
-        'Seit dem CH-IT-Abkommen 2023 gelten zwei Regime: Wer vor dem 17. Juli 2023 angestellt wurde, bleibt nur in der Schweiz quellenbesteuert; später Angestellte zahlen eine reduzierte Schweizer Quellensteuer und deklarieren zusätzlich in Italien mit Steueranrechnung.',
+        'Seit dem CH-IT-Abkommen 2023 gelten zwei Regime: Wer Artikel 9 erfüllt (Grenzgängertätigkeit zwischen dem 31. Dezember 2018 und dem 17. Juli 2023), bleibt ausschliesslich in der Schweiz besteuert; neue Grenzgänger unterliegen der konkurrierenden Besteuerung und zahlen eine reduzierte Schweizer Quellensteuer und deklarieren zusätzlich in Italien mit Steueranrechnung.',
       ],
     },
     {
@@ -330,7 +330,7 @@ const DE: FrontalierePillarCopy = {
     {
       question: 'Was änderte das Steuerabkommen 2023?',
       answer:
-        'Wer vor dem 17. Juli 2023 in der Schweiz angestellt war, bleibt nur in der Schweiz quellenbesteuert. Später Angestellte zahlen eine reduzierte Quellensteuer und deklarieren das Einkommen zusätzlich in Italien mit Anrechnung.',
+        'Wer Artikel 9 erfüllt (Grenzgängertätigkeit zwischen dem 31. Dezember 2018 und dem 17. Juli 2023), bleibt ausschliesslich in der Schweiz besteuert. Neue Grenzgänger unterliegen der konkurrierenden Besteuerung und zahlen eine reduzierte Quellensteuer und deklarieren das Einkommen zusätzlich in Italien mit Anrechnung.',
     },
     {
       question: 'Müssen Grenzgänger die Schweizer Krankenkasse zahlen?',
@@ -398,7 +398,7 @@ const FR: FrontalierePillarCopy = {
     {
       heading: 'Impôts : « anciens » vs « nouveaux » frontaliers',
       paragraphsHtml: [
-        'Depuis l\'accord CH-IT de 2023, deux régimes coexistent : les frontaliers embauchés avant le 17 juillet 2023 restent imposés à la source uniquement en Suisse ; les nouveaux paient un impôt à la source suisse réduit et déclarent aussi en Italie avec crédit d\'impôt.',
+        'Depuis l\'accord CH-IT de 2023, deux régimes coexistent : les frontaliers relevant de l\'article 9 (activité frontalière entre le 31 décembre 2018 et le 17 juillet 2023) restent imposés exclusivement en Suisse ; les nouveaux relèvent de l\'imposition concurrente et paient un impôt à la source suisse réduit et déclarent aussi en Italie avec crédit d\'impôt.',
       ],
     },
     {
@@ -432,7 +432,7 @@ const FR: FrontalierePillarCopy = {
     {
       question: 'Qu\'a changé l\'accord fiscal de 2023 ?',
       answer:
-        'Les frontaliers déjà employés en Suisse avant le 17 juillet 2023 restent imposés à la source uniquement en Suisse. Les nouveaux paient un impôt à la source réduit et déclarent aussi le revenu en Italie avec crédit d\'impôt.',
+        'Les frontaliers relevant de l\'article 9 (activité frontalière entre le 31 décembre 2018 et le 17 juillet 2023) restent imposés exclusivement en Suisse. Les nouveaux relèvent de l\'imposition concurrente et paient un impôt à la source réduit et déclarent aussi le revenu en Italie avec crédit d\'impôt.',
     },
     {
       question: 'Le frontalier doit-il payer la caisse maladie suisse ?',

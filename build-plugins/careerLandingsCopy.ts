@@ -481,7 +481,7 @@ const IT_CONTRATTI: CareerLandingCopy = {
       question:
         'Sono un nuovo frontaliere: posso scegliere di essere tassato solo in Svizzera?',
       answer:
-        'No. Il regime dei "vecchi frontalieri" (tassazione esclusiva in Svizzera) è chiuso ai neo-assunti dal 17 luglio 2023 — salvo che tu abbia già lavorato da frontaliere prima di quella data senza soluzione di continuità. Per i nuovi si applica il 20% residuale in Italia con credito d\'imposta.',
+        'No. Il regime dei "vecchi frontalieri" (tassazione esclusiva in Svizzera) vale solo per chi rientra nell\'articolo 9: attività frontaliera in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023 e residenza in un comune entro 20 km dal confine. Per i nuovi la Svizzera trattiene fino all\'80% dell\'imposta alla fonte e l\'Italia tassa il reddito con credito d\'imposta.',
     },
     {
       question:
