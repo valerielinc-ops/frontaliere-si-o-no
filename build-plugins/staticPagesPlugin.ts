@@ -774,6 +774,32 @@ function replaceHomepageSeoHead(html: string, locale: HpSeoLocale): string {
  return out;
 }
 
+/**
+ * The locale home's own `WebPage`, in place of the Italian root one that
+ * index.html ships, and without the index.html blocks that have no translation.
+ */
+export function localizeHomepageStructuredData(html: string, locale: 'en' | 'de' | 'fr'): string {
+ const copy = HOMEPAGE_SEO_META[locale];
+ const url = BASE_URL + '/' + locale + '/';
+ const webPage = inlineScriptJson({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': url + '#webpage',
+  name: copy.title,
+  url,
+  description: copy.description,
+  screenshot: BASE_URL + '/og-image.png',
+  author: { '@id': BASE_URL + '/#organization' },
+  inLanguage: locale,
+ });
+ return html
+  .replace(/<script\b[^>]*\bdata-hp-it-only\b[^>]*>[\s\S]*?<\/script>\s*/gi, '')
+  .replace(
+   /<script\b[^>]*\bid=["']?hp-webpage-ld["']?[^>]*>[\s\S]*?<\/script>/i,
+   () => '<script type="application/ld+json" id="hp-webpage-ld">' + webPage + '</script>',
+  );
+}
+
 const HOMEPAGE_STATIC_H1_TEXT: Record<HpSeoLocale, string> = {
  it: 'Frontaliere Ticino 2026 — Calcolatore Stipendio Netto Svizzera-Italia',
  en: 'Ticino Cross-Border Workers 2026 — Switzerland-Italy Net Salary Calculator',
@@ -1690,7 +1716,7 @@ export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'):
    de: ['Die interaktiven Rechner benötigen JavaScript. Sie können weiterhin die Ratgeber lesen und die folgenden Links nutzen.', 'Website erkunden'],
    fr: ['Les calculateurs interactifs nécessitent JavaScript. Vous pouvez toujours lire les guides et parcourir les liens ci-dessous.', 'Parcourir le site'],
  }[locale];
- let out = replaceHomepageSeoHead(html, locale);
+ let out = localizeHomepageStructuredData(replaceHomepageSeoHead(html, locale), locale);
  // Replace only the content fallback; stylesheet noscript blocks must survive.
  out = out.replace(/<noscript\b[^>]*\bid="homepage-nojs"[^>]*>[\s\S]*?<\/noscript>/i,
    `<noscript id="homepage-nojs"><p>${noJsCopy[0]} <a href="/${SITE_MAP_PAGE_DIR[locale]}/">${noJsCopy[1]}</a></p></noscript>`);
