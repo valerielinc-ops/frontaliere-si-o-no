@@ -1,0 +1,22 @@
+{
+  "companyKey": "svmtr-ch",
+  "companyName": "svmtr",
+  "companyHost": "novartis.com",
+  "platform": "novartis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.novartis.com/ch-de/"
+  ],
+  "detailTemplate": "/ch-de/karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Diversity, Equity, Inclusion & Culture",
+    "Studierende und Hochschulabsolventen",
+    "Lernen und Weiterbildung bei Novartis"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:47:31.769Z",
+  "candidateKey": "svmtr.ch"
+}
