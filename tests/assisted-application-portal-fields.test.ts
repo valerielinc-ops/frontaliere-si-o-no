@@ -92,7 +92,6 @@ describe('portal field extraction', () => {
     }]).questions[0];
     expect(manyLabelsQuestion.privacyMetadataIncomplete).toBe(true);
     expect(operationalQuestionTopic(manyLabelsQuestion)).toBeNull();
-
     const descriptionParts = ['x'.repeat(297), 'x'.repeat(297), 'Email'];
     const descriptionSnapshot = extract('<form><label for="privacy-ack">' + prompt + '</label>'
       + '<input id="privacy-ack" type="checkbox" aria-describedby="privacy-hint-1 privacy-hint-2 privacy-hint-3" required>'
