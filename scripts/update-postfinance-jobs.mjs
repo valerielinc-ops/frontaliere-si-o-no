@@ -1318,6 +1318,7 @@ async function main() {
   }
 
   if (discoveredJobs.length === 0) {
+    markCrawlerSummaryAbortKind('no-jobs-parsed');
     console.log('⚠️ No PostFinance CH-wide jobs discovered.');
     console.log('   The sitemap may have no PostFinance positions currently listed.');
     console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
