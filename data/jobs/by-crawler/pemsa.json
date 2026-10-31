@@ -5390,9 +5390,9 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-lugano-1a7cc67111",
-        "en": "saldatore-tubista-pemsa-lugano-uq96lw",
-        "de": "saldatore-tubista-pemsa-lugano-uq96lw",
-        "fr": "saldatore-tubista-pemsa-lugano-uq96lw"
+        "en": "saldatore-tubista-pemsa-lugano",
+        "de": "saldatore-tubista-pemsa-lugano",
+        "fr": "saldatore-tubista-pemsa-lugano"
       },
       "id": "pemsa-a4ed741e0c2c",
       "salaryMin": 55500,
@@ -5413,20 +5413,21 @@
       "firstSeenAt": "2026-09-08T13:41:50.002Z",
       "previousSlugsByLocale": {
         "en": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "de": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "fr": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "it": [
           "saldatore-tubista-pemsa-lugano"
         ]
       },
       "previousSlugs": [
-        "saldatore-tubista-pemsa-lugano"
+        "saldatore-tubista-pemsa-lugano",
+        "saldatore-tubista-pemsa-lugano-uq96lw"
       ]
     },
     {
@@ -16801,7 +16802,8 @@
       "datePosted": "2026-07-31T08:47:32+02:00",
       "postingDateSource": "reported",
       "postalCode": "1700",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Montatore di ponteggi",
