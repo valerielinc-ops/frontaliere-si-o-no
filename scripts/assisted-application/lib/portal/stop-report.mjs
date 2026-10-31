@@ -138,7 +138,7 @@ export function stopIssue(report, runUrl = '') {
     '- Mai inventare una risposta del candidato: ciò che i dati non dicono diventa una domanda per lui.',
     '- Nessun dato personale nei test: i valori del candidato sono stati tolti da questa issue prima della pubblicazione.',
     '',
-    'Dopo il merge Valerie preme «Riprova l’invio automatico» sull’ordine fermo.',
+    'Dopo la pubblicazione, il recupero automatico verifica la guardia di invio e riprende i blocchi tecnici certamente non inviati; nessun nuovo invio se il risultato precedente è ambiguo.',
   ];
   return { title: title.slice(0, 200), description: lines.join('\n'), dedupKey: title.slice(0, 120) };
 }

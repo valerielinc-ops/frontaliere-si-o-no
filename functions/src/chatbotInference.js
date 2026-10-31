@@ -190,7 +190,7 @@ async function callGeminiModel(model, messages, systemPrompt, apiKey) {
  * Call an OpenAI-compatible chat endpoint with multi-turn message history.
  * Returns trimmed text on success, throws on failure.
  */
-async function callOpenAiCompatibleMultiTurn({ base, apiKey, model, messages, systemPrompt }) {
+async function callOpenAiCompatibleMultiTurn({ base, apiKey, model, messages, systemPrompt, apiFamily }) {
   const msgs = [];
   if (systemPrompt.trim()) msgs.push({ role: 'system', content: systemPrompt });
   for (const m of messages) {
@@ -200,7 +200,7 @@ async function callOpenAiCompatibleMultiTurn({ base, apiKey, model, messages, sy
   const res = await fetch(base, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify(serverTextFallbackBody({ model, messages: msgs, maxTokens: 1024, temperature: 0.7 })),
+    body: JSON.stringify(serverTextFallbackBody({ model, messages: msgs, maxTokens: 1024, temperature: 0.7, apiFamily })),
     signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
   });
 
@@ -270,7 +270,7 @@ export async function handleChatbotInference({ messages, systemPrompt }) {
  continue;
  }
  try {
- const text = await callOpenAiCompatibleMultiTurn({ base: fb.base, apiKey: fbKey, model: fb.model, messages, systemPrompt: augmentedPrompt });
+ const text = await callOpenAiCompatibleMultiTurn({ base: fb.base, apiKey: fbKey, model: fb.model, apiFamily: fb.apiFamily, messages, systemPrompt: augmentedPrompt });
  console.log(`[chatbot] served by fallback ${fb.label}`);
  if (key) cacheSet(key, text);
  return { text, model: fb.model, source: 'openai-compat' };

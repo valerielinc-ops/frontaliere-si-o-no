@@ -122,6 +122,27 @@ function assistedApplicationOrderEmail(order) {
  return '';
 }
 
+/**
+ * A signed confirmation link is a real possession check, so it may verify an
+ * existing passwordless account (LinkedIn/Facebook without a provider-verified
+ * address, subscriber shells). A password account is excluded: whoever set that
+ * password never proved this address and must not inherit the owner's click.
+ */
+export function shouldVerifyEmailOnLinkClick(userRecord) {
+ if (!userRecord || userRecord.emailVerified === true) return false;
+ return !(userRecord.providerData || []).some((provider) => provider?.providerId === 'password');
+}
+
+async function markEmailVerifiedAfterLinkClick(userRecord) {
+ if (!shouldVerifyEmailOnLinkClick(userRecord)) return;
+ try {
+ await getAuth().updateUser(userRecord.uid, { emailVerified: true });
+ } catch (verifyErr) {
+ // The session stays valid; only gates requiring a verified address stay closed.
+ console.warn('[newsletterManage] Failed to mark email verified:', verifyErr?.message);
+ }
+}
+
 async function mintNewsletterAuthSession(normalizedEmail) {
  let uid = null;
  try {
@@ -129,6 +150,7 @@ async function mintNewsletterAuthSession(normalizedEmail) {
  try {
  const userRecord = await getAuth().getUserByEmail(normalizedEmail);
  uid = userRecord.uid;
+ await markEmailVerifiedAfterLinkClick(userRecord);
  } catch {
  const newUser = await getAuth().createUser({ email: normalizedEmail, emailVerified: true });
  uid = newUser.uid;
@@ -468,6 +490,7 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  'capri-holdings-michael-kors-versace': 'michael-kors',
  usi: 'usi-universita-della-svizzera-italiana',
  'ospedale-malcantonese-oscam-fondazione-giuseppe-rossi': 'oscam-ospedale-e-casa-anziani-malcantonese',
+ 'dein-neuer-job-erfassen-modellieren-und-verarbeiten-von-strukturierten-sowie-unstrukturierten-daten-durchfuhren-von-ad-hoc-analysen-und-a': 'banca-cler',
  'zurich-insurance-sede-ticino': 'zurich-insurance',
 });
 

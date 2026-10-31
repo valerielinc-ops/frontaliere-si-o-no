@@ -1,20 +1,56 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-30T09:20:35.942Z",
-  "total": 18,
+  "generatedAt": "2026-10-30T21:24:37.864Z",
+  "total": 19,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 15,
-  "durationMs": 4517,
-  "avgDurationMs": 4517,
+  "durationMs": 4823,
+  "avgDurationMs": 4823,
   "durationHistory": [
-    4517
+    4823
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Im Auftrag eines strukturierten Industrieunternehmens im Bereich",
+      "slug": "im-auftrag-eines-strukturierten-industrieunternehmens-im-bereich-lwp-ledermann-wieting-partners-switzerland",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/verkaufsleiter_in_industrieverpackungen.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "id": "lwphr-8d717757acb5",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-30T21:24:25.570Z",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 13
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "​RELATIONSHIP MANAGERS O PRIVATE BANKERS",
@@ -649,5 +685,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

@@ -1,4 +1,4 @@
-const CANDIDATE_ACTION_STATES = new Set([
+export const CANDIDATE_ACTION_STATES = new Set([
   'candidate_review',
   'needs_candidate_action',
   'candidate_handoff',

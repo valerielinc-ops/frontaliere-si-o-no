@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+ "whatsNew.v3999.title": "Jede Stelle speichern, überall",
+ "whatsNew.v3999.jobSave.title": "Das Lesezeichen auf jeder Karte",
+ "whatsNew.v3999.jobSave.desc": "Sie können eine Stelle jetzt von jeder Karte der Website speichern: auf Firmen-, Stadt- und Branchenseiten sowie in Artikeln. Ohne Konto bitten wir Sie, eines zu erstellen, und die Stelle wird direkt danach gespeichert.",
  "whatsNew.v3998.title": "Vollständigere Stellendetails",
  "whatsNew.v3998.jobDetails.title": "Beschreibungen und Anforderungen erhalten",
  "whatsNew.v3998.jobDetails.desc": "Stellenseiten bewahren den Originaltext und seine Formatierung, auch bei archivierten Angeboten. Der kostenlose Zugang schaltet weiterhin alle Details beim Browsen frei.",

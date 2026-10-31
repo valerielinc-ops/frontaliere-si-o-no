@@ -1827,6 +1827,21 @@ ins.adsbygoogle[data-ft-static-ad-collapsed] {
   overflow: hidden !important;
 }
 
+.ft-webcam-ad::before {
+  content: attr(aria-label);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: var(--color-subtle);
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /* ===== Top in-page Auto Ad reserve — REMOVED 2026-08-19 ══════════════════
    `.autoad-top-reserve` (TopAutoAdReserve.tsx) held 250px above <main> on the
    homepage for a top in-page Auto Ad, mirroring the ad's height so <main> never
@@ -2314,13 +2329,13 @@ input[type=number] { -moz-appearance: textfield; }
    Keep atoms scoped (.jc-* / .ec-*) — do NOT use bare names like .card. */
 @layer components {
   /* Job card (jobCardHtml.ts) */
-  .jc-card { @apply rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] border-edge bg-surface/50 hover:border-accent-border; }
+  .jc-card { @apply relative rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] border-edge bg-surface/50 hover:border-accent-border; }
   .jc-card.jc-card-fea { @apply border-warning-border bg-warning-subtle hover:border-warning; }
   .jc-link { @apply block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg; }
   .jc-row { @apply flex items-start gap-3; }
   .jc-logoslot { @apply w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0; }
   .jc-logoimg { @apply w-7 h-7 sm:w-10 sm:h-10 object-contain; }
-  .jc-meta { @apply min-w-0 flex-1; }
+  .jc-meta { @apply min-w-0 flex-1 pr-9; }
   .jc-title { @apply text-sm sm:text-base font-bold font-display text-heading leading-tight; }
   .jc-sub { @apply text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2; }
   .jc-salary { @apply mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success; }

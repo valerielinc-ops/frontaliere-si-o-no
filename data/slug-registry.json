@@ -180400,7 +180400,10 @@
     "canton": "BE",
     "createdAt": "2026-06-03",
     "slugByLocale": {
-      "de": "diplomierte-r-pflegefachfrau-mann-60-100-multi-disziplinare-privat-und-halbprivatstation"
+      "de": "diplomierte-r-pflegefachfrau-mann-60-100-multi-disziplinare-privat-und-halbprivatstation",
+      "it": "infermiere-diplomato-a-60-100-reparto-privato-e-semiprivato-multidisciplinare-spitalzentrum-biel-centre-hospitalier",
+      "en": "qualified-nurse-60-100-multi-disciplinary-private-and-semi-private-ward-spitalzentrum-biel-centre-hospitalier-bienne",
+      "fr": "infirmier-diplome-60-100-station-privee-et-semi-privee-multidisciplinaire-spitalzentrum-biel-centre-hospitalier-bienne"
     }
   },
   "id|szb-chb.ch|3735": {
@@ -180408,7 +180411,10 @@
     "canton": "BE",
     "createdAt": "2026-06-03",
     "slugByLocale": {
-      "de": "diplomierte-r-pflegefachfrau-mann-60-100-akut-und-palliativcare-szb-chb-biel-bienne"
+      "de": "diplomierte-r-pflegefachfrau-mann-60-100-akut-und-palliativcare-szb-chb-biel-bienne",
+      "it": "infermiere-diplomato-a-60-100-cure-acute-e-palliative-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "qualified-nurse-60-100-acute-and-palliative-care-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fr": "infirmier-diplome-60-100-soins-aigus-et-palliatifs-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     }
   },
   "id|szb-chb.ch|3869": {
@@ -180452,7 +180458,10 @@
     "canton": "BE",
     "createdAt": "2026-06-03",
     "slugByLocale": {
-      "de": "diplomierte-pflegefachfrau-mann-akut-pflege-80-100-szb-chb-biel-bienne"
+      "de": "diplomierte-pflegefachfrau-mann-akut-pflege-80-100-szb-chb-biel-bienne",
+      "it": "infermiere-certificato-mann-cura-acuta-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "certified-nurse-mann-acute-care-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fr": "infirmiere-agreee-mann-soins-actifs-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     }
   },
   "id|szb-chb.ch|4209": {
@@ -180512,13 +180521,23 @@
     "canonicalSlug": "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne",
     "canton": "BE",
     "createdAt": "2026-06-04",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "salute-professionale-50-100-urologia-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "professional-health-50-100-urology-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "fachfrau-fachmann-gesundheit-50-100-urologie-szb-chb-biel-bienne",
+      "fr": "sante-professionnelle-50-100-urologie-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    }
   },
   "id|szb-chb.ch|4325": {
     "canonicalSlug": "teamleiter-in-instrumentierende-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
     "canton": "BE",
     "createdAt": "2026-05-29",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "capo-squadra-strumentalista-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "team-leader-instrumentalist-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "teamleiter-in-instrumentierende-80-100-szb-chb-biel-bienne",
+      "fr": "chef-fe-d-equipe-instrumentiste-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    }
   },
   "id|szb-chb.ch|4326": {
     "canonicalSlug": "facharzt-hamatologie-e-o-onco-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
@@ -180646,7 +180665,10 @@
     "canton": "BE",
     "createdAt": "2026-06-04",
     "slugByLocale": {
-      "de": "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
+      "de": "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne",
+      "it": "specialista-esperto-di-allattamento-mann-cura-acuta-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "experienced-nursing-specialist-mann-acute-care-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fr": "specialiste-experimente-en-soins-infirmiers-mann-soins-actifs-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
     }
   },
   "id|szb-chb.ch|4402": {
@@ -180708,13 +180730,23 @@
     "canonicalSlug": "leitende-arztin-leitender-arzt-angiologie-60-100-szb-chb-biel-bienne",
     "canton": "BE",
     "createdAt": "2026-06-16",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "principale-medico-angiologia-medica-principale-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "principal-physician-principal-physician-angiology-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "leitende-arztin-leitender-arzt-angiologie-60-100-szb-chb-biel-bienne",
+      "fr": "medecin-principal-medecin-principal-angiologie-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    }
   },
   "id|szb-chb.ch|4440": {
     "canonicalSlug": "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne",
     "canton": "BE",
     "createdAt": "2026-06-04",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "formatore-trice-professionista-a-salute-cure-acute-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "vocational-trainer-health-acute-care-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne",
+      "fr": "formateur-trice-professionnel-le-de-la-sante-soins-aigus-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    }
   },
   "id|szb-chb.ch|4441": {
     "canonicalSlug": "hochschulpraktikant-in-personalmarketing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
@@ -180773,7 +180805,10 @@
     "canton": "BE",
     "createdAt": "2026-06-24",
     "slugByLocale": {
-      "de": "chefarztsekretar-in-padiatrie-90-szb-chb-biel-bienne"
+      "de": "chefarztsekretar-in-padiatrie-90-szb-chb-biel-bienne",
+      "it": "segretario-a-del-primario-di-pediatria-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "chief-physician-s-secretary-pediatrics-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fr": "secretaire-du-medecin-chef-de-la-medecin-cheffe-en-pediatrie-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     }
   },
   "id|szb-chb.ch|4484": {
@@ -334786,7 +334821,10 @@
   "id|szb-chb.ch|4528": {
     "canonicalSlug": "medizinische-n-praxisassistentin-en-frauenklinik-pool-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
     "slugByLocale": {
-      "de": "medizinische-n-praxisassistentin-en-frauenklinik-pool-szb-chb-biel-bienne"
+      "de": "medizinische-n-praxisassistentin-en-frauenklinik-pool-szb-chb-biel-bienne",
+      "it": "assistente-medico-pratico-piscina-clinica-femminile-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "medical-practical-assistant-women-s-clinic-pool-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fr": "assistante-medicale-pratique-pool-de-cliniques-pour-femmes-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -687731,7 +687769,8 @@
     "slugByLocale": {
       "de": "sous-chef-in-zfv-unternehmungen-zurich",
       "it": "capo-di-sous-zfv-unternehmungen-zurich-e39335",
-      "en": "head-of-sous-zfv-unternehmungen-zurich-e39335"
+      "en": "head-of-sous-zfv-unternehmungen-zurich-e39335",
+      "fr": "capo-di-sous-zfv-unternehmungen-zurich-e39335"
     },
     "createdAt": "2026-09-09",
     "canton": "ZH"
@@ -801425,7 +801464,10 @@
   "id|szb-chb.ch|4660": {
     "canonicalSlug": "chief-medical-officer-neuropediatrics-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
     "slugByLocale": {
-      "de": "leitender-arzt-leitende-arztin-neuropadiatrie-60-100-szb-chb-biel-bienne"
+      "de": "leitender-arzt-leitende-arztin-neuropadiatrie-60-100-szb-chb-biel-bienne",
+      "it": "chief-medical-officer-neuropediatrics-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "chief-medical-officer-neuropediatrics-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fr": "chief-medical-officer-neuropediatrics-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     },
     "createdAt": "2026-09-26",
     "canton": "BE"
@@ -804443,7 +804485,9 @@
     "canonicalSlug": "dipl-pflegefachfrau-mann-hno-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
     "slugByLocale": {
       "it": "dipl-pflegefachfrau-mann-hno-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-      "de": "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne"
+      "de": "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne",
+      "en": "qualified-nurse-man-ent-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fr": "dipl-infirmiere-homme-orl-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     },
     "createdAt": "2026-09-28",
     "canton": "BE"
@@ -804451,7 +804495,10 @@
   "id|szb-chb.ch|4645": {
     "canonicalSlug": "medizinische-r-praxisassistent-in-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
     "slugByLocale": {
-      "de": "medizinische-r-praxisassistent-in-40-szb-chb-biel-bienne"
+      "de": "medizinische-r-praxisassistent-in-40-szb-chb-biel-bienne",
+      "it": "assistente-medico-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "medical-practice-assistant-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fr": "assistant-e-medical-e-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
     },
     "createdAt": "2026-09-28",
     "canton": "BE"
@@ -886154,7 +886201,8 @@
     "canonicalSlug": "senior-controller-100-aadorf-tg-yellowshark-ch",
     "slugByLocale": {
       "de": "senior-controller-100-aadorf-tg-yellowshark-ch",
-      "fr": "controleur-superieur-100-yellowshark-ag-aadorf-tg"
+      "fr": "controleur-superieur-100-yellowshark-ag-aadorf-tg",
+      "en": "senior-controller-full-time-yellowshark-ag-aadorf-tg"
     },
     "createdAt": "2026-10-06",
     "canton": "TG"
@@ -886488,7 +886536,8 @@
     "slugByLocale": {
       "it": "cyber-security-ingegnere-100-yellowshark-ag-moosseedorf",
       "de": "cyber-security-engineer-100-moosseedorf-be-yellowshark-ch",
-      "fr": "cyber-security-ingenieur-100-yellowshark-ag-moosseedorf"
+      "fr": "cyber-security-ingenieur-100-yellowshark-ag-moosseedorf",
+      "en": "cybersecurity-engineer-100-yellowshark-ag-moosseedorf-be"
     },
     "createdAt": "2026-10-06",
     "canton": "BE"
@@ -917838,7 +917887,8 @@
     "slugByLocale": {
       "it": "operatore-m-f-d-80-100-lonza-stein",
       "de": "operator-m-f-d-80-100-lonza-ch",
-      "fr": "operateur-m-f-d-80-100-lonza-stein"
+      "fr": "operateur-m-f-d-80-100-lonza-stein",
+      "en": "operatore-m-f-d-80-100-lonza-stein"
     },
     "createdAt": "2026-10-13",
     "canton": "AG"
@@ -949751,7 +949801,9 @@
     "canonicalSlug": "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino",
     "slugByLocale": {
       "en": "unit-facility-manager-100-ikea-ch",
-      "fr": "chef-d-unite-des-installations-100-ikea-grancia-ticino"
+      "fr": "chef-d-unite-des-installations-100-ikea-grancia-ticino",
+      "it": "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino",
+      "de": "facility-manager-einer-einheit-100-ikea-grancia"
     },
     "createdAt": "2026-10-23",
     "canton": "TI"
@@ -968754,7 +968806,10 @@
   "url|https://jobs.yellowshark.com/job/sa056992": {
     "canonicalSlug": "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch",
     "slugByLocale": {
-      "de": "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch"
+      "de": "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch",
+      "it": "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-zug-zg",
+      "en": "sanitary-heating-installer-m-f-yellowshark-ag-zug-zg",
+      "fr": "installation-sanitaire-chauffage-h-f-yellowshark-ag-zug-zg"
     },
     "createdAt": "2026-10-30",
     "canton": "ZG"
@@ -968762,7 +968817,10 @@
   "url|https://jobs.yellowshark.com/job/sa037549": {
     "canonicalSlug": "kranfuhrer-oberdrehkran-m-w-liestal-bl-yellowshark-ch",
     "slugByLocale": {
-      "de": "kranfuhrer-oberdrehkran-m-w-liestal-bl-yellowshark-ch"
+      "de": "kranfuhrer-oberdrehkran-m-w-liestal-bl-yellowshark-ch",
+      "it": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-liestal-bl",
+      "en": "crane-operator-upper-rotary-crane-m-f-yellowshark-ag-liestal-bl",
+      "fr": "grue-rotative-superieure-operateur-de-grue-h-f-yellowshark-ag-liestal-bl"
     },
     "createdAt": "2026-10-30",
     "canton": "BL"
@@ -968770,7 +968828,10 @@
   "url|https://jobs.yellowshark.com/job/sa056791": {
     "canonicalSlug": "holzbau-arbeiter-m-w-luzern-lu-yellowshark-ch",
     "slugByLocale": {
-      "de": "holzbau-arbeiter-m-w-luzern-lu-yellowshark-ch"
+      "de": "holzbau-arbeiter-m-w-luzern-lu-yellowshark-ch",
+      "it": "lavoratori-di-legno-m-f-yellowshark-ag-luzern-lu",
+      "en": "woodworkers-m-f-yellowshark-ag-luzern-lu",
+      "fr": "travailleurs-du-bois-h-f-yellowshark-ag-luzern-lu"
     },
     "createdAt": "2026-10-30",
     "canton": "LU"
@@ -968778,7 +968839,10 @@
   "url|https://jobs.yellowshark.com/job/sa037417": {
     "canonicalSlug": "deckenmonteur-m-w-luzern-lu-yellowshark-ch",
     "slugByLocale": {
-      "de": "deckenmonteur-m-w-luzern-lu-yellowshark-ch"
+      "de": "deckenmonteur-m-w-luzern-lu-yellowshark-ch",
+      "it": "filetto-di-soffitto-m-f-yellowshark-ag-luzern-lu",
+      "en": "ceiling-fitter-m-f-yellowshark-ag-luzern-lu",
+      "fr": "monteur-de-plafond-h-f-yellowshark-ag-luzern-lu"
     },
     "createdAt": "2026-10-30",
     "canton": "LU"
@@ -968786,7 +968850,9 @@
   "url|https://jobs.yellowshark.com/job/sa057017": {
     "canonicalSlug": "schaler-m-w-st-gallen-sg-yellowshark-ch",
     "slugByLocale": {
-      "de": "schaler-m-w-st-gallen-sg-yellowshark-ch"
+      "de": "schaler-m-w-st-gallen-sg-yellowshark-ch",
+      "it": "shell-m-f-yellowshark-ag-st-gallen-sg",
+      "fr": "shell-h-f-yellowshark-ag-st-gallen-sg"
     },
     "createdAt": "2026-10-30",
     "canton": "SG"
@@ -968810,7 +968876,10 @@
   "url|https://jobs.yellowshark.com/job/sa068856": {
     "canonicalSlug": "produktentwickler-mobelbau-m-w-100-gontenschwil-ag-yellowshark-ch",
     "slugByLocale": {
-      "de": "produktentwickler-mobelbau-m-w-100-gontenschwil-ag-yellowshark-ch"
+      "de": "produktentwickler-mobelbau-m-w-100-gontenschwil-ag-yellowshark-ch",
+      "it": "sviluppatore-di-prodotto-mobili-m-f-100-yellowshark-ag-gontenschwil-ag",
+      "en": "product-developer-furniture-m-f-100-yellowshark-ag-gontenschwil-ag",
+      "fr": "developpeur-de-produit-meubles-h-f-100-yellowshark-ag-gontenschwil-ag"
     },
     "createdAt": "2026-10-30",
     "canton": "AG"
@@ -968819,7 +968888,9 @@
     "canonicalSlug": "collaboratore-trice-kundenberatung-e-vendita-m-w-d-100-yellowshark-ag-dubendorf",
     "slugByLocale": {
       "de": "mitarbeiter-kundenberatung-und-verkauf-w-m-100-dubendorf-zh-yellowshark-ch",
-      "it": "collaboratore-trice-kundenberatung-e-vendita-m-w-d-100-yellowshark-ag-dubendorf"
+      "it": "collaboratore-trice-kundenberatung-e-vendita-m-w-d-100-yellowshark-ag-dubendorf",
+      "en": "customer-service-and-sales-employee-m-f-100-yellowshark-ag-dubendorf-zh",
+      "fr": "employe-conseil-a-la-clientele-et-vente-h-f-100-yellowshark-ag-dubendorf-zh"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -968835,7 +968906,10 @@
   "url|https://jobs.yellowshark.com/job/sa063364": {
     "canonicalSlug": "it-systemadministrator-m-w-80-100-zurich-zh-yellowshark-ch",
     "slugByLocale": {
-      "de": "it-systemadministrator-m-w-80-100-zurich-zh-yellowshark-ch"
+      "de": "it-systemadministrator-m-w-80-100-zurich-zh-yellowshark-ch",
+      "it": "amministratore-di-sistema-it-m-f-80-100-yellowshark-ag-zurich-zh",
+      "en": "it-system-administrator-m-f-80-100-yellowshark-ag-zurich-zh",
+      "fr": "administrateur-systeme-informatique-h-f-80-100-yellowshark-ag-zurich-zh"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -968843,7 +968917,9 @@
   "url|https://jobs.yellowshark.com/job/sa068838": {
     "canonicalSlug": "it-product-manager-zug-zg-yellowshark-ch",
     "slugByLocale": {
-      "de": "it-product-manager-zug-zg-yellowshark-ch"
+      "de": "it-product-manager-zug-zg-yellowshark-ch",
+      "it": "brand-manager-yellowshark-ag-zug-zg",
+      "fr": "gestionnaire-de-produits-informatiques-yellowshark-ag-zug-zg"
     },
     "createdAt": "2026-10-30",
     "canton": "ZG"
@@ -968851,7 +968927,9 @@
   "url|https://jobs.yellowshark.com/job/sa068878": {
     "canonicalSlug": "export-fachkraft-m-w-80-100-richterswil-zh-yellowshark-ch",
     "slugByLocale": {
-      "de": "export-fachkraft-m-w-80-100-richterswil-zh-yellowshark-ch"
+      "de": "export-fachkraft-m-w-80-100-richterswil-zh-yellowshark-ch",
+      "it": "specialista-di-esportazione-m-f-80-100-yellowshark-ag-richterswil-zh",
+      "fr": "specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-richterswil-zh"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -968859,7 +968937,9 @@
   "id|swatchgroup.com|33645": {
     "canonicalSlug": "fire-protection-safety-officer-omega-biel-bienne",
     "slugByLocale": {
-      "fr": "fire-protection-safety-officer-omega-biel-bienne"
+      "fr": "fire-protection-safety-officer-omega-biel-bienne",
+      "it": "ufficio-di-sicurezza-sicurezza-omega-sa-biel-bienne",
+      "de": "brandschutz-sicherheitsangebot-omega-sa-biel-bienne"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -968868,7 +968948,9 @@
     "canonicalSlug": "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
     "slugByLocale": {
       "fr": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-      "it": "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
+      "it": "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
+      "en": "learning-harlogue-cfc-production-eere-omega-sa-biel-bienne",
+      "de": "lernharloge-fkw-produktionseere-omega-sa-biel-bienne"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -968876,7 +968958,10 @@
   "id|admin.ch|e338a127-cf85-4487-ad18-93a51be015d6": {
     "canonicalSlug": "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo",
     "slugByLocale": {
-      "de": "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo"
+      "de": "chef-in-op-analysis-swiss-armed-forces-vtg-bern-nyhcdo",
+      "it": "responsabile-analisi-operativa-swiss-armed-forces-vtg-bern",
+      "en": "head-of-operations-analysis-swiss-armed-forces-vtg-bern",
+      "fr": "responsable-de-l-analyse-operationnelle-swiss-armed-forces-vtg-bern"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -968886,7 +968971,8 @@
     "slugByLocale": {
       "it": "cyber-security-analista-in-professional-swiss-armed-forces-vtg-bern-1i2rzd",
       "de": "cyber-security-analyst-in-professional-swiss-armed-forces-vtg-bern-1i2rzd",
-      "fr": "cyber-security-analyste-in-professional-swiss-armed-forces-vtg-bern-1i2rzd"
+      "fr": "cyber-security-analyste-in-professional-swiss-armed-forces-vtg-bern-1i2rzd",
+      "en": "professional-cybersecurity-analyst-swiss-armed-forces-vtg-bern"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -968894,7 +968980,10 @@
   "id|admin.ch|9323b9a2-75a6-4a00-a435-4a251669b882": {
     "canonicalSlug": "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l",
     "slugByLocale": {
-      "de": "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l"
+      "de": "medizinisch-technische-r-assistent-in-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-6w729l",
+      "it": "assistente-tecnico-medico-a-centro-di-reclutamento-di-aarau-swiss-armed-forces-vtg-aarau",
+      "en": "medical-technician-aarau-recruitment-center-swiss-armed-forces-vtg-aarau",
+      "fr": "assistant-e-medico-technique-centre-de-recrutement-d-aarau-swiss-armed-forces-vtg-aarau"
     },
     "createdAt": "2026-10-30",
     "canton": "AG"
@@ -968902,7 +968991,10 @@
   "id|admin.ch|2eb30d8b-831e-48f7-af8e-ae489dd0cb55": {
     "canonicalSlug": "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t",
     "slugByLocale": {
-      "de": "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t"
+      "de": "spezialist-in-betrieb-fuhrungsanlagen-swiss-armed-forces-vtg-bern-xwin2t",
+      "it": "specialista-nella-gestione-degli-impianti-di-guida-swiss-armed-forces-vtg-bern",
+      "en": "operations-specialist-for-conveyor-systems-swiss-armed-forces-vtg-bern",
+      "fr": "specialiste-en-exploitation-des-installations-de-guidage-swiss-armed-forces-vtg-bern"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -968910,7 +969002,10 @@
   "id|sbb.ch|8ca6ff7b-b5c4-4824-9c91-d33fe4ae57ff": {
     "canonicalSlug": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern"
+      "de": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
+      "en": "purchasing-clerk-ffs-officine-ferrovie-federali-bern",
+      "fr": "responsable-des-achats-ffs-officine-ferrovie-federali-bern",
+      "it": "addetto-a-agli-acquisti-ffs-officine-ferrovie-federali-bern"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -968918,7 +969013,10 @@
   "id|sbb.ch|109cd18d-273c-405c-9063-5df3ff4dede4": {
     "canonicalSlug": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
     "slugByLocale": {
-      "de": "produktmanager-in-ffs-officine-ferrovie-federali-olten"
+      "de": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
+      "en": "product-manager-ffs-officine-ferrovie-federali-olten",
+      "fr": "chef-fe-de-produit-ffs-officine-ferrovie-federali-olten",
+      "it": "responsabile-di-prodotto-ffs-officine-ferrovie-federali-olten"
     },
     "createdAt": "2026-10-30",
     "canton": "SO"
@@ -968926,7 +969024,10 @@
   "id|sbb.ch|67164180-3b00-411f-aaee-fa946250ecea": {
     "canonicalSlug": "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey",
     "slugByLocale": {
-      "fr": "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey"
+      "fr": "agent-e-de-nettoyage-specialiste-ffs-officine-ferrovie-federali-vevey",
+      "it": "agente-di-pulizia-specializzato-ffs-officine-ferrovie-federali-vevey",
+      "en": "specialist-cleaning-agent-ffs-officine-ferrovie-federali-vevey",
+      "de": "spezialisiertes-reinigungsmittel-ffs-officine-ferrovie-federali-vevey"
     },
     "createdAt": "2026-10-30",
     "canton": "VD"
@@ -968934,7 +969035,10 @@
   "id|sbb.ch|5e439060-ce38-4aa2-8230-b665dbd76093": {
     "canonicalSlug": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg",
     "slugByLocale": {
-      "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg"
+      "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-fribourg",
+      "it": "agente-di-pulizia-ffs-officine-ferrovie-federali-fribourg",
+      "en": "cleaning-agent-ffs-officine-ferrovie-federali-fribourg",
+      "de": "reinigungsmittel-ffs-officine-ferrovie-federali-fribourg"
     },
     "createdAt": "2026-10-30",
     "canton": "FR"
@@ -968942,7 +969046,10 @@
   "id|sbb.ch|31fa680e-bbaa-4336-860d-5da4f8dc5dfb": {
     "canonicalSlug": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont",
     "slugByLocale": {
-      "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont"
+      "fr": "agent-e-de-nettoyage-ffs-officine-ferrovie-federali-delemont",
+      "it": "agente-di-pulizia-ffs-officine-ferrovie-federali-delemont",
+      "en": "cleaning-agent-ffs-officine-ferrovie-federali-delemont",
+      "de": "reinigungsmittel-ffs-officine-ferrovie-federali-delemont"
     },
     "createdAt": "2026-10-30",
     "canton": "JU"
@@ -969003,7 +969110,10 @@
   "id|unispital-basel.ch|c43582cc-335e-44ab-93fd-220fd48f5f2f": {
     "canonicalSlug": "teamleiterin-teamleiter-op-technik-unispital-basel-ch",
     "slugByLocale": {
-      "de": "teamleiterin-teamleiter-op-technik-unispital-basel-ch"
+      "de": "teamleiterin-teamleiter-op-technik-unispital-basel-ch",
+      "it": "team-leader-team-leader-tecnologia-op-universitatsspital-basel-basel",
+      "en": "team-leader-team-leader-op-technology-universitatsspital-basel-basel",
+      "fr": "chef-d-equipe-chef-d-equipe-technologie-op-universitatsspital-basel-basel"
     },
     "createdAt": "2026-10-30",
     "canton": "BS"
@@ -969022,7 +969132,8 @@
   "url|https://www.alpiq.com/career/open-jobs/your-application/281": {
     "canonicalSlug": "senior-gas-prop-trader-alpiq-olten",
     "slugByLocale": {
-      "en": "senior-gas-prop-trader-alpiq-olten"
+      "en": "senior-gas-prop-trader-alpiq-olten",
+      "fr": "trafic-principal-de-gaz-prop-alpiq-olten"
     },
     "createdAt": "2026-10-30",
     "canton": "SO"
@@ -969030,7 +969141,10 @@
   "id|so.ch|781df1de-77e0-4f97-a057-d94abd28a914": {
     "canonicalSlug": "stv-schlosswart-in-10-kanton-solothurn-olten",
     "slugByLocale": {
-      "de": "stv-schlosswart-in-10-kanton-solothurn-olten"
+      "de": "stv-schlosswart-in-10-kanton-solothurn-olten",
+      "it": "sostituto-manutenzione-serrature-10-kanton-solothurn-olten",
+      "en": "deputy-castle-attendant-10-kanton-solothurn-olten",
+      "fr": "gardien-ne-de-chateau-adjoint-e-10-kanton-solothurn-olten"
     },
     "createdAt": "2026-10-30",
     "canton": "SO"
@@ -969038,7 +969152,9 @@
   "url|https://jobs.smartrecruiters.com/talan/744000158697280-developpeur-agentique?oga=true": {
     "canonicalSlug": "developpeur-agentique-talan-geneva-ge-switzerland",
     "slugByLocale": {
-      "fr": "developpeur-agentique-talan-geneva-ge-switzerland"
+      "fr": "developpeur-agentique-talan-geneva-ge-switzerland",
+      "it": "agente-sviluppatore-talan-geneva-ge-switzerland",
+      "en": "agent-developer-talan-geneva-ge-switzerland"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -969102,7 +969218,9 @@
     "canonicalSlug": "fabe-per-den-mittag-abendhort-kolbenacker-c-schule-kolbenacker-stadt-zurich",
     "slugByLocale": {
       "de": "fabe-fur-den-mittag-abendhort-kolbenacker-c-schule-kolbenacker-stadt-zuerich-zurigo-52114",
-      "it": "fabe-per-den-mittag-abendhort-kolbenacker-c-schule-kolbenacker-stadt-zurich"
+      "it": "fabe-per-den-mittag-abendhort-kolbenacker-c-schule-kolbenacker-stadt-zurich",
+      "en": "fabe-for-the-midday-evening-hoard-kolbenacker-c-school-kolbenacker-stadt-zurich-zurich",
+      "fr": "fabe-pour-le-hoard-de-midi-soir-kolbenacker-c-ecole-kolbenacker-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -969111,7 +969229,9 @@
     "canonicalSlug": "fachperson-betreuung-isr-per-mittag-abendhort-stiglen-schule-kolbenacker-stadt-zurich",
     "slugByLocale": {
       "de": "fachperson-betreuung-isr-fur-mittag-abendhort-stiglen-schule-kolbenacker-stadt-zuerich",
-      "it": "fachperson-betreuung-isr-per-mittag-abendhort-stiglen-schule-kolbenacker-stadt-zurich"
+      "it": "fachperson-betreuung-isr-per-mittag-abendhort-stiglen-schule-kolbenacker-stadt-zurich",
+      "en": "specialist-supervision-isr-for-lunch-evening-hoard-stiglen-school-kolbenacker-stadt-zurich-zurich",
+      "fr": "supervision-de-specialistes-isr-pour-le-dejeuner-soir-hoard-stiglen-ecole-kolbenacker-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -969120,7 +969240,9 @@
     "canonicalSlug": "schulassistenz-per-la-betreuung-schule-kolbenacker-stadt-zurich",
     "slugByLocale": {
       "de": "schulassistenz-fur-die-betreuung-schule-kolbenacker-stadt-zuerich-zurigo-52116",
-      "it": "schulassistenz-per-la-betreuung-schule-kolbenacker-stadt-zurich"
+      "it": "schulassistenz-per-la-betreuung-schule-kolbenacker-stadt-zurich",
+      "en": "school-assistance-for-care-school-kolbenacker-stadt-zurich-zurich",
+      "fr": "aide-scolaire-pour-les-soins-ecole-kolbenacker-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -969128,7 +969250,10 @@
   "id|stadt-zuerich.ch|1376277257": {
     "canonicalSlug": "geomatiker-in-stadt-zuerich-zurigo-52112",
     "slugByLocale": {
-      "de": "geomatiker-in-stadt-zuerich-zurigo-52112"
+      "de": "geomatiker-in-stadt-zuerich-zurigo-52112",
+      "it": "geomatico-a-stadt-zurich-zurich",
+      "en": "geomatics-technician-stadt-zurich-zurich",
+      "fr": "geomaticien-ne-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -969136,7 +969261,10 @@
   "id|stadt-zuerich.ch|1376283057": {
     "canonicalSlug": "sozialarbeiter-in-mit-agogischer-tatigkeit-stadt-zuerich-zurigo-52038",
     "slugByLocale": {
-      "de": "sozialarbeiter-in-mit-agogischer-tatigkeit-stadt-zuerich-zurigo-52038"
+      "de": "sozialarbeiter-in-mit-agogischer-tatigkeit-stadt-zuerich-zurigo-52038",
+      "it": "assistente-sociale-con-attivita-agogica-stadt-zurich-zurich",
+      "en": "social-worker-with-agogic-activity-stadt-zurich-zurich",
+      "fr": "travailleur-social-avec-activite-agogique-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -969155,7 +969283,10 @@
   "url|https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f40625": {
     "canonicalSlug": "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625",
     "slugByLocale": {
-      "de": "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625"
+      "de": "teilpensum-3-klasse-6-lektionen-schulzentrum-pestalozzi-gotthelf-burgdorf-40625",
+      "it": "3-grado-6-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625",
+      "en": "3rd-grade-6-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625",
+      "fr": "3e-annee-6-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-40625"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969175,7 +969306,9 @@
     "canonicalSlug": "lehrperson-per-10-bis-12-lektionen-zyklus-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-langenthal",
     "slugByLocale": {
       "de": "lehrperson-fur-10-bis-12-lektionen-zyklus-1-tavola-langenthal-40626",
-      "it": "lehrperson-per-10-bis-12-lektionen-zyklus-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-langenthal"
+      "it": "lehrperson-per-10-bis-12-lektionen-zyklus-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-langenthal",
+      "en": "teacher-for-10-to-12-lessons-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40626",
+      "fr": "enseignant-pour-10-a-12-lecons-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40626"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969184,7 +969317,9 @@
     "canonicalSlug": "lehrperson-per-10-bis-15-lektionen-zyklus-1-2-kindergarten-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-langenthal",
     "slugByLocale": {
       "de": "lehrperson-fur-10-bis-15-lektionen-zyklus-1-2-kindergarten-tavola-langenthal-40627",
-      "it": "lehrperson-per-10-bis-15-lektionen-zyklus-1-2-kindergarten-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-langenthal"
+      "it": "lehrperson-per-10-bis-15-lektionen-zyklus-1-2-kindergarten-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-langenthal",
+      "en": "teacher-for-10-to-15-lessons-cycle-1-2nd-kindergarten-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40627",
+      "fr": "enseignant-pour-10-a-15-lecons-cycle-1-2e-maternelle-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40627"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969192,7 +969327,10 @@
   "url|https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f40616": {
     "canonicalSlug": "fachperson-logopadie-schule-signau-signau-40616",
     "slugByLocale": {
-      "de": "fachperson-logopadie-schule-signau-signau-40616"
+      "de": "fachperson-logopadie-schule-signau-signau-40616",
+      "it": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
+      "en": "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
+      "fr": "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969201,7 +969339,9 @@
     "canonicalSlug": "eine-klassen-e-fachlehrperson-per-25-lk-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-twann",
     "slugByLocale": {
       "de": "eine-klassen-und-fachlehrperson-fur-25-lk-schulen-twann-ttl-twann-40566",
-      "it": "eine-klassen-e-fachlehrperson-per-25-lk-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-twann"
+      "it": "eine-klassen-e-fachlehrperson-per-25-lk-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-twann",
+      "en": "one-class-and-subject-teacher-for-25-lk-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-twann-40566",
+      "fr": "une-classe-et-professeur-de-matiere-pour-25-lk-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40566"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969220,7 +969360,9 @@
   "id|ksgr.ch|5b4cdfd0-ff7a-4443-b62b-d60685f5ff0c": {
     "canonicalSlug": "teamleiter-in-intermediate-care-walenstadt-kantonsspital-graubunden-chur",
     "slugByLocale": {
-      "de": "teamleiter-in-intermediate-care-walenstadt-kantonsspital-graubunden-chur"
+      "de": "teamleiter-in-intermediate-care-walenstadt-kantonsspital-graubunden-chur",
+      "it": "team-leader-intermediate-care-walenstadt-kantonsspital-graubunden-chur",
+      "fr": "chef-d-equipe-soins-intermediaires-walenstadt-kantonsspital-graubunden-chur"
     },
     "createdAt": "2026-10-30",
     "canton": "GR"
@@ -969228,7 +969370,10 @@
   "url|https://jobs.senevita.ch/praktikant-aktivierung-de-j5169.html": {
     "canonicalSlug": "praktikant-aktivierung-senevita-bl-pratteln",
     "slugByLocale": {
-      "de": "praktikant-aktivierung-senevita-bl-pratteln"
+      "de": "praktikant-aktivierung-senevita-bl-pratteln",
+      "it": "attivazione-di-stage-senevita-bl-pratteln",
+      "en": "internship-activation-senevita-bl-pratteln",
+      "fr": "activation-des-stages-senevita-bl-pratteln"
     },
     "createdAt": "2026-10-30",
     "canton": "BL"
@@ -969236,7 +969381,10 @@
   "id|luks.ch|cc6183ee-b56e-44b4-b6ee-def14481fdb7": {
     "canonicalSlug": "mpa-ambulatorium-nephrologie-40-80-luks-luzern",
     "slugByLocale": {
-      "de": "mpa-ambulatorium-nephrologie-40-80-luks-luzern"
+      "de": "mpa-ambulatorium-nephrologie-40-80-luks-luzern",
+      "en": "mpa-ambulatory-nephrology-40-80-luzerner-kantonsspital-luks-luzern",
+      "it": "mpa-ambulatorium-nefrologie-40-80-luzerner-kantonsspital-luks-luzern",
+      "fr": "nephrologie-ambulatoire-mpa-40-80-luzerner-kantonsspital-luks-luzern"
     },
     "createdAt": "2026-10-30",
     "canton": "LU"
@@ -969245,7 +969393,9 @@
     "canonicalSlug": "mitarbeiterin-addetto-a-alle-vendite-chauffeur-warenannahme-dubendorf-80-100-transgourmet-dubendorf",
     "slugByLocale": {
       "de": "mitarbeiterin-mitarbeiter-verkauf-chauffeur-warenannahme-dubendorf-80-100-transgourmet",
-      "it": "mitarbeiterin-addetto-a-alle-vendite-chauffeur-warenannahme-dubendorf-80-100-transgourmet-dubendorf"
+      "it": "mitarbeiterin-addetto-a-alle-vendite-chauffeur-warenannahme-dubendorf-80-100-transgourmet-dubendorf",
+      "en": "sales-associate-driver-receiving-dubendorf-80-100-transgourmet-dubendorf",
+      "fr": "employe-e-en-vente-et-chauffeur-euse-reception-des-marchandises-dubendorf-80-a-100-transgourmet-dubendorf"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -969253,7 +969403,10 @@
   "url|https://jobs.zfv.ch/hilfskoechin-hilfskoch-80-100-de-j4767.html": {
     "canonicalSlug": "hilfskochin-hilfskoch-80-100-zfv-unternehmungen-glattpark-opfikon",
     "slugByLocale": {
-      "de": "hilfskochin-hilfskoch-80-100-zfv-unternehmungen-glattpark-opfikon"
+      "de": "hilfskochin-hilfskoch-80-100-zfv-unternehmungen-glattpark-opfikon",
+      "it": "assistente-cuoco-assistente-cuoco-80-100-zfv-unternehmungen-glattpark-opfikon",
+      "en": "assistant-cook-assistant-cook-80-100-zfv-unternehmungen-glattpark-opfikon",
+      "fr": "cuisinier-adjoint-cuisinier-adjoint-80-100-zfv-unternehmungen-glattpark-opfikon"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -969284,7 +969437,9 @@
     "canonicalSlug": "operatore-projekt-accelerate-chance-per-candidato-a-in-riqualificazione-im-4-schicht-betrieb-m-w-d-lonza-visp",
     "slugByLocale": {
       "de": "operator-projekt-accelerate-chance-fur-quereinsteiger-im-4-schicht-betrieb-m-w-d-lonza-ch",
-      "it": "operatore-projekt-accelerate-chance-per-candidato-a-in-riqualificazione-im-4-schicht-betrieb-m-w-d-lonza-visp"
+      "it": "operatore-projekt-accelerate-chance-per-candidato-a-in-riqualificazione-im-4-schicht-betrieb-m-w-d-lonza-visp",
+      "en": "operator-project-accelerate-opportunity-for-lateral-entrants-in-4-shift-operation-m-f-d-lonza-visp",
+      "fr": "projet-operator-accelerate-une-opportunite-pour-les-personnes-en-reconversion-professionnelle-dans-le-cadre-d-un-travail"
     },
     "createdAt": "2026-10-30",
     "canton": "VS"
@@ -969292,7 +969447,10 @@
   "id|lonza.wd3.myworkdayjobs.com|r79369": {
     "canonicalSlug": "associate-principal-scientist-bioanalytics-80-100-f-m-d-lonza-ch",
     "slugByLocale": {
-      "en": "associate-principal-scientist-bioanalytics-80-100-f-m-d-lonza-ch"
+      "en": "associate-principal-scientist-bioanalytics-80-100-f-m-d-lonza-ch",
+      "it": "ricercatore-principale-associato-bioanalisi-80-100-m-f-d-lonza-basel",
+      "de": "leitender-wissenschaftlicher-mitarbeiter-im-bereich-bioanalytik-80-100-m-w-d-lonza-basel",
+      "fr": "chercheur-principal-associe-bioanalyse-80-100-h-f-d-lonza-basel"
     },
     "createdAt": "2026-10-30",
     "canton": "BS"
@@ -969300,7 +969458,10 @@
   "id|helsana.ch|1452786533": {
     "canonicalSlug": "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-worblaufen",
     "slugByLocale": {
-      "de": "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-worblaufen"
+      "de": "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-worblaufen",
+      "it": "servizi-del-fornitore-del-servizio-clienti-ambulant-a-80-100-helsana-worblaufen",
+      "en": "customer-service-provider-services-ambulant-a-80-100-helsana-worblaufen",
+      "fr": "services-a-la-clientele-ambulant-a-80-100-helsana-worblaufen"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969308,7 +969469,8 @@
   "url|https://jobs.smartrecruiters.com/cern/744000158676704-mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-?oga=true": {
     "canonicalSlug": "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva",
     "slugByLocale": {
-      "en": "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva"
+      "en": "mechanical-electromechanical-technician-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva",
+      "it": "tecnico-meccanico-elettromeccanico-atlas-itk-upgrade-ep-dt-eo-2026-215-ld-cern-geneva-geneva-switzerland"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -969324,7 +969486,10 @@
   "id|baselland.ch|8c249bee-fe43-421b-b1cd-4fd945ac32ee": {
     "canonicalSlug": "raumpflegerin-raumpfleger-im-gymnasium-kanton-basel-landschaft-oberwil",
     "slugByLocale": {
-      "de": "raumpflegerin-raumpfleger-im-gymnasium-kanton-basel-landschaft-oberwil"
+      "de": "raumpflegerin-raumpfleger-im-gymnasium-kanton-basel-landschaft-oberwil",
+      "it": "infermiere-in-camera-infermiera-al-liceo-kantonale-verwaltung-basel-landschaft-oberwil",
+      "en": "room-nurse-room-nurse-in-high-school-kantonale-verwaltung-basel-landschaft-oberwil",
+      "fr": "infirmiere-infirmiere-de-chambre-au-lycee-kantonale-verwaltung-basel-landschaft-oberwil"
     },
     "createdAt": "2026-10-30",
     "canton": "BL"
@@ -969343,7 +969508,8 @@
   "id|juliusbaer.wd3.myworkdayjobs.com|r-20288": {
     "canonicalSlug": "credit-officer-mortgages-100-f-m-d-julius-baer",
     "slugByLocale": {
-      "en": "credit-officer-mortgages-100-f-m-d-julius-baer"
+      "en": "credit-officer-mortgages-100-f-m-d-julius-baer",
+      "fr": "agent-de-credit-hypotheques-100-h-f-d-julius-baer-zurich"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -969351,7 +969517,10 @@
   "id|softgarden.de|68444882": {
     "canonicalSlug": "facharbeiter-confiserie-massenraum-w-m-d-laderach-ennenda-glarus-schweiz",
     "slugByLocale": {
-      "de": "facharbeiter-confiserie-massenraum-w-m-d-laderach-ennenda-glarus-schweiz"
+      "de": "facharbeiter-confiserie-massenraum-w-m-d-laderach-ennenda-glarus-schweiz",
+      "it": "specialista-confiserie-sala-di-massa-m-f-d-laderach-schweiz-ag-ennenda-glarus-schweiz",
+      "en": "specialist-confiserie-mass-room-m-f-d-laderach-schweiz-ag-ennenda-glarus-schweiz",
+      "fr": "salle-de-masse-de-la-confiserie-specialisee-h-f-d-laderach-schweiz-ag-ennenda-glarus-schweiz"
     },
     "createdAt": "2026-10-30",
     "canton": "GL"
@@ -969359,7 +969528,9 @@
   "id|softgarden.de|68442112": {
     "canonicalSlug": "finance-director-spain-laderach-glarus-nord-glarus-switzerland",
     "slugByLocale": {
-      "en": "finance-director-spain-laderach-glarus-nord-glarus-switzerland"
+      "en": "finance-director-spain-laderach-glarus-nord-glarus-switzerland",
+      "it": "finanza-direttore-spain-laderach-schweiz-ag-glarus-nord-glarus-switzerland",
+      "de": "finanzen-direktor-spain-laderach-schweiz-ag-glarus-nord-glarus-switzerland"
     },
     "createdAt": "2026-10-30",
     "canton": "GL"
@@ -969367,7 +969538,10 @@
   "id|coopjobs.ch|4402bbc7-9960-4088-9807-3e74c31a3703": {
     "canonicalSlug": "verkaufsberater-in-garten-jumbo-eppenberg-woschnau",
     "slugByLocale": {
-      "de": "verkaufsberater-in-garten-jumbo-eppenberg-woschnau"
+      "de": "verkaufsberater-in-garten-jumbo-eppenberg-woschnau",
+      "it": "consulente-di-vendita-settore-giardinaggio-jumbo-eppenberg-woschnau",
+      "en": "garden-sales-consultant-jumbo-eppenberg-woschnau",
+      "fr": "conseiller-ere-de-vente-en-jardinage-jumbo-eppenberg-woschnau"
     },
     "createdAt": "2026-10-30",
     "canton": "SO"
@@ -969419,7 +969593,10 @@
   "id|recruitingapp-2800.umantis.com|6576": {
     "canonicalSlug": "mechaniker-m-w-d-kanton-st-gallen-ch",
     "slugByLocale": {
-      "de": "mechaniker-m-w-d-kanton-st-gallen-ch"
+      "de": "mechaniker-m-w-d-kanton-st-gallen-ch",
+      "it": "meccanica-m-f-d-kanton-st-gallen-thal",
+      "en": "mechanics-m-f-d-kanton-st-gallen-thal",
+      "fr": "mecanique-h-f-d-kanton-st-gallen-thal"
     },
     "createdAt": "2026-10-30",
     "canton": "SG"
@@ -969427,7 +969604,10 @@
   "id|concordia.ch|42497c63-4605-4dfc-a8ec-16cb1d43f2da": {
     "canonicalSlug": "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern",
     "slugByLocale": {
-      "de": "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern"
+      "de": "fachspezialist-in-inkasso-d-f-80-100-concordia-luzern",
+      "it": "specialista-in-recupero-crediti-d-f-80-100-concordia-luzern",
+      "en": "debt-collection-specialist-german-french-80-100-concordia-luzern",
+      "fr": "specialiste-en-recouvrement-h-f-allemand-francais-80-a-100-concordia-luzern"
     },
     "createdAt": "2026-10-30",
     "canton": "LU"
@@ -969435,7 +969615,9 @@
   "id|uzh.ch|e8a9d805-8677-45e3-8b6b-f6bfe4208cd7": {
     "canonicalSlug": "cloud-engineer-w-m-x-uzh-zurich",
     "slugByLocale": {
-      "de": "cloud-engineer-w-m-x-uzh-zurich"
+      "de": "cloud-engineer-w-m-x-uzh-zurich",
+      "it": "cloud-ingegnere-w-m-x-universitat-zurich-zurich",
+      "fr": "cloud-ingenieur-w-m-x-universitat-zurich-zurich"
     },
     "createdAt": "2026-10-30",
     "canton": "ZH"
@@ -969444,7 +969626,9 @@
     "canonicalSlug": "betriebselektrikerin-betriebselektriker-o-systemspezialistin-systemspezialist-elektro-m-w-d-solothurner-spitaler-ag-soh-dornach",
     "slugByLocale": {
       "de": "betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w",
-      "it": "betriebselektrikerin-betriebselektriker-o-systemspezialistin-systemspezialist-elektro-m-w-d-solothurner-spitaler-ag-soh-dornach"
+      "it": "betriebselektrikerin-betriebselektriker-o-systemspezialistin-systemspezialist-elektro-m-w-d-solothurner-spitaler-ag-soh-dornach",
+      "en": "business-electrician-or-system-specialist-system-specialist-electric-m-f-d-solothurner-spitaler-ag-soh-dornach",
+      "fr": "electricien-d-affaires-ou-specialiste-du-systeme-system-specialist-electric-h-f-d-solothurner-spitaler-ag-soh-dornach"
     },
     "createdAt": "2026-10-30",
     "canton": "SO"
@@ -969453,7 +969637,9 @@
     "canonicalSlug": "berufsbildnerin-berufsbildner-dipl-pflegefachfrau-pflegefachmann-o-fachmann-fachfrau-gesundheit-m-w-d-solothurner-spitaler-ag-soh-dornach",
     "slugByLocale": {
       "de": "berufsbildnerin-berufsbildner-dipl-pflegefachfrau-pflegefachmann-oder-fachmann-fachfrau",
-      "it": "berufsbildnerin-berufsbildner-dipl-pflegefachfrau-pflegefachmann-o-fachmann-fachfrau-gesundheit-m-w-d-solothurner-spitaler-ag-soh-dornach"
+      "it": "berufsbildnerin-berufsbildner-dipl-pflegefachfrau-pflegefachmann-o-fachmann-fachfrau-gesundheit-m-w-d-solothurner-spitaler-ag-soh-dornach",
+      "en": "vocational-trainer-dipl-nursing-professional-nursing-professional-health-professional-m-f-d-solothurner-spitaler-ag-soh",
+      "fr": "entraineur-professionnel-dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-professionnels-de"
     },
     "createdAt": "2026-10-30",
     "canton": "SO"
@@ -969461,7 +969647,10 @@
   "url|https://www.pemsa.ch/it/job/operaio-edile-b-2703216": {
     "canonicalSlug": "operaio-edile-b-pemsa-cadempino",
     "slugByLocale": {
-      "it": "operaio-edile-b-pemsa-cadempino"
+      "it": "operaio-edile-b-pemsa-cadempino",
+      "en": "construction-worker-b-pemsa-cadempino",
+      "de": "bauarbeiter-b-pemsa-cadempino",
+      "fr": "ouvrier-de-construction-b-pemsa-cadempino"
     },
     "createdAt": "2026-10-30",
     "canton": "TI"
@@ -969470,7 +969659,9 @@
     "canonicalSlug": "projektleiter-in-immobilien-confederazione-svizzera-bern",
     "slugByLocale": {
       "de": "projektleiter-in-immobilien-confederazione-bern",
-      "it": "projektleiter-in-immobilien-confederazione-svizzera-bern"
+      "it": "projektleiter-in-immobilien-confederazione-svizzera-bern",
+      "en": "real-estate-project-manager-confederazione-svizzera-bern",
+      "fr": "chef-fe-de-projet-immobilier-confederazione-svizzera-bern"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969478,7 +969669,10 @@
   "url|https://www.pemsa.ch/it/job/tettoio-lattoniere-2703213": {
     "canonicalSlug": "tettoio-lattoniere-pemsa-geneve",
     "slugByLocale": {
-      "it": "tettoio-lattoniere-pemsa-geneve"
+      "it": "tettoio-lattoniere-pemsa-geneve",
+      "en": "iron-ironing-board-pemsa-geneve",
+      "de": "bugeleisen-und-bugelbretter-pemsa-geneve",
+      "fr": "fer-planche-a-repasser-pemsa-geneve"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -969486,7 +969680,10 @@
   "url|https://www.pemsa.ch/it/job/idraulico-a-2703210": {
     "canonicalSlug": "idraulico-a-pemsa-geneve",
     "slugByLocale": {
-      "it": "idraulico-a-pemsa-geneve"
+      "it": "idraulico-a-pemsa-geneve",
+      "en": "hydraulic-a-pemsa-geneve",
+      "de": "hydraulik-a-pemsa-geneve",
+      "fr": "hydraulique-a-pemsa-geneve"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -969494,7 +969691,10 @@
   "url|https://www.pemsa.ch/it/job/falegname-a-specializzato-a-nella-posa-di-arredi-su-misura-2703207": {
     "canonicalSlug": "falegname-a-specializzato-a-nella-posa-di-arredi-su-misura-pemsa-geneve",
     "slugByLocale": {
-      "it": "falegname-a-specializzato-a-nella-posa-di-arredi-su-misura-pemsa-geneve"
+      "it": "falegname-a-specializzato-a-nella-posa-di-arredi-su-misura-pemsa-geneve",
+      "en": "carpenter-a-specializing-in-the-installation-of-custom-furniture-pemsa-geneve",
+      "de": "carpenter-a-spezialisiert-auf-die-installation-von-kundenspezifischen-mobeln-pemsa-geneve",
+      "fr": "charpentier-un-specialiste-de-l-installation-de-meubles-sur-mesure-pemsa-geneve"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -969502,7 +969702,10 @@
   "url|https://www.pemsa.ch/it/job/regolatore-sulla-finitrice-2703204": {
     "canonicalSlug": "regolatore-sulla-finitrice-pemsa-geneve",
     "slugByLocale": {
-      "it": "regolatore-sulla-finitrice-pemsa-geneve"
+      "it": "regolatore-sulla-finitrice-pemsa-geneve",
+      "en": "controller-on-the-finisher-pemsa-geneve",
+      "de": "controller-im-finisher-pemsa-geneve",
+      "fr": "controleur-du-finisseur-pemsa-geneve"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -969510,7 +969713,10 @@
   "url|https://www.pemsa.ch/it/job/falegname-a-di-officina-2703202": {
     "canonicalSlug": "falegname-a-di-officina-pemsa-geneve",
     "slugByLocale": {
-      "it": "falegname-a-di-officina-pemsa-geneve"
+      "it": "falegname-a-di-officina-pemsa-geneve",
+      "en": "workshop-carpenter-pemsa-geneve",
+      "de": "werkstattzimmermann-pemsa-geneve",
+      "fr": "charpentier-d-atelier-pemsa-geneve"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -969518,7 +969724,10 @@
   "url|https://www.pemsa.ch/it/job/caposquadra-lavori-di-muratura-2703198": {
     "canonicalSlug": "caposquadra-lavori-di-muratura-pemsa-geneve",
     "slugByLocale": {
-      "it": "caposquadra-lavori-di-muratura-pemsa-geneve"
+      "it": "caposquadra-lavori-di-muratura-pemsa-geneve",
+      "en": "head-of-masonry-pemsa-geneve",
+      "de": "kopf-des-mauerwerks-pemsa-geneve",
+      "fr": "chef-de-maconnerie-pemsa-geneve"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -969526,7 +969735,10 @@
   "id|admin.ch|510501e2-ec1c-4295-82c0-57bc9f6681d2": {
     "canonicalSlug": "hochschulpraktikant-in-deza-thematische-zusammenarbeit-confederazione-zollikofen",
     "slugByLocale": {
-      "de": "hochschulpraktikant-in-deza-thematische-zusammenarbeit-confederazione-zollikofen"
+      "de": "hochschulpraktikant-in-deza-thematische-zusammenarbeit-confederazione-zollikofen",
+      "it": "tirocinante-universitario-a-dsc-cooperazione-tematica-confederazione-svizzera-zollikofen",
+      "en": "university-intern-sdc-thematic-cooperation-confederazione-svizzera-zollikofen",
+      "fr": "stagiaire-universitaire-cooperation-thematique-de-la-ddc-confederazione-svizzera-zollikofen"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969534,7 +969746,10 @@
   "url|https://www.pemsa.ch/it/job/saldatore-tubista-in-cantiere-2703193": {
     "canonicalSlug": "saldatore-tubista-in-cantiere-pemsa-mezzovico",
     "slugByLocale": {
-      "it": "saldatore-tubista-in-cantiere-pemsa-mezzovico"
+      "it": "saldatore-tubista-in-cantiere-pemsa-mezzovico",
+      "en": "tubist-welding-machine-in-construction-site-pemsa-mezzovico",
+      "de": "rohrschwei-maschine-auf-baustelle-pemsa-mezzovico",
+      "fr": "machine-a-souder-les-tubes-sur-le-chantier-pemsa-mezzovico"
     },
     "createdAt": "2026-10-30",
     "canton": "TI"
@@ -969542,7 +969757,10 @@
   "url|https://www.pemsa.ch/it/job/installatore-idraulico-afc-2703190": {
     "canonicalSlug": "installatore-idraulico-afc-pemsa-lugano",
     "slugByLocale": {
-      "it": "installatore-idraulico-afc-pemsa-lugano"
+      "it": "installatore-idraulico-afc-pemsa-lugano",
+      "en": "afc-hydraulic-installer-pemsa-lugano",
+      "de": "afc-hydraulic-installateur-pemsa-lugano",
+      "fr": "afc-installateur-hydraulique-pemsa-lugano"
     },
     "createdAt": "2026-10-30",
     "canton": "TI"
@@ -969550,7 +969768,10 @@
   "url|https://www.pemsa.ch/it/job/installatore-idraulico-2703181": {
     "canonicalSlug": "installatore-idraulico-pemsa-mendrisio",
     "slugByLocale": {
-      "it": "installatore-idraulico-pemsa-mendrisio"
+      "it": "installatore-idraulico-pemsa-mendrisio",
+      "en": "hydraulic-installer-pemsa-mendrisio",
+      "de": "hydraulikinstallateur-pemsa-mendrisio",
+      "fr": "installation-hydraulique-pemsa-mendrisio"
     },
     "createdAt": "2026-10-30",
     "canton": "TI"
@@ -969558,7 +969779,10 @@
   "url|https://www.pemsa.ch/it/job/saldatore-tubista-2703178": {
     "canonicalSlug": "saldatore-tubista-pemsa-lugano",
     "slugByLocale": {
-      "it": "saldatore-tubista-pemsa-lugano"
+      "it": "saldatore-tubista-pemsa-lugano",
+      "en": "pipe-welder-pemsa-lugano",
+      "de": "rohrschweisser-pemsa-lugano",
+      "fr": "soudeur-specialise-dans-les-tuyaux-pemsa-lugano"
     },
     "createdAt": "2026-10-30",
     "canton": "TI"
@@ -969566,7 +969790,10 @@
   "id|admin.ch|796d43b9-03ee-45ad-aa7c-8c80c00454fe": {
     "canonicalSlug": "hochschulpraktikant-in-schweizerisches-literaturarchiv-confederazione-bern",
     "slugByLocale": {
-      "de": "hochschulpraktikant-in-schweizerisches-literaturarchiv-confederazione-bern"
+      "de": "hochschulpraktikant-in-schweizerisches-literaturarchiv-confederazione-bern",
+      "it": "tirocinante-universitario-a-presso-l-archivio-letterario-svizzero-confederazione-svizzera-bern",
+      "en": "university-intern-at-the-swiss-literary-archives-confederazione-svizzera-bern",
+      "fr": "stagiaire-universitaire-aux-archives-litteraires-suisses-confederazione-svizzera-bern"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969585,7 +969812,10 @@
   "url|https://www.pemsa.ch/it/job/quadrista-cabaltore-2703131": {
     "canonicalSlug": "quadrista-cabaltore-pemsa-bellinzona",
     "slugByLocale": {
-      "it": "quadrista-cabaltore-pemsa-bellinzona"
+      "it": "quadrista-cabaltore-pemsa-bellinzona",
+      "en": "panel-builder-cabatrice-pemsa-bellinzona",
+      "de": "plattenbauer-cabatrice-pemsa-bellinzona",
+      "fr": "cabatrice-de-panneaux-pemsa-bellinzona"
     },
     "createdAt": "2026-10-30",
     "canton": "TI"
@@ -969593,7 +969823,10 @@
   "url|https://www.pemsa.ch/it/job/operatore-operatrice-persona-di-altro-genere-addetto-a-alla-posa-della-resina-a-tempo-pieno-100-2703054": {
     "canonicalSlug": "operatore-operatrice-persona-di-altro-genere-addetto-a-alla-posa-della-resina-a-tempo-pieno-100-pemsa-saxon",
     "slugByLocale": {
-      "it": "operatore-operatrice-persona-di-altro-genere-addetto-a-alla-posa-della-resina-a-tempo-pieno-100-pemsa-saxon"
+      "it": "operatore-operatrice-persona-di-altro-genere-addetto-a-alla-posa-della-resina-a-tempo-pieno-100-pemsa-saxon",
+      "en": "operator-other-person-in-charge-of-laying-the-resin-full-time-100-pemsa-saxon",
+      "de": "bediener-bedienerin-person-anderer-art-die-vollzeit-mit-der-verlegung-des-harzes-befasst-ist-100-pemsa-saxon",
+      "fr": "operateur-operatrice-autre-personne-chargee-de-la-pose-de-la-resine-a-temps-plein-100-pemsa-saxon"
     },
     "createdAt": "2026-10-30",
     "canton": "VS"
@@ -969601,7 +969834,10 @@
   "url|https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-m-f-d-100-2703045": {
     "canonicalSlug": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-martigny",
     "slugByLocale": {
-      "it": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-martigny"
+      "it": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-martigny",
+      "en": "m-f-d-heating-system-installer-100-pemsa-martigny",
+      "de": "m-w-d-heizsysteminstallateur-100-pemsa-martigny",
+      "fr": "installation-du-systeme-de-chauffage-h-f-d-100-pemsa-martigny"
     },
     "createdAt": "2026-10-30",
     "canton": "VS"
@@ -969609,7 +969845,10 @@
   "url|https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-m-f-d-100-2703042": {
     "canonicalSlug": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-saxon",
     "slugByLocale": {
-      "it": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-saxon"
+      "it": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-saxon",
+      "en": "m-f-d-heating-system-installer-100-pemsa-saxon",
+      "de": "m-w-d-heizsysteminstallateur-100-pemsa-saxon",
+      "fr": "installation-du-systeme-de-chauffage-h-f-d-100-pemsa-saxon"
     },
     "createdAt": "2026-10-30",
     "canton": "VS"
@@ -969617,7 +969856,10 @@
   "url|https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-m-f-d-100-2703039": {
     "canonicalSlug": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-conthey",
     "slugByLocale": {
-      "it": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-conthey"
+      "it": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-conthey",
+      "en": "m-f-d-heating-system-installer-100-pemsa-conthey",
+      "de": "m-w-d-heizsysteminstallateur-100-pemsa-conthey",
+      "fr": "installation-du-systeme-de-chauffage-h-f-d-100-pemsa-conthey"
     },
     "createdAt": "2026-10-30",
     "canton": "VS"
@@ -969625,7 +969867,10 @@
   "url|https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-m-f-d-100-2703036": {
     "canonicalSlug": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-sion",
     "slugByLocale": {
-      "it": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-sion"
+      "it": "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-sion",
+      "en": "m-f-d-heating-system-installer-100-pemsa-sion",
+      "de": "m-w-d-heizsysteminstallateur-100-pemsa-sion",
+      "fr": "installation-du-systeme-de-chauffage-h-f-d-100-pemsa-sion"
     },
     "createdAt": "2026-10-30",
     "canton": "VS"
@@ -969633,7 +969878,10 @@
   "url|https://www.pemsa.ch/it/job/operatore-operatrice-persona-di-altro-genere-addetto-a-alla-posa-della-resina-a-tempo-pieno-100-2702999": {
     "canonicalSlug": "operatore-operatrice-persona-di-altro-genere-addetto-a-alla-posa-della-resina-a-tempo-pieno-100-pemsa-riddes",
     "slugByLocale": {
-      "it": "operatore-operatrice-persona-di-altro-genere-addetto-a-alla-posa-della-resina-a-tempo-pieno-100-pemsa-riddes"
+      "it": "operatore-operatrice-persona-di-altro-genere-addetto-a-alla-posa-della-resina-a-tempo-pieno-100-pemsa-riddes",
+      "en": "operator-other-person-in-charge-of-laying-the-resin-full-time-100-pemsa-riddes",
+      "de": "bediener-bedienerin-person-anderer-art-die-vollzeit-mit-der-verlegung-des-harzes-befasst-ist-100-pemsa-riddes",
+      "fr": "operateur-operatrice-autre-personne-chargee-de-la-pose-de-la-resine-a-temps-plein-100-pemsa-riddes"
     },
     "createdAt": "2026-10-30",
     "canton": "VS"
@@ -969652,7 +969900,9 @@
   "id|galenica.com|3149575": {
     "canonicalSlug": "galenica-galenica-ag-assistant-assistante-en-pharmacie-f-h-d-versoix",
     "slugByLocale": {
-      "fr": "galenica-galenica-ag-assistant-assistante-en-pharmacie-f-h-d-versoix"
+      "fr": "galenica-galenica-ag-assistant-assistante-en-pharmacie-f-h-d-versoix",
+      "en": "pharmacy-assistant-m-f-d-galenica-ag-galenica-versoix",
+      "de": "assistent-assistante-en-pharmacie-f-h-d-galenica-ag-galenica-versoix"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -969660,7 +969910,9 @@
   "url|https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-head-of-manufacturing": {
     "canonicalSlug": "head-of-manufacturing-agie-charmilles-biel-bienne",
     "slugByLocale": {
-      "de": "head-of-manufacturing-agie-charmilles-biel-bienne"
+      "de": "head-of-manufacturing-agie-charmilles-biel-bienne",
+      "it": "responsabile-manufacturing-agie-charmilles-sa-biel-bienne",
+      "fr": "responsable-manufacturing-agie-charmilles-sa-biel-bienne"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969668,9 +969920,1054 @@
   "url|https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-senior-it-project-manager": {
     "canonicalSlug": "senior-it-project-manager-agie-charmilles-meyrin",
     "slugByLocale": {
-      "en": "senior-it-project-manager-agie-charmilles-meyrin"
+      "en": "senior-it-project-manager-agie-charmilles-meyrin",
+      "it": "responsabile-del-progetto-it-senior-agie-charmilles-sa-meyrin",
+      "de": "senior-it-projektmanager-agie-charmilles-sa-meyrin",
+      "fr": "gestionnaire-principal-de-projet-ti-agie-charmilles-sa-meyrin"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
+  },
+  "id|oraclecloud.eu|2796": {
+    "canonicalSlug": "soluzione-proprietaria-sirh-m-f-edmond-de-rothschild-switzerland",
+    "slugByLocale": {
+      "it": "soluzione-proprietaria-sirh-m-f-edmond-de-rothschild-switzerland",
+      "de": "eigentumerlosung-sirh-m-w-edmond-de-rothschild-switzerland",
+      "fr": "solution-owner-sirh-h-f-edmond-de-rothschild-ch"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|oraclecloud.eu|2818": {
+    "canonicalSlug": "responsabile-del-progetto-di-conformita-e-dei-dati-edmond-de-rothschild-switzerland",
+    "slugByLocale": {
+      "it": "responsabile-del-progetto-di-conformita-e-dei-dati-edmond-de-rothschild-switzerland",
+      "de": "compliance-projekt-data-officer-edmond-de-rothschild-switzerland",
+      "fr": "compliance-project-data-officer-edmond-de-rothschild-ch"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|oraclecloud.eu|3056": {
+    "canonicalSlug": "it-risk-manager-h-f-edmond-de-rothschild-ch",
+    "slugByLocale": {
+      "fr": "it-risk-manager-h-f-edmond-de-rothschild-ch"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|oraclecloud.eu|3080": {
+    "canonicalSlug": "stagista-hr-controlling-1-anno-edmond-de-rothschild-switzerland",
+    "slugByLocale": {
+      "it": "stagista-hr-controlling-1-anno-edmond-de-rothschild-switzerland",
+      "en": "trainee-hr-controlling-1-year-edmond-de-rothschild-switzerland",
+      "de": "praktikant-in-hr-controlling-1-jahr-edmond-de-rothschild-switzerland",
+      "fr": "stagiaire-hr-controlling-1-an-edmond-de-rothschild-ch"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|oraclecloud.eu|3088": {
+    "canonicalSlug": "informazioni-sicurezza-manager-group-m-f-edmond-de-rothschild-switzerland",
+    "slugByLocale": {
+      "it": "informazioni-sicurezza-manager-group-m-f-edmond-de-rothschild-switzerland",
+      "en": "information-security-manager-m-f-group-edmond-de-rothschild-switzerland",
+      "de": "informationssicherheitsmanager-m-w-group-edmond-de-rothschild-switzerland",
+      "fr": "information-security-manager-groupe-h-f-edmond-de-rothschild-ch"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|ikea.com|unit-facility-management-techniker-in-100": {
+    "canonicalSlug": "tecnico-a-dell-unita-di-facility-management-100-ikea-rothenburg-luzern",
+    "slugByLocale": {
+      "it": "tecnico-a-dell-unita-di-facility-management-100-ikea-rothenburg-luzern",
+      "en": "unit-facility-management-technician-100-ikea-rothenburg",
+      "de": "unit-facility-management-techniker-in-100-ikea-ch",
+      "fr": "technicien-ne-de-l-unite-facility-management-100-ikea-rothenburg-luzern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "id|ikea.com|collaborateur-trice-en-decoration-interieure-100": {
+    "canonicalSlug": "lavoratore-nella-decorazione-interna-100-ikea-vernier-geneve",
+    "slugByLocale": {
+      "it": "lavoratore-nella-decorazione-interna-100-ikea-vernier-geneve",
+      "en": "worker-in-interior-decoration-100-ikea-vernier-geneve",
+      "de": "arbeiter-in-innendekoration-100-ikea-vernier-geneve",
+      "fr": "collaborateur-trice-en-decoration-interieure-100-ikea-ch"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|ikea.com|mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80": {
+    "canonicalSlug": "addetto-a-alle-vendite-in-der-geschirrabteilung-60-80-ikea-dietlikon",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-in-der-geschirrabteilung-60-80-ikea-dietlikon",
+      "en": "sales-associate-in-the-tableware-department-60-80-ikea-dietlikon-zurich",
+      "de": "mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80-ikea-ch",
+      "fr": "collaborateur-rice-de-vente-au-rayon-vaisselle-60-80-ikea-dietlikon-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|ikea.com|mitarbeiter-in-verkauf-textilabteilung-20-40": {
+    "canonicalSlug": "addetto-a-alle-vendite-textilabteilung-20-40-ikea-spreitenbach",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-textilabteilung-20-40-ikea-spreitenbach",
+      "en": "sales-employee-textile-department-20-40-ikea-spreitenbach-aargau",
+      "de": "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch",
+      "fr": "collaborateur-trice-de-vente-au-departement-textile-20-40-ikea-spreitenbach-aargau"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "AG"
+  },
+  "id|ikea.com|mitarbeiter-in-ikea-restaurant-koch-in-90-100": {
+    "canonicalSlug": "addetto-a-al-ristorante-ikea-cuoco-a-90-100-ikea-lyssach-bern",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-ikea-restaurant-koch-in-90-100-ikea-ch",
+      "it": "addetto-a-al-ristorante-ikea-cuoco-a-90-100-ikea-lyssach-bern",
+      "en": "ikea-restaurant-employee-cook-90-100-ikea-lyssach-bern",
+      "fr": "employe-e-au-restaurant-ikea-cuisinier-ere-90-a-100-ikea-lyssach-bern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|ikea.com|unit-facility-management-spezialist-in-100": {
+    "canonicalSlug": "specialista-dell-unita-di-facility-management-100-ikea-rothenburg-luzern",
+    "slugByLocale": {
+      "it": "specialista-dell-unita-di-facility-management-100-ikea-rothenburg-luzern",
+      "en": "unit-facility-management-specialist-100-ikea-rothenburg",
+      "de": "unit-facility-management-spezialist-in-100-ikea-ch",
+      "fr": "specialiste-de-l-unite-facility-management-100-ikea-rothenburg-luzern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "id|szb-chb.ch|3799": {
+    "canonicalSlug": "dipl-medicina-interna-del-physiotherapist-team-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "dipl-medicina-interna-del-physiotherapist-team-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "dipl-physiotherapist-team-internal-medicine-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "dipl-physiotherapeutin-en-team-innere-medizin-40-100-szb-chb-biel-bienne",
+      "fr": "dipl-physiotherapeute-medecine-interne-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|2738": {
+    "canonicalSlug": "medico-senior-angiologia-medico-senior-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "medico-senior-angiologia-medico-senior-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "senior-physician-senior-physician-angiology-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "oberarztin-oberarzt-angiologie-60-100-szb-chb-biel-bienne",
+      "fr": "medecin-principal-angiologie-medicale-senior-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|3673": {
+    "canonicalSlug": "infermiere-a-diplomato-a-hf-fh-pool-infermieristico-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "infermiere-a-diplomato-a-hf-fh-pool-infermieristico-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "qualified-nursing-specialist-hf-fh-pool-nursing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "dipl-pflegefachfrau-mann-hf-fh-pool-pflege-szb-chb-biel-bienne",
+      "fr": "dipl-infirmiere-infirmier-hf-fh-soins-de-piscine-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4190": {
+    "canonicalSlug": "medico-specialista-in-medicina-generale-o-interna-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "medico-specialista-in-medicina-generale-o-interna-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "specialist-doctor-in-general-or-internal-medicine-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "facharzt-arztin-allg-oder-innere-medizin-40-100-szb-chb-biel-bienne",
+      "fr": "medecin-specialiste-en-medecine-generale-ou-interne-40-a-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|3696": {
+    "canonicalSlug": "dipl-terapeuta-fisica-team-geriatrics-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "dipl-terapeuta-fisica-team-geriatrics-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "dipl-physical-therapist-team-geriatrics-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "dipl-physiotherapeutin-en-team-geriatrie-60-80-szb-chb-biel-bienne",
+      "fr": "dipl-physiotherapeute-equipe-de-geriatrie-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4205": {
+    "canonicalSlug": "fisioterapista-diplomato-con-specializzazione-in-sport-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "fisioterapista-diplomato-con-specializzazione-in-sport-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "qualified-physiotherapist-with-specialisation-in-the-field-of-sports-40-100-spitalzentrum-biel-centre-hospitalier-bienne",
+      "de": "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-szb-chb-biel",
+      "fr": "physiotherapeute-diplome-e-avec-specialisation-dans-le-domaine-du-sport-40-100-spitalzentrum-biel-centre-hospitalier"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4193": {
+    "canonicalSlug": "medico-senior-medico-senior-geriatrics-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "medico-senior-medico-senior-geriatrics-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "senior-physician-senior-physician-geriatrics-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "oberarztin-oberarzt-geriatrie-60-80-szb-chb-biel-bienne",
+      "fr": "medecin-superieur-medecin-superieur-geriatrie-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4153": {
+    "canonicalSlug": "toa-technische-r-operationsassistent-in-o-iddo-instrumentierende-pflegefachperson-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "toa-technische-r-operationsassistent-in-o-iddo-instrumentierende-pflegefachperson-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "toa-surgical-assistant-or-iddo-instrumenting-nurse-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "toa-technische-r-operationsassistent-in-oder-iddo-instrumentierende-pflegefachperson-50",
+      "fr": "toa-assistant-e-technique-en-chirurgie-ou-iddo-infirmier-ere-instrumentateur-ere-50-100-spitalzentrum-biel-centre"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4359": {
+    "canonicalSlug": "personale-nella-gestione-del-rifiuto-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "personale-nella-gestione-del-rifiuto-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "personnel-in-rejection-management-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "sachbearbeiterin-ruckweisungsmanagement-50-60-szb-chb-biel-bienne",
+      "fr": "personnel-de-gestion-des-rejets-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4339": {
+    "canonicalSlug": "digital-business-partner-in-applikationsmanager-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "digital-business-partner-in-applikationsmanager-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "digital-business-partner-in-applikationsmanager-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "digital-business-partner-in-applikationsmanager-in-80-100-szb-chb-biel-bienne",
+      "fr": "digital-business-partner-in-applikationsmanager-in-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4582": {
+    "canonicalSlug": "sachbearbeiter-in-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "sachbearbeiter-in-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "sachbearbeiter-in-human-resources-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "sachbearbeiter-in-human-resources-80-100-szb-chb-biel-bienne",
+      "fr": "sachbearbeiter-in-ressources-humaines-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4447": {
+    "canonicalSlug": "coordinatore-trice-di-sala-operatoria-coordinatore-trice-per-la-sala-operatoria-30-spitalzentrum-biel-centre-hospitalier",
+    "slugByLocale": {
+      "it": "coordinatore-trice-di-sala-operatoria-coordinatore-trice-per-la-sala-operatoria-30-spitalzentrum-biel-centre-hospitalier",
+      "en": "or-coordinator-operating-room-coordinator-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "op-koordinator-in-koordinator-in-fur-den-operationssaal-30-szb-chb-biel-bienne",
+      "fr": "coordinateur-trice-de-bloc-operatoire-coordinateur-trice-de-salle-d-operation-30-spitalzentrum-biel-centre-hospitalier"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|3676": {
+    "canonicalSlug": "personale-specializzato-i-salute-fage-pool-care-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "personale-specializzato-i-salute-fage-pool-care-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "specialised-employee-s-health-fage-pool-care-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "fachangestellte-r-gesundheit-fage-pool-pflege-szb-chb-biel-bienne",
+      "fr": "employe-s-specialise-s-soins-de-sante-fage-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4555": {
+    "canonicalSlug": "medico-senior-chirurgia-pediatrica-superiore-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "medico-senior-chirurgia-pediatrica-superiore-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "senior-physician-senior-physician-paediatric-surgery-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "oberarztin-oberarzt-kinderchirurgie-80-100-szb-chb-biel-bienne",
+      "fr": "medecin-superieur-medecin-superieur-chirurgie-pediatrique-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4626": {
+    "canonicalSlug": "psicologo-capo-psicologa-capo-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "psicologo-capo-psicologa-capo-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "senior-psychologist-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "oberpsychologin-oberpsychologen-50-100-szb-chb-biel-bienne",
+      "fr": "psychologue-chef-psychologue-chef-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4514": {
+    "canonicalSlug": "dipl-esperta-esperto-in-cure-anestetiche-nds-sss-come-formatrice-formatrice-professionale-80-100-spitalzentrum-biel",
+    "slugByLocale": {
+      "it": "dipl-esperta-esperto-in-cure-anestetiche-nds-sss-come-formatrice-formatrice-professionale-80-100-spitalzentrum-biel",
+      "en": "certified-expert-in-anaesthesia-care-nds-hf-as-a-vocational-trainer-80-100-spitalzentrum-biel-centre-hospitalier-bienne",
+      "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-als-berufsbildner-in-80-100-szb-chb-biel",
+      "fr": "expert-diplome-en-soins-d-anesthesie-nds-es-en-tant-que-formateur-formatrice-professionnelle-80-100-spitalzentrum-biel"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4486": {
+    "canonicalSlug": "dipl-expert-expert-anesthesia-care-nds-hf-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "dipl-expert-expert-anesthesia-care-nds-hf-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "dipl-expertin-experte-anasthesiepflege-nds-hf-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-80-100-szb-chb-biel-bienne",
+      "fr": "dipl-expert-expert-anesthesie-soins-nds-hf-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4593": {
+    "canonicalSlug": "medico-a-dirigente-in-psichiatria-infantile-e-dell-adolescenza-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+    "slugByLocale": {
+      "it": "medico-a-dirigente-in-psichiatria-infantile-e-dell-adolescenza-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+      "en": "senior-physician-child-and-adolescent-psychiatry-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
+      "fr": "medecin-principal-psychiatrie-de-l-enfant-et-de-l-adolescent-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4592": {
+    "canonicalSlug": "pediatra-dello-sviluppo-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "pediatra-dello-sviluppo-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "developmental-pediatrician-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "entwicklungspadiater-in-50-100-szb-chb-biel-bienne",
+      "fr": "pediatre-du-developpement-a-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4585": {
+    "canonicalSlug": "ostetrica-dipl-pool-station-madre-e-bambino-ginecologia-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "ostetrica-dipl-pool-station-madre-e-bambino-ginecologia-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "dipl-midwife-pool-station-mother-and-child-gynaecology-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "dipl-hebamme-pool-station-mutter-und-kind-gynakologie-szb-chb-biel-bienne",
+      "fr": "sage-femme-dipl-piscine-station-mere-et-enfant-gynecologie-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4536": {
+    "canonicalSlug": "codificatore-medico-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "codificatore-medico-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "medical-coder-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne",
+      "fr": "codificateur-medical-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4500": {
+    "canonicalSlug": "infermiere-qualificato-in-emodialisi-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "infermiere-qualificato-in-emodialisi-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "qualified-nurse-hemodialysis-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-szb-chb-biel-bienne",
+      "fr": "infirmiere-qualifiee-en-hemodialyse-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4634": {
+    "canonicalSlug": "responsabile-einkauf-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "responsabile-einkauf-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "head-of-purchasing-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "leiter-in-einkauf-80-100-szb-chb-biel-bienne",
+      "fr": "responsable-des-achats-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4662": {
+    "canonicalSlug": "assistenti-di-studio-medico-mpa-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "assistenti-di-studio-medico-mpa-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "medical-practice-assistants-mpa-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "medizinische-praxisassistent-innen-mpa-50-100-szb-chb-biel-bienne",
+      "fr": "assistants-medicaux-mpa-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4708": {
+    "canonicalSlug": "sachbearbeiter-in-hu-man-re-sour-ces-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "sachbearbeiter-in-hu-man-re-sour-ces-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "clerk-hu-man-resources-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "sachbearbeiter-in-hu-man-re-sour-ces-100-szb-chb-biel-bienne",
+      "fr": "responsable-des-ressourceshumaines-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4709": {
+    "canonicalSlug": "primario-assistente-di-reparto-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "primario-assistente-di-reparto-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "chief-physician-secretary-ward-assistant-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "chefarztsekretar-in-stationsassistent-in-80-100-szb-chb-biel-bienne",
+      "fr": "secretaire-du-medecin-chef-assistante-de-service-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4616": {
+    "canonicalSlug": "specialista-in-salute-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "specialista-in-salute-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "specialist-in-health-fage-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "fachfrau-mann-gesundheit-fage-30-szb-chb-biel-bienne",
+      "fr": "specialiste-en-sante-assc-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4674": {
+    "canonicalSlug": "segretario-a-medico-a-50-70-per-l-area-reception-ambulatorio-chirurgico-spitalzentrum-biel-centre-hospitalier-bienne",
+    "slugByLocale": {
+      "it": "segretario-a-medico-a-50-70-per-l-area-reception-ambulatorio-chirurgico-spitalzentrum-biel-centre-hospitalier-bienne",
+      "en": "medical-secretary-50-70-for-the-reception-area-surgical-outpatient-clinic-spitalzentrum-biel-centre-hospitalier-bienne",
+      "de": "arztsekretar-in-50-70-fur-den-empfangsbereich-chirurgisches-ambulatorium-szb-chb-biel",
+      "fr": "secretaire-medical-50-70-pour-la-zone-d-accueil-du-service-ambulatoire-chirurgical-spitalzentrum-biel-centre-hospitalier"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4559": {
+    "canonicalSlug": "team-leader-team-leader-stroke-unit-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "team-leader-team-leader-stroke-unit-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "team-leader-team-leader-stroke-unit-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "teamleiterin-teamleiter-stroke-unit-80-100-szb-chb-biel-bienne",
+      "fr": "chef-d-equipe-chef-d-equipe-unite-des-accidents-cerebrovasculaires-80-100-spitalzentrum-biel-centre-hospitalier-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4718": {
+    "canonicalSlug": "dipl-infermieristica-specialistica-neonatologia-stazione-di-monitoraggio-80-100-spitalzentrum-biel-centre-hospitalier",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-specialistica-neonatologia-stazione-di-monitoraggio-80-100-spitalzentrum-biel-centre-hospitalier",
+      "en": "dipl-nursing-specialist-neonatology-monitoring-station-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "dipl-pflegefachfrau-mann-neonatologie-uberwachungsstation-80-100-szb-chb-biel-bienne",
+      "fr": "dipl-specialiste-des-soins-infirmiers-neonatologie-station-de-surveillance-80-100-spitalzentrum-biel-centre-hospitalier"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4668": {
+    "canonicalSlug": "ict-system-specialista-vdi-microsoft-cloud-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "ict-system-specialista-vdi-microsoft-cloud-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "ict-system-specialist-vdi-microsoft-cloud-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "ict-system-specialist-vdi-microsoft-cloud-100-szb-chb-biel-bienne",
+      "fr": "ict-system-specialiste-vdi-microsoft-cloud-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4721": {
+    "canonicalSlug": "contabile-senior-60-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "contabile-senior-60-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "senior-accountant-60-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "senior-buchhalter-60-70-szb-chb-biel-bienne",
+      "fr": "comptable-principal-60-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4711": {
+    "canonicalSlug": "addetto-a-alle-pulizie-degli-edifici-efz-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "addetto-a-alle-pulizie-degli-edifici-efz-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "building-cleaner-efz-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "gebaudereiniger-in-efz-100-szb-chb-biel-bienne",
+      "fr": "agent-e-de-nettoyage-efz-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4619": {
+    "canonicalSlug": "infermiere-a-diplomato-a-hf-fh-lunedi-venerdi-80-100-esperienza-professionale-nel-settore-ambulatoriale-dell-urologia-e",
+    "slugByLocale": {
+      "it": "infermiere-a-diplomato-a-hf-fh-lunedi-venerdi-80-100-esperienza-professionale-nel-settore-ambulatoriale-dell-urologia-e",
+      "en": "diploma-qualified-registered-nurse-hf-fh-monday-friday-80-100-professional-experience-in-the-outpatient-field-of-urology",
+      "de": "dipl-pflegefachfrau-mann-hf-fh-montag-freitag-80-100-berufserfahrung-im-ambulanten-bereich",
+      "fr": "infirmier-iere-diplome-e-es-hes-lundi-vendredi-80-100-experience-professionnelle-dans-le-domaine-ambulatoire-de-l"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4704": {
+    "canonicalSlug": "dipl-fisioterapista-team-pediatria-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "dipl-fisioterapista-team-pediatria-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "dipl-physiotherapist-team-pediatrics-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "dipl-physiotherapeutin-en-team-padiatrie-80-100-szb-chb-biel-bienne",
+      "fr": "dipl-physiotherapeute-equipe-pediatrie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4746": {
+    "canonicalSlug": "responsabile-del-team-responsabile-del-team-amministrazione-hr-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+    "slugByLocale": {
+      "it": "responsabile-del-team-responsabile-del-team-amministrazione-hr-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+      "en": "team-leader-team-leader-hr-administration-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "teamleiterin-teamleiter-hr-administration-80-100-szb-chb-biel-bienne",
+      "fr": "cheffe-d-equipe-chef-d-equipe-administration-rh-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4766": {
+    "canonicalSlug": "farmacista-capo-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "farmacista-capo-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "chief-pharmacist-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "leitenden-apotheker-leitende-apothekerin-80-100-szb-chb-biel-bienne",
+      "fr": "pharmacie-en-chef-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4761": {
+    "canonicalSlug": "operatrice-operatore-sociosanitario-in-medicina-acuta-70-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "operatrice-operatore-sociosanitario-in-medicina-acuta-70-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "healthcare-specialist-in-acute-medicine-70-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "fachfrau-mann-gesundheit-akutmedizin-70-90-szb-chb-biel-bienne",
+      "fr": "assistant-e-en-soins-et-sante-communautaire-en-medecine-aigue-70-90-spitalzentrum-biel-centre-hospitalier-bienne-biel"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4527": {
+    "canonicalSlug": "fisioterapista-diplomata-o-team-ortopedia-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "fisioterapista-diplomata-o-team-ortopedia-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "dipl-physiotherapist-orthopaedic-team-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "dipl-physiotherapeutin-en-team-orthopadie-80-100-szb-chb-biel-bienne",
+      "fr": "dipl-physiotherapeute-equipe-orthopedique-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4733": {
+    "canonicalSlug": "segretario-a-medico-a-o-diplomato-a-in-commercio-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "segretario-a-medico-a-o-diplomato-a-in-commercio-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "medical-secretary-or-commercial-graduate-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "arztsekretar-in-oder-kv-absolvent-in-100-szb-chb-biel-bienne",
+      "fr": "secretaire-medical-e-ou-employe-e-de-commerce-diplome-e-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4769": {
+    "canonicalSlug": "formatore-trice-professionale-per-operatore-trice-sociosanitario-a-cure-acute-e-palliative-70-90-spitalzentrum-biel",
+    "slugByLocale": {
+      "it": "formatore-trice-professionale-per-operatore-trice-sociosanitario-a-cure-acute-e-palliative-70-90-spitalzentrum-biel",
+      "en": "vocational-trainer-for-healthcare-professionals-acute-and-palliative-care-70-90-spitalzentrum-biel-centre-hospitalier",
+      "de": "berufsbildner-in-fachfrau-mann-gesundheit-akut-und-palliativcare-70-90-szb-chb-biel-bienne",
+      "fr": "formateur-trice-professionnel-le-assistant-e-en-soins-et-sante-communautaire-soins-aigus-et-palliatifs-70-90"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4760": {
+    "canonicalSlug": "medica-medico-caposervizio-oppure-medica-medico-caposervizio-supplente-pediatria-60-100-spitalzentrum-biel-centre",
+    "slugByLocale": {
+      "it": "medica-medico-caposervizio-oppure-medica-medico-caposervizio-supplente-pediatria-60-100-spitalzentrum-biel-centre",
+      "en": "senior-physician-or-deputy-senior-physician-in-pediatrics-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+      "de": "oberarztin-oberarzt-oder-stv-oberarztin-oberarzt-padiatrie-60-100-szb-chb-biel-bienne",
+      "fr": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-pediatrie-60-100-spitalzentrum-biel-centre-hospitalier-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4725": {
+    "canonicalSlug": "responsabile-projekte-prozesse-facility-management-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "it": "responsabile-projekte-prozesse-facility-management-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "head-of-projects-processes-facility-management-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "leiter-in-projekte-prozesse-facility-management-80-100-szb-chb-biel-bienne",
+      "fr": "responsable-projets-processus-facility-management-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4776": {
+    "canonicalSlug": "formatore-trice-professionale-infermiere-a-diplomato-a-hf-fh-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+    "slugByLocale": {
+      "it": "formatore-trice-professionale-infermiere-a-diplomato-a-hf-fh-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+      "en": "vocational-trainer-registered-nurse-hf-fh-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "berufsbildner-in-dipl-pflegefachfrau-mann-hf-fh-60-100-szb-chb-biel-bienne",
+      "fr": "formateur-trice-professionnel-le-infirmier-ere-diplome-e-es-hes-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|szb-chb.ch|4775": {
+    "canonicalSlug": "formatore-trice-professionale-operatore-trice-sociosanitario-a-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+    "slugByLocale": {
+      "it": "formatore-trice-professionale-operatore-trice-sociosanitario-a-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+      "en": "vocational-trainer-healthcare-assistant-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "de": "berufsbildner-in-fachfrau-mann-gesundheit-60-100-szb-chb-biel-bienne",
+      "fr": "formateur-trice-professionnel-le-pour-assistant-e-en-soins-et-sante-communautaire-60-100-spitalzentrum-biel-centre"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|so.ch|94bc7a9a-7acb-41bb-b11e-da900608eb72": {
+    "canonicalSlug": "sachbearbeiter-in-100-kanton-solothurn-solothurn",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "SO"
+  },
+  "url|https://apply.refline.ch/424626/3485/pub/1/index.html": {
+    "canonicalSlug": "monteurin-w-m-d-pfister-affoltern-am-albis",
+    "slugByLocale": {
+      "de": "monteurin-w-m-d-pfister-affoltern-am-albis"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|sbb.ch|b51bd8a2-7e8a-480d-9022-e1136514d084": {
+    "canonicalSlug": "spezialist-in-controlling-schwerpunkt-personalcontrolling-80-100-ffs-officine-ferrovie-federali-olten",
+    "slugByLocale": {
+      "de": "spezialist-in-controlling-schwerpunkt-personalcontrolling-80-100-ffs-officine-ferrovie-federali-olten"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "SO"
+  },
+  "id|sbb.ch|7fe00342-cef4-483b-8673-a5c474daf7f5": {
+    "canonicalSlug": "reconversion-professionnelle-en-tant-que-pilote-de-locomotive-voyageurs-ffs-officine-ferrovie-federali-biel-bienne",
+    "slugByLocale": {
+      "fr": "reconversion-professionnelle-en-tant-que-pilote-de-locomotive-voyageurs-ffs-officine-ferrovie-federali-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|sbb.ch|0a8b4532-5738-4a60-983b-61b2c20a5214": {
+    "canonicalSlug": "impiegata-impiegato-in-logistica-ffs-officine-ferrovie-federali-ostermundigen",
+    "slugByLocale": {
+      "it": "impiegata-impiegato-in-logistica-ffs-officine-ferrovie-federali-ostermundigen",
+      "de": "logistiker-in-ffs-officine-ferrovie-federali-ostermundigen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|sbb.ch|5c7aac56-4828-461f-892c-ad0d3132a75c": {
+    "canonicalSlug": "fachfuhrung-ressourcenplaner-in-ffs-officine-ferrovie-federali-hagendorf",
+    "slugByLocale": {
+      "de": "fachfuhrung-ressourcenplaner-in-ffs-officine-ferrovie-federali-hagendorf"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "SO"
+  },
+  "id|unispital-basel.ch|b10c63db-58c6-4f1f-9723-8ac31549a340": {
+    "canonicalSlug": "hr-beraterin-hr-berater-unispital-basel-ch",
+    "slugByLocale": {
+      "de": "hr-beraterin-hr-berater-unispital-basel-ch"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BS"
+  },
+  "id|concordia.ch|5e068d2d-cecc-4b8d-95be-f918dceb2e65": {
+    "canonicalSlug": "teamleiter-in-kundenberatung-100-in-aarau-concordia-aarau",
+    "slugByLocale": {
+      "de": "teamleiter-in-kundenberatung-100-in-aarau-concordia-aarau"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "AG"
+  },
+  "url|https://jobs.emilfrey.ch/verkaufsberater-in-ford-de-j2479.html": {
+    "canonicalSlug": "verkaufsberater-in-ford-emil-frey-munchenstein",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-ford-emil-frey-munchenstein"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "url|https://jobs.emilfrey.ch/mitarbeiter-in-betriebscontrolling-de-j2560.html": {
+    "canonicalSlug": "collaboratore-trice-in-betriebscontrolling-emil-frey-zurich",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-betriebscontrolling-emil-frey-zurich",
+      "it": "collaboratore-trice-in-betriebscontrolling-emil-frey-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|luks.ch|bf0b51b8-2052-4305-bd81-bbf3ab815ac0": {
+    "canonicalSlug": "dentalassistentin-dentalassistent-60-come-mutterschaftsvertretung-luzerner-kantonsspital-luks-luzern",
+    "slugByLocale": {
+      "de": "dentalassistentin-dentalassistent-60-als-mutterschaftsvertretung-luks-luzern",
+      "it": "dentalassistentin-dentalassistent-60-come-mutterschaftsvertretung-luzerner-kantonsspital-luks-luzern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "id|belimo.com|1165719355": {
+    "canonicalSlug": "product-compliance-engineer-100-belimo-hinwil",
+    "slugByLocale": {
+      "en": "product-compliance-engineer-100-belimo-hinwil"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165719255": {
+    "canonicalSlug": "product-compliance-lead-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "en": "product-compliance-lead-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|transgourmet.ch|59ff5a37-3684-481c-b74e-7714328c40b0": {
+    "canonicalSlug": "projektleiterin-projektleiter-bau-unterhalt-transgourmet-moosseedorf",
+    "slugByLocale": {
+      "de": "projektleiterin-projektleiter-bau-amp-unterhalt-transgourmet-moosseedorf",
+      "it": "projektleiterin-projektleiter-bau-unterhalt-transgourmet-moosseedorf"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|bern.ch|aef5eba5-2f26-4fa7-aacf-b442f3b2bd80": {
+    "canonicalSlug": "apprendistato-koch-kochin-cfc-stadt-bern",
+    "slugByLocale": {
+      "de": "lehrstelle-koch-kochin-efz-stadt-bern-bern",
+      "it": "apprendistato-koch-kochin-cfc-stadt-bern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|bern.ch|68ee64a9-cb33-48d1-823c-2a72197de104": {
+    "canonicalSlug": "collaboratore-trice-in-kasse-stadt-bern",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-kasse-stadt-bern-bern",
+      "it": "collaboratore-trice-in-kasse-stadt-bern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|bern.ch|2c3dea10-c8bf-4bfd-a0ed-578e836af17f": {
+    "canonicalSlug": "fachangestellte-r-administration-support-stadt-bern-bern",
+    "slugByLocale": {
+      "de": "fachangestellte-r-administration-support-stadt-bern-bern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "url|https://apply.refline.ch/878019/0471/pub/2/index.html": {
+    "canonicalSlug": "pneumonteur-praticante-del-pneumatico-a-galliker-transport-ag-altishofen-14c18ad49c",
+    "slugByLocale": {
+      "de": "pneumonteur-reifenpraktiker-a-galliker-altishofen",
+      "it": "pneumonteur-praticante-del-pneumatico-a-galliker-transport-ag-altishofen-14c18ad49c",
+      "en": "pneumonteur-tyre-practitioner-a-galliker-transport-ag-altishofen",
+      "fr": "pneumonteur-pneumatique-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0475/pub/3/index.html": {
+    "canonicalSlug": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen-c5f57ed905",
+    "slugByLocale": {
+      "de": "mitarbeiter-felgencenter-a-galliker-altishofen",
+      "it": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen-c5f57ed905",
+      "en": "employee-rim-center-a-galliker-transport-ag-altishofen",
+      "fr": "centre-rim-des-employes-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0454/pub/7/index.html": {
+    "canonicalSlug": "rim-pittore-a-galliker-transport-ag-altishofen",
+    "slugByLocale": {
+      "de": "felgenlackierer-a-galliker-altishofen",
+      "it": "rim-pittore-a-galliker-transport-ag-altishofen",
+      "en": "rim-painter-a-galliker-transport-ag-altishofen",
+      "fr": "peintre-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0126/pub/34/index.html": {
+    "canonicalSlug": "pw-a-galliker-transport-ag-altishofen-d0a7800985",
+    "slugByLocale": {
+      "de": "carrosseriespengler-pw-a-galliker-altishofen",
+      "it": "pw-a-galliker-transport-ag-altishofen-d0a7800985",
+      "en": "carros-vc-a-galliker-transport-ag-altishofen",
+      "fr": "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0032/pub/29/index.html": {
+    "canonicalSlug": "carrosserie-pittore-pw-a-galliker-transport-ag-altishofen-3f39ba49b8",
+    "slugByLocale": {
+      "de": "carrosserielackierer-pw-a-galliker-altishofen",
+      "it": "carrosserie-pittore-pw-a-galliker-transport-ag-altishofen-3f39ba49b8",
+      "en": "carrosserie-painter-pw-a-galliker-transport-ag-altishofen",
+      "fr": "carrosserie-peintre-pw-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0219/pub/21/index.html": {
+    "canonicalSlug": "specialista-automobilistico-meccatronica-specialista-pw-a-galliker-transport-ag-altishofen-8f7cc8aad9",
+    "slugByLocale": {
+      "de": "automobilfachmann-mechatroniker-pw-a-galliker-altishofen",
+      "it": "specialista-automobilistico-meccatronica-specialista-pw-a-galliker-transport-ag-altishofen-8f7cc8aad9",
+      "en": "automotive-specialist-mechatronics-specialist-pw-a-galliker-transport-ag-altishofen",
+      "fr": "specialiste-automobile-mecatronique-specialiste-pw-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0468/pub/4/index.html": {
+    "canonicalSlug": "tecnico-vetraio-a-galliker-transport-ag-altishofen-f40e2af1cd",
+    "slugByLocale": {
+      "de": "autoglas-techniker-a-galliker-altishofen",
+      "it": "tecnico-vetraio-a-galliker-transport-ag-altishofen-f40e2af1cd",
+      "en": "automotive-glass-technician-a-galliker-transport-ag-altishofen",
+      "fr": "technicien-en-verre-automobile-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0465/pub/6/index.html": {
+    "canonicalSlug": "autotrasporto-ce-a-galliker-transport-ag-altishofen-5d0b21a370",
+    "slugByLocale": {
+      "de": "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen",
+      "it": "autotrasporto-ce-a-galliker-transport-ag-altishofen-5d0b21a370",
+      "en": "temporary-chauffeur-ce-autotransporte-a-galliker-transport-ag-altishofen",
+      "fr": "chauffeur-temporaire-ce-autotransporte-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-20211": {
+    "canonicalSlug": "business-manager-it-chief-of-staff-100-maternity-coverage-fixed-term-contract-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "business-manager-it-chief-of-staff-100-maternity-coverage-fixed-term-contract-f-m-d-julius-baer"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|baselland.ch|9253d639-ee73-4213-9426-fd2eea652afe": {
+    "canonicalSlug": "dipl-sozialpadagogin-dipl-sozialpadagoge-fabe-kanton-basel-landschaft-munchenstein",
+    "slugByLocale": {
+      "de": "dipl-sozialpadagogin-dipl-sozialpadagoge-fabe-kanton-basel-landschaft-munchenstein"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "id|baselland.ch|8639a896-9ba9-4f40-805d-33e4c3749a13": {
+    "canonicalSlug": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kantonale-verwaltung-basel-landschaft-liestal",
+    "slugByLocale": {
+      "de": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kanton-basel-landschaft-liestal",
+      "it": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kantonale-verwaltung-basel-landschaft-liestal",
+      "en": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kantonale-verwaltung-basel-landschaft-liestal",
+      "fr": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kantonale-verwaltung-basel-landschaft-liestal"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "id|baselland.ch|f7e7a1b3-08f9-45df-9058-fe5e6a3c3cea": {
+    "canonicalSlug": "juristin-jurist-rechtsabteilung-der-bau-e-umweltschutzdirektion-kantonale-verwaltung-basel-landschaft-liestal",
+    "slugByLocale": {
+      "de": "juristin-jurist-rechtsabteilung-der-bau-und-umweltschutzdirektion-kanton-basel-landschaft",
+      "it": "juristin-jurist-rechtsabteilung-der-bau-e-umweltschutzdirektion-kantonale-verwaltung-basel-landschaft-liestal",
+      "en": "juristin-jurist-rechtsabteilung-der-bau-und-umweltschutzdirektion-kantonale-verwaltung-basel-landschaft-liestal",
+      "fr": "juristin-jurist-rechtsabteilung-der-bau-und-umweltschutzdirektion-kantonale-verwaltung-basel-landschaft-liestal"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "id|baselland.ch|ec6a0822-a7c0-459b-a1d5-1f742500ed6e": {
+    "canonicalSlug": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-therwil",
+    "slugByLocale": {
+      "de": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kanton-basel-landschaft-therwil",
+      "it": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-therwil",
+      "en": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-therwil",
+      "fr": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-therwil"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "url|https://apply.refline.ch/792841/11453/pub/1": {
+    "canonicalSlug": "werkstudent-in-finanzierungszentrum-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "werkstudent-in-finanzierungszentrum-zkb-zurich",
+      "it": "werkstudent-in-finanzierungszentrum-zurcher-kantonalbank-zurich",
+      "en": "werkstudent-in-finanzierungszentrum-zurcher-kantonalbank-zurich",
+      "fr": "werkstudent-in-finanzierungszentrum-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/talan/744000158714650-head-of-presales-?oga=true": {
+    "canonicalSlug": "head-of-presales-talan-geneva-ge-switzerland",
+    "slugByLocale": {
+      "fr": "head-of-presales-talan-geneva-ge-switzerland"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|uzh.ch|45004ded-9d65-4ced-8e34-94aa4c14fdce": {
+    "canonicalSlug": "laboratory-technician-uzh-zurich",
+    "slugByLocale": {
+      "en": "laboratory-technician-uzh-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|uzh.ch|3ca929dc-ecde-4469-b9b4-8ce3f23bdf6b": {
+    "canonicalSlug": "med-vet-doktorand-in-uzh-zurich",
+    "slugByLocale": {
+      "de": "med-vet-doktorand-in-uzh-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "url|https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-data-protection-privacy-technology-technology-transformation/25631": {
+    "canonicalSlug": "senior-consultant-data-protection-privacy-technology-technology-transformation-deloitte",
+    "slugByLocale": {
+      "en": "senior-consultant-data-protection-privacy-technology-technology-transformation-deloitte"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "url|https://apply.deloitte.ch/chcareers/jobdetail/intern-banking-solutions/25644": {
+    "canonicalSlug": "intern-banking-solutions-deloitte-zurich",
+    "slugByLocale": {
+      "en": "intern-banking-solutions-deloitte-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|ubs.com|353320": {
+    "canonicalSlug": "2027-internship-gwm-cio-investment-communications-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-internship-gwm-cio-investment-communications-ubs-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|ubs.com|353318": {
+    "canonicalSlug": "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "url|https://www.pemsa.ch/it/job/orologiaio-m-f-d-2703248": {
+    "canonicalSlug": "orologiaio-m-f-d-pemsa-geneve",
+    "slugByLocale": {
+      "it": "orologiaio-m-f-d-pemsa-geneve"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "url|https://www.pemsa.ch/it/job/tecnico-preventivista-quadri-elettrici-automazione-distribuzione-2703223": {
+    "canonicalSlug": "tecnico-preventivista-quadri-elettrici-automazione-distribuzione-pemsa-lugano",
+    "slugByLocale": {
+      "it": "tecnico-preventivista-quadri-elettrici-automazione-distribuzione-pemsa-lugano"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "TI"
+  },
+  "id|galenica.com|3149705": {
+    "canonicalSlug": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-d-neuchatel",
+    "slugByLocale": {
+      "fr": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-d-neuchatel"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "NE"
+  },
+  "id|galenica.com|3149714": {
+    "canonicalSlug": "galenica-galenica-specialista-supporto-vendite-f-m-d-barbengo-lugano",
+    "slugByLocale": {
+      "it": "galenica-galenica-specialista-supporto-vendite-f-m-d-barbengo-lugano"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "TI"
+  },
+  "id|galenica.com|3149716": {
+    "canonicalSlug": "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-davos-dorf",
+    "slugByLocale": {
+      "it": "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-davos-dorf",
+      "de": "galenica-galenica-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-davos-dorf"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GR"
+  },
+  "id|galenica.com|3149816": {
+    "canonicalSlug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-chateau-d-oex",
+    "slugByLocale": {
+      "fr": "galenica-galenica-pharmacien-pharmacienne-f-h-d-chateau-d-oex"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "VD"
+  },
+  "id|galenica.com|3149826": {
+    "canonicalSlug": "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+    "slugByLocale": {
+      "it": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
+      "de": "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|galenica.com|3149830": {
+    "canonicalSlug": "galenica-galenica-ag-assistant-assistante-en-pharmacie-f-h-d-les-avanchets",
+    "slugByLocale": {
+      "fr": "galenica-galenica-ag-assistant-assistante-en-pharmacie-f-h-d-les-avanchets"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|galenica.com|3149853": {
+    "canonicalSlug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-kaiseraugst",
+    "slugByLocale": {
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-kaiseraugst"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "AG"
+  },
+  "id|galenica.com|3149927": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-st-gallen",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-st-gallen",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-st-gallen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "SG"
   }
 }

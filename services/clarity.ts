@@ -14,18 +14,32 @@
 import { isAnalyticsGranted } from '@/services/consentService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { resilientImport } from '@/services/resilientImport';
-import { isNewsletterAutologinInFlight, subscribeNewsletterAutologin } from '@/services/newsletterAutologinSignal';
+import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import { sanitizeTelemetryProperties } from '@/services/analyticsUrlPrivacy';
 
 let _initialized = false;
+let _sensitiveDocument = wasNewsletterAutologinAttempted();
+
+function isSensitiveDocument(): boolean {
+ if (_sensitiveDocument) return true;
+ if (typeof window === 'undefined') return false;
+ const context = { page_location: window.location.href, page_referrer: typeof document === 'undefined' ? '' : document.referrer };
+ const safeContext = sanitizeTelemetryProperties(context);
+ _sensitiveDocument = context.page_location !== safeContext.page_location
+ || context.page_referrer !== safeContext.page_referrer;
+ return _sensitiveDocument;
+}
 
 /**
  * Initialize Microsoft Clarity. Call once after analytics consent is granted.
  * Loads the Clarity script dynamically — no impact on initial page load.
  */
 export async function initClarity(): Promise<void> {
- if (_initialized) return;
- if (!isAnalyticsGranted()) return;
+ // Cleaning history does not clean URLs retained in DOM attributes. In the
+ // observed replay an ad iframe kept the signed entry URL inside its src.
+ // Exclude this whole document, including failed/expired auth and later retries;
+ // never rewrite auth URLs or mutate third-party iframes to make replay safe.
+ if (_initialized || isSensitiveDocument() || !isAnalyticsGranted()) return;
 
  // Only load Clarity on the official production domain — skip everywhere else
  // (localhost, preview builds, staging, GitHub Pages default domain, etc.)
@@ -39,19 +53,11 @@ export async function initClarity(): Promise<void> {
  }
 
  try {
- // App owns credential removal after redeem/sign-in, including failures. Never
- // rewrite that URL here: an interrupted exchange must remain retryable.
- if (isNewsletterAutologinInFlight()) {
- await new Promise<void>((resolve) => {
- const unsubscribe = subscribeNewsletterAutologin(() => {
- unsubscribe();
- resolve();
- });
- });
- }
-
  const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  const projectId = await getConfigValue('CLARITY_PROJECT_ID');
+
+ // Capture sensitive context even when configuration disables the SDK.
+ if (_initialized || isSensitiveDocument() || !isAnalyticsGranted()) return;
 
  if (!projectId) {
  if (import.meta.env.DEV) {
@@ -59,15 +65,6 @@ export async function initClarity(): Promise<void> {
  }
  return;
  }
-
- // The signal's safety timeout can settle before App removes credentials.
- // Referrer is read-only, so sensitive referrers exclude this document too.
- // Recheck after every await, before the SDK can read either browser value.
- const context = { page_location: window.location.href, page_referrer: document.referrer };
- const safeContext = sanitizeTelemetryProperties(context);
- if (_initialized || !isAnalyticsGranted()
- || context.page_location !== safeContext.page_location
- || context.page_referrer !== safeContext.page_referrer) return;
 
  _initialized = true;
 
@@ -87,6 +84,8 @@ export async function initClarity(): Promise<void> {
  console.log(`[Clarity] Initialized with project ${projectId}`);
  }
  } catch (error) {
+ // A failed config fetch must not let a later clean-URL retry bypass the latch.
+ isSensitiveDocument();
  if (import.meta.env.DEV) {
  console.warn('[Clarity] Failed to initialize:', error);
  }

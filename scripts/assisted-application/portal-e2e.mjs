@@ -24,6 +24,7 @@ import { acceptPrivacyStatement, readPortalRequirements, submitViaPortal } from 
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
 import { extractFields } from './lib/portal/fields.mjs';
 import { applyActions } from './lib/portal/fill.mjs';
+import { registerCookieSessionRecovery } from './lib/portal/cookie-session.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
@@ -298,6 +299,11 @@ function fakePortal() {
     const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(html); };
     const redirect = (to, headers = {}) => { res.writeHead(303, { location: to, ...headers }); res.end(); };
     const route = `${req.method} ${url.pathname}`;
+    if (route === 'GET /cookiecheck-cc0.html') {
+      const validCookie = /(?:^|;\s*)sid=synthetic-session(?:;|$)/.test(req.headers.cookie || '');
+      res.writeHead(url.search ? 500 : 200, { 'content-type': 'application/json' });
+      return res.end(JSON.stringify({ cookie_allowed: validCookie, session_id: validCookie ? 'synthetic-session' : '' }));
+    }
     // SIX's SuccessFactors route: a cold direct apply URL falls back to the
     // generic career page. Visiting the matching posting first sets the site
     // cookie, and its own Apply link opens the actual application form.
@@ -314,7 +320,7 @@ function fakePortal() {
     if (route === 'GET /careers.html') return send(page('Career Opportunities | SIX', '<h1>Finde deinen Traumjob</h1><label for="search">Suche</label><input id="search" name="search"><button type="button">Finden</button>'));
     if (route === 'POST /six/submit') {
       const body = await readBody(req);
-      state.sixApplications.push({ workload: /name="workload"\r\n\r\n80%/.test(body) });
+      state.sixApplications.push({ workload: body.match(/name="workload"\r\n\r\n([^\r\n]*)/)?.[1] || '' });
       state.sixApplications.at(-1).hasCv = /name="cv"; filename="CV_Luca_Bianchi\.pdf"/.test(body);
       return send(page('Application received', '<h1>Thank you for your application</h1>'));
     }
@@ -1094,6 +1100,7 @@ async function main() {
     const sixJob = { title: 'Senior IT Manager - CIO Office', company: 'SIX Group' };
     const sixDirect = await run({ applyUrl: sixApplyUrl, job: sixJob });
     check('SIX cold apply redirects to the generic careers page and never sends', sixDirect.event.type === 'submit_handoff' && state.sixApplications.length === 0);
+    let sixReadSawWorkload = false;
     const sixRead = await readPortalRequirements({
       channelType: 'employer_site', applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, language: 'en', candidateLocale: 'it',
       candidate: { identity: { email: ALIAS } },
@@ -1101,11 +1108,13 @@ async function main() {
         const result = await fakeCodex(request);
         const input = JSON.parse(request.prompt.slice(request.prompt.lastIndexOf('{"form"'), request.prompt.lastIndexOf('\n\nReturn exactly')));
         const workload = input.form.fields.find((field) => /preferred workload/i.test(field.label));
+        sixReadSawWorkload = Boolean(workload);
         return { ...result, missingRequired: workload ? [{ fieldId: workload.id, question: workload.label }] : [] };
       },
       launch: () => launchChromium({ headless: true, executablePath }),
     });
-    check('SIX pre-read follows the posting and captures the required workload question', sixRead.questions.some((item) => /preferred workload/i.test(item.applicationQuestion || item.question)) && state.sixPostingViews === 1);
+    check('SIX pre-read recognizes workload without asking the candidate for an operational default', sixReadSawWorkload
+      && !sixRead.questions.some((item) => /preferred workload/i.test(item.applicationQuestion || item.question)) && state.sixPostingViews === 1);
     const sixCodex = async (request) => {
       const planned = await fakeCodex(request);
       if (!request.prompt.includes('{"form"')) return planned;
@@ -1113,12 +1122,9 @@ async function main() {
       const cv = payload.form.fields.find((field) => field.kind === 'file' && /resume|cv/i.test(field.label));
       const workload = payload.form.fields.find((field) => /preferred workload/i.test(field.label));
       const workloadAnswer = payload.candidate?.portalQuestionsAnswered?.find((item) => /preferred workload/i.test(item.applicationQuestion || item.question || ''))?.answer || '';
-      // The live SIX form asks for a personal preference that is not present in
-      // the candidate facts. Keep the first phase at the candidate gate: the
-      // final POST is only legal after the reviewed answer comes back on the
-      // retry. This is deliberately returned from the planner, like a real
-      // portal-specific required answer, instead of being hidden in the fake
-      // server's POST handler.
+      // Deliberately leave the model's missing preference in the plan: the
+      // deterministic owner policy must resolve the soft question to 100%.
+      // An explicit reviewed preference on a later run must still win.
       const gated = workload && !String(workloadAnswer).trim()
         ? { ...planned, missingRequired: [{ fieldId: workload.id, question: workload.label }] }
         : planned;
@@ -1130,14 +1136,14 @@ async function main() {
       identity: { email: ALIAS },
       profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
     };
-    const sixNeedsCandidate = await run({
+    const sixDefault = await run({
       applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
       codex: sixCodex,
       candidate: sixCandidate,
     });
-    check('SIX stops at the personal-answer gate without a final POST', sixNeedsCandidate.event.type === 'submit_needs_candidate'
-      && sixNeedsCandidate.event.questions.some((item) => /preferred workload/i.test(item.applicationQuestion || item.question || ''))
-      && state.sixApplications.length === 0);
+    check('SIX submits with the 100% operational default when no hard facts are missing', sixDefault.event.type === 'submit_succeeded'
+      && state.sixApplications.length === 1 && state.sixApplications[0].workload === '100%'
+      && state.sixApplications[0].hasCv === true);
     const six = await run({
       applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
       codex: sixCodex,
@@ -1148,9 +1154,9 @@ async function main() {
       },
     });
     check('SIX opens the matching form and submits with the reviewed workload answer', six.event.type === 'submit_succeeded'
-      && state.sixPostingViews === 3 && state.sixApplications.length === 1 && state.sixApplications[0].workload
+      && state.sixPostingViews === 3 && state.sixApplications.length === 2 && state.sixApplications[1].workload === '80%'
       && six.evidence.postingMatch === 'match');
-    check('SIX uploads the supplied CV when the planner skips its file field', state.sixApplications[0]?.hasCv === true
+    check('SIX uploads the supplied CV when the planner skips its file field', state.sixApplications[1]?.hasCv === true
       && six.evidence.uploads?.some((item) => item.document === 'cv'));
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
@@ -1212,6 +1218,84 @@ async function main() {
     check('unrelated visible year and month lists cannot shift the JOIN picker', dateResult[0]?.ok === true
       && pickedDate === '2025-05-12' && pickedYear === '2025' && pickedMonth === '5');
     await dateBrowser.close();
+
+    // Rexx-style controls: a styled native select and an optional AI parser
+    // dialog opened only after choosing the required attachment.
+    const parserBrowser = await launchChromium({ headless: true, executablePath });
+    try {
+      const parserPage = await parserBrowser.newPage();
+      await parserPage.goto(`${base}/careers.html`);
+      let parserUploads = 0;
+      await parserPage.route('**/optional-parser-upload', async route => {
+        parserUploads++;
+        await route.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' });
+      });
+      await parserPage.setContent(`<form>
+        <label for="notice">Attuale periodo di preavviso *</label>
+        <select id="notice" name="notice" required style="display:none"><option value="">---</option><option value="month1">1 mese</option><option value="month3">3 mesi</option></select>
+        <span id="notice-button" class="ui-selectmenu-button" role="combobox" aria-owns="notice-menu" tabindex="0">---</span>
+        <ul id="notice-menu" style="display:none"><li><div data-month="month1">1 mese</div></li><li><div data-month="month3">3 mesi</div></li></ul>
+        <label for="parser-cv">Curriculum vitae *</label><input id="parser-cv" type="file" required>
+        <input id="parser-privacy" type="checkbox" required style="display:none"><label for="parser-privacy">I accept the Privacy Policy</label>
+        <label for="parser-newsletter">Marketing newsletter</label><input id="parser-newsletter" type="checkbox">
+        <button type="submit">Submit application</button></form>
+        <div role="dialog" style="display:none" id="parser-dialog">
+          Per un riempimento automatico più preciso i contenuti possono essere valutati da un’intelligenza artificiale (IA).
+          La decisione di procedere senza IA non ha alcun effetto sul prosieguo del processo di candidatura.
+          <button type="button" id="parser-accept">Accettare</button><button type="button" id="parser-decline">Rifiutare</button>
+        </div><script>
+          window.parserAccepted = 0; window.parserDeclined = 0; window.parserSent = 0;
+          const native = document.querySelector('#notice');
+          const menu = document.querySelector('#notice-menu');
+          document.querySelector('#notice-button').onclick = () => { menu.style.display = ''; };
+          menu.querySelectorAll('[data-month]').forEach(item => item.onclick = () => {
+            native.value = item.dataset.month; menu.style.display = 'none';
+            document.querySelector('#notice-button').textContent = item.textContent;
+          });
+          const dialog = document.querySelector('#parser-dialog');
+          const cv = document.querySelector('#parser-cv');
+          cv.onchange = () => { dialog.style.display = ''; };
+          document.querySelector('#parser-accept').onclick = () => { window.parserAccepted++; };
+          document.querySelector('#parser-decline').onclick = async () => {
+            window.parserDeclined++; dialog.style.display = 'none';
+            const body = new FormData(); body.append('cv', cv.files[0]);
+            await fetch('/optional-parser-upload', { method: 'POST', body });
+          };
+          document.querySelector('form').onsubmit = event => { event.preventDefault(); window.parserSent++; };
+        </script>`);
+      const parserSnapshot = await extractFields(parserPage);
+      const parserActions = [
+        { fieldId: parserSnapshot.fields.find(field => field.widget === 'jquery-selectmenu')?.id, action: 'select', value: '3 mesi' },
+        { fieldId: parserSnapshot.fields.find(field => field.kind === 'checkbox' && /Privacy/.test(field.label))?.id, action: 'check' },
+        { fieldId: parserSnapshot.fields.find(field => field.kind === 'file')?.id, action: 'upload', document: 'cv' },
+      ];
+      const parserResults = await applyActions(parserPage, parserSnapshot.fields, parserActions, files, { pause: async () => {} });
+      const parserState = await parserPage.evaluate(() => ({
+        notice: document.querySelector('#notice').value, privacy: document.querySelector('#parser-privacy').checked,
+        newsletter: document.querySelector('#parser-newsletter').checked,
+        accepted: window.parserAccepted, declined: window.parserDeclined, sent: window.parserSent,
+      }));
+      check('owned selectmenu commits three months and the optional parser is declined before upload confirmation',
+        parserResults.length === 3 && parserResults.every(result => result.ok)
+        && parserResults.some(result => result.uploadAccepted) && parserUploads === 1
+        && parserState.notice === 'month3' && parserState.privacy && !parserState.newsletter
+        && parserState.accepted === 0 && parserState.declined === 1 && parserState.sent === 0);
+    } finally { await parserBrowser.close(); }
+
+    const sessionBrowser = await launchChromium({ headless: true, executablePath });
+    try {
+      const context = await sessionBrowser.newContext();
+      await context.addCookies([{ name: 'sid', value: 'synthetic-session', url: base }]);
+      await registerCookieSessionRecovery(context);
+      const page = await context.newPage();
+      await page.goto(`${base}/careers.html`);
+      const result = await page.evaluate(async () => {
+        const response = await fetch('/cookiecheck-cc0.html?sid=synthetic-session');
+        return { status: response.status, body: await response.json() };
+      });
+      check('a failing session-query preflight recovers through the same proven cookie session',
+        result.status === 200 && result.body.cookie_allowed === true && result.body.session_id === 'synthetic-session');
+    } finally { await sessionBrowser.close(); }
 
     const unownedBrowser = await launchChromium({ headless: true, executablePath });
     const unownedPage = await unownedBrowser.newPage();

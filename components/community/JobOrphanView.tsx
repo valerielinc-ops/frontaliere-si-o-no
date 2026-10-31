@@ -9,11 +9,12 @@ import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
  * Unauthenticated: 3-column ad grid (left rail | content | right rail) with
  * auth gate, Eye icon header, social proof, and AUTHGATE_* ad slots.
  *
- * Authenticated: single-column with JOBDETAIL_END_MULTIPLEX + inline mobile ad.
+ * Authenticated: shared JobDetail header and metadata, the standard 8/4
+ * content/sidebar grid, and full-width related jobs.
  */
 
-import { Suspense, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
-import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, ChevronDown, Eye, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
+import { Suspense, useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode } from 'react';
+import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, ChevronDown, Clock, Euro, Eye, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
 import { useLocale, t, type Locale } from '@/services/i18n';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
 import CompanyFollowCta from '@/components/community/CompanyFollowCta';
@@ -30,11 +31,12 @@ import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
-import { AD_SLOTS } from '@/services/adsenseSlots';
+import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
+import Callout from '@/components/shared/Callout';
 import ArticleRailAdStack from '@/components/shared/ArticleRailAdStack';
 import JobAlertSection from '@/components/community/JobAlertSection';
 import { buildPath } from '@/services/router';
@@ -43,8 +45,50 @@ import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
+import JobSaveButton from '@/components/community/JobSaveButton';
+import { toSaveableJob } from '@/services/jobSaveGate';
+import { formatDaysAgo, formatJobContractLabel, formatJobSalary } from '@/services/jobs/jobCardMetadata';
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
+import {
+ JobDetailHeaderCard,
+ JobDetailMetadataRow,
+ JobDetailMetaPill,
+ JOB_DETAIL_HEADER_CONTENT_CLASS,
+ JOB_DETAIL_HEADER_COPY_CLASS,
+ JOB_DETAIL_HEADER_LOGO_FRAME_CLASS,
+ JOB_DETAIL_HEADER_LOGO_IMAGE_CLASS,
+ JOB_DETAIL_HEADER_SUBTITLE_CLASS,
+ JOB_DETAIL_HEADER_TITLE_CLASS,
+} from '@/components/community/JobDetailPresentation';
+
+interface ActiveJobCardData {
+ id: string;
+ slug?: string | null;
+ title: string;
+ company: string;
+ category?: string | null;
+ canton?: string | null;
+ companyKey?: string;
+ companyDomain?: string;
+ url?: string;
+ location?: string;
+ contract?: string;
+ contractType?: string;
+ employmentType?: string;
+ datePosted?: string;
+ postedDate?: string;
+ postingDateSource?: string;
+ salaryMin?: number;
+ salaryMax?: number;
+ salaryCurrency?: string;
+ currency?: string;
+ salarySource?: string;
+}
 
 interface JobOrphanViewProps {
+ /** Resolves an active job from a link's slug, so its row can carry the bookmark. */
+ findActiveJob?: (slug: string) => ActiveJobCardData | null;
  slug: string;
  onBack?: () => void;
  /** When true the user is already authenticated — hide the sign-in block. */
@@ -162,25 +206,25 @@ function getStaticBodyHtml(): string | null {
  return null;
 }
 
-/** Extract links from the"Posizioni attive recenti" section of static HTML. */
-function extractActiveJobLinks(html: string): Array<{ href: string; title: string; company: string }> {
- const links: Array<{ href: string; title: string; company: string }> = [];
- // Match <li><a href="...">Title</a> — Company, Location</li>
+/** Extract links from the recent-active-jobs section of static HTML. */
+export function extractActiveJobLinks(html: string): Array<{ href: string; title: string; company: string; location: string }> {
+ const links: Array<{ href: string; title: string; company: string; location: string }> = [];
+ // The current static renderer emits <li><a href="...">Title</a> — Location</li>.
  const liRegex = /<li><a href="([^"]+)"[^>]*>([^<]+)<\/a>\s*(?:—|&mdash;)\s*([^<]+)<\/li>/g;
  let match;
  while ((match = liRegex.exec(html)) !== null) {
  const fullText = match[3].trim();
- const parts = fullText.split(',');
  links.push({
  href: match[1].replace(/^https?:\/\/[^/]+/, ''),
  title: match[2].trim(),
- company: parts[0]?.trim() ?? '',
+   company: '',
+   location: fullText,
  });
  }
  return links;
 }
 
-export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
+export default function JobOrphanView({ slug, findActiveJob, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
  const [locale] = useLocale();
   const { headline: gateHeadline, variant: headlineVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
@@ -563,45 +607,56 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  );
 
  const jobHeaderCard = (
- <div className="rounded-xl border border-edge bg-surface/80 overflow-hidden" onCopy={handleGateCopy}>
- {/* Amber status bar — reveals the "no longer available" status. Deferred until
-     sign-in: a logged-out visitor sees the gate first, the notice only after login. */}
- {alreadySignedIn && (
- <div className="bg-warning-subtle border-b border-warning-border px-5 py-2.5 flex items-center gap-2">
- <Briefcase size={14} className="text-warning shrink-0" />
- <span className="text-sm text-warning">
- {BANNER_COPY[locale] ?? BANNER_COPY.it}
- </span>
- </div>
+ <JobDetailHeaderCard data-no-auto-ads="inside" onCopy={handleGateCopy}>
+ <div className={JOB_DETAIL_HEADER_CONTENT_CLASS}>
+ <div className={JOB_DETAIL_HEADER_LOGO_FRAME_CLASS} aria-hidden={!companyLogoUrl}>
+ {companyLogoUrl ? (
+ <img
+ src={companyLogoUrl}
+ alt={slugParts.company || ''}
+ width={56}
+ height={56}
+ className={JOB_DETAIL_HEADER_LOGO_IMAGE_CLASS}
+ decoding="async"
+ onError={handleCompanyLogoError}
+ />
+ ) : (
+ <Building2 className="w-9 h-9 text-muted" aria-hidden="true" />
  )}
- {/* Title + metadata */}
- <div className="px-4 py-3 sm:px-5 sm:py-4">
- <h1 className="text-xl font-bold font-display text-heading leading-snug break-words [hyphens:auto]">
- {slugParts.title}
- </h1>
+ </div>
+ <div className={JOB_DETAIL_HEADER_COPY_CLASS}>
+ <h1 className={JOB_DETAIL_HEADER_TITLE_CLASS}>{slugParts.title}</h1>
  {(slugParts.company || slugParts.location) && (
- <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-2 text-sm leading-tight text-subtle">
- {slugParts.company && companyHref && (
+ <p className={JOB_DETAIL_HEADER_SUBTITLE_CLASS}>
+ {slugParts.company && (companyHref ? (
  <button
  type="button"
  onClick={handleCompanyClick}
- className="flex items-center gap-1.5 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
- <Building2 size={14} className="text-muted" />
  {slugParts.company}
  </button>
- )}
- {slugParts.location && locationHref && (
+ ) : slugParts.company)}
+ {slugParts.company && slugParts.location ? ' · ' : ''}
+ {slugParts.location && (locationHref ? (
  <a
  href={locationHref}
  onClick={handleLocationClick}
- className="flex items-center gap-1.5 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
- <MapPin size={14} className="text-muted" />
  {slugParts.location}
  </a>
+ ) : slugParts.location)}
+ </p>
  )}
  </div>
+ </div>
+ {alreadySignedIn && (
+ <JobDetailMetadataRow>
+  <JobDetailMetaPill tone="warning" icon={<Briefcase className="w-3 h-3" aria-hidden="true" />}>
+   {BANNER_COPY[locale] ?? BANNER_COPY.it}
+  </JobDetailMetaPill>
+ </JobDetailMetadataRow>
  )}
  {employerHubCta}
  {/* Same move as JobExpiredView and the active ad: the follow CTA belongs
@@ -609,8 +664,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
      the company banner further down the page. On an orphan slug it is the
      only subscription still on offer. */}
  {companyFollowCta}
- </div>
- </div>
+ </JobDetailHeaderCard>
  );
 
 
@@ -650,30 +704,66 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  );
 
  const activeJobsSection = activeJobLinks.length > 0 && (
- <div className="space-y-3">
- <h2 className="text-base font-semibold font-display text-strong">
+ <section className="rounded-2xl border border-edge bg-surface p-5">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? 'Posizioni attive simili' : locale === 'de' ? 'Ähnliche offene Stellen' : locale === 'fr' ? 'Postes similaires ouverts' : 'Similar active jobs'}
  </h2>
- <ul className="space-y-2">
- {activeJobLinks.slice(0, 5).map((link) => (
- <li key={link.href}>
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" data-job-related-grid data-job-orphan-related-grid>
+ {activeJobLinks.slice(0, 6).flatMap((link, index, links) => {
+ const activeJob = findActiveJob?.(link.href.split('/').filter(Boolean).pop() ?? '') ?? null;
+ const logo = activeJob
+  ? cdnImageUrl(resolveCompanyLogoUrl({ company: activeJob.company, companyKey: activeJob.companyKey, companyDomain: activeJob.companyDomain, url: activeJob.url }))
+  : null;
+ const location = activeJob?.location
+  ? formatJobLocation(activeJob.location, activeJob.canton)
+  : link.location;
+ const company = activeJob?.company || link.company;
+ const salary = activeJob ? formatJobSalary(activeJob, locale) : null;
+ const contract = activeJob ? formatJobContractLabel(activeJob.contract || activeJob.employmentType || activeJob.contractType, locale) : null;
+ const posted = activeJob ? formatDaysAgo(resolveReportedPostingDate(activeJob) ?? undefined, locale) : null;
+ const card = (
+ <article key={link.href} className="relative rounded-xl border border-edge bg-surface/50 p-3 sm:p-4 transition-colors min-h-[72px] hover:border-accent-border">
+ {activeJob?.id && <JobSaveButton job={toSaveableJob(activeJob)} surface="card_related" />}
  <a
- href={link.href}
- onClick={(e) => handleRelatedJobClick(e, link.href)}
- className="flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 hover:border-accent hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
+  href={link.href}
+  onClick={(e) => handleRelatedJobClick(e, link.href)}
+  className="block pr-9 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
  >
- <span className="flex-1 min-w-0">
- <span className="block font-medium text-sm text-strong truncate">{link.title}</span>
- {link.company && (
- <span className="block text-xs text-muted mt-0.5 truncate">{link.company}</span>
- )}
- </span>
- <ArrowRight size={14} className="text-muted shrink-0" />
+  <div className="flex items-start gap-3">
+   <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
+    {logo ? (
+     <img src={logo} alt={`Logo ${company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={handleCompanyLogoError} />
+    ) : (
+     <Building2 className="w-5 h-5 text-muted" aria-hidden="true" />
+    )}
+   </div>
+   <div className="min-w-0 flex-1">
+    <span className="block text-sm sm:text-base font-bold leading-tight text-heading line-clamp-2">{link.title}</span>
+    {company && <span className="block text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">{company}</span>}
+    {salary && <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success"><Euro className="w-3.5 h-3.5" aria-hidden="true" />{salary}</span>}
+   </div>
+  </div>
+  <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted">
+   {location && <span className="inline-flex items-center gap-1"><MapPin className="w-3 h-3" aria-hidden="true" />{location}</span>}
+   {contract && <span className="px-1.5 py-0.5 rounded bg-surface-raised text-subtle">{contract}</span>}
+   {posted && <span className="inline-flex items-center gap-1"><Clock className="w-3 h-3" aria-hidden="true" />{posted}</span>}
+  </div>
  </a>
- </li>
- ))}
- </ul>
+ </article>
+ );
+ const nodes: ReactNode[] = [card];
+ if (index + 1 < links.length && shouldPlaceInfeedAd(index + 1)) {
+  const ad = isDesktopLg ? AD_SLOTS.JOBLIST_INFEED_DESKTOP : AD_SLOTS.JOBLIST_INFEED_MOBILE;
+  nodes.push(
+   <div key={`orphan-related-ad-${link.href}`} className="col-span-full min-w-0" data-job-related-ad>
+    <AdSenseBanner className="my-3" placement={`orphan-related-${index}`} adSlot={ad.slot} adFormat={ad.format} fullWidthResponsive={ad.fullWidthResponsive} />
+   </div>,
+  );
+ }
+ return nodes;
+ })}
  </div>
+ </section>
  );
 
  const ctaLink = (
@@ -688,7 +778,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  );
 
  const staticContentDetails = staticBodyHtml && (
- <details open={isCrawlerVisitor} className="group rounded-xl border border-edge bg-surface/80 overflow-hidden">
+ <details open={isCrawlerVisitor || alreadySignedIn} className="group rounded-2xl border border-edge bg-surface overflow-hidden" data-job-detail-description>
  <summary className="px-5 py-3.5 text-sm font-semibold text-body cursor-pointer select-none hover:bg-surface-raised/60 transition-colors list-none flex items-center gap-2">
  <Search size={14} className="text-muted" />
  {locale === 'it' ? 'Informazioni per frontalieri' : locale === 'de' ? 'Informationen für Grenzgänger' : locale === 'fr' ? 'Informations pour frontaliers' : 'Information for cross-border workers'}
@@ -701,11 +791,11 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </details>
  );
 
- // ── Logged-in view: single column with ads ──
+ // ── Logged-in view: standard 8/4 detail grid ──
 
  if (alreadySignedIn) {
  return (
- <div className="space-y-6">
+ <div className="space-y-6" data-orphan-layout="authenticated">
  {topBannerRow}
 
  {/* 3-column rail grid: left rail | content | right rail — same full-height
@@ -719,7 +809,8 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </aside>
 
  {/* ── Center content ── */}
- <div className="space-y-6 max-w-2xl mx-auto w-full">
+ <div className="min-w-0 w-full grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6" data-orphan-detail-grid>
+ <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
  {jobHeaderCard}
 
  {/* Mobile/tablet in-article ad */}
@@ -732,19 +823,26 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  )}
 
  {companyBanner}
- {activeJobsSection}
  {staticContentDetails}
- <JobAlertSection initialKeyword={slugParts.title || ''} />
- {ctaLink}
+ </article>
 
- {/* End multiplex */}
- {AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot && (
- <AdSenseBanner
- adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot}
- adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format}
- className="mt-2"
- />
+ <aside className="lg:col-span-4 lg:self-start">
+ <div className="space-y-4 lg:sticky lg:top-20">
+ {slugParts.location && (
+ <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl">
+  <div className="text-sm font-bold font-display text-heading">{t('jobBoard.snapshotTitle')}</div>
+  <div className="mt-3 flex items-center justify-between gap-2 text-xs text-subtle">
+   <span>{t('jobBoard.snapshot.location')}</span>
+   <span className="font-semibold font-display text-strong">{slugParts.location}</span>
+  </div>
+ </Callout>
  )}
+ <Callout status="success" icon={<Search size={15} />} className="rounded-xl">
+  {ctaLink}
+ </Callout>
+ <JobAlertSection initialKeyword={slugParts.title || ''} />
+ </div>
+ </aside>
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
@@ -752,6 +850,16 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  <ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} />
  </aside>
  </div>
+
+ {/* Keep related jobs below the detail grid and end ad, like active details. */}
+ {AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format}
+ className="mt-2"
+ />
+ )}
+ {activeJobsSection}
  </div>
  );
  }

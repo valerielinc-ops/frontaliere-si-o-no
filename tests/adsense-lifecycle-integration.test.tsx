@@ -8,17 +8,20 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_CHANGE_EVENT } from '@/services/adsConsent';
 
 const eventSpy = vi.hoisted(() => vi.fn());
+const wasAutologin = vi.hoisted(() => vi.fn(() => false));
+vi.mock('@/services/newsletterAutologinSignal', () => ({ wasNewsletterAutologinAttempted: wasAutologin }));
 vi.mock('@/services/adAnalytics', () => ({ isLikelyBot: () => false, trackAdEvent: eventSpy }));
 let observers: Array<{ cb: IntersectionObserverCallback; options?: IntersectionObserverInit; targets: Element[]; disconnected: boolean }>;
 let position = 100;
 const adScript = () => document.querySelector<HTMLScriptElement>('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
 const boxRect = (top = position, height = 336) => ({ top, bottom: top + height, left: 0, right: 390, width: 390, height, x: 0, y: top, toJSON() {} });
 beforeEach(() => {
- vi.useFakeTimers(); observers = []; position = 100; eventSpy.mockClear();
+ vi.useFakeTimers(); observers = []; position = 100; eventSpy.mockClear(); wasAutologin.mockReturnValue(false);
  document.body.innerHTML = ''; document.head.innerHTML = ''; localStorage.clear();
  window.history.replaceState(null, '', '/cerca-lavoro-ticino/');
  localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted');
  Object.defineProperty(navigator, 'userAgent', { configurable: true, value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Version/17.5 Mobile/15E148 Safari/604.1' });
+ delete (window as Window & { __FT_SENSITIVE_DOCUMENT__?: boolean }).__FT_SENSITIVE_DOCUMENT__;
  window.adsbygoogle = [];
  vi.stubGlobal('requestIdleCallback', (cb: () => void) => { cb(); return 1; });
  vi.stubGlobal('cancelIdleCallback', () => {});
@@ -43,6 +46,35 @@ function exit() {
 async function mount() { const { default: Banner } = await import('@/components/shared/AdSenseBanner'); return { Banner, ...render(<Banner adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot} placement="joblist-infeed-main-4" />) }; }
 
 describe('SPA lifecycle and layout owner', () => {
+ it('denies residual signed URLs through retries, then restores once on a clean SPA route', async () => {
+  wasAutologin.mockReturnValue(true);
+  window.history.replaceState(null, '', '/?ac=synthetic-code&ne=candidate%40example.test&utm_source=email');
+  const residual = document.createElement('iframe');
+  residual.src = `https://ads.example.test/frame?url=${encodeURIComponent(window.location.href)}`;
+  document.body.appendChild(residual);
+  const { Banner, rerender } = await mount();
+  expect(adScript()).toBeNull();
+  window.history.replaceState(null, '', '/?utm_source=email');
+  await act(async () => {
+   window.dispatchEvent(new Event(ADS_CONSENT_CHANGE_EVENT));
+   document.dispatchEvent(new Event('pointerdown'));
+   window.dispatchEvent(new Event('online'));
+   vi.advanceTimersByTime(10_000);
+  });
+  rerender(<Banner adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot} placement="joblist-infeed-main-4" />);
+  await act(async () => { vi.advanceTimersByTime(10_000); });
+  expect(adScript()).toBeNull();
+  expect(window.adsbygoogle).toHaveLength(0);
+  expect(window.location.search).toBe('?utm_source=email');
+  residual.remove();
+  window.history.replaceState(null, '', '/cerca-lavoro-ticino/infermieri/?utm_source=email');
+  rerender(<Banner adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot} placement="joblist-infeed-main-4" />);
+  await act(async () => { vi.advanceTimersByTime(10_000); });
+  expect(document.querySelectorAll('script[src*="adsbygoogle.js"]')).toHaveLength(1);
+  await act(async () => { window.dispatchEvent(new Event(ADS_CONSENT_CHANGE_EVENT)); document.dispatchEvent(new Event('pointerdown')); });
+  expect(document.querySelectorAll('script[src*="adsbygoogle.js"]')).toHaveLength(1);
+ });
+
  it.each(['granted', 'denied'])('requests once after %s and preserves a slow fill', async (decision) => {
   localStorage.removeItem(ADS_CONSENT_STORAGE_KEY);
   await mount(); expect(adScript()).toBeNull();

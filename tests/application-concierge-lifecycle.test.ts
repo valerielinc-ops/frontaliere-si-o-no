@@ -7,7 +7,7 @@ vi.mock('../functions/src/applicationConciergeMatching.js', () => ({ runApplicat
 vi.mock('../functions/src/assistedApplicationNotifications.js', () => ({ sendOrderNotification: vi.fn() }));
 vi.mock('../functions/src/applicationConciergeRenewalMaterials.js', () => ({ inheritConciergeRenewalMaterials: vi.fn(async () => ({ copied: false })) }));
 vi.mock('../functions/src/applicationConciergePaymentReminders.js', () => ({ paymentReminderUrl: (uid: string) => `https://example.test/unsubscribe/?uid=${uid}` }));
-const { runConciergeLifecycleSweep } = await import('../functions/src/applicationConciergeLifecycle.js');
+const { runConciergeLifecycleSweep, runConciergeProposalRefresh } = await import('../functions/src/applicationConciergeLifecycle.js');
 const { buildConciergeRenewalEmail } = await import('../functions/src/applicationConciergeLifecycleEmails.js');
 
 const DAY = 24 * 60 * 60 * 1000;
@@ -105,6 +105,41 @@ describe('concierge refresh and notification lifecycle', () => {
     await sweep();
     expect(deliveries).toHaveLength(0);
   });
+  it('consumes a refresh request once even when Firestore redelivers after the worker finishes', async () => {
+    records.set('application_concierge_services/service', active({ proposalRefreshRequestId: 'refresh-request' }));
+    const options = { db, serviceId: 'service', requestId: 'refresh-request', nowMs: now, match, send };
+    await runConciergeProposalRefresh(options);
+    await runConciergeProposalRefresh(options);
+    expect(match).toHaveBeenCalledTimes(1);
+    expect(deliveries).toHaveLength(1);
+    expect(records.get('application_concierge_services/service').proposalRefreshCompletedRequestId).toBe('refresh-request');
+  });
+  it('notifies a retracted proposal that becomes available again, once per actual reactivation', async () => {
+    records.set('application_concierge_services/service', active());
+    await sweep();
+    const firstKey = deliveries[0];
+    await ref('application_concierge_services/service/proposals/new-job').set({ status: 'retracted' });
+    await runConciergeProposalRefresh({ db, serviceId: 'service', nowMs: now + 1, match, send });
+    expect(deliveries).toHaveLength(2);
+    expect(deliveries[1]).not.toBe(firstKey);
+    await runConciergeProposalRefresh({ db, serviceId: 'service', nowMs: now + 2, match, send });
+    expect(deliveries).toHaveLength(2);
+  });
+  it('completes an empty refresh without sending an empty opportunities notice', async () => {
+    records.set('application_concierge_services/service', active({ proposalRefreshRequestId: 'empty-request' }));
+    const emptyMatch = vi.fn(async () => ({ status: 'complete' }));
+    const options = { db, serviceId: 'service', requestId: 'empty-request', nowMs: now, match: emptyMatch, send };
+    await runConciergeProposalRefresh(options);
+    await runConciergeProposalRefresh(options);
+    expect(emptyMatch).toHaveBeenCalledTimes(1);
+    expect(send).not.toHaveBeenCalled();
+  });
+  it.each([{ acceptedPositionsCount: 10 }, { expiresAt: now }])('does not deliver an existing notice after eligibility ends: %j', async patch => {
+    records.set('application_concierge_services/service', active({ ...patch, pendingProposalNotice: { key: 'new_proposals_pending', proposalIds: ['new-job'] } }));
+    records.set('application_concierge_services/service/proposals/new-job', { status: 'proposed' });
+    await sweep();
+    expect(deliveries.filter(key => key.startsWith('new_proposals_'))).toHaveLength(0);
+  });
   it('retries a failed notice without repeating the matching run', async () => {
     records.set('application_concierge_services/service', active({ matchingCompletedAt: now, pendingProposalNotice: { key: 'new_proposals_retry', proposalIds: ['new-job'] } }));
     records.set('application_concierge_services/service/proposals/new-job', { status: 'proposed', jobTitle: 'Example', companyName: 'Example' });
@@ -130,6 +165,12 @@ describe('concierge refresh and notification lifecycle', () => {
     await ref('application_concierge_services/service').set({ renewedByServiceId: null });
     await sweep({ nowMs: now + 2 * DAY });
     expect(deliveries).toHaveLength(1);
+  });
+  it('delivers exactly the three daily reminder stages and none at the 72-hour deadline', async () => {
+    records.set('application_concierge_services/service', active({ expiresAt: now }));
+    for (const offset of [0, 0, DAY, DAY, 2 * DAY, 2 * DAY, 3 * DAY]) await sweep({ nowMs: now + offset });
+    expect(deliveries).toEqual(['renewal_day_0', 'renewal_day_1', 'renewal_day_2']);
+    expect(match).not.toHaveBeenCalled();
   });
   it.each(['it', 'en', 'de', 'fr'])('renders the fixed deadline, branded layout and opt-out in %s', locale => {
     const email = buildConciergeRenewalEmail(active({ expiresAt: now, locale }), 'service', { nowMs: now, unsubscribeUrl: 'https://example.test/unsubscribe/' });

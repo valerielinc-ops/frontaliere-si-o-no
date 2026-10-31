@@ -175,6 +175,21 @@ describe('jobsSeoPagesPlugin wires the payload the renderer actually emits', () 
     expect(source).toContain('derivedFromUnhashedSource: Boolean(gscInfo) || Boolean(slugInfo),');
   });
 
+  it('keeps detail metadata in the hydrated expired-job seed', () => {
+    const emittedCode = codeLines.join('\n');
+    for (const field of [
+      'expiredDataObj.contract = jobContract',
+      'expiredDataObj.datePosted = jobDatePosted',
+      'expiredDataObj.postingDateSource = ejData.postingDateSource',
+      'expiredDataObj.salaryMin = jobSalaryMin',
+      'expiredDataObj.salaryMax = jobSalaryMax',
+      'expiredDataObj.salarySource = jobSalarySource',
+      'expiredDataObj.postalCode = ejData.postalCode',
+    ]) {
+      expect(emittedCode).toContain(field);
+    }
+  });
+
   it('keeps one emit site for the inline payload, so the digest cannot miss one', () => {
     // `window.__EXPIRED_JOB_DATA__` is serialized in exactly one template and
     // assembled in exactly one place. A second site would emit ledger bytes the

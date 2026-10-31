@@ -1,16 +1,16 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-10-30T09:18:43.199Z",
+  "generatedAt": "2026-10-30T21:17:42.200Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 112564,
-  "avgDurationMs": 112564,
+  "durationMs": 115608,
+  "avgDurationMs": 115608,
   "durationHistory": [
-    112564
+    115608
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-30T09:18:29.154Z",
+      "crawledAt": "2026-10-30T21:17:27.179Z",
       "firstSeenAt": "2026-10-08T21:23:38.346Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
@@ -71,7 +71,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-30T09:18:29.154Z",
+      "crawledAt": "2026-10-30T21:17:27.179Z",
       "firstSeenAt": "2026-10-08T21:23:38.346Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
@@ -109,7 +109,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-30T09:18:29.154Z",
+      "crawledAt": "2026-10-30T21:17:27.179Z",
       "firstSeenAt": "2026-10-05T06:25:39.366Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
@@ -158,7 +158,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-30T09:18:29.154Z",
+      "crawledAt": "2026-10-30T21:17:27.179Z",
       "id": "company-7dkqft",
       "contract": "full-time",
       "currency": "CHF",
@@ -202,7 +202,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-30T09:18:29.154Z",
+      "crawledAt": "2026-10-30T21:17:27.179Z",
       "id": "company-4vbdrg",
       "contract": "full-time",
       "currency": "CHF",
@@ -246,7 +246,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-30T09:18:29.154Z",
+      "crawledAt": "2026-10-30T21:17:27.179Z",
       "id": "company-bjh1s",
       "contract": "full-time",
       "currency": "CHF",
@@ -290,7 +290,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-30T09:18:29.154Z",
+      "crawledAt": "2026-10-30T21:17:27.179Z",
       "id": "company-9eqbu6",
       "contract": "full-time",
       "currency": "CHF",
@@ -323,7 +323,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-30T09:18:29.154Z",
+      "crawledAt": "2026-10-30T21:17:27.179Z",
       "firstSeenAt": "2026-06-08T22:12:09.409Z",
       "sourceLang": "de",
       "salaryMin": 99000,
@@ -369,7 +369,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-30T09:18:29.154Z",
+      "crawledAt": "2026-10-30T21:17:27.179Z",
       "firstSeenAt": "2026-09-25T14:44:02.065Z",
       "sourceLang": "de",
       "salaryMin": 96300,
@@ -398,5 +398,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

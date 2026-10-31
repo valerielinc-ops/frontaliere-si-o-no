@@ -36,6 +36,9 @@ const day = (d: Date) => d.toISOString().slice(0, 10);
 const COMO = { name: 'Como', province: 'CO', lat: 45.81, lng: 9.08, distanceKm: 0, fascia: '0-10' };
 const CANTU = { name: 'Cantù', province: 'CO', lat: 45.74, lng: 9.13, distanceKm: 0, fascia: '0-10' };
 const VARESE = { name: 'Varese', province: 'VA', lat: 45.82, lng: 8.83, distanceKm: 0, fascia: '0-10' };
+const AOSTA = { name: 'Aosta', province: 'AO', lat: 45.74, lng: 7.32, distanceKm: 0, fascia: '0-10' };
+const VERBANIA = { name: 'Verbania', province: 'VB', lat: 45.92, lng: 8.55, distanceKm: 0, fascia: '0-10' };
+const TRENTO = { name: 'Trento', province: 'TN', lat: 46.07, lng: 11.12, distanceKm: 0, fascia: '0-10' };
 
 function previousDataset(snapshotDay: string) {
   return {
@@ -277,7 +280,7 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(requests).toHaveLength(1);
     expect(requests[0].url).toContain('/ospzApi/search/area');
     expect(JSON.parse(String(requests[0].init.body))).toEqual({
-      region: 3,
+      region: 19,
       province: 'CO',
       town: null,
       priceOrder: 'asc',
@@ -286,6 +289,36 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(result.source).toBe('mimit-api');
     expect(result.extractedAt).toBe(day(observedAt));
     expect(result.pricesRows).toHaveLength(2);
+  });
+
+  it('uses Osservaprezzi registry region IDs, not ISTAT region codes', async () => {
+    const observedAt = daysAgo(0.5);
+    const requests: Array<{ url: string; init: RequestInit }> = [];
+    const municipalities = [AOSTA, COMO, TRENTO, VERBANIA];
+    const result = await fetchMimitApiSource(municipalities, {
+      retries: 1,
+      requestIntervalMs: 0,
+      fetchImpl: async (url: string, init: RequestInit) => {
+        requests.push({ url, init });
+        const body = JSON.parse(String(init.body));
+        const municipality = municipalities.find((item) => item.province === body.province)!;
+        return {
+          ok: true,
+          json: async () => ({
+            success: true,
+            array: [{ ...apiStation(observedAt, municipality), id: body.province }],
+          }),
+        } as Response;
+      },
+    });
+
+    expect(result.source).toBe('mimit-api');
+    expect(requests.map(({ init }) => JSON.parse(String(init.body)))).toEqual([
+      expect.objectContaining({ region: 16, province: 'AO' }),
+      expect.objectContaining({ region: 19, province: 'CO' }),
+      expect.objectContaining({ region: 5, province: 'TN' }),
+      expect.objectContaining({ region: 13, province: 'VB' }),
+    ]);
   });
 
   it('accepts a partial province lookup without a municipality fan-out', async () => {

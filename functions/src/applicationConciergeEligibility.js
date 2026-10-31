@@ -12,8 +12,9 @@ import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SC
   requirementsUserText, MATCH_SCHEMA, matchSystemPrompt, matchUserText } from './assistedApplicationAiPrompts.js';
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
+import { SOURCE_CITATIONS_VERSION, sourceCitations, citationSchema, resolveCitations } from './lib/sourceCitations.js';
 
-export const CONCIERGE_ELIGIBILITY_VERSION = 'full-posting-requirements-v2-mobility';
+export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v3-${SOURCE_CITATIONS_VERSION}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
@@ -29,14 +30,27 @@ export function normalizeConciergeJobRecord(job = {}) {
   };
 }
 
-async function generateJson(systemPrompt, userPrompt, schema) {
+async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
   const response = await generateServerText({ systemPrompt: `${systemPrompt}\nReturn ONLY valid JSON matching this schema:\n${JSON.stringify(schema)}`,
-    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false });
+    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false, ...options });
+  options.signal?.throwIfAborted();
   if (!response.body?.ok) throw new Error('eligibility_provider_unavailable');
   const text = response.body.text.replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
   const result = JSON.parse(text);
   if (!result || typeof result !== 'object' || Array.isArray(result)) throw new Error('eligibility_invalid_json');
   return result;
+}
+
+async function beforeCancellation(operation, signal) {
+  if (!signal) return operation();
+  signal.throwIfAborted();
+  let abort;
+  const cancellation = new Promise((_, reject) => {
+    abort = () => reject(signal.reason);
+    signal.addEventListener('abort', abort, { once: true });
+  });
+  try { return await Promise.race([operation(), cancellation]); }
+  finally { signal.removeEventListener('abort', abort); }
 }
 
 function profileForEligibility(profile = {}) {
@@ -61,25 +75,30 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
   if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) return { status: 'unverified', reason: 'requirements_incomplete' };
   const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
   const normalizedProfile = profileForEligibility(profile);
-  const matchRaw = await generate(matchSystemPrompt(locale), matchUserText({ profile: normalizedProfile, requirements, answers,
-    postingExcerpt: posting.text, sourceText }), MATCH_SCHEMA);
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
-  const match = guardMobilityMatch(requirements, sanitizeMatch(matchRaw, requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
+  const candidateSources = sourceCitations({ cv: evidenceText, answers: Object.keys(answers).length ? JSON.stringify(answers) : '' });
+  const matchRaw = await generate(matchSystemPrompt(locale), matchUserText({ profile: normalizedProfile, requirements, answers,
+    postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
+  const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
   const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
   return { ...result, postingHash, requirements, match, posting };
 }
 
-export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = generateJson, readPosting = fetchJobPosting }) {
+export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = null, readPosting = fetchJobPosting, background = false, signal = null }) {
+  const generation = generate || ((system, user, schema) => generateJson(system, user, schema, { background, signal }));
+  generate = (...args) => beforeCancellation(() => generation(...args), signal);
+  const read = (order, options) => beforeCancellation(() => readPosting(order, { ...options, ...(signal ? { signal } : {}) }), signal);
+  signal?.throwIfAborted();
   if (!String(service.cvStorageKey || '').startsWith(`application-concierge-uploads/${serviceRef.id}/`)) throw new Error('eligibility_cv_owner_mismatch');
   const storage = bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
   const file = storage.file(service.cvStorageKey);
-  const [metadata] = await file.getMetadata();
+  const [metadata] = await beforeCancellation(() => file.getMetadata(), signal);
   if (Number(metadata.size) > 12 * 1024 * 1024) throw new Error('eligibility_cv_too_large');
-  const [bytes] = await file.download();
+  const [bytes] = await beforeCancellation(() => file.download(), signal);
   const cvHash = eligibilityHash(bytes);
   const type = detectCvFileType(bytes.subarray(0, 8));
-  const cvText = type ? await extractCvText(bytes, type) : '';
+  const cvText = type ? await beforeCancellation(() => extractCvText(bytes, type), signal) : '';
   if (cvText.length < 80 || cvText.length > 60_000) throw new Error('eligibility_cv_unreadable');
   const cache = serviceRef.collection('eligibility');
   const purgeAt = new Date((timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt) || Date.now()) + 90 * 86400000);
@@ -100,7 +119,8 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   return async (job) => {
     job = normalizeConciergeJobRecord(job);
     const normalizedProfile = profileForEligibility(profile);
-    const posting = await readPosting({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
+    if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
+    const posting = await read({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
     if (!posting.text || posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
     const postingHash = sourceHash(posting.text);
     const postingMetadata = [job.title, job.company, posting.location || job.location].map(value => String(value || '').trim().replace(/\s+/g, ' '));
@@ -114,7 +134,6 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,
       readPosting: async () => posting });
     const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, ...result } = analysis;
-    if (result.status === 'unverified' && result.reason) return result;
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
     if (result.status !== 'unverified') await ref.set({ fingerprint, cvHash, answerHash, postingHash, promptVersion: PROMPT_VERSION,
       version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });

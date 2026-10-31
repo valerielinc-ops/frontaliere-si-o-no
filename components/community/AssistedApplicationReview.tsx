@@ -1,13 +1,16 @@
+import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
+import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
 import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { AssistedApplicationDocuments } from '@/components/community/AssistedApplicationDocuments';
 import { AssistedApplicationFitNotice } from '@/components/community/AssistedApplicationFitNotice';
 import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
 import { AssistedApplicationKeptDocuments, WordCopyLink } from '@/components/community/AssistedApplicationKeptDocuments';
 import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
+import { useAssistedApplicationDocumentRechecks } from '@/services/useAssistedApplicationDocumentRechecks';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
@@ -149,6 +152,7 @@ function EditField({ field, value, onChange, disabled, error }: {
       </div>
     );
   }
+  if (field.key === 'location') return <ResidenceLocationInput value={value} onChange={onChange} disabled={disabled} error={error} label={label} />;
   const common = {
     value,
     onChange: (event: { target: { value: string } }) => onChange(event.target.value),
@@ -195,15 +199,20 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const [editTouched, setEditTouched] = useState<Record<string, boolean>>({});
   const [editServerErrors, setEditServerErrors] = useState<Record<string, string>>({});
 
+  const currentToken = useRef(token);
+  currentToken.current = token;
+  const loadedToken = useRef<string | null>(null);
   const load = useCallback(async () => {
     try {
       const payload = await fetchReview(token);
+      if (currentToken.current !== token) return;
       if ('kind' in payload && payload.kind === 'followup') {
         setFollowup(payload);
         setError(null);
         return;
       }
       const review = payload as ReviewPayload;
+      loadedToken.current = token;
       setData(review);
       // An empty start date shows the proposed one; it counts only once saved.
       const proposed = Object.fromEntries((review.questions || [])
@@ -212,11 +221,13 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       setAnswers({ ...(review.answers || {}), ...proposed });
       setError(null);
     } catch (reason) {
-      setError(reason instanceof ReviewRequestError ? reason.code : 'network');
+      if (currentToken.current === token) setError(reason instanceof ReviewRequestError ? reason.code : 'network');
     }
   }, [token]);
 
   useEffect(() => { void load(); }, [load]);
+
+  useAssistedApplicationDocumentRechecks(token, loadedToken.current === token ? data : null, setData);
 
   // While the agent works (drafting, sending) the page refreshes itself.
   useEffect(() => {
@@ -495,6 +506,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.submitted')}</p>
           </div>
         ))}
+
+        {data?.employerResponse && <AssistedApplicationEmployerResponse response={data.employerResponse} />}
 
         {/* After the sending: the documents that left, to keep, with the editable Word copies beside them. */}
         {data && data.state === 'submitted' && data.keptDocuments && (

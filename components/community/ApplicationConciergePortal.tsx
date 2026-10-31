@@ -1,3 +1,4 @@
+import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import { useCallback, useEffect, useMemo, useRef, useState, lazy, Suspense } from 'react';
 import type { ReactNode } from 'react';
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, Clock3, FileText, Loader2, ShieldCheck, Sparkles, Target, UploadCloud, XCircle } from 'lucide-react';
@@ -5,11 +6,12 @@ import { useLocale, useTranslation } from '@/services/i18n';
 import { conciergeServiceHref, conciergeProposalJobHref } from '@/services/applicationConciergeNavigation';
 import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
-import { signInWithCustomAuthToken } from '@/services/authService';
-import { ensureAssistedApplicationAuth } from '@/services/assistedApplicationCheckout';
+import { getAuthEmail, signInWithCustomAuthToken } from '@/services/authService';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
+import SignupPromptModal, { requestConciergeAccessLink } from '@/components/community/SignupPromptModal';
+import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import {
   openApplicationConciergeChildReview,
@@ -30,8 +32,12 @@ const ChildApplicationReview = lazy(() => import('@/components/community/Assiste
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 const POLL_MS = 3500;
-const CHECKOUT_TELEMETRY_HANDOFF_MS = 1000;
+// The current Google tag batches custom hits for 5s after processing.
+// Leave a small scheduling margin and bound an unavailable SDK after the API.
+const CHECKOUT_TELEMETRY_BATCH_WINDOW_MS = 5250;
 const MATCHING_STATES = new Set(['queued', 'processing', 'running']);
+const ACTIVATION_INTENT_KEY = 'application-concierge-activation-intent';
+const ACTIVATION_INTENT_TTL_MS = 60 * 60 * 1000;
 
 export interface ApplicationConciergePortalProps {
   serviceId?: string | null;
@@ -84,6 +90,36 @@ function clearRequestKeyForUser(userId: string): void {
     window.sessionStorage.removeItem(`application-concierge-checkout:${userId}`);
   } catch {
     // The request key is only a resume convenience; payment handling is server-side.
+  }
+}
+
+/**
+ * Survives the LinkedIn redirect and the email link, which opens a new tab, so
+ * the click on "activate" resumes after sign-in. Bounded: an old click must
+ * never open a payment form on a later visit.
+ */
+function saveActivationIntent(): void {
+  try {
+    window.localStorage.setItem(ACTIVATION_INTENT_KEY, String(Date.now()));
+  } catch {
+    // Without storage the visitor just clicks the button again after sign-in.
+  }
+}
+
+function readActivationIntent(): boolean {
+  try {
+    const savedAt = Number(window.localStorage.getItem(ACTIVATION_INTENT_KEY));
+    return savedAt > 0 && Date.now() - savedAt < ACTIVATION_INTENT_TTL_MS;
+  } catch {
+    return false;
+  }
+}
+
+function clearActivationIntent(): void {
+  try {
+    window.localStorage.removeItem(ACTIVATION_INTENT_KEY);
+  } catch {
+    // Best effort; the TTL bounds a stale intent.
   }
 }
 
@@ -144,6 +180,12 @@ export default function ApplicationConciergePortal({
   const [consent, setConsent] = useState(previewService?.hasConsent || false);
   const [renewalConsent, setRenewalConsent] = useState(false);
   useEffect(() => { setRenewalConsent(false); }, [serviceId]);
+  const [authPromptOpen, setAuthPromptOpen] = useState(false);
+  const [activationPending, setActivationPending] = useState(() => entry && !serviceId && !previewService && readActivationIntent());
+  const [confirmEmailStatus, setConfirmEmailStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const signedIn = Boolean(currentUser) && currentUser.isAnonymous !== true;
+  const emailVerified = signedIn && currentUser.emailVerified === true;
+  const accountEmail = signedIn ? getAuthEmail(currentUser) : null;
   const conciergeViewTracked = useRef(false);
   const autoResumedService = useRef<string | null>(null);
   const checkoutInFlight = useRef(false);
@@ -152,6 +194,7 @@ export default function ApplicationConciergePortal({
   const sumUpResponseIsActive = useRef<((payment: unknown) => boolean) | null>(null);
   const currentOwnerUid = useRef<string | null>(authUser?.uid || null);
   const lastAuthUid = useRef<string | null>(authUser?.uid || null);
+  const lastAuthAnonymous = useRef(authUser?.isAnonymous === true);
   const checkoutContext = useRef({ serviceId, authUid: authUser?.uid || null, version: 0 });
   const nextAuthUid = authUser?.uid || null;
   if (checkoutContext.current.serviceId !== serviceId
@@ -180,8 +223,9 @@ export default function ApplicationConciergePortal({
     const nextUid = authUser?.uid || null;
     const previousUid = lastAuthUid.current || currentOwnerUid.current;
     lastAuthUid.current = nextUid;
-    // Keep the typed email and request alive across the expected first
-    // anonymous sign-in; clear the previous owner's form on logout/switch.
+    const previousWasAnonymous = lastAuthAnonymous.current;
+    lastAuthAnonymous.current = authUser?.isAnonymous === true;
+    // Clear the previous owner's form on logout/switch.
     if (previousUid && previousUid !== nextUid) {
       cancelTelemetryHandoff.current?.();
       checkoutInFlight.current = false;
@@ -193,6 +237,13 @@ export default function ApplicationConciergePortal({
       setSumUpPaymentError(null);
       setError(null);
       setRenewalConsent(false);
+      setConfirmEmailStatus('idle');
+      // Signing up from a leftover anonymous session is the prompt succeeding.
+      if (!previousWasAnonymous) {
+        setAuthPromptOpen(false);
+        setActivationPending(false);
+        clearActivationIntent();
+      }
       setName(String(authUser?.displayName || ''));
       setEmail(String(authUser?.email || ''));
     }
@@ -213,13 +264,8 @@ export default function ApplicationConciergePortal({
 
   const ensureUser = useCallback(async () => {
     if (previewService) return null;
-    if (currentUser?.getIdToken) return currentUser;
-    if (serviceId) return null;
-    if (authLoading) return null;
-    // The checkout caller accepts this identity only after its active-context
-    // and authoritative SDK checks; late auth must not overwrite a new owner.
-    return ensureAssistedApplicationAuth();
-  }, [authLoading, currentUser, serviceId, previewService]);
+    return currentUser?.getIdToken ? currentUser : null;
+  }, [currentUser, previewService]);
 
   const loadService = useCallback(async () => {
     if (!serviceId) return null;
@@ -301,8 +347,65 @@ export default function ApplicationConciergePortal({
     return () => { cancelled = true; };
   }, [requestedChildId, childProposalId, serviceId, currentUser, authLoading, previewService]);
 
+  const sendConfirmationLink = useCallback(async () => {
+    if (!accountEmail) return;
+    setConfirmEmailStatus('sending');
+    setError(null);
+    try {
+      const [{ getApp }, { getAuth, sendEmailVerification }] = await Promise.all([import('@/services/firebase'), import('firebase/auth')]);
+      const live = getAuth(await getApp()).currentUser;
+      // The site's link never verifies a password account (see
+      // shouldVerifyEmailOnLinkClick): only Firebase's own check can prove that one.
+      if (live?.providerData?.some((provider) => provider?.providerId === 'password')) {
+        await sendEmailVerification(live, { url: window.location.href });
+      } else {
+        await requestConciergeAccessLink(accountEmail, locale);
+      }
+      setConfirmEmailStatus('sent');
+    } catch {
+      setConfirmEmailStatus('idle');
+      setError('generic');
+    }
+  }, [accountEmail, locale]);
+
+  /** The confirmation link may have been opened elsewhere: ask Firebase, not the cached prop. */
+  const refreshEmailVerified = useCallback(async () => {
+    const [{ getApp }, { getAuth }] = await Promise.all([import('@/services/firebase'), import('firebase/auth')]);
+    const live = getAuth(await getApp()).currentUser;
+    if (!live?.reload) return false;
+    await live.reload();
+    if (live.emailVerified !== true) return false;
+    await live.getIdToken(true);
+    return true;
+  }, []);
+
   const startCheckout = useCallback(async (resumeServiceId: string | null = null, automatic = false, renewal = false) => {
     if (previewService || checkoutInFlight.current || (renewal && (!renewalConsent || !service?.renewalOffer))) return;
+    // Paying a pending order or renewing keeps its owner; only a new activation needs the gate.
+    const newActivation = !resumeServiceId && !renewal && !sumUpPayment;
+    if (newActivation && !signedIn) {
+      saveActivationIntent();
+      setActivationPending(true);
+      setAuthPromptOpen(true);
+      return;
+    }
+    if (newActivation && !emailVerified) {
+      let verified = false;
+      try {
+        verified = await refreshEmailVerified();
+      } catch {
+        // Offline or a revoked session: the notice below keeps the gate closed.
+      }
+      if (!verified) {
+        saveActivationIntent();
+        setActivationPending(true);
+        // Without an address the notice has nothing to confirm: say so.
+        if (!accountEmail) setError('application_concierge_email_not_verified');
+        return;
+      }
+    }
+    clearActivationIntent();
+    setActivationPending(false);
     const contextVersion = checkoutContext.current.version;
     const path = window.location.pathname;
     const linkedService = new URLSearchParams(window.location.search).get('application_concierge_service_id');
@@ -312,11 +415,6 @@ export default function ApplicationConciergePortal({
       && window.location.pathname === path
       && new URLSearchParams(window.location.search).get('application_concierge_service_id') === linkedService
       && (!ownerUid || currentOwnerUid.current === ownerUid);
-    const checkoutEmail = (email || service?.customerEmail || service?.applicantEmail || '').trim().toLowerCase();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(checkoutEmail)) {
-      setError('application_concierge_email_required');
-      return;
-    }
     const telemetryAcknowledgement = automatic
       ? Analytics.trackApplicationConciergeCheckoutResume()
       : Analytics.trackApplicationConciergeCheckoutClick();
@@ -355,7 +453,6 @@ export default function ApplicationConciergePortal({
         cancelUrl: base.toString(),
         locale,
         requestKey: requestKeyForUser(String(user.uid)),
-        customerEmail: checkoutEmail,
         ...(effectiveServiceId ? { serviceId: effectiveServiceId, expectedAmountTotal: service?.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS } : {}),
         ...(renewal ? { renewalOfServiceId: serviceId!, acceptRenewalTerms: true, expectedAmountTotal: service!.renewalOffer!.amountTotal } : {}),
       }, user);
@@ -378,20 +475,32 @@ export default function ApplicationConciergePortal({
         setSumUpPaymentOpen(true);
         return;
       }
-      // Protect the existing attempt event from the full-page Stripe handoff.
-      // This is a bounded best-effort SDK acknowledgement, not an ingestion receipt.
+      // Processing acknowledges queue acceptance, before Google tag's batch send.
+      // Its timestamp lets the batch window overlap auth/API work; this is still
+      // bounded best effort, not a network or ingestion receipt.
       await new Promise<void>((resolve) => {
         let finished = false;
+        let batchTimer: number | undefined;
         const finish = () => {
           if (finished) return;
           finished = true;
           window.clearTimeout(timer);
+          if (batchTimer !== undefined) window.clearTimeout(batchTimer);
           if (cancelTelemetryHandoff.current === finish) cancelTelemetryHandoff.current = null;
           resolve();
         };
-        const timer = window.setTimeout(finish, CHECKOUT_TELEMETRY_HANDOFF_MS);
+        const timer = window.setTimeout(finish, CHECKOUT_TELEMETRY_BATCH_WINDOW_MS);
         cancelTelemetryHandoff.current = finish;
-        void Promise.resolve(telemetryAcknowledgement).then(finish, finish);
+        void Promise.resolve(telemetryAcknowledgement).then((acknowledgement) => {
+          if (finished) return;
+          if (!isCurrentOwner()) { finish(); return; }
+          const processedAtMs = acknowledgement && typeof acknowledgement === 'object'
+            && 'processedAtMs' in acknowledgement ? acknowledgement.processedAtMs : null;
+          if (typeof processedAtMs !== 'number' || !Number.isFinite(processedAtMs)) { finish(); return; }
+          const remaining = Math.max(0, Math.min(CHECKOUT_TELEMETRY_BATCH_WINDOW_MS,
+            processedAtMs + CHECKOUT_TELEMETRY_BATCH_WINDOW_MS - Date.now()));
+          batchTimer = window.setTimeout(finish, remaining);
+        }, finish);
       });
       if (!isCurrentOwner()) return;
       window.location.assign(result.url);
@@ -409,7 +518,14 @@ export default function ApplicationConciergePortal({
         setBusy(null);
       }
     }
-  }, [email, service, serviceId, ensureUser, onRequireAuth, sumUpPayment, locale, renewalConsent, loadService, previewService]);
+  }, [service, serviceId, ensureUser, onRequireAuth, sumUpPayment, locale, renewalConsent, loadService, previewService, signedIn, emailVerified, accountEmail, refreshEmailVerified]);
+
+  // Resume the click once sign-in (popup, LinkedIn redirect or email link) lands here.
+  useEffect(() => {
+    if (!entry || serviceId || previewService || authLoading || !activationPending || !signedIn) return;
+    setAuthPromptOpen(false);
+    if (emailVerified) void startCheckout(null, true);
+  }, [entry, serviceId, previewService, authLoading, activationPending, signedIn, emailVerified, startCheckout]);
 
   useEffect(() => {
     const recoverable = service && (isPending(service) || isRetryablePayment(service));
@@ -602,31 +718,35 @@ export default function ApplicationConciergePortal({
                   <Info icon={<BriefcaseBusiness size={17} />} label={t('jobBoard.concierge.quota')} />
                   <Info icon={<ShieldCheck size={17} />} label={t('jobBoard.concierge.noRenewal')} />
                 </div>
-                <label className="mt-8 block max-w-md text-sm font-semibold text-body">
-                  {t('jobBoard.concierge.email')}
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(event) => {
-                      setEmail(event.target.value);
-                      setError((current) => current === 'application_concierge_email_required' ? null : current);
-                    }}
-                    required
-                    maxLength={320}
-                    autoComplete="email"
-                    aria-describedby="concierge-checkout-email-hint"
-                    className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm font-normal text-heading"
-                  />
-                  <span id="concierge-checkout-email-hint" className="mt-2 block text-xs font-normal leading-5 text-subtle">
-                    {t('jobBoard.concierge.checkoutEmailHint')}
-                  </span>
-                </label>
+                <p className="mt-8 max-w-md text-sm leading-6 text-body" data-testid="application-concierge-account-hint">
+                  {accountEmail && signedIn ? t('jobBoard.concierge.accountEmailHint', { email: accountEmail }) : t('jobBoard.concierge.signInHint')}
+                </p>
+                {signedIn && accountEmail && !emailVerified && activationPending && (
+                  <div className="mt-4 max-w-md rounded-xl border border-warning-border bg-warning-subtle/40 p-4" role="status">
+                    <p className="text-sm font-semibold text-heading">{t('jobBoard.concierge.confirmEmailTitle')}</p>
+                    <p className="mt-1 text-sm leading-6 text-body">
+                      {t(confirmEmailStatus === 'sent' ? 'jobBoard.concierge.confirmEmailSent' : 'jobBoard.concierge.confirmEmailBody', { email: accountEmail })}
+                    </p>
+                    {confirmEmailStatus !== 'sent' && (
+                      <button
+                        type="button"
+                        onClick={() => { void sendConfirmationLink(); }}
+                        disabled={confirmEmailStatus === 'sending'}
+                        aria-busy={confirmEmailStatus === 'sending'}
+                        className="mt-3 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-edge bg-surface px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:text-accent disabled:cursor-wait disabled:opacity-60"
+                      >
+                        {confirmEmailStatus === 'sending' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}
+                        {t('jobBoard.concierge.confirmEmailCta')}
+                      </button>
+                    )}
+                  </div>
+                )}
                 <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
                   <button
                     type="button"
                     onClick={() => { void startCheckout(); }}
-                    disabled={busy === 'checkout'}
-                    aria-busy={busy === 'checkout'}
+                    disabled={busy === 'checkout' || authLoading}
+                    aria-busy={busy === 'checkout' || authLoading}
                     className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-bold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-60"
                     data-testid="application-concierge-start"
                   >
@@ -714,8 +834,8 @@ export default function ApplicationConciergePortal({
               <button
                 type="button"
                 onClick={() => { void startCheckout(); }}
-                disabled={busy === 'checkout'}
-                aria-busy={busy === 'checkout'}
+                disabled={busy === 'checkout' || authLoading}
+                aria-busy={busy === 'checkout' || authLoading}
                 className="inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-xl bg-surface px-5 py-3 text-sm font-bold text-accent transition-colors hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-surface focus-visible:ring-offset-2 focus-visible:ring-offset-accent disabled:cursor-wait disabled:opacity-60"
               >
                 {busy === 'checkout' && <Loader2 size={17} className="animate-spin" aria-hidden="true" />}
@@ -726,6 +846,13 @@ export default function ApplicationConciergePortal({
           </section>
         </div>
       {paymentWidget}
+      {authPromptOpen && !signedIn && (
+        <SignupPromptModal
+          locale={locale}
+          intent="concierge"
+          onDismiss={() => { setAuthPromptOpen(false); setActivationPending(false); clearActivationIntent(); }}
+        />
+      )}
       </main>
     );
   }
@@ -774,26 +901,6 @@ export default function ApplicationConciergePortal({
               {pending ? <Clock3 size={17} className="mt-1 shrink-0" aria-hidden="true" /> : <XCircle size={17} className="mt-1 shrink-0" aria-hidden="true" />}
               <span>{pending ? t('jobBoard.concierge.paymentPending') : t('jobBoard.concierge.paymentFailed')}</span>
             </div>
-            {!email.trim() && (
-              <label className="block w-full text-sm font-semibold text-body sm:max-w-xs">
-                {t('jobBoard.concierge.email')}
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(event) => {
-                    setEmail(event.target.value);
-                    setError((current) => current === 'application_concierge_email_required' ? null : current);
-                  }}
-                  required
-                  maxLength={320}
-                  autoComplete="email"
-                  className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm font-normal text-heading"
-                />
-                <span className="mt-2 block text-xs font-normal leading-5 text-subtle">
-                  {t('jobBoard.concierge.checkoutEmailHint')}
-                </span>
-              </label>
-            )}
             <button
               type="button"
               onClick={() => { void startCheckout(serviceId); }}
@@ -846,7 +953,7 @@ export default function ApplicationConciergePortal({
                     <label className="text-sm font-medium text-body">{t('jobBoard.concierge.email')}<input value={email} onChange={(event) => setEmail(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" type="email" autoComplete="email" /></label>
                   </div>
                   <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.phone')}<input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" /></label>
-                  <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.location')}<input value={location} onChange={(event) => setLocation(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="address-level2" maxLength={120} /></label>
+                  <ResidenceLocationInput key={`${serviceId || previewService?.serviceId || "new"}:${authUser?.uid || "anonymous"}`} value={location} onChange={setLocation} />
                   <p className="-mt-2 text-xs leading-5 text-subtle">{t('jobBoard.concierge.locationHint')}</p>
                   <button type="submit" disabled={busy !== null || expired} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:text-accent disabled:opacity-60">{busy === 'profile' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.saveData')}</button>
                 </form>
@@ -964,15 +1071,14 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     }).catch(() => { if (!cancelled) setJobLinkError(true); }).finally(() => window.clearTimeout(timer));
     return () => { cancelled = true; controller.abort(); window.clearTimeout(timer); };
   }, [proposed, proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
-  const state = proposal.childApplicationState;
   const displayStatus = conciergeProposalDisplayStatus(proposal);
-  const statusTone = displayStatus === 'submitted' ? 'bg-success-subtle text-success'
+  const statusTone = displayStatus === 'submitted' || displayStatus === 'employer_auto_acknowledgement' ? 'bg-success-subtle text-success'
     : ['proposed', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
     : 'bg-surface-raised text-muted';
-  const childKey = state === 'needs_candidate_action' || state === 'candidate_handoff' ? 'childNeedsAnswers'
-    : state === 'candidate_review' ? 'childNeedsReview'
-    : proposal.childCandidateStatus === 'submitted' || state === 'submitted' ? 'childSubmitted'
-    : state === 'owner_takeover' || state === 'owner_review' ? 'childProcessing'
+  const childKey = displayStatus === 'needs_answers' ? 'childNeedsAnswers'
+    : displayStatus === 'needs_review' ? 'childNeedsReview'
+    : displayStatus === 'submitted' || displayStatus.startsWith('employer_') ? 'childSubmitted'
+    : displayStatus === 'technical_review' || displayStatus === 'retry_scheduled' ? 'childProcessing'
     : 'childPreparing';
   return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border">
     <div className="flex flex-wrap items-start gap-3">
@@ -981,12 +1087,12 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
       <div className="min-w-0 flex-1"><h3 className="break-words font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>
         {proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div>
       </div>
-      <span className={`max-w-[45%] shrink-0 rounded-full px-2 py-1 text-center text-xs font-bold ${statusTone}`}>{t(`jobBoard.concierge.proposalStatus.${displayStatus}`)}</span>
+      <span className={`max-w-[45%] shrink-0 rounded-full px-2 py-1 text-center text-xs font-bold ${statusTone}`}>{t(displayStatus.startsWith('employer_') ? `jobBoard.assisted.employerResponse.${displayStatus.slice(9)}` : `jobBoard.concierge.proposalStatus.${displayStatus}`)}</span>
     </div>
     {proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}
     {accepted && proposal.childApplicationId && <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-surface-raised p-3">
-      <p className="text-sm font-semibold text-heading">{t(`jobBoard.concierge.${childKey}`)}</p>
-      <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${state === 'needs_candidate_action' || state === 'candidate_handoff' ? 'answerChild' : state === 'candidate_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
+      <div className="min-w-0"><p className="text-sm font-semibold text-heading">{t(displayStatus === 'withdrawn' ? 'jobBoard.concierge.proposalStatus.withdrawn' : `jobBoard.concierge.${childKey}`)}</p><AssistedApplicationEmployerResponse response={proposal.childEmployerResponse} compact /></div>
+      <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${displayStatus === 'needs_answers' ? 'answerChild' : displayStatus === 'needs_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
     </div>}
     {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">
       {jobHref ? <a href={jobHref} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a> : jobLinkError ? <button type="button" onClick={() => setLinkAttempt(value => value + 1)} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.retryJob')}</button> : <span className="text-xs text-subtle">{t('jobBoard.concierge.loading')}</span>}

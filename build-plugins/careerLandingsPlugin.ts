@@ -250,6 +250,8 @@ function renderFeaturedJobs(
     : '';
   const items = snapshot.featured.map((j) => ({
     job: {
+      id: j.id,
+      slug: j.slug,
       title: j.title,
       titleByLocale: j.titleByLocale,
       company: j.company,

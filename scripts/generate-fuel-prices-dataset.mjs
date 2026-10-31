@@ -33,22 +33,23 @@ const PUBLIC_OUT = path.join(ROOT, 'public', 'data', 'fuel-prices.json');
 const ITALY_PRICES_URL = 'https://www.mimit.gov.it/images/exportCSV/prezzo_alle_8.csv';
 const ITALY_STATIONS_URL = 'https://www.mimit.gov.it/images/exportCSV/anagrafica_impianti_attivi.csv';
 const MIMIT_API_URL = 'https://carburanti.mise.gov.it/ospzApi/search/area';
-// The generator only publishes the border municipalities below. Keep the
-// region mapping explicit so an unknown province cannot silently broaden an
-// API query and produce data for the wrong target set.
+// The generator only publishes the border municipalities below. These are the
+// Osservaprezzi registry IDs, not ISTAT region codes: keep the mapping
+// explicit so an unknown province cannot silently broaden an API query and
+// produce data for the wrong target set.
 const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
-  AO: 2,
-  CO: 3,
-  VA: 3,
-  VB: 1,
-  LC: 3,
-  SO: 3,
-  VC: 1,
-  MB: 3,
-  BG: 3,
-  BS: 3,
-  TN: 4,
-  BZ: 4,
+  AO: 16,
+  CO: 19,
+  VA: 19,
+  VB: 13,
+  LC: 19,
+  SO: 19,
+  VC: 13,
+  MB: 19,
+  BG: 19,
+  BS: 19,
+  TN: 5,
+  BZ: 5,
 });
 // Osservaprezzi answers concurrent bursts with HTTP 429. Keep both lookup
 // levels serial and enforce the same spacing through the request wrapper. A

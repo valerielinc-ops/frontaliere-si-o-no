@@ -39,11 +39,10 @@ export function readEmbeddedBuildId(): string {
 // Static SEO pages may ship without the marker (STATIC_BUILD_ID_META=off, see
 // build-plugins/constants.ts): the per-build value made every page differ on
 // every deploy. Their bundle has a stable name, so the build that matters is
-// the deployed one, i.e. /build-id.txt. Each page load fetches it at most once
-// (shared with fetchBuildId); a value fetched by an earlier page of the same
-// tab session serves the synchronous read meanwhile, but only while it is
-// younger than BUILD_ID_SESSION_TTL_MS, so a later deploy is not mislabelled
-// for long.
+// the deployed one, i.e. /build-id.txt. A value fetched by an earlier page of the
+// same tab session answers without a request while it is younger than
+// BUILD_ID_SESSION_TTL_MS, so a later deploy is not mislabelled for long; past
+// that, each page load fetches it at most once (shared with fetchBuildId).
 const BUILD_ID_SESSION_KEY = 'ft-build-id';
 const BUILD_ID_SESSION_TTL_MS = 10 * 60 * 1000;
 const BUILD_ID_RE = /^\d{1,20}$/;
@@ -85,15 +84,18 @@ function loadBuildId(): Promise<string> {
 /**
  * Build id for telemetry payloads, read synchronously: the document marker
  * when present, else the id fetched on this page, else a fresh one from an
- * earlier page of this tab session. It starts the page's single fetch.
+ * earlier page of this tab session. Only without any of those it starts the
+ * page's single fetch.
  */
 export function readBuildIdForTelemetry(): string {
   const embedded = readEmbeddedBuildId();
   if (embedded) return embedded;
   if (typeof window === 'undefined') return '';
   if (fetchedBuildId) return fetchedBuildId;
+  const sessionBuildId = readSessionBuildId();
+  if (sessionBuildId) return sessionBuildId;
   void loadBuildId();
-  return readSessionBuildId();
+  return '';
 }
 
 export function fetchCommitHash(): Promise<string> {

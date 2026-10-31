@@ -769,7 +769,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalAnswerForApplication(question, 'Uno')).toBe('B');
   });
 
-  it('does not expose a raw ATS label when localization fails', async () => {
+  it('keeps the actual ATS question readable when localization fails', async () => {
     const localized = await localizePortalQuestions([{
       id: 'q',
       question: 'Verfügst du über einen gültigen Führerausweis?',
@@ -783,7 +783,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       codex: async () => { throw new Error('translation unavailable'); },
     });
     expect(localized[0]).toMatchObject({
-      question: 'Il portale richiede una risposta a questa domanda.',
+      question: 'Verfügst du über einen gültigen Führerausweis?',
       applicationQuestion: 'Verfügst du über einen gültigen Führerausweis?',
       options: ['Sì', 'No'],
       applicationOptions: ['Ja', 'Nein'],

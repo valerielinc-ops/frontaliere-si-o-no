@@ -1,3 +1,4 @@
+import { parseEmployerResponse, type EmployerResponse } from './assistedApplicationEmployerResponse';
 import { APPLICATION_CONCIERGE_URL, MANAGE_APPLICATION_CONCIERGE_URL } from './functionsBase';
 
 export interface ApplicationConciergeProposal {
@@ -17,6 +18,7 @@ export interface ApplicationConciergeProposal {
   childApplicationState?: string | null;
   childSubmissionStatus?: string | null;
   childCandidateStatus?: string | null;
+  childEmployerResponse?: EmployerResponse | null;
   childSendState?: string | null;
   childRetryScheduled?: boolean;
   withdrawnAt?: string | null;
@@ -72,10 +74,14 @@ export function getCandidateVisibleApplicationConciergeProposals(
 
 /** The decision to accept a proposal is separate from the progress of its application. */
 export function conciergeProposalDisplayStatus(proposal: ApplicationConciergeProposal): string {
-  if (proposal.status !== 'accepted') return proposal.status;
   const state = proposal.childApplicationState;
-  if (proposal.childCandidateStatus === 'submitted' || proposal.childSubmissionStatus === 'submitted' || proposal.childSendState === 'sent' || state === 'submitted') return 'submitted';
-  if (state === 'withdrawn') return 'declined';
+  if (proposal.status === 'accepted' || proposal.childApplicationId || proposal.withdrawnAt) {
+    const response = parseEmployerResponse(proposal.childEmployerResponse);
+    if (response) return `employer_${response.category}`;
+    if (proposal.childCandidateStatus === 'submitted' || proposal.childSubmissionStatus === 'submitted' || proposal.childSendState === 'sent' || state === 'submitted') return 'submitted';
+  }
+  if (proposal.withdrawnAt || (proposal.status === 'accepted' && state === 'withdrawn')) return 'withdrawn';
+  if (proposal.status !== 'accepted') return proposal.status;
   if (state === 'needs_candidate_action' || state === 'candidate_handoff') return 'needs_answers';
   if (state === 'candidate_review') return 'needs_review';
   if (state === 'submitting') return proposal.childSendState === 'sending' ? 'sending' : 'queued';

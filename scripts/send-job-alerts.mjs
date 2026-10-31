@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { redactEmailAddresses } from '../functions/src/lib/redactEmails.js';
 import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
@@ -277,7 +278,7 @@ async function printJobAlertFunnel({ funnelIn = {}, zeroMatch = {}, sends = {}, 
 }
 
 if (TARGET_EMAIL_RAW) {
-  console.log(`🎯 TARGET_EMAIL set — limiting send to: ${TARGET_EMAIL_RAW}`);
+  console.log('🎯 TARGET_EMAIL set — limiting send to one test recipient');
 }
 
 // The one-click unsubscribe endpoint (RFC 8058) and its two HMAC link builders
@@ -1589,7 +1590,7 @@ export async function mailerooMetaOnSent(item, sendResult) {
       isJobAlert: true,
     });
   } catch (e) {
-    console.warn('⚠️ Maileroo meta persist failed:', e?.message);
+    console.warn('⚠️ Maileroo meta persist failed:', redactEmailAddresses(e?.message));
   }
 }
 
@@ -1659,7 +1660,7 @@ export async function persistJobAlertDelivery(item, sendResult) {
       sent_at: sentAt,
     }, { merge: true });
   } catch (e) {
-    console.warn('⚠️ Job-alert delivery persist failed:', e?.message);
+    console.warn('⚠️ Job-alert delivery persist failed:', redactEmailAddresses(e?.message));
   }
 }
 
@@ -1861,7 +1862,7 @@ async function processRetryQueue(db) {
 
     if (retryCount >= MAX_RETRY_COUNT) {
       // Max retries exhausted — give up
-      console.warn(`   ⚠️  Giving up on email to ${data.email} (alert ${data.alertId}) after ${retryCount} retries`);
+      console.warn(`   ⚠️  Giving up on retry for alert ${data.alertId} after ${retryCount} retries`);
       await doc.ref.delete();
       continue;
     }
@@ -1928,7 +1929,7 @@ async function processRetryQueue(db) {
 
         if (discardReason) {
           await item.doc.ref.delete();
-          console.log(`   🧹 Dropped queued job-alert retry (${discardReason}) for ${item.email} / ${item.alertId}`);
+          console.log(`   🧹 Dropped queued job-alert retry (${discardReason}) for alert ${item.alertId}`);
           continue;
         }
 
@@ -1977,7 +1978,7 @@ async function processRetryQueue(db) {
         });
       }
     } catch (err) {
-      console.warn(`   ⚠️  Retry consent lookup failed for ${chunk.length} queued email(s): ${err?.message || err}`);
+      console.warn(`   ⚠️  Retry consent lookup failed for ${chunk.length} queued email(s): ${redactEmailAddresses(err?.message || err)}`);
       // No candidate in this chunk is added to retryEmails, so the queue keeps
       // them for a later run after the transient read failure clears.
     }
@@ -2017,7 +2018,7 @@ async function processRetryQueue(db) {
     try {
       await recordJobEmailImpressions(db, retryRankingRecords);
     } catch (error) {
-      console.warn('⚠️ Retry ranking impression persist failed:', error?.message || error);
+      console.warn('⚠️ Retry ranking impression persist failed:', redactEmailAddresses(error?.message || error));
     }
     for (const record of retryRankingRecords) {
       try {
@@ -2034,7 +2035,7 @@ async function processRetryQueue(db) {
         }
         if (Object.keys(update).length > 0) await alertRef.update(update);
       } catch (error) {
-        console.warn(`⚠️ Retry embedded ranking persist failed for ${record.email} (${record.alertId}):`, error?.message || error);
+        console.warn(`⚠️ Retry embedded ranking persist failed for alert ${record.alertId}:`, redactEmailAddresses(error?.message || error));
       }
     }
   }
@@ -2087,15 +2088,15 @@ async function processRetryQueue(db) {
         await ref.delete();
         successCount++;
         retryRecipients.add(String(data.email).toLowerCase());
-        console.log(`   ✅ Retry succeeded: ${data.email} (alert ${data.alertId})`);
+        console.log(`   ✅ Retry succeeded: alert ${data.alertId}`);
       } catch (error) {
-        console.warn(`   ⚠️ Retry accepted but finalisation failed for ${data.email} (alert ${data.alertId}); queue item retained: ${error?.message || error}`);
+        console.warn(`   ⚠️ Retry accepted but finalisation failed for alert ${data.alertId}; queue item retained: ${redactEmailAddresses(error?.message || error)}`);
       }
     } else {
       // Still failed — increment retryCount
       const newCount = (data.retryCount || 0) + 1;
       if (newCount >= MAX_RETRY_COUNT) {
-        console.warn(`   ⚠️  Giving up on email to ${data.email} (alert ${data.alertId}) after ${newCount} retries`);
+        console.warn(`   ⚠️  Giving up on retry for alert ${data.alertId} after ${newCount} retries`);
         await ref.delete();
       } else {
         await ref.update({
@@ -2104,7 +2105,7 @@ async function processRetryQueue(db) {
           lastError: result.failed.find(f => f.recipient?.email === data.email)?.error?.slice(0, 500) || 'unknown',
         });
         reEnqueueCount++;
-        console.log(`   🔄 Retry failed for ${data.email} — attempt ${newCount}/${MAX_RETRY_COUNT}, will retry tomorrow`);
+        console.log(`   🔄 Retry failed for alert ${data.alertId} — attempt ${newCount}/${MAX_RETRY_COUNT}, will retry tomorrow`);
       }
     }
   }
@@ -2402,7 +2403,7 @@ async function main() {
     const hourUtc = metaSnap.exists ? metaSnap.data()?.global_preferred_send_hour_utc : null;
     globalPreferredHour = Number.isInteger(hourUtc) ? hourUtc : null;
   } catch (e) {
-    console.warn(`   ⚠️  Global preferred send hour read failed: ${e?.message || e}`);
+    console.warn(`   ⚠️  Global preferred send hour read failed: ${redactEmailAddresses(e?.message || e)}`);
   }
 
   // 1. Load the live inventory (+ full-dataset geo index for source-job
@@ -2436,7 +2437,7 @@ async function main() {
     const subRef = db.collection('job_alert_subscribers').doc(TARGET_EMAIL_RAW).collection('alerts');
     const snap = await subRef.where('active', '==', true).get();
     alertDocs = snap.docs;
-    console.log(`   📍 Direct subcollection query for ${TARGET_EMAIL_RAW}: ${alertDocs.length} active alert(s)`);
+    console.log(`   📍 Direct subcollection query for the test recipient: ${alertDocs.length} active alert(s)`);
   } else {
     const alertsSnap = await db.collectionGroup('alerts').where('active', '==', true).get();
     alertDocs = alertsSnap.docs.filter((doc) => {
@@ -2629,7 +2630,7 @@ async function main() {
       // single RPC-level error, not per-document, so isolating further would
       // need per-email getAll calls — defeating the batching this fixes.
       chunk.forEach((email) => suppressionLookupFailedEmails.add(email.toLowerCase()));
-      console.warn(`   ⚠️  batched subscriber lookup failed for ${chunk.length} email(s) starting at ${chunk[0]}: ${err?.message || err}`);
+      console.warn(`   ⚠️  batched subscriber lookup failed for ${chunk.length} subscriber(s): ${redactEmailAddresses(err?.message || err)}`);
     }
   }
   if (suppressionLookupFailedEmails.size > 0) {
@@ -2681,7 +2682,7 @@ async function main() {
     // The alert audience and suppression path remain usable, but application
     // intent must not be used without a current, readable account profile.
     applicationIntentAccountProfiles.clear();
-    console.warn(`   ⚠️  Application-intent account preference lookup failed; ranking signal disabled: ${err?.message || err}`);
+    console.warn(`   ⚠️  Application-intent account preference lookup failed; ranking signal disabled: ${redactEmailAddresses(err?.message || err)}`);
   }
   if (suppressedEmails.size > 0) {
     const before = alerts.length;
@@ -3006,7 +3007,7 @@ async function main() {
       try {
         await recordJobEmailImpressions(db, rankingRecords);
       } catch (error) {
-        console.warn('⚠️ Job-alert ranking impression persist failed:', error?.message || error);
+        console.warn('⚠️ Job-alert ranking impression persist failed:', redactEmailAddresses(error?.message || error));
       }
     }
 
@@ -3275,7 +3276,7 @@ async function main() {
       sendTimeSource,
     });
 
-    logDetail(`   📬 Alert ${alert.id}: ${matched.length} matches → ${alert.email}`);
+    logDetail(`   📬 Alert ${alert.id}: ${matched.length} matches`);
     }
 
     runStats.planned += batchEmails.length;
@@ -3342,7 +3343,7 @@ async function main() {
     featureCache,
   });
   if (matcherHealth.error) {
-    console.warn(`   ⚠️ matcher-health probe failed (non-fatal, deliveries already processed; monitor left untouched) after ${matcherHealth.durationMs} ms: ${matcherHealth.error}`);
+    console.warn(`   ⚠️ matcher-health probe failed (non-fatal, deliveries already processed; monitor left untouched) after ${matcherHealth.durationMs} ms: ${redactEmailAddresses(matcherHealth.error)}`);
   } else {
     console.log(`   🩺 Matcher health: ${matcherHealth.passedCount}/${matcherHealth.probeCount} synthetic alerts matched ≥1 job on the active inventory (${matcherHealth.activeInventoryCount} open listings; ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups sampled across ${matcherHealth.cantonCount} cantons, cap ${MATCHER_HEALTH_MAX_PROBES} probes) in ${matcherHealth.durationMs} ms — failures by kind: ${JSON.stringify(matcherHealth.failureByKind)}`);
   }
@@ -3392,7 +3393,7 @@ async function main() {
         workflow: 'send-job-alerts',
       });
     } catch (err) {
-      console.warn(`   ⚠️ matcher-health issue report failed (non-fatal, deliveries already processed): ${err.message}`);
+      console.warn(`   ⚠️ matcher-health issue report failed (non-fatal, deliveries already processed): ${redactEmailAddresses(err.message)}`);
     }
   } else if (monitorAction === 'resolve') {
     // A recovered production run must close the canonical monitor issue;
@@ -3403,7 +3404,7 @@ async function main() {
         workflow: 'send-job-alerts',
       });
     } catch (err) {
-      console.warn(`   ⚠️ matcher-health issue recovery failed (non-fatal, continuing to send): ${err.message}`);
+      console.warn(`   ⚠️ matcher-health issue recovery failed (non-fatal, continuing to send): ${redactEmailAddresses(err.message)}`);
     }
   }
 
@@ -3488,7 +3489,7 @@ const isEntryPoint = (() => {
 
 if (isEntryPoint) {
   main().catch((err) => {
-    console.error('Fatal error:', err);
+    console.error('Fatal error:', redactEmailAddresses(err?.stack || err));
     process.exit(1);
   });
 }

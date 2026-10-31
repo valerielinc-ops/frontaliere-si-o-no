@@ -313,10 +313,12 @@ export function sanitizeMatch(raw, requirementCount, profileText) {
     .filter((item) => Number.isInteger(item?.index) && item.index >= 0 && item.index < requirementCount)
     .map((item) => {
       const evidence = clean(item?.evidence, 400);
-      const verified = !evidence || haystack.includes(evidence.toLowerCase());
+      const status = ['met', 'partial', 'missing'].includes(item?.status) ? item.status : 'missing';
+      const verified = item?.evidenceUnverified !== true && (evidence
+        ? haystack.includes(evidence.toLowerCase()) : status !== 'met');
       return {
         index: item.index,
-        status: ['met', 'partial', 'missing'].includes(item?.status) ? item.status : 'missing',
+        status,
         evidence: verified ? evidence : '',
         evidenceUnverified: !verified,
       };

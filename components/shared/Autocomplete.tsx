@@ -7,10 +7,13 @@ const Autocomplete: React.FC<{
   onChange: (v: string) => void;
   suggestions: string[];
   disabled?: boolean;
+  invalid?: boolean;
   placeholder?: string;
   className?: string;
   autoComplete?: string;
-}> = ({ id, value, onChange, suggestions, disabled, placeholder, className, autoComplete }) => {
+  maxLength?: number;
+  describedBy?: string;
+}> = ({ id, value, onChange, suggestions, disabled, invalid, placeholder, className, autoComplete, maxLength, describedBy }) => {
   const [open, setOpen] = useState(false);
   const [filtered, setFiltered] = useState<string[]>([]);
   const [highlightIdx, setHighlightIdx] = useState(-1);
@@ -19,8 +22,9 @@ const Autocomplete: React.FC<{
 
   useEffect(() => {
     if (!value.trim()) { setFiltered([]); return; }
-    const q = value.toLowerCase();
-    setFiltered(suggestions.filter(s => s.toLowerCase().includes(q)).slice(0, 8));
+    const fold = (text: string) => text.normalize('NFKD').replace(/\p{M}/gu, '').replace(/ß/g, 'ss').toLowerCase().trim();
+    const q = fold(value);
+    setFiltered(suggestions.filter(s => fold(s).includes(q)).slice(0, 8));
     setHighlightIdx(-1);
   }, [value, suggestions]);
 
@@ -59,6 +63,9 @@ const Autocomplete: React.FC<{
         disabled={disabled}
         placeholder={placeholder}
         autoComplete={autoComplete}
+        maxLength={maxLength}
+        aria-describedby={describedBy}
+        aria-invalid={invalid || undefined}
         className={className}
         role="combobox"
         aria-expanded={open && filtered.length > 0}
