@@ -26,6 +26,12 @@ function fixture(question: any = q) {
 }
 
 describe('question confirmation protocol', () => {
+  it('does not claim confirmation for a supplied-hash value outside its original option catalog', async () => {
+    const f = fixture({ id: 'choice', question: 'Which option?', type: 'choice', options: ['First', 'Second'] });
+    await expect(f.save({ choice: 'Unlisted' })).rejects.toMatchObject({ code: 'invalid_answers', status: 400 });
+    expect(f.read('assisted_applications/source/automation/flow').answers).toEqual({});
+    expect(localAnswerEvidence(f.input())).toEqual([]);
+  });
   it.each([101, 250])('confirms an unchanged complete native catalog of %i options, including beyond index100', async size => {
     const options = Array.from({ length: size }, (_, i) => `Country ${i}`);
     const question = { id: 'country', question: 'Country of birth', type: 'choice', options,
@@ -143,7 +149,7 @@ describe('private final-send source fence', () => {
     await expect(f.db.runTransaction((tx: any) => context.answerSourceGuard!.assertInTransaction(tx))).resolves.toBeUndefined();
     expect(JSON.stringify(context.flow)).not.toContain('assertInTransaction');
   });
-  it.each(['global_pointer', 'local_no', 'local_clear', 'feedback', 'intake', 'purged_source', 'owner_takeover', 'dispatch_replaced', 'draft_not_ready'])('stops before a send write when %s changes', async change => {
+  it.each(['global_pointer', 'local_no', 'local_clear', 'feedback', 'intake', 'purged_source', 'purging_source', 'owner_takeover', 'dispatch_replaced', 'draft_not_ready'])('stops before a send write when %s changes', async change => {
     const { f, context } = await executionFixture();
     if (change === 'global_pointer') {
       const order = { ...f.input().order, jobId: 'newer-source', jobUrl: 'https://example.test/newer-source/' };
@@ -159,6 +165,7 @@ describe('private final-send source fence', () => {
     else if (change === 'local_clear') f.read('assisted_applications/child/automation/flow').answers = { consent: '' };
     else if (change === 'feedback') f.read('assisted_applications/child/automation/flow').feedback = [{ round: 1, text: 'Correction' }];
     else if (change === 'intake') f.docs.set('assisted_applications/child/automation/intake', { emailNotes: 'New correction' });
+    else if (change === 'purging_source') f.read('assisted_applications/source').retentionPurgingAt = now + 11;
     else if (change === 'owner_takeover') f.read('assisted_applications/child/automation/flow').state = 'owner_takeover';
     else if (change === 'dispatch_replaced') f.read('assisted_applications/child/automation/flow').dispatch = { mode: 'draft', round: 1, requestedAt: now + 11 };
     else if (change === 'draft_not_ready') f.read('assisted_applications/child/ai_drafts/current').status = 'failed';

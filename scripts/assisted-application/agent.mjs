@@ -236,7 +236,7 @@ async function main() {
     const started = Date.now();
     try {
       const confirmed = await loadRunnerAnswerContext({ db, orderId, order, flow, draft: previousDraft, intake: intakeSnapshot.exists ? intakeSnapshot.data() : null });
-      maskValues(confirmed.answerEvidence.map(record => record.answer));
+      maskValues([...confirmed.answerEvidence, ...confirmed.localAnswerEvidence].map(record => record.answer));
       const draft = await buildDraft({
         db, order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, localAnswerEvidence: confirmed.localAnswerEvidence, answerSourceGuard: confirmed.answerSourceGuard, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
@@ -278,11 +278,11 @@ async function main() {
   }
   try {
     const confirmed = await loadRunnerAnswerContext({ db, orderId, order, flow, draft: submitDraft, intake: intakeSnapshot.exists ? intakeSnapshot.data() : null });
-    maskValues(confirmed.answerEvidence.map(record => record.answer));
+    maskValues([...confirmed.answerEvidence, ...confirmed.localAnswerEvidence].map(record => record.answer));
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
-      order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, localAnswerEvidence: confirmed.localAnswerEvidence, answerSourceGuard: confirmed.answerSourceGuard, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
+      order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, localAnswerEvidence: confirmed.localAnswerEvidence, answerSourceGuard: confirmed.answerSourceGuard, draft: submitDraft, intake: intakeSnapshot.exists ? intakeSnapshot.data() : null, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
       submissionGuard: dryRun ? null : submissionGuard(db, orderId, round, { answerSourceGuard: confirmed.answerSourceGuard }),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,

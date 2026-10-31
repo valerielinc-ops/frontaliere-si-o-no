@@ -1,5 +1,5 @@
 import { isConsentRefusal } from './lib/applicationConsent.js';
-import { localAnswerEvidence, sameAnswerMaterial } from './assistedApplicationAnswerConfirmation.js';
+import { localAnswerEvidence, sameAnswerMaterial, answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
 import { createAnswerSourceGuard } from './assistedApplicationAnswerSourceGuard.js';
 import { answerQuestionDescriptor as descriptor } from './lib/applicationQuestionContract.js';
 import { isPortableCandidateLanguageQuestion } from './lib/candidateLanguageQuestion.js';
@@ -9,7 +9,7 @@ import { createHash } from 'node:crypto';
 import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { languageCodesIn, isLanguageAbilityQuestion } from './lib/languageFacts.js';
-import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
+import { retentionPurgeDueAt } from './assistedApplicationRetention.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
 export const ANSWER_EVIDENCE_VERSION = 'confirmed-question-evidence-v1';
@@ -54,11 +54,7 @@ function semantics(question, answer) {
   if (MOBILITY_QUESTION.test(label) && /\b(?:residen\w*|relocat\w*|trasfer\w*|wohnsitz|umzug|domicil\w*|demenag\w*)\b/.test(text)) return { category: 'mobility', unit, scope: 'job' };
   return null;
 }
-function retained(order, nowMs) {
-  if (!order || order.retentionPurgedAt != null) return false;
-  const due = retentionPurgeDueAt(order);
-  return talentPoolConsentActive(order) || Number.isFinite(due) && nowMs < due;
-}
+const retained = answerSourceRetained;
 function provenance({ actor, order, orderId, round, nowMs }) {
   return { actor, userId: order.userId, orderId, round, confirmedAt: nowMs, retentionAt: retentionPurgeDueAt(order),
     jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || '') };

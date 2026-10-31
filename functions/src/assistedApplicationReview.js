@@ -323,6 +323,7 @@ export function buildReviewPayload({ orderId, order, flow, draft, round, coverLe
     // being prepared, which is what the page says (not "an older version").
     preparingNext: stale && current === Number(round) + 1 && ['regenerating', 'drafting', 'owner_review'].includes(state),
     state,
+    reviewRequired: Boolean(flow.answerReviewRequired),
     round: current,
     // Of the drafts the candidate was shown, not of the round's number: one Valerie regenerated before it
     // reached them cost them nothing (assistedApplicationFlow.js roundsShown).
@@ -386,7 +387,7 @@ export function buildReviewPayload({ orderId, order, flow, draft, round, coverLe
     keptDocuments: state === 'submitted' && keptDocuments?.files?.length ? keptDocuments : null,
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
-      approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
+      approve: !stale && !flow.answerReviewRequired && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
       reject: !stale && state === 'candidate_review',
       withdraw: !stale && canWithdrawApplication({ order, flow, draft, submission }),
       answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),

@@ -183,9 +183,10 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       const [os, fs, ds] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef)]);
       if (!os.exists || !fs.exists || !ds.exists) return false;
       const currentFlow = fs.data(); const currentDraft = ds.data();
-      const unchanged = sameAnswerMaterial(answerContractsFor({ orderId, order, flow, draft }),
-        answerContractsFor({ orderId, order: os.data(), flow: currentFlow, draft: currentDraft }))
-        && ['state', 'round', 'answers', 'questionAnswers', 'answerConfirmations', 'photo', 'formOverrides'].every(field => sameAnswerMaterial(flow[field], currentFlow[field]))
+      const contractUnchanged = sameAnswerMaterial(answerContractsFor({ orderId, order, flow, draft }),
+        answerContractsFor({ orderId, order: os.data(), flow: currentFlow, draft: currentDraft }));
+      if (!contractUnchanged) throw new AnswerConfirmationError('answer_contract_changed');
+      const unchanged = ['state', 'round', 'answers', 'questionAnswers', 'answerConfirmations', 'photo', 'formOverrides', 'feedback'].every(field => sameAnswerMaterial(flow[field], currentFlow[field]))
         && ['tailoredCv', 'candidateEditedAt', 'coverLetterPdfKey'].every(field => sameAnswerMaterial(draft[field], currentDraft[field]));
       if (!unchanged) return false;
       // Revalidate source retention and all supplied contracts inside the write transaction.
@@ -207,7 +208,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   }
   if (!committed) {
     if (rebuilt) await deleteStored(bucket, orderId, [rebuilt.pdfKey]);
-    throw new CvCommitError('answer_contract_changed', 409, { reviewRequired: true, answerConfirmation: { status: 'review_required', authority: false } });
+    throw new CvCommitError('changed_meanwhile', 409);
   }
   if (rebuilt) await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
   await persistCandidateQuestionAnswers();

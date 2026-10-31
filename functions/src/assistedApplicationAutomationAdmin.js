@@ -161,6 +161,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const candidateState = draft ? candidateWithEdits({ order: orderSnapshot.data() || {}, draft, flow }) : { profile: {}, answers: {} };
   return {
     answerContracts,
+    reviewRequired: Boolean(flow?.answerReviewRequired),
     inbox,
     candidateAlias: orderSnapshot.data()?.candidateAlias?.address || null,
     accounts,
@@ -168,6 +169,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
     interviewPrep: interviewPrep ? { status: interviewPrep.status || 'preparing', sentAt: interviewPrep.sentAt || null, questions: interviewPrep.questions || 0, stories: interviewPrep.stories || 0 } : null,
     flow: flow ? {
       state: flow.state || null,
+      answerReviewRequired: Boolean(flow.answerReviewRequired),
       round: Number(flow.round) || 1,
       deadlineAt: flow.deadlineAt || null,
       reminderAt: flow.reminderAt || null,

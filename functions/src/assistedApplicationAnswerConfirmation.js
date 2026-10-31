@@ -20,13 +20,13 @@ const hasAnswer = value => typeof value === 'boolean' || typeof value === 'numbe
   || typeof value === 'string' && Boolean(value.trim()) || Array.isArray(value) && value.length > 0;
 
 export class AnswerConfirmationError extends Error {
-  constructor(code) { super(code); this.code = code; this.status = 409; this.details = {
+  constructor(code, status = 409) { super(code); this.code = code; this.status = status; this.details = {
     reviewRequired: true, answerConfirmation: { status: 'review_required', authority: false },
   }; }
 }
 
 export function answerSourceRetained(order, nowMs) {
-  if (!order || order.retentionPurgedAt != null || !Number.isFinite(nowMs)) return false;
+  if (!order || order.retentionPurgedAt != null || order.retentionPurgingAt != null || !Number.isFinite(nowMs)) return false;
   const due = retentionPurgeDueAt(order);
   return talentPoolConsentActive(order) || Number.isFinite(due) && nowMs < due;
 }
@@ -77,7 +77,9 @@ export function planAnswerConfirmations({ orderId, order, flow, draft, answers, 
     if (!supplied) reviewRequired = true;
     const provenance = { actor, orderId, userId: String(order.userId || ''), round: Number(flow.round || 1), confirmedAt: nowMs,
       cvHash: confirmedCvHash(order, draft), jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || '') };
-    const valid = Boolean(supplied) && hasAnswer(answer) && validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok;
+    const checked = validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) });
+    if (supplied && hasAnswer(answer) && !checked.ok) throw new AnswerConfirmationError('invalid_answers', 400);
+    const valid = Boolean(supplied) && hasAnswer(answer) && checked.ok;
     const record = { version: ANSWER_CONFIRMATION_VERSION, contractHash: contracts[id], provenance,
       ...(valid ? { question: answerQuestionDescriptor(question), answer } : { cleared: true }) };
     confirmations[id] = { id: `confirmation-${hash(record)}`, ...record };
