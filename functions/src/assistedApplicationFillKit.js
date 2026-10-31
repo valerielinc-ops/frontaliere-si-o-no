@@ -68,6 +68,7 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
   return {
     version: 1,
     orderId,
+    round: Number(flow.round || 1),
     applyUrl: text(draft.channel?.applyUrl || draft.job?.applyUrl, 2000),
     channelType,
     job: { title: text(draft.job?.title || order.jobTitle, 200), company: text(order.companyName, 200) },

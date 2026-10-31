@@ -1,3 +1,5 @@
+import { answerConflictMetadata } from './lib/answerSourceConflict.js';
+import { candidateQuestionAnswerKey } from './assistedApplicationCandidateEdits.js';
 /** Latest server-owned, value-bound receipt for the exact question shown in one order/round.
  * A new confirmation replaces the current pointer with a new ID; clear retains metadata only.
  * No permanent history of superseded Q/A is kept, and old pointers fail closed. */
@@ -87,8 +89,15 @@ export function planAnswerConfirmations({ orderId, order, flow, draft, answers, 
     const checked = validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) });
     if (supplied && hasAnswer(answer) && !checked.ok) throw new AnswerConfirmationError('invalid_answers', 400);
     const valid = Boolean(supplied) && hasAnswer(answer) && checked.ok;
+    const previousReceipt = previous[id];
+    const knownPrevious = previousReceipt?.version === ANSWER_CONFIRMATION_VERSION && /^confirmation-[a-f0-9]{64}$/.test(previousReceipt.id || '')
+      && previousReceipt.provenance?.orderId === orderId && previousReceipt.provenance?.userId === String(order.userId || '')
+      && ['candidate', 'owner'].includes(previousReceipt.provenance?.actor) && previousReceipt.question?.source !== 'policy_default';
+    const conflict = !valid && knownPrevious ? answerConflictMetadata(previousReceipt,
+      !hasAnswer(answer) ? 'explicit_clear' : 'unconfirmed_source', nowMs,
+      { key: previousReceipt.conflict?.key || candidateQuestionAnswerKey(previousReceipt.question), scope: 'job' }) : null;
     const record = { version: ANSWER_CONFIRMATION_VERSION, contractHash: contracts[id], provisional: !supplied, provenance,
-      ...(valid ? { question: answerQuestionDescriptor(question), answer } : { cleared: true }) };
+      ...(valid ? { question: answerQuestionDescriptor(question), answer } : { cleared: true, ...(conflict ? { conflict } : {}) }) };
     confirmations[id] = { id: `confirmation-${hash(record)}`, ...record };
   }
   if (Object.keys(confirmations).length > 80) throw new AnswerConfirmationError('answer_contract_changed');
@@ -111,5 +120,25 @@ export function localAnswerEvidence({ orderId, order, flow, draft, intake = null
       || !validateAnswer(record.answer, record.question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok) return [];
     return [{ ...record, sourceCounterChanged: source.sourceCounterHash !== currentSourceCounterHash,
       category: 'local_answer', scope: 'job', unit: ['yes_no', 'checkbox'].includes(record.question.type) ? 'boolean' : 'question_specific_value' }];
+  });
+}
+
+/** Current-order conflicts survive a clear even without an account-wide profile. */
+export function localAnswerSourceConflicts({ orderId, order, flow, draft, intake = null, nowMs = Date.now() }) {
+  if (!answerSourceRetained(order, nowMs) || !flow || !draft) return [];
+  const validIds = new Set(localAnswerEvidence({ orderId, order, flow, draft, intake, nowMs }).map(record => record.id));
+  return Object.values(object(flow.answerConfirmations)).slice(0, 80).flatMap(record => {
+    if (!record || record.version !== ANSWER_CONFIRMATION_VERSION || !/^confirmation-[a-f0-9]{64}$/.test(record.id || '')
+      || record.provenance?.orderId !== orderId || record.provenance.userId !== String(order.userId || '')
+      || !['candidate', 'owner'].includes(record.provenance.actor) || !Number.isFinite(record.provenance.confirmedAt)
+      || record.provenance.confirmedAt <= 0 || record.provenance.confirmedAt > nowMs || validIds.has(record.id)
+      || record.question?.source === 'policy_default') return [];
+    const current = draft.questions?.find(question => question?.id === record.question?.id);
+    const reason = record.cleared ? record.conflict?.reason || 'explicit_clear'
+      : record.provenance.round !== Number(flow.round || 1) || Number(draft.round) !== record.provenance.round ? 'source_round_changed'
+      : !current || !sameAnswerMaterial(answerQuestionDescriptor(current), record.question) ? 'question_changed' : 'unconfirmed_source';
+    const metadata = answerConflictMetadata(record, reason, record.conflict?.at || record.provenance.confirmedAt,
+      { key: record.conflict?.key || candidateQuestionAnswerKey(record.question), scope: 'job' });
+    return metadata && metadata.key ? [metadata] : [];
   });
 }

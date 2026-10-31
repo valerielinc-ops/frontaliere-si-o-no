@@ -1,3 +1,4 @@
+import { qualificationCounterContext } from './lib/qualificationCounterContext.js';
 /** Full-posting qualification before a concierge proposal is published. All caches are owner-private. */
 import { createHash } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
@@ -118,8 +119,9 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   let analyses = 0;
   return async (job) => {
     job = normalizeConciergeJobRecord(job);
-    const { answers, answerEvidence, answerCounterContext, fingerprint: answerContext } = answerContextFor(job);
+    const { answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterAnswers, fingerprint: answerContext } = answerContextFor(job);
     const answerHash = eligibilityHash(answerContext);
+    const rawCounterContext = qualificationCounterContext({ order: service, flow: { questionAnswers: rawCounterAnswers }, answerCounterContext });
     const normalizedProfile = profileForEligibility(profile);
     if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
     const posting = await read({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
@@ -133,7 +135,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     if (cached?.fingerprint === fingerprint) return { ...cached.result, fingerprint, cacheId };
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
-    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, answerEvidence, answerCounterContext, locale: service.locale, sourceText: cvText, generate,
+    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterContext, locale: service.locale, sourceText: cvText, generate,
       readPosting: async () => posting });
     const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, ...result } = analysis;
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
@@ -158,13 +160,16 @@ export async function preflightExistingCvEligibility({ db, userId, job, generate
     return { status: 'unverified', reason: 'profile_not_ready' };
   }
   const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord: record, userId });
-  const { answers, answerEvidence, answerCounterContext } = contextFor(normalizeConciergeJobRecord(job));
+  const { answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterAnswers } = contextFor(normalizeConciergeJobRecord(job));
+  const rawCounterContext = qualificationCounterContext({ flow: { questionAnswers: rawCounterAnswers }, answerCounterContext });
   const result = await evaluateConciergePosting({
     job,
     profile: record.profile,
     answers,
     answerEvidence,
     answerCounterContext,
+    answerSourceConflicts,
+    rawCounterContext,
     locale: record.locale || 'it',
     generate,
     readPosting,

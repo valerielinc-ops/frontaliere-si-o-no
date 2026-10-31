@@ -173,6 +173,65 @@ describe('question confirmation protocol', () => {
 });
 
 describe('private final-send source fence', () => {
+  it.each(['clear', 'raw_changed', 'question_changed', 'round_changed'])('returns only property conflict metadata for a known assertion after %s', async change => {
+    const f = fixture(); await f.save({ english: 'C1' });
+    if (change === 'clear') await f.save({ english: '' }, { nowMs: now + 1 });
+    if (change === 'raw_changed') f.read('assisted_applications/source/automation/flow').answers.english = 'A2';
+    if (change === 'question_changed') f.read('assisted_applications/source/ai_drafts/current').questions[0].question = 'A different current question';
+    if (change === 'round_changed') f.read('assisted_applications/source/automation/flow').round = 2;
+    const load = await loadCandidateAnswerEvidence({ db: f.db, profileRecord: f.read('user_cv_profiles/candidate'), userId: 'candidate', nowMs: now + 2 });
+    const context = load({ id: 'child', url: 'https://example.test/child/' });
+    expect(context.answerEvidence).toEqual([]);
+    expect(context.answerSourceConflicts).toEqual([expect.objectContaining({ key: 'language_en_any_proficiency', property: 'language_proficiency', languageCode: 'en', scope: 'candidate', cvHash: hash })]);
+    expect(JSON.stringify(context.answerSourceConflicts)).not.toContain('C1');
+    expect(JSON.stringify(context.answerSourceConflicts)).not.toContain(q.question);
+    f.read('assisted_applications/source').retentionPurgingAt = now + 3;
+    const purging = await loadCandidateAnswerEvidence({ db: f.db, profileRecord: f.read('user_cv_profiles/candidate'), userId: 'candidate', nowMs: now + 4 });
+    expect(purging({ id: 'child', url: 'https://example.test/child/' }).answerSourceConflicts).toEqual([]);
+  });
+  it.each(['guest', 'profile_missing'])('uses a confirmed local qualification without an account mirror (%s), then revokes it on clear', async mode => {
+    const f = fixture();
+    if (mode === 'guest') delete f.read('assisted_applications/source').userId;
+    else f.docs.delete('user_cv_profiles/candidate');
+    await f.save({ english: 'C1' });
+    const current = await loadRunnerAnswerContext({ ...f.input(), nowMs: now + 1 });
+    expect(current.answerEvidence).toEqual([expect.objectContaining({ answer: 'C1', category: 'language', unit: 'CEFR_or_stated_level', provenance: { ...f.input().flow.answerConfirmations.english.provenance, confirmationId: f.input().flow.answerConfirmations.english.id, contractHash: f.input().flow.answerConfirmations.english.contractHash } })]);
+    await f.save({ english: '' }, { nowMs: now + 2 });
+    const cleared = await loadRunnerAnswerContext({ ...f.input(), nowMs: now + 3 });
+    expect(cleared.answerEvidence).toEqual([]);
+    expect(cleared.answerSourceConflicts).toEqual([expect.objectContaining({ property: 'language_proficiency', languageCode: 'en', scope: 'job', cvHash: hash })]);
+    expect(JSON.stringify(cleared.answerSourceConflicts)).not.toContain('C1');
+    await f.save({ english: 'A2' }, { nowMs: now + 4 });
+    const replaced = await loadRunnerAnswerContext({ ...f.input(), nowMs: now + 5 });
+    expect(replaced.answerEvidence[0].answer).toBe('A2'); expect(replaced.answerSourceConflicts).toEqual([]);
+  });
+  it.each([
+    [{ id: 'privacy', question: 'Do you accept the privacy policy?', type: 'yes_no' }, 'Yes', null],
+    [{ id: 'salary', question: 'What is your requested salary in CHF per year?', type: 'number' }, '80000', 'form_preference'],
+    [{ id: 'notice', question: 'What is your notice period in months?', type: 'number', source: 'policy_default' }, '3', null],
+    [{ id: 'certificate', question: 'Do you hold the PMP certification?', type: 'yes_no' }, 'No', 'qualification'],
+  ])('does not widen a local receipt into an arbitrary candidate fact: %j', async (question: any, answer: any, category: any) => {
+    const f = fixture(question); delete f.read('assisted_applications/source').userId;
+    await f.save({ [question.id]: answer });
+    const context = await loadRunnerAnswerContext({ ...f.input(), nowMs: now + 1 });
+    if (category) expect(context.answerEvidence[0]).toMatchObject({ answer, category, scope: 'job', unit: category === 'form_preference' ? 'question_specific_number' : 'boolean' });
+    else expect(context.answerEvidence).toEqual([]);
+    expect(context.localAnswerEvidence).toHaveLength(1);
+  });
+  it('does not fence a child on an expired source that contributes no answer or conflict', async () => {
+    const f = fixture(); await f.save({ english: 'C1' });
+    f.read('assisted_applications/source').cvUploadedAt = now - 90 * 86400000 - 1;
+    const order = { ...f.input().order, jobId: 'child', jobUrl: 'https://example.test/child/', cvStorageKey: 'copy.pdf', cvUploadedAt: now };
+    const flow = { state: 'submitting', round: 1, answers: {}, questionAnswers: {} };
+    const draft = { round: 1, status: 'ready', questions: [], cvKey: 'copy.pdf', sourceCvHash: hash };
+    f.docs.set('assisted_applications/child', order); f.docs.set('assisted_applications/child/automation/flow', flow);
+    f.docs.set('assisted_applications/child/ai_drafts/current', draft);
+    const context = await loadRunnerAnswerContext({ db: f.db, orderId: 'child', order, flow, draft, nowMs: now + 1 });
+    expect(context.answerEvidence).toEqual([]); expect(context.answerSourceConflicts).toEqual([]);
+    const loaded = (await loadCandidateAnswerEvidence({ db: f.db, profileRecord: f.read('user_cv_profiles/candidate'), userId: 'candidate', nowMs: now + 1 }))(order);
+    expect(loaded.rawCounterAnswers).toEqual({}); expect(loaded.sourceOrderIds).toEqual([]);
+    await expect(f.db.runTransaction(tx => context.answerSourceGuard.assertInTransaction(tx))).resolves.toBeUndefined();
+  });
   it.each(['order_note', 'flow_note', 'feedback', 'correction', 'intake'])('keeps the historical assertion and fingerprints current origin %s before bootstrap', async change => {
     const f = fixture(); await f.save({ english: 'C1' });
     const load = async () => (await loadCandidateAnswerEvidence({ db: f.db, profileRecord: f.read('user_cv_profiles/candidate'), userId: 'candidate', nowMs: now + 10 }))({ id: 'child', url: 'https://example.test/child/' });
@@ -226,7 +285,7 @@ describe('private final-send source fence', () => {
     await expect(f.db.runTransaction((tx: any) => context.answerSourceGuard!.assertInTransaction(tx))).resolves.toBeUndefined();
     expect(JSON.stringify(context.flow)).not.toContain('assertInTransaction');
   });
-  it.each(['global_pointer', 'local_no', 'local_clear', 'feedback', 'intake', 'purged_source', 'purging_source', 'owner_takeover', 'dispatch_replaced', 'draft_not_ready', 'order_candidate_notes', 'flow_candidate_notes', 'cv_language_baseline'])('stops before a send write when %s changes', async change => {
+  it.each(['global_pointer', 'local_no', 'local_clear', 'feedback', 'intake', 'purged_source', 'purging_source', 'owner_takeover', 'dispatch_replaced', 'draft_not_ready', 'order_candidate_notes', 'flow_candidate_notes', 'cv_language_baseline', 'identity', 'profile', 'letter_key', 'cv_key', 'required_document'])('stops before a send write when %s changes', async change => {
     const { f, context } = await executionFixture();
     if (change === 'global_pointer') {
       const order = { ...f.input().order, jobId: 'newer-source', jobUrl: 'https://example.test/newer-source/' };
@@ -245,6 +304,11 @@ describe('private final-send source fence', () => {
     else if (change === 'purging_source') f.read('assisted_applications/source').retentionPurgingAt = now + 11;
     else if (change === 'order_candidate_notes') f.read('assisted_applications/child').candidateNotes = 'I do not hold a degree';
     else if (change === 'flow_candidate_notes') f.read('assisted_applications/child/automation/flow').candidateNotes = 'I do not hold a degree';
+    else if (change === 'identity') f.read('assisted_applications/child').applicantName = 'Corrected candidate';
+    else if (change === 'profile') f.read('assisted_applications/child/ai_drafts/current').profile = { nationality: 'italiana' };
+    else if (change === 'letter_key') f.read('assisted_applications/child/ai_drafts/current').coverLetterPdfKey = 'changed-letter.pdf';
+    else if (change === 'cv_key') f.read('assisted_applications/child/ai_drafts/current').tailoredCv = { status: 'ready', pdfKey: 'changed-cv.pdf' };
+    else if (change === 'required_document') f.read('assisted_applications/child/ai_drafts/current').requiredDocuments = [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }];
     else if (change === 'cv_language_baseline') f.read('assisted_applications/child/ai_drafts/current').qualificationCvLanguageProfile = { version: 'cv-language-profile-v1', purpose: 'conflict_only', cvHash: hash, profile: { languages: [{ language: 'en', level: 'A2' }] } };
     else if (change === 'owner_takeover') f.read('assisted_applications/child/automation/flow').state = 'owner_takeover';
     else if (change === 'dispatch_replaced') f.read('assisted_applications/child/automation/flow').dispatch = { mode: 'draft', round: 1, requestedAt: now + 11 };

@@ -9,7 +9,15 @@ function canonical(value) {
 
 export const qualificationCounterContextHash = value => createHash('sha256').update(String(JSON.stringify(canonical(value)))).digest('hex');
 
-export function qualificationCounterContext({ order = {}, flow = {}, intake = null, answerCounterContext = [] } = {}) {
+export function qualificationCounterContext({ order = {}, flow = {}, intake = null, answerCounterContext = [], rawCounterContext = null } = {}) {
+  if (rawCounterContext !== null) {
+    const keys = ['values', 'questionAnswers', 'corrections', 'feedback', 'candidateNotes', 'flowNotes', 'intakeNotes', 'answerSources'];
+    if (!rawCounterContext || typeof rawCounterContext !== 'object' || Array.isArray(rawCounterContext)
+      || !keys.every(key => Object.hasOwn(rawCounterContext, key))) {
+      throw Object.assign(new Error('evidence_entailment_unverified'), { code: 'evidence_entailment_unverified' });
+    }
+    return structuredClone(rawCounterContext);
+  }
   return structuredClone({ values: flow.answers || {}, questionAnswers: flow.questionAnswers || {},
     corrections: flow.formOverrides || {}, feedback: flow.feedback || [],
     candidateNotes: order.candidateNotes || '', flowNotes: flow.candidateNotes || '', intakeNotes: intake?.emailNotes || '',
