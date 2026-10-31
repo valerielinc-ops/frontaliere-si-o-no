@@ -954,6 +954,7 @@ export const ASSEMBLE_AUX_DATA_INPUTS = Object.freeze([
   'data/swiss-postal-codes.json',
   'data/swiss-locality-postal-codes.json',
   'data/swiss-postal-code-index.json',
+  'data/prospector/jobposting-address-cache.json',
   'data/orphan-indexed-job-slugs.json',
   'data/orphan-enriched-data.json',
   'data/orphan-enriched-data',
