@@ -1,10 +1,10 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
-import { avaturePortalDirectory, avaturePostingJobKey, isPortalRoutePath, sameAvaturePortal, samePortalRouteDirectory } from './protocol.mjs';
+import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { CONFIRM_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
 // Match a complete final segment: /review, /application/review and the
 // combined Avature segment /ApplicationReview.
-const REVIEW_PATH_RE = pathname => isPortalRoutePath(pathname, ['review', 'preview', 'summary']);
+const REVIEW_PATH_RE = /(?:^|\/)(?:application\/|application)?(?:review|preview|summary)\/?$/i;
 const PROFILE_CONTINUATION_RE = /(?:already submitted your personal information|(?:account|profile|personal information) (?:has been |was |is )?(?:created|saved|updated)).{0,300}(?:application|apply|review|continue)/i;
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
@@ -35,8 +35,9 @@ function boundRoute(value, applyUrl, sourceProtocol = null) {
   const url = parsed(value);
   const expected = parsed(applyUrl);
   const key = portalJobKey(applyUrl, sourceProtocol);
+  const namespace = avaturePortalDirectory(applyUrl, sourceProtocol);
   return Boolean(url && expected && url.protocol === 'https:' && url.origin === expected.origin
-    && samePortalRouteDirectory(url.href, expected.href, sourceProtocol) && key && portalJobKey(value) === key);
+    && (!namespace || url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1) === namespace) && key && portalJobKey(value) === key);
 }
 
 function normalized(value) {
@@ -72,8 +73,8 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
   const actual = parsed(url);
   const source = parsed(submissionUrl || applyUrl);
   if (!actual || !source || actual.protocol !== 'https:' || actual.origin !== source.origin) return false;
-  const namespace = avaturePortalDirectory(source.href, sourceProtocol);
-  if (namespace && !samePortalRouteDirectory(actual.href, source.href, sourceProtocol)) return false;
+  const namespace = avaturePortalDirectory(submissionUrl || applyUrl, sourceProtocol);
+  if (namespace && actual.pathname.slice(0, actual.pathname.lastIndexOf('/') + 1) !== namespace) return false;
   return Boolean(actualJobKey && expectedJobKey && actualJobKey === expectedJobKey) || receiptTitleBound(snapshot.text, job.title);
 }
 
@@ -100,7 +101,7 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   const pending = PROFILE_CONTINUATION_RE.test(text) || BEFORE_SEND_RE.test(text);
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && boundRoute(button.href, applyUrl, sourceProtocol)
-    && REVIEW_PATH_RE(parsed(button.href)?.pathname || '') && !parsed(button.href)?.hash
+    && REVIEW_PATH_RE.test(parsed(button.href)?.pathname || '') && !parsed(button.href)?.hash
     && [...parsed(button.href).searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))
     && button.href !== url);
   if (pending && links.length === 1 && !(snapshot?.fields || []).some(field => !field.disabled && !['hidden', 'submit', 'button'].includes(field.inputType))) return { kind: 'review_navigation', control: links[0], destination: links[0].href };

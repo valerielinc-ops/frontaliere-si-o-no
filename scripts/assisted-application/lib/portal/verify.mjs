@@ -5,22 +5,21 @@ import { extractFields } from './fields.mjs';
 import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
 import { applyActions, findButton, locatorFor } from './fill.mjs';
 import { applicationReceipt, applicationStage, portalJobKey } from './stages.mjs';
-import { avaturePortalDirectory, isPortalRoutePath, portalDirectory, samePortalRouteDirectory } from './protocol.mjs';
+import { avaturePortalDirectory } from './protocol.mjs';
 
-// A path-based posting remains bound to its source directory; the route helper
-// permits only the one explicit application/ child used by common ATS routes.
+const portalDirectory = url => url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1);
+// /job?jobId=42 does not attest a sibling /application/ namespace. Only
+// primary protocol metadata can lift a JobDetail/slug directory to its
+// portal namespace; suffix regexes must never relax this boundary.
 const sourceDirectory = (url, protocol) => avaturePortalDirectory(url.href, protocol) || portalDirectory(url);
-const REVIEW_ROUTES = ['review', 'preview', 'summary'];
-const SIGNIN_ROUTES = ['login', 'signin', 'sign-in'];
-const CONFIRMATION_ROUTES = ['confirmation'];
 
 export function verificationTarget({ applyUrl, evidence, sourceProtocol = null }) {
   try {
     const source = new URL(applyUrl);
     const target = new URL(evidence?.finalUrl);
-    if (source.protocol !== 'https:' || target.origin !== source.origin || !samePortalRouteDirectory(target.href, source.href, sourceProtocol) || !portalJobKey(applyUrl, sourceProtocol)
+    if (source.protocol !== 'https:' || target.origin !== source.origin || portalDirectory(target) !== sourceDirectory(source, sourceProtocol) || !portalJobKey(applyUrl, sourceProtocol)
       || portalJobKey(target.href) !== portalJobKey(applyUrl, sourceProtocol) || target.hash
-      || !isPortalRoutePath(target.pathname, REVIEW_ROUTES)) return null;
+      || !/(?:^|\/)(?:application\/|application)?(?:review|preview|summary)\/?$/i.test(target.pathname)) return null;
     if ([...target.searchParams.keys()].some(key => !/^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))) return null;
     return target.href;
   } catch { return null; }
@@ -31,9 +30,9 @@ export function safeSigninAction(action, pageUrl, sourceProtocol = null) {
   try {
     const url = new URL(action); const source = new URL(pageUrl);
     return url.protocol === 'https:' && url.origin === source.origin && !url.username && !url.password && !url.hash
-      && samePortalRouteDirectory(url.href, source.href, sourceProtocol)
+      && portalDirectory(url) === sourceDirectory(source, sourceProtocol)
       && !/(?:submit|finali[sz]e|withdraw|delete|remove|applicationapply)/i.test(url.pathname)
-      && isPortalRoutePath(url.pathname, SIGNIN_ROUTES)
+      && /(?:^|\/)(?:application\/|application)?(?:login|signin|sign-in)\/?$/i.test(url.pathname)
       && [...url.searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key));
   } catch { return false; }
 }
@@ -101,8 +100,8 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     for (const value of observedUrls) {
       try {
         const url = new URL(value);
-        if (url.origin === origin && samePortalRouteDirectory(url.href, applyUrl, sourceProtocol) && portalJobKey(url.href) === portalJobKey(applyUrl, sourceProtocol) && !url.hash
-          && isPortalRoutePath(url.pathname, CONFIRMATION_ROUTES)
+        if (url.origin === origin && portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && portalJobKey(url.href) === portalJobKey(applyUrl, sourceProtocol) && !url.hash
+          && /(?:^|\/)(?:application\/|application)?confirmation\/?$/i.test(url.pathname)
           && [...url.searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))) navigationTargets.add(url.href);
       } catch { /* Unknown historical addresses cannot authorize a navigation. */ }
     }

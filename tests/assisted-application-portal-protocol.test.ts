@@ -20,13 +20,16 @@ const review = { url: reviewUrl, fields: [], text: 'Infrastructure Strategy Mana
   buttons: [{ text: 'Apply' }, { text: 'Cancel' }, { text: 'Edit profile' }] };
 
 describe('primary Avature protocol and posting namespace', () => {
-  it('accepts the optional application route segment for owned review and protected sign-in', () => {
+  it('already accepts an owned /application/review link but does not invent that namespace for protected login', () => {
     const source = 'https://ats.test/job?jobid=x';
     const target = 'https://ats.test/application/review?jobid=x';
     expect(applicationStage({ text: 'Your profile has been saved. Continue to review', fields: [], buttons: [{ text: 'Apply', href: target }] },
       { url: 'https://ats.test/profile?jobid=x', applyUrl: source, job: { title: 'Senior Developer' } }).kind).toBe('review_navigation');
-    expect(verificationTarget({ applyUrl: source, evidence: { finalUrl: target } })).toBe(target);
-    expect(safeSigninAction('https://ats.test/application/login?jobid=x', source)).toBe(true);
+    // A current owned anchor authorizes normal prefinal navigation. The
+    // privileged legacy probe has only archived URLs and needs independent
+    // source namespace proof before visiting/authenticating another directory.
+    expect(verificationTarget({ applyUrl: source, evidence: { finalUrl: target } })).toBeNull();
+    expect(safeSigninAction('https://ats.test/application/login?jobid=x', source)).toBe(false);
   });
 
   it('accepts /application/review and /application/login when application is the proved portal namespace', async () => {
