@@ -315,6 +315,14 @@ describe('scope, languages and actual field options', () => {
       const candidateQuestion = typeof variant === 'string' ? { label: variant, type: 'checkbox' } : { ...variant, type: 'checkbox' };
       expect(operationalDefaultAnswer(candidateQuestion)).toBeNull();
     }
+    for (const metadata of [
+      { ariaLabel: 'Email' },
+      { semanticId: 'candidate_phone' },
+      { semanticId: 'cellulare' },
+      { name: 'residence_address' },
+      { semanticId: 'PLZ' },
+      { ariaDescription: 'Candidate data disclosed to our partners' },
+    ]) expect(operationalDefaultAnswer({ ...question, ...metadata })).toBeNull();
   });
 
   it('keeps the native optional contract on the same privacy-review topic', () => {

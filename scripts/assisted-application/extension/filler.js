@@ -997,12 +997,12 @@
         && typeof privacyReviewAcknowledgmentShape === 'function'
         && privacyRepresentations.length > 0
         && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
-        && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
+        && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, privacyMetadata, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
       const privacyReviewShape = typeof privacyReviewAcknowledgmentShape === 'function'
         && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
       // Only the required acceptance of the portal's terms: never a newsletter or a talent pool.
       return (entry.required || privacyReviewAck) && (privacyReviewAck || (CONSENT_RE.test(label) && !privacyReviewShape)) && typeof hasConsentContradiction === 'function' && !hasConsentContradiction([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
-        ...privacyIdentifiers) ? { check: true } : null;
+        privacyMetadata, ...privacyIdentifiers) ? { check: true } : null;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     // Contact facts are canonical identity data, not answers copied from the
