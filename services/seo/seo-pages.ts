@@ -6298,7 +6298,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quali sono i casi particolari: telelavoro, lavoro in più cantoni, pensionati?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il telelavoro è regolato dal Protocollo di modifica firmato il 30 maggio e il 6 giugno 2024, in vigore dal 9 febbraio 2026 e applicabile dal 1° gennaio 2024: fino al 25% dell'attività dal domicilio in Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Per i lavoratori con meno del 50% di attività a domicilio, il permesso G resta valido."
+ "text": "Il telelavoro è regolato dal Protocollo di modifica firmato il 30 maggio e il 6 giugno 2024, in vigore dal 9 febbraio 2026 e applicabile dal 1° gennaio 2024: fino al 25% dell'attività dal domicilio in Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Oltre il 25% di telelavoro le conseguenze non sono disciplinate dal Protocollo e vanno verificate caso per caso."
  }
  },
  {
