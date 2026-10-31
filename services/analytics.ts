@@ -103,7 +103,7 @@ import { jobJourneyFields, recordJobJourneyStep, type JobJourneyStep, type JobJo
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { runAfterNextPaint } from './afterNextPaint';
 import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
-import { buildResourceErrorLabel } from './resourceErrorLabel';
+import { buildResourceErrorDetails, buildResourceErrorLabel } from './resourceErrorLabel';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
@@ -1888,10 +1888,12 @@ export const Analytics = {
  if (resErrors) {
  sessionStorage.removeItem('_resourceErrors');
  const errors: any[] = JSON.parse(resErrors);
+ const adBlockSeen = sessionStorage.getItem('_adBlockSeen') === '1';
  for (const err of errors.slice(0, 10)) {
  Analytics.trackResourceLoadError({
  resourceType: err.type || 'unknown',
  resourceUrl: err.url || '',
+ details: buildResourceErrorDetails({ ...err, adBlockSeen }),
  pagePath: err.pagePath || '/',
  triggeredReload: err.triggeredReload || false,
  blockedByAdBlocker: err.adBlocked || false,
@@ -1973,6 +1975,7 @@ export const Analytics = {
  trackResourceLoadError: (info: {
  resourceType: 'script' | 'link' | 'css' | 'unknown';
  resourceUrl: string;
+ details?: string;
  pagePath?: string;
  triggeredReload?: boolean;
  blockedByAdBlocker?: boolean;
@@ -1981,6 +1984,7 @@ export const Analytics = {
  // error_type/error_message are what GA4 can query: see resourceErrorLabel.ts.
  error_type: `resource_${info.resourceType}`,
  error_message: buildResourceErrorLabel(info.resourceUrl),
+ details: info.details,
  resource_type: info.resourceType,
  resource_url: truncate(info.resourceUrl, 200),
  page_path: truncate(info.pagePath || window.location.pathname, 180),

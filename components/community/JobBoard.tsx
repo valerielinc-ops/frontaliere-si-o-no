@@ -298,6 +298,7 @@ import {
  type AssistedApplicationCheckoutError,
  type AssistedApplicationCheckoutResult,
 } from '@/services/assistedApplicationCheckout';
+import { getAssistedPaymentResponseShape } from '@/services/assistedApplicationResponseShape';
 import { readReviewToken } from '@/services/assistedApplicationReviewService';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
@@ -532,6 +533,7 @@ export interface JobListing {
  };
  currency: 'CHF' | 'EUR';
  description: string;
+ descriptionPreview?: string;
  descriptionByLocale?: Partial<Record<Locale, string>>;
  requirements: string[];
  requirementsByLocale?: Partial<Record<Locale, string[]>>;
@@ -8018,6 +8020,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
      reason: failureReason,
      error_code: errorCode,
+     details: getAssistedPaymentResponseShape(error),
     },
    );
    if (failureReason === 'auth_required') {
@@ -9974,7 +9977,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateIsNew = isNewJob(selectedJob);
  const logoUrl = cdnImageUrl(resolveCompanyLogoUrl(selectedJob));
  const publicDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? '';
- const descriptionPreview = jobDescriptionPreview(publicDescription);
+ const descriptionPreview = selectedJob.descriptionPreview || jobDescriptionPreview(publicDescription);
  const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
  // jobgate-v5: contrast/accent treatment per arm; Spotlight is also the
