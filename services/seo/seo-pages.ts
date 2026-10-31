@@ -6692,8 +6692,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'tassa-salute-frontalieri': {
  title: 'Tassa Salute Frontalieri 2026: Importo, Chi Paga e Regole',
- h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
- description: 'Tassa salute frontalieri 2026: contributo SSN, calcolo del 3–6% sul salario netto e scadenze regionali.',
+ h1: 'Tassa salute frontalieri 2026 — importo, chi paga, Lombardia e Piemonte',
+ description: 'Tassa salute frontalieri 2026: contributo SSN, calcolo del 3–6% sul salario netto e stato in Lombardia e Piemonte.',
  keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
  ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
  ogDescription: 'Contributo SSN per frontalieri: chi è interessato, importo 3–6%, diritto d’opzione e attuazione regionale.',
@@ -6707,7 +6707,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-22",
- "dateModified": "2026-10-03",
+ "dateModified": "2026-10-31",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/`,
  "speakable": SPEAKABLE_SECTION
