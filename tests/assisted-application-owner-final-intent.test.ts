@@ -15,7 +15,7 @@ function request() {
     finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/apply/', nativeDigest: hash(fields), materialDigest: hash(attachments), submitterDigest: 'c'.repeat(64), capturedAt: now } };
 }
 describe('owner final intent transport (not semantic authority)', () => {
-  it('owns the full immutable input snapshot and joins files to their native controls', () => {
+  it('owns the full input snapshot and joins files to their native controls', () => {
     const raw = request(); const parsed = ownerFinalIntent(raw, { round: 1, nowMs: now });
     raw.nativeProof.fields[0].nativeFormContract.context = 'Changed after request';
     expect(parsed.proof.fields[0].nativeFormContract.context).toBe('Only University X degrees qualify');

@@ -295,15 +295,13 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect((await call('automationFillKit') as any).kit.orderId).toBe(ORDER);
   });
 
-  it('records Valerie’s press before the portal answers, so the browser dying after it leaves no second kit', async () => {
+  it('refuses a notification-only old extension press before creating a durable click', async () => {
     await seed(takenOver);
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('submission').set({ r1: { state: 'failed', reason: 'portal_refused' } });
-    expect(await call('automationMarkClicked')).toEqual({ ok: true, state: 'owner_takeover', guard: 'sending' });
-    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending', channel: 'owner_extension', clickedAt: T0 } });
-    await expect(call('automationFillKit')).rejects.toMatchObject({ code: 'submission_unconfirmed', status: 409 });
-    // The portal's confirmation then closes it as sent.
-    expect(await call('automationMarkSubmitted', { via: 'extension' })).toEqual({ ok: true, state: 'submitted' });
-    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'owner_extension' } });
+    await expect(call('automationMarkClicked')).rejects.toMatchObject({ code: 'native_proof_invalid', status: 409 });
+    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'failed' } });
+    expect(store.read(`${PATH}/automation/submission`).r1.clickedAt).toBeUndefined();
+    expect((await call('automationFillKit') as any).kit.answerSourceFingerprint).toMatch(/^[a-f0-9]{64}$/);
   });
 
   it('marks the order as sent by Valerie, so no retry presses it again', async () => {
