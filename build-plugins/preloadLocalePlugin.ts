@@ -19,13 +19,17 @@ import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { stableChunkFiles } from './shared/chunkFiles';
-import { routeChunksMetaTag } from './shared/modulePreloads';
+import { declareRouteHintEmitter, routeChunksMetaTag } from './shared/modulePreloads';
 
 export function preloadLocalePlugin(rootDir: string): Plugin {
+ let endRouteHints = (): void => {};
  return {
  name: 'preload-locale',
  apply: 'build',
  enforce: 'post',
+ buildStart() {
+ endRouteHints = declareRouteHintEmitter();
+ },
  async closeBundle() {
  const distDir = np.resolve(rootDir, 'dist');
  const indexPath = np.join(distDir, 'index.html');
@@ -44,7 +48,9 @@ export function preloadLocalePlugin(rootDir: string): Plugin {
  console.log(`\x1b[36m[preload-locale]\x1b[0m Added route hint for ${criticalChunks.join(', ')}`);
  }
 
- } catch { /* non-fatal */ }
+ } catch { /* non-fatal */ } finally {
+ endRouteHints();
+ }
  },
  };
 }

@@ -30,7 +30,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import { getRegisteredRouteChunks, ROUTE_CHUNKS_META_NAME } from './shared/modulePreloads';
+import { getRegisteredRouteChunks, ROUTE_CHUNKS_META_NAME, routeHintEmittersSettled } from './shared/modulePreloads';
 
 export const VERSIONED_RELEASES_DIR = 'releases';
 export const VERSIONED_RELEASE_ENTRY = 'index-entry.js';
@@ -277,13 +277,15 @@ export function versionedCdnAssetsPlugin(rootDir: string): Plugin {
     closeBundle: {
       order: 'post',
       sequential: true,
-      handler() {
+      async handler() {
         const cdnOrigin = normalizeCdnOrigin(process.env.ASSET_CDN || '');
         const buildId = normalizeDeployBuildId(process.env.DEPLOY_BUILD_ID);
         if (!cdnOrigin || !buildId) {
           console.log('[versioned-cdn-assets] skipped (requires ASSET_CDN + DEPLOY_BUILD_ID)');
           return;
         }
+        // The bootstrap embeds the allowlist of route chunks: it must see every hint.
+        await routeHintEmittersSettled();
 
         const assetsDir = path.resolve(rootDir, 'dist', 'assets');
         const originalEntry = path.join(assetsDir, VERSIONED_RELEASE_ENTRY);

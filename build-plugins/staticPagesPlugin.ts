@@ -202,7 +202,7 @@ import {
   isLocaleVariantSitemapFile,
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
-import { routeChunksMetaTag } from './shared/modulePreloads';
+import { declareRouteHintEmitter, routeChunksMetaTag } from './shared/modulePreloads';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 import {
   glossaryTermSlugFromItalianPath,
@@ -1832,14 +1832,21 @@ const STATIC_ONLY_PATHS = new Set([
 export function staticPagesPlugin(rootDir: string): Plugin {
   const plugin = buildStaticPagesPlugin(rootDir);
   const inner = plugin.closeBundle as (this: unknown, ...args: unknown[]) => unknown;
+  const innerBuildStart = plugin.buildStart as ((this: unknown, ...args: unknown[]) => unknown) | undefined;
+  let endRouteHints = (): void => {};
   return withPhaseInstrument('static-pages', {
     ...plugin,
+    buildStart: function (this: unknown, ...args: unknown[]) {
+      endRouteHints = declareRouteHintEmitter();
+      return innerBuildStart?.apply(this, args);
+    } as Plugin['buildStart'],
     closeBundle: async function (this: unknown, ...args: unknown[]) {
       beginJobDetailExistenceMemo();
       try {
         return await inner.apply(this, args);
       } finally {
         endJobDetailExistenceMemo();
+        endRouteHints();
       }
     } as Plugin['closeBundle'],
   });

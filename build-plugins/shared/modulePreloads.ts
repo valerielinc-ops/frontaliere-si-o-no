@@ -18,6 +18,33 @@
 export const ROUTE_CHUNKS_META_NAME = 'frontaliere-route-chunks';
 
 const registeredRouteChunks = new Set<string>();
+const activeEmitters = new Set<object>();
+let settledWaiters: Array<() => void> = [];
+
+/**
+ * Called from `buildStart`, so it happens before every `closeBundle` and only for
+ * a plugin that really runs. The returned function ends the emission: call it in a
+ * `finally`, because the bootstrap waits for it.
+ *
+ * The allowlist is global state filled during closeBundle, so reading it is only
+ * correct once its writers have finished. `order: 'post'` + `sequential` give that
+ * order today; this states it, instead of depending on how the hooks are sorted.
+ */
+export function declareRouteHintEmitter(): () => void {
+  const emitter = {};
+  activeEmitters.add(emitter);
+  return () => {
+    activeEmitters.delete(emitter);
+    if (activeEmitters.size) return;
+    for (const resolve of settledWaiters) resolve();
+    settledWaiters = [];
+  };
+}
+
+export function routeHintEmittersSettled(): Promise<void> {
+  if (!activeEmitters.size) return Promise.resolve();
+  return new Promise((resolve) => settledWaiters.push(resolve));
+}
 
 export function routeChunksMetaTag(chunks: ReadonlyArray<string | null | undefined>): string {
   const unique = [...new Set(chunks.filter((chunk): chunk is string => Boolean(chunk)))];
@@ -32,4 +59,6 @@ export function getRegisteredRouteChunks(): string[] {
 
 export function resetRegisteredRouteChunks(): void {
   registeredRouteChunks.clear();
+  activeEmitters.clear();
+  settledWaiters = [];
 }

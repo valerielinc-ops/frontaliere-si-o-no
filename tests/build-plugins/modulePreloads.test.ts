@@ -9,9 +9,11 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
+  declareRouteHintEmitter,
   getRegisteredRouteChunks,
   resetRegisteredRouteChunks,
   routeChunksMetaTag,
+  routeHintEmittersSettled,
 } from '../../build-plugins/shared/modulePreloads';
 
 const read = (relative: string) => fs.readFileSync(path.resolve(__dirname, '../..', relative), 'utf8');
@@ -34,6 +36,36 @@ describe('routeChunksMetaTag', () => {
     routeChunksMetaTag(['A.js', 'B.js']);
     expect(getRegisteredRouteChunks()).toEqual(['A.js', 'B.js']);
   });
+});
+
+describe('routeHintEmittersSettled', () => {
+  beforeEach(() => resetRegisteredRouteChunks());
+
+  it('resolves at once when no emitter is active', async () => {
+    await expect(routeHintEmittersSettled()).resolves.toBeUndefined();
+  });
+
+  it('waits for the last active emitter', async () => {
+    const endFirst = declareRouteHintEmitter();
+    const endSecond = declareRouteHintEmitter();
+    let settled = false;
+    const waiting = routeHintEmittersSettled().then(() => { settled = true; });
+    endFirst();
+    await Promise.resolve();
+    expect(settled).toBe(false);
+    endSecond();
+    await waiting;
+    expect(settled).toBe(true);
+  });
+
+  it.each(['build-plugins/staticPagesPlugin.ts', 'build-plugins/preloadLocalePlugin.ts'])(
+    '%s declares itself at buildStart and ends in a finally',
+    (file) => {
+      const source = read(file);
+      expect(source).toContain('endRouteHints = declareRouteHintEmitter();');
+      expect(source).toMatch(/finally \{[^}]*endRouteHints\(\);/);
+    },
+  );
 });
 
 describe('no HTML emitter preloads a root alias', () => {
