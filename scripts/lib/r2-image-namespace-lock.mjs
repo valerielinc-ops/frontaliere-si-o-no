@@ -52,6 +52,24 @@ function safeTimestamp(value, name) {
   return value;
 }
 
+/**
+ * Who holds a lease, readable from the lock object and from a waiter's timeout.
+ * A random owner left run 41145698648 unable to tell, after a 15-minute wait that
+ * cost a whole publish, what it had been waiting for. The value is still only
+ * compared for equality, so the random part keeps it unique; it stays free of
+ * spaces and quotes because upload-cdn-file.sh writes it into JSON with printf.
+ */
+export function identifiedLeaseOwner(unique, env = process.env) {
+  const { GITHUB_REPOSITORY: repo, GITHUB_RUN_ID: runId, GITHUB_RUN_ATTEMPT: attempt } = env;
+  return repo && runId ? `${repo}#${runId}.${attempt || 1}:${unique}` : unique;
+}
+
+function describeHolder(holder) {
+  if (!holder) return '';
+  const at = (timestamp) => new Date(timestamp).toISOString();
+  return ` (held by ${holder.owner}, acquired ${at(holder.acquiredAt)}, expires ${at(holder.expiresAt)})`;
+}
+
 export function parseLeaseTimestamp(raw) {
   const timestamp = parseSafeLeaseTimestamp(raw);
   return timestamp !== null && timestamp >= 1 ? timestamp : null;
@@ -405,6 +423,7 @@ export async function acquireImageNamespaceLock(
 
   let candidateMayExist = false;
   const staleWriteConditions = [];
+  let lastHolder = null;
   let leaseSeenHeld = false;
   try {
     while (safeNow() <= deadline) {
@@ -485,6 +504,7 @@ export async function acquireImageNamespaceLock(
         continue;
       }
 
+      lastHolder = current.payload;
       onWait({ namespace, expiresAt: current.payload.expiresAt });
       const remaining = deadline - safeNow();
       if (remaining <= 0) break;
@@ -492,7 +512,7 @@ export async function acquireImageNamespaceLock(
       leaseSeenHeld = true;
     }
 
-    throw new Error(`[r2-image-namespace-lock] timed out waiting for namespace ${namespace}`);
+    throw new Error(`[r2-image-namespace-lock] timed out waiting for namespace ${namespace}${describeHolder(lastHolder)}`);
   } catch (error) {
     if (!candidateMayExist) throw error;
     throw await acquisitionFailureAfterCleanup(
@@ -909,7 +929,7 @@ function parseCommandOptions(command, args) {
 
 async function acquireFromCli(namespaces, request, env = process.env) {
   const controller = new AbortController();
-  const owner = env.FRONTALIERE_R2_IMAGE_LEASE_OWNER ?? randomUUID();
+  const owner = env.FRONTALIERE_R2_IMAGE_LEASE_OWNER ?? identifiedLeaseOwner(randomUUID(), env);
   const leaseId = env.FRONTALIERE_R2_IMAGE_LEASE_ID ?? randomUUID();
   const requestedAcquiredAt = parseLeaseTimestamp(env.FRONTALIERE_R2_IMAGE_LEASE_ACQUIRED_AT);
   const requestedExpiry = requestedAcquiredAt === null

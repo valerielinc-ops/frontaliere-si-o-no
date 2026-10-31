@@ -34,7 +34,7 @@ function manifestText(locale: string, runId = RUN_ID) {
 /** Fake `gh`: answers the two list endpoints and writes the artifact file. */
 function fakeGh({
   published = ['it', 'en', 'de', 'fr'],
-  jobs = [] as Array<{ name: string; conclusion: string | null }>,
+  jobs = [] as Array<{ name: string; conclusion: string | null; run_attempt?: number }>,
   download = {} as Record<string, Array<Error | string>>,
   list = undefined as undefined | ((url: string) => unknown),
 } = {}) {
@@ -208,6 +208,67 @@ describe('exchangeHreflangManifests', () => {
       ? JSON.stringify({ jobs: [], artifacts: [{ name: args.at(-1)?.split('name=')[1], expired: false }] })
       : '');
     await expect(exchangeHreflangManifests({ ...base(), gh })).rejects.toThrow(/invalid same-run hreflang manifest it/);
+  });
+
+  describe('on a rerun', () => {
+    const rerun = { runAttempt: '2' };
+    // Artifact names carry the attempt; the fake answers per exact name.
+    const artifactsFor = (names: string[]) => (url: string) => {
+      if (url.includes('/jobs?')) return undefined;
+      const name = decodeURIComponent(url.split('name=')[1]);
+      return { artifacts: names.includes(name) ? [{ name, expired: false }] : [] };
+    };
+    const names = (attempts: Record<string, number>) => Object.entries(attempts)
+      .map(([locale, attempt]) => manifestArtifactName(locale, RUN_ID, attempt));
+
+    it('reads a sibling that already shipped from the attempt in which it succeeded', async () => {
+      // Run 41088323300: it stayed green, en/de/fr are the legs being rerun.
+      const { gh, calls } = fakeGh({
+        jobs: [
+          { name: 'build-locale (it)', conclusion: 'success', run_attempt: 1 },
+          { name: 'build-locale (en)', conclusion: null, run_attempt: 2 },
+          { name: 'build-locale (de)', conclusion: null, run_attempt: 2 },
+          { name: 'build-locale (fr)', conclusion: null, run_attempt: 2 },
+        ],
+        list: artifactsFor(names({ it: 1, en: 2, de: 2, fr: 2 })),
+      });
+      await exchangeHreflangManifests({ ...base(), ...rerun, gh });
+      expect(written()).toEqual(['de.json', 'en.json', 'it.json']);
+      const downloaded = calls.filter((args) => args[0] === 'run').map((args) => args[args.indexOf('--name') + 1]);
+      expect(downloaded).toEqual(names({ it: 1, en: 2, de: 2 }));
+    });
+
+    it('does not read an earlier attempt of a leg that is running again', async () => {
+      const { gh } = fakeGh({
+        jobs: [
+          { name: 'build-locale (it)', conclusion: 'success', run_attempt: 2 },
+          { name: 'build-locale (en)', conclusion: null, run_attempt: 2 },
+          { name: 'build-locale (de)', conclusion: 'success', run_attempt: 2 },
+          { name: 'build-locale (fr)', conclusion: null, run_attempt: 2 },
+        ],
+        // en published only under attempt 1: that file belongs to the failed try.
+        list: artifactsFor(names({ it: 2, en: 1, de: 2, fr: 2 })),
+      });
+      await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out waiting for en/);
+    });
+
+    it('never reads ahead of the current attempt', async () => {
+      const { gh } = fakeGh({
+        jobs: [{ name: 'build-locale (it)', conclusion: 'success', run_attempt: 3 }],
+        list: artifactsFor(names({ it: 3, en: 2, de: 2, fr: 2 })),
+      });
+      await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out waiting for it/);
+    });
+
+    it('still aborts on a sibling left failed by the rerun', async () => {
+      const { gh } = fakeGh({
+        published: [],
+        jobs: [{ name: 'build-locale (de)', conclusion: 'failure', run_attempt: 1 }],
+      });
+      await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(
+        'same-run hreflang manifest barrier aborted: build-locale (de)',
+      );
+    });
   });
 
   it('holds the barrier until the slowest sibling publishes', async () => {

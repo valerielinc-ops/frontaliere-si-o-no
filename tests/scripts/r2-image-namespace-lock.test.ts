@@ -6,6 +6,7 @@ import { join, resolve } from 'node:path';
 import {
   acquireImageNamespaceLock,
   acquireImageNamespaceLeases,
+  identifiedLeaseOwner,
   classifyReleaseDeadlineRace,
   IMAGE_LOCK_KEY_PREFIX,
   IMAGE_LOCK_RELEASE_RETRY_MS,
@@ -264,6 +265,28 @@ describe('r2-image-namespace-lock', () => {
     expect(polls).toBe(5);
     expect(calls.filter((call) => call.method === 'PUT')).toHaveLength(2);
     expect(calls.filter((call) => call.method === 'GET').length).toBeGreaterThanOrEqual(5);
+  });
+
+  it('names the holder in the timeout, so a lost wait can be traced', async () => {
+    const { request } = fakeR2();
+    const owner = identifiedLeaseOwner('abc', {
+      GITHUB_REPOSITORY: 'owner/repo',
+      GITHUB_RUN_ID: '41160305863',
+      GITHUB_RUN_ATTEMPT: '2',
+    });
+    expect(owner).toBe('owner/repo#41160305863.2:abc');
+    await acquireImageNamespaceLeases(['blog'], { request, owner, timeoutMs: 1_000 });
+
+    await expect(acquireImageNamespaceLeases(['blog'], {
+      request,
+      timeoutMs: 1,
+      sleep: async () => {},
+    })).rejects.toThrow(/timed out waiting for namespace blog \(held by owner\/repo#41160305863\.2:abc, acquired \d{4}-.*Z, expires \d{4}-.*Z\)/);
+  });
+
+  it('keeps a plain owner outside Actions', () => {
+    expect(identifiedLeaseOwner('abc', {})).toBe('abc');
+    expect(identifiedLeaseOwner('abc', { GITHUB_RUN_ID: '1' })).toBe('abc');
   });
 
   it('reconciles a committed image lease when the PUT response is ambiguous', async () => {

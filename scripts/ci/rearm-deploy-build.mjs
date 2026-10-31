@@ -87,6 +87,7 @@ const DEPLOY_WORKFLOW_PATH = '.github/workflows/deploy.yml';
 const DEPLOY_WORKFLOW_NAME = 'Deploy to GitHub Pages';
 const PREPARED_SNAPSHOT_ARTIFACT = 'prepared-snapshot';
 const SHA_RE = /^[0-9a-f]{40}$/i;
+const FAILED_LEG_CONCLUSIONS = new Set(['failure', 'cancelled', 'timed_out']);
 
 function recoverySkip(reason, detail) {
   return { action: 'skip', reason, detail: detail || reason };
@@ -182,6 +183,18 @@ export function decideBuildLocaleRecovery({
   }
 
   const [{ job, classification }] = candidates;
+  // A leg lost before publishing its manifest aborts the others at the hreflang
+  // barrier. Rerunning it alone cannot turn the run green, and would only spend
+  // hours before the same whole-run re-arm that this skip reaches at once.
+  const failedSibling = currentJobs.find((other) => other?.id !== job.id
+    && buildLocaleFromJobName(other?.name)
+    && FAILED_LEG_CONCLUSIONS.has(other?.conclusion));
+  if (failedSibling) {
+    return recoverySkip(
+      'sibling-locale-leg-failed',
+      `${failedSibling.name} also failed, so rerunning only ${job.name} cannot complete the run`,
+    );
+  }
   return {
     action: 'rerun',
     reason: classification.kind,

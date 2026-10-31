@@ -96,6 +96,45 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
     expect(decision.job?.name).toBe('build-locale (de)');
   });
 
+  it('leaves a leg lost alongside failed siblings to the whole-run re-arm', () => {
+    const decision = decideBuildLocaleRecovery({
+      run: RECOVERY_RUN,
+      workflow: RECOVERY_WORKFLOW,
+      jobs: [
+        localeJob(),
+        localeJob({
+          id: 101,
+          name: 'build-locale (en)',
+          steps: [{ number: 40, name: 'Exchange same-run hreflang manifests', status: 'completed', conclusion: 'failure' }],
+        }),
+      ],
+      artifacts: [PREPARED_SNAPSHOT],
+      expectedSha: HEAD,
+      nowMs: RECOVERY_NOW,
+    });
+
+    expect(decision.action).toBe('skip');
+    expect(decision.reason).toBe('sibling-locale-leg-failed');
+    expect(decision.detail).toContain('build-locale (en)');
+  });
+
+  it('still retries one lost leg when the siblings succeeded', () => {
+    const decision = decideBuildLocaleRecovery({
+      run: RECOVERY_RUN,
+      workflow: RECOVERY_WORKFLOW,
+      jobs: [
+        localeJob(),
+        localeJob({ id: 101, name: 'build-locale (en)', conclusion: 'success', steps: [] }),
+        { id: 7, name: 'prep', conclusion: 'failure', status: 'completed' },
+      ],
+      artifacts: [PREPARED_SNAPSHOT],
+      expectedSha: HEAD,
+      nowMs: RECOVERY_NOW,
+    });
+
+    expect(decision.action).toBe('rerun');
+  });
+
   it('does not reinterpret a concluded application failure as host loss', () => {
     const decision = decideBuildLocaleRecovery({
       run: RECOVERY_RUN,
