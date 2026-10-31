@@ -5,6 +5,7 @@ import { revalidatedPortalQuestions, relaxablePortalQuestionTopic, legacyPortalC
 import { buildReviewPayload } from '../functions/src/assistedApplicationReview.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
+import { operationalPortalRecoveryReady } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 
 const now = Date.now();
@@ -41,6 +42,11 @@ function context(store: ReturnType<typeof fixture>, path = base) {
     draft: store.read(`${path}/ai_drafts/current`), submission: store.read(`${path}/automation/submission`) };
 }
 const options = (store: ReturnType<typeof fixture>) => ({ db: store.db, now: () => now, isEnabled: async () => true, probe: async () => proof() });
+
+it('keeps any owner-question hold closed until the safe discovery engine lands', () => {
+  expect(operationalPortalRecoveryReady({ flow: { heldBy: ['question:q1', 'portal:portal_needs_candidate'] } })).toBe(false);
+  expect(operationalPortalRecoveryReady({ flow: { heldBy: ['portal:portal_needs_candidate'] } })).toBe(false);
+});
 
 describe('legacy operational portal contract reconciliation', () => {
   it('updates only proven metadata, hides the optional question and queues the existing approved clock', async () => {
@@ -236,6 +242,22 @@ describe('legacy operational portal contract reconciliation', () => {
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldSince: now + 1, heldBy: [`question:${returned.id}`] });
     expect(await reconcilePortalQuestions({ ...options(store), apply: true })).toMatchObject({ changed: 0, queued: 0 });
     expect(store.read(`${base}/ai_drafts/current`).questions).toEqual([returned]);
+  });
+
+  it('invalidates an optional proof when the current apply URL or round changes', async () => {
+    const store = fixture();
+    await reconcilePortalQuestions({ ...options(store), apply: true });
+    const after = context(store);
+    for (const draft of [
+      { ...after.draft, channel: { applyUrl: 'https://new.example.com/apply/' } },
+      { ...after.draft, round: 2 },
+    ]) {
+      const visible = questionsForCandidate(draft.questions, {}, {}, {}, draft);
+      expect(visible).toHaveLength(1);
+      expect(visible[0].required).toBe(true);
+      expect(transition(after.flow, { type: 'tick' }, { draft, nowMs: now }).effects)
+        .not.toContainEqual(expect.objectContaining({ mode: 'submit' }));
+    }
   });
 
   it('does not hide optional hard or unknown questions without native operational proof', () => {

@@ -92,7 +92,8 @@ export async function reconcilePortalQuestions({ db, apply = false, now = Date.n
           outcome: patch.changed ? 'reconciled' : transient ? 'transient' : 'unknown',
           reason: proof.complete ? patch.reason || 'native_contract_observed' : proof.reason || patch.reason,
           proof: { observedAt: proof.observedAt || stamp, complete: Boolean(proof.complete), stable: Boolean(proof.stable),
-            deniedRequests: proof.deniedRequests || [] },
+            deniedRequests: proof.deniedRequests || [],
+            readOnlyProtocol: proof.readOnlyProtocol || null, publicAssetProof: proof.publicAssetProof || null, guestSessionProof: proof.guestSessionProof || null },
           sourceUrl: portalContractSourceUrl(current.draft),
           relaxedQuestionKeys: [...new Set([...(sameClass ? prior.relaxedQuestionKeys || [] : []), ...relaxed])],
           nextAttemptAt: transient && attempts < 3 ? stamp + RETRY_MS[attempts - 1] : null };

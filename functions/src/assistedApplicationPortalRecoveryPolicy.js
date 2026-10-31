@@ -26,5 +26,5 @@ export function portalRecoveryDefinitelyUnsent({ order, flow, draft, submission 
 export function operationalPortalRecoveryReady({ flow }) {
   // PR #16143 supplies the strict readiness and native-control guards. Until
   // then this lane stays held even if an optional referral marker is fixed.
-  return flow?.heldBy?.[0] !== 'portal:portal_needs_candidate';
+  return !flow?.heldBy?.includes('portal:portal_needs_candidate');
 }

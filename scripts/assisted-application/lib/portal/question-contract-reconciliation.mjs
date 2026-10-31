@@ -32,7 +32,7 @@ export function relaxablePortalQuestionTopic(question) {
   return topics.length && topics[0] && topics.every(topic => topic === topics[0]) ? topics[0] : null;
 }
 export const portalContractContextHash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
-export const portalContractSourceUrl = draft => String(draft?.channel?.applyUrl || draft?.job?.applyUrl || '').trim();
+export const portalContractSourceUrl = draft => { try { return new URL(String(draft?.channel?.applyUrl || draft?.job?.applyUrl || '').trim()).href; } catch { return ''; } };
 export const portalContractQuestionKey = question => text(question?.applicationQuestion).toLowerCase();
 
 function ownerPortalQuestionHold(flow) {
@@ -114,7 +114,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
       type: contract.type, options: contract.options, applicationOptions: contract.applicationOptions || [],
       optionMap: contract.optionMap || [], validation: contract.validation, required: field.required,
       portalNativeContract: {
-        version: PORTAL_CONTRACT_RECONCILIATION_VERSION, observedAt: proof.observedAt, url: proof.url,
+        version: PORTAL_CONTRACT_RECONCILIATION_VERSION, round: Number(draft.round), observedAt: proof.observedAt, url: proof.url,
         fieldId: field.id, frame: field.frame, label: field.label, kind: field.kind,
         form: field.form, topic: relaxablePortalQuestionTopic(question), requiredEvidence: field.explicitlyOptional ? 'aria-required:false' : 'required',
         context: text(field.context).slice(0, 240), section: text(field.section).slice(0, 240), required: field.required,

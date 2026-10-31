@@ -1,0 +1,2 @@
+// Public cookieless tracking transport; no candidate/request values.
+export const observationalBeaconSender = `function bi(dU,dX,dW){var dS=aT();if(!dS){return false}var dT={type:"application/x-www-form-urlencoded; charset=UTF-8"};var dY=false;var dR=aM;try{var dQ=new Blob([dU],dT);if(dW&&!c6(dU)){dQ=new Blob([],dT);dR=dR+(dR.indexOf("?")<0?"?":"&")+dU}dY=g.sendBeacon(dR,dQ)}catch(dV){return false}if(dY&&typeof dX==="function"){dX({request:dU,trackerUrl:aM,success:true,isSendBeacon:true})}cL();return dY}`;

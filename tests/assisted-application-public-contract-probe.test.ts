@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { EventEmitter } from 'node:events';
+import { runInNewContext } from 'node:vm';
 import { Readable } from 'node:stream';
 import { publicContractGet } from '../scripts/assisted-application/lib/portal/public-contract-get.mjs';
 import { readOnlyPortalContracts } from '../scripts/assisted-application/lib/portal/read-only-contracts.mjs';
@@ -77,6 +78,12 @@ describe('public contract transport', () => {
     expect(fixture.requests).toHaveLength(1);
   });
 
+  it('does not issue a second GET for an exact bootstrap asset redirect', async () => {
+    const fixture = transport([{ status: 302, headers: { location: 'https://public.example.com/action?save=1' } }]);
+    await expect(publicContractGet(url, { resolve, requestImpl: fixture.request, followRedirects: false })).rejects.toThrow('contract_redirect_not_allowed');
+    expect(fixture.requests).toHaveLength(1);
+  });
+
   it('rejects mixed public/private DNS results and credentials without a connection', async () => {
     const fixture = transport([]);
     await expect(publicContractGet(url, { resolve: async () => [{ address: '93.184.216.34', family: 4 }, { address: '10.0.0.1', family: 4 }], requestImpl: fixture.request })).rejects.toThrow('contract_dns_unsafe');
@@ -139,6 +146,23 @@ describe('read-only browser boundary', () => {
     })();
   });
 
+  it('canonicalizes a root apply URL before requesting or comparing the public document', async () => {
+    const canonical = 'https://jobs.example.com/';
+    const get = vi.fn(async (_url: string) => ({ status: 200, url: canonical, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form></form>') }));
+    const result = await readOnlyPortalContracts({ applyUrl: 'https://jobs.example.com', get, timeoutMs: 100 });
+    expect(get.mock.calls[0][0]).toBe(canonical);
+    expect(result.reason).not.toBe('redirected_form_unknown');
+  });
+
+  it('does not treat an arbitrary .js GET as an attested public asset', async () => {
+    const request = { method: () => 'GET', isNavigationRequest: () => false, resourceType: () => 'script', url: () => 'https://other.example.com/action.js' };
+    const fixture = browserFixture([request]);
+    const get = vi.fn(async () => ({ status: 200, url, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form>public</form>') }));
+    expect((await readOnlyPortalContracts({ applyUrl: url, launch: async () => fixture.browser, get })).complete).toBe(false);
+    expect(get).toHaveBeenCalledTimes(1);
+    expect(fixture.aborts).toHaveLength(1);
+  });
+
   it('does not send arbitrary GET APIs while reading a form', async () => {
     const request = { method: () => 'GET', isNavigationRequest: () => false, resourceType: () => 'fetch', url: () => `${url}api/action/` };
     const fixture = browserFixture([request]);
@@ -148,7 +172,7 @@ describe('read-only browser boundary', () => {
     expect(fixture.aborts).toHaveLength(1);
   });
 
-  it.each(['read', 'close'])('does not return a complete proof when a blocked request arrives during the final %s', async when => {
+  it.each(['read', 'close', 'late_marker'])('does not return a complete proof when a blocked request arrives during the final %s', async when => {
     const fixture = browserFixture([]);
     const frame: any = { url: () => url, evaluate: async () => ({ url, fields: [
       { id: 'source', frame: 0, form: 0, kind: 'select', label: 'Recruitment source', required: false, options: [{ label: 'Website' }] },
@@ -156,7 +180,7 @@ describe('read-only browser boundary', () => {
     ], buttons: [], text: 'Example Motors', errors: [], captcha: false, passwordVisible: false }) };
     fixture.page.frames = () => [frame];
     fixture.page.mainFrame = () => frame;
-    fixture.page.evaluate = async () => [{ id: 'source', explicitlyOptional: true, nativeRequired: false }];
+    fixture.page.evaluate = async (fn: any) => String(fn).includes('window.__portalNativeContractChanged === true') ? when === 'late_marker' : [{ id: 'source', explicitlyOptional: true, nativeRequired: false }];
     fixture.page.waitForTimeout = async () => {};
     const denied = { method: () => 'POST', isNavigationRequest: () => false, url: () => `${url}timezone/` };
     fixture.page.locator = () => ({ innerText: async () => {
@@ -167,6 +191,41 @@ describe('read-only browser boundary', () => {
     const result = await readOnlyPortalContracts({ applyUrl: url, job: { company: 'Example Motors' }, launch: async () => fixture.browser,
       get: async () => ({ status: 200, url, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form>public</form>') }) });
     expect(result.complete).toBe(false);
-    expect(result.deniedRequests).toHaveLength(1);
+    if (when === 'late_marker') expect(result.reason).toBe('native_contract_unstable');
+    else expect(result.deniedRequests).toHaveLength(1);
   });
+});
+
+it.each(['cmp_cosmetic', 'employer_required', 'employer_removed', 'external_reassigned', 'external_removed'])('observes the native application form, including changes after its marker snapshot: %s', async kind => {
+  const fixture = browserFixture([]);
+  const nativeFields = [
+    { id: 'source', frame: 0, form: 0, kind: 'select', label: 'Recruitment source', required: false, options: [{ label: 'Website' }] },
+    { id: 'cv', frame: 0, form: 0, kind: 'file', inputType: 'file', label: 'CV', required: true },
+  ];
+  const frame: any = { url: () => url, evaluate: async () => ({ url, fields: nativeFields, buttons: [], text: 'Example Motors', errors: [], captcha: false, passwordVisible: false }) };
+  const form: any = { contains: (node: any) => node === form || (!kind.startsWith('external_') && node === control) };
+  const control: any = { form, getAttribute: () => 'source' };
+  const body: any = { contains: (node: any) => node === form };
+  const cosmetic = { contains: () => false };
+  const state: any = { __portalContractProbeNativeChanged: async () => {} };
+  const MutationObserver = class {
+    constructor(private callback: any) {}
+    observe() {
+      if (kind.startsWith('external_')) control.form = null;
+      this.callback([['employer_required', 'external_reassigned'].includes(kind)
+      ? { type: 'attributes', target: control, attributeName: kind === 'external_reassigned' ? 'form' : 'required' }
+      : { type: 'childList', target: body, addedNodes: kind === 'cmp_cosmetic' ? [cosmetic] : [], removedNodes: kind === 'employer_removed' ? [form] : kind === 'external_removed' ? [control] : [] }]); }
+  };
+  fixture.page.frames = () => [frame]; fixture.page.mainFrame = () => frame;
+  fixture.page.waitForTimeout = async () => {};
+  fixture.page.locator = () => ({ innerText: async () => 'Example Motors' });
+  fixture.page.evaluate = async (fn: any, ids: any) => {
+    if (String(fn).includes('new MutationObserver')) return runInNewContext(`(${fn.toString()})(ids)`, { window: state, ids, document: { querySelectorAll: () => [control], documentElement: {} }, MutationObserver });
+    if (String(fn).includes('window.__portalNativeContractChanged === true')) return state.__portalNativeContractChanged;
+    return [{ id: 'source', explicitlyOptional: true, nativeRequired: false }];
+  };
+  const proof = await readOnlyPortalContracts({ applyUrl: url, job: { company: 'Example Motors' }, launch: async () => fixture.browser,
+    get: async () => ({ status: 200, url, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form>public</form>') }) });
+  expect(proof.complete).toBe(kind === 'cmp_cosmetic');
+  if (kind !== 'cmp_cosmetic') expect(proof.reason).toBe('native_contract_unstable');
 });
