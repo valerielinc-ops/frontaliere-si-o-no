@@ -2,9 +2,9 @@
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { CONFIRM_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
-// Match a complete final segment: /review, /application/review and the
-// combined Avature segment /ApplicationReview.
-const REVIEW_PATH_RE = /(?:^|\/)(?:application\/|application)?(?:review|preview|summary)\/?$/i;
+// Match the complete route relative to the proved source directory, never a
+// suffix under an unknown parent such as ApplicationSave/ApplicationReview.
+const REVIEW_PATH_RE = /^(?:application\/|application)?(?:review|preview|summary)\/?$/i;
 const PROFILE_CONTINUATION_RE = /(?:already submitted your personal information|(?:account|profile|personal information) (?:has been |was |is )?(?:created|saved|updated)).{0,300}(?:application|apply|review|continue)/i;
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
@@ -38,6 +38,21 @@ function boundRoute(value, applyUrl, sourceProtocol = null) {
   const namespace = avaturePortalDirectory(applyUrl, sourceProtocol);
   return Boolean(url && expected && url.protocol === 'https:' && url.origin === expected.origin
     && (!namespace || url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1) === namespace) && key && portalJobKey(value) === key);
+}
+
+function reviewNavigationRoute(value, applyUrl, sourceProtocol) {
+  if (!boundRoute(value, applyUrl, sourceProtocol)) return false;
+  const target = parsed(value);
+  const source = parsed(applyUrl);
+  if (target.username || target.password || source.username || source.password) return false;
+  // An attested namespace stays exact through boundRoute. Without protocol,
+  // keep direct source-directory routes and the existing root application/
+  // owned-link case; do not infer another tenant's child namespace.
+  const directory = avaturePortalDirectory(applyUrl, sourceProtocol)
+    || source.pathname.slice(0, source.pathname.lastIndexOf('/') + 1);
+  const route = target.pathname.slice(directory.length);
+  return target.pathname.startsWith(directory) && (directory === '/' || !/^application\//i.test(route))
+    && REVIEW_PATH_RE.test(route);
 }
 
 function normalized(value) {
@@ -100,8 +115,8 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   if (finalReview) return { kind: 'final_review' };
   const pending = PROFILE_CONTINUATION_RE.test(text) || BEFORE_SEND_RE.test(text);
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
-    && boundRoute(url, applyUrl, sourceProtocol) && boundRoute(button.href, applyUrl, sourceProtocol)
-    && REVIEW_PATH_RE.test(parsed(button.href)?.pathname || '') && !parsed(button.href)?.hash
+    && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)
+    && !parsed(button.href)?.hash
     && [...parsed(button.href).searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))
     && button.href !== url);
   if (pending && links.length === 1 && !(snapshot?.fields || []).some(field => !field.disabled && !['hidden', 'submit', 'button'].includes(field.inputType))) return { kind: 'review_navigation', control: links[0], destination: links[0].href };

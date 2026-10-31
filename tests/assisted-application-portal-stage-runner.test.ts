@@ -70,6 +70,16 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
+  it.each(['ApplicationSave/ApplicationReview', 'Unknown/ApplicationReview', 'Save/application/review'])('never navigates an owned review suffix beneath an unproved parent: %s', async path => {
+    const target = `https://careers.example/Careers/${path}?jobId=42`;
+    const f = fixture({ ...profile, buttons: [{ id: 'navigation', text: 'Apply', href: target }] });
+    const result = await f.run();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.page.goto).not.toHaveBeenCalledWith(target, expect.anything());
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('uses captured protocol for a slug/path posting and guards only the review commit', async () => {
     const postingUrl = 'https://careers.example/Careers/JobDetail/Infrastructure-Strategy-Manager/42';
     const markup = (page: string) => `<meta name="avature.portal.id" content="87"><meta name="avature.portal.urlPath" content="Careers"><meta name="avature.portal.page" content="${page}"><portal-data id="synapserBootstrap" data-applicationName="customPortal" data-applicationCode="customPortal_87"></portal-data>`;

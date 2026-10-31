@@ -41,6 +41,43 @@ describe('primary Avature protocol and posting namespace', () => {
     expect(safeSigninAction(`${origin}/application/login?jobId=71825`, source, sourceProtocol)).toBe(true);
   });
 
+  it.each([
+    ['/ApplicationReview', 'review_navigation'],
+    ['/application/review', 'review_navigation'],
+    ['/APPLICATION/Preview', 'review_navigation'],
+    ['/ApplicationSave/ApplicationReview', 'unknown_apply'],
+    ['/Unknown/ApplicationReview', 'unknown_apply'],
+    ['/Save/application/review', 'unknown_apply'],
+    ['/application/application/review', 'unknown_apply'],
+    ['/application/Unknown/review', 'unknown_apply'],
+    ['/application%2Freview', 'unknown_apply'],
+    ['/Unknown%5cApplicationReview', 'unknown_apply'],
+  ])('requires a complete owned review route rather than an arbitrary suffix: %s', (path, kind) => {
+    const target = `https://ats.test${path}?jobid=x`;
+    expect(applicationStage({ text: 'Your profile has been saved. Continue to review', fields: [], buttons: [{ text: 'Apply', href: target }] },
+      { url: 'https://ats.test/profile?jobid=x', applyUrl: 'https://ats.test/job?jobid=x' }).kind).toBe(kind);
+  });
+
+  it.each([
+    ['ApplicationReview', 'review_navigation'],
+    ['application/review', 'unknown_apply'],
+    ['ApplicationSave/ApplicationReview', 'unknown_apply'],
+  ])('keeps a tenant source directory exact without inventing child namespaces: %s', (path, kind) => {
+    const target = `https://ats.test/Tenant/${path}?jobid=x`;
+    expect(applicationStage({ text: 'Your profile has been saved. Continue to review', fields: [], buttons: [{ text: 'Apply', href: target }] },
+      { url: 'https://ats.test/Tenant/profile?jobid=x', applyUrl: 'https://ats.test/Tenant/job?jobid=x' }).kind).toBe(kind);
+  });
+
+  it.each([
+    'https://ats.test/TenantOther/ApplicationReview?jobid=x',
+    'https://user:pass@ats.test/Tenant/ApplicationReview?jobid=x',
+    'https://ats.test/Tenant/ApplicationReview?jobid=x#apply',
+    'https://ats.test/Tenant/ApplicationReview?jobid=x&action=submit',
+  ])('rejects a neighboring directory, userinfo, fragment or action query: %s', target => {
+    expect(applicationStage({ text: 'Your profile has been saved. Continue to review', fields: [], buttons: [{ text: 'Apply', href: target }] },
+      { url: 'https://ats.test/Tenant/profile?jobid=x', applyUrl: 'https://ats.test/Tenant/job?jobid=x' }).kind).toBe('unknown_apply');
+  });
+
   it('binds a slug/path posting to a query-based review through captured metadata', async () => {
     const ctx = await context();
     expect(ctx.sourceProtocol).toMatchObject({ vendor: 'avature', portalId: '87', namespace, page: 'JobDetail' });
@@ -81,6 +118,10 @@ describe('primary Avature protocol and posting namespace', () => {
     }
     expect(verificationTarget({ ...ctx, evidence: { finalUrl: `${origin}${namespace}/ApplicationSave/ApplicationReview?jobId=71825` } })).toBeNull();
     expect(safeSigninAction(`${origin}${namespace}/ApplicationSave/Login?jobId=71825`, applyUrl, ctx.sourceProtocol)).toBe(false);
+    for (const route of ['ApplicationSave/ApplicationReview', 'application/review']) {
+      expect(applicationStage({ ...profile, protocol: await portalProtocolFromHtml(html('ApplicationConfirmation'), profileUrl),
+        buttons: [{ text: 'Apply', href: `${origin}${namespace}/${route}?jobId=71825` }] }, ctx).kind).toBe('unknown_apply');
+    }
   });
 
   it.each(['&JOBID=999', '&jobId=71825', '&postingId=bad', '&jobId=%20'])('never borrows title instructions for ambiguous job identity: %s', async suffix => {
