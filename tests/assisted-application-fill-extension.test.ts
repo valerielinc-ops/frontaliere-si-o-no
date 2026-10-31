@@ -1346,6 +1346,32 @@ describe('fill extension: shared privacy-reading acknowledgement', () => {
     expect(F.answerFor({ ...entry, question: label, applicationQuestion: 'Country of residence' }, kit)).toBe(null);
   });
 
+  it('fails closed when the injected field reader truncates contradictory privacy metadata', () => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const longEmailLabel = 'x'.repeat(296) + ' Email';
+    const { window, document, F } = page('<label for="privacyAck">' + label
+      + '</label><input id="privacyAck" type="checkbox" aria-label="' + longEmailLabel + '" required>');
+    nativeFieldReading(window);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(entry.label).toBe(label);
+    expect(entry.privacyMetadata).toMatchObject({ ariaLabel: 'x'.repeat(296) + ' Ema', privacyMetadataIncomplete: true });
+    const markerOnlyEntry = { ...entry, labels: [label] };
+    expect(F.answerFor({ ...markerOnlyEntry, privacyMetadata: { ...entry.privacyMetadata, privacyMetadataIncomplete: false } }, kit)).toEqual({ check: true });
+    expect(F.answerFor(markerOnlyEntry, kit)).toBe(null);
+    window.close();
+  });
+
+  it('reads contradictory privacy metadata directly when the injected reader is unavailable', () => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const { window, document, F } = page('<label for="privacyAck">' + label
+      + '</label><input id="privacyAck" type="checkbox" aria-description="Email" required>');
+    expect((window as any).CompilaRunnerFields).toBeUndefined();
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(entry.privacyMetadata).toMatchObject({ ariaDescription: 'Email' });
+    expect(F.answerFor(entry, kit)).toBe(null);
+    window.close();
+  });
+
   it.each(['false', 'No'])('does not overwrite an explicit negative privacy answer: %s', answer => {
     const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
     const { document, F } = page(`<label><input id="privacyAck" type="checkbox"> ${label}</label>`);

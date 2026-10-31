@@ -698,6 +698,44 @@
     return entries.map(entry => {
       const id = entry.element.getAttribute('data-aa-id');
       const field = runner.get(id);
+      const privacyMetadata = {};
+      if (entry.kind === 'checkbox') {
+        const rawText = value => String(value || '').replace(/\s+/g, ' ').trim();
+        const rawTextOf = referenceId => {
+          const referenced = doc.getElementById(referenceId);
+          return referenced ? rawText(referenced.innerText || referenced.textContent) : '';
+        };
+        const element = entry.element;
+        const ariaLabelText = rawText(element.getAttribute('aria-label'));
+        const ariaDescriptionText = rawText(element.getAttribute('aria-description'));
+        const titleText = rawText(element.getAttribute('title'));
+        const placeholderText = rawText(element.getAttribute('placeholder'));
+        const referenceAttributes = ['aria-labelledby', 'aria-describedby', 'aria-details'];
+        const referenceIds = referenceAttributes.flatMap(attribute => (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean));
+        const referenceTexts = referenceIds.map(rawTextOf);
+        const description = ['aria-describedby', 'aria-details'].flatMap(attribute =>
+          (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean).map(rawTextOf)).filter(Boolean).join(' ');
+        const associatedLabels = [...(element.labels || [])].map(node => rawText(node.innerText || node.textContent)).filter(Boolean);
+        const labels = [
+          ...(Array.isArray(field?.labels) ? field.labels : []),
+          ...associatedLabels, ...referenceTexts,
+          ariaLabelText, ariaDescriptionText, titleText, placeholderText,
+        ].map(rawText).filter(Boolean);
+        const uniqueLabels = [...new Set(labels.map(value => value.slice(0, 300)))];
+        for (const [key, value] of Object.entries({
+          ariaLabel: field?.ariaLabel || ariaLabelText,
+          ariaDescription: field?.ariaDescription || ariaDescriptionText,
+          title: field?.title || titleText,
+          placeholder: field?.placeholder || placeholderText,
+          description: field?.description || description,
+        })) if (typeof value === 'string' && value) privacyMetadata[key] = value.slice(0, 600);
+        if (uniqueLabels.length) privacyMetadata.labels = uniqueLabels.slice(0, 12);
+        const rawMetadata = [ariaLabelText, ariaDescriptionText, titleText, placeholderText,
+          ...associatedLabels, ...referenceTexts, ...(Array.isArray(field?.labels) ? field.labels : []),
+          ...referenceAttributes.map(attribute => element.getAttribute(attribute) || '')];
+        if (field?.privacyMetadataIncomplete === true || rawMetadata.some(value => rawText(value).length >= 300)
+          || description.length > 600 || uniqueLabels.length > 12) privacyMetadata.privacyMetadataIncomplete = true;
+      }
       const malformedAddressOwner = Object.hasOwn(field || {}, 'addressContext')
         && !validAddressContext(field.addressContext)
         && addressEntryNeedsOwnership({ ...entry, label: field.label || entry.label, addressContext: field.addressContext });
@@ -712,6 +750,7 @@
         return { ...entry, label: '', labels: [], section: null, purposeScopes: null, nativeContractUnavailable: true };
       }
       return { ...entry, ...(field?.consentOwnershipUnknown === true ? { consentOwnershipUnknown: true } : {}),
+        ...(Object.keys(privacyMetadata).length ? { privacyMetadata } : {}),
         section: purpose === null ? null : purpose.section, purposeScopes: purpose === null ? null : purpose.scopes,
         context: field?.context || '', nativeSection: field?.section || '',
         ...(Object.hasOwn(field || {}, 'addressContext') ? { addressContext: field.addressContext } : {}) };
@@ -982,6 +1021,7 @@
       const attr = name => element?.getAttribute?.(name) || '';
       const privacyMetadata = {
         ...entry,
+        ...(entry.privacyMetadata && typeof entry.privacyMetadata === 'object' ? entry.privacyMetadata : {}),
         name: entry.name || attr('name'),
         autocomplete: entry.autocomplete || attr('autocomplete'),
         domId: entry.domId || element?.id || attr('id'),

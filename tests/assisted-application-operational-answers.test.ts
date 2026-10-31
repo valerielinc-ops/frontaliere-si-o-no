@@ -343,6 +343,11 @@ describe('scope, languages and actual field options', () => {
   it.each([
     ['country control', { controlId: 'country-of-residence' }],
     ['work permit semantic', { semanticId: 'workpermit' }],
+    ['email aria label', { ariaLabel: 'Email' }],
+    ['supplemental email label', { labels: ['Email'] }],
+    ['incomplete accessible metadata', { privacyMetadataIncomplete: true }],
+    ['Italian mobile semantic', { semanticId: 'cellulare' }],
+    ['postal address name', { name: 'residence_address' }],
   ])('rejects a native optional privacy contract with a factual identifier: %s', (_name, identifiers) => {
     const label = REAL_ENGLISH_PRIVACY_ACK;
     const question = {

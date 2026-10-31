@@ -1261,6 +1261,21 @@ export function sendsApplication(snapshot) {
   return (snapshot.buttons || []).some((button) => SUBMIT_RE.test(button.text) && NAMES_APPLICATION_RE.test(button.text));
 }
 
+/** Bounded accessible-control metadata that the consent guard needs after question reduction. */
+const portalQuestionMetadata = field => {
+  const metadata = {};
+  for (const key of ['ariaLabel', 'ariaDescription', 'title', 'placeholder', 'description']) {
+    const value = String(field?.[key] || '').trim();
+    if (value) metadata[key] = value.slice(0, 600);
+  }
+  const labels = Array.isArray(field?.labels)
+    ? [...new Set(field.labels.filter(value => typeof value === 'string').map(value => value.trim()).filter(Boolean))].slice(0, 12)
+    : [];
+  if (labels.length) metadata.labels = labels.map(value => value.slice(0, 600));
+  if (field?.privacyMetadataIncomplete === true) metadata.privacyMetadataIncomplete = true;
+  return metadata;
+};
+
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
 function questionsFrom(missingRequired) {
   const questions = [];
@@ -1286,6 +1301,7 @@ function questionsFrom(missingRequired) {
       ...(item.section ? { section: String(item.section).slice(0, 240) } : {}),
       ...(item.autocomplete ? { autocomplete: String(item.autocomplete).slice(0, 100) } : {}),
       ...addressMetadata(item),
+      ...portalQuestionMetadata(item),
       why: item.why || '',
       type: item.type,
       options,
@@ -1701,7 +1717,8 @@ export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = nu
   const reviewCandidate = field => field.kind === 'checkbox' && (field.required || ownConsent(field)
     || PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
   const reviewFields = dialogFields.filter((field) => reviewCandidate(field)
-    && !ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete) && ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId));
+    && !ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete)
+    && ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId, field));
   const candidateTokens = new Set([
     ...reviewFields.map(dialogToken),
     ...dialogButtons.map(dialogToken),
@@ -1712,7 +1729,7 @@ export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = nu
     const buttonsInDialog = dialogButtons.filter((button) => dialogToken(button) === token && !optionalNotice(button));
     // An enabled Accept must not bypass an unrecognised factual or negated review box.
     const unknownReview = dialogFields.some((field) => dialogToken(field) === token && reviewCandidate(field)
-      && !ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId)
+      && !ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId, field)
       && (!ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete) || !review || field.required));
     return { token, review, reviews, accept: unknownReview ? null : findButton(buttonsInDialog, PRIVACY_ACCEPT_RE, { includeDisabled: true }) };
   });
@@ -3233,6 +3250,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         fieldId: field.id,
         question: String(field.label).trim(),
         applicationQuestion: String(field.label).trim(),
+        ...portalQuestionMetadata(field),
         ...(field.context ? { context: field.context } : {}),
         ...(field.section ? { section: field.section } : {}),
         ...(field.autocomplete ? { autocomplete: field.autocomplete } : {}),
@@ -3516,6 +3534,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
         readable.push({
           ...item,
           applicationQuestion,
+          ...portalQuestionMetadata(field),
           type,
           validation: field && (type !== item.type || ['choice', 'yes_no'].includes(type)) ? {} : item.validation,
           required: true,
