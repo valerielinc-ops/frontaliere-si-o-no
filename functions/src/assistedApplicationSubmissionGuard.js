@@ -16,6 +16,7 @@
  *   release   the send failed for certain: a later run may try again
  */
 
+import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
 export const SUBMISSION_DOC_ID = 'submission';
@@ -43,6 +44,15 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const flowRef = orderRef.collection('automation').doc('flow');
   const key = `r${Number(round) || 1}`;
+  let claimedAttemptId = null;
+  const requireOwnClaim = (submission, channel) => {
+    const current = submission?.[key];
+    if (current?.state === 'sent') throw Object.assign(new Error('submission_already_sent'), { code: 'submission_already_sent', record: current });
+    if (!claimedAttemptId || current?.state !== 'sending' || current.attemptId !== claimedAttemptId
+      || current.channel !== channel || current.clickedAt) {
+      throw Object.assign(new Error('submission_claim_changed'), { code: 'submission_claim_changed' });
+    }
+  };
   return {
     async read() {
       return (await ref.get()).data()?.[key] || null;
@@ -54,6 +64,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
      */
     async claim(channel, nowMs = Date.now(), { resumable = false } = {}) {
       let outcome = null;
+      const attemptId = randomUUID();
       await db.runTransaction(async (transaction) => {
         const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
           transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
@@ -72,7 +83,8 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
           outcome = { status: 'in_flight', record: current };
           return;
         }
-        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null } }, { merge: true });
+        transaction.set(ref, { [key]: { state: 'sending', channel, attemptId, startedAt: nowMs, clickedAt: null } }, { merge: true });
+        claimedAttemptId = attemptId;
         outcome = { status: 'claimed', resumed: current?.state === 'sending' };
       });
       return outcome;
@@ -94,12 +106,12 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
     /** Immediately before SMTP/provider handoff; this is not a portal click. */
     async markEmailSending(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard } = {}) {
       await db.runTransaction(async transaction => {
+        const submissionDoc = await transaction.get(ref);
+        requireOwnClaim(submissionDoc.data(), 'email');
         if (currentAnswerSourceGuard) await currentAnswerSourceGuard.assertInTransaction(transaction);
-        const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
-          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
-        ]);
+        const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') throw new Error('application_withdrawn');
-        transaction.set(ref, { [key]: { state: 'sending', channel: 'email', startedAt: nowMs } }, { merge: true });
+        transaction.set(ref, { [key]: { startedAt: nowMs } }, { merge: true });
       });
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
@@ -107,10 +119,10 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       await db.runTransaction(async transaction => {
         // All proof dependencies are reread in the same transaction as the
         // irreversible-send marker, before any write or external send.
+        const submissionDoc = await transaction.get(ref);
+        requireOwnClaim(submissionDoc.data(), 'portal');
         if (currentAnswerSourceGuard) await currentAnswerSourceGuard.assertInTransaction(transaction);
-        const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
-          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
-        ]);
+        const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
           throw new Error('application_withdrawn');
         }
@@ -121,7 +133,12 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
     },
     async release(reason, nowMs = Date.now()) {
-      await ref.set({ [key]: { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs } }, { merge: true });
+      return db.runTransaction(async transaction => {
+        const current = (await transaction.get(ref)).data()?.[key];
+        if (!claimedAttemptId || current?.state !== 'sending' || current.attemptId !== claimedAttemptId) return false;
+        transaction.set(ref, { [key]: { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs } }, { merge: true });
+        return true;
+      });
     },
   };
 }

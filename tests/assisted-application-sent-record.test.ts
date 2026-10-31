@@ -200,6 +200,30 @@ const pageSize = async (bytes: Buffer, index: number) => {
 const names = (sendCascade: any) => attachmentsOf(sendCascade).map((item) => item.filename);
 
 describe('what leaves by e-mail, and the record of it', () => {
+  it.each(['email', 'portal'])('replays concurrent SENT before the %s handoff and preserves its receipt and attempt', async channel => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const sendCascade = delivered();
+    let finalClicks = 0;
+    const keepSentAttempt = vi.fn(async (attempt: unknown) => {
+      if (attempt) await guard.markSent({ channel: channel === 'portal' ? 'lever' : 'email', messageId: 'concurrent-real-send' }, NOW);
+    });
+    const portalRunner = vi.fn(async ctx => {
+      await ctx.onBeforeSubmit({ uploads: [] });
+      finalClicks++;
+      return { event: { type: 'submit_succeeded' }, evidence: {} };
+    });
+    const event = await submit({ draft: draftFor(channel === 'portal' ? { channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } } : {}),
+      sendCascade, keepSentAttempt, submissionGuard: guard, codex: vi.fn(), portalRunner });
+    expect(event).toMatchObject({ type: 'submit_succeeded', replayed: true });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(finalClicks).toBe(0);
+    expect(keepSentAttempt.mock.calls.every(([attempt]) => attempt !== null)).toBe(true);
+    expect(store.read(`${BASE}/automation/submission`).r1).toMatchObject({ state: 'sent', messageId: 'concurrent-real-send' });
+    expect(await guard.release('stale callback cleanup')).toBe(false);
+    expect(store.read(`${BASE}/automation/submission`).r1.state).toBe('sent');
+  });
+
   it('never sends a legacy email draft without a current document witness and requests bounded repair', async () => {
     const sendCascade = delivered();
     const store = createMemoryFirestore({});

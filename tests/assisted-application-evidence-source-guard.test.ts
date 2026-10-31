@@ -42,9 +42,37 @@ describe('current answer source fence before irreversible send', () => {
     await guard.markClicked(2, { answerSourceGuard: { assertInTransaction: async tx => {
       await tx.get(store.db.collection('user_cv_profiles').doc('fixture'));
     } } });
-    expect(steps[0]).toBe('read:user_cv_profiles/fixture');
+    expect(steps[0]).toBe(`read:${base}/automation/submission`);
+    expect(steps).toContain('read:user_cv_profiles/fixture');
     expect(steps.at(-1)).toBe('write');
     expect(steps.slice(0, -1).every(step => step.startsWith('read:'))).toBe(true);
     expect(store.read(`${base}/automation/submission`).r1.clickedAt).toBe(2);
   });
+
+  it.each(['email', 'portal'])('never overwrites a concurrent SENT receipt or clears it from a stale %s attempt', async channel => {
+    const store = fixture();
+    const sourceGuard = { assertInTransaction: vi.fn(async () => { throw new Error('must replay SENT before source eligibility'); }) };
+    const guard = submissionGuard(store.db, 'source_guard_fixture', 1, { answerSourceGuard: sourceGuard });
+    await guard.claim(channel, 1);
+    await guard.markSent({ channel, messageId: 'acknowledged-real-send' }, 2);
+    await expect(channel === 'email' ? guard.markEmailSending(3) : guard.markClicked(3)).rejects.toMatchObject({ code: 'submission_already_sent' });
+    expect(await guard.release('stale attempt cleanup', 4)).toBe(false);
+    expect(store.read(`${base}/automation/submission`).r1).toMatchObject({ state: 'sent', messageId: 'acknowledged-real-send', sentAt: 2, clickedAt: null });
+    expect(sourceGuard.assertInTransaction).not.toHaveBeenCalled();
+  });
+
+  it('rejects an older resumable portal claim when a new attempt owns the ledger', async () => {
+    const store = fixture();
+    const old = submissionGuard(store.db, 'source_guard_fixture', 1);
+    const fresh = submissionGuard(store.db, 'source_guard_fixture', 1);
+    await old.claim('portal', 1);
+    await fresh.claim('portal', 2, { resumable: true });
+    const current = structuredClone(store.read(`${base}/automation/submission`));
+    await expect(old.markClicked(3)).rejects.toMatchObject({ code: 'submission_claim_changed' });
+    expect(await old.release('stale cleanup', 4)).toBe(false);
+    expect(store.read(`${base}/automation/submission`)).toEqual(current);
+    await fresh.markClicked(5);
+    expect(store.read(`${base}/automation/submission`).r1.clickedAt).toBe(5);
+  });
+
 });

@@ -205,16 +205,19 @@ export function portalUploads(evidence) {
   return out;
 }
 
+function replayedSubmission(record = {}, channel, nowMs = Date.now()) {
+  return { type: 'submit_succeeded', channel: record.channel || channel, replayed: true,
+    ...(record.to ? { followup: { to: record.to, subject: record.subject || '', messageId: record.messageId || '', sentAt: record.sentAt || nowMs } } : {}),
+    ...(record.sent ? { sent: record.sent } : {}) };
+}
+
 export async function submitApplication(ctx) {
   const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
   const nowMs = ctx.nowMs || Date.now();
   if (!ctx.dryRun && ctx.submissionGuard?.inspect) {
     const previous = await ctx.submissionGuard.inspect();
     if (previous.status === 'already_sent') {
-      const record = previous.record || {};
-      return { type: 'submit_succeeded', channel: record.channel || draft.channel?.type, replayed: true,
-        ...(record.to ? { followup: { to: record.to, subject: record.subject || '', messageId: record.messageId || '', sentAt: record.sentAt || nowMs } } : {}),
-        ...(record.sent ? { sent: record.sent } : {}) };
+      return replayedSubmission(previous.record, draft.channel?.type, nowMs);
     }
     if (previous.status === 'in_flight') return { type: 'submit_failed', error: previous.record?.channel === 'email' ? 'email_ambiguous' : 'portal_ambiguous' };
     if (previous.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
@@ -223,7 +226,7 @@ export async function submitApplication(ctx) {
     answerEvidence: ctx.answerEvidence || [], flow });
   if (!hasVerifiedQualificationAssessment({ requirements: draft.requirementsRaw, match: draft.qualificationMatch, entailment: draft.entailment })
     || !qualificationContext.scope.sourceCvHash
-    || draft.qualificationSourceFingerprint !== qualificationSourcesFingerprint(qualificationContext.sources)) {
+    || draft.qualificationSourceFingerprint !== (qualificationContext.documentSourceFingerprint || qualificationSourcesFingerprint(qualificationContext.sources))) {
     return { type: 'submit_failed', error: 'evidence_source_unbound' };
   }
   qualificationContext.documentsCurrent = true;
@@ -400,9 +403,11 @@ export async function submitApplication(ctx) {
     try {
       if (guard) await guard.markEmailSending(Date.now(), { answerSourceGuard: ctx.answerSourceGuard });
     } catch (error) {
+      if (error?.code === 'submission_already_sent') return replayedSubmission(error.record, 'email', nowMs);
+      if (error?.code === 'submission_claim_changed') return { type: 'submit_failed', error: 'email_ambiguous' };
       // The transaction vetoed before SMTP: delivery is certainly unsent.
-      if (guard) await guard.release(error?.code || 'pre_send_guard_failed', Date.now());
-      await keepAttempt(null);
+      const released = guard ? await guard.release(error?.code || 'pre_send_guard_failed', Date.now()) : true;
+      if (released !== false) await keepAttempt(null);
       if (error?.code === 'evidence_source_changed') return { type: 'submit_failed', error: error.code };
       throw error;
     }
@@ -590,12 +595,14 @@ export async function submitApplication(ctx) {
         ? { ...event, channel: channelType, portalAnswers, sent: sentRecord, ...pass }
         : { ...event, portalAnswers, ...stopReport, ...pass };
     } catch (error) {
+      if (error?.code === 'submission_already_sent') return replayedSubmission(error.record, channelType, nowMs);
+      if (error?.code === 'submission_claim_changed') return { type: 'submit_failed', error: 'portal_ambiguous' };
       // Failed before the final click (temp dir, files, browser, network): nothing
       // reached the employer, so the claim is released for the retry.
       if (guard && !clicked && !succeeded) {
-        await guard.release(`error: ${error instanceof Error ? error.message : String(error)}`).catch(() => {});
-        // An attempt written for a click that never happened is no record.
-        if (attemptKept) await keepAttempt(null);
+        const released = await guard.release(`error: ${error instanceof Error ? error.message : String(error)}`).catch(() => false);
+        // Do not clear another attempt or a concurrently confirmed receipt.
+        if (attemptKept && released !== false) await keepAttempt(null);
       }
       if (!clicked && !succeeded && error?.code === 'evidence_source_changed') return { type: 'submit_failed', error: error.code };
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };

@@ -42,8 +42,8 @@ function publicAnswer(record) {
 }
 
 /** Only server-attested Q/A units are citable; bare answer-map values are context. */
-export function qualificationSources({ sourceText = '', profile = {}, answers = {}, answerEvidence = [] }) {
-  const records = Array.isArray(answerEvidence) ? answerEvidence.filter(record => record?.category !== 'form_preference').map(record => structuredClone(publicAnswer(record))) : [];
+export function qualificationSources({ sourceText = '', profile = {}, answers = {}, answerEvidence = [], purpose = 'qualification' }) {
+  const records = Array.isArray(answerEvidence) ? answerEvidence.filter(record => record?.category !== 'form_preference' || purpose === 'native_form').map(record => structuredClone(publicAnswer(record))) : [];
   const documents = [{ key: sourceText ? 'cv' : 'profile_projection', kind: sourceText ? 'cv_original' : 'profile_projection',
     text: sourceText || JSON.stringify(profile) }];
   for (const [index, record] of records.entries()) documents.push({ key: `answer_${index}`, kind: 'candidate_answer',
