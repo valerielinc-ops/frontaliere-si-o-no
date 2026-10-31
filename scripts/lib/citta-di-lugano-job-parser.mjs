@@ -23,6 +23,7 @@ import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 
 const HQ = getCompanyDefaults('citta-di-lugano');
+const CITTA_DI_LUGANO_CONCORSI_URL = 'https://www.lugano.ch/temi-servizi/lavoro-e-impresa/concorsi-pubblici-posti-lavoro/';
 const GENERIC_LUGANO_APPLY_PATH = '/it/services/3';
 const ITALIAN_MONTHS = Object.freeze({
   gennaio: 1,
@@ -166,7 +167,7 @@ export function parseListingPage(html) {
     let pdfUrl = '';
     if (pdfMatch) {
       try {
-        pdfUrl = new URL(decodeHTML(pdfMatch[1]), 'https://www.lugano.ch/').href;
+        pdfUrl = new URL(decodeHTML(pdfMatch[1]), CITTA_DI_LUGANO_CONCORSI_URL).href;
       } catch { /* malformed source URL — leave the listing without a PDF handoff */ }
     }
 

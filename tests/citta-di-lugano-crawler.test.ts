@@ -159,6 +159,15 @@ describe('parseListingPage', () => {
     expect((jobs as any).discoveredCount).toBe(2);
     expect((jobs as any).fetchOutcome).toBe('ok');
   });
+
+  it('resolves document-relative PDF links against the Concorsi page URL', () => {
+    const [job] = parseListingPage(`
+      <ul><li>
+        Operatore ufficio <span>Scadenza: 31 ottobre 2026</span>
+        <a href="downloadConcorsi/bando.pdf">PDF</a>
+      </li></ul>`);
+    expect(job?.url).toBe('https://www.lugano.ch/temi-servizi/lavoro-e-impresa/concorsi-pubblici-posti-lavoro/downloadConcorsi/bando.pdf');
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════
