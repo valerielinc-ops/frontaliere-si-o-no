@@ -13,9 +13,13 @@ import {
   isLedgerAcceptanceFinding,
   logClassification,
   CODEX_REVIEW_MARKER,
+  isGithubReviewRateLimitError,
   normalizeReviewBody,
+  ReviewGateTransientError,
+  reviewRateLimitResetAt,
   runReviewGate,
   unanchoredConfirmationTarget,
+  withReviewRateLimitRetry,
 } from '../scripts/ci/review-gate.mjs';
 import { stableFindingId } from '../scripts/ci/lib/review-findings.mjs';
 
@@ -74,6 +78,91 @@ const classifyCurrentDiff = async (body: string) => classifyReview(body, {
 // the delta unavailable avoids spawning a failing git process under the full
 // suite's concurrent load (where it can consume the whole 15s test budget).
 const noChangedLines = () => null;
+
+describe('review gate: rate-limit evidence is bounded and revision-bound', () => {
+  const NOW = 1_800_000_000_000;
+  const RESET_AT = NOW / 1000 + 2;
+
+  const rateLimitError = () => Object.assign(
+    new Error('HTTP 403: API rate limit exceeded'),
+    { status: 403, resetAt: RESET_AT },
+  );
+
+  it('recognizes a GitHub quota response and its server reset', () => {
+    const error = rateLimitError();
+    expect(isGithubReviewRateLimitError(error)).toBe(true);
+    expect(reviewRateLimitResetAt(error)).toBe(RESET_AT);
+  });
+
+  it('waits for the declared reset and retries exactly once', () => {
+    let calls = 0;
+    const waits: number[] = [];
+    const retryEvents: Array<{ attempt: number; maxRetries: number }> = [];
+    const result = withReviewRateLimitRetry(() => {
+      calls += 1;
+      if (calls === 1) throw rateLimitError();
+      return 'reviews';
+    }, {
+      now: () => NOW,
+      sleep: (milliseconds) => waits.push(milliseconds),
+      maxWaitMs: 5_000,
+      onRetry: ({ attempt, maxRetries }) => retryEvents.push({ attempt, maxRetries }),
+    });
+
+    expect(result).toBe('reviews');
+    expect(calls).toBe(2);
+    expect(waits).toEqual([3_000]);
+    expect(retryEvents).toEqual([{ attempt: 1, maxRetries: 1 }]);
+  });
+
+  it('returns typed transient evidence after the single retry is exhausted', () => {
+    let calls = 0;
+    let failure: unknown;
+    try {
+      withReviewRateLimitRetry(() => {
+        calls += 1;
+        throw rateLimitError();
+      }, {
+        now: () => NOW,
+        sleep: () => {},
+        maxWaitMs: 5_000,
+      });
+    } catch (error) {
+      failure = error;
+    }
+
+    expect(calls).toBe(2);
+    expect(failure).toBeInstanceOf(ReviewGateTransientError);
+    expect((failure as ReviewGateTransientError).failureKind).toBe('transient');
+    expect((failure as ReviewGateTransientError).resetAt).toBe(RESET_AT);
+  });
+
+  it('preserves the exact HEAD and body revision on a transient review lookup', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviewRevision: REVIEW_REVISION,
+      readReviewsFn: () => {
+        throw new ReviewGateTransientError('review lookup unavailable', { resetAt: RESET_AT });
+      },
+      mutate: false,
+    });
+
+    expect(result).toMatchObject({
+      approved: false,
+      failureKind: 'transient',
+      failure_kind: 'transient',
+      headSha: HEAD_SHA,
+      reviewRevision: REVIEW_REVISION,
+      transientEvidence: {
+        headSha: HEAD_SHA,
+        reviewRevision: REVIEW_REVISION,
+        resetAt: RESET_AT,
+      },
+    });
+  });
+});
 
 describe('review gate: scope classification is fail-closed', () => {
   it('blocks when the file list is incomplete', () => {

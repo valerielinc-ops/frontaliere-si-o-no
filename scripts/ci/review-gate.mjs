@@ -35,7 +35,6 @@ import {
   reviewBodyIsApproving,
 } from './lib/pr-review-admission.mjs';
 import {
-  acceptedReviewInputRevisionsFromPullRequest,
   normalizeReviewInputRevisionInput,
   reviewHasInputRevision,
   reviewInputRevisionFromPullRequest,
@@ -67,6 +66,15 @@ const MAX_FOLLOWUP_BODY_LEN = 60_000;
 // five-minute scope job open. The compare API remains the bounded fallback;
 // timing out the local probe keeps an unavailable delta fail-closed.
 export const REVIEW_SCOPE_GIT_DIFF_TIMEOUT_MS = 15_000;
+// A GitHub API rate-limit response is a transport condition, not evidence that
+// the PR has no review.  Wait only for a short, declared reset window and make
+// exactly one read retry; a core-limit reset can otherwise be an hour away and
+// must remain an observable transient failure instead of turning into a false
+// review verdict.
+export const REVIEW_GATE_RATE_LIMIT_RETRIES = 1;
+export const REVIEW_GATE_RATE_LIMIT_MAX_WAIT_MS = 30_000;
+export const REVIEW_GATE_RATE_LIMIT_RESET_GRACE_MS = 1_000;
+export const REVIEW_GATE_TRANSIENT_FAILURE_KIND = 'transient';
 const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|no)\s+$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]\s*|(?=\s+\S))/u;
@@ -78,6 +86,169 @@ const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])
 const CODEX_REVIEWER_LOGIN_RE = /^(?:github-actions\[bot\]|frontaliere-automation\[bot\])$/iu;
 export const CODEX_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
+
+function errorChainText(error) {
+  const values = [];
+  const seen = new Set();
+  for (let current = error; current && !seen.has(current); current = current.cause) {
+    seen.add(current);
+    for (const value of [current.message, current.stderr, current.stdout]) {
+      if (value !== undefined && value !== null) values.push(String(value));
+    }
+  }
+  return values.join('\n');
+}
+
+function normalizeRateLimitResetAt(value) {
+  if (typeof value === 'number' && Number.isFinite(value) && value > 0) {
+    return value > 1e11 ? Math.round(value / 1000) : Math.round(value);
+  }
+  const text = String(value || '').trim();
+  if (!text) return null;
+  if (/^\d{9,13}$/u.test(text)) return normalizeRateLimitResetAt(Number(text));
+  const parsed = Date.parse(text);
+  return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed / 1000) : null;
+}
+
+/** True only for a recognizable GitHub API quota/rate-limit failure. */
+export function isGithubReviewRateLimitError(error) {
+  const status = Number(error?.status ?? error?.statusCode ?? error?.response?.status);
+  if (status === 429) return true;
+  const text = errorChainText(error);
+  if (/\bHTTP\s+429\b/iu.test(text)) return true;
+  if (!/\b(?:rate[ _-]?limit|secondary rate limit|abuse detection)\b/iu.test(text)) return false;
+  return status === 403
+    || /\b(?:API rate limit exceeded|secondary rate limit|rate limit exceeded|abuse detection)\b/iu.test(text)
+    || /x[-_ ]?ratelimit[-_ ]?(?:remaining|reset)\s*:/iu.test(text);
+}
+
+/**
+ * Extract the server-declared reset epoch from a GitHub API error.  The CLI
+ * normally exposes only stderr, while test/in-process callers may expose the
+ * response headers directly; accepting both keeps the retry decision shared
+ * and exact without guessing from a fixed delay.
+ */
+export function reviewRateLimitResetAt(error) {
+  const headerValues = [
+    error?.headers,
+    error?.response?.headers,
+  ].flatMap((headers) => {
+    if (!headers || typeof headers.get !== 'function') return [];
+    return [headers.get('x-ratelimit-reset'), headers.get('X-RateLimit-Reset')];
+  });
+  const direct = [
+    error?.resetAt,
+    error?.reset_at,
+    error?.rateLimitReset,
+    error?.headers?.['x-ratelimit-reset'],
+    error?.headers?.['X-RateLimit-Reset'],
+    error?.response?.headers?.['x-ratelimit-reset'],
+    error?.response?.headers?.['X-RateLimit-Reset'],
+    ...headerValues,
+  ];
+  for (const candidate of direct) {
+    const normalized = normalizeRateLimitResetAt(candidate);
+    if (normalized !== null) return normalized;
+  }
+
+  const text = errorChainText(error);
+  const epoch = text.match(/(?:x[-_ ]?ratelimit[-_ ]?reset|rate[ _-]?limit(?: window)?\s+reset|reset(?:s)?\s+at)\s*[:=]?\s*(\d{9,13})/iu);
+  if (epoch) return normalizeRateLimitResetAt(epoch[1]);
+  const date = text.match(/(?:x[-_ ]?ratelimit[-_ ]?reset|rate[ _-]?limit(?: window)?\s+reset|reset(?:s)?\s+at)\s*[:=]?\s*([^\n,;]+)/iu);
+  if (date) return normalizeRateLimitResetAt(date[1]);
+
+  const retryAfter = text.match(/retry[-_ ]?after\s*[:=]?\s*(\d+(?:\.\d+)?)/iu);
+  if (retryAfter) {
+    const seconds = Number(retryAfter[1]);
+    if (Number.isFinite(seconds) && seconds >= 0) {
+      return Math.ceil(Date.now() / 1000 + seconds);
+    }
+  }
+  return null;
+}
+
+export class ReviewGateTransientError extends Error {
+  constructor(message, { resetAt = null, cause } = {}) {
+    super(message, cause ? { cause } : undefined);
+    this.name = 'ReviewGateTransientError';
+    this.code = 'REVIEW_GATE_TRANSIENT';
+    this.failureKind = REVIEW_GATE_TRANSIENT_FAILURE_KIND;
+    this.resetAt = normalizeRateLimitResetAt(resetAt);
+  }
+}
+
+export function isReviewGateTransientError(error) {
+  return error?.code === 'REVIEW_GATE_TRANSIENT'
+    || error?.failureKind === REVIEW_GATE_TRANSIENT_FAILURE_KIND;
+}
+
+function sleepSync(milliseconds) {
+  if (!Number.isFinite(milliseconds) || milliseconds <= 0) return;
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, milliseconds);
+}
+
+function boundedRateLimitWaitMs(value = process.env.REVIEW_GATE_RATE_LIMIT_MAX_WAIT_MS) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric) || numeric < 0) return REVIEW_GATE_RATE_LIMIT_MAX_WAIT_MS;
+  return Math.min(numeric, REVIEW_GATE_RATE_LIMIT_MAX_WAIT_MS);
+}
+
+/**
+ * Run one idempotent review-data read, waiting for a known reset and retrying
+ * exactly once.  Unknown/malformed reset data and an over-budget wait remain
+ * explicit transient errors; callers must not reinterpret them as a review
+ * verdict.
+ */
+export function withReviewRateLimitRetry(operation, {
+  now = () => Date.now(),
+  sleep = sleepSync,
+  maxWaitMs = boundedRateLimitWaitMs(),
+  resolveResetAt = reviewRateLimitResetAt,
+  onRetry,
+} = {}) {
+  if (typeof operation !== 'function') throw new TypeError('review lookup operation must be a function');
+  try {
+    return operation();
+  } catch (firstError) {
+    if (!isGithubReviewRateLimitError(firstError)) throw firstError;
+    const resetAt = normalizeRateLimitResetAt(resolveResetAt(firstError));
+    if (resetAt === null) {
+      throw new ReviewGateTransientError(
+        'GitHub review lookup rate-limited without a verifiable reset time',
+        { cause: firstError },
+      );
+    }
+    const waitMs = Math.max(
+      0,
+      resetAt * 1000 - Number(now()) + REVIEW_GATE_RATE_LIMIT_RESET_GRACE_MS,
+    );
+    const budget = Number.isFinite(Number(maxWaitMs))
+      ? Math.max(0, Number(maxWaitMs))
+      : REVIEW_GATE_RATE_LIMIT_MAX_WAIT_MS;
+    if (waitMs > budget) {
+      throw new ReviewGateTransientError(
+        `GitHub review lookup rate-limit reset exceeds bounded wait (${waitMs}ms > ${budget}ms)`,
+        { resetAt, cause: firstError },
+      );
+    }
+    onRetry?.({
+      attempt: 1,
+      maxRetries: REVIEW_GATE_RATE_LIMIT_RETRIES,
+      delayMs: waitMs,
+      resetAt,
+    });
+    sleep(waitMs);
+    try {
+      return operation();
+    } catch (retryError) {
+      if (!isGithubReviewRateLimitError(retryError)) throw retryError;
+      throw new ReviewGateTransientError(
+        'GitHub review lookup remained rate-limited after the single reset retry',
+        { resetAt: normalizeRateLimitResetAt(resolveResetAt(retryError)) ?? resetAt, cause: retryError },
+      );
+    }
+  }
+}
 
 /**
  * Some review clients serialize the Markdown body as one JSON-like string and
@@ -704,6 +875,51 @@ function gh(args, { json = true, allowFail = false } = {}) {
     });
     return json ? JSON.parse(output) : output;
   } catch (error) {
+    if (allowFail) return json ? null : '';
+    throw error;
+  }
+}
+
+function githubRateLimitResetFromEndpoint() {
+  try {
+    const payload = gh(['api', 'rate_limit']);
+    const resources = payload?.resources;
+    for (const candidate of [
+      resources?.core?.reset,
+      resources?.graphql?.reset,
+      resources?.search?.reset,
+    ]) {
+      const resetAt = normalizeRateLimitResetAt(candidate);
+      if (resetAt !== null) return resetAt;
+    }
+  } catch {
+    // The rate-limit endpoint may be unavailable for the same reason as the
+    // original read.  The caller then keeps the transient error fail-closed.
+  }
+  return null;
+}
+
+function resolveGithubReviewRateLimitReset(error) {
+  return reviewRateLimitResetAt(error) ?? githubRateLimitResetFromEndpoint();
+}
+
+function ghRead(args, { json = true, allowFail = false } = {}) {
+  try {
+    return withReviewRateLimitRetry(
+      () => gh(args, { json, allowFail: false }),
+      {
+        resolveResetAt: resolveGithubReviewRateLimitReset,
+        onRetry: ({ attempt, maxRetries, delayMs, resetAt }) => console.log(
+          `review-gate: GitHub review-data rate-limit; retry ${attempt}/${maxRetries}`
+          + ` after ${delayMs}ms (reset=${resetAt}).`,
+        ),
+      },
+    );
+  } catch (error) {
+    // A quota failure is evidence about the transport and must reach the
+    // authoritative gate even for callers that historically allowed ordinary
+    // read errors to degrade to an incomplete snapshot.
+    if (isReviewGateTransientError(error)) throw error;
     if (allowFail) return json ? null : '';
     throw error;
   }
@@ -1671,7 +1887,7 @@ function fetchRepositoryTreePaths(repo, sha) {
     if (!/^[0-9a-f]{40}$/iu.test(String(sha || ''))) {
       console.log('review-gate: tree API non recuperabile (SHA assente o non valida).');
     } else {
-      const tree = gh(['api', `repos/${repo}/git/trees/${sha}?recursive=1`]);
+      const tree = ghRead(['api', `repos/${repo}/git/trees/${sha}?recursive=1`]);
       if (tree?.truncated || !Array.isArray(tree?.tree) || tree.tree.length === 0) {
         console.log('review-gate: tree API non recuperabile (risposta troncata o vuota).');
       } else {
@@ -1683,6 +1899,7 @@ function fetchRepositoryTreePaths(repo, sha) {
       }
     }
   } catch (error) {
+    if (isReviewGateTransientError(error)) throw error;
     console.log(`review-gate: tree API non recuperabile (${String(error).slice(0, 160)}).`);
   }
   if (apiPaths) return { paths: apiPaths, fromFallback: false };
@@ -1697,7 +1914,7 @@ function fetchRepositoryTreePaths(repo, sha) {
 }
 
 function fetchRepositoryHeadPaths(repo, pr) {
-  const head = String(gh([
+  const head = String(ghRead([
     'api', `repos/${repo}/pulls/${pr}`, '--jq', '.head.sha',
   ], { json: false })).trim();
   return fetchRepositoryTreePaths(repo, head);
@@ -1727,12 +1944,12 @@ function gitPathIsIgnored(path) {
 }
 
 function readPrBody(repo, pr) {
-  const view = gh(['api', `repos/${repo}/pulls/${pr}`], { allowFail: true });
+  const view = ghRead(['api', `repos/${repo}/pulls/${pr}`], { allowFail: true });
   return typeof view?.body === 'string' ? view.body : null;
 }
 
 function readReviews(repo, pr) {
-  const pages = gh(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']);
+  const pages = ghRead(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']);
   const reviews = parseReviewPages(pages);
   if (!reviews) throw new Error('reviews PR: JSON/pagine/entry malformate');
   return reviews;
@@ -1849,7 +2066,7 @@ export function compareChangedLines(compare, fromSha) {
 }
 
 /** Delta a due punti verificato, letto dalla compare API. `null` = non calcolabile. */
-export function changedLinesFromCompareApi(repo, fromSha, toSha, { ghFn = gh } = {}) {
+export function changedLinesFromCompareApi(repo, fromSha, toSha, { ghFn = ghRead } = {}) {
   if (!repo
     || !/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
     || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
@@ -2109,6 +2326,31 @@ function writeApproved(value) {
   if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `approved=${value}\n`);
 }
 
+function outputValue(name, value) {
+  if (!process.env.GITHUB_OUTPUT) return;
+  const text = String(value ?? '');
+  if (/[\r\n]/u.test(text)) throw new Error(`review-gate output ${name} contains a newline`);
+  appendFileSync(process.env.GITHUB_OUTPUT, `${name}=${text}\n`);
+}
+
+function writeReviewGateOutput(result, { headSha = '', reviewRevision = '' } = {}) {
+  writeApproved(result?.approved === true);
+  const failureKind = result?.failureKind || result?.failure_kind || '';
+  if (failureKind !== REVIEW_GATE_TRANSIENT_FAILURE_KIND) return;
+  // These are the exact trusted inputs used for the failed lookup.  A later
+  // recovery must not silently pair a review from another HEAD/body revision
+  // with this transient run.
+  outputValue('failure_kind', REVIEW_GATE_TRANSIENT_FAILURE_KIND);
+  outputValue('head_sha', result?.headSha || headSha);
+  const revision = Array.isArray(result?.reviewRevision)
+    ? result.reviewRevision[0]
+    : result?.reviewRevision || reviewRevision;
+  outputValue('review_revision', revision);
+  if (result?.transientEvidence?.resetAt != null) {
+    outputValue('rate_limit_reset_at', result.transientEvidence.resetAt);
+  }
+}
+
 function postBlockedComment(repo, pr, headSha, runUrl, reason) {
   const marker = '<!-- REVIEW_GATE_NO_LGTM -->';
   const existing = gh([
@@ -2270,12 +2512,12 @@ export async function classifyAndMintReview(body, {
     return classification;
   }
 
-  const changed = fetchPrFiles(Number(pr), gh, repo);
+  const changed = fetchPrFiles(Number(pr), ghRead, repo);
   const repositoryPaths = suppliedRepositoryPaths !== undefined
     ? suppliedRepositoryPaths
     : changed.complete === true && changed.files.length > 0
-      ? fetchRepositoryHeadPaths(repo, pr).paths
-    : null;
+      ? (headSha ? fetchRepositoryTreePaths(repo, headSha).paths : fetchRepositoryHeadPaths(repo, pr).paths)
+      : null;
   const classification = classifyReview(body, {
     files: changed.files,
     complete: changed.complete,
@@ -2327,6 +2569,7 @@ export async function runReviewGate({
   classifyAndMintReviewFn = classifyAndMintReview,
   carryFingerprintFn = contributionFingerprint,
   bodyContractPassed = false,
+  readReviewsFn = readReviews,
   // Restituisce l'elenco COMPLETO dei file che la PR modifica, o `null`.
   // Assente = nessun file citato senza riga viene mai letto come contesto.
   changedFilesFn = null,
@@ -2348,8 +2591,23 @@ export async function runReviewGate({
   // historical flattening logic treat a partial response as a real verdict.
   let parsedReviews;
   try {
-    parsedReviews = parseReviewPages(reviews === undefined ? readReviews(repo, pr) : reviews);
-  } catch {
+    parsedReviews = parseReviewPages(reviews === undefined ? readReviewsFn(repo, pr) : reviews);
+  } catch (error) {
+    if (isReviewGateTransientError(error)) {
+      return {
+        approved: false,
+        failureKind: REVIEW_GATE_TRANSIENT_FAILURE_KIND,
+        failure_kind: REVIEW_GATE_TRANSIENT_FAILURE_KIND,
+        reason: `lookup review transitorio: ${String(error?.message || error)}`,
+        headSha,
+        reviewRevision: expectedRevision,
+        transientEvidence: {
+          headSha,
+          reviewRevision: expectedRevision,
+          resetAt: error.resetAt ?? null,
+        },
+      };
+    }
     parsedReviews = null;
   }
   if (!parsedReviews) {
@@ -2366,7 +2624,7 @@ export async function runReviewGate({
   const structuredCodexEvidence = codexEvidence
     || readCodexEvidenceFile(codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
   const automatic = findTestOnlyApproval(reviewHistory, headSha, {
-    ghFn: gh,
+    ghFn: ghRead,
     repo,
     pr,
     reviewRevision: expectedRevision,
@@ -2454,7 +2712,8 @@ export async function runReviewGate({
     let changedFiles = null;
     try {
       changedFiles = changedFilesFn();
-    } catch {
+    } catch (error) {
+      if (isReviewGateTransientError(error)) throw error;
       changedFiles = null;
     }
     if (Array.isArray(changedFiles) && changedFiles.length > 0) {
@@ -2487,6 +2746,7 @@ export async function runReviewGate({
       prUrl: prUrl || process.env.PR_URL,
       mutate,
       bodyContractPassed,
+      headSha,
     };
     if (repositoryPaths !== undefined) classificationOptions.repositoryPaths = repositoryPaths;
     const priorReview = priorManagedReview(reviewHistory, latest);
@@ -2541,13 +2801,12 @@ async function main() {
   const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
-  const tree = fetchRepositoryHeadPaths(repo, pr);
-  // L'ELENCO degli schemi accettati: questo gate riusa anche review emesse da
-  // una run precedente, quindi da codice piu' vecchio di quello che sta
-  // girando ora (vedi `lib/review-input-revision.mjs`, 2026-09-19).
-  const reviewRevision = acceptedReviewInputRevisionsFromPullRequest(gh([
-    'api', `repos/${repo}/pulls/${pr}`,
-  ]));
+  // The workflow has already attested this exact HEAD and body revision before
+  // entering the gate. Re-reading PR metadata here created a second rate-limit
+  // window and could pair a review with a newer body after the first snapshot.
+  const tree = fetchRepositoryTreePaths(repo, headSha);
+  const reviewRevision = normalizeReviewInputRevisionInput(process.env.REVIEW_REVISION);
+  if (!reviewRevision) throw new Error('REVIEW_REVISION assente o non verificabile');
   const result = await runReviewGate({
     repo,
     pr,
@@ -2561,13 +2820,24 @@ async function main() {
     // Solo un elenco completo: in uno troncato un file della PR sembrerebbe
     // fuori dal diff.
     changedFilesFn: () => {
-      const changed = fetchPrFiles(Number(pr), gh, repo);
+      const changed = fetchPrFiles(Number(pr), ghRead, repo);
       return changed.complete === true && changed.files.length > 0 ? changed.files : null;
     },
   });
-  writeApproved(result.approved);
+  writeReviewGateOutput(result, { headSha, reviewRevision });
   if (!result.approved) {
-    postBlockedComment(repo, pr, headSha, process.env.RUN_URL || '', result.reason || 'verdetto non risolvibile');
+    if (result.failureKind !== REVIEW_GATE_TRANSIENT_FAILURE_KIND) {
+      postBlockedComment(repo, pr, headSha, process.env.RUN_URL || '', result.reason || 'verdetto non risolvibile');
+    }
+    if (result.failureKind === REVIEW_GATE_TRANSIENT_FAILURE_KIND) {
+      const error = new ReviewGateTransientError(result.reason || 'review gate transitorio', {
+        resetAt: result.transientEvidence?.resetAt,
+      });
+      error.headSha = result.headSha || headSha;
+      error.reviewRevision = result.reviewRevision || reviewRevision;
+      error.reviewOutputWritten = true;
+      throw error;
+    }
     throw new Error(result.reason || 'review gate bloccato');
   }
   console.log(`review-gate: approved=true (review commit ${result.reviewCommit}).`);
@@ -2763,7 +3033,19 @@ if (isDirectRun) {
     else await main();
   } catch (error) {
     if (!process.argv.includes('--scope') && !process.argv.includes('--audit-historical-citations')) {
-      try { writeApproved(false); } catch { /* un write output fallito non puo' rendere verde il gate */ }
+      try {
+        if (!error?.reviewOutputWritten && isReviewGateTransientError(error)) {
+          writeReviewGateOutput({
+            approved: false,
+            failureKind: REVIEW_GATE_TRANSIENT_FAILURE_KIND,
+            headSha: error.headSha || process.env.HEAD_SHA || '',
+            reviewRevision: error.reviewRevision || process.env.REVIEW_REVISION || '',
+            transientEvidence: { resetAt: error.resetAt ?? null },
+          });
+        } else if (!error?.reviewOutputWritten) {
+          writeApproved(false);
+        }
+      } catch { /* un write output fallito non puo' rendere verde il gate */ }
     }
     console.error(`review-gate: errore conservativo: ${String(error)}`);
     process.exitCode = 1;
