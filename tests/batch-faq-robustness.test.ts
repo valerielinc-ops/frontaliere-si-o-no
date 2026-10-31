@@ -48,7 +48,12 @@ import {
   insertFaqIntoBodyFile,
   parseFaqLiteral,
 } from '../scripts/batch-add-faq-to-articles.mjs';
-import { escapeForSingleQuoteTS, replaceFaqLiteral } from '../scripts/fix-faq-locales.mjs';
+import {
+  escapeForSingleQuoteTS,
+  replaceFaqLiteral,
+  wrongLocalePair,
+  SOURCE_FUNCTIONAL_WORD_THRESHOLD,
+} from '../scripts/fix-faq-locales.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT_PATH = path.join(ROOT, 'scripts', 'batch-add-faq-to-articles.mjs');
@@ -547,5 +552,55 @@ describe('nanako#395 — lo scanner, e il fatto che veda davvero il difetto', ()
 
   it('nessun .replace() dello script interpola testo in una replacement string', () => {
     expect(replaceInterpolanti(SCRIPT_SRC)).toEqual([]);
+  });
+});
+
+describe('FAQ locale guard — verdict per coppia', () => {
+  const sourceFaq = [{
+    q: 'Quali sono i requisiti della candidatura?',
+    a: 'La candidatura deve contenere il curriculum e la lettera di motivazione.',
+  }];
+
+  it('mantiene il rifiuto hard per una coppia verbatim', () => {
+    expect(wrongLocalePair(sourceFaq, 'en', sourceFaq)).toMatchObject({
+      index: 0,
+      detected: 'it',
+      via: 'verbatim',
+    });
+  });
+
+  it('non rifiuta un nome proprio quando il detector vede la lingua sorgente senza parole funzionali', () => {
+    const translated = [{
+      q: 'Who is Lucia Tiziani?',
+      a: 'Lucia Tiziani is a writer from Varese.',
+    }];
+    expect(wrongLocalePair(translated, 'en', sourceFaq)).toBe(null);
+  });
+
+  it('rifiuta la lingua sorgente quando supera la soglia funzionale misurata', () => {
+    const untranslated = [{
+      q: 'Quali sono le condizioni previste dalla normativa?',
+      a: 'La domanda dipende dalla normativa e dalle condizioni applicabili alla situazione.',
+    }];
+    expect(wrongLocalePair(untranslated, 'en', sourceFaq)).toMatchObject({
+      index: 0,
+      detected: 'it',
+      via: 'lingua',
+      sourceFunctionalWordHits: expect.any(Number),
+    });
+    expect(wrongLocalePair(untranslated, 'en', sourceFaq).sourceFunctionalWordHits)
+      .toBeGreaterThanOrEqual(SOURCE_FUNCTIONAL_WORD_THRESHOLD);
+  });
+
+  it('rifiuta una lingua errata reale anche senza evidenza della lingua sorgente', () => {
+    const german = [{
+      q: 'Welche Anforderungen gelten für die Bewerbung?',
+      a: 'Die Bewerbung muss den Lebenslauf und das Motivationsschreiben enthalten.',
+    }];
+    expect(wrongLocalePair(german, 'en', sourceFaq)).toMatchObject({
+      index: 0,
+      detected: 'de',
+      via: 'lingua',
+    });
   });
 });

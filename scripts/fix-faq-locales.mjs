@@ -255,6 +255,49 @@ function hasSourcePassthroughField(left, right) {
     && (isSourcePassthrough(right.q, left.q) || isSourcePassthrough(right.a, left.a));
 }
 
+// The trigram detector can read a translated FAQ as the source language when
+// names, places, or titles dominate the pair.  Keep this corroboration local to
+// the site writer: the corpus helper has different callers and a different
+// contract.  These are distinctive function words, not a general dictionary;
+// two hits are the measured floor for treating a source-language detection as
+// actionable.  Exact source passthrough remains a separate hard failure above.
+const SOURCE_FUNCTIONAL_WORDS = Object.freeze({
+  it: Object.freeze([
+    'della', 'delle', 'degli', 'dello', 'nella', 'nelle', 'nello',
+    'presso', 'oppure', 'anche', 'tramite', 'sulla', 'sulle', 'senza',
+  ]),
+  en: Object.freeze([
+    'with', 'and', 'for', 'the', 'your', 'our', 'within', 'including',
+  ]),
+  de: Object.freeze([
+    'mit', 'und', 'fuer', 'fur', 'bei', 'beim', 'oder', 'von', 'vom', 'zur',
+    'zum', 'im', 'der', 'den', 'dem', 'das', 'ein', 'eine', 'einen', 'einem',
+    'einer', 'aus', 'auf', 'nach', 'uber', 'ueber', 'unter', 'sowie', 'als',
+    'zwischen', 'wahrend', 'waehrend', 'inkl', 'gesucht',
+  ]),
+  fr: Object.freeze([
+    'avec', 'pour', 'dans', 'chez', 'ainsi', 'selon', 'aupres', 'notre',
+    'votre', 'entre',
+  ]),
+});
+
+export const SOURCE_FUNCTIONAL_WORD_THRESHOLD = 2;
+
+function normalizedWords(text) {
+  return String(text || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .match(/[\p{L}]+/gu) || [];
+}
+
+/** Count language-specific function-word evidence without a generic fallback. */
+export function countSourceFunctionalWords(text, sourceLang) {
+  const words = new Set(SOURCE_FUNCTIONAL_WORDS[sourceLang] || []);
+  if (!words.size) return 0;
+  return normalizedWords(text).filter((word) => words.has(word)).length;
+}
+
 /**
  * Check the unit that the writer actually translates: one FAQ pair.
  *
@@ -285,7 +328,18 @@ export function wrongLocalePair(faqArray, expectedLocale, sourceFaq = null, sour
     if (text.length < 50) continue; // too short to detect
     const detected = detectLanguage(text, expectedLocale);
     if (detected !== expectedLocale) {
-      return { index, detected, via: 'lingua' };
+      const sourceFunctionalWordHits = detected === sourceLang
+        ? countSourceFunctionalWords(text, sourceLang)
+        : 0;
+      // A source-language detector result without enough source function words
+      // is not sufficient evidence: proper names and place names are allowed
+      // to remain in a real translation. Other wrong-language detections stay
+      // hard failures because they are not this known source-language FP.
+      if (
+        detected === sourceLang
+        && sourceFunctionalWordHits < SOURCE_FUNCTIONAL_WORD_THRESHOLD
+      ) continue;
+      return { index, detected, via: 'lingua', sourceFunctionalWordHits };
     }
   }
 
