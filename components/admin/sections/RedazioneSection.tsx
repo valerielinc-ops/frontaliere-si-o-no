@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Loader2, Pencil, RefreshCw, Save, Search, X } from 'lucide-react';
 import { ARTICLES } from '@/data/blog-articles-data';
 import { useAuth } from '@/services/authService';
-import { getAllAuthors } from '@/data/authors';
+import { getAllAuthors, isEditorialProfile, isRealAuthor } from '@/data/authors';
 import { fetchRedazioneAdminData, reassignArticleAuthor, updateAuthorProfile, type RedazioneAdminData } from '@/services/redazioneAdminService';
 import type { AuthorProfilePatch } from '@/services/authorProfileService';
 import { AdminMessageBanner, type AdminMessage } from '@/components/admin/ui/AdminMessageBanner';
@@ -94,13 +94,13 @@ export default function RedazioneSection() {
 
   return (
     <div className="space-y-6">
-      <AdminSectionHeader title="Redazione" summary={`${getAllAuthors().length} profili editoriali · ${filteredArticles.length} articoli visibili · aggiornato ${relativeTime(latestArticleUpdate) || (loading ? 'in corso' : 'adesso')}`} secondaryActions={<AdminButton icon={<RefreshCw size={16} aria-hidden="true" />} loading={loading} onClick={() => void loadData()}>Aggiorna</AdminButton>} />
+      <AdminSectionHeader title="Redazione" summary={`${getAllAuthors().filter(isRealAuthor).length} persone reali · ${getAllAuthors().filter(isEditorialProfile).length} firme editoriali · ${filteredArticles.length} articoli visibili · aggiornato ${relativeTime(latestArticleUpdate) || (loading ? 'in corso' : 'adesso')}`} secondaryActions={<AdminButton icon={<RefreshCw size={16} aria-hidden="true" />} loading={loading} onClick={() => void loadData()}>Aggiorna</AdminButton>} />
       {actionMessage && <AdminMessageBanner message={actionMessage} />}
       {error && <div className="bg-danger-subtle border border-danger-border rounded-stripe px-4 py-2 text-sm text-danger">{error}</div>}
 
       <section className="space-y-3" aria-labelledby="redazione-profili-title">
-        <h3 id="redazione-profili-title" className="text-sm font-semibold text-strong">Firme e profili editoriali</h3>
-        <p className="text-sm text-muted">Modifica descrizione, immagine e area editoriale delle firme senza deploy di codice. Le attribuzioni autenticate restano separate dal catalogo AI.</p>
+        <h3 id="redazione-profili-title" className="text-sm font-semibold text-strong">Persone reali e firme editoriali</h3>
+        <p className="text-sm text-muted">Le persone reali sono autori con identità pubblica; le firme editoriali sono pseudonimi della redazione, non persone. Modifica descrizione, immagine e area editoriale senza deploy di codice. Le attribuzioni autenticate restano separate dal catalogo AI.</p>
         <div className="space-y-2">
           {getAllAuthors().map((author) => {
             const merged = { ...author, ...data?.authorProfiles[author.slug] };

@@ -10,6 +10,7 @@
  */
 
 import { AI_USE_STATEMENT } from '../packages/articles/engine/shared/aiDisclosure';
+import { renderRevenueModelHtml } from '../services/revenueDisclosure';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { renderSchoolCalendarSource, renderSchoolYearLinks } from './schoolCalendarLinks';
 
@@ -2915,18 +2916,21 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  'Content is updated continuously to reflect legislative changes, new tax rates, and evolving bilateral agreements. The platform operates independently of any financial institution, insurance provider, or employer, ensuring unbiased information for all users.',
  // The one AI statement shared with the IT page, React /chi-siamo/ and articles.
  AI_USE_STATEMENT.en,
+ renderRevenueModelHtml('en'),
  ],
  de: [
  'Frontaliere Ticino ist eine unabhängige Informationsplattform für Grenzgänger zwischen der Schweiz (Kanton Tessin) und Italien. Die Plattform bietet kostenlose Rechner, Vergleichstools, praktische Leitfäden und Stellenangebote — alle mit Daten aus offiziellen schweizerischen und italienischen Quellen gepflegt.',
  'Das Projekt entstand aus der direkten Erfahrung von Grenzgängern, die es schwierig fanden, die komplexe steuerliche, administrative und praktische Landschaft der Arbeit in einem Land bei Wohnsitz in einem anderen zu navigieren. Jedes Tool beantwortet echte Fragen mit überprüfbaren Daten.',
  'Inhalte werden kontinuierlich aktualisiert, um Gesetzesänderungen, neue Steuersätze und sich weiterentwickelnde bilaterale Abkommen widerzuspiegeln. Die Plattform arbeitet unabhängig von Finanzinstituten, Versicherungsanbietern oder Arbeitgebern.',
  AI_USE_STATEMENT.de,
+ renderRevenueModelHtml('de'),
  ],
  fr: [
  'Frontaliere Ticino est une plateforme d\'information indépendante pour les travailleurs frontaliers entre la Suisse (Canton du Tessin) et l\'Italie. La plateforme offre des calculateurs gratuits, des outils de comparaison, des guides pratiques et des offres d\'emploi — le tout alimenté par des données de sources officielles suisses et italiennes.',
  'Le projet est né de l\'expérience directe de frontaliers qui trouvaient difficile de naviguer dans le paysage fiscal, administratif et pratique complexe du travail dans un pays avec résidence dans un autre. Chaque outil répond à de vraies questions avec des données vérifiables.',
  'Le contenu est mis à jour en continu pour refléter les changements législatifs, les nouveaux taux d\'imposition et l\'évolution des accords bilatéraux. La plateforme fonctionne indépendamment de toute institution financière, assureur ou employeur.',
  AI_USE_STATEMENT.fr,
+ renderRevenueModelHtml('fr'),
  ],
  },
 
@@ -2934,17 +2938,17 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '/contattaci': {
  en: [
  'Frontaliere Ticino is available for questions about taxation, pensions, work permits, and daily life for cross-border workers between Switzerland and Italy. The team responds to practical queries about platform tools, calculator error reports, and suggestions for new features.',
- 'Responses are provided within 48 business hours. For complex tax questions (tax returns, tax credits, 2026 new cross-border worker regime), we recommend the dedicated consulting service with professionals specialising in cross-border taxation between Switzerland and Italy.',
+ 'Responses are provided within 48 business hours and are not tax or legal advice: for complex tax questions about your own case (tax returns, tax credits, 2026 new cross-border worker regime), contact a licensed tax adviser or an Italian patronato.',
  'The platform operates independently of banks, insurance companies, and employers: all information provided is impartial and based on official Swiss and Italian sources (FTA, Italian Revenue Agency, SECO, INPS).',
  ],
  de: [
  'Frontaliere Ticino steht für Fragen zu Besteuerung, Vorsorge, Arbeitsbewilligungen und Alltagsleben für Grenzgänger zwischen der Schweiz und Italien zur Verfügung. Das Team beantwortet praktische Anfragen zu den Plattform-Tools, meldet Rechenfehler und nimmt Vorschläge für neue Funktionen entgegen.',
- 'Antworten werden innerhalb von 48 Arbeitsstunden bereitgestellt. Für komplexe Steuerfragen (Steuererklärung, Steuergutschriften, Regelung für neue Grenzgänger 2026) empfehlen wir den dedizierten Beratungsservice mit Fachleuten für grenzüberschreitende Besteuerung.',
+ 'Antworten werden innerhalb von 48 Arbeitsstunden bereitgestellt und sind keine Steuer- oder Rechtsberatung: Wenden Sie sich bei komplexen Steuerfragen zu Ihrem eigenen Fall (Steuererklärung, Steuergutschriften, Regelung für neue Grenzgänger 2026) an einen zugelassenen Treuhänder oder ein italienisches Patronato.',
  'Die Plattform arbeitet unabhängig von Banken, Versicherungen und Arbeitgebern: Alle bereitgestellten Informationen sind unparteiisch und basieren auf offiziellen Schweizer und italienischen Quellen (ESTV, Agenzia delle Entrate, SECO, INPS).',
  ],
  fr: [
  'Frontaliere Ticino est disponible pour les questions sur la fiscalité, la prévoyance, les permis de travail et la vie quotidienne des travailleurs frontaliers entre la Suisse et l\'Italie. L\'équipe répond aux questions pratiques sur les outils de la plateforme, signalements d\'erreurs et suggestions de nouvelles fonctionnalités.',
- 'Les réponses sont fournies dans les 48 heures ouvrables. Pour les questions fiscales complexes (déclaration de revenus, crédits d\'impôt, régime des nouveaux frontaliers 2026), nous recommandons le service de consultation dédié avec des professionnels spécialisés en fiscalité transfrontalière.',
+ 'Les réponses sont fournies dans les 48 heures ouvrables et ne constituent pas un conseil fiscal ou juridique : pour les questions fiscales complexes sur votre situation (déclaration de revenus, crédits d\'impôt, régime des nouveaux frontaliers 2026), adressez-vous à un fiduciaire agréé ou à un patronato italien.',
  'La plateforme fonctionne indépendamment des banques, assurances et employeurs : toutes les informations fournies sont impartiales et basées sur des sources officielles suisses et italiennes (AFC, Agenzia delle Entrate, SECO, INPS).',
  ],
  },

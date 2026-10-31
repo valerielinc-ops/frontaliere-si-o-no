@@ -691,7 +691,7 @@ const frCore: Record<string, string> = {
  'jobBoard.searchPageTitle': 'Emploi {query} en Suisse',
  'jobBoard.subtitle': 'Mises \u00e0 jour quotidiennement par plus de 100 entreprises {cantonPrep}. Filtrez par secteur, localit\u00e9 et contrat.',
  'jobBoard.seoTitle': 'Offres d\'Emploi {cantonPrep} 2026 \u2014 Travail au Tessin',
- 'jobBoard.seoDescription': 'Cherchez un emploi {cantonPrep} ? Plus de 1500 offres mises \u00e0 jour chaque jour par 100+ entreprises. Banques, IT, pharma, sant\u00e9. Postulez gratuitement.',
+ 'jobBoard.seoDescription': 'Cherchez un emploi {cantonPrep} ? Offres mises \u00e0 jour chaque jour depuis les sites des employeurs. Banques, IT, pharma, sant\u00e9. Postulez gratuitement.',
  'jobBoard.searchPlaceholder': 'Rechercher par poste, entreprise ou lieu...',
  'jobBoard.filter.category': 'Catégorie',
  'jobBoard.filter.all': 'Toutes les catégories',

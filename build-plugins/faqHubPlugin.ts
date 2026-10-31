@@ -49,7 +49,8 @@ import {
 } from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatSourcesCheckedSentence, formatUpdatedSentence } from './shared/humanDate';
+import { faqEntryUpdatedAt } from '../services/contentDates';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { WriteCollector } from './batchWrite';
 import {
@@ -79,8 +80,6 @@ interface FaqHubCopy {
   readonly tocTitle: string;
   readonly breadcrumbHome: string;
   readonly breadcrumbHub: string;
-  readonly generatedLabel: string;
-  readonly reviewUnknown: string;
   readonly disclaimer: string;
   readonly relatedTitle: string;
   readonly relatedLinks: ReadonlyArray<{ href: string; label: string }>;
@@ -103,14 +102,12 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       `10 categorie, ${TOTAL_FAQ_COUNT} risposte, quattro lingue. Ogni risposta cita la fonte primaria (AFC, Fedlex, UFAS, SEM, Agenzia Entrate, INPS).`,
     tldrTitle: 'In sintesi',
     tldrParagraphs: [
-      `Questo hub raccoglie ${TOTAL_FAQ_COUNT} risposte verificate alle domande più ricorrenti dei frontalieri italiani che lavorano in Ticino, con attenzione alla nuova legge 2024 (Accordo CH-IT del 23/12/2020 ratificato dalla Legge italiana 83/2023) e alle scadenze fiscali 2026.`,
+      `Questo hub raccoglie ${TOTAL_FAQ_COUNT} risposte alle domande più ricorrenti dei frontalieri italiani che lavorano in Ticino, con attenzione alla nuova legge 2024 (Accordo CH-IT del 23/12/2020 ratificato dalla Legge italiana 83/2023) e alle scadenze fiscali 2026.`,
       "Ogni risposta è lunga 80-180 parole, cita la norma applicabile (LAMal, LAVS, LPP, CO, LStrI, TUIR, dlgs 230/2021) e rinvia a fonti ufficiali Fedlex, AFC Ticino, UFAS, SEM, Agenzia Entrate, INPS. Il contenuto è aggiornato ai dati 2026 (aliquote, massimali, premi, minimi).",
     ],
     tocTitle: 'Categorie trattate',
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Guida frontaliere',
-    generatedLabel: 'Pagina generata',
-    reviewUnknown: 'Data di revisione non documentata',
     disclaimer:
       'Le informazioni contenute in questa pagina hanno valore informativo e non sostituiscono la consulenza personalizzata di un commercialista, un avvocato o un patronato. Le norme fiscali, previdenziali e sui permessi cambiano con frequenza: verifica sempre le fonti ufficiali linkate in ogni risposta.',
     relatedTitle: 'Approfondisci',
@@ -134,14 +131,12 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       `10 categories, ${TOTAL_FAQ_COUNT} answers, four languages. Every answer cites its primary source (AFC, Fedlex, UFAS, SEM, Agenzia Entrate, INPS).`,
     tldrTitle: 'In a nutshell',
     tldrParagraphs: [
-      `This hub gathers ${TOTAL_FAQ_COUNT} verified answers to the most recurrent questions of Italian cross-border workers employed in Ticino, with focus on the 2024 new law (CH-IT Agreement of 23/12/2020 ratified by Italian Law 83/2023) and the 2026 tax deadlines.`,
+      `This hub gathers ${TOTAL_FAQ_COUNT} answers to the most recurrent questions of Italian cross-border workers employed in Ticino, with focus on the 2024 new law (CH-IT Agreement of 23/12/2020 ratified by Italian Law 83/2023) and the 2026 tax deadlines.`,
       "Every answer is 80-180 words long, cites the applicable statute (LAMal, LAVS, LPP, CO, FNA, TUIR, dlgs 230/2021) and links to official sources on Fedlex, AFC Ticino, UFAS, SEM, Agenzia Entrate and INPS. Content is updated to 2026 data (rates, ceilings, premiums, minima).",
     ],
     tocTitle: 'Covered categories',
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Cross-border guide',
-    generatedLabel: 'Page generated',
-    reviewUnknown: 'Review date not documented',
     disclaimer:
       'The information on this page is for guidance only and does not replace personal advice from an accountant, lawyer or union office. Tax, social-security and permit rules change frequently: always verify with the official sources linked in each answer.',
     relatedTitle: 'Go deeper',
@@ -163,14 +158,12 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       `10 Kategorien, ${TOTAL_FAQ_COUNT} Antworten, vier Sprachen. Jede Antwort nennt die Primärquelle (AFC, Fedlex, BSV, SEM, Agenzia Entrate, INPS).`,
     tldrTitle: 'Kurz gefasst',
     tldrParagraphs: [
-      `Dieser Hub sammelt ${TOTAL_FAQ_COUNT} geprüfte Antworten auf die häufigsten Fragen italienischer Grenzgänger im Tessin, mit Schwerpunkt auf dem neuen Gesetz 2024 (CH-IT-Abkommen vom 23.12.2020, ratifiziert durch das italienische Gesetz 83/2023) und den Steuerfristen 2026.`,
+      `Dieser Hub sammelt ${TOTAL_FAQ_COUNT} Antworten auf die häufigsten Fragen italienischer Grenzgänger im Tessin, mit Schwerpunkt auf dem neuen Gesetz 2024 (CH-IT-Abkommen vom 23.12.2020, ratifiziert durch das italienische Gesetz 83/2023) und den Steuerfristen 2026.`,
       'Jede Antwort umfasst 80-180 Wörter, nennt die anwendbare Norm (KVG, AHVG, BVG, OR, AIG, TUIR, GD 230/2021) und verweist auf offizielle Quellen (Fedlex, AFC Tessin, BSV, SEM, Agenzia Entrate, INPS). Inhalte entsprechen dem Stand 2026 (Sätze, Obergrenzen, Prämien, Mindestlöhne).',
     ],
     tocTitle: 'Behandelte Kategorien',
     breadcrumbHome: 'Startseite',
     breadcrumbHub: 'Grenzgängerleitfaden',
-    generatedLabel: 'Seite erstellt',
-    reviewUnknown: 'Überprüfungsdatum nicht dokumentiert',
     disclaimer:
       'Die Angaben dienen der Orientierung und ersetzen keine persönliche Beratung durch einen Treuhänder, Anwalt oder eine Gewerkschaft. Steuer-, Sozialversicherungs- und Bewilligungsregeln ändern sich häufig: immer die verlinkten Primärquellen prüfen.',
     relatedTitle: 'Vertiefen',
@@ -192,14 +185,12 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       `10 catégories, ${TOTAL_FAQ_COUNT} réponses, quatre langues. Chaque réponse cite sa source primaire (AFC, Fedlex, OFAS, SEM, Agenzia Entrate, INPS).`,
     tldrTitle: 'En bref',
     tldrParagraphs: [
-      `Ce hub rassemble ${TOTAL_FAQ_COUNT} réponses vérifiées aux questions les plus fréquentes des frontaliers italiens employés au Tessin, avec un focus sur la nouvelle loi 2024 (Accord CH-IT du 23/12/2020 ratifié par la loi italienne 83/2023) et les échéances fiscales 2026.`,
+      `Ce hub rassemble ${TOTAL_FAQ_COUNT} réponses aux questions les plus fréquentes des frontaliers italiens employés au Tessin, avec un focus sur la nouvelle loi 2024 (Accord CH-IT du 23/12/2020 ratifié par la loi italienne 83/2023) et les échéances fiscales 2026.`,
       "Chaque réponse compte 80-180 mots, cite la norme applicable (LAMal, LAVS, LPP, CO, LEI, TUIR, décret 230/2021) et renvoie aux sources officielles Fedlex, AFC Tessin, OFAS, SEM, Agenzia Entrate, INPS. Contenu à jour 2026 (taux, plafonds, primes, minima).",
     ],
     tocTitle: 'Catégories traitées',
     breadcrumbHome: 'Accueil',
     breadcrumbHub: 'Guide frontalier',
-    generatedLabel: 'Page générée',
-    reviewUnknown: 'Date de révision non documentée',
     disclaimer:
       "Les informations de cette page sont indicatives et ne remplacent pas un conseil personnalisé (expert-comptable, avocat, syndicat). Les règles fiscales, de sécurité sociale et de permis changent régulièrement : vérifiez toujours les sources officielles indiquées.",
     relatedTitle: 'Approfondir',
@@ -483,15 +474,38 @@ interface RenderResult {
  *   only needs `wordCount`, which is computed from the body and does not
  *   depend on the hreflang block.
  */
+/**
+ * Visible dates, each in its own `<time>`. "Updated" is a text change and
+ * "sources checked" is a check against the sources: neither says a person
+ * reviewed the answer, and no review is claimed anywhere on these pages.
+ */
+interface SitemapEntry {
+  canonical: string;
+  alternates: string[];
+  lastmod: string;
+}
+
+function renderDates(updatedAt: string, sourcesCheckedAt: string | undefined, locale: FaqHubLocale): string {
+  const updated = `<time datetime="${esc(updatedAt)}">${esc(formatUpdatedSentence(updatedAt, locale))}</time>`;
+  return sourcesCheckedAt
+    ? `${updated} · <time datetime="${esc(sourcesCheckedAt)}">${esc(formatSourcesCheckedSentence(sourcesCheckedAt, locale))}</time>`
+    : updated;
+}
+
+/** The hub changes when any of its answers does. */
+function faqHubUpdatedAt(): string {
+  return ALL_FAQ_HUB.map((entry) => faqEntryUpdatedAt(entry.id)).sort().at(-1)!;
+}
+
 function renderPage(
   locale: FaqHubLocale,
-  dateStamp: string,
   distDir?: string,
   eligibleLocales: ReadonlySet<string> = new Set(),
   /** Entry ids that have their own page IN THIS LOCALE; anything else stays unlinked. */
   linkedIds?: ReadonlySet<string>,
 ): RenderResult {
   const copy = COPY[locale];
+  const hubUpdatedAt = faqHubUpdatedAt();
   // One description of the hero, used three times: the <img>, `Article.image`
   // and `og:image`. Declared before the body because the body consumes it
   // first; all three derive their URL from this single (family, key, locale).
@@ -536,7 +550,7 @@ function renderPage(
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="fh-hd">
-      <p class="fh-eyebrow">${esc(copy.reviewUnknown)} · ${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+      <p class="fh-eyebrow">${renderDates(hubUpdatedAt, undefined, locale)}</p>
       <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
            the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
            FAQ + comparisons hubs for shipping two H1 tags. The body heading
@@ -609,6 +623,7 @@ function renderPage(
       }),
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    dateModified: hubUpdatedAt,
     abstract: copy.tldrParagraphs[0],
     speakable: {
       '@type': 'SpeakableSpecification',
@@ -907,7 +922,6 @@ function siblingEntries(entry: FaqHubEntry, linkedIds: ReadonlySet<string>): Faq
 function renderEntryPage(
   entry: FaqHubEntry,
   locale: FaqHubLocale,
-  dateStamp: string,
   linkedIds: ReadonlySet<string>,
   eligibleLocales: ReadonlySet<string>,
   distDir?: string,
@@ -915,6 +929,7 @@ function renderEntryPage(
   const copy = COPY[locale];
   const ecopy = ENTRY_COPY[locale];
   const question = entry.question[locale];
+  const updatedAt = faqEntryUpdatedAt(entry.id);
   // The <title> is the question, UNLESS the question overflows the 66-char
   // budget and an authored short form exists for this locale (see
   // FaqHubEntry.titleShort). Only <title> uses it: <h1>, JSON-LD and OG all
@@ -1016,7 +1031,7 @@ function renderEntryPage(
     <header class="fh-hd fh-entry-hd">
       <div class="fh-entry-meta">
         <span class="fh-entry-topic">${esc(categoryLabel)}</span>
-        <time class="fh-eyebrow" datetime="${esc(dateStamp)}">${esc(copy.reviewUnknown)} · ${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</time>
+        <p class="fh-eyebrow">${renderDates(updatedAt, entry.sourcesCheckedAt, locale)}</p>
       </div>
     </header>
     ${renderSeoHeroImage(hero)}
@@ -1092,6 +1107,7 @@ function renderEntryPage(
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
     isPartOf: { '@type': 'WebPage', '@id': hubUrl },
+    dateModified: updatedAt,
     articleSection: categoryLabel,
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '[data-speakable]'] },
   });
@@ -1157,19 +1173,16 @@ function renderEntryPage(
 
 // ── Sitemap ──────────────────────────────────────────────────────
 
-function buildSitemapXml(
-  entries: Array<{ canonical: string; alternates: string[] }>,
-  today: string,
-): string {
+function buildSitemapXml(entries: SitemapEntry[]): string {
   const urls = entries
-    .map(({ canonical, alternates }) => {
+    .map(({ canonical, alternates, lastmod }) => {
       const alts = alternates
         .map(
           (a) =>
             `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`,
         )
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.85</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n    <lastmod>${lastmod}</lastmod>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.85</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
@@ -1190,8 +1203,6 @@ export function faqHubPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      const dateStamp = new Date().toISOString().slice(0, 10);
-
       const collector = new WriteCollector({
         distDir,
         pluginName: 'faqHubPlugin',
@@ -1205,7 +1216,7 @@ export function faqHubPlugin(rootDir: string): Plugin {
       // empty hreflang block it renders with.
       const eligibleLocales = new Set<string>(
         FAQ_HUB_LOCALES.filter(
-          (locale) => renderPage(locale, dateStamp, distDir).wordCount >= MIN_INDEXABLE_WORDS,
+          (locale) => renderPage(locale, distDir).wordCount >= MIN_INDEXABLE_WORDS,
         ),
       );
 
@@ -1225,14 +1236,14 @@ export function faqHubPlugin(rootDir: string): Plugin {
         ALL_FAQ_HUB.map((entry) => [entry.id, entryPageEligibleLocales(entry)] as const),
       );
 
-      const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
+      const sitemapEntries: SitemapEntry[] = [];
       let pagesWritten = 0;
       let thinSkipped = 0;
       let itWasWritten = false;
 
       // ── Pass 2: render for real, with the settled alternate set ────────
       for (const locale of FAQ_HUB_LOCALES) {
-        const rendered = renderPage(locale, dateStamp, distDir, eligibleLocales, linkedIdsForLocale(locale, entryLocales));
+        const rendered = renderPage(locale, distDir, eligibleLocales, linkedIdsForLocale(locale, entryLocales));
 
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
           thinSkipped++;
@@ -1256,9 +1267,9 @@ export function faqHubPlugin(rootDir: string): Plugin {
         // dangling IT alternate when the IT render is itself thin-skipped.
         if (locale === 'it') {
           itWasWritten = true;
-          sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+          sitemapEntries.push({ canonical: rendered.urlPath, alternates, lastmod: faqHubUpdatedAt() });
         } else if (itWasWritten) {
-          sitemapEntries.push({ canonical: rendered.urlPath, alternates });
+          sitemapEntries.push({ canonical: rendered.urlPath, alternates, lastmod: faqHubUpdatedAt() });
         }
         pagesWritten++;
       }
@@ -1286,7 +1297,6 @@ export function faqHubPlugin(rootDir: string): Plugin {
           const rendered = renderEntryPage(
             entry,
             locale,
-            dateStamp,
             linkedIdsForLocale(locale, entryLocales),
             locales,
             distDir,
@@ -1302,14 +1312,14 @@ export function faqHubPlugin(rootDir: string): Plugin {
           }
           collector.add(np.join(distDir, rendered.urlPath, 'index.html'), rendered.html);
           collector.add(np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html'), rendered.html);
-          sitemapEntries.push({ canonical: rendered.urlPath, alternates: entryAlternates });
+          sitemapEntries.push({ canonical: rendered.urlPath, alternates: entryAlternates, lastmod: faqEntryUpdatedAt(entry.id) });
           entryPagesWritten++;
         }
       }
 
       if (sitemapEntries.length > 0) {
         try {
-          const xml = buildSitemapXml(sitemapEntries, dateStamp);
+          const xml = buildSitemapXml(sitemapEntries);
           fs.mkdirSync(distDir, { recursive: true });
           const sitemapPath = np.join(distDir, 'sitemap-faq-hub.xml');
           fs.writeFileSync(sitemapPath, xml, 'utf-8');
