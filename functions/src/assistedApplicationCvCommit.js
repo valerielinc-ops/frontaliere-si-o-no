@@ -1,5 +1,5 @@
 import { submissionRefFor } from './assistedApplicationSubmissionGuard.js';
-import { submissionIrreversibility } from './assistedApplicationSubmissionState.js';
+import { submissionIrreversibility, publicSubmissionState } from './assistedApplicationSubmissionState.js';
 import { qualificationCounterContext, qualificationAnswerOriginContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 /**
  * A rebuilt tailored CV published with the change that prints it, in one
@@ -72,9 +72,11 @@ export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const submissionRef = submissionRefFor(db, orderId);
   const same = (left, right) => (left || null) === (right || null);
+  let irreversibleError = null;
   const committed = await db.runTransaction(async (transaction) => {
     const [flowSnapshot, draftSnapshot, orderSnapshot, submissionSnapshot] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef), transaction.get(orderRef), transaction.get(submissionRef)]);
-    if (submissionIrreversibility({ submission: submissionSnapshot.data() })) return false;
+    const irreversibility = submissionIrreversibility({ submission: submissionSnapshot.data() });
+    if (irreversibility) { irreversibleError = new CvCommitError(irreversibility, 409, { state: publicSubmissionState({ order: orderSnapshot.data(), flow: flowSnapshot.data(), submission: submissionSnapshot.data() }) }); return false; }
     if (!orderSnapshot.exists || !answerSourceRetained(orderSnapshot.data(), Math.max(nowMs, Date.now()))) return false;
     const current = { flow: flowSnapshot.data() || {}, draft: draftSnapshot.data() || {} };
     const unchanged = current.flow.state === state
@@ -89,7 +91,7 @@ export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 
   });
   if (committed) return;
   await deleteStored(bucket, orderId, created);
-  throw new CvCommitError('changed_meanwhile', 409);
+  throw irreversibleError || new CvCommitError('changed_meanwhile', 409);
 }
 
 /**
@@ -129,9 +131,9 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const draftRef = draftRefFor(db, orderId);
   const intakeRef = orderRef.collection('automation').doc('intake');
   const submissionRef = submissionRefFor(db, orderId);
-  const [intakeSnapshot, submissionSnapshot] = await Promise.all([intakeRef.get(), submissionRef.get()]);
+  const [intakeSnapshot, submissionSnapshot, freshOrder, freshFlow] = await Promise.all([intakeRef.get(), submissionRef.get(), orderRef.get(), flowRef.get()]);
   const initialIrreversibility = submissionIrreversibility({ submission: submissionSnapshot.data() });
-  if (initialIrreversibility) throw new CvCommitError(initialIrreversibility, 409);
+  if (initialIrreversibility) throw new CvCommitError(initialIrreversibility, 409, { state: publicSubmissionState({ order: freshOrder.data(), flow: freshFlow.data(), submission: submissionSnapshot.data() }) });
   const intake = intakeSnapshot.data() || null;
   const mergedAnswers = { ...(flow.answers || {}), ...answers };
   const questionAnswers = rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: mergedAnswers,
@@ -199,7 +201,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     committed = await db.runTransaction(async transaction => {
       const [os, fs, ds, ins, ss] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef), transaction.get(intakeRef), transaction.get(submissionRef)]);
       const irreversibility = submissionIrreversibility({ submission: ss.data() });
-      if (irreversibility) throw new CvCommitError(irreversibility, 409);
+      if (irreversibility) throw new CvCommitError(irreversibility, 409, { state: publicSubmissionState({ order: os.data(), flow: fs.data(), submission: ss.data() }) });
       if (!os.exists || !fs.exists || !ds.exists) return false;
       const currentFlow = fs.data(); const currentDraft = ds.data();
       if (qualificationCounterContextHash(qualificationCounterContext({ order: os.data(), flow: currentFlow, intake: ins.data() || null })) !== beforeCounterHash) return false;

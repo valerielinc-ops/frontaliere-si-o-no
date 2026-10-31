@@ -31,7 +31,7 @@ describe('question confirmation protocol', () => {
     await expect(f.save({ english: 'C1' })).rejects.toMatchObject({ status: 409 });
     expect(f.input().flow.answers).toEqual({}); expect(f.input().flow.answerConfirmations).toBeUndefined();
     await expect(commitRebuild({ db: f.db, bucket: null, orderId: 'source', flow: f.input().flow, draft: f.input().draft,
-      draftPatch: { forbidden: true }, nowMs: now })).rejects.toMatchObject({ code: 'changed_meanwhile' });
+      draftPatch: { forbidden: true }, nowMs: now })).rejects.toMatchObject({ status: 409, details: { state: 'candidate_review' } });
     expect(f.input().draft.forbidden).toBeUndefined();
   });
   it('refuses a send that becomes irreversible during the answer PDF await and cleans only the new PDF', async () => {
@@ -44,7 +44,7 @@ describe('question confirmation protocol', () => {
       const pending = f.save({ english: 'C1' }, { bucket: { file: () => ({ delete: remove }) } });
       await entered; f.docs.set('assisted_applications/source/automation/submission', { r1: { state: 'sent', channel: 'portal' } });
       finish({ pdfKey: 'refused-sent.pdf', renderer: 'test', photo: null });
-      await expect(pending).rejects.toMatchObject({ code: 'already_sent', status: 409 });
+      await expect(pending).rejects.toMatchObject({ code: 'already_sent', status: 409, details: { state: 'submitted' } });
       expect(f.input().flow.answers).toEqual({}); expect(f.input().flow.answerConfirmations).toBeUndefined();
       expect(remove).toHaveBeenCalled();
     } finally { vi.mocked(pdf.tailoredCvChanges).mockReturnValue(false); }

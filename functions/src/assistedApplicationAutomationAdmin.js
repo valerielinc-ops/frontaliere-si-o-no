@@ -41,7 +41,7 @@ import { factCheckTokens, roundWasSent } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
 import { retainedArtifactStore } from './lib/assistedApplicationArtifactRetention.js';
-import { submissionIrreversibility } from './assistedApplicationSubmissionState.js';
+import { submissionIrreversibility, publicSubmissionState } from './assistedApplicationSubmissionState.js';
 import { submissionGuard, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
@@ -253,7 +253,7 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   const submissionRef = submissionRefFor(db, orderId);
   const [orderSnapshot, draftSnapshot, flowSnapshot, submissionSnapshot] = await Promise.all([orderRef.get(), draftRef.get(), flowRefFor(db, orderId).get(), submissionRef.get()]);
   const initialIrreversibility = submissionIrreversibility({ submission: submissionSnapshot.data() });
-  if (initialIrreversibility) throw new AutomationAdminError(initialIrreversibility, 409);
+  if (initialIrreversibility) throw new AutomationAdminError(initialIrreversibility, 409, { state: publicSubmissionState({ order: orderSnapshot.data(), flow: flowSnapshot.data(), submission: submissionSnapshot.data() }) });
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
   if (!draft || draft.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
   // Sent: the letter that left is the candidate's to keep, a later edit would only change their Word copy (P8).
