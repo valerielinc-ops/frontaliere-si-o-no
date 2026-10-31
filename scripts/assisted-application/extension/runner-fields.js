@@ -438,12 +438,22 @@
     parts.push(headingBefore(element));
     return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
   };
-  // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
-  // nearest before it, else the first after it. A question from another field
-  // cannot cross an intervening control.
+  // The words of a bounded question/upload zone, or an immediate sibling
+  // question span. Page-level copy is not evidence for a generated-id label.
   const zoneText = (element) => {
-    let node = element.parentElement;
-    for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
+    const parent = element.parentElement;
+    if (!parent) return '';
+    const file = element.type === 'file';
+    const dropZone = file && element.closest('[class*="dropzone"], [class*="drop-zone"], [class*="file-upload"], [data-dropzone], [data-file-dropzone]');
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    const singleQuestionGroup = group && oneQuestionGroup(group, element) ? group : null;
+    const pageContainer = parent.matches('body, main, [role="main"], form, [role="form"]');
+    const siblingQuestion = !pageContainer && [...parent.children].some((sibling) => sibling !== element
+      && (sibling.tagName === 'SPAN' || sibling.matches('[class*="label"], [class*="question"], [role="heading"]')));
+    const fileZoneParent = file && siblingQuestion;
+    const containers = [...new Set([dropZone, singleQuestionGroup, parent].filter(Boolean))];
+    for (const node of containers) {
+      const bounded = node === dropZone || node === singleQuestionGroup;
       const walker = document.createTreeWalker(node, 4);
       const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)];
       let before = '';
@@ -453,6 +463,10 @@
         if (text.parentElement?.closest('select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend')) continue;
         const value = clean(text.textContent);
         if (!value) continue;
+        const owner = text.parentElement;
+        const immediateQuestion = node === parent && siblingQuestion && owner?.parentElement === parent
+          && (owner.tagName === 'SPAN' || owner.matches('[class*="label"], [class*="question"], [role="heading"]'));
+        if (!bounded && !immediateQuestion && !(node === parent && fileZoneParent)) continue;
         // eslint-disable-next-line no-bitwise
         const isBefore = Boolean(text.compareDocumentPosition(element) & FOLLOWING);
         const crossesControl = controls.some((control) => control !== element && (isBefore
