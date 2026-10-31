@@ -1,6 +1,6 @@
-// Margini dell'esempio didattico sullo spread: banca 2,66%, Wise 0,16%.
+// Margini dell'esempio didattico sullo spread: banca 2,66%, Wise 0,25% come nel testo.
 const EXAMPLE_BANK_SPREAD = 0.0266;
-const EXAMPLE_WISE_SPREAD = 0.0016;
+const EXAMPLE_WISE_SPREAD = 0.0025;
 
 /** Cifre dell'esempio sullo spread, ricavate dal tasso mostrato in pagina. */
 export function buildSpreadExample(rate: number, locale: string): Record<string, string> {
