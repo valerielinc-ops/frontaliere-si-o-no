@@ -96,7 +96,7 @@ export function finalizeMeta(base: string, qualifier: string): string {
 export const JOB_HUB_CTA: Record<JobPageLocale, readonly string[]> = {
   it: [
     'Leggi gli annunci; accesso gratuito per candidarti.',
-    'Consulta le offerte; per candidarti l’accesso è gratuito.',
+    'Consulta le offerte; accesso gratuito per candidarti.',
     'Annunci da consultare; accesso gratuito per candidarti.',
   ],
   en: [
