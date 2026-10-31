@@ -288,9 +288,14 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
         : authorType === 'Person'
           ? Boolean(authorId?.includes('#person') || authorUrl?.includes('/autori/'))
           : false;
-      const authorName = isNamedAuthor
+      const namedAuthor = isNamedAuthor
         ? lastStaticPropertyValue(authorBlock ?? '', 'name') ?? ''
         : '';
+      // A profile Organization is a newsroom signature, not a person: the feed
+      // reader has no profile page to open, so the attribution has to say so.
+      const authorName = authorType === 'Organization' && namedAuthor && !namedAuthor.startsWith('Redazione')
+        ? `${namedAuthor} (Redazione Frontaliere Ticino)`
+        : namedAuthor;
 
       // An item needs a REAL date: `<pubDate>` and the newest-first sort are
       // built from it, and `new Date('garbage').toUTCString()` is the literal

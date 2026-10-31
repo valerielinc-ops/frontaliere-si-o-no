@@ -33,6 +33,21 @@ export interface JobBoardSeoEntry {
   h1: string
 }
 
+/**
+ * Active Ticino positions as a phrase, from the count of the job dataset. With no
+ * count (dataset missing on a partial build) the phrase states no number: a
+ * hand-written figure is what let /chi-siamo/ claim 1.500 against 988 live.
+ */
+export function activeJobsPhrase(locale: JobBoardLocale, count: number): string {
+  const phrases: Record<JobBoardLocale, [number: string, none: string]> = {
+    it: [`${count} posizioni attive in Canton Ticino`, 'le posizioni attive in Canton Ticino'],
+    en: [`${count} active positions in Canton Ticino`, 'active positions in Canton Ticino'],
+    de: [`${count} aktive Stellen im Kanton Tessin`, 'aktive Stellen im Kanton Tessin'],
+    fr: [`${count} postes actifs au Tessin`, 'les postes actifs au Tessin'],
+  };
+  return phrases[locale][count > 0 ? 0 : 1];
+}
+
 export const FIRE_EMOJI_THRESHOLD = 500
 
 // Per-locale legacy TI landing paths — kept as exports for callers that need

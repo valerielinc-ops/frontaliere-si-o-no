@@ -2327,7 +2327,7 @@ const App: React.FC = () => {
  else if (tab === 'stats' && subTab) setStatsSubTab(subTab as StatsSubTab);
  else if (tab === 'blog' && subTab) setBlogArticle(subTab as BlogArticleId);
  else if (tab === 'job-board' && subTab) setJobSlug(subTab);
- else if (tab === 'autore' && subTab) setAuthor(subTab);
+ else if (tab === 'autore') setAuthor(subTab || null);
  // Programmatic nav into the blog tab defaults to the cross-border section.
  if (tab === 'blog') { setSwissArticle(null); setCantonArticle(null); setCantonTopic(null); setBlogPage(null); setBlogSection('frontaliere'); }
  const route: AppRoute = { activeTab: tab };
@@ -2341,8 +2341,7 @@ const App: React.FC = () => {
  if (tab === 'job-board' && subTab) route.jobSlug = subTab;
  if (tab === 'job-board' && canton) route.jobBoardCanton = canton;
  if (tab === 'autore') {
- const slug = subTab || author || undefined;
- if (slug) route.author = slug;
+ if (subTab) route.author = subTab;
  }
  pushRoute(route);
  // Scroll to top on programmatic navigation, except when returning to the job-board
@@ -2350,7 +2349,7 @@ const App: React.FC = () => {
  if (!(tab === 'job-board' && !subTab)) {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
- }, [calcolatoreSubTab, clearStaticArticleFallback, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab, author]);
+ }, [calcolatoreSubTab, clearStaticArticleFallback, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
 
  // JobAlertForm parks a guest's criteria before sending them to the existing
  // profile auth screen. Re-enter the board after auth so the mounted form can

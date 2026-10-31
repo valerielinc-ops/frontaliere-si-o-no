@@ -7,7 +7,9 @@ import { __renderAgePageForTest, __renderEducationPageForTest } from '../../buil
 import { __renderFaqHubPageForTest, __renderFaqEntryPageForTest } from '../../build-plugins/faqHubPlugin';
 import { __renderPdfLandingPageForTest } from '../../build-plugins/pdfWhitepapersPlugin';
 import { ALL_FAQ_HUB } from '../../data/faq-hub';
+import { faqEntryUpdatedAt } from '../../services/contentDates';
 import { formatSourceDate } from '../../services/dataFreshness';
+import { formatSourcesCheckedSentence, formatUpdatedSentence } from '../../build-plugins/shared/humanDate';
 import { extractJsonLdBlocks, flattenSchemas } from '../post-build/seo-helpers';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
@@ -66,18 +68,30 @@ describe('static document and source freshness', () => {
     }
   });
 
-  it.each(locales)('%s FAQ hub and entries disclose that review dates are unknown', (locale) => {
+  it.each(locales)('%s FAQ pages date the last text change and claim no human review', (locale) => {
     const entry = ALL_FAQ_HUB[0];
-    for (const result of [
-      __renderFaqHubPageForTest(locale, dateStamp),
-      __renderFaqEntryPageForTest(entry, locale, dateStamp, new Set(), new Set(locales)),
-    ]) {
-      expect(result.html).toContain(unknownReview[locale]);
-      expect(result.html).toContain(generatedLabels[locale]);
-      expect(schema(result.html, 'WebPage')).toBeDefined();
-      expect(schema(result.html, 'WebPage')?.dateModified).toBeUndefined();
+    const updatedAt = faqEntryUpdatedAt(entry.id);
+    const hubUpdatedAt = ALL_FAQ_HUB.map((item) => faqEntryUpdatedAt(item.id)).sort().at(-1)!;
+    for (const [result, expected] of [
+      [__renderFaqHubPageForTest(locale), hubUpdatedAt],
+      [__renderFaqEntryPageForTest(entry, locale, new Set(), new Set(locales)), updatedAt],
+    ] as const) {
+      expect(result.html).toContain(`<time datetime="${expected}">`);
+      expect(result.html).toContain(formatUpdatedSentence(expected, locale));
+      expect(result.html).not.toContain(unknownReview[locale]);
+      expect(schema(result.html, 'WebPage')?.dateModified).toBe(expected);
       expect(schema(result.html, 'WebPage')?.datePublished).toBeUndefined();
+      expect(schema(result.html, 'WebPage')?.reviewedBy).toBeUndefined();
+      expect(schema(result.html, 'WebPage')?.lastReviewed).toBeUndefined();
     }
+  });
+
+  it.each(locales)('%s FAQ entry shows a source check only when one is recorded', (locale) => {
+    const entry = { ...ALL_FAQ_HUB[0], sourcesCheckedAt: '2026-10-11' };
+    const checked = __renderFaqEntryPageForTest(entry, locale, new Set(), new Set(locales)).html;
+    expect(checked).toContain(formatSourcesCheckedSentence('2026-10-11', locale));
+    const unchecked = __renderFaqEntryPageForTest(ALL_FAQ_HUB[0], locale, new Set(), new Set(locales)).html;
+    expect(unchecked).not.toContain(formatSourcesCheckedSentence('2026-10-11', locale));
   });
 
   it('regenerating a PDF landing does not claim that the document was revised', () => {
