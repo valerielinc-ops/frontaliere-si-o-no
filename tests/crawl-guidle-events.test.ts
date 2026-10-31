@@ -677,7 +677,7 @@ describe('mapGuidleEvent', () => {
       name: 'Guidle',
       url: 'https://www.guidle.com/de',
     });
-    expect(event.performer).toEqual({ '@type': 'Organization', name: 'Zytturm' });
+    expect(event.performer).toBeUndefined();
     expect(imageSourceUrl).toBe('https://www.guidle.com/imagekit/abc.jpg');
     expect(addressLocality).toBe('Zug');
     expect(cantonHint).toBe('ZG');

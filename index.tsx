@@ -1,4 +1,5 @@
 import './index.css';
+import './services/consentDecisionMark';
 import { startScrollRegionObserver } from './services/scrollRegions';
 import { shouldWaitForJobBoardLcp, waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
 import type { StaticFallbackKind } from './services/staticFallbackHandoff';

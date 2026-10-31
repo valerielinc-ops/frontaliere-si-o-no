@@ -303,6 +303,15 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  '/en/swiss-articles/news-not-relevant/': '/en/swiss-articles/',
  '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': '/de/schweiz-artikel/',
  '/fr/articles-suisse/information-non-pertinente/': '/fr/articles-suisse/',
+ // ── Withdrawn on the 2026-10-31 audit — one article, 4 URLs ─────────────
+ // The Big Bend wall story has no Swiss relevance and invents a Swiss tax law
+ // («LFIP») and a «Banca Svizzera Nazionale»; no surviving article covers the
+ // subject, so the section roots are retirement declarations and
+ // EDGE_RETIRED_PATHS answers 410.
+ '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/': '/articoli-svizzera/',
+ '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/': '/en/swiss-articles/',
+ '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/': '/de/schweiz-artikel/',
+ '/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/': '/fr/articles-suisse/',
  // ── GSC 404 retirement decisions (2026-10-21) ───────────────────────────
  // Search Console reported these old article URLs as not found. Each was
  // checked against the current site/corpus slug registries and the live apex

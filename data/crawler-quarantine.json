@@ -18,6 +18,11 @@
       "reason": "La pagina ufficiale careers ora instrada a LinkedIn; il tenant SmartRecruiters del crawler non pubblica piu' annunci e non e' disponibile un feed strutturato supportato",
       "reviewAfter": "2027-01-03"
     },
+    "company": {
+      "retiredAt": "2026-10-24T18:46:53Z",
+      "issue": 16277,
+      "reason": "Il crawler company (elvetino) e' stato ritirato dal manifest e dal roster nel commit 58d04dc2dce (#15129); la slice residua del corpus e' storica e non rappresenta un crawler attivo"
+    },
     "pzm-muensingen": {
       "retiredAt": "2026-10-03T14:53:47Z",
       "issue": 11094,

@@ -664,5 +664,65 @@
         "aggregateOutcome": "partial"
       }
     }
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "41189854124",
+    "startedAt": "2026-10-31T09:46:27.889Z",
+    "finishedAt": "2026-10-31T10:09:30.006Z",
+    "sources": {
+      "seco": {
+        "attempts": 26,
+        "items": 2550,
+        "recordsSeen": 2550,
+        "newCandidatesFiled": 169,
+        "outcomes": {
+          "complete": 24,
+          "partial": 2,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "page_limit_reached": 1,
+          "http_412": 1
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "osm": {
+        "attempts": 3,
+        "items": 6660,
+        "recordsSeen": 6660,
+        "newCandidatesFiled": 23,
+        "outcomes": {
+          "complete": 1,
+          "partial": 2,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "malformed_records": 2
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "web": {
+        "attempts": 1,
+        "items": 94,
+        "recordsSeen": 94,
+        "newCandidatesFiled": 65,
+        "outcomes": {
+          "complete": 0,
+          "partial": 1,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "http_504": 1
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      }
+    }
   }
 ]

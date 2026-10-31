@@ -182,6 +182,10 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
     });
   }
 
+  // The author hub is a routable page in its own right; keep it alongside the
+  // profile pages so the shared `autore` metadata entry is exercised too.
+  routes.push({ route: { activeTab: 'autore' }, label: 'autore' });
+
   // Author profile pages
   for (const author of AUTHORS) {
     routes.push({

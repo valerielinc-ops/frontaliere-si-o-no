@@ -64,8 +64,8 @@
       },
       "slugByLocale": {
         "it": "etudiants-m-w-d-societe-cooperative-migros-valais-conthey-8vpqjp",
-        "en": "students-m-w-d-societe-cooperative-migros-valais-conthey-8vpqjp",
-        "de": "studenten-m-w-d-societe-cooperative-migros-valais-conthey-8vpqjp",
+        "en": "students-m-f-d-societe-cooperative-migros-valais-conthey",
+        "de": "studenten-m-w-d-societe-cooperative-migros-valais-conthey",
         "fr": "etudiants-m-w-d-societe-cooperative-migros-valais-conthey-8vpqjp"
       },
       "requirementsByLocale": {
@@ -89,16 +89,16 @@
           "etudiants-m-w-d-societe-cooperative-migros-valais-conthey"
         ],
         "en": [
-          "students-m-f-d-societe-cooperative-migros-valais-conthey"
+          "students-m-w-d-societe-cooperative-migros-valais-conthey-8vpqjp"
         ],
         "de": [
-          "studenten-m-w-d-societe-cooperative-migros-valais-conthey"
+          "studenten-m-w-d-societe-cooperative-migros-valais-conthey-8vpqjp"
         ]
       },
       "previousSlugs": [
         "etudiants-m-w-d-societe-cooperative-migros-valais-conthey",
-        "students-m-f-d-societe-cooperative-migros-valais-conthey",
-        "studenten-m-w-d-societe-cooperative-migros-valais-conthey"
+        "students-m-w-d-societe-cooperative-migros-valais-conthey-8vpqjp",
+        "studenten-m-w-d-societe-cooperative-migros-valais-conthey-8vpqjp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -295,8 +295,8 @@
       "slugByLocale": {
         "it": "senior-responsabile-marketing-della-crescita-migros-online-zurich",
         "en": "senior-growth-marketing-manager-migros-online-zurich-kh36if",
-        "de": "senior-wachstumsmarketing-manager-migros-online-zurich-kh36if",
-        "fr": "aine-gestionnaire-du-marketing-de-croissance-migros-online-zurich-kh36if"
+        "de": "senior-wachstumsmarketing-manager-migros-online-zurich",
+        "fr": "aine-gestionnaire-du-marketing-de-croissance-migros-online-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -318,18 +318,18 @@
         ],
         "de": [
           "senior-growth-marketing-manager-migros-online-zurich-kh36if",
-          "senior-wachstumsmarketing-manager-migros-online-zurich"
+          "senior-wachstumsmarketing-manager-migros-online-zurich-kh36if"
         ],
         "fr": [
           "senior-growth-marketing-manager-migros-online-zurich-kh36if",
-          "aine-gestionnaire-du-marketing-de-croissance-migros-online-zurich"
+          "aine-gestionnaire-du-marketing-de-croissance-migros-online-zurich-kh36if"
         ]
       },
       "previousSlugs": [
         "senior-growth-marketing-manager-migros-online-zurich",
         "senior-growth-marketing-manager-migros-online-zurich-kh36if",
-        "senior-wachstumsmarketing-manager-migros-online-zurich",
-        "aine-gestionnaire-du-marketing-de-croissance-migros-online-zurich"
+        "senior-wachstumsmarketing-manager-migros-online-zurich-kh36if",
+        "aine-gestionnaire-du-marketing-de-croissance-migros-online-zurich-kh36if"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -532,9 +532,9 @@
       },
       "slugByLocale": {
         "it": "maestro-fitness-trampolino-salute-m-f-d-club-school-lucerne-klubschule-migros-luzern",
-        "en": "teacher-fitness-trampoline-health-m-w-d-club-school-lucerne-klubschule-migros-luzern-eeeklt",
+        "en": "teacher-fitness-trampoline-health-m-f-d-club-school-lucerne-klubschule-migros-luzern",
         "de": "lehrperson-fitness-trampolin-health-m-w-d-klubschule-luzern-klubschule-migros-luzern-eeeklt",
-        "fr": "professeur-fitness-trampoline-sante-m-w-d-club-school-lucerne-klubschule-migros-luzern-eeeklt"
+        "fr": "professeur-fitness-trampoline-sante-h-f-d-club-school-lucerne-klubschule-migros-luzern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -556,18 +556,18 @@
         ],
         "en": [
           "lehrperson-fitness-trampolin-health-m-w-d-klubschule-luzern-klubschule-migros-luzern-eeeklt",
-          "teacher-fitness-trampoline-health-m-f-d-club-school-lucerne-klubschule-migros-luzern"
+          "teacher-fitness-trampoline-health-m-w-d-club-school-lucerne-klubschule-migros-luzern-eeeklt"
         ],
         "fr": [
           "lehrperson-fitness-trampolin-health-m-w-d-klubschule-luzern-klubschule-migros-luzern-eeeklt",
-          "professeur-fitness-trampoline-sante-h-f-d-club-school-lucerne-klubschule-migros-luzern"
+          "professeur-fitness-trampoline-sante-m-w-d-club-school-lucerne-klubschule-migros-luzern-eeeklt"
         ]
       },
       "previousSlugs": [
         "lehrperson-fitness-trampolin-health-m-w-d-klubschule-luzern-klubschule-migros-luzern",
         "lehrperson-fitness-trampolin-health-m-w-d-klubschule-luzern-klubschule-migros-luzern-eeeklt",
-        "teacher-fitness-trampoline-health-m-f-d-club-school-lucerne-klubschule-migros-luzern",
-        "professeur-fitness-trampoline-sante-h-f-d-club-school-lucerne-klubschule-migros-luzern"
+        "teacher-fitness-trampoline-health-m-w-d-club-school-lucerne-klubschule-migros-luzern-eeeklt",
+        "professeur-fitness-trampoline-sante-m-w-d-club-school-lucerne-klubschule-migros-luzern-eeeklt"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -649,8 +649,8 @@
       },
       "slugByLocale": {
         "it": "consigliere-di-vendita-ecole-club-migros-lausanne",
-        "en": "sales-counsellor-ecole-club-migros-lausanne-ls7cd2",
-        "de": "verkaufsberater-ecole-club-migros-lausanne-ls7cd2",
+        "en": "sales-counsellor-ecole-club-migros-lausanne",
+        "de": "verkaufsberater-ecole-club-migros-lausanne",
         "fr": "conseiller-ere-de-vente-ecole-club-migros-lausanne-ls7cd2"
       },
       "requirementsByLocale": {
@@ -675,18 +675,18 @@
         ],
         "en": [
           "conseiller-ere-de-vente-ecole-club-migros-lausanne-ls7cd2",
-          "sales-counsellor-ecole-club-migros-lausanne"
+          "sales-counsellor-ecole-club-migros-lausanne-ls7cd2"
         ],
         "de": [
           "conseiller-ere-de-vente-ecole-club-migros-lausanne-ls7cd2",
-          "verkaufsberater-ecole-club-migros-lausanne"
+          "verkaufsberater-ecole-club-migros-lausanne-ls7cd2"
         ]
       },
       "previousSlugs": [
         "conseiller-ere-de-vente-ecole-club-migros-lausanne",
         "conseiller-ere-de-vente-ecole-club-migros-lausanne-ls7cd2",
-        "sales-counsellor-ecole-club-migros-lausanne",
-        "verkaufsberater-ecole-club-migros-lausanne"
+        "sales-counsellor-ecole-club-migros-lausanne-ls7cd2",
+        "verkaufsberater-ecole-club-migros-lausanne-ls7cd2"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1102,9 +1102,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-reparto-latticini-migros-burgfelder-genossenschaft-migros-basel-basel",
-        "en": "dairy-department-manager-migros-burgfelder-genossenschaft-migros-basel-yqblr4",
+        "en": "dairy-department-manager-migros-burgfelder-genossenschaft-migros-basel-basel",
         "de": "fachleiter-in-molkerei-migros-burgfelder-genossenschaft-migros-basel-yqblr4",
-        "fr": "responsable-de-secteur-produits-laitiers-migros-burgfelder-genossenschaft-migros-basel-yqblr4"
+        "fr": "responsable-de-secteur-produits-laitiers-migros-burgfelder-genossenschaft-migros-basel-basel"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1127,18 +1127,18 @@
         ],
         "en": [
           "fachleiter-in-molkerei-migros-burgfelder-genossenschaft-migros-basel-yqblr4",
-          "dairy-department-manager-migros-burgfelder-genossenschaft-migros-basel-basel"
+          "dairy-department-manager-migros-burgfelder-genossenschaft-migros-basel-yqblr4"
         ],
         "fr": [
           "fachleiter-in-molkerei-migros-burgfelder-genossenschaft-migros-basel-yqblr4",
-          "responsable-de-secteur-produits-laitiers-migros-burgfelder-genossenschaft-migros-basel-basel"
+          "responsable-de-secteur-produits-laitiers-migros-burgfelder-genossenschaft-migros-basel-yqblr4"
         ]
       },
       "previousSlugs": [
         "fachleiter-in-molkerei-migros-burgfelder-genossenschaft-migros-basel",
         "fachleiter-in-molkerei-migros-burgfelder-genossenschaft-migros-basel-yqblr4",
-        "dairy-department-manager-migros-burgfelder-genossenschaft-migros-basel-basel",
-        "responsable-de-secteur-produits-laitiers-migros-burgfelder-genossenschaft-migros-basel-basel"
+        "dairy-department-manager-migros-burgfelder-genossenschaft-migros-basel-yqblr4",
+        "responsable-de-secteur-produits-laitiers-migros-burgfelder-genossenschaft-migros-basel-yqblr4"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1363,6 +1363,8 @@
       "previousSlugs": [
         "people-attraction-active-sourcing-specialist-m-w-d-galaxus-zurich"
       ],
+      "salaryMin": 113000,
+      "salaryMax": 198500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1377,9 +1379,7 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8001",
-      "salaryMin": 113000,
-      "salaryMax": 198500
+      "postalCode": "8001"
     },
     {
       "id": "company-7fvbuh",
@@ -6372,17 +6372,12 @@
       "postalCode": "9000",
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-        "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
-        "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
-        "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2"
+        "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-          "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2",
           "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
@@ -44362,14 +44357,12 @@
       "previousSlugs": [
         "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5729b8",
         "fitness-instructor-w-m-d-activ-fitness-allschwil-0726797419",
-        "fitness-instructor-m-w-d-activ-fitness-allschwil",
         "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5729b8",
           "fitness-instructor-w-m-d-activ-fitness-allschwil-0726797419",
-          "fitness-instructor-m-w-d-activ-fitness-allschwil",
           "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
         ]
       },
@@ -50457,9 +50450,7 @@
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-          "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
+          "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n"
         ],
         "en": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
@@ -50471,9 +50462,7 @@
       },
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-        "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
+        "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -55869,7 +55858,7 @@
       "crawledAt": "2026-10-31T09:48:50.481Z",
       "slugByLocale": {
         "en": "employee-in-restoration-m-f-d-societe-cooperative-migros-vaud-aigle",
-        "de": "restaurantmitarbeiter-m-w-d-societe-cooperative-migros-vaud-aigle",
+        "de": "mitarbeiter-in-der-restaurierung-m-w-d-societe-cooperative-migros-vaud-aigle",
         "fr": "employe-en-restauration-m-w-d-societe-cooperative-migros-vaud-aigle-8mlwsq",
         "it": "employe-en-restauration-m-w-d-societe-cooperative-migros-vaud-aigle-8mlwsq"
       },
@@ -55906,12 +55895,12 @@
         ],
         "de": [
           "employe-en-restauration-m-w-d-societe-cooperative-migros-vaud-aigle",
-          "mitarbeiter-in-der-restaurierung-m-w-d-societe-cooperative-migros-vaud-aigle"
+          "restaurantmitarbeiter-m-w-d-societe-cooperative-migros-vaud-aigle"
         ]
       },
       "previousSlugs": [
         "employe-en-restauration-m-w-d-societe-cooperative-migros-vaud-aigle",
-        "mitarbeiter-in-der-restaurierung-m-w-d-societe-cooperative-migros-vaud-aigle"
+        "restaurantmitarbeiter-m-w-d-societe-cooperative-migros-vaud-aigle"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

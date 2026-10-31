@@ -1,3 +1,4 @@
+import { runOnFirstEngagement } from '@/services/runOnFirstEngagement';
 import AffiliateLink from '@/components/shared/AffiliateLink';
 import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
@@ -38,7 +39,7 @@ import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
-import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, resolveArticleBylineNote } from '@/packages/articles/engine/shared/aiDisclosure';
+import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, hasLinkedSources, resolveArticleBylineNote } from '@/packages/articles/engine/shared/aiDisclosure';
 import { resolveArticleProvenance, resolveArticleTransparencyStatement } from '@/services/articleProvenance';
 import { articleSourceDate, articleSchemaDates, compareArticleSourceDates } from '@/services/articleSourceDates';
 import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, AD_ELIGIBLE_MIN_WORDS, AD_ELIGIBLE_MIN_CHARS, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
@@ -1602,7 +1603,10 @@ function BlogArticlesContent({
  }).catch(() => {
   if (!cancelled) setBodyLoadIssueState({ key: requestBodyKey, issue: 'error', handoff: false });
  });
- trackArticleView(selectedArticle);
+ // A view is one Firestore write, and the client costs 598 KB on a page that
+ // otherwise never needs it: count it when the reader engages, not during hydration.
+ const articleId = selectedArticle;
+ runOnFirstEngagement(() => { void trackArticleView(articleId); });
  return () => { cancelled = true; };
  }, [selectedArticle, section, locale, bodyRetry]);
 
@@ -2704,7 +2708,7 @@ function BlogArticlesContent({
  {/* Copy link */}
  <button
  onClick={() => handleCopyLink(article.id)}
- className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-surface-raised hover:bg-surface-raised text-xs font-medium transition-colors"
+ className="inline-flex items-center gap-1 px-3 py-1 min-h-[44px] rounded-lg bg-surface-raised hover:bg-surface-raised text-xs font-medium transition-colors"
  aria-label={t('blog.copyLink')}
  >
  {copied ? <Check size={12} className="text-success" /> : <Copy size={12} />}
@@ -2713,7 +2717,7 @@ function BlogArticlesContent({
  {/* WhatsApp */}
  <button
  onClick={() => handleWhatsAppShare(article.id)}
- className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-whatsapp/10 hover:bg-brand-whatsapp/20 text-brand-whatsapp transition-colors"
+ className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-brand-whatsapp/10 hover:bg-brand-whatsapp/20 text-brand-whatsapp transition-colors"
  aria-label={t('blog.shareWhatsApp')}
  title={t('blog.shareWhatsApp')}
  >
@@ -2722,7 +2726,7 @@ function BlogArticlesContent({
  {/* Twitter/X */}
  <button
  onClick={() => handleTwitterShare(article.id)}
- className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-surface-raised text-body transition-colors"
+ className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-surface-raised hover:bg-surface-raised text-body transition-colors"
  aria-label={t('blog.shareTwitter')}
  title={t('blog.shareTwitter')}
  >
@@ -2731,7 +2735,7 @@ function BlogArticlesContent({
  {/* Facebook */}
  <button
  onClick={() => handleFacebookShare(article.id)}
- className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-facebook/10 hover:bg-brand-facebook/20 text-brand-facebook transition-colors"
+ className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-brand-facebook/10 hover:bg-brand-facebook/20 text-brand-facebook transition-colors"
  aria-label={t('blog.shareFacebook')}
  title={t('blog.shareFacebook')}
  >
@@ -2740,7 +2744,7 @@ function BlogArticlesContent({
  {/* Telegram */}
  <button
  onClick={() => handleTelegramShare(article.id)}
- className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-telegram/10 hover:bg-brand-telegram/20 text-brand-telegram transition-colors"
+ className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-brand-telegram/10 hover:bg-brand-telegram/20 text-brand-telegram transition-colors"
  aria-label={t('blog.shareTelegram')}
  title={t('blog.shareTelegram')}
  >
@@ -2749,7 +2753,7 @@ function BlogArticlesContent({
  {/* LinkedIn */}
  <button
  onClick={() => handleLinkedInShare(article.id)}
- className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-linkedin/10 hover:bg-brand-linkedin/20 text-brand-linkedin transition-colors"
+ className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-brand-linkedin/10 hover:bg-brand-linkedin/20 text-brand-linkedin transition-colors"
  aria-label={t('blog.shareLinkedIn')}
  title={t('blog.shareLinkedIn')}
  >
@@ -2758,7 +2762,7 @@ function BlogArticlesContent({
  {/* Email */}
  <button
  onClick={() => handleEmailShare(article.id)}
- className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-surface-raised text-body transition-colors"
+ className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-surface-raised hover:bg-surface-raised text-body transition-colors"
  aria-label={t('blog.shareEmail')}
  title={t('blog.shareEmail')}
  >
@@ -2768,7 +2772,7 @@ function BlogArticlesContent({
  {typeof navigator !== 'undefined' && 'share' in navigator && (
  <button
  onClick={() => handleNativeShare(article.id)}
- className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-accent-subtle hover:bg-accent-subtle/50 text-accent transition-colors"
+ className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-accent-subtle hover:bg-accent-subtle/50 text-accent transition-colors"
  aria-label={t('blog.shareNative')}
  title={t('blog.shareNative')}
  >
@@ -2779,7 +2783,7 @@ function BlogArticlesContent({
  {/* Bookmark */}
  <button
  onClick={() => toggleBookmark(article.id)}
- className={`inline-flex items-center justify-center w-9 h-9 rounded-lg transition-colors ${
+ className={`inline-flex items-center justify-center w-11 h-11 rounded-lg transition-colors ${
  savedArticles.has(article.id)
  ? 'bg-warning-subtle text-warning'
  : 'bg-surface-raised hover:bg-surface-raised text-body'
@@ -2792,7 +2796,7 @@ function BlogArticlesContent({
  {/* Print */}
  <button
  onClick={handlePrint}
- className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-surface-raised text-body transition-colors print:hidden"
+ className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-surface-raised hover:bg-surface-raised text-body transition-colors print:hidden"
  aria-label={t('blog.print')}
  title={t('blog.print')}
  >
@@ -3208,7 +3212,7 @@ function BlogArticlesContent({
  <p className="mb-1">
  <strong className="text-body">{transparencyCopy.label}:</strong>{' '}
  {transparencyStatement}
- {' '}{transparencyCopy.sources}
+ {hasLinkedSources(collectArticleBodySegments(article.id, t)) ? ` ${transparencyCopy.sources}` : null}
  </p>
  <p className="text-xs">
  <a

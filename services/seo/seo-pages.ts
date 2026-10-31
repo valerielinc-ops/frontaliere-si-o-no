@@ -316,17 +316,17 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogDescription: 'Cosa sono i ristorni fiscali e perché contano per i frontalieri.',
  canonicalPath: '/glossario-frontaliere/ristorni/',
  structuredData: [
- { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: quota delle imposte alla fonte svizzere retrocessa ai comuni italiani di confine dei lavoratori frontalieri.', url: `${BASE_URL}/glossario-frontaliere/ristorni/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: compensazione del 40% dell\'imposta lorda dei frontalieri dell\'art. 9, versata dai Cantoni all\'Italia fino all\'anno fiscale 2033.', url: `${BASE_URL}/glossario-frontaliere/ristorni/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
  {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
- { '@type': 'Question', name: "Cosa sono i ristorni fiscali per i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "I ristorni fiscali sono somme che la Confederazione Svizzera retrocede ai comuni italiani di confine come compensazione per i servizi pubblici erogati ai lavoratori frontalieri residenti in Italia. Storicamente la Svizzera restituiva il 38,8% dell'imposta alla fonte trattenuta ai vecchi frontalieri. I ristorni vengono gestiti dal Ministero dell'Economia italiano e distribuiti ai comuni in base al numero di frontalieri residenti." } },
+ { '@type': 'Question', name: "Cosa sono i ristorni fiscali per i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "I ristorni fiscali sono somme che i Cantoni Grigioni, Ticino e Vallese versano all'Italia a beneficio dei Comuni di frontiera. L'Accordo 2020 prevede il 40% dell'imposta lorda dei frontalieri dell'art. 9, fino all'anno fiscale 2033. Il pagamento avviene su un conto di Tesoreria intestato al MEF e le autorità italiane trasferiscono le somme ai Comuni." } },
  { '@type': 'Question', name: "Chi riceve i ristorni: i frontalieri o i comuni?", acceptedAnswer: { '@type': 'Answer', text: "I comuni italiani di frontiera, non i singoli frontalieri. Il comune usa i ristorni per finanziare infrastrutture e servizi locali (scuole, strade, trasporti, servizi sociali). Il frontaliere non riceve denaro direttamente, ma beneficia indirettamente attraverso migliori servizi nel proprio comune di residenza. Alcuni comuni hanno azzerato l'addizionale IRPEF grazie ai ristorni." } },
  { '@type': 'Question', name: "I ristorni cambiano con l’accordo fiscale Italia-Svizzera del 2020?", acceptedAnswer: { '@type': 'Answer', text: "L’articolo 9 prevede una compensazione all’Italia pari al 40% del gettito sui vecchi frontalieri fino all’anno fiscale 2033, senza riduzione graduale della percentuale. Dopo tale anno la Svizzera conserva il gettito. Questo non fa passare automaticamente i vecchi frontalieri al regime concorrente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { '@type': 'Question', name: "Quali comuni italiani ricevono i ristorni?", acceptedAnswer: { '@type': 'Answer', text: "I comuni italiani entro 20 km dal confine svizzero nelle province di Como, Varese, Verbano-Cusio-Ossola, Sondrio (per il Canton Ticino e Grigioni) e i comuni confinanti per Canton Vallese e Giura. L'elenco è stabilito dalla Convenzione CH-IT del 1974 e aggiornato periodicamente. I principali beneficiari storici sono Como, Chiasso, Ponte Tresa, Luino e Varese." } },
- { '@type': 'Question', name: "Quanto valgono complessivamente i ristorni annui?", acceptedAnswer: { '@type': 'Answer', text: "Negli ultimi anni la Svizzera ha retrocesso tra €70 milioni e €90 milioni l'anno all'Italia per i ristorni dei frontalieri. La quota è cresciuta con l'aumento del numero di frontalieri, ma si prevede una riduzione progressiva nel prossimo decennio per effetto del nuovo accordo che sposta il gettito direttamente nelle casse italiane tramite l'IRPEF." } },
- { '@type': 'Question', name: "I ristorni riguardano anche i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "In misura molto ridotta. Per i nuovi frontalieri, la Svizzera trattiene solo l'80% dell'imposta alla fonte ordinaria e non c'è retrocessione significativa ai comuni italiani, perché l'Italia incassa direttamente l'IRPEF dal lavoratore. Il modello di finanziamento dei comuni di frontiera è in fase di ridisegno tramite negoziati bilaterali." } }
+ { '@type': 'Question', name: "Quanto valgono complessivamente i ristorni annui?", acceptedAnswer: { '@type': 'Answer', text: "L'Accordo fissa una percentuale, non un importo: il 40% dell'imposta lorda dei frontalieri dell'art. 9, fino all'anno fiscale 2033. Le somme dipendono dal gettito dei Cantoni. Lo Stato italiano garantisce inoltre ai Comuni di frontiera 89 milioni di euro l'anno (L. 83/2023 art. 10)." } },
+ { '@type': 'Question', name: "I ristorni riguardano anche i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "No. Per i nuovi frontalieri la Svizzera applica l'80% dell'imposta alla fonte ordinaria e non è prevista alcuna compensazione: l'Italia tassa il reddito con credito per l'imposta svizzera." } }
  ],
  speakable: SPEAKABLE_SECTION,
  }
@@ -513,11 +513,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  '@type': 'FAQPage',
  mainEntity: [
  { '@type': 'Question', name: "Cos'è il tasso di cambio CHF/EUR per un frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "Il tasso di cambio CHF/EUR è il rapporto tra franco svizzero ed euro. Indica quanti euro corrispondono a 1 franco (o viceversa). Per un frontaliere è cruciale: determina quanto vale in euro lo stipendio ricevuto in CHF, quanto si pagano le tasse italiane convertendo il reddito svizzero, e quanto costa convertire ogni mese gli stipendi in euro per le spese in Italia. Oscillazioni dell'1% su uno stipendio di CHF 5.000 valgono €50 al mese." } },
- { '@type': 'Question', name: "Quale tasso di cambio si usa in dichiarazione dei redditi italiana?", acceptedAnswer: { '@type': 'Answer', text: "L'Agenzia delle Entrate richiede il cambio medio annuo BCE dell'anno fiscale per convertire il reddito svizzero. Questo valore è pubblicato ufficialmente dall'Agenzia delle Entrate ogni anno (circolare dedicata). Non si usa il cambio giornaliero né quello della banca. Esempio: per il 2025 il cambio medio è circa CHF 1 = €1,04 (da confermare nelle tabelle ufficiali). Usare il cambio sbagliato è un errore frequente che può causare ricalcoli." } },
+ { '@type': 'Question', name: "Quale tasso di cambio si usa in dichiarazione dei redditi italiana?", acceptedAnswer: { '@type': 'Answer', text: "L'Agenzia delle Entrate richiede il cambio medio annuo BCE dell'anno fiscale per convertire il reddito svizzero. Questo valore è pubblicato ufficialmente dall'Agenzia delle Entrate ogni anno (circolare dedicata). Non si usa il cambio giornaliero né quello della banca. Esempio: per il 2025 la media dei tassi di riferimento BCE è circa CHF 1 = €1,067 (da confermare nelle tabelle ufficiali). Usare il cambio sbagliato è un errore frequente che può causare ricalcoli." } },
  { '@type': 'Question', name: "Conviene cambiare CHF in EUR con la banca o con Wise?", acceptedAnswer: { '@type': 'Answer', text: "Wise e Revolut applicano il cambio interbancario con markup 0,25–0,5%, mentre banche tradizionali applicano markup 2–3%. Per un frontaliere che cambia CHF 5.000/mese, la differenza è CHF 100–150/mese, ovvero CHF 1.200–1.800/anno. PostFinance, UBS e Credit Suisse hanno spread più alti; N26 e Revolut offrono condizioni competitive. Molti frontalieri mantengono conto in CHF (svizzero) + conto in EUR (italiano o Wise)." } },
  { '@type': 'Question', name: "Come proteggersi dal rischio di cambio CHF/EUR?", acceptedAnswer: { '@type': 'Answer', text: "Le strategie principali: 1) Mantenere un conto CHF svizzero e convertire solo il necessario ogni mese; 2) Diversificare negli strumenti a cambio forward (Wise, Interactive Brokers) per bloccare un tasso; 3) Tenere un cuscinetto di liquidità CHF per evitare conversioni forzate in periodi di franco debole; 4) Considerare il franco come valuta di riserva (storicamente rifugio), quindi meno volatile in valore reale." } },
  { '@type': 'Question', name: "Il cambio CHF/EUR influisce sul mutuo in Italia?", acceptedAnswer: { '@type': 'Answer', text: "Sì, indirettamente. Le banche italiane valutano il reddito svizzero convertendolo in EUR al cambio attuale per calcolare la capacità di rimborso. Cambi sfavorevoli possono ridurre la somma concessa. Per mitigare, alcune banche accettano la media dei 12 cambi mensili ufficiali. Inoltre, chi ha un mutuo in euro paga con stipendio in franchi: un franco forte riduce la rata in termini relativi; un franco debole la aumenta." } },
- { '@type': 'Question', name: "Il tasso di cambio è rimasto stabile negli ultimi anni?", acceptedAnswer: { '@type': 'Answer', text: "No. Il CHF/EUR ha oscillato sensibilmente: da 1,20 (2011–2014, con floor BNS), a parità a 1:1 nel 2022, fino a 0,93–0,96 nel 2024–2026 (franco forte). Ogni 5% di movimento equivale a circa €200–300/mese di variazione per un frontaliere medio. Monitorare il cambio è importante per pianificare risparmi, trasferimenti e momento ottimale per grandi conversioni CHF→EUR." } }
+ { '@type': 'Question', name: "Il tasso di cambio è rimasto stabile negli ultimi anni?", acceptedAnswer: { '@type': 'Answer', text: "No. Il CHF/EUR ha oscillato sensibilmente: da 1,20 (2011–2014, con floor BNS), a parità a 1:1 nel 2022, fino a circa 1,05–1,11 euro per franco nel 2025–2026 secondo i tassi di riferimento BCE (franco forte). Ogni 5% di movimento equivale a circa €200–300/mese di variazione per un frontaliere medio. Monitorare il cambio è importante per pianificare risparmi, trasferimenti e momento ottimale per grandi conversioni CHF→EUR." } }
  ]
  }
  ],
@@ -1064,11 +1064,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  exchange: {
  title: 'Cambio Franco Euro 2026: Tasso Oggi, Spread Wise vs Revolut',
- h1: 'Cambio franco-euro 2026 — tasso in tempo reale, confronto spread, commissioni',
- description: 'Cambio franco-euro 2026: tasso BNS in tempo reale, confronto spread Wise, Revolut, PostFinance, UBS. Commissioni 0,3-3%, calcolatore risparmio su stipendio CHF.',
+ h1: 'Cambio franco-euro 2026 — tasso del giorno, confronto spread, commissioni',
+ description: 'Cambio franco-euro 2026: tasso interbancario del giorno, confronto spread Wise, Revolut, PostFinance, UBS. Commissioni 0,3-3%, calcolatore risparmio su stipendio CHF.',
  keywords: 'cambio franco euro, cambio chf eur oggi, cambio franco svizzero euro, tasso franco euro 2026, wise tasso cambio, revolut commissioni, spread cambio valuta, postfinance cambio valuta, ubs cambio, n26 trasferimenti, miglior cambio svizzera italia, commissioni cambio valuta, calcolo risparmio cambio',
  ogTitle: 'Cambio Franco Euro 2026 — Tasso Oggi + Confronto Spread',
- ogDescription: '💱 Cambio franco-euro 2026: tasso BNS in tempo reale, spread a confronto tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26), calcolatore commissioni.',
+ ogDescription: '💱 Cambio franco-euro 2026: tasso interbancario del giorno, spread a confronto tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26), calcolatore commissioni.',
  canonicalPath: '/compara-servizi/cambio-franco-euro/',
  structuredData: [
  {
@@ -1076,7 +1076,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "WebPage",
  "name": "Comparatore Cambio Franco Euro",
  "url": `${BASE_URL}/compara-servizi/cambio-franco-euro/`,
- "description": "Confronto tassi di cambio franco-euro in tempo reale tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26) con tabella spread e calcolatore commissioni.",
+ "description": "Confronto tassi di cambio franco-euro tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26) con tabella spread e calcolatore commissioni.",
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web Browser",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
@@ -1109,7 +1109,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Qual è il miglior servizio per cambiare franchi svizzeri in euro?", "acceptedAnswer": { "@type": "Answer", "text": "Wise e Revolut offrono generalmente i tassi più vantaggiosi con commissioni tra 0,3% e 0,5% sul tasso mid-market. PostFinance applica uno spread dell'1,5-2%, UBS e Credit Suisse dell'1-2,5%. Le casse Raiffeisen cantonali si fermano tipicamente all'1-1,5%. N26 applica un tasso vicino al mid-market con cambio mensile gratuito fino a €30.000 per i piani You/Metal." } },
  { "@type": "Question", "name": "Quanto costa trasferire CHF in EUR con Wise?", "acceptedAnswer": { "@type": "Answer", "text": "Wise applica una commissione trasparente dello 0,3-0,6% sul tasso di cambio mid-market reale. Per un trasferimento di CHF 5.000 il costo tipico è CHF 15-30. Il servizio offre anche un conto multivaluta gratuito con IBAN svizzero e IBAN europeo, permettendo di ricevere lo stipendio in CHF e convertirlo a scelta del titolare." } },
  { "@type": "Question", "name": "Conviene cambiare lo stipendio frontaliere in banca o con servizi online?", "acceptedAnswer": { "@type": "Answer", "text": "I servizi online come Wise e Revolut sono generalmente più convenienti. Su uno stipendio mensile di CHF 5.000 il risparmio rispetto a una banca tradizionale può essere di CHF 50-150 al mese. Tuttavia, le banche offrono strumenti aggiuntivi (piani d'investimento, mutui, conto business) che i servizi online non coprono. Una strategia ottimale è tenere il conto stipendio presso la banca svizzera e cambiare tramite Wise/Revolut solo la quota da trasferire in Italia." } },
- { "@type": "Question", "name": "Quando è il momento migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Il tasso franco-euro fluttua quotidianamente. Storicamente il franco è stato forte (EUR/CHF sotto 0,95) nei periodi di instabilità finanziaria globale (2015-2017, 2020, 2022). Conviene impostare alert sui provider (Wise Rate Alerts, Revolut Rate Alert) per notifica al superamento di soglie predefinite. Evitare i cambi nei weekend e nelle ore notturne quando gli spread sono più ampi per bassa liquidità interbancaria." } },
+ { "@type": "Question", "name": "Quando è il momento migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Il tasso franco-euro fluttua quotidianamente. Il franco tende a rafforzarsi nei periodi di instabilità finanziaria globale. Conviene impostare alert sui provider (Wise Rate Alerts, Revolut Rate Alert) per notifica al superamento di soglie predefinite. Evitare i cambi nei weekend e nelle ore notturne quando gli spread sono più ampi per bassa liquidità interbancaria." } },
  { "@type": "Question", "name": "Quanto si risparmia usando Revolut Premium o Wise Borderless?", "acceptedAnswer": { "@type": "Answer", "text": "Revolut Premium (€9,99/mese) dà cambio al tasso mid-market illimitato e 3 prelievi ATM gratuiti al mese; Wise Borderless è gratuito con commissione per trasferimento. Per frontalieri che trasferiscono CHF 3.000-7.000/mese, Revolut Premium si ripaga oltre i CHF 3.500/mese di cambio grazie all'azzeramento dello spread; per importi minori Wise resta la scelta più economica." } },
  { "@type": "Question", "name": "Le commissioni di cambio sono detraibili dalle tasse italiane?", "acceptedAnswer": { "@type": "Answer", "text": "No, le commissioni di cambio valuta applicate a spese personali (stipendio frontaliere convertito per spese familiari) non sono deducibili dall'IRPEF italiana. Possono invece essere spesabili per chi ha una partita IVA italiana o un'attività professionale: in quel caso la commissione rientra tra le spese bancarie deducibili al 100%. Conservare sempre l'estratto conto che dettaglia la commissione sul cambio per eventuale contraddittorio con l'Agenzia delle Entrate." } }
  ]
@@ -1446,7 +1446,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quando scade la dichiarazione dei redditi per frontalieri in Italia?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il Modello 730 scade il 30 settembre 2026, il Modello Redditi PF (ex Unico) scade il 30 novembre 2026 per l'invio telematico. Il pagamento del saldo IRPEF e primo acconto scade il 30 giugno 2026."
+ "text": "Il Modello 730 scade il 30 settembre 2026, il Modello Redditi PF (ex Unico) scade il 2 novembre 2026 per l'invio telematico. Il pagamento del saldo IRPEF e primo acconto scade il 30 giugno 2026."
  }
  },
  {
@@ -3157,7 +3157,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Devo convertire l'imposta svizzera da CHF a EUR?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Sì, l'imposta alla fonte pagata in CHF va convertita in EUR usando il tasso di cambio medio annuo pubblicato dall'Agenzia delle Entrate. Per il 2025 il tasso medio è indicativo di circa 0,94 EUR per CHF."
+ "text": "Sì, l'imposta alla fonte pagata in CHF va convertita in EUR usando il tasso di cambio medio annuo pubblicato dall'Agenzia delle Entrate. Per il 2025 la media dei tassi di riferimento BCE è di circa 0,937 franchi per euro, cioè circa 1,067 euro per franco."
  }
  }
  ]
@@ -4299,11 +4299,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  ristorni: {
- title: 'Ristorni Fiscali Frontalieri 2026: Importi per Comune Italiano',
- description: 'Ristorni fiscali frontalieri 2026: importi aggiornati per comune italiano, andamento storico e confronto tra le province di confine con la Svizzera.',
+ title: 'Ristorni Fiscali Frontalieri 2026: Come Funziona il 40%',
+ description: 'Ristorni fiscali frontalieri: come funziona la compensazione del 40% prevista dall\'Accordo fino all\'anno fiscale 2033, chi la versa e per quali lavoratori.',
  keywords: 'ristorni fiscali frontalieri, compensi fiscali svizzera italia, ristorni comuni italiani, ristorni como varese, ristorni frontalieri importo',
- ogTitle: 'Ristorni Fiscali Frontalieri | Statistiche per Comune',
- ogDescription: '💶 Statistiche sui ristorni fiscali: importi per comune, andamento storico e confronto tra province.',
+ ogTitle: 'Ristorni Fiscali Frontalieri | Come Funzionano',
+ ogDescription: 'Come funziona la compensazione del 40% ai sensi dell\'Accordo, fino all\'anno fiscale 2033.',
  canonicalPath: '/tasse-e-pensione/ristorni-fiscali/',
  structuredData: [
  {
@@ -4332,7 +4332,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cosa sono i ristorni fiscali per frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I ristorni fiscali sono compensi che la Svizzera versa all'Italia, pari al 40% dell'imposta alla fonte trattenuta ai frontalieri. Questi fondi vengono distribuiti ai comuni italiani di residenza dei frontalieri per finanziare servizi locali."
+ "text": "I ristorni fiscali sono la compensazione che i Cantoni Grigioni, Ticino e Vallese versano all'Italia, pari al 40% dell'imposta lorda dei frontalieri dell'art. 9, fino all'anno fiscale 2033. Le autorità italiane trasferiscono poi le somme ai Comuni."
  }
  },
  {
@@ -4348,7 +4348,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quanto vale un ristorno fisale per comune?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "L'importo varia molto: comuni con molti frontalieri come Lavena Ponte Tresa, Porlezza o Ponte Chiasso ricevono centinaia di migliaia di euro, mentre comuni più piccoli ricevono importi inferiori. Il totale annuo supera i 90 milioni di euro."
+ "text": "L'importo varia da comune a comune e dipende dall'imposta dei frontalieri dell'art. 9 e dalla ripartizione italiana. L'Accordo fissa la percentuale del 40%, non un importo per comune."
  }
  },
  {
@@ -6298,7 +6298,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quali sono i casi particolari: telelavoro, lavoro in più cantoni, pensionati?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il telelavoro è regolato dall'Accordo integrativo del 6 giugno 2024: fino al 25% del tempo lavorativo dall'Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Per i lavoratori con meno del 50% di attività a domicilio, il permesso G resta valido."
+ "text": "Il telelavoro è regolato dal Protocollo di modifica firmato il 30 maggio e il 6 giugno 2024, in vigore dal 9 febbraio 2026 e applicabile dal 1° gennaio 2024: fino al 25% dell'attività dal domicilio in Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Oltre il 25% di telelavoro le conseguenze non sono disciplinate dal Protocollo e vanno verificate caso per caso."
  }
  },
  {

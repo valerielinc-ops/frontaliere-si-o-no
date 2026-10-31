@@ -62,7 +62,7 @@ describe('comparableSnapshot', () => {
 });
 
 describe('evaluateIntraday', () => {
- const baseline = [600, 660, 720].map((m) => snap('2026-10-24', m, 10));
+ const baseline = [600, 660, 720].map((m) => snap('2026-10-24', m, 20));
 
  it('waits for a week of history', () => {
   const today = [600, 660, 720].map((m) => snap('2026-10-31', m, 1));
@@ -70,16 +70,16 @@ describe('evaluateIntraday', () => {
  });
 
  it('needs every confirmation run under the threshold', () => {
-  const single = [snap('2026-10-31', 600, 9), snap('2026-10-31', 660, 9), snap('2026-10-31', 720, 7)];
+  const single = [snap('2026-10-31', 600, 18), snap('2026-10-31', 660, 18), snap('2026-10-31', 720, 14)];
   expect(evaluateIntraday([...baseline, ...single], '2026-10-31').status).toBe('ok');
-  const all = [600, 660, 720].map((m) => snap('2026-10-31', m, 7));
+  const all = [600, 660, 720].map((m) => snap('2026-10-31', m, 14));
   expect(evaluateIntraday([...baseline, ...all], '2026-10-31')).toMatchObject({ status: 'alarm', key: 'intraday-2026-10-31', severe: true });
  });
 
- it('stays silent on a night total too small to mean anything', () => {
-  const night = [60, 120, 180].map((m) => snap('2026-10-24', m, 1));
-  const today = [60, 120, 180].map((m) => snap('2026-10-31', m, 0.1));
-  expect(evaluateIntraday([...night, ...today], '2026-10-31').status).toBe('pending');
+ it('stays silent on a morning total too small to mean anything', () => {
+  const morning = [600, 660, 720].map((m) => snap('2026-10-24', m, 11.99));
+  const today = [600, 660, 720].map((m) => snap('2026-10-31', m, 1));
+  expect(evaluateIntraday([...morning, ...today], '2026-10-31').status).toBe('pending');
  });
 });
 
