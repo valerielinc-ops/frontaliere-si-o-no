@@ -15,16 +15,20 @@ const META_TONE_CLASSES = {
  warning: 'bg-warning-subtle text-warning border border-warning-border',
 } as const;
 
+interface JobDetailHeaderCardProps extends HTMLAttributes<HTMLElement> {
+ 'data-no-auto-ads'?: string;
+}
+
 export function JobDetailHeaderCard({
  children,
  className = '',
  ...props
-}: HTMLAttributes<HTMLElement>) {
+}: JobDetailHeaderCardProps) {
  return (
   <header
    {...props}
    className={`${HEADER_CARD_CLASS}${className ? ` ${className}` : ''}`}
-   data-job-detail-header
+   data-job-detail-header=""
   >
    {children}
   </header>
@@ -40,7 +44,7 @@ export function JobDetailMetadataRow({
   <div
    {...props}
    className={`mt-4 flex flex-wrap gap-2 text-xs${className ? ` ${className}` : ''}`}
-   data-job-detail-metadata
+   data-job-detail-metadata=""
   >
    {children}
   </div>
