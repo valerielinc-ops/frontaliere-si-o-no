@@ -110,11 +110,7 @@ export function createCantonResolvers({ cantonSlugFile, municipalitiesFile }) {
     return out;
   })();
 
-  function resolveJobCanton(job) {
-    const explicit = String(job.canton || '').toUpperCase().trim();
-    if (explicit && (cantons[explicit] || memberToGroup[explicit])) {
-      return resolveCantonGroup(explicit);
-    }
+  function resolveJobLocationCanton(job) {
     // German long form "Sankt X" → canonical "St. X" so it hits the same
     // municipality keys ("st. gallen", "st. margrethen") indexed below.
     // Cheap normalisation done once before splitting on commas/parens.
@@ -133,7 +129,27 @@ export function createCantonResolvers({ cantonSlugFile, municipalitiesFile }) {
       const up = token.toUpperCase();
       if (cantons[up] || memberToGroup[up]) return resolveCantonGroup(up);
     }
-    return 'TI';
+    return null;
+  }
+
+  function resolveKnownJobCanton(job) {
+    const explicit = String(job.canton || '').toUpperCase().trim();
+    if (explicit) {
+      // An invalid explicit value is evidence of an unresolved/conflicting
+      // record. Do not replace it with a location-based guess.
+      return cantons[explicit] || memberToGroup[explicit]
+        ? resolveCantonGroup(explicit)
+        : null;
+    }
+    return resolveJobLocationCanton(job);
+  }
+
+  function resolveJobCanton(job) {
+    const explicit = String(job.canton || '').toUpperCase().trim();
+    if (explicit && (cantons[explicit] || memberToGroup[explicit])) {
+      return resolveCantonGroup(explicit);
+    }
+    return resolveJobLocationCanton(job) || 'TI';
   }
 
   const ALL_CANTON_CODES = Object.freeze(Object.keys(cantons).sort());
@@ -142,6 +158,7 @@ export function createCantonResolvers({ cantonSlugFile, municipalitiesFile }) {
     resolveCantonGroup,
     getCantonUrlSlug,
     resolveCantonSection,
+    resolveKnownJobCanton,
     resolveJobCanton,
     ALL_CANTON_CODES,
   };
