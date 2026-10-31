@@ -1,7 +1,7 @@
 {
   "key": "leukerbad-clinic",
   "label": "Leukerbad Clinic",
-  "generatedAt": "2026-10-30T21:26:40.114Z",
+  "generatedAt": "2026-10-31T09:20:09.366Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5359,
-  "avgDurationMs": 5359,
+  "durationMs": 6255,
+  "avgDurationMs": 6255,
   "durationHistory": [
-    5359
+    6255
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,7 +53,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/carriere/candidature-spontanee?offre=infirmierinfirmiere-diplome-e-hf-80-100",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:26:23.474Z",
+      "crawledAt": "2026-10-31T09:19:52.169Z",
       "needsRetranslation": false,
       "sourceConditions": "80–100 % · De suite ou à convenir",
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
@@ -96,7 +96,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/carriere/candidature-spontanee?offre=assistant-e-en-soins-et-sante-communautaire-cfc-as",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:26:23.313Z",
+      "crawledAt": "2026-10-31T09:19:52.052Z",
       "sourceConditions": "80–100 % · De suite ou à convenir",
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
       "salaryMin": 86500,
@@ -138,7 +138,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=ma-gap",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:23.152Z",
+      "crawledAt": "2026-10-31T09:19:51.933Z",
       "needsRetranslation": false,
       "sourceConditions": "100 % · Sofort oder nach Vereinbarung",
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
@@ -181,7 +181,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=mpa",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:22.990Z",
+      "crawledAt": "2026-10-31T09:19:51.814Z",
       "sourceConditions": "60–100 % · sofort oder nach Vereinbarung",
       "firstSeenAt": "2026-10-14T09:30:54.536Z",
       "salaryMin": 86500,
@@ -223,7 +223,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=ihre-aufgaben",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:26:22.829Z",
+      "crawledAt": "2026-10-31T09:19:51.695Z",
       "needsRetranslation": false,
       "sourceConditions": "80–100 % · Nach Vereinbarung",
       "firstSeenAt": "2026-10-14T09:30:54.095Z",
@@ -239,5 +239,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

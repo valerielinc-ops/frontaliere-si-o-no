@@ -48,6 +48,18 @@ describe('AI reference source provenance', () => {
     expect(locale).not.toContain('**Last Updated**:');
   });
 
+  it('keeps the curated locale seed and only a summary of its URLs', async () => {
+    const f = fixture();
+    fs.mkdirSync(path.join(f.publicDir, 'en'), { recursive: true });
+    fs.writeFileSync(path.join(f.publicDir, 'en/llms.txt'), '# Seed\n\n## Key Facts — Citation-Ready\n');
+    await generateLlmsTxtFamily(f);
+    const locale = fs.readFileSync(path.join(f.distDir, 'en/llms.txt'), 'utf8');
+    expect(locale).toContain('## Key Facts — Citation-Ready');
+    expect(locale).toContain('Pages in this language');
+    expect(locale).toContain('/llms-index.txt');
+    expect(locale).not.toMatch(/^- \[.*\]\(https:\/\/frontaliereticino\.ch\/en\//m);
+  });
+
   it('does not renew verification dates when the same content is built in a later month', async () => {
     const f = fixture();
     await generateLlmsTxtFamily(f);

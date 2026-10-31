@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 980,
+      "5": 983,
       "6": 5061
     },
-    "publishedCovers": 7723,
+    "publishedCovers": 7726,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -212202,6 +212202,105 @@
         "provider": "openai-codex",
         "assetId": "article-tpf-nuovi-bus-elettrici-friburgo",
         "imageUrl": "/images/blog/article-tpf-nuovi-bus-elettrici-friburgo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bellinzona-imposte-piu-salate-2028": {
+      "cover": "/images/blog/article-bellinzona-imposte-piu-salate-2028.webp",
+      "hash": "e1e5a6b390a7e88db28239cdb9db7affadaa3a0ff8be492fb50ff080979ac547",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bellinzona-imposte-piu-salate-2028",
+          "category": "fiscale",
+          "date": "2026-10-31T08:56:46.770Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bellinzona-imposte-piu-salate-2028.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-31",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bellinzona-imposte-piu-salate-2028",
+        "imageUrl": "/images/blog/article-bellinzona-imposte-piu-salate-2028.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lavori-barriere-antirumore-a8": {
+      "cover": "/images/blog/article-lavori-barriere-antirumore-a8.webp",
+      "hash": "e9c7c2b48431e4c972180161fee2b4b61eb2e6ac938d41c64e4b1ae97c2071e3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lavori-barriere-antirumore-a8",
+          "category": "pratico",
+          "date": "2026-10-31T08:27:33.922Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lavori-barriere-antirumore-a8.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-31",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lavori-barriere-antirumore-a8",
+        "imageUrl": "/images/blog/article-lavori-barriere-antirumore-a8.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-passepartout-trasporto-centrale": {
+      "cover": "/images/blog/article-passepartout-trasporto-centrale.webp",
+      "hash": "8e185373e0093ae7d1bb6f0a310e5aa180bcf7b1dd8a7f16a5a6d7b0c52c6cda",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "passepartout-trasporto-centrale",
+          "category": "pratico",
+          "date": "2026-10-31T09:19:08.597Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-passepartout-trasporto-centrale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-31",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-passepartout-trasporto-centrale",
+        "imageUrl": "/images/blog/article-passepartout-trasporto-centrale.webp",
         "evidence": "generated-engine-record"
       }
     }

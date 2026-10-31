@@ -13,6 +13,7 @@ import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from '.
 import type { Plugin } from 'vite';
 import { withPhaseInstrument } from './shared/phaseInstrument';
 import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo } from './shared/authorEditorial';
+import { renderRevenueModelHtml, renderRevenueNoteHtml } from '../services/revenueDisclosure';
 import { localizeStaticPageStructuredData } from './shared/localeStaticStructuredData';
 import { editorialModifiedDate, synchronizeSitemapLastmods } from './shared/editorialDates';
 import { renderBorderDashboardLink } from './shared/borderDashboardLink';
@@ -136,6 +137,7 @@ import { renderLocaleVariantNavHtml } from './shared/seoPageShell';
 import { railGutters } from './shared/railGutters';
 import {
  buildJobBoardSeo,
+ activeJobsPhrase,
  getActiveJobCountsByLocale,
  isJobBoardLandingPath,
  type JobBoardLocale,
@@ -202,7 +204,7 @@ import {
   isLocaleVariantSitemapFile,
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
-import { routeModulePreloadTags } from './shared/modulePreloads';
+import { declareRouteHintEmitter, routeChunksMetaTag } from './shared/modulePreloads';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 import {
   glossaryTermSlugFromItalianPath,
@@ -772,6 +774,32 @@ function replaceHomepageSeoHead(html: string, locale: HpSeoLocale): string {
  out = replaceTagAttribute(out, 'meta', 'name', 'twitter:url', 'content', BASE_URL + '/' + locale + '/');
  out = replaceTagAttribute(out, 'link', 'rel', 'canonical', 'href', BASE_URL + '/' + locale + '/');
  return out;
+}
+
+/**
+ * The locale home's own `WebPage`, in place of the Italian root one that
+ * index.html ships, and without the index.html blocks that have no translation.
+ */
+export function localizeHomepageStructuredData(html: string, locale: 'en' | 'de' | 'fr'): string {
+ const copy = HOMEPAGE_SEO_META[locale];
+ const url = BASE_URL + '/' + locale + '/';
+ const webPage = inlineScriptJson({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': url + '#webpage',
+  name: copy.title,
+  url,
+  description: copy.description,
+  screenshot: BASE_URL + '/og-image.png',
+  author: { '@id': BASE_URL + '/#organization' },
+  inLanguage: locale,
+ });
+ return html
+  .replace(/<script\b[^>]*\bdata-hp-it-only\b[^>]*>[\s\S]*?<\/script>\s*/gi, '')
+  .replace(
+   /<script\b[^>]*\bid=["']?hp-webpage-ld["']?[^>]*>[\s\S]*?<\/script>/i,
+   () => '<script type="application/ld+json" id="hp-webpage-ld">' + webPage + '</script>',
+  );
 }
 
 const HOMEPAGE_STATIC_H1_TEXT: Record<HpSeoLocale, string> = {
@@ -1690,7 +1718,7 @@ export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'):
    de: ['Die interaktiven Rechner benötigen JavaScript. Sie können weiterhin die Ratgeber lesen und die folgenden Links nutzen.', 'Website erkunden'],
    fr: ['Les calculateurs interactifs nécessitent JavaScript. Vous pouvez toujours lire les guides et parcourir les liens ci-dessous.', 'Parcourir le site'],
  }[locale];
- let out = replaceHomepageSeoHead(html, locale);
+ let out = localizeHomepageStructuredData(replaceHomepageSeoHead(html, locale), locale);
  // Replace only the content fallback; stylesheet noscript blocks must survive.
  out = out.replace(/<noscript\b[^>]*\bid="homepage-nojs"[^>]*>[\s\S]*?<\/noscript>/i,
    `<noscript id="homepage-nojs"><p>${noJsCopy[0]} <a href="/${SITE_MAP_PAGE_DIR[locale]}/">${noJsCopy[1]}</a></p></noscript>`);
@@ -1832,14 +1860,21 @@ const STATIC_ONLY_PATHS = new Set([
 export function staticPagesPlugin(rootDir: string): Plugin {
   const plugin = buildStaticPagesPlugin(rootDir);
   const inner = plugin.closeBundle as (this: unknown, ...args: unknown[]) => unknown;
+  const innerBuildStart = plugin.buildStart as ((this: unknown, ...args: unknown[]) => unknown) | undefined;
+  let endRouteHints = (): void => {};
   return withPhaseInstrument('static-pages', {
     ...plugin,
+    buildStart: function (this: unknown, ...args: unknown[]) {
+      endRouteHints = declareRouteHintEmitter();
+      return innerBuildStart?.apply(this, args);
+    } as Plugin['buildStart'],
     closeBundle: async function (this: unknown, ...args: unknown[]) {
       beginJobDetailExistenceMemo();
       try {
         return await inner.apply(this, args);
       } finally {
         endJobDetailExistenceMemo();
+        endRouteHints();
       }
     } as Plugin['closeBundle'],
   });
@@ -2482,14 +2517,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // branches that still gate template fragments on it; it's tautologically
  // `true` here.
  const hasSpaBundle = spaBundle.hasSpaBundle;
- const corePreloads = [
- vendorReactChunk ? `<link rel="modulepreload" crossorigin href="/assets/${vendorReactChunk}">` : '',
- ...itCriticalChunks.map(c => `<link rel="modulepreload" href="/assets/${c}">`),
- ].filter(Boolean).join('\n ');
- const preloadTag = corePreloads ? '\n ' + corePreloads : '';
- // What `corePreloads` already hints: the page list below must not repeat it
- // (shared/modulePreloads.ts — /calcola-stipendio/ shipped it-calculator twice).
- const corePreloadedChunks: ReadonlySet<string> = new Set([vendorReactChunk, ...itCriticalChunks].filter(Boolean));
+ // Core chunks of every SPA-shell page. They reach the browser as a hint for the
+ // release bootstrap, never as a preload of the root alias (shared/modulePreloads.ts).
+ const corePreloadChunks: string[] = [vendorReactChunk, ...itCriticalChunks].filter(Boolean);
 
  /* ── 0b. Build page-component modulepreload map ────────────── */
  // Maps URL path prefixes → component chunk filename prefixes so static HTML
@@ -2760,7 +2790,10 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  const segs = urlPath.split('/').filter(Boolean);
  const localePrefixes = ['en', 'de', 'fr'];
  const firstSeg = (segs.length > 0 && localePrefixes.includes(segs[0])) ? (segs[1] ?? '') : (segs[0] ?? '');
- if (!firstSeg) return '';
+ if (!firstSeg) {
+ const coreHint = routeChunksMetaTag(corePreloadChunks);
+ return coreHint ? '\n ' + coreHint : '';
+ }
 
  const tags: string[] = [];
  // The first two article cards are marked fetchpriority="high" by the
@@ -2780,7 +2813,8 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // Add locale-specific translation chunk (e.g., it-guide-xxx.js)
  const localeChunkKey = sectionLocaleChunks[firstSeg];
  if (localeChunkKey) routeChunks.push(stableChunkFile(`${locale}-${localeChunkKey}`));
- tags.push(...routeModulePreloadTags(routeChunks, corePreloadedChunks));
+ const routeHint = routeChunksMetaTag([...corePreloadChunks, ...routeChunks]);
+ if (routeHint) tags.push(routeHint);
  // Preload the first-paint hero image on article listing and detail pages.
  // #5001: su una pagina di DETTAGLIO va preloadata la hero DI QUELL'ARTICOLO.
  // Preloadare quella dell'hub significava un fetch ad alta priorita' per
@@ -5302,7 +5336,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  `<p class="s-F2hp6o"><strong>Come funziona la tassazione dei frontalieri nel 2026?</strong> Ai fini fiscali dell’accordo Italia–Svizzera occorrono residenza in un comune dell’elenco ufficiale entro 20 km dal confine, lavoro in Ticino, Grigioni o Vallese e rientro in linea di principio quotidiano. Il rientro settimanale riguarda invece il permesso G UE/AELS. Il regime dei vecchi frontalieri richiede attività frontaliera qualificata tra il 31 dicembre 2018 e il 17 luglio 2023 e mantiene la tassazione esclusiva svizzera sul salario interessato. Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’imposta alla fonte ordinaria e l’Italia riconosce il credito per l’imposta svizzera: l’80% non è un tetto a quel credito. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">ESTV / AFC</a>. Approfondisci nella <a class="s-OsohZU" href="/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera/">guida completa</a>.</p>` +
  `<p class="s-F2hp6o"><strong>Quale assicurazione sanitaria scegliere come frontaliere?</strong> I frontalieri hanno 3 mesi per scegliere tra LAMal svizzera (CHF 200-600/mese) e SSN italiano. La scelta dipende da dove si vive e dalle esigenze familiari. Leggi il <a class="s-OsohZU" href="/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere/">confronto LAMal vs SSN</a>.</p>` +
  `<p class="s-F2hp6o"><strong>Quali sono i vantaggi del permesso G?</strong> Il permesso G consente di lavorare in Svizzera mantenendo la residenza all'estero. Il vantaggio economico dipende da salario, comune di residenza, spese, copertura sanitaria e pendolarismo; non esiste una percentuale di risparmio valida per tutti. Consulta la <a class="s-OsohZU" href="/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/">guida Permesso G</a> e confronta i costi della tua situazione.</p>` +
- `<p class="s-F2hp6o"><strong>Come trovare lavoro in Ticino?</strong> Il Canton Ticino offre oltre 1.500 posizioni attive in settori come banca, pharma, IT, edilizia e sanità. Consulta la <a class="s-OsohZU" href="/cerca-lavoro-ticino/">bacheca lavoro</a> e leggi la <a class="s-OsohZU" href="/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/">guida per trovare lavoro</a>.</p>` +
+ `<p class="s-F2hp6o"><strong>Come trovare lavoro in Ticino?</strong> La bacheca elenca ${activeJobsPhrase('it', jobBoardCounts.it)} in settori come banca, pharma, IT, edilizia e sanità. Consulta la <a class="s-OsohZU" href="/cerca-lavoro-ticino/">bacheca lavoro</a> e leggi la <a class="s-OsohZU" href="/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/">guida per trovare lavoro</a>.</p>` +
  `<p class="s-c06OMF">Fonte: <a class="s-OsohZU" href="${bfsHomeUrl}" rel="noopener">UST/BFS</a> · Agenzia delle Entrate · Canton Ticino DFE</p>` +
  `</div></details>`,
  );
@@ -5383,14 +5417,16 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Come lavoriamo e uso dell'IA</h2>`,
  `${AI_USE_STATEMENT.it} Seguiamo le comunicazioni dell'Amministrazione federale delle contribuzioni (AFC/ESTV), dell'Agenzia delle Entrate, della SECO e dell'INPS e colleghiamo le fonti nei testi. Il processo e i suoi limiti sono descritti nella <a class="s-OsohZU" href="${DISCLOSURE_ROUTE_CONTRACT.it.methodology}">Metodologia</a>; gli errori corretti sono tracciati nel <a class="s-OsohZU" href="${DISCLOSURE_ROUTE_CONTRACT.it.corrections}">registro pubblico delle correzioni</a>.`,
  `<h2 class="s-o3IET6">La nostra missione</h2>`,
- `La missione di Frontaliere Ticino è rendere accessibili e comprensibili le complessità fiscali e amministrative del lavoro transfrontaliero. I nostri simulatori calcolano il netto in busta paga con i parametri reali delle tabelle fiscali svizzere e italiane 2026, i comparatori confrontano assicurazioni sanitarie LAMal, costi della vita e opzioni di trasporto, e il motore di ricerca lavoro aggrega oltre 1.500 posizioni attive da più di 100 aziende ticinesi.`,
+ `La missione di Frontaliere Ticino è rendere accessibili e comprensibili le complessità fiscali e amministrative del lavoro transfrontaliero. I nostri simulatori calcolano il netto in busta paga con i parametri reali delle tabelle fiscali svizzere e italiane 2026, i comparatori confrontano assicurazioni sanitarie LAMal, costi della vita e opzioni di trasporto, e il motore di ricerca lavoro aggrega ${activeJobsPhrase('it', jobBoardCounts.it)} dai siti dei datori di lavoro.`,
  `<h2 class="s-o3IET6">Fonti e indipendenza</h2>`,
  `I calcolatori usano parametri tratti da fonti ufficiali: tabelle fiscali dell'AFC, parametri contributivi UFAS/BSV, dati statistici dell'Ufficio federale di statistica (UST/BFS), normative SECO e pubblicazioni dell'Agenzia delle Entrate. Le notizie possono basarsi anche su fonti giornalistiche o comunicati di organizzazioni, attribuiti e collegati nel testo. La piattaforma è indipendente da banche, assicurazioni e datori di lavoro.`,
+ renderRevenueModelHtml('it'),
  `Il sito è disponibile in quattro lingue (italiano, inglese, tedesco, francese) e viene aggiornato quotidianamente con novità legislative, offerte di lavoro raccolte dai siti dei datori di lavoro e dati di mercato. Gli articoli di approfondimento coprono la vita del frontaliere, dalla prima assunzione alla pianificazione pensionistica.`,
  `<h2 class="s-o3IET6">Le firme della redazione</h2>`,
  // Derived from data/authors.ts: the hand-copied list missed samuele-valente
  // and kept the superseded expertise text after the registry was corrected.
  `<ul class="s-QkRjp8">${renderAuthorRosterItems('it', 's-wP4Jn1', 's-OsohZU')}</ul>`,
+ `<p class="s-F2hp6o"><a class="s-OsohZU" href="/autori/">Tutti gli autori e le firme editoriali</a></p>`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="${estvHomeUrl}" rel="noopener">AFC</a> · <a class="s-OsohZU" href="${bfsHomeUrl}" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it/portale/" rel="noopener">Agenzia delle Entrate</a></p>`,
  );
  } else if (canonicalPath === '/contattaci' || canonicalPath === '/contattaci/') {
@@ -5398,7 +5434,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Contatta Frontaliere Ticino</h2>`,
  `Frontaliere Ticino è a disposizione per domande su tassazione, previdenza, permessi di lavoro e vita quotidiana per i lavoratori transfrontalieri tra Svizzera e Italia. Il team risponde a quesiti pratici legati agli strumenti della piattaforma, segnalazioni di errori nei calcolatori e suggerimenti per nuove funzionalità.`,
  `<h2 class="s-o3IET6">Tempi di risposta e canali disponibili</h2>`,
- `Le risposte vengono fornite entro 48 ore lavorative. Per domande fiscali complesse (dichiarazione dei redditi, crediti d'imposta, regime nuovi frontalieri 2026) consigliamo il servizio di consulenza dedicato con professionisti specializzati in fiscalità transfrontaliera.`,
+ `Le risposte vengono fornite entro 48 ore lavorative e non sono una consulenza fiscale o legale: per domande fiscali complesse sul tuo caso (dichiarazione dei redditi, crediti d'imposta, regime nuovi frontalieri 2026) rivolgiti a un fiduciario o commercialista abilitato oppure a un patronato.`,
  `La piattaforma è indipendente da banche, assicurazioni e datori di lavoro: le informazioni fornite sono imparziali e basate su fonti ufficiali svizzere e italiane (AFC, Agenzia delle Entrate, SECO, INPS).`,
  );
  } else if (canonicalPath === '/consulenza' || canonicalPath === '/consulenza/') {
@@ -5416,9 +5452,10 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  `Frontaliere Ticino is an independent information platform for Italian cross-border workers employed in Canton Ticino, Switzerland, aiming to provide clear and impartial information on taxation, social security, work permits, and daily life.`,
  `${AI_USE_STATEMENT.en} We follow communications from the Federal Tax Administration (FTA/ESTV), the Italian Revenue Agency (Agenzia delle Entrate), SECO and INPS and link the sources in the text. The process and its limits are described in our <a href="${DISCLOSURE_ROUTE_CONTRACT.en.methodology}">methodology</a>; corrected errors are recorded in the <a href="${DISCLOSURE_ROUTE_CONTRACT.en.corrections}">public corrections log</a>.`,
  `<h2 class="s-o3IET6">Our Mission</h2>`,
- `Frontaliere Ticino's mission is to make the fiscal and administrative complexities of cross-border work accessible and understandable. Our simulators calculate net salary using actual 2026 Swiss and Italian tax tables, our comparators benchmark LAMal health insurance, cost of living, and transport options, and our job search engine aggregates over 1,500 active positions from more than 100 Ticino-based companies.`,
+ `Frontaliere Ticino's mission is to make the fiscal and administrative complexities of cross-border work accessible and understandable. Our simulators calculate net salary using actual 2026 Swiss and Italian tax tables, our comparators benchmark LAMal health insurance, cost of living, and transport options, and our job search engine aggregates ${activeJobsPhrase('en', jobBoardCounts.en)} from employers' websites.`,
  `<h2 class="s-o3IET6">Sources and Independence</h2>`,
  `Calculators use parameters from official sources: FTA tax tables, FSIO/BSV contribution parameters, FSO/BFS statistical data, SECO regulations, and Italian Revenue Agency publications. News may also rely on journalistic sources or statements from organisations, attributed and linked in the text. The platform is independent from banks, insurance companies, and employers.`,
+ renderRevenueModelHtml('en'),
  `The site is available in four languages (Italian, English, German, French) and is updated daily with legislative developments, job offers collected from employers' websites, and market data. In-depth articles cover the cross-border worker's life, from first employment to retirement planning.`,
  `<h2 class="s-o3IET6">Platform Features</h2>`,
  `Key features include a comprehensive fiscal simulator comparing Permit B (Swiss resident) and Permit G (cross-border commuter) scenarios, a pension planner covering AVS/AHV first pillar and LPP/BVG second pillar projections, a health insurance comparator with real LAMal premiums from 14 Swiss insurers across 7 cantons, a currency exchange tracker with live CHF-EUR rates, and a border crossing traffic monitor providing real-time wait estimates for all Ticino-Italy crossings.`,
@@ -5431,14 +5468,14 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Contact Frontaliere Ticino</h2>`,
  `Frontaliere Ticino is available for questions about taxation, social security, work permits, and daily life for cross-border workers between Switzerland and Italy. Our team answers practical questions about platform tools, calculator error reports, and suggestions for new features.`,
  `<h2 class="s-o3IET6">Response Times and Available Channels</h2>`,
- `Responses are provided within 48 business hours. For complex tax questions (income tax returns, tax credits, 2026 new frontalieri regime), we recommend our dedicated consulting service with professionals specialising in cross-border taxation.`,
+ `Responses are provided within 48 business hours and are not tax or legal advice: for complex tax questions about your own case (income tax returns, tax credits, 2026 new frontalieri regime), contact a licensed tax adviser or an Italian patronato.`,
  `The platform is independent from banks, insurance companies, and employers: all information provided is impartial and based on official Swiss and Italian sources (FTA, Italian Revenue Agency, SECO, INPS).`,
  `<h2 class="s-o3IET6">How to Reach Us</h2>`,
  `The best way to contact us is via email at info@frontaliereticino.ch. We also monitor social media channels for questions and feedback. For urgent technical issues with the calculators or job search, please include a screenshot and the browser you are using so we can diagnose the problem efficiently.`,
  `<h2 class="s-o3IET6">Common Questions We Can Help With</h2>`,
  `Our team regularly assists with questions about: understanding your Swiss payslip deductions (AVS, AC, LAA, IJM, LPP), choosing between LAMal and Italian SSN health insurance, calculating the impact of the 2026 bilateral tax agreement on your take-home pay, interpreting your Italian income tax return for Swiss-sourced income, comparing the financial implications of Permit B versus Permit G, and navigating the pension system across both countries.`,
- `<h2 class="s-o3IET6">Professional Consulting Services</h2>`,
- `<p>For personalized advice beyond the scope of our free tools, we partner with licensed Swiss and Italian tax consultants who specialize in cross-border employment. These professionals can assist with specific tax return preparation, optimization strategies, and complex scenarios involving multiple jurisdictions or family situations. Learn more on our <a href="/en/about-us/">about page</a> or review our <a href="/en/privacy/">privacy policy</a>.</p>`,
+ `<h2 class="s-o3IET6">Personal Tax Advice</h2>`,
+ `<p>Our free tools and answers do not replace a licensed adviser. Tax return preparation, optimisation and scenarios involving several jurisdictions or family situations need a licensed tax adviser or an Italian patronato. Learn more on our <a href="/en/about-us/">about page</a> or review our <a href="/en/privacy/">privacy policy</a>.</p>`,
  `<p class="s-tTvoK-">Sources: <a href="${estvHomeUrl}" rel="noopener">FTA</a> · <a href="https://www.agenziaentrate.gov.it/portale/" rel="noopener">Agenzia delle Entrate</a> · <a href="${secoHomeUrl}" rel="noopener">SECO</a></p>`,
  );
  } else if (canonicalPath === '/stato-api' || canonicalPath === '/stato-api/') {
@@ -5625,6 +5662,11 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // that pushes the slot, so tiHubLatestJobsPlugin found no slot there and
  // failed deploy 40087494526 (de/fr/en=no-slot). Data area first, every locale.
  if (isJobsIndex && !editorialBlocks.includes(TI_HUB_LATEST_JOBS_SLOT)) editorialBlocks.unshift(TI_HUB_LATEST_JOBS_SLOT);
+
+ // Partner links render after hydration here, so the note belongs in the static body too.
+ if (italianPath.replace(/\/+$/, '') === '/compara-servizi/cambio-franco-euro') {
+  editorialBlocks.unshift(renderRevenueNoteHtml(locale as 'it' | 'en' | 'de' | 'fr'));
+ }
 
  // Treat a block as raw HTML when it starts with a block-level tag OR when it
  // contains any HTML tag at all (e.g. paragraphs that begin with text but
@@ -6224,7 +6266,7 @@ ${hrefTags}
  ${CRITICAL_CSS_LINK}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
- ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
+ ${stylesheetMarkup}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
  ${SPA_ANALYTICS_SNIPPET}${jobBoardHeadTags(fullUrl)}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}

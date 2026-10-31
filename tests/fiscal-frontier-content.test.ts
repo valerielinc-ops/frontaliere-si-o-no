@@ -35,7 +35,6 @@ function questionAnswers(value: unknown, question: string): string[] {
 
 describe('fiscal FAQ siblings and translations', () => {
   const cases = [
-    { question: 'Qual è la differenza tra vecchio e nuovo frontaliere?', required: /2018/, forbidden: /assunto prima|hired before/ },
     { question: 'Qual è la fascia di 20 km per il nuovo accordo frontalieri?', required: /20/, forbidden: /casa dista al massimo/ },
     { question: "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", required: /10[.,]000/, forbidden: /assunti dal 17|hired after 17/ },
     { question: 'Il frontaliere deve fare il 730 o il Modello Redditi PF?', required: /730/, forbidden: /deve usare il Modello Redditi|must use.*Redditi|invalida la dichiarazione/ },

@@ -136,6 +136,45 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
   },
 });
 
+export interface ArticleBylineCopy {
+  /** The word before the name. */
+  readonly by: string;
+  /** Says that a person-like name is a newsroom signature. */
+  readonly editorialSignature: string;
+  /** Says that the text was generated with AI. */
+  readonly aiGenerated: string;
+}
+
+/**
+ * Byline labels, next to the name so a reader does not have to open the profile
+ * or reach the end of the article to learn what "Marco Ferrari" is.
+ */
+export const ARTICLE_BYLINE: Readonly<Record<DisclosureLocale, ArticleBylineCopy>> = Object.freeze({
+  it: { by: 'Di', editorialSignature: 'firma editoriale della Redazione', aiGenerated: 'testo generato con IA' },
+  en: { by: 'By', editorialSignature: 'editorial byline of the newsroom', aiGenerated: 'AI-generated text' },
+  de: { by: 'Von', editorialSignature: 'redaktionelle Signatur der Redaktion', aiGenerated: 'mit KI erstellter Text' },
+  fr: { by: 'Par', editorialSignature: 'signature éditoriale de la rédaction', aiGenerated: 'texte généré par IA' },
+});
+
+/** The profile that is the newsroom itself: its name needs no "editorial byline" label. */
+const NEWSROOM_AUTHOR_SLUG = 'redazione';
+
+/**
+ * Note shown beside the byline, shared by the static article and the hydrated
+ * one. `real-author` never gets the signature label: only pseudonymous profiles
+ * do. An empty string means there is nothing to declare.
+ */
+export function resolveArticleBylineNote(
+  locale: string,
+  author: { slug?: string; kind?: 'editorial-profile' | 'real-author' } | undefined,
+  aiAssisted: boolean,
+): string {
+  const copy = ARTICLE_BYLINE[disclosureLocale(locale)];
+  const pseudonym = author?.kind === 'editorial-profile' && author.slug !== NEWSROOM_AUTHOR_SLUG;
+  return [pseudonym ? copy.editorialSignature : '', aiAssisted ? copy.aiGenerated : ''].filter(Boolean).join(', ');
+
+}
+
 // Link esterni che non sono fonti: crediti immagine, condivisione, pubblicità.
 const NON_SOURCE_LINK = /(?:frontaliereticino\.ch|wikimedia\.org|creativecommons\.org|unsplash\.com|pexels\.com|facebook\.com|linkedin\.com|t\.me|wa\.me|whatsapp\.com|twitter\.com|x\.com|reddit\.com|google\.com|googlesyndication\.com|doubleclick\.net)/i;
 

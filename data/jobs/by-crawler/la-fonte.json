@@ -1,7 +1,7 @@
 {
   "crawlerKey": "la-fonte",
-  "assembledAt": "2026-10-30T21:31:02.498Z",
-  "runId": "41129275294",
+  "assembledAt": "2026-10-31T09:28:53.670Z",
+  "runId": "41187750242",
   "jobs": [
     {
       "title": "Gerente snack bar-panetteria 100%",
@@ -45,7 +45,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-30T21:30:59.980Z",
+      "crawledAt": "2026-10-31T09:28:50.548Z",
       "id": "fondazione-la-fonte-319213f47039",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -100,16 +100,16 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-        "en": "staying-down-fondazione-la-fonte-luganese-malcantone",
-        "de": "bleib-unten-fondazione-la-fonte-luganese-malcantone",
-        "fr": "rester-baisse-fondazione-la-fonte-luganese-malcantone"
+        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       },
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-30T21:30:59.980Z",
+      "crawledAt": "2026-10-31T09:28:50.548Z",
       "id": "fondazione-la-fonte-8ea3b422c946",
       "previousSlugsByLocale": {
         "it": [
@@ -117,19 +117,21 @@
         ],
         "en": [
           "stagiaire-la-fonte-luganese-malcantone",
-          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
+          "staying-down-fondazione-la-fonte-luganese-malcantone"
         ],
         "de": [
           "stagiaire-la-fonte-luganese-malcantone",
-          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
+          "bleib-unten-fondazione-la-fonte-luganese-malcantone"
         ],
         "fr": [
-          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
+          "rester-baisse-fondazione-la-fonte-luganese-malcantone"
         ]
       },
       "previousSlugs": [
         "stagiaire-la-fonte-luganese-malcantone",
-        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
+        "staying-down-fondazione-la-fonte-luganese-malcantone",
+        "bleib-unten-fondazione-la-fonte-luganese-malcantone",
+        "rester-baisse-fondazione-la-fonte-luganese-malcantone"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -192,7 +194,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-30T21:30:59.980Z",
+      "crawledAt": "2026-10-31T09:28:50.548Z",
       "id": "fondazione-la-fonte-485211a481ee",
       "salaryMin": 41600,
       "salaryMax": 63000,

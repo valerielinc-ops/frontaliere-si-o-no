@@ -30,6 +30,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
+import { getRegisteredRouteChunks, ROUTE_CHUNKS_META_NAME, routeHintEmittersSettled } from './shared/modulePreloads';
 
 export const VERSIONED_RELEASES_DIR = 'releases';
 export const VERSIONED_RELEASE_ENTRY = 'index-entry.js';
@@ -174,11 +175,70 @@ export function pointReleaseStableDataImportsAtStableLeaves(source: string): str
   ));
 }
 
-export function buildVersionedBootstrap(cdnOrigin: string, buildId: string): string {
+/**
+ * Modules every page loads: the static-import closure of the entry and of App.js,
+ * which the entry imports dynamically. Without a flat list the browser discovers
+ * them one level at a time (bootstrap, entry, App, their imports), one round trip
+ * per level. Only names inside the release are returned, so each one is a request
+ * that can succeed: a failed `<link>` under /assets/ reloads the page (early-boot.js).
+ */
+export function staticImportClosure(
+  seeds: readonly string[],
+  knownAssets: ReadonlySet<string>,
+  readSource: (asset: string) => string,
+): string[] {
+  const seen = new Set<string>();
+  const queue = seeds.filter((seed) => knownAssets.has(seed));
+  while (queue.length) {
+    const asset = queue.shift() as string;
+    if (seen.has(asset)) continue;
+    seen.add(asset);
+    // `import("./x.js")` is excluded by construction: the `(` breaks the match.
+    for (const match of readSource(asset).matchAll(/(?:from|import)\s*["']\.\/([^"']+\.js)["']/g)) {
+      if (knownAssets.has(match[1]) && !seen.has(match[1])) queue.push(match[1]);
+    }
+  }
+  return [...seen];
+}
+
+export interface BootstrapPreloads {
+  /** Preloaded on every page. */
+  modules: readonly string[];
+  /** Allowlist for the names a page declares in its route-chunks meta. */
+  routeChunks: readonly string[];
+}
+
+export function buildVersionedBootstrap(
+  cdnOrigin: string,
+  buildId: string,
+  preloads: BootstrapPreloads = { modules: [], routeChunks: [] },
+): string {
   const origin = JSON.stringify(cdnOrigin);
   const release = JSON.stringify(buildId);
   const entry = `${cdnOrigin}/assets/${VERSIONED_RELEASES_DIR}/${buildId}/${VERSIONED_RELEASE_ENTRY}`;
-  return `/* FRONTALIERE_VERSIONED_CDN_BOOTSTRAP\n * FRONTALIERE_VERSIONED_ENTRY: ${entry}\n * This stable URL is a build-scoped loader; never import application modules from /assets directly.\n */\nconst FRONTALIERE_CDN_ORIGIN=${origin};\nconst FRONTALIERE_RELEASE_ID=${release};\nconst FRONTALIERE_ENTRY=FRONTALIERE_CDN_ORIGIN+\"/assets/${VERSIONED_RELEASES_DIR}/\"+FRONTALIERE_RELEASE_ID+\"/${VERSIONED_RELEASE_ENTRY}\";\nimport(FRONTALIERE_ENTRY);\n`;
+  return `/* FRONTALIERE_VERSIONED_CDN_BOOTSTRAP
+ * FRONTALIERE_VERSIONED_ENTRY: ${entry}
+ * This stable URL is a build-scoped loader; never import application modules from /assets directly.
+ */
+const FRONTALIERE_CDN_ORIGIN=${origin};
+const FRONTALIERE_RELEASE_ID=${release};
+const FRONTALIERE_RELEASE_BASE=FRONTALIERE_CDN_ORIGIN+"/assets/${VERSIONED_RELEASES_DIR}/"+FRONTALIERE_RELEASE_ID+"/";
+const FRONTALIERE_ENTRY=FRONTALIERE_RELEASE_BASE+"${VERSIONED_RELEASE_ENTRY}";
+const FRONTALIERE_PRELOAD=${JSON.stringify(preloads.modules)};
+const FRONTALIERE_ROUTE_CHUNKS=${JSON.stringify(preloads.routeChunks)};
+try{
+const hint=document.querySelector('meta[name="${ROUTE_CHUNKS_META_NAME}"]');
+const named=hint?hint.content.split(/\\s+/).filter((name)=>FRONTALIERE_ROUTE_CHUNKS.includes(name)):[];
+for(const name of new Set([...FRONTALIERE_PRELOAD,...named])){
+const link=document.createElement("link");
+link.rel="modulepreload";
+link.crossOrigin="";
+link.href=FRONTALIERE_RELEASE_BASE+name;
+document.head.appendChild(link);
+}
+}catch(error){}
+import(FRONTALIERE_ENTRY);
+`;
 }
 
 export interface VersionedCdnAssetPlan {
@@ -217,13 +277,15 @@ export function versionedCdnAssetsPlugin(rootDir: string): Plugin {
     closeBundle: {
       order: 'post',
       sequential: true,
-      handler() {
+      async handler() {
         const cdnOrigin = normalizeCdnOrigin(process.env.ASSET_CDN || '');
         const buildId = normalizeDeployBuildId(process.env.DEPLOY_BUILD_ID);
         if (!cdnOrigin || !buildId) {
           console.log('[versioned-cdn-assets] skipped (requires ASSET_CDN + DEPLOY_BUILD_ID)');
           return;
         }
+        // The bootstrap embeds the allowlist of route chunks: it must see every hint.
+        await routeHintEmittersSettled();
 
         const assetsDir = path.resolve(rootDir, 'dist', 'assets');
         const originalEntry = path.join(assetsDir, VERSIONED_RELEASE_ENTRY);
@@ -253,16 +315,24 @@ export function versionedCdnAssetsPlugin(rootDir: string): Plugin {
           fs.writeFileSync(targetPath, source, 'utf-8');
         }
 
+        const releaseAssets = new Set(plan.assetPaths);
+        const modules = staticImportClosure(
+          [VERSIONED_RELEASE_ENTRY, 'App.js'],
+          releaseAssets,
+          (asset) => fs.readFileSync(path.join(plan.releaseDir, asset), 'utf-8'),
+        ).filter((asset) => asset !== VERSIONED_RELEASE_ENTRY);
+        const routeChunks = getRegisteredRouteChunks().filter((chunk) => releaseAssets.has(chunk));
         fs.writeFileSync(
           originalEntry,
-          buildVersionedBootstrap(cdnOrigin, buildId),
+          buildVersionedBootstrap(cdnOrigin, buildId, { modules, routeChunks }),
           'utf-8',
         );
 
         console.log(
           `[versioned-cdn-assets] published ${plan.assetPaths.length} executable/style asset(s) ` +
           `under /assets/${releasePrefix}/; kept ${plan.stableBlogBodyAssets.length} article body leaf/leaves ` +
-          `and ${plan.stableOutOfBandAssets.length} independently published data asset(s) stable`,
+          `and ${plan.stableOutOfBandAssets.length} independently published data asset(s) stable; ` +
+          `bootstrap preloads ${modules.length} module(s), ${routeChunks.length} route chunk(s) allowed`,
         );
       },
     },

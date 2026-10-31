@@ -1,7 +1,7 @@
 {
   "key": "rennbahnklinik",
   "label": "Rennbahnklinik",
-  "generatedAt": "2026-10-30T21:24:21.512Z",
+  "generatedAt": "2026-10-31T09:37:35.741Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 13770,
-  "avgDurationMs": 13770,
+  "durationMs": 11738,
+  "avgDurationMs": 11738,
   "durationHistory": [
-    13770
+    11738
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rennbahnklinik-b01f610f6207",
-      "slug": "reinigungsfachkraft-auf-abruf-rennbahnklinik-muttenz",
+      "slug": "pulitori-su-richiesta-rennbahnklinik-muttenz",
       "company": "Rennbahnklinik",
       "companyKey": "rennbahnklinik",
       "companyDomain": "rennbahnklinik.ch",
       "title": "Reinigungsfachkraft auf Abruf",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Muttenz",
       "canton": "BL",
       "url": "https://www.rennbahnklinik.ch/jobs/reinigungsfachkraft-auf-abruf",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:24:02.526Z",
+      "crawledAt": "2026-10-31T09:37:14.998Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -53,20 +54,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/reinigungsfachkraft-auf-abruf",
+      "firstSeenAt": "2026-10-30T21:24:02.526Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-30T21:24:02.526Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +81,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:24:11.665Z",
+      "crawledAt": "2026-10-31T09:37:22.263Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:24:10.550Z",
+      "crawledAt": "2026-10-31T09:37:21.365Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/praktikum-biomechanik",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:24:09.490Z",
+      "crawledAt": "2026-10-31T09:37:20.436Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:24:08.379Z",
+      "crawledAt": "2026-10-31T09:37:19.529Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/physiotherapeut-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:24:07.140Z",
+      "crawledAt": "2026-10-31T09:37:18.634Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:24:06.033Z",
+      "crawledAt": "2026-10-31T09:37:17.727Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -336,7 +336,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/empfangsmitarbeiter-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:24:04.859Z",
+      "crawledAt": "2026-10-31T09:37:16.811Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/medizinische-praxisassistent-in-efz-im-labor",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:24:03.627Z",
+      "crawledAt": "2026-10-31T09:37:15.889Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -410,5 +410,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

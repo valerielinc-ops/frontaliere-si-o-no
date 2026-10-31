@@ -2221,6 +2221,10 @@ export function parsePath(pathname: string): ParseResult {
  if (parts[0] === AUTHOR_PATH_SEGMENT[locale] && parts[1]) {
    return { route: { activeTab: 'autore', author: decodeURIComponent(parts[1]) }, locale };
  }
+ // `/autori/` hub: same tab, no slug.
+ if (parts[0] === AUTHOR_PATH_SEGMENT[locale] && parts.length === 1) {
+   return { route: { activeTab: 'autore' }, locale };
+ }
 
  // Fuel-daily static SEO pages (F6) — /prezzi-diesel/oggi/, /en/diesel-price-switzerland/today/, etc.
  // These are build-time static HTML rendered OUTSIDE `#root` (see
