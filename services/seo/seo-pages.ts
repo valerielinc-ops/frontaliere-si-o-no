@@ -145,7 +145,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  petition: {
- title: 'Petizione dosso Stabio-Gaggiolo: chiediamo una soluzione sicura | Frontaliere Ticino',
+ title: 'Petizione dosso Stabio-Gaggiolo: chiediamo una soluzione sicura',
  description: 'Segnalazioni di code dopo il valico di Gaggiolo: chiediamo dati, valutazione tecnica e rimozione o abbassamento del dosso se sicuro.',
  keywords: 'petizione dosso Stabio Gaggiolo, traffico frontalieri, code dogana Gaggiolo, via Gaggiolo, traffico Stabio',
  ogTitle: 'Petizione per il dosso alla dogana di Stabio',
@@ -165,7 +165,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  petitionEn: {
- title: 'Stabio-Gaggiolo speed-bump petition: we ask for a safe solution | Frontaliere Ticino',
+ title: 'Stabio-Gaggiolo speed-bump petition: we ask for a safe solution',
  description: 'Reports of queues after the Gaggiolo crossing: we ask for data, a technical review and removal or lowering of the bump if safe.',
  keywords: 'Stabio Gaggiolo speed bump petition, cross-border traffic, Gaggiolo customs queues, Stabio traffic',
  ogTitle: 'Petition about the speed bump at Stabio customs',
@@ -185,7 +185,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  petitionDe: {
- title: 'Petition zur Schwelle Stabio-Gaggiolo: Wir fordern eine sichere Lösung | Frontaliere Ticino',
+ title: 'Petition zur Schwelle Stabio-Gaggiolo: Wir fordern eine sichere Lösung',
  description: 'Meldungen über Staus nach dem Grenzübergang Gaggiolo: Wir fordern Daten, eine technische Prüfung und eine Entfernung oder Absenkung, falls sicher.',
  keywords: 'Petition Schwelle Stabio Gaggiolo, Grenzverkehr, Stau Zoll Gaggiolo, Verkehr Stabio',
  ogTitle: 'Petition zur Verkehrsschwelle am Zoll Stabio',
@@ -205,7 +205,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  petitionFr: {
- title: 'Pétition dos-d’âne Stabio-Gaggiolo : pour une solution sûre | Frontaliere Ticino',
+ title: 'Pétition dos-d’âne Stabio-Gaggiolo : pour une solution sûre',
  description: 'Signalements de files après le passage de Gaggiolo : nous demandons des données, une expertise technique et le retrait ou l’abaissement si possible.',
  keywords: 'pétition dos-d’âne Stabio Gaggiolo, trafic frontalier, files douane Gaggiolo, trafic Stabio',
  ogTitle: 'Pétition sur le dos-d’âne à la douane de Stabio',
@@ -3241,7 +3241,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  applicationConcierge: {
- title: 'Automatizza la ricerca di lavoro in Svizzera | Frontaliere Ticino',
+ title: 'Automatizza la ricerca di lavoro in Svizzera',
  h1: 'Automatizza la tua ricerca di lavoro in Svizzera',
  description: 'Automatizza la ricerca di lavoro in Svizzera: troviamo ruoli adatti e prepariamo candidature su misura. Può aumentare le probabilità di ottenere un colloquio.',
  keywords: 'automatizza ricerca lavoro Svizzera, automazione ricerca lavoro, candidature su misura, candidatura automatica, trovare lavoro in Svizzera, colloquio di lavoro',
@@ -3285,7 +3285,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  applicationConciergeDe: {
- title: 'Automatisiere deine Jobsuche in der Schweiz | Frontaliere Ticino',
+ title: 'Automatisiere deine Jobsuche in der Schweiz',
  h1: 'Automatisiere deine Jobsuche in der Schweiz',
  description: 'Automatisiere deine Jobsuche in der Schweiz: Wir finden passende Jobs und erstellen gezielte Bewerbungen. Das kann die Chancen auf ein Vorstellungsgespräch erhöhen.',
  keywords: 'Jobsuche Schweiz automatisieren, automatisierte Jobsuche, Bewerbung nach Mass, automatische Bewerbung, Arbeit in der Schweiz finden, Vorstellungsgespräch',
@@ -3307,7 +3307,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  applicationConciergeFr: {
- title: 'Automatisez votre recherche d’emploi en Suisse | Frontaliere Ticino',
+ title: 'Automatisez votre recherche d’emploi en Suisse',
  h1: 'Automatisez votre recherche d’emploi en Suisse',
  description: 'Automatisez votre recherche d’emploi en Suisse : nous trouvons des postes adaptés et préparons des candidatures ciblées. Cela peut aider à obtenir un entretien.',
  keywords: 'automatiser recherche emploi Suisse, recherche emploi automatisée, candidature sur mesure, candidature automatique, trouver travail Suisse, entretien emploi',
@@ -3568,7 +3568,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ─── Frontaliere Readiness Wizard ─────────────────────────────────────,
 
  'frontaliere-wizard': {
- title: 'Sei Pronto a Diventare Frontaliere? Test in 2 Minuti | Frontaliere',
+ title: 'Sei pronto a diventare frontaliere? Test in 2 minuti',
  description: 'Test di prontezza per aspiranti frontalieri: 7 domande su confine, permesso G, lavoro, famiglia e lingua, poi un piano personalizzato con i passi da fare.',
  keywords: 'diventare frontaliere, come diventare frontaliere svizzera, test frontaliere, sei pronto frontaliere, piano frontaliere, iniziare a lavorare in svizzera, primi passi frontaliere, guida nuovo frontaliere',
  ogTitle: 'Sei Pronto a Diventare Frontaliere? Scoprilo in 2 Minuti',
@@ -4391,7 +4391,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'for-employers': {
- title: 'Pubblica offerte di lavoro per frontalieri | Frontaliere Ticino',
+ title: 'Pubblica offerte di lavoro per frontalieri',
  description: 'Raggiungi i frontalieri che cercano lavoro in Ticino: pubblica un’offerta con pagina SEO dedicata, presenza su Google for Jobs e promozione newsletter.',
  keywords: 'pubblicare offerte lavoro ticino, assumere frontalieri, annunci lavoro ticino, recruiting frontalieri, pubblica offerta ticino',
  ogTitle: 'Pubblica offerte di lavoro per frontalieri',
@@ -6474,7 +6474,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'correzioni': {
- title: 'Correzioni — Politica di rettifica e registro pubblico | Frontaliere Ticino',
+ title: 'Correzioni — Politica di rettifica e registro pubblico',
  description: 'Come segnalare un errore a Frontaliere Ticino e consultare le rettifiche presenti nel registro pubblico.',
  keywords: 'correzioni frontaliere ticino, errata corrige, rettifica articolo, policy correzione, trasparenza editoriale',
  ogTitle: 'Correzioni — Politica di rettifica e registro pubblico',
@@ -6502,7 +6502,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'metodologia': {
- title: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
+ title: 'Metodologia editoriale — Come scriviamo gli articoli',
  description: "Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.",
  keywords: 'metodologia editoriale, intelligenza artificiale giornalismo, frontaliere ticino, fonti primarie, fact checking, politica correzioni, trasparenza editoriale',
  ogTitle: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
@@ -7149,7 +7149,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  pillarNuovaLegge2026: {
- title: 'Regime fiscale frontalieri nel 2026 — Cosa Cambia, Tabelle, Impatti',
+ title: 'Regime fiscale frontalieri 2026: cosa cambia e impatti',
  description: "Regime fiscale frontalieri nel 2026 secondo l'accordo Italia-Svizzera del 2020, requisiti dei regimi nuovo e transitorio, imposizione e credito d'imposta.",
  keywords: 'regime fiscale frontalieri nel 2026, nuovo accordo frontalieri, accordo italia svizzera 2026, tasse frontalieri 2026, nuovi frontalieri 2023, vecchi frontalieri, franchigia 10000',
  ogTitle: "Regime fiscale frontalieri nel 2026 — Guida all'accordo Italia-Svizzera",
@@ -7187,7 +7187,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  pillarOssSvizzera: {
- title: 'OSS in Svizzera 2026 — Stipendi, Riconoscimento Titolo, Offerte',
+ title: 'OSS in Svizzera 2026: stipendi, titolo e offerte',
  description: 'OSS (operatore socio-sanitario) in Svizzera per italiani: stipendi medi, riconoscimento SRK, offerte in Ticino, formazione, confronto con OSS Italia.',
  keywords: 'oss svizzera, operatore socio sanitario svizzera, oss ticino, stipendio oss svizzera, riconoscimento titolo oss srk, lavoro oss lugano, lavoro oss bellinzona',
  ogTitle: 'OSS in Svizzera — Stipendi, Riconoscimento SRK, Offerte 2026',
