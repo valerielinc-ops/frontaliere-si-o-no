@@ -3358,6 +3358,84 @@ function checkoutWithSparse(sourceWith, sparsePatterns, ref = 'main') {
 }
 
 /**
+ * Build the bounded recovery branch for a failed sparse site checkout.
+ *
+ * `actions/checkout` can leave a valid but dirty sparse repository behind when
+ * a fetch or sparse materialization fails.  The retry must restore that
+ * temporary state before the action gets a second chance; otherwise the
+ * action's own `clean` only observes the half-written checkout.  If the
+ * partial repository cannot be proven resettable, the retry is skipped and
+ * the caller's fail-closed step ends the job.
+ */
+export function retrySparseCheckout({
+  primaryId = 'site_checkout_primary',
+  sourceCheckout,
+  checkout,
+  backoffSeconds = CROSS_REPO_BACKOFF_SECONDS,
+} = {}) {
+  if (!sourceCheckout?.uses || !checkout || !primaryId) {
+    throw new Error('retrySparseCheckout requires checkout inputs');
+  }
+
+  const prepareId = 'site_checkout_retry_prepare';
+  const backoff = {
+    name: `Backoff ${backoffSeconds}s before checkout retry`,
+    if: `steps.${primaryId}.outcome == 'failure'`,
+    run: [
+      `echo "First sparse checkout failed; retrying in ${backoffSeconds}s"`,
+      `sleep ${backoffSeconds}`,
+    ].join('\n'),
+  };
+  const prepare = {
+    name: 'Reset sparse checkout state before retry',
+    id: prepareId,
+    if: `steps.${primaryId}.outcome == 'failure'`,
+    run: [
+      'set -euo pipefail',
+      'retrySparseCheckout() {',
+      '  local workspace="${GITHUB_WORKSPACE:-}"',
+      '  if [ -z "$workspace" ] || [ "$workspace" = "/" ]; then',
+      '    echo "::error::GITHUB_WORKSPACE is empty or unsafe; refusing sparse checkout retry" >&2',
+      '    return 1',
+      '  fi',
+      '  if [ ! -e "$workspace/.git" ]; then',
+      '    echo "No partial Git metadata found; starting the retry from an empty workspace"',
+      '    return 0',
+      '  fi',
+      '  local git_dir',
+      '  if ! git_dir="$(git -C "$workspace" rev-parse --absolute-git-dir 2>/dev/null)"; then',
+      '    echo "::error::Sparse checkout retry found unreadable Git metadata; refusing to reuse the workspace" >&2',
+      '    return 1',
+      '  fi',
+      '  for lock_file in "$git_dir/index.lock" "$git_dir/shallow.lock" "$git_dir/config.lock"; do',
+      '    if [ -e "$lock_file" ]; then',
+      '      rm -f "$lock_file"',
+      '    fi',
+      '  done',
+      '  if ! git -C "$workspace" rev-parse --verify HEAD >/dev/null 2>&1; then',
+      '    echo "::error::Sparse checkout retry found partial Git metadata without a valid HEAD; refusing to reuse the workspace" >&2',
+      '    return 1',
+      '  fi',
+      '  git -C "$workspace" reset --hard HEAD',
+      '  git -C "$workspace" clean -ffdx',
+      '  if [ "$(git -C "$workspace" config --bool core.sparseCheckout 2>/dev/null || true)" = "true" ]; then',
+      '    git -C "$workspace" sparse-checkout disable',
+      '  fi',
+      '}',
+      'retrySparseCheckout',
+    ].join('\n'),
+  };
+  const retry = {
+    name: 'Checkout frontaliere-si-o-no (attempt 2/2, sparse)',
+    id: 'site_checkout_retry',
+    if: `steps.${primaryId}.outcome == 'failure' && steps.${prepareId}.outcome == 'success'`,
+    uses: sourceCheckout.uses,
+    with: { ...checkout },
+  };
+  return { backoff, prepare, retry };
+}
+
+/**
  * Converte una logica workflow_call del sito in un workflow standalone del
  * corpus. Checkout e installazione possono essere ritentati prima di RC/crawl:
  * nessun retry puo' ripetere scritture parziali del crawler.
@@ -3417,24 +3495,14 @@ export function buildStandaloneCrossRepoWorkflow({
     'continue-on-error': true,
     with: { ...checkout },
   };
-  const backoff = {
-    name: `Backoff ${CROSS_REPO_BACKOFF_SECONDS}s before checkout retry`,
-    if: `steps.${primaryId}.outcome == 'failure'`,
-    run: [
-      `echo "First sparse checkout failed; retrying in ${CROSS_REPO_BACKOFF_SECONDS}s"`,
-      `sleep ${CROSS_REPO_BACKOFF_SECONDS}`,
-    ].join('\n'),
-  };
-  const retry = {
-    name: 'Checkout frontaliere-si-o-no (attempt 2/2, sparse)',
-    id: 'site_checkout_retry',
-    if: `steps.${primaryId}.outcome == 'failure'`,
-    uses: sourceCheckout.uses,
-    with: { ...checkout },
-  };
+  const { backoff, prepare, retry } = retrySparseCheckout({
+    primaryId,
+    sourceCheckout,
+    checkout,
+  });
   const reportCheckoutFailure = {
     name: 'Report exhausted site checkout',
-    if: `always() && steps.${primaryId}.outcome == 'failure' && steps.site_checkout_retry.outcome == 'failure'`,
+    if: `always() && steps.${primaryId}.outcome == 'failure' && (steps.site_checkout_retry.outcome == 'failure' || steps.site_checkout_retry_prepare.outcome == 'failure')`,
     env: {
       GH_TOKEN: '${{ github.token }}',
       // scan-failed-runs e close-recovered-failure-issues riconoscono questo
@@ -3459,7 +3527,16 @@ export function buildStandaloneCrossRepoWorkflow({
     if: `always() && (steps.${primaryId}.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')`,
     run: 'true',
   };
-  job.steps.splice(checkoutIndex, 1, primary, backoff, retry, reportCheckoutFailure, checkoutReady);
+  const checkoutAbort = {
+    name: 'Abort without a valid site checkout',
+    id: 'checkout_abort',
+    if: 'always() && steps.checkout.outcome != \'success\'',
+    run: [
+      'echo "::error::Neither sparse checkout attempt produced a valid site workspace; refusing to start crawler logic"',
+      'exit 1',
+    ].join('\n'),
+  };
+  job.steps.splice(checkoutIndex, 1, primary, backoff, prepare, retry, reportCheckoutFailure, checkoutReady, checkoutAbort);
 
   // A hard timeout cancels the long-running translate job before its trailing
   // `always()` step can publish the fallback marker. The source logic keeps a
