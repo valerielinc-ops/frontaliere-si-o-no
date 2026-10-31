@@ -979,6 +979,12 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
     && comparableContext(item.section) === requestedSection
     && comparableContext(item.autocomplete) === requestedAutocomplete;
   const matches = items.filter((item) => {
+    // Full metadata on both sides proves different owners/purposes, even if
+    // both visible labels are «I agree». Legacy absence never creates proof.
+    if (metadata?.ownConsentOwnerKey && item.ownConsentOwnerKey && [
+      'ownConsentOwnerKey', 'ownConsentText', 'ownConsentQuestionLabels', 'ownConsentLinks',
+      'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'consentOwnershipUnknown',
+    ].some(key => JSON.stringify(metadata[key]) !== JSON.stringify(item[key]))) return false;
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
     const itemTopic = questionTopic(item.question, item.context, item);
     const exact = (sameContext(item) && itemQuestion === normalized)

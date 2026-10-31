@@ -722,16 +722,29 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       // select. Its exact native/menu ownership exposes the full catalogue.
       const nativeId = element.classList.contains('ui-selectmenu-button') && element.id.endsWith('-button')
         ? element.id.slice(0, -7) : '';
-      const native = nativeId && document.getElementById(nativeId);
-      if (native?.tagName === 'SELECT' && !native.multiple
+      const nativeTargets = nativeId ? [...document.querySelectorAll('[id]')].filter(node => node.id === nativeId) : [];
+      const native = nativeTargets.length === 1 ? nativeTargets[0] : null;
+      const uniqueProxy = element.id && [...document.querySelectorAll('[id]')].filter(node => node.id === element.id).length === 1;
+      if (uniqueProxy && native?.tagName === 'SELECT' && !native.multiple
         && element.getAttribute('aria-owns') === `${nativeId}-menu`) {
         field.widget = 'jquery-selectmenu';
         field.nativeSelectId = nativeId;
+        field.form = formOf(native);
+        field.formId = native.form?.id || '';
         field.ownedList = `${nativeId}-menu`;
         field.options = [...native.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, native));
         field.label = labelFor(native) || field.label;
         field.required ||= native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(field.label);
         field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
+        fields.push(field);
+        continue;
+      }
+      if (nativeId) {
+        // A recognized native provider with an ambiguous binding is not a
+        // free-text box; no catalogue or form owner can be inferred from it.
+        field.selectLike = true;
+        field.nativeContractUnavailable = true;
+        field.options = [];
         fields.push(field);
         continue;
       }

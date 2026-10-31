@@ -2,10 +2,10 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
-import { ownConsent, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { ownConsent, guardPlan, candidateAnswerForField } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { isConsentOnly, readOwnConsentMetadata } from '../functions/src/lib/applicationConsent.js';
 import { renderConsentControls, renderConsentMetadataInFields } from '../scripts/assisted-application/extension/build-consent-controls.mjs';
-import { portalRequirementsFromMissingRequired, localizePortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { portalRequirementsFromMissingRequired, localizePortalQuestions, candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const open: JSDOM[] = [];
 afterEach(() => { for (const dom of open.splice(0)) dom.window.close(); });
@@ -170,6 +170,32 @@ describe('native consent authority shared by planner and browser', () => {
     // Reorder the DTO inputs, without rewriting owners: each assertion keeps its own identity.
     const reordered = portalRequirementsFromMissingRequired([...source].reverse(), [...source].reverse().map((field: any) => ({ fieldId: field.id, question: field.label }))).questions;
     expect(reordered.map((question: any) => question.id)).toEqual(questions.map((question: any) => question.id).reverse());
+  });
+  it('keeps answers and a No veto attached to their own same-label native question', () => {
+    const html = '<div class="field"><label for="a">I agree</label><input id="a" type="checkbox" required aria-describedby="a-description"><p id="a-description">I hold a work permit</p></div>'
+      + '<div class="field"><label for="b">I agree</label><input id="b" type="checkbox" required aria-describedby="b-description"><p id="b-description">I hold a degree</p></div>';
+    const { source } = readers(html);
+    const questions = portalRequirementsFromMissingRequired(source, source.map((field: any) => ({ fieldId: field.id, question: field.label }))).questions;
+    const candidate = candidateForForm({ identity: { name: 'Test Candidate' }, portalQuestions: questions,
+      answers: { [questions[0].id]: 'Yes', [questions[1].id]: 'No' } });
+    expect(candidate.portalQuestionsAnswered).toHaveLength(2);
+    expect(candidate.portalQuestionsAnswered.map((item: any) => item.ownConsentOwnerKey)).toEqual(source.map((field: any) => field.ownConsentOwnerKey));
+    expect(candidateAnswerForField(candidate, source[0])?.value).toBe('Yes');
+    expect(candidateAnswerForField(candidate, source[1])?.value).toBe('No');
+    expect(() => guardPlan({ actions: [], missingRequired: [] }, [source[0]], candidate)).not.toThrow();
+    expect(() => guardPlan({ actions: [], missingRequired: [] }, [source[1]], candidate)).toThrowError('native_attested_refusal');
+  });
+  it('takes the native select form owner instead of the styled proxy form and rejects duplicate bindings', () => {
+    const markup = '<form id="native-form"><label for="country">Country</label><select id="country" style="display:none"><option value="IT">Italy</option></select></form>'
+      + '<form id="proxy-form"><span id="country-button" class="ui-selectmenu-button" role="combobox" aria-owns="country-menu">Please select</span></form>';
+    const { source } = readers(markup);
+    const field = source.find((item: any) => item.nativeSelectId === 'country');
+    // readers supplies an outer form; HTML parsing closes it before native-form.
+    expect(field).toBeTruthy();
+    expect(field.formId).toBe('native-form');
+    const duplicate = readers(markup.replace('</select>', '</select><select id="country" style="display:none"><option>Other</option></select>')).source;
+    expect(duplicate.some((item: any) => item.nativeSelectId === 'country')).toBe(false);
+    expect(duplicate.some((item: any) => item.nativeContractUnavailable === true)).toBe(true);
   });
   it('distinguishes anonymous controls in the same form without using input values', () => {
     const markup = '<label>I agree to the Privacy Policy<input type="checkbox" required></label>';

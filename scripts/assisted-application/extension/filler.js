@@ -557,7 +557,9 @@
     for (const button of doc.querySelectorAll('.ui-selectmenu-button[role="combobox"]')) {
       if (!isShown(button) || !button.id.endsWith('-button')) continue;
       const nativeId = button.id.slice(0, -7);
-      const nativeSelect = doc.getElementById(nativeId);
+      const nativeTargets = [...doc.querySelectorAll('[id]')].filter(node => node.id === nativeId);
+      const nativeSelect = nativeTargets.length === 1 ? nativeTargets[0] : null;
+      if ([...doc.querySelectorAll('[id]')].filter(node => node.id === button.id).length !== 1) continue;
       if (nativeSelect?.tagName !== 'SELECT' || nativeSelect.multiple || nativeSelect.matches(':disabled')
         || button.getAttribute('aria-owns') !== `${nativeId}-menu`) continue;
       const label = labelOf(nativeSelect);
