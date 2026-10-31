@@ -110,6 +110,8 @@ describe('contestazioni dell’autore: dati verificabili prima del riporto per a
     expect(unchangedPrompt).toContain('stable finding id, every anchor and withdrawal reason');
     expect(reviewerPrompt).toContain('Unsupported or incomplete claims keep the Important open with an updated `Replica:`');
     expect(reviewerPrompt).toContain('then apply the normal LGTM rules to all remaining findings');
+    expect(convergence).toContain('→ conferme ordinarie');
+    expect(convergence).toContain('solo per il ritiro `(ritirato: <motivo>)`');
   });
 
   it('il fixer verifica il contratto prima di correggere e contesta senza indebolire codice o test', () => {
