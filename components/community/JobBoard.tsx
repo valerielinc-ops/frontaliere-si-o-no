@@ -3022,12 +3022,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
  cancelIdleCallback?: (handle: number) => void;
  };
- if (typeof w.requestIdleCallback === 'function') {
- const handle = w.requestIdleCallback(start, { timeout: 5000 });
- return () => { cancelled = true; w.cancelIdleCallback?.(handle); };
- }
- const timer = setTimeout(start, 2000);
- return () => { cancelled = true; clearTimeout(timer); };
+ let firstFrame = 0;
+ let secondFrame = 0;
+ let idleHandle: number | null = null;
+ let fallbackTimer: ReturnType<typeof setTimeout> | null = null;
+ const scheduleAtIdle = (): void => {
+  if (cancelled) return;
+  if (typeof w.requestIdleCallback === 'function') {
+   idleHandle = w.requestIdleCallback(start, { timeout: 8000 });
+  } else {
+   fallbackTimer = setTimeout(start, 2000);
+  }
+ };
+ // Do not let this enhancement compete with JobBoard's first committed and
+ // painted frame, even when React flushes a mount effect before the browser's
+ // first paint opportunity on a busy mobile main thread.
+ firstFrame = window.requestAnimationFrame(() => {
+  secondFrame = window.requestAnimationFrame(scheduleAtIdle);
+ });
+ return () => {
+  cancelled = true;
+  if (firstFrame) window.cancelAnimationFrame(firstFrame);
+  if (secondFrame) window.cancelAnimationFrame(secondFrame);
+  if (idleHandle !== null) w.cancelIdleCallback?.(idleHandle);
+  if (fallbackTimer !== null) clearTimeout(fallbackTimer);
+ };
  }, [enablePersonalization]);
 
  // Keep one previous-visit boundary stable across board remounts in this tab.

@@ -200,6 +200,11 @@ export function useNavigationState(): NavigationState {
   'article',
   isStaticArticleFallbackInDocument(),
  );
+ // The frontaliere article HTML is already the complete page body. Keep it as
+ // the owner on a cold article visit instead of mounting BlogArticles and
+ // replacing it after registry, metadata and body requests finish.
+ const initialFrontaliereStaticArticle = initialKeepsStaticArticle
+  && (!initialRoute.route.blogSection || initialRoute.route.blogSection === 'frontaliere');
  const [articleStaticFallbackKey, setArticleStaticFallbackKey] = useState<string | null>(() => (
   initialKeepsStaticArticle
    ? staticArticleFallbackRouteKey(initialRoute.route, initialRoute.locale)
@@ -221,14 +226,18 @@ export function useNavigationState(): NavigationState {
  // true to draw — `activeTab` is 'blog' with no article, which renders the hub
  // list, and the hub list is what was overwriting correct article pages
  // ("Guida Frontaliere" post-hydration on 17 live URLs, measured 2026-08-04).
- // Starting in overlay mode leaves the shard's article on screen and costs
- // nothing on the happy path: the bundled slug map lands a few hundred ms
- // later and flips this straight back off. It also removes the hub-list flash
- // that every article page already paid while that chunk was in flight.
+ // Starting in overlay mode leaves the shard's article on screen. On cold
+ // frontaliere detail pages that complete static body remains the owner; other
+ // unresolved article routes retain the bundle-resolution handoff below.
  const [staticOverlay, setStaticOverlay] = useState<boolean>(
  () => !!initialRoute.route.staticOverlay
+ || initialFrontaliereStaticArticle
  || (!!pendingArticleSlug(initialRoute.route) && initialHasStaticArticleFallback),
  );
+ const staticFrontaliereArticleOwnsBody = activeTab === 'blog'
+  && blogSection === 'frontaliere'
+  && staticOverlay
+  && isStaticArticleFallbackInDocument();
 
  // Refs
  const isInitialMount = useRef(true);
@@ -292,9 +301,10 @@ export function useNavigationState(): NavigationState {
  // In particular, /vivere-in-ticino/comuni-di-frontiera/ resolves to
  // FrontierGuide rather than the generic CostOfLiving hub chunk.
  useEffect(() => {
+  if (staticFrontaliereArticleOwnsBody) return;
   if (activeTab === 'vita') prefetchTab(activeTab, vitaSubTab);
   else prefetchTab(activeTab);
- }, [activeTab, vitaSubTab]);
+ }, [activeTab, vitaSubTab, staticFrontaliereArticleOwnsBody]);
 
  // Check for hidden API status page via URL parameter
  useEffect(() => {
@@ -392,7 +402,8 @@ export function useNavigationState(): NavigationState {
  // activeTab==='blog' effect below.
  useEffect(() => {
  const r = initialRoute.route;
- if ((r.activeTab === 'blog' || r.blogSlug || r.blogArticle || r.cantonSlug || r.cantonArticle)
+ if (!initialFrontaliereStaticArticle
+   && (r.activeTab === 'blog' || r.blogSlug || r.blogArticle || r.cantonSlug || r.cantonArticle)
    && !r.blogSection?.startsWith('canton-')) {
  preloadBlogData().catch(() => {});
  }
@@ -403,8 +414,46 @@ export function useNavigationState(): NavigationState {
  // guard behind it. Same call as applyRoute uses for client-side navigation,
  // so an article URL behaves identically whether it was typed, followed from
  // Google, or reached with the back button.
- resolvePendingArticle(r, initialRoute.locale);
+ if (!initialFrontaliereStaticArticle) resolvePendingArticle(r, initialRoute.locale);
  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+ // The static article already contains its related links. Warm the interactive
+ // blog surface only after the document has loaded and the browser has idle
+ // time, or when the reader reaches/focuses the related-article section.
+ // Importing BlogArticles here only prefetches its chunks; it does not mount
+ // the component or request an article body.
+ useEffect(() => {
+ if (!initialFrontaliereStaticArticle || typeof document === 'undefined') return;
+ const prefetchBlog = () => prefetchTab('blog');
+ const related = document.querySelector<HTMLElement>(
+  'main.seo-static-content article.ft-blog-article [data-article-related]',
+ );
+ let observer: IntersectionObserver | null = null;
+ const onRelatedIntent = (event: Event) => {
+  const target = event.target;
+  if (target instanceof Element && target.closest('[data-article-related]')) prefetchBlog();
+ };
+ const onLoad = () => prefetchBlog();
+
+ if (document.readyState === 'complete') prefetchBlog();
+ else window.addEventListener('load', onLoad, { once: true });
+ if (related && typeof IntersectionObserver !== 'undefined') {
+  observer = new IntersectionObserver((entries) => {
+   if (!entries.some((entry) => entry.isIntersecting)) return;
+   prefetchBlog();
+   observer?.disconnect();
+  }, { rootMargin: '200px' });
+  observer.observe(related);
+ }
+ document.addEventListener('pointerover', onRelatedIntent, true);
+ document.addEventListener('focusin', onRelatedIntent, true);
+ return () => {
+  window.removeEventListener('load', onLoad);
+  observer?.disconnect();
+  document.removeEventListener('pointerover', onRelatedIntent, true);
+  document.removeEventListener('focusin', onRelatedIntent, true);
+ };
+ }, [initialFrontaliereStaticArticle]);
 
  // Eagerly load svizzera slug data whenever the section becomes svizzera —
  // a client-side sub-tab switch (not an initial svizzera URL) must populate
@@ -419,8 +468,10 @@ export function useNavigationState(): NavigationState {
  // `_blogSlugs` as soon as the user lands on the blog so buildPath emits
  // canonical localized article URLs everywhere.
  useEffect(() => {
- if (activeTab === 'blog' && !blogSection.startsWith('canton-')) preloadBlogData().catch(() => {});
- }, [activeTab]);
+ if (activeTab === 'blog' && !blogSection.startsWith('canton-') && !staticFrontaliereArticleOwnsBody) {
+  preloadBlogData().catch(() => {});
+ }
+ }, [activeTab, blogSection, staticFrontaliereArticleOwnsBody]);
 
  // Apply noindex SEO immediately on mount for 404 pages (soft-404 protection)
  useEffect(() => {
@@ -1111,7 +1162,7 @@ export function useNavigationState(): NavigationState {
  // know which article this is; the effect re-runs with the real key the moment
  // `blogArticle`/`swissArticle` lands.
  const seoKey = getSeoSection(route);
- if (!pendingArticleSlug(route)) {
+ if (!pendingArticleSlug(route) && !staticFrontaliereArticleOwnsBody) {
   if (!route.blogSection?.startsWith('canton-')) updateMetaTags(seoKey);
   trackSectionView(seoKey);
  }
@@ -1120,7 +1171,7 @@ export function useNavigationState(): NavigationState {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
  }
- }, [blogArticle, swissArticle, cantonArticle, cantonTopic, blogSection, blogPage]);
+ }, [blogArticle, swissArticle, cantonArticle, cantonTopic, blogSection, blogPage, staticFrontaliereArticleOwnsBody]);
 
  // Clear initial-mount flag AFTER all sub-tab effects have fired
  useEffect(() => { isInitialMount.current = false; }, []);
