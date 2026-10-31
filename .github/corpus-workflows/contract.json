@@ -4,20 +4,20 @@
   "generatorSha256": "4b6e7bc072d9cdcb05f0e29555519e095ab5c58029e035826935118e54dd477e",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "0f0248d881b6e1f9a0cb19b90da0f496b27a124b",
+  "sourceCommit": "9864f29f9886e64f2d92ac7ac9b960147549911f",
   "artifactObservation": {
     "generatorSha256": "4b6e7bc072d9cdcb05f0e29555519e095ab5c58029e035826935118e54dd477e",
     "sourceRef": "main",
-    "sourceCommit": "0f0248d881b6e1f9a0cb19b90da0f496b27a124b"
+    "sourceCommit": "9864f29f9886e64f2d92ac7ac9b960147549911f"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 669,
+  "crawlerCount": 670,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:df5adaf7b43ffa08e40d9f97496e25f3afbd9e5d8352c519221be85997148aea",
+    "rosterDigest": "sha256:c8e5c35e7c731c0a61ab49728370ee466ac3724c38e62aacbc2b1e3b18767a1f",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -177,6 +177,7 @@
     "scripts/update-clinique-la-source-jobs.mjs",
     "scripts/update-clinique-le-noirmont-jobs.mjs",
     "scripts/update-cnp-jobs.mjs",
+    "scripts/update-comuni-ticino-jobs.mjs",
     "scripts/update-concara-jobs.mjs",
     "scripts/update-concordia-jobs.mjs",
     "scripts/update-conservatorio-jobs.mjs",
@@ -1564,14 +1565,15 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "a17b260342b02ebe78b26ab0d82667ae33bfb9c91e9ee8cf6e58db0ae23b81c6",
-      "artifactSha256": "29fb39edf0f4cca8ae375fe2b2228e3fce488ee37c5b14b5b568cd59cb135218",
+      "sourceSha256": "41bf1da29b30c930f62fa8c7c1d65d83b0f2d773a4402ade6114d6a39bdbeb23",
+      "artifactSha256": "33c62b4a5a578b0059f93255bb9a0f1142c838c0e271d42aab5c9fe12bfc3d76",
       "generatorSha256": "4b6e7bc072d9cdcb05f0e29555519e095ab5c58029e035826935118e54dd477e",
       "members": [
         "seco-jobroom",
         "asanti-ch",
         "bb-trading-werbeartikel-ag",
-        "csl-immobilien-ag"
+        "csl-immobilien-ag",
+        "comuni-ticino"
       ]
     },
     {
