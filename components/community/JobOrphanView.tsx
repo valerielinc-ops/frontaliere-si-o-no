@@ -193,20 +193,19 @@ function getStaticBodyHtml(): string | null {
  return null;
 }
 
-/** Extract links from the"Posizioni attive recenti" section of static HTML. */
-function extractActiveJobLinks(html: string): Array<{ href: string; title: string; company: string; location: string }> {
+/** Extract links from the recent-active-jobs section of static HTML. */
+export function extractActiveJobLinks(html: string): Array<{ href: string; title: string; company: string; location: string }> {
  const links: Array<{ href: string; title: string; company: string; location: string }> = [];
- // Match <li><a href="...">Title</a> — Company, Location</li>
+ // The current static renderer emits <li><a href="...">Title</a> — Location</li>.
  const liRegex = /<li><a href="([^"]+)"[^>]*>([^<]+)<\/a>\s*(?:—|&mdash;)\s*([^<]+)<\/li>/g;
  let match;
  while ((match = liRegex.exec(html)) !== null) {
  const fullText = match[3].trim();
- const parts = fullText.split(',');
  links.push({
  href: match[1].replace(/^https?:\/\/[^/]+/, ''),
  title: match[2].trim(),
- company: parts[0]?.trim() ?? '',
- location: parts.slice(1).join(',').trim(),
+   company: '',
+   location: fullText,
  });
  }
  return links;
