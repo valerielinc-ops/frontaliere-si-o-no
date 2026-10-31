@@ -1,4 +1,5 @@
 /** Typed answer constraints are stronger than an inference about a printed option. */
+import { nativeScopeAllows } from './nativeFormContract.js';
 import { addressContextContract } from './addressContextContract.js';
 import { isGeneralCandidateLanguageQuestion, isPortableCandidateLanguageQuestion, LANGUAGE_MODALITY_RE, LANGUAGE_ORAL_RE } from './candidateLanguageQuestion.js';
 import { conciergeProposalEligibility } from '../assistedApplicationFitNotice.js';
@@ -41,7 +42,12 @@ function ownedContractState(question) {
   if (address === null || address?.unknown || question?.ownershipUnknown === true
     || question?.metadataComplete === false || question?.questionOwned === false || question?.consentOwnershipUnknown === true
     || question?.ownConsentMetadataComplete === false || question?.ownConsentQuestionOwned === false) return null;
-  return { address, flags: Object.fromEntries(ownershipKeys.filter(key => Object.hasOwn(question || {}, key)).map(key => [key, question[key]])) };
+  const graph = question?.ownedScopes;
+  if (graph !== undefined && (!Array.isArray(graph) || graph.length > 32 || graph.some(scope => !scope
+    || !['group', 'form'].includes(scope.kind) || scope.unknown !== false || !Array.isArray(scope.names)
+    || scope.names.length > 64 || scope.names.some(name => typeof name !== 'string' || name.length > 8000)
+    || Object.keys(scope).some(key => !['kind', 'names', 'unknown'].includes(key))))) return null;
+  return { address, ownedScopes: graph, flags: Object.fromEntries(ownershipKeys.filter(key => Object.hasOwn(question || {}, key)).map(key => [key, question[key]])) };
 }
 export function sameNativeQuestion(claim, record) {
   return normalized(questionText(originalQuestion(record))) === normalized(claim.nativeFormContract?.question);
@@ -52,6 +58,8 @@ function portableTarget(question) {
   if (question.autocomplete || [question.context, question.section].some(value => value && !isLanguageContextLabel(value))) return false;
   const owned = ownedContractState(question);
   if (!owned) return false;
+  if (question.ownedScopes !== undefined && !nativeScopeAllows(question, text => isLanguageContextLabel(text)
+    || isGeneralCandidateLanguageQuestion(text))) return false;
   if (owned.address && [owned.address.section, ...owned.address.owners].some(value => value
     && !isLanguageContextLabel(value) && !/^(?:personal (?:information|data|details)|candidate(?: information)?|applicant(?: information)?|dati personali|informazioni personali|persönliche (?:daten|angaben)|informations personnelles)$/iu.test(String(value).trim()))) return false;
   let text = String(question.question || '');

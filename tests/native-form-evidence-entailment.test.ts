@@ -391,3 +391,32 @@ describe('actual CV bytes versus previously attested language answers', () => {
     expect(generate).not.toHaveBeenCalled();
   });
 });
+
+describe('a contact fact belongs to its native target actor', () => {
+  const contract = (owner: string) => ({ question: 'Email', context: '', section: '', controlType: 'email', kind: 'text', name: 'email', required: true,
+    autocomplete: 'email', optionValues: [], options: [], validation: { type: 'email', required: true },
+    ownedScopes: [{ kind: 'form', names: [owner], unknown: false }] });
+  const record = (id: string, owner: string, answer: string) => ({ id, version: 'confirmed-question-evidence-v1', category: 'qualification', scope: 'job',
+    unit: 'question_specific_text', question: { question: 'Email', originalNativeContract: contract(owner) }, answer, provenance: { actor: 'candidate', round: 1 } });
+
+  it('does not use the applicant CV email as a reference contact', async () => {
+    const generate = vi.fn();
+    expect(await verifyNativeFormAnswers({ claims: [{ fieldId: 'reference', nativeFormContract: contract('Reference'), proposedAnswer: 'applicant@example.test' }],
+      sources: qualificationSources({ sourceText: 'Email: applicant@example.test' }), generate })).toMatchObject({ status: 'unverified', verification: { failure: 'identity_target_unverified' } });
+    expect(generate).not.toHaveBeenCalled();
+  });
+
+  it('uses only an exact reference answer and does not let an unrelated applicant answer veto it', async () => {
+    const sources = qualificationSources({ sourceText: 'Email: applicant@example.test', answerEvidence: [
+      record('self-email', 'Application', 'applicant@example.test'), record('reference-email', 'Reference', 'referee@example.test'),
+    ] });
+    const generate = vi.fn(async (_system: string, user: string) => {
+      const data = JSON.parse(user);
+      return data.sourceColumns ? { assessments: [{ index: 0, sourceIds: [data.sources.find((row: any[]) => row[1] === 'qa' && row[2].id === 'reference-email')[0]] }] }
+        : { assessments: [{ index: 0, proofId: data.claims[0].proof.id, verdict: 'supported', reason: 'explicit_fact' }] };
+    });
+    expect((await verifyNativeFormAnswers({ sources, generate, claims: [{ fieldId: 'reference', nativeFormContract: contract('Reference'), proposedAnswer: 'referee@example.test' }] })).status).toBe('supported');
+    expect(generate).toHaveBeenCalledTimes(2);
+    expect(JSON.parse(generate.mock.calls[1][1]).claims[0].proof.quotes[0].answerRecord.id).toBe('reference-email');
+  });
+});

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { qualificationSources, qualificationSourcesFingerprint, qualificationCounterContext, qualificationCounterContextHash, verifyQualificationEvidence, hasVerifiedQualificationEvidence,
-  qualificationAssessmentHash, hasVerifiedQualificationAssessment, hasCurrentQualificationDocuments, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
+  qualificationAssessmentHash, hasVerifiedQualificationAssessment, verifiedQualificationAnswerIds, hasCurrentQualificationDocuments, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
 import { qualificationAnswerOriginContext } from '../functions/src/lib/qualificationCounterContext.js';
 import { qualificationEvidenceCases } from './fixtures/qualification-evidence-cases.mjs';
 
@@ -314,4 +314,27 @@ it('shares the current document witness check across server and runner transport
   expect(hasCurrentQualificationDocuments({ ...input, sourceFingerprint: 'b'.repeat(64) })).toBe(false);
   expect(hasCurrentQualificationDocuments({ ...input, counterContext: qualificationCounterContext({ flow: { candidateNotes: 'Current correction.' } }) })).toBe(false);
   expect(hasCurrentQualificationDocuments({ ...input, draft: { ...draft, qualificationMatch: { ...f.match, summaryIt: 'changed full match' } } })).toBe(false);
+});
+
+
+describe('requirement-scoped answer witness IDs', () => {
+  it.each([['German', []], ['English', ['current-job-answer']]])('binds the %s answer only to the language of its supported requirement row', async (language, expected) => {
+    const record = { id: 'current-job-answer', question: { id: 'language-question',
+      question: `What is your current ${language} proficiency level?`, type: 'text', context: 'Language proficiency', options: [] },
+      answer: 'C1', category: 'qualification', unit: 'cefr', scope: 'job', provenance: { actor: 'candidate', round: 1 } };
+    const sources = qualificationSources({ answerEvidence: [record] });
+    const id = sources.citations.excerpts.find(item => item.id.startsWith('[[answer_')).id;
+    const evidence = sources.citations.resolve(id);
+    const requirements = { requirements: ['English', 'German'].map(name => ({ requirement: `${name} C1`,
+      quote: `${name} C1 required.`, basis: 'stated', importance: 'high' })) };
+    const match = { matches: [{ index: 0, status: 'met', evidence, evidenceUnverified: false }, { index: 1, status: 'unknown', evidence: '' }] };
+    const rawMatch = { matches: [{ index: 0, evidence: id }, { index: 1, evidence: '' }] };
+    // A deliberately permissive semantic test double cannot authorize another
+    // language through the unchecked row; the server must bind that attribution.
+    const generate = vi.fn(async (_system: string, user: string) => ({ assessments: JSON.parse(user).claims.map((claim: any) => ({
+      index: claim.index, proofId: claim.proof.id, verdict: 'supported', reason: 'explicit_fact' })) }));
+    const result = await verifyQualificationEvidence({ sources, requirements, match, rawMatch, purpose: 'documents', preliminary: { status: 'unverified' }, generate });
+    expect(result.status).toBe('supported');
+    expect(verifiedQualificationAnswerIds({ requirements, match, rawMatch, sources, verification: result.verification, indexes: [0, 1] })).toEqual(expected);
+  });
 });

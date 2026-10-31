@@ -13,8 +13,9 @@ import { requirementLanguageCodes } from '../../../functions/src/lib/requirement
 import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequirements.js';
 import { citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
 import { languageAnswerSourceConflicts } from '../../../functions/src/lib/answerSourceConflicts.js';
+import { currentJobLanguageEvidence } from '../../../functions/src/lib/currentJobLanguageEvidence.js';
 import { projectAttestedLanguageFacts } from '../../../functions/src/lib/attestedLanguageProjection.js';
-import { qualificationSources, originalCvLanguageProfile, qualificationCounterContext, qualificationSourcesFingerprint, verifyQualificationEvidence, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
+import { qualificationSources, originalCvLanguageProfile, qualificationCounterContext, qualificationSourcesFingerprint, verifyQualificationEvidence, verifiedQualificationAnswerIds, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
 import { conciergeProposalEligibility } from '../../../functions/src/assistedApplicationFitNotice.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
@@ -132,6 +133,7 @@ function candidateLocale(order) {
  */
 export async function buildDraft(ctx) {
   const { order, orderId, flow, previousDraft, cvBuffer, cvType, codex, bucket, runKey } = ctx;
+  const answerEvidence = structuredClone(ctx.answerEvidence || []);
   const fetchImpl = ctx.fetchImpl || fetch;
   const nowMs = ctx.nowMs || Date.now();
   const round = Number(flow?.round) || 1;
@@ -207,8 +209,10 @@ export async function buildDraft(ctx) {
   // status) is known from here on, and neither is asked (lib/personalFacts.js).
   const edited = candidateWithEdits({ order, draft: { profile, factSources: { text: cvText } }, flow });
   profile = edited.profile;
-  const projected = projectAttestedLanguageFacts({ profile, answerEvidence: ctx.answerEvidence || [], currentCvHash: eligibilityHash(cvBuffer) });
-  const conflictedLanguages = new Set(projected.conflicts.map(conflict => conflict.languageCode));
+  const projected = projectAttestedLanguageFacts({ profile, answerEvidence, currentCvHash: eligibilityHash(cvBuffer) });
+  const scoped = currentJobLanguageEvidence({ profile: projected.profile, answerEvidence, currentCvHash: eligibilityHash(cvBuffer),
+    job: { id: order.jobId, url: order.jobUrl || posting.jobUrl || posting.url } });
+  const conflictedLanguages = new Set([...projected.conflicts, ...scoped.conflicts].map(conflict => conflict.languageCode));
   if (requirements.requirements.some(row => languageAnswerSourceConflicts({ text: row.quote || row.requirement, languageCodes: requirementLanguageCodes(requirements, row),
     answerSourceConflicts: ctx.answerSourceConflicts || [], currentCvHash: eligibilityHash(cvBuffer) }).length)) {
     throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
@@ -216,7 +220,7 @@ export async function buildDraft(ctx) {
   if (requirements.requirements.some(row => requirementLanguageCodes(requirements, row).some(code => conflictedLanguages.has(code)))) {
     throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
   }
-  profile = projected.profile;
+  profile = scoped.profile;
   const answers = edited.answers;
   const identity = edited.identity;
   const personal = edited.personal;
@@ -228,7 +232,7 @@ export async function buildDraft(ctx) {
   const kind = candidateType({ profile, postingTitle: title || order.jobTitle, postingText });
   const reuseQualifiedMatch = qualification && !candidateNotes && !Object.keys(edited.overrides).length
     && !Object.keys(answers).some(key => key !== 'salutation') && !flow?.feedback?.length;
-  const sources = qualificationSources({ sourceText: cvText, profile, answers, answerEvidence: ctx.answerEvidence || [] });
+  const sources = qualificationSources({ sourceText: cvText, profile, answers, answerEvidence });
   const candidateSources = sources.citations;
   const matchRaw = reuseQualifiedMatch ? qualification.match : await codex({
     prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
@@ -251,6 +255,16 @@ export async function buildDraft(ctx) {
   if (checked.status === 'unverified') throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
   requirements = checked.assessment?.requirements || requirements;
   match = checked.assessment?.match || match;
+  if (checked.status === 'supported' && scoped.deferredCodes.length) {
+    const indexes = requirements.requirements.flatMap((row, index) => requirementLanguageCodes(requirements, row).some(code => scoped.deferredCodes.includes(code)) ? [index] : []);
+    const verifiedAnswerIds = verifiedQualificationAnswerIds({ requirements, match, rawMatch: matchRaw, sources, verification: checked.verification, indexes });
+    const resolved = currentJobLanguageEvidence({ profile: projected.profile, answerEvidence, currentCvHash: eligibilityHash(cvBuffer),
+      job: { id: order.jobId, url: order.jobUrl || posting.jobUrl || posting.url }, verifiedAnswerIds });
+    if (resolved.conflicts.some(conflict => requirements.requirements.some(row => requirementLanguageCodes(requirements, row).includes(conflict.languageCode)))) {
+      throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
+    }
+    profile = resolved.profile;
+  }
   const qualificationMatch = structuredClone(match);
   // Start parallel artifact work only after the evidence gate: a technical abort above
   // cannot leave a tailored-CV promise or an uploaded PDF behind.

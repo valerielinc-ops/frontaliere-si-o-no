@@ -14,10 +14,11 @@ import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SC
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
 import { languageAnswerSourceConflicts } from './lib/answerSourceConflicts.js';
+import { currentJobLanguageEvidence } from './lib/currentJobLanguageEvidence.js';
 import { projectAttestedLanguageFacts } from './lib/attestedLanguageProjection.js';
 import { SOURCE_CITATIONS_VERSION, citationSchema, resolveCitations } from './lib/sourceCitations.js';
 import { EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_PROMPT_HASH, qualificationSources,
-  verifyQualificationEvidence, qualificationCounterContext, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
+  verifyQualificationEvidence, verifiedQualificationAnswerIds, qualificationCounterContext, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
 
 export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v5-${SOURCE_CITATIONS_VERSION}-${EVIDENCE_ENTAILMENT_VERSION}-${EVIDENCE_ENTAILMENT_PROMPT_HASH}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
@@ -61,6 +62,8 @@ function profileForEligibility(profile = {}) {
 }
 
 export async function evaluateConciergePosting({ job, profile, answers = {}, answerEvidence = [], answerCounterContext = [], answerSourceConflicts = [], rawCounterContext = null, locale = 'it', sourceText = '', cvHash = '', generate = generateJson, readPosting = fetchJobPosting }) {
+  // The later row witness and job-only reassessment must read the same owned Q/A units.
+  answerEvidence = structuredClone(answerEvidence);
   if (!sourceText) {
     const deadline = AbortSignal.timeout(PREFLIGHT_ANALYSIS_BUDGET_MS);
     const inference = generate; const read = readPosting;
@@ -77,14 +80,15 @@ export async function evaluateConciergePosting({ job, profile, answers = {}, ans
   if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) return { status: 'unverified', reason: 'requirements_incomplete' };
   const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
   const projected = projectAttestedLanguageFacts({ profile: profileForEligibility(profile), answerEvidence, currentCvHash: cvHash });
-  const conflictedLanguages = new Set(projected.conflicts.map(conflict => conflict.languageCode));
+  const scoped = currentJobLanguageEvidence({ profile: projected.profile, answerEvidence, currentCvHash: cvHash, job });
+  const conflictedLanguages = new Set([...projected.conflicts, ...scoped.conflicts].map(conflict => conflict.languageCode));
   if (requirements.requirements.some(row => languageAnswerSourceConflicts({ text: row.quote || row.requirement, languageCodes: requirementLanguageCodes(requirements, row), answerSourceConflicts, currentCvHash: cvHash }).length)) {
     return { status: 'unverified', reason: 'answer_source_conflict', gaps: [], questions: [] };
   }
   if (requirements.requirements.some(row => requirementLanguageCodes(requirements, row).some(code => conflictedLanguages.has(code)))) {
     return { status: 'unverified', reason: 'language_evidence_conflict', gaps: [], questions: [] };
   }
-  const normalizedProfile = projected.profile;
+  const normalizedProfile = scoped.profile;
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
   const sources = qualificationSources({ sourceText, profile: normalizedProfile, answers, answerEvidence });
   const candidateSources = sources.citations;
@@ -95,8 +99,18 @@ export async function evaluateConciergePosting({ job, profile, answers = {}, ans
   const preliminary = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
   const checked = await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources, preliminary, generate,
     unverifiedContext: qualificationCounterContext({ flow: { answers }, answerCounterContext, rawCounterContext }) });
-  const result = checked.status === 'unverified'
-    ? { status: 'unverified', reason: checked.reason, gaps: [], questions: [] } : preliminary;
+  let assessed = preliminary;
+  if (checked.status === 'supported' && scoped.deferredCodes.length) {
+    const indexes = requirements.requirements.flatMap((row, index) => requirementLanguageCodes(requirements, row).some(code => scoped.deferredCodes.includes(code)) ? [index] : []);
+    const verifiedAnswerIds = verifiedQualificationAnswerIds({ requirements, match, rawMatch: matchRaw, sources, verification: checked.verification, indexes });
+    const resolved = currentJobLanguageEvidence({ profile: projected.profile, answerEvidence, currentCvHash: cvHash, job, verifiedAnswerIds });
+    if (resolved.conflicts.some(conflict => requirements.requirements.some(row => requirementLanguageCodes(requirements, row).includes(conflict.languageCode)))) {
+      assessed = { status: 'unverified', reason: 'language_evidence_conflict', gaps: [], questions: [] };
+    } else assessed = conciergeProposalEligibility(requirements, checked.assessment?.match || match, { profile: resolved.profile, answers });
+  }
+  const scopedLanguageUnresolved = assessed.gaps?.some(gap => requirementLanguageCodes(requirements, requirements.requirements[gap.index]).some(code => scoped.deferredCodes.includes(code)));
+  const result = checked.status === 'unverified' ? { status: 'unverified', reason: checked.reason, gaps: [], questions: [] }
+    : scopedLanguageUnresolved && !assessed.gaps.some(gap => gap.knownMissing) ? { status: 'unverified', reason: 'job_language_evidence_unverified', gaps: [], questions: [] } : assessed;
   const entailment = checked.verification || { version: EVIDENCE_ENTAILMENT_VERSION, status: 'not_required' };
   return { ...result, postingHash, requirements: checked.assessment?.requirements || requirements,
     match: checked.assessment?.match || match, posting, entailment };

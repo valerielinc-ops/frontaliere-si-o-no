@@ -60,3 +60,19 @@ describe('typed native answer constraints', () => {
     expect(nativeCvDomainConstraint(claim('Yes', { question: 'Do you hold a degree?', context: '' }), { quote: 'Degree in computer science', context: '' })).toBe('unknown');
   });
 });
+
+it('keeps full native actor scopes when two controls share an Email caption', () => {
+  const question = { question: 'Email', context: '', section: '', kind: 'text', controlType: 'email',
+    ownedScopes: [{ kind: 'form', names: ['Application'], unknown: false }] };
+  const source = { question: { originalNativeContract: question }, answer: 'person@example.test', unit: 'question_specific_text', category: 'qualification' };
+  expect(typedNativeAnswerConstraint({ nativeFormContract: question, proposedAnswer: source.answer }, source)).toBe('supports');
+  expect(typedNativeAnswerConstraint({ nativeFormContract: { ...question, ownedScopes: [{ kind: 'form', names: ['Reference'], unknown: false }] }, proposedAnswer: source.answer }, source)).toBe('unrelated');
+});
+
+it('does not let a portable language level discard a qualified owned scope', () => {
+  const source = { ...languageRecord, answer: 'C1' };
+  const question = { question: 'Do you speak German at C1?', context: '', section: '',
+    ownedScopes: [{ kind: 'group', names: ['Languages'], unknown: false }, { kind: 'form', names: ['Application'], unknown: false }] };
+  expect(typedNativeAnswerConstraint({ nativeFormContract: question, proposedAnswer: 'Yes' }, source)).toBe('supports');
+  expect(typedNativeAnswerConstraint({ nativeFormContract: { ...question, ownedScopes: [{ kind: 'group', names: ['Legally binding client communications'], unknown: false }] }, proposedAnswer: 'Yes' }, source)).not.toBe('supports');
+});
