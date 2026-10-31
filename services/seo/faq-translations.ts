@@ -14,6 +14,157 @@ export type FaqLocaleMap = Record<string, { en: FaqTranslation; de: FaqTranslati
  * Key = exact Italian "name" field from FAQPage mainEntity entries.
  */
 export const FAQ_TRANSLATIONS: FaqLocaleMap = {
+ // Domande presenti in seo-pages.ts senza traduzione: coperte da tests/faq-coverage.test.ts
+ "Quanto sono più alti i prezzi in Svizzera rispetto all’Italia?": {
+ en: {
+ q: "How much higher are prices in Switzerland than in Italy?",
+ a: "In the 2025 Eurostat index of price levels for household consumption (EU average=100), Switzerland is about 171 and Italy about 100. It is a national index based on purchasing power parities, not a comparison of rents in Lugano and Como or an estimate of a household budget. Source: https://ec.europa.eu/eurostat/databrowser/view/tec00120/default/table?lang=en"
+ },
+ de: {
+ q: "Wie viel höher sind die Preise in der Schweiz als in Italien?",
+ a: "Im Eurostat-Index 2025 der Preisniveaus für den Konsum privater Haushalte (EU-Durchschnitt=100) liegt die Schweiz bei etwa 171 und Italien bei etwa 100. Es ist ein nationaler Index auf Basis von Kaufkraftparitäten, kein Vergleich der Mieten in Lugano und Como und keine Schätzung eines Haushaltsbudgets. Quelle: https://ec.europa.eu/eurostat/databrowser/view/tec00120/default/table?lang=en"
+ },
+ fr: {
+ q: "Dans quelle mesure les prix sont-ils plus élevés en Suisse qu’en Italie ?",
+ a: "Dans l’indice Eurostat 2025 des niveaux de prix de la consommation des ménages (moyenne UE=100), la Suisse est à environ 171 et l’Italie à environ 100. C’est un indice national fondé sur les parités de pouvoir d’achat, pas une comparaison des loyers de Lugano et de Côme ni une estimation du budget d’un ménage. Source : https://ec.europa.eu/eurostat/databrowser/view/tec00120/default/table?lang=en"
+ }
+ },
+
+ "Quali città vicino al confine hanno il costo della vita più basso?": {
+ en: {
+ q: "Which towns near the border have the lowest cost of living?",
+ a: "There is no single ranking that fits every household. Rents and expenses depend on the neighbourhood, the size of the home, the period and the links to your workplace. Compare current listings and transport costs for the municipalities you are considering."
+ },
+ de: {
+ q: "Welche Orte nahe der Grenze haben die niedrigsten Lebenshaltungskosten?",
+ a: "Es gibt keine einheitliche Rangliste, die für jeden Haushalt gilt. Mieten und Ausgaben hängen vom Quartier, der Wohnungsgrösse, dem Zeitraum und der Anbindung an den Arbeitsort ab. Vergleichen Sie aktuelle Inserate und Transportkosten für die Gemeinden, die Sie in Betracht ziehen."
+ },
+ fr: {
+ q: "Quelles villes proches de la frontière ont le coût de la vie le plus bas ?",
+ a: "Il n’existe pas de classement unique valable pour chaque ménage. Les loyers et les dépenses dépendent du quartier, de la taille du logement, de la période et des liaisons avec le lieu de travail. Comparez des annonces actuelles et les coûts de transport pour les communes que vous envisagez."
+ }
+ },
+
+ "Quanto costa vivere a Lugano o a Como?": {
+ en: {
+ q: "How much does it cost to live in Lugano or Como?",
+ a: "The cost depends on housing, household, health insurance and habits. The Eurostat index compares national price levels, but it provides neither a monthly budget nor rents for individual cities. Use current figures and compare equivalent items."
+ },
+ de: {
+ q: "Was kostet das Leben in Lugano oder Como?",
+ a: "Die Kosten hängen von Wohnung, Haushalt, Krankenversicherung und Gewohnheiten ab. Der Eurostat-Index vergleicht nationale Preisniveaus, liefert aber weder ein Monatsbudget noch Mietpreise für einzelne Städte. Verwenden Sie aktuelle Werte und vergleichen Sie gleichwertige Posten."
+ },
+ fr: {
+ q: "Combien coûte la vie à Lugano ou à Côme ?",
+ a: "Le coût dépend du logement, du ménage, de l’assurance maladie et des habitudes. L’indice Eurostat compare les niveaux de prix nationaux, mais ne fournit ni budget mensuel ni loyers par ville. Utilisez des valeurs à jour et comparez des postes équivalents."
+ }
+ },
+
+ "Come confronto un affitto a Chiasso o Mendrisio?": {
+ en: {
+ q: "How do I compare a rent in Chiasso or Mendrisio?",
+ a: "Compare listings available in the same period for homes of similar size and condition, including ancillary costs, deposit and distance from work. Prices change over time and between neighbourhoods; check the terms stated in the listing and in the contract."
+ },
+ de: {
+ q: "Wie vergleiche ich eine Miete in Chiasso oder Mendrisio?",
+ a: "Vergleichen Sie Inserate aus demselben Zeitraum für Wohnungen ähnlicher Grösse und ähnlichen Zustands, einschliesslich Nebenkosten, Kaution und Entfernung zum Arbeitsort. Die Preise ändern sich mit der Zeit und je nach Quartier; prüfen Sie die Bedingungen im Inserat und im Vertrag."
+ },
+ fr: {
+ q: "Comment comparer un loyer à Chiasso ou Mendrisio ?",
+ a: "Comparez des annonces disponibles sur la même période pour des logements de surface et d’état similaires, en incluant charges, dépôt et distance du travail. Les prix changent avec le temps et selon les quartiers ; vérifiez les conditions de l’annonce et du contrat."
+ }
+ },
+
+ "Quanto si spende per la spesa alimentare in Ticino?": {
+ en: {
+ q: "How much do groceries cost in Ticino?",
+ a: "Actual spending varies with household size, products, shop and habits. The Eurostat index is a national comparison of price levels and does not determine what an individual household spends. For a useful comparison, record an equivalent basket and check current prices."
+ },
+ de: {
+ q: "Wie viel kostet der Lebensmitteleinkauf im Tessin?",
+ a: "Die tatsächlichen Ausgaben hängen von Haushaltsgrösse, Produkten, Geschäft und Gewohnheiten ab. Der Eurostat-Index ist ein nationaler Vergleich der Preisniveaus und bestimmt nicht, was ein einzelner Haushalt ausgibt. Für einen sinnvollen Vergleich erfassen Sie einen gleichwertigen Warenkorb und prüfen die aktuellen Preise."
+ },
+ fr: {
+ q: "Combien coûtent les courses alimentaires au Tessin ?",
+ a: "La dépense réelle varie selon la taille du ménage, les produits, le magasin et les habitudes. L’indice Eurostat est une comparaison nationale des niveaux de prix et ne détermine pas ce que dépense un ménage donné. Pour une comparaison utile, relevez un panier équivalent et vérifiez les prix actuels."
+ }
+ },
+
+ "Il permesso G garantisce un risparmio rispetto al permesso B?": {
+ en: {
+ q: "Does the G permit guarantee savings compared with the B permit?",
+ a: "No. The permit describes the residence situation, but the result also depends on tax regime, income, municipality, housing, health cover and commuting. For the tax rules see the official AFC FAQ: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ de: {
+ q: "Garantiert die G-Bewilligung eine Ersparnis gegenüber der B-Bewilligung?",
+ a: "Nein. Die Bewilligung beschreibt die Aufenthaltssituation, das Ergebnis hängt aber auch von Steuerregime, Einkommen, Gemeinde, Wohnung, Krankenversicherung und Pendeln ab. Die Steuerregeln finden Sie in den offiziellen FAQ der ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ fr: {
+ q: "Le permis G garantit-il une économie par rapport au permis B ?",
+ a: "Non. Le permis décrit la situation de séjour, mais le résultat dépend aussi du régime fiscal, du revenu, de la commune, du logement, de la couverture santé et des trajets. Pour les règles fiscales, consultez les FAQ officielles de l’AFC : https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+
+ "Perché i prezzi sono più alti in Svizzera?": {
+ en: {
+ q: "Why are prices higher in Switzerland?",
+ a: "The Eurostat index describes national price levels for household consumption, but on its own it does not prove the causes of the differences and does not apply to every product or service. To analyse a specific item, use current data and sources for that category."
+ },
+ de: {
+ q: "Warum sind die Preise in der Schweiz höher?",
+ a: "Der Eurostat-Index beschreibt die nationalen Preisniveaus für den Konsum privater Haushalte, belegt aber allein nicht die Ursachen der Unterschiede und gilt nicht für jedes Produkt oder jede Dienstleistung. Für die Analyse eines bestimmten Postens braucht es aktuelle Daten und Quellen zu dieser Kategorie."
+ },
+ fr: {
+ q: "Pourquoi les prix sont-ils plus élevés en Suisse ?",
+ a: "L’indice Eurostat décrit les niveaux de prix nationaux de la consommation des ménages, mais il ne prouve pas à lui seul les causes des écarts et ne vaut pas pour chaque produit ou service. Pour analyser un poste précis, il faut des données actuelles et des sources propres à cette catégorie."
+ }
+ },
+
+ "I ristorni continueranno con l’accordo fiscale Italia-Svizzera del 2020?": {
+ en: {
+ q: "Will the ristorni continue under the 2020 Italy-Switzerland tax agreement?",
+ a: "For new fiscal cross-border workers, Switzerland applies 80% of its ordinary withholding rate; Italy taxes the income with a credit for Swiss tax. The 80% is not a revenue split between the two countries. Old cross-border workers who qualify under Article 9 retain exclusive Swiss taxation of the covered salary. Their regime does not automatically end in 2033 or 2034: 2033 is the final tax year of Swiss compensation payments to Italy. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ de: {
+ q: "Gehen die Ristorni mit dem Steuerabkommen Italien-Schweiz von 2020 weiter?",
+ a: "Für neue steuerliche Grenzgänger wendet die Schweiz 80% des ordentlichen Quellensteuertarifs an; Italien besteuert das Einkommen mit Anrechnung der Schweizer Steuer. Die 80% sind keine Aufteilung der Einnahmen zwischen den Staaten. Alte Grenzgänger, die Artikel 9 erfüllen, behalten die ausschliessliche Schweizer Besteuerung des erfassten Lohns. Das Regime endet nicht automatisch 2033 oder 2034; 2033 ist das letzte Steuerjahr der Ausgleichszahlungen an Italien. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ fr: {
+ q: "Les ristorni se poursuivront-ils avec l’accord fiscal Italie-Suisse de 2020 ?",
+ a: "Pour les nouveaux frontaliers fiscaux, la Suisse applique 80% du taux ordinaire de retenue; l’Italie impose le revenu en accordant un crédit pour l’impôt suisse. Les 80% ne sont pas un partage des recettes entre les États. Les anciens frontaliers remplissant les conditions de l’article 9 conservent l’imposition exclusivement suisse du salaire concerné. Ce régime ne prend pas automatiquement fin en 2033 ou 2034; 2033 est la dernière année fiscale des compensations versées à l’Italie. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+
+ "Come funziona la tassazione dei frontalieri con l’accordo fiscale Italia-Svizzera del 2020?": {
+ en: {
+ q: "How does cross-border worker taxation work under the 2020 Italy-Switzerland tax agreement?",
+ a: "For new fiscal cross-border workers, Switzerland applies 80% of its ordinary withholding rate; Italy taxes the income with a credit for Swiss tax. The 80% is not a revenue split between the two countries. Old cross-border workers who qualify under Article 9 retain exclusive Swiss taxation of the covered salary. Their regime does not automatically end in 2033 or 2034: 2033 is the final tax year of Swiss compensation payments to Italy. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ de: {
+ q: "Wie funktioniert die Grenzgängerbesteuerung mit dem Steuerabkommen Italien-Schweiz von 2020?",
+ a: "Für neue steuerliche Grenzgänger wendet die Schweiz 80% des ordentlichen Quellensteuertarifs an; Italien besteuert das Einkommen mit Anrechnung der Schweizer Steuer. Die 80% sind keine Aufteilung der Einnahmen zwischen den Staaten. Alte Grenzgänger, die Artikel 9 erfüllen, behalten die ausschliessliche Schweizer Besteuerung des erfassten Lohns. Das Regime endet nicht automatisch 2033 oder 2034; 2033 ist das letzte Steuerjahr der Ausgleichszahlungen an Italien. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ fr: {
+ q: "Comment fonctionne l’imposition des frontaliers avec l’accord fiscal Italie-Suisse de 2020 ?",
+ a: "Pour les nouveaux frontaliers fiscaux, la Suisse applique 80% du taux ordinaire de retenue; l’Italie impose le revenu en accordant un crédit pour l’impôt suisse. Les 80% ne sont pas un partage des recettes entre les États. Les anciens frontaliers remplissant les conditions de l’article 9 conservent l’imposition exclusivement suisse du salaire concerné. Ce régime ne prend pas automatiquement fin en 2033 ou 2034; 2033 est la dernière année fiscale des compensations versées à l’Italie. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+
+ "Cosa cambia con il regime fiscale dei frontalieri nel 2026?": {
+ en: {
+ q: "What changes in the cross-border worker tax regime in 2026?",
+ a: "For new fiscal cross-border workers, Switzerland applies 80% of its ordinary withholding rate; Italy taxes the income with a credit for Swiss tax. The 80% is not a revenue split between the two countries. Old cross-border workers who qualify under Article 9 retain exclusive Swiss taxation of the covered salary. Their regime does not automatically end in 2033 or 2034: 2033 is the final tax year of Swiss compensation payments to Italy. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ de: {
+ q: "Was ändert sich 2026 beim Steuerregime der Grenzgänger?",
+ a: "Für neue steuerliche Grenzgänger wendet die Schweiz 80% des ordentlichen Quellensteuertarifs an; Italien besteuert das Einkommen mit Anrechnung der Schweizer Steuer. Die 80% sind keine Aufteilung der Einnahmen zwischen den Staaten. Alte Grenzgänger, die Artikel 9 erfüllen, behalten die ausschliessliche Schweizer Besteuerung des erfassten Lohns. Das Regime endet nicht automatisch 2033 oder 2034; 2033 ist das letzte Steuerjahr der Ausgleichszahlungen an Italien. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ fr: {
+ q: "Qu’est-ce qui change dans le régime fiscal des frontaliers en 2026 ?",
+ a: "Pour les nouveaux frontaliers fiscaux, la Suisse applique 80% du taux ordinaire de retenue; l’Italie impose le revenu en accordant un crédit pour l’impôt suisse. Les 80% ne sont pas un partage des recettes entre les États. Les anciens frontaliers remplissant les conditions de l’article 9 conservent l’imposition exclusivement suisse du salaire concerné. Ce régime ne prend pas automatiquement fin en 2033 ou 2034; 2033 est la dernière année fiscale des compensations versées à l’Italie. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+
 
  "Quanti frontalieri risultano in Ticino?": {
  en: { q: "How many cross-border workers are there in Ticino?", a: "USTAT recorded 79,121 cross-border workers in Ticino in the second quarter of 2026 in the STAF series; recent quarterly figures are provisional." },
