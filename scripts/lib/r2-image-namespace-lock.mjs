@@ -405,23 +405,32 @@ export async function acquireImageNamespaceLock(
 
   let candidateMayExist = false;
   const staleWriteConditions = [];
+  let leaseSeenHeld = false;
   try {
     while (safeNow() <= deadline) {
       throwIfAborted(signal);
       let currentAfterWrite;
       let created;
-      try {
-        created = await putLease(request, namespace, lease, { name: 'if-none-match', value: '*' });
-      } catch (error) {
-        if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
-        candidateMayExist = true;
-        const reconciled = await reconcileAmbiguousLeaseWrite(request, namespace, lease, error);
-        if (reconciled.lease) {
-          onLeaseWritten(reconciled.lease);
-          return reconciled.lease;
+      // A waiter polls with GET and only writes once the lease looks free: a
+      // conditional PUT on a held lease is a failed Class A operation, and nine
+      // waiters at this poll interval were 150k 412s a day, two thirds of every
+      // PutObject on the bucket. The conditional PUT remains the only way in,
+      // so mutual exclusion does not depend on this read.
+      if (!leaseSeenHeld) {
+        try {
+          created = await putLease(request, namespace, lease, { name: 'if-none-match', value: '*' });
+        } catch (error) {
+          if (error?.r2Status !== undefined && error.r2Status < 500 && error.r2Status !== 408) throw error;
+          candidateMayExist = true;
+          const reconciled = await reconcileAmbiguousLeaseWrite(request, namespace, lease, error);
+          if (reconciled.lease) {
+            onLeaseWritten(reconciled.lease);
+            return reconciled.lease;
+          }
+          currentAfterWrite = reconciled.current;
         }
-        currentAfterWrite = reconciled.current;
       }
+      leaseSeenHeld = false;
       if (created) {
         candidateMayExist = true;
         const writtenLease = { ...lease, etag: created.etag };
@@ -480,6 +489,7 @@ export async function acquireImageNamespaceLock(
       const remaining = deadline - safeNow();
       if (remaining <= 0) break;
       await waitForRetry(Math.min(pollMs, remaining), sleep, signal);
+      leaseSeenHeld = true;
     }
 
     throw new Error(`[r2-image-namespace-lock] timed out waiting for namespace ${namespace}`);

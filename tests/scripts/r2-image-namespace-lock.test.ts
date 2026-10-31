@@ -243,6 +243,29 @@ describe('r2-image-namespace-lock', () => {
     await releaseImageNamespaceLeases(leases, { request });
   });
 
+  it('waits on a held lease with reads, spending one PUT until the lease looks free', async () => {
+    const { request, objects, calls } = fakeR2();
+    const key = imageNamespaceLockKey('blog');
+    const [held] = await acquireImageNamespaceLeases(['blog'], { request, timeoutMs: 1_000 });
+    calls.length = 0;
+    let polls = 0;
+
+    const [lease] = await acquireImageNamespaceLeases(['blog'], {
+      request,
+      timeoutMs: 60_000,
+      sleep: async (ms: number) => {
+        if (ms === 100) return;
+        polls += 1;
+        if (polls === 5) objects.delete(key);
+      },
+    });
+
+    expect(lease.owner).not.toBe(held.owner);
+    expect(polls).toBe(5);
+    expect(calls.filter((call) => call.method === 'PUT')).toHaveLength(2);
+    expect(calls.filter((call) => call.method === 'GET').length).toBeGreaterThanOrEqual(5);
+  });
+
   it('reconciles a committed image lease when the PUT response is ambiguous', async () => {
     const { request: baseRequest, objects } = fakeR2();
     let ambiguous = true;
@@ -730,7 +753,7 @@ globalThis.fetch = async () => ({
     });
     expect(objects.get(placesKey)?.payload).toMatchObject({ owner: 'other-owner', leaseId: 'other-lease' });
     expect(objects.get(placesKey)?.payload.expiresAt).toBe(100_000);
-    expect(calls.filter(({ method, key }) => method === 'PUT' && key === placesKey)).toHaveLength(2);
+    expect(calls.filter(({ method, key }) => method === 'PUT' && key === placesKey)).toHaveLength(1);
     expect(calls.filter(({ method, key, headers }) => (
       method === 'PUT' && key === imageNamespaceLockKey('blog') && headers['if-match']
     ))).toHaveLength(1);
