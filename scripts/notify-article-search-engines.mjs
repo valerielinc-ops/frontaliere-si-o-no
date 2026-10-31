@@ -19,9 +19,10 @@
  *     invisible to Bing/Yandex for hours — an asymmetry with no reason to
  *     exist.
  *
- * Best-effort by contract: always exits 0. The article is already live; failing
- * to notify a search engine must never be reported as a failed publish. The
- * post-deploy submitters remain the backstop either way.
+ * Best-effort by contract: the calling step is continue-on-error, and exit 1
+ * only flags a channel that did not deliver. The article is already live;
+ * failing to notify a search engine must never be reported as a failed publish.
+ * The post-deploy submitters remain the backstop either way.
  *
  * Usage: node scripts/notify-article-search-engines.mjs --summary <summary.json>
  *        node scripts/notify-article-search-engines.mjs --indexnow-only --summary <summary.json>
@@ -31,7 +32,7 @@ import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import fs from 'node:fs';
 
-import { notifyGoogleIndexing } from './lib/indexing-api.mjs';
+import { LEDGER_UNAVAILABLE, notifyGoogleIndexing } from './lib/indexing-api.mjs';
 import { submitIndexNowUrls, verifyIndexNowKey } from './lib/indexnow-submit.mjs';
 
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
@@ -129,6 +130,7 @@ async function main() {
   } else if (google.status === 'fulfilled') {
     const ok = (google.value || []).filter((r) => r?.ok).length;
     console.log(`[notify-search-engines] Google Indexing API: ${ok}/${urls.length} accepted`);
+    if ((google.value || []).some((r) => r?.error === LEDGER_UNAVAILABLE)) process.exitCode = 1;
   } else {
     console.log(`[notify-search-engines] Google Indexing API failed: ${google.reason?.message || google.reason}`);
   }

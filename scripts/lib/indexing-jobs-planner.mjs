@@ -120,17 +120,28 @@ export function createLedger(today) {
   return { version: LEDGER_VERSION, createdAt: today, days: {}, urls: {}, notifications: {} };
 }
 
-/** Parse a ledger, falling back to a fresh one on any shape mismatch. */
+function isDayCounters(days) {
+  return Boolean(days) && typeof days === 'object' && !Array.isArray(days)
+    && Object.values(days).every((n) => Number.isFinite(n) && n >= 0);
+}
+
+/**
+ * Parse a ledger. `raw === null` means no ledger exists yet and is the only
+ * case that starts from zero; only the ledger owner may pass it (see
+ * submit-google-indexing-jobs.js). Anything else that fails validation returns
+ * null: treating it as empty would forget what was already spent today.
+ * `notifications` may be absent because it postdates the first ledgers.
+ */
 export function loadLedger(raw, today) {
+  if (raw === null) return createLedger(today);
   try {
     const l = typeof raw === 'string' ? JSON.parse(raw) : raw;
-    if (l && l.version === LEDGER_VERSION && l.urls && typeof l.urls === 'object' && l.createdAt) {
-      l.days = l.days && typeof l.days === 'object' ? l.days : {};
+    if (l && l.version === LEDGER_VERSION && l.urls && typeof l.urls === 'object' && l.createdAt && isDayCounters(l.days)) {
       l.notifications = l.notifications && typeof l.notifications === 'object' ? l.notifications : {};
       return l;
     }
   } catch { /* fall through */ }
-  return createLedger(today);
+  return null;
 }
 
 /** Requests already spent on the given quota day (by every caller sharing the ledger). */

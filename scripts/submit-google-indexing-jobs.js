@@ -35,13 +35,14 @@
  *   node scripts/submit-google-indexing-jobs.js [--max N] [--max-first-run N]
  *        [--priority-file f.json] [--ledger path] [--dry-run]
  *
- * Always exits 0: notification is best-effort and must not fail a deploy.
+ * Exits 0, because notification is best-effort and must not fail a deploy, with
+ * one exception: exit 1 when the restored ledger exists but is invalid.
  */
 
-import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
+import { readFileSync, existsSync, appendFileSync } from 'node:fs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { DEFAULT_OWNER_PROBE_URL, resolveOwnerToken } from './lib/indexing-owner.mjs';
-import { DAILY_BUDGET, DEFAULT_INDEXING_LEDGER } from './lib/indexing-api-quota.mjs';
+import { DAILY_BUDGET, DEFAULT_INDEXING_LEDGER, writeLedgerFile } from './lib/indexing-api-quota.mjs';
 import {
   quotaDayKey,
   isJobDetailCandidate,
@@ -221,7 +222,17 @@ async function main() {
   const today = quotaDayKey();
   log('📨', `Google Indexing API — JobPosting notifications (quota day ${today} PT${args.dryRun ? ', DRY RUN' : ''})`);
 
+  // Sole bootstrap point of the shared ledger: this run is daily, right after
+  // the PT reset, so a lost cache comes back with the day's count near zero and
+  // the article publisher, which refuses to run without a ledger, resumes. A
+  // file that exists but does not parse still holds an unknown spend: stop
+  // loudly, keep it, and let the failure issue ask for the cache entry deletion.
   const ledger = loadLedger(existsSync(args.ledger) ? readFileSync(args.ledger, 'utf-8') : null, today);
+  if (!ledger) {
+    log('❌', `Ledger ${args.ledger} is invalid — no request sent; delete the indexing-api-jobs-ledger cache entries to bootstrap it again`);
+    process.exitCode = 1;
+    return;
+  }
   const spent = spentOn(ledger, today);
   const runBudget = runBudgetFor(args, spent);
   log('📊', `Budget: ${spent}/${DAILY_BUDGET} used today, this run may send ${Math.max(0, runBudget)}`);
@@ -232,7 +243,7 @@ async function main() {
     return;
   }
   observeSitemap(ledger, entries, today);
-  const save = () => { if (!args.dryRun) writeFileSync(args.ledger, JSON.stringify(ledger)); };
+  const save = () => { if (!args.dryRun) writeLedgerFile(args.ledger, ledger); };
   const reserveRequest = () => {
     const reserved = reserveQuota(ledger, today);
     if (reserved) save();

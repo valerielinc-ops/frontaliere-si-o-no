@@ -75,9 +75,24 @@ describe('sitemap parsing', () => {
 });
 
 describe('ledger', () => {
-  it('falls back to a fresh ledger on garbage or version mismatch', () => {
-    expect(loadLedger('not json', '2026-10-24')).toEqual(createLedger('2026-10-24'));
-    expect(loadLedger(JSON.stringify({ version: 999, urls: {} }), '2026-10-24').version).toBe(1);
+  it('starts from zero only when no ledger exists', () => {
+    expect(loadLedger(null, '2026-10-24')).toEqual(createLedger('2026-10-24'));
+  });
+
+  it('rejects anything that would forget the spent quota', () => {
+    const valid = createLedger('2026-10-24');
+    expect(loadLedger('not json', '2026-10-24')).toBeNull();
+    expect(loadLedger('', '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, version: 999 }), '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, days: undefined }), '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, days: ['1999'] }), '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, days: { '2026-10-24': 'many' } }), '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, days: { '2026-10-24': -1 } }), '2026-10-24')).toBeNull();
+  });
+
+  it('accepts ledgers written before notifications existed', () => {
+    const { notifications: _omitted, ...legacy } = createLedger('2026-10-24');
+    expect(loadLedger(JSON.stringify(legacy), '2026-10-24')?.notifications).toEqual({});
   });
 
   it('marks URLs that left the sitemaps and forgets them after the retention window', () => {

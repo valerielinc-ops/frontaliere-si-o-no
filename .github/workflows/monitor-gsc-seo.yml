@@ -197,8 +197,9 @@ jobs:
             indexing-api-jobs-ledger-
 
       - name: Notify job pages to Google Indexing API
-        # Always exits 0. Scheduled/dispatched: up to indexing_max. Deploy-
-        # triggered: 15, or 2000 when it is the first run of the quota day.
+        # Exits 0 unless the restored ledger is invalid. Scheduled/dispatched: up
+        # to indexing_max. Deploy-triggered: 15, or 2000 when it is the first
+        # run of the quota day. A missing ledger is bootstrapped here.
         env:
           INPUT_MAX: ${{ github.event_name == 'workflow_run' && '15' || inputs.indexing_max || '2000' }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}

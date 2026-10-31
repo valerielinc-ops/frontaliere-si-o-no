@@ -20,11 +20,12 @@ import {
   reserveQuota,
   spentOn,
 } from './indexing-jobs-planner.mjs';
-import { DAILY_BUDGET, DEFAULT_INDEXING_LEDGER } from './indexing-api-quota.mjs';
+import { DAILY_BUDGET, DEFAULT_INDEXING_LEDGER, writeLedgerFile } from './indexing-api-quota.mjs';
 import fs from 'node:fs';
 
 const INDEXING_API_URL = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
 const SCOPE = 'https://www.googleapis.com/auth/indexing';
+export const LEDGER_UNAVAILABLE = 'shared_ledger_unavailable';
 
 /**
  * Load service account credentials from env or file.
@@ -44,13 +45,21 @@ function loadCredentials() {
   return null;
 }
 
-function loadSharedLedger(ledgerPath, today) {
+/**
+ * Read the ledger this publisher must share with the job submitter. Unlike the
+ * owner it never bootstraps one: without the counter it cannot know how much of
+ * the shared budget is left, and a missing ledger is as unknown as a broken one.
+ * The next monitor-gsc-seo run creates it and the following publish resumes.
+ * @returns {object|null} null when the spent quota cannot be established.
+ */
+function readSharedLedger(ledgerPath, today) {
   try {
-    const raw = ledgerPath && fs.existsSync(ledgerPath) ? fs.readFileSync(ledgerPath, 'utf8') : null;
-    return loadLedger(raw, today);
+    const ledger = loadLedger(fs.readFileSync(ledgerPath, 'utf8'), today);
+    if (!ledger) console.warn(`[indexing-api] ⚠️ Shared ledger is invalid: ${ledgerPath}`);
+    return ledger;
   } catch (err) {
     console.warn(`[indexing-api] ⚠️ Cannot read shared ledger: ${err.message}`);
-    return loadLedger(null, today);
+    return null;
   }
 }
 
@@ -81,17 +90,11 @@ export async function notifyGoogleIndexing(
     return urls.map(url => ({ url, ok: false, error: 'no_credentials' }));
   }
 
-  let accessToken;
-  try {
-    const jwt = createJwtAssertion(creds, SCOPE);
-    accessToken = await exchangeAssertionForToken(jwt);
-  } catch (err) {
-    console.error(`[indexing-api] ❌ Auth failed: ${err.message}`);
-    return urls.map(url => ({ url, ok: false, error: err.message }));
-  }
-
+  // Before auth: the token exchange is a Google request too, and a run that
+  // cannot account for its quota must not make any.
   const today = quotaDayKey();
-  const ledger = loadSharedLedger(ledgerPath, today);
+  const ledger = readSharedLedger(ledgerPath, today);
+  if (!ledger) return urls.map(url => ({ url, ok: false, error: LEDGER_UNAVAILABLE }));
   const available = Math.max(0, DAILY_BUDGET - spentOn(ledger, today));
   if (available === 0) {
     console.warn(`[indexing-api] ℹ️ Shared quota exhausted (${DAILY_BUDGET}/${DAILY_BUDGET}) — skipping ${urls.length} URL(s).`);
@@ -103,17 +106,35 @@ export async function notifyGoogleIndexing(
 
   const saveLedger = () => {
     try {
-      fs.writeFileSync(ledgerPath, JSON.stringify(ledger));
+      writeLedgerFile(ledgerPath, ledger);
+      return true;
     } catch (err) {
       console.warn(`[indexing-api] ⚠️ Cannot persist shared ledger: ${err.message}`);
+      return false;
     }
   };
+  if (!saveLedger()) return urls.map(url => ({ url, ok: false, error: LEDGER_UNAVAILABLE }));
+
+  let accessToken;
+  try {
+    const jwt = createJwtAssertion(creds, SCOPE);
+    accessToken = await exchangeAssertionForToken(jwt);
+  } catch (err) {
+    console.error(`[indexing-api] ❌ Auth failed: ${err.message}`);
+    return urls.map(url => ({ url, ok: false, error: err.message }));
+  }
+
   const results = [];
-  for (const url of urls.slice(0, available)) {
+  const batch = urls.slice(0, available);
+  for (const [index, url] of batch.entries()) {
     // Reserve before POST: retries or a process interruption must not cause
-    // the next caller to spend the same quota slot again.
+    // the next caller to spend the same quota slot again. An unpersisted
+    // reservation does not exist for the next caller, so it stops the run.
     if (!reserveQuota(ledger, today)) break;
-    saveLedger();
+    if (!saveLedger()) {
+      results.push(...batch.slice(index).map(u => ({ url: u, ok: false, error: LEDGER_UNAVAILABLE })));
+      break;
+    }
     let result;
     try {
       const res = await fetch(INDEXING_API_URL, {
