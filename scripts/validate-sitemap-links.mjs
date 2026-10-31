@@ -20,6 +20,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 import { flatString } from './lib/flat-string.mjs';
@@ -33,6 +34,9 @@ const LOC_ONLY = process.argv.includes('--loc-only');
 const OWNED_LOCALE = flagValue('--owned-locale');
 const MANIFEST_OUT = flagValue('--manifest-out');
 const VERIFY_MANIFEST = flagValue('--verify-manifest');
+const IS_MAIN = process.argv[1]
+  ? path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))
+  : false;
 
 function flagValue(name) {
   const prefix = `${name}=`;
@@ -50,9 +54,7 @@ function extractLocs(xml) {
   // flatString: a `<loc>` capture slices INTO the whole sitemap XML, and the
   // derived URLs outlive it in a cross-sitemap accumulator — see
   // scripts/lib/flat-string.mjs (issue #7419).
-  while ((m = re.exec(xml)) !== null) {
-    urls.push(flatString(decodeXmlEntities(m[1].trim())));
-  }
+  while ((m = re.exec(xml)) !== null) urls.push(flatString(m[1].trim()));
   return urls;
 }
 
@@ -61,17 +63,8 @@ function extractHreflangs(xml) {
   const re = /<xhtml:link[^>]*href="(https?:\/\/[^"]+)"[^>]*\/?\s*>/gi;
   const urls = new Set();
   let m;
-  while ((m = re.exec(xml)) !== null) urls.add(flatString(decodeXmlEntities(m[1].trim())));
+  while ((m = re.exec(xml)) !== null) urls.add(flatString(m[1].trim()));
   return [...urls];
-}
-
-function decodeXmlEntities(value) {
-  return value
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'");
 }
 
 /**
@@ -102,7 +95,7 @@ function urlToDistPath(url) {
  * The audit accepts both /route/index.html and the historical flat
  * /route.html form, so the pre-prune check must use the same boundary.
  */
-function urlToDistCandidates(url) {
+function urlToDistCandidates(url, distDir = DIST) {
   let pathname;
   try {
     const parsed = new URL(url);
@@ -114,15 +107,15 @@ function urlToDistCandidates(url) {
 
   if (pathname.includes(String.fromCharCode(0))) return [];
   if (pathname.length > 1 && pathname.endsWith('/')) pathname = pathname.slice(0, -1);
-  if (pathname === '' || pathname === '/') return [path.join(DIST, 'index.html')];
+  if (pathname === '' || pathname === '/') return [path.join(distDir, 'index.html')];
 
   const rel = pathname.startsWith('/') ? pathname.slice(1) : pathname;
   if (rel.split('/').some((segment) => segment === '..')) return [];
-  if (path.extname(rel)) return [path.join(DIST, rel)];
+  if (path.extname(rel)) return [path.join(distDir, rel)];
 
   return [
-    path.join(DIST, rel, 'index.html'),
-    path.join(DIST, `${rel}.html`),
+    path.join(distDir, rel, 'index.html'),
+    path.join(distDir, `${rel}.html`),
   ];
 }
 
@@ -157,27 +150,27 @@ function ownsSitemapUrl(url, locale) {
     || pathname.startsWith(`/${locale}/`);
 }
 
-function relativeDistPath(file) {
-  const relative = path.relative(DIST, file);
+function relativeDistPath(file, distDir = DIST) {
+  const relative = path.relative(distDir, file);
   if (!relative || relative.startsWith('..') || path.isAbsolute(relative)) return null;
   return relative.split(path.sep).join('/');
 }
 
-function localeSitemapFiles() {
-  return readdirSync(DIST)
+function localeSitemapFiles(distDir = DIST) {
+  return readdirSync(distDir)
     .filter((file) => file.startsWith('sitemap') && file.endsWith('.xml'))
     .sort();
 }
 
-function collectOwnedLocaleEntries(locale) {
-  const sitemapFiles = localeSitemapFiles();
+function collectOwnedLocaleEntries(locale, distDir = DIST) {
+  const sitemapFiles = localeSitemapFiles(distDir);
   if (sitemapFiles.length === 0) {
     throw new Error('No sitemap XML files found in dist/');
   }
 
   const entries = new Map();
   for (const file of sitemapFiles) {
-    const xml = readFileSync(path.join(DIST, file), 'utf-8');
+    const xml = readFileSync(path.join(distDir, file), 'utf-8');
     if (/<sitemapindex\b/i.test(xml)) continue;
 
     const urls = [...new Set([...extractLocs(xml), ...extractHreflangs(xml)])]
@@ -190,9 +183,9 @@ function collectOwnedLocaleEntries(locale) {
 
   const missing = [];
   for (const entry of entries.values()) {
-    const candidates = urlToDistCandidates(entry.url);
+    const candidates = urlToDistCandidates(entry.url, distDir);
     if (!candidates.some(isRegularFile)) {
-      missing.push({ ...entry, candidates: candidates.map(relativeDistPath).filter(Boolean) });
+      missing.push({ ...entry, candidates: candidates.map((file) => relativeDistPath(file, distDir)).filter(Boolean) });
     }
   }
   return { entries: [...entries.values()], missing, sitemapFiles };
@@ -207,7 +200,7 @@ function writeLocaleManifest(file, locale, entries) {
   }, null, 2)}\n`);
 }
 
-function verifyLocaleManifest(file, locale) {
+function verifyLocaleManifest(file, locale, distDir = DIST) {
   let manifest;
   try {
     manifest = JSON.parse(readFileSync(file, 'utf-8'));
@@ -235,15 +228,23 @@ function verifyLocaleManifest(file, locale) {
       errors.push(`manifest URL is not owned by ${locale}: ${url}`);
       continue;
     }
-    const candidates = urlToDistCandidates(url);
+    const candidates = urlToDistCandidates(url, distDir);
     if (!candidates.some(isRegularFile)) {
-      errors.push(`manifest URL has no extracted page: ${url} (candidates: ${candidates.map(relativeDistPath).join(', ') || 'none'})`);
+      errors.push(`manifest URL has no extracted page: ${url} (candidates: ${candidates.map((filePath) => relativeDistPath(filePath, distDir)).join(', ') || 'none'})`);
     }
   }
   return { errors, entries: manifest.entries };
 }
 
-if (VERIFY_MANIFEST) {
+export {
+  collectOwnedLocaleEntries,
+  ownsSitemapUrl,
+  urlToDistCandidates,
+  verifyLocaleManifest,
+  writeLocaleManifest,
+};
+
+if (IS_MAIN && VERIFY_MANIFEST) {
   if (!OWNED_LOCALE || !LOCALES.includes(OWNED_LOCALE)) {
     console.error('❌ --verify-manifest requires --owned-locale=<it|en|de|fr>');
     process.exit(1);
@@ -259,7 +260,7 @@ if (VERIFY_MANIFEST) {
   process.exit(0);
 }
 
-if (OWNED_LOCALE) {
+if (IS_MAIN && OWNED_LOCALE) {
   if (!LOCALES.includes(OWNED_LOCALE)) {
     console.error(`❌ --owned-locale must be one of ${LOCALES.join(', ')}`);
     process.exit(1);
@@ -285,6 +286,7 @@ if (OWNED_LOCALE) {
   process.exit(0);
 }
 
+if (IS_MAIN) {
 // ── Main ─────────────────────────────────────────────────────────────
 
 // Discover all sitemap XML files in dist/ (copied from public/ by Vite)
@@ -386,3 +388,4 @@ await writeAuditReport({
   sampleRate: 1,
   extra: { totalUrls, sitemapFiles: sitemapFiles.length },
 });
+}

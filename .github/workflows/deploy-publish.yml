@@ -496,13 +496,14 @@ jobs:
             --owned-locale="${BUILD_LOCALE}" \
             --verify-manifest=dist/locale-sitemap-manifest.json
           # Only what deploy.yml's «Pack non-IT locale shard source artifact»
-          # ALWAYS packs may be required here: the locale subtree and
-          # build-id.txt. It adds the flat homepage `<loc>.html` only when the
-          # build emitted one, and push-locale-shard.sh stages it only if
-          # present, so requiring it failed every non-IT tail without a word
-          # (publish runs 37255215160 and 37271778943: plain `test` exit 1 right
-          # after a good extract, with de/index.html present and the build id
-          # equal). Its absence is reported, not fatal.
+          # ALWAYS packs may be required here: the locale subtree,
+          # build-id.txt and the owned sitemap manifest. It adds the flat
+          # homepage `<loc>.html` only when the build emitted one, and
+          # push-locale-shard.sh stages it only if present, so requiring it
+          # failed every non-IT tail without a word (publish runs 37255215160
+          # and 37271778943: plain `test` exit 1 right after a good extract,
+          # with de/index.html present and the build id equal). Its absence is
+          # reported, not fatal.
           if [ ! -s "dist/${BUILD_LOCALE}.html" ]; then
             echo "::warning title=Flat locale homepage absent::dist/${BUILD_LOCALE}.html is not in the artifact; the shard is published without /${BUILD_LOCALE}.html (/${BUILD_LOCALE}/ is the homepage)"
           fi

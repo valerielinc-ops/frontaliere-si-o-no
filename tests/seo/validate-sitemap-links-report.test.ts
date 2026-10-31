@@ -7,6 +7,8 @@ import path from 'node:path';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const SCRIPT = path.resolve(process.cwd(), 'scripts/validate-sitemap-links.mjs');
+const NODE = ['/usr/local/bin/node', '/usr/bin/node', process.execPath]
+  .find((candidate) => fs.existsSync(candidate)) ?? process.execPath;
 
 describe('validate:sitemap-links report scale', () => {
   const roots: string[] = [];
@@ -26,7 +28,7 @@ describe('validate:sitemap-links report scale', () => {
       `<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${BASE_URL}/missing-job/</loc></url></urlset>\n`,
     );
 
-    expect(() => execFileSync(process.execPath, [SCRIPT], {
+    expect(() => execFileSync(NODE, [SCRIPT], {
       cwd: root,
       env: {
         ...process.env,
@@ -42,7 +44,7 @@ describe('validate:sitemap-links report scale', () => {
     expect(report.offendersTotalExtrapolated).toBe(1);
   });
 
-  it('checks only the owned locale and carries the route set through extraction', () => {
+  it('checks only the owned locale and carries the route set through extraction', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'validate-locale-sitemap-'));
     roots.push(root);
     const dist = path.join(root, 'dist');
@@ -60,20 +62,22 @@ describe('validate:sitemap-links report scale', () => {
     );
     const manifest = path.join(root, 'locale-sitemap-manifest.json');
 
-    expect(() => execFileSync(process.execPath, [
-      SCRIPT,
-      '--owned-locale=de',
-      '--manifest-out=' + manifest,
-    ], { cwd: root, stdio: 'pipe' })).toThrow();
+    const {
+      collectOwnedLocaleEntries,
+      verifyLocaleManifest,
+      writeLocaleManifest,
+    } = await import(SCRIPT);
+    const initial = collectOwnedLocaleEntries('de', dist);
+    expect(initial.missing.map((entry: { url: string }) => entry.url)).toEqual([
+      BASE_URL + '/de/missing/',
+    ]);
     expect(fs.existsSync(manifest)).toBe(false);
 
     fs.mkdirSync(path.join(dist, 'de', 'missing'), { recursive: true });
     fs.writeFileSync(path.join(dist, 'de', 'missing', 'index.html'), '<!doctype html><title>missing</title>');
-    execFileSync(process.execPath, [
-      SCRIPT,
-      '--owned-locale=de',
-      '--manifest-out=' + manifest,
-    ], { cwd: root, stdio: 'pipe' });
+    const complete = collectOwnedLocaleEntries('de', dist);
+    expect(complete.missing).toEqual([]);
+    writeLocaleManifest(manifest, 'de', complete.entries);
 
     const entries = JSON.parse(fs.readFileSync(manifest, 'utf8')).entries;
     expect(entries.map((entry: { url: string }) => entry.url)).toEqual([
@@ -84,10 +88,6 @@ describe('validate:sitemap-links report scale', () => {
     fs.copyFileSync(manifest, path.join(dist, 'locale-sitemap-manifest.json'));
     fs.rmSync(path.join(dist, 'de', 'good', 'index.html'));
     fs.writeFileSync(path.join(dist, 'de', 'good.html'), '<!doctype html><title>good flat</title>');
-    execFileSync(process.execPath, [
-      SCRIPT,
-      '--owned-locale=de',
-      '--verify-manifest=' + path.join(dist, 'locale-sitemap-manifest.json'),
-    ], { cwd: root, stdio: 'pipe' });
+    expect(verifyLocaleManifest(path.join(dist, 'locale-sitemap-manifest.json'), 'de', dist).errors).toEqual([]);
   });
 });
