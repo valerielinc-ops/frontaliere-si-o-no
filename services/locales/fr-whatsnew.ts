@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const frWhatsnew: Record<string, string> = {
+ "whatsNew.v3999.title": "Enregistrez chaque offre, partout",
+ "whatsNew.v3999.jobSave.title": "Le signet sur toutes les cartes",
+ "whatsNew.v3999.jobSave.desc": "Vous pouvez désormais enregistrer une offre depuis chaque carte du site : pages entreprise, ville et secteur, et articles. Sans compte, nous vous invitons à en créer un et l’offre est enregistrée juste après.",
  "whatsNew.v3998.title": "Des offres plus complètes",
  "whatsNew.v3998.jobDetails.title": "Descriptions et exigences conservées",
  "whatsNew.v3998.jobDetails.desc": "Les pages des offres conservent le texte original et sa mise en forme, même pour les annonces archivées. L’accès gratuit continue de débloquer tous les détails pendant la navigation.",

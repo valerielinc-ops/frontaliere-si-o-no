@@ -6,8 +6,10 @@ name: Bing SEO closed loop
 on:
   schedule:
     - cron: '35 4 * * *'
-  # Re-run the complete tree immediately after the Pages publish workflow finishes.
-  # The gate below admits the run when the actual Pages deploy and live
+  # The complete tree runs on Sundays or on dispatch (see the cadence step): it was
+  # 15-25% of all Worker traffic when it ran every day. The rest of the loop stays
+  # daily and after each Pages publish. The gate below admits the run when the
+  # actual Pages deploy and live
   # validation jobs are green, even if a separate dist-quality audit made the
   # aggregate publish workflow red after the site was already live.
   workflow_run:
@@ -52,7 +54,20 @@ jobs:
     timeout-minutes: 5
     outputs:
       eligible: ${{ steps.gate.outputs.eligible }}
+      crawl_tree: ${{ steps.cadence.outputs.crawl_tree }}
     steps:
+      - name: Decide the full-tree cadence
+        id: cadence
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          if [ "${EVENT_NAME}" = 'workflow_dispatch' ] || { [ "${EVENT_NAME}" = 'schedule' ] && [ "$(date -u +%u)" = '7' ]; }; then
+            echo 'crawl_tree=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'crawl_tree=false' >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Verify Pages deploy and live validation
         id: gate
         env:
@@ -273,7 +288,7 @@ jobs:
   # matrix below really covers the full published tree rather than a sample.
   tree-inventory:
     needs: publish-gate
-    if: ${{ needs.publish-gate.outputs.eligible == 'true' }}
+    if: ${{ needs.publish-gate.outputs.eligible == 'true' && needs.publish-gate.outputs.crawl_tree == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

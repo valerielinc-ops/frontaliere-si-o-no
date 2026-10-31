@@ -18,7 +18,7 @@ describe('job detail header apply actions', () => {
   it('keeps both the header logo and title as apply CTAs', () => {
     expect(source).toContain('job_board_apply_header_logo');
     expect(source).toContain('job_board_apply_header_title');
-    expect(source).toContain("aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}");
+    expect(source).toContain("aria-label={`${t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')} ${selectedJob.company}`}");
   });
 
   it.each(['logo', 'title'])('routes the header %s through the shared apply handler without an external-link bypass', (surface) => {
@@ -35,6 +35,6 @@ describe('job detail header apply actions', () => {
   it('mounts the in-house apply form (#candidatura) in the LIVE detail path, not only the dead hybrid block', () => {
     expect(livePath).toContain('id="candidatura"');
     expect(livePath).toContain('<PublisherApplyForm');
-    expect(livePath).toContain('{isInHouseApply && (');
+    expect(livePath).toContain('{!conciergeAction.active && isInHouseApply && (');
   });
 });

@@ -253,6 +253,19 @@ describe('application concierge matching', () => {
     expect(scoreJobForProfile(job, profile).score).toBe(relevanceOnly.score);
   });
 
+  it('uses country-qualified catalogue locations only as a ranking hint', () => {
+    const profile = { workPosition: 'Infermiere', skills: ['triage'], experienceSummary: ['reparto medicina'] };
+    const job = { title: 'Infermiere reparto medicina', requirements: 'triage', location: 'Como', addressCountry: 'IT' };
+    const baseline = scoreJobForProfile(job, profile);
+    const sameTown = scoreJobForProfile(job, profile, 'Como (Lombardy), Italia');
+    const otherCountry = scoreJobForProfile(job, profile, 'Como, Österreich');
+    expect(sameTown.rankScore).toBe(baseline.rankScore + 8);
+    expect(otherCountry.rankScore).toBe(baseline.rankScore);
+    expect(otherCountry.score).toBeGreaterThan(0);
+    expect(sameTown.evidenceStrength).toBe(baseline.evidenceStrength);
+    expect(scoreJobForProfile(job, { skills: ['construction'] }, 'Como (Lombardy), Italia').score).toBe(0);
+  });
+
   it('keeps the proximity tie-breaker when the displayed match score is capped', () => {
     const profile = {
       workPosition: 'Technology applications management strategy director',
@@ -836,5 +849,43 @@ describe('progress through the complete relevant job pool', () => {
     expect(approvedRolePreference({ title: 'IT Support Lead' }, [{ ...proposals[0], withdrawnAt: Date.now() }])).toBe(0);
     expect(scoreJobForProfile({ title: 'IT Support Lead' }, { searchText: 'infermiere', workPosition: 'Infermiere', skills: ['assistenza infermieristica'] }).score).toBe(0);
     expect(proposals).toEqual([{ status: 'accepted', jobTitle: 'IT Support Manager' }]);
+  });
+
+  it.each([
+    { withdrawn: false, preferredCompatible: true, expected: 'second' },
+    { withdrawn: true, preferredCompatible: true, expected: 'first' },
+    { withdrawn: false, preferredCompatible: false, expected: 'first' },
+  ])('applies accepted-role preferences to real proposal ordering with one slot: %j', async ({ withdrawn, preferredCompatible, expected }) => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-preference';
+    const history = { jobId: 'previous', jobUrl: 'https://jobs.example.test/previous/',
+      jobTitle: 'Infermiere medicina', status: withdrawn ? 'declined' : 'accepted', ...(withdrawn ? { withdrawnAt: now - 1_000 } : {}) };
+    const expectedHistory = structuredClone(history);
+    const acceptedPositionsCount = withdrawn ? 0 : 1;
+    const profile = { searchText: 'infermiere triage medicina', workPosition: 'Infermiere', skills: ['triage', 'medicina'], experienceSummary: [] };
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-preference', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: acceptedPositionsCount + 1,
+        acceptedPositionsCount, expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-preference': { status: 'ready', profile },
+      [`${path}/proposals/history`]: history,
+    });
+    const jobs = [
+      { id: 'first', url: 'https://jobs.example.test/a/', title: 'Infermiere triage' },
+      { id: 'second', url: 'https://jobs.example.test/b/', title: 'Infermiere medicina' },
+    ];
+    // Without preference, relevance and all tie-breakers leave the first job first.
+    expect(scoreJobForProfile(jobs[0], profile)).toMatchObject({ rankScore: scoreJobForProfile(jobs[1], profile).rankScore });
+    const eligibility = vi.fn(async (job: { id: string }) => ({ status: job.id === 'second' && !preferredCompatible ? 'incompatible' : 'compatible' }));
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => jobs })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-preference', eligibility });
+      const proposals = [...documents.entries()].filter(([key, value]) => key.startsWith(`${path}/proposals/`) && value.status === 'proposed');
+      expect(result).toMatchObject({ status: 'complete', proposals: 1 });
+      expect(proposals.map(([, value]) => value.jobId)).toEqual([expected]);
+      expect(proposals[0][1].eligibilityStatus).toBe('compatible');
+      expect(new Set(eligibility.mock.calls.map(([job]) => job.id))).toEqual(new Set(['first', 'second']));
+      expect(documents.get(`${path}/proposals/history`)).toEqual(expectedHistory);
+      expect(documents.get(path)?.acceptedPositionsCount).toBe(acceptedPositionsCount);
+    } finally { vi.unstubAllGlobals(); }
   });
 });

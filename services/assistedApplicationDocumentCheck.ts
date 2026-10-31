@@ -20,7 +20,8 @@ export interface DocumentCheck {
   version?: number;
 }
 
-export const DOCUMENT_CHECK_VERSION = 2;
+export { DOCUMENT_CHECK_VERSION } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
+import { DOCUMENT_CHECK_VERSION, DOCUMENT_CHECK_MAX_TEXT_CHARS } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
 
 export interface CheckedDocument {
   label: string;
@@ -50,6 +51,15 @@ const KIND_TITLES: Record<string, string[]> = {
   identity: ['carta d identita', 'carte d identite', 'identity card', 'identitatskarte', 'reisepass', 'passeport', 'passport'],
 };
 
+// Italian registrars also certify a completed degree exam without printing a
+// degree title. Require the certification and the completed exam together:
+// "certificato" alone also describes residence and other unrelated documents.
+const NON_ACADEMIC_CERTIFICATION_CONTEXT = [
+  'fattura', 'invoice', 'rechnung', 'facture', 'preventivo', 'fac simile', 'modello di certificato', 'template',
+  ...KIND_TITLES.reference,
+];
+const ITALIAN_DEGREE_CERTIFICATION = / (?:si certifica|si attesta) che (?:(?!\b(?:non|mai|dovra|deve)\b)[a-z0-9 ]){0,160}ha superato (?:in data [0-3]?\d [01]?\d (?:19|20)\d{2} )?(?:con (?:voti|votazione) (?:[a-z0-9]+ ){1,10})?l esame di laurea /;
+
 // What a CV says about itself: in a file that should be something else, the candidate picked their CV.
 const CV_WORDS = [
   'curriculum vitae', 'lebenslauf', 'resume', 'esperienza professionale', 'esperienze lavorative', 'esperienze professionali',
@@ -71,7 +81,7 @@ function found(haystack: string, words: string[]): string[] {
 
 /** The verdict on a file's text for the requested document (pure: the page and the tests use it). */
 export function classifyDocumentText(text: string, document: CheckedDocument): DocumentCheck {
-  const haystack = normalize(text);
+  const haystack = normalize(String(text || '').slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS));
   if (haystack.trim().length < MIN_TEXT_CHARS) return { verdict: 'unreadable', matched: '' };
   const asked = found(haystack, document.keywords || []);
   const usual = found(haystack, KIND_WORDS[document.kind] || []);
@@ -81,6 +91,10 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
   if (cv.length >= 3 && asked.length < 2) return { verdict: 'looks_like_cv', matched: '' };
   if (asked.length) return { verdict: 'match', matched: asked[0] };
   if (titles.length && cv.length < 2) return { verdict: 'match', matched: titles[0] };
+  if (document.kind === 'diploma' && cv.length < 2
+    && !/ (?:non|mai) si (?:certifica|attesta) /.test(haystack)
+    && !found(haystack, NON_ACADEMIC_CERTIFICATION_CONTEXT).length
+    && ITALIAN_DEGREE_CERTIFICATION.test(haystack)) return { verdict: 'match', matched: 'esame di laurea' };
   if (usual.length >= 2) return { verdict: 'match', matched: usual[0] };
   if (cv.length >= 2) return { verdict: 'looks_like_cv', matched: '' };
   return { verdict: 'mismatch', matched: '' };
@@ -89,20 +103,26 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
 async function pdfText(file: File): Promise<string> {
   const pdfjsLib = await import('pdfjs-dist');
   pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.mjs', import.meta.url).href;
-  const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
-  const pages: string[] = [];
-  // The first pages say what the document is.
-  for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 5); pageNum += 1) {
-    const content = await (await pdf.getPage(pageNum)).getTextContent();
-    pages.push(content.items.map((item) => ('str' in item ? item.str : '')).join(' '));
+  const loading = pdfjsLib.getDocument({ data: await file.arrayBuffer() });
+  try {
+    const pdf = await loading.promise;
+    const pages: string[] = [];
+    // The first pages say what the document is.
+    for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 5); pageNum += 1) {
+      const content = await (await pdf.getPage(pageNum)).getTextContent();
+      pages.push(content.items.map((item) => ('str' in item ? item.str : '')).join(' '));
+      if (pages.join('\n').length >= DOCUMENT_CHECK_MAX_TEXT_CHARS) break;
+    }
+    return pages.join('\n').slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS);
+  } finally {
+    await loading.destroy();
   }
-  return pages.join('\n');
 }
 
 async function docxText(file: File): Promise<string> {
   const mammoth = await import('mammoth');
   const { value } = await mammoth.extractRawText({ arrayBuffer: await file.arrayBuffer() });
-  return value;
+  return value.slice(0, DOCUMENT_CHECK_MAX_TEXT_CHARS);
 }
 
 /** The file's readable text: PDF and Word; a photo, a scan or an old .doc has none here. */

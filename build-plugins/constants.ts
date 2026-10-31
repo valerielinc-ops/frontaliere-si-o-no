@@ -38,6 +38,7 @@ import { execSync } from 'child_process';
 import fs from 'node:fs';
 // Track the raw embedded helper in the emitter import graph as well.
 import '../services/analyticsUrlPrivacy.js';
+import '../services/thirdPartyDocumentPrivacy.js';
 import path from 'node:path';
 import {
   AUTOMATION_SCREEN_HEIGHT,
@@ -62,9 +63,10 @@ import {
 // module scope is inert under Node.
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED, ADS_CONSENT_CHANGE_EVENT } from '../services/adsConsent';
 import { AD_PAGE_TEMPLATE_INLINE_FN } from '../services/adPageTemplate';
-import { isManualSlot } from '../services/adSlotKinds';
-import { observeManualAd } from '../services/manualAdLifecycle';
-import { createStaticAdSlotEligibility } from '../services/staticAdSlotEligibility';
+import '../services/adSlotKinds';
+import '../services/manualAdLifecycle';
+import '../services/staticAdSlotEligibility';
+import { serializeStaticFunction } from './shared/serializeStaticFunction';
 import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '../services/adsenseSlots';
 import { BENIGN_MESSAGES, THIRD_PARTY_STACK_ORIGINS } from '../services/posthog-error-filter';
 import {
@@ -601,6 +603,9 @@ export const GA4_BOT_GATE_FN = `function(){if((${BOT_GATE_FN})())return true;if(
  */
 export const ANALYTICS_EMISSION_ID_FACTORY_JS = `function(){try{if(typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function')return crypto.randomUUID();}catch(e){}return Date.now()+'-'+Math.random().toString(36).slice(2);}`;
 export const TELEMETRY_SANITIZER_JS = fs.readFileSync(new NodeURL('../services/analyticsUrlPrivacy.js', import.meta.url), 'utf8').replace(/^export /m, '');
+export const THIRD_PARTY_DOCUMENT_GUARD_JS = fs.readFileSync(new NodeURL('../services/thirdPartyDocumentPrivacy.js', import.meta.url), 'utf8').replace(/^export /m, '');
+const thirdPartyDocumentGuardCall = (retry?: string) => `if((${THIRD_PARTY_DOCUMENT_GUARD_JS})((${TELEMETRY_SANITIZER_JS}),window,document,false${retry ? `,${retry}` : ''}))return;`;
+export const THIRD_PARTY_DOCUMENT_GUARD_CALL = thirdPartyDocumentGuardCall();
 export const GTAG_INIT_CONTENT = `(function(){if((${GA4_BOT_GATE_FN})())return;window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',Object.assign({transport_type:'beacon',send_page_view:false},(${TELEMETRY_SANITIZER_JS})({page_location:location.href,page_referrer:document.referrer})));gtag('event','page_view',(${TELEMETRY_SANITIZER_JS})({page_path:location.pathname,page_location:location.href,page_referrer:document.referrer,page_title:document.title,emission_id:emissionId}));})();`;
 export const GTAG_INIT_FILENAME = 'gtag-init.js';
 // New HTML references a content-addressed filename so a stale edge copy of
@@ -695,7 +700,7 @@ const POSTHOG_LOCAL_HOST_GATE_FN = `function(){var h=String(window.location&&win
  */
 const POSTHOG_BEFORE_SEND_FN = `function(ev){try{if(!ev||ev.event!=='$exception')return ev||null;var p=ev.properties||{};var rv=p.$exception_values||p.$exception_list;var msgs=[];if(Array.isArray(rv)){for(var i=0;i<rv.length;i++){var v=rv[i];if(typeof v==='string')msgs.push(v);else if(v&&typeof v==='object'&&typeof v.value==='string')msgs.push(v.value);}}var blob=msgs.join(' | ');if(blob&&/${POSTHOG_BENIGN_SOURCE}/i.test(blob))return null;var list=p.$exception_list;var origins=[];if(Array.isArray(list)){for(var j=0;j<list.length;j++){var exc=list[j];var frames=exc&&exc.stacktrace&&exc.stacktrace.frames;if(Array.isArray(frames)){for(var k=0;k<frames.length;k++){var fr=frames[k];var fn=fr&&(fr.filename||(fr.junk_drawer&&fr.junk_drawer.raw_frame&&fr.junk_drawer.raw_frame.filename));if(fn)origins.push(fn);}}}}if(origins.length>0){var allTP=true;for(var m=0;m<origins.length;m++){if(!/${POSTHOG_THIRD_PARTY_STACK_SOURCE}/i.test(origins[m])){allTP=false;break;}}if(allTP)return null;}var raw='';if(origins.length===0){var key=String(blob||'').replace(/^(?:Uncaught\\s+)?(?:\\w*Error:\\s*)?/,'').replace(/^\\s+|\\s+$/g,'').slice(0,120);var buf=window.__frRawStacks||[];for(var q=buf.length-1;q>=0;q--){var ek=String(buf[q][0]||'').replace(/^(?:Uncaught\\s+)?(?:\\w*Error:\\s*)?/,'').replace(/^\\s+|\\s+$/g,'').slice(0,120);if(key&&ek&&(key.indexOf(ek)>=0||ek.indexOf(key)>=0)){raw=buf[q][1];break;}}}var stack=origins.length>0?origins.join(' '):raw;if(/${POSTHOG_GOOGLE_IOS_APP_UA_SOURCE}/.test(window.navigator.userAgent||'')&&/${POSTHOG_STACK_OVERFLOW_MESSAGE_SOURCE}/i.test(blob)&&!/${POSTHOG_FIRST_PARTY_ASSET_FRAME_SOURCE}/.test(stack))return null;if(raw){var fr=raw.split('\\n'),cl=[];for(var z=0;z<fr.length;z++){var tl=fr[z].replace(/^\\s+|\\s+$/g,'');if(tl)cl.push(tl);}if(cl.length>=${ORIGIN_REDACTED_MIN_FRAMES}){var allRed=true;for(var y=0;y<cl.length;y++){if(!/${POSTHOG_ORIGIN_REDACTED_FRAME_SOURCE}/.test(cl[y])){allRed=false;break;}}if(allRed)return null;}}return ev;}catch(e){return ev||null;}}`;
 const POSTHOG_QUOTA_BEFORE_SEND_FN = `function(ev){if(!ev)return null;Object.assign(ev,(${TELEMETRY_SANITIZER_JS})(ev));var e=ev.event;if(${POSTHOG_QUOTA_EXEMPT_EVENTS_LITERAL}.indexOf(e)>=0)return ev;if(e==='$exception')return (${POSTHOG_BEFORE_SEND_FN})(ev);var p=ev.properties||{};var sampleKey=p.$session_id||p.distinct_id||ev.distinct_id;if(!sampleKey&&${POSTHOG_EVENT_SAMPLE_RATE}<=0)return null;if(sampleKey){var sampleText=String(sampleKey),sampleHash=2166136261;for(var i=0;i<sampleText.length;i++){sampleHash^=sampleText.charCodeAt(i);sampleHash=Math.imul(sampleHash,16777619);}if((sampleHash>>>0)/4294967296>=${POSTHOG_EVENT_SAMPLE_RATE})return null;}return (${POSTHOG_BEFORE_SEND_FN})(ev);}`;
-export const POSTHOG_INIT_CONTENT = `if(!(${POSTHOG_LOCAL_HOST_GATE_FN})()&&!(${BOT_GATE_FN})()){window.__frRawStacks=window.__frRawStacks||[];function __frRec(m,st){if(!st)return;window.__frRawStacks.push([String(m||''),String(st)]);if(window.__frRawStacks.length>8)window.__frRawStacks.shift();}window.addEventListener('error',function(e){var er=e&&e.error;if(er&&er.stack)__frRec(er.message||e.message,er.stack);});window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;if(r&&r.stack)__frRec(r.message,r.stack);});!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage',session_recording:{sampleRate:${POSTHOG_SESSION_REPLAY_SAMPLE_RATE}},before_send:${POSTHOG_QUOTA_BEFORE_SEND_FN}});}`;
+export const POSTHOG_INIT_CONTENT = `if(!(${POSTHOG_LOCAL_HOST_GATE_FN})()&&!(${BOT_GATE_FN})()){window.__frRawStacks=window.__frRawStacks||[];function __frRec(m,st){if(!st)return;window.__frRawStacks.push([String(m||''),String(st)]);if(window.__frRawStacks.length>8)window.__frRawStacks.shift();}window.addEventListener('error',function(e){var er=e&&e.error;if(er&&er.stack)__frRec(er.message||e.message,er.stack);});window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;if(r&&r.stack)__frRec(r.message,r.stack);});!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage',session_recording:{sampleRate:${POSTHOG_SESSION_REPLAY_SAMPLE_RATE}},disable_session_recording:(function(c){var s=(${TELEMETRY_SANITIZER_JS})(c);return c.page_location!==s.page_location||c.page_referrer!==s.page_referrer;})({page_location:location.href,page_referrer:document.referrer}),before_send:${POSTHOG_QUOTA_BEFORE_SEND_FN}});}`;
 export const POSTHOG_INIT_FILENAME = 'posthog-init.js';
 export const POSTHOG_SNIPPET = `<script defer src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
 
@@ -951,8 +956,8 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
 /** Manual slot state is shared with the SPA. A response deadline marks a
  * pending request; only explicit no-fill/script failures collapse, offscreen.
  * The static carrier consumes the same function over HTTP on corpus pages. */
-const STATIC_AD_COLLAPSE_CONTENT = `var observeManualAd=(function(){function __name(fn){return fn;}return ${observeManualAd.toString()};})();
-var staticAdManual=${isManualSlot.toString()};
+const STATIC_AD_COLLAPSE_CONTENT = `var observeManualAd=${serializeStaticFunction(new NodeURL('../services/manualAdLifecycle.ts', import.meta.url), 'observeManualAd')};
+var staticAdManual=${serializeStaticFunction(new NodeURL('../services/adSlotKinds.ts', import.meta.url), 'isManualSlot')};
 var staticAdTemplate=${AD_PAGE_TEMPLATE_INLINE_FN};
 var staticAdPlacements=${JSON.stringify(STATIC_AD_UNIQUE_PLACEMENTS)};
 var staticAdWatches=new Map();
@@ -997,7 +1002,7 @@ const AD_PAGE_DIAG_CALL = `(${AD_PAGE_DIAG_FN})(function(){return(${BOT_GATE_FN}
 /** The static shell's Google push queue selects the first eligible `<ins>` in
  * DOM order. Park manual slots until they approach the same 200px margin used
  * by the SPA so a deep link cannot spend requests on earlier offscreen units. */
-const STATIC_AD_SLOT_ELIGIBILITY_CONTENT = `var staticAdEligibility=(${createStaticAdSlotEligibility.toString()})();`;
+const STATIC_AD_SLOT_ELIGIBILITY_CONTENT = `var staticAdEligibility=(${serializeStaticFunction(new NodeURL('../services/staticAdSlotEligibility.ts', import.meta.url), 'createStaticAdSlotEligibility')})();`;
 const STATIC_AD_SLOT_REQUEST_CONTENT = `var queue=[],slotIo=null;function pushEligible(el){if(!staticAdEligibility.activate(el))return;var watch=staticAdWatch(el);try{(window.adsbygoogle=window.adsbygoogle||[]).push({});if(watch)watch.request();}catch(e){if(watch)watch.fail('push_failed');}}function stopSlotObserverWhenDrained(){if(slotIo&&staticAdEligibility.pendingCount()===0){slotIo.disconnect();slotIo=null;}}function armSlots(){if(slotIo){slotIo.disconnect();slotIo=null;}var candidates=[].slice.call(document.querySelectorAll('ins[data-ad-slot]')).filter(staticAdIsTarget);queue=staticAdEligibility.park(candidates,staticAdIsTarget);for(var q=0;q<queue.length;q++)if(queue[q].hasAttribute('data-ft-static-ad'))staticAdWatch(queue[q]);if(!queue.length)return;if(!('IntersectionObserver' in window)){for(var n=0;n<queue.length;n++)pushEligible(queue[n]);return;}slotIo=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting&&queue.indexOf(entries[i].target)!==-1)pushEligible(entries[i].target);}stopSlotObserverWhenDrained();},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}`;
 
 /**
@@ -1006,10 +1011,11 @@ const STATIC_AD_SLOT_REQUEST_CONTENT = `var queue=[],slotIo=null;function pushEl
  * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
-const ADSENSE_LOADER_TEMPLATE = `(function(){${FC_JOBBOARD_OFFERWALL_GATE_JS}${STATIC_AD_COLLAPSE_CONTENT}${STATIC_AD_SLOT_ELIGIBILITY_CONTENT}staticAdArm();${AD_PAGE_DIAG_CALL}if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})()){staticAdResolveManualFailure('reader_entitlement');return;}${FC_CMP_BOOTSTRAP}if(hasAdsDecision()){ensureFc();}else if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}if((${BOT_GATE_FN})())return;${STATIC_AD_SLOT_REQUEST_CONTENT}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var existing=document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(existing){if(existing.getAttribute('data-loaded')==='1'||(window.adsbygoogle&&window.adsbygoogle.loaded))armSlots();else if(existing.getAttribute('data-failed')==='1')staticAdScriptFailed();else{existing.addEventListener('load',armSlots,{once:true});existing.addEventListener('error',staticAdScriptFailed,{once:true});}return;}var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){s.setAttribute('data-loaded','1');armSlots();};s.onerror=function(){s.setAttribute('data-failed','1');staticAdScriptFailed();};document.head.appendChild(s);}window.addEventListener('online',function(){if(!staticScriptFailed||!hasAdsDecision())return;staticScriptFailed=false;var failed=document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(failed)failed.remove();staticAdWatches.forEach(function(watch,el){watch.stop();el.removeAttribute('data-ft-static-ad-collapsed');el.removeAttribute('data-ft-static-ad-state');});staticAdWatches.clear();loaded=false;loadScript();});function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');for(var k=0;k<slots.length;k++)if(slots[k].hasAttribute('data-ft-static-ad'))staticAdWatch(slots[k]);if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}if(hasAdsDecision()){startAds();return;}var armed=false;function onGate(){if(armed||!hasAdsDecision())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
+const ADSENSE_LOADER_TEMPLATE = `(function initializeStaticAds(){${thirdPartyDocumentGuardCall('initializeStaticAds')}${FC_JOBBOARD_OFFERWALL_GATE_JS}${STATIC_AD_COLLAPSE_CONTENT}${STATIC_AD_SLOT_ELIGIBILITY_CONTENT}staticAdArm();${AD_PAGE_DIAG_CALL}if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})()){staticAdResolveManualFailure('reader_entitlement');return;}${FC_CMP_BOOTSTRAP}if(hasAdsDecision()){ensureFc();}else if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}if((${BOT_GATE_FN})())return;${STATIC_AD_SLOT_REQUEST_CONTENT}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var existing=document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(existing){if(existing.getAttribute('data-loaded')==='1'||(window.adsbygoogle&&window.adsbygoogle.loaded))armSlots();else if(existing.getAttribute('data-failed')==='1')staticAdScriptFailed();else{existing.addEventListener('load',armSlots,{once:true});existing.addEventListener('error',staticAdScriptFailed,{once:true});}return;}var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){s.setAttribute('data-loaded','1');armSlots();};s.onerror=function(){s.setAttribute('data-failed','1');staticAdScriptFailed();};document.head.appendChild(s);}window.addEventListener('online',function(){if(!staticScriptFailed||!hasAdsDecision())return;staticScriptFailed=false;var failed=document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(failed)failed.remove();staticAdWatches.forEach(function(watch,el){watch.stop();el.removeAttribute('data-ft-static-ad-collapsed');el.removeAttribute('data-ft-static-ad-state');});staticAdWatches.clear();loaded=false;loadScript();});function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');for(var k=0;k<slots.length;k++)if(slots[k].hasAttribute('data-ft-static-ad'))staticAdWatch(slots[k]);if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}if(hasAdsDecision()){startAds();return;}var armed=false;function onGate(){if(armed||!hasAdsDecision())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
 export const ADSENSE_LOADER_CONTENT = ADSENSE_LOADER_TEMPLATE;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
-export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
+export const ADSENSE_LOADER_VERSIONED_FILENAME = `adsense-loader-${createHash('sha256').update(ADSENSE_LOADER_CONTENT).digest('hex').slice(0, 12)}.js`;
+export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_VERSIONED_FILENAME}"></script>`;
 
 /**
  * Funding Choices MESSAGING loader, injected into the <head> of in-scope
@@ -1096,7 +1102,7 @@ export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${A
  * `c98741ed-da90-49d5-a83f-d66821a170e5`).
  *
  * Il codice in `PARTNERIZE_TAG_CONTENT` e' quello consegnato da Partnerize,
- * VERBATIM: la documentazione ("The Partnerize Tag for Partners: Implementation
+ * VERBATIM nel wrapper privacy del documento: la documentazione ("The Partnerize Tag for Partners: Implementation
  * and Optimization") chiede di non modificarlo, perche' ogni edit puo' rompere
  * l'attribuzione. Non riscriverlo, non minificarlo, non sostituire il `tid` con
  * una costante interpolata: se Partnerize rigenera lo snippet si sostituisce il
@@ -1117,13 +1123,15 @@ export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${A
  *
  * Perche' file esterno e non inline: la doc chiede il tag su OGNI pagina, e
  * questo build ne emette oltre 55k. Inline sarebbero ~2,6 KB x 55k ~ 140 MB di
- * HTML in piu' — lo stesso motivo per cui gtag-init, adsense-loader e
- * posthog-init sono gia' esternalizzati da `staticScriptsPlugin.ts`. Il codice
- * eseguito e' identico e `defer` gira comunque PRIMA di DOMContentLoaded, che
- * e' l'evento su cui il tag si aggancia: nessun click perso.
+ * HTML in piu'. Il guard canonico inline cattura l'ingresso prima di React;
+ * asset e caricamento terze parti sono differiti. Il corpo vendor resta
+ * invariato, con ingresso idempotente anche se DOMContentLoaded e' gia' passato.
  */
 export const PARTNERIZE_TAG_FILENAME = 'partnerize-tag.js';
-export const PARTNERIZE_TAG_CONTENT = `(function () {
+export const PARTNERIZE_TAG_CONTENT = `(function initializePartnerize() {
+            ${thirdPartyDocumentGuardCall('initializePartnerize')}
+            if(window.__FT_PARTNERIZE_STARTED__)return;
+            window.__FT_PARTNERIZE_STARTED__=true;
             var pztt = 3;
             var pztp = {"p":"pzt","mi":0,"ma":99,"e":[]};
             var tid = 'c98741ed-da90-49d5-a83f-d66821a170e5';
@@ -1212,9 +1220,14 @@ export const PARTNERIZE_TAG_CONTENT = `(function () {
                 }).catch(function () {});
             };
 
-            document.addEventListener('DOMContentLoaded', pzti);
+            if(document.readyState==='loading')document.addEventListener('DOMContentLoaded', pzti,{once:true});else pzti();
         })();`;
-export const PARTNERIZE_TAG_SNIPPET = `<script defer src="/assets/${PARTNERIZE_TAG_FILENAME}"></script>`;
+export const PARTNERIZE_TAG_VERSIONED_FILENAME = `partnerize-tag-${createHash('sha256').update(PARTNERIZE_TAG_CONTENT).digest('hex').slice(0, 12)}.js`;
+// Capture only potential query/fragment/userinfo provenance during parsing.
+// No auth classification or raw context is retained here: the deferred producer
+// uses the canonical sanitizer and semantic DOM checks before starting an SDK.
+export const THIRD_PARTY_DOCUMENT_INITIAL_GUARD = `try{window.__FT_SENSITIVE_DOCUMENT__=!!(window.__FT_SENSITIVE_DOCUMENT__||/[?#@]/.test(window.location.href+(document.referrer||'')));}catch(e){window.__FT_SENSITIVE_DOCUMENT__=true;}`;
+export const PARTNERIZE_TAG_SNIPPET = `<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`;
 
 /** Combined analytics snippet (GA4 + PostHog + AdSense + Partnerize) for static pages without the SPA bundle. */
 export const ANALYTICS_SNIPPET = `${GTAG_SNIPPET}

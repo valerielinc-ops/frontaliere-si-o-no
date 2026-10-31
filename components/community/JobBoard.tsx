@@ -19,6 +19,7 @@ import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMet
 import { applyCanonicalHref, clearSpaNoindex } from '@/services/seo/staticHeadAuthority';
 import { isForeignLocation, isListingInventoryJob, normalizeListingIdentity } from '@/services/jobBoardInventory';
 import React, { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
+import { useSyncExternalStore } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
@@ -47,7 +48,6 @@ import type { RewardedOfferUnavailableInfo } from '@/components/community/Reward
 const AssistedApplicationUpload = lazyRetry(() => import('@/components/community/AssistedApplicationUpload'));
 const AssistedApplicationReview = lazyRetry(() => import('@/components/community/AssistedApplicationReview'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
-const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/SaveSignInPromptModal'));
 const JobAlertAuthPromptModal = lazyRetry(() => import('@/components/community/JobAlertAuthPromptModal'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const PartnerRecommendations = lazyRetry(() => import('@/components/shared/PartnerRecommendations'));
@@ -82,8 +82,6 @@ import {
 import { cantonSearchTokens, CANTON_CODES, getCantonLabel } from '@/services/cantonList';
 import {
   loadSavedJobs,
-  toggleSavedJob,
-  ensureSavedJob,
   deriveSavedJobsAlertCriteria,
   loadNudgeState,
   saveNudgeState,
@@ -94,13 +92,18 @@ import {
   SAVED_JOBS_NUDGE_THRESHOLD,
   type SavedJobEntry,
 } from '@/services/savedJobsService';
+import type { SaveJobSurface } from '@/services/pendingSaveJob';
 import {
-  savePendingSaveJobIntent,
-  consumePendingSaveJobIntent,
-  peekPendingSaveJobIntent,
-  type PendingSaveJobIntent,
-  type SaveJobSurface,
-} from '@/services/pendingSaveJob';
+  consumePendingSavedFilter,
+  isSavePromptOpen,
+  openSavePrompt,
+  peekPendingSave,
+  requestJobSave,
+  requestSavedFilterSignIn,
+  subscribeSavePrompt,
+  toSaveableJob,
+} from '@/services/jobSaveGate';
+import JobSaveButton from '@/components/community/JobSaveButton';
 import {
  BEHAVIOR_DATA_CHANGED_EVENT,
  type BehaviorData,
@@ -234,6 +237,17 @@ import { readClusterSearchSeed } from '@/services/clusterSearchSeed';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import JobOrphanView from '@/components/community/JobOrphanView';
+import {
+ JobDetailHeaderCard,
+ JobDetailMetadataRow,
+ JobDetailMetaPill,
+ JOB_DETAIL_HEADER_CONTENT_CLASS,
+ JOB_DETAIL_HEADER_COPY_CLASS,
+ JOB_DETAIL_HEADER_LOGO_FRAME_CLASS,
+ JOB_DETAIL_HEADER_LOGO_IMAGE_CLASS,
+ JOB_DETAIL_HEADER_SUBTITLE_CLASS,
+ JOB_DETAIL_HEADER_TITLE_CLASS,
+} from '@/components/community/JobDetailPresentation';
 import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
 import {
  INFEED_AD_EXPERIMENT_ID,
@@ -2916,10 +2930,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [showSavedOnly, setShowSavedOnly] = useState(false);
  const deferredShowSavedOnly = useDeferredValue(showSavedOnly);
  // Account-gating follow-up: saving now requires a real Firebase login (no
- // anonymous/email-capture fallback). An anonymous tap stashes the pending
- // action here and opens SaveSignInPromptModal; the effect below replays it
- // once authUser.uid becomes truthy.
- const [saveAuthPromptOpen, setSaveAuthPromptOpen] = useState(false);
+ // anonymous/email-capture fallback). services/jobSaveGate.ts owns the prompt
+ // (JobSaveMount renders it on every page); the board only reads whether it is up.
+ const saveAuthPromptOpen = useSyncExternalStore(subscribeSavePrompt, isSavePromptOpen, () => false);
  const [jobBoardAlertAuthPromptOpen, setJobBoardAlertAuthPromptOpen] = useState(false);
  useEffect(() => {
   if (!authUser?.uid) return;
@@ -3071,119 +3084,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const savedJobIds = useMemo(() => new Set(savedJobs.map((entry) => entry.id)), [savedJobs]);
 
- const performToggleSave = useCallback((job: JobListing, surface: SaveJobSurface, uid: string) => {
- const result = toggleSavedJob({
- id: job.id,
- slug: job.slug ?? null,
- title: job.title,
- company: job.company,
- canton: job.canton ?? null,
- category: job.category ?? null,
- }, uid);
- Analytics.trackEvent(result === 'saved' ? 'job_saved' : 'job_unsaved', {
- job_id: job.id,
- job_canton: job.canton || '(none)',
- job_category: job.category || '(none)',
- job_company: job.company || '(none)',
- surface,
- });
- }, []);
-
- // Issue 9575 (sibling of the job-alert form): when localStorage cannot hold
- // the pending intent, keep it in memory. The sign-in modal opens in THIS tab,
- // so an in-tab sign-in still replays the save; only a link opened in another
- // tab has no channel to it. Every reader below falls back to this ref.
- const pendingSaveFallbackRef = useRef<PendingSaveJobIntent | null>(null);
- const stashPendingSave = useCallback((intent: PendingSaveJobIntent): boolean => {
- const stored = savePendingSaveJobIntent(intent);
- pendingSaveFallbackRef.current = stored ? null : intent;
- return stored;
- }, []);
-
- // Account-gating (#4466 follow-up): anonymous tap never writes — stash the
- // pending job in services/pendingSaveJob.ts (localStorage, survives a
- // magic-link email opened in a brand new tab) + open the sign-in modal.
- // The authUser?.uid replay effect below fires the actual save once sign-in
- // completes, in THIS tab or a fresh one.
  const handleToggleSave = useCallback((job: JobListing, surface: SaveJobSurface = 'list') => {
- const uid = authUser?.uid ?? null;
- if (!uid) {
- const pendingStored = stashPendingSave({
- kind: 'save_job',
- entry: {
- id: job.id,
- slug: job.slug ?? null,
- title: job.title,
- company: job.company,
- canton: job.canton ?? null,
- category: job.category ?? null,
- },
- surface,
- });
-      // AUTH_GATE priority preempts the (lower-priority) newsletter
-      // popup — without a queue slot, NewsletterPopup's own timer/
-      // exit-intent trigger can claim the empty queue and render its
-      // full-screen overlay on top of this modal.
-      requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
- setSaveAuthPromptOpen(true);
- Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface, pending_stored: pendingStored });
- return;
- }
- performToggleSave(job, surface, uid);
- }, [authUser?.uid, performToggleSave, stashPendingSave]);
+ requestJobSave(toSaveableJob(job), surface, authUser?.uid ?? null);
+ }, [authUser?.uid]);
 
  const handleToggleSaveFromList = useCallback(
  (job: JobListing) => handleToggleSave(job, 'list'),
  [handleToggleSave],
  );
 
- // Replays a pending save-job intent (bookmark tap) or opens the saved-only
- // filter (pill tap) whenever authUser?.uid becomes truthy. Gated ONLY on
- // uid — NOT on saveAuthPromptOpen — because the email magic-link path can
- // complete sign-in in a brand new tab where the modal was never rendered;
- // services/pendingSaveJob.ts (localStorage), not this component's own
- // state, is what survives that round-trip. ensureSavedJob (not
- // toggleSavedJob) is used so a second tab replaying the same intent around
- // the same time can't race a genuine toggle back off.
+ // The saved-only pill stashes "turn the filter on" through the shared prompt;
+ // a pending bookmark is replayed by services/jobSaveGate.ts, on every page.
  useEffect(() => {
- const uid = authUser?.uid;
- if (!uid) return;
-      releaseSlot('save-auth-prompt');
- setSaveAuthPromptOpen(false);
- const intent = consumePendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
- pendingSaveFallbackRef.current = null;
- if (!intent) return;
- if (intent.kind === 'save_job') {
- Analytics.trackEvent('save_signin_prompt_completed', { job_id: intent.entry.id, surface: intent.surface });
- const result = ensureSavedJob(intent.entry, uid);
- if (result === 'saved') {
- Analytics.trackEvent('job_saved', {
- job_id: intent.entry.id,
- job_canton: intent.entry.canton || '(none)',
- job_category: intent.entry.category || '(none)',
- job_company: intent.entry.company || '(none)',
- surface: intent.surface,
- });
- }
- } else {
- Analytics.trackEvent('save_signin_prompt_completed', { surface: 'saved_filter_pill' });
- setShowSavedOnly(true);
- }
+ if (!authUser?.uid) return;
+ if (consumePendingSavedFilter()) setShowSavedOnly(true);
  }, [authUser?.uid]);
-
- // Dismiss only closes the modal — it does NOT clear the pending intent.
- // The email path is inherently async (the link may be clicked later, in
- // another tab); closing the "check your email" card isn't abandonment.
- // The 15-minute TTL in pendingSaveJob.ts handles true abandonment.
- const handleSaveAuthPromptDismiss = useCallback(() => {
- const intent = peekPendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
- Analytics.trackEvent(
- 'save_signin_prompt_dismissed',
- intent?.kind === 'save_job' ? { job_id: intent.entry.id, surface: intent.surface } : { surface: 'saved_filter_pill' },
- );
-      releaseSlot('save-auth-prompt');
- setSaveAuthPromptOpen(false);
- }, []);
 
  // Track filter usage changes
  useEffect(() => {
@@ -3523,7 +3438,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // A save tapped on the GATE, then unlocked by the email-capture form instead
  // of by signing in. `emailAccessGranted` grants access with NO Firebase uid,
- // so the replay effect above — correctly gated on uid, since `ensureSavedJob`
+ // so the replay in jobSaveGate — correctly gated on uid, since `ensureSavedJob`
  // cannot write without one — never fires, and the intent would sit in
  // localStorage until its 15-minute TTL while the now-unlocked header shows
  // the bookmark as un-saved. The reader tapped save and nothing happened.
@@ -3533,11 +3448,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateSaveReaskedRef = useRef(false);
  useEffect(() => {
  if (!hasAccess || authUser?.uid || gateSaveReaskedRef.current) return;
- const intent = peekPendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
+ const intent = peekPendingSave();
  if (intent?.kind !== 'save_job' || intent.surface !== 'detail_gate') return;
  gateSaveReaskedRef.current = true;
- requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
- setSaveAuthPromptOpen(true);
+ openSavePrompt();
  Analytics.trackEvent('save_signin_prompt_shown', { job_id: intent.entry.id, surface: 'detail_gate_unlocked' });
  }, [hasAccess, authUser?.uid]);
 
@@ -4174,6 +4088,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // be shown and would only inflate the unit's unfilled requests.
  const shouldPreloadRewardedApplicationAd = Boolean(
   isJobDetailView
+  && !conciergeAction.active
   && authResolved
   && hasAccess
   && assistedApplicationVariant === 'rewarded_ad'
@@ -4187,6 +4102,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // that choice to be informed, so every labelled Candidati CTA that will open
  // the video says so.
  const rewardedCtaDisclosure = selectedJob
+  && !conciergeAction.active
   && isExternalApplicationJob(selectedJob)
   && assistedApplicationVariant === 'rewarded_ad'
   && !killSwitches.rewardedApplicationAd
@@ -6429,6 +6345,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  .map((x) => {
  const job = x.job;
  return {
+ id: job.id,
+ category: job.category,
  slug: job.slug!,
  title: job.title,
  titleByLocale: job.titleByLocale,
@@ -6447,6 +6365,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  salaryMin: job.salaryMin,
  salaryMax: job.salaryMax,
  currency: job.currency,
+ salarySource: job.salarySource,
  featured: job.featured,
  };
  });
@@ -8673,16 +8592,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- // Save account-gating sign-in prompt (#4466 follow-up). Deliberately
- // separate from authGateModalJsx below — that one gates job-detail content
- // unlock (real login OR email-capture OR crawler bypass); saving still
- // requires a real account, with the shared prompt handling its access link.
- const saveAuthPromptJsx = saveAuthPromptOpen ? (
- <Suspense fallback={null}>
- <SaveSignInPromptModal locale={locale} onDismiss={handleSaveAuthPromptDismiss} />
- </Suspense>
- ) : null;
-
  // On screen only while an offer's code is still arriving (it is loaded
  // ahead, see above): a "Candidati" click never looks dead.
  const applicationOfferCodeLoadingJsx = (
@@ -9993,6 +9902,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return (
  <JobOrphanView
  slug={initialJobSlug}
+ findActiveJob={(slug) => {
+ const job = sortedJobs.find((j) => j.slug === slug || Object.values(j.slugByLocale ?? {}).includes(slug));
+ return job ?? null;
+ }}
  onBack={backToList}
  hasAccess={hasAccess}
  totalActiveJobs={jobs.length}
@@ -10535,12 +10448,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const card = (
  <article
  key={buildListingDedupKey(job)}
- className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
+ className={`relative rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
  job.featured
  ? 'border-warning-border bg-warning-subtle hover:border-warning'
  : 'border-edge bg-surface/50 hover:border-accent-border'
  }`}
  >
+ <JobSaveButton job={toSaveableJob(job)} surface="card_similar" />
  <a
  href={jobHref}
  onClick={(e) => {
@@ -10555,7 +10469,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  openDetail(job);
  }}
- className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
+ className="block pr-9 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
  >
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
@@ -10612,7 +10526,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Anonymous visitors return from the gated detail branch before the
      unlocked-detail prompt mount, so keep this surface reachable here too. */}
  {jobViewersActivityPromptJsx}
- {saveAuthPromptJsx}
  </div>
  );
  }
@@ -10977,8 +10890,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  )}
 
- {((selectedJob as { applyMode?: string }).applyMode === 'in_house'
- || (selectedJob as { applyMode?: string }).applyMode === 'forward_email') ? (
+ {!conciergeAction.active && isInHouseApply ? (
  <div id="candidatura">
  <PublisherApplyForm
  jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}
@@ -11050,7 +10962,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {jobDetailPromptJsx}
  {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
- {saveAuthPromptJsx}
  </div>
  );
  }
@@ -11107,19 +11018,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
   className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5"
   data-job-detail-content
  >
- <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6" data-no-auto-ads="inside">
- <div className="flex items-start gap-3 sm:gap-4">
+ <JobDetailHeaderCard data-no-auto-ads="inside">
+ <div className={JOB_DETAIL_HEADER_CONTENT_CLASS}>
  <button
  type="button"
  onClick={() => handleApply(selectedJob, 'job_board_apply_header_logo')}
  aria-label={`${t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')} ${selectedJob.company}`}
- className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
+ className={`${JOB_DETAIL_HEADER_LOGO_FRAME_CLASS} transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info`}
  >
  {logo ? (
  <img
  src={logo}
  alt={`Logo ${selectedJob.company}`}
- className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
+ className={JOB_DETAIL_HEADER_LOGO_IMAGE_CLASS}
  width={56}
  height={56}
  decoding="async"
@@ -11129,8 +11040,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Building2 className="w-9 h-9 text-muted" />
  )}
  </button>
- <div className="min-w-0 flex-1">
- <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight break-words [hyphens:auto]">
+ <div className={JOB_DETAIL_HEADER_COPY_CLASS}>
+ <h1 className={JOB_DETAIL_HEADER_TITLE_CLASS}>
  <button
  type="button"
  onClick={() => handleApply(selectedJob, 'job_board_apply_header_title')}
@@ -11140,7 +11051,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
  </h1>
- <p className="mt-1 text-sm text-body break-words">
+ <p className={JOB_DETAIL_HEADER_SUBTITLE_CLASS}>
  <a
  href={companySearchHref}
  onClickCapture={openCompanyFilter}
@@ -11203,29 +11114,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
      blocks below the fold, while the gated header (`!hasAccess`) has always
      carried the same six values directly under the h1. Same values, same
      order, one position; the two branches now agree. */}
- <div className="mt-4 flex flex-wrap gap-2 text-xs">
- <span className="px-2 py-1 rounded-full bg-surface-raised text-body">
+ <JobDetailMetadataRow>
+ <JobDetailMetaPill tone="neutral">
  {t(categoryTranslationKey(selectedJob))}
- </span>
- <span className="px-2 py-1 rounded-full bg-accent-subtle text-accent">
+ </JobDetailMetaPill>
+ <JobDetailMetaPill tone="accent">
  {t(contractTranslationKey(selectedJob))}
- </span>
- <span className="px-2 py-1 rounded-full bg-success-subtle text-success">
+ </JobDetailMetaPill>
+ <JobDetailMetaPill tone="success">
  {daysSincePosted(selectedJob.displayPostingDate)}
- </span>
+ </JobDetailMetaPill>
  {isNewJob(selectedJob) && (
- <span className="px-2 py-1 rounded-full bg-success-subtle text-success inline-flex items-center gap-1">
+ <JobDetailMetaPill tone="success" icon={
  <Sparkles className="w-3 h-3" />
+ }>
  {t('jobBoard.badge.new')}
- </span>
+ </JobDetailMetaPill>
  )}
  {salary && (
- <span className="px-2 py-1 rounded-full bg-success-subtle text-success inline-flex items-center gap-1">
- <Euro className="w-3 h-3" />
+ <JobDetailMetaPill tone="success" icon={<Euro className="w-3 h-3" />}>
  {salary}
- </span>
+ </JobDetailMetaPill>
  )}
- </div>
+ </JobDetailMetadataRow>
 
  {/* The employer's evergreen hub. `jobsSeoPagesPlugin` already emits this
      link into the STATIC job page, so a crawler saw it and the reader lost
@@ -11248,7 +11159,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
          alert slots.
          One control, moved. */}
  {companyFollowCta(selectedJob, 'company_follow_button')}
- </header>
+ </JobDetailHeaderCard>
 
  {isCrawlerVisitor ? (
  <div data-testid="job-crawler-description" dangerouslySetInnerHTML={{ __html: renderJobDescriptionContent(descriptionCandidate || '', locale, Array.isArray(requirements) ? requirements : []) }} />
@@ -11397,7 +11308,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   *   on-page form (writes the `applications` doc → CF emails the publisher).
   *   The /lavoro/<slug>/candidatura/ deep-link (router + useEffect ~2668)
   *   and every apply CTA scroll here. Anchor offset clears the sticky nav. */}
- {isInHouseApply && (
+ {!conciergeAction.active && isInHouseApply && (
  <div id="candidatura" className="scroll-mt-24">
  <PublisherApplyForm
  jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}
@@ -11482,7 +11393,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </section>
  )}
- </article> <aside className="hidden lg:block lg:col-span-4"> <div className="sticky top-20 space-y-4"> <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold font-display text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-[11px] text-muted leading-tight mt-0.5"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold font-display text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold font-display text-strong">{daysSincePosted(selectedJob.displayPostingDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] lg:min-h-0 lg:py-1.5 bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium font-display leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </Callout> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <Callout status="info" icon={<Calendar size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-sm leading-relaxed text-subtle">{item}</li> ))} </ul> </Callout> )} <Callout status="success" icon={<Users size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t('jobBoard.adviceCta')} </button> </Callout> {relatedSearches.length > 0 && ( <Callout status="accent" icon={<Search size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </Callout> )} {salaryEstimateWidget} {sectorContextWidget} <Suspense fallback={null}><PartnerRecommendations context="jobs" maxCards={1} /></Suspense> {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )}<Callout status="accent" icon={<Mail size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.publishDescription', cantonI18n)} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </Callout> </div> </aside> </div> {/* ── Right Rail (desktop xl only) ── */} <aside className={RAIL_ASIDE_CLASS_X}> <Suspense fallback={null}><ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} /></Suspense> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.flatMap((job, relIdx) => { const jobLogo = companyLogoUrl(job); const card = ( <button key={buildListingDedupKey(job)} onClick={() => { if (selectedJob) { Analytics.trackJobMatchSimilarClick(selectedJob.slug || '', job.slug || '', describeSimilarJobMatchReason(selectedJob, job), relIdx); } openDetail(job); }} className="text-left rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={handleCompanyLogoError} />
+ </article> <aside className="hidden lg:block lg:col-span-4"> <div className="sticky top-20 space-y-4"> <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold font-display text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-[11px] text-muted leading-tight mt-0.5"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold font-display text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold font-display text-strong">{daysSincePosted(selectedJob.displayPostingDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] lg:min-h-0 lg:py-1.5 bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium font-display leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </Callout> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <Callout status="info" icon={<Calendar size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-sm leading-relaxed text-subtle">{item}</li> ))} </ul> </Callout> )} <Callout status="success" icon={<Users size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.adviceCta')} </button> </Callout> {relatedSearches.length > 0 && ( <Callout status="accent" icon={<Search size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </Callout> )} {salaryEstimateWidget} {sectorContextWidget} <Suspense fallback={null}><PartnerRecommendations context="jobs" maxCards={1} /></Suspense> {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )}<Callout status="accent" icon={<Mail size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.publishDescription', cantonI18n)} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </Callout> </div> </aside> </div> {/* ── Right Rail (desktop xl only) ── */} <aside className={RAIL_ASIDE_CLASS_X}> <Suspense fallback={null}><ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} /></Suspense> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.flatMap((job, relIdx) => { const jobLogo = companyLogoUrl(job); const card = ( <div key={buildListingDedupKey(job)} className="relative"> <button onClick={() => { if (selectedJob) { Analytics.trackJobMatchSimilarClick(selectedJob.slug || '', job.slug || '', describeSimilarJobMatchReason(selectedJob, job), relIdx); } openDetail(job); }} className="block w-full h-full text-left rounded-xl border border-edge p-3 pr-12 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={handleCompanyLogoError} />
  ) : (
  <Building2 className="w-5 h-5 text-muted" />
  )}
@@ -11496,7 +11407,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  </div>
- </button>
+ </button> <JobSaveButton job={toSaveableJob(job)} surface="card_similar" /> </div>
  );
  const nodes: React.ReactNode[] = [card];
  // One in-feed ad after every Nth related card (shared `shouldPlaceInfeedAd`
@@ -11586,7 +11497,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {jobDetailPromptJsx}
  {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
- {saveAuthPromptJsx}
  </div>
  );
  }
@@ -11928,9 +11838,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={() => {
  const next = !showSavedOnly;
  if (next && !authUser?.uid) {
- const pendingStored = stashPendingSave({ kind: 'show_saved_only' });
-      requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
- setSaveAuthPromptOpen(true);
+ const pendingStored = requestSavedFilterSignIn();
  Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill', pending_stored: pendingStored });
  return;
  }
@@ -12489,7 +12397,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {jobDetailPromptJsx}
  {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
- {saveAuthPromptJsx}
 
  {authGateModalJsx}
 

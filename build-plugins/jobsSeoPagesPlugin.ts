@@ -6104,6 +6104,9 @@ ${companyFollowHtml}
      addressLocality?: string;
      companyDomain?: string;
      url?: string;
+     id?: string;
+     slug?: string;
+     category?: string;
    }>,
  ) => {
    if (items.length === 0) {
@@ -6112,6 +6115,9 @@ ${companyFollowHtml}
    return renderJobCardListHtml(
      items.map((item) => {
        const job: JobCardJob = {
+         id: item.id,
+         slug: item.slug,
+         category: item.category,
          title: item.title,
          company: item.company,
          location: item.location,
@@ -14031,6 +14037,18 @@ ${staticAnalyticsHtml}
  const jobContract = String(ejData?.contract || '');
  const jobDatePosted = resolveRolloutPostingDate(ejData || {}, () => String(ejData?.datePosted || '')) || '';
  const jobExpiredAt = String(ejData?.expiredAt || '');
+ const jobSalaryMin = typeof ejData?.salaryMin === 'number' && Number.isFinite(ejData.salaryMin) && ejData.salaryMin > 0
+  ? ejData.salaryMin
+  : typeof ejData?.baseSalary?.value?.minValue === 'number' && Number.isFinite(ejData.baseSalary.value.minValue) && ejData.baseSalary.value.minValue > 0
+   ? ejData.baseSalary.value.minValue
+   : undefined;
+ const jobSalaryMax = typeof ejData?.salaryMax === 'number' && Number.isFinite(ejData.salaryMax) && ejData.salaryMax > 0
+  ? ejData.salaryMax
+  : typeof ejData?.baseSalary?.value?.maxValue === 'number' && Number.isFinite(ejData.baseSalary.value.maxValue) && ejData.baseSalary.value.maxValue > 0
+   ? ejData.baseSalary.value.maxValue
+   : undefined;
+ const jobSalaryCurrency = String(ejData?.salaryCurrency || ejData?.currency || ejData?.baseSalary?.currency || ejData?.baseSalary?.value?.currency || 'CHF');
+ const jobSalarySource = String(ejData?.salarySource || '');
  const recordedJobTitle = hasRealTitle
   ? stripLiteralMarkdownFromTitle(String(jobDisplayTitle(ejData) || jobDisplayTitle(gscInfo) || ''))
   : '';
@@ -14248,6 +14266,19 @@ ${staticAnalyticsHtml}
  if (Object.keys(expiredSlugByLocale).length > 0) expiredDataObj.slugByLocale = expiredSlugByLocale;
  if (expiredSector) expiredDataObj.sector = expiredSector;
  if (expiredAt) expiredDataObj.expiredAt = expiredAt;
+ if (hasRealTitle && jobContract) expiredDataObj.contract = jobContract;
+ if (hasRealTitle && ejData?.contractType) expiredDataObj.contractType = ejData.contractType;
+ if (hasRealTitle && ejData?.employmentType) expiredDataObj.employmentType = ejData.employmentType;
+ if (hasRealTitle && jobDatePosted) expiredDataObj.datePosted = jobDatePosted;
+ if (hasRealTitle && ejData?.postedDate) expiredDataObj.postedDate = ejData.postedDate;
+ if (hasRealTitle && ejData?.postingDateSource) expiredDataObj.postingDateSource = ejData.postingDateSource;
+ if (hasRealTitle && ejData?.crawledAt) expiredDataObj.crawledAt = ejData.crawledAt;
+ if (hasRealTitle && jobSalaryMin !== undefined) expiredDataObj.salaryMin = jobSalaryMin;
+ if (hasRealTitle && jobSalaryMax !== undefined) expiredDataObj.salaryMax = jobSalaryMax;
+ if (hasRealTitle && jobSalaryMin !== undefined) expiredDataObj.currency = jobSalaryCurrency;
+ if (hasRealTitle && jobSalaryMin !== undefined && jobSalarySource) expiredDataObj.salarySource = jobSalarySource;
+ if (hasRealTitle && ejData?.postalCode) expiredDataObj.postalCode = ejData.postalCode;
+ if (hasRealTitle && ejData?.addressLocality) expiredDataObj.addressLocality = ejData.addressLocality;
  if (gscInfo?.queries) {
    expiredDataObj.gscQueries = gscInfo.queries;
    expiredDataObj.gscImpressions = gscInfo.totalImpressions;
@@ -14401,6 +14432,10 @@ ${staticAnalyticsHtml}
  if (jobCompany) detailItems.push(`<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}:</strong> ${esc(jobCompany)}</li>`);
  detailItems.push(`<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(jobTitle)}</li>`);
  if (jobLocation) detailItems.push(`<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(jobLocation)}${hasRealTitle ? `, ${esc(displayCanton)}` : ''}</li>`);
+ const staticSalaryText = hasRealTitle && jobSalaryMin !== undefined
+  ? formatActiveJobSalaryText(locale, jobSalaryMin, jobSalaryMax ?? Number.NaN, jobSalaryCurrency, jobSalarySource)
+  : '';
+ if (staticSalaryText) detailItems.push(`<li><strong>${locale === 'it' ? 'Stipendio' : locale === 'en' ? 'Salary' : locale === 'de' ? 'Gehalt' : 'Salaire'}:</strong> ${esc(staticSalaryText)}</li>`);
  if (hasRealTitle && jobContract) detailItems.push(`<li><strong>${locale === 'it' ? 'Tipo contratto' : locale === 'en' ? 'Contract type' : locale === 'de' ? 'Vertragsart' : 'Type de contrat'}:</strong> ${esc(jobContract)}</li>`);
  if (hasRealTitle && jobSector) detailItems.push(`<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(jobSector)}</li>`);
  if (hasRealTitle && jobDatePosted) detailItems.push(`<li><strong>${locale === 'it' ? 'Pubblicata il' : locale === 'en' ? 'Posted on' : locale === 'de' ? 'Ver\u00f6ffentlicht am' : 'Publi\u00e9e le'}:</strong> ${esc(jobDatePosted.slice(0, 10))}</li>`);

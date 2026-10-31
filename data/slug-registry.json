@@ -687769,7 +687769,8 @@
     "slugByLocale": {
       "de": "sous-chef-in-zfv-unternehmungen-zurich",
       "it": "capo-di-sous-zfv-unternehmungen-zurich-e39335",
-      "en": "head-of-sous-zfv-unternehmungen-zurich-e39335"
+      "en": "head-of-sous-zfv-unternehmungen-zurich-e39335",
+      "fr": "capo-di-sous-zfv-unternehmungen-zurich-e39335"
     },
     "createdAt": "2026-09-09",
     "canton": "ZH"
@@ -886200,7 +886201,8 @@
     "canonicalSlug": "senior-controller-100-aadorf-tg-yellowshark-ch",
     "slugByLocale": {
       "de": "senior-controller-100-aadorf-tg-yellowshark-ch",
-      "fr": "controleur-superieur-100-yellowshark-ag-aadorf-tg"
+      "fr": "controleur-superieur-100-yellowshark-ag-aadorf-tg",
+      "en": "senior-controller-full-time-yellowshark-ag-aadorf-tg"
     },
     "createdAt": "2026-10-06",
     "canton": "TG"
@@ -886534,7 +886536,8 @@
     "slugByLocale": {
       "it": "cyber-security-ingegnere-100-yellowshark-ag-moosseedorf",
       "de": "cyber-security-engineer-100-moosseedorf-be-yellowshark-ch",
-      "fr": "cyber-security-ingenieur-100-yellowshark-ag-moosseedorf"
+      "fr": "cyber-security-ingenieur-100-yellowshark-ag-moosseedorf",
+      "en": "cybersecurity-engineer-100-yellowshark-ag-moosseedorf-be"
     },
     "createdAt": "2026-10-06",
     "canton": "BE"
@@ -917884,7 +917887,8 @@
     "slugByLocale": {
       "it": "operatore-m-f-d-80-100-lonza-stein",
       "de": "operator-m-f-d-80-100-lonza-ch",
-      "fr": "operateur-m-f-d-80-100-lonza-stein"
+      "fr": "operateur-m-f-d-80-100-lonza-stein",
+      "en": "operatore-m-f-d-80-100-lonza-stein"
     },
     "createdAt": "2026-10-13",
     "canton": "AG"
@@ -969000,7 +969004,8 @@
     "slugByLocale": {
       "de": "sachbearbeiter-in-einkauf-ffs-officine-ferrovie-federali-bern",
       "en": "purchasing-clerk-ffs-officine-ferrovie-federali-bern",
-      "fr": "responsable-des-achats-ffs-officine-ferrovie-federali-bern"
+      "fr": "responsable-des-achats-ffs-officine-ferrovie-federali-bern",
+      "it": "addetto-a-agli-acquisti-ffs-officine-ferrovie-federali-bern"
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
@@ -969010,7 +969015,8 @@
     "slugByLocale": {
       "de": "produktmanager-in-ffs-officine-ferrovie-federali-olten",
       "en": "product-manager-ffs-officine-ferrovie-federali-olten",
-      "fr": "chef-fe-de-produit-ffs-officine-ferrovie-federali-olten"
+      "fr": "chef-fe-de-produit-ffs-officine-ferrovie-federali-olten",
+      "it": "responsabile-di-prodotto-ffs-officine-ferrovie-federali-olten"
     },
     "createdAt": "2026-10-30",
     "canton": "SO"
@@ -969376,7 +969382,9 @@
     "canonicalSlug": "mpa-ambulatorium-nephrologie-40-80-luks-luzern",
     "slugByLocale": {
       "de": "mpa-ambulatorium-nephrologie-40-80-luks-luzern",
-      "en": "mpa-ambulatory-nephrology-40-80-luzerner-kantonsspital-luks-luzern"
+      "en": "mpa-ambulatory-nephrology-40-80-luzerner-kantonsspital-luks-luzern",
+      "it": "mpa-ambulatorium-nefrologie-40-80-luzerner-kantonsspital-luks-luzern",
+      "fr": "nephrologie-ambulatoire-mpa-40-80-luzerner-kantonsspital-luks-luzern"
     },
     "createdAt": "2026-10-30",
     "canton": "LU"
@@ -969893,7 +969901,8 @@
     "canonicalSlug": "galenica-galenica-ag-assistant-assistante-en-pharmacie-f-h-d-versoix",
     "slugByLocale": {
       "fr": "galenica-galenica-ag-assistant-assistante-en-pharmacie-f-h-d-versoix",
-      "en": "pharmacy-assistant-m-f-d-galenica-ag-galenica-versoix"
+      "en": "pharmacy-assistant-m-f-d-galenica-ag-galenica-versoix",
+      "de": "assistent-assistante-en-pharmacie-f-h-d-galenica-ag-galenica-versoix"
     },
     "createdAt": "2026-10-30",
     "canton": "GE"
@@ -970529,5 +970538,436 @@
     },
     "createdAt": "2026-10-30",
     "canton": "BE"
+  },
+  "id|so.ch|94bc7a9a-7acb-41bb-b11e-da900608eb72": {
+    "canonicalSlug": "sachbearbeiter-in-100-kanton-solothurn-solothurn",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "SO"
+  },
+  "url|https://apply.refline.ch/424626/3485/pub/1/index.html": {
+    "canonicalSlug": "monteurin-w-m-d-pfister-affoltern-am-albis",
+    "slugByLocale": {
+      "de": "monteurin-w-m-d-pfister-affoltern-am-albis"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|sbb.ch|b51bd8a2-7e8a-480d-9022-e1136514d084": {
+    "canonicalSlug": "spezialist-in-controlling-schwerpunkt-personalcontrolling-80-100-ffs-officine-ferrovie-federali-olten",
+    "slugByLocale": {
+      "de": "spezialist-in-controlling-schwerpunkt-personalcontrolling-80-100-ffs-officine-ferrovie-federali-olten"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "SO"
+  },
+  "id|sbb.ch|7fe00342-cef4-483b-8673-a5c474daf7f5": {
+    "canonicalSlug": "reconversion-professionnelle-en-tant-que-pilote-de-locomotive-voyageurs-ffs-officine-ferrovie-federali-biel-bienne",
+    "slugByLocale": {
+      "fr": "reconversion-professionnelle-en-tant-que-pilote-de-locomotive-voyageurs-ffs-officine-ferrovie-federali-biel-bienne"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|sbb.ch|0a8b4532-5738-4a60-983b-61b2c20a5214": {
+    "canonicalSlug": "impiegata-impiegato-in-logistica-ffs-officine-ferrovie-federali-ostermundigen",
+    "slugByLocale": {
+      "it": "impiegata-impiegato-in-logistica-ffs-officine-ferrovie-federali-ostermundigen",
+      "de": "logistiker-in-ffs-officine-ferrovie-federali-ostermundigen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|sbb.ch|5c7aac56-4828-461f-892c-ad0d3132a75c": {
+    "canonicalSlug": "fachfuhrung-ressourcenplaner-in-ffs-officine-ferrovie-federali-hagendorf",
+    "slugByLocale": {
+      "de": "fachfuhrung-ressourcenplaner-in-ffs-officine-ferrovie-federali-hagendorf"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "SO"
+  },
+  "id|unispital-basel.ch|b10c63db-58c6-4f1f-9723-8ac31549a340": {
+    "canonicalSlug": "hr-beraterin-hr-berater-unispital-basel-ch",
+    "slugByLocale": {
+      "de": "hr-beraterin-hr-berater-unispital-basel-ch"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BS"
+  },
+  "id|concordia.ch|5e068d2d-cecc-4b8d-95be-f918dceb2e65": {
+    "canonicalSlug": "teamleiter-in-kundenberatung-100-in-aarau-concordia-aarau",
+    "slugByLocale": {
+      "de": "teamleiter-in-kundenberatung-100-in-aarau-concordia-aarau"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "AG"
+  },
+  "url|https://jobs.emilfrey.ch/verkaufsberater-in-ford-de-j2479.html": {
+    "canonicalSlug": "verkaufsberater-in-ford-emil-frey-munchenstein",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-ford-emil-frey-munchenstein"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "url|https://jobs.emilfrey.ch/mitarbeiter-in-betriebscontrolling-de-j2560.html": {
+    "canonicalSlug": "collaboratore-trice-in-betriebscontrolling-emil-frey-zurich",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-betriebscontrolling-emil-frey-zurich",
+      "it": "collaboratore-trice-in-betriebscontrolling-emil-frey-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|luks.ch|bf0b51b8-2052-4305-bd81-bbf3ab815ac0": {
+    "canonicalSlug": "dentalassistentin-dentalassistent-60-come-mutterschaftsvertretung-luzerner-kantonsspital-luks-luzern",
+    "slugByLocale": {
+      "de": "dentalassistentin-dentalassistent-60-als-mutterschaftsvertretung-luks-luzern",
+      "it": "dentalassistentin-dentalassistent-60-come-mutterschaftsvertretung-luzerner-kantonsspital-luks-luzern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "id|belimo.com|1165719355": {
+    "canonicalSlug": "product-compliance-engineer-100-belimo-hinwil",
+    "slugByLocale": {
+      "en": "product-compliance-engineer-100-belimo-hinwil"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165719255": {
+    "canonicalSlug": "product-compliance-lead-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "en": "product-compliance-lead-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|transgourmet.ch|59ff5a37-3684-481c-b74e-7714328c40b0": {
+    "canonicalSlug": "projektleiterin-projektleiter-bau-unterhalt-transgourmet-moosseedorf",
+    "slugByLocale": {
+      "de": "projektleiterin-projektleiter-bau-amp-unterhalt-transgourmet-moosseedorf",
+      "it": "projektleiterin-projektleiter-bau-unterhalt-transgourmet-moosseedorf"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|bern.ch|aef5eba5-2f26-4fa7-aacf-b442f3b2bd80": {
+    "canonicalSlug": "apprendistato-koch-kochin-cfc-stadt-bern",
+    "slugByLocale": {
+      "de": "lehrstelle-koch-kochin-efz-stadt-bern-bern",
+      "it": "apprendistato-koch-kochin-cfc-stadt-bern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|bern.ch|68ee64a9-cb33-48d1-823c-2a72197de104": {
+    "canonicalSlug": "collaboratore-trice-in-kasse-stadt-bern",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-kasse-stadt-bern-bern",
+      "it": "collaboratore-trice-in-kasse-stadt-bern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|bern.ch|2c3dea10-c8bf-4bfd-a0ed-578e836af17f": {
+    "canonicalSlug": "fachangestellte-r-administration-support-stadt-bern-bern",
+    "slugByLocale": {
+      "de": "fachangestellte-r-administration-support-stadt-bern-bern"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "url|https://apply.refline.ch/878019/0471/pub/2/index.html": {
+    "canonicalSlug": "pneumonteur-praticante-del-pneumatico-a-galliker-transport-ag-altishofen-14c18ad49c",
+    "slugByLocale": {
+      "de": "pneumonteur-reifenpraktiker-a-galliker-altishofen",
+      "it": "pneumonteur-praticante-del-pneumatico-a-galliker-transport-ag-altishofen-14c18ad49c",
+      "en": "pneumonteur-tyre-practitioner-a-galliker-transport-ag-altishofen",
+      "fr": "pneumonteur-pneumatique-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0475/pub/3/index.html": {
+    "canonicalSlug": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen-c5f57ed905",
+    "slugByLocale": {
+      "de": "mitarbeiter-felgencenter-a-galliker-altishofen",
+      "it": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen-c5f57ed905",
+      "en": "employee-rim-center-a-galliker-transport-ag-altishofen",
+      "fr": "centre-rim-des-employes-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0454/pub/7/index.html": {
+    "canonicalSlug": "rim-pittore-a-galliker-transport-ag-altishofen",
+    "slugByLocale": {
+      "de": "felgenlackierer-a-galliker-altishofen",
+      "it": "rim-pittore-a-galliker-transport-ag-altishofen",
+      "en": "rim-painter-a-galliker-transport-ag-altishofen",
+      "fr": "peintre-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0126/pub/34/index.html": {
+    "canonicalSlug": "pw-a-galliker-transport-ag-altishofen-d0a7800985",
+    "slugByLocale": {
+      "de": "carrosseriespengler-pw-a-galliker-altishofen",
+      "it": "pw-a-galliker-transport-ag-altishofen-d0a7800985",
+      "en": "carros-vc-a-galliker-transport-ag-altishofen",
+      "fr": "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0032/pub/29/index.html": {
+    "canonicalSlug": "carrosserie-pittore-pw-a-galliker-transport-ag-altishofen-3f39ba49b8",
+    "slugByLocale": {
+      "de": "carrosserielackierer-pw-a-galliker-altishofen",
+      "it": "carrosserie-pittore-pw-a-galliker-transport-ag-altishofen-3f39ba49b8",
+      "en": "carrosserie-painter-pw-a-galliker-transport-ag-altishofen",
+      "fr": "carrosserie-peintre-pw-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0219/pub/21/index.html": {
+    "canonicalSlug": "specialista-automobilistico-meccatronica-specialista-pw-a-galliker-transport-ag-altishofen-8f7cc8aad9",
+    "slugByLocale": {
+      "de": "automobilfachmann-mechatroniker-pw-a-galliker-altishofen",
+      "it": "specialista-automobilistico-meccatronica-specialista-pw-a-galliker-transport-ag-altishofen-8f7cc8aad9",
+      "en": "automotive-specialist-mechatronics-specialist-pw-a-galliker-transport-ag-altishofen",
+      "fr": "specialiste-automobile-mecatronique-specialiste-pw-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0468/pub/4/index.html": {
+    "canonicalSlug": "tecnico-vetraio-a-galliker-transport-ag-altishofen-f40e2af1cd",
+    "slugByLocale": {
+      "de": "autoglas-techniker-a-galliker-altishofen",
+      "it": "tecnico-vetraio-a-galliker-transport-ag-altishofen-f40e2af1cd",
+      "en": "automotive-glass-technician-a-galliker-transport-ag-altishofen",
+      "fr": "technicien-en-verre-automobile-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "url|https://apply.refline.ch/878019/0465/pub/6/index.html": {
+    "canonicalSlug": "autotrasporto-ce-a-galliker-transport-ag-altishofen-5d0b21a370",
+    "slugByLocale": {
+      "de": "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen",
+      "it": "autotrasporto-ce-a-galliker-transport-ag-altishofen-5d0b21a370",
+      "en": "temporary-chauffeur-ce-autotransporte-a-galliker-transport-ag-altishofen",
+      "fr": "chauffeur-temporaire-ce-autotransporte-a-galliker-transport-ag-altishofen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "LU"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-20211": {
+    "canonicalSlug": "business-manager-it-chief-of-staff-100-maternity-coverage-fixed-term-contract-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "business-manager-it-chief-of-staff-100-maternity-coverage-fixed-term-contract-f-m-d-julius-baer"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|baselland.ch|9253d639-ee73-4213-9426-fd2eea652afe": {
+    "canonicalSlug": "dipl-sozialpadagogin-dipl-sozialpadagoge-fabe-kanton-basel-landschaft-munchenstein",
+    "slugByLocale": {
+      "de": "dipl-sozialpadagogin-dipl-sozialpadagoge-fabe-kanton-basel-landschaft-munchenstein"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "id|baselland.ch|8639a896-9ba9-4f40-805d-33e4c3749a13": {
+    "canonicalSlug": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kantonale-verwaltung-basel-landschaft-liestal",
+    "slugByLocale": {
+      "de": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kanton-basel-landschaft-liestal",
+      "it": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kantonale-verwaltung-basel-landschaft-liestal",
+      "en": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kantonale-verwaltung-basel-landschaft-liestal",
+      "fr": "sachbearbeiterin-sachbearbeiter-gk-abteilung-kantonale-verwaltung-basel-landschaft-liestal"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "id|baselland.ch|f7e7a1b3-08f9-45df-9058-fe5e6a3c3cea": {
+    "canonicalSlug": "juristin-jurist-rechtsabteilung-der-bau-e-umweltschutzdirektion-kantonale-verwaltung-basel-landschaft-liestal",
+    "slugByLocale": {
+      "de": "juristin-jurist-rechtsabteilung-der-bau-und-umweltschutzdirektion-kanton-basel-landschaft",
+      "it": "juristin-jurist-rechtsabteilung-der-bau-e-umweltschutzdirektion-kantonale-verwaltung-basel-landschaft-liestal",
+      "en": "juristin-jurist-rechtsabteilung-der-bau-und-umweltschutzdirektion-kantonale-verwaltung-basel-landschaft-liestal",
+      "fr": "juristin-jurist-rechtsabteilung-der-bau-und-umweltschutzdirektion-kantonale-verwaltung-basel-landschaft-liestal"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "id|baselland.ch|ec6a0822-a7c0-459b-a1d5-1f742500ed6e": {
+    "canonicalSlug": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-therwil",
+    "slugByLocale": {
+      "de": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kanton-basel-landschaft-therwil",
+      "it": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-therwil",
+      "en": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-therwil",
+      "fr": "klassenassistenz-im-kindergarten-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-therwil"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BL"
+  },
+  "url|https://apply.refline.ch/792841/11453/pub/1": {
+    "canonicalSlug": "werkstudent-in-finanzierungszentrum-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "werkstudent-in-finanzierungszentrum-zkb-zurich",
+      "it": "werkstudent-in-finanzierungszentrum-zurcher-kantonalbank-zurich",
+      "en": "werkstudent-in-finanzierungszentrum-zurcher-kantonalbank-zurich",
+      "fr": "werkstudent-in-finanzierungszentrum-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/talan/744000158714650-head-of-presales-?oga=true": {
+    "canonicalSlug": "head-of-presales-talan-geneva-ge-switzerland",
+    "slugByLocale": {
+      "fr": "head-of-presales-talan-geneva-ge-switzerland"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|uzh.ch|45004ded-9d65-4ced-8e34-94aa4c14fdce": {
+    "canonicalSlug": "laboratory-technician-uzh-zurich",
+    "slugByLocale": {
+      "en": "laboratory-technician-uzh-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|uzh.ch|3ca929dc-ecde-4469-b9b4-8ce3f23bdf6b": {
+    "canonicalSlug": "med-vet-doktorand-in-uzh-zurich",
+    "slugByLocale": {
+      "de": "med-vet-doktorand-in-uzh-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "url|https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-data-protection-privacy-technology-technology-transformation/25631": {
+    "canonicalSlug": "senior-consultant-data-protection-privacy-technology-technology-transformation-deloitte",
+    "slugByLocale": {
+      "en": "senior-consultant-data-protection-privacy-technology-technology-transformation-deloitte"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "url|https://apply.deloitte.ch/chcareers/jobdetail/intern-banking-solutions/25644": {
+    "canonicalSlug": "intern-banking-solutions-deloitte-zurich",
+    "slugByLocale": {
+      "en": "intern-banking-solutions-deloitte-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|ubs.com|353320": {
+    "canonicalSlug": "2027-internship-gwm-cio-investment-communications-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-internship-gwm-cio-investment-communications-ubs-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "id|ubs.com|353318": {
+    "canonicalSlug": "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich",
+    "slugByLocale": {
+      "en": "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "ZH"
+  },
+  "url|https://www.pemsa.ch/it/job/orologiaio-m-f-d-2703248": {
+    "canonicalSlug": "orologiaio-m-f-d-pemsa-geneve",
+    "slugByLocale": {
+      "it": "orologiaio-m-f-d-pemsa-geneve"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "url|https://www.pemsa.ch/it/job/tecnico-preventivista-quadri-elettrici-automazione-distribuzione-2703223": {
+    "canonicalSlug": "tecnico-preventivista-quadri-elettrici-automazione-distribuzione-pemsa-lugano",
+    "slugByLocale": {
+      "it": "tecnico-preventivista-quadri-elettrici-automazione-distribuzione-pemsa-lugano"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "TI"
+  },
+  "id|galenica.com|3149705": {
+    "canonicalSlug": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-d-neuchatel",
+    "slugByLocale": {
+      "fr": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-d-neuchatel"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "NE"
+  },
+  "id|galenica.com|3149714": {
+    "canonicalSlug": "galenica-galenica-specialista-supporto-vendite-f-m-d-barbengo-lugano",
+    "slugByLocale": {
+      "it": "galenica-galenica-specialista-supporto-vendite-f-m-d-barbengo-lugano"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "TI"
+  },
+  "id|galenica.com|3149716": {
+    "canonicalSlug": "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-davos-dorf",
+    "slugByLocale": {
+      "it": "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-davos-dorf",
+      "de": "galenica-galenica-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-davos-dorf"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GR"
+  },
+  "id|galenica.com|3149816": {
+    "canonicalSlug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-chateau-d-oex",
+    "slugByLocale": {
+      "fr": "galenica-galenica-pharmacien-pharmacienne-f-h-d-chateau-d-oex"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "VD"
+  },
+  "id|galenica.com|3149826": {
+    "canonicalSlug": "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+    "slugByLocale": {
+      "it": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
+      "de": "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "BE"
+  },
+  "id|galenica.com|3149830": {
+    "canonicalSlug": "galenica-galenica-ag-assistant-assistante-en-pharmacie-f-h-d-les-avanchets",
+    "slugByLocale": {
+      "fr": "galenica-galenica-ag-assistant-assistante-en-pharmacie-f-h-d-les-avanchets"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "GE"
+  },
+  "id|galenica.com|3149853": {
+    "canonicalSlug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-kaiseraugst",
+    "slugByLocale": {
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-kaiseraugst"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "AG"
+  },
+  "id|galenica.com|3149927": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-st-gallen",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-st-gallen",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-st-gallen"
+    },
+    "createdAt": "2026-10-30",
+    "canton": "SG"
   }
 }

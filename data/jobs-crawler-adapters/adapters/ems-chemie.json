@@ -8,6 +8,8 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/patentmanager-m-w-d/40e48d41-3148-4bfb-935a-ebbe2c7431ca",
+    "https://jobs.ems-group.com/offene-stellen/leiter-physiklabor-m-w-d/987d9234-247f-4803-9c5b-3eb86751074e",
     "https://jobs.ems-group.com/offene-stellen/leiter-technischer-einkauf-m-w-d/c72a8cae-9748-45b9-aff8-90537347b11a",
     "https://jobs.ems-group.com/offene-stellen/sachbearbeiter-einkauf-m-w-d/7bf3ca8b-d13b-4b5d-aaba-b13be214573b",
     "https://jobs.ems-group.com/offene-stellen/sachbearbeiter-customer-service-m-w-d/7da8c327-4a7a-4bd0-9f5a-c106a7171d2b",
@@ -24,6 +26,14 @@
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/27aa9034-dc40-431c-8ee8-1cdd2b9cd569"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/patentmanager-m-w-d/40e48d41-3148-4bfb-935a-ebbe2c7431ca": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
+    "https://jobs.ems-group.com/offene-stellen/leiter-physiklabor-m-w-d/987d9234-247f-4803-9c5b-3eb86751074e": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/leiter-technischer-einkauf-m-w-d/c72a8cae-9748-45b9-aff8-90537347b11a": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -82,5 +92,5 @@
     }
   },
   "notes": "Career-portal HTML crawler tied to EMS-Chemie/EFTEC Swiss sites, centered on the Domat/Ems (GR) company seat; not a national employer search.",
-  "updatedAt": "2026-10-30T09:31:29.233Z"
+  "updatedAt": "2026-10-30T21:24:04.491Z"
 }

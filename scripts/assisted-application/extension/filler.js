@@ -30,21 +30,26 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
-  const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?( cookies)?|decline( all)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
+  const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
   // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
   const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
   // «Continua con Google»: a sign-in, never the next step.
   const SOCIAL_RE = /(google|linkedin|facebook|apple|microsoft|xing|indeed|github)/i;
 
+  const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
+  const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
+
+  const BIRTH_FIELD_RE = /birth|geburt|nascita|\bnat[oa]\b|naissance/i;
+
   // Field families, on the normalized label (accents gone, lower case).
   // German compounds («Geburtsdatum», «Telefonnummer», «Postleitzahl»): a
   // family word may start a longer word.
   const FAMILIES = [
     ['email', /\b(e ?mail|email address|indirizzo e ?mail|adresse e ?mail)\b/],
-    ['birthDate', /(data di nascita|\bnascita\b|\bnato\b|\bnata\b|\bbirth|\bgeburt|naissance)/],
+    ['birthDate', DATE_OF_BIRTH_RE],
     ['fullName', /^(name|your name|il tuo nome|ihr name|votre nom)$|\b(full name|nome e cognome|nome completo|vor und nachname|vollstandiger name|nom complet)\b/],
     ['firstName', /\b(first name|given name|vorname|prenom|nome)\b/],
     ['lastName', /\b(last name|surname|family name|nachname|familienname|cognome|nom de famille|nom)\b/],
@@ -59,12 +64,13 @@
   ];
   // A place, not a date: «Luogo di nascita», «Geburtsort».
   const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;
+  const BIRTHPLACE_RE = /\b(?:luogo di nascita|geburtsort|lieu de naissance|place of birth|birthplace)\b/;
   const NOT_PERSON_RE = /\b(azienda|company|firma|unternehmen|entreprise|utente|user|benutzer|referenz|reference|riferimento)/;
   const ADDRESS_FAMILIES = new Set(['postalCode', 'city', 'street', 'country']);
   const COUNTRY_WORD_RE = /\b(paese|country|land|pays|nazione)\b/;
   const PHONE_COUNTRY_CODE_RE = /\b(?:country|paese|nazione|pays|land)\s*(?:phone\s*)?(?:code|codice|indicativo|vorwahl|prefix|prefisso)\b/;
   const RESIDENCE_CONTEXT_RE = /\b(?:residen(?:ce|tial)|domicil|address|adresse|indirizz|abitaz|home\s+(?:address|country|city)|wohn(?:sitz|adresse|ort))\b/;
-  const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|dati personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche angaben|personliche daten|private adresse|wohnadresse|adresse personnelle|coordonnees personnelles|adresse du candidat)\b/;
+  const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|(?:dati|informazioni) personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche (?:angaben|daten|informationen)|private adresse|wohnadresse|adresse personnelle|(?:informations|coordonnees) personnelles|adresse du candidat)\b/;
   const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
@@ -221,7 +227,120 @@
   }
 
   /** The words a person reads for this control. */
+  const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
+  const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
+  const DATE_QUESTION_SELECTOR = '[ui5-date-picker], [data-scope="date-picker"][data-part="root"]';
+  const QUESTION_CONTROL_SELECTOR = `input, select, textarea, [role="combobox"], [role="radio"], [role="checkbox"], button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"], ${DATE_QUESTION_SELECTOR}`;
+  // Unnamed option cards are one question only inside a pure, bounded list.
+  // A heading or another control inside that list makes ownership ambiguous.
+  const ariaRadioCluster = element => {
+    if (element.tagName === 'INPUT' || !element.matches('[role="radio"]')) return null;
+    const explicit = element.closest('[role="radiogroup"]');
+    if (explicit) return explicit;
+    const ownerSelector = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="region"], [role="dialog"], [role="tabpanel"], [aria-label], [aria-labelledby]`;
+    const owner = element.parentElement?.closest(ownerSelector);
+    const boundary = owner || element.closest('form') || element.ownerDocument.body;
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)].filter(control =>
+        control.tagName !== 'INPUT' || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()));
+      if (controls.length > 1) {
+        return controls.every(control => control.tagName !== 'INPUT' && control.matches('[role="radio"]')
+          && control.parentElement?.closest(ownerSelector) === owner)
+          && !node.querySelector(QUESTION_LABEL_SELECTOR) ? node : null;
+      }
+      if (node === boundary) break;
+    }
+    return null;
+  };
+  // JazzHR submits a hidden questionnaire value while its checkbox has an
+  // exact question/option key. The value alone never proves that relationship.
+  const mirroredQuestionLabel = element => {
+    if (!element.matches('input[type="checkbox"]') || !element.form) return null;
+    const key = /^resumator-checkbox-(\d+)-(\d+)$/.exec(element.id);
+    if (!key || element.name !== element.id) return null;
+    const form = element.form, group = element.closest(QUESTION_GROUP_SELECTOR);
+    const choices = [...form.querySelectorAll('input[type="checkbox"]')].filter(control =>
+      new RegExp(`^resumator-checkbox-${key[1]}-`).test(control.id) || new RegExp(`^resumator-checkbox-${key[1]}-`).test(control.name));
+    const hidden = [...form.querySelectorAll('input[type="hidden"]')].filter(control =>
+      control.id === `resumator-questionnaire-q${key[1]}` || control.name === `resumator-questionnaire[${key[1]}]`);
+    if (choices.length !== 1 || hidden.length !== 1) return null;
+    const mirror = hidden[0];
+    if (mirror.id !== `resumator-questionnaire-q${key[1]}` || mirror.name !== `resumator-questionnaire[${key[1]}]`
+      || mirror.form !== form || mirror.closest(QUESTION_GROUP_SELECTOR) !== group) return null;
+    const doc = element.ownerDocument;
+    const refs = ['aria-labelledby', 'aria-describedby', 'aria-details']
+      .flatMap(attribute => (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean));
+    if (refs.some(id => !doc.getElementById(id))) return null;
+    const ownNames = [...element.labels || []].map(label => label.textContent || '');
+    ownNames.push(...refs.map(id => doc.getElementById(id).textContent || ''));
+    for (const attribute of ['aria-label', 'aria-description', 'title', 'placeholder']) {
+      if (element.getAttribute(attribute)) ownNames.push(element.getAttribute(attribute));
+    }
+    if (!ownNames.length || ownNames.some(text => !/^(?:i )?(?:agree|accept)[.!]?$/i.test(String(text).replace(/\s+/g, ' ').trim()))) return null;
+    if ([...doc.querySelectorAll('[id]')].filter(node => node.id === mirror.id).length !== 1
+      || [...doc.querySelectorAll('[id]')].filter(node => node.id === element.id).length !== 1) return null;
+    const labels = [...doc.querySelectorAll('label[for]')].filter(label => label.getAttribute('for') === mirror.id);
+    const label = labels.length === 1 && labels[0];
+    return label && label.closest('form') === form && label.closest(QUESTION_GROUP_SELECTOR) === group
+      && !label.querySelector(QUESTION_CONTROL_SELECTOR) && String(label.textContent || '').trim() ? label : null;
+  };
+  const questionControls = group => {
+    const nodes = [...(group?.querySelectorAll(QUESTION_CONTROL_SELECTOR) || [])];
+    const labelledHidden = new Set();
+    const hiddenTargets = [...(group?.ownerDocument.querySelectorAll('input[type="hidden"][id]') || [])];
+    for (const label of group?.querySelectorAll('label[for]') || []) {
+      if (label.control?.matches(QUESTION_CONTROL_SELECTOR)) nodes.push(label.control);
+      if (!label.getAttribute('for') || !String(label.textContent || '').trim()) continue;
+      // A hidden input is not labelable in the DOM API. Resolve every exact
+      // target instead of treating label.control === null as no other owner.
+      for (const target of hiddenTargets.filter(control => control.id === label.getAttribute('for'))) {
+        labelledHidden.add(target);
+        nodes.push(target);
+      }
+    }
+    return [...new Set(nodes
+      .filter(control => control.tagName !== 'INPUT'
+        || labelledHidden.has(control) || !['hidden', 'submit', 'button', 'image', 'reset'].includes((control.getAttribute('type') || 'text').toLowerCase()))
+      .map(control => {
+        if (labelledHidden.has(control)) {
+          const linked = [...(control.form?.querySelectorAll('input[type="checkbox"]') || [])]
+            .filter(choice => mirroredQuestionLabel(choice)?.getAttribute('for') === control.id);
+          return linked.length === 1 ? linked[0] : control;
+        }
+        const widget = control.closest(`${DATE_QUESTION_SELECTOR}, [role="radiogroup"]`) || ariaRadioCluster(control);
+        if (widget) return widget;
+        const nativeId = control.matches('.ui-selectmenu-button[role="combobox"]') && control.id.endsWith('-button') ? control.id.slice(0, -7) : '';
+        const native = nativeId && control.ownerDocument.getElementById(nativeId);
+        if (native?.tagName === 'SELECT' && control.getAttribute('aria-owns') === `${nativeId}-menu`) return native;
+        const previous = control.previousElementSibling;
+        if (control.classList.contains('ui-multiselect') && previous?.tagName === 'SELECT' && previous.id
+          && previous.getAttribute('aria-labelledby') && previous.getAttribute('aria-labelledby') === control.getAttribute('aria-labelledby')) return previous;
+        return control;
+      }))];
+  };
+  const oneQuestionGroup = (group, element) => {
+    const controls = questionControls(group);
+    return controls.length === 1 || controls.length > 0 && controls.every(control =>
+      control.matches('input[type="radio"], [role="radio"]') && (group.matches('[role="radiogroup"]')
+        || control.matches('input[type="radio"]') && Boolean(element.name) && control.name === element.name));
+  };
+  const hasSingleQuestionContext = (element, group) => oneQuestionGroup(
+    group || element.form || element.closest('form') || element.ownerDocument.body, element);
+  const ownedGroupLabels = (group, selector, element) => {
+    const oneQuestion = oneQuestionGroup(group, element);
+    return [...(group?.querySelectorAll(selector) || [])].filter(label => {
+      const owner = label.closest('label') || label;
+      const linked = [...owner.querySelectorAll('label[for]'), ...(owner.matches('label[for]') ? [owner] : [])];
+      return label.closest(QUESTION_GROUP_SELECTOR) === group && !owner.contains(element)
+        && questionControls(owner).length === 0
+        && linked.every(node => Boolean(element.id) && node.getAttribute('for') === element.id)
+        && (linked.length > 0 || oneQuestion);
+    });
+  };
+
   function labelOf(element) {
+    const mirrorLabel = mirroredQuestionLabel(element);
+    if (mirrorLabel) return textOf(mirrorLabel);
     const doc = element.ownerDocument;
     const byIds = (ids) => ids.split(/\s+/).map((id) => textOf(doc.getElementById(id))).join(' ').trim();
     const labelledBy = element.getAttribute('aria-labelledby');
@@ -236,15 +355,18 @@
     // the question the candidate reads, right before the field, comes first.
     const aria = element.getAttribute('aria-label') || '';
     if (aria && !INTERNAL_NAME_RE.test(aria)) return aria;
-    if (aria) {
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    const ownContext = hasSingleQuestionContext(element, group) && hasSingleQuestionContext(element);
+    if (aria && ownContext) {
       const nearby = nearbyText(element);
       if (nearby) return nearby;
     }
     // A field group (Zag/Ark, fieldset): its own label or legend.
-    const group = element.closest('[role="group"], fieldset');
-    const legend = group?.querySelector('label, legend');
-    if (legend && !legend.contains(element) && textOf(legend)) return textOf(legend);
-    return questionOf(element) || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
+    for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
+      if (!legend.contains(element) && textOf(legend)) return textOf(legend);
+    }
+    return (ownContext ? questionOf(element) : '')
+      || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
   }
 
   // «[Default] Comment», «[General] Salary Expectations»: a form's own name for a field.
@@ -283,8 +405,10 @@
    */
   function labelsOf(element, label, runnerLabel = '') {
     const doc = element.ownerDocument;
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    const ownContext = hasSingleQuestionContext(element, group) && hasSingleQuestionContext(element);
     const described = (element.getAttribute('aria-describedby') || '').split(/\s+/).map((id) => textOf(doc.getElementById(id))).join(' ');
-    const names = [runnerLabel, label, nearbyText(element), element.getAttribute('aria-label'), described, questionOf(element),
+    const names = [runnerLabel, label, ownContext ? nearbyText(element) : '', element.getAttribute('aria-label'), described, ownContext ? questionOf(element) : '',
       element.getAttribute('title'), element.getAttribute('placeholder'), humanize(element.getAttribute('name')), humanize(element.id)];
     return [...new Set(names.map((name) => String(name || '').trim()).filter(Boolean))];
   }
@@ -298,17 +422,90 @@
     const read = root.CompilaRunnerFields;
     const byId = new Map();
     if (typeof read !== 'function') return byId;
+    const add = (id, field) => {
+      if (!id) return;
+      if (byId.has(id) && byId.get(id) !== field) byId.set(id, { nativeContractUnavailable: true });
+      else if (!byId.has(id)) byId.set(id, field);
+    };
     try {
       for (const field of read({ channelType }).fields || []) {
-        if (field.id) byId.set(field.id, field.label || '');
-        for (const option of field.options || []) if (option.aaId) byId.set(option.aaId, field.label || '');
+        add(field.id, field);
+        for (const option of field.options || []) add(option.aaId, field);
       }
     } catch {
       // A page the runner's reading does not understand: the engine's own names only.
     }
     return byId;
   }
-  const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id')) || '';
+  const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id'))?.label || '';
+
+  /** Residence context stays separate from question labels and kit answers. */
+  function runnerSectionOf(runner, element, suppliedField) {
+    const field = suppliedField || runner.get(element.getAttribute('data-aa-id'));
+    if (!field) return { section: '', scopes: [] };
+    const section = field.section || '';
+    const scopeSelector = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
+    const containingForm = element.closest('form');
+    const actualForm = element.form || containingForm;
+    if ((actualForm && containingForm && actualForm !== containingForm)
+      || ('form' in element && element.hasAttribute('form') && !element.form)) return null;
+    let boundary = actualForm || element.closest('[role="form"], dialog, [role="dialog"], main, [role="main"]');
+    if (actualForm) {
+      const container = actualForm.closest('main, [role="main"], section');
+      const forms = container ? [...container.querySelectorAll('form')] : [];
+      if (container?.contains(element) && forms.length === 1 && forms[0] === actualForm) boundary = container;
+      else if (!containingForm) return null;
+    }
+    if (!boundary) return { section: '', scopes: [] };
+    const names = [];
+    const scopesToRead = [];
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      // A control explicitly associated with this sole form keeps the
+      // submitted form's own names as well as its visible containing scopes.
+      if (node === boundary && actualForm && !containingForm) scopesToRead.push(actualForm);
+      scopesToRead.push(node);
+      if (node === boundary) break;
+    }
+    for (const node of scopesToRead) {
+      if (node.matches(scopeSelector) && (isShown(node) || node === actualForm && !containingForm)) {
+        const scopeNames = [];
+        const heading = [...node.children].filter(child => /^H[1-4]$/.test(child.tagName)
+          && isShown(child) && (node === actualForm && !containingForm || child.compareDocumentPosition(element) & 4)).at(-1);
+        if (heading && normalize(textOf(heading)) !== normalize(field.label || labelOf(element))) scopeNames.push(textOf(heading));
+        if (node.getAttribute('aria-label')) scopeNames.push(node.getAttribute('aria-label'));
+        for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+          const matches = [...node.ownerDocument.querySelectorAll('[id]')].filter(label => label.id === id);
+          if (matches.length !== 1) return null;
+          const label = matches[0];
+          const name = label ? textOf(label) : '';
+          if (!name) return null;
+          scopeNames.push(name);
+        }
+        const legend = [...node.children].find(child => child.tagName === 'LEGEND');
+        if (legend) scopeNames.push(textOf(legend));
+        if (scopeNames.length > 16) return null;
+        const group = [...new Set(scopeNames.map(value => String(value).replace(/\s+/g, ' ').trim()).filter(Boolean))].join(' · ');
+        if (group.length > 300) return null;
+        if (group) names.push(group);
+      }
+      if (node === boundary) break;
+    }
+    // The producer can see headings elsewhere in the document. A matching
+    // heading must also belong to a visible section containing this control;
+    // another form, step or fieldset cannot establish its address owner.
+    let owned = false;
+    for (const heading of boundary.querySelectorAll('h1, h2, h3, h4, legend')) {
+      const owner = heading.closest(scopeSelector);
+      if (!owner?.contains(element) || !isShown(heading) || !(heading.compareDocumentPosition(element) & 4)) continue;
+      const text = textOf(heading).replace(/\s+/g, ' ').trim();
+      if (normalize(text.slice(0, 300)) !== normalize(section)) continue;
+      if (text.length > 300) return null;
+      owned = true;
+    }
+    const context = [...new Set([...names, owned ? section : ''].map(value => String(value).replace(/\s+/g, ' ').trim()).filter(Boolean))];
+    if (context.length > 16 || context.some(value => value.length > 300)) return null;
+    return { section: context.join(' · '), scopes: context };
+  }
 
   function markerText(node) {
     return String(node?.innerText || node?.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 300);
@@ -318,6 +515,8 @@
     if (element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required')) return true;
     const doc = element.ownerDocument;
     const labels = new Set(element.labels || []);
+    const mirrorLabel = mirroredQuestionLabel(element);
+    if (mirrorLabel) labels.add(mirrorLabel);
     if (element.id) {
       const direct = doc.querySelector(`label[for="${element.id.replace(/["\\]/g, "\\$&")}"]`);
       if (direct) labels.add(direct);
@@ -328,9 +527,10 @@
       const node = doc.getElementById(id);
       if (node) labels.add(node);
     }
-    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
-    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
-    if (groupLabel && !groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    for (const groupLabel of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
+      if (!groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
+    }
     const marker = (node, adjacent = false) => {
       if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
       const text = markerText(node);
@@ -380,9 +580,14 @@
   function collect(doc, channelType = '') {
     const entries = [];
     const runner = runnerLabels(channelType);
+    const nativeIdCounts = new Map();
+    for (const node of doc.querySelectorAll('[data-aa-id]')) {
+      const id = node.getAttribute('data-aa-id');
+      nativeIdCounts.set(id, (nativeIdCounts.get(id) || 0) + 1);
+    }
     const inPicker = (element) => element.closest('[data-scope="date-picker"]');
     for (const picker of doc.querySelectorAll('[data-scope="date-picker"][data-part="root"]')) {
-      if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: questionOf(picker) || labelOf(picker), required: true });
+      if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: labelOf(picker), required: true });
     }
     // SAP UI5's date picker (SuccessFactors' «Geburtsdatum», Coop): its input lives in its shadow root.
     for (const picker of doc.querySelectorAll('[ui5-date-picker]')) {
@@ -411,10 +616,23 @@
         : element.tagName === 'SELECT' ? 'select'
           : element.getAttribute('role') === 'combobox' ? 'combobox'
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
-      const label = labelOf(element);
+      const label = runnerLabelOf(runner, element) || labelOf(element);
       const labels = labelsOf(element, label, runnerLabelOf(runner, element));
       entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
         ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
+    }
+    // Classic jQuery UI spans own a native select and its exact menu. The
+    // extension uses the same visible UI and verifies its submitted value.
+    for (const button of doc.querySelectorAll('.ui-selectmenu-button[role="combobox"]')) {
+      if (!isShown(button) || !button.id.endsWith('-button')) continue;
+      const nativeId = button.id.slice(0, -7);
+      const nativeSelect = doc.getElementById(nativeId);
+      if (nativeSelect?.tagName !== 'SELECT' || nativeSelect.multiple || nativeSelect.matches(':disabled')
+        || button.getAttribute('aria-owns') !== `${nativeId}-menu`) continue;
+      const label = labelOf(nativeSelect);
+      entries.push({ kind: 'combobox', widget: 'jquery-selectmenu', element: button, nativeSelect,
+        ownedList: `${nativeId}-menu`, label, labels: labelsOf(button, label, runnerLabelOf(runner, button)),
+        required: isRequiredControl(nativeSelect), type: 'select' });
     }
     // Workday's dropdowns: buttons that open a listbox (the runner's «listbox» fields).
     for (const button of doc.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
@@ -423,8 +641,13 @@
       const label = own === textOf(button) ? questionOf(button) || nearbyText(button) || own : own;
       // The site's own language menu is not part of the application.
       if (/language.?selector|sprachauswahl/i.test(`${label} ${button.getAttribute('data-automation-id') || ''}`)) continue;
+      const previous = button.previousElementSibling;
+      const nativeSelect = button.classList.contains('ui-multiselect') && previous?.tagName === 'SELECT'
+        && previous.id && previous.getAttribute('aria-labelledby')
+        && previous.getAttribute('aria-labelledby') === button.getAttribute('aria-labelledby') ? previous : null;
       entries.push({
         kind: 'listbox',
+        ...(nativeSelect ? { nativeSelect } : {}),
         element: button,
         label,
         labels: labelsOf(button, label, runnerLabelOf(runner, button)),
@@ -433,10 +656,12 @@
       });
     }
     for (const radios of radiosByName.values()) {
-      const question = questionOf(radios[0]);
-      const group = radios[0].closest('fieldset, [role="radiogroup"], [role="group"]');
-      const legend = group ? textOf(group.querySelector('legend, [role="heading"], label')) : '';
-      const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))];
+      const group = radios[0].closest(QUESTION_GROUP_SELECTOR);
+      const ownContext = hasSingleQuestionContext(radios[0], group) && hasSingleQuestionContext(radios[0]);
+      const question = ownContext ? questionOf(radios[0]) : '';
+      const legend = ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, radios[0])
+        .filter(node => !node.closest('label')?.hasAttribute('for') && !node.querySelector('label[for]')).map(textOf).find(Boolean) || '';
+      const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, ownContext ? nearbyText(group || radios[0].parentElement || radios[0]) : '', question].filter(Boolean))];
       entries.push({
         kind: 'radio',
         element: radios[0],
@@ -450,32 +675,54 @@
     const ariaGroups = new Map();
     for (const radio of doc.querySelectorAll('[role="radio"]')) {
       if (radio.tagName === 'INPUT' || !isShown(radio) || inPicker(radio)) continue;
-      const group = radio.closest('[role="radiogroup"]') || radio.parentElement?.parentElement?.parentElement || radio.parentElement;
-      const key = radio.closest('[role="radiogroup"]') ? group : questionOf(radio) || group;
+      const key = ariaRadioCluster(radio) || radio;
       if (!ariaGroups.has(key)) ariaGroups.set(key, []);
       ariaGroups.get(key).push(radio);
     }
     for (const radios of ariaGroups.values()) {
-      const group = radios[0].closest('[role="radiogroup"]');
-      const ariaLabel = (group && group.getAttribute('aria-label')) || questionOf(radios[0]);
+      const group = ariaRadioCluster(radios[0]);
+      const ownContext = hasSingleQuestionContext(radios[0]);
+      const ariaLabel = group ? labelOf(group) : ownContext ? questionOf(radios[0]) : '';
       entries.push({
         kind: 'aria-radio',
         element: radios[0],
         options: radios.map((radio) => ({ element: radio, label: textOf(radio) })),
         label: ariaLabel,
-        labels: [...new Set([runnerLabelOf(runner, radios[0]), ariaLabel, questionOf(radios[0]), nearbyText(group || radios[0].parentElement || radios[0])].filter(Boolean))],
+        labels: [...new Set([runnerLabelOf(runner, radios[0]), ariaLabel, ownContext ? questionOf(radios[0]) : '', ownContext ? nearbyText(group || radios[0].parentElement || radios[0]) : ''].filter(Boolean))],
         required: true,
       });
     }
-    return entries;
+    return entries.map(entry => {
+      const id = entry.element.getAttribute('data-aa-id');
+      const field = runner.get(id);
+      const malformedAddressOwner = Object.hasOwn(field || {}, 'addressContext')
+        && !validAddressContext(field.addressContext)
+        && addressEntryNeedsOwnership({ ...entry, label: field.label || entry.label, addressContext: field.addressContext });
+      if (entry.nativeContractUnavailable === true || field?.nativeContractUnavailable === true
+        || malformedAddressOwner || field?.consentOwnershipUnknown === true || (id && nativeIdCounts.get(id) !== 1)) {
+        return { ...entry, label: '', labels: [], section: null, purposeScopes: null, nativeContractUnavailable: true };
+      }
+      // A styled select's proxy is a locator; the native successful control
+      // owns the submitted meaning and its containing scopes.
+      const purpose = runnerSectionOf(runner, entry.nativeSelect || entry.element, field);
+      if (purpose === null && addressEntryNeedsOwnership({ ...entry, label: field?.label || entry.label })) {
+        return { ...entry, label: '', labels: [], section: null, purposeScopes: null, nativeContractUnavailable: true };
+      }
+      return { ...entry, ...(field?.consentOwnershipUnknown === true ? { consentOwnershipUnknown: true } : {}),
+        section: purpose === null ? null : purpose.section, purposeScopes: purpose === null ? null : purpose.scopes,
+        context: field?.context || '', nativeSection: field?.section || '',
+        ...(Object.hasOwn(field || {}, 'addressContext') ? { addressContext: field.addressContext } : {}) };
+    });
   }
 
   function isEmpty(entry) {
     const { element } = entry;
+    if (entry.widget === 'jquery-selectmenu') return !entry.nativeSelect.value;
     if (entry.kind === 'checkbox') return !element.checked;
     if (entry.kind === 'file') return !(element.files && element.files.length);
     if (entry.kind === 'radio') return !entry.options.some((option) => option.element.checked);
     if (entry.kind === 'aria-radio') return !entry.options.some((option) => option.element.getAttribute('aria-checked') === 'true');
+    if (entry.kind === 'listbox' && entry.nativeSelect) return !entry.nativeSelect.selectedOptions.length;
     if (entry.kind === 'listbox') return LISTBOX_PLACEHOLDER_RE.test(normalize(textOf(element))) || !normalize(textOf(element));
     if (entry.kind === 'search-select') return !chosenPills(element).length && !String(element.value || '').trim();
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
@@ -518,17 +765,51 @@
    * The kit answer whose question is one of the control's names (the
    * runner's own wording first): an exact match on any name, then a prefix.
    */
-  function kitAnswer(labels, kit) {
+  function kitAnswer(labels, kit, entry) {
     const wanted = (Array.isArray(labels) ? labels : [labels]).map(normalize).filter(Boolean);
     if (!wanted.length) return null;
-    const answers = kit.answers || [];
-    const exact = answers.find((item) => wanted.includes(normalize(item.question)));
-    if (exact) return exact;
+    const scopedAddress = Boolean(entry && addressEntryNeedsOwnership(entry));
+    const answers = (kit.answers || []).filter(item => !scopedAddress || ownedKitAddressAnswer(entry, item));
+    const pick = items => {
+      if (!items.length) return null;
+      if (scopedAddress && new Set(items.map(item => normalize(item.answer))).size !== 1) return null;
+      return items[0];
+    };
+    const exact = answers.filter((item) => wanted.includes(normalize(item.question)));
+    if (exact.length) return pick(exact);
+    if (scopedAddress) return null;
     // «Carica il tuo CV · Carica file»: the runner joins a heading and a label.
-    return answers.find((item) => {
+    return pick(answers.filter((item) => {
       const question = normalize(item.question);
       return question.length >= 6 && wanted.some((name) => name.length >= 6 && (question.startsWith(name) || name.startsWith(question) || question.includes(` ${name}`)));
-    }) || null;
+    }));
+  }
+
+  function addressEntryNeedsOwnership(entry) {
+    if (isIdentityEmailCaption(entry.label || entry.labels?.find(Boolean) || '')) return false;
+    if (isPhoneCountryEntry({ ...entry, labels: [entry.label || entry.labels?.find(Boolean) || ''] })) return false;
+    const text = normalize((entry.labels || [entry.label]).join(' '));
+    const auto = String(entry.element.getAttribute('autocomplete') || '').slice(0, 100);
+    const nativeBirthDate = /^(?:birth|nascita|geburt|naissance)$/iu.test(text) && (entry.kind === 'native-date' || entry.type === 'date' || ['date', 'ui5-date'].includes(entry.kind));
+    return mentionsResidenceFieldRole(entry.label || entry.labels?.find(Boolean) || '') || FAMILIES.some(([family, pattern]) => ADDRESS_FAMILIES.has(family) && pattern.test(text))
+      || (BIRTH_FIELD_RE.test(text) && !DATE_OF_BIRTH_RE.test(text) && !nativeBirthDate) || BIRTH_LOCATION_RE.test(text) || /\b(?:city|citta|town|locality|ville|ort|comune|lieu|country|land|pays|nazione|paese|street|strasse|rue|address|adresse|indirizzo|cap|postal|postcode|zip|plz|npa)\b/.test(text)
+      || /(?:^|\s)(?:address-level[1-4]|street-address|address-line[1-3]|postal-code|country|country-name)(?:$|\s)/i.test(auto);
+  }
+
+  function validAddressContext(context) {
+    return hasAddressContextOwnership({ addressContext: context });
+  }
+
+  function ownedKitAddressAnswer(entry, item) {
+    if (!['answers', 'candidate', 'user'].includes(item?.source)) return false;
+    if (entry.section === null) return false;
+    const current = entry.addressContext;
+    const prior = item.addressContext;
+    if (!validAddressContext(current) || !validAddressContext(prior)) return false;
+    return current.section === prior.section && JSON.stringify(current.owners) === JSON.stringify(prior.owners)
+      && normalize(item.context) === normalize(String(entry.context || '').slice(0, 240))
+      && normalize(item.section) === normalize(String(entry.nativeSection || '').slice(0, 240))
+      && String(item.autocomplete || '') === String(entry.element.getAttribute('autocomplete') || '').slice(0, 100);
   }
 
   // HTML autocomplete tokens (the last token: «section-x shipping postal-code»).
@@ -540,30 +821,57 @@
 
   function isPhoneCountryEntry(entry) {
     const labels = entry.labels || [entry.label];
-    const labelText = normalize(labels.join(' '));
+    const primary = entry.label || labels.find(Boolean) || '';
+    const labelText = normalize(primary);
     if (!COUNTRY_WORD_RE.test(labelText) || RESIDENCE_CONTEXT_RE.test(labelText)) return false;
-    const explicit = PHONE_COUNTRY_CODE_RE.test(labelText)
-      || (COUNTRY_WORD_RE.test(labelText) && /\b(?:phone|telephone|telefon|telefono|mobile|natel)\b/.test(labelText));
-    const scope = entry.element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question');
-    const scopeText = normalize(textOf(scope));
-    const hasPhoneControl = Boolean(scope?.querySelector('input[type="tel"], input[autocomplete="tel"], [data-aa-phone]'));
-    return explicit || (hasPhoneControl && !RESIDENCE_CONTEXT_RE.test(scopeText));
+    if (Object.hasOwn(entry, 'addressContext') && !validAddressContext(entry.addressContext)) return false;
+    const ownerText = normalize(Object.hasOwn(entry, 'addressContext')
+      ? [entry.addressContext.section, ...entry.addressContext.owners].join(' ') : entry.section || '');
+    if (NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(ownerText) || BIRTHPLACE_RE.test(ownerText)) return false;
+    const phoneLabel = /\b(?:phone|telephone|telefon|telefono|mobile|natel)\b/.test(labelText);
+    const phoneScope = hasTelephonePurpose(Object.hasOwn(entry, 'addressContext')
+      ? [...entry.addressContext.owners, entry.addressContext.section] : entry.purposeScopes || []);
+    const explicit = (PHONE_COUNTRY_CODE_RE.test(labelText) && (phoneLabel || phoneScope))
+      || (COUNTRY_WORD_RE.test(labelText) && phoneLabel);
+    return explicit || (residenceFieldRole(primary) === 'country' && phoneScope);
   }
 
   function familyOf(entry) {
-    if (entry.type === 'email') return 'email';
-    if (entry.type === 'tel') return 'phone';
+    if ((entry.labels || [entry.label]).some(name => BIRTH_LOCATION_RE.test(normalize(name)))) return null;
+    const nativeBirthDate = (entry.type === 'date' || entry.kind === 'date') && /^(?:birth|nascita|geburt|naissance)$/iu.test(normalize(entry.label));
+    if (BIRTH_FIELD_RE.test(normalize(`${entry.label || ''} ${entry.section || ''}`))
+      && !DATE_OF_BIRTH_RE.test(normalize(entry.label)) && !nativeBirthDate) return null;
+    if (nativeBirthDate) return 'birthDate';
     const labels = entry.labels || [entry.label];
-    if (isPhoneCountryEntry(entry)) return 'phoneCountry';
+    const primaryLabel = entry.label || labels.find(Boolean) || '';
+    if (isPhoneCountryEntry({ ...entry, labels: [primaryLabel] })) return 'phoneCountry';
     const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
     const autoFamily = AUTOCOMPLETE[auto];
     // Autocomplete identifies the value type, not whose address it is. Only
     // visible labels and the surrounding section may establish residence
     // provenance; a section-personal token alone must stay ownerless.
-    const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''}`);
-    const candidateAddress = (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
-      || RESIDENCE_CONTEXT_RE.test(addressContext))
-      && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext);
+    const nativeOwner = validAddressContext(entry.addressContext) ? [entry.addressContext.section, ...entry.addressContext.owners].join(' ') : '';
+    const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''} ${nativeOwner}`);
+    const addressRole = residenceFieldRole(primaryLabel);
+    const candidateAddress = Boolean(addressRole) && entry.section !== null
+      && (!Object.hasOwn(entry, 'addressContext') || validAddressContext(entry.addressContext))
+      && hasResidencePurpose(validAddressContext(entry.addressContext)
+        ? [...entry.addressContext.owners, entry.addressContext.section] : entry.purposeScopes || [], primaryLabel)
+      && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
+      && !BIRTHPLACE_RE.test(addressContext)
+      // A browser autocomplete token describes a type, not its owner. An
+      // explicit birthplace or another person's/company's label vetoes even
+      // a genuine personal section before the autocomplete branch below.
+      && !labels.some(name => NOT_PERSON_RE.test(normalize(name)) || BIRTHPLACE_RE.test(normalize(name)));
+    if (addressRole) {
+      const family = { city: 'city', country: 'country', postalCode: 'postalCode', street: 'street', address: 'street' }[addressRole];
+      return candidateAddress && family ? family : null;
+    }
+    // A weak name/placeholder/autocomplete must not turn an unrecognized
+    // geographic question into another personal fact such as date of birth.
+    if (addressEntryNeedsOwnership({ ...entry, labels: [entry.label || labels.find(Boolean) || ''] })) return null;
+    if (entry.type === 'email') return 'email';
+    if (entry.type === 'tel') return 'phone';
     if (autoFamily) {
       // `postal-code`, `address-level2`, etc. identify a value type, not
       // whose address it is. Require explicit candidate-residence context.
@@ -623,19 +931,30 @@
 
   /** The value for one entry, or null: never invented, always from the kit. */
   function answerFor(entry, kit) {
-    const fromKit = kitAnswer(entry.labels || [entry.label], kit);
+    if (entry.nativeContractUnavailable === true) return null;
+    const fromKit = kitAnswer(entry.labels || [entry.label], kit, entry);
     if (entry.kind === 'file') {
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
       const accept = String(entry.element.getAttribute('accept') || '');
       if (/image|png|jpe?g/i.test(accept) && !/pdf|doc/i.test(accept)) return null;
+      const ownLabel = normalize(entry.label);
+      if (isNonCvDocumentLabel(entry.label)) {
+        const extra = extraDocumentFor(ownLabel, kit);
+        return extra ? { document: extra } : null;
+      }
+      if (!CV_RE.test(ownLabel) && isNonCvDocumentLabel(label)) {
+        const extra = extraDocumentFor(label, kit);
+        return extra ? { document: extra } : null;
+      }
       if (LETTER_RE.test(label) && !CV_RE.test(label)) return { document: 'coverLetter' };
       if (CV_RE.test(label)) return { document: 'cv' };
       const extra = extraDocumentFor(label, kit);
       if (extra) return { document: extra };
-      if (fromKit?.source === 'documents' || CV_RE.test(normalize(questionOf(entry.element)))) return { document: 'cv' };
+      if (fromKit?.source === 'documents' || (CV_RE.test(normalize(questionOf(entry.element))) && !isNonCvDocumentLabel(questionOf(entry.element)))) return { document: 'cv' };
       return null;
     }
     if (entry.kind === 'checkbox') {
+      if (entry.consentOwnershipUnknown === true) return null;
       // JazzHR/Resumator (Fincons) puts the required privacy statement in the
       // label immediately before a separate «I agree» checkbox. Use all the
       // control's labels, but keep marketing/newsletter opt-ins excluded.
@@ -647,14 +966,16 @@
     // Contact facts are canonical identity data, not answers copied from the
     // last portal run. This is the boundary that prevents a stale «Schweiz»
     // answer from overwriting an Italian phone prefix or a blank residence.
-    if (['phone', 'phoneCountry', 'country'].includes(family)) {
+    if (ADDRESS_FAMILIES.has(family) && fromKit?.current === true) return { value: fromKit.answer };
+    if (['phone', 'phoneCountry', ...ADDRESS_FAMILIES].includes(family)) {
       const value = identityValue(family, kit);
-      return value ? { value, family } : null;
+      if (value) return { value, family };
+      if (['phone', 'phoneCountry', 'country'].includes(family)) return null;
     }
     // A generic country label has no residence provenance. Do not reuse a
     // portal answer whose meaning cannot be established from the page.
     const labelText = normalize((entry.labels || [entry.label]).join(' '));
-    if (!family && COUNTRY_WORD_RE.test(labelText) && !RESIDENCE_CONTEXT_RE.test(labelText)) return null;
+    if (!family && !fromKit && COUNTRY_WORD_RE.test(labelText) && !RESIDENCE_CONTEXT_RE.test(labelText)) return null;
     if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
     const value = family ? identityValue(family, kit) : '';
     // «Full time»/«Part time» describes the desired workload, not a notice
@@ -958,6 +1279,15 @@
         element.files = transfer.files;
         fire(element, 'input');
         fire(element, 'change');
+        // The same optional-parser disclosure rule as the automated runner;
+        // decline only a scoped dialog that explicitly permits continuing.
+        if (typeof view.CompilaOptionalAutofillDecline === 'function') {
+          const button = await waitFor(() => view.CompilaOptionalAutofillDecline()
+            && element.ownerDocument.querySelector('[data-aa-autofill-decline="1"]'));
+          if (button) {
+            try { press(button); } finally { button.removeAttribute('data-aa-autofill-decline'); }
+          }
+        }
         return Boolean(element.files && element.files.length === (element.multiple ? files.length : 1));
       }
       case 'checkbox':
@@ -976,14 +1306,38 @@
         return true;
       }
       case 'select': {
-        const option = bestOption([...element.options].map((item) => ({ element: item, label: item.text })), answer.value, answer.family);
+        const option = bestOption([...element.options].filter(item => !item.matches(':disabled') && !item.closest('optgroup:disabled')).map((item) => ({ element: item, label: item.text })), answer.value, answer.family);
         if (!option) return false;
         setValue(element, option.element.value);
         return true;
       }
       case 'combobox':
+        if (entry.widget === 'jquery-selectmenu') {
+          const options = [...entry.nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')
+            && normalize(option.text) === normalize(answer.value));
+          if (options.length !== 1) return false;
+          const option = options[0];
+          press(element);
+          const menu = element.ownerDocument.getElementById(entry.ownedList);
+          const choices = [...(menu?.querySelectorAll('.ui-menu-item-wrapper, [role="option"]') || [])]
+            .filter(item => isShown(item) && normalize(textOf(item)) === normalize(option.text) && item.getAttribute('aria-disabled') !== 'true');
+          if (choices.length !== 1) return false;
+          press(choices[0]);
+          return entry.nativeSelect.value === option.value;
+        }
         return chooseInCombobox(element, answer.value, entry.selectLike, answer.family);
       case 'listbox': {
+        if (entry.nativeSelect) {
+          const option = bestOption([...entry.nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ element: option, label: option.text })), answer.value, answer.family);
+          if (!option) return false;
+          press(element);
+          const inputs = [...element.ownerDocument.getElementsByName(`multiselect_${entry.nativeSelect.id}`)]
+            .filter(input => input.matches('input[type="checkbox"], input[type="radio"]') && input.value === option.element.value);
+          if (inputs.length !== 1) return false;
+          if (!inputs[0].checked) press(inputs[0]);
+          fire(element, 'keydown', { key: 'Escape' });
+          return [...entry.nativeSelect.selectedOptions].some(selected => selected.value === option.element.value);
+        }
         // Open it, click the option the answer names (lib/portal/fill.mjs: exact label).
         press(element);
         const option = await waitFor(() => bestOption(openOptions(element.ownerDocument), answer.value, answer.family));
@@ -1064,15 +1418,34 @@
    * One pass on the page: answers every empty question the kit can answer.
    * @returns {Promise<{filled:string[], missing:Array<{label:string, answer:string}>, failed:string[], entries:number}>}
    */
+  const anonymousUploadIds = new WeakMap();
+  let anonymousUploadCounter = 0;
+  function uploadControlId(element) {
+    const stable = element.getAttribute('data-aa-id') || element.id;
+    if (stable) return stable;
+    // A name or label can be shared by several controls. Without a stable DOM
+    // id, remember this node only; a replacement node needs its own receipt.
+    if (!anonymousUploadIds.has(element)) anonymousUploadIds.set(element, `anonymous-${++anonymousUploadCounter}`);
+    return anonymousUploadIds.get(element);
+  }
+
   async function fillPage(doc, kit, { getFile, getFiles, attempts, uploaded = new Set() }) {
     const filled = [];
     const missing = [];
     const failed = [];
     const entries = collect(doc, kit?.channelType);
+    const cvControls = entries.filter(entry => entry.kind === 'file' && answerFor(entry, kit)?.document === 'cv');
+    const preferredCv = new Set(preferredDocumentControls(cvControls));
     for (const entry of entries) {
+      if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
+      if (entry.nativeContractUnavailable === true) {
+        failed.push(entry.label || entry.kind);
+        missing.push({ label: entry.label || entry.kind, answer: '', reason: 'native_contract_unavailable' });
+        continue;
+      }
       if (!isEmpty(entry)) continue;
       const answer = answerFor(entry, kit);
-      const documentKey = answer?.document ? `${doc.defaultView.location.pathname}|${answer.document}` : '';
+      const documentKey = answer?.document ? `${doc.defaultView.location.href}|${answer.document}|${uploadControlId(entry.element)}` : '';
       if (documentKey && uploaded.has(documentKey)) continue;
       if (!answer) {
         if (entry.required) missing.push({ label: entry.label || entry.kind, answer: '' });
@@ -1130,7 +1503,7 @@
   }
 
   root.CompilaCandidatura = {
-    NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
+    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
     config, normalize, textOf, labelOf, questionOf, collect, isEmpty, answerFor, bestOption,
     parseDate, formatForInput, phoneFor, fillEntry, fillPage, pageState, cookieRefusal,
     pageSignature, nextButton, finalButton, press, setValue, sleep,
