@@ -3564,7 +3564,11 @@ export function buildStandaloneCrossRepoWorkflow({
   // the reusable site logic is never itself the recovery target.
   if (workflowFile === 'translate-pending.yml') {
     const readyIndex = job.steps.findIndex((step) => step?.id === 'checkout');
-    job.steps.splice(readyIndex + 1, 0, {
+    const abortIndex = job.steps.findIndex((step) => step?.id === 'checkout_abort');
+    if (readyIndex < 0 || abortIndex < 0 || abortIndex <= readyIndex) {
+      throw new Error(`${name}: checkout abort must follow the checkout readiness gate`);
+    }
+    job.steps.splice(abortIndex + 1, 0, {
       name: 'Validate recovery successor claim',
       id: 'recovery_guard',
       if: "steps.checkout.outcome == 'success' && github.run_attempt > 1",
