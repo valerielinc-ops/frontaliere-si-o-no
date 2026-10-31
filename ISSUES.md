@@ -91,7 +91,7 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 
 ### Abort senza PR (no fix forzato)
 
-- **Solo codici `FIX_OUTCOME` dello step 8:** `pr-created`, `blocked-workflows-scope`, `blocked-secrets`, `blocked-admin-settings`, `no-root-cause`, `overlap-skip`, `pr-already-open`, `already-fixed`, `revenue-tracker-manual`. Codice inventato: non è verdetto; il drainer non lo mette in `NON_RETRYABLE` e ri-accoda. `automation-deferred` è label, non esito.
+- **Solo codici `FIX_OUTCOME` dello step 8:** `pr-created`, `blocked-workflows-scope`, `blocked-secrets`, `blocked-admin-settings`, `no-root-cause`, `overlap-skip`, `pr-already-open`, `already-fixed`, `revenue-tracker-manual`, `no-pr-unspecified`, `max-turns`, `rate-limited`, `skip-duplicate-diagnosis`. Codice inventato: non è verdetto; il drainer non lo mette in `NON_RETRYABLE` e ri-accoda. `automation-deferred` è label, non esito.
 - Root cause incerta → "Root cause non determinata: <cosa hai trovato>", `<!-- FIX_OUTCOME: no-root-cause -->`, `<!-- AUTOMATION_DEFERRED: technical -->`, label `automation-deferred`, termina senza domande.
   - **Daily bucket** (`follow-up(daily:…)`): `no-root-cause` vale per l'item selezionato, non per la issue. Solo marker `FIX_OUTCOME`: no `AUTOMATION_DEFERRED`/label `automation-deferred`, routing intatto. Il post-step `scripts/ci/route-already-fixed.mjs` porta l'item a `State: blocked` con `FU_ITEM_BLOCKED reason=no-root-cause` (stesso ramo per `blocked-admin-settings`) e il bucket resta in coda per l'item successivo.
 - Già risolto su `main` → `already-fixed` + `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->`. Capability mancante → il `blocked-*` che la nomina.
