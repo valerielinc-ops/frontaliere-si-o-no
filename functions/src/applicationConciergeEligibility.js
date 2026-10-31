@@ -98,7 +98,8 @@ async function evaluateConciergePosting({ job, profile, answers = {}, answerEvid
   const result = checked.status === 'unverified'
     ? { status: 'unverified', reason: checked.reason, gaps: [], questions: [] } : preliminary;
   const entailment = checked.verification || { version: EVIDENCE_ENTAILMENT_VERSION, status: 'not_required' };
-  return { ...result, postingHash, requirements, match, posting, entailment };
+  return { ...result, postingHash, requirements: checked.assessment?.requirements || requirements,
+    match: checked.assessment?.match || match, posting, entailment };
 }
 
 export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = null, readPosting = fetchJobPosting, background = false, signal = null }) {

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { qualificationSources, verifyQualificationEvidence, hasVerifiedQualificationEvidence,
-  qualificationAssessmentHash, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
+  qualificationAssessmentHash, hasVerifiedQualificationAssessment, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
 import { qualificationEvidenceCases } from './fixtures/qualification-evidence-cases.mjs';
 
 function fixture(cases = qualificationEvidenceCases().filter(item => item.group === 'yellowshark-positive')) {
@@ -146,9 +146,9 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     f.requirements.requirements[0].quote = 'Changed employer condition';
     release({ assessments: payload.claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id, verdict: 'supported', reason: 'explicit_fact' })) });
     const result = await pending;
-    expect(result.status).toBe('supported');
-    expect(result.verification.assessmentHash).toBe(expectedHash);
-    expect(result.verification.assessmentHash).not.toBe(qualificationAssessmentHash(f.requirements, f.match));
+    expect(result).toMatchObject({ status: 'unverified', verification: { failure: 'input_changed' } });
+    expect(result).not.toHaveProperty('assessment');
+    expect(expectedHash).not.toBe(qualificationAssessmentHash(f.requirements, f.match));
   });
 
   it('never supplies a neighboring CV action as evidence for an unrelated selected quote', async () => {
@@ -165,6 +165,18 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
       return { assessments: [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'unsupported', reason: 'unrelated_evidence' }] };
     });
     expect((await verifyQualificationEvidence({ ...f, sources, requirements, match: { matches: [{ index: 0, status: 'met', evidence }] }, rawMatch: { matches: [] }, purpose: 'documents' })).status).toBe('unverified');
+  });
+
+  it('records a current document assessment without asserting compatibility when there are no positive claims', async () => {
+    const f = fixture();
+    const match = { ...f.match, matches: f.match.matches.map(row => ({ ...row, status: 'missing', evidence: '' })) };
+    const result = await verifyQualificationEvidence({ ...f, match, purpose: 'documents' });
+    expect(result).toMatchObject({ status: 'not_required', verification: { status: 'no_positive_claims' } });
+    const assessment = { requirements: f.requirements, match, entailment: result.verification };
+    expect(hasVerifiedQualificationAssessment(assessment)).toBe(true);
+    expect(hasVerifiedQualificationEvidence({ ...assessment, result: { status: 'compatible' } })).toBe(false);
+    expect(hasVerifiedQualificationAssessment({ ...assessment, entailment: { ...result.verification, promptHash: 'old-policy' } })).toBe(false);
+    expect(f.generate).not.toHaveBeenCalled();
   });
 
   it('does not label a profile projection or a bare answer as original primary evidence', async () => {

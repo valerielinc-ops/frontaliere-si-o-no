@@ -218,7 +218,7 @@ export async function buildDraft(ctx) {
   });
   // A vetted cache is bound to the complete match, current CV, posting, answers and protocol.
   // Other paths resolve only original CV / server-attested Q/A, never raw notes or corrections.
-  const match = reuseQualifiedMatch ? structuredClone(qualification.match)
+  let match = reuseQualifiedMatch ? structuredClone(qualification.match)
     : guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, sources.verificationText),
       { profile, sourceText: cvText, answers, memory: flow?.questionAnswers || {}, locale });
   const checked = reuseQualifiedMatch && hasVerifiedQualificationEvidence({ ...qualification, requirements, match })
@@ -228,6 +228,9 @@ export async function buildDraft(ctx) {
       unverifiedContext: { values: answers, candidateNotes, corrections: edited.overrides, feedback: flow?.feedback || [] },
       generate: (system, user, schema) => codex({ prompt: codexPrompt(system, user), schema, timeoutMs: EVIDENCE_TIMEOUT_MS }) });
   if (checked.status === 'unverified') throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
+  requirements = checked.assessment?.requirements || requirements;
+  match = checked.assessment?.match || match;
+  const qualificationMatch = structuredClone(match);
   // Start parallel artifact work only after the evidence gate: a technical abort above
   // cannot leave a tailored-CV promise or an uploaded PDF behind.
   // The tailored ATS CV runs alongside document writing after qualification.
@@ -477,6 +480,7 @@ export async function buildDraft(ctx) {
     letterAddress,
     matches: match.matches,
     entailment: checked.verification || null,
+    qualificationMatch,
     verdict: match.verdict,
     summaryIt: match.summaryIt,
     checksIt: match.checksIt,

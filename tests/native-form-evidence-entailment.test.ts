@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { nativeEvidenceCatalog } from './helpers/nativeEvidenceCatalog';
 import { nativeFormAssessmentHash, NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT, qualificationSources, verifyNativeFormAnswers } from '../functions/src/lib/qualificationEvidence.js';
 
 function fixture() {
@@ -9,6 +10,7 @@ function fixture() {
   ];
   const generate = vi.fn(async (system: string, user: string, _schema?: any, _options?: any) => {
     const payload = JSON.parse(user);
+    if (payload.sourceColumns) payload.sources = nativeEvidenceCatalog(payload);
     if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) return { assessments: payload.claims.map((claim: any) => ({ index: claim.index,
       sourceIds: [payload.sources.find((source: any) => source.quote.includes(claim.index ? 'eight years' : 'Master’s Degree')).sourceId] })) };
     return { assessments: payload.claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id, verdict: 'supported', reason: 'explicit_fact' })) };
@@ -25,6 +27,7 @@ describe('blind native form answer evidence selection', () => {
     const [system, user, schema, options] = f.generate.mock.calls[0];
     expect(system).toBe(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT);
     const payload = JSON.parse(user);
+    if (payload.sourceColumns) payload.sources = nativeEvidenceCatalog(payload);
     expect(payload.claims.map((claim: any) => claim.proposedAnswer)).toEqual(['Yes', 8]);
     expect(user).not.toContain('untrusted planner');
     expect(user).not.toContain('"status":"met"');
@@ -68,6 +71,7 @@ describe('blind native form answer evidence selection', () => {
     f.generate.mockImplementation(async (system, user, schema, options) => {
       if (system !== NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) return original(system, user, schema, options);
       payload = JSON.parse(user);
+      if (payload.sourceColumns) payload.sources = nativeEvidenceCatalog(payload);
       return new Promise(resolve => { release = resolve; });
     });
     const pending = verifyNativeFormAnswers({ ...f, unverifiedContext: counter });
@@ -110,10 +114,12 @@ describe('blind native form answer evidence selection', () => {
     const sources = qualificationSources({ sourceText: `Software Engineer — Example Systems\n${new Date().getUTCFullYear() - 8} – Present` });
     f.generate.mockImplementation(async (system, user) => {
       const payload = JSON.parse(user);
+    if (payload.sourceColumns) payload.sources = nativeEvidenceCatalog(payload);
       if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) {
         const date = payload.sources.find((source: any) => source.quote.includes('Present'));
         const role = payload.sources.find((source: any) => source.quote.includes('Software Engineer'));
-        expect(date.contextSourceIds).toContain(role.sourceId);
+        expect(date.position.block).toBe(role.position.block);
+        expect(date.position.ordinal).toBe(role.position.ordinal + 1);
         return { assessments: [{ index: 0, sourceIds: [role.sourceId, date.sourceId] }] };
       }
       expect(payload.claims[0].proof.quotes.map((proof: any) => proof.quote).join(' ')).toContain('Software Engineer');
@@ -141,6 +147,7 @@ describe('blind native form answer evidence selection', () => {
     const sources = qualificationSources({ answerEvidence: [{ id: 'answer-no', question, answer: false, category: 'work_authorization', unit: 'boolean', scope: 'job', provenance: { actor: 'candidate', round: 2 } }] });
     f.generate.mockImplementation(async (system, user) => {
       const payload = JSON.parse(user);
+    if (payload.sourceColumns) payload.sources = nativeEvidenceCatalog(payload);
       if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) return { assessments: [{ index: 0, sourceIds: [payload.sources[0].sourceId] }] };
       expect(payload.claims[0].proposedAnswer).toBe(false);
       expect(payload.claims[0].proof.quotes[0].answerRecord.answer).toBe(false);
@@ -179,4 +186,48 @@ describe('blind native form answer evidence selection', () => {
     expect(await verifyNativeFormAnswers(f)).toMatchObject({ status: 'unverified', verification: { failure: 'judge_unavailable' } });
     expect(f.generate).toHaveBeenCalledTimes(1);
   });
+
+  it.each([1, 12])('preserves all 138 short CV units within the complete input budget for %s native claims', async count => {
+    const f = fixture();
+    const lines = Array.from({ length: 138 }, (_, index) => `Original curriculum unit ${index} content`);
+    const sources = qualificationSources({ sourceText: lines.join('\n') });
+    const claims = Array.from({ length: count }, (_, index) => ({ ...f.claims[0], fieldId: `field-${index}` }));
+    f.generate.mockImplementation(async (system, user, schema) => {
+      expect(system.length + user.length + JSON.stringify(schema).length).toBeLessThanOrEqual(24_000);
+      const payload = JSON.parse(user);
+      if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) {
+        const catalog = nativeEvidenceCatalog(payload);
+        expect(catalog.map(source => source.quote)).toEqual(lines);
+        return { assessments: payload.claims.map((claim: any) => ({ index: claim.index, sourceIds: [catalog[0].sourceId] })) };
+      }
+      return { assessments: payload.claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id, verdict: 'supported', reason: 'explicit_fact' })) };
+    });
+    expect((await verifyNativeFormAnswers({ ...f, claims, sources })).status).toBe('supported');
+    expect(f.generate).toHaveBeenCalledTimes(2);
+  });
+
+  it.each([
+    ['2018–Present | Software engineer specialising in Python', true],
+    ['2018 – Present', false],
+    ['Python engineer\n2022 – Present\n\nSQL engineer\n2010 – 2018', false],
+    ['SQL engineer\n2010 – 2018\n\nPython engineer\n2022 – Present', false],
+  ])('keeps complete date/role units and rejects cross-experience fragment combinations: %s', async (text, supported) => {
+    const f = fixture();
+    const sources = qualificationSources({ sourceText: text as string });
+    const claims = [{ fieldId: 'tenure', nativeFormContract: { question: 'Have you worked as a Python engineer since 2018?' }, proposedAnswer: 'Yes' }];
+    f.generate.mockImplementation(async (system, user) => {
+      const payload = JSON.parse(user);
+      if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) {
+        const catalog = nativeEvidenceCatalog(payload);
+        const ids = catalog.length === 1 ? [catalog[0].sourceId]
+          : [catalog.find(source => source.quote === 'Python engineer').sourceId, catalog.find(source => source.quote === '2010 – 2018').sourceId];
+        return { assessments: [{ index: 0, sourceIds: ids }] };
+      }
+      return { assessments: [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'supported', reason: 'relevant_role_or_tenure' }] };
+    });
+    const result = await verifyNativeFormAnswers({ ...f, claims, sources });
+    expect(result.status).toBe(supported ? 'supported' : 'unverified');
+    expect(f.generate).toHaveBeenCalledTimes(supported ? 2 : 1);
+  });
+
 });
