@@ -13,7 +13,7 @@ export type FaqLocaleMap = Record<string, { en: FaqTranslation; de: FaqTranslati
  * Lookup map: Italian question (trimmed) → translations in EN/DE/FR.
  * Key = exact Italian "name" field from FAQPage mainEntity entries.
  */
-export const FAQ_TRANSLATIONS: FaqLocaleMap = {
+const FAQ_TRANSLATION_BASE: FaqLocaleMap = {
  // Domande presenti in seo-pages.ts senza traduzione: coperte da tests/faq-coverage.test.ts
  "Quanto sono più alti i prezzi in Svizzera rispetto all’Italia?": {
  en: {
@@ -4856,9 +4856,9 @@ const HOMEPAGE_FAQ_TRANSLATIONS: FaqLocaleMap = {
   fr: { q: "Qui est frontalier fiscal au sens du nouvel accord ?", a: "L’accord exige une résidence fiscale dans une commune figurant sur la liste bilatérale des communes de la zone de 20 km, un travail au Tessin, dans les Grisons ou en Valais et, en principe, un retour quotidien. Jusqu’à 45 jours sans retour quotidien sont admis pour des raisons professionnelles par année civile. AFC/ESTV : https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" }
  },
  "Chi può rientrare nel regime transitorio dei vecchi frontalieri?": {
-  en: { q: "Who may qualify for the transitional regime for former cross-border workers?", a: "A worker may qualify if the fiscal cross-border conditions were met and qualifying work was performed in Ticino, Graubünden or Valais on July 17, 2023, or during the period from December 31, 2018 to July 17, 2023. ESTV states that there is no minimum employment period; the other applicable conditions still have to be met. Source: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
-  de: { q: "Wer kann unter die Übergangsregelung für bisherige Grenzgänger fallen?", a: "Eine Person kann die Regelung beanspruchen, wenn sie die steuerlichen Grenzgängerbedingungen erfüllte und am 17. Juli 2023 oder im Zeitraum vom 31. Dezember 2018 bis zum 17. Juli 2023 im Tessin, in Graubünden oder im Wallis qualifiziert beschäftigt war. Laut ESTV gibt es keine Mindestbeschäftigungsdauer; die übrigen Voraussetzungen müssen weiterhin erfüllt sein. Quelle: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
-  fr: { q: "Qui peut relever du régime transitoire des anciens frontaliers ?", a: "Une personne peut y avoir droit si elle remplissait les conditions fiscales du frontalier et exerçait une activité qualifiante au Tessin, dans les Grisons ou en Valais le 17 juillet 2023, ou durant la période du 31 décembre 2018 au 17 juillet 2023. L’AFC indique qu’aucune durée minimale d’emploi n’est prévue ; les autres conditions applicables restent nécessaires. Source : https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" }
+  en: { q: "Who may qualify for the transitional regime for former cross-border workers?", a: "A worker may qualify if the fiscal cross-border conditions were met and qualifying work was performed in Ticino, Graubünden or Valais on July 17, 2023, or during the period from December 31, 2018 to July 17, 2023. ESTV states that there is no minimum employment period; the other applicable conditions still have to be met. The agreement’s fiscal definition requires a daily return home in principle. Weekly return is a separate EU/EFTA G-permit requirement, not the agreement’s fiscal test. New fiscal cross-border workers pay 80% of the ordinary Swiss withholding-tax rate, while Italy grants a credit for Swiss tax paid under its rules. Source: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+  de: { q: "Wer kann unter die Übergangsregelung für bisherige Grenzgänger fallen?", a: "Eine Person kann die Regelung beanspruchen, wenn sie die steuerlichen Grenzgängerbedingungen erfüllte und am 17. Juli 2023 oder im Zeitraum vom 31. Dezember 2018 bis zum 17. Juli 2023 im Tessin, in Graubünden oder im Wallis qualifiziert beschäftigt war. Laut ESTV gibt es keine Mindestbeschäftigungsdauer; die übrigen Voraussetzungen müssen weiterhin erfüllt sein. Die steuerliche Definition des Abkommens verlangt grundsätzlich die tägliche Rückkehr; die EU/EFTA-G-Bewilligung verlangt dagegen eine wöchentliche Rückkehr. Neue steuerliche Grenzgänger zahlen 80% des ordentlichen Schweizer Quellensteuertarifs; Italien rechnet die Schweizer Steuer nach den geltenden Regeln an. Quelle: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+  fr: { q: "Qui peut relever du régime transitoire des anciens frontaliers ?", a: "Une personne peut y avoir droit si elle remplissait les conditions fiscales du frontalier et exerçait une activité qualifiante au Tessin, dans les Grisons ou en Valais le 17 juillet 2023, ou durant la période du 31 décembre 2018 au 17 juillet 2023. L’AFC indique qu’aucune durée minimale d’emploi n’est prévue ; les autres conditions applicables restent nécessaires. La définition fiscale de l’accord prévoit en principe un retour quotidien ; le permis G UE/AELE exige séparément un retour hebdomadaire. Les nouveaux frontaliers fiscaux paient 80% du taux suisse ordinaire de l’impôt à la source ; l’Italie accorde le crédit prévu pour l’impôt suisse payé. Source : https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" }
  },
  "La data dell’ultimo contratto decide se sono vecchio o nuovo frontaliere?": {
   en: { q: "Does the date of my latest contract decide whether I am an old or new cross-border worker?", a: "No. Classification depends on meeting the fiscal conditions and having qualifying work in the period set by the agreement, not solely on the date of the current contract. Check your work history and circumstances with the competent tax authority. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
@@ -4920,6 +4920,17 @@ const HOMEPAGE_FAQ_TRANSLATIONS: FaqLocaleMap = {
   de: { q: "Wo kann ich die für meinen Fall geltende Quellensteuer prüfen?", a: "Prüfen Sie die offiziellen Tarife für das Steuerjahr und den Arbeitskanton. Im Tessin hängt der Tarif von der anwendbaren Kategorie und den persönlichen Angaben ab; prüfen Sie für den Grenzgängerstatus auch die steuerlichen Voraussetzungen des Abkommens. Der Rechner liefert eine Schätzung und ersetzt keinen Behördenentscheid. Kanton Tessin: https://www4.ti.ch/index.php?id=64917" },
   fr: { q: "Où vérifier l’impôt à la source applicable à ma situation ?", a: "Consultez les barèmes officiels de l’année fiscale et du canton d’emploi. Au Tessin, le tarif dépend de la catégorie applicable et des données personnelles ; vérifiez aussi les conditions fiscales de l’accord pour le statut de frontalier. Le simulateur fournit une estimation et ne remplace pas la décision de l’autorité. Canton du Tessin : https://www4.ti.ch/index.php?id=64917" }
  },
+};
+
+/**
+ * Combined lookup map for all FAQPage sources, including the homepage.
+ * Keep homepage translations in their dedicated block above so their curated
+ * copy remains easy to review, while exposing every question to coverage
+ * checks and consumers of FAQ_TRANSLATIONS.
+ */
+export const FAQ_TRANSLATIONS: FaqLocaleMap = {
+ ...FAQ_TRANSLATION_BASE,
+ ...HOMEPAGE_FAQ_TRANSLATIONS,
 };
 
 /**

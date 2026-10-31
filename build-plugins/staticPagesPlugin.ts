@@ -187,7 +187,7 @@ import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescr
 import { differentiateH1FromTitle, esc } from './shared/seoContentTokens';
 import { renderPlainTextLinks } from './shared/plainTextLinks';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { translateFaqPage } from '../services/seo/faq-translations';
+import { getFaqTranslation, translateFaqPage } from '../services/seo/faq-translations';
 import { SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
 // Stesso misuratore dell'emitter articoli (packages/articles/engine): una sola
 // definizione di "quanto e' larga davvero questa immagine", non due.
@@ -830,19 +830,33 @@ const HOMEPAGE_FAQ_COPY: Record<HpSeoLocale, { heading: string; checked: string 
 
 function homepageFaqHtml(html: string, locale: HpSeoLocale): string {
  const match = html.match(/<script\b[^>]*\bid=["']?hp-home-faq-ld["']?[^>]*>([\s\S]*?)<\/script>/i);
- if (!match) return '';
+ if (!match) return homepageFiscalFaqFallbackHtml(locale);
  try {
   const faq = JSON.parse(match[1]) as { mainEntity?: Array<{ name?: string; acceptedAnswer?: { text?: string } }> };
   const entries = (faq.mainEntity ?? []).filter((entry) => entry.name && entry.acceptedAnswer?.text);
-  if (entries.length === 0) return '';
+  if (entries.length === 0) return homepageFiscalFaqFallbackHtml(locale);
   const copy = HOMEPAGE_FAQ_COPY[locale];
   const questions = entries.map((entry) =>
    `<details class="rounded-xl border border-edge bg-surface p-4"><summary class="cursor-pointer font-semibold text-strong">${esc(entry.name!)}</summary><p class="mt-3 text-body">${renderPlainTextLinks(entry.acceptedAnswer!.text!)}</p></details>`,
   ).join('');
   return `<section id="hp-faq-visible" class="mx-auto mt-8 max-w-5xl px-5 py-6" aria-labelledby="hp-faq-title"><h2 id="hp-faq-title" class="font-display text-2xl font-bold text-heading">${copy.heading}</h2><p class="mb-4 mt-2 text-sm text-subtle">${copy.checked}</p><div class="space-y-3">${questions}</div></section>`;
  } catch {
-  return '';
+  return homepageFiscalFaqFallbackHtml(locale);
  }
+}
+
+const HOMEPAGE_FISCAL_TRANSITION_QUESTION = 'Chi può rientrare nel regime transitorio dei vecchi frontalieri?';
+const HOMEPAGE_FISCAL_TRANSITION_ANSWER_IT =
+ 'Rientra nel regime chi soddisfaceva la definizione fiscale di frontaliere e lavorava in Ticino, Grigioni o Vallese il 17 luglio 2023 oppure nel periodo dal 31 dicembre 2018 al 17 luglio 2023. L’ESTV precisa che non è previsto un periodo minimo di occupazione, ma devono sussistere le condizioni fiscali applicabili. Ai fini fiscali il rientro è in linea di principio quotidiano; il permesso G UE/AELS richiede invece il rientro almeno settimanale. Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’imposta alla fonte ordinaria e l’Italia riconosce il credito per l’imposta svizzera secondo le regole applicabili. Fonte: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf';
+
+function homepageFiscalFaqFallbackHtml(locale: HpSeoLocale): string {
+ const translation = locale === 'it'
+  ? { q: HOMEPAGE_FISCAL_TRANSITION_QUESTION, a: HOMEPAGE_FISCAL_TRANSITION_ANSWER_IT }
+  : getFaqTranslation(HOMEPAGE_FISCAL_TRANSITION_QUESTION, locale);
+ if (!translation) return '';
+
+ const copy = HOMEPAGE_FAQ_COPY[locale];
+ return `<section id="hp-faq-visible" class="mx-auto mt-8 max-w-5xl px-5 py-6" aria-labelledby="hp-faq-title"><h2 id="hp-faq-title" class="font-display text-2xl font-bold text-heading">${copy.heading}</h2><p class="mb-4 mt-2 text-sm text-subtle">${copy.checked}</p><dl><dt>${esc(translation.q)}</dt><dd>${renderPlainTextLinks(translation.a)}</dd></dl></section>`;
 }
 
 const HOMEPAGE_CALCULATOR_STEPS: Record<HpSeoLocale, { heading: string; steps: string[] }> = {
