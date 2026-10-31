@@ -11113,7 +11113,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           const FACTCHECK_FEEDBACK_CAP = 8;
           lastFactCheckErrors = formatRemediation(
             normalizeRemediationIssues(factResult.issues),
-            { cap: FACTCHECK_FEEDBACK_CAP },
+            { cap: FACTCHECK_FEEDBACK_CAP, sourceText: pageContent },
           );
           console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${maxAttempts})...`);
           continue;

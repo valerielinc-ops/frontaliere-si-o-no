@@ -64,6 +64,7 @@ import { buildTwitterCardMetaTags } from './twitterCardMeta';
 import { minifyHtml } from './htmlMinify';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
 import { normalizeStructuredData } from '../../services/seo/schema-normalizers';
+import { localizeBreadcrumbHome } from './breadcrumbHome';
 import { paginationPageFromPath } from './paginationIndexPolicy';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 
@@ -89,7 +90,7 @@ import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine
  */
 export function normalizeStaticJsonLdScripts(
   scripts: readonly string[] | undefined,
-  options: { readonly allowNameOnlyOrganizationIds?: boolean } = {},
+  options: { readonly allowNameOnlyOrganizationIds?: boolean; readonly locale?: string } = {},
 ): string[] {
   const allowNameOnlyOrganizationIds = options.allowNameOnlyOrganizationIds !== false;
   return (scripts ?? []).map((raw) => {
@@ -100,7 +101,10 @@ export function normalizeStaticJsonLdScripts(
       return raw;
     }
 
-    const normalized = normalizeStructuredData(parsed, { allowNameOnlyOrganizationIds });
+    const normalized = localizeBreadcrumbHome(
+      normalizeStructuredData(parsed, { allowNameOnlyOrganizationIds }),
+      options.locale,
+    );
     const serialized = JSON.stringify(normalized).replace(/</g, '\\u003c');
     const original = JSON.stringify(parsed).replace(/</g, '\\u003c');
     return serialized === original ? raw : serialized;
@@ -449,7 +453,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageType,
     ogImageAlt,
     extraHeadHtml: `${heroPreload}${twitterCardHead}${paginationNoindexMarker}${extraHeadHtml ? `\n${extraHeadHtml}` : ''}${jobBoardHeadTags(canonicalUrl)}`,
-    jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts, { allowNameOnlyOrganizationIds }),
+    jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts, { allowNameOnlyOrganizationIds, locale }),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,
     bodyHtml: wrappedBody,

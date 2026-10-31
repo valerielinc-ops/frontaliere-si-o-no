@@ -12,6 +12,7 @@ import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from '.
 
 import type { Plugin } from 'vite';
 import { withPhaseInstrument } from './shared/phaseInstrument';
+import { localeHomeUrl } from './shared/breadcrumbHome';
 import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo } from './shared/authorEditorial';
 import { renderRevenueModelHtml, renderRevenueNoteHtml } from '../services/revenueDisclosure';
 import { localizeStaticPageStructuredData } from './shared/localeStaticStructuredData';
@@ -3825,10 +3826,12 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  };
  const segments = canonicalPath.split('/').filter(Boolean);
  const HOME_LABEL: Record<string, string> = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' };
- const breadcrumbs = [{ name: HOME_LABEL[locale] || 'Home', url: BASE_URL + '/' }];
+ const breadcrumbs = [{ name: HOME_LABEL[locale] || 'Home', url: localeHomeUrl(locale, BASE_URL) }];
  let accumPath = '';
- for (const seg of segments) {
+ for (const [segmentIndex, seg] of segments.entries()) {
  accumPath += '/' + seg;
+ // The locale prefix is the home crumb above, not a level of its own.
+ if (segmentIndex === 0 && seg === locale) continue;
  const readableName = BREADCRUMB_NAMES[seg] || LOCALE_SECTION_TITLES[locale]?.[seg] || seg.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
  breadcrumbs.push({ name: readableName, url: BASE_URL + withTrailingSlash(accumPath) });
  }

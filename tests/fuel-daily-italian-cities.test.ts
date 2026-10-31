@@ -171,7 +171,7 @@ describe('generateFuelItalianCityPages() — content quality', () => {
       expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
       expect(targets.visible, `page ${path} has no visible breadcrumbs`).not.toHaveLength(0);
       for (const target of [...targets.jsonLd, ...targets.visible]) {
-        if (target === '/') continue;
+        if (/^\/(?:(?:en|de|fr)\/)?$/.test(target)) continue;
         expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
       }
     }

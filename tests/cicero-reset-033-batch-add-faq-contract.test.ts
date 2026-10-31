@@ -11,4 +11,10 @@ describe('batch-add-faq contract', () => {
     expect(SOURCE).toContain("callLLM");
     expect(SOURCE).toContain("FAQ");
   });
+
+  it('uses the shared per-pair locale verdict and preserves rejection diagnostics', () => {
+    expect(SOURCE).toContain('wrongLocalePair');
+    expect(SOURCE).toContain('source-function-words=');
+    expect(SOURCE).toContain('translation rejected: FAQ not written');
+  });
 });

@@ -595,7 +595,7 @@
       "sourceLang": "de",
       "slug": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
       "slugByLocale": {
-        "it": "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf",
+        "it": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
         "en": "project-manager-project-manager-logistics-supply-chain-m-f-d-galenica-galenica-burgdorf",
         "de": "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
         "fr": "chef-de-projet-cheffe-de-projet-logistique-chaine-d-approvisionnement-h-f-d-galenica-galenica-burgdorf"
@@ -611,12 +611,14 @@
       "id": "galenica-70edf8af43c1",
       "previousSlugs": [
         "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+        "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+          "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
         ],
         "en": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf"
@@ -990,7 +992,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -1812,7 +1815,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistent / Assistentin Schulungen & Events (w/m/d)",
@@ -2476,7 +2480,9 @@
       "id": "galenica-3313a790a221",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-egerkingen"
+          "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-egerkingen",
+          "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-nwmvs0",
+          "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-galenica-egerkingen"
         ],
         "en": [
           "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-egerkingen"
@@ -2486,7 +2492,9 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-egerkingen"
+        "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-egerkingen",
+        "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-nwmvs0",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-galenica-egerkingen"
       ],
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -5361,7 +5369,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Specialista supporto vendite (f/m/d)",
