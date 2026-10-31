@@ -63,6 +63,8 @@ export function issueTitleFor(channel) {
 }
 
 /** A press followed by any error (not only a missing confirmation) leaves the post possibly online. */
+/** A held channel is reported again at this pace until someone settles it. */
+const HELD_REPORT_INTERVAL_MS = 24 * 3600_000;
 const NEXT_STEP_AFTER_PRESS = 'Il bottone di pubblicazione è stato premuto prima dell\'errore: controllare a mano sul profilo se il post è online. Se sì, registrarlo con `gh workflow run social-robot-confirm.yml` (input del journal); se no, aggiungere `resolvedAt` alla riga `unconfirmed` del journal del robot (o cancellarla). Il robot resta fermo su questa piattaforma finché la riga non è risolta.';
 
 const NEXT_STEP = {
@@ -245,6 +247,7 @@ export function ghConfirmDispatcher({ ghBin = 'gh', exec = execFileSync, repo = 
  * @param {(args: object) => Promise<{ok: boolean, reason?: string}>} deps.dispatchConfirm
  * @param {(args: { title: string, description: string, labels: string[] }) => Promise<unknown>} deps.reportIssue
  * @param {(args: { title: string, channel: string, queueId: string }) => unknown} [deps.resolveIssue]
+ * @param {(channel: string, attempt: object) => Promise<string|null>} [deps.findPublishedPost] evidence when an unconfirmed press is online
  *   Closes the platform's open failure issue after a REAL publish (never after a
  *   dry run): reportIssue reopens the same stable title, so without this the
  *   issue stayed open for days after the platform had recovered (#11755, #11754).
@@ -268,6 +271,7 @@ export async function runRobot(deps) {
     dispatchConfirm,
     reportIssue,
     resolveIssue,
+    findPublishedPost,
     diagnosticsFor,
     repeatDryRun = true,
     log = console,
@@ -313,6 +317,57 @@ export async function runRobot(deps) {
   }
   journalStore.save(journal);
 
+  /**
+   * A press the page did not confirm may still be online: the published list
+   * is a stronger proof than any toast. Only a post found there is registered;
+   * anything else keeps the channel held, so a duplicate stays impossible.
+   */
+  const settlePressFromPlatform = async (channel, attempt) => {
+    if (dryRun || !findPublishedPost || !attempt.caption) return false;
+    try {
+      const evidence = await findPublishedPost(channel, attempt);
+      if (!evidence) return false;
+      const dispatched = await dispatchConfirm({
+        channel,
+        queueId: attempt.queueId,
+        confirmedAt: attempt.at,
+        evidence,
+        ledgerEntries: attempt.ledgerEntries,
+      });
+      if (!dispatched.ok) {
+        log.warn(`⚠️  ${channel}: ${attempt.queueId} found online, confirm dispatch failed: ${dispatched.reason}`);
+        return false;
+      }
+      attempt.outcome = 'published';
+      attempt.evidence = evidence;
+      attempt.confirmDispatched = true;
+      attempt.confirmDispatchedAt = new Date(now()).toISOString();
+      journalStore.save(journal);
+      log.log(`✅ ${channel}: ${attempt.queueId} found online, hold released (${evidence})`);
+      return true;
+    } catch (error) {
+      log.warn(`⚠️  ${channel}: could not check ${attempt.queueId} on the platform: ${error.message}`);
+      return false;
+    }
+  };
+
+  /** A hold stops publishing, so it must stay visible until someone settles it. */
+  const reportHeldPress = async (channel, attempt) => {
+    const lastReport = Date.parse(attempt.heldReportedAt ?? '');
+    if (dryRun || (Number.isFinite(lastReport) && now() - lastReport < HELD_REPORT_INTERVAL_MS)) return;
+    try {
+      await reportIssue({
+        title: issueTitleFor(channel),
+        description: `**Pubblicazione ${channel} ferma.** \`${attempt.queueId}\` è stato premuto il ${attempt.at} senza conferma e la riga \`unconfirmed\` del journal è ancora aperta: finché resta così il robot non pubblica nulla su questa piattaforma.\n\n**Prossimo passo:** ${NEXT_STEP['confirmation-missing']}`,
+        labels: ['Bug', 'needs-human'],
+      });
+      attempt.heldReportedAt = new Date(now()).toISOString();
+      journalStore.save(journal);
+    } catch (issueErr) {
+      log.error(`⚠️  could not report the ${channel} hold: ${issueErr.message}`);
+    }
+  };
+
   let acted = false;
   const resolvedChannels = new Set();
   for (const channel of platforms) {
@@ -324,9 +379,14 @@ export async function runRobot(deps) {
       continue;
     }
     const held = openUnconfirmed(journal, channel, confirmedOn(channel));
-    if (held.length) {
-      log.log(`✋ ${channel}: held — ${held.map((a) => a.queueId).join(', ')} was pressed without a confirmation and no human has settled it yet`);
-      results.push({ channel, outcome: 'held', queueId: held[0].queueId });
+    const unsettled = [];
+    for (const attempt of held) {
+      if (!(await settlePressFromPlatform(channel, attempt))) unsettled.push(attempt);
+    }
+    if (unsettled.length) {
+      log.log(`✋ ${channel}: held — ${unsettled.map((a) => a.queueId).join(', ')} was pressed without a confirmation and no human has settled it yet`);
+      await reportHeldPress(channel, unsettled[0]);
+      results.push({ channel, outcome: 'held', queueId: unsettled[0].queueId });
       continue;
     }
     if (!dryRun && pressedToday(journal, channel, at) >= MAX_POSTS_PER_DAY_PER_PLATFORM) {
@@ -450,7 +510,7 @@ export async function runRobot(deps) {
           errorClass: error.errorClass,
           step: error.step,
           message: String(error.message).slice(0, 300),
-          ...(error.pressed ? { ledgerEntries: entry.ledgerEntries } : {}),
+          ...(error.pressed ? { ledgerEntries: entry.ledgerEntries, caption: entry.caption } : {}),
         });
         if (BLOCKING_ERROR_CLASSES.includes(error.errorClass)) pauseChannel(journal, channel, now());
         journalStore.save(journal);

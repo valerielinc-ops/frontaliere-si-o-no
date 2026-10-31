@@ -14,7 +14,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker, { EDGE_PUSHED_FILES } from '../infra/cloudflare-worker/locale-router.js';
+import worker, {
+  EDGE_PUSHED_FILES,
+  NEWS_SITEMAP_WINDOW_HOURS,
+  pruneNewsSitemapToWindow,
+} from '../infra/cloudflare-worker/locale-router.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS script module, no type declarations.
 import { selectedEntries } from '../scripts/publish-edge-files.mjs';
@@ -691,5 +695,38 @@ describe('publish-edge-files --producer selection', () => {
     expect(() =>
       selectedEntries(['node', 'publish-edge-files.mjs', '--only=/sitemap-news.xml', '--producer=build']),
     ).toThrow(/mutually exclusive/);
+  });
+});
+
+describe('sitemap-news window at the edge (SEO audit 2026-10-31: 40 of 56 URLs past 48 h)', () => {
+  const NOW = Date.parse('2026-10-31T08:00:00.000Z');
+  const block = (loc: string, published: string) =>
+    `  <url>\n    <loc>${loc}</loc>\n    <news:news><news:publication_date>${published}</news:publication_date></news:news>\n  </url>\n\n`;
+  const sitemap = (...blocks: string[]) => `<?xml version="1.0"?>\n<urlset>\n\n${blocks.join('')}</urlset>\n`;
+
+  it('keeps only what was published in the last 48 hours', () => {
+    const xml = sitemap(
+      block('https://x/fresh/', '2026-10-31T07:00:00.000Z'),
+      block('https://x/edge-of-window/', '2026-10-29T08:00:00.000Z'),
+      block('https://x/stale/', '2026-10-29T07:59:59.000Z'),
+      block('https://x/future/', '2026-10-31T09:00:00.000Z'),
+      block('https://x/unparsable/', 'yesterday'),
+    );
+
+    const pruned = pruneNewsSitemapToWindow(xml, NOW);
+
+    expect(pruned.match(/<loc>[^<]+/g)).toEqual(['<loc>https://x/fresh/', '<loc>https://x/edge-of-window/']);
+    expect(pruned.startsWith('<?xml version="1.0"?>\n<urlset>')).toBe(true);
+    expect(pruned.endsWith('</urlset>\n')).toBe(true);
+  });
+
+  it('leaves a payload without publication dates untouched', () => {
+    const xml = '<urlset><url><loc>https://x/a/</loc></url></urlset>';
+    expect(pruneNewsSitemapToWindow(xml, NOW)).toBe(xml);
+  });
+
+  it('applies the same window as the writers', async () => {
+    const { NEWS_SITEMAP_WINDOW_HOURS: writers } = await import('../data/news-sitemap-whitelist');
+    expect(NEWS_SITEMAP_WINDOW_HOURS).toBe(writers);
   });
 });
