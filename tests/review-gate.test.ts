@@ -137,6 +137,25 @@ describe('review gate: rate-limit evidence is bounded and revision-bound', () =>
     expect((failure as ReviewGateTransientError).resetAt).toBe(RESET_AT);
   });
 
+  it('does not sleep past the bounded reset budget', () => {
+    const waits: number[] = [];
+    let failure: unknown;
+    try {
+      withReviewRateLimitRetry(() => {
+        throw rateLimitError();
+      }, {
+        now: () => NOW,
+        sleep: (milliseconds) => waits.push(milliseconds),
+        maxWaitMs: 1_000,
+      });
+    } catch (error) {
+      failure = error;
+    }
+
+    expect(failure).toBeInstanceOf(ReviewGateTransientError);
+    expect(waits).toEqual([]);
+  });
+
   it('preserves the exact HEAD and body revision on a transient review lookup', async () => {
     const result = await runReviewGate({
       repo: 'owner/repo',
