@@ -1,30 +1,35 @@
 /**
- * `<link rel="modulepreload">` tags for a static page's route chunks, without
- * repeating a chunk the head already preloads.
+ * Route-chunk hints of a static page, read by the release bootstrap.
  *
- * staticPagesPlugin writes two lists into the same `<head>`: the core list
- * (vendor-react, it-core, it-calculator — every SPA-shell page) and the page
- * list (the route's component chunks plus its section's locale chunk). The two
- * overlapped: every `/calcola-stipendio/...` page shipped
- * `<link rel="modulepreload" href="/assets/it-calculator.js">` twice, because
- * the calculator section's locale chunk IS a core chunk. The browser dedupes
- * the request, so it costs no bytes on the wire — it is a duplicated hint in
- * the HTML of every calculator URL, and the same overlap would silently grow
- * with any new section whose chunk is also in the core list.
+ * The page HTML must never carry `<link rel="modulepreload">` to `/assets/`: the
+ * executable graph lives under `/assets/releases/<BUILD_ID>/`
+ * (versionedCdnAssetsPlugin), so a preload of a root alias downloads a SECOND copy
+ * of the module that nothing ever executes. Measured live 2026-10-31 on
+ * /cerca-lavoro-ticino/: vendor-react, it-core, it-calculator, JobBoard and
+ * it-stats all fetched twice, about 1.1 MB decoded. Release URLs cannot go in the
+ * HTML either, because they would rewrite every prerendered page on every deploy.
  *
- * Usage: every route-chunk modulepreload of the page list goes through here
- * (tests/build-plugins/modulePreloads.test.ts checks the plugin source).
+ * So the page names its chunks in a `<meta>` and the bootstrap, which knows the
+ * release id, turns them into preloads. The bootstrap only honours a name
+ * registered here by the same build: early-boot.js reloads the page when a
+ * `<link>` under /assets/ fails, so a chunk name from stale cached HTML must not
+ * become a request.
  */
-export function routeModulePreloadTags(
-  chunks: ReadonlyArray<string | null | undefined>,
-  alreadyPreloaded: ReadonlySet<string>,
-): string[] {
-  const seen = new Set(alreadyPreloaded);
-  const tags: string[] = [];
-  for (const chunk of chunks) {
-    if (!chunk || seen.has(chunk)) continue;
-    seen.add(chunk);
-    tags.push(`<link rel="modulepreload" href="/assets/${chunk}">`);
-  }
-  return tags;
+export const ROUTE_CHUNKS_META_NAME = 'frontaliere-route-chunks';
+
+const registeredRouteChunks = new Set<string>();
+
+export function routeChunksMetaTag(chunks: ReadonlyArray<string | null | undefined>): string {
+  const unique = [...new Set(chunks.filter((chunk): chunk is string => Boolean(chunk)))];
+  if (!unique.length) return '';
+  for (const chunk of unique) registeredRouteChunks.add(chunk);
+  return `<meta name="${ROUTE_CHUNKS_META_NAME}" content="${unique.join(' ')}">`;
+}
+
+export function getRegisteredRouteChunks(): string[] {
+  return [...registeredRouteChunks].sort();
+}
+
+export function resetRegisteredRouteChunks(): void {
+  registeredRouteChunks.clear();
 }

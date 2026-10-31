@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   buildVersionedBootstrap,
+  staticImportClosure,
   isStableBlogBodyAsset,
   isStableOutOfBandAsset,
   planVersionedCdnAssets,
@@ -76,6 +77,48 @@ describe('versioned CDN asset namespace', () => {
     const bootstrap = buildVersionedBootstrap(CDN, BUILD);
     expect(bootstrap).toContain(`FRONTALIERE_VERSIONED_ENTRY: ${CDN}/assets/releases/${BUILD}/index-entry.js`);
     expect(bootstrap).toContain('import(FRONTALIERE_ENTRY)');
+  });
+
+  it('flattens the static closure and skips dynamic imports and foreign names', () => {
+    const sources: Record<string, string> = {
+      'index-entry.js': `import"./vendor-react.js";import{a}from"./i18n.js";import("./Lazy.js");`,
+      'App.js': `import{b}from"./i18n.js";export{c}from"./router.js";import"./gone.js";`,
+      'i18n.js': ``,
+      'vendor-react.js': ``,
+      'router.js': `import"../../routerBlogData.js";`,
+      'Lazy.js': ``,
+    };
+    const closure = staticImportClosure(['index-entry.js', 'App.js'], new Set(Object.keys(sources)), (a) => sources[a]);
+    expect(closure.sort()).toEqual(['App.js', 'i18n.js', 'index-entry.js', 'router.js', 'vendor-react.js']);
+  });
+
+  it('turns only allowed names into release preloads, before importing the entry', () => {
+    const bootstrap = buildVersionedBootstrap(CDN, BUILD, {
+      modules: ['vendor-react.js'],
+      routeChunks: ['JobBoard.js'],
+    });
+    const links: Array<Record<string, string>> = [];
+    const order: string[] = [];
+    const document = {
+      querySelector: () => ({ content: 'vendor-react.js JobBoard.js stale-chunk.js' }),
+      createElement: () => ({}),
+      head: { appendChild: (link: Record<string, string>) => { links.push(link); order.push('link'); } },
+    };
+    const run = new Function('document', 'importer', bootstrap.replace('import(FRONTALIERE_ENTRY)', 'importer(FRONTALIERE_ENTRY)'));
+    run(document, (url: string) => order.push(url));
+    const base = `${CDN}/assets/releases/${BUILD}/`;
+    expect(links.map((link) => link.href)).toEqual([`${base}vendor-react.js`, `${base}JobBoard.js`]);
+    expect(links.every((link) => link.rel === 'modulepreload' && link.crossOrigin === '')).toBe(true);
+    expect(order).toEqual(['link', 'link', `${base}index-entry.js`]);
+  });
+
+  it('still starts the app when the preload step throws', () => {
+    const bootstrap = buildVersionedBootstrap(CDN, BUILD);
+    const entries: string[] = [];
+    const document = { querySelector: () => { throw new Error('no DOM'); } };
+    const run = new Function('document', 'importer', bootstrap.replace('import(FRONTALIERE_ENTRY)', 'importer(FRONTALIERE_ENTRY)'));
+    run(document, (url: string) => entries.push(url));
+    expect(entries).toEqual([`${CDN}/assets/releases/${BUILD}/index-entry.js`]);
   });
 
   it('copies the executable graph and replaces the stable entry with a release bootstrap', () => {
