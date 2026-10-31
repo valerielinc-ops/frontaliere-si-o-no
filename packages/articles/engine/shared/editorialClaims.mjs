@@ -132,11 +132,20 @@ const EXCLUSIVE_TAXATION_NOUN = {
   fr: /\b(?:imposition|taxation)\s+(?:exclusive|unique)\s+en\s+Suisse/i,
 };
 
+/** Forma telegrafica degli elenchi: «imposta alla fonte solo Svizzera». */
+const TERSE_EXCLUSIVE = {
+  it: [/\b(fonte|trattenut\S*)\s+solo\s+Svizzera\b/gi, '$1 in Svizzera'],
+  en: [/\b(source|withholding\s+tax|withheld|deducted)\s+only\s+Switzerland\b/gi, '$1 in Switzerland'],
+  de: [/\b(Quellensteuer|einbehalten)\s+nur\s+Schweiz\b/gi, '$1 in der Schweiz'],
+  fr: [/\b(source|retenu\S*)\s+(?:uniquement|seulement)\s+Suisse\b/gi, '$1 en Suisse'],
+};
+
 /** Vero se la frase generalizza l'imposizione esclusiva svizzera ai frontalieri. */
 function isRegimeClaim(sentence, locale) {
   if (LEGITIMATE_SCOPE[locale].test(sentence)) return false;
   if (!TAX_CONTEXT[locale].test(sentence)) return false;
   if (exclusiveRe(locale).test(sentence) || EXCLUSIVE_TAXATION_NOUN[locale].test(sentence)) return true;
+  if (sentence.search(TERSE_EXCLUSIVE[locale][0]) !== -1) return true;
   return BOTH_COUNTRIES[locale].some((re) => {
     re.lastIndex = 0;
     return re.test(sentence);
@@ -154,6 +163,7 @@ export function repairRegimeSentence(sentence, locale) {
     },
   );
   const adverbRemoved = out !== sentence;
+  out = out.replace(...TERSE_EXCLUSIVE[locale]);
   for (const re of BOTH_COUNTRIES[locale]) out = out.replace(re, '');
   out = out.replace(EXCLUSIVE_TAXATION_NOUN[locale], (match) => (locale === 'it'
     ? 'tassazione in Svizzera'
@@ -442,10 +452,10 @@ const G_BORDER_ZONE_REQUIREMENT = {
   fr: /\b(?:réservé\S*|destiné\S*|condition\S*|exig\S*|requis\S*|pour\s+(?:obtenir|demander))\b[^.;|]{0,90}(?:20\s?km|30\s?km|zone\s+frontalière|zone\s+de\s+frontière)/i,
 };
 const G_BORDER_OFF_TOPIC = {
-  it: /transito|pedagg|bozza|DATEC|non\s+(?:è\s+)?(?:più\s+)?(?:richiest|necessari)|Accordo\s+(?:fiscale|frontalieri)\s+art|fiscal/i,
-  en: /transit|toll|draft|no\s+longer|tax\s+agreement|fiscal/i,
-  de: /Transit|Maut|Entwurf|nicht\s+mehr|Steuerabkommen/i,
-  fr: /transit|péage|projet|plus\s+(?:requis|nécessaire)|accord\s+fiscal/i,
+  it: /transito|pedagg|bozza|DATEC|non\s+richiede|non\s+(?:è\s+)?(?:più\s+)?(?:richiest|necessari)|Accordo\s+(?:fiscale|frontalieri)\s+art|fiscal/i,
+  en: /transit|toll|draft|no\s+longer|does\s+not\s+require|tax\s+agreement|fiscal/i,
+  de: /Transit|Maut|Entwurf|nicht\s+mehr|keinen\s+Wohnsitz|Steuerabkommen/i,
+  fr: /transit|péage|projet|n['’]exige\s+pas|plus\s+(?:requis|nécessaire)|accord\s+fiscal/i,
 };
 const G_TEXT = {
   it: {
@@ -520,7 +530,7 @@ const HEALTH_TAX_WRONG_LAW = {
 const HEALTH_TAX_EXEMPT = {
   it: /ristorn|sospes|bloccat|franchigi|non\s+esiste|non\s+si\s+tratta|confus|intervistat|sondaggio|penalizzant|LAMal\s+(?:non|è)|(?:non|né)\s+(?:è\s+)?una\s+.?tassa/i,
   en: /ristorn|rebate|refund|suspend|blocked|deductible|not\s+(?:a|to\s+be\s+confused)|confus|does\s+not\s+exist|surve|respondents|penali[sz]|LAMal\s+is/i,
-  de: /Ristorn|Rückerstatt|Rückzahl|gesperrt|ausgesetzt|Franchise|Selbstbehalt|keine\s+.?Gesundheits|verwechsel|existiert\s+nicht|Umfrage|Befragten|benachteilig|KVG|LAMal\s+ist/i,
+  de: /Ristorn|Rückerstatt|Rückzahl|gesperrt|ausgesetzt|Franchise|Selbstbehalt|keine[nr]?\s+.?Gesundheits|verwechsel|existiert\s+nicht|Umfrage|Befragten|benachteilig|KVG|LAMal\s+ist/i,
   fr: /ristorn|rétrocession|remboursement|suspend|bloqu|franchise|confond|n['’]est\s+pas\s+une|n['’]existe\s+pas|enquête|sondage|pénalisant|LAMal\s+(?:n['’]|est)/i,
 };
 const SWISS_FRANC_AMOUNT = /(?:CHF|Fr\.)\s?\d|\d[\d.'’\s]*\s?(?:CHF|franchi|Franken|francs)\b/i;
@@ -639,4 +649,28 @@ export function repairEditorialClaims(text, { locale = 'it', title = '' } = {}) 
     segments[index] = current;
   }
   return { value: segments.join(''), changes };
+}
+
+/**
+ * Gate di pubblicazione: stessa forma di assertNoFabricatedNormAcronyms, un
+ * articolo con una frase vietata non esce in nessuna lingua. Legge ogni campo di
+ * testo del contenuto, quindi anche titolo, excerpt e FAQ.
+ *
+ * @param {Record<string, Record<string, unknown> | undefined>} contentByLocale
+ */
+export function assertNoEditorialClaims(contentByLocale) {
+  const issues = [];
+  for (const [locale, content] of Object.entries(contentByLocale ?? {})) {
+    if (!content || !CLAIM_LOCALES.includes(locale)) continue;
+    for (const [field, value] of Object.entries(content)) {
+      if (typeof value !== 'string') continue;
+      for (const claim of findEditorialClaims(value, { locale })) {
+        issues.push(`[${locale}/${field}] ${claim.class}: ${claim.sentence.slice(0, 160)}`);
+      }
+    }
+  }
+  if (issues.length > 0) {
+    const list = issues.map((item, index) => `  ${index + 1}. ${item}`).join('\n');
+    throw new Error(`Articolo rigettato — affermazione editoriale vietata:\n${list}`);
+  }
 }

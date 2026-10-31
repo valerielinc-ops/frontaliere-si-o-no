@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain .mjs module, no type declarations.
-import { findEditorialClaims, repairEditorialClaims, splitClaimSegments } from '../packages/articles/engine/shared/editorialClaims.mjs';
+import { assertNoEditorialClaims, findEditorialClaims, repairEditorialClaims, splitClaimSegments } from '../packages/articles/engine/shared/editorialClaims.mjs';
 
 const classes = (text: string, locale: string) =>
   findEditorialClaims(text, { locale }).map((claim: { class: string }) => claim.class);
@@ -145,5 +145,43 @@ describe('permesso G', () => {
     ]) {
       expect(repairEditorialClaims(sentence, { locale: 'it' }).changes).toEqual([]);
     }
+  });
+});
+
+describe('tassa salute', () => {
+  it.each([
+    ['it', 'La tassa sulla salute è stata fissata a 200 CHF all\'anno.'],
+    ['it', 'La tassa sulla salute prevede un contributo del 7,5% del reddito lordo.'],
+    ['it', 'La tassa sulla salute è stata introdotta con la Legge di Bilancio 2019.'],
+    ['en', 'The health tax amounts to 1,000 euros a year.'],
+    ['de', 'Die Gesundheitssteuer beträgt 5 % des Bruttolohns.'],
+    ['fr', 'La taxe santé est de 500 francs par mois.'],
+  ])('%s: %s', (locale, sentence) => {
+    expect(classes(sentence, locale)).toContain('tassa-salute');
+    expect(repairEditorialClaims(sentence, { locale }).value).toBe('');
+  });
+
+  it('il testo di legge, i sondaggi e i ristorni restano', () => {
+    for (const sentence of [
+      'La tassa sulla salute va dal 3% al 6% del salario netto, da 30 a 200 euro per mese lavorato.',
+      "L'87,8% degli intervistati considera penalizzante la tassa sulla salute.",
+      'Per la tassa sulla salute il Ticino ha sospeso 50.221.177 CHF di ristorni.',
+      'La LAMal non è una tassa sulla salute: la franchigia va da CHF 300 a CHF 2.500.',
+    ]) {
+      expect(classes(sentence, 'it')).toEqual([]);
+    }
+  });
+});
+
+describe('gate di pubblicazione', () => {
+  it('rigetta su qualunque lingua e campo', () => {
+    expect(() => assertNoEditorialClaims({
+      it: { title: 'Titolo', body1: 'Testo corretto.' },
+      en: { body1: 'Withholding tax is deducted only in Switzerland.' },
+    })).toThrow(/en\/body1/);
+  });
+
+  it('passa su un articolo pulito', () => {
+    expect(() => assertNoEditorialClaims({ it: { title: 'Titolo', body1: 'Testo corretto.' } })).not.toThrow();
   });
 });
