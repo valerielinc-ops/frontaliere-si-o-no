@@ -9,10 +9,14 @@
  */
 
 import '../../extension/apply-control.js';
+import { renderedTextAction } from './text-transport.mjs';
 const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
 
+import { pureApplicationConsent as ownConsent, isConsentRefusal, isConsentOnly } from '../../../../functions/src/lib/applicationConsent.js';
+export { ownConsent };
+import { individualApplicationOriginQuestion } from '../../../../functions/src/lib/applicationOrigin.js';
 import { operationalDefaultAnswer, isOperationalDefaultValue, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
-import { createPortalQualificationVerifier, isQualificationAction, uniqueNativeField, PortalQualificationUnverified, withNativeValidation } from './qualification-gate.mjs';
+import { createPortalQualificationVerifier, isQualificationAction, withNativeValidation, freshQualificationFields, nativeScopeAllows, PortalQualificationUnverified, verifyPortalActions, existingPortalAnswers } from './qualification-gate.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -42,8 +46,7 @@ import {
 } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
-import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
+import { countryCodeOfLabel, formatInternationalPhone, formatPhoneForField, phoneCountryCode, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -132,7 +135,7 @@ export function planUserText({ snapshot, candidate }) {
     form: {
       url: snapshot.url,
       title: snapshot.title || '',
-      fields: snapshot.fields.map(trimField),
+      fields: snapshot.fields.filter(field => !field.auditOnly).map(trimField),
       ...(snapshot.errors?.length ? { errors: snapshot.errors } : {}),
     },
     candidate,
@@ -192,15 +195,6 @@ const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|c
 const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lavoro|soggiorno|domicilio)|\bvisa\b|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de (conduire|travail|séjour)|\b[abc][12]\b|years? of|berufserfahrung|anni di esperienza|ann[ée]es d.exp[ée]rience|strafregister|casellario|criminal|\bdiplom|\bdegree\b|abschluss|\blaurea\b|${WORK_AUTHORISATION_RE.source}|${NATIONALITY_FIELD_RE.source})`, 'i');
 
 /** A required checkbox that is the application's own consent, and nothing else. */
-export function ownConsent(field) {
-  const label = String(field?.label || '');
-  const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
-  const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
-  const consentText = `${label} ${name}`;
-  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent;
-  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent) && ownText
-    && !NEGATED_CONSENT.test(consentText) && !OPTIONAL_CONSENT.test(consentText) && !DECLARES_FACT.test(`${label} ${name}`);
-}
 
 // A current job is explicit when the CV's experience period says "ad oggi",
 // "present", "heute", etc. It is not inferred from the first experience entry:
@@ -1008,6 +1002,10 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
     && comparableContext(item.section) === requestedSection
     && comparableContext(item.autocomplete) === requestedAutocomplete;
   const matches = items.filter((item) => {
+    if (metadata?.ownConsentOwnerKey && item.ownConsentOwnerKey && [
+      'ownConsentOwnerKey', 'ownConsentText', 'ownConsentQuestionLabels', 'ownConsentLinks',
+      'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'consentOwnershipUnknown',
+    ].some(key => JSON.stringify(metadata[key]) !== JSON.stringify(item[key]))) return false;
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
     const itemTopic = questionTopic(item.question, item.context, item);
     const exact = (sameContext(item) && itemQuestion === normalized)
@@ -1345,6 +1343,7 @@ function phoneCountryOption(candidate, field) {
 
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
+  if (field?.nativeContractUnavailable === true) return null;
   const topic = questionTopic(field?.label, field?.context, field);
   if (topic === 'phone') {
     const value = formatInternationalPhone(candidate?.identity?.phone);
@@ -1551,7 +1550,13 @@ function identityAnswerMatches(candidate, field, value) {
  * Code-side guard on the plan: an answer to a sensitive question must come
  * from the candidate's answers or profile, never from a model "rule".
  */
-function proposedPlan(plan, fields, candidate = null, deferQualifications = false) {
+function proposedPlan(plan, fields, candidate = null, deferQualifications = false, { refuses } = {}) {
+  const refusalCandidate = candidate && { ...candidate,
+    portalQuestionsAnswered: (candidate.portalQuestionsAnswered || []).filter(item => isConsentRefusal(item.answer)).map(item => ({ ...item, answer: 'No' })),
+    answers: Object.fromEntries(Object.entries(candidate.answers || {}).filter(([, value]) => isConsentRefusal(value)).map(([id]) => [id, 'No'])) };
+  const refused = new Set(fields.filter(field => field.kind === 'checkbox' && (refuses?.(field)
+    || isConsentRefusal(recordedAnswerForQuestion(refusalCandidate, field.label, field.context, field)))).map(field => field.id));
+  for (const field of fields) if (refused.has(field.id) && field.required) throw new PortalQualificationUnverified('native_attested_refusal');
   const knownValues = knownValuesOf(candidate);
   const byId = new Map(fields.map((field) => [field.id, field]));
   const actions = [];
@@ -1615,6 +1620,7 @@ function proposedPlan(plan, fields, candidate = null, deferQualifications = fals
   };
   for (const item of plan.missingRequired || []) {
     const field = byId.get(item.fieldId);
+    if (field?.auditOnly || field?.readOnly || field?.disabled) continue;
     const withProvenance = {
       ...item,
       ...(!item.context && field?.context ? { context: String(field.context).slice(0, 240) } : {}),
@@ -1636,7 +1642,8 @@ function proposedPlan(plan, fields, candidate = null, deferQualifications = fals
   for (const plannedAction of plan.actions || []) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
-    if (!field) continue;
+    if (!field || refused.has(field.id) || field.auditOnly || field.readOnly || field.disabled) continue;
+    if (field.nativeContractUnavailable === true) { ask(field); continue; }
     // A planner's `consent` provenance never authorizes optional marketing
     // or a box that also declares a candidate fact. Recheck the actual label.
     if (action.action === 'check' && action.source === 'consent' && !ownConsent(field)) {
@@ -1747,7 +1754,7 @@ function proposedPlan(plan, fields, candidate = null, deferQualifications = fals
   // The page may expose a renamed/reworded version of a question already
   // answered in the review. Reuse it before turning the field into a new hold.
   for (const field of fields) {
-    if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id)) continue;
+    if (field.auditOnly || field.readOnly || field.disabled || !field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id) || refused.has(field.id)) continue;
     const answer = candidateAnswerForField(candidate, field);
     if (!answer) continue;
     const value = field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);
@@ -1772,12 +1779,12 @@ function proposedPlan(plan, fields, candidate = null, deferQualifications = fals
     // mandate covers it, so the box the plan left alone is ticked here (umantis,
     // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,
     // and went to the candidate as a text question).
-    if (!answered.has(field.id) && !holdsValue(field) && ownConsent(field)) {
+    if (!field.auditOnly && !field.readOnly && !field.disabled && !refused.has(field.id) && !answered.has(field.id) && !holdsValue(field) && ownConsent(field)) {
       actions.push({ fieldId: field.id, action: 'check', value: '', document: 'none', source: 'consent', evidence: '' });
       answered.add(field.id);
       continue;
     }
-    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
+    if (field.auditOnly || field.readOnly || field.disabled || !field.required || answered.has(field.id) || holdsValue(field) || refused.has(field.id)) continue;
     ask(field);
   }
   const asked = new Set(missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)).map((item) => item.fieldId));
@@ -1787,61 +1794,25 @@ function proposedPlan(plan, fields, candidate = null, deferQualifications = fals
   };
 }
 
-export function guardPlan(plan, fields, candidate = null) {
-  return proposedPlan(plan, fields, candidate);
+export function guardPlan(plan, fields, candidate = null, options = {}) {
+  return proposedPlan(plan, fields, candidate, false, options);
 }
 
 /** Existing deterministic identity, mandate and operational rules remain separate. */
-export function mechanicallyGroundedPortalAction(candidate, field, action, answerEvidence = []) {
-  const value = action.action === 'check' ? 'Yes' : action.action === 'uncheck' ? 'No' : action.value;
-  const equivalent = (a, b) => {
-    if (a == null || b == null || !String(a).trim() || !String(b).trim()) return false;
-    const bool = value => /^(?:yes|ja|si|sì|oui|true)$/i.test(String(value || '').trim()) ? true
-      : /^(?:no|nein|non|false)$/i.test(String(value || '').trim()) ? false : null;
-    return bool(a) !== null && bool(a) === bool(b) || comparableAnswer(a) === comparableAnswer(b);
-  };
-  if (action.source === 'consent' && ownConsent(field)) return true;
-  if (action.source === 'documents' && equivalent(attachedDocumentYes(candidate, field), value)) return true;
-  const otherPersonField = NON_CANDIDATE_NAME_RE.test(`${field.label} ${field.context || ''}`);
-  if (!otherPersonField && identityAnswerMatches(candidate, field, value) && !KNOCK_OUT.test(field.label)) return true;
-  const resolved = candidateAnswerForField(candidate, field);
-  const topic = questionTopic(field.label, field.context, field);
-  // Basic contact data comes from the application identity. Qualifications,
-  // residence, permits and demographic facts require their own source proof.
-  if (resolved?.source === 'identity' && !QUALIFIED_IDENTITY_TOPIC.has(topic)
-    && equivalent(resolved.value, value)) return true;
-  if (operationalQuestionTopic(field)) {
-    if (resolved?.source === 'policy_default' && isOperationalDefaultValue(field, value) && equivalent(resolved.value, value)) return true;
-    const same = (a, b) => String(a || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase() === String(b || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
-    for (const record of answerEvidence) {
-      const question = record?.question || {};
-      if (!['candidate', 'owner'].includes(record?.provenance?.actor)
-        || ![question.applicationQuestion, question.question].some(label => label && same(label, field.label))
-        || !['context', 'section', 'autocomplete'].every(key => same(question[key], field[key]))
-        || JSON.stringify(addressContextContract(question)) !== JSON.stringify(addressContextContract(field))) continue;
-      const explicit = candidateAnswerForField({ identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [{
-        ...question, question: field.label, answer: record.answer, source: 'answers',
-      }] }, field);
-      if (explicit?.source === 'answers' && equivalent(explicit.value, value)) return true;
-    }
-  }
-  return false;
-}
+export { mechanicallyGroundedNativeAction as mechanicallyGroundedPortalAction } from '../../../../functions/src/lib/nativeApplicationPolicy.js';
 
-const QUALIFIED_IDENTITY_TOPIC = new Set(['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country',
-  'birth_date', 'nationality', 'permit', 'civil_status', 'salutation']);
-
-const AGENCY_RE = /(vermittlungsb[üu]ro|personalvermittl|placement agency|recruit(ment|ing) agency|staffing agency|agenzia (per il lavoro|di collocamento|interinale|per l['’]impiego)|agence (de placement|de recrutement|d['’]emploi|intérimaire))/i;
 const NO_OPTION_RE = /^(nein|no|non)$/i;
 
 export function isAgencyQuestion(field) {
-  return Boolean(field) && AGENCY_RE.test(String(field.label || ''));
+  return Boolean(field) && individualApplicationOriginQuestion(field.label)
+    && nativeScopeAllows(field, individualApplicationOriginQuestion);
 }
 
 /** The "No" of an agency question that offers one, else null. */
 export function agencyNoOption(field) {
   if (!isAgencyQuestion(field)) return null;
-  return (field.options || []).find((option) => NO_OPTION_RE.test(String(option.label || '').trim())) || null;
+  const options = (field.options || []).filter(option => NO_OPTION_RE.test(String(option.label || '').trim()));
+  return options.length === 1 ? options[0] : null;
 }
 
 // "Select One", "Bitte wählen", "-- Seleziona --": a dropdown still on its prompt holds nothing.
@@ -1862,9 +1833,17 @@ export function holdsValue(field) {
   return !PLACEHOLDER.test(value);
 }
 
-export async function planPage({ snapshot, candidate, candidateLocale, codex, qualificationVerifier, qualificationScope = {}, inspectOnly = false, page }) {
+export async function planPage({ snapshot, candidate, candidateLocale, codex, qualificationVerifier, qualificationScope = {}, inspectOnly = false, page, completeProposals = plan => plan }) {
   if (page) qualificationScope = { ...qualificationScope, url: page.url() };
-  if (page && !inspectOnly) snapshot = { ...snapshot, fields: await withNativeValidation(page, snapshot.fields) };
+  if (page && !inspectOnly) {
+    const current = await freshQualificationFields(page, { listboxOptions: false });
+    const byId = new Map(current.fields.map(field => [field.id, field]));
+    const normal = await withNativeValidation(page, snapshot.fields);
+    snapshot = { ...snapshot, fields: [...normal.map(field => {
+      const actual = byId.get(field.id);
+      return actual ? { ...actual, ...(field.kind === actual.kind && field.options?.length && !actual.options?.length ? { options: field.options } : {}) } : field;
+    }), ...current.fields.filter(field => field.auditOnly && !normal.some(item => item.id === field.id))] };
+  }
   const raw = await codex({
     prompt: codexPrompt(planSystemPrompt(candidateLocale), planUserText({ snapshot, candidate })),
     schema: PLAN_SCHEMA,
@@ -1872,18 +1851,23 @@ export async function planPage({ snapshot, candidate, candidateLocale, codex, qu
   });
   const fields = snapshot.fields.filter((field) => field.inputType !== 'password');
   if (inspectOnly) return guardPlan(raw, fields, candidate);
-  const proposed = proposedPlan(raw, fields, candidate, true);
   const verifier = qualificationVerifier || createPortalQualificationVerifier({ codex,
-    trustedAction: (field, action, answerEvidence) => mechanicallyGroundedPortalAction(candidate, field, action, answerEvidence) });
-  const claims = [];
+    candidate: candidate });
+  const proposed = completeProposals(proposedPlan(raw, fields, candidate, true, { refuses: verifier.refuses }));
+  proposed.actions = proposed.actions.map(action => {
+    const field = fields.find(field => field.id === action.fieldId);
+    return field ? renderedTextAction(field, action, fields, item => questionTopic(item?.label, item?.context, item)) : action;
+  });
+  await verifyPortalActions(verifier, fields,
+    [...proposed.actions, ...existingPortalAnswers(fields, proposed.actions, holdsValue)], qualificationScope);
   for (const action of proposed.actions) {
-    const field = uniqueNativeField(fields, action.fieldId);
-    if (!field && fields.some(item => item.id === action.fieldId && isQualificationAction(item, action))) throw new PortalQualificationUnverified('native_field_ambiguous');
-    if (!field || !verifier.needs(field, action)) continue;
-    const claim = verifier.claim(field, action);
-    if (!claim) throw new PortalQualificationUnverified('form_contract_unbound');
-    claims.push(claim);
+    const field = fields.find(field => field.id === action.fieldId);
+    if (field?.kind === 'checkbox' && action.action === 'fill' && /^(?:yes|true|ja|oui|sì|si|no|false|nein|non)$/iu.test(String(action.value).trim())) {
+      const checked = /^(?:yes|true|ja|oui|sì|si)$/iu.test(String(action.value).trim());
+      const committed = { ...action, action: checked ? 'check' : 'uncheck' };
+      verifier.assert(field, committed, checked ? 'Yes' : 'No', qualificationScope);
+      action.action = committed.action;
+    }
   }
-  await verifier.verify(claims, qualificationScope);
   return proposed;
 }

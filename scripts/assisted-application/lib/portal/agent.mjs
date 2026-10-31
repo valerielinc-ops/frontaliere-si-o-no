@@ -21,8 +21,9 @@ import { asksHeldStatus, BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, 
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
 import { isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, permitBooleanOptionLabel, questionFromLabel, questionTopic, mechanicallyGroundedPortalAction } from './plan.mjs';
-import { agentNativeBinding, createPortalQualificationVerifier, freshQualificationFields, PortalQualificationUnverified, ownedOption, ownedOptionList } from './qualification-gate.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, permitBooleanOptionLabel, questionFromLabel, questionTopic, mechanicallyGroundedPortalAction, holdsValue } from './plan.mjs';
+import { agentNativeBinding, createPortalQualificationVerifier, freshQualificationFields, nativeQuestionMetadata, PortalQualificationUnverified, ownedOption, ownedOptionList, existingPortalAnswers, uniqueNativeField } from './qualification-gate.mjs';
+import { nativeQuestionText } from '../../../../functions/src/lib/nativeQuestionText.js';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
 
@@ -249,7 +250,7 @@ const ownedContextKey = metadata => {
   return owned === null || owned?.unknown ? null : owned === undefined ? '' : JSON.stringify(owned);
 };
 const nativeMetadata = item => ({ section: item?.section || '', autocomplete: item?.autocomplete || '',
-  ...(Object.hasOwn(item || {}, 'addressContext') ? { addressContext: item.addressContext } : {}) });
+  ...nativeQuestionMetadata(item) });
 const questionKey = (question, context = '', section = '', autocomplete = '', metadata = {}) => {
   const owned = ownedContextKey(metadata);
   if (owned === null) return '';
@@ -550,7 +551,7 @@ export function refusal(action, info) {
 
 async function chooseOption(page, locator, info, value, question = '', beforeChoice = async () => {}) {
   if (info.tag === 'select') {
-    const labels = await locator.evaluate((element) => [...element.options].map((option) => option.textContent || ''));
+    const labels = await locator.evaluate((element) => [...element.options].map((option) => option.label || option.textContent || ''));
     const selectedLabel = isNationalityField(question) ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(question)) || value : value;
     await beforeChoice(selectedLabel);
     await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
@@ -734,9 +735,7 @@ export function withAgentFieldProvenance(raw, fields = []) {
   // Talentsoft puts a live character counter inside the address label.
   // Its count changes while typing; numeric question text without a
   // character unit is substantive and must remain distinct.
-  const labelKey = (value) => questionFromLabel(value)
-    .replace(/\b\d+\s*\/\s*\d+\s*(?:zeichen|characters?|chars|caratteri|caractères)\b/gi, '')
-    .replace(/\s+/g, ' ').trim().toLowerCase();
+  const labelKey = value => nativeQuestionText(questionFromLabel(value)).toLowerCase();
   const enrich = (item, isQuestion) => {
     const label = labelKey(isQuestion ? item.applicationQuestion || item.question : item.question);
     if (!label) return item;
@@ -746,6 +745,8 @@ export function withAgentFieldProvenance(raw, fields = []) {
     const field = matches[0];
     return {
       ...item,
+      ...(isQuestion ? { question: field.label, applicationQuestion: field.label, context: field.context || '' } : {}),
+      ...nativeQuestionMetadata(field),
       ...(field.section ? { section: boundedPortalContext(field.section) } : {}),
       ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}),
       ...(Object.hasOwn(field, 'addressContext') ? { addressContext: structuredClone(field.addressContext) } : {}),
@@ -758,13 +759,19 @@ export function withAgentFieldProvenance(raw, fields = []) {
   };
 }
 
+/** The actual checkbox toggle is a semantic Yes/No commit, including native clicks. */
+function qualificationAction(binding, action) {
+  return { ...action, value: binding.answer, answer: binding.answer,
+    ...(binding.field.kind === 'checkbox' ? { action: binding.answer === 'Yes' ? 'check' : 'uncheck' } : {}) };
+}
+
 /**
  * Completes the current page with Codex on the accessibility snapshot.
  * @returns {Promise<{status:'done'|'needs_candidate'|'stuck'|'unavailable', questions?:Array, advanceRef?:string, moved?:boolean, reason?:string, calls:number, evidence:object}>}
  */
 export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [], maxRounds = AGENT_ROUNDS, fields = [], qualificationVerifier, log = () => {} }) {
   const verifier = qualificationVerifier || createPortalQualificationVerifier({ codex,
-    trustedAction: (field, action, answerEvidence) => mechanicallyGroundedPortalAction(candidate, field, action, answerEvidence) });
+    candidate: candidate });
   const evidence = { hint, rounds: [] };
   const history = [];
   const startUrl = page.url();
@@ -807,12 +814,13 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
       action.context = field.context || '';
       action.section = field.section || '';
       action.autocomplete = field.autocomplete || '';
-      if (Object.hasOwn(field, 'addressContext')) action.addressContext = structuredClone(field.addressContext);
-      else delete action.addressContext;
+      for (const key of ['originalNativeContract', 'addressContext', 'ownConsentText', 'ownConsentQuestionLabels', 'ownConsentLinks', 'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'ownConsentOwnerKey', 'consentOwnershipUnknown']) delete action[key];
+      Object.assign(action, nativeQuestionMetadata(field));
       // Opening/focusing a natively bound widget asserts no candidate fact.
       // Every later value commit still passes the independent answer gate.
       nativeProposals.add(action);
       if (binding.commits) {
+        if (field.readOnly || field.disabled) throw new PortalQualificationUnverified('native_readonly_action_unverified');
         action.answer = binding.answer;
       }
       bindings.set(action, binding);
@@ -821,6 +829,7 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
     const step = proposedAgentStep(boundRaw, candidate, nextGrounded, nativeProposals);
     const scope = { url: page.url() };
     const claims = [];
+    const overwritten = [];
     for (const action of step.actions) {
       const initial = bindings.get(action);
       if (!initial?.commits) continue;
@@ -829,9 +838,18 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
       const current = await agentNativeBinding(page, action, nativeSnapshot);
       if (!current?.commits) throw new PortalQualificationUnverified('native_field_unbound');
       action.answer = current.answer;
-      const qualifiedAction = { ...action, value: current.answer };
+      overwritten.push({ fieldId: current.field.id, action: 'fill' });
+      const qualifiedAction = qualificationAction(current, action);
       if (!verifier.needs(current.field, qualifiedAction)) continue;
       const claim = verifier.claim(current.field, qualifiedAction, current.answer);
+      if (!claim) throw new PortalQualificationUnverified('form_contract_unbound');
+      claims.push(claim);
+    }
+    for (const item of existingPortalAnswers(nativeSnapshot.fields, overwritten, holdsValue)) {
+      const field = uniqueNativeField(nativeSnapshot.fields, item.fieldId);
+      if (!field) throw new PortalQualificationUnverified('native_field_ambiguous');
+      if (!verifier.needs(field, item)) continue;
+      const claim = verifier.claim(field, item);
       if (!claim) throw new PortalQualificationUnverified('form_contract_unbound');
       claims.push(claim);
     }
@@ -848,12 +866,16 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
       const fresh = await freshQualificationFields(page);
       const current = await agentNativeBinding(page, action, fresh);
       if (!current && action.action !== 'upload') throw new PortalQualificationUnverified('native_field_unbound');
-      if (current?.commits) verifier.assert(current.field, { ...action, value: current.answer, answer: current.answer }, current.answer, { url: page.url() });
+      if (current?.commits) {
+        if (JSON.stringify(current.field._nativeFrameBinding) !== JSON.stringify(bindings.get(action)?.field._nativeFrameBinding)) throw new PortalQualificationUnverified('native_frame_changed');
+        verifier.assert(current.field, qualificationAction(current, action), current.answer, { url: page.url() });
+      }
       const result = await runAction(page, action, files, { beforeChoice: async label => {
         const fresh = await freshQualificationFields(page);
         const current = await agentNativeBinding(page, { ...action, value: label }, fresh);
         if (!current?.commits) throw new PortalQualificationUnverified('native_field_unbound');
-        verifier.assert(current.field, { ...action, value: label, answer: label }, current.answer, { url: page.url() });
+        if (JSON.stringify(current.field._nativeFrameBinding) !== JSON.stringify(bindings.get(action)?.field._nativeFrameBinding)) throw new PortalQualificationUnverified('native_frame_changed');
+        verifier.assert(current.field, qualificationAction(current, { ...action, value: label }), current.answer, { url: page.url() });
       } });
       // No values in the evidence's rounds: the answers travel apart, to the encrypted record.
       record.actions.push({

@@ -40,6 +40,7 @@ import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { portalPassFrom } from './portal/stop-report.mjs';
 import { hasCurrentQualificationDocuments, qualificationCounterContext, qualificationSourcesFingerprint } from '../../../functions/src/lib/qualificationEvidence.js';
+import { submissionSlotHash } from '../../../functions/src/lib/submissionReceiptContract.js';
 import { portalQualificationContext } from './portal/qualification-gate.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
 
@@ -235,7 +236,7 @@ export async function submitApplication(ctx) {
     if (previous.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
   }
   const qualificationContext = portalQualificationContext({ order, orderId, draft, cvBuffer: ctx.cvBuffer,
-    answerEvidence: ctx.answerEvidence || [], answerCounterContext: ctx.answerCounterContext || [], answerSourceConflicts: ctx.answerSourceConflicts || [], rawCounterContext: ctx.rawCounterContext || null, intake: ctx.intake, flow });
+    answerEvidence: ctx.answerEvidence || [], answerCounterContext: ctx.answerCounterContext || [], answerSourceConflicts: ctx.answerSourceConflicts || [], rawCounterContext: ctx.rawCounterContext || null, policyAuthority: ctx.policyAuthority || null, intake: ctx.intake, flow });
   if (!hasCurrentQualificationDocuments({ draft, sourceCvHash: qualificationContext.scope.sourceCvHash,
     sourceFingerprint: qualificationContext.documentSourceFingerprint || qualificationSourcesFingerprint(qualificationContext.sources),
     counterContext: qualificationCounterContext({ order, flow, intake: ctx.intake, answerCounterContext: ctx.answerCounterContext || [], rawCounterContext: ctx.rawCounterContext || null }) })) {
@@ -414,7 +415,8 @@ export async function submitApplication(ctx) {
       return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
     }
     try {
-      if (guard) await guard.markEmailSending(Date.now(), { answerSourceGuard: ctx.answerSourceGuard });
+      if (guard) await guard.markEmailSending(Date.now(), { answerSourceGuard: ctx.answerSourceGuard,
+        emailHandoff: { messageId: payload.headers['Message-ID'], recipient: payload.to[0], slotHash: submissionSlotHash({ orderId, order }) } });
     } catch (error) {
       if (error?.code === 'submission_already_sent') return replayedSubmission(error.record, 'email', nowMs);
       if (error?.code === 'submission_claim_changed') return { type: 'submit_failed', error: 'email_ambiguous' };
@@ -563,7 +565,7 @@ export async function submitApplication(ctx) {
         candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
         // Original bytes only: the outgoing CV may be a tailored replacement.
         qualificationContext: { ...portalQualificationContext({ order, orderId, draft, cvBuffer: ctx.cvBuffer,
-          answerEvidence: ctx.answerEvidence || [], answerCounterContext: ctx.answerCounterContext || [], answerSourceConflicts: ctx.answerSourceConflicts || [], rawCounterContext: ctx.rawCounterContext || null, intake: ctx.intake, localAnswerEvidence: ctx.localAnswerEvidence || [], flow: submitFlow }), documentsCurrent: true },
+          answerEvidence: ctx.answerEvidence || [], answerCounterContext: ctx.answerCounterContext || [], answerSourceConflicts: ctx.answerSourceConflicts || [], rawCounterContext: ctx.rawCounterContext || null, policyAuthority: ctx.policyAuthority || null, intake: ctx.intake, localAnswerEvidence: ctx.localAnswerEvidence || [], flow: submitFlow }), documentsCurrent: true },
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,

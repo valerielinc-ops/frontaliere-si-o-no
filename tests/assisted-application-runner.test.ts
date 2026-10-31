@@ -23,6 +23,7 @@ import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError } from '..
 import { createMemoryFirestore as createMemoryFirestoreRaw } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
+import { portalQualificationContext, createPortalQualificationVerifier, verifyPortalActions } from '../scripts/assisted-application/lib/portal/qualification-gate.mjs';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 async function submitApplication(ctx: any) { return submitApplicationRaw(await reviewedDocumentContext(ctx)); }
@@ -169,6 +170,47 @@ const quiet = () => {};
 const publicDns = async () => [{ address: "93.184.216.34", family: 4 }];
 
 describe('draft mode', () => {
+  it.each([false, true])('keeps the original CV language baseline for an ATS-only requirement (same CV copy=%s)', async sameCv => {
+    const bytes = renderPdf(CV_LINES.map(text => ({ text: text.replace('tedesco B1', 'tedesco A2') })));
+    const base = fakeCodex();
+    const original = base.getMockImplementation()!;
+    base.mockImplementation(async request => {
+      if (request.schema === PROFILE_SCHEMA) return { ...await original(request), languages: [{ language: 'tedesco', level: 'A2' }] };
+      if (request.schema === REQUIREMENTS_SCHEMA) return { requirements: [{ requirement: 'Esperienza di reparto', quote: 'esperienza di reparto', importance: 'high', basis: 'stated' }], languageRequirements: [], postingLanguage: 'it' };
+      if (isMatchSchema(request.schema)) {
+        const payload = JSON.parse(request.prompt.split('\n\n<<<POSTING EXCERPT')[0].split('\n\n').at(-1)!);
+        return { matches: [{ index: 0, status: 'met', evidence: payload.candidateSourceExcerpts.find((source: any) => source.text.includes('infermiera di reparto')).id }], verdict: 'good', questions: [] };
+      }
+      return original(request);
+    });
+    const flow = { round: 1, answers: {}, formOverrides: { languages: 'tedesco C1' } };
+    const record = { id: 'answer-de', key: 'language_de', question: { question: 'What is your current German level?', type: 'choice', options: ['A2', 'C1'] },
+      answer: 'C1', category: 'language', unit: 'CEFR_or_stated_level', scope: 'candidate',
+      provenance: { actor: 'candidate', round: 1, confirmedAt: Date.now(), cvHash: sameCv ? eligibilityHash(bytes) : 'a'.repeat(64) } };
+    const fetchImpl = async (url: string, init: any = {}) => {
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) return new Response(JSON.stringify({
+        description: 'Requisiti: esperienza di reparto. ' + 'Attività e contesto del reparto. '.repeat(10), applyUrl: order.jobUrl,
+      }), { status: 200 });
+      return fakeFetch()(url, init);
+    };
+    const draft = await buildDraft({ order, orderId: ORDER_ID, flow, cvBuffer: bytes, cvType: 'pdf', bucket: fakeBucket(), runKey: KEY,
+      codex: base, answerEvidence: [record], fetchImpl, resolve: publicDns, log: quiet });
+    expect(draft.requirements).toHaveLength(1);
+    expect(draft.requirements[0].quote).not.toMatch(/German|tedesco/i);
+    expect(draft.qualificationCvLanguageProfile.profile.languages[0]).toMatchObject({ language: 'tedesco', level: 'A2' });
+    const context = portalQualificationContext({ order, orderId: ORDER_ID, draft, cvBuffer: bytes, flow, answerEvidence: [record] });
+    const nativeCodex = vi.fn(async ({ prompt }: any) => {
+      const payload = JSON.parse(prompt.split('\n\nReturn exactly one JSON object')[0].split('\n\n').at(-1)!);
+      return { assessments: payload.sourceColumns ? [{ index: 0, sourceIds: [payload.sources.find((row: any[]) => row[1] === 'qa')[0]] }]
+        : [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'supported', reason: 'explicit_fact' }] };
+    });
+    const verifier = createPortalQualificationVerifier({ context, codex: nativeCodex });
+    const proposed = () => verifyPortalActions(verifier, [{ id: 'ats-language', kind: 'text', inputType: 'text', label: 'Do you speak German at C1?', context: 'Languages', options: [] }],
+      [{ fieldId: 'ats-language', action: 'fill', value: 'Yes', source: 'profile', evidence: 'tedesco C1' }]);
+    if (sameCv) { await expect(proposed()).resolves.toBeUndefined(); expect(nativeCodex).toHaveBeenCalledTimes(2); }
+    else { await expect(proposed()).rejects.toMatchObject({ code: 'evidence_entailment_unverified', reason: 'language_revision_unverified' }); expect(nativeCodex).not.toHaveBeenCalled(); }
+  }, 60_000);
+
   it('builds the draft from Codex answers, with the career-ops guards applied in code', async () => {
     const bucket = fakeBucket();
     const codex = fakeCodex();

@@ -1,7 +1,9 @@
 import path from 'node:path';
+import { fitToLength, renderedTextAction, phonePrefixMetadata } from './text-transport.mjs';
+export { fitToLength };
 import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionTopic, permitBooleanOptionLabel, questionTopic } from './plan.mjs';
-import { countryCodeOfLabel, formatPhoneForField, phoneCountryCode, phoneDialCode } from '../../../../functions/src/lib/phoneNormalization.js';
+import { countryCodeOfLabel, phoneCountryCode } from '../../../../functions/src/lib/phoneNormalization.js';
 import { residenceCountryCode } from './residence-address.mjs';
 import { dismissOptionalAutofill } from './optional-autofill.mjs';
 import { ownedOption, ownedOptionList, PortalQualificationUnverified } from './qualification-gate.mjs';
@@ -33,38 +35,9 @@ export function phoneCountryOptionLabel(value, options = []) {
     .find((label) => countryCodeOfLabel(label) === wanted) || '';
 }
 
-const sameNormalized = (left, right) => {
-  const a = normalizedChoice(left);
-  const b = normalizedChoice(right);
-  return a && b ? a === b : !a && !b;
-};
-
-/**
- * Detect a phone input whose country prefix is represented by a sibling
- * phone-country field. The extracted field snapshot is the source of truth:
- * matching form/section/context keeps a residence «Land» from changing the
- * formatting of an unrelated phone input.
- */
+/** Compatible public wrapper around the shared, pure prefix relation. */
 export function separatePhonePrefixMetadata(field, fields = [], value = '') {
-  if (questionTopic(field?.label, field?.context, field) !== 'phone') return {};
-  const index = fields.indexOf(field);
-  const phoneCountryFields = fields
-    .map((candidate, candidateIndex) => ({ candidate, candidateIndex }))
-    .filter(({ candidate }) => questionTopic(candidate?.label, candidate?.context, candidate) === 'phone_country')
-    .filter(({ candidate }) => candidate?.form === field?.form || candidate?.form == null || field?.form == null)
-    .filter(({ candidate }) => !candidate?.section || !field?.section || sameNormalized(candidate.section, field.section));
-  const hasSeparateControl = phoneCountryFields.some(({ candidate, candidateIndex }) => {
-    const sameContext = candidate?.context && field?.context && sameNormalized(candidate.context, field.context);
-    // Some ATSes omit sibling labels from one of the two extracted controls;
-    // when that happens, only accept the nearby control in the same form.
-    const nearby = index >= 0 && Math.abs(candidateIndex - index) <= 2;
-    return sameContext || nearby;
-  });
-  if (!hasSeparateControl) return {};
-  return {
-    countryPrefix: phoneDialCode(value),
-    separateCountryCode: true,
-  };
+  return phonePrefixMetadata(field, fields, value, item => questionTopic(item?.label, item?.context, item));
 }
 
 /**
@@ -120,18 +93,6 @@ async function setChoice(locator, checked) {
   }
 }
 
-/** The text, shortened at a sentence end (else a word end) to fit `max` characters. */
-export function fitToLength(text, max) {
-  const value = String(text || '');
-  if (!max || value.length <= max) return value;
-  const cut = value.slice(0, max);
-  // The last sentence end in the second half of the limit: never a half sentence.
-  let end = -1;
-  for (const match of cut.matchAll(/[.!?…](?=\s|$)/g)) end = match.index + 1;
-  if (end >= max * 0.5) return cut.slice(0, end).trim();
-  const space = cut.lastIndexOf(' ');
-  return (space > 0 ? cut.slice(0, space) : cut).replace(/[\s,;:–—-]+$/, '').trim();
-}
 
 /**
  * The choice took (career-ops: "verify each selection"): a native select
@@ -798,8 +759,9 @@ export async function applyActions(page, fields, actions, files, {
 } = {}) {
   const byId = new Map(fields.map((field) => [field.id, field]));
   const results = [];
-  for (const action of actions) {
-    const field = byId.get(action.fieldId);
+  for (const proposed of actions) {
+    const field = byId.get(proposed.fieldId);
+    const action = field ? renderedTextAction(field, proposed, fields, item => questionTopic(item?.label, item?.context, item)) : proposed;
     if (!field || action.action === 'skip') continue;
     // How many files an upload set, for the record of what left (submit.mjs).
     let uploaded = 0;
@@ -904,14 +866,9 @@ export async function applyActions(page, fields, actions, files, {
         // The search box already holds this answer (Workday sets the phone code with the country): typed
         // and chosen again, it would be the chosen value that gets clicked.
       } else {
-        // A long text is shortened at a sentence end, never cut in the middle of one.
-        const topic = questionTopic(field.label, field.context, field);
-        const value = topic === 'phone'
-          ? formatPhoneForField(action.value, {
-            maxLength: field.maxLength,
-            ...separatePhonePrefixMetadata(field, fields, action.value),
-          })
-          : fitToLength(action.value, field.maxLength);
+        const value = action.value;
+        // Fence the exact final bytes again, after optional overlays/redraws.
+        await beforeAction(field, action);
         await fillText(locator, value);
         if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value,
           value => beforeAction(field, { ...action, value }, { catalogueOpen: true }));
