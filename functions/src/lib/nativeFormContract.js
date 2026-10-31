@@ -1,8 +1,10 @@
 /** Pure native-question contract shared by browser and server; no candidate/CV source. */
 import { addressContextContract } from './addressContextContract.js';
 import { nativeQuestionText } from './nativeQuestionText.js';
+import { nativeScopeView } from './nativeScopeInterpretation.js';
 
-export function createNativeContractTools({ addressContextContract, nativeQuestionText }) {
+export function createNativeContractTools({ addressContextContract, nativeQuestionText, nativeScopeView }) {
+  const policyFields = new WeakMap();
   const normalized = value => String(value ?? '').normalize('NFKC').replace(/\s+/g, ' ').trim();
   const comparable = value => normalized(value).toLowerCase();
 const CONSENT_METADATA = ['ownConsentText', 'ownConsentQuestionLabels', 'ownConsentLinks', 'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'ownConsentOwnerKey', 'consentOwnershipUnknown'];
@@ -38,8 +40,15 @@ function consentContract(field) {
 }
 
 /** Native contracts remain complete; an extractor cap is not an attestation. */
-function nativeFormContract(field) {
-  if (!field || field.nativeUncheckedSubmissionUnknown || field.nativeContractUnavailable || typeof field.id !== 'string' || !normalized(field.label)) return null;
+function buildNativeFormContract(field, preserveSemanticUnknown = false) {
+  const semanticUnknown = field?.nativeContextUnknown === true || field?.nativeOwnedScopes?.some(scope => scope?.unknown === true);
+  const completeSemanticSource = field?.nativeMetadataComplete === true && field.nativeMetadataMissing === false
+    && field.nativeContextIssuesComplete === true && Array.isArray(field.nativeContextIssues)
+    && Array.isArray(field.nativeScopeIssues);
+  if (!field || field.nativeMetadataComplete === false || field.nativeMetadataMissing === true || field.nativeContextIssuesComplete === false
+    || semanticUnknown && !preserveSemanticUnknown
+    || field.nativeUncheckedSubmissionUnknown || field.nativeContractUnavailable && !(preserveSemanticUnknown && semanticUnknown && completeSemanticSource)
+    || typeof field.id !== 'string' || !normalized(field.label)) return null;
   const text = ['label', 'context', 'section', 'autocomplete'];
   if (text.some(key => field[key] != null && typeof field[key] !== 'string')) return null;
   // Full labels and owned descriptions are preserved by the native reader.
@@ -56,12 +65,27 @@ function nativeFormContract(field) {
   if (addressContext === null || addressContext?.unknown) return null;
   const graph = field.nativeOwnedScopes;
   if (graph !== undefined && (!Array.isArray(graph) || graph.length > 32 || graph.some(scope => !scope || !['group', 'form'].includes(scope.kind)
-    || Object.keys(scope).some(key => !['kind', 'names', 'unknown'].includes(key)) || scope.unknown !== false || !Array.isArray(scope.names) || scope.names.length > 64 || scope.names.some(name => typeof name !== 'string' || name.length > 8000))
+    || Object.keys(scope).some(key => !['kind', 'names', 'unknown'].includes(key))
+    || (scope.unknown !== false && !(preserveSemanticUnknown && completeSemanticSource && scope.unknown === true))
+    || !Array.isArray(scope.names) || scope.names.length > 64 || scope.names.some(name => typeof name !== 'string' || name.length > 8000))
     || graph.flatMap(scope => scope.names).reduce((sum, name) => sum + name.length, 0) > 12000)) return null;
-  const consent = consentContract(field);
+  const consentUnknown = field.consentOwnershipUnknown === true && preserveSemanticUnknown && semanticUnknown && completeSemanticSource
+    && field.ownConsentMetadataComplete === true && field.ownConsentQuestionOwned === true;
+  const consent = consentContract(consentUnknown ? { ...field, consentOwnershipUnknown: false } : field);
   if (consent === null) return null;
-  return { question: nativeQuestionText(field.label), context: nativeQuestionText(field.context), section: nativeQuestionText(field.section),
+  if (preserveSemanticUnknown && semanticUnknown) {
+    if (!completeSemanticSource || field.nativeScopeIssues.length > 64 || field.nativeContextIssues.length > 32) return null;
+    if (field.nativeContextUnknown !== Boolean(field.nativeOwnedScopes?.some(scope => scope.unknown) || field.nativeContextIssues.length)) return null;
+    const serialized = JSON.stringify([field.nativeScopeIssues, field.nativeContextIssues]);
+    if (serialized.length > 24000) return null;
+  }
+  return { question: nativeQuestionText(field.label), context: nativeQuestionText(field.context),
+    section: preserveSemanticUnknown && semanticUnknown ? String(field.section || '') : nativeQuestionText(field.section),
     ...consent,
+    ...(consentUnknown ? { consentOwnershipUnknown: true } : {}),
+    ...(preserveSemanticUnknown && semanticUnknown ? { ownershipUnknown: true, metadataComplete: true, metadataMissing: false,
+      contextIssuesComplete: true, contractUnavailable: field.nativeContractUnavailable === true,
+      scopeIssues: structuredClone(field.nativeScopeIssues), contextIssues: structuredClone(field.nativeContextIssues) } : {}),
     ...(graph === undefined ? {} : { ownedScopes: structuredClone(graph) }),
     ...(field.nativeUncheckedSubmission ? { uncheckedSubmission: structuredClone(field.nativeUncheckedSubmission) } : {}),
     ...(addressContext === undefined ? {} : { addressContext }),
@@ -76,23 +100,64 @@ function nativeFormContract(field) {
     } };
 }
 
+/** Complete RAW transport: semantic uncertainty remains explicit, never an exemption. */
+function rawNativeFormContract(field) { return buildNativeFormContract(policyFields.get(field) || field, true); }
+
+/** A private view affects scope checks only; its proof serializer still reads the original RAW source. */
+function nativePolicyField(field, { sourceAuthority } = {}) {
+  if (!field || typeof nativeScopeView !== 'function') return field;
+  if (policyFields.has(field)) return field;
+  const interpreted = nativeScopeView(field, { sourceAuthority });
+  if (interpreted.status !== 'interpreted') return field;
+  const raw = structuredClone(field); const indexes = new Set(interpreted.view.structuralScopeIndexes);
+  const view = { ...structuredClone(field), context: interpreted.view.context, section: interpreted.view.section,
+    nativeOwnedScopes: interpreted.view.ownedScopes.filter((_scope, index) => !indexes.has(index)),
+    nativeContextUnknown: false, nativeContractUnavailable: false };
+  if (view.ownConsentMetadataComplete === true && view.ownConsentQuestionOwned === true) view.consentOwnershipUnknown = false;
+  policyFields.set(view, raw);
+  return view;
+}
+
+function nativeFormContract(field, { sourceAuthority } = {}) {
+  if (sourceAuthority && !policyFields.has(field)) {
+    const view = nativePolicyField(field, { sourceAuthority });
+    if (view !== field) return rawNativeFormContract(view);
+  }
+  return buildNativeFormContract(field);
+}
+
 /** Decode a complete wire contract through the same bounded native validator. */
-function nativeFieldFromContract(native, { id = 'native-contract' } = {}) {
+function rawNativeFieldFromContract(native, { id = 'native-contract' } = {}) {
   if (typeof id !== 'string' || !id || id.length > 4096 || !native || typeof native !== 'object'
     || !Array.isArray(native.ownedScopes)) return null;
   const validation = native.validation;
   if (!validation || typeof validation !== 'object' || Array.isArray(validation)
-    || Object.entries(validation).some(([key, value]) => !['type', 'min', 'max', 'minlength', 'maxlength', 'pattern', 'step', 'required', 'aria-required', 'multiple'].includes(key)
+    || Object.entries(validation).some(([key, value]) => !['type', 'accept', 'min', 'max', 'minlength', 'maxlength', 'pattern', 'step', 'required', 'aria-required', 'multiple'].includes(key)
       || !['string', 'number', 'boolean'].includes(typeof value) || typeof value === 'number' && !Number.isFinite(value))) return null;
   const field = { id, label: native.question, context: native.context, section: native.section,
     inputType: native.controlType, kind: native.kind, name: native.name, required: native.required,
     autocomplete: native.autocomplete, options: native.optionValues, validation: native.validation,
     nativeOwnedScopes: native.ownedScopes, nativeUncheckedSubmission: native.uncheckedSubmission,
+    ...(Object.hasOwn(native, 'ownershipUnknown') ? { nativeContextUnknown: native.ownershipUnknown,
+      nativeMetadataMissing: native.metadataMissing, nativeContextIssuesComplete: native.contextIssuesComplete,
+      nativeContractUnavailable: native.contractUnavailable, nativeScopeIssues: native.scopeIssues, nativeContextIssues: native.contextIssues } : {}),
     nativeMetadataComplete: true, ...Object.fromEntries(Object.entries(native).filter(([key]) => key.startsWith('ownConsent')
       || ['addressContext', 'consentOwnershipUnknown'].includes(key))) };
   const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object'
     ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
-  return JSON.stringify(stable(nativeFormContract(field))) === JSON.stringify(stable(native)) ? field : null;
+  return JSON.stringify(stable(rawNativeFormContract(field))) === JSON.stringify(stable(native)) ? field : null;
+}
+
+/** A RAW decoder is not an ownership grant. Fresh use still requires the private scope authority. */
+function nativeFieldFromContract(native, { id = 'native-contract', sourceAuthority } = {}) {
+  const field = rawNativeFieldFromContract(native, { id });
+  return field && nativeFormContract(field, { sourceAuthority }) ? field : null;
+}
+
+/** Ephemeral scope-only view for typed checks; callers still send/hash the RAW contract. */
+function nativePolicyContract(native, { sourceAuthority } = {}) {
+  const field = nativeFieldFromContract(native, { sourceAuthority });
+  return field ? nativeFormContract(nativePolicyField(field, { sourceAuthority })) : null;
 }
 
   const neutralApplicationScope = /^(?:application|application form|create account|account details|registration|login details|basic information|additional data|further information|weitere angaben|zusätzliche angaben|ulteriori dati|informazioni aggiuntive|informations complémentaires|données supplémentaires|benutzerkonto|konto erstellen|registrierung|registrazione|crea account|créer un compte|inscription|application documents|supporting documents|documents|personal (?:data|details|information)|contact (?:data|details|information)|candidate (?:data|details|information)|applicant (?:data|details|information)|your (?:application|details|information)|bewerbung|bewerbungsformular|bewerbungsunterlagen|unterlagen|dokumente|persönliche (?:daten|angaben)|kontaktdaten|kandidatendaten|candidatura|documenti(?: di candidatura)?|dati personali|informazioni personali|dati di contatto|contatti|candidature|formulaire de candidature|documents|documents de candidature|données personnelles|coordonnées|informations personnelles)[:*＊]?$/iu;
@@ -110,6 +175,7 @@ function nativeScopeAllows(field, ownPurpose) {
 
 function withNativeMetadata(field, native) {
   if (native) {
+    const rawUnknownNames = (native.nativeOwnedScopes || []).filter(scope => scope.unknown === true).flatMap(scope => scope.names);
     const resolveText = value => {
       let text = String(value ?? '');
       for (const fragment of native.counterFragments || []) {
@@ -119,8 +185,10 @@ function withNativeMetadata(field, native) {
       }
       return nativeQuestionText(text);
     };
-    for (const key of ['label', 'context', 'section']) native[key] = resolveText(native[key]);
-    if (native.nativeOwnedScopes) native.nativeOwnedScopes = native.nativeOwnedScopes.map(scope => ({ ...scope, names: scope.names.map(resolveText) }));
+    for (const key of ['label', 'context', 'section']) native[key] = key === 'section' && rawUnknownNames.includes(native[key])
+      ? String(native[key]).normalize('NFC').replace(/\s+/gu, ' ').trim() : resolveText(native[key]);
+    if (native.nativeOwnedScopes) native.nativeOwnedScopes = native.nativeOwnedScopes.map(scope => ({ ...scope,
+      names: scope.names.map(name => scope.unknown === true ? String(name).normalize('NFC').replace(/\s+/gu, ' ').trim() : resolveText(name)) }));
     if (native.ownedQuestionContext) native.ownedQuestionContext = native.ownedQuestionContext.map(resolveText);
     delete native.counterFragments;
   }
@@ -134,10 +202,10 @@ function withNativeMetadata(field, native) {
     }
   }
   if (actual.nativeUncheckedSubmission && !/^(?:no|nein|non|false|0)$/iu.test(normalized(actual.nativeUncheckedSubmission.value))) actual.nativeUncheckedSubmissionUnknown = true;
-  actual.originalNativeContract = nativeFormContract(actual);
+  actual.originalNativeContract = rawNativeFormContract(actual);
   return actual;
 }
-return { nativeFormContract, nativeFieldFromContract, nativeQuestionMetadata, ownedAddressContract, consentContract, withNativeMetadata, nativeScopeAllows, neutralApplicationScopePattern };
+return { nativeFormContract, rawNativeFormContract, nativePolicyField, nativePolicyContract, nativeFieldFromContract, rawNativeFieldFromContract, nativeQuestionMetadata, ownedAddressContract, consentContract, withNativeMetadata, nativeScopeAllows, neutralApplicationScopePattern };
 
 }
-export const { nativeFormContract, nativeFieldFromContract, nativeQuestionMetadata, ownedAddressContract, consentContract, withNativeMetadata, nativeScopeAllows, neutralApplicationScopePattern } = createNativeContractTools({ addressContextContract, nativeQuestionText });
+export const { nativeFormContract, rawNativeFormContract, nativePolicyField, nativePolicyContract, nativeFieldFromContract, rawNativeFieldFromContract, nativeQuestionMetadata, ownedAddressContract, consentContract, withNativeMetadata, nativeScopeAllows, neutralApplicationScopePattern } = createNativeContractTools({ addressContextContract, nativeQuestionText, nativeScopeView });

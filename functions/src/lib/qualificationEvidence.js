@@ -1,6 +1,7 @@
 /** Authentic quotations and semantic support are separate checks. */
 import { createHash } from 'node:crypto';
 import { identityControlRole, isCandidateIdentityTarget } from './candidateIdentityContract.js';
+import { nativePolicyContract } from './nativeFormContract.js';
 import { nativePolicyClaimAuthority } from './nativeApplicationPolicy.js';
 import { nativePolicyAuthoritySource, nativePolicyAuthorityMatches } from './nativePolicyAuthority.js';
 import { qualificationCounterContextHash } from './qualificationCounterContext.js';
@@ -173,7 +174,8 @@ export async function verifyQualificationEvidence({ requirements, match, rawMatc
     try { proof = structuredClone(sources.bind(evidence.evidence, original?.evidence)); } catch { return unknown('source_unbound'); }
     boundProofs.push({ quote: evidence.evidence, id: original?.evidence, hash: hash(JSON.stringify(canonical(proof))) });
     const policyClaim = { fieldId: row.fieldId, nativeFormContract: row.nativeFormContract, proposedAnswer: row.proposedAnswer, policyAuthorityNeeded: row.policyAuthorityNeeded };
-    const policyProof = source => purpose === 'native_form' && nativePolicyAuthorityMatches({ claim: policyClaim, source, scope: nativeScope, classify: nativePolicyClaimAuthority });
+    const policyProof = source => purpose === 'native_form' && nativePolicyAuthorityMatches({ claim: policyClaim, source, scope: nativeScope,
+      classify: claim => nativePolicyClaimAuthority(claim, { sourceAuthority: nativeScope?.sourceAuthority }) });
     if (row.policyAuthorityNeeded && (purpose !== 'native_form' || !row.nativeFormContract)) return unknown('policy_authority_unverified');
     if (!proof || !['cv_original', 'candidate_answer', 'primary_bundle', 'policy_authority'].includes(proof.kind)) return unknown('source_unbound');
     if (proof.kind === 'policy_authority' && !policyProof(proof)) return unknown('policy_authority_unverified');
@@ -297,7 +299,7 @@ Evaluate the TRUTH OF THE PROPOSED VALUE, not whether the source mentions the qu
 Candidate-answer records: actual answer is authoritative; printed options are never the answer. A2 does not support proposed C1; an actual No does not support proposed Yes. Scope, target, unit and original question must match. Future wishes/training do not establish present ability. Do not infer consent, status or qualifications.
 CV sources: a generic management title does not establish a degree, provider/change processes or analytical ability. Dates establish tenure only with the clearly identified role/domain. Original positions identify the paragraph/ordinal of each source. A role and its dates must both be selected; unselected neighboring text will never reach the adjudicator. All AND conditions must be supported; one OR alternative may suffice.
 Attested declarations and unverifiedContext may contradict older CV text: do not select an unresolved contradicted assertion. Raw notes/corrections never become primary sources. Use empty sourceIds when meaning, scope or coverage cannot be established.`;
-export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-sourceconflict1-local-contract1-cv-revision2-identity1-policy-authority1-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
+export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-sourceconflict1-local-contract1-cv-revision2-identity1-policy-authority1-scope-interpretation1-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
 
 function nativePrimarySources(sources) {
   const seenAnswers = new Set();
@@ -310,8 +312,9 @@ function nativePrimarySources(sources) {
   });
 }
 
-function requiresExactIdentityAnswer(claim) {
-  return Boolean(identityControlRole(claim.nativeFormContract) && !isCandidateIdentityTarget(claim.nativeFormContract));
+function requiresExactIdentityAnswer(claim, scope = {}) {
+  const contract = scope.sourceAuthority ? nativePolicyContract(claim.nativeFormContract, { sourceAuthority: scope.sourceAuthority }) || claim.nativeFormContract : claim.nativeFormContract;
+  return Boolean(identityControlRole(contract) && !isCandidateIdentityTarget(contract));
 }
 
 function sameLocalNativeContract(claim, source) {
@@ -360,7 +363,7 @@ function nativeLanguageRevisionConflict(claim, record, scope, catalog, constrain
 
 /** The same revision veto is also used before a deterministic Q/A fast path. */
 export function nativeLanguageEvidenceConflict({ claim, record, scope = {}, sources }) {
-  return nativeLanguageRevisionConflict(claim, record, scope, nativePrimarySources(sources), typedNativeAnswerConstraint(claim, record));
+  return nativeLanguageRevisionConflict(claim, record, scope, nativePrimarySources(sources), typedNativeAnswerConstraint(claim, record, scope));
 }
 
 /** One source-selecting, blind assessment for all native claims on a page. */
@@ -385,16 +388,19 @@ export async function verifyNativeFormAnswers({ claims, sources, generate, scope
     || !Number.isInteger(source.position?.ordinal) || !Number.isInteger(source.position?.block)
     || !Number.isInteger(source.position?.blockSize))) return fail('source_unbound');
   for (const claim of claims) {
-    if (requiresExactIdentityAnswer(claim) && !catalog.some(source => source.kind === 'candidate_answer'
-      && sameLocalNativeContract(claim, source) && typedNativeAnswerConstraint(claim, source.answerRecord) === 'supports'
+    const native = claim.nativeFormContract;
+    if ((native.ownershipUnknown === true || native.contractUnavailable === true || native.metadataMissing === true || native.metadataComplete === false)
+      && !nativePolicyContract(native, { sourceAuthority: scope.sourceAuthority })) return fail('native_scope_unverified');
+    if (requiresExactIdentityAnswer(claim, scope) && !catalog.some(source => source.kind === 'candidate_answer'
+      && sameLocalNativeContract(claim, source) && typedNativeAnswerConstraint(claim, source.answerRecord, scope) === 'supports'
       && (source.authority !== 'native_local' || source.localBinding?.orderId === scope.orderId && source.localBinding?.round === scope.round))) return fail('identity_target_unverified');
     if (nativeAnswerSourceConflicts({ nativeFormContract: claim.nativeFormContract,
       answerSourceConflicts: scope.answerSourceConflicts, currentCvHash: scope.sourceCvHash }).length) return fail('answer_source_conflict');
-    if (claim.policyAuthorityNeeded && !catalog.some(source => nativePolicyAuthorityMatches({ claim, source, scope, classify: nativePolicyClaimAuthority }))) return fail('policy_authority_unverified');
+    if (claim.policyAuthorityNeeded && !catalog.some(source => nativePolicyAuthorityMatches({ claim, source, scope, classify: claim => nativePolicyClaimAuthority(claim, { sourceAuthority: scope.sourceAuthority }) }))) return fail('policy_authority_unverified');
     for (const source of catalog.filter(item => item.kind === 'candidate_answer')) {
       if (source.authority === 'native_local' && (source.localBinding?.orderId !== scope.orderId
         || source.localBinding?.round !== scope.round || !sameLocalNativeContract(claim, source))) continue;
-      const constraint = typedNativeAnswerConstraint(claim, source.answerRecord);
+      const constraint = typedNativeAnswerConstraint(claim, source.answerRecord, scope);
       if (constraint === 'unrelated') continue;
       if (nativeLanguageRevisionConflict(claim, source.answerRecord, scope, catalog, constraint)) return fail('language_revision_unverified');
       if (constraint === 'contradicts') return fail('actual_answer_conflict');
@@ -434,13 +440,13 @@ export async function verifyNativeFormAnswers({ claims, sources, generate, scope
     const proofs = result.sourceIds.map(id => byId.get(id));
     if (proofs.some(source => !source)) return fail('source_unbound');
     for (const source of proofs) {
-      if (requiresExactIdentityAnswer(claims[result.index]) && (source.kind !== 'candidate_answer'
+      if (requiresExactIdentityAnswer(claims[result.index], scope) && (source.kind !== 'candidate_answer'
         || !sameLocalNativeContract(claims[result.index], source))) return fail('identity_target_unverified');
       if ((source.kind === 'policy_authority' || claims[result.index].policyAuthorityNeeded)
-        && !nativePolicyAuthorityMatches({ claim: claims[result.index], source, scope, classify: nativePolicyClaimAuthority })) return fail('policy_authority_unverified');
+        && !nativePolicyAuthorityMatches({ claim: claims[result.index], source, scope, classify: claim => nativePolicyClaimAuthority(claim, { sourceAuthority: scope.sourceAuthority }) })) return fail('policy_authority_unverified');
       if (source.authority === 'native_local' && (source.localBinding?.orderId !== scope.orderId
         || source.localBinding?.round !== scope.round || !sameLocalNativeContract(claims[result.index], source))) return fail('local_answer_scope_unverified');
-      if (source.kind === 'candidate_answer' && typedNativeAnswerConstraint(claims[result.index], source.answerRecord) !== 'supports') return fail('answer_contract_unverified');
+      if (source.kind === 'candidate_answer' && typedNativeAnswerConstraint(claims[result.index], source.answerRecord, scope) !== 'supports') return fail('answer_contract_unverified');
       if (source.kind === 'cv_original' && nativeCvDomainConstraint(claims[result.index], source) === 'unverified') return fail('status_constraint_unverified');
     }
     const cvProofs = proofs.filter(source => source.kind === 'cv_original');

@@ -1,5 +1,5 @@
 /** Typed answer constraints are stronger than an inference about a printed option. */
-import { nativeScopeAllows } from './nativeFormContract.js';
+import { nativeScopeAllows, nativePolicyContract } from './nativeFormContract.js';
 import { addressContextContract } from './addressContextContract.js';
 import { isGeneralCandidateLanguageQuestion, isPortableCandidateLanguageQuestion, LANGUAGE_MODALITY_RE, LANGUAGE_ORAL_RE } from './candidateLanguageQuestion.js';
 import { conciergeProposalEligibility } from '../assistedApplicationFitNotice.js';
@@ -76,9 +76,17 @@ function portableTarget(question) {
 }
 
 /** supports / contradicts / unknown / unrelated, never an invented candidate gap. */
-export function typedNativeAnswerConstraint(claim, record) {
-  const native = claim.nativeFormContract || {};
-  const original = originalQuestion(record);
+export function typedNativeAnswerConstraint(claim, record, scope = {}) {
+  const policyView = contract => scope.sourceAuthority ? nativePolicyContract(contract, { sourceAuthority: scope.sourceAuthority }) || contract : contract;
+  const native = policyView(claim.nativeFormContract || {});
+  const rawOriginal = record.question?.originalNativeContract;
+  const sourceQuestion = originalQuestion(record);
+  // Decode only the complete RAW contract. The question descriptor also carries
+  // source metadata, which must neither be mistaken for wire-contract fields
+  // nor be discarded when constructing the temporary scope view.
+  const original = sourceQuestion && rawOriginal && typeof rawOriginal === 'object' && !Array.isArray(rawOriginal)
+    ? { ...record.question, ...policyView(rawOriginal), applicationQuestion: rawOriginal.question }
+    : sourceQuestion;
   if (!original) return 'unknown';
   const actual = record.answer;
   const sourceOwnership = ownedContractState(original); const targetOwnership = ownedContractState(native);

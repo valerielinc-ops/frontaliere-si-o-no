@@ -2,7 +2,7 @@
  * Pure policy: no DOM, filesystem, network, provider or candidate-projection resolver.
  */
 import { isConsentOnly, isConsentRefusal, pureApplicationConsent } from './applicationConsent.js';
-import { nativeFormContract, nativeFieldFromContract, ownedAddressContract, consentContract, nativeScopeAllows } from './nativeFormContract.js';
+import { nativeFormContract, rawNativeFormContract, nativePolicyField, nativeFieldFromContract, ownedAddressContract, consentContract, nativeScopeAllows } from './nativeFormContract.js';
 import { nativeQuestionText } from './nativeQuestionText.js';
 import { candidateIdentityRole, isCandidateIdentityTarget } from './candidateIdentityContract.js';
 import { individualApplicationOriginQuestion } from './applicationOrigin.js';
@@ -49,7 +49,7 @@ export function isQualificationAction(field, action) {
 }
 
 function attestedNativeAnswer(context, field, answer, allowLegacy = false) {
-  const contract = nativeFormContract(field);
+  const contract = rawNativeFormContract(field);
   if (!contract) return false;
   const matched = (context?.answerEvidence || []).filter(record => {
     if (!['candidate', 'owner'].includes(record?.provenance?.actor)) return false;
@@ -78,7 +78,7 @@ export function exactAttestedAnswer(context, field, answer) {
 
 /** A conservative refusal veto; it never certifies a positive fact or consent. */
 export function hasAttestedNativeRefusal(field, answerEvidence = []) {
-  const native = nativeFormContract(field);
+  const native = rawNativeFormContract(field);
   if (!native) return false;
   return answerEvidence.some(record => {
     if (!['candidate', 'owner'].includes(record?.provenance?.actor)
@@ -106,14 +106,14 @@ function validLocalReceipt(context, record) {
 }
 
 export function localExactAnswer(context, field, answer) {
-  const contract = nativeFormContract(field);
+  const contract = rawNativeFormContract(field);
   return Boolean(contract && (context?.localAnswerEvidence || []).some(record => validLocalReceipt(context, record)
     && sameContract(record.question.originalNativeContract, contract)
     && (sameAnswer(record.answer, answer) || isConsentOnly(field) && isConsentRefusal(record.answer) && isConsentRefusal(answer))));
 }
 
 function localCounterCurrent(context, field, answer) {
-  const contract = nativeFormContract(field);
+  const contract = rawNativeFormContract(field);
   return /^[a-f0-9]{64}$/u.test(context?.localAnswerCounterHash || '') && Boolean(contract
     && (context?.localAnswerEvidence || []).some(record => validLocalReceipt(context, record)
       && record.sourceCounterChanged !== true
@@ -144,7 +144,7 @@ export function hasStructuredConflict(context, field) {
 }
 
 export function attestedAnswerConflict(context, field, proposedAnswer) {
-  const contract = nativeFormContract(field);
+  const contract = rawNativeFormContract(field);
   if (!contract) return false;
   const optionAnswer = value => {
     const matching = (contract.optionValues || []).filter(option => comparable(option.label) === comparable(value)
@@ -222,7 +222,7 @@ export function validNativeValue(field, value) {
 
 export function claimFor(field, action, proposedAnswer) {
   proposedAnswer = proposedNativeAnswer(field, action, proposedAnswer);
-  const native = nativeFormContract(field);
+  const native = rawNativeFormContract(field);
   if (!native || proposedAnswer == null || String(proposedAnswer).trim() === '') return null;
   return { fieldId: fieldKey(field), nativeFormContract: native, proposedAnswer };
 }
@@ -270,8 +270,8 @@ function policyAuthorityPurpose(field, action) {
 }
 
 /** Recomputed by the verifier; a client-supplied tag is never a policy grant. */
-export function nativePolicyClaimAuthority(claim) {
-  const field = fieldFromNativeProof(claim);
+export function nativePolicyClaimAuthority(claim, { sourceAuthority } = {}) {
+  const field = nativePolicyField(fieldFromNativeProof(claim, { sourceAuthority }), { sourceAuthority });
   if (!field || claim.nativeValueUnknown || !validNativeValue(field, claim.proposedAnswer)
     || ['select', 'radio', 'listbox', 'combobox'].includes(field.kind) && !field.options?.length) return null;
   const action = { action: field.kind === 'checkbox' ? booleanAnswer(claim.proposedAnswer) === true ? 'check' : 'uncheck' : 'fill', value: claim.proposedAnswer };
@@ -284,6 +284,7 @@ export function nativePolicyClaimAuthority(claim) {
 
 /** All conflict checks precede every exemption; caller provenance is never authority. */
 export function createNativeApplicationAnswerPolicy({ context, candidate } = {}) {
+  const scoped = field => nativePolicyField(field, { sourceAuthority: context?.scope?.sourceAuthority });
   const answer = action => action.action === 'check' ? 'Yes' : action.action === 'uncheck' ? 'No' : action.answer ?? action.value;
   const refusalEvidence = [...(context?.answerEvidence || []), ...(context?.localAnswerEvidence || [])];
   const refusalConflict = (field, action) => hasAttestedNativeRefusal(field, refusalEvidence) && booleanAnswer(answer(action)) === true;
@@ -291,6 +292,7 @@ export function createNativeApplicationAnswerPolicy({ context, candidate } = {})
     && (exactAttestedAnswer(context, field, answer(action)) || localExactAnswer(context, field, answer(action)));
   const counterContext = (field, action) => hasUnverifiedCounterContext(context, answer(action), field);
   const failure = (field, action, proposedAnswer = answer(action)) => {
+    field = scoped(field);
     if (field?.nativeValueUnknown) return 'native_value_unverified';
     if (refusalConflict(field, action)) return 'native_attested_refusal';
     if (attestedAnswerConflict(context, field, proposedAnswer)) return 'native_attested_answer_conflict';
@@ -308,6 +310,7 @@ export function createNativeApplicationAnswerPolicy({ context, candidate } = {})
     return '';
   };
   const exemption = (field, action) => {
+    field = scoped(field);
     if (failure(field, action)) return '';
     if (mechanicallyGroundedNativeAction(candidate, field, action)) {
       if (isCandidateIdentityTarget(nativeFormContract(field))) return 'identity_mandate_preference';
@@ -322,12 +325,13 @@ export function createNativeApplicationAnswerPolicy({ context, candidate } = {})
     if (ownAnswer(field, action) && !counterContext(field, action)) return 'attested_answer';
     return '';
   };
-  const needs = (field, action) => Boolean(field?.nativeValueUnknown) || isQualificationAction(field, action) && !exemption(field, action);
+  const needs = (field, action) => Boolean(field?.nativeValueUnknown) || isQualificationAction(field, action) && !exemption(scoped(field), action);
   const assertValue = (field, action, proposedAnswer = answer(action)) => {
     const reason = failure(field, action, proposedAnswer);
     if (reason) throw new PortalQualificationUnverified(reason);
   };
   const claim = (field, action, proposedAnswer = answer(action)) => {
+    field = scoped(field);
     if (!needs(field, action)) return null;
     assertValue(field, action, proposedAnswer);
     const result = claimFor(field, action, proposedAnswer);
@@ -339,9 +343,9 @@ export function createNativeApplicationAnswerPolicy({ context, candidate } = {})
 }
 
 /** Decode the complete wire contract through the same validator used by Node. */
-export function fieldFromNativeProof(entry) {
+export function fieldFromNativeProof(entry, { sourceAuthority } = {}) {
   return typeof entry?.fieldId === 'string' && entry.fieldId
-    ? nativeFieldFromContract(entry.nativeFormContract, { id: entry.fieldId }) : null;
+    ? nativeFieldFromContract(entry.nativeFormContract, { id: entry.fieldId, sourceAuthority }) : null;
 }
 
 function verifiedDiplomaTransport({ proof, field, selected, purpose, context, verifiedDocumentTransports }) {
@@ -431,7 +435,7 @@ export function deriveNativeApplicationClaims({ proof, context, docsManifest, ca
   const policy = createNativeApplicationAnswerPolicy({ context, candidate: candidate || (context?.applicationIdentity ? { identity: context.applicationIdentity } : undefined) });
   for (const entry of proof.fields) {
     if (entry?.nativeValueUnknown) return fail('native_value_unverified');
-    const field = fieldFromNativeProof(entry);
+    const field = nativePolicyField(fieldFromNativeProof(entry, { sourceAuthority: context?.scope?.sourceAuthority }), { sourceAuthority: context?.scope?.sourceAuthority });
     if (!field || ids.has(entry.fieldId)) return fail('form_contract_unbound');
     ids.add(entry.fieldId);
     if (field.inputType === 'password') return fail('credential_field_unverified');
