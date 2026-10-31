@@ -104,6 +104,19 @@ describe('notice duration projection onto the native catalogue', () => {
     expect(answeredByCandidate(range, native.label, '7 days', '', { ...native, options: [{ label: '7 days' }] })).toBe(false);
   });
 
+  it('keeps different exact notice facts conflicting in every order even when both project to one native band', () => {
+    const statements = ['7 days', '14 days', 'less than one month'];
+    const native = { kind: 'select', label: 'Notice period', options: [{ label: 'less than one month' }, { label: '3 months' }] };
+    for (const answer of statements.slice(0, 2)) expect(operationalAnswerForOption(native, answer)).toBe('less than one month');
+    expect(equivalentOperationalAnswers({ question: native.label }, '7 days', '14 days')).toBe(false);
+    for (const first of statements) for (const second of statements.filter(answer => answer !== first)) {
+      const third = statements.find(answer => answer !== first && answer !== second)!;
+      const candidate = { identity: {}, answers: {}, portalQuestionsAnswered: [first, second, third]
+        .map(answer => ({ question: native.label, answer, source: 'answers' })) };
+      expect(candidateAnswerForField(candidate, native)).toBeNull();
+    }
+  });
+
   it('preserves string labels when an explicit unmatched notice needs a candidate action', () => {
     const native = { ...field, options: ['3 months'] };
     const candidate = { identity: {}, answers: {}, portalQuestionsAnswered: [{ question: field.label, answer: '7 days', source: 'answers' }] };
