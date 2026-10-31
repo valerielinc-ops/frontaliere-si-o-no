@@ -48,6 +48,7 @@ import {
   resolveTikTokMusicVariant,
   RobotError,
   waitForDialogControl,
+  findTikTokPublishedPost,
 } from '../scripts/social-robot/lib/flows.mjs';
 import {
   DEFAULT_TIKTOK_VIDEO_CREATIVE_MODE,
@@ -952,6 +953,30 @@ describe('runRobot', () => {
     const out = await runRobot(h.deps({ findPublishedPost: async () => 'found in /tiktokstudio/content' }));
     expect(out.results[0]?.outcome).not.toBe('held');
     expect(h.journal().attempts[0]).toMatchObject({ outcome: 'published', confirmDispatched: true });
+  });
+
+  it('accepts only a public published row with the exact caption as proof of a press', async () => {
+    const caption = 'Domanda\n\nRisposta #frontalieri';
+    const lookup = async (rows) => {
+      let listener = async () => {};
+      const page = {
+        on: (_event, fn) => { listener = fn; },
+        off: () => {},
+        url: () => 'https://www.tiktok.com/tiktokstudio/content',
+        locator: () => ({ first: () => ({ isVisible: async () => false }), filter: () => ({ first: () => ({ isVisible: async () => false }) }), isVisible: async () => false, count: async () => 0 }),
+        getByRole: () => ({ filter: () => ({ first: () => ({ isVisible: async () => false }) }), first: () => ({ isVisible: async () => false }), isVisible: async () => false, count: async () => 0 }),
+        getByText: () => ({ first: () => ({ isVisible: async () => false }), isVisible: async () => false, count: async () => 0 }),
+        goto: async () => listener({
+          url: () => 'https://www.tiktok.com/tiktok/creator/manage/item_list/v1/?aid=1',
+          json: async () => ({ item_list: rows }),
+        }),
+      };
+      return findTikTokPublishedPost({ page, caption, timeout: 0 });
+    };
+    expect(await lookup([{ item_id: '1', status: 102, visibility: 1, desc: 'Domanda Risposta #frontalieri' }])).toContain('published row 1');
+    expect(await lookup([{ item_id: '2', status: 102, visibility: 1, desc: 'Domanda Risposta #frontalieri e altro testo' }])).toBeNull();
+    expect(await lookup([{ item_id: '3', status: 100, visibility: 1, desc: 'Domanda Risposta #frontalieri' }])).toBeNull();
+    expect(await lookup([{ item_id: '4', status: 102, visibility: 2, desc: 'Domanda Risposta #frontalieri' }])).toBeNull();
   });
 
   it('keeps the hold and reports it again every 24 hours while the post is not found', async () => {

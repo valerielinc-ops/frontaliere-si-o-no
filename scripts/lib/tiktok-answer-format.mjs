@@ -126,7 +126,7 @@ export function buildAnswerVoiceScript(cards) {
 /** Seconds per card, proportional to its text and summing to the voice length. */
 export function planAnswerTimeline(cards, totalSeconds) {
   const available = totalSeconds - MIN_CARD_SECONDS * cards.length;
-  if (available < 0) throw new Error('the voice track is too short for its cards');
+  if (!(available >= 0)) throw new Error('the voice track is too short for its cards');
   const chars = cards.reduce((sum, card) => sum + card.text.length, 0);
   return cards.map((card) => MIN_CARD_SECONDS + (available * card.text.length) / chars);
 }

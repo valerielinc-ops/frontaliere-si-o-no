@@ -78,6 +78,7 @@ describe('answer video plan', () => {
     expect(timeline.reduce((a, b) => a + b, 0)).toBeCloseTo(30, 6);
     expect(Math.min(...timeline)).toBeGreaterThanOrEqual(1.4);
     expect(() => planAnswerTimeline(cards, 2)).toThrow(/too short/);
+    expect(() => planAnswerTimeline(cards, Number.NaN)).toThrow(/too short/);
   });
 
   it('keeps the voice as the only audio track of the video', () => {
