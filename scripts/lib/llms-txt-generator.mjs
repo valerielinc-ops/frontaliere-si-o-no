@@ -117,6 +117,36 @@ export function parseSitemapUrls(publicDir, fs, locale = 'it', distDir, sitemapF
 }
 
 /**
+ * What the sitemaps themselves say, for the counts and dates the llms family
+ * publishes. Prefers the file in `distDir`, the final one: `public/` holds only
+ * the seeds, so counting there is how 7,542 came to stand for a site with
+ * 159,770 URLs. The newest `<lastmod>` is the index date, because it changes
+ * with the content: a rebuild of unchanged pages renews nothing.
+ * @param {string} publicDir
+ * @param {typeof import('node:fs')} fs
+ * @param {string} [distDir]
+ * @param {readonly string[]} [sitemapFiles]
+ * @returns {{ totalUrls: number; newestDay?: string }}
+ */
+export function summarizeSitemaps(publicDir, fs, distDir, sitemapFiles = SITEMAP_FILES) {
+  const locs = new Set();
+  let newestDay;
+  for (const file of sitemapFiles) {
+    let content = null;
+    for (const dir of [distDir, publicDir]) {
+      if (!dir) continue;
+      try { content = fs.readFileSync(path.join(dir, file), 'utf-8'); break; } catch { /* next */ }
+    }
+    if (content === null) continue;
+    for (const m of content.matchAll(/<loc>([^<]+)<\/loc>/g)) locs.add(m[1]);
+    for (const m of content.matchAll(/<lastmod>\s*(\d{4}-\d{2}-\d{2})/g)) {
+      if (newestDay === undefined || m[1] > newestDay) newestDay = m[1];
+    }
+  }
+  return { totalUrls: locs.size, newestDay };
+}
+
+/**
  * Extract SEO titles/descriptions from seoService source files for page index.
  * @param {string} rootDir
  * @param {typeof import('node:fs')} fs
@@ -263,16 +293,6 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   const monthYear = `${monthNames[now.getMonth()]} ${now.getFullYear()}`;
   const isoDate = now.toISOString().slice(0, 10);
 
-  // Count blog articles from dist
-  let articleCount = 0;
-  try {
-    const blogDir = path.join(distDir, 'articoli-frontaliere');
-    if (fs.existsSync(blogDir)) {
-      articleCount = fs.readdirSync(blogDir, { withFileTypes: true })
-        .filter((d) => d.isDirectory()).length;
-    }
-  } catch { /* fallback: keep original text */ }
-
   // Parse all sitemap URLs and SEO metadata for auto-generated page index.
   // sitemapFiles = static floor UNION whatever sitemap-*.xml plugins have
   // actually emitted into dist/ by this point (#4413 sibling fix).
@@ -280,7 +300,11 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   const allUrls = parseSitemapUrls(publicDir, fs, 'it', distDir, sitemapFiles);
   const seoMap = parseSeoEntries(rootDir, fs);
   const categorized = categorizeUrls(allUrls);
-  void categorized; // kept for parity with the original body (unused beyond this point there too)
+  // One count for every mention: the page index and the seed text used to come
+  // from different sources, and the site read 3,000+, 4,487 and 4,506 at once.
+  const articleCount = categorized.get('Blog Articles').length;
+  const { totalUrls, newestDay } = summarizeSitemaps(publicDir, fs, distDir, sitemapFiles);
+  const indexDateNote = newestDay ? ` Newest indexed change: ${newestDay}. The reference text carries its own Last Updated date.` : '';
 
   /** Build a page index section for a given locale's URLs. */
   function buildPageIndex(urls, locale) {
@@ -291,7 +315,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
       '',
       '## Complete Page Index (Auto-Generated)',
       '',
-      `> This index is automatically generated at build time from all sitemaps. Total: ${urls.length} pages.`,
+      `> Generated from the sitemaps at build time. It lists ${urls.length} content pages in this language; individual job postings are in the sitemaps.${indexDateNote}`,
       '',
     ];
     for (const [category, catUrls] of cats) {
@@ -329,7 +353,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
       '',
       '## Page Index (Auto-Generated Summary)',
       '',
-      `> ${urls.length} pages across the site, auto-counted at build time from all sitemaps. The complete per-URL index with titles and descriptions is in [/llms-full.txt](${BASE_URL}/llms-full.txt).`,
+      `> ${totalUrls} URLs in the sitemaps across all languages, counted at build time. ${urls.length} of them are the Italian content pages summarized here; the rest are translations and job postings. The per-URL index with titles and descriptions is in [/llms-index.txt](${BASE_URL}/llms-index.txt).${indexDateNote}`,
       '',
     ];
     for (const [category, catUrls] of cats) {
@@ -342,6 +366,17 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
 
   const pageIndexSection = buildPageIndex(allUrls, 'it');
   const pageIndexSummarySection = buildPageIndexSummary(allUrls);
+  // llms-full.txt is the knowledge reference: 1.78 of its 1.83 MB used to be
+  // links, which is what an AI crawler reading it from the top paid for last.
+  const pageIndexPointerSection = [
+    '',
+    '---',
+    '',
+    '## Page Index',
+    '',
+    `The per-URL index is a separate file, so this one stays a reference: [/llms-index.txt](${BASE_URL}/llms-index.txt). ${totalUrls} URLs in the sitemaps across all languages.${indexDateNote}`,
+    '',
+  ].join('\n');
 
   /**
    * Inject dynamic job board stats (job count + employer count) from the
@@ -369,12 +404,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   const llmsPath = path.join(distDir, 'llms.txt');
   if (fs.existsSync(llmsPath)) {
     let content = fs.readFileSync(llmsPath, 'utf-8');
-    if (articleCount > 0) {
-      content = content.replace(
-        /\d+\+?\s*Blog Articles/,
-        `${articleCount}+ Blog Articles`,
-      );
-    }
+    if (articleCount > 0) content = content.replace(/\d[\d,]*\+?\s*Blog Articles/, `${articleCount} Blog Articles`);
     // Inject dynamic job board statistics from actual data
     content = injectJobBoardStats(content, distDir);
     // Append auto-generated page-index SUMMARY (#3527) — replace an existing
@@ -401,17 +431,22 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     // Editorial/source dates belong to the seed. Building an index is not a source verification.
     // Inject dynamic job board statistics from actual data
     content = injectJobBoardStats(content, distDir);
-    // Append page index to llms-full.txt as well
-    const autoGenMarker = '## Complete Page Index (Auto-Generated)';
-    const markerIdx = content.indexOf(autoGenMarker);
-    if (markerIdx !== -1) {
+    if (articleCount > 0) content = content.replace(/\d[\d,]*\+? in-depth articles/, `${articleCount} in-depth articles`);
+    // The index moved to llms-index.txt: replace a pointer or a legacy index.
+    const markerIdx = [content.indexOf('## Page Index'), content.indexOf('## Complete Page Index (Auto-Generated)')]
+      .filter((i) => i !== -1)
+      .reduce((a, b) => Math.min(a, b), Infinity);
+    if (markerIdx !== Infinity) {
       const beforeMarker = content.lastIndexOf('---', markerIdx);
-      content = content.substring(0, beforeMarker !== -1 ? beforeMarker : markerIdx).trimEnd() + '\n' + pageIndexSection;
-    } else {
-      content = content.trimEnd() + '\n' + pageIndexSection;
+      content = content.substring(0, beforeMarker !== -1 ? beforeMarker : markerIdx).trimEnd();
     }
-    fs.writeFileSync(llmsFullPath, content);
+    fs.writeFileSync(llmsFullPath, content.trimEnd() + '\n' + pageIndexPointerSection);
   }
+
+  fs.writeFileSync(
+    path.join(distDir, 'llms-index.txt'),
+    `# Frontaliere Ticino — Page Index\n\n> Per-URL index of the site. Summary: [/llms.txt](${BASE_URL}/llms.txt). Reference text: [/llms-full.txt](${BASE_URL}/llms-full.txt).\n${pageIndexSection}`,
+  );
 
   // Copy llms.txt to .well-known/llms.txt (some AI systems look there)
   const wellKnownDir = path.join(distDir, '.well-known');
