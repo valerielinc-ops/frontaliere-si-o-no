@@ -13615,7 +13615,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate wird fast 500.000 Euro weniger aus den Rückvergütungen haben.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.mozione-ticino-ristorni-salute.title': 'Motion im Tessin gegen die Gesundheitssteuer',
-    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparteiliche Motion im Grossen Rat eingereicht Die italienische Massnahme wird im Hinblick auf Artikel 9 beanstandet Das Tessin droht mit der Blockierung der Rückvergütungen.',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparteiliche Motion im Grossen Rat eingereicht Die italienische Massnahme wird im Hinblick auf Artikel 9 beanstandet Das Tessin droht mit der Blockierung der Rückvergütungen Gegenstand',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.ristorni-malnate-meno-500mila.title': 'Grenzgänger-Rückerstattungen, 500mila euro weniger für Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate erhält fast 500mila euro weniger Der nationale Fonds steigt von 89 auf 108 Millionen Die Rückerstattungen werden Anfang November eintreffen Fast 1.700 Einwohner von Malnate',
@@ -13629,6 +13629,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-brunate-lavorare-ticino.title': 'In Brunate leben und als Grenzgänger im Tessin arbeiten',
     'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Steuer- und Beitragsleitfaden für Personen, die in Brunate leben und im Tessin arbeiten, mit Blick auf das neue Grenzgängerabkommen, die Quellensteuer, Befreiungen und Lohnabrechnungsposten.',
     'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.sindacati-aumenti-infermieri-ticino.title': 'Psychiatrische Pflege: Gewerkschaften fordern Lohnerhöhungen bis 8\'941 Fr',
+    'blog.article.sindacati-aumenti-infermieri-ticino.excerpt': 'Am 10. November findet in Mendrisio die Mitgliederversammlung statt. Geforderte jährliche Lohnerhöhungen: von 5\'159 auf 8\'941 Franken. Neueinstufung: Klassen 4→5 und 5→6. OCST und VPOD fordern',
+    'blog.article.sindacati-aumenti-infermieri-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.giornico-consiglio-stato-fermata.title': 'Staatsrat lehnt Wiedereröffnung der FFS-Haltestelle in Giornico ab',
+    'blog.article.giornico-consiglio-stato-fermata.excerpt': 'Der Staatsrat lehnt die Wiedereröffnung in Giornico ab Die Linie 120 bedient Paese, Fraggio und Scuola Media Die TILO-Anschlüsse erfolgen in Biasca über die S10 Niemand',
+    'blog.article.giornico-consiglio-stato-fermata.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.cassa-pensione-snl-sev-attacca.title': 'Pensionskasse SNL: SEV stellt die Interpretation der Ergebnisse infrage',
+    'blog.article.cassa-pensione-snl-sev-attacca.excerpt': 'UBS wird das Vermögen der Pensionskasse SNL verwalten ATIOZ setzte nach einem Interessenkonflikt ein neues Verfahren durch Der Deckungsgrad lag Ende',
+    'blog.article.cassa-pensione-snl-sev-attacca.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
