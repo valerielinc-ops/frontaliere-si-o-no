@@ -22,3 +22,6 @@ import exchangeSnapshot from '../../data/exchange-rate-snapshot.json';
 export const EXCHANGE_RATE_EUR: string = String(
   (exchangeSnapshot as { currentRate?: number }).currentRate ?? 1.08,
 );
+
+/** Day `EXCHANGE_RATE_EUR` was observed, `YYYY-MM-DD`, for `validFrom` in JSON-LD. */
+export const EXCHANGE_RATE_DATE: string = (exchangeSnapshot as { rateDate: string }).rateDate;

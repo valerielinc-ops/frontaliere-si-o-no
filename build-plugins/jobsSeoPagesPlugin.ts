@@ -1077,7 +1077,7 @@ export function replaceActiveJobPostingDates(
  let script = scriptMatch[0];
  const fields: Array<[string, string]> = [
   ['datePosted', datePosted],
-  ['validThrough', validThrough || resolveJobPostingValidThrough({}, datePosted)],
+  ['validThrough', validThrough || resolveJobPostingValidThrough({ crawledAt }, datePosted)],
  ];
  // Keep the third field optional for legacy callers/tests. The production
  // active-page rewrite supplies the current crawler heartbeat when available.

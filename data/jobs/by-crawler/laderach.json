@@ -83,9 +83,9 @@
       "id": "laderach-404cc3b4b128",
       "slug": "rilievo-di-natale-40-80-chocolaterie-st-gallen-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-st-gallen-sankt",
       "slugByLocale": {
+        "de": "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen",
         "it": "rilievo-di-natale-40-80-chocolaterie-st-gallen-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-st-gallen-sankt",
         "en": "christmas-relief-40-80-chocolaterie-st-gallen-temporary-from-october-to-december-2026-laderach-schweiz-ag-st-gallen",
-        "de": "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen",
         "fr": "relief-de-noel-40-80-chocolaterie-st-gallen-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-st-gallen"
       },
       "company": "Läderach (Schweiz) AG",
@@ -156,12 +156,12 @@
     },
     {
       "id": "laderach-466d2e203293",
-      "slug": "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz",
+      "slug": "venditore-chocolaterie-uster-60-m-f-d-laderach-schweiz-ag-uster-zurich-schweiz",
       "slugByLocale": {
-        "it": "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz",
-        "en": "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz",
         "de": "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz",
-        "fr": "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz"
+        "it": "venditore-chocolaterie-uster-60-m-f-d-laderach-schweiz-ag-uster-zurich-schweiz",
+        "en": "seller-chocolaterie-uster-60-m-f-d-laderach-schweiz-ag-uster-zurich-schweiz",
+        "fr": "vendeur-chocolaterie-uster-60-h-f-d-laderach-schweiz-ag-uster-zurich-schweiz"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -214,7 +214,21 @@
       "postalCode": "8610",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68465307/Verk%C3%A4ufer-Chocolaterie-Uster-60-w-m-d-/",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-30T21:22:32.019Z"
+      "firstSeenAt": "2026-10-30T21:22:32.019Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz"
+        ],
+        "en": [
+          "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz"
+        ],
+        "fr": [
+          "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz"
+      ]
     },
     {
       "id": "laderach-338771637566",
@@ -1534,7 +1548,7 @@
       "id": "laderach-d638f6ff59b7",
       "slug": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-schweiz-541893faf7",
       "slugByLocale": {
-        "it": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-schweiz-541893faf7",
+        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
         "en": "apprenticeship-in-the-retail-trade-efz-2027-m-f-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "apprentissage-dans-le-commerce-de-detail-efz-2027-h-f-d-laderach-schweiz-ag-zurich"
@@ -1708,7 +1722,7 @@
       "id": "laderach-b632c366aa12",
       "slug": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-zurich-schweiz-f00d385781",
       "slugByLocale": {
-        "it": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-zurich-schweiz-f00d385781",
+        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
         "en": "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich"

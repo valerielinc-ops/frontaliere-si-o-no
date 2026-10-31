@@ -6204,10 +6204,10 @@
       "id": "richemont-65c8d2bbd231",
       "slug": "apprendista-operatore-in-orologeria-afp-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
-        "it": "apprendista-operatore-in-orologeria-afp-cartier-manufacture-villars-sur-glane",
+        "fr": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
         "en": "apprentice-watchmaking-operator-afp-cartier-manufacture-villars-sur-glane",
-        "de": "auszubildender-betreiber-in-der-uhrmacherei-afp-cartier-manufacture-villars-sur-glane",
-        "fr": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+        "it": "apprendista-operatore-in-orologeria-afp-cartier-manufacture-villars-sur-glane",
+        "de": "auszubildender-betreiber-in-der-uhrmacherei-afp-cartier-manufacture-villars-sur-glane"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -6295,12 +6295,12 @@
     },
     {
       "id": "richemont-f99235cecc8f",
-      "slug": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
+      "slug": "apparecchio-swc-meccanica-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
-        "it": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
+        "fr": "apprenti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane",
         "en": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
         "de": "anwendende-polymecanicien-cfc-cartier-manufacture-villars-sur-glane",
-        "fr": "apprenti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane"
+        "it": "apparecchio-swc-meccanica-cartier-manufacture-villars-sur-glane"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -6361,22 +6361,24 @@
       "previousSlugsByLocale": {
         "it": [
           "apprendista-polimeccanico-afc-cartier-manufacture-villars-sur-glane",
-          "apprendisti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane"
+          "apprendisti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane",
+          "apprenti-polymecanicien-cfc-richemont-villars-sur-glane"
         ]
       },
       "previousSlugs": [
         "apprendista-polimeccanico-afc-cartier-manufacture-villars-sur-glane",
-        "apprendisti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane"
+        "apprendisti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane",
+        "apprenti-polymecanicien-cfc-richemont-villars-sur-glane"
       ]
     },
     {
       "id": "richemont-fae4f8abd4e6",
       "slug": "interno-hr-mpc-3-1-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
+        "fr": "stagiaire-rh-mpc-3-1-richemont-villars-sur-glane",
         "it": "interno-hr-mpc-3-1-cartier-manufacture-villars-sur-glane",
         "en": "hr-intern-mpc-3-1-cartier-manufacture-villars-sur-glane",
-        "de": "hr-intern-mpc-3-1-cartier-manufacture-villars-sur-glane",
-        "fr": "stagiaire-rh-mpc-3-1-richemont-villars-sur-glane"
+        "de": "hr-intern-mpc-3-1-cartier-manufacture-villars-sur-glane"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -6458,9 +6460,9 @@
       "id": "richemont-1b7fe5d51e50",
       "slug": "direttore-del-salone-di-ginevra-roger-dubuis-geneva",
       "slugByLocale": {
-        "it": "direttore-del-salone-di-ginevra-roger-dubuis-geneva",
         "en": "geneva-lounge-manager-roger-dubuis-geneva",
         "de": "geneva-lounge-manager-richemont-geneva",
+        "it": "direttore-del-salone-di-ginevra-roger-dubuis-geneva",
         "fr": "directeur-du-salon-de-geneve-roger-dubuis-geneva"
       },
       "company": "Roger Dubuis",
@@ -6505,12 +6507,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "geneva-lounge-manager-richemont-geneva"
-        ],
         "it": [
           "geneva-lounge-manager-richemont-geneva",
           "geneva-lounge-manager-roger-dubuis-geneva"
+        ],
+        "en": [
+          "geneva-lounge-manager-richemont-geneva"
         ],
         "fr": [
           "geneva-lounge-manager-roger-dubuis-geneva"
@@ -6540,10 +6542,10 @@
       "id": "richemont-c6a95bd3638c",
       "slug": "product-line-manager-m-f-vacheron-constantin-le-brassus",
       "slugByLocale": {
+        "fr": "responsable-de-ligne-produit-f-h-richemont-le-brassus",
         "it": "product-line-manager-m-f-vacheron-constantin-le-brassus",
-        "en": "product-line-manager-m-f-vacheron-constantin-le-brassus",
         "de": "produktlinienmanager-m-w-vacheron-constantin-le-brassus",
-        "fr": "responsable-de-ligne-produit-f-h-richemont-le-brassus"
+        "en": "product-line-manager-m-f-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -6618,8 +6620,8 @@
       "id": "richemont-63d626fd017c",
       "slug": "compliance-tirocinante-richemont-bellevue",
       "slugByLocale": {
-        "it": "compliance-tirocinante-richemont-bellevue",
         "en": "compliance-intern-richemont-bellevue",
+        "it": "compliance-tirocinante-richemont-bellevue",
         "de": "compliance-praktikant-richemont-bellevue",
         "fr": "compliance-stagiaire-richemont-bellevue"
       },
@@ -6782,10 +6784,10 @@
       "id": "richemont-cc0bfb291de2",
       "slug": "manager-meccanico-e-strumenti-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
+        "fr": "manager-mecanique-et-outillage-richemont-le-sentier",
         "it": "manager-meccanico-e-strumenti-jaeger-lecoultre-le-sentier",
         "en": "manager-mechanical-and-tools-jaeger-lecoultre-le-sentier",
-        "de": "manager-mechanik-und-werkzeuge-jaeger-lecoultre-le-sentier",
-        "fr": "manager-mecanique-et-outillage-richemont-le-sentier"
+        "de": "manager-mechanik-und-werkzeuge-jaeger-lecoultre-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -6873,8 +6875,8 @@
       "id": "richemont-829a6b1f9a79",
       "slug": "servizio-clienti-assistant-project-manager-internship-richemont-plan-les-ouates",
       "slugByLocale": {
-        "it": "servizio-clienti-assistant-project-manager-internship-richemont-plan-les-ouates",
         "en": "customer-service-assistant-project-manager-internship-richemont-plan-les-ouates",
+        "it": "servizio-clienti-assistant-project-manager-internship-richemont-plan-les-ouates",
         "de": "kundendienst-assistent-project-manager-internship-richemont-plan-les-ouates",
         "fr": "customer-service-assistant-project-manager-internship-richemont-plan-les-ouates"
       },
@@ -6955,8 +6957,8 @@
       "id": "richemont-e1ee6cdcbe26",
       "slug": "store-design-and-visual-merchandising-senior-project-manager-richemont-meyrin",
       "slugByLocale": {
-        "it": "store-design-and-visual-merchandising-senior-project-manager-richemont-meyrin",
         "en": "store-design-and-visual-merchandising-senior-project-manager-richemont-meyrin",
+        "it": "store-design-and-visual-merchandising-senior-project-manager-richemont-meyrin",
         "de": "store-design-und-visual-merchandising-senior-projektmanager-roger-dubuis-meyrin",
         "fr": "directeur-principal-de-projet-de-conception-et-de-marchandisation-visuelle-des-magasins-roger-dubuis-meyrin"
       },
@@ -7030,11 +7032,11 @@
           "conception-de-magasin-et-marchandisation-visuelle-directeur-principal-de-projet-roger-dubuis-meyrin",
           "senior-project-manager-progettazione-dei-negozi-e-visual-merchandising-roger-dubuis-meyrin"
         ],
-        "fr": [
-          "conception-de-magasin-et-marchandisation-visuelle-directeur-principal-de-projet-roger-dubuis-meyrin"
-        ],
         "de": [
           "store-design-und-visual-merchandising-senior-projektmanager-roger-dubuis-meyrin"
+        ],
+        "fr": [
+          "conception-de-magasin-et-marchandisation-visuelle-directeur-principal-de-projet-roger-dubuis-meyrin"
         ]
       }
     },
@@ -7042,8 +7044,8 @@
       "id": "richemont-13bf056d7dbd",
       "slug": "marketing-attivazioni-project-manager-jaeger-lecoultre-meyrin",
       "slugByLocale": {
-        "it": "marketing-attivazioni-project-manager-jaeger-lecoultre-meyrin",
         "en": "marketing-activations-project-manager-richemont-meyrin",
+        "it": "marketing-attivazioni-project-manager-jaeger-lecoultre-meyrin",
         "de": "marketing-aktivierungen-projektmanager-jaeger-lecoultre-meyrin",
         "fr": "directeur-de-projet-jaeger-lecoultre-meyrin"
       },
@@ -7130,10 +7132,10 @@
       "id": "richemont-8f07320a89e8",
       "slug": "qualita-dei-metodi-tecnici-donze-baume-les-breuleux",
       "slugByLocale": {
+        "fr": "technicien-methodes-qualite-richemont-les-breuleux",
         "it": "qualita-dei-metodi-tecnici-donze-baume-les-breuleux",
         "en": "technician-methods-quality-donze-baume-les-breuleux",
-        "de": "techniker-methoden-qualitat-donze-baume-les-breuleux",
-        "fr": "technicien-methodes-qualite-richemont-les-breuleux"
+        "de": "techniker-methoden-qualitat-donze-baume-les-breuleux"
       },
       "company": "Donzé Baume",
       "companyKey": "richemont",
@@ -7306,10 +7308,10 @@
       "id": "richemont-238f49b48f84",
       "slug": "email-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
+        "fr": "emailleur-richemont-le-cret-du-locle",
         "it": "email-cartier-manufacture-le-cret-du-locle",
         "en": "email-cartier-manufacture-le-cret-du-locle",
-        "de": "e-mail-cartier-manufacture-le-cret-du-locle",
-        "fr": "emailleur-richemont-le-cret-du-locle"
+        "de": "e-mail-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -7435,8 +7437,8 @@
       "id": "richemont-044ba2df0fec",
       "slug": "risorse-umane-coordinatore-tirocinante-richemont-bellevue",
       "slugByLocale": {
-        "it": "risorse-umane-coordinatore-tirocinante-richemont-bellevue",
         "en": "hr-coordinator-intern-richemont-bellevue",
+        "it": "risorse-umane-coordinatore-tirocinante-richemont-bellevue",
         "de": "personalwesen-koordinator-praktikant-richemont-bellevue",
         "fr": "ressources-humaines-coordinateur-stagiaire-richemont-bellevue"
       },
@@ -7523,10 +7525,10 @@
       "id": "richemont-ccf1d1522b76",
       "slug": "smaltimento-di-riferimento-tecnico-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
+        "fr": "referent-technique-polissage-richemont-villars-sur-glane",
         "it": "smaltimento-di-riferimento-tecnico-cartier-manufacture-villars-sur-glane",
         "en": "technical-reference-polishing-cartier-manufacture-villars-sur-glane",
-        "de": "technisches-referenzpolieren-cartier-manufacture-villars-sur-glane",
-        "fr": "referent-technique-polissage-richemont-villars-sur-glane"
+        "de": "technisches-referenzpolieren-cartier-manufacture-villars-sur-glane"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -7613,10 +7615,10 @@
       "id": "richemont-4457ee5ba84a",
       "slug": "corso-r-i-electric-stealth-per-il-lusso-di-domani-richemont-buttes",
       "slugByLocale": {
+        "fr": "stage-r-i-electronique-furtive-pour-le-luxe-de-demain-richemont-buttes",
         "it": "corso-r-i-electric-stealth-per-il-lusso-di-domani-richemont-buttes",
         "en": "r-i-course-electric-stealth-for-tomorrow-s-luxury-richemont-buttes",
-        "de": "r-i-kurs-elektrisches-stealth-fur-den-luxus-von-morgen-richemont-buttes",
-        "fr": "stage-r-i-electronique-furtive-pour-le-luxe-de-demain-richemont-buttes"
+        "de": "r-i-kurs-elektrisches-stealth-fur-den-luxus-von-morgen-richemont-buttes"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -7692,10 +7694,10 @@
       "id": "richemont-5d13b9da9fe2",
       "slug": "corso-r-i-modellazione-di-un-orologio-meccanico-richemont-buttes",
       "slugByLocale": {
+        "fr": "stage-r-i-modelisation-de-l-echappement-d-une-montre-mecanique-richemont-buttes",
         "it": "corso-r-i-modellazione-di-un-orologio-meccanico-richemont-buttes",
         "en": "r-i-course-exhaust-modelling-of-a-mechanical-watch-richemont-buttes",
-        "de": "r-i-kurs-auspuffmodellierung-einer-mechanischen-uhr-richemont-buttes",
-        "fr": "stage-r-i-modelisation-de-l-echappement-d-une-montre-mecanique-richemont-buttes"
+        "de": "r-i-kurs-auspuffmodellierung-einer-mechanischen-uhr-richemont-buttes"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -7771,10 +7773,10 @@
       "id": "richemont-33de99225103",
       "slug": "corso-r-i-sviluppo-e-industrializzazione-di-rivestimenti-innovativi-per-la-decorazione-orologiera-richemont-la-chaux-de",
       "slugByLocale": {
+        "fr": "stage-r-i-developpement-et-industrialisation-de-revetements-innovants-pour-la-decoration",
         "it": "corso-r-i-sviluppo-e-industrializzazione-di-rivestimenti-innovativi-per-la-decorazione-orologiera-richemont-la-chaux-de",
         "en": "r-i-course-development-and-industrialization-of-innovative-coatings-for-watchmaking-decoration-richemont-la-chaux-de",
-        "de": "r-i-kurs-entwicklung-und-industrialisierung-innovativer-beschichtungen-fur-uhrmacherdekorationen-richemont-la-chaux-de",
-        "fr": "stage-r-i-developpement-et-industrialisation-de-revetements-innovants-pour-la-decoration"
+        "de": "r-i-kurs-entwicklung-und-industrialisierung-innovativer-beschichtungen-fur-uhrmacherdekorationen-richemont-la-chaux-de"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -7877,10 +7879,10 @@
       "id": "richemont-e3c6a91bce26",
       "slug": "sviluppo-responsabile-vacheron-constantin-le-brassus",
       "slugByLocale": {
+        "fr": "responsable-developpement-mouvements-richemont-le-brassus",
         "it": "sviluppo-responsabile-vacheron-constantin-le-brassus",
         "en": "responsible-development-vacheron-constantin-le-brassus",
-        "de": "verantwortungsbewusste-entwicklung-vacheron-constantin-le-brassus",
-        "fr": "responsable-developpement-mouvements-richemont-le-brassus"
+        "de": "verantwortungsbewusste-entwicklung-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -7956,10 +7958,10 @@
       "id": "richemont-d0d277038fca",
       "slug": "r-i-course-water-resistant-orologi-evolution-richemont-buttes",
       "slugByLocale": {
+        "fr": "stage-r-i-water-resistant-watches-evolution-richemont-buttes",
         "it": "r-i-course-water-resistant-orologi-evolution-richemont-buttes",
         "en": "stage-r-i-water-resistant-watches-evolution-richemont-buttes",
-        "de": "r-i-kurs-wasserresistente-uhren-evolution-richemont-buttes",
-        "fr": "stage-r-i-water-resistant-watches-evolution-richemont-buttes"
+        "de": "r-i-kurs-wasserresistente-uhren-evolution-richemont-buttes"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -8032,10 +8034,10 @@
       "id": "richemont-f54786bc0c55",
       "slug": "r-i-course-accuracy-3d-laser-micromachining-richemont-couvet",
       "slugByLocale": {
+        "fr": "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet",
         "it": "r-i-course-accuracy-3d-laser-micromachining-richemont-couvet",
         "en": "r-i-course-accuracy-3d-laser-micromachining-richemont-couvet",
-        "de": "r-i-kurs-genauigkeit-3d-laser-mikrobearbeitung-richemont-couvet",
-        "fr": "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet"
+        "de": "r-i-kurs-genauigkeit-3d-laser-mikrobearbeitung-richemont-couvet"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -8111,10 +8113,10 @@
       "id": "richemont-0d2e465fa07e",
       "slug": "corso-r-i-ottimizzazione-della-cinematica-e-decoupling-meccanico-di-un-calibro-al-quarzo-richemont-buttes",
       "slugByLocale": {
+        "fr": "stage-r-i-optimisation-de-la-cinematique-decouplage-mecanique-d-un-calibre-quartz",
         "it": "corso-r-i-ottimizzazione-della-cinematica-e-decoupling-meccanico-di-un-calibro-al-quarzo-richemont-buttes",
         "en": "r-i-course-optimization-of-kinematics-mechanical-decoupling-of-a-quartz-calibre-richemont-buttes",
-        "de": "r-i-kurs-optimierung-der-kinematik-mechanische-entkopplung-eines-quarzkalibers-richemont-buttes",
-        "fr": "stage-r-i-optimisation-de-la-cinematique-decouplage-mecanique-d-un-calibre-quartz"
+        "de": "r-i-kurs-optimierung-der-kinematik-mechanische-entkopplung-eines-quarzkalibers-richemont-buttes"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -8191,10 +8193,10 @@
       "id": "richemont-64f2eaeceb58",
       "slug": "corso-r-i-visione-industriale-assistita-da-ia-richemont-buttes",
       "slugByLocale": {
+        "fr": "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes",
         "it": "corso-r-i-visione-industriale-assistita-da-ia-richemont-buttes",
         "en": "r-i-course-industrial-vision-assisted-by-ia-richemont-buttes",
-        "de": "r-i-kurs-industrielle-vision-unterstutzt-durch-ia-richemont-buttes",
-        "fr": "stage-r-i-vision-industrielle-assistee-par-ia-richemont-buttes"
+        "de": "r-i-kurs-industrielle-vision-unterstutzt-durch-ia-richemont-buttes"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -8270,10 +8272,10 @@
       "id": "richemont-20680163fe7f",
       "slug": "corso-r-i-analisi-di-perni-di-macchine-a-controllo-numerico-richemont-couvet",
       "slugByLocale": {
+        "fr": "stage-r-i-analyse-des-broches-de-machines-a-commande-numeriques-richemont-couvet",
         "it": "corso-r-i-analisi-di-perni-di-macchine-a-controllo-numerico-richemont-couvet",
         "en": "r-i-course-analysis-of-pins-of-numerically-controlled-machines-richemont-couvet",
-        "de": "r-i-kurs-analyse-von-pins-numerisch-gesteuerter-maschinen-richemont-couvet",
-        "fr": "stage-r-i-analyse-des-broches-de-machines-a-commande-numeriques-richemont-couvet"
+        "de": "r-i-kurs-analyse-von-pins-numerisch-gesteuerter-maschinen-richemont-couvet"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -8349,10 +8351,10 @@
       "id": "richemont-1239b144057e",
       "slug": "ingegnere-di-produzione-di-apprendistato-cfc-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
+        "fr": "apprenti-mecanicien-de-production-cfc-richemont-le-cret-du-locle",
         "it": "ingegnere-di-produzione-di-apprendistato-cfc-cartier-manufacture-le-cret-du-locle",
         "en": "apprentice-production-engineer-cfc-cartier-manufacture-le-cret-du-locle",
-        "de": "lehrlingsingenieur-cfc-cartier-manufacture-le-cret-du-locle",
-        "fr": "apprenti-mecanicien-de-production-cfc-richemont-le-cret-du-locle"
+        "de": "lehrlingsingenieur-cfc-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -8436,10 +8438,10 @@
       "id": "richemont-8eddcb2680aa",
       "slug": "corso-r-i-mastery-di-un-innovativo-processo-produttivo-per-l-industria-del-lusso-richemont-glovelier",
       "slugByLocale": {
+        "fr": "stage-r-i-maitrise-d-un-procede-de-fabrication-innovant-pour-l-industrie-du-luxe-richemont",
         "it": "corso-r-i-mastery-di-un-innovativo-processo-produttivo-per-l-industria-del-lusso-richemont-glovelier",
         "en": "r-i-course-mastery-of-an-innovative-manufacturing-process-for-the-luxury-industry-richemont-glovelier",
-        "de": "r-i-kurs-beherrschung-eines-innovativen-herstellungsprozesses-fur-die-luxusindustrie-richemont-glovelier",
-        "fr": "stage-r-i-maitrise-d-un-procede-de-fabrication-innovant-pour-l-industrie-du-luxe-richemont"
+        "de": "r-i-kurs-beherrschung-eines-innovativen-herstellungsprozesses-fur-die-luxusindustrie-richemont-glovelier"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -8514,10 +8516,10 @@
       "id": "richemont-cc49cf190763",
       "slug": "corso-r-i-raccolta-dati-e-miglioramento-di-un-processo-di-produzione-orologiera-richemont-la-chaux-de-fonds",
       "slugByLocale": {
+        "fr": "stage-r-i-collecte-de-donnees-et-amelioration-d-un-procede-de-production-horloger",
         "it": "corso-r-i-raccolta-dati-e-miglioramento-di-un-processo-di-produzione-orologiera-richemont-la-chaux-de-fonds",
         "en": "r-i-course-data-collection-and-improvement-of-a-watch-production-process-richemont-la-chaux-de-fonds",
-        "de": "r-i-kurs-datenerfassung-und-verbesserung-eines-uhrenproduktionsprozesses-richemont-la-chaux-de-fonds",
-        "fr": "stage-r-i-collecte-de-donnees-et-amelioration-d-un-procede-de-production-horloger"
+        "de": "r-i-kurs-datenerfassung-und-verbesserung-eines-uhrenproduktionsprozesses-richemont-la-chaux-de-fonds"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -8602,10 +8604,10 @@
       "id": "richemont-caf8181e6022",
       "slug": "r-i-stage-ottimizzazione-delle-forme-applicate-all-orologeria-e-ai-gioielli-richemont-buttes",
       "slugByLocale": {
+        "fr": "stage-r-i-optimisation-de-formes-appliquees-a-l-horlogerie-et-la-joaillerie-richemont",
         "it": "r-i-stage-ottimizzazione-delle-forme-applicate-all-orologeria-e-ai-gioielli-richemont-buttes",
         "en": "r-i-stage-optimization-of-shapes-applied-to-watchmaking-and-jewellery-richemont-buttes",
-        "de": "r-i-stage-optimierung-von-formen-fur-uhrmacherei-und-schmuck-richemont-buttes",
-        "fr": "stage-r-i-optimisation-de-formes-appliquees-a-l-horlogerie-et-la-joaillerie-richemont"
+        "de": "r-i-stage-optimierung-von-formen-fur-uhrmacherei-und-schmuck-richemont-buttes"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -8681,10 +8683,10 @@
       "id": "richemont-e7c8a165ceee",
       "slug": "ingegnere-di-produzione-di-apprendistato-cfc-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
+        "fr": "apprenti-mecanicien-de-production-cfc-richemont-villars-sur-glane",
         "it": "ingegnere-di-produzione-di-apprendistato-cfc-cartier-manufacture-villars-sur-glane",
         "en": "apprentice-production-engineer-cfc-cartier-manufacture-villars-sur-glane",
-        "de": "lehrlingsingenieur-cfc-cartier-manufacture-villars-sur-glane",
-        "fr": "apprenti-mecanicien-de-production-cfc-richemont-villars-sur-glane"
+        "de": "lehrlingsingenieur-cfc-cartier-manufacture-villars-sur-glane"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -8769,10 +8771,10 @@
       "id": "richemont-37edf580ed47",
       "slug": "ingegnere-di-produzione-di-apprendistato-cfc-cartier-manufacture-glovelier",
       "slugByLocale": {
+        "fr": "apprenti-mecanicien-de-production-cfc-richemont-glovelier",
         "it": "ingegnere-di-produzione-di-apprendistato-cfc-cartier-manufacture-glovelier",
         "en": "apprentice-production-engineer-cfc-cartier-manufacture-glovelier",
-        "de": "lehrlingsingenieur-cfc-cartier-manufacture-glovelier",
-        "fr": "apprenti-mecanicien-de-production-cfc-richemont-glovelier"
+        "de": "lehrlingsingenieur-cfc-cartier-manufacture-glovelier"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -8854,12 +8856,12 @@
     },
     {
       "id": "richemont-f2eed6985704",
-      "slug": "stagiaire-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva",
+      "slug": "intern-assistant-architettura-istituzionale-van-cleef-arpels-geneva",
       "slugByLocale": {
-        "it": "stagiaire-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva",
-        "en": "stagiaire-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva",
-        "de": "praktikant-in-als-assistent-in-fur-institutionelle-architektur-van-cleef-arpels-geneva",
-        "fr": "stagiaire-assistant-e-architecture-institutionnelle-richemont-geneva"
+        "fr": "stagiaire-assistant-e-architecture-institutionnelle-richemont-geneva",
+        "it": "intern-assistant-architettura-istituzionale-van-cleef-arpels-geneva",
+        "en": "intern-assistant-institutional-architecture-van-cleef-arpels-geneva",
+        "de": "praktikant-in-als-assistent-in-fur-institutionelle-architektur-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -8907,10 +8909,12 @@
           "stagiaire-assistant-e-architecture-institutionnelle-richemont-geneva",
           "intern-assistant-architettura-istituzionale-van-cleef-arpels-geneva",
           "intern-assistant-institutional-architecture-van-cleef-arpels-geneva",
-          "praktikant-in-als-assistent-in-fur-institutionelle-architektur-van-cleef-arpels-geneva"
+          "praktikant-in-als-assistent-in-fur-institutionelle-architektur-van-cleef-arpels-geneva",
+          "stagiaire-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva"
         ],
         "en": [
-          "intern-assistant-institutional-architecture-van-cleef-arpels-geneva"
+          "intern-assistant-institutional-architecture-van-cleef-arpels-geneva",
+          "stagiaire-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva"
         ],
         "de": [
           "stagiaire-assistant-e-architecture-institutionnelle-richemont-geneva",
@@ -8921,7 +8925,8 @@
         "stagiaire-assistant-e-architecture-institutionnelle-richemont-geneva",
         "intern-assistant-architettura-istituzionale-van-cleef-arpels-geneva",
         "intern-assistant-institutional-architecture-van-cleef-arpels-geneva",
-        "praktikant-in-als-assistent-in-fur-institutionelle-architektur-van-cleef-arpels-geneva"
+        "praktikant-in-als-assistent-in-fur-institutionelle-architektur-van-cleef-arpels-geneva",
+        "stagiaire-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva"
       ],
       "salaryMin": 57000,
       "salaryMax": 87500,
@@ -8943,8 +8948,8 @@
       "id": "richemont-0cb6268e9e6e",
       "slug": "global-retail-performance-manager-8-mesi-cdd-jaeger-lecoultre-meyrin",
       "slugByLocale": {
-        "it": "global-retail-performance-manager-8-mesi-cdd-jaeger-lecoultre-meyrin",
         "en": "global-retail-performance-manager-8-months-cdd-richemont-meyrin",
+        "it": "global-retail-performance-manager-8-mesi-cdd-jaeger-lecoultre-meyrin",
         "de": "global-retail-performance-manager-8-monate-cdd-jaeger-lecoultre-meyrin",
         "fr": "gestionnaire-mondial-du-rendement-8-mois-cdd-jaeger-lecoultre-meyrin"
       },
@@ -9031,10 +9036,10 @@
       "id": "richemont-103c406d62f0",
       "slug": "artigianato-di-sviluppo-di-project-manager-di-art-m-f-csd-van-cleef-arpels-meyrin",
       "slugByLocale": {
+        "fr": "chef-de-projet-developpement-metiers-d-art-h-f-cdd-richemont-meyrin",
         "it": "artigianato-di-sviluppo-di-project-manager-di-art-m-f-csd-van-cleef-arpels-meyrin",
         "en": "project-manager-development-crafts-of-art-m-f-csd-van-cleef-arpels-meyrin",
-        "de": "projektmanager-entwicklungshandwerk-m-w-csd-van-cleef-arpels-meyrin",
-        "fr": "chef-de-projet-developpement-metiers-d-art-h-f-cdd-richemont-meyrin"
+        "de": "projektmanager-entwicklungshandwerk-m-w-csd-van-cleef-arpels-meyrin"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -9119,10 +9124,10 @@
       "id": "richemont-62070da74eaf",
       "slug": "decollatore-m-f-x-cartier-manufacture-le-locle",
       "slugByLocale": {
+        "fr": "decolleteur-h-f-x-richemont-le-locle",
         "it": "decollatore-m-f-x-cartier-manufacture-le-locle",
         "en": "m-f-x-decoller-cartier-manufacture-le-locle",
-        "de": "m-w-x-decoller-cartier-manufacture-le-locle",
-        "fr": "decolleteur-h-f-x-richemont-le-locle"
+        "de": "m-w-x-decoller-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -9207,10 +9212,10 @@
       "id": "richemont-0d93fa4604fa",
       "slug": "guarda-il-restauro-di-sav-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
+        "fr": "horloger-sav-restauration-richemont-le-sentier",
         "it": "guarda-il-restauro-di-sav-jaeger-lecoultre-le-sentier",
         "en": "watch-sav-restoration-jaeger-lecoultre-le-sentier",
-        "de": "sav-restoration-ansehen-jaeger-lecoultre-le-sentier",
-        "fr": "horloger-sav-restauration-richemont-le-sentier"
+        "de": "sav-restoration-ansehen-jaeger-lecoultre-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -9294,10 +9299,10 @@
       "id": "richemont-7ae73387ab71",
       "slug": "finitura-apprendista-in-abbigliamento-orologiera-cfc-cartier-manufacture-couvet",
       "slugByLocale": {
+        "fr": "apprenti-termineur-en-habillage-horloger-cfc-richemont-couvet",
         "it": "finitura-apprendista-in-abbigliamento-orologiera-cfc-cartier-manufacture-couvet",
         "en": "apprentice-finisher-in-cfc-watchmaking-clothing-cartier-manufacture-couvet",
-        "de": "lehrlingsfinisher-in-cfc-uhrmacherbekleidung-cartier-manufacture-couvet",
-        "fr": "apprenti-termineur-en-habillage-horloger-cfc-richemont-couvet"
+        "de": "lehrlingsfinisher-in-cfc-uhrmacherbekleidung-cartier-manufacture-couvet"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -15044,8 +15049,8 @@
       "id": "richemont-ac37c4be9821",
       "slug": "responsabile-operations-europe-jaeger-lecoultre-meyrin",
       "slugByLocale": {
-        "it": "responsabile-operations-europe-jaeger-lecoultre-meyrin",
         "en": "head-of-operations-europe-richemont-meyrin",
+        "it": "responsabile-operations-europe-jaeger-lecoultre-meyrin",
         "de": "leiter-operations-europe-jaeger-lecoultre-meyrin",
         "fr": "responsable-operations-europe-jaeger-lecoultre-meyrin"
       },

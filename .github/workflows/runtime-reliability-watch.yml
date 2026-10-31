@@ -120,7 +120,7 @@ jobs:
       # rotating windows (see FANOUT_SAMPLE_THRESHOLD). Pin the window once so
       # the verification after a purge re-reads the same chunks.
       - name: Pin chunk-graph sample window
-        run: echo "CHUNK_GRAPH_ROTATION=$(( $(date -u +%s) / 3600 ))" >> "$GITHUB_ENV"
+        run: echo "CHUNK_GRAPH_ROTATION=$(( $(date -u +%s) / 1800 ))" >> "$GITHUB_ENV"
 
       - name: Restore runtime repair circuit state
         id: circuit
