@@ -79,7 +79,7 @@ Il budget predefinito di Common Crawl è 40 pagine per run e quello OSM è 3
 cantoni per run. Common Crawl usa una permutazione dell'intero intervallo della
 collection, riprova per prime le pagine fallite e conserva la copertura per
 collection. Con 1.230 pagine, 40 per run completano un passaggio in circa 31
-run. TRACE è salito da 300 a 450 candidati al giorno; la pausa minima per host
+run. TRACE è salito da 300 a 1.000 candidati al giorno; la pausa minima per host
 e la concorrenza restano invariate.
 
 ## Aggregatori: esclusi per costruzione
