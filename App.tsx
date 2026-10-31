@@ -841,7 +841,12 @@ const App: React.FC = () => {
  user = await signInWithCustomAuthToken(legacyAuthToken);
  }
 
- if (cancelled) return;
+ // The outcome is telemetry-only and must not be dropped when the effect's
+ // component is remounted while Firebase finishes the auth exchange (the
+ // signed-in session can outlive this particular App render). The attempt
+ // marker is emitted before the exchange; always pair it with its terminal
+ // outcome so GA4 can distinguish success, failure and an actually aborted
+ // exchange.
  Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', user ? 'success' : 'failed');
  } catch (error) {
  reportCaughtError(error, 'app.newsletterAutologin');

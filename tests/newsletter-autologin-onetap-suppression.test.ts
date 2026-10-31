@@ -129,6 +129,8 @@ describe('promptOneTap suppression wiring', () => {
  const firstAwait = effect.indexOf('await ');
  const firstDelete = effect.indexOf('u.searchParams.delete(');
  const settleCall = effect.indexOf('settleNewsletterAutologin();');
+ const outcomeCall = effect.indexOf("Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', user ? 'success' : 'failed');");
+ const cancelledGuard = effect.indexOf('if (cancelled) return;');
 
  expect(effectStart).toBeGreaterThanOrEqual(0);
  expect(effectEnd).toBeGreaterThan(effectStart);
@@ -136,6 +138,9 @@ describe('promptOneTap suppression wiring', () => {
  expect(firstAwait).toBeGreaterThanOrEqual(0);
  expect(firstDelete).toBeGreaterThan(firstAwait);
  expect(settleCall).toBeGreaterThan(finallyStart);
+ expect(outcomeCall).toBeGreaterThan(firstAwait);
+ // Telemetry must survive an App remount while the auth exchange settles.
+ expect(cancelledGuard).toBe(-1);
  expect(effect.slice(0, finallyStart)).not.toContain('settleNewsletterAutologin();');
  expect(effect.slice(finallyStart, settleCall)).toContain('window.history.replaceState');
  });
