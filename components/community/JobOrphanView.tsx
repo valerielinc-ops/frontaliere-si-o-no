@@ -12,8 +12,8 @@ import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
  * Authenticated: the standard 8/4 job-detail grid, with full-width related jobs.
  */
 
-import { Suspense, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
-import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, ChevronDown, Eye, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
+import { Suspense, useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode } from 'react';
+import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, ChevronDown, Clock, Euro, Eye, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
 import { useLocale, t, type Locale } from '@/services/i18n';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
 import CompanyFollowCta from '@/components/community/CompanyFollowCta';
@@ -30,7 +30,7 @@ import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
-import { AD_SLOTS } from '@/services/adsenseSlots';
+import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -44,11 +44,38 @@ import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/servi
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
 import JobSaveButton from '@/components/community/JobSaveButton';
-import type { SaveableJob } from '@/services/jobSaveGate';
+import { toSaveableJob } from '@/services/jobSaveGate';
+import { formatDaysAgo, formatJobContractLabel, formatJobSalary } from '@/services/jobs/jobCardMetadata';
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
+
+interface ActiveJobCardData {
+ id: string;
+ slug?: string | null;
+ title: string;
+ company: string;
+ category?: string | null;
+ canton?: string | null;
+ companyKey?: string;
+ companyDomain?: string;
+ url?: string;
+ location?: string;
+ contract?: string;
+ contractType?: string;
+ employmentType?: string;
+ datePosted?: string;
+ postedDate?: string;
+ postingDateSource?: string;
+ salaryMin?: number;
+ salaryMax?: number;
+ salaryCurrency?: string;
+ currency?: string;
+ salarySource?: string;
+}
 
 interface JobOrphanViewProps {
  /** Resolves an active job from a link's slug, so its row can carry the bookmark. */
- findActiveJob?: (slug: string) => SaveableJob | null;
+ findActiveJob?: (slug: string) => ActiveJobCardData | null;
  slug: string;
  onBack?: () => void;
  /** When true the user is already authenticated — hide the sign-in block. */
@@ -167,8 +194,8 @@ function getStaticBodyHtml(): string | null {
 }
 
 /** Extract links from the"Posizioni attive recenti" section of static HTML. */
-function extractActiveJobLinks(html: string): Array<{ href: string; title: string; company: string }> {
- const links: Array<{ href: string; title: string; company: string }> = [];
+function extractActiveJobLinks(html: string): Array<{ href: string; title: string; company: string; location: string }> {
+ const links: Array<{ href: string; title: string; company: string; location: string }> = [];
  // Match <li><a href="...">Title</a> — Company, Location</li>
  const liRegex = /<li><a href="([^"]+)"[^>]*>([^<]+)<\/a>\s*(?:—|&mdash;)\s*([^<]+)<\/li>/g;
  let match;
@@ -179,6 +206,7 @@ function extractActiveJobLinks(html: string): Array<{ href: string; title: strin
  href: match[1].replace(/^https?:\/\/[^/]+/, ''),
  title: match[2].trim(),
  company: parts[0]?.trim() ?? '',
+ location: parts.slice(1).join(',').trim(),
  });
  }
  return links;
@@ -658,31 +686,59 @@ export default function JobOrphanView({ slug, findActiveJob, onBack, hasAccess: 
  <h2 className="text-lg font-bold font-display text-heading mb-4">
  {locale === 'it' ? 'Posizioni attive simili' : locale === 'de' ? 'Ähnliche offene Stellen' : locale === 'fr' ? 'Postes similaires ouverts' : 'Similar active jobs'}
  </h2>
- <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" data-job-orphan-related-grid>
- {activeJobLinks.slice(0, 5).map((link) => {
- const saveable = findActiveJob?.(link.href.split('/').filter(Boolean).pop() ?? '') ?? null;
- return (
- <article key={link.href} className="relative rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors">
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" data-job-related-grid data-job-orphan-related-grid>
+ {activeJobLinks.slice(0, 6).flatMap((link, index, links) => {
+ const activeJob = findActiveJob?.(link.href.split('/').filter(Boolean).pop() ?? '') ?? null;
+ const logo = activeJob
+  ? cdnImageUrl(resolveCompanyLogoUrl({ company: activeJob.company, companyKey: activeJob.companyKey, companyDomain: activeJob.companyDomain, url: activeJob.url }))
+  : null;
+ const location = activeJob?.location
+  ? formatJobLocation(activeJob.location, activeJob.canton)
+  : link.location;
+ const company = activeJob?.company || link.company;
+ const salary = activeJob ? formatJobSalary(activeJob, locale) : null;
+ const contract = activeJob ? formatJobContractLabel(activeJob.contract || activeJob.employmentType || activeJob.contractType, locale) : null;
+ const posted = activeJob ? formatDaysAgo(resolveReportedPostingDate(activeJob) ?? undefined, locale) : null;
+ const card = (
+ <article key={link.href} className="relative rounded-xl border border-edge bg-surface/50 p-3 sm:p-4 transition-colors min-h-[72px] hover:border-accent-border">
+ {activeJob?.id && <JobSaveButton job={toSaveableJob(activeJob)} surface="card_related" />}
  <a
- href={link.href}
- onClick={(e) => handleRelatedJobClick(e, link.href)}
- className={`-m-3 block rounded-lg p-3 ${saveable ? 'pr-12' : ''} focus:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
+  href={link.href}
+  onClick={(e) => handleRelatedJobClick(e, link.href)}
+  className="block pr-9 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
  >
- <div className="flex items-start gap-3">
- <span className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center border border-edge shrink-0">
- <Building2 className="w-5 h-5 text-muted" aria-hidden="true" />
- </span>
- <span className="min-w-0 flex-1">
- <span className="block text-sm sm:text-base font-bold leading-tight text-heading line-clamp-2">{link.title}</span>
- {link.company && (
- <span className="block text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">{link.company}</span>
- )}
- </span>
- </div>
+  <div className="flex items-start gap-3">
+   <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
+    {logo ? (
+     <img src={logo} alt={`Logo ${company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={handleCompanyLogoError} />
+    ) : (
+     <Building2 className="w-5 h-5 text-muted" aria-hidden="true" />
+    )}
+   </div>
+   <div className="min-w-0 flex-1">
+    <span className="block text-sm sm:text-base font-bold leading-tight text-heading line-clamp-2">{link.title}</span>
+    {company && <span className="block text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">{company}</span>}
+    {salary && <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success"><Euro className="w-3.5 h-3.5" aria-hidden="true" />{salary}</span>}
+   </div>
+  </div>
+  <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted">
+   {location && <span className="inline-flex items-center gap-1"><MapPin className="w-3 h-3" aria-hidden="true" />{location}</span>}
+   {contract && <span className="px-1.5 py-0.5 rounded bg-surface-raised text-subtle">{contract}</span>}
+   {posted && <span className="inline-flex items-center gap-1"><Clock className="w-3 h-3" aria-hidden="true" />{posted}</span>}
+  </div>
  </a>
- {saveable && <JobSaveButton job={saveable} surface="card_related" />}
  </article>
  );
+ const nodes: ReactNode[] = [card];
+ if (index + 1 < links.length && shouldPlaceInfeedAd(index + 1)) {
+  const ad = isDesktopLg ? AD_SLOTS.JOBLIST_INFEED_DESKTOP : AD_SLOTS.JOBLIST_INFEED_MOBILE;
+  nodes.push(
+   <div key={`orphan-related-ad-${link.href}`} className="col-span-full min-w-0" data-job-related-ad>
+    <AdSenseBanner className="my-3" placement={`orphan-related-${index}`} adSlot={ad.slot} adFormat={ad.format} fullWidthResponsive={ad.fullWidthResponsive} />
+   </div>,
+  );
+ }
+ return nodes;
  })}
  </div>
  </section>

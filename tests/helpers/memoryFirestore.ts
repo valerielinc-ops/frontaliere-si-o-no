@@ -20,6 +20,7 @@ function deepMerge(target: Data, patch: Data): Data {
 }
 
 const OPERATORS: Record<string, (left: any, right: any) => boolean> = {
+  'in': (left, right) => Array.isArray(right) && right.includes(left),
   '==': (left, right) => left === right,
   '<=': (left, right) => left != null && left <= right,
   '<': (left, right) => left != null && left < right,
@@ -59,13 +60,15 @@ export function createMemoryFirestore(initial: Record<string, Data> = {}) {
     const list = () => [...docs.keys()]
       .filter((key) => key.startsWith(`${path}/`) && key.split('/').length === depth)
       .sort();
-    const query = (filters: Array<[string, string, any]>, max = Infinity, sortField?: string): any => ({
-      where: (field: string, operator: string, value: any) => query([...filters, [field, operator, value]], max, sortField),
-      orderBy: (field: string) => query(filters, max, field),
-      limit: (value: number) => query(filters, value, sortField),
+    const query = (filters: Array<[string, string, any]>, max = Infinity, sortField?: string, afterId?: string): any => ({
+      where: (field: string, operator: string, value: any) => query([...filters, [field, operator, value]], max, sortField, afterId),
+      orderBy: (field: string) => query(filters, max, field, afterId),
+      limit: (value: number) => query(filters, value, sortField, afterId),
+      startAfter: (cursor: string | { id: string }) => query(filters, max, sortField, typeof cursor === 'string' ? cursor : cursor.id),
       count: () => ({ get: async () => ({ data: () => ({ count: list().filter(key => filters.every(([field, operator, value]) => OPERATORS[operator](docs.get(key)?.[field], value))).slice(0, max).length }) }) }),
       async get() {
-        const matching = list().filter((key) => filters.every(([field, operator, value]) => OPERATORS[operator](docs.get(key)?.[field], value)));
+        const matching = list().filter((key) => (!afterId || key.split('/').pop()! > afterId)
+          && filters.every(([field, operator, value]) => OPERATORS[operator](docs.get(key)?.[field], value)));
         if (sortField && sortField !== '__name__') matching.sort((a, b) => {
           const left = docs.get(a)?.[sortField]; const right = docs.get(b)?.[sortField];
           return left < right ? -1 : left > right ? 1 : a.localeCompare(b);

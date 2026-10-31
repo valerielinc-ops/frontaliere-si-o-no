@@ -40,7 +40,7 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
   // The runner's own answers first: their questions are the portal's words.
   const fromPortal = (draft.portalAnswers?.answers || [])
     .map((item) => ({ question: item?.applicationQuestion || item?.question, answer: item?.answer, source: item?.source || 'portal' }));
-  const fromDraft = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers)
+  const fromDraft = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers, draft)
     .map((question) => ({ question: question.applicationQuestion || question.question, answer: applicationAnswer(question, answers[question.id]), source: 'answers', operational: Boolean(operationalQuestionTopic(question)) }));
   const seen = new Set();
   const kitAnswers = [...fromDraft.filter(item => item.operational && item.answer), ...fromPortal, ...fromDraft]
