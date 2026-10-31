@@ -1800,11 +1800,11 @@ export function holdsValue(field) {
   return !PLACEHOLDER.test(value);
 }
 
-export async function planPage({ snapshot, candidate, candidateLocale, codex }) {
+export async function planPage({ snapshot, candidate, candidateLocale, codex, refuses }) {
   const raw = await codex({
     prompt: codexPrompt(planSystemPrompt(candidateLocale), planUserText({ snapshot, candidate })),
     schema: PLAN_SCHEMA,
     timeoutMs: 600_000,
   });
-  return guardPlan(raw, snapshot.fields.filter((field) => field.inputType !== 'password'), candidate);
+  return guardPlan(raw, snapshot.fields.filter((field) => field.inputType !== 'password'), candidate, { refuses });
 }

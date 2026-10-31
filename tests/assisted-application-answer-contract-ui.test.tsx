@@ -32,7 +32,7 @@ const order = (questions = [question], hash = 'A', orderId = 'order-one'): any =
   orderId, jobTitle: 'Test role', companyName: 'Test employer',
   automation: { answerContracts: questions.length ? { 'same-id': hash } : {}, accounts: [],
     flow: { state: 'owner_review', heldBy: [], feedback: [], answers: {}, flags: [], history: [] },
-    draft: { status: 'ready', questions, requirements: [], matches: [], flags: [], coverLetter: null, applicationEmail: null },
+    draft: { status: 'ready', checksIt: [], questions, requirements: [], matches: [], flags: [], coverLetter: null, applicationEmail: null },
   },
 });
 beforeEach(() => { vi.clearAllMocks(); api.fetchReview.mockResolvedValue(payload()); api.sendReviewAction.mockResolvedValue({ ok: true }); api.adminAction.mockResolvedValue({ ok: true }); });
