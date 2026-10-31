@@ -12169,7 +12169,16 @@ ${staticAnalyticsHtml}
        // Top categories by job count (max 6). Mirror the category slug
        // tables from the category-listing block (~line 5742-5752); kept
        // inline to avoid hoisting a nested scope across thousands of lines.
-       const categoryLabelMap = JOB_CATEGORY_LABELS;
+       const categoryLabelMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
+         health: { it: 'Sanità', en: 'Healthcare', de: 'Gesundheit', fr: 'Santé' },
+         finance: { it: 'Finanza', en: 'Finance', de: 'Finanzen', fr: 'Finance' },
+         tech: { it: 'Informatica', en: 'Technology', de: 'Technik', fr: 'Technologie' },
+         engineering: { it: 'Ingegneria', en: 'Engineering', de: 'Ingenieurwesen', fr: 'Ingénierie' },
+         admin: { it: 'Amministrazione', en: 'Administration', de: 'Verwaltung', fr: 'Administration' },
+         hospitality: { it: 'Ristorazione', en: 'Hospitality', de: 'Gastgewerbe', fr: 'Hôtellerie' },
+         sales: { it: 'Vendita', en: 'Sales', de: 'Vertrieb', fr: 'Vente' },
+         other: { it: 'Altro', en: 'Other', de: 'Andere', fr: 'Autre' },
+       };
        // Source-of-truth alignment: the per-canton category-listing emitter
        // (~line 5921) keys buckets by `job.category` directly and only emits
        // a page when that bucket has ≥3 jobs. The previous implementation of
