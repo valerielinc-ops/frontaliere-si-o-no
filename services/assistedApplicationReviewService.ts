@@ -284,7 +284,7 @@ export async function sendReviewAction(
     clientCheck?: { verdict: string; matched: string; version?: number };
     fileId?: string;
   } = {},
-): Promise<{ ok: true; state: string; reviewRequired?: boolean; rawSaved?: boolean; answerConfirmation?: { status: string; authority: boolean } }> {
+): Promise<{ ok: true; state?: string; reviewRequired?: boolean; rawSaved?: boolean; answerConfirmation?: { status: string; authority: boolean } }> {
   return parse(await fetch(ASSISTED_APPLICATION_REVIEW_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

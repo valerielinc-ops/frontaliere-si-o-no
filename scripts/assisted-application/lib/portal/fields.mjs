@@ -11,7 +11,7 @@
  */
 
 /* eslint-disable no-undef -- runs in the browser */
-export function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
+export function extractFieldsInPage({ channelType = '', includeHidden = false, auditSuccessful = false } = {}) {
   // BEGIN GENERATED APPLICATION CONSENT
   const readOwnConsentMetadata = function readOwnConsentMetadata(element, primaryLabel = '', questionOwned = false, questionNodes = []) {
   let complete = Boolean(element?.isConnected && element.matches('input[type="checkbox"]'));
@@ -682,7 +682,16 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     // can place required fields inside the employer's header or footer.
     if (isSiteGlobalSearchField(element)) continue;
     if (element.closest(datePickerSelector)) continue;
-    if (element.disabled || element.readOnly || !readable(element)) continue;
+    const disabled = element.matches(':disabled');
+    const readOnly = Boolean(element.readOnly);
+    // Read-only successful values and a disabled checkbox's enabled hidden
+    // carrier can still assert a candidate fact. Expose them only to audit;
+    // the normal planner/filler never receives new editable controls.
+    const auditOnly = auditSuccessful && ((readOnly && !disabled && type !== 'password' && element.form && element.name)
+      || (disabled && type === 'checkbox' && element.form && element.name
+        && [...document.querySelectorAll('input[type="hidden"]')].some(hidden => hidden.form === element.form
+          && hidden.name === element.name && !hidden.matches(':disabled'))));
+    if ((disabled || readOnly) && !auditOnly || !readable(element)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
     // is a trap whatever its size: never a field of the form.
     if (element.getAttribute('data-automation-id') === 'beecatcher' || HONEYPOT_LABEL.test(labelFor(element))) continue;
@@ -724,6 +733,12 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       autocomplete: clean(element.getAttribute('autocomplete') || ''),
       invalid: element.getAttribute('aria-invalid') === 'true',
     };
+    if (auditOnly) {
+      Object.assign(field, { auditOnly: true, disabled, readOnly });
+      const raw = String(element.value || '');
+      field.value = raw.slice(0, 8001);
+      if (raw.length > 8000) field.nativeContractUnavailable = true;
+    }
     if (tag === 'select') {
       field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, element));
     }
@@ -1104,7 +1119,7 @@ function isTurnstileFrame(url) {
   } catch { return false; }
 }
 
-export async function extractFields(page, { listboxOptions = true, channelType = '', includeHidden = false } = {}) {
+export async function extractFields(page, { listboxOptions = true, channelType = '', includeHidden = false, auditSuccessful = false } = {}) {
   const frames = page.frames();
   const result = { url: page.url(), fields: [], buttons: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
   const context = typeof page.context === 'function' ? page.context() : null;
@@ -1120,9 +1135,8 @@ export async function extractFields(page, { listboxOptions = true, channelType =
     if (index > 0 && /recaptcha|hcaptcha|challenges\.cloudflare|turnstile|captcha-delivery|doubleclick|googletagmanager|youtube|vimeo/i.test(frame.url())) continue;
     let snapshot;
     try {
-      const evaluateArgs = includeHidden
-        ? { channelType: effectiveChannelType, includeHidden: true }
-        : { channelType: effectiveChannelType };
+      const evaluateArgs = { channelType: effectiveChannelType,
+        ...(includeHidden ? { includeHidden: true } : {}), ...(auditSuccessful ? { auditSuccessful: true } : {}) };
       snapshot = await frame.evaluate(extractFieldsInPage, evaluateArgs);
     } catch {
       continue; // cross-origin or detached

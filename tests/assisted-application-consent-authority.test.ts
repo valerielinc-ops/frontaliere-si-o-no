@@ -238,6 +238,19 @@ describe('native consent authority shared by planner and browser', () => {
     const dto = portalRequirementsFromMissingRequired(source, [{ fieldId: source[0].id, question: source[0].label }]).questions[0];
     expect(dto.applicationOptions).toEqual(['Visible website', 'Fallback text']);
   });
+  it('exposes successful readonly values and disabled checkbox hidden carriers only in the explicit audit mode', () => {
+    const { dom } = readers('<label for="readonly">Nationality</label><input id="readonly" name="nationality" value="Swiss" readonly>'
+      + '<label for="c">I hold a degree</label><input id="c" name="degree" type="checkbox" disabled><input type="hidden" name="degree" value="No">'
+      + '<label for="ignored">Disabled text</label><input id="ignored" name="ignored" disabled value="Never posted">'
+      + '<label for="bare">No successful carrier</label><input id="bare" name="bare" type="checkbox" disabled>'
+      + '<input id="secret" type="password" name="password" value="synthetic-secret" readonly>');
+    const normal = dom.window.eval(`(${extractFieldsInPage.toString()})()`);
+    const audit = dom.window.eval(`(${extractFieldsInPage.toString()})({auditSuccessful:true,includeHidden:true})`);
+    expect(normal.fields).toHaveLength(0);
+    expect(audit.fields.map((field: any) => field.name)).toEqual(['nationality', 'degree']);
+    expect(audit.fields[0]).toMatchObject({ value: 'Swiss', auditOnly: true, readOnly: true, disabled: false });
+    expect(audit.fields[1]).toMatchObject({ auditOnly: true, readOnly: false, disabled: true, checked: false });
+  });
   it('generates the same policy and reader into both browser runtimes', () => {
     const apply = readFileSync(new URL('../scripts/assisted-application/extension/apply-control.js', import.meta.url), 'utf8');
     const fields = readFileSync(new URL('../scripts/assisted-application/lib/portal/fields.mjs', import.meta.url), 'utf8');
