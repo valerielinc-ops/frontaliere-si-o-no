@@ -4,20 +4,20 @@
   "generatorSha256": "9d67e5cbb20c9a4975ff436e042be0d9f1f3c3f3d8f892464d0af72649478e3c",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "1e098d071df57365d186a1abc64671ebdebb4cd7",
+  "sourceCommit": "7485f32e5bd36a40c9243115ff987f68efece141",
   "artifactObservation": {
     "generatorSha256": "9d67e5cbb20c9a4975ff436e042be0d9f1f3c3f3d8f892464d0af72649478e3c",
     "sourceRef": "main",
-    "sourceCommit": "1e098d071df57365d186a1abc64671ebdebb4cd7"
+    "sourceCommit": "7485f32e5bd36a40c9243115ff987f68efece141"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 666,
+  "crawlerCount": 667,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:81b1fd6490a285b4da30aebf459d5be4958723250513b49fa567bf586c2a84a4",
+    "rosterDigest": "sha256:6038bb31d426bbfae93bac5f3b60fb8184eef9d054aa9e41c76297b8af40f5f4",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -489,6 +489,7 @@
     "scripts/update-schindler-jobs.mjs",
     "scripts/update-schulthess-klinik-jobs.mjs",
     "scripts/update-schweizerhof-flims-jobs.mjs",
+    "scripts/update-seco-jobroom-jobs.mjs",
     "scripts/update-see-spital-jobs.mjs",
     "scripts/update-seiro-jobs.mjs",
     "scripts/update-selecta-jobs.mjs",
@@ -1561,11 +1562,12 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "4dbf5d8f2fb3415c863016bc5b5382a8fa37d4f88c58dbdc0b407dc6770a5286",
-      "artifactSha256": "495445fed581f5697c3a08b5fab11e2eb0c89faeba2669918c9cd6ed03a22c5f",
+      "sourceSha256": "df952566bf8e211984be6f076c40773c2ebf80a8a0ec5113f0f0a872c4f81726",
+      "artifactSha256": "64311c58db74397c0df9e8792ab0e21ff6e35efead0595bcf0cc7bcbe4abb7bb",
       "generatorSha256": "9d67e5cbb20c9a4975ff436e042be0d9f1f3c3f3d8f892464d0af72649478e3c",
       "members": [
-        "knowledge-lab"
+        "knowledge-lab",
+        "seco-jobroom"
       ]
     },
     {
