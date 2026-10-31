@@ -54,7 +54,7 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.read(base).automationDueAt).toBeNull();
   });
 
-  it.each(['portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
+  it.each(['portal:account_create_unanswered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: [reason] });
     const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
