@@ -1,3 +1,4 @@
+import { renderSitemapLastmod } from './shared/sitemapLastmod';
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
@@ -1293,6 +1294,13 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         emittedPathsByLocale.set(locale, emittedPaths);
       }
       let excludedNoindexRoutes = 0;
+      // Only the single-pharmacy page has a date of its own: the verification
+      // day it already declares as `dateModified`. Listings have no such date.
+      const lastVerifiedByUrl = new Map<string, string>();
+      const noteLastVerified = (url: string, descriptor: PageDescriptor): void => {
+        const lastmod = renderSitemapLastmod(descriptor.pharmacy?.lastVerifiedAt);
+        if (lastmod) lastVerifiedByUrl.set(url, lastmod);
+      };
       // The Italian shard owns the shared sitemap, but indexability is a
       // per-locale decision: translated body word counts and locale-specific
       // release models can differ. Build the small eligibility map before the
@@ -1322,7 +1330,9 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
             for (const descriptor of allDescriptors) {
               if (isDutyCityAliasDescriptor(descriptor, locale)) continue;
               if (eligibility.get(descriptor)?.indexable) {
-                urls.push(buildPharmacyPath(descriptorPath(descriptor, locale), locale));
+                const url = buildPharmacyPath(descriptorPath(descriptor, locale), locale);
+                urls.push(url);
+                noteLastVerified(url, descriptor);
               } else {
                 excludedNoindexRoutes += 1;
               }
@@ -1336,12 +1346,16 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
           collector.add(path.join(distDir, `${built.path.replace(/^\/+/, '').replace(/\/+$/, '')}/index.html`), built.html);
           // The IT/main shard owns the shared sitemap and must list every
           // locale URL, even though its collector writes only its own pages.
-          if (built.indexable) urls.push(built.path);
-          else excludedNoindexRoutes += 1;
+          if (built.indexable) {
+            urls.push(built.path);
+            noteLastVerified(built.path, descriptor);
+          } else excludedNoindexRoutes += 1;
         }
       }
       const dateStamp = BUILD_DATE_STAMP;
-      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${BASE_URL}${url}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>\n`).join('')}</urlset>\n`;
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => {
+        return `  <url><loc>${BASE_URL}${url}</loc>${lastVerifiedByUrl.get(url) ?? ''}<changefreq>weekly</changefreq><priority>0.6</priority></url>\n`;
+      }).join('')}</urlset>\n`;
       const written = await collector.flush();
       // The main locale shard owns shared JSON; the exact same validated
       // observation is embedded in SSR for a network-independent SPA handoff.

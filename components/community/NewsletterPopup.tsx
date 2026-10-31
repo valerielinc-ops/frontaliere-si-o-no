@@ -15,6 +15,7 @@ import { unlockAchievement } from '@/services/gamificationService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
+import { BOTTOM_PROMPT_BASE_CLASS } from '@/components/shared/BottomPromptShell';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY, canShowPromotionalPrompt, markSlotShown } from '@/services/popupQueue';
 import { observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, signInWithLinkedIn } from '@/services/authService';
@@ -38,6 +39,8 @@ const POPUP_DISMISSED_KEY = 'newsletter_popup_dismissed';
 // Canonical key shared via services/newsletterCtaState (#3529 dedup).
 const DISMISS_DAYS = 7;
 const MIN_TIME_MS = 20_000; // 20 seconds minimum on site
+const PHONE_VIEWPORT_QUERY = '(max-width: 639px)';
+const isPhoneViewport = () => window.matchMedia?.(PHONE_VIEWPORT_QUERY).matches ?? false;
 const SCROLL_THRESHOLD = 0.3; // 30% scroll depth — long blog articles were firing the popup near the end at 0.5
 const PAGE_VIEW_THRESHOLD = 3; // show after 3+ page views in session
 const PAGE_VIEW_KEY = 'newsletter_pageviews';
@@ -89,6 +92,8 @@ const NewsletterPopup: React.FC = () => {
  useEffect(() => { userRef.current = user; }, [user]);
  const timeReady = useRef(false);
  const scrollReady = useRef(false);
+ const closeButtonRef = useRef<HTMLButtonElement>(null);
+ const [formRequested, setFormRequested] = useState(false);
  const exitIntentFired = useRef(false);
  const [triggerSource, setTriggerSource] = useState<'smart' | 'exit_intent' | 'pageviews'>('smart');
 
@@ -361,6 +366,18 @@ const NewsletterPopup: React.FC = () => {
  }
  };
 
+ const handleDismissRef = useRef(handleDismiss);
+ handleDismissRef.current = handleDismiss;
+ const modalOpen = formRequested || status !== 'idle' || !isPhoneViewport();
+ const dialogShown = visible && queueActive && !googleOverlayActive && modalOpen;
+ useEffect(() => {
+ if (!dialogShown) return undefined;
+ closeButtonRef.current?.focus();
+ const onKeyDown = (e: KeyboardEvent) => { if (e.key === 'Escape') handleDismissRef.current(); };
+ document.addEventListener('keydown', onKeyDown);
+ return () => document.removeEventListener('keydown', onKeyDown);
+ }, [dialogShown]);
+
  if (!visible || !queueActive || googleOverlayActive || (!shownRef.current && !canShowPromotionalPrompt())) return null;
 
  // Render via portal to escape React root's stacking context.
@@ -368,12 +385,51 @@ const NewsletterPopup: React.FC = () => {
  // so the popup must also be outside #root to compete in the same context.
  const portalTarget = document.getElementById('modal-root') || document.body;
 
+ // Sui telefoni un modale a tutto schermo non richiesto copre il contenuto
+ // (interstitial intrusivo): l'invito resta una card sopra la nav e il form
+ // completo si apre solo su richiesta esplicita.
+ if (!modalOpen) {
+ return createPortal(
+ <div
+ role="region"
+ aria-labelledby="newsletter-popup-title"
+ className={`${BOTTOM_PROMPT_BASE_CLASS} right-4 rounded-xl border border-edge bg-surface p-3.5 shadow-lg`}
+ >
+ <h2 id="newsletter-popup-title" className="text-sm font-bold text-heading">
+ {triggerSource === 'exit_intent' ? t('newsletter.exitIntent.title') : t('newsletter.popup.title')}
+ </h2>
+ <p className="mt-0.5 text-xs text-subtle">
+ {triggerSource === 'exit_intent' ? t('newsletter.exitIntent.subtitle') : t('newsletter.popup.subtitle')}
+ </p>
+ <div className="mt-2 flex items-center justify-end gap-2">
+ <button
+ type="button"
+ onClick={handleDismiss}
+ className="inline-flex items-center px-3 min-h-[44px] text-xs font-semibold text-muted hover:text-strong transition-colors"
+ >
+ {t('newsletter.popup.close')}
+ </button>
+ <button
+ type="button"
+ onClick={() => setFormRequested(true)}
+ className="inline-flex items-center gap-1.5 px-3 min-h-[44px] text-xs font-semibold rounded-lg bg-accent-strong text-on-accent transition-colors"
+ >
+ <Send className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('newsletter.subscribeFree')}
+ </button>
+ </div>
+ </div>,
+ portalTarget,
+ );
+ }
+
  return createPortal(
  <div className="fixed inset-0 z-[2147483647] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
- <div className="relative w-full max-w-md max-h-[90dvh] flex flex-col bg-surface rounded-2xl shadow-2xl border border-edge overflow-hidden">
+ <div role="dialog" aria-modal="true" aria-labelledby="newsletter-popup-title" className="relative w-full max-w-md max-h-[90dvh] flex flex-col bg-surface rounded-2xl shadow-2xl border border-edge overflow-hidden">
  {/* Header gradient */}
  <div className="bg-gradient-to-r from-info-strong to-success-strong p-4 sm:p-6 text-on-accent shrink-0">
  <button
+ ref={closeButtonRef}
  onClick={handleDismiss}
  className="absolute top-3 right-3 p-1.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-on-accent/70 hover:text-on-accent hover:bg-on-accent/20 rounded-lg transition-colors"
  aria-label={t('newsletter.popup.close')}
@@ -384,7 +440,7 @@ const NewsletterPopup: React.FC = () => {
  <div className="p-2 bg-on-accent/20 rounded-xl">
  <Bell className="w-6 h-6" />
  </div>
- <h2 className="text-xl font-bold font-display">
+ <h2 id="newsletter-popup-title" className="text-xl font-bold font-display">
  {triggerSource === 'exit_intent' ? t('newsletter.exitIntent.title') : t('newsletter.popup.title')}
  </h2>
  </div>
@@ -434,7 +490,7 @@ const NewsletterPopup: React.FC = () => {
  </div>
 
  {/* Value propositions */}
- <div className="space-y-1.5">
+ <div className="hidden sm:block space-y-1.5">
  <div className="flex items-center gap-2 text-xs text-body">
  <TrendingUp className="w-3.5 h-3.5 text-accent shrink-0" />
  <span>{t('newsletter.valueProp.1')}</span>
@@ -450,7 +506,7 @@ const NewsletterPopup: React.FC = () => {
  </div>
 
  {/* Benefits */}
- <div className="flex gap-2 text-xs text-subtle">
+ <div className="hidden sm:flex gap-2 text-xs text-subtle">
  <span className="px-2 py-1 bg-info-subtle rounded-lg">💱 {t('newsletter.exchangeRate')}</span>
  <span className="px-2 py-1 bg-success-subtle rounded-lg">🚦 {t('newsletter.borderTraffic')}</span>
  <span className="px-2 py-1 bg-danger-subtle rounded-lg">📋 {t('newsletter.taxNews')}</span>

@@ -71,7 +71,7 @@ export const GLOSSARY_TERM_DEFINITIONS: Readonly<Record<string, string>> = {
   franchigia:
     'Franchigia fiscale €10.000 per nuovi frontalieri dal 2024: reddito svizzero esente IRPEF fino a questa soglia. Nuovo accordo CH-IT.',
   ristorni:
-    'Ristorni fiscali: quota delle imposte alla fonte svizzere retrocessa ai comuni italiani di confine dei lavoratori frontalieri.',
+    'Ristorni fiscali: compensazione del 40% dell\'imposta lorda dei frontalieri dell\'art. 9, versata dai Cantoni all\'Italia fino all\'anno fiscale 2033.',
   doppiaimposizione:
     'Doppia imposizione: rischio che lo stesso reddito venga tassato sia in Svizzera (imposta alla fonte) sia in Italia (IRPEF). La Convenzione CH-IT del 1976, integrata dal Nuovo Accordo 2023, lo evita con credito d\'imposta e franchigia di €10.000.',
   'addizionale-regionale':

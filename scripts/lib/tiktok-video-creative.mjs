@@ -13,10 +13,12 @@ export const TIKTOK_VIDEO_CREATIVE_VARIANTS = Object.freeze({
   TREATMENT: 'motion-graphic-v1',
   HOOK: 'hook-3-slides-v1',
   SPOTLIGHT: 'single-stat-v1',
+  ANSWER: 'answer-voice-v1',
 });
 export const DEFAULT_TIKTOK_VIDEO_CREATIVE_MODE = 'off';
 export const DEFAULT_TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT = 0;
 export const DEFAULT_TIKTOK_VIDEO_CREATIVE_NEW_FORMAT_ROLLOUT_PERCENT = 0;
+export const DEFAULT_TIKTOK_ANSWER_FORMAT_ROLLOUT_PERCENT = 0;
 
 function hashBucket(queueId, namespace) {
   return createHash('sha256')
@@ -59,7 +61,18 @@ export function resolveTikTokVideoCreativeVariant({ queueId, env = process.env }
     : TIKTOK_VIDEO_CREATIVE_VARIANTS.SPOTLIGHT;
 }
 
+/**
+ * Whether this queue id gets the spoken answer format. A separate namespace
+ * keeps it independent from the slide arms: the post that stays out of the
+ * rollout, or that has no usable FAQ, runs the slide experiment unchanged.
+ */
+export function isTikTokAnswerFormatAssigned({ queueId, env = process.env } = {}) {
+  const rollout = percent(env?.TIKTOK_ANSWER_FORMAT_ROLLOUT_PERCENT ?? DEFAULT_TIKTOK_ANSWER_FORMAT_ROLLOUT_PERCENT);
+  return Boolean(queueId) && hashBucket(queueId, 'answer-format') < rollout;
+}
+
 export function tiktokVideoCreativeLabel(variant) {
+  if (variant === TIKTOK_VIDEO_CREATIVE_VARIANTS.ANSWER) return 'Risposta a voce';
   if (variant === TIKTOK_VIDEO_CREATIVE_VARIANTS.TREATMENT) return 'Motion graphic';
   if (variant === TIKTOK_VIDEO_CREATIVE_VARIANTS.HOOK) return 'Hook rapido a 3 slide';
   if (variant === TIKTOK_VIDEO_CREATIVE_VARIANTS.SPOTLIGHT) return 'Una statistica in primo piano';

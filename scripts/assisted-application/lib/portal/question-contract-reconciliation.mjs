@@ -8,7 +8,7 @@ import { validateAnswer } from '../../../../functions/src/lib/answerRules.js';
 import { isFetchablePublicUrl } from '../../../../functions/src/assistedApplicationAiJob.js';
 import { portalAnswerForApplication } from './question-key.mjs';
 import { portalRequirementsFromMissingRequired, preferredCvFields } from './portal.mjs';
-import { operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalAnswerForOption, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { hasNativeApplicantIdentity } from './native-control-contract.mjs';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../../../functions/src/lib/portalNativeContract.js';
 
@@ -130,8 +130,10 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   const projected = candidateAnswersForQuestions(questions, answers, flow.questionAnswers || {});
   const todayIso = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Zurich' }).format(new Date(nowMs));
   for (const question of questions) {
-    const answer = projected[question.id];
-    if (!hasAnswer(answer)) continue;
+    const preserved = projected[question.id];
+    if (!hasAnswer(preserved)) continue;
+    // Judge what the live control would receive; the saved answer stays literal.
+    const answer = operationalAnswerForOption(question, preserved) || preserved;
     if (!validateAnswer(String(answer), question, { todayIso }).ok
       || (question.source === 'portal' && !portalAnswerForApplication(question, String(answer)))) {
       return { changed: false, reason: 'preserved_answer_incompatible' };

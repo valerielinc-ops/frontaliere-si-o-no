@@ -45,7 +45,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
  return () => { document.removeEventListener('mousedown', close); document.removeEventListener('touchstart', close); };
  }, [open]);
  return (
- <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
+ <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center justify-center w-11 h-11 -my-3.5 -mr-2 -ml-1 cursor-help z-50">
  <Info size={12} className="text-muted hover:text-info transition-colors" />
  <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-body text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-edge text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
  {text}

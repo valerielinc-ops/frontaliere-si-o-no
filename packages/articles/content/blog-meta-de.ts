@@ -13615,7 +13615,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate wird fast 500.000 Euro weniger aus den Rückvergütungen haben.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.mozione-ticino-ristorni-salute.title': 'Motion im Tessin gegen die Gesundheitssteuer',
-    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparteiliche Motion im Grossen Rat eingereicht Die italienische Massnahme wird im Hinblick auf Artikel 9 beanstandet Das Tessin droht mit der Blockierung der Rückvergütungen Gegenstand',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparteiliche Motion im Grossen Rat eingereicht Die italienische Massnahme wird im Hinblick auf Artikel 9 beanstandet Das Tessin droht mit der Blockierung der Rückvergütungen.',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.ristorni-malnate-meno-500mila.title': 'Grenzgänger-Rückerstattungen, 500mila euro weniger für Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate erhält fast 500mila euro weniger Der nationale Fonds steigt von 89 auf 108 Millionen Die Rückerstattungen werden Anfang November eintreffen Fast 1.700 Einwohner von Malnate',
@@ -13638,6 +13638,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassa-pensione-snl-sev-attacca.title': 'Pensionskasse SNL: SEV stellt die Interpretation der Ergebnisse infrage',
     'blog.article.cassa-pensione-snl-sev-attacca.excerpt': 'UBS wird das Vermögen der Pensionskasse SNL verwalten ATIOZ setzte nach einem Interessenkonflikt ein neues Verfahren durch Der Deckungsgrad lag Ende',
     'blog.article.cassa-pensione-snl-sev-attacca.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.lavori-barriere-antirumore-a8.title': 'Arbeiten an Lärmschutzwänden auf der A8 und der D08: Leitfaden zu den Sperrungen',
+    'blog.article.lavori-barriere-antirumore-a8.excerpt': 'Nächtliche Sperrungen auf der A8 und der D08 vom 2. (Gallarate, Besnate)',
+    'blog.article.lavori-barriere-antirumore-a8.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bellinzona-imposte-piu-salate-2028.title': 'In Bellinzona ab 2028 höhere Steuern',
+    'blog.article.bellinzona-imposte-piu-salate-2028.excerpt': 'Der Stadtrat von Bellinzona hat ab 2028 höhere Steuern angekündigt, zeitgleich mit dem Voranschlag 2026, der ein Defizit von 10,6 Millionen ausweist.',
+    'blog.article.bellinzona-imposte-piu-salate-2028.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.infermieri-osc-sindacati-stipendi.title': 'OSC-Pflegekräfte und Gewerkschaften: Lohnstopp aufheben',
+    'blog.article.infermieri-osc-sindacati-stipendi.excerpt': 'Die Neuklassifizierung der Osc ist seit Jahren blockiert 2019: Klasse 4→5 für Pflegefachpersonen, 5→6 für Spezialisierungen Jährliche Erhöhungen von 5\'159 bis 8\'941 Franken Versammlung am 10.',
+    'blog.article.infermieri-osc-sindacati-stipendi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

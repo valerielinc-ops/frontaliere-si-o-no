@@ -342,7 +342,7 @@ _publish_cdn_r2() {
         fi
       done
     else
-      if ! _image_lease_context="$(node "$_lease_cli" acquire --namespace "$_image_lease_namespaces")" || [ -z "$_image_lease_context" ]; then
+      if ! _image_lease_context="$(FRONTALIERE_R2_IMAGE_LEASE_PRIORITY=1 node "$_lease_cli" acquire --namespace "$_image_lease_namespaces")" || [ -z "$_image_lease_context" ]; then
         echo "::error::[r2] could not acquire the image namespace lease; skipping images/ sync"
         return 1
       fi
@@ -552,8 +552,32 @@ _publish_cdn_r2() {
     mkdir -p "$_bootstrap_asset_stage"
     mv "$stage/assets/index-entry.js" "$_bootstrap_asset_stage/index-entry.js"
   fi
+  # The three loaders named `<name>-<content-hash>.js` (build-plugins/constants.ts)
+  # never change bytes under their URL, unlike the stable alias next to them. They
+  # are the same class as a release, so they get the same immutable header; the
+  # zone rule cdn-assets-revalidate excludes these prefixes (infra/cloudflare/rules.md)
+  # and the file goes back into the stage so the purge fingerprints still see it.
+  # rclone skips an object it already holds, so a key uploaded before this change
+  # keeps its old 600 s header until the content (and so the name) changes.
+  local _hashed_assets_stage="$stage/.assets-content-addressed"
+  local _hashed_assets_log="$stage/.assets-content-addressed.jsonl"
+  rm -rf "$_hashed_assets_stage" "$_hashed_assets_log"
+  mkdir -p "$_hashed_assets_stage"
+  if [ -d "$stage/assets" ]; then
+    find "$stage/assets" -maxdepth 1 -type f \
+      \( -name 'gtag-init-*.js' -o -name 'adsense-loader-*.js' -o -name 'partnerize-tag-*.js' \) \
+      -exec mv {} "$_hashed_assets_stage/" \;
+  fi
   _r2_sync 420 "$stage/assets" assets "public,max-age=600,must-revalidate" "$_assets_log"
   assets_sync_status=$?
+  if [ -n "$(ls -A "$_hashed_assets_stage" 2>/dev/null)" ]; then
+    if ! _r2_sync 120 "$_hashed_assets_stage" assets "public,max-age=31536000,immutable" "$_hashed_assets_log"; then
+      assets_sync_status=1
+    fi
+    mkdir -p "$stage/assets"
+    mv "$_hashed_assets_stage"/* "$stage/assets/"
+  fi
+  rm -rf "$_hashed_assets_stage" "$_hashed_assets_log"
   if [ -d "$_release_assets_stage" ]; then
     mkdir -p "$stage/assets"
     mv "$_release_assets_stage" "$stage/assets/releases"

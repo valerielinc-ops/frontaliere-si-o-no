@@ -546,13 +546,21 @@ export function latestAutomationDeferredReason(comments) {
  * `keep` è il default e non un ramo di errore: significa «non so dirlo senza
  * giudizio», e il run Claude dello sweep è il posto dove quel giudizio si dà.
  *
- * @param {{title?: string, labels?: string[], verdict?: string|null}} iss
+ * @param {{title?: string, labels?: string[], verdict?: string|null, commentsRead?: boolean}} iss
  * @returns {{action: 'requeue'|'decompose'|'keep', reason: string}}
  */
 export function prepassDecision({
   title = '', body = '', labels = [], verdict = null,
   registry = [], staleBlocks = [], homeScope = 'site', automationDeferredReason = null,
+  commentsRead = true,
 } = {}) {
+  // Routing without the latest comments can discard a non-retryable verdict or
+  // requeue a technical defer from an unknown state. Keep the issue untouched
+  // until the next run can establish the evidence; an empty, successfully read
+  // comment list remains valid and uses the default `true`.
+  if (!commentsRead) {
+    return { action: 'keep', reason: 'commenti non leggibili: verdetto e stato del ciclo sconosciuti' };
+  }
   // Il corpo entra QUI e non nella decisione di famiglia. La distinzione non è
   // formale: `isAggregate`/`AGGREGATE_ITEMS_RE` girano sul TITOLO apposta,
   // perché sul corpo la parola «batch» bastava a mandare allo scorporo tre
@@ -1034,6 +1042,7 @@ function main() {
       staleBlocks,
       homeScope: HOME_SCOPE,
       automationDeferredReason,
+      commentsRead,
     });
     counts[d.action]++;
 

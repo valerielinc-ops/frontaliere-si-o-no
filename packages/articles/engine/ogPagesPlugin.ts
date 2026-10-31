@@ -590,6 +590,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleAuthorSlugById: Record<string, string> = {};
  const articleAuthorNameById: Record<string, string> = {};
  const articleAiAssistedById: Record<string, boolean> = {};
+ const articleTypeById: Record<string, 'news' | 'evergreen'> = {};
  try {
  const articleDataSrc = fs.readFileSync(np.resolve(rootDir, SECTION.registry), 'utf-8');
  for (const article of readArticleRegistryMetadata(articleDataSrc)) {
@@ -599,6 +600,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (article.authorSlug !== undefined) articleAuthorSlugById[article.id] = article.authorSlug;
  if (article.authorName !== undefined) articleAuthorNameById[article.id] = article.authorName;
  if (article.aiAssisted !== undefined) articleAiAssistedById[article.id] = article.aiAssisted;
+ if (article.articleType !== undefined) articleTypeById[article.id] = article.articleType;
  }
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
@@ -1733,7 +1735,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  '@context': 'https://schema.org',
  // A corpus entry without an editorial publication date is an evergreen
  // document. Keep it as WebPage until the registry supplies a real date.
- '@type': en.datePub ? 'NewsArticle' : 'WebPage',
+ // A dated guide the generator declared evergreen is an Article, not news.
+ '@type': !en.datePub ? 'WebPage' : articleTypeById[en.articleId] === 'evergreen' ? 'Article' : 'NewsArticle',
  '@id': `${full}#article`,
  name: localizedTitle,
  headline: localizedTitle,

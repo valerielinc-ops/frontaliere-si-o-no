@@ -41,7 +41,13 @@ insiste mai dopo un errore.
    per thread accessibile e registra gli Insights leggendo le metriche visibili
    nel Professional Dashboard.
 
-Risolvere un `unconfirmed` (nel journal
+Un clic senza conferma ora prova a risolversi da solo: al giro successivo il
+robot cerca la caption nella lista post di TikTok Studio e, se la trova,
+registra il post nel ledger e riparte. Se non la trova il canale resta fermo e
+la issue `needs-human` viene riaperta ogni 24 ore: un blocco non può più
+restare silenzioso come quello del 20-31 ottobre 2026.
+
+Risolvere a mano un `unconfirmed` (nel journal
 `~/Library/Application Support/frontaliere/social-robot/journal.json`):
 se il post è online, registrarlo con `gh workflow run social-robot-confirm.yml`
 (il ledger ne contiene allora l'id e il blocco cade da solo); se non lo è,
@@ -108,6 +114,20 @@ mentre l’evidence di conferma la porta anche nel ledger. Se la libreria nativa
 non espone una card selezionabile, il trattamento si ferma prima di premere
 `Pubblica` e salva screenshot/HTML: non pubblica in silenzio una variante
 diversa.
+
+### Formato TikTok «Risposta a voce»
+
+`answer-voice-v1` risponde a una sola domanda presa dalla FAQ di un articolo
+pubblicato: voce italiana (Gemini TTS), stesse parole a schermo, caption con la
+domanda in prima riga. Il testo non viene riscritto. Il robot non applica suoni
+di tendenza a questi video, perché sostituirebbero la voce.
+
+| Parametro Firebase | Valori | Default locale |
+|---|---|---|
+| `TIKTOK_ANSWER_FORMAT_ROLLOUT_PERCENT` | `0`–`100` | `0` |
+
+Vale per i post `article`. Senza una FAQ adatta o con la voce non disponibile,
+il post torna al formato a slide e il ledger registra quello reale.
 
 ### Esperimento video TikTok
 

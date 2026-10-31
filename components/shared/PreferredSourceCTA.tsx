@@ -107,10 +107,10 @@ const PreferredSourceCTA: React.FC<PreferredSourceCTAProps> = ({ variant = 'inli
   return (
     <div
       data-testid="preferred-source-cta-inline"
-      className="flex items-center gap-3 p-3 bg-accent-subtle/50 rounded-xl border border-accent-border"
+      className="flex flex-wrap items-center gap-3 p-3 bg-accent-subtle/50 rounded-xl border border-accent-border"
     >
       <Sparkles className="w-5 h-5 text-accent flex-shrink-0" aria-hidden="true" />
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 basis-40 min-w-0">
         <p className="text-xs text-body">{t('preferredSource.body')}</p>
       </div>
       <a
