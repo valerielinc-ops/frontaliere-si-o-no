@@ -2112,12 +2112,12 @@
     },
     {
       "id": "viva-luzern-ef3bee42d6f6",
-      "slug": "collaboratore-trice-kuche-100-viva-luzern",
+      "slug": "addetto-a-alla-cucina-100-viva-luzern-luzern",
       "slugByLocale": {
         "de": "mitarbeiter-in-kuche-100-viva-luzern-luzern",
-        "it": "collaboratore-trice-kuche-100-viva-luzern",
-        "en": "mitarbeiter-in-kuche-100-viva-luzern-luzern",
-        "fr": "mitarbeiter-in-kuche-100-viva-luzern-luzern"
+        "it": "addetto-a-alla-cucina-100-viva-luzern-luzern",
+        "en": "kitchen-staff-member-100-viva-luzern-luzern",
+        "fr": "collaborateur-trice-en-cuisine-100-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -2165,11 +2165,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kuche-100-viva-luzern-luzern",
+          "collaboratore-trice-kuche-100-viva-luzern"
+        ],
+        "en": [
+          "mitarbeiter-in-kuche-100-viva-luzern-luzern"
+        ],
+        "fr": [
           "mitarbeiter-in-kuche-100-viva-luzern-luzern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kuche-100-viva-luzern-luzern"
+        "mitarbeiter-in-kuche-100-viva-luzern-luzern",
+        "collaboratore-trice-kuche-100-viva-luzern"
       ],
       "salaryMin": 69000,
       "salaryMax": 86500,

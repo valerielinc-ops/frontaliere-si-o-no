@@ -17,7 +17,7 @@ import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
-  registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
+  registerCrawlerSummaryGuard, markCrawlerSummaryAbortKind, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
@@ -183,6 +183,7 @@ async function main() {
   const discovered = await fetchJobs();
   const authoritativeEmptySnapshot = isAuthoritativeEmptySnapshot(discovered);
   if (!discovered.length && !authoritativeEmptySnapshot) {
+    markCrawlerSummaryAbortKind('no-jobs-parsed');
     console.log('⚠️ No Helsinn jobs discovered; keeping the previous slice.');
     return;
   }

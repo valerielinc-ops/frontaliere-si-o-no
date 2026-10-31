@@ -16,6 +16,7 @@ on:
   pull_request:
     paths:
       - 'scripts/assisted-application/lib/portal/**'
+      - 'functions/src/lib/applicationConsent.js'
       - 'scripts/assisted-application/lib/nopecha-probe.mjs'
       - 'scripts/assisted-application/lib/secure-run.mjs'
       - 'scripts/assisted-application/portal-e2e.mjs'

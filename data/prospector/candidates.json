@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-31T13:19:42.357Z",
+  "updatedAt": "2026-10-31T13:20:16.423Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -90026,12 +90026,12 @@
     },
     "asanti": {
       "key": "asanti",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.783Z",
-      "updatedAt": "2026-10-31T13:05:30.212Z",
+      "updatedAt": "2026-10-31T13:20:16.338Z",
       "name": "Asanti AG",
       "city": "",
       "zip": "",
@@ -90298,7 +90298,9 @@
           "logoSourceUrl": "https://asanti.ch/wp-content/uploads/2014/12/cropped-icon_iphone-150x150.jpg",
           "employerSiteName": "Asanti AG"
         }
-      ]
+      ],
+      "promotionPr": "16284",
+      "promotionBranch": "prospector/promote-2026-10-31"
     },
     "asanti.ch": {
       "key": "asanti.ch",
@@ -144981,12 +144983,12 @@
     },
     "bb-trading-werbeartikel@dietikon": {
       "key": "bb-trading-werbeartikel@dietikon",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-07T10:32:58.094Z",
-      "updatedAt": "2026-10-31T13:05:40.569Z",
+      "updatedAt": "2026-10-31T13:20:16.338Z",
       "name": "bb trading werbeartikel ag",
       "city": "Dietikon",
       "zip": "8953",
@@ -145221,7 +145223,9 @@
           "logoSourceUrl": "https://bbtrading.ch/themeassets/images/favicons/bbtrading/apple-touch-icon.png",
           "employerSiteName": "bb trading werbeartikel ag"
         }
-      ]
+      ],
+      "promotionPr": "16284",
+      "promotionBranch": "prospector/promote-2026-10-31"
     },
     "bbarc.ch": {
       "key": "bbarc.ch",
@@ -324995,12 +324999,12 @@
     },
     "csl-immobilien@zurich": {
       "key": "csl-immobilien@zurich",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-05T07:55:29.047Z",
-      "updatedAt": "2026-10-31T13:05:35.517Z",
+      "updatedAt": "2026-10-31T13:20:16.338Z",
       "name": "CSL Immobilien AG",
       "city": "Zürich",
       "zip": "8052",
@@ -325236,7 +325240,9 @@
           "logoSourceUrl": "https://csl-immobilien.ch/favicon-96x96.png",
           "employerSiteName": "CSL Immobilien"
         }
-      ]
+      ],
+      "promotionPr": "16284",
+      "promotionBranch": "prospector/promote-2026-10-31"
     },
     "csl-partner-architekten": {
       "key": "csl-partner-architekten",

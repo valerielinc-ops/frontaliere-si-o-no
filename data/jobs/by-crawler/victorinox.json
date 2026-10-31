@@ -691,7 +691,7 @@
         "de": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
         "it": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
         "fr": "conseiller-juridique-h-f-d-victorinox-ibach-schwyz",
-        "en": "legal-counsel-m-w-d-victorinox-ibach-schwyz"
+        "en": "consigliere-legale-m-f-d-victorinox-ibach-schwyz"
       },
       "company": "Victorinox",
       "companyKey": "victorinox",
@@ -738,6 +738,9 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "legal-counsel-m-w-d-victorinox-ibach-schwyz"
+        ],
+        "en": [
           "legal-counsel-m-w-d-victorinox-ibach-schwyz"
         ]
       },

@@ -1,4 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+// Il tasso vero cambia ogni giorno con lo snapshot: le cifre esatte di questo
+// file si verificano su un tasso fissato.
+vi.mock('../../data/exchange-rate-snapshot.json', () => ({ currentRate: 1.096, rateDate: '2026-10-30' }));
+
 import {
   buildSalaryLandingBody,
   _internal,
@@ -58,6 +63,7 @@ describe('salaryLandingShell · resolver', () => {
       expect(r.data.eyebrow).toContain(c.eyebrowSubstr);
       expect(r.data.table?.headers.length).toBe(c.columns);
       expect(r.data.tiles.length).toBe(c.tiles);
+      // cron-count-ok: tre FAQ scritte a mano per pagina, non un conteggio dallo snapshot del cambio.
       expect(r.data.faqs?.length).toBe(3);
     }
   });
@@ -95,6 +101,7 @@ describe('salaryLandingShell · resolver', () => {
       // catch unknown paths under /{locale}/{salary-hub}/anything.
       expect(r.data.table?.headers.length, `missing comparison table for ${c.path}`).toBe(c.columns);
       expect(r.data.tiles.length, `wrong tile count for ${c.path}`).toBe(c.tiles);
+      // cron-count-ok: tre FAQ scritte a mano per pagina, non un conteggio dallo snapshot del cambio.
       expect(r.data.faqs?.length, `wrong FAQ count for ${c.path}`).toBe(3);
     }
   });

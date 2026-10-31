@@ -2,7 +2,7 @@
 /**
  * Opacc Software AG job parser — Fetcher and job builder.
  *
- * Source: https://my.jobalino.ch/de/jobpreview/3197
+ * Source: https://jobs.opacc.ch/
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllOpaccSoftwareAgJobs()  — Fetch and parse all jobs
@@ -25,9 +25,10 @@ import {
 
 export const OPACC_SOFTWARE_AG_KEY = 'opacc-software-ag';
 export const OPACC_SOFTWARE_AG_COMPANY_NAME = 'Opacc Software AG';
-export const OPACC_SOFTWARE_AG_COMPANY_DOMAIN = 'my.jobalino.ch';
+export const OPACC_SOFTWARE_AG_COMPANY_DOMAIN = 'jobs.opacc.ch';
 
-const CAREER_URL = 'https://my.jobalino.ch/de/jobpreview/3197';
+const CAREER_URL = 'https://jobs.opacc.ch/';
+const OPACC_SOFTWARE_AG_APPLICATION_HOST = 'my.jobalino.ch';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -58,7 +59,7 @@ export function isOpaccSoftwareAgJob(job) {
     key === OPACC_SOFTWARE_AG_KEY ||
     key.startsWith('opacc-software-ag-') ||
     company.includes('opacc software ag') ||
-    url.includes('my.jobalino.ch')
+    isTrustedDomain(url)
   );
 }
 
@@ -68,7 +69,8 @@ export function isOpaccSoftwareAgJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'my.jobalino.ch' || host.endsWith('.my.jobalino.ch');
+    return [OPACC_SOFTWARE_AG_COMPANY_DOMAIN, OPACC_SOFTWARE_AG_APPLICATION_HOST]
+      .some((trustedHost) => host === trustedHost || host.endsWith(`.${trustedHost}`));
   } catch {
     return false;
   }

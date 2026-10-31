@@ -14,7 +14,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
-  registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
+  registerCrawlerSummaryGuard, markCrawlerSummaryAbortKind, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
@@ -239,7 +239,12 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
   const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Sintetica jobs discovered.'); await cleanStoredJobsOnSoftExit(); return; }
+  if (!discovered.length) {
+    markCrawlerSummaryAbortKind('no-jobs-parsed');
+    console.log('⚠️ No Sintetica jobs discovered.');
+    await cleanStoredJobsOnSoftExit();
+    return;
+  }
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');
