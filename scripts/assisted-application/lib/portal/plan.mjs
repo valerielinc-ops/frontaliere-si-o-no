@@ -9,8 +9,9 @@
  */
 
 import '../../extension/apply-control.js';
-const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
+const { isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose } = globalThis.AssistedApplyControls;
 
+import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
@@ -42,6 +43,7 @@ import {
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+export { BIRTH_FIELD_RE };
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -116,6 +118,7 @@ const trimField = (field) => ({
   kind: field.kind,
   label: field.label,
   ...(field.context ? { context: field.context } : {}),
+  ...(Object.hasOwn(field, 'addressContext') ? { addressContext: addressContextContract(field) } : {}),
   required: Boolean(field.required),
   ...(field.value ? { currentValue: field.value } : {}),
   ...(field.maxLength ? { maxLength: field.maxLength } : {}),
@@ -158,14 +161,15 @@ const CONTACT_ADDRESS_ONLY_RE = /^\s*(?:e[-\s]?mail|email|courriel|correo)(?:\s*
 const IDENTITY_EMAIL_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
 const EMAIL_CONFIRMATION_RE = /\b(?:re[- ]?enter|enter again|repeat|confirm(?:ation)?|again|erneut|wiederholen|bestätigen|bestaetigen|nochmals|ripeti|conferma|répéter|repeter|confirmer|à nouveau|de nouveau)\b/i;
 const STREET_NAME_ONLY_RE = /\b(?:street|road|strasse|straße|rue)\s+name\b|\b(?:name|nom|nome)\s+(?:of\s+)?(?:the\s+)?(?:street|road|rue|via)\b/i;
-const SENSITIVE_TERMS = String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`;
+export const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
+const SENSITIVE_TERMS = String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|\bdob\b|ethnic|criminal|strafregister|casellario|${DATE_OF_BIRTH_RE.source}|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`;
 // Contact e-mail labels contain the word «adresse/address», but are ordinary
 // identity fields and must not be blocked by the residence-address guard.
-export const SENSITIVE = new RegExp(String.raw`^(?!${CONTACT_ADDRESS_ONLY_RE.source})[\s\S]*(?:${SENSITIVE_TERMS})`, 'i');
+export const SENSITIVE = new RegExp(String.raw`^(?!${CONTACT_ADDRESS_ONLY_RE.source})[\s\S]*(?:${SENSITIVE_TERMS})`, 'iu');
 
 export function isAddressLikeQuestion(question) {
   const label = questionFromLabel(question);
-  return ADDRESS_FIELD_RE.test(label) && !CONTACT_ADDRESS_ONLY_RE.test(label);
+  return ADDRESS_FIELD_RE.test(label) && !CONTACT_ADDRESS_ONLY_RE.test(label) && !isIdentityEmailCaption(label);
 }
 // Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
 // answered only with a quote of the candidate's data that supports the answer.
@@ -608,12 +612,13 @@ const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\
 const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&|\/)\s*(?:(?:house|street)\s*)?(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
 const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|npa)\b/i;
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
-const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
+const CITY_RE = /(?<![\p{L}\p{N}_])(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)(?![\p{L}\p{N}_])/iu;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 // A generic personal-data section can also contain unrelated labels such as
 // «Data di nascita». Only these residence-specific words override that noise
 // when a sibling-label context contains both kinds of information.
-const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:information|details|data)|contact\s+(?:details|information)|candidate\s+(?:personal\s+)?(?:information|details|data|profile)|dati\s+personali|données\s+personnelles|persönliche\s+(?:daten|angaben))\b/i;
+const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:information|details|data)|contact\s+(?:details|information)|candidate\s+(?:personal\s+)?(?:information|details|data|profile)|(?:dati|informazioni)\s+personali|(?:données|informations|coordonnées)\s+personnelles|persönliche\s+(?:daten|angaben|informationen))\b/i;
+export const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
 const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|employeur|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro|emergency\s+contact|contact\s+d['’]urgence|contatto\s+di\s+emergenza|reference|referee|next\s+of\s+kin|contact\s+person|supervisor|recruiter|interviewer)\b/i;
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|(?:work|employment|professional|career|job)\s+(?:history|experience)|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
@@ -647,23 +652,40 @@ const PHONE_COUNTRY_CODE_LABEL_RE = /\b(?:country|nazione|paese|pays|land)\s+(?:
 
 function isPhoneCountryQuestion(value, context = '', metadata = {}) {
   const label = String(value || '');
+  const hasOwner = Object.hasOwn(metadata || {}, 'addressContext');
+  const owner = addressContextContract(metadata);
+  if (hasOwner && !hasAddressContextOwnership(metadata)) return false;
   const fieldContext = [context, metadata?.section].filter(Boolean).join(' ');
-  const explicitPhoneCountry = (PHONE_COUNTRY_CODE_LABEL_RE.test(label)
-    && (PHONE_CODE_FIELD_RE.test(label)
-      || (PHONE_CODE_FIELD_RE.test(fieldContext) && !RESIDENCE_CONTEXT_RE.test(fieldContext))))
-    || (COUNTRY_RE.test(label) && PHONE_CODE_FIELD_RE.test(label));
+  const ownedContext = hasOwner ? [owner.section, ...owner.owners].join(' ') : fieldContext;
+  if (hasOwner && (NON_RESIDENCE_ADDRESS_RE.test(ownedContext) || WORK_HISTORY_SECTION_RE.test(ownedContext))) return false;
+  // A phone sibling in a generic personal section does not own the country
+  // selector. A named phone scope (or the label itself) must establish prefix intent.
+  const phoneScope = hasOwner ? hasTelephonePurpose([...owner.owners, owner.section]) : PHONE_CODE_FIELD_RE.test(ownedContext);
+  const phoneLabel = PHONE_CODE_FIELD_RE.test(label);
+  const explicitPhoneCountry = (PHONE_COUNTRY_CODE_LABEL_RE.test(label) && (phoneLabel || phoneScope))
+    || (COUNTRY_RE.test(label) && phoneLabel);
   if (explicitPhoneCountry) return !RESIDENCE_CONTEXT_RE.test(label);
-  return COUNTRY_RE.test(label)
-    && PHONE_CODE_FIELD_RE.test(fieldContext)
-    && !RESIDENCE_CONTEXT_RE.test(label)
-    && !RESIDENCE_CONTEXT_RE.test(fieldContext);
+  return residenceFieldRole(label) === 'country' && COUNTRY_RE.test(label)
+    && phoneScope && !RESIDENCE_CONTEXT_RE.test(label)
+    && (hasOwner || !RESIDENCE_CONTEXT_RE.test(fieldContext));
 }
 
 export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
+  const role = residenceFieldRole(value);
+  if (!role) return '';
   const surrounding = String(context || '').trim();
-  const section = String(metadata?.section || '').trim();
-  const fieldContext = [surrounding, section].filter(Boolean).join(' ');
+  const hasOwnership = Object.hasOwn(metadata || {}, 'addressContext');
+  const ownership = addressContextContract(metadata);
+  if (hasOwnership && !hasAddressContextOwnership(metadata)) return '';
+  const section = hasOwnership ? ownership.section : String(metadata?.section || '').trim();
+  // Only explicit owners of this control can establish or veto residence.
+  // Legacy callers retain their former section/context contract. The native
+  // reader supplies separate ownership so flattened sibling labels are not
+  // mistaken for the candidate/employer/birthplace owning this address.
+  const fieldContext = hasOwnership ? [section, ...ownership.owners].filter(Boolean).join(' ')
+    : [surrounding, section].filter(Boolean).join(' ');
+  if (hasOwnership && (NON_RESIDENCE_ADDRESS_RE.test(fieldContext) || WORK_HISTORY_SECTION_RE.test(fieldContext))) return '';
   const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(fieldContext);
   const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(fieldContext);
   const employmentContext = EMPLOYMENT_CONTEXT_RE.test(fieldContext) || WORK_HISTORY_SECTION_RE.test(section);
@@ -671,7 +693,7 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   // distinguish it from residence country. The portal context is often a
   // flattened list of every sibling label, though, so do not let a phone
   // label suppress a real residence address in the same personal section.
-  const phoneCodeContext = PHONE_CODE_FIELD_RE.test(fieldContext)
+  const phoneCodeContext = PHONE_CODE_FIELD_RE.test([surrounding, fieldContext].join(' '))
     && PHONE_COUNTRY_CODE_LABEL_RE.test(value);
   // `fieldContext` is a flattened list of sibling labels. A candidate-owned
   // label in that list must not reclassify an emergency/contact-person field
@@ -681,33 +703,36 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   const contactAddress = CONTACT_ADDRESS_RE.test(value) || CONTACT_ADDRESS_RE.test(fieldContext);
   if ((contactAddress && !candidateContactAddress) || PHONE_CODE_FIELD_RE.test(value) || phoneCodeContext || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext && !candidateContactAddress)) return '';
-  const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
-    || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
+  const residenceContext = hasOwnership
+    ? hasResidencePurpose([...ownership.owners, section], value)
+    : RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
+      || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
   // `autocomplete=postal-code` identifies the kind of value, not whose
   // address it belongs to. The field's own label, section, or explicit nearby
   // context must still identify candidate residence before reusing the CV.
-  const candidateResidenceProvenance = RESIDENCE_CONTEXT_RE.test(section)
+  const candidateResidenceProvenance = hasOwnership ? residenceContext : RESIDENCE_CONTEXT_RE.test(section)
     || PERSONAL_ADDRESS_CONTEXT_RE.test(section);
   // A standalone postal label needs positive residence provenance from its
   // section or nearby residence context. The field extractor's section also
   // keeps an employer/work-history postal field out.
   // Bare «CAP» still needs explicit residence context.
-  if (STANDALONE_POSTAL_CODE_FIELD_RE.test(value) && (residenceContext || candidateResidenceProvenance)) return 'residence_postal_code';
-  if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
-  if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
-  if (COUNTRY_RE.test(value) && !isNationalityField(value)) return residenceContext ? 'residence_country' : '';
-  if (CITY_RE.test(value)) return residenceContext ? 'residence_city' : '';
-  const street = STREET_ADDRESS_RE.test(text);
-  const houseNumber = HOUSE_NUMBER_RE.test(text);
-  const streetNumberPair = STREET_NUMBER_PAIR_RE.test(text);
-  if (!street && !houseNumber) return '';
-  if ((street && houseNumber) || streetNumberPair) return 'address';
-  return houseNumber ? 'address_house_number' : 'address_street';
+  if (role === 'postalCode') return residenceContext || candidateResidenceProvenance ? 'residence_postal_code' : '';
+  if (role === 'country') return residenceContext && !isNationalityField(value) ? 'residence_country' : '';
+  if (role === 'city') return residenceContext ? 'residence_city' : '';
+  // Native street/house captions identify a type, not whose address it is.
+  if (hasOwnership && !residenceContext) return '';
+  if (role === 'address') return 'address';
+  return role === 'houseNumber' ? 'address_house_number' : role === 'street' ? 'address_street' : '';
 }
 
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
 export function questionTopic(label, context = '', metadata = {}) {
   const text = questionFromLabel(label);
+  const nativeBirthDate = /^(?:birth|nascita|geburt|naissance)$/iu.test(text)
+    && (metadata?.inputType === 'date' || metadata?.kind === 'date');
+  // Any birth fact without positive date semantics stays distinct from
+  // current nationality and residence, including mixed/compound captions.
+  if (BIRTH_LOCATION_RE.test(text) || (BIRTH_FIELD_RE.test(text) && !DATE_OF_BIRTH_RE.test(text) && !nativeBirthDate)) return '';
   // `context` is a flattened list of nearby sibling labels, not a trusted
   // parent label. Use it only for the narrowly scoped aliases below; it must
   // not assign another sibling's semantic topic to this question.
@@ -746,8 +771,14 @@ export function questionTopic(label, context = '', metadata = {}) {
   if (isCivilStatusField(text)) return 'civil_status';
   if (isNationalityField(text)) return 'nationality';
   if (isPermitField(text) && asksHeldStatus(text)) return 'permit';
-  if (BIRTH_FIELD_RE.test(text)) return 'birth_date';
+  // Birthplace is a separate hard fact. Neither the residence city nor the
+  // known date of birth answers it; an explicit matching answer can still be
+  // reused without assigning all birthplace questions a shared date topic.
+  // A broad "birth/nascita" marker identifies sensitive data, not a date.
+  // A native date control can resolve an otherwise bare birth caption.
+  if (DATE_OF_BIRTH_RE.test(text) || nativeBirthDate) return 'birth_date';
   if (isPhoneCountryQuestion(text, context, metadata)) return 'phone_country';
+  if (PHONE_COUNTRY_CODE_LABEL_RE.test(text)) return '';
   if (PHONE_CODE_FIELD_RE.test(text)) return 'phone';
   const ageTopic = ageQuestionTopic(text);
   if (ageTopic) return ageTopic;
@@ -835,7 +866,7 @@ function ageAnswerMatches(candidate, question, answer) {
 }
 
 function comparableContext(context) {
-  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+  return String(context || '').slice(0, 240).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
 function topicNeedsMatchingContext(topic) {
@@ -980,8 +1011,29 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
   return false;
 }
 
+/** Address-like controls require a statement bound to this native owner, even after semantic fallback. */
+export function addressAnswerNeedsOwnership(question, metadata = {}) {
+  if (isIdentityEmailCaption(question)) return false;
+  if (isPhoneCountryQuestion(question, metadata?.context || '', metadata)) return false;
+  return mentionsResidenceFieldRole(question) || isAddressLikeQuestion(question) || CITY_RE.test(String(question || '')) || COUNTRY_RE.test(String(question || '')) || BIRTH_LOCATION_RE.test(String(question || ''))
+    || (BIRTH_FIELD_RE.test(String(question || '')) && questionTopic(question, metadata?.context || '', metadata) !== 'birth_date')
+    || /(?:^|\s)(?:address-level[1-4]|street-address|address-line[1-3]|postal-code|country|country-name)(?:$|\s)/i.test(String(metadata?.autocomplete || ''));
+}
+
+function ownedRecordedAnswer(item, question, metadata) {
+  if (!addressAnswerNeedsOwnership(question, metadata)) return true;
+  // A previous projection of CV/profile data is not a candidate statement
+  // about another person's address. It must never be relabelled as one.
+  if (!['answers', 'candidate', 'user'].includes(item?.source)) return false;
+  const current = addressContextContract(metadata);
+  const previous = addressContextContract(item);
+  if (current === undefined && previous === undefined) return true; // legacy exact-context questions
+  if (!hasAddressContextOwnership(metadata) || !hasAddressContextOwnership(item)) return false;
+  return JSON.stringify(current) === JSON.stringify(previous);
+}
+
 /** The candidate already answered this question, including a wording/ID variant. */
-function recordedAnswerForQuestion(candidate, question, context = '', metadata = {}) {
+function recordedAnswerForQuestion(candidate, question, context = '', metadata = {}, currentOnly = false) {
   const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.source !== 'policy_default' && String(item?.answer || '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
@@ -999,11 +1051,13 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   const topic = questionTopic(question, context, metadata);
   if (topic === 'start_date_contextual' && !requestedContext) return '';
   const requestedSection = comparableContext(metadata?.section);
-  const requestedAutocomplete = comparableContext(metadata?.autocomplete);
+  const requestedAutocomplete = comparableContext(String(metadata?.autocomplete || '').slice(0, 100));
   const sameContext = (item) => comparableContext(item.context) === requestedContext
     && comparableContext(item.section) === requestedSection
     && comparableContext(item.autocomplete) === requestedAutocomplete;
   const matches = items.filter((item) => {
+    if (currentOnly && item.current !== true) return false;
+    if (!ownedRecordedAnswer(item, question, metadata)) return false;
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
     const itemTopic = questionTopic(item.question, item.context, item);
     const exact = (sameContext(item) && itemQuestion === normalized)
@@ -1035,7 +1089,8 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
   // Contact/address facts are canonical identity data. A prior portal answer
   // is only a compatibility fallback when the current candidate record has no
   // value; it must not overwrite a corrected country from the CV/profile.
-  return addressQuestionAnswer(candidate, topic)
+  return (addressQuestionAnswer(candidate, topic) && recordedAnswerForQuestion(candidate, question, context, metadata, true))
+    || addressQuestionAnswer(candidate, topic)
     || recordedAnswerForQuestion(candidate, question, context, metadata);
 }
 
@@ -1357,7 +1412,8 @@ export function candidateAnswerForField(candidate, field) {
   if (referralSource) return referralSource;
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const canonical = addressQuestionAnswer(candidate, topic);
-    const stated = canonical || previous;
+    const current = recordedAnswerForQuestion(candidate, field?.label, field?.context, field, true);
+    const stated = current || canonical || previous;
     if (!stated) return null;
     let value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     // Workday and similar ATSs split «Street Name» from the house number.
@@ -1369,7 +1425,7 @@ export function candidateAnswerForField(candidate, field) {
         .replace(/\s+[0-9]{1,5}[A-Za-z]?\s*$/, '')
         .trim();
     }
-    return value ? { value, source: canonical ? 'identity' : 'answers' } : null;
+    return value ? { value, source: current ? 'answers' : canonical ? 'identity' : 'answers' } : null;
   }
   if (previous) {
     const value = optionForAnswer(field, previous);
@@ -1674,7 +1730,13 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     const addressTopic = questionTopic(field.label, field.context, field);
     const isAddressTopic = ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic);
-    const addressNeedsProvenance = isAddressLikeQuestion(field.label) && !isAddressTopic;
+    const addressNeedsProvenance = addressAnswerNeedsOwnership(field.label, field) && !isAddressTopic;
+    if (addressNeedsProvenance && ['fill', 'select'].includes(action.action)
+      && !answeredByCandidate(candidate, field.label, action.value, field.context, field)) {
+      rejectedActionFields.add(field.id);
+      ask(field);
+      continue;
+    }
     if (['fill', 'select'].includes(action.action) && isAddressTopic) {
       const answer = candidateAnswerForField(candidate, field);
       if (answer) {

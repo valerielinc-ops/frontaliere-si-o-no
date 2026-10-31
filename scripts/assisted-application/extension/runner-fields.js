@@ -3,6 +3,15 @@
 (function (root) {
   'use strict';
   root.CompilaRunnerFields = function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
+  // Serialized from functions/src/lib/nativeQuestionText.js; parity is tested.
+function nativeQuestionText(value, counter = null) {
+  const text = String(value ?? '').normalize('NFKC').replace(/\s+/g, ' ').trim();
+  if (!counter || !Number.isSafeInteger(counter.currentLength) || !Number.isSafeInteger(counter.maxLength)
+    || counter.currentLength < 0 || counter.maxLength < 0) return text;
+  const match = /^(\d{1,6})\s*\/\s*(\d{1,6})\s*(Zeichen|characters?|chars?|caratteri|caract[eè]res)$/iu.exec(text);
+  return match && Number(match[1]) === counter.currentLength && Number(match[2]) === counter.maxLength
+    ? `max ${counter.maxLength} ${match[3]}` : text;
+}
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   const nativeOption = (option, select) => ({
     value: option.value,
@@ -234,20 +243,49 @@
         && (linked.length > 0 || oneQuestion);
     });
   };
+  // Only a counter leaf belonging unambiguously to this control may lose
+  // its live numerator. Requirements containing ratios remain literal text.
+  const captionText = (node, element) => {
+    let text = nativeQuestionText(node?.innerText || node?.textContent || '');
+    const maximum = element?.getAttribute('maxlength');
+    if (!node || !element || !/^\d{1,6}$/.test(maximum || '') || typeof element.value !== 'string') return text;
+    const unique = id => [...document.querySelectorAll('[id]')].filter(candidate => candidate.id === id).length === 1;
+    const direct = node.matches('label') && questionControls(node).every(control => control === element)
+      && ((node.control === element && element.id && unique(element.id))
+      || node.contains(element) && questionControls(node).length === 1);
+    const referenced = node.id && unique(node.id) && (element.getAttribute('aria-labelledby') || '').split(/\s+/).includes(node.id)
+      && [...document.querySelectorAll('[aria-labelledby]')].filter(candidate =>
+        (candidate.getAttribute('aria-labelledby') || '').split(/\s+/).includes(node.id)).every(candidate => candidate === element);
+    if (!direct && !referenced) return text;
+    const counter = { currentLength: element.value.length, maxLength: Number(maximum) };
+    for (const leaf of node.querySelectorAll('span, output, [role="status"], [aria-live]')) {
+      if (leaf.children.length || leaf.closest('[hidden], [aria-hidden="true"]')) continue;
+      const style = window.getComputedStyle(leaf);
+      if (style.display === 'none' || style.visibility === 'hidden') continue;
+      const raw = nativeQuestionText(leaf.innerText || leaf.textContent || '');
+      const canonical = nativeQuestionText(raw, counter);
+      if (!raw || canonical === raw || text.indexOf(raw) !== text.lastIndexOf(raw)) continue;
+      text = nativeQuestionText(text.replace(raw, ` ${canonical} `));
+    }
+    return nativeQuestionText(text);
+  };
   const labelFor = (element) => {
     const mirrorLabel = mirroredQuestionLabel(element);
     if (mirrorLabel) return clean(mirrorLabel.innerText || mirrorLabel.textContent);
     if (element.id) {
       const direct = document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
-      const directText = direct && clean(direct.innerText || direct.textContent);
+      const directText = direct && clean(captionText(direct, element));
       if (directText) return directText;
     }
-    const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(textOf).filter(Boolean).join(' ');
+    const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(id => {
+      const nodes = [...document.querySelectorAll('[id]')].filter(node => node.id === id);
+      return nodes.length === 1 ? clean(captionText(nodes[0], element)) : '';
+    }).filter(Boolean).join(' ');
     if (labelledBy) return labelledBy;
     const ariaLabel = clean(element.getAttribute('aria-label'));
     if (ariaLabel) return ariaLabel;
     const wrapping = element.closest('label');
-    const wrappingText = wrapping && clean(wrapping.innerText || wrapping.textContent);
+    const wrappingText = wrapping && clean(captionText(wrapping, element));
     if (wrappingText) return wrappingText;
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
@@ -398,7 +436,7 @@
       const section = heading.closest(SECTIONS);
       if (section && !section.contains(element)) continue;
       // eslint-disable-next-line no-bitwise
-      if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(heading.innerText || heading.textContent);
+      if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(captionText(heading, element));
     }
     return found;
   };
@@ -416,10 +454,92 @@
       // Rexx/Ticino puts «Indirizzo» and «CAP» in sibling labels under the
       // generic «Dati anagrafici» legend. Labels carry field semantics but no
       // candidate values, so they are safe context for the classifier.
-      parts.push([...section.querySelectorAll('label')].map((label) => clean(label.innerText || label.textContent)).filter(Boolean).join(' · '));
+      parts.push([...section.querySelectorAll('label')].map((label) => captionText(label, label.control || element)).filter(Boolean).join(' · '));
     }
     parts.push(headingBefore(element));
     return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
+  };
+  // Address ownership is distinct from the flattened sibling-question text.
+  // A work-history or birthplace ancestor must survive an inner field group;
+  // a birth-date sibling must not become the owner of a residence control.
+  const ownedAddressContext = (element) => {
+    const result = { section: '', owners: [], unknown: false };
+    const containingForm = element.closest('form');
+    const actualForm = element.form || containingForm;
+    if ((actualForm && containingForm && actualForm !== containingForm)
+      || ('form' in element && element.hasAttribute('form') && !element.form)) {
+      result.unknown = true;
+      return result;
+    }
+    let boundary = actualForm || element.closest('[role="form"], dialog, [role="dialog"], main, [role="main"]') || document.body;
+    if (actualForm) {
+      const container = actualForm.closest('main, [role="main"], section');
+      const forms = container ? [...container.querySelectorAll('form')] : [];
+      // A containing semantic section with one actual form can own its
+      // preceding heading. A document body or another form cannot.
+      if (container?.contains(element) && forms.length === 1 && forms[0] === actualForm) boundary = container;
+      else if (!containingForm) { result.unknown = true; return result; }
+    }
+    if (!boundary) return result;
+    const scopes = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
+    const add = (value) => {
+      if (String(value || '').replace(/\s+/g, ' ').trim().length > 300) { result.unknown = true; return false; }
+      const name = clean(value);
+      if (name && !result.owners.includes(name)) result.owners.push(name);
+      if (result.owners.length > 16) { result.owners = []; result.unknown = true; return false; }
+      return true;
+    };
+    const ownQuestion = clean(labelFor(element));
+    const scopesToRead = [];
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      // A control explicitly associated with this sole form keeps the
+      // submitted form's own names as well as its visible containing scopes.
+      if (node === boundary && actualForm && !containingForm) scopesToRead.push(actualForm);
+      scopesToRead.push(node);
+      if (node === boundary) break;
+    }
+    for (const node of scopesToRead) {
+      if (node.matches(scopes)) {
+        const names = [];
+        const addName = value => {
+          const raw = String(value || '').replace(/\s+/g, ' ').trim();
+          if (raw.length > 300) { result.unknown = true; return false; }
+          if (raw && !names.includes(raw)) {
+            if (names.length >= 16) { result.unknown = true; return false; }
+            names.push(raw);
+          }
+          return true;
+        };
+        const heading = [...node.children].filter(child => /^H[1-4]$/.test(child.tagName)
+          && shown(child) && (node === actualForm && !containingForm || child.compareDocumentPosition(element) & FOLLOWING)).at(-1);
+        if (heading && clean(captionText(heading, element)) !== ownQuestion
+          && !addName(captionText(heading, element))) return result;
+        if (!addName(node.getAttribute('aria-label') || '')) return result;
+        for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+          const matches = node.ownerDocument.querySelectorAll(`[id="${CSS.escape(id)}"]`);
+          if (matches.length !== 1) { result.unknown = true; return result; }
+          const named = matches[0];
+          const name = captionText(named, element);
+          if (!name) { result.unknown = true; return result; }
+          if (!addName(name)) return result;
+        }
+        const legend = [...node.children].find(child => child.tagName === 'LEGEND');
+        if (legend && !addName(captionText(legend, element))) return result;
+        if (!add(names.join(' · '))) return result;
+      }
+      if (node === boundary) break;
+    }
+    const section = headingBefore(element);
+    const owned = [...boundary.querySelectorAll('h1, h2, h3, h4, legend')].some(heading => {
+      const owner = heading.closest(scopes);
+      const matches = owner?.contains(element) && shown(heading)
+        && Boolean(heading.compareDocumentPosition(element) & FOLLOWING)
+        && clean(captionText(heading, element)) === section;
+      if (matches && String(heading.innerText || heading.textContent || '').replace(/\s+/g, ' ').trim().length > 300) result.unknown = true;
+      return matches;
+    });
+    result.section = owned ? section : '';
+    return result;
   };
   // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
   // nearest before it, else the first after it, so two unnamed fields in one
@@ -500,6 +620,7 @@
       name: clean(picker.getAttribute('name') || ''),
       label,
       context: sectionContext(picker),
+      addressContext: ownedAddressContext(picker),
       required: picker.getAttribute('aria-required') !== 'false' && !picker.hasAttribute('data-optional'),
       value: clean(selected),
       search: false,
@@ -532,7 +653,7 @@
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), addressContext: ownedAddressContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
       entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question))
         || hasRequiredMarker(element, question || labelFor(element));
@@ -556,7 +677,7 @@
       form: formOf(element),
       name: clean(element.getAttribute('name') || ''),
       label,
-      context: sectionContext(element),
+      context: sectionContext(element), addressContext: ownedAddressContext(element),
       section: headingBefore(element),
       required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
@@ -620,7 +741,7 @@
       inputType: 'date',
       name: '',
       label,
-      context: sectionContext(element),
+      context: sectionContext(element), addressContext: ownedAddressContext(element),
       required: element.hasAttribute('required') || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: clean(element.value || element.getAttribute('value') || ''),
       search: false,
@@ -654,7 +775,7 @@
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element)
         || (hasSingleQuestionContext(element) ? headingBefore(element) : '');
-      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), addressContext: ownedAddressContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -684,7 +805,7 @@
       inputType: 'listbox',
       name: clean(element.getAttribute('name') || ''),
       label: fieldLabel,
-      context: sectionContext(element),
+      context: sectionContext(element), addressContext: ownedAddressContext(element),
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
