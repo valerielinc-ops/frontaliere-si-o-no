@@ -252,8 +252,9 @@ purpose/rollback. Rule 3 is the subject of this doc:
 - **Expression:** `(http.host eq "frontaliereticino.ch")`
 - **Action:** rewrite response headers:
   - `Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; frame-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; form-action 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests`
+  - `Permissions-Policy: camera=(), microphone=(), geolocation=(self)`
   - `Referrer-Policy: strict-origin-when-cross-origin`
-  - `Strict-Transport-Security: max-age=31536000`
+  - `Strict-Transport-Security: max-age=31536000; includeSubDomains`
   - `X-Content-Type-Options: nosniff`
   - `X-Frame-Options: SAMEORIGIN`
 - **Purpose:** closes the live missing-CSP, missing-clickjacking-protection,
@@ -262,9 +263,15 @@ purpose/rollback. Rule 3 is the subject of this doc:
   intentional: Partnerize selects a rotating hostname at runtime and the site
   has multiple user-triggered API integrations. A stricter host list requires a
   browser inventory plus a nonce/hash migration for existing inline scripts.
-- **Migration:** the script recognizes the previous description ending in
-  `CSP/XFO deliberately excluded pending AdSense validation` and replaces it
-  in place while preserving every unrelated response-header rule.
+- **Not in the value:** `preload` is absent on purpose. The preload list is
+  effectively one-way, so adding it needs a check against the authoritative DNS
+  zone export, not only the public certificate logs. Ad-related permissions
+  (`attribution-reporting`, `run-ad-auction`, ...) are absent so AdSense and
+  Funding Choices keep their defaults.
+- **Migration:** the script recognizes both previous descriptions (the one
+  ending in `CSP/XFO deliberately excluded pending AdSense validation` and the
+  one without Permissions-Policy) and replaces the rule in place while
+  preserving every unrelated response-header rule.
 - **Rollback:** run the previous version of
   `scripts/cf-locale-failover-setup.mjs`, or restore this rule's previous header
   values through the same read-modify-write path. Do not delete the whole
