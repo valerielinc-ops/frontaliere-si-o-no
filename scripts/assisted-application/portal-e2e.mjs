@@ -1435,7 +1435,7 @@ async function main() {
     const slowBrowser = await launchChromium({ headless: true, executablePath });
     const slowPage = await slowBrowser.newPage();
     await slowPage.setContent(`<a role="button" tabindex="0" id="t">Datenschutzerklärung lesen und akzeptieren.</a>
-      <div role="dialog" id="d" hidden><button type="button" id="ok">Akzeptieren</button></div><input type="hidden" id="v" value="">
+      <div role="dialog" id="d" hidden><h2>Datenschutzerklärung</h2><button type="button" id="ok">Akzeptieren</button></div><input type="hidden" id="v" value="">
       <script>
         // The first click is lost. Only the second click starts the 6 s open.
         let clicks = 0;

@@ -117,7 +117,7 @@ describe('automatic recovery after a portal fix', () => {
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
       ...['assistedApplicationConstants.js', 'assistedApplicationRetention.js', 'assistedApplicationExtraDocuments.js', 'assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
-        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/portalNativeContract.js', 'lib/answerRules.js', 'lib/portalQuestionText.js'].map(file => `functions/src/${file}`),
+        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/applicationConsent.js', 'lib/portalNativeContract.js', 'lib/answerRules.js', 'lib/portalQuestionText.js'].map(file => `functions/src/${file}`),
     ];
     const write = (file: string, text: string) => { mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); writeFileSync(path.join(root, file), text); };
     try {
@@ -130,6 +130,9 @@ describe('automatic recovery after a portal fix', () => {
       const afterFields = currentPortalCodeVersion(root);
       write('functions/src/lib/portalQuestionText.js', 'fixed question readability');
       expect(currentPortalCodeVersion(root)).not.toBe(afterFields);
+      const afterQuestions = currentPortalCodeVersion(root);
+      write('functions/src/lib/applicationConsent.js', 'fixed notice grammar');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterQuestions);
       const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/assisted-application-portal-recovery.yml', import.meta.url), 'utf8'));
       for (const file of sourceFiles) expect(workflow.on.push.paths.some((pattern: string) => pattern.endsWith('/**') ? file.startsWith(pattern.slice(0, -2)) : file === pattern)).toBe(true);
     } finally { rmSync(root, { recursive: true, force: true }); }

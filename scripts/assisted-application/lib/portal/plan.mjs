@@ -15,6 +15,7 @@ import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuesti
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
@@ -175,12 +176,11 @@ export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (profession
 // notice, the processing of the data, the terms. Never what the candidate may refuse and still
 // apply, nor a box that also declares a fact (a permit, a licence, a level).
 const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
-const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool|future (openings|opportunities|positions|vacancies)|other (companies|vacancies|positions)|weitere stellen|andere stellen|altre (posizioni|offerte|società)|autres (postes|offres|sociétés)|third part|dritte|\bterzi\b|\btiers\b)/i;
 // Some classic portals enforce their application privacy agreement without
 // adding `required` to the checkbox (Ticino Rexx: `agbs_check`). An explicit
 // acceptance sentence is still the application's own consent, not a fact the
 // candidate must supply. Optional marketing/talent-pool wording is excluded
-// below by OPTIONAL_CONSENT.
+// below by isOptionalPurpose.
 const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
 const APPLICATION_CONSENT_NAME_RE = /^(?:agbs?|privacy(?:[_:-]?(?:policy|statement|notice))?|consent(?:[_:-]?(?:privacy|data))?|terms?)(?:[_:-]|$)/i;
 const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to|will\s+not|won['’]?t|shall\s+not|shan['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
@@ -191,14 +191,17 @@ const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lav
 
 /** A required checkbox that is the application's own consent, and nothing else. */
 export function ownConsent(field) {
-  const label = String(field?.label || '');
+  // A soft hyphen or a decomposed accent must not hide a refusal or a declared fact from the checks below.
+  const label = String(field?.label || '').replace(/\p{Cf}/gu, '').normalize('NFC');
   const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
   const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
   const consentText = `${label} ${name}`;
-  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent;
+  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || isConsentPurpose(label);
   return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent) && ownText
-    && !NEGATED_CONSENT.test(consentText) && !OPTIONAL_CONSENT.test(consentText) && !DECLARES_FACT.test(`${label} ${name}`);
+    && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(`${label} ${name}`);
 }
+// A notice printed as a control is read by the same grammar as a box.
+Object.assign(ownConsent, { isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice });
 
 // A current job is explicit when the CV's experience period says "ad oggi",
 // "present", "heute", etc. It is not inferred from the first experience entry:
