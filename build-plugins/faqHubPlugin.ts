@@ -251,7 +251,7 @@ function mdLinks(s: string): string {
 const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
   [/eur-?lex|reg\.?\s*ue\s*\d|règl\.?\s*ue|eu[\s-]?vo|eu reg\./i, 'https://eur-lex.europa.eu/'],
   [/fedlex/i, 'https://www.fedlex.admin.ch/'],
-  [/accordo ch-?it|accordo 23\/12\/2020|abkommen|agreement|accord\b/i, 'https://www.fedlex.admin.ch/'],
+  [/accordo ch-?it|accordo art\.|accordo 23\/12\/2020|abkommen|agreement|accord\b/i, 'https://www.fedlex.admin.ch/'],
   [/redditi pf/i, 'https://www.agenziaentrate.gov.it/'],
   [/\bti\.ch\b|afc ticino|camera di commercio.*ticino|cc-ti|ustat/i, 'https://www.ti.ch/'],
   [/chambre de commerce|handelskammer|chamber of commerce/i, 'https://www.cc-ti.ch/'],
@@ -278,7 +278,7 @@ const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
   [/gemeinsame einrichtung kvg|istituzione comune lamal|institution commune lamal/i, 'https://www.kvg.org/'],
   [/ministero (degli )?affari esteri|\bmfa\b|aussenministerium|mae italien/i, 'https://www.esteri.it/'],
   [/\bmef\b/i, 'https://www.mef.gov.it/'],
-  [/normattiva|\bl\.?\s*83\/2023\b|13[./]06[./]2023|n[°.]?\s*83\b/i, 'https://www.normattiva.it/'],
+  [/normattiva|\b(?:l\.?|law|gesetz|loi)\s*83\/2023\b|13[./]06[./]2023|n[°.]?\s*83\b/i, 'https://www.normattiva.it/'],
   [/\b(art\.|§)?\s*(lac|laci|avig|\bco\b|\bor\b|\bll\b|lpga|lca|atsg|vvg)\b/i, 'https://www.fedlex.admin.ch/'],
 ];
 

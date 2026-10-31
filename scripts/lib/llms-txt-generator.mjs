@@ -368,6 +368,16 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     return lines.join('\n');
   }
 
+  /** Conteggi per categoria di una lingua: l'elenco completo resta in /llms-index.txt. */
+  function buildLocaleIndexSummary(urls, locale) {
+    const lines = ['', '---', '', '## Page Index (Auto-Generated Summary)', '', `- **Index Generated**: ${isoDate}`, `- **Pages in this language**: ${urls.length}`];
+    for (const [category, catUrls] of categorizeUrls(urls, locale)) {
+      if (catUrls.length > 0) lines.push(`- **${category}**: ${catUrls.length} pages`);
+    }
+    lines.push(`- **Full URL index**: [/llms-index.txt](${BASE_URL}/llms-index.txt)`, '');
+    return lines.join('\n');
+  }
+
   const pageIndexSection = buildPageIndex(allUrls, 'it');
   const pageIndexSummarySection = buildPageIndexSummary(allUrls);
   // llms-full.txt is the knowledge reference: 1.78 of its 1.83 MB used to be
@@ -483,7 +493,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     const localeUrls = parseSitemapUrls(publicDir, fs, locale, distDir, sitemapFiles);
     if (localeUrls.length === 0) continue;
 
-    const localeIndex = buildPageIndex(localeUrls, locale);
+    const localeIndex = buildLocaleIndexSummary(localeUrls, locale);
     const otherLocales = ['it', 'en', 'de', 'fr'].filter((l) => l !== locale);
     const alternateLinks = otherLocales.map((l) =>
       l === 'it'
@@ -491,7 +501,11 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
         : `- ${l === 'en' ? 'English' : l === 'de' ? 'German' : 'French'}: [/${l}/llms.txt](${BASE_URL}/${l}/llms.txt)`,
     ).join('\n');
 
-    const content = `# Frontaliere Ticino (${header.lang})
+    // Il testo curato in public/<lingua>/llms.txt porta Key Facts e FAQ: va
+    // conservato. L'elenco per URL ne faceva un file da 7 MB senza Key Facts.
+    const localeSeedPath = path.join(publicDir, locale, 'llms.txt');
+    const localeSeed = fs.existsSync(localeSeedPath) ? fs.readFileSync(localeSeedPath, 'utf8').trimEnd() : '';
+    const content = localeSeed ? `${localeSeed}\n${localeIndex}` : `# Frontaliere Ticino (${header.lang})
 
 > ${header.description}
 

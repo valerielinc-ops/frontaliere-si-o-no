@@ -108,6 +108,8 @@ describe('event detail demand gate (P1 noindex plan)', () => {
     const details = itDetails(path.join(root, 'dist'));
     const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-eventi.xml'), 'utf8');
     const inSitemap = (urlPath: string) => sitemap.includes(`<loc>https://frontaliereticino.ch${urlPath}</loc>`);
+    // Every locale of an upcoming event is listed, not only the Italian one.
+    expect(inSitemap(shownEn)).toBe(true);
     const expected: Record<string, boolean> = {
       'ti-upcoming': true, // border canton, upcoming
       'ge-shown': true, // Search Console demand on one locale
