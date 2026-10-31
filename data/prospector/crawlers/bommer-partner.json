@@ -1,0 +1,21 @@
+{
+  "companyKey": "bommer-partner",
+  "companyName": "Bommer + Partner",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/job-advertisement/0af2f830-3fe5-405c-9fcb-7fbf27620129/a16c5585-413f-c6bd-f559-b5e65606e184?jp=ABACUS"
+  ],
+  "detailTemplate": "/job-advertisement/0af2f830-3fe5-405c-9fcb-7fbf27620129/a16c5585-413f-c6bd-f559-b5e65606e184",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Wirtschaftsinformatiker (m/w/d)"
+  ],
+  "canton": "BE",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-31T12:51:52.437Z",
+  "candidateKey": "bommer-partner.ch"
+}

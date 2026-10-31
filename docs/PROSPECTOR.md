@@ -46,6 +46,30 @@ Tre regole seguono da qui:
 - **"Nessuna pagina carriere" scade.** Il verdetto descrive una data, non un
   datore: dopo 60 giorni TRACE lo rimette in coda, 150 per run, Ticino prima.
 
+### Dal nome al dominio
+
+`resolveDomain` indovina e verifica. Tre cose lo tengono onesto.
+
+- **Il nome può dire già il dominio.** `Iride.ch SA` è `iride.ch`, non
+  `iridech.ch`. Un dominio scritto nel nome legale vale come quello letto
+  dall'email: basta che la pagina nomini il datore.
+- **Gli n-grammi costano poco perché il DNS filtra prima dell'HTTP.** Da un nome
+  nascono fino a 36 domini: `&` scritto `and`/`e`, articoli che aprono il nome
+  (`la-motta`), parole come `garage` e `ristorante` tenute nelle sequenze. Solo i
+  domini che il DNS conosce consumano una delle 10 richieste per datore, in
+  ordine, `.ch` prima di `.com`. Un dominio inesistente non costa più quattro
+  tentativi con backoff.
+- **L'apex che rimanda a `www.` è il caso normale.** `politeFetch` ammette solo
+  l'origine dell'URL ricevuto, quindi `cianilugano.ch → www.cianilugano.ch` era
+  un rifiuto di policy e un sito vero sembrava assente. La verifica ora ammette
+  apex e `www.` dello stesso dominio, e nessun'altra origine.
+
+Più tentativi significano più omonimi, quindi la verifica è più stretta: la soglia
+resta 3, un token sotto i cinque caratteri deve stare da solo (`zio` è dentro
+`servizio`), e una pagina che copre solo parte del nome deve anche nominare CAP o
+località. I "dominio non risolto" precedenti tornano in coda una volta sola, 150
+per run, Ticino prima (`reviveUnresolvedDomainCandidates`).
+
 ## I sei stadi
 
 | stadio | script | cosa fa |

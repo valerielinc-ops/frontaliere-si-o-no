@@ -185,11 +185,11 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // These three fields are part of the current Event page contract. Legacy
+  // These two fields are part of the current Event page contract. Legacy
   // fixtures may still fail here, which is intentional: a regression that
   // drops a deterministic default must block the build instead of passing as
-  // an absent optional value.
-  for (const field of ['image', 'organizer', 'performer']) {
+  // an absent optional value. Performer exists only when the source names one.
+  for (const field of ['image', 'organizer']) {
     if (schema[field] === undefined || schema[field] === null) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event missing required structured-data field "${field}"` });
     }
@@ -208,21 +208,20 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // Every emitted Event must carry a complete Offer. Verified prices keep
-  // their source amount; unknown prices use the deterministic price: 0
-  // fallback. Zero does not by itself assert free access. AggregateOffer
-  // uses lowPrice instead of price.
+  // Offers exist only with a verified price and are then complete. A zero
+  // needs the free-access claim that supports it: without one it is an
+  // unknown price dressed as free. AggregateOffer uses lowPrice instead of price.
   const offerType = String(schema.offers?.['@type'] || 'Offer').split('/').pop();
   const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
-  if (schema.offers === undefined || schema.offers === null) {
-    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
-  } else {
+  if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
       const price = schema.offers[offerAmountField];
       if (typeof price !== 'number' || !Number.isFinite(price)) {
         errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must be a finite number` });
+      } else if (price === 0 && schema.isAccessibleForFree !== true) {
+        errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField}=0 requires isAccessibleForFree=true` });
       } else if (price < 0) {
         errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must not be negative` });
       }

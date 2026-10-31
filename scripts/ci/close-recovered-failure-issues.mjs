@@ -201,6 +201,26 @@ const CRAWLER_RUN_GH_TOKEN = process.env.CRAWLER_RUN_GH_TOKEN
 // import, not on who may import FROM it (same as `TITLE_RE`).
 export const FIX_OUTCOME_RE = /<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i;
 
+// Canonical terminal vocabulary. Consumers may classify a marker differently
+// (for example, `blocked-*` is structural context for this reconciler), but
+// they must not invent a second spelling for the same terminal state.
+export const FIX_OUTCOME = Object.freeze({
+  PR_CREATED: 'pr-created',
+  BLOCKED_WORKFLOWS_SCOPE: 'blocked-workflows-scope',
+  BLOCKED_SECRETS: 'blocked-secrets',
+  BLOCKED_ADMIN_SETTINGS: 'blocked-admin-settings',
+  NO_ROOT_CAUSE: 'no-root-cause',
+  OVERLAP_SKIP: 'overlap-skip',
+  PR_ALREADY_OPEN: 'pr-already-open',
+  ALREADY_FIXED: 'already-fixed',
+  REVENUE_TRACKER_MANUAL: 'revenue-tracker-manual',
+  NO_PR_UNSPECIFIED: 'no-pr-unspecified',
+  MAX_TURNS: 'max-turns',
+  RATE_LIMITED: 'rate-limited',
+  SKIP_DUPLICATE_DIAGNOSIS: 'skip-duplicate-diagnosis',
+});
+export const FIX_OUTCOME_CODES = Object.freeze(Object.values(FIX_OUTCOME));
+
 /**
  * Verdicts that mean "root cause found, fix written, automation cannot apply it".
  * Deliberately NOT the whole FIX_OUTCOME vocabulary:
@@ -213,9 +233,9 @@ export const FIX_OUTCOME_RE = /<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i;
  *   `rate-limited`   → transient by construction; check-quota-backoff.mjs re-queues.
  */
 export const STRUCTURAL_OUTCOMES = Object.freeze([
-  'blocked-workflows-scope',
-  'blocked-secrets',
-  'blocked-admin-settings',
+  FIX_OUTCOME.BLOCKED_WORKFLOWS_SCOPE,
+  FIX_OUTCOME.BLOCKED_SECRETS,
+  FIX_OUTCOME.BLOCKED_ADMIN_SETTINGS,
 ]);
 
 /** Idempotency marker for the "held open" comment — posted once, never per pass. */
@@ -459,6 +479,12 @@ export const DEFAULT_RECURRENCE_WINDOW_HOURS = 8;
  * workflow-level conclusion alone is not proof that the failing validation recovered.
  */
 export const RECOVERY_REQUIRED_JOBS = Object.freeze({
+  // A green issue-fix wrapper is recovery evidence only when the fixer job
+  // itself ran successfully. A skipped/preflight-only wrapper must not turn a
+  // terminal delivery lookup into a false green for the scheduled reconciler.
+  'Issue fix (Codex Luna Max → PR)': Object.freeze([
+    'fix',
+  ]),
   'Publish to GitHub Pages (deploy + validate)': Object.freeze([
     'validate-dist / validate-dist-postbuild',
     'validate-live / validate-live',

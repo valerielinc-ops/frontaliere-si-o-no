@@ -10,5 +10,8 @@ describe('review-gate contract', () => {
   it('keeps the source-backed automation invariants explicit', () => {
     expect(SOURCE).toContain("Important");
     expect(SOURCE).toContain("fetchPrFiles");
+    expect(SOURCE).toContain('REVIEW_GATE_RATE_LIMIT_RETRIES = 1');
+    expect(SOURCE).toContain("failure_kind");
+    expect(SOURCE).toContain("REVIEW_REVISION");
   });
 });

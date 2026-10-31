@@ -14,6 +14,157 @@ export type FaqLocaleMap = Record<string, { en: FaqTranslation; de: FaqTranslati
  * Key = exact Italian "name" field from FAQPage mainEntity entries.
  */
 export const FAQ_TRANSLATIONS: FaqLocaleMap = {
+ // Domande presenti in seo-pages.ts senza traduzione: coperte da tests/faq-coverage.test.ts
+ "Quanto sono più alti i prezzi in Svizzera rispetto all’Italia?": {
+ en: {
+ q: "How much higher are prices in Switzerland than in Italy?",
+ a: "In the 2025 Eurostat index of price levels for household consumption (EU average=100), Switzerland is about 171 and Italy about 100. It is a national index based on purchasing power parities, not a comparison of rents in Lugano and Como or an estimate of a household budget. Source: https://ec.europa.eu/eurostat/databrowser/view/tec00120/default/table?lang=en"
+ },
+ de: {
+ q: "Wie viel höher sind die Preise in der Schweiz als in Italien?",
+ a: "Im Eurostat-Index 2025 der Preisniveaus für den Konsum privater Haushalte (EU-Durchschnitt=100) liegt die Schweiz bei etwa 171 und Italien bei etwa 100. Es ist ein nationaler Index auf Basis von Kaufkraftparitäten, kein Vergleich der Mieten in Lugano und Como und keine Schätzung eines Haushaltsbudgets. Quelle: https://ec.europa.eu/eurostat/databrowser/view/tec00120/default/table?lang=en"
+ },
+ fr: {
+ q: "Dans quelle mesure les prix sont-ils plus élevés en Suisse qu’en Italie ?",
+ a: "Dans l’indice Eurostat 2025 des niveaux de prix de la consommation des ménages (moyenne UE=100), la Suisse est à environ 171 et l’Italie à environ 100. C’est un indice national fondé sur les parités de pouvoir d’achat, pas une comparaison des loyers de Lugano et de Côme ni une estimation du budget d’un ménage. Source : https://ec.europa.eu/eurostat/databrowser/view/tec00120/default/table?lang=en"
+ }
+ },
+
+ "Quali città vicino al confine hanno il costo della vita più basso?": {
+ en: {
+ q: "Which towns near the border have the lowest cost of living?",
+ a: "There is no single ranking that fits every household. Rents and expenses depend on the neighbourhood, the size of the home, the period and the links to your workplace. Compare current listings and transport costs for the municipalities you are considering."
+ },
+ de: {
+ q: "Welche Orte nahe der Grenze haben die niedrigsten Lebenshaltungskosten?",
+ a: "Es gibt keine einheitliche Rangliste, die für jeden Haushalt gilt. Mieten und Ausgaben hängen vom Quartier, der Wohnungsgrösse, dem Zeitraum und der Anbindung an den Arbeitsort ab. Vergleichen Sie aktuelle Inserate und Transportkosten für die Gemeinden, die Sie in Betracht ziehen."
+ },
+ fr: {
+ q: "Quelles villes proches de la frontière ont le coût de la vie le plus bas ?",
+ a: "Il n’existe pas de classement unique valable pour chaque ménage. Les loyers et les dépenses dépendent du quartier, de la taille du logement, de la période et des liaisons avec le lieu de travail. Comparez des annonces actuelles et les coûts de transport pour les communes que vous envisagez."
+ }
+ },
+
+ "Quanto costa vivere a Lugano o a Como?": {
+ en: {
+ q: "How much does it cost to live in Lugano or Como?",
+ a: "The cost depends on housing, household, health insurance and habits. The Eurostat index compares national price levels, but it provides neither a monthly budget nor rents for individual cities. Use current figures and compare equivalent items."
+ },
+ de: {
+ q: "Was kostet das Leben in Lugano oder Como?",
+ a: "Die Kosten hängen von Wohnung, Haushalt, Krankenversicherung und Gewohnheiten ab. Der Eurostat-Index vergleicht nationale Preisniveaus, liefert aber weder ein Monatsbudget noch Mietpreise für einzelne Städte. Verwenden Sie aktuelle Werte und vergleichen Sie gleichwertige Posten."
+ },
+ fr: {
+ q: "Combien coûte la vie à Lugano ou à Côme ?",
+ a: "Le coût dépend du logement, du ménage, de l’assurance maladie et des habitudes. L’indice Eurostat compare les niveaux de prix nationaux, mais ne fournit ni budget mensuel ni loyers par ville. Utilisez des valeurs à jour et comparez des postes équivalents."
+ }
+ },
+
+ "Come confronto un affitto a Chiasso o Mendrisio?": {
+ en: {
+ q: "How do I compare a rent in Chiasso or Mendrisio?",
+ a: "Compare listings available in the same period for homes of similar size and condition, including ancillary costs, deposit and distance from work. Prices change over time and between neighbourhoods; check the terms stated in the listing and in the contract."
+ },
+ de: {
+ q: "Wie vergleiche ich eine Miete in Chiasso oder Mendrisio?",
+ a: "Vergleichen Sie Inserate aus demselben Zeitraum für Wohnungen ähnlicher Grösse und ähnlichen Zustands, einschliesslich Nebenkosten, Kaution und Entfernung zum Arbeitsort. Die Preise ändern sich mit der Zeit und je nach Quartier; prüfen Sie die Bedingungen im Inserat und im Vertrag."
+ },
+ fr: {
+ q: "Comment comparer un loyer à Chiasso ou Mendrisio ?",
+ a: "Comparez des annonces disponibles sur la même période pour des logements de surface et d’état similaires, en incluant charges, dépôt et distance du travail. Les prix changent avec le temps et selon les quartiers ; vérifiez les conditions de l’annonce et du contrat."
+ }
+ },
+
+ "Quanto si spende per la spesa alimentare in Ticino?": {
+ en: {
+ q: "How much do groceries cost in Ticino?",
+ a: "Actual spending varies with household size, products, shop and habits. The Eurostat index is a national comparison of price levels and does not determine what an individual household spends. For a useful comparison, record an equivalent basket and check current prices."
+ },
+ de: {
+ q: "Wie viel kostet der Lebensmitteleinkauf im Tessin?",
+ a: "Die tatsächlichen Ausgaben hängen von Haushaltsgrösse, Produkten, Geschäft und Gewohnheiten ab. Der Eurostat-Index ist ein nationaler Vergleich der Preisniveaus und bestimmt nicht, was ein einzelner Haushalt ausgibt. Für einen sinnvollen Vergleich erfassen Sie einen gleichwertigen Warenkorb und prüfen die aktuellen Preise."
+ },
+ fr: {
+ q: "Combien coûtent les courses alimentaires au Tessin ?",
+ a: "La dépense réelle varie selon la taille du ménage, les produits, le magasin et les habitudes. L’indice Eurostat est une comparaison nationale des niveaux de prix et ne détermine pas ce que dépense un ménage donné. Pour une comparaison utile, relevez un panier équivalent et vérifiez les prix actuels."
+ }
+ },
+
+ "Il permesso G garantisce un risparmio rispetto al permesso B?": {
+ en: {
+ q: "Does the G permit guarantee savings compared with the B permit?",
+ a: "No. The permit describes the residence situation, but the result also depends on tax regime, income, municipality, housing, health cover and commuting. For the tax rules see the official AFC FAQ: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ de: {
+ q: "Garantiert die G-Bewilligung eine Ersparnis gegenüber der B-Bewilligung?",
+ a: "Nein. Die Bewilligung beschreibt die Aufenthaltssituation, das Ergebnis hängt aber auch von Steuerregime, Einkommen, Gemeinde, Wohnung, Krankenversicherung und Pendeln ab. Die Steuerregeln finden Sie in den offiziellen FAQ der ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ fr: {
+ q: "Le permis G garantit-il une économie par rapport au permis B ?",
+ a: "Non. Le permis décrit la situation de séjour, mais le résultat dépend aussi du régime fiscal, du revenu, de la commune, du logement, de la couverture santé et des trajets. Pour les règles fiscales, consultez les FAQ officielles de l’AFC : https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+
+ "Perché i prezzi sono più alti in Svizzera?": {
+ en: {
+ q: "Why are prices higher in Switzerland?",
+ a: "The Eurostat index describes national price levels for household consumption, but on its own it does not prove the causes of the differences and does not apply to every product or service. To analyse a specific item, use current data and sources for that category."
+ },
+ de: {
+ q: "Warum sind die Preise in der Schweiz höher?",
+ a: "Der Eurostat-Index beschreibt die nationalen Preisniveaus für den Konsum privater Haushalte, belegt aber allein nicht die Ursachen der Unterschiede und gilt nicht für jedes Produkt oder jede Dienstleistung. Für die Analyse eines bestimmten Postens braucht es aktuelle Daten und Quellen zu dieser Kategorie."
+ },
+ fr: {
+ q: "Pourquoi les prix sont-ils plus élevés en Suisse ?",
+ a: "L’indice Eurostat décrit les niveaux de prix nationaux de la consommation des ménages, mais il ne prouve pas à lui seul les causes des écarts et ne vaut pas pour chaque produit ou service. Pour analyser un poste précis, il faut des données actuelles et des sources propres à cette catégorie."
+ }
+ },
+
+ "I ristorni continueranno con l’accordo fiscale Italia-Svizzera del 2020?": {
+ en: {
+ q: "Will the ristorni continue under the 2020 Italy-Switzerland tax agreement?",
+ a: "For new fiscal cross-border workers, Switzerland applies 80% of its ordinary withholding rate; Italy taxes the income with a credit for Swiss tax. The 80% is not a revenue split between the two countries. Old cross-border workers who qualify under Article 9 retain exclusive Swiss taxation of the covered salary. Their regime does not automatically end in 2033 or 2034: 2033 is the final tax year of Swiss compensation payments to Italy. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ de: {
+ q: "Gehen die Ristorni mit dem Steuerabkommen Italien-Schweiz von 2020 weiter?",
+ a: "Für neue steuerliche Grenzgänger wendet die Schweiz 80% des ordentlichen Quellensteuertarifs an; Italien besteuert das Einkommen mit Anrechnung der Schweizer Steuer. Die 80% sind keine Aufteilung der Einnahmen zwischen den Staaten. Alte Grenzgänger, die Artikel 9 erfüllen, behalten die ausschliessliche Schweizer Besteuerung des erfassten Lohns. Das Regime endet nicht automatisch 2033 oder 2034; 2033 ist das letzte Steuerjahr der Ausgleichszahlungen an Italien. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ fr: {
+ q: "Les ristorni se poursuivront-ils avec l’accord fiscal Italie-Suisse de 2020 ?",
+ a: "Pour les nouveaux frontaliers fiscaux, la Suisse applique 80% du taux ordinaire de retenue; l’Italie impose le revenu en accordant un crédit pour l’impôt suisse. Les 80% ne sont pas un partage des recettes entre les États. Les anciens frontaliers remplissant les conditions de l’article 9 conservent l’imposition exclusivement suisse du salaire concerné. Ce régime ne prend pas automatiquement fin en 2033 ou 2034; 2033 est la dernière année fiscale des compensations versées à l’Italie. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+
+ "Come funziona la tassazione dei frontalieri con l’accordo fiscale Italia-Svizzera del 2020?": {
+ en: {
+ q: "How does cross-border worker taxation work under the 2020 Italy-Switzerland tax agreement?",
+ a: "For new fiscal cross-border workers, Switzerland applies 80% of its ordinary withholding rate; Italy taxes the income with a credit for Swiss tax. The 80% is not a revenue split between the two countries. Old cross-border workers who qualify under Article 9 retain exclusive Swiss taxation of the covered salary. Their regime does not automatically end in 2033 or 2034: 2033 is the final tax year of Swiss compensation payments to Italy. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ de: {
+ q: "Wie funktioniert die Grenzgängerbesteuerung mit dem Steuerabkommen Italien-Schweiz von 2020?",
+ a: "Für neue steuerliche Grenzgänger wendet die Schweiz 80% des ordentlichen Quellensteuertarifs an; Italien besteuert das Einkommen mit Anrechnung der Schweizer Steuer. Die 80% sind keine Aufteilung der Einnahmen zwischen den Staaten. Alte Grenzgänger, die Artikel 9 erfüllen, behalten die ausschliessliche Schweizer Besteuerung des erfassten Lohns. Das Regime endet nicht automatisch 2033 oder 2034; 2033 ist das letzte Steuerjahr der Ausgleichszahlungen an Italien. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ fr: {
+ q: "Comment fonctionne l’imposition des frontaliers avec l’accord fiscal Italie-Suisse de 2020 ?",
+ a: "Pour les nouveaux frontaliers fiscaux, la Suisse applique 80% du taux ordinaire de retenue; l’Italie impose le revenu en accordant un crédit pour l’impôt suisse. Les 80% ne sont pas un partage des recettes entre les États. Les anciens frontaliers remplissant les conditions de l’article 9 conservent l’imposition exclusivement suisse du salaire concerné. Ce régime ne prend pas automatiquement fin en 2033 ou 2034; 2033 est la dernière année fiscale des compensations versées à l’Italie. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+
+ "Cosa cambia con il regime fiscale dei frontalieri nel 2026?": {
+ en: {
+ q: "What changes in the cross-border worker tax regime in 2026?",
+ a: "For new fiscal cross-border workers, Switzerland applies 80% of its ordinary withholding rate; Italy taxes the income with a credit for Swiss tax. The 80% is not a revenue split between the two countries. Old cross-border workers who qualify under Article 9 retain exclusive Swiss taxation of the covered salary. Their regime does not automatically end in 2033 or 2034: 2033 is the final tax year of Swiss compensation payments to Italy. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ de: {
+ q: "Was ändert sich 2026 beim Steuerregime der Grenzgänger?",
+ a: "Für neue steuerliche Grenzgänger wendet die Schweiz 80% des ordentlichen Quellensteuertarifs an; Italien besteuert das Einkommen mit Anrechnung der Schweizer Steuer. Die 80% sind keine Aufteilung der Einnahmen zwischen den Staaten. Alte Grenzgänger, die Artikel 9 erfüllen, behalten die ausschliessliche Schweizer Besteuerung des erfassten Lohns. Das Regime endet nicht automatisch 2033 oder 2034; 2033 ist das letzte Steuerjahr der Ausgleichszahlungen an Italien. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ },
+ fr: {
+ q: "Qu’est-ce qui change dans le régime fiscal des frontaliers en 2026 ?",
+ a: "Pour les nouveaux frontaliers fiscaux, la Suisse applique 80% du taux ordinaire de retenue; l’Italie impose le revenu en accordant un crédit pour l’impôt suisse. Les 80% ne sont pas un partage des recettes entre les États. Les anciens frontaliers remplissant les conditions de l’article 9 conservent l’imposition exclusivement suisse du salaire concerné. Ce régime ne prend pas automatiquement fin en 2033 ou 2034; 2033 est la dernière année fiscale des compensations versées à l’Italie. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+ }
+ },
+
 
  "Quanti frontalieri risultano in Ticino?": {
  en: { q: "How many cross-border workers are there in Ticino?", a: "USTAT recorded 79,121 cross-border workers in Ticino in the second quarter of 2026 in the STAF series; recent quarterly figures are provisional." },
@@ -278,15 +429,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quando scade la dichiarazione dei redditi per frontalieri in Italia?": {
  en: {
  q: "When is the tax return deadline for cross-border workers in Italy?",
- a: "Model 730 (if applicable) by 30 September 2026. Modello Redditi PF (ex Unico) by 30 November 2026. First IRPEF instalment (40%) by 30 June 2026. Second instalment (60%) by 30 November 2026. Balance from the previous year's return by 30 June 2026."
+ a: "Model 730 (if applicable) by 30 September 2026. Modello Redditi PF (ex Unico) by 2 November 2026. First IRPEF instalment (40%) by 30 June 2026. Second instalment (60%) by 30 November 2026. Balance from the previous year's return by 30 June 2026."
  },
  de: {
  q: "Wann ist die Abgabefrist der Steuererklärung für Grenzgänger in Italien?",
- a: "Modell 730 (falls zutreffend) bis 30. September 2026. Modello Redditi PF (ex Unico) bis 30. November 2026. Erste IRPEF-Rate (40 %) bis 30. Juni 2026. Zweite Rate (60 %) bis 30. November 2026. Saldo aus der Vorjahreserklärung bis 30. Juni 2026."
+ a: "Modell 730 (falls zutreffend) bis 30. September 2026. Modello Redditi PF (ex Unico) bis 2. November 2026. Erste IRPEF-Rate (40 %) bis 30. Juni 2026. Zweite Rate (60 %) bis 30. November 2026. Saldo aus der Vorjahreserklärung bis 30. Juni 2026."
  },
  fr: {
  q: "Quelle est la date limite de la déclaration fiscale pour les frontaliers en Italie ?",
- a: "Modèle 730 (le cas échéant) avant le 30 septembre 2026. Modello Redditi PF (ex Unico) avant le 30 novembre 2026. Premier acompte IRPEF (40 %) avant le 30 juin 2026. Deuxième acompte (60 %) avant le 30 novembre 2026. Solde de la déclaration précédente avant le 30 juin 2026."
+ a: "Modèle 730 (le cas échéant) avant le 30 septembre 2026. Modello Redditi PF (ex Unico) avant le 2 novembre 2026. Premier acompte IRPEF (40 %) avant le 30 juin 2026. Deuxième acompte (60 %) avant le 30 novembre 2026. Solde de la déclaration précédente avant le 30 juin 2026."
  }
  },
 
@@ -982,15 +1133,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Devo convertire l'imposta svizzera da CHF a EUR?": {
  en: {
  q: "Do I need to convert the Swiss tax from CHF to EUR?",
- a: "Yes, the withholding tax paid in CHF must be converted to EUR using the annual average exchange rate published by the Agenzia delle Entrate. For 2025 the indicative average rate is approximately 0.94 EUR per CHF."
+ a: "Yes, the withholding tax paid in CHF must be converted to EUR using the annual average exchange rate published by the Agenzia delle Entrate. For 2025 the average of ECB reference rates is about 0.937 francs per euro, or about 1.067 euro per franc."
  },
  de: {
  q: "Muss ich die Schweizer Steuer von CHF in EUR umrechnen?",
- a: "Ja, die in CHF gezahlte Quellensteuer muss zum Jahresdurchschnittskurs, der von der Agenzia delle Entrate veröffentlicht wird, in EUR umgerechnet werden. Für 2025 liegt der indikative Durchschnittskurs bei ca. 0,94 EUR pro CHF."
+ a: "Ja, die in CHF gezahlte Quellensteuer muss zum Jahresdurchschnittskurs, der von der Agenzia delle Entrate veröffentlicht wird, in EUR umgerechnet werden. Für 2025 liegt der Durchschnitt der EZB-Referenzkurse bei rund 0,937 Franken pro Euro, also rund 1,067 Euro pro Franken."
  },
  fr: {
  q: "Dois-je convertir l'impôt suisse de CHF en EUR ?",
- a: "Oui, l'impôt à la source payé en CHF doit être converti en EUR en utilisant le taux de change moyen annuel publié par l'Agenzia delle Entrate. Pour 2025, le taux moyen indicatif est d'environ 0,94 EUR pour 1 CHF."
+ a: "Oui, l'impôt à la source payé en CHF doit être converti en EUR en utilisant le taux de change moyen annuel publié par l'Agenzia delle Entrate. Pour 2025, la moyenne des taux de référence BCE est d'environ 0,937 franc pour un euro, soit environ 1,067 euro pour un franc."
  }
  },
 
@@ -1526,15 +1677,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Cosa sono i ristorni fiscali per frontalieri?": {
  en: {
  q: "What are fiscal rebates (ristorni) for cross-border workers?",
- a: "Fiscal rebates are compensations that Switzerland pays to Italy, equal to 40% of the withholding tax deducted from cross-border workers. These funds are distributed to the Italian municipalities where the workers reside to finance local services."
+ a: "Fiscal rebates are the compensation that the cantons of Grigioni, Ticino and Valais pay to Italy, equal to 40% of the gross tax on art. 9 cross-border workers, through tax year 2033. The Italian authorities then transfer the sums to municipalities."
  },
  de: {
  q: "Was sind die steuerlichen Rückvergütungen (Ristorni) für Grenzgänger?",
- a: "Steuerliche Rückvergütungen sind Ausgleichszahlungen, die die Schweiz an Italien leistet, in Höhe von 40 % der Quellensteuer, die Grenzgängern abgezogen wird. Diese Mittel werden an die italienischen Wohnsitzgemeinden der Grenzgänger verteilt, um lokale Dienstleistungen zu finanzieren."
+ a: "Ristorni sind der Ausgleich, den die Kantone Graubünden, Tessin und Wallis an Italien zahlen: 40 % der Bruttosteuer der Grenzgänger nach Art. 9, bis zum Steuerjahr 2033. Die italienischen Behörden leiten die Beträge an die Gemeinden weiter."
  },
  fr: {
  q: "Que sont les rétrocessions fiscales (ristorni) pour les frontaliers ?",
- a: "Les rétrocessions fiscales sont des compensations que la Suisse verse à l'Italie, égales à 40 % de l'impôt à la source prélevé aux frontaliers. Ces fonds sont distribués aux communes italiennes de résidence des travailleurs pour financer les services locaux."
+ a: "Les ristorni sont la compensation que les cantons des Grisons, du Tessin et du Valais versent à l'Italie : 40 % de l'impôt brut des frontaliers de l'art. 9, jusqu'à l'année fiscale 2033. Les autorités italiennes transfèrent ensuite les sommes aux communes."
  }
  },
 
@@ -1558,15 +1709,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanto vale un ristorno fisale per comune?": {
  en: {
  q: "How much is a fiscal rebate worth per municipality?",
- a: "The amount varies greatly: municipalities with many cross-border workers like Lavena Ponte Tresa, Porlezza, or Ponte Chiasso receive hundreds of thousands of euros, while smaller municipalities receive lower amounts. The annual total exceeds €90 million."
+ a: "The amount varies by municipality and depends on the tax of art. 9 cross-border workers and on the Italian allocation. The Agreement sets the 40% rate, not an amount per municipality."
  },
  de: {
  q: "Wie viel ist eine steuerliche Rückvergütung pro Gemeinde wert?",
- a: "Der Betrag variiert stark: Gemeinden mit vielen Grenzgängern wie Lavena Ponte Tresa, Porlezza oder Ponte Chiasso erhalten Hunderttausende Euro, während kleinere Gemeinden geringere Beträge erhalten. Die Jahressumme übersteigt 90 Millionen Euro."
+ a: "Der Betrag variiert je nach Gemeinde und hängt von der Steuer der Grenzgänger nach Art. 9 und der italienischen Verteilung ab. Das Abkommen legt den Satz von 40 % fest, keinen Betrag pro Gemeinde."
  },
  fr: {
  q: "Combien vaut une rétrocession fiscale par commune ?",
- a: "Le montant varie considérablement : les communes avec de nombreux frontaliers comme Lavena Ponte Tresa, Porlezza ou Ponte Chiasso reçoivent des centaines de milliers d'euros, tandis que les plus petites communes reçoivent des montants inférieurs. Le total annuel dépasse 90 millions d'euros."
+ a: "Le montant varie selon la commune et dépend de l'impôt des frontaliers de l'art. 9 et de la répartition italienne. L'Accord fixe le taux de 40 %, pas un montant par commune."
  }
  },
 
@@ -1818,15 +1969,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Cosa cambia rispetto a chi vive entro 20 km?": {
  en: {
  q: "What changes compared to those living within 20 km?",
- a: "For new cross-border workers beyond 20 km, the tax is fully withheld in Switzerland, while within 20 km Switzerland withholds 80% and Italy taxes the income with a credit for taxes already paid."
+ a: "Beyond 20 km ordinary Swiss withholding applies, while within 20 km Switzerland withholds 80% of the ordinary tax. In both cases Italy taxes the income with a credit for Swiss tax."
  },
  de: {
  q: "Was ändert sich im Vergleich zu denjenigen, die innerhalb von 20 km wohnen?",
- a: "Bei neuen Grenzgängern über 20 km wird die Steuer vollständig in der Schweiz einbehalten, während innerhalb von 20 km die Schweiz 80 % einbehält und Italien das Einkommen mit Anrechnung der bereits gezahlten Steuern besteuert."
+ a: "Über 20 km gilt die ordentliche Schweizer Quellensteuer, innerhalb von 20 km behält die Schweiz 80 % der ordentlichen Steuer ein. In beiden Fällen besteuert Italien das Einkommen mit Anrechnung der Schweizer Steuer."
  },
  fr: {
  q: "Qu'est-ce qui change par rapport à ceux qui habitent dans les 20 km ?",
- a: "Pour les nouveaux frontaliers au-delà de 20 km, l'impôt est intégralement retenu en Suisse, tandis qu'en deçà de 20 km la Suisse retient 80 % et l'Italie impose le revenu avec un crédit pour les impôts déjà payés."
+ a: "Au-delà de 20 km la retenue suisse ordinaire s'applique, tandis qu'en deçà de 20 km la Suisse retient 80 % de l'impôt ordinaire. Dans les deux cas l'Italie impose le revenu avec un crédit pour l'impôt suisse."
  }
  },
  "Questa pagina sostituisce la consulenza fiscale?": {
@@ -2006,15 +2157,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quando è il momento migliore per cambiare CHF in EUR?": {
  en: {
  q: "When is the best time to exchange CHF to EUR?",
- a: "The CHF/EUR rate fluctuates daily. It is best to monitor the rate and exchange when the franc is strong (below 0.93 EUR). Avoid exchanging on weekends when spreads are wider."
+ a: "The CHF/EUR rate fluctuates daily. It is best to monitor the rate and exchange when the franc is strong. Avoid exchanging on weekends when spreads are wider."
  },
  de: {
  q: "Wann ist der beste Zeitpunkt, um CHF in EUR zu wechseln?",
- a: "Der CHF/EUR-Kurs schwankt täglich. Am besten den Kurs beobachten und wechseln, wenn der Franken stark ist (unter 0,93 EUR). Wechsel am Wochenende vermeiden, da die Spreads dann grösser sind."
+ a: "Der CHF/EUR-Kurs schwankt täglich. Am besten den Kurs beobachten und wechseln, wenn der Franken stark ist. Wechsel am Wochenende vermeiden, da die Spreads dann grösser sind."
  },
  fr: {
  q: "Quel est le meilleur moment pour changer des CHF en EUR ?",
- a: "Le taux CHF/EUR fluctue quotidiennement. Il est préférable de surveiller le taux et de changer lorsque le franc est fort (en dessous de 0,93 EUR). Évitez les changes le week-end lorsque les spreads sont plus larges."
+ a: "Le taux CHF/EUR fluctue quotidiennement. Il est préférable de surveiller le taux et de changer lorsque le franc est fort. Évitez les changes le week-end lorsque les spreads sont plus larges."
  }
  },
 
@@ -3971,9 +4122,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Comment calcule-t-on le credit d'impot pour les impots payes en Suisse ?", a: "Le credit egale l'impot a la source suisse paye, plafonne a l'IRPEF italien du sur le meme revenu. Il se declare dans le cadre CE du formulaire Redditi PF (ou cadre G du 730) en utilisant le Lohnausweis suisse pour justifier les retenues." }
  },
  "Quali sono i casi particolari: telelavoro, lavoro in più cantoni, pensionati?": {
- en: { q: "What are the special cases: teleworking, work in multiple cantons, pensioners?", a: "Teleworking: the Italy-Switzerland protocol allows up to 25% remote work without losing cross-border status. Multiple cantons: tax is split pro-rata by actual working days. Pensioners: Swiss AVS pensions are taxed in Italy except for the 5% Swiss exemption for old cross-border workers." },
- de: { q: "Was sind die Sonderfaelle: Homeoffice, Arbeit in mehreren Kantonen, Rentner?", a: "Homeoffice: das Protokoll Italien-Schweiz erlaubt bis zu 25 % Fernarbeit, ohne den Grenzgaenger-Status zu verlieren. Mehrere Kantone: die Steuer wird pro rata nach den tatsaechlichen Arbeitstagen aufgeteilt. Rentner: Schweizer AHV-Renten werden in Italien besteuert, ausser den 5 % Schweizer Freibetrag fuer alte Grenzgaenger." },
- fr: { q: "Quels sont les cas particuliers : teletravail, travail dans plusieurs cantons, retraites ?", a: "Teletravail : le protocole Italie-Suisse autorise jusqu'a 25 % de teletravail sans perdre le statut de frontalier. Plusieurs cantons : l'impot est reparti au prorata des jours effectivement travailles. Retraites : les rentes AVS suisses sont imposees en Italie, sauf la franchise suisse de 5 % pour les anciens frontaliers." }
+ en: { q: "What are the special cases: teleworking, work in multiple cantons, pensioners?", a: "Teleworking: the Italy-Switzerland protocol allows up to 25% remote work without losing cross-border status; above 25% the Protocol does not set the consequences, so check case by case. Multiple cantons: tax is split pro-rata by actual working days. Pensioners: Swiss AVS pensions are taxed in Italy except for the 5% Swiss exemption for old cross-border workers." },
+ de: { q: "Was sind die Sonderfaelle: Homeoffice, Arbeit in mehreren Kantonen, Rentner?", a: "Homeoffice: das Protokoll Italien-Schweiz erlaubt bis zu 25 % Fernarbeit, ohne den Grenzgaenger-Status zu verlieren; ueber 25 % regelt das Protokoll die Folgen nicht, das ist im Einzelfall zu pruefen. Mehrere Kantone: die Steuer wird pro rata nach den tatsaechlichen Arbeitstagen aufgeteilt. Rentner: Schweizer AHV-Renten werden in Italien besteuert, ausser den 5 % Schweizer Freibetrag fuer alte Grenzgaenger." },
+ fr: { q: "Quels sont les cas particuliers : teletravail, travail dans plusieurs cantons, retraites ?", a: "Teletravail : le protocole Italie-Suisse autorise jusqu'a 25 % de teletravail sans perdre le statut de frontalier ; au-dela de 25 % le Protocole ne fixe pas les consequences, a verifier au cas par cas. Plusieurs cantons : l'impot est reparti au prorata des jours effectivement travailles. Retraites : les rentes AVS suisses sont imposees en Italie, sauf la franchise suisse de 5 % pour les anciens frontaliers." }
  },
  "Quali sono gli errori fiscali più comuni dei frontalieri?": {
  en: { q: "What are the most common tax mistakes made by cross-border workers?", a: "Confusing permit and tax status, automatically applying allowances or deductions and assuming a Swiss refund can produce incorrect calculations. Check obligations in each country and retain salary and tax certificates. ESTV FAQ 5.3 excludes subsequent ordinary assessment (TOU) for fiscal frontier workers covered by the Italy–Switzerland agreement. Other categories must check eligibility and procedure with the tax authority. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
@@ -4169,9 +4320,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Comment changer d'assurance maladie frontaliere sans penalites ?", a: "La resiliation de l'assurance de base LAMal est possible deux fois par an : avant le 30 novembre avec effet au 1er janvier (changement de franchise ou de caisse) ou avant le 31 mars avec effet au 1er juillet (uniquement en cas de hausse de prime). La resiliation s'envoie en recommandee avec accuse de reception a l'ancienne caisse, et la nouvelle doit deja etre signee : meme un jour sans couverture est sanctionne. Les assurances complementaires se resilient librement avec un preavis de 3 mois au 31 decembre." }
  },
  "LAMal o SSN: cosa conviene per la famiglia del frontaliere?": {
- en: { q: "LAMal or SSN: which is better for the cross-border worker's family?", a: "For families with children the Italian SSN is almost always the better choice: the right of option covers spouse and dependent children at no extra premium, whereas with LAMal each family member pays their own premium (CHF 270–560 per month for adults, CHF 100–150 for children). Typical yearly saving for a family of four: CHF 8,000–12,000. The downside is that treatments in Switzerland under SSN require the EHIC and upfront payment (then reimbursed), while LAMal lets you access CH hospitals directly. Use the LAMal vs SSN comparator to estimate your case." },
- de: { q: "KVG oder SSN: was lohnt sich fuer die Familie eines Grenzgaengers?", a: "Fuer Familien mit Kindern ist der italienische SSN fast immer vorteilhafter: das Optionsrecht deckt Ehepartner und unterhaltsberechtigte Kinder ohne Zusatzpraemie, waehrend bei der KVG jedes Familienmitglied eine eigene Praemie zahlt (CHF 270–560 pro Monat fuer Erwachsene, CHF 100–150 fuer Kinder). Typische Jahresersparnis fuer eine vierkoepfige Familie: CHF 8'000–12'000. Nachteil: Behandlungen in der Schweiz mit SSN erfordern die Europaeische Krankenversicherungskarte (EKVK) und Vorauszahlung mit spaeterer Rueckerstattung, waehrend die KVG direkten Zugang zu CH-Spitaelern ermoeglicht. Nutzen Sie den KVG-vs-SSN-Vergleich zur Schaetzung." },
- fr: { q: "LAMal ou SSN : que choisir pour la famille du frontalier ?", a: "Pour les familles avec enfants, le SSN italien est presque toujours le plus avantageux : le droit d'option couvre le conjoint et les enfants a charge sans prime supplementaire, alors qu'avec la LAMal chaque membre paie sa propre prime (CHF 270–560 par mois pour les adultes, CHF 100–150 pour les enfants). Economie annuelle typique pour une famille de quatre : CHF 8 000–12 000. L'inconvenient est que les soins en Suisse avec le SSN necessitent la CEAM et un paiement d'avance (rembourse ensuite), tandis que la LAMal donne acces direct aux hopitaux CH. Utilisez le comparateur LAMal vs SSN pour estimer votre cas." }
+ en: { q: "LAMal or SSN: which is better for the cross-border worker's family?", a: "For families with children the Italian SSN is almost always the better choice: the right of option covers spouse and dependent children at no extra premium, whereas with LAMal each family member pays their own premium (FOPH 2026 for residents of Italy, without accident cover: CHF 279–487 per month for adults from 26, CHF 41–204 for children). Typical yearly saving for a family of four: CHF 8,000–12,000. The downside is that treatments in Switzerland under SSN require the EHIC and upfront payment (then reimbursed), while LAMal lets you access CH hospitals directly. Use the LAMal vs SSN comparator to estimate your case." },
+ de: { q: "KVG oder SSN: was lohnt sich fuer die Familie eines Grenzgaengers?", a: "Fuer Familien mit Kindern ist der italienische SSN fast immer vorteilhafter: das Optionsrecht deckt Ehepartner und unterhaltsberechtigte Kinder ohne Zusatzpraemie, waehrend bei der KVG jedes Familienmitglied eine eigene Praemie zahlt (BAG 2026 fuer Wohnsitz Italien, ohne Unfall: CHF 279–487 pro Monat fuer Erwachsene ab 26, CHF 41–204 fuer Kinder). Typische Jahresersparnis fuer eine vierkoepfige Familie: CHF 8'000–12'000. Nachteil: Behandlungen in der Schweiz mit SSN erfordern die Europaeische Krankenversicherungskarte (EKVK) und Vorauszahlung mit spaeterer Rueckerstattung, waehrend die KVG direkten Zugang zu CH-Spitaelern ermoeglicht. Nutzen Sie den KVG-vs-SSN-Vergleich zur Schaetzung." },
+ fr: { q: "LAMal ou SSN : que choisir pour la famille du frontalier ?", a: "Pour les familles avec enfants, le SSN italien est presque toujours le plus avantageux : le droit d'option couvre le conjoint et les enfants a charge sans prime supplementaire, alors qu'avec la LAMal chaque membre paie sa propre prime (OFSP 2026 pour les residents en Italie, sans accident : CHF 279–487 par mois pour les adultes des 26 ans, CHF 41–204 pour les enfants). Economie annuelle typique pour une famille de quatre : CHF 8 000–12 000. L'inconvenient est que les soins en Suisse avec le SSN necessitent la CEAM et un paiement d'avance (rembourse ensuite), tandis que la LAMal donne acces direct aux hopitaux CH. Utilisez le comparateur LAMal vs SSN pour estimer votre cas." }
  },
 
  // ── Sprint 2 pillar-page FAQ translations (filled in by Sprint 4 follow-up) ──

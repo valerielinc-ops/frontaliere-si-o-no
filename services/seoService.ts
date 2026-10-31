@@ -1509,7 +1509,7 @@ function getLocalizedSectionLabel(section: string, fallback: string, cantonCode?
  */
 function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blogTitle?: string): Record<string, any> {
  const crumbs: { name: string; path: string }[] = [
- { name: ({ it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' } as Record<Locale, string>)[locale] ?? 'Home', path: '/' },
+ { name: ({ it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' } as Record<Locale, string>)[locale] ?? 'Home', path: locale === 'it' ? '/' : `/${locale}/` },
  ];
 
  if (route.activeTab === 'blog') {
