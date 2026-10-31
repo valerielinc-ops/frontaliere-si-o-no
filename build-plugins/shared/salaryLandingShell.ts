@@ -1071,7 +1071,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
           { cells: ['80.000', '~CHF 55.000', '~CHF 58.000', '+CHF 3.000'], emphasized: true },
           { cells: ['100.000', '~CHF 67.000', '~CHF 71.000', '+CHF 4.000'] },
         ],
-        footnote: 'Stime al netto di trasporto frontaliere (G) e LAMal CHF 4.800/anno (B). Considera anche costo affitto Lugano (~+CHF 1.200/mese vs Como).',
+        footnote: 'Stime al netto di trasporto frontaliere (G) e LAMal CHF 6.144-9.228/anno (B). Considera anche costo affitto Lugano (~+CHF 1.200/mese vs Como).',
       },
       faqs: [
         { q: 'Quali sono i requisiti per il permesso B?', a: 'Contratto di lavoro CH valido, alloggio a tuo nome, dimostrazione di mezzi sufficienti, iscrizione anagrafica al Comune CH (entro 14 giorni dall\'arrivo). Variabile per cantone.' },
