@@ -13617,7 +13617,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate avrà quasi 500 mila euro in meno dai ristorni.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.mozione-ticino-ristorni-salute.title': 'Mozione in Ticino contro la tassa sulla salute',
-    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni.',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.ristorni-malnate-meno-500mila.title': 'Ristorni frontalieri, 500mila euro in meno a Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate riceverà quasi 500mila euro in meno Il fondo nazionale passa da 89 a 108 milioni I ristorni arriveranno ai primi di novembre Quasi 1.700 malnatesi',
@@ -13631,6 +13631,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-brunate-lavorare-ticino.title': 'Vivere a Brunate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Guida fiscale e contributiva per chi vive a Brunate e lavora in Ticino, tra nuovo Accordo Frontalieri, imposta alla fonte, esenzioni e voci di busta paga.',
     'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.sindacati-aumenti-infermieri-ticino.title': 'Infermieri sociopsichiatrici: sindacati chiedono aumenti fino a 8\'941 franchi',
+    'blog.article.sindacati-aumenti-infermieri-ticino.excerpt': 'Il 10 novembre si riunisce l\'assemblea a Mendrisio Aumenti annui richiesti: da 5\'159 a 8\'941 franchi Riclassificazione: classi 4→5 e 5→6 OCST e VPOD chiedono',
+    'blog.article.sindacati-aumenti-infermieri-ticino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.giornico-consiglio-stato-fermata.title': 'Consiglio di Stato respinge riapertura fermata FFS a Giornico',
+    'blog.article.giornico-consiglio-stato-fermata.excerpt': 'Il Consiglio di Stato respinge la riapertura a Giornico La linea 120 serve Paese, Fraggio e Scuola Media Le coincidenze TILO passano dalla S10 a Biasca Nessuno',
+    'blog.article.giornico-consiglio-stato-fermata.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.cassa-pensione-snl-sev-attacca.title': 'Cassa pensione SNL: SEV contesta lettura risultati',
+    'blog.article.cassa-pensione-snl-sev-attacca.excerpt': 'UBS gestirà il patrimonio della Cassa pensione SNL ATIOZ impose una nuova procedura dopo un conflitto d\'interessi Il grado di copertura era del 104,1% a fine',
+    'blog.article.cassa-pensione-snl-sev-attacca.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

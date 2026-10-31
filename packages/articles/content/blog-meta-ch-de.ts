@@ -8657,6 +8657,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-rischi-climatici-strumenti.title': 'Mehr als 30 Instrumente für künftige Klimarisiken in der Schweiz',
     'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Mehr als 30 Instrumente für künftige Klimarisiken NCCS-Impacts startete 2022 Fünf Projekte, über 100 beteiligte Personen Rund 9 Millionen Franken',
     'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.scontro-fiscale-coppie-atto.title': 'Modernisierer vs. Konservative: Steuerstreit Paare Teil II',
+    'blog.article.scontro-fiscale-coppie-atto.excerpt': 'Der 8. März wird als eine „Revolution“ in Gefahr dargestellt Das als Bedrohung bezeichnete Modell ist die Zusammenrechnung der Einkommen Die Quelle spricht',
+    'blog.article.scontro-fiscale-coppie-atto.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

@@ -8657,6 +8657,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-rischi-climatici-strumenti.title': 'Oltre 30 strumenti per i rischi climatici futuri in Svizzera',
     'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Oltre 30 strumenti per i rischi climatici futuri NCCS-Impacts è partito nel 2022 Cinque progetti, oltre 100 persone coinvolte Circa 9 milioni di franchi',
     'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.scontro-fiscale-coppie-atto.title': 'Modernizzatori vs conservatori: atto II sullo scontro fiscale delle coppie',
+    'blog.article.scontro-fiscale-coppie-atto.excerpt': 'L\'8 marzo viene presentato come una «rivoluzione» in pericolo Il modello indicato come minaccia è il cumulo dei redditi La fonte parla del secondo atto',
+    'blog.article.scontro-fiscale-coppie-atto.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;
