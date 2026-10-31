@@ -3585,8 +3585,10 @@ FATTI VERIFICATI DI RIFERIMENTO — usa come ground truth:
 
 CONVENZIONI E ACCORDI:
 - Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 MARZO 1976 (NON dicembre, NON 1974)
-- Nuovo Accordo Frontalieri: firmato 23 DICEMBRE 2020, in vigore dal 1° GENNAIO 2024
-- Periodo transitorio: dal 2024 al 2033 (10 anni) per chi era già frontaliere prima del 17/7/2023
+- Nuovo Accordo Frontalieri: firmato 23 DICEMBRE 2020, in vigore dal 17/7/2023, applicabile dal 1° GENNAIO 2024
+- Vecchi frontalieri (Accordo art. 9): lavoratori frontalieri ai sensi dell'art. 2 (Comune entro 20 km dal confine, datore svizzero, rientro al domicilio) attivi in Ticino, Grigioni o Vallese tra il 31/12/2018 e il 17/7/2023; restano tassati solo in Svizzera, senza termine. Il 2033 riguarda solo i ristorni ai Comuni (art. 9 par. 2)
+- Nuovi frontalieri (Accordo art. 3): Svizzera fino all'80% dell'imposta, poi tassazione in Italia con eliminazione della doppia imposizione
+- Fuori da Ticino, Grigioni e Vallese non si applica l'Accordo frontalieri: valgono la Convenzione del 1976 e la tassazione in Italia con credito d'imposta
 - Ratifica italiana: Legge 83 del 13 GIUGNO 2023
 
 ALIQUOTE SVIZZERE:
@@ -3598,8 +3600,8 @@ ALIQUOTE SVIZZERE:
 
 ALIQUOTE ITALIANE (2024-2026):
 - IRPEF: 23% fino €28'000, 35% €28'001-€50'000, 43% oltre €50'000
-- Franchigia nuovo accordo: €10'000 esenti per NUOVI frontalieri (dal 2024)
-- Vecchi frontalieri (ante 17/7/2023): esenzione €7'500 fino al 2033
+- Franchigia IRPEF: €10'000 (L. 83/2023 art. 4, dal 2024); non riguarda i vecchi frontalieri, che su quel reddito non pagano IRPEF
+- Quota di compartecipazione al SSN ("tassa sulla salute", L. 213/2023 art. 1 c. 237-239): dal 3% al 6% del salario netto, da 30 a 200 euro per mese lavorato, definita ogni anno dalla Regione di residenza. Soggetti: residenti che lavorano e soggiornano in Svizzera e usano il SSN, frontalieri dell'art. 9 par. 1 dell'Accordo che hanno esercitato l'opzione per l'assicurazione malattie, familiari a carico
 
 ISTITUZIONI REALI:
 - Svizzera: SECO, SEM, SUVA, USTAT, UFSP (BAG in tedesco), SUPSI, USI, EOC, DFE, DSS, ARE, BFS
@@ -3666,9 +3668,9 @@ ASSICURAZIONI:
 // instead of only being graded against them after the fact. New estTokens
 // ~7333 (+118 vs the measurement above) — still ~667 under the 8000 cap.
 const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checker blocca l'articolo se diverghi da questi valori):
-- Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri (MAI "in entrambi i paesi"). L'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730).
-- Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
-- Vecchi frontalieri (già tali prima del 17/7/2023): esenzione €7'500, regime transitorio 2024–2033. Nuovi frontalieri: franchigia €10'000.
+- Imposta alla fonte sul reddito da lavoro: trattenuta in Svizzera. Nuovi frontalieri: la Svizzera preleva fino all'80% e l'Italia tassa il reddito, eliminando la doppia imposizione con il credito d'imposta (quadro CE del 730). Vecchi frontalieri (Accordo art. 9): tassati solo in Svizzera.
+- Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 17/7/2023, applicabile dal 1° GENNAIO 2024. Ratifica IT: Legge 83 del 13/6/2023.
+- Nuovi frontalieri: franchigia IRPEF €10'000. Vecchi frontalieri (art. 9: frontalieri ai sensi dell'art. 2 attivi in Ticino, Grigioni o Vallese tra il 31/12/2018 e il 17/7/2023): regime senza termine; il 2033 riguarda solo i ristorni ai Comuni.
 - Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 MARZO 1976 (NON dicembre). La Svizzera NON è membro UE/SEE.
 - Aliquote/contributi svizzeri: AVS/AI/IPG 5.3% dipendente, AD/AC 1.1% (cap CHF 148'200), LAINF 0.7–1.5%, LPP 7–18% per fascia età (dal 25 anni). IRPEF italiana: 23% fino €28'000, 35% €28'001–50'000, 43% oltre €50'000.
 - Acronimi/enti VALIDI (non inventarne altri): SECO, SEM, USTAT, UFSP/BAG, SUVA, INPS, Agenzia delle Entrate, MEF, BFS (Ufficio Federale di Statistica), AFC/ESTV (Amministrazione Federale delle Contribuzioni).
@@ -3773,7 +3775,7 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
 
 4. **STATISTICHE E PERCENTUALI**: Percentuali precise con decimali (es. "il 73,2% dei frontalieri") DEVONO provenire da studi reali citati per nome E ISTITUTO. Senza attribuzione precisa = probabile invenzione. ECCEZIONE: arrotondamenti a numeri interi da fonti note (es. "circa il 30% della forza lavoro" da USTAT) sono accettabili. Non segnalare aliquote esplicitamente elencate nei fatti verificati (AVS=5.3%, AC=1.1%, IRPEF 23%/35%/43%, franchigia 10.000 euro) come issue se sono riportate correttamente.
 
-5. **DATE E EVENTI**: Confronta con le date verificate: Convenzione 9/3/1976, Nuovo Accordo 23/12/2020, vigenza dal 1/1/2024, Legge 83/2023. ${isEvergreen ? '' : 'Date presenti nell\'articolo ma ASSENTI dalla fonte = altamente sospette.'}
+5. **DATE E EVENTI**: Confronta con le date verificate: Convenzione 9/3/1976, Nuovo Accordo 23/12/2020, in vigore dal 17/7/2023 e applicabile dal 1/1/2024, Legge 83/2023. ${isEvergreen ? '' : 'Date presenti nell\'articolo ma ASSENTI dalla fonte = altamente sospette.'}
 
 6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "Confronta ogni affermazione dell'articolo con la fonte originale. DISTINGUI tra: (a) arricchimento contestuale con fatti di dominio CORRETTI e verificabili (contesto frontaliere, aliquote note, geografia ticinese) = 'minor', (b) fatti specifici inventati (leggi/decreti inesistenti, statistiche precise senza fonte, istituzioni inventate, eventi mai avvenuti) NON presenti nella fonte = 'critical', (c) informazione che CONTRADDICE la fonte o i fatti verificati = 'critical'."}
 
@@ -5689,7 +5691,7 @@ Le risposte devono includere dati concreti dalla fonte/contesto e rispettare il 
   const mustCoverLsiBlock = IS_FRONTALIERE
     ? `\n═══ MUST-COVER ENTITIES (E-E-A-T + LSI) ═══
 Almeno 6 dei seguenti termini DEVONO comparire naturalmente nel testo (no keyword stuffing):
-permesso G, AVS, LPP, LAMal, ristorni, imposta alla fonte, Brogeda, INPS, Canton Ticino, frontaliere, nuovo accordo fiscale 2026, doppia imposizione.\n`
+permesso G, AVS, LPP, LAMal, ristorni, imposta alla fonte, Brogeda, INPS, Canton Ticino, frontaliere, Nuovo Accordo Frontalieri, doppia imposizione.\n`
     : `\n═══ MUST-COVER ENTITIES (E-E-A-T + LSI) ═══
 Almeno 6 dei seguenti termini, SE PERTINENTI al tema, DEVONO comparire naturalmente nel testo (no keyword stuffing):
 AVS/AHV, LPP/BVG, LAMal/KVG, imposta federale diretta, IVA, SECO, UST/BFS, BNS/SNB, Consiglio federale, Cantoni, salario minimo, costo della vita.\n`;

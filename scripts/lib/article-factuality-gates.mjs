@@ -1842,6 +1842,16 @@ export const FABRICATED_NORM_ACRONYMS = [
     contextWindow: 120,
   },
   {
+    // Audit del 31/10/2026: «Legge federale sulle imposte (LFIP)» datata 2018 o
+    // 2019 nell'articolo sul muro in Texas, in due lingue. La sigla non esiste:
+    // su Fedlex le leggi fiscali federali sono LIFD, LAID e LIP.
+    acronym: 'LFIP',
+    re: /(?<![A-Za-z])LFIP(?![A-Za-z])/i,
+    real: "non esiste: imposta federale diretta → LIFD (RS 642.11), armonizzazione delle imposte → LAID (RS 642.14), imposta preventiva → LIP (RS 642.21)",
+    benign: benignNormEntity('LFIP'),
+    contextWindow: 120,
+  },
+  {
     // ED-FAB-3. «legge federale sul commercio estero (LCE) del 10 ottobre
     // 1977» che «regola le importazioni e le esportazioni»: non esiste. `LCE`
     // resta libera fuori da questo tema, perche' altrove e' una sigla vera

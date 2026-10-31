@@ -73,6 +73,7 @@ export interface ArticleTransparencyCopy {
   readonly human: (authorName: string) => string;
   /** Original contribution whose source has no named byline. */
   readonly humanWithoutName: string;
+  /** Printed only when `hasLinkedSources()` holds for the article body. */
   readonly sources: string;
   readonly methodology: string;
   readonly corrections: string;
@@ -80,6 +81,41 @@ export interface ArticleTransparencyCopy {
   readonly navMethodology: string;
   readonly navCorrections: string;
 }
+
+/**
+ * Hosts whose links are never an editorial source: our own pages, and the
+ * image-credit surfaces the article page prints next to the text. The audit of
+ * 2026-10-31 had to exclude the same hosts by hand: counting them moved the
+ * share of articles "with a source" from 32 to 54 per 100.
+ */
+const NON_SOURCE_HOST = /(^|\.)(frontaliereticino\.ch|commons\.wikimedia\.org|upload\.wikimedia\.org|creativecommons\.org)$/i;
+const LINK_TARGET = /(?:href\s*=\s*["']|(?<!!)\[[^\]]*\]\()\s*(https?:\/\/[^\s"'<>)]+)/gi;
+
+/**
+ * Whether a body really links an external source. `ARTICLE_TRANSPARENCY.sources`
+ * asserts that it does, so both emitters print that sentence only when this is
+ * true: rendered on every article it was false on 68 of the 100 audited pages.
+ * Accepts Markdown (SPA segments) and rendered HTML (static page).
+ */
+export function hasLinkedSources(text: string | readonly string[] | null | undefined): boolean {
+  const source = Array.isArray(text) ? text.join('\n') : String(text ?? '');
+  for (const match of source.matchAll(LINK_TARGET)) {
+    try {
+      if (!NON_SOURCE_HOST.test(new URL(match[1]).hostname)) return true;
+    } catch {
+      // Not a URL: it cannot be a source the reader can follow.
+    }
+  }
+  return false;
+}
+
+/** Word that opens the visible byline, one per locale (`blog.bylinePrefix` in the SPA). */
+export const ARTICLE_BYLINE_PREFIX: Readonly<Record<DisclosureLocale, string>> = Object.freeze({
+  it: 'Di',
+  en: 'By',
+  de: 'Von',
+  fr: 'Par',
+});
 
 /** Per-article disclosure: the same claim as `AI_USE_STATEMENT`, applied to one article. */
 export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTransparencyCopy>> = Object.freeze({
