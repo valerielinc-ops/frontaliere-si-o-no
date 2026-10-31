@@ -32,6 +32,8 @@ export interface AutomationRequirementView {
 }
 
 export interface AutomationQuestionView {
+  originalQuestionContext?: string;
+  originalQuestionSection?: string;
   contractUnavailable?: boolean;
   /** Full native assertions displayed before the answer is confirmed. */
   applicationQuestion?: string;

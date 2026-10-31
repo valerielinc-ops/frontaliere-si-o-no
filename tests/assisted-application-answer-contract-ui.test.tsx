@@ -41,6 +41,19 @@ const reviewSave = () => screen.getByRole('button', { name: 'jobBoard.assisted.r
 const reviewApprove = () => screen.getByRole('button', { name: 'jobBoard.assisted.review.approve' }) as HTMLButtonElement;
 
 describe('answer contract CAS in actual Review and Admin renderers', () => {
+  it('shows a native noncheckbox qualifier from the immutable contract before either actor can save', async () => {
+    const degree = { ...question, question: 'Do you hold a university degree?', originalQuestionContext: 'Only University X degrees qualify', originalQuestionSection: 'Education' };
+    api.fetchReview.mockResolvedValue(payload([degree]));
+    render(<Review token="token-qualified" />);
+    expect(await screen.findByText('Only University X degrees qualify')).toBeTruthy();
+    expect(screen.getByText('Education')).toBeTruthy();
+    cleanup();
+    render(<Admin order={order([degree])} user={null} onChanged={vi.fn()} />);
+    expect(screen.getByText('Only University X degrees qualify')).toBeTruthy();
+    expect(screen.getByText('Education')).toBeTruthy();
+    expect(api.sendReviewAction).not.toHaveBeenCalled();
+    expect(api.adminAction).not.toHaveBeenCalled();
+  });
   it('requires confirmation after a new mount reads provisional saved answers, without blocking Save', async () => {
     api.fetchReview.mockResolvedValue({ ...payload(), answers: { 'same-id': 'Yes' }, reviewRequired: true });
     render(<Review token="token-remount" />);

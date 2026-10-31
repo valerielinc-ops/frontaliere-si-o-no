@@ -40,6 +40,10 @@ describe('answer form contract snapshot', () => {
       ownConsentText: [actual, 'I hold a degree'], ownConsentLinks: ['https://jobs.example/privacy-policy', 'javascript:alert(1)'] }))
       .toEqual({ texts: [actual.trim(), 'I hold a degree'], links: ['https://jobs.example/privacy-policy'] });
   });
+  it('shows original native qualifiers for noncheckbox questions before confirmation', () => {
+    expect(nativeAnswerDetails({ question: 'Do you hold a university degree?', originalQuestionContext: 'Only University X degrees qualify', originalQuestionSection: 'Education' }))
+      .toEqual({ texts: ['Only University X degrees qualify', 'Education'], links: [] });
+  });
   it('preserves stable contracts and distinguishes same-ID validation changes', () => {
     const original = { ...privacy, validation: { pattern: '^Yes$' } };
     const snapshot = captureAnswerContracts('order', [original], { consent: 'same' });
