@@ -79,7 +79,27 @@ describe('deploy.yml — the IT CDN push runs BEFORE anything publishes (#5251)'
 
   it('the IT section fan-out is admitted only after the early CDN handshake succeeds', () => {
     const sections = step('Push section shards (IT → frontaliere-<section>-it)');
-    expect(sections).toMatch(/if: matrix\.locale == 'it' && steps\.cdn-push-early\.outcome == 'success'/);
+    expect(sections).toContain(
+      "if: matrix.locale == 'it' && (steps.cdn-push-early.outcome == 'success' || steps.cdn-push-early-retry.outcome == 'success')",
+    );
+  });
+
+  // Run 41145698648: a blog image lease busy for 15 minutes failed the early push,
+  // every section shard was skipped and the apex went past the 10 GB Pages cap.
+  it('a failed early push gets one retry before the section shards give up', () => {
+    const retry = step('Retry early CDN push (before the section shards give up)');
+    expect(retry).toMatch(/if: matrix\.locale == 'it' && steps\.cdn-push-early\.outcome == 'failure'/);
+    expect(retry, 'the retry must run the same push-only phase').toMatch(/DEPLOY_CDN_PUSH_ONLY: '1'/);
+    expect(retry).toMatch(/bash scripts\/lib\/deploy-it-pages-prep\.sh/);
+    expect(retry, 'the marker needs the same build id').toMatch(/DEPLOY_BUILD_ID: \$\{\{ needs\.matrix-setup\.outputs\.build_id \}\}/);
+    expect(retry, 'a retry failure must still fall through to Deploy prep').toMatch(/continue-on-error: true/);
+    expect(retry, 'the retry needs its own wall-clock bound').toMatch(/timeout-minutes: 45/);
+    const early = DEPLOY_YML.indexOf('id: cdn-push-early\n');
+    const again = DEPLOY_YML.indexOf('id: cdn-push-early-retry\n');
+    const sections = DEPLOY_YML.indexOf('id: push-section-shards-it\n');
+    expect(early).toBeGreaterThan(-1);
+    expect(early).toBeLessThan(again);
+    expect(again).toBeLessThan(sections);
   });
 
   it('the #2569 invariant itself is unchanged: the shard publish is still gated on the marker', () => {

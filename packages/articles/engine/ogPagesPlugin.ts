@@ -25,6 +25,7 @@ import { ARTICLE_SECTION_DESCRIPTORS, SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS,
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { hasArticleBodyPromptPlaceholder } from './shared/articleBodyQuality';
 import { ARTICLE_NOINDEX_TARGET_MARKER } from './shared/articleNoindexTargetMarker.mjs';
+import { ARTICLE_INDEX_EXCLUSIONS_FILES, articleIndexExclusionKey, loadArticleIndexExclusions } from './shared/articleIndexExclusions.mjs';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
 import {
@@ -539,6 +540,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
    ),
   );
  }
+ // Editorial withdrawals from the index: the page stays live and followable,
+ // the ledger only decides `noindex,follow` (see shared/articleIndexExclusions.mjs).
+ const articleIndexExclusions = loadArticleIndexExclusions(
+  fs,
+  ARTICLE_INDEX_EXCLUSIONS_FILES.map((candidate) => np.resolve(rootDir, candidate)),
+ );
  const articleRedirects = loadArticleRouteRedirects(
   fs,
   np.resolve(rootDir, 'data/article-redirects.json'),
@@ -1513,6 +1520,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
  const articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder(localizedBody);
+ const articleWithheldFromIndex = articleBodyHasPromptPlaceholder
+  || articleIndexExclusions.has(articleIndexExclusionKey(SECTION.name, en.articleId));
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).filter(k => /^body\d+$/.test(k)).sort((a, b) => {
  const na = parseInt(a.replace('body', ''), 10);
  const nb = parseInt(b.replace('body', ''), 10);
@@ -1926,7 +1935,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  ${twitterCardMeta}
- <meta name="robots" content="${articleBodyHasPromptPlaceholder ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">${articleBodyHasPromptPlaceholder ? `\n ${ARTICLE_NOINDEX_TARGET_MARKER}` : ''}${SECTION.kind === 'canton' ? `\n ${CORPUS_ROUTE_OWNER_META_TAG}` : ''}
+ <meta name="robots" content="${articleWithheldFromIndex ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">${articleWithheldFromIndex ? `\n ${ARTICLE_NOINDEX_TARGET_MARKER}` : ''}${SECTION.kind === 'canton' ? `\n ${CORPUS_ROUTE_OWNER_META_TAG}` : ''}
  <meta property="fb:app_id" content="891036063797338">
  ${publishedDate ? `<meta property="article:published_time" content="${esc(publishedDate)}">` : ''}
  ${modifiedDate ? `<meta property="article:modified_time" content="${esc(modifiedDate)}">` : ''}
