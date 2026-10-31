@@ -39,7 +39,7 @@ import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
-import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, resolveArticleBylineNote } from '@/packages/articles/engine/shared/aiDisclosure';
+import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, hasLinkedSources, resolveArticleBylineNote } from '@/packages/articles/engine/shared/aiDisclosure';
 import { resolveArticleProvenance, resolveArticleTransparencyStatement } from '@/services/articleProvenance';
 import { articleSourceDate, articleSchemaDates, compareArticleSourceDates } from '@/services/articleSourceDates';
 import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, AD_ELIGIBLE_MIN_WORDS, AD_ELIGIBLE_MIN_CHARS, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
@@ -3212,7 +3212,8 @@ function BlogArticlesContent({
  <p className="mb-1">
  <strong className="text-body">{transparencyCopy.label}:</strong>{' '}
  {transparencyStatement}
- {' '}{transparencyCopy.sources}
+ {hasLinkedSources(collectArticleBodySegments(article.id, t)) ? ` ${transparencyCopy.sources}` : null}
+ {' '}{transparencyCopy.disclaimer}
  </p>
  <p className="text-xs">
  <a

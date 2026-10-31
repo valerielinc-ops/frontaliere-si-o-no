@@ -2020,12 +2020,12 @@
     },
     {
       "id": "transgourmet-4451a3b3-362",
-      "slug": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
+      "slug": "vice-capo-dipartimento-vice-capo-dipartimento-food-transgourmet-kriens",
       "slugByLocale": {
         "de": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "it": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "en": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "fr": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        "it": "vice-capo-dipartimento-vice-capo-dipartimento-food-transgourmet-kriens",
+        "en": "deputy-head-of-department-deputy-head-of-department-food-transgourmet-kriens",
+        "fr": "chef-adjoint-de-departement-chef-adjoint-de-departement-alimentation-transgourmet-kriens"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2098,7 +2098,21 @@
         }
       },
       "postalCode": "6010",
-      "firstSeenAt": "2026-10-31T09:21:33.119Z"
+      "firstSeenAt": "2026-10-31T09:21:33.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        ],
+        "en": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        ],
+        "fr": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+      ]
     }
   ]
 }

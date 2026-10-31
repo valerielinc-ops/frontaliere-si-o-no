@@ -1,3 +1,4 @@
+import { JOB_CATEGORY_LABELS, JOB_META_LABELS, jobMetaLocale } from '../services/jobMetaLabels';
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
@@ -4522,9 +4523,9 @@ ${staticAnalyticsHtml}
  <!-- jobs-seo-reuse:hero-badges:start -->${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:hero-badges:end -->
  <div class="hero-sub">${esc(job.company)} · ${esc(formatJobLocation(job.location, job.canton || DEFAULT_CANTON))}</div>
  <div class="hero-meta">
- <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
- <span>${esc(`Contratto: ${formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)}`)}</span>
- <span>${esc(`Salario: ${salaryText}`)}</span>
+ <span>${esc(`${JOB_META_LABELS[jobMetaLocale(locale)].category}: ${JOB_CATEGORY_LABELS[String(job.category || 'other')]?.[jobMetaLocale(locale)] ?? String(job.category || 'other')}`)}</span>
+ <span>${esc(`${JOB_META_LABELS[jobMetaLocale(locale)].contract}: ${formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)}`)}</span>
+ <span>${esc(`${JOB_META_LABELS[jobMetaLocale(locale)].salary}: ${salaryText}`)}</span>
  </div>
  </section>
  <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
@@ -9214,8 +9215,13 @@ ${staticAnalyticsHtml}
  : `${sectorDisplay} en Suisse (${sJobs.length}) ${year} | Frontaliere Ticino`
  : locale === 'it' ? `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
  : locale === 'en' ? `${sectorDisplay} jobs ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
- : locale === 'de' ? `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
- : `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`;
+ // Keep the locale in the title itself.  German and French can legitimately
+ // share both the sector label and the canton label (e.g. "Industrie Uri"),
+ // so the old templates collapsed two alternate URLs to the same `<title>`.
+ // The preposition/role marker is natural copy and is also the stable
+ // discriminator required by the duplicate-title audit.
+ : locale === 'de' ? `${sectorDisplay} Jobs in ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
+ : `Emploi ${sectorDisplay} à ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`;
  const pageDesc = isAggregate
  ? locale === 'it' ? `${sJobs.length} offerte di lavoro ${sectorDisplay.toLowerCase()} in Svizzera. Annunci aggiornati quotidianamente. Cerca il tuo prossimo lavoro come frontaliere.`
  : locale === 'en' ? `${sJobs.length} ${sectorDisplay.toLowerCase()} job openings across Switzerland. Listings updated daily. Find your next cross-border job.`
