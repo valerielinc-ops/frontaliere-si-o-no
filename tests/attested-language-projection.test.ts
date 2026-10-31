@@ -30,6 +30,12 @@ describe('attested general language facts against actual CV bytes', () => {
     const result = projectAttestedLanguageFacts({ profile, answerEvidence: [{ ...proof, ...patch }], currentCvHash: cvHash });
     expect(result).toEqual({ profile, conflicts: [] });
   });
+  it.each([false, true])('does not choose a CV binding by array order when the newest declarations tie: %s', reverse => {
+    const evidence = [proof, { ...proof, provenance: { ...proof.provenance, cvHash: otherHash } }];
+    const result = projectAttestedLanguageFacts({ profile, answerEvidence: reverse ? evidence.reverse() : evidence, currentCvHash: cvHash });
+    expect(result.profile).toEqual(profile);
+    expect(result.conflicts).toEqual([{ languageCode: 'en', reason: 'conflicting_cv_bindings' }]);
+  });
   it('does not choose arbitrarily between conflicting simultaneous confirmations', () => {
     const result = projectAttestedLanguageFacts({ profile, answerEvidence: [proof, { ...proof, answer: 'B1' }], currentCvHash: cvHash });
     expect(result.conflicts).toEqual([{ languageCode: 'en', reason: 'conflicting_confirmations' }]);

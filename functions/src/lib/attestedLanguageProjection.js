@@ -23,6 +23,9 @@ export function projectAttestedLanguageFacts({ profile = {}, answerEvidence = []
     const current = records.filter(record => record.provenance.confirmedAt === newest);
     const declarations = new Set(current.map(record => level(record.answer)));
     if (declarations.size !== 1) { conflicts.push({ languageCode, reason: 'conflicting_confirmations' }); continue; }
+    if (new Set(current.map(record => record.provenance.cvHash || '')).size !== 1) {
+      conflicts.push({ languageCode, reason: 'conflicting_cv_bindings' }); continue;
+    }
     const record = current[0];
     const indices = projected.languages.map((row, index) => generalRow(row) && codeOf(typeof row === 'string' ? row : row.language) === languageCode ? index : -1).filter(index => index >= 0);
     if (indices.length && indices.every(index => level(projected.languages[index]?.level) === level(record.answer))) continue;
