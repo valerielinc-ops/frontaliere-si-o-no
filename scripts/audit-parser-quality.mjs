@@ -404,6 +404,15 @@ const SOURCE_LOCATION_NON_TOPONYM_TOKENS = new Set([
   'clinic', 'klinik', 'clinique', 'centre', 'center', 'zentrum',
   'university', 'universitat', 'universitaet',
 ]);
+// SuccessFactors renders taxonomy chrome such as `Job Segment: …` inside
+// location-like wrappers on some tenants. The whole wrapper is not a
+// workplace declaration; rejecting the label prefix keeps its categories
+// from becoming authoritative merely because the value contains plausible
+// non-geographic words.
+const SOURCE_LOCATION_METADATA_PREFIXES = new Set([
+  'job segment', 'job function', 'job category',
+  'career level', 'employment type', 'requisition id', 'work area',
+]);
 const SOURCE_LOCATION_REGION_LABELS = new Set([
   'sudostschweiz', 'southeast switzerland', 'suisse orientale',
   'svizzera orientale', 'ostschweiz', 'westschweiz', 'zentralschweiz',
@@ -498,6 +507,9 @@ function hasExplicitForeignCountry(value, addressCountry = '') {
 function isUsableSourceLocation(value, context = {}) {
   const normalized = normalizePlace(value);
   if (!normalized || SOURCE_LOCATION_PLACEHOLDERS.has(normalized)) return false;
+  if ([...SOURCE_LOCATION_METADATA_PREFIXES].some((prefix) => (
+    normalized === prefix || normalized.startsWith(`${prefix} `)
+  ))) return false;
   const tokens = canonicalLocationTokens(value);
   if (!tokens.some((token) => token.length >= 3)) return false;
   if (tokens.every((token) => SOURCE_LOCATION_TYPE_ONLY_TOKENS.has(token))) return false;

@@ -12,6 +12,8 @@
  * 5. Fallback: expired Firestore → expired localStorage → hardcoded default
  */
 
+import { readPublicDocument } from '@/services/firestorePublicRead';
+import { runOnFirstEngagement } from '@/services/runOnFirstEngagement';
 import { useState, useEffect, useCallback } from 'react';
 import { reportCaughtError } from '@/services/errorReporter';
 import { resilientImport } from '@/services/resilientImport';
@@ -125,38 +127,16 @@ function setLocalCache(rate: number, source: RateSource): void {
 async function getFirestoreRate(): Promise<CacheEntry | null> {
  firestoreRateCalls++;
  if (IS_TEST_ENV) return null;
- try {
- const { getFirestore, doc, getDoc } = await resilientImport(
- () => import('firebase/firestore'),
- (m) => typeof m.getFirestore === 'function' && typeof m.doc === 'function' && typeof m.getDoc === 'function',
- );
- const { getApp } = await resilientImport(
- () => import('@/services/firebase'),
- (m) => typeof m.getApp === 'function',
- );
- const db = getFirestore(await getApp());
- const snap = await getDoc(doc(db, 'config', 'exchange_rate'));
- if (snap.exists()) {
- const data = snap.data();
- const timestamp = typeof data?.timestamp?.toMillis === 'function'
- ? data.timestamp.toMillis()
- : data?.timestamp;
- if (isUsableRate(data?.rate) && isUsableTimestamp(timestamp)) {
+ // Over REST: this read runs on every home view and would otherwise pull the
+ // whole Firestore client for one public document (services/firestorePublicRead.ts).
+ // A failure falls through to the next source, as a denied SDK read did.
+ const data = await readPublicDocument('config/exchange_rate');
+ if (data && isUsableRate(data.rate) && isUsableTimestamp(data.timestamp)) {
  return {
  rate: data.rate,
- timestamp,
+ timestamp: data.timestamp,
  source: 'firestore',
-  };
-  }
- }
- } catch (e) {
- // Permission errors are expected for anonymous users — don't inflate error metrics
- const msg = e instanceof Error ? e.message : String(e);
- if (msg.includes('permission') || msg.includes('Permission') || msg.includes('PERMISSION_DENIED')) {
- console.warn('[ExchangeRate] Firestore read blocked: insufficient permissions');
- } else {
- reportCaughtError(e, 'exchangeRate.firestoreRead', { apiEndpoint: 'config/exchange_rate' });
- }
+ };
  }
  return null;
 }
@@ -308,7 +288,10 @@ export async function fetchExchangeRate(): Promise<number> {
  memoryTimestamp = now;
  setLocalCache(liveRate, 'twelvedata');
  // Save to Firestore (fire-and-forget, don't block the user)
- saveFirestoreRate(liveRate).catch(() => {});
+ // The shared rate is refreshed by whoever finds it stale. That write does need
+ // the Firestore client, so it waits for engagement instead of competing with
+ // hydration on the home page.
+ if (!IS_TEST_ENV) runOnFirstEngagement(() => { saveFirestoreRate(liveRate).catch(() => {}); });
  return liveRate;
  }
 

@@ -27,6 +27,7 @@
 
 import { AUTHORS, getAuthorBySlug, type Author } from '@/data/authors';
 import { resilientImport } from '@/services/resilientImport';
+import { readPublicDocument } from '@/services/firestorePublicRead';
 import {
   parseLocalMapEnvelope,
   sanitizeArticleAuthorOverride,
@@ -165,17 +166,10 @@ async function loadProfile(slug: string): Promise<AuthorProfilePatch | undefined
   if (!inFlight) {
     inFlight = (async () => {
       let result: AuthorProfilePatch | undefined;
-      try {
-        const { doc, getDoc } = await resilientImport(
-          () => import('firebase/firestore'),
-          (m) => typeof m.getDoc === 'function',
-        );
-        const db = await getDb();
-        const snap = await getDoc(doc(db, 'author_profiles', slug));
-        if (snap.exists()) result = sanitizeAuthorProfilePatch(snap.data());
-      } catch {
-        // Offline / permission edge cases — fall back to the static registry only.
-      }
+      // Over REST: an article view must not load the Firestore client for this
+      // read. Offline and permission cases yield null, so the static registry stays.
+      const data = await readPublicDocument(`author_profiles/${slug}`);
+      if (data) result = sanitizeAuthorProfilePatch(data);
       profileBySlugCache.set(slug, result);
       const existing = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY, sanitizeAuthorProfilePatch)
         ?? new Map<string, AuthorProfilePatch>();
@@ -216,20 +210,8 @@ async function loadOverride(articleId: string): Promise<ArticleAuthorOverride | 
   if (!inFlight) {
     inFlight = (async () => {
       let result: ArticleAuthorOverride | undefined;
-      try {
-        const { doc, getDoc } = await resilientImport(
-          () => import('firebase/firestore'),
-          (m) => typeof m.getDoc === 'function',
-        );
-        const db = await getDb();
-        const snap = await getDoc(doc(db, 'article_author_overrides', articleId));
-        if (snap.exists()) {
-          const d = snap.data() as ArticleAuthorOverride;
-          if (d?.authorSlug && d?.authorName) result = d;
-        }
-      } catch {
-        // Offline / permission edge cases — fall back to static byline only.
-      }
+      // Over REST, as in loadProfile: null keeps the static byline.
+      result = sanitizeArticleAuthorOverride(await readPublicDocument(`article_author_overrides/${articleId}`));
       overrideByIdCache.set(articleId, result);
       const existing = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY, sanitizeArticleAuthorOverride)
         ?? new Map<string, ArticleAuthorOverride>();

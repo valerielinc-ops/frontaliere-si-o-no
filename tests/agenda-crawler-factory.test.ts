@@ -128,7 +128,7 @@ describe('createAgendaCrawler — crawl()', () => {
         name: 'Test Agenda Factory Fixture',
         url: 'https://example.test/agenda',
       });
-      expect(e.performer).toEqual({ '@type': 'Organization', name: 'Test Agenda Factory Fixture' });
+      expect(e.performer).toBeUndefined();
     }
 
     expect(existsSync(slicePath)).toBe(true);

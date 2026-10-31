@@ -8457,7 +8457,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'Les géants technologiques américains émettent des obligations en francs suisses pour financer des centres de données.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Vue urbaine suisse avec bureaux et infrastructures technologiques liées à la finance.',
     'blog.article.svizzera-vietnam-relazioni-2026.title': 'La Suisse et le Vietnam intensifient le commerce et les investissements',
-    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin reçu à Hanoï le 17 octobre 2026 Accord AELE-Vietnam prévu pour le 18 octobre Projets sur le commerce et le développement urbain durable Déclarations',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin reçu à Hanoï le 17 octobre 2026 Accord AELE-Vietnam prévu pour le 18 octobre Projets sur le commerce et le développement urbain durable.',
     'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'Vue sur le lac de Lugano avec les Alpes en arrière-plan, symbole de la coopération Suisse-Vietnam dans le commerce et l’investissement.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Microdrame sexy promeut des applications payantes sur TikTok',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'Les publicités IA montrent du sexe entre le bizarre et la fantasy.',
