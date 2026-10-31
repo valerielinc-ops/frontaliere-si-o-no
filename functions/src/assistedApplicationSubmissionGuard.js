@@ -16,7 +16,7 @@
  *   release   the send failed for certain: a later run may try again
  */
 
-import { submissionAttemptHash, submissionSlotHash } from './lib/submissionReceiptContract.js';
+import { submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash } from './lib/submissionReceiptContract.js';
 import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 import { roundWasSent } from './assistedApplicationFlow.js';
 import { randomUUID } from 'node:crypto';
@@ -65,7 +65,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       throw Object.assign(new Error('submission_claim_changed'), { code: 'submission_claim_changed' });
     }
   };
-  const armHandoff = async (transaction, submission, nowMs, currentAnswerSourceGuard, slotHash) => {
+  const armHandoff = async (transaction, submission, nowMs, currentAnswerSourceGuard, materialHashes) => {
     if (typeof currentAnswerSourceGuard?.assertInTransaction !== 'function') {
       throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
     }
@@ -83,7 +83,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
     }
     return { ref: proofRef, frame: { attemptHash, round: guardedRound, channel: current.channel,
-      claimArmedAt: current.startedAt, handoffAt: nowMs, sourceFingerprint, slotHash } };
+      claimArmedAt: current.startedAt, handoffAt: nowMs, sourceFingerprint, ...materialHashes } };
   };
   return {
     attemptBinding() { return claimedAttemptId ? { id: claimedAttemptId, round: guardedRound } : null; },
@@ -142,11 +142,12 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       await db.runTransaction(async transaction => {
         const submissionDoc = await transaction.get(ref);
         requireOwnClaim(submissionDoc.data(), 'email');
-        const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
+        const [orderDoc, flowDoc, draftDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef)]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') throw new Error('application_withdrawn');
         if (!assistedApplicationRetained(orderDoc.data(), nowMs)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
         if (!submissionFlowAllowsSend(flowDoc.data(), guardedRound, 'email')) throw Object.assign(new Error('submission_approval_changed'), { code: 'submission_approval_changed' });
-        const proof = await armHandoff(transaction, submissionDoc.data(), nowMs, currentAnswerSourceGuard, submissionSlotHash({ orderId, order: orderDoc.data() }));
+        const proof = await armHandoff(transaction, submissionDoc.data(), nowMs, currentAnswerSourceGuard, { slotHash: submissionSlotHash({ orderId, order: orderDoc.data() }),
+          draftMaterialHash: submissionDraftMaterialHash(draftDoc.data()), attemptMaterialHash: submissionAttemptMaterialHash(draftDoc.data()) });
         const handoffAt = nowMs + Math.max(0, Date.now() - markerStartedAt);
         if (!assistedApplicationRetained(orderDoc.data(), handoffAt)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
         transaction.set(proof.ref, { ...proof.frame, handoffAt });
@@ -161,13 +162,14 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         // irreversible-send marker, before any write or external send.
         const submissionDoc = await transaction.get(ref);
         requireOwnClaim(submissionDoc.data(), ['portal', 'owner_extension']);
-        const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
+        const [orderDoc, flowDoc, draftDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef)]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
           throw new Error('application_withdrawn');
         }
         if (!assistedApplicationRetained(orderDoc.data(), nowMs)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
         if (!submissionFlowAllowsSend(flowDoc.data(), guardedRound, submissionDoc.data()?.[key]?.channel)) throw Object.assign(new Error('submission_approval_changed'), { code: 'submission_approval_changed' });
-        const proof = await armHandoff(transaction, submissionDoc.data(), nowMs, currentAnswerSourceGuard, submissionSlotHash({ orderId, order: orderDoc.data() }));
+        const proof = await armHandoff(transaction, submissionDoc.data(), nowMs, currentAnswerSourceGuard, { slotHash: submissionSlotHash({ orderId, order: orderDoc.data() }),
+          draftMaterialHash: submissionDraftMaterialHash(draftDoc.data()), attemptMaterialHash: submissionAttemptMaterialHash(draftDoc.data()) });
         const handoffAt = nowMs + Math.max(0, Date.now() - markerStartedAt);
         if (!assistedApplicationRetained(orderDoc.data(), handoffAt)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
         transaction.set(proof.ref, { ...proof.frame, handoffAt });

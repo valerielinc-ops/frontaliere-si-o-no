@@ -186,7 +186,8 @@ it.each(['email', 'portal'])('atomically binds an immutable minimal handoff fram
   expect(frames).toHaveLength(1);
   const [key, frame] = frames[0];
   expect(key.endsWith(frame.attemptHash)).toBe(true);
-  expect(frame).toEqual({ attemptHash: expect.stringMatching(/^[a-f0-9]{64}$/), round: 1, channel, claimArmedAt: 1, handoffAt: 2, sourceFingerprint: 'f'.repeat(64), slotHash: expect.stringMatching(/^[a-f0-9]{64}$/) });
+  expect(frame).toEqual({ attemptHash: expect.stringMatching(/^[a-f0-9]{64}$/), round: 1, channel, claimArmedAt: 1, handoffAt: 2, sourceFingerprint: 'f'.repeat(64), slotHash: expect.stringMatching(/^[a-f0-9]{64}$/),
+    draftMaterialHash: expect.stringMatching(/^[a-f0-9]{64}$/), attemptMaterialHash: expect.stringMatching(/^[a-f0-9]{64}$/) });
   await expect(channel === 'email' ? guard.markEmailSending(3) : guard.markClicked(3)).rejects.toMatchObject({ code: 'submission_claim_changed' });
   expect(store.read(key)).toEqual(frame);
 });
