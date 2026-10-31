@@ -136,9 +136,10 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   // END GENERATED APPLICATION CONSENT
 
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  const fullQuestionText = value => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 8001);
   const nativeOption = (option, select) => ({
     value: option.value,
-    label: clean(option.textContent),
+    label: clean(option.label || option.textContent),
     ...(select.required && !select.multiple && select.size <= 1 && select.options[0] === option
       && option.parentElement === select && option.value === '' ? { placeholder: true } : {}),
   });
@@ -254,7 +255,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   };
   const textOf = (id) => {
     const node = id && document.getElementById(id);
-    return node ? clean(node.innerText || node.textContent) : '';
+    return node ? fullQuestionText(node.innerText || node.textContent) : '';
   };
   const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
   const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
@@ -368,31 +369,31 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   };
   const labelFor = (element) => {
     const mirrorLabel = mirroredQuestionLabel(element);
-    if (mirrorLabel) return clean(mirrorLabel.innerText || mirrorLabel.textContent);
+    if (mirrorLabel) return fullQuestionText(mirrorLabel.innerText || mirrorLabel.textContent);
     if (element.id) {
       const direct = document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
-      const directText = direct && clean(direct.innerText || direct.textContent);
+      const directText = direct && fullQuestionText(direct.innerText || direct.textContent);
       if (directText) return directText;
     }
     const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(textOf).filter(Boolean).join(' ');
     if (labelledBy) return labelledBy;
-    const ariaLabel = clean(element.getAttribute('aria-label'));
+    const ariaLabel = fullQuestionText(element.getAttribute('aria-label'));
     if (ariaLabel) return ariaLabel;
     const wrapping = element.closest('label');
-    const wrappingText = wrapping && clean(wrapping.innerText || wrapping.textContent);
+    const wrappingText = wrapping && fullQuestionText(wrapping.innerText || wrapping.textContent);
     if (wrappingText) return wrappingText;
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
-      const legendText = !legend.contains(element) && clean(legend.innerText || legend.textContent);
+      const legendText = !legend.contains(element) && fullQuestionText(legend.innerText || legend.textContent);
       if (legendText) return legendText;
     }
     const placeholder = element.getAttribute('placeholder');
-    if (placeholder) return clean(placeholder);
+    if (placeholder) return fullQuestionText(placeholder);
     const ownContext = hasSingleQuestionContext(element, group);
     // Last resort: the closest container's own text before the control.
     const container = element.closest('li, .field, .form-group, [class*="question"], [class*="field"]');
     const text = container && ownContext && (!group || container === group || container.closest(QUESTION_GROUP_SELECTOR) === group)
-      ? clean((container.innerText || '').split('\n')[0]) : '';
+      ? fullQuestionText((container.innerText || '').split('\n')[0]) : '';
     if (text) return text;
     // The first of name and id that is not generated ("input-7" never hides "email-address").
     const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
@@ -421,7 +422,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const groupLabel of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       if (!groupLabel.contains(element)
-        && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
+        && fullQuestionText(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
     }
     const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\s*\)?)$/i;
     const marker = (node, adjacent = false) => {
@@ -546,7 +547,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       const section = heading.closest(SECTIONS);
       if (section && !section.contains(element)) continue;
       // eslint-disable-next-line no-bitwise
-      if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(heading.innerText || heading.textContent);
+      if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = fullQuestionText(heading.innerText || heading.textContent);
     }
     return found;
   };
@@ -596,7 +597,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       if (legend.closest('label')?.hasAttribute('for') || legend.querySelector('label[for]')) continue; // An option's label never names the whole group.
-      const text = !legend.contains(element) && clean(legend.innerText || legend.textContent);
+      const text = !legend.contains(element) && fullQuestionText(legend.innerText || legend.textContent);
       if (text) return text;
     }
     return '';
@@ -745,7 +746,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
         if (native.matches(':disabled')) continue;
         // The proxy is only a locator; semantic ownership is the submitted select's.
         Object.assign(field, submittedSelectMetadata(native));
-        field.value = native.value ? clean(native.selectedOptions[0]?.textContent) : '';
+        field.value = native.value ? clean(native.selectedOptions[0]?.label || native.selectedOptions[0]?.textContent) : '';
         fields.push(field);
         continue;
       }
@@ -860,7 +861,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       label: fieldLabel,
       context: sectionContext(element),
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
-      value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
+      value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.label || option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { ...submittedSelectMetadata(nativeSelect), widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
         options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, nativeSelect)),
         } : element.classList.contains('ui-multiselect') ? { nativeContractUnavailable: true, options: [] } : {}),

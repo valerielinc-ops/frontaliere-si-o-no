@@ -1181,7 +1181,7 @@
         return true;
       }
       case 'select': {
-        const option = bestOption([...element.options].filter(item => !item.matches(':disabled') && !item.closest('optgroup:disabled')).map((item) => ({ element: item, label: item.text })), answer.value, answer.family);
+        const option = bestOption([...element.options].filter(item => !item.matches(':disabled') && !item.closest('optgroup:disabled')).map((item) => ({ element: item, label: item.label || item.text })), answer.value, answer.family);
         if (!option) return false;
         setValue(element, option.element.value);
         return true;
@@ -1189,13 +1189,13 @@
       case 'combobox':
         if (entry.widget === 'jquery-selectmenu') {
           const options = [...entry.nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')
-            && normalize(option.text) === normalize(answer.value));
+            && normalize(option.label || option.text) === normalize(answer.value));
           if (options.length !== 1) return false;
           const option = options[0];
           press(element);
           const menu = element.ownerDocument.getElementById(entry.ownedList);
           const choices = [...(menu?.querySelectorAll('.ui-menu-item-wrapper, [role="option"]') || [])]
-            .filter(item => isShown(item) && normalize(textOf(item)) === normalize(option.text) && item.getAttribute('aria-disabled') !== 'true');
+            .filter(item => isShown(item) && normalize(textOf(item)) === normalize(option.label || option.text) && item.getAttribute('aria-disabled') !== 'true');
           if (choices.length !== 1) return false;
           press(choices[0]);
           return entry.nativeSelect.value === option.value;
@@ -1203,7 +1203,7 @@
         return chooseInCombobox(element, answer.value, entry.selectLike, answer.family);
       case 'listbox': {
         if (entry.nativeSelect) {
-          const option = bestOption([...entry.nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ element: option, label: option.text })), answer.value, answer.family);
+          const option = bestOption([...entry.nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => ({ element: option, label: option.label || option.text })), answer.value, answer.family);
           if (!option) return false;
           press(element);
           const inputs = [...element.ownerDocument.getElementsByName(`multiselect_${entry.nativeSelect.id}`)]

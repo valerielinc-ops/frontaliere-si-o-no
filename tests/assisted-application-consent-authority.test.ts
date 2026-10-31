@@ -224,6 +224,13 @@ describe('native consent authority shared by planner and browser', () => {
     const unknown = portalRequirementsFromMissingRequired([{ ...source[0], label: 'x'.repeat(8001) }], [{ fieldId: source[0].id, question: label }]);
     expect(unknown).toMatchObject({ questions: [], unreadableFields: [source[0].id] });
   });
+  it('reads the native option label property before internal option text, including empty-label fallback', () => {
+    const { source } = readers('<label for="source">How did you hear about us?</label><select id="source" required><option value="" label="Please select">internal placeholder</option><option value="web" label="Visible website">Internal code</option><option value="blank" label="">Fallback text</option></select>');
+    expect(source[0].options.map((option: any) => option.label)).toEqual(['Please select', 'Visible website', 'Fallback text']);
+    expect(source[0].options[0].placeholder).toBe(true);
+    const dto = portalRequirementsFromMissingRequired(source, [{ fieldId: source[0].id, question: source[0].label }]).questions[0];
+    expect(dto.applicationOptions).toEqual(['Visible website', 'Fallback text']);
+  });
   it('generates the same policy and reader into both browser runtimes', () => {
     const apply = readFileSync(new URL('../scripts/assisted-application/extension/apply-control.js', import.meta.url), 'utf8');
     const fields = readFileSync(new URL('../scripts/assisted-application/lib/portal/fields.mjs', import.meta.url), 'utf8');
