@@ -1842,7 +1842,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+ { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}${breadcrumbLocale === 'it' ? '/' : `/${breadcrumbLocale}/`}` },
  { '@type': 'ListItem', position: 2, name: sectionName, item: sectionCrumbUrl },
  { '@type': 'ListItem', position: 3, name: localizedTitle },
  ],

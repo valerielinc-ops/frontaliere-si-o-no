@@ -3599,7 +3599,7 @@ ALIQUOTE SVIZZERE:
 ALIQUOTE ITALIANE (2024-2026):
 - IRPEF: 23% fino €28'000, 35% €28'001-€50'000, 43% oltre €50'000
 - Franchigia nuovo accordo: €10'000 esenti per NUOVI frontalieri (dal 2024)
-- Vecchi frontalieri (ante 17/7/2023): esenzione €7'500 fino al 2033
+- Vecchi frontalieri ex art. 9: salario imponibile solo in Svizzera, quindi nessuna franchigia IRPEF da applicare. €7'500 era l'importo generale della franchigia prima del 2024: MAI presentarlo come regime dei vecchi frontalieri
 
 ISTITUZIONI REALI:
 - Svizzera: SECO, SEM, SUVA, USTAT, UFSP (BAG in tedesco), SUPSI, USI, EOC, DFE, DSS, ARE, BFS
@@ -3667,8 +3667,8 @@ ASSICURAZIONI:
 // ~7333 (+118 vs the measurement above) — still ~667 under the 8000 cap.
 const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checker blocca l'articolo se diverghi da questi valori):
 - Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri (MAI "in entrambi i paesi"). L'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730).
-- Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
-- Vecchi frontalieri (già tali prima del 17/7/2023): esenzione €7'500, regime transitorio 2024–2033. Nuovi frontalieri: franchigia €10'000.
+- Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 17 LUGLIO 2023, applicabile dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
+- Vecchi frontalieri ex art. 9: salario imponibile solo in Svizzera; il 2033 è l'ultimo anno fiscale della compensazione del 40%, non la fine del loro regime. Franchigia IRPEF €10'000 dal 2024 per i frontalieri tassati in Italia (prima €7'500, importo generale: MAI presentarlo come regime dei vecchi frontalieri).
 - Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 MARZO 1976 (NON dicembre). La Svizzera NON è membro UE/SEE.
 - Aliquote/contributi svizzeri: AVS/AI/IPG 5.3% dipendente, AD/AC 1.1% (cap CHF 148'200), LAINF 0.7–1.5%, LPP 7–18% per fascia età (dal 25 anni). IRPEF italiana: 23% fino €28'000, 35% €28'001–50'000, 43% oltre €50'000.
 - Acronimi/enti VALIDI (non inventarne altri): SECO, SEM, USTAT, UFSP/BAG, SUVA, INPS, Agenzia delle Entrate, MEF, BFS (Ufficio Federale di Statistica), AFC/ESTV (Amministrazione Federale delle Contribuzioni).
@@ -11113,7 +11113,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           const FACTCHECK_FEEDBACK_CAP = 8;
           lastFactCheckErrors = formatRemediation(
             normalizeRemediationIssues(factResult.issues),
-            { cap: FACTCHECK_FEEDBACK_CAP },
+            { cap: FACTCHECK_FEEDBACK_CAP, sourceText: pageContent },
           );
           console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${maxAttempts})...`);
           continue;

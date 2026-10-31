@@ -777,7 +777,9 @@ export async function translateFaq(faqArray, targetLang) {
   const faqToWrite = prepareFaqForWrite(results, { minPairs: 1 });
   const wrong = wrongLocalePair(faqToWrite, targetLang, faqArray);
   if (!faqToWrite || wrong) {
-    const detail = wrong ? `pair ${wrong.index + 1} (${wrong.detected}, ${wrong.via})` : 'invalid FAQ content';
+    const detail = wrong
+      ? `pair ${wrong.index + 1} (${wrong.detected}, ${wrong.via}, source-function-words=${wrong.sourceFunctionalWordHits ?? 0})`
+      : 'invalid FAQ content';
     console.error(`   ⚠️  translateFaq ${targetLang}: ${detail} — skipping FAQ write`);
     return { faq: null, rejected: true };
   }

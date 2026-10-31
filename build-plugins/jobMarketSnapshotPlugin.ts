@@ -60,7 +60,6 @@ import {
   JOB_MARKET_SECTOR_DISPLAY,
   JOB_MARKET_SECTOR_KEYS,
   JOB_MARKET_SECTOR_MATCHERS,
-  JOB_MARKET_SECTOR_SLUG,
   JOB_MARKET_SNAPSHOT_LOCALES,
   buildHubPath,
   buildMonthlyPath,
@@ -2881,8 +2880,11 @@ function renderSectorPage(inp: SectorPageInputs): string {
   </section>`;
 
   const sectorHasHub = (SECTOR_HUB_KEYS as readonly string[]).includes(sector);
+  // The board hub has its own localized leaf (`pflegepersonal`, `nurses`),
+  // unlike this snapshot page whose leaf stays Italian: JOB_MARKET_SECTOR_SLUG
+  // here produced /de/jobs-im-tessin/infermieri/, a 404.
   const sectorHubHref = sectorHasHub
-    ? `${CITY_SECTOR_HUB_PREFIX[locale]}/${JOB_MARKET_SECTOR_SLUG[sector]}/`
+    ? buildSectorHubPath(locale, sector as SectorHubKey)
     : `${CITY_SECTOR_HUB_PREFIX[locale]}/`;
   const snapshotHubHref = buildHubPath(locale);
 
