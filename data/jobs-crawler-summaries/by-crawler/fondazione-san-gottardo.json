@@ -1,7 +1,7 @@
 {
   "key": "fondazione-san-gottardo",
   "label": "Fondazione San Gottardo",
-  "generatedAt": "2026-10-30T21:18:49.118Z",
+  "generatedAt": "2026-10-31T09:17:47.826Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4187,
-  "avgDurationMs": 4187,
+  "durationMs": 4002,
+  "avgDurationMs": 4002,
   "durationHistory": [
-    4187
+    4002
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -42,7 +42,7 @@
       "url": "https://www.fsangottardo.ch/lavoro",
       "source": "Fondazione San Gottardo Dedicated Parser (Internship Opportunity)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-30T21:18:34.639Z",
+      "crawledAt": "2026-10-31T09:17:36.601Z",
       "category": "Altro",
       "contract": "internship",
       "employmentType": "INTERN",
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

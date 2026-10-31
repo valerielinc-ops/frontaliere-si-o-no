@@ -1,7 +1,7 @@
 {
   "key": "nishcom",
   "label": "nishcom",
-  "generatedAt": "2026-10-30T21:16:53.118Z",
+  "generatedAt": "2026-10-31T09:15:48.787Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4466,
-  "avgDurationMs": 4466,
+  "durationMs": 5228,
+  "avgDurationMs": 5228,
   "durationHistory": [
-    4466
+    5228
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://nishcom.jobs.personio.de/job/2844123?language=de",
       "source": "nishcom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:16:39.706Z",
+      "crawledAt": "2026-10-31T09:15:34.618Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -69,5 +69,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

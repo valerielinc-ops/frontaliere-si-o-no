@@ -40,6 +40,7 @@ const MUST_ALLOW = [
   '/cerca-lavoro-ticino/',
   '/llms.txt',
   '/llms-full.txt',
+  '/llms-index.txt',
   '/.well-known/llms.txt',
   '/data/fuel-prices.json',
   '/data/health-premiums.json',
