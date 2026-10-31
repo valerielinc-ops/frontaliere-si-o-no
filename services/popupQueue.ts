@@ -18,7 +18,7 @@
  * 3. Only render visible UI when `isActive(id)` returns true
  * 4. Call `releaseSlot(id)` when dismissed / auto-hidden
  */
-import { ADS_CONSENT_CHANGE_EVENT } from './adsConsent';
+import { ADS_CONSENT_CHANGE_EVENT, PROMOTIONAL_PROMPT_KEY } from './adsConsent';
 
 
 type Listener = () => void;
@@ -273,7 +273,6 @@ export const POPUP_PRIORITY = {
 } as const;
 
 /** Shared frequency cap for unsolicited promotions. Auth/consent never use it. */
-const PROMOTIONAL_PROMPT_KEY = 'ft_promotional_prompt_at';
 let lastPromotionalPromptAt = 0;
 function promotionalDelay(now = Date.now()): number {
   let last = lastPromotionalPromptAt;
@@ -297,7 +296,8 @@ export function markPromotionalPromptShown(now = Date.now()): void {
 
 // The consent wall is an interstitial too: the visitor who has just closed it must
 // not get a second one (a full-screen newsletter 10-15 s later, seen on every page
-// on 2026-10-31). The CMP bridge fires this event only when the choice changes.
+// on 2026-10-31). The CMP bridge also writes PROMOTIONAL_PROMPT_KEY, which covers a
+// decision taken before this module loaded; this listener covers blocked storage.
 if (typeof window !== 'undefined') {
   window.addEventListener(ADS_CONSENT_CHANGE_EVENT, () => markPromotionalPromptShown());
 }
