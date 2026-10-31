@@ -601,7 +601,7 @@ function resultsTableHtml(result: SimulationResult, l: Labels): string {
           <tr class="net-row"><td><strong>${l.netMonthly}</strong></td><td class="num highlight"><strong>CHF ${fmtCHF(ch.netIncomeMonthly)}</strong></td><td class="num highlight"><strong>CHF ${fmtCHF(it.netIncomeMonthly)}</strong></td></tr>
         </tbody>
       </table>
-      <div class="savings-badge ${compareNet(result).winner === 'frontier' ? 'positive' : 'negative'}">
+      <div class="savings-badge ${{ frontier: 'positive', resident: 'negative', tie: 'neutral' }[compareNet(result).winner]}">
         ${l.savings}: <strong>CHF ${fmtCHF(compareNet(result).gapCHF)}</strong> ${l.annual}
         (EUR ${fmtEUR(compareNet(result).gapEUR)})
         ${compareNet(result).winner === 'tie' ? '' : `&#x2191; ${compareNet(result).winner === 'frontier' ? l.itFrontier : l.chResident}`}
@@ -635,6 +635,7 @@ interface ShellPack {
   readonly tileExchange: string;
   readonly advice: Record<NetComparison['winner'], (gapCHF: string) => string>;
   readonly tileWinner: Record<NetComparison['winner'], string>;
+  readonly perYear: string;
   readonly ctaSecondary: string;
 }
 
@@ -645,6 +646,7 @@ const SHELL_PACK: Record<Locale, ShellPack> = {
     tileNetIt: 'Netto Permesso G',
     tileSavings: 'Netto più alto',
     tileExchange: 'Cambio CHF/EUR',
+    perYear: '/anno',
     tileWinner: { frontier: 'Permesso G', resident: 'Permesso B', tie: 'Pari' },
     advice: {
       frontier: (gap) => `Il permesso G (frontaliere) rende ~CHF ${gap} netti in più all'anno rispetto al permesso B. Il confronto riguarda solo il netto: affitto e costo della vita sono esclusi.`,
@@ -659,6 +661,7 @@ const SHELL_PACK: Record<Locale, ShellPack> = {
     tileNetIt: 'Net Permit G',
     tileSavings: 'Higher net',
     tileExchange: 'CHF/EUR rate',
+    perYear: '/year',
     tileWinner: { frontier: 'Permit G', resident: 'Permit B', tie: 'Even' },
     advice: {
       frontier: (gap) => `Permit G (cross-border) takes home ~CHF ${gap} more per year than Permit B. This compares net pay only: rent and cost of living are excluded.`,
@@ -673,6 +676,7 @@ const SHELL_PACK: Record<Locale, ShellPack> = {
     tileNetIt: 'Netto G-Bewilligung',
     tileSavings: 'Höheres Netto',
     tileExchange: 'CHF/EUR-Kurs',
+    perYear: '/Jahr',
     tileWinner: { frontier: 'Bewilligung G', resident: 'Bewilligung B', tie: 'Gleich' },
     advice: {
       frontier: (gap) => `Die G-Bewilligung (Grenzgänger) bringt ~CHF ${gap} netto/Jahr mehr als die B-Bewilligung. Verglichen wird nur der Nettolohn: Miete und Lebenshaltungskosten sind nicht enthalten.`,
@@ -687,6 +691,7 @@ const SHELL_PACK: Record<Locale, ShellPack> = {
     tileNetIt: 'Net Permis G',
     tileSavings: 'Net le plus élevé',
     tileExchange: 'Taux CHF/EUR',
+    perYear: '/an',
     tileWinner: { frontier: 'Permis G', resident: 'Permis B', tie: 'Égalité' },
     advice: {
       frontier: (gap) => `Le permis G (frontalier) rapporte ~CHF ${gap} nets/an de plus que le permis B. La comparaison porte sur le net seul : le loyer et le coût de la vie sont exclus.`,
@@ -725,8 +730,8 @@ function buildHubSalaryLandingData(
         label: pack.tileSavings,
         value: comparison.winner === 'tie'
           ? pack.tileWinner.tie
-          : `${pack.tileWinner[comparison.winner]} +CHF ${fmtCHF(comparison.gapCHF)}/a`,
-        tone: comparison.winner === 'frontier' ? 'success' : 'warning',
+          : `${pack.tileWinner[comparison.winner]} +CHF ${fmtCHF(comparison.gapCHF)}${pack.perYear}`,
+        tone: ({ frontier: 'success', resident: 'warning', tie: 'neutral' } as const)[comparison.winner],
       },
       { label: pack.tileExchange, value: result.exchangeRate.toFixed(4), tone: 'neutral' },
     ],
