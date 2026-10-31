@@ -1,6 +1,6 @@
 /** Private Admin-produced proof for optional operational portal questions. */
 export const PORTAL_NATIVE_CONTRACT_VERSION = 'native-contract-v1';
-const OPERATIONAL_TOPICS = new Set(['recruitment_source', 'notice_period', 'preferred_workload', 'whatsapp_contact']);
+const OPERATIONAL_TOPICS = new Set(['recruitment_source', 'notice_period', 'preferred_workload', 'whatsapp_contact', 'privacy_review_ack']);
 const text = value => String(value ?? '').normalize('NFC').replace(/\s+/g, ' ').trim();
 
 const canonicalUrl = value => { try { return new URL(String(value || '')).href; } catch { return ''; } };

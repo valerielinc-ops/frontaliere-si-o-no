@@ -15,7 +15,7 @@ import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuesti
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice } from '../../../../functions/src/lib/applicationConsent.js';
+import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
@@ -88,7 +88,7 @@ export function candidateRules(candidateLocale) {
 - Native language: an explicitly native/mother-tongue entry is sufficient. When profile.cvLanguage identifies the language the CV is written in, and the profile also lists at least one different language with an explicit level while giving no conflicting level for cvLanguage, treat cvLanguage as native/mother tongue for that language's level questions. Do not infer a native language from the CV language alone, and do not infer any other level.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given. For a date field, use a full calendar date only. Never type an ongoing or partial-period marker such as "ad oggi", "2015", "present" or "current" into a date field; leave the end blank. Do not invent an end date for an ongoing or overlapping CV entry; if the portal requires a full end date and the candidate did not state one, put it in missingRequired.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
-- Operational preferences, only when no candidate answer exists: 3 months for an unconditional notice-period question, 100% preferred workload, and Yes to contact about this application via WhatsApp. Use policy_default as source. Never infer a start date, qualification or marketing/privacy consent from these preferences. The deterministic field guard verifies the exact question and available options.
+- Operational preferences, only when no candidate answer exists: 3 months for an unconditional notice-period question, 100% preferred workload, and Yes to contact about this application via WhatsApp. Use policy_default as source. Never infer a start date, qualification, marketing, talent-pool, third-party, subscription or broad data-processing consent from these preferences. A sole imperative checkbox acknowledgement that the candidate read this application's privacy notice may use policy_default under the deterministic privacy-review grammar; it is not a broader consent. The deterministic field guard verifies the exact question and available options.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
 - Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): use answers.salutation, filled from an explicit personal statement in the CV, an answer/correction, or a clearly gendered first name in the candidate's locale. Leave it unknown for ambiguous or unfamiliar names. This rule applies only to the form of address, never to gender identity questions. Choose the equivalent option in the form's language. If no value is available, a required one is missing.
 - Marital or civil status (Marital status, Zivilstand, Stato civile, État civil): only from profile.civilStatus (the candidate's CV, in its own words) or an answer in portalQuestionsAnswered, choosing the option that means the same in the form's language. Never guess it: when the candidate data does not say, a required one is missing and an optional one is skipped.
@@ -194,12 +194,16 @@ export function ownConsent(field) {
   // A soft hyphen or a decomposed accent must not hide a refusal or a declared fact from the checks below.
   const label = String(field?.label || '').replace(/\p{Cf}/gu, '').normalize('NFC');
   const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
+  const fieldId = String(field?.id || '').trim();
   const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
-  const consentText = `${label} ${name}`;
-  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || isConsentPurpose(label);
-  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent) && ownText
-    && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(`${label} ${name}`)
-    && !hasConsentContradiction(label, field?.name, field?.autocomplete, field?.domId);
+  const consentText = `${label} ${name} ${fieldId}`.trim();
+  const privacyReviewAck = isPrivacyReviewAcknowledgment(label, field?.name, field?.autocomplete, field?.domId, fieldId);
+  const privacyReviewShape = privacyReviewAcknowledgmentShape(label);
+  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || isConsentPurpose(label);
+  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck) && ownText
+    && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(consentText)
+    && !(privacyReviewShape.shape && !privacyReviewAck)
+    && !hasConsentContradiction(label, field?.name, field?.autocomplete, field?.domId, fieldId);
 }
 // A notice printed as a control is read by the same grammar as a box.
 Object.assign(ownConsent, { isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice });
@@ -762,7 +766,7 @@ export function questionTopic(label, context = '', metadata = {}) {
 }
 
 function comparableAnswer(value) {
-  return String(value || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+  return String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
 }
 
 function ageQuestionTopic(text) {
@@ -987,7 +991,7 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
 
 /** The candidate already answered this question, including a wording/ID variant. */
 function recordedAnswerForQuestion(candidate, question, context = '', metadata = {}) {
-  const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.source !== 'policy_default' && String(item?.answer || '').trim());
+  const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.source !== 'policy_default' && String(item?.answer ?? '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
   // too: the answer id still carries the portal question's wording as a slug.
@@ -995,7 +999,7 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   // Its candidate-language value is not a second, conflicting statement.
   const mappedAnswerIds = new Set(recorded.map((item) => item.answerId).filter(Boolean));
   const fromAnswerIds = Object.entries(candidate?.answers || {})
-    .filter(([id, answer]) => /^portal_/i.test(id) && !mappedAnswerIds.has(id) && String(answer || '').trim())
+    .filter(([id, answer]) => /^portal_/i.test(id) && !mappedAnswerIds.has(id) && String(answer ?? '').trim())
     .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer, source: 'answer-id' }));
   const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
@@ -1079,6 +1083,17 @@ function isChoiceField(field) {
   return Boolean(field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike);
 }
 
+function isCheckboxField(field) {
+  return field?.kind === 'checkbox' || field?.inputType === 'checkbox' || field?.type === 'checkbox';
+}
+
+function privacyCheckboxAction(field, value) {
+  if (operationalQuestionTopic(field) !== 'privacy_review_ack'
+    || !isCheckboxField(field)) return null;
+  const checked = booleanAnswer(value);
+  return checked === null ? null : checked ? 'check' : 'uncheck';
+}
+
 function hasExplicitOperationalAnswer(candidate, field) {
   const topic = operationalQuestionTopic(field);
   if (!topic) return false;
@@ -1106,7 +1121,7 @@ function optionForAnswer(field, answer) {
     const permitAnswer = permitAnswerForStatus(field, status);
     if (permitAnswer) return permitAnswer;
   }
-  if (!options.length) return String(answer || '').trim();
+  if (!options.length) return String(answer ?? '').trim();
   if (topic === 'notice_period') return operationalAnswerForOption(field, answer) || '';
   const exact = options.find((option) => comparableAnswer(option.label) === comparableAnswer(answer));
   if (exact) return exact.label;
@@ -1683,6 +1698,9 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
+    const plannedPrivacyCheckboxAction = ['fill', 'select'].includes(action.action)
+      ? privacyCheckboxAction(field, action.value) : null;
+    if (plannedPrivacyCheckboxAction) action = { ...action, action: plannedPrivacyCheckboxAction };
     if (['check', 'uncheck'].includes(action.action) && operationalQuestionTopic(field)) {
       const known = candidateAnswerForField(candidate, field);
       const stated = known ? booleanAnswer(known.value) : null;
@@ -1700,7 +1718,8 @@ export function guardPlan(plan, fields, candidate = null) {
         ask(field);
         continue;
       }
-      if (known?.value) action = { ...action, action: isChoiceField(field) ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
+      const knownHasValue = known && known.value !== undefined && known.value !== null && String(known.value).trim();
+      if (knownHasValue) action = { ...action, action: privacyCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: known.value, source: known.source, evidence: '' };
     }
     if (action.action === 'fill' && isDateField(field)) {
       const normalized = normalizeDateAnswer(field, action.value);
@@ -1796,39 +1815,57 @@ export function guardPlan(plan, fields, candidate = null) {
     if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id)) continue;
     const answer = candidateAnswerForField(candidate, field);
     if (!answer) continue;
-    const value = field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);
+    const value = isCheckboxField(field)
+      ? String(answer.value ?? '').trim()
+      : field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);
     if (!value) {
       ask(field);
       continue;
     }
-    actions.push({
+    const recoveryAction = {
       fieldId: field.id,
-      action: isChoiceField(field) ? 'select' : 'fill',
+      action: privacyCheckboxAction(field, value) || (isChoiceField(field) ? 'select' : 'fill'),
       value,
       document: 'none',
       source: answer.source,
       evidence: '',
-    });
-    answered.add(field.id);
+    };
+    actions.push(recoveryAction);
+    if (recoveryAction.action !== 'uncheck') answered.add(field.id);
   }
   // A required field the plan leaves empty (omitted or skipped) is never
   // submitted blank: unless the page already holds a value, it is a question.
+  const pendingUnchecks = new Set(actions.filter((action) => action.action === 'uncheck').map((action) => action.fieldId));
   for (const field of fields) {
+    const answer = candidateAnswerForField(candidate, field);
+    const stated = isCheckboxField(field) && operationalQuestionTopic(field) === 'privacy_review_ack' && answer
+      ? booleanAnswer(answer.value) : null;
+    // A candidate's explicit refusal remains authoritative even if the native
+    // page arrived with the box already ticked from an earlier round.
+    if (stated === false && holdsValue(field) && !pendingUnchecks.has(field.id)) {
+      actions.push({ fieldId: field.id, action: 'uncheck', value: answer.value, document: 'none', source: answer.source, evidence: '' });
+      pendingUnchecks.add(field.id);
+    }
+    const holdsAfterActions = holdsValue(field) && !pendingUnchecks.has(field.id);
     // The application's own consent is no question for the candidate: the
     // mandate covers it, so the box the plan left alone is ticked here (umantis,
     // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,
     // and went to the candidate as a text question).
-    if (!answered.has(field.id) && !holdsValue(field) && ownConsent(field)) {
+    if (!answered.has(field.id) && !holdsAfterActions && ownConsent(field)
+      && !hasExplicitOperationalAnswer(candidate, field)) {
       actions.push({ fieldId: field.id, action: 'check', value: '', document: 'none', source: 'consent', evidence: '' });
       answered.add(field.id);
       continue;
     }
-    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
+    if (!field.required || answered.has(field.id) || holdsAfterActions) continue;
     ask(field);
   }
   const asked = new Set(missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)).map((item) => item.fieldId));
   return {
-    actions: actions.filter((action) => !asked.has(action.fieldId)),
+    // Keep an explicit privacy refusal visible to the native filler even when
+    // the required box still holds the candidate; the missing hold remains the
+    // gate and prevents a refusal from becoming an automatic submission.
+    actions: actions.filter((action) => !asked.has(action.fieldId) || action.action === 'uncheck'),
     missingRequired: missing.filter((item) => asked.has(item.fieldId)),
   };
 }

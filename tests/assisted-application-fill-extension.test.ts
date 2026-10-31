@@ -1286,6 +1286,43 @@ describe('fill extension: optional purposes share the runner consent guard', () 
 });
 
 
+describe('fill extension: shared privacy-reading acknowledgement', () => {
+  it.each([
+    'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.',
+    'Aktivieren Sie dieses Kontrollkästchen, um zu bestätigen, dass Sie die Datenschutzerklärung für Bewerber gelesen haben.',
+    'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.',
+    'Veuillez cocher cette case pour confirmer que vous avez pris connaissance de l’avis de confidentialité destiné aux candidats.',
+    'Please check this box to acknowledge that you have read the Applicant Privacy Notice.',
+  ])('checks the sole privacy-reading acknowledgement even without required metadata: %s', label => {
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox"> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor(entry, kit)).toEqual({ check: true });
+  });
+
+  it.each(['false', 'No'])('does not overwrite an explicit negative privacy answer: %s', answer => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox"> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor(entry, { ...kit, answers: [...kit.answers, { question: label, answer, source: 'answers' }] })).toBe(null);
+  });
+
+  it.each([
+    ['extra word', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and agree to the terms.', {}],
+    ['fact', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and have 5 years of experience.', {}],
+    ['optional purpose', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates for marketing.', {}],
+    ['talent pool', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates for the talent pool.', {}],
+    ['third party sharing', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and share data with third parties.', {}],
+    ['subscription', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and agree to the subscription.', {}],
+    ['country id', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.', { name: 'country' }],
+  ])('does not check a non-sole acknowledgement: %s', (_name, label, attrs) => {
+    const attributeText = Object.entries(attrs).map(([key, value]) => `${key}="${value}"`).join(' ');
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox" ${attributeText}> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor(entry, kit)).toBe(null);
+  });
+});
+
+
 describe('fill extension: native fact metadata vetoes a privacy label', () => {
   it.each([
     ['name', 'workPermit'], ['name', 'experienceYears'], ['name', 'experience\u00adYears'],

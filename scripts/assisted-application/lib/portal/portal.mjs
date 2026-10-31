@@ -474,7 +474,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
       source: 'answers',
       current: true,
     };
-  }).filter((item) => item.answer);
+  }).filter((item) => String(item.answer ?? '').trim());
   const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
@@ -484,7 +484,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
   const priorGroups = new Map();
   for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
     const question = String(item?.question || '').trim();
-    const answer = String(item?.answer || '').trim();
+    const answer = String(item?.answer ?? '').trim();
     if (!question || !answer) continue;
     const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);

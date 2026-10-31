@@ -76,7 +76,7 @@ function portalAnswersForFlow(questions, answers, recordedAnswers) {
     if (!key) continue;
     const values = new Map();
     for (const item of records) {
-      if (!item || typeof item !== 'object' || item.source === 'policy_default' || !String(item.answer || '').trim()) continue;
+      if (!item || typeof item !== 'object' || item.source === 'policy_default' || !String(item.answer ?? '').trim()) continue;
       const itemKey = String(item.semanticKey || '').trim() || portalQuestionKey(item);
       if (itemKey !== key) continue;
       const answer = String(item.answer).trim();

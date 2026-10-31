@@ -1,4 +1,4 @@
-import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, WORK_AUTHORISATION_RE } from './permitStatus.js';
+import { NATIONALITY_FIELD_RE, WORK_AUTHORISATION_RE } from './permitStatus.js';
 
 // The one reading of what an application's own notice asks: a required box
 // (plan.mjs, ownConsent) and a control or dialog of a notice (portal.mjs) both
@@ -13,7 +13,10 @@ const NEGATED = /\b(?:do(?:es)? not|don t|doesn t|cannot|can t|can not|unable to
 
 const OTHER_TERMS = /vermittlungsburo|personalvermittl|placement agency|recruit(?:ment|ing) agency|staffing agency|agenzia (?:per il lavoro|di collocamento|interinale)|agence (?:de placement|de recrutement)|erfolgsbasis|success fee|membership|subscription|abonnement|abbonamento|purchase|purchasing|agency terms|commercial terms|conditions de vente|condizioni di vendita|verkaufsbedingungen|credit check|background check|medical examination|drug test/;
 const factSource = String.raw`permit|bewilligung|permesso di (?:lavoro|soggiorno|domicilio)|\bvisa\b|passport|passaport|passeport|reisepass|ausweis|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de (?:conduire|travail|séjour)|\b[abc][12]\b|years? of|berufserfahrung|anni di esperienza|ann[ée]es d.exp[ée]rience|strafregister|casellario|criminal|\bdiplom|\bdegree\b|abschluss|\blaurea\b|certificat|attestat|zeugnis|\bexperience\b|\berfahrung\b|\besperienza\b|qualification|requirements|voraussetzungen|requisiti|maggiorenn|volljahr|\bmajeur\b|\bover\s+18\b`;
-const FACTS = new RegExp([factSource, BIRTH_FIELD_RE.source, NATIONALITY_FIELD_RE.source, WORK_AUTHORISATION_RE.source].join('|'), 'i');
+// Do not reuse the broad field-role regex here: bare «naissance» also occurs
+// inside the harmless French «connaissance» acknowledgement wording.
+const BIRTH_FACT_SOURCE = String.raw`\bbirth(?:day|date|place)?\b|\bgeburts?(?:datum|tag|ort|land)?\b|\bnascita\b|\bnat[oa]\b|\bnaissance\b`;
+const FACTS = new RegExp([factSource, BIRTH_FACT_SOURCE, NATIONALITY_FIELD_RE.source, WORK_AUTHORISATION_RE.source].join('|'), 'i');
 const ACCURACY = /(?:information|details|answers|angaben|informationen|dati|informazioni|renseignements).{0,80}(?:true|accurate|correct|complete|truthful|wahr|richtig|vollstandig|veritier|corrett|veriti|esatt|sincere|exact|complet)/;
 const GENERIC_TERMS = /\bterms\b|nutzungsbedingungen|teilnahmebedingungen|\bagb\b|termini|condizioni|conditions generales|conditions d utilisation/;
 
@@ -28,10 +31,12 @@ const positiveLanguage = value => plain(value).replace(/&/g, ' and ').split(/[^a
 
 export const isConsentPurpose = value => {
   const text = plain(value);
-  return Boolean(text && positiveLanguage(text) && !NEGATED.test(text) && !FACTS.test(text)
-    && !OTHER_TERMS.test(text) && !ACCURACY.test(text)
-    && (PRIVACY.test(text) || APPLICATION_TERMS.test(text))
-    && !isOptionalPurpose(text));
+  const privacyShape = privacyReviewAcknowledgmentShape(value);
+  return Boolean(isPrivacyReviewAcknowledgment(value)
+    || (!privacyShape.shape && text && positiveLanguage(text) && !NEGATED.test(text) && !FACTS.test(text)
+      && !OTHER_TERMS.test(text) && !ACCURACY.test(text)
+      && (PRIVACY.test(text) || APPLICATION_TERMS.test(text))
+      && !isOptionalPurpose(text)));
 };
 const applicationPurpose = text => isConsentPurpose(text) && (!GENERIC_TERMS.test(text) || APPLICATION_TERMS.test(text));
 
@@ -49,7 +54,7 @@ export const isNoticeRequest = value => NOTICE_REQUEST.test(plain(value));
 export function isOptionalPurpose(...values) {
   const text = values.join(' ').replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
-  return /newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job.?alert|job.?abo|talent.?pool|future (?:openings|opportunities|positions|vacancies)|other (?:companies|vacancies|positions)|weitere stellen|andere stellen|altre (?:posizioni|offerte|societa)|autres (?:postes|offres|societes)|third part|dritte|\bterzi\b|\btiers\b|whatsapp|cookie|(?:shar(?:e|ed|ing)|disclos(?:e|ed|ing|ure)|transfer(?:red|ring)?)(?: [^.!?;:\r\n]{0,60})? (?:with|to) (?:(?:a|our|selected|trusted|commercial|third party|other) )*partners?\b|(?:weitergabe|weitergeben|teilen|ubermittlung|ubermitteln)(?: [^.!?;:\r\n]{0,60})? (?:an|mit) (?:(?:die|den|unsere|unseren|ausgewahlte|ausgewahlten) )*partner(?:firmen|unternehmen|n)?\b|(?:condivisione|condividere|condivido|condividi|condividiamo|trasmissione|trasmettere)(?: [^.!?;:\r\n]{0,60})? (?:con|ai|a) (?:(?:i|le|nostri|nostre|selezionati|selezionate) )*partner\b|(?:partage|partager|transmission|transmettre)(?: [^.!?;:\r\n]{0,60})? (?:avec|aux|a) (?:(?:nos|les|des|leurs) )*partenaires?\b/.test(text);
+  return /newsletter|marketing|\bwerbung\b|pubblicit|promozion|promotion|offerte|angebote|job.?alert|job.?abo|talent.?pool|future (?:openings|opportunities|positions|vacancies)|other (?:companies|vacancies|positions)|weitere stellen|andere stellen|altre (?:posizioni|offerte|societa)|autres (?:postes|offres|societes)|third part|dritte|\bterzi\b|\btiers\b|whatsapp|cookie|(?:shar(?:e|ed|ing)|disclos(?:e|d|ing|ure)|transfer(?:red|ring)?)(?: [^.!?;:\r\n]{0,60})? (?:with|to) (?:(?:a|our|selected|trusted|commercial|third party|other) )*partners?\b|(?:weitergabe|weitergeben|teilen|ubermittlung|ubermitteln)(?: [^.!?;:\r\n]{0,60})? (?:an|mit) (?:(?:die|den|unsere|unseren|ausgewahlte|ausgewahlten) )*partner(?:firmen|unternehmen|n)?\b|(?:condivisione|condividere|condivido|condividi|condividiamo|trasmissione|trasmettere)(?: [^.!?;:\r\n]{0,60})? (?:con|ai|a) (?:(?:i|le|nostri|nostre|selezionati|selezionate) )*partner\b|(?:partage|partager|transmission|transmettre)(?: [^.!?;:\r\n]{0,60})? (?:avec|aux|a) (?:(?:nos|les|des|leurs) )*partenaires?\b/.test(text);
 }
 /** The notice this application needs. A bare «Lesen und akzeptieren» takes its object only from a name bound to the control. */
 export const isRequiredNotice = control => {
@@ -73,10 +78,37 @@ export function hasConsentContradiction(value, ...semanticIds) {
   const text = `${value || ''} ${ids}`.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
   return consentContradictionPatterns.negated.test(text) || consentContradictionPatterns.facts.test(text)
-    || /\b(?:bday|dob|sex|gender)\b/.test(text) || consentContradictionPatterns.otherTerms.test(text)
+    || /\b(?:bday|dob|sex|gender|country|paese|nazione|pays|land)\b/.test(text)
+    || consentContradictionPatterns.otherTerms.test(text)
     || consentContradictionPatterns.accuracy.test(text) || isOptionalPurpose(text);
+}
+/**
+ * A narrow, multilingual checkbox acknowledgement: the candidate confirms
+ * only that they read this application's privacy notice. The whole sentence
+ * is closed and anchored; any extra fact, purpose or refusal stays unknown.
+ * Keep the body self-contained because the extension serializes this guard.
+ */
+export function privacyReviewAcknowledgmentShape(value) {
+  const text = String(value || '').replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim()
+    .replace(/\b(?:required|mandatory|obbligatorio|obligatoire|obligatorisch|erforderlich|pflichtfeld)\b$/, '').trim();
+  const exactPatterns = [
+    /(?:seleziona(?:re)?|spunta|contrassegna) (?:questa|la) casella(?: di (?:controllo|spunta))? per conferm(?:are|a|i) di aver (?:letto (?:l )?|preso visione (?:dell? |di ))informativa (?:sulla )?privacy (?:per (?:i candidati|le candidate)|per questa candidatura)/,
+    /(?:bitte )?(?:aktivieren|markieren|kreuzen|wahlen) sie (?:dieses|diese|das) (?:kontrollkastchen|checkbox|feld|box)(?: an)? um zu bestatigen dass sie (?:(?:die|den|das) )?datenschutz(?:erklarung|richtlinien?|hinweise?|bestimmungen|informationen?|mitteilungen?) fur (?:(?:die|diese) )?(?:bewerber(?: innen|innen)?|kandidat(?:en| innen|innen)?|bewerbung) (?:gelesen haben|zur kenntnis genommen haben)/,
+    /(?:please )?(?:select|check|tick|mark) (?:this|the) (?:checkbox|check box|box) to (?:confirm|acknowledge) (?:that )?you have (?:read|reviewed) (?:the )?(?:(?:(?:privacy (?:notice|policy|statement)|notice (?:of|about) privacy) (?:(?:for|of) (?:job )?(?:candidates|applicants)|for this application))|(?:candidate|applicant) privacy (?:notice|policy|statement))/,
+    /(?:veuillez )?(?:cochez|cocher|selectionnez|selectionner|coche|selectionne) (?:cette|la) (?:case|case a cocher|boite) pour confirmer que vous avez (?:lu|pris connaissance de) (?:l |la )?(?:information|avis|politique|declaration) (?:sur la |de la |de )?confidentialite (?:(?:pour les |des |destinee? aux )?candidat(?:s|es)?|pour cette candidature)/,
+  ];
+  const exact = exactPatterns.some(pattern => new RegExp(`^(?:${pattern.source})$`).test(text));
+  const shape = /^(?:(?:please|bitte|veuillez) )?(?:select|check|tick|mark|seleziona|selezionare|spunta|contrassegna|aktivieren|markieren|kreuzen|wahlen|cochez|cocher|selectionnez|selectionner|coche|selectionne)\b[^.!?]{0,220}\b(?:privacy|datenschutz\w*|informativa|confidentialite)\b/.test(text);
+  return { exact, shape };
+}
+export function isPrivacyReviewAcknowledgment(value, ...semanticIds) {
+  const { exact } = privacyReviewAcknowledgmentShape(value);
+  return Boolean(exact && !hasConsentContradiction(value, ...semanticIds));
 }
 export const isNoticeReview = (value, ...semanticIds) => {
   const text = plain(value);
-  return Boolean(text) && positiveLanguage(text) && !hasConsentContradiction(value, ...semanticIds);
+  const privacyShape = privacyReviewAcknowledgmentShape(value);
+  return Boolean(isPrivacyReviewAcknowledgment(value, ...semanticIds)
+    || (!privacyShape.shape && text && positiveLanguage(text) && !hasConsentContradiction(value, ...semanticIds)));
 };
