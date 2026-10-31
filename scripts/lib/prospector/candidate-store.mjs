@@ -867,6 +867,7 @@ export function isRetryableTraceReason(reason = '') {
  * @returns {boolean}
  */
 export function isTraceRetryDue(candidate, now = Date.now()) {
+  if (hasUntriedEmailDomainHint(candidate)) return true;
   if (hasExhaustedDomainResolution(candidate)) {
     const lastEvidence = candidate?.traceLastEvidenceSnapshot;
     // Old or malformed records have no trustworthy baseline. Fail closed until
@@ -878,6 +879,59 @@ export function isTraceRetryDue(candidate, now = Date.now()) {
   }
   const at = Date.parse(String(candidate?.traceRetryAt || ''));
   return !Number.isFinite(at) || at <= now;
+}
+
+/**
+ * A domain read from an application address is new evidence even after name
+ * guessing has given up, and it is checked once: TRACE records what it tried.
+ *
+ * @param {Record<string, any>} candidate
+ * @returns {boolean}
+ */
+export function hasUntriedEmailDomainHint(candidate) {
+  if (candidate?.domain) return false;
+  const tried = new Set(candidate?.emailDomainHintsTried || []);
+  return (candidate?.emailDomainHints || []).some((domain) => !tried.has(domain));
+}
+
+/** A site without vacancies today can hire next quarter. */
+export const NO_CAREERS_RECHECK_DAYS = 60;
+export const NO_CAREERS_RECHECK_BATCH = 150;
+export const NO_CAREERS_REASON = 'nessuna pagina carriere';
+
+/**
+ * Return the stalest "no careers page" verdicts to the TRACE queue. Hiring is
+ * temporary, so this verdict describes a date and not an employer. Ticino comes
+ * first because it is the loop's home market. The batch cap keeps the sweep from
+ * crowding out candidates that were never traced.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {{ now?: number, limit?: number, minAgeDays?: number, ledgerFile?: string|null }} [options]
+ * @returns {string[]} the keys returned to the queue
+ */
+export function reviveStaleNoCareersCandidates(store, options = {}) {
+  const now = options.now ?? Date.now();
+  const limit = options.limit ?? NO_CAREERS_RECHECK_BATCH;
+  const cutoff = now - (options.minAgeDays ?? NO_CAREERS_RECHECK_DAYS) * 86_400_000;
+  // `updatedAt` cannot date the verdict: every later SECO sighting refreshes it.
+  // Records older than `noCareersVerdictAt` fall back to their first sighting,
+  // and the worst case is one early recheck.
+  const checkedAt = (candidate) => Date.parse(String(candidate.noCareersVerdictAt || candidate.firstSeenAt || '')) || 0;
+  const due = Object.entries(store.candidates)
+    .filter(([, candidate]) => candidate.status === 'dead'
+      && candidate.reason === NO_CAREERS_REASON
+      && candidate.domain
+      && checkedAt(candidate) <= cutoff)
+    .sort(([, a], [, b]) => Number(b.canton === 'TI') - Number(a.canton === 'TI')
+      || checkedAt(a) - checkedAt(b))
+    .slice(0, limit);
+  for (const [key] of due) {
+    setStatus(store, key, 'new', {
+      reason: 'ricontrollo periodico: nessuna pagina carriere',
+      traceRetryAt: null,
+    }, options.ledgerFile);
+  }
+  return due.map(([key]) => key);
 }
 
 /**
@@ -1355,6 +1409,11 @@ export function upsertCandidate(store, incoming, source) {
     }
     if (k === 'commoncrawlCollection') {
       if (source === 'web') existing.commoncrawlCollection = v;
+      continue;
+    }
+    if (k === 'emailDomainHints') {
+      // A hint outlives the ad that carried it: the 30-day window slides.
+      if (source === 'seco') existing[k] = [...new Set([...(existing[k] || []), ...(v || [])])].slice(-3);
       continue;
     }
     if (SECO_SIGNAL_FIELDS.has(k)) {
