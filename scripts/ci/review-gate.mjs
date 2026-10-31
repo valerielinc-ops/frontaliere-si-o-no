@@ -35,6 +35,7 @@ import {
   reviewBodyIsApproving,
 } from './lib/pr-review-admission.mjs';
 import {
+  acceptedReviewInputRevisionsFromPullRequest,
   normalizeReviewInputRevisionInput,
   reviewHasInputRevision,
   reviewInputRevisionFromPullRequest,
@@ -2351,6 +2352,26 @@ function writeReviewGateOutput(result, { headSha = '', reviewRevision = '' } = {
   }
 }
 
+function readReviewInputPullRequest(repo, pr) {
+  const snapshotPath = String(process.env.REVIEW_PR_FILE || '').trim();
+  if (!snapshotPath) return ghRead(['api', `repos/${repo}/pulls/${pr}`]);
+  try {
+    return JSON.parse(readFileSync(realpathSync(snapshotPath), 'utf8'));
+  } catch (error) {
+    throw new Error('snapshot PR del review input non verificabile', { cause: error });
+  }
+}
+
+function acceptedReviewRevisionsForGate(repo, pr, attestedRevision) {
+  const accepted = acceptedReviewInputRevisionsFromPullRequest(
+    readReviewInputPullRequest(repo, pr),
+  );
+  if (accepted[0] !== attestedRevision) {
+    throw new Error('snapshot PR e REVIEW_REVISION non corrispondono');
+  }
+  return accepted;
+}
+
 function postBlockedComment(repo, pr, headSha, runUrl, reason) {
   const marker = '<!-- REVIEW_GATE_NO_LGTM -->';
   const existing = gh([
@@ -2803,10 +2824,12 @@ async function main() {
   const headSha = process.env.HEAD_SHA || '';
   // The workflow has already attested this exact HEAD and body revision before
   // entering the gate. Re-reading PR metadata here created a second rate-limit
-  // window and could pair a review with a newer body after the first snapshot.
+  // window and could pair a review with a newer body after the first snapshot;
+  // use that trusted snapshot to derive every schema accepted for this body.
   const tree = fetchRepositoryTreePaths(repo, headSha);
-  const reviewRevision = normalizeReviewInputRevisionInput(process.env.REVIEW_REVISION);
-  if (!reviewRevision) throw new Error('REVIEW_REVISION assente o non verificabile');
+  const attestedRevision = normalizeReviewInputRevisionInput(process.env.REVIEW_REVISION);
+  if (!attestedRevision) throw new Error('REVIEW_REVISION assente o non verificabile');
+  const reviewRevision = acceptedReviewRevisionsForGate(repo, pr, attestedRevision);
   const result = await runReviewGate({
     repo,
     pr,
