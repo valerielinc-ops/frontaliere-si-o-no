@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
-vi.mock('../functions/src/applicationConciergeEligibility.js', async original => ({ ...await original<typeof import('../functions/src/applicationConciergeEligibility.js')>(), prepareConciergeEligibility: vi.fn(async () => async () => ({ status: 'compatible' })) }));
+// Matching/ranking fixtures inject the trusted publication seam explicitly;
+// actual source-fence causality is covered by the publication integration tests.
+vi.mock('../functions/src/applicationConciergeEligibility.js', async original => ({ ...await original<typeof import('../functions/src/applicationConciergeEligibility.js')>(), prepareConciergeEligibility: vi.fn(async () => async () => ({ status: 'compatible', publicationGuard: { async assertInTransaction() {} } })) }));
 import { parseCandidateCvText } from '../functions/src/candidateCvProfile.js';
 import {
   approvedRolePreference,
@@ -798,7 +800,7 @@ describe('progress through the complete relevant job pool', () => {
         checked.push(job.id);
         attempts.set(job.id, (attempts.get(job.id) || 0) + 1);
         if (job.id === 'job-000') return { status: 'unverified', reason: 'analysis_unavailable' };
-        return job.id === 'job-055' ? { status: 'compatible' } : { status: 'incompatible' };
+        return job.id === 'job-055' ? { status: 'compatible', publicationGuard: { async assertInTransaction() {} } } : { status: 'incompatible' };
       } });
       seen.push(checked);
       unverifiedCounts.push(Number(documents.get(path)?.matchingUnverifiedCount || 0));
@@ -862,7 +864,7 @@ describe('progress through the complete relevant job pool', () => {
     ];
     // Without preference, relevance and all tie-breakers leave the first job first.
     expect(scoreJobForProfile(jobs[0], profile)).toMatchObject({ rankScore: scoreJobForProfile(jobs[1], profile).rankScore });
-    const eligibility = vi.fn(async (job: { id: string }) => ({ status: job.id === 'second' && !preferredCompatible ? 'incompatible' : 'compatible' }));
+    const eligibility = vi.fn(async (job: { id: string }) => ({ status: job.id === 'second' && !preferredCompatible ? 'incompatible' : 'compatible', publicationGuard: { async assertInTransaction() {} } }));
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => jobs })));
     try {
       const result = await runApplicationConciergeMatching({ db, serviceId: 'service-preference', eligibility });

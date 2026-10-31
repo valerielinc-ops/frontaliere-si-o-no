@@ -3,7 +3,8 @@ import { qualificationCounterContext, qualificationCounterContextHash } from './
 /** Full-posting qualification before a concierge proposal is published. All caches are owner-private. */
 import { createHash } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
-import { timestampMillis } from './applicationConciergeConstants.js';
+import { timestampMillis, serviceIsActive, acceptedPositionsCount, APPLICATION_CONCIERGE_MAX_POSITIONS } from './applicationConciergeConstants.js';
+import { timestampMillis as strictTimestampMillis } from './lib/assistedApplicationRetentionPolicy.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { generateQualificationJson as generateJson } from './lib/qualificationGenerate.js';
 import { detectCvFileType, ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
@@ -27,6 +28,36 @@ export const eligibilityHash = value => createHash('sha256').update(value).diges
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
 const PREFLIGHT_ANALYSIS_BUDGET_MS = 90_000; // The 120s checkout also needs time for its transaction and Stripe.
+
+const serviceSourceMaterial = service => ({ userId: service?.userId ?? null, cvStorageKey: service?.cvStorageKey ?? null,
+  cvUploadedAt: strictTimestampMillis(service?.cvUploadedAt), candidateNotes: service?.candidateNotes ?? null,
+  applicantLocation: service?.applicantLocation ?? null, locale: service?.locale ?? null });
+const profileSourceMaterial = record => ({ status: record?.status ?? null, profile: record?.profile ?? null,
+  cvStorageKey: record?.cvStorageKey ?? null, cvHash: record?.cvHash ?? null });
+const sourceChanged = () => Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
+
+/** Private capability; never serialized into a cached result or a model request. */
+function conciergePublicationGuard({ db, serviceRef, service, expected, source, cvHash }) {
+  const profileRef = db.collection('user_cv_profiles').doc(String(service.userId));
+  return Object.freeze({
+    fingerprint: qualificationCounterContextHash({ source: source.sourceFingerprint, expected, cvHash }),
+    async assertInTransaction(tx) {
+      if (typeof source.assertInTransaction !== 'function' || !/^[a-f0-9]{64}$/.test(source.sourceFingerprint || '')) throw sourceChanged();
+      const [currentService, currentProfile] = await Promise.all([tx.get(serviceRef), tx.get(profileRef)]);
+      if (!currentService.exists || qualificationCounterContextHash({ service: serviceSourceMaterial(currentService.data()),
+        profile: profileSourceMaterial(currentProfile.data()) }) !== expected) throw sourceChanged();
+      // The same FACT recipe fences origin notes/clear/retention and the global pointer.
+      await source.assertInTransaction(tx);
+      const current = currentService.data();
+      // No awaited work follows the service window/cap check.
+      if (!serviceIsActive(current, Date.now()) || acceptedPositionsCount(current) >= (Number(current.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) throw sourceChanged();
+    },
+  });
+}
+
+function withPublicationGuard(result, guard) {
+  return Object.defineProperty(result, 'publicationGuard', { value: guard, enumerable: false });
+}
 
 export function normalizeConciergeJobRecord(job = {}) {
   return {
@@ -119,6 +150,11 @@ export async function evaluateConciergePosting({ job, profile, answers = {}, ans
 }
 
 export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = null, readPosting = fetchJobPosting, background = false, signal = null }) {
+  // Normalize SDK timestamp semantics before owning the runtime data. The raw
+  // attested ledger stays with its existing provider/fence snapshot recipe.
+  const sourceBaseline = qualificationCounterContextHash({ service: serviceSourceMaterial(service), profile: profileSourceMaterial(profileRecord) });
+  service = structuredClone({ ...service, cvUploadedAt: strictTimestampMillis(service.cvUploadedAt),
+    paidAt: strictTimestampMillis(service.paidAt), expiresAt: strictTimestampMillis(service.expiresAt) });
   const generation = generate || ((system, user, schema, options = {}) => generateJson(system, user, schema, { ...options, background, signal }));
   generate = (...args) => beforeCancellation(() => generation(...args), signal);
   const read = (order, options) => beforeCancellation(() => readPosting(order, { ...options, ...(signal ? { signal } : {}) }), signal);
@@ -150,7 +186,9 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   let analyses = 0;
   return async (job) => {
     job = normalizeConciergeJobRecord(job);
-    const { answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterAnswers, fingerprint: answerContext } = answerContextFor(job);
+    const source = answerContextFor(job);
+    const { answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterAnswers, fingerprint: answerContext } = source;
+    const publicationGuard = conciergePublicationGuard({ db, serviceRef, service, expected: sourceBaseline, source, cvHash });
     const rawCounterContext = qualificationCounterContext({ order: service, flow: { questionAnswers: rawCounterAnswers }, answerCounterContext });
     const answerHash = eligibilityHash(JSON.stringify([answerContext, qualificationCounterContextHash(rawCounterContext)]));
     const normalizedProfile = profileForEligibility(profile);
@@ -164,7 +202,11 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const ref = cache.doc(cacheId);
     const cached = (await ref.get()).data();
     if (cached?.fingerprint === fingerprint && cached.version === CONCIERGE_ELIGIBILITY_VERSION
-      && hasVerifiedQualificationEvidence(cached)) return { ...cached.result, fingerprint, cacheId };
+      && hasVerifiedQualificationEvidence(cached)) {
+      try { await db.runTransaction(tx => publicationGuard.assertInTransaction(tx)); }
+      catch (error) { if (error?.code === 'evidence_source_changed') return { status: 'unverified', reason: 'evidence_source_changed', fingerprint, cacheId }; throw error; }
+      return withPublicationGuard({ ...cached.result, fingerprint, cacheId }, publicationGuard);
+    }
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
     const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterContext, locale: service.locale, sourceText: cvText, cvHash, generate,
@@ -175,9 +217,17 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     signal?.throwIfAborted();
     const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, entailment, ...result } = analysis;
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
-    if (result.status !== 'unverified') await ref.set({ fingerprint, cvHash, answerHash, postingHash, promptVersion: PROMPT_VERSION,
-      version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, entailment, updatedAt: FieldValue.serverTimestamp() });
-    return { ...result, fingerprint, cacheId };
+    if (result.status !== 'unverified') {
+      const cachedAssessment = { fingerprint, cvHash, answerHash, postingHash, promptVersion: PROMPT_VERSION,
+        version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, entailment, updatedAt: FieldValue.serverTimestamp() };
+      try {
+        await db.runTransaction(async tx => {
+          await publicationGuard.assertInTransaction(tx);
+          tx.set(ref, cachedAssessment);
+        });
+      } catch (error) { if (error?.code === 'evidence_source_changed') return { status: 'unverified', reason: 'evidence_source_changed', fingerprint, cacheId }; throw error; }
+    }
+    return withPublicationGuard({ ...result, fingerprint, cacheId }, publicationGuard);
   };
 }
 

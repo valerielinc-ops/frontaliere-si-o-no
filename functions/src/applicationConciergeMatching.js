@@ -431,18 +431,23 @@ export function conciergeMatchingWork(candidates, proposedUrls = new Set(), curs
     frontier, cursorUrls: new Set(fresh.map(candidate => candidate.url)) };
 }
 
-async function updateExistingProposal(db, ref, update, expectedStatus, nextStatus = null) {
+async function updateExistingProposal(db, ref, update, expectedStatus, nextStatus = null, publicationGuard = null) {
   return db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(ref);
     if (!snapshot.exists) return false;
     const current = snapshot.data() || {};
     if (current.status !== expectedStatus) return false;
-    transaction.set(ref, {
+    const patch = {
       ...update,
       ...(nextStatus ? { status: nextStatus } : {}),
       ...(nextStatus === 'retracted' ? { retractedAt: FieldValue.serverTimestamp(), retractionReason: update.matchScore < MIN_MATCH_SCORE ? 'match_below_threshold' : update.eligibilityStatus && update.eligibilityStatus !== 'compatible' ? 'decisive_requirements_unverified' : 'match_below_threshold' } : {}),
       ...(nextStatus === 'proposed' && current.status === 'retracted' ? { reactivatedAt: FieldValue.serverTimestamp() } : {}),
-    }, { merge: true });
+    };
+    if (update.eligibilityStatus === 'compatible') {
+      if (typeof publicationGuard?.assertInTransaction !== 'function') throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
+      await publicationGuard.assertInTransaction(transaction);
+    }
+    transaction.set(ref, patch, { merge: true });
     return true;
   });
 }
@@ -544,6 +549,12 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       eligibilityCvStorageKey: service.cvStorageKey || null,
       eligibilityCheckedAt: Timestamp.now(),
     });
+    const sourceChangedDuringPublication = async url => {
+      const result = { status: 'unverified', reason: 'evidence_source_changed' };
+      checks.set(url, result);
+      await recordEligibilityRetry({ db, serviceRef, url, result, context: scanContext, nowMs: Date.now() });
+      return result;
+    };
     let refreshedProposals = 0;
     let retractedProposals = 0;
     for (const doc of existing) {
@@ -554,7 +565,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       const result = checks.get(data.jobUrl) || { status: 'unverified' };
       const proposalRef = doc.ref || doc;
       if (rescored.score >= MIN_MATCH_SCORE && result.status === 'compatible') {
-        const changed = await updateExistingProposal(
+        let changed;
+        try { changed = await updateExistingProposal(
           db,
           proposalRef,
           {
@@ -568,7 +580,19 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           },
           data.status,
           data.status === 'retracted' ? 'proposed' : null,
-        );
+          result.publicationGuard,
+        ); } catch (error) {
+          if (error?.code !== 'evidence_source_changed') throw error;
+          const uncertain = await sourceChangedDuringPublication(data.jobUrl);
+          // A stale positive cannot remain advertised while its sources await repair.
+          if (data.status === 'proposed') {
+            const retracted = await updateExistingProposal(db, proposalRef,
+              { ...eligibilityFields(uncertain), matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+                updatedAt: FieldValue.serverTimestamp() }, 'proposed', 'retracted');
+            if (retracted) retractedProposals += 1;
+          }
+          continue;
+        }
         if (changed) refreshedProposals += 1;
       } else if (data.status === 'proposed') {
         const changed = await updateExistingProposal(
@@ -613,14 +637,23 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         proposedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       };
-      const created = await db.runTransaction(async transaction => {
+      let created;
+      try { created = await db.runTransaction(async transaction => {
         const [currentServiceDoc, currentProposalDoc] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
         const currentService = currentServiceDoc.data();
-        if (currentProposalDoc.exists || !serviceIsActive(currentService) || currentService.cvStorageKey !== service.cvStorageKey
-          || acceptedPositionsCount(currentService) >= (Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) return false;
+        if (currentProposalDoc.exists) return false;
+        const publicationGuard = checks.get(candidate.url)?.publicationGuard;
+        if (typeof publicationGuard?.assertInTransaction !== 'function') throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
+        await publicationGuard.assertInTransaction(transaction);
+        if (!serviceIsActive(currentService, Date.now()) || currentService.cvStorageKey !== service.cvStorageKey
+          || acceptedPositionsCount(currentService) >= (Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
         transaction.set(ref, proposal);
         return true;
-      });
+      }); } catch (error) {
+        if (error?.code !== 'evidence_source_changed') throw error;
+        await sourceChangedDuringPublication(candidate.url);
+        continue;
+      }
       if (created) createdProposals += 1;
     }
     const retrySummary = await eligibilityRetrySummary(serviceRef);
