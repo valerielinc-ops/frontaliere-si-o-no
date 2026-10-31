@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 import { describe, expect, it } from 'vitest';
+import { nativeQuestionText } from '../functions/src/lib/nativeQuestionText.js';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
@@ -188,6 +189,77 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(candidateAnswerForField(person, field)).toEqual({ value: 'alias@example.test', source: 'identity' });
     const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: 'alias@example.test', source: 'identity' }], missingRequired: [] }, [field], person);
     expect(guarded.actions[0]?.value).toBe('alias@example.test');
+  });
+
+  it.each([
+    '<section aria-label="Work preferences">',
+    '<section><h3>Work preferences</h3>',
+    '<section aria-label="Additional questions">',
+  ])('keeps the closest unknown purpose ahead of a distant personal scope', open => {
+    const field = nativeField(`<form><section aria-label="Personal details">${open}<label for="city">City</label><input id="city" name="city"></section></section></form>`, reader);
+    expect(candidateAnswerForField(candidate, field)).toBeNull();
+    const statement = { question: field.label, context: field.context, section: field.section, autocomplete: field.autocomplete, addressContext: field.addressContext, source: 'answers', answer: 'Lugano', current: true };
+    expect(candidateAnswerForField({ ...candidate, portalQuestionsAnswered: [statement] }, field)).toEqual({ value: 'Lugano', source: 'answers' });
+  });
+
+  it.each([['', 'Italy'], ['<fieldset><legend>Telephone</legend>', 'Switzerland']])('uses named telephone ownership, not a phone sibling, for a country prefix', (phoneScope, expected) => {
+    const field = nativeField(`<form><fieldset><legend>Personal information</legend>${phoneScope}<label for="phone">Phone</label><input id="phone" type="tel"><label for="city">Country</label><select id="city" name="city"><option value="">Select</option><option value="it">Italy</option><option value="ch">Switzerland</option></select>${phoneScope ? '</fieldset>' : ''}</fieldset></form>`, reader);
+    expect(candidateAnswerForField({ ...candidate, identity: { ...candidate.identity, phone: '+41 79 1234567' } }, field)?.value).toBe(expected);
+  });
+
+  it.each([
+    '<form aria-label="Work preferences"><h2>Personal information</h2>',
+    '<form><section aria-label="Work preferences"><h2>Personal details</h2>',
+  ])('keeps discordant names on one physical scope together', open => {
+    const field = nativeField(`${open}<label for="city">City</label><input id="city" name="city"></section></form>`, reader);
+    expect(field.addressContext.unknown).toBe(false);
+    expect(field.addressContext.owners[0]).toContain(' · ');
+    expect(candidateAnswerForField(candidate, field)).toBeNull();
+    const statement = { question: field.label, context: field.context, section: field.section, addressContext: field.addressContext, source: 'answers', answer: 'Lugano', current: true };
+    expect(candidateAnswerForField({ ...candidate, portalQuestionsAnswered: [statement] }, field)?.value).toBe('Lugano');
+  });
+
+  it.each([
+    ['Telephone', 'Residence', 'Italy'], ['Residence', 'Telephone', 'Switzerland'],
+    ['Telephone', 'Work preferences', null],
+  ])('uses the closest %s/%s scope for country purpose', (outer, inner, expected) => {
+    const field = nativeField(`<form><fieldset aria-label="${outer}"><section aria-label="${inner}"><label for="city">Country</label><select id="city" name="city"><option value="">Select</option><option value="it">Italy</option><option value="ch">Switzerland</option></select></section></fieldset></form>`, reader);
+    expect(candidateAnswerForField({ ...candidate, identity: { ...candidate.identity, phone: '+41 79 1234567' } }, field)?.value || null).toBe(expected);
+  });
+
+  it.each(['Email address', 'Adresse e-mail', 'Indirizzo e-mail', 'E-Mail-Adresse'])('keeps the canonical counter on contact %s out of postal ownership', label => {
+    for (const type of ['email', 'text']) {
+      const field = nativeField(`<form><h2>Personal information</h2><label for="city">${label} <span>0 / 200 chars</span></label><input id="city" name="city" type="${type}" autocomplete="email" maxlength="200"></form>`, reader);
+      expect(field.label).toBe(`${label} max 200 chars`);
+      expect(candidateAnswerForField({ ...candidate, identity: { email: 'alias@example.test' } }, field)?.value).toBe('alias@example.test');
+    }
+  });
+
+  it.each([
+    ['200', '0 / 200 Zeichen', 'Wohnort max 200 Zeichen'],
+    ['200', '1 / 200 Zeichen', 'Wohnort 1 / 200 Zeichen'],
+    ['', '0 / 200 Zeichen', 'Wohnort 0 / 200 Zeichen'],
+  ])('normalizes only the observed owned counter with maxlength=%s', (maximum, counter, expected) => {
+    expect(extractFieldsInPage.toString()).toContain(nativeQuestionText.toString());
+    const field = nativeField(`<form><section aria-label="Personal information"><label for="city">Wohnort <span>${counter}</span></label><input id="city" name="city" ${maximum ? `maxlength="${maximum}"` : ''}></section></form>`, reader);
+    expect(field.label).toBe(expected);
+    const answered = nativeField('<form><section aria-label="Personal information"><label for="city">Wohnort <span>6 / 200 Zeichen</span></label><input id="city" name="city" maxlength="200" value="Lugano"></section></form>', reader);
+    if (expected === 'Wohnort max 200 Zeichen') {
+      expect(answered.label).toBe(field.label);
+      expect(answered.context).toBe(field.context);
+      expect(answered.addressContext).toEqual(field.addressContext);
+      const current = { question: field.label, context: field.context, section: field.section, addressContext: field.addressContext, source: 'answers', current: true, answer: 'Lugano' };
+      expect(candidateAnswerForField({ ...candidate, portalQuestionsAnswered: [current] }, answered)?.value).toBe('Lugano');
+    }
+  });
+
+  it.each([
+    '<label for="city">Minimum 500 / 1000 characters</label>',
+    '<label for="city">Wohnort <span hidden>0 / 200 Zeichen</span></label>',
+    '<label id="shared">Wohnort <span>0 / 200 Zeichen</span></label><input aria-labelledby="shared">',
+  ])('preserves unproven numeric requirements or ambiguous counter ownership', label => {
+    const field = nativeField(`<form>${label}<input id="city" name="city" aria-labelledby="shared" maxlength="200"></form>`, reader);
+    expect(field.label).not.toContain('max 200');
   });
 
   it('does not invent DOB when the profile has no date of birth', () => {

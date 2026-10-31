@@ -9,7 +9,7 @@
  */
 
 import '../../extension/apply-control.js';
-const { isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption } = globalThis.AssistedApplyControls;
+const { isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose } = globalThis.AssistedApplyControls;
 
 import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
 import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
@@ -652,16 +652,22 @@ const PHONE_COUNTRY_CODE_LABEL_RE = /\b(?:country|nazione|paese|pays|land)\s+(?:
 
 function isPhoneCountryQuestion(value, context = '', metadata = {}) {
   const label = String(value || '');
+  const hasOwner = Object.hasOwn(metadata || {}, 'addressContext');
+  const owner = addressContextContract(metadata);
+  if (hasOwner && (!owner || owner.unknown)) return false;
   const fieldContext = [context, metadata?.section].filter(Boolean).join(' ');
-  const explicitPhoneCountry = (PHONE_COUNTRY_CODE_LABEL_RE.test(label)
-    && (PHONE_CODE_FIELD_RE.test(label)
-      || (PHONE_CODE_FIELD_RE.test(fieldContext) && !RESIDENCE_CONTEXT_RE.test(fieldContext))))
-    || (COUNTRY_RE.test(label) && PHONE_CODE_FIELD_RE.test(label));
+  const ownedContext = hasOwner ? [owner.section, ...owner.owners].join(' ') : fieldContext;
+  if (hasOwner && (NON_RESIDENCE_ADDRESS_RE.test(ownedContext) || WORK_HISTORY_SECTION_RE.test(ownedContext))) return false;
+  // A phone sibling in a generic personal section does not own the country
+  // selector. A named phone scope (or the label itself) must establish prefix intent.
+  const phoneScope = hasOwner ? hasTelephonePurpose([...owner.owners, owner.section]) : PHONE_CODE_FIELD_RE.test(ownedContext);
+  const phoneLabel = PHONE_CODE_FIELD_RE.test(label);
+  const explicitPhoneCountry = (PHONE_COUNTRY_CODE_LABEL_RE.test(label) && (phoneLabel || phoneScope))
+    || (COUNTRY_RE.test(label) && phoneLabel);
   if (explicitPhoneCountry) return !RESIDENCE_CONTEXT_RE.test(label);
   return residenceFieldRole(label) === 'country' && COUNTRY_RE.test(label)
-    && PHONE_CODE_FIELD_RE.test(fieldContext)
-    && !RESIDENCE_CONTEXT_RE.test(label)
-    && !RESIDENCE_CONTEXT_RE.test(fieldContext);
+    && phoneScope && !RESIDENCE_CONTEXT_RE.test(label)
+    && (hasOwner || !RESIDENCE_CONTEXT_RE.test(fieldContext));
 }
 
 export function addressQuestionTopic(text, context = '', metadata = {}) {
@@ -697,12 +703,14 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   const contactAddress = CONTACT_ADDRESS_RE.test(value) || CONTACT_ADDRESS_RE.test(fieldContext);
   if ((contactAddress && !candidateContactAddress) || PHONE_CODE_FIELD_RE.test(value) || phoneCodeContext || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext && !candidateContactAddress)) return '';
-  const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
-    || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
+  const residenceContext = hasOwnership
+    ? hasResidencePurpose([...ownership.owners, section], value)
+    : RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
+      || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
   // `autocomplete=postal-code` identifies the kind of value, not whose
   // address it belongs to. The field's own label, section, or explicit nearby
   // context must still identify candidate residence before reusing the CV.
-  const candidateResidenceProvenance = RESIDENCE_CONTEXT_RE.test(section)
+  const candidateResidenceProvenance = hasOwnership ? residenceContext : RESIDENCE_CONTEXT_RE.test(section)
     || PERSONAL_ADDRESS_CONTEXT_RE.test(section);
   // A standalone postal label needs positive residence provenance from its
   // section or nearby residence context. The field extractor's section also
@@ -770,6 +778,7 @@ export function questionTopic(label, context = '', metadata = {}) {
   // A native date control can resolve an otherwise bare birth caption.
   if (DATE_OF_BIRTH_RE.test(text) || nativeBirthDate) return 'birth_date';
   if (isPhoneCountryQuestion(text, context, metadata)) return 'phone_country';
+  if (PHONE_COUNTRY_CODE_LABEL_RE.test(text)) return '';
   if (PHONE_CODE_FIELD_RE.test(text)) return 'phone';
   const ageTopic = ageQuestionTopic(text);
   if (ageTopic) return ageTopic;
