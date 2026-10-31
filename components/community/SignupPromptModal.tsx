@@ -15,7 +15,6 @@ import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { requestConfirmationEmail, upsertUnifiedEmailSubscriber, type UnifiedEmailConsentInput } from '@/services/newsletterSubscribers';
-import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -58,6 +57,7 @@ export async function requestEmailAccessLink(
   trimmed: string,
   input: Omit<UnifiedEmailConsentInput, 'email' | 'accessOnly'>,
 ): Promise<void> {
+  const { getFirestore } = await import('firebase/firestore');
   const firestore = getFirestore(await getApp());
   const upsert = await upsertUnifiedEmailSubscriber(firestore, { ...input, email: trimmed, accessOnly: true });
   if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {

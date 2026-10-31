@@ -271,6 +271,7 @@ import {
  newsletterAutologinAttemptKey,
 } from '@/services/newsletterAutologinSignal';
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
+import { loadStoredUserProfile } from '@/services/userProfileStorage';
 import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
 import { subscribeSavedJobsFirestore } from '@/services/savedJobsService';
 import { syncJobSaveAuth } from '@/services/jobSaveGate';
@@ -739,6 +740,9 @@ const App: React.FC = () => {
  const loadProfile = async () => {
  // If URL params set the inputs, don't overwrite with profile
  if (cancelled || urlHydrated.current) return;
+ // Nothing to prefill for an anonymous visitor without a stored profile: the
+ // state above is already the final one, and the two chunks below stay unloaded.
+ if (!authUser?.uid && !loadStoredUserProfile(null)) return;
  try {
  const [{ loadUserProfile, profileToSimInputs }, { loadUserProfile: loadPrivateUserProfile }] = await Promise.all([
   import('@/components/pages/UserProfile'),
