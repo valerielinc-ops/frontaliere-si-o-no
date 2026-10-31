@@ -4785,7 +4785,6 @@
           "dipl-physiotherapeut-in-fh-40-100-physio-swiss-rothenburg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-29T14:41:46.621Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -7599,7 +7598,7 @@
       "slug": "fisio-30-100-in-kusnacht-physio-swiss-zurigo",
       "slugByLocale": {
         "it": "fisio-30-100-in-kusnacht-physio-swiss-zurigo",
-        "en": "physio-30-100-in-kusnacht-physiotherapie-giessen-gmbh-rietstrasse-25-8700-kusnacht-kanton",
+        "en": "physiotherapist-30-100-in-kusnacht-physio-swiss-zurigo",
         "de": "physio-30-100-in-kusnacht-physiotherapie-giessen-gmbh-rietstrasse-25-8700-kusnacht-kanton",
         "fr": "physio-30-100-in-kusnacht-physiotherapie-giessen-gmbh-rietstrasse-25-8700-kusnacht-kanton"
       },
@@ -7649,9 +7648,11 @@
       "previousSlugsByLocale": {
         "it": [
           "physio-30-100-in-kusnacht-physiotherapie-giessen-gmbh-rietstrasse-25-8700-kusnacht-kanton"
+        ],
+        "en": [
+          "physio-30-100-in-kusnacht-physiotherapie-giessen-gmbh-rietstrasse-25-8700-kusnacht-kanton"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-29T14:41:46.601Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
