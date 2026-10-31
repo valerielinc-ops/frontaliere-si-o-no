@@ -577,6 +577,24 @@ describe('FAQ locale guard — verdict per coppia', () => {
     expect(wrongLocalePair(translated, 'en', sourceFaq)).toBe(null);
   });
 
+  it('rifiuta una paraphrase italiana con una sola località anche sotto la soglia funzionale', () => {
+    const paraphrase = [{
+      q: 'Come si richiede il permesso di lavoro a Lugano?',
+      a: 'Bisogna presentare i documenti richiesti allo sportello competente per la richiesta.',
+    }];
+    const italianSource = [{
+      q: 'Come ottenere il permesso di lavoro a Lugano?',
+      a: 'È necessario presentare i documenti richiesti allo sportello competente per la domanda.',
+    }];
+
+    expect(wrongLocalePair(paraphrase, 'en', italianSource)).toMatchObject({
+      index: 0,
+      detected: 'it',
+      via: 'lingua',
+      sourceFunctionalWordHits: 0,
+    });
+  });
+
   it('rifiuta la lingua sorgente quando supera la soglia funzionale misurata', () => {
     const untranslated = [{
       q: 'Quali sono le condizioni previste dalla normativa?',
