@@ -113,6 +113,43 @@ describe('packages/articles/engine/rssFeeds', () => {
     expect(sanitized).not.toContain('nav:');
   });
 
+  it('drops an article withdrawn from the index from every feed, and only that one', () => {
+    const root = makeFixture();
+    const section = RSS_SECTIONS[0];
+    const render = (extra = {}) => buildSectionFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      section,
+      registry: REGISTRY,
+      layout: LAYOUT,
+      ...extra,
+    });
+    const all = render().feeds.map(([, xml]) => xml).join('');
+    expect(all).toContain('alpha-it');
+    expect(all).toContain('beta-it');
+
+    const explicit = render({ indexExclusions: new Set([`${section.id}|alpha`]) });
+    const explicitXml = explicit.feeds.map(([, xml]) => xml).join('');
+    expect(explicitXml).not.toContain('alpha-it');
+    expect(explicitXml).toContain('beta-it');
+
+    // Stesso id in un'altra sezione: la chiave e' la coppia, non il solo id.
+    const otherSection = render({ indexExclusions: new Set(['svizzera|alpha']) });
+    expect(otherSection.feeds.map(([, xml]) => xml).join('')).toContain('alpha-it');
+
+    fs.writeFileSync(
+      path.join(root, 'article-index-exclusions.json'),
+      JSON.stringify({ excluded: [{ section: section.id, id: 'beta' }] }),
+    );
+    fs.mkdirSync(path.join(root, 'content'), { recursive: true });
+    fs.renameSync(path.join(root, 'article-index-exclusions.json'), path.join(root, 'content', 'article-index-exclusions.json'));
+    const fromLedger = render().feeds.map(([, xml]) => xml).join('');
+    expect(fromLedger).toContain('alpha-it');
+    expect(fromLedger).not.toContain('beta-it');
+  });
+
   it('reads the corpus from the layout it is given, not a hardcoded site path', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
