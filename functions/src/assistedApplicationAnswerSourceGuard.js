@@ -46,8 +46,8 @@ export function createAnswerSourceGuard({ db, orderId, order, flow, draft, intak
   add(orderRef.collection('automation').doc('intake'), intake, value => value ?? null);
   const expected = [...dependencies.values()].sort((a, b) => a.ref.path.localeCompare(b.ref.path));
   const expectedCounterContext = canonicalQuestionJson(qualificationCounterContext({ order, flow, intake }));
-  // At most 80 distinct evidence sources, three documents each, plus the current context and profile.
-  if (expected.length > 245) throw evidenceSourceChanged();
+  // At most 80 distinct evidence sources, four documents each, plus the current context and profile.
+  if (expected.length > 325) throw evidenceSourceChanged();
   const startedAt = Date.now();
   return Object.freeze({
     fingerprint: createHash('sha256').update(canonicalQuestionJson({ dependencies: expected.map(dep => ({ path: dep.ref.path, expected: dep.expected })), counterContext: expectedCounterContext })).digest('hex'),

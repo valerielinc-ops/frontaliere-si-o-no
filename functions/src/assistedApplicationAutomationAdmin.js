@@ -526,10 +526,11 @@ const FILL_KIT_STATES = new Set(['owner_takeover']);
  * tailored one unless they chose their original.
  */
 async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs = Date.now() } = {}) {
-  const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
+  const [orderSnapshot, draftSnapshot, flowSnapshot, intakeSnapshot] = await Promise.all([
     orderRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
     flowRefFor(db, orderId).get(),
+    orderRefFor(db, orderId).collection('automation').doc('intake').get(),
   ]);
   const flow = flowSnapshot.data() || {};
   const draft = draftSnapshot.data() || {};
@@ -565,7 +566,7 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     order,
     draft,
     flow,
-    localAnswerEvidence: localAnswerEvidence({ orderId, order, flow, draft, nowMs }),
+    localAnswerEvidence: localAnswerEvidence({ orderId, order, flow, draft, intake: intakeSnapshot.data() || null, nowMs }),
     documents: { cv: cvUrl ? { url: cvUrl, extension: cv.extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
 }

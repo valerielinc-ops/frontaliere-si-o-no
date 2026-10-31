@@ -1,3 +1,4 @@
+import { qualificationCounterContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 import { isConsentRefusal } from './lib/applicationConsent.js';
 import { localAnswerEvidence, sameAnswerMaterial, answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
 import { createAnswerSourceGuard } from './assistedApplicationAnswerSourceGuard.js';
@@ -21,6 +22,15 @@ const canonical = value => Array.isArray(value) ? value.map(canonical) : value &
   ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, item]) => [key, canonical(item)])) : value;
 const serialized = value => JSON.stringify(canonical(value));
 const same = (a, b) => serialized(a) === serialized(b);
+function groupCounterContexts(entries) {
+  const groups = new Map();
+  for (const entry of entries) {
+    const key = serialized([entry.orderId, entry.round, entry.confirmedHash, entry.currentHash]);
+    if (!groups.has(key)) groups.set(key, { ...entry, answerIds: [] });
+    groups.get(key).answerIds.push(...entry.answerIds);
+  }
+  return [...groups.values()].map(entry => ({ ...entry, answerIds: [...new Set(entry.answerIds)].sort() }));
+}
 const PRIVACY = /\b(?:privacy|datenschutz|confidentialite|consent\w*|consens\w*|einwillig\w*|zustimm\w*|einverstanden|speicher\w*|agree|accept\w*|accett\w*|autorizz\w*|authoriz\w*|permission|marketing|newsletter|data processing|trattamento|traitement|verarbeitung|terms|conditions|condizioni)\b/;
 const FACT_QUESTION = /^(?:do you (?:hold|have|possess)|have you|how many|what is your|what are your|which\b.{0,80}\bdo you (?:hold|have)|hai\b|possiedi\b|qual(?:e|i| e)\b|quanti\b|da quanti\b|verfugen sie\b|haben sie\b|besitzen sie\b|welche\b|wie viele\b|avez vous\b|possedez vous\b|quel(?:le|s|les)?\b|combien\b)/;
 const LANGUAGE_QUESTION = /^(?:what is your|what are your|how would you describe your|is your|do you speak|can you speak|qual e il tuo|qual e la tua|parli|conosci|wie ist ihr|wie ist dein|wie sind ihre|welches niveau|sprechen sie|quel est votre|parlez vous)\b/;
@@ -83,7 +93,7 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, prev
     if (old?.provenance?.confirmedAt === nowMs && (same(old.answer, answer) || old.cleared && !hasAnswer(answer))) continue;
     const receipt = confirmations?.[raw.id];
     const source = { ...provenance({ actor, order, orderId, round, nowMs }),
-      ...(receipt ? { confirmationId: receipt.id, contractHash: receipt.contractHash, cvHash: receipt.provenance.cvHash } : {}) };
+      ...(receipt ? { confirmationId: receipt.id, contractHash: receipt.contractHash, cvHash: receipt.provenance.cvHash, sourceCounterHash: receipt.provenance.sourceCounterHash } : {}) };
     const question = descriptor(raw); const policy = question && semantics(question, answer);
     const conflict = old?.provenance?.confirmedAt === nowMs
       || group.some(q => !same(changed[q.id], answer) || !same(descriptor(q), question));
@@ -125,15 +135,15 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
   const sources = new Map();
   await Promise.all([...new Set(candidates.map(record => record.provenance.orderId))].map(async orderId => {
     const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
-    const [order, flow, draft] = await Promise.all([getDocument(ref), getDocument(ref.collection('automation').doc('flow')), getDocument(ref.collection('ai_drafts').doc('current'))]);
-    sources.set(orderId, { order: order.data(), flow: flow.data(), draft: draft.data() });
+    const [order, flow, draft, intake] = await Promise.all([getDocument(ref), getDocument(ref.collection('automation').doc('flow')), getDocument(ref.collection('ai_drafts').doc('current')), getDocument(ref.collection('automation').doc('intake'))]);
+    sources.set(orderId, { order: order.data(), flow: flow.data(), draft: draft.data(), intake: intake.data() || null });
   }));
   const verified = candidates.filter(record => {
     const source = sources.get(record.provenance.orderId); const current = source?.draft?.questions?.find(question => question.id === record.question.id);
-    const receipt = localAnswerEvidence({ orderId: record.provenance.orderId, order: source?.order, flow: source?.flow, draft: source?.draft, nowMs })
+    const receipt = localAnswerEvidence({ orderId: record.provenance.orderId, order: source?.order, flow: source?.flow, draft: source?.draft, intake: source?.intake, nowMs })
       .find(item => item.id === record.provenance.confirmationId);
     return receipt && sameAnswerMaterial(receipt.question, record.question) && sameAnswerMaterial(receipt.answer, record.answer)
-      && receipt.contractHash === record.provenance.contractHash && receipt.provenance.cvHash === record.provenance.cvHash
+      && receipt.contractHash === record.provenance.contractHash && receipt.provenance.cvHash === record.provenance.cvHash && receipt.provenance.sourceCounterHash === record.provenance.sourceCounterHash
       && source?.order?.userId === userId && retained(source.order, nowMs) && !source.flow?.retentionPurgedAt
       && Number(source.flow?.round) === record.provenance.round && Number(source.draft?.round) === record.provenance.round
       && current && same(descriptor(current), record.question) && same(source.flow?.answers?.[record.question.id], record.answer)
@@ -143,8 +153,21 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
     const evidence = verified.filter(record => retained(sources.get(record.provenance.orderId)?.order, nowMs + Math.max(0, Date.now() - startedAt))
       && (record.scope === 'candidate' || samePosting(record.provenance, job)) && (purpose === 'form' || record.category !== 'form_preference'))
       .sort((a, b) => a.key.localeCompare(b.key));
-    return { answers: Object.fromEntries(evidence.map(record => [record.key, record.answer])), answerEvidence: evidence,
-      fingerprint: serialized({ version: ANSWER_EVIDENCE_VERSION, legacy, evidence }) };
+    const counterSources = new Map();
+    const answerCounterContext = groupCounterContexts(evidence.map(record => {
+      const source = sources.get(record.provenance.orderId);
+      if (!counterSources.has(record.provenance.orderId)) {
+        const context = qualificationCounterContext({ order: source.order, flow: source.flow, intake: source.intake });
+        counterSources.set(record.provenance.orderId, { context, currentHash: qualificationCounterContextHash(context) });
+      }
+      const { context, currentHash } = counterSources.get(record.provenance.orderId);
+      return { answerIds: [record.id], orderId: record.provenance.orderId, round: record.provenance.round,
+        confirmedHash: record.provenance.sourceCounterHash, currentHash,
+        changedSinceConfirmation: currentHash !== record.provenance.sourceCounterHash, context };
+    }));
+    return { answers: Object.fromEntries(evidence.map(record => [record.key, record.answer])), answerEvidence: evidence, answerCounterContext,
+      fingerprint: serialized({ version: ANSWER_EVIDENCE_VERSION, legacy, evidence,
+        counterSources: answerCounterContext.map(({ answerIds, confirmedHash, currentHash }) => ({ answerIds, confirmedHash, currentHash })) }) };
   };
 }
 
@@ -155,7 +178,11 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   const sources = new Map();
   const getDocument = async ref => { const snapshot = await ref.get(); sources.set(ref.path, { ref, data: snapshot.data() }); return snapshot; };
   const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs, getDocument });
-  const local = orderId ? localAnswerEvidence({ orderId, order, flow, draft, nowMs }) : [];
+  const local = orderId ? localAnswerEvidence({ orderId, order, flow, draft, intake, nowMs }) : [];
+  const localContext = qualificationCounterContext({ order, flow, intake });
+  const localHash = qualificationCounterContextHash(localContext);
+  const localCounterContext = local.map(record => ({ answerIds: [record.id], orderId, round: record.provenance.round,
+    confirmedHash: record.provenance.sourceCounterHash, currentHash: localHash, changedSinceConfirmation: record.sourceCounterChanged, context: localContext }));
   const verifiedLocalAnswers = Object.fromEntries(local.map(record => [record.question.id, record.answer]));
   // Unattested current raw values remain on the DB snapshot for CAS. Only explicit No is retained as a conservative veto.
   const refusals = Object.fromEntries(Object.entries(flow.answers || {}).filter(([, value]) => isConsentRefusal(value)));
@@ -163,6 +190,7 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   return { flow: { ...flow, answers: safeAnswers, questionAnswers: { ...contextFor(order, { purpose: 'form' }).answers,
     ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: verifiedLocalAnswers }) } },
     answerEvidence: contextFor(order).answerEvidence, localAnswerEvidence: local,
+    answerCounterContext: groupCounterContexts([...contextFor(order).answerCounterContext, ...localCounterContext]),
     answerSourceGuard: orderId ? createAnswerSourceGuard({ db, orderId, order, flow, draft, intake, profileRef, profileRecord, sources: [...sources.values()], nowMs }) : null };
 }
 

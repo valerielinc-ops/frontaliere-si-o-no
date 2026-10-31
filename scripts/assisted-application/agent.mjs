@@ -238,7 +238,7 @@ async function main() {
       const confirmed = await loadRunnerAnswerContext({ db, orderId, order, flow, draft: previousDraft, intake: intakeSnapshot.exists ? intakeSnapshot.data() : null });
       maskValues([...confirmed.answerEvidence, ...confirmed.localAnswerEvidence].map(record => record.answer));
       const draft = await buildDraft({
-        db, order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, localAnswerEvidence: confirmed.localAnswerEvidence, answerSourceGuard: confirmed.answerSourceGuard, previousDraft, cvBuffer, cvType, bucket, runKey,
+        db, order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, answerCounterContext: confirmed.answerCounterContext, localAnswerEvidence: confirmed.localAnswerEvidence, answerSourceGuard: confirmed.answerSourceGuard, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
         // A portal form read ahead: its questions and required file fields reach the first review.
@@ -282,7 +282,7 @@ async function main() {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
-      order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, localAnswerEvidence: confirmed.localAnswerEvidence, answerSourceGuard: confirmed.answerSourceGuard, draft: submitDraft, intake: intakeSnapshot.exists ? intakeSnapshot.data() : null, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
+      order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, answerCounterContext: confirmed.answerCounterContext, localAnswerEvidence: confirmed.localAnswerEvidence, answerSourceGuard: confirmed.answerSourceGuard, draft: submitDraft, intake: intakeSnapshot.exists ? intakeSnapshot.data() : null, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
       submissionGuard: dryRun ? null : submissionGuard(db, orderId, round, { answerSourceGuard: confirmed.answerSourceGuard }),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,

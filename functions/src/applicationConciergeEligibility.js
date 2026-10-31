@@ -118,7 +118,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   let analyses = 0;
   return async (job) => {
     job = normalizeConciergeJobRecord(job);
-    const { answers, answerEvidence, fingerprint: answerContext } = answerContextFor(job);
+    const { answers, answerEvidence, answerCounterContext, fingerprint: answerContext } = answerContextFor(job);
     const answerHash = eligibilityHash(answerContext);
     const normalizedProfile = profileForEligibility(profile);
     if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
@@ -133,7 +133,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     if (cached?.fingerprint === fingerprint) return { ...cached.result, fingerprint, cacheId };
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
-    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, answerEvidence, locale: service.locale, sourceText: cvText, generate,
+    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, answerEvidence, answerCounterContext, locale: service.locale, sourceText: cvText, generate,
       readPosting: async () => posting });
     const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, ...result } = analysis;
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
@@ -158,12 +158,13 @@ export async function preflightExistingCvEligibility({ db, userId, job, generate
     return { status: 'unverified', reason: 'profile_not_ready' };
   }
   const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord: record, userId });
-  const { answers, answerEvidence } = contextFor(normalizeConciergeJobRecord(job));
+  const { answers, answerEvidence, answerCounterContext } = contextFor(normalizeConciergeJobRecord(job));
   const result = await evaluateConciergePosting({
     job,
     profile: record.profile,
     answers,
     answerEvidence,
+    answerCounterContext,
     locale: record.locale || 'it',
     generate,
     readPosting,

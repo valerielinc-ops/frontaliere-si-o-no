@@ -101,9 +101,9 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     answers: kitAnswers,
     // Only current order-local receipts, verified by the server loader; never the account-wide ledger.
     localAnswerEvidence: localAnswerEvidence.map(record => ({
-      id: record.id, version: record.version, contractHash: record.contractHash, question: record.question, answer: record.answer,
+      id: record.id, version: record.version, sourceCounterChanged: record.sourceCounterChanged, contractHash: record.contractHash, question: record.question, answer: record.answer,
       provenance: { actor: record.provenance.actor, orderId: record.provenance.orderId, round: record.provenance.round,
-        confirmedAt: record.provenance.confirmedAt, cvHash: record.provenance.cvHash },
+        confirmedAt: record.provenance.confirmedAt, cvHash: record.provenance.cvHash, sourceCounterHash: record.provenance.sourceCounterHash },
     })),
     texts: {
       coverLetter: text(draft.coverLetter?.text, 8000),

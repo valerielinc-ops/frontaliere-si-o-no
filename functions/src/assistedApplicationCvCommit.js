@@ -1,3 +1,4 @@
+import { qualificationCounterContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 /**
  * A rebuilt tailored CV published with the change that prints it, in one
  * guarded commit. The review page's writers (the photo, the line choices, the
@@ -119,33 +120,38 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   if (!answers || !Object.keys(answers).length) throw new CvCommitError('no_valid_answers', 400);
   const startedAt = Date.now();
   const currentTime = () => nowMs + Math.max(0, Date.now() - startedAt);
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  const flowRef = flowRefFor(db, orderId);
+  const draftRef = draftRefFor(db, orderId);
+  const intakeRef = orderRef.collection('automation').doc('intake');
+  const intake = (await intakeRef.get()).data() || null;
+  const mergedAnswers = { ...(flow.answers || {}), ...answers };
+  const questionAnswers = rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: mergedAnswers,
+    previous: flow.questionAnswers || {}, changed: answers });
+  const candidateFlow = { ...flow, answers: mergedAnswers, questionAnswers };
+  const beforeCounterHash = qualificationCounterContextHash(qualificationCounterContext({ order, flow, intake }));
+  const sourceCounterHash = qualificationCounterContextHash(qualificationCounterContext({ order, flow: candidateFlow, intake }));
   let confirmation;
   try {
-    confirmation = planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts, actor: answerActor, nowMs });
+    confirmation = planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts, actor: answerActor, nowMs, sourceCounterHash, intake });
   } catch (error) {
     if (error instanceof AnswerConfirmationError) throw new CvCommitError(error.code, error.status, error.details);
     throw error;
   }
   if (confirmation.reviewRequired && requireAnswerContracts) throw new CvCommitError('answer_contract_required', 409,
     { reviewRequired: true, answerConfirmation: { status: 'review_required', authority: false } });
-  const mergedAnswers = { ...(flow.answers || {}), ...answers };
-  const questionAnswers = rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: mergedAnswers,
-    previous: flow.questionAnswers || {}, changed: answers });
-  const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers, answerConfirmations: confirmation.confirmations };
-  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
-  const flowRef = flowRefFor(db, orderId);
-  const draftRef = draftRefFor(db, orderId);
+  const nextFlow = { ...candidateFlow, answerConfirmations: confirmation.confirmations };
   const persistCandidateQuestionAnswers = async () => {
     const userId = String(order?.userId || '').trim();
     if (!userId || confirmation.reviewRequired) return;
     const profileRef = db.collection('user_cv_profiles').doc(userId);
     try {
       await db.runTransaction(async transaction => {
-        const [snapshot, sourceOrder, sourceFlow, sourceDraft] = await Promise.all([
-          transaction.get(profileRef), transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
+        const [snapshot, sourceOrder, sourceFlow, sourceDraft, sourceIntake] = await Promise.all([
+          transaction.get(profileRef), transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef), transaction.get(intakeRef),
         ]);
         if (!snapshot.exists || !sourceOrder.exists || !sourceFlow.exists || !sourceDraft.exists || !answerSourceRetained(sourceOrder.data(), currentTime())) return;
-        const local = localAnswerEvidence({ orderId, order: sourceOrder.data(), flow: sourceFlow.data(), draft: sourceDraft.data(), nowMs: currentTime() });
+        const local = localAnswerEvidence({ orderId, order: sourceOrder.data(), flow: sourceFlow.data(), draft: sourceDraft.data(), intake: sourceIntake.data() || null, nowMs: currentTime() });
         const confirmed = Object.fromEntries(local.map(record => [record.question.id, record]));
         // A late mirror cannot resurrect a receipt that a later save cleared/replaced.
         const changed = Object.fromEntries(Object.entries(answers).filter(([id]) =>
@@ -183,9 +189,10 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   let committed;
   try {
     committed = await db.runTransaction(async transaction => {
-      const [os, fs, ds] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef)]);
+      const [os, fs, ds, ins] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef), transaction.get(intakeRef)]);
       if (!os.exists || !fs.exists || !ds.exists) return false;
       const currentFlow = fs.data(); const currentDraft = ds.data();
+      if (qualificationCounterContextHash(qualificationCounterContext({ order: os.data(), flow: currentFlow, intake: ins.data() || null })) !== beforeCounterHash) return false;
       const contractUnchanged = sameAnswerMaterial(answerContractsFor({ orderId, order, flow, draft }),
         answerContractsFor({ orderId, order: os.data(), flow: currentFlow, draft: currentDraft }));
       if (!contractUnchanged) throw new AnswerConfirmationError('answer_contract_changed');
@@ -194,7 +201,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       if (!unchanged) return false;
       // Revalidate source retention and all supplied contracts inside the write transaction.
       if (!answerSourceRetained(os.data(), currentTime())) throw new AnswerConfirmationError('answer_contract_changed');
-      planAnswerConfirmations({ orderId, order: os.data(), flow: currentFlow, draft: currentDraft, answers, answerContracts, actor: answerActor, nowMs });
+      planAnswerConfirmations({ orderId, order: os.data(), flow: currentFlow, draft: currentDraft, answers, answerContracts, actor: answerActor, nowMs, sourceCounterHash, intake: ins.data() || null });
       transaction.set(flowRef, { answers: mergedAnswers, questionAnswers, answerConfirmations: confirmation.confirmations,
         answerReviewRequired: confirmation.reviewRequired, updatedAt: nowMs },
       { mergeFields: ['answers', 'questionAnswers', 'answerConfirmations', 'answerReviewRequired', 'updatedAt'] });

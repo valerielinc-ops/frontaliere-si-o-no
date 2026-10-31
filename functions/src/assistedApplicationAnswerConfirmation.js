@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { answerQuestionDescriptor, canonicalQuestionJson } from './lib/applicationQuestionContract.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
+import { qualificationCounterContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 
 export const ANSWER_CONFIRMATION_VERSION = 'native-answer-confirmation-v1';
 export const ANSWER_CONTRACT_REQUIRED_RC_KEY = 'ASSISTED_APPLICATION_ANSWER_CONTRACT_REQUIRED';
@@ -68,7 +69,8 @@ export function currentAnswerReviewRequired(flow = {}, draft = {}) {
 }
 
 /** Missing hashes are provisional; a supplied stale hash never confirms a changed question. */
-export function planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts = {}, actor, nowMs }) {
+export function planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts = {}, actor, nowMs, intake = null,
+  sourceCounterHash = qualificationCounterContextHash(qualificationCounterContext({ order, flow, intake })) }) {
   if (!['candidate', 'owner'].includes(actor) || !answerSourceRetained(order, nowMs)
     || flow.retentionPurgedAt != null || Number(draft?.round) !== Number(flow.round || 1)) throw new AnswerConfirmationError('answer_contract_changed');
   const contracts = answerContractsFor({ orderId, order, flow, draft });
@@ -81,7 +83,7 @@ export function planAnswerConfirmations({ orderId, order, flow, draft, answers, 
     if (!question || !contracts[id] || supplied != null && supplied !== contracts[id]) throw new AnswerConfirmationError('answer_contract_changed');
     if (Number(previous[id]?.provenance?.confirmedAt) > nowMs) throw new AnswerConfirmationError('answer_contract_changed');
     const provenance = { actor, orderId, userId: String(order.userId || ''), round: Number(flow.round || 1), confirmedAt: nowMs,
-      cvHash: confirmedCvHash(order, draft), jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || '') };
+      cvHash: confirmedCvHash(order, draft), sourceCounterHash, jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || '') };
     const checked = validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) });
     if (supplied && hasAnswer(answer) && !checked.ok) throw new AnswerConfirmationError('invalid_answers', 400);
     const valid = Boolean(supplied) && hasAnswer(answer) && checked.ok;
@@ -94,17 +96,20 @@ export function planAnswerConfirmations({ orderId, order, flow, draft, answers, 
 }
 
 /** Recheck the current pointer, raw value, native contract and source retention. */
-export function localAnswerEvidence({ orderId, order, flow, draft, nowMs = Date.now() }) {
+export function localAnswerEvidence({ orderId, order, flow, draft, intake = null, nowMs = Date.now() }) {
   if (!answerSourceRetained(order, nowMs) || flow?.retentionPurgedAt != null) return [];
   const contracts = answerContractsFor({ orderId, order, flow, draft });
+  const currentSourceCounterHash = qualificationCounterContextHash(qualificationCounterContext({ order, flow, intake }));
   return Object.entries(object(flow?.answerConfirmations)).slice(0, 80).flatMap(([id, record]) => {
     const source = record?.provenance;
     if (!record || record.cleared || record.version !== ANSWER_CONFIRMATION_VERSION || !/^confirmation-[a-f0-9]{64}$/.test(record.id || '')
       || source?.orderId !== orderId || source.userId !== String(order.userId || '') || source.round !== Number(flow.round || 1)
+      || !/^[a-f0-9]{64}$/.test(source.sourceCounterHash || '')
       || !['candidate', 'owner'].includes(source.actor) || !Number.isFinite(source.confirmedAt) || source.confirmedAt <= 0 || source.confirmedAt > nowMs
       || record.contractHash !== contracts[id] || !sameAnswerMaterial(record.answer, flow.answers?.[id])
       || !sameAnswerMaterial(record.question, answerQuestionDescriptor(draft?.questions?.find(q => q?.id === id)))
       || !validateAnswer(record.answer, record.question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok) return [];
-    return [{ ...record, category: 'local_answer', scope: 'job', unit: ['yes_no', 'checkbox'].includes(record.question.type) ? 'boolean' : 'question_specific_value' }];
+    return [{ ...record, sourceCounterChanged: source.sourceCounterHash !== currentSourceCounterHash,
+      category: 'local_answer', scope: 'job', unit: ['yes_no', 'checkbox'].includes(record.question.type) ? 'boolean' : 'question_specific_value' }];
   });
 }

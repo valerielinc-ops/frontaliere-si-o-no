@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { answerContractRequired, answerContractsFor, localAnswerEvidence, currentAnswerReviewRequired } from '../functions/src/assistedApplicationAnswerConfirmation.js';
-import { loadRunnerAnswerContext, purgeCandidateAnswerEvidence, rememberCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
+import { loadCandidateAnswerEvidence, loadRunnerAnswerContext, purgeCandidateAnswerEvidence, rememberCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
 import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from '../functions/src/assistedApplicationCandidateEdits.js';
 vi.mock('../functions/src/assistedApplicationAutomation.js', () => ({
   flowRefFor: (db: any, id: string) => db.collection('assisted_applications').doc(id).collection('automation').doc('flow'),
@@ -155,6 +155,25 @@ describe('question confirmation protocol', () => {
 });
 
 describe('private final-send source fence', () => {
+  it.each(['order_note', 'flow_note', 'feedback', 'correction', 'intake'])('keeps the historical assertion and fingerprints current origin %s before bootstrap', async change => {
+    const f = fixture(); await f.save({ english: 'C1' });
+    const load = async () => (await loadCandidateAnswerEvidence({ db: f.db, profileRecord: f.read('user_cv_profiles/candidate'), userId: 'candidate', nowMs: now + 10 }))({ id: 'child', url: 'https://example.test/child/' });
+    const before = await load(); expect(before.answerCounterContext[0].changedSinceConfirmation).toBe(false);
+    const correction = 'Correction: my current English is A2. ' + 'Full original note. '.repeat(30);
+    if (change === 'order_note') f.read('assisted_applications/source').candidateNotes = correction;
+    if (change === 'flow_note') f.read('assisted_applications/source/automation/flow').candidateNotes = correction;
+    if (change === 'feedback') f.read('assisted_applications/source/automation/flow').feedback = [{ round: 1, text: correction }];
+    if (change === 'correction') f.read('assisted_applications/source/automation/flow').formOverrides = { other: correction };
+    if (change === 'intake') f.docs.set('assisted_applications/source/automation/intake', { emailNotes: correction });
+    const current = await load();
+    expect(current.answerEvidence[0].answer).toBe('C1'); // Never silently fall back to old CV A2 / knownMissing.
+    expect(current.answerCounterContext[0]).toMatchObject({ answerIds: [current.answerEvidence[0].id], changedSinceConfirmation: true });
+    expect(JSON.stringify(current.answerCounterContext[0].context)).toContain(correction);
+    expect(current.fingerprint).not.toBe(before.fingerprint);
+    await f.save({ english: 'C1' }, { nowMs: now + 20 });
+    const confirmed = await loadCandidateAnswerEvidence({ db: f.db, profileRecord: f.read('user_cv_profiles/candidate'), userId: 'candidate', nowMs: now + 21 });
+    expect(confirmed({ id: 'child', url: 'https://example.test/child/' }).answerCounterContext[0].changedSinceConfirmation).toBe(false);
+  });
   it.each([false, 0, 'No', '0', 'Non accetto', 'Ich stimme nicht', 'Je refuse'])('retains the canonical legacy refusal %s only as a local veto', async refusal => {
     const f = fixture(); const raw = { ...f.input().flow, answers: { legacy_consent: refusal, legacy_yes: 'Yes' } };
     const context = await loadRunnerAnswerContext({ db: f.db, orderId: 'source', order: f.input().order, flow: raw, draft: f.input().draft, nowMs: now });
