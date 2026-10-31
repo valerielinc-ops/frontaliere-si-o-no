@@ -13,6 +13,13 @@ const booleanValue = value => {
   if (['no', 'false', 'nein', 'non'].includes(text)) return false;
   return null;
 };
+function nativeOptionScalar(value, question) {
+  if (typeof value === 'boolean' || !Array.isArray(question?.optionValues)) return value;
+  const text = normalized(value);
+  const matches = question.optionValues.filter(option => option && (normalized(option.label) === text
+    || (Object.hasOwn(option, 'value') && normalized(option.value) === text)));
+  return matches.length === 1 && typeof matches[0].label === 'string' ? matches[0].label : value;
+}
 const cefr = value => /^[ABC][12]$/u.test(String(value ?? '').trim().toUpperCase()) ? String(value).trim().toUpperCase() : '';
 const questionText = question => String(question?.applicationQuestion || question?.question || '');
 function originalQuestion(record) {
@@ -24,11 +31,14 @@ function originalQuestion(record) {
 }
 const context = question => [question?.context, question?.section, question?.autocomplete].map(normalized).join('\n');
 
-const ownershipKeys = ['ownConsentText', 'ownConsentOwnerKey', 'metadataComplete', 'questionOwned', 'ownershipUnknown'];
+const ownershipKeys = ['ownConsentText', 'ownConsentQuestionLabels', 'ownConsentLinks', 'ownConsentOwnerKey',
+  'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'consentOwnershipUnknown',
+  'metadataComplete', 'questionOwned', 'ownershipUnknown'];
 function ownedContractState(question) {
   const address = addressContextContract(question);
   if (address === null || address?.unknown || question?.ownershipUnknown === true
-    || question?.metadataComplete === false || question?.questionOwned === false) return null;
+    || question?.metadataComplete === false || question?.questionOwned === false || question?.consentOwnershipUnknown === true
+    || question?.ownConsentMetadataComplete === false || question?.ownConsentQuestionOwned === false) return null;
   return { address, flags: Object.fromEntries(ownershipKeys.filter(key => Object.hasOwn(question || {}, key)).map(key => [key, question[key]])) };
 }
 export function sameNativeQuestion(claim, record) {
@@ -91,9 +101,10 @@ export function typedNativeAnswerConstraint(claim, record) {
   }
   if (!exact) return 'unrelated';
   if (record.category === 'language' && cefr(actual) && cefr(claim.proposedAnswer)) return cefr(actual) === cefr(claim.proposedAnswer) ? 'supports' : 'contradicts';
+  const actualScalar = nativeOptionScalar(actual, original); const proposedScalar = nativeOptionScalar(claim.proposedAnswer, native);
   if (record.unit === 'boolean' || typeof actual === 'boolean'
-    || (booleanValue(actual) !== null && booleanValue(claim.proposedAnswer) !== null)) {
-    const stated = booleanValue(actual); const proposed = booleanValue(claim.proposedAnswer);
+    || (booleanValue(actualScalar) !== null && booleanValue(proposedScalar) !== null)) {
+    const stated = booleanValue(actualScalar); const proposed = booleanValue(proposedScalar);
     if (stated === null || proposed === null) return 'unknown';
     return stated === proposed ? 'supports' : 'contradicts';
   }

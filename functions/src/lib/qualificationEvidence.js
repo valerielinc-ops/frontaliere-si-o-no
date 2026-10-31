@@ -40,6 +40,8 @@ Every AND part must be supported; an OR alternative may suffice. Do not invent a
 Return verdict supported/unsupported/uncertain and one allowed reason; supported may use only explicit_fact, documented_behavior or relevant_role_or_tenure.`;
 export const EVIDENCE_ENTAILMENT_PROMPT_HASH = hash(EVIDENCE_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16);
 
+const completeAnswerQuestion = record => record?.question?.question || (record?.category === 'local_answer' && record.question?.originalNativeContract?.question);
+
 function publicAnswer(record) {
   record = record || {};
   return { id: record.id, version: record.version, key: record.key, question: record.question, answer: record.answer,
@@ -48,12 +50,19 @@ function publicAnswer(record) {
 }
 
 /** Only server-attested Q/A units are citable; bare answer-map values are context. */
-export function qualificationSources({ sourceText = '', profile = {}, answers = {}, answerEvidence = [], purpose = 'qualification' }) {
+export function qualificationSources({ sourceText = '', profile = {}, answers = {}, answerEvidence = [], localAnswerEvidence = [], purpose = 'qualification' }) {
+  const local = purpose === 'native_form' && Array.isArray(localAnswerEvidence) ? localAnswerEvidence.filter(record => record?.category === 'local_answer'
+    && record.version === 'native-answer-confirmation-v1' && record.scope === 'job'
+    && record.question?.originalNativeContract?.question && ['candidate', 'owner'].includes(record.provenance?.actor)) : [];
   const records = Array.isArray(answerEvidence) ? answerEvidence.filter(record => record?.category !== 'form_preference' || purpose === 'native_form').map(record => structuredClone(publicAnswer(record))) : [];
+  const localRecords = local.map(record => structuredClone(publicAnswer(record)));
   const documents = [{ key: sourceText ? 'cv' : 'profile_projection', kind: sourceText ? 'cv_original' : 'profile_projection',
     text: sourceText || JSON.stringify(profile) }];
   for (const [index, record] of records.entries()) documents.push({ key: `answer_${index}`, kind: 'candidate_answer',
     text: JSON.stringify(record), answerRecord: record });
+  for (const [index, record] of localRecords.entries()) documents.push({ key: `local_answer_${index}`, kind: 'candidate_answer',
+    text: JSON.stringify(record), answerRecord: record, authority: 'native_local',
+    localBinding: { orderId: local[index].provenance?.orderId, round: local[index].provenance?.round } });
   const citations = sourceCitations(Object.fromEntries(documents.map(doc => [doc.key, doc.text])));
   const entries = new Map();
   for (const document of documents) {
@@ -69,7 +78,7 @@ export function qualificationSources({ sourceText = '', profile = {}, answers = 
     for (const [index, excerpt] of excerpts.entries()) entries.set(excerpt.id, {
       id: excerpt.id, kind: document.kind, documentHash, quote: excerpt.text,
       position: { ordinal: index, block: blocks[index], blockSize: blockSizes.get(blocks[index]) || 0 },
-      ...(document.answerRecord ? { answerRecord: document.answerRecord }
+      ...(document.answerRecord ? { answerRecord: document.answerRecord, ...(document.authority ? { authority: document.authority, localBinding: document.localBinding } : {}) }
         : { context: excerpts.slice(Math.max(0, index - 1), index + 2).map(entry => entry.text).join('\n') }),
     });
   }
@@ -96,7 +105,7 @@ export function originalCvLanguageProfile({ profile = {}, cvHash, sourceText }) 
 /** Current original CV and attested counter-declarations, never raw projection fields. */
 export function qualificationSourcesFingerprint(sources) {
   return hash(JSON.stringify(canonical((sources?.evidenceCatalog?.() || []).map(source => ({
-    id: source.id, kind: source.kind, documentHash: source.documentHash, quote: source.quote, position: source.position, answerRecord: source.answerRecord,
+    id: source.id, kind: source.kind, authority: source.authority, localBinding: source.localBinding, documentHash: source.documentHash, quote: source.quote, position: source.position, answerRecord: source.answerRecord,
   })))));
 }
 
@@ -155,11 +164,11 @@ export async function verifyQualificationEvidence({ requirements, match, rawMatc
     try { proof = structuredClone(sources.bind(evidence.evidence, original?.evidence)); } catch { return unknown('source_unbound'); }
     boundProofs.push({ quote: evidence.evidence, id: original?.evidence, hash: hash(JSON.stringify(canonical(proof))) });
     if (!proof || !['cv_original', 'candidate_answer', 'primary_bundle'].includes(proof.kind)) return unknown('source_unbound');
-    if (proof.kind === 'candidate_answer' && (!proof.answerRecord?.question?.question
+    if (proof.kind === 'candidate_answer' && (!completeAnswerQuestion(proof.answerRecord)
       || !['candidate', 'owner'].includes(proof.answerRecord.provenance?.actor))) return unknown('answer_context_missing');
     if (proof.kind === 'primary_bundle' && (!Array.isArray(proof.quotes) || !proof.quotes.length || proof.quotes.length > 3
       || proof.quotes.some(item => !item.quote || !['cv_original', 'candidate_answer'].includes(item.kind)
-        || (item.kind === 'candidate_answer' && (!item.answerRecord?.question?.question
+        || (item.kind === 'candidate_answer' && (!completeAnswerQuestion(item.answerRecord)
           || !['candidate', 'owner'].includes(item.answerRecord.provenance?.actor)))))) return unknown('source_unbound');
     const { context: _unquotedContext, ...selectedProof } = proof;
     claims.push({ index, basis: row.basis, employerQuote: row.quote, candidateAssertion: row.requirement,
@@ -244,22 +253,27 @@ Evaluate the TRUTH OF THE PROPOSED VALUE, not whether the source mentions the qu
 Candidate-answer records: actual answer is authoritative; printed options are never the answer. A2 does not support proposed C1; an actual No does not support proposed Yes. Scope, target, unit and original question must match. Future wishes/training do not establish present ability. Do not infer consent, status or qualifications.
 CV sources: a generic management title does not establish a degree, provider/change processes or analytical ability. Dates establish tenure only with the clearly identified role/domain. Original positions identify the paragraph/ordinal of each source. A role and its dates must both be selected; unselected neighboring text will never reach the adjudicator. All AND conditions must be supported; one OR alternative may suffice.
 Attested declarations and unverifiedContext may contradict older CV text: do not select an unresolved contradicted assertion. Raw notes/corrections never become primary sources. Use empty sourceIds when meaning, scope or coverage cannot be established.`;
-export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-cv-revision1-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
+export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-local-contract1-cv-revision1-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
 
 function nativePrimarySources(sources) {
   const seenAnswers = new Set();
   return (sources?.evidenceCatalog?.() || []).filter(source => {
     if (source.kind === 'cv_original') return true;
-    if (source.kind !== 'candidate_answer' || !source.answerRecord?.question?.question
+    if (source.kind !== 'candidate_answer' || !completeAnswerQuestion(source.answerRecord)
       || !['candidate', 'owner'].includes(source.answerRecord.provenance?.actor) || seenAnswers.has(source.documentHash)) return false;
     seenAnswers.add(source.documentHash);
     return true;
   });
 }
 
+function sameLocalNativeContract(claim, source) {
+  const original = source.answerRecord?.question?.originalNativeContract;
+  return Boolean(original && JSON.stringify(canonical(original)) === JSON.stringify(canonical(claim.nativeFormContract)));
+}
+
 function nativeAssessmentHash({ claims, catalog, scope, unverifiedContext, asOf }) {
   return hash(JSON.stringify(canonical({ version: NATIVE_FORM_ENTAILMENT_VERSION, asOf, claims, scope, unverifiedContext,
-    sources: catalog.map(source => ({ id: source.id, kind: source.kind, documentHash: source.documentHash,
+    sources: catalog.map(source => ({ id: source.id, kind: source.kind, authority: source.authority, localBinding: source.localBinding, documentHash: source.documentHash,
       quote: source.quote, position: source.position, answerRecord: source.answerRecord })) })));
 }
 
@@ -310,6 +324,8 @@ export async function verifyNativeFormAnswers({ claims, sources, generate, scope
     || !Number.isInteger(source.position?.blockSize))) return fail('source_unbound');
   for (const claim of claims) {
     for (const source of catalog.filter(item => item.kind === 'candidate_answer')) {
+      if (source.authority === 'native_local' && (source.localBinding?.orderId !== scope.orderId
+        || source.localBinding?.round !== scope.round || !sameLocalNativeContract(claim, source))) continue;
       const constraint = typedNativeAnswerConstraint(claim, source.answerRecord);
       if (nativeLanguageRevisionConflict(claim, source.answerRecord, scope, catalog, constraint)) return fail('language_revision_unverified');
       if (constraint === 'contradicts') return fail('actual_answer_conflict');
@@ -347,6 +363,8 @@ export async function verifyNativeFormAnswers({ claims, sources, generate, scope
     const proofs = result.sourceIds.map(id => byId.get(id));
     if (proofs.some(source => !source)) return fail('source_unbound');
     for (const source of proofs) {
+      if (source.authority === 'native_local' && (source.localBinding?.orderId !== scope.orderId
+        || source.localBinding?.round !== scope.round || !sameLocalNativeContract(claims[result.index], source))) return fail('local_answer_scope_unverified');
       if (source.kind === 'candidate_answer' && typedNativeAnswerConstraint(claims[result.index], source.answerRecord) !== 'supports') return fail('answer_contract_unverified');
       if (source.kind === 'cv_original' && nativeCvDomainConstraint(claims[result.index], source) === 'unverified') return fail('status_constraint_unverified');
     }
@@ -372,7 +390,7 @@ export async function verifyNativeFormAnswers({ claims, sources, generate, scope
     nativeFormContract: claim.nativeFormContract, proposedAnswer: claim.proposedAnswer })) };
   const bundles = selected.map((proofs, index) => ({ id: `native-bundle-${index}`, kind: 'primary_bundle',
     documentHash: hash(JSON.stringify(proofs.map(source => ({ documentHash: source.documentHash, quote: source.quote, position: source.position })))),
-    quotes: proofs.map(({ context: _unquotedContext, ...source }) => source) }));
+    quotes: proofs.map(({ context: _unquotedContext, localBinding: _privateLocalBinding, ...source }) => source) }));
   const match = { verdict: 'good', matches: bundles.map((bundle, index) => ({ index, status: 'met',
     evidence: JSON.stringify(bundle.quotes.map(source => source.quote)), evidenceUnverified: false })) };
   const proofSources = { verifiedDeclarations: [],

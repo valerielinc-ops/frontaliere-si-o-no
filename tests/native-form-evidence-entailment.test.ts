@@ -291,3 +291,28 @@ describe('blind native form answer evidence selection', () => {
   });
 
 });
+
+
+describe('native-only local candidate receipts', () => {
+  it('uses a genuine guest receipt only for its identical native contract, order and round', async () => {
+    const nativeFormContract = { question: 'Do you hold a degree?', context: 'Education', options: ['Yes', 'No'],
+      optionValues: [{ label: 'Yes', value: '1' }, { label: 'No', value: '0' }] };
+    const receipt = { id: 'local-degree', version: 'native-answer-confirmation-v1', category: 'local_answer', unit: 'boolean', scope: 'job',
+      question: { originalNativeContract: nativeFormContract }, answer: true, provenance: { actor: 'candidate', orderId: 'guest-order', round: 1 } };
+    expect(qualificationSources({ localAnswerEvidence: [receipt] }).evidenceCatalog()).toEqual(expect.not.arrayContaining([expect.objectContaining({ kind: 'candidate_answer' })]));
+    const sources = qualificationSources({ localAnswerEvidence: [receipt], purpose: 'native_form' });
+    const generate = vi.fn(async (_system: string, user: string) => {
+      const payload = JSON.parse(user);
+      return payload.sourceColumns ? { assessments: [{ index: 0, sourceIds: [payload.sources[0][0]] }] }
+        : { assessments: [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'supported', reason: 'explicit_fact' }] };
+    });
+    const input = { sources, generate, scope: { orderId: 'guest-order', round: 1 }, claims: [{ fieldId: 'degree', nativeFormContract, proposedAnswer: '1' }] };
+    expect((await verifyNativeFormAnswers(input)).status).toBe('supported');
+    expect(generate).toHaveBeenCalledTimes(2);
+    expect(JSON.stringify(generate.mock.calls)).not.toContain('guest-order');
+    expect((await verifyNativeFormAnswers({ ...input, scope: { orderId: 'other-order', round: 1 } })).status).toBe('unverified');
+    expect((await verifyNativeFormAnswers({ ...input, scope: { orderId: 'guest-order', round: 2 } })).status).toBe('unverified');
+    expect((await verifyNativeFormAnswers({ ...input, claims: [{ ...input.claims[0], nativeFormContract: { ...nativeFormContract, context: 'Spouse education' } }] })).status).toBe('unverified');
+    expect((await verifyNativeFormAnswers({ ...input, claims: [{ ...input.claims[0], proposedAnswer: '0' }] })).status).toBe('unverified');
+  });
+});
