@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-31T09:21:13.454Z",
+  "generatedAt": "2026-10-31T10:21:56.157Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -177919,8 +177919,8 @@
       "id": "ge-agenda:hallomania-grand-chasse-bonbons-vieille-ville-geneve",
       "sourceDescriptionHash": "cadc3bfe0d850d3df4bfe1be04f636f2eb36aa22b609b0bd6c720a0aae21f3fa",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-31T07:17:43.997Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-31T10:17:54.118Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
