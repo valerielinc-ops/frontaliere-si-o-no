@@ -4,7 +4,7 @@
 
 ## Architecture
 
-- **581 dedicated crawlers**, one per company
+- **581 dedicated crawlers**, one per company (exception: the Ticino municipalities, one crawler with one registry entry per municipality, see "Comuni ticinesi")
 - Each has: script (`scripts/update-{slug}-jobs.mjs`), parser (`scripts/lib/{slug}-job-parser.mjs`), and a manifest entry in `data/crawler-manifest.json` (workflow steps — see "Crawler-Group Workflows (2026-07 consolidation)" below)
 - Shared infrastructure in `scripts/lib/dedicated-crawler-common.mjs` (~2000 lines)
 - ATS-specific clients (Workday, Greenhouse, Lever, SuccessFactors) extracted in `scripts/lib/ats-clients/`
@@ -103,6 +103,60 @@ Key changes:
 - **ATS clients extracted**: `scripts/lib/ats-clients/{workday,greenhouse,lever,successfactors}.mjs` (E3). New SuccessFactors client added for CH-wide coverage. Hybrid API + Playwright fallback (D5).
 - **Crawler health monitor** (`.github/workflows/crawler-health-monitor.yml`): per-crawler success-rate watchdog, auto-opens GitHub issue on regression (D6).
 - **Pre-flip dry run** (D8, mandatory): `scripts/dry-run-target-cantons-flip.mjs` produces 3-bucket report (new slugs / previously-filtered / reclassified) before any TARGET_CANTONS flip.
+
+## Comuni ticinesi — la famiglia `comuni-ticino`
+
+I concorsi dei Comuni ticinesi non stanno su un portale: ogni Comune pubblica sul
+proprio sito, spesso solo un PDF all'albo. `data/ticino-comuni-registry.json` e'
+l'inventario dei 100 Comuni e la sola configurazione della famiglia: `covered`
+(un'entrata con adapter, indirizzo e datore), `existing` (crawler dedicato:
+Bellinzona, Locarno, Lugano, Mendrisio) o `missing` col motivo.
+`tests/ticino-comuni-family.test.ts` impone una riga per Comune: la copertura non
+puo' restare implicita.
+
+Nel manifest la famiglia e' **una voce sola**, `comuni-ticino`, e ogni annuncio
+porta il proprio Comune come datore in `company`. Non e' una scorciatoia: i gruppi
+di workflow hanno un budget di 480 KB (GitHub rifiuta i file oltre ~512 KB), una
+voce ne costa circa 16 e i gruppi sono gia' a circa 30 membri, quindi 67 voci non
+ci stanno. **Aggiungere un Comune e' una riga di registro**, senza file generati.
+
+Gli adapter stanno in `scripts/lib/ticino-comuni-sources.mjs`:
+
+| `listing.type` | Dove | Come |
+|---|---|---|
+| `assolo` | albo del CMS ASSOLO (59 Comuni, riconoscibile da `ds_paragrafi`) | categoria Concorsi piu' ricerca testuale «concorso», entrambe in GET |
+| `page` | pagina concorsi dedicata | i link ai PDF nel contenitore dichiarato, con un marcatore obbligatorio |
+| `rendered-cityos` | Chiasso, elenco costruito lato client | browser vero; il token del frontend non si riusa |
+
+La ricerca testuale non e' un doppione della categoria: Blenio tiene un concorso
+fuori da «Concorsi». Viceversa una riga di «Concorsi» puo' non contenere la parola.
+
+Quattro regole, tutte misurate sui bandi veri del 2026-10-31
+(`scripts/lib/ticino-comuni-notice.mjs`):
+
+- **La categoria Concorsi non e' una bacheca di lavoro.** Contiene appalti,
+  locazioni, concorsi fotografici e formulari: si tiene solo un titolo che nomina
+  un ruolo. Bando e capitolato dello stesso concorso sono un annuncio solo.
+- **Il datore e' chi firma la frase d'apertura del bando**, non chi lo pubblica.
+  Il 31 ottobre diversi Comuni ripubblicavano lo stesso apprendista del consorzio
+  CDALED, Tresa un bando del Municipio di Caslano, Blenio quello di un nido. Un
+  bando di un altro ente non entra, e un testo che non prova l'emittente nemmeno.
+- **Un concorso scaduto resta fuori.** La scadenza si legge dal bando e diventa
+  `validThrough`; senza scadenza leggibile vale la soglia stale dei 60 giorni e
+  senza alcuna data il bando non si pubblica. `dropExpiredStoredJobs` impedisce
+  che la grazia dei job mancanti lo tenga in vita.
+- **Il corpo e' solo il testo ufficiale.** Un PDF scansionato non ha strato di
+  testo: non si pubblica e non vale come albo vuoto. La pipeline non ha OCR.
+
+`scripts/lib/ticino-comuni-polite-client.mjs` legge `robots.txt` a ogni run
+(`scripts/lib/robots-policy.mjs`), non tocca un path vietato e onora il
+`Crawl-delay` per host: i siti ASSOLO dichiarano 30 secondi. Niente proxy Jina
+(`proxyRescue: false` su `extractPdfJobContentFromUrl`): un 403 resta un 403 e
+produce `anti_bot_block`. L'housekeeping gira con `JOBS_SKIP_URL_VALIDATION=1`
+perche' il validatore colpirebbe gli stessi host fuori dalla pausa. Uno zero
+autorevole richiede il marcatore del sito («Nessun documento trovato», «Documenti
+presenti: 0»); una pagina irriconoscibile e' `selector_miss`, cosi' un cambio di
+layout non ritira gli annunci.
 
 ## Slug Stability — Jaccard Token Similarity
 

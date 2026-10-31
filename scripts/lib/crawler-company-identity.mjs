@@ -84,6 +84,8 @@ export function extractDeclaredIdentity(filePath) {
  * lo slice resta, i job restano pubblicati.
  */
 const NON_EMPLOYER_SLUGS = new Set([
+  // Famiglia di crawler: il datore di ogni annuncio e' il singolo Comune.
+  'comuni-ticino',
   'careers',
   'career',
   'jobs',
