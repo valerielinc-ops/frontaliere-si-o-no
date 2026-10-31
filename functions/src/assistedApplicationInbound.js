@@ -218,13 +218,21 @@ const rejectsApplication = (sentence) => !HYPOTHETICAL_RE.test(sentence) && (
   || (OTHER_CANDIDATE_RE.test(sentence) && DECISION_RE.test(sentence))
   || (REFUSAL_WORD_RE.test(sentence) && !NEGATED.test(sentence) && (REGRET_RE.test(sentence) || APPLICATION_TOPIC_RE.test(sentence))));
 
-const requestsVerification = (sentence) => VERIFY_REQUEST_RE.test(sentence) && !RECEIPT_WORD_RE.test(sentence)
-  && !NEGATED_VERIFY_INSTRUCTION_RE.test(sentence)
-  && (!NEGATED.test(sentence) || UNTIL_RE.test(sentence));
+const isDirectlyNegatedVerificationInstruction = (sentence) => NEGATED_VERIFY_INSTRUCTION_RE.test(sentence);
 
-const asksAccountVerification = (sentence) => !NEGATED_VERIFY_INSTRUCTION_RE.test(sentence) && (requestsVerification(sentence)
-  || (VERIFICATION_NAMED_RE.test(sentence) && (!NEGATED.test(sentence) || /\d{4,8}/.test(sentence)))
-  || (VERIFY_WORD_RE.test(sentence) && LINK_WORD_RE.test(sentence) && /https:\/\/\S/i.test(sentence) && !APPLICATION_TOPIC_RE.test(sentence)));
+const requestsVerification = (sentence) => {
+  // A direct "do not verify" instruction stays visible even when it mentions before/until.
+  if (isDirectlyNegatedVerificationInstruction(sentence)) return false;
+  return VERIFY_REQUEST_RE.test(sentence) && !RECEIPT_WORD_RE.test(sentence)
+    && (!NEGATED.test(sentence) || UNTIL_RE.test(sentence));
+};
+
+const asksAccountVerification = (sentence) => {
+  if (isDirectlyNegatedVerificationInstruction(sentence)) return false;
+  return requestsVerification(sentence)
+    || (VERIFICATION_NAMED_RE.test(sentence) && (!NEGATED.test(sentence) || /\d{4,8}/.test(sentence)))
+    || (VERIFY_WORD_RE.test(sentence) && LINK_WORD_RE.test(sentence) && /https:\/\/\S/i.test(sentence) && !APPLICATION_TOPIC_RE.test(sentence));
+};
 
 const offersJob = (sentence) => (OFFER_RE.test(sentence) || (CONTRACT_RE.test(sentence) && CONTRACT_SENT_RE.test(sentence)))
   && !NEGATED.test(sentence) && !HYPOTHETICAL_RE.test(sentence) && !INTERVIEW_RE.test(sentence);
