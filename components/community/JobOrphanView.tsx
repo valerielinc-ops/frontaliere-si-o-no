@@ -838,9 +838,7 @@ export default function JobOrphanView({ slug, findActiveJob, onBack, hasAccess: 
  </Callout>
  )}
  <Callout status="success" icon={<Search size={15} />} className="rounded-xl">
-  <div className="text-sm font-bold font-display text-heading">{t('jobBoard.adviceTitle')}</div>
-  <p className="mt-2 text-sm leading-relaxed text-subtle">{t('jobBoard.adviceDescription')}</p>
-  <div className="mt-3">{ctaLink}</div>
+  {ctaLink}
  </Callout>
  <JobAlertSection initialKeyword={slugParts.title || ''} />
  </div>
