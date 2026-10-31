@@ -25,6 +25,7 @@ import {
   textOf,
 } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
+import { extractFreeTextOffers, isFreeTextSpec } from './free-text-extract.mjs';
 import { extractBalancedTagBlock } from '../hospital-custom-html-helpers.mjs';
 import { readAttr, scanStartTags } from '../html-attr.mjs';
 import { decodeEntities } from './entities.mjs';
@@ -231,6 +232,10 @@ const SPEC_FETCH_METADATA_KEYS = [
   'authoritativeEmptyState',
   'observedDetailsByUrl',
   'titleEvidenceByUrl',
+  'freeTextApplications',
+  'freeTextFailure',
+  'freeTextRejectedReasons',
+  'freeTextContractVersion',
 ];
 
 /**
@@ -297,7 +302,8 @@ function listingFetchOutcomeState(rows) {
   const unknown = hasOutcome && rawOutcome !== null && (
     typeof rawOutcome !== 'string' || !CRAWLER_FETCH_OUTCOMES.has(rawOutcome)
   );
-  const failed = unknown || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome);
+  const failed = unknown || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome)
+    || Boolean(rows?.freeTextFailure);
   const authoritativeEmpty = rows.length === 0
     && !failed
     && (outcome === 'ok' || outcome === 'filtered_empty');
@@ -314,6 +320,7 @@ function listingFetchOutcomeState(rows) {
  * @param {any[]} [rows]
  */
 export function needsDetailEnrichment(spec, rows = []) {
+  if (isFreeTextSpec(spec)) return false;
   if (spec.mode === 'template' || spec.detailEnrichment === true
     || normalizeListingCandidateText(spec.detailCandidateText)) return true;
   // Legacy structured specs may have been promoted before the synthesiser
@@ -664,10 +671,34 @@ function attachListingTenantMarkers(spec, html, effectiveUrl, candidates) {
  * @param {string} effectiveUrl
  * @param {RegExp|null} templateRx
  * @param {import('./synthesize.mjs').CrawlerSpec} [spec]
- * @returns {{ links: Array<{ url: string, text: string }>, candidates: any[] }}
+ * @returns {Promise<{ links: Array<{ url: string, text: string }>, candidates: any[], sourceFetchMetadata?: any }>}
  */
-function extractListingCandidates(html, effectiveUrl, templateRx, spec, runtime = {}) {
+async function extractListingCandidates(html, effectiveUrl, templateRx, spec, runtime = {}) {
   const links = extractLinks(html, effectiveUrl);
+  if (isFreeTextSpec(spec)) {
+    // Free-text specs have no detail URL to follow. The shared extractor is
+    // also used by SYNTHESIZE, and its homepage signal guard runs before the
+    // AI module is loaded or called.
+    const freeText = await extractFreeTextOffers(html, effectiveUrl, {
+      companyName: spec.companyName,
+      sourceLocation: spec.sourceLocation,
+      callLLM: runtime.callLLM,
+    });
+    return {
+      links,
+      candidates: attachListingTenantMarkers(spec, html, effectiveUrl, freeText.vacancies || []),
+      sourceFetchMetadata: {
+        fetchOutcome: freeText.llmFailure
+          ? 'free_text_llm_failure'
+          : freeText.vacancies?.length ? 'ok' : 'filtered_empty',
+        discoveredCount: freeText.vacancies?.length || 0,
+        freeTextApplications: freeText.permanentApplications || [],
+        ...(freeText.llmFailure ? { freeTextFailure: freeText.llmFailure } : {}),
+        ...(freeText.rejectedReasons?.length ? { freeTextRejectedReasons: freeText.rejectedReasons } : {}),
+        freeTextContractVersion: freeText.contractVersion,
+      },
+    };
+  }
   const { vacancies } = extractVacancies(html, effectiveUrl, links);
   const sourceCandidates = typeof runtime.listingExtractor === 'function'
     ? runtime.listingExtractor(html, effectiveUrl)
@@ -1101,10 +1132,11 @@ function listingIdentityUrl(rawUrl) {
   try {
     const url = new URL(String(rawUrl));
     // Fragments are not sent in HTTP requests, except that extractJsonLd uses
-    // `#job-<sha1>` as the stable identity of URL-less inline postings. Keep
-    // those synthetic identity fragments while ignoring browser-only anchors
-    // when deduplicating the same linked vacancy across pages.
-    if (!/^#job-[\da-f]{12}$/i.test(url.hash)) url.hash = '';
+    // `#job-<sha1>` and `#free-text-<sha1>` are stable identities for offers
+    // whose source page is shared. Keep those synthetic identity fragments
+    // while ignoring browser-only anchors when deduplicating the same linked
+    // vacancy across pages.
+    if (!/^#(?:job-[\da-f]{12}|free-text-[\da-f]{16})$/i.test(url.hash)) url.hash = '';
     return url.href;
   } catch {
     return String(rawUrl || '');
@@ -1398,10 +1430,14 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
   const sourceFetchMetadata = [];
   const recordSourceFetchMetadata = (extracted) => {
     const source = extracted?.sourceFetchMetadata;
-    if (!Array.isArray(source)) return;
-    if (['fetchOutcome', 'discoveredCount', 'fetchDetail', 'authoritativeEmptyState']
-      .some((key) => Object.prototype.hasOwnProperty.call(source, key))) {
-      sourceFetchMetadata.push(source);
+    if (!source) return;
+    const sources = Array.isArray(source) ? [source] : [source];
+    for (const entry of sources) {
+      if (['fetchOutcome', 'discoveredCount', 'fetchDetail', 'authoritativeEmptyState',
+        'freeTextFailure', 'freeTextApplications', 'freeTextRejectedReasons']
+        .some((key) => Object.prototype.hasOwnProperty.call(entry, key))) {
+        sourceFetchMetadata.push(entry);
+      }
     }
   };
   const listingEndpoint = configuredListingEndpoint(spec);
@@ -1449,6 +1485,13 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         postalCode: vacancy.postalCode || '',
         streetAddress: vacancy.streetAddress || '',
         locationCandidates: [...(vacancy.locationCandidates || [])],
+        ...(vacancy.sourceText ? { sourceText: vacancy.sourceText } : {}),
+        ...(vacancy.freeTextSourceText ? { freeTextSourceText: vacancy.freeTextSourceText } : {}),
+        ...(vacancy.freeTextSourceUrl ? { freeTextSourceUrl: vacancy.freeTextSourceUrl } : {}),
+        ...(vacancy.freeTextContractVersion ? { freeTextContractVersion: vacancy.freeTextContractVersion } : {}),
+        ...(vacancy.structuredDataContract ? { structuredDataContract: vacancy.structuredDataContract } : {}),
+        ...(vacancy.applyUrl ? { applyUrl: vacancy.applyUrl } : {}),
+        ...(vacancy.via ? { via: vacancy.via } : {}),
         // Stessa piega dell'evidenza di listing che applica il sintetizzatore.
         ...listingEvidenceFields(vacancy, listingEvidence),
         description: vacancy.description || '',
@@ -1515,7 +1558,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         ), bySlug.size);
       }
       const consumeEndpointPage = async ({ endpointUrl, response }) => {
-        const extracted = extractListingCandidates(response.html, endpointUrl, templateRx, spec, runtime);
+        const extracted = await extractListingCandidates(response.html, endpointUrl, templateRx, spec, runtime);
         recordSourceFetchMetadata(extracted);
         const candidates = filterListingCandidates(spec, extracted.candidates);
         const listingEvidence = spec.platform === 'umantis.com'
@@ -1578,7 +1621,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         cantonOverrides: spec.umantisListingCantonOverrides,
       })
       : new Map();
-    const seedExtraction = extractListingCandidates(html, effectiveSeedUrl, templateRx, spec, runtime);
+    const seedExtraction = await extractListingCandidates(html, effectiveSeedUrl, templateRx, spec, runtime);
     recordSourceFetchMetadata(seedExtraction);
     let { links, candidates } = seedExtraction;
     candidates = filterListingCandidates(spec, candidates);
@@ -1605,7 +1648,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         sleepImpl: runtime.jinaSleepImpl,
       });
       if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
-        const rescuedRaw = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx, spec, runtime);
+        const rescuedRaw = await extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx, spec, runtime);
         recordSourceFetchMetadata(rescuedRaw);
         const rescued = {
           ...rescuedRaw,
@@ -1628,7 +1671,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       if (!candidates.length) {
         const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);
         if (browserBody) {
-          const rescuedRaw = extractListingCandidates(browserBody, effectiveSeedUrl, templateRx, spec, runtime);
+          const rescuedRaw = await extractListingCandidates(browserBody, effectiveSeedUrl, templateRx, spec, runtime);
           recordSourceFetchMetadata(rescuedRaw);
           const rescued = {
             ...rescuedRaw,
@@ -1792,7 +1835,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
             cantonOverrides: spec.umantisListingCantonOverrides,
           })
           : new Map();
-        const extracted = extractListingCandidates(body, pageUrl, templateRx, spec, runtime);
+        const extracted = await extractListingCandidates(body, pageUrl, templateRx, spec, runtime);
         recordSourceFetchMetadata(extracted);
         const nextCandidates = filterListingCandidates(spec, extracted.candidates);
         const nextDeclaredPageCount = readDeclaredListingPageCount(body, pagination);
@@ -1916,14 +1959,35 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     const metadata = {};
     if (failedOutcomeIndex >= 0) metadata.fetchOutcome = outcomes[failedOutcomeIndex];
     else if (outcomes.length) metadata.fetchOutcome = outcomes.includes('ok') ? 'ok' : outcomes[0];
+    const [source] = sourceFetchMetadata;
     if (sourceFetchMetadata.length === 1) {
-      const [source] = sourceFetchMetadata;
       if (Number.isInteger(source.discoveredCount) && source.discoveredCount >= 0) {
         metadata.discoveredCount = source.discoveredCount;
       }
       if (typeof source.fetchDetail === 'string') metadata.fetchDetail = source.fetchDetail;
       if (typeof source.authoritativeEmptyState === 'string') {
         metadata.authoritativeEmptyState = source.authoritativeEmptyState;
+      }
+    }
+    // Free-text metadata is source evidence, not a job field. Keep it on the
+    // non-enumerable result so validation can show that permanent applications
+    // were seen without ever feeding them into the JobPosting population.
+    const freeTextSource = sourceFetchMetadata.find((entry) => (
+      Object.prototype.hasOwnProperty.call(entry, 'freeTextApplications')
+        || Object.prototype.hasOwnProperty.call(entry, 'freeTextFailure')
+    ));
+    if (freeTextSource) {
+      if (Array.isArray(freeTextSource.freeTextApplications)) {
+        metadata.freeTextApplications = freeTextSource.freeTextApplications;
+      }
+      if (typeof freeTextSource.freeTextFailure === 'string') {
+        metadata.freeTextFailure = freeTextSource.freeTextFailure;
+      }
+      if (Array.isArray(freeTextSource.freeTextRejectedReasons)) {
+        metadata.freeTextRejectedReasons = freeTextSource.freeTextRejectedReasons;
+      }
+      if (Number.isInteger(freeTextSource.freeTextContractVersion)) {
+        metadata.freeTextContractVersion = freeTextSource.freeTextContractVersion;
       }
     }
     copySpecFetchMetadata(rows, metadata);
