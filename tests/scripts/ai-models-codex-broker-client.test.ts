@@ -221,6 +221,14 @@ describe('client del broker Codex', () => {
     expect(codexScore()).toBe(0);
   });
 
+  it('la deadline assoluta non viene estesa dai byte di attività del broker', async () => {
+    behavior = (client) => {
+      const heartbeat = setInterval(() => client.write('\0'), 100);
+      client.once('close', () => clearInterval(heartbeat));
+    };
+    await expect(callCodex({ deadlineMs: Date.now() + 1500 })).rejects.toThrow(/queue wait timed out after \d+s before Codex started/);
+  });
+
   it('un broker sparito spegne la lane per il processo al primo ENOENT', async () => {
     const log = warnings();
     await new Promise<void>((resolve) => server!.close(() => resolve()));

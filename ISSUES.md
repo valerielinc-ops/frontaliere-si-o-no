@@ -89,6 +89,16 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 - `rg`/`grep` cross-file **scopati al code**: `rg <pattern> scripts build-plugins components services functions server hooks tests` (o `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`).
 - **Eccezione:** file `data/**` checked-in **config/fixture** (non output rigenerato) modificato a mano → trattalo come code.
 
+### Gemelli cross-repo e contratti adattati
+
+`corpus-ahead` misura consumer e contratti condivisi, non autorizza a copiare
+blob o policy fra il sito e il corpus. Per ogni gemello:
+
+- `identical` richiede gli stessi byte e la verifica del fingerprint su entrambi i consumer;
+- `adapted` richiede la stessa invariante osservabile al confine, ma mantiene esplicite le differenze di provider, bootstrap auth, routing e gate del repository;
+- una modifica comune va applicata al codice che la consuma e alla relativa prova (test, commento/docblock o motivo nel manifest) nello stesso diff;
+- un digest o un dato generato si aggiorna solo dopo aver verificato il consumer reale, mai per assorbire un mismatch o abbassare una soglia.
+
 ### Abort senza PR (no fix forzato)
 
 - **Solo codici `FIX_OUTCOME` dello step 8:** `pr-created`, `blocked-workflows-scope`, `blocked-secrets`, `blocked-admin-settings`, `no-root-cause`, `overlap-skip`, `pr-already-open`, `already-fixed`, `revenue-tracker-manual`. Codice inventato: non è verdetto; il drainer non lo mette in `NON_RETRYABLE` e ri-accoda. `automation-deferred` è label, non esito.
