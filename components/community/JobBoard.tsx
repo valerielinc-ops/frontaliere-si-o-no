@@ -237,6 +237,17 @@ import { readClusterSearchSeed } from '@/services/clusterSearchSeed';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import JobOrphanView from '@/components/community/JobOrphanView';
+import {
+ JobDetailHeaderCard,
+ JobDetailMetadataRow,
+ JobDetailMetaPill,
+ JOB_DETAIL_HEADER_CONTENT_CLASS,
+ JOB_DETAIL_HEADER_COPY_CLASS,
+ JOB_DETAIL_HEADER_LOGO_FRAME_CLASS,
+ JOB_DETAIL_HEADER_LOGO_IMAGE_CLASS,
+ JOB_DETAIL_HEADER_SUBTITLE_CLASS,
+ JOB_DETAIL_HEADER_TITLE_CLASS,
+} from '@/components/community/JobDetailPresentation';
 import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
 import {
  INFEED_AD_EXPERIMENT_ID,
@@ -11006,19 +11017,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
   className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5"
   data-job-detail-content
  >
- <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6" data-no-auto-ads="inside">
- <div className="flex items-start gap-3 sm:gap-4">
+ <JobDetailHeaderCard data-no-auto-ads="inside">
+ <div className={JOB_DETAIL_HEADER_CONTENT_CLASS}>
  <button
  type="button"
  onClick={() => handleApply(selectedJob, 'job_board_apply_header_logo')}
  aria-label={`${t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')} ${selectedJob.company}`}
- className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
+ className={`${JOB_DETAIL_HEADER_LOGO_FRAME_CLASS} transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info`}
  >
  {logo ? (
  <img
  src={logo}
  alt={`Logo ${selectedJob.company}`}
- className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
+ className={JOB_DETAIL_HEADER_LOGO_IMAGE_CLASS}
  width={56}
  height={56}
  decoding="async"
@@ -11028,8 +11039,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Building2 className="w-9 h-9 text-muted" />
  )}
  </button>
- <div className="min-w-0 flex-1">
- <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight break-words [hyphens:auto]">
+ <div className={JOB_DETAIL_HEADER_COPY_CLASS}>
+ <h1 className={JOB_DETAIL_HEADER_TITLE_CLASS}>
  <button
  type="button"
  onClick={() => handleApply(selectedJob, 'job_board_apply_header_title')}
@@ -11039,7 +11050,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
  </h1>
- <p className="mt-1 text-sm text-body break-words">
+ <p className={JOB_DETAIL_HEADER_SUBTITLE_CLASS}>
  <a
  href={companySearchHref}
  onClickCapture={openCompanyFilter}
@@ -11102,29 +11113,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
      blocks below the fold, while the gated header (`!hasAccess`) has always
      carried the same six values directly under the h1. Same values, same
      order, one position; the two branches now agree. */}
- <div className="mt-4 flex flex-wrap gap-2 text-xs">
- <span className="px-2 py-1 rounded-full bg-surface-raised text-body">
+ <JobDetailMetadataRow>
+ <JobDetailMetaPill tone="neutral">
  {t(categoryTranslationKey(selectedJob))}
- </span>
- <span className="px-2 py-1 rounded-full bg-accent-subtle text-accent">
+ </JobDetailMetaPill>
+ <JobDetailMetaPill tone="accent">
  {t(contractTranslationKey(selectedJob))}
- </span>
- <span className="px-2 py-1 rounded-full bg-success-subtle text-success">
+ </JobDetailMetaPill>
+ <JobDetailMetaPill tone="success">
  {daysSincePosted(selectedJob.displayPostingDate)}
- </span>
+ </JobDetailMetaPill>
  {isNewJob(selectedJob) && (
- <span className="px-2 py-1 rounded-full bg-success-subtle text-success inline-flex items-center gap-1">
+ <JobDetailMetaPill tone="success" icon={
  <Sparkles className="w-3 h-3" />
+ }>
  {t('jobBoard.badge.new')}
- </span>
+ </JobDetailMetaPill>
  )}
  {salary && (
- <span className="px-2 py-1 rounded-full bg-success-subtle text-success inline-flex items-center gap-1">
- <Euro className="w-3 h-3" />
+ <JobDetailMetaPill tone="success" icon={<Euro className="w-3 h-3" />}>
  {salary}
- </span>
+ </JobDetailMetaPill>
  )}
- </div>
+ </JobDetailMetadataRow>
 
  {/* The employer's evergreen hub. `jobsSeoPagesPlugin` already emits this
      link into the STATIC job page, so a crawler saw it and the reader lost
@@ -11147,7 +11158,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
          alert slots.
          One control, moved. */}
  {companyFollowCta(selectedJob, 'company_follow_button')}
- </header>
+ </JobDetailHeaderCard>
 
  {isCrawlerVisitor ? (
  <div data-testid="job-crawler-description" dangerouslySetInnerHTML={{ __html: renderJobDescriptionContent(descriptionCandidate || '', locale, Array.isArray(requirements) ? requirements : []) }} />
