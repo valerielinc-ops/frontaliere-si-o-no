@@ -24,7 +24,8 @@ test('interprets only the structural title while preserving every raw unknown an
   assert.deepEqual(result.view.structuralScopeIndexes, [1]);
   assert.equal(result.view.structuralTitle, item.sourceAuthority.sourceTitle);
   assert.equal(result.view.section, '');
-  assert.equal(result.view.context, item.field.context);
+  assert.equal(result.view.context, 'Recruitment source');
+  assert.equal(result.raw.context, item.field.context);
   assert.deepEqual(result.raw.ownedScopes, item.field.nativeOwnedScopes);
   assert.deepEqual(result.view.ownedScopes, item.field.nativeOwnedScopes);
   assert.equal(result.view.ownedScopes[1].unknown, true);
@@ -50,7 +51,23 @@ test('does not remove a title substring from the section or own context', () => 
   const result = nativeScopeView(item.field, item);
   assert.equal(result.status, 'interpreted');
   assert.equal(result.view.section, item.field.section);
-  assert.equal(result.view.context, item.field.context);
+  assert.equal(result.view.context, 'Recruitment source');
+  assert.equal(result.raw.context, item.field.context);
+});
+
+test('neutralizes only an entire canonical context fragment already explained by the private heading', () => {
+  const item = fixture();
+  for (const fragment of ['Sales consultant extra', 'Required Sales consultant', 'Sales consultant qualification']) {
+    item.field.context = 'Your email · ' + item.sourceAuthority.sourceTitle + ' · ' + fragment;
+    const result = nativeScopeView(item.field, item);
+    assert.equal(result.status, 'interpreted');
+    assert.equal(result.view.context, 'Your email · ' + fragment);
+    assert.equal(result.raw.context, item.field.context);
+  }
+  item.field.context = 'Your email Sales consultant';
+  assert.equal(nativeScopeView(item.field, item).view.context, item.field.context);
+  item.field.context = 'Your email · sales consultant';
+  assert.equal(nativeScopeView(item.field, item).view.context, item.field.context);
 });
 
 test('does not use job-title vocabulary as candidate qualification evidence', () => {

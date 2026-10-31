@@ -58,6 +58,7 @@ export function nativeScopeView(field, { sourceAuthority } = {}) {
   const expected = titleText(sourceAuthority.sourceTitle);
   if (uncertain.some(index => !scopes[index].names.length || scopes[index].names.some(name => titleText(name) !== expected))) return unknown();
   return { status: 'interpreted', view: { ...baseView,
+    context: raw.context.split(' · ').filter(fragment => titleText(fragment) !== expected).join(' · '),
     section: titleText(raw.section) === expected && uncertain.some(index => scopes[index].names.some(name => titleText(name) === titleText(raw.section))) ? '' : raw.section,
     structuralScopeIndexes: uncertain, structuralTitle: expected }, raw, authorityKey: sourceAuthority.sourceFingerprint };
 }
