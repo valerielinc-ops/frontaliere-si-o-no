@@ -75,6 +75,38 @@ describe('newsletter autologin → sign-in affordance suppression', () => {
  const sig = await freshSignal();
  expect(sig.isNewsletterAutologinInFlight()).toBe(false);
  });
+
+ it('claims one exchange and one terminal owner per credential-bearing URL', async () => {
+  const sig = await freshSignal();
+  const factory = vi.fn(async () => 'signed-in-user');
+  let resolveFirst!: (value: string) => void;
+  const firstFactory = () => new Promise<string>((resolve) => { resolveFirst = resolve; });
+
+  const first = sig.claimNewsletterAutologinAttempt('same-link', firstFactory);
+  const second = sig.claimNewsletterAutologinAttempt('same-link', firstFactory);
+
+  expect(first.owner).toBe(true);
+  expect(first.accepted).toBe(true);
+  expect(second.owner).toBe(false);
+  expect(second.accepted).toBe(true);
+  const blocked = sig.claimNewsletterAutologinAttempt('different-link', factory);
+  expect(blocked.owner).toBe(false);
+  expect(blocked.accepted).toBe(false);
+  await expect(blocked.promise).resolves.toBeNull();
+
+  await Promise.resolve();
+  resolveFirst('signed-in-user');
+  await expect(first.promise).resolves.toBe('signed-in-user');
+  await expect(second.promise).resolves.toBe('signed-in-user');
+  expect(factory).not.toHaveBeenCalled();
+
+  const fresh = await freshSignal();
+  const later = fresh.claimNewsletterAutologinAttempt('different-link', factory);
+  expect(later.owner).toBe(true);
+  expect(later.accepted).toBe(true);
+  await expect(later.promise).resolves.toBe('signed-in-user');
+  expect(factory).toHaveBeenCalledTimes(1);
+ });
 });
 
 describe('parseNewsletterAutologin (shared source of truth)', () => {
@@ -129,6 +161,9 @@ describe('promptOneTap suppression wiring', () => {
  const firstAwait = effect.indexOf('await ');
  const firstDelete = effect.indexOf('u.searchParams.delete(');
  const settleCall = effect.indexOf('settleNewsletterAutologin();');
+ const claimCall = effect.indexOf('claimNewsletterAutologinAttempt(');
+ const outcomeCall = effect.indexOf("Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', user ? 'success' : 'failed');");
+ const ownerAttemptCall = effect.indexOf('if (autologinAttempt.owner)');
 
  expect(effectStart).toBeGreaterThanOrEqual(0);
  expect(effectEnd).toBeGreaterThan(effectStart);
@@ -136,6 +171,15 @@ describe('promptOneTap suppression wiring', () => {
  expect(firstAwait).toBeGreaterThanOrEqual(0);
  expect(firstDelete).toBeGreaterThan(firstAwait);
  expect(settleCall).toBeGreaterThan(finallyStart);
+ expect(claimCall).toBeGreaterThanOrEqual(0);
+ expect(ownerAttemptCall).toBeGreaterThan(claimCall);
+ expect(outcomeCall).toBeGreaterThan(firstAwait);
+ // The single-flight owner, rather than an effect-local cancellation flag,
+ // keeps StrictMode/remount telemetry to one attempt + one terminal outcome.
+ expect(effect).not.toContain('if (cancelled) return;');
+ expect(effect).toContain('if (!cleanupBlocked && shouldStripNewsletterParams)');
+ expect(effect).toContain('currentAttemptKey === claimedAttemptKey');
+ expect(effect).toContain('(!claimedAttemptKey && !cleanupBlocked)');
  expect(effect.slice(0, finallyStart)).not.toContain('settleNewsletterAutologin();');
  expect(effect.slice(finallyStart, settleCall)).toContain('window.history.replaceState');
  });
@@ -157,7 +201,7 @@ describe('promptOneTap suppression wiring', () => {
   /import \{ useNewsletterAutologinInFlight \} from ['"]@\/hooks\/useNewsletterAutologinInFlight['"]/,
  );
  expect(jobBoardSource).toMatch(
-  /if \(!authResolved \|\| newsletterAutologinInFlight\) \{[\s\S]*?return <SkeletonJobDetail \/>;/,
+  /if \((?:!isCrawlerVisitor && )?\(!authResolved \|\| newsletterAutologinInFlight\)\) \{[\s\S]*?return <SkeletonJobDetail \/>/,
  );
  });
 });
