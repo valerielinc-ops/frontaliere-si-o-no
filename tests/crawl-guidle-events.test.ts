@@ -129,6 +129,19 @@ describe('extractEventJsonLdOccurrences', () => {
     expect(occ[0].name).toBe('Real Event');
   });
 
+  it('finds an Event subtype inside an @graph and accepts equivalent script attributes', () => {
+    const html = `<script TYPE='application/ld+json'>${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        { '@type': 'BreadcrumbList', itemListElement: [] },
+        { '@type': ['Thing', 'MusicEvent'], name: 'Live Event', startDate: '2026-07-04T19:00' },
+      ],
+    })}</script>`;
+    const occ = extractEventJsonLdOccurrences(html);
+    expect(occ).toHaveLength(1);
+    expect(occ[0]).toMatchObject({ '@type': ['Thing', 'MusicEvent'], name: 'Live Event' });
+  });
+
   it('returns [] when there is no matching block or malformed JSON', () => {
     expect(extractEventJsonLdOccurrences('')).toEqual([]);
     expect(extractEventJsonLdOccurrences('<html></html>')).toEqual([]);
