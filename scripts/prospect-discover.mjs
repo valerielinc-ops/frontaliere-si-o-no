@@ -21,7 +21,7 @@
  *   --limit=<n>           cap candidates filed per run
  *   --dry-run             report only, write nothing
  */
-import { fetchSecoEmployers } from './lib/prospector/sources/seco-jobroom.mjs';
+import { emailDomainHintsByEmployer, fetchSecoEmployers } from './lib/prospector/sources/seco-jobroom.mjs';
 import { fetchOsmBusinesses } from './lib/prospector/sources/osm-overpass.mjs';
 import { censusFromOwnCrawls, listingPathsFromAdapters } from './lib/prospector/sources/known-crawlers.mjs';
 import { sweepSwissCareerPages } from './lib/prospector/sources/commoncrawl-careers.mjs';
@@ -194,6 +194,7 @@ if (sources.includes('seco')) {
       };
     }
     const filedBefore = perSource.seco || 0;
+    const emailDomainHints = emailDomainHintsByEmployer(employers);
     for (const e of employers) {
       file({
         name: e.name,
@@ -206,6 +207,7 @@ if (sources.includes('seco')) {
         adCount: e.adCount,
         sampleTitles: e.titles,
         applyHosts: e.applyHosts,
+        emailDomainHints: emailDomainHints.get(e.name) || [],
       }, 'seco');
     }
     outcome = recordSourceOutcome('seco', {

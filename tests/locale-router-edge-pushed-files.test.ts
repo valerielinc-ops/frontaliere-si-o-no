@@ -289,6 +289,7 @@ describe('every EDGE_PUSHED_FILES route is query-string-proof', () => {
 describe.each([
   { pathname: '/llms.txt' },
   { pathname: '/llms-full.txt' },
+  { pathname: '/llms-index.txt' },
   { pathname: '/.well-known/llms.txt' },
 ])('locale-router pushable-origin edge files — $pathname (#4881 residual)', ({ pathname }) => {
   it('serves the R2 copy when the R2 fetch is a 200', async () => {
@@ -675,7 +676,7 @@ describe('publish-edge-files --producer selection', () => {
     // every entry 'build' (or none), this equality above would still hold
     // trivially. Pin the known shape too.
     expect(picked.map(([p]) => p)).toEqual(
-      expect.arrayContaining(['/sitemap-glossario.xml', '/llms.txt', '/llms-full.txt', '/.well-known/llms.txt']),
+      expect.arrayContaining(['/sitemap-glossario.xml', '/llms.txt', '/llms-full.txt', '/llms-index.txt', '/.well-known/llms.txt']),
     );
     expect(picked.every(([, entry]) => entry.producer === 'build')).toBe(true);
   });

@@ -22,6 +22,7 @@
  * tokens only, ≥50 indexable words hard-gated (static copy is ~400+ words).
  */
 
+import { renderRevenueNoteHtml } from '../services/revenueDisclosure';
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
@@ -978,6 +979,7 @@ function exchangeRateLd(snapshot: ExchangeSnapshot): string {
       '@type': 'UnitPriceSpecification',
       price: snapshot.currentRate,
       priceCurrency: 'EUR',
+      validFrom: snapshot.rateDate,
     },
   });
 }
@@ -1009,7 +1011,7 @@ function renderFeesTable(locale: ExchangeLocale, copy: ExchangeCopy, snapshot: E
     </tr>`;
   }).join('\n');
   const bankNet = gross * (1 - BANK_SPREAD_PCT / 100) - BANK_FLAT_CHF * snapshot.currentRate;
-  return `<div style="overflow-x:auto">
+  return `${renderRevenueNoteHtml(locale)}<div style="overflow-x:auto">
 <table class="${TABLE_CLASS}">
   <caption class="sr-only">${esc(copy.feesTable.provider)}</caption>
   <thead><tr>

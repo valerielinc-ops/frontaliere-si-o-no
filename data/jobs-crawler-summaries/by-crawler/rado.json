@@ -1,60 +1,21 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-10-30T21:28:45.456Z",
-  "total": 3,
+  "generatedAt": "2026-10-31T09:30:05.373Z",
+  "total": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 388220,
-  "avgDurationMs": 388220,
+  "removedCount": 1,
+  "unchangedCount": 2,
+  "durationMs": 355817,
+  "avgDurationMs": 355817,
   "durationHistory": [
-    388220
+    355817
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-7uc3px",
-      "slug": "risorse-umane-business-partner-100-rado-watch-co-ltd-lengnau-be-7uc3px",
-      "company": "Rado Watch Co. Ltd.",
-      "title": "HR Business Partner (100%)",
-      "location": "Lengnau BE",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/fr/job/33628",
-      "applyUrl": "https://www.swatchgroup.com/fr/job/33628",
-      "source": "Company Careers Crawler",
-      "companyKey": "rado",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-30T21:28:08.178Z",
-      "firstSeenAt": "2026-10-23T21:17:42.290Z",
-      "sourceLang": "fr",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "postalCode": "3001",
-      "addressLocality": "Lengnau BE",
-      "addressRegion": "BE",
-      "streetAddress": "Bielstrasse 45",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
+  "removedJobs": [
     {
       "id": "company-7uc34b",
       "slug": "impiegata-impiegato-in-logistica-apprendistato-2027-rado-watch-co-ltd-lengnau-be-7uc34b",
@@ -93,7 +54,9 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "company-7uc352",
       "slug": "risorse-umane-business-partner-100-rado-watch-co-ltd-lengnau-be-7uc352",
@@ -113,7 +76,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-29T21:28:17.015Z",
+      "crawledAt": "2026-10-31T09:29:29.542Z",
       "firstSeenAt": "2026-10-29T21:28:17.015Z",
       "sourceLang": "de",
       "salaryMin": 68500,
@@ -124,7 +87,6 @@
       "addressLocality": "Lengnau BE",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -132,7 +94,46 @@
         "translation": 25,
         "completeness": 23
       }
+    },
+    {
+      "id": "company-7uc3px",
+      "slug": "risorse-umane-business-partner-100-rado-watch-co-ltd-lengnau-be-7uc3px",
+      "company": "Rado Watch Co. Ltd.",
+      "title": "HR Business Partner (100%)",
+      "location": "Lengnau BE",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.swatchgroup.com/fr/job/33628",
+      "applyUrl": "https://www.swatchgroup.com/fr/job/33628",
+      "source": "Company Careers Crawler",
+      "companyKey": "rado",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-10-30T21:28:08.178Z",
+      "firstSeenAt": "2026-10-23T21:17:42.290Z",
+      "sourceLang": "fr",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "addressLocality": "Lengnau BE",
+      "addressRegion": "BE",
+      "streetAddress": "Bielstrasse 45",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 23
+      }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

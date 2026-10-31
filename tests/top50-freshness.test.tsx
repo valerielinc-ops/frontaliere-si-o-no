@@ -52,7 +52,7 @@ describe('B4.4 emitted source freshness', () => {
     expect(card.getAttribute('data-bw-data-state')).toBe('stale');
     expect(card.querySelector('[data-bw-field="lastUpdate"]')?.textContent).toBe(formatSourceDate(observedAt, locale, today));
     expect(card.querySelector('a[data-bw-field="source"]')?.getAttribute('href')).toBe('https://www.tomtom.com/');
-    expect(parsed.querySelector('header time')?.getAttribute('datetime')).toBe(today.toISOString());
+    expect(parsed.querySelector(`time[datetime="${today.toISOString()}"]`)?.getAttribute('datetime')).toBe(today.toISOString());
     expect(webpage(borderPages[buildRootHubPath(locale)]).dateModified).toBe(current.updatedAt);
     expect(webpage(borderPages[buildOggiPath(locale, 'gaggiolo')]).dateModified).toBeUndefined();
   });

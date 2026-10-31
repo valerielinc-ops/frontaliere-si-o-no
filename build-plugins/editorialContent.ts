@@ -10,6 +10,7 @@
  */
 
 import { AI_USE_STATEMENT } from '../packages/articles/engine/shared/aiDisclosure';
+import { renderRevenueModelHtml } from '../services/revenueDisclosure';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { renderSchoolCalendarSource, renderSchoolYearLinks } from './schoolCalendarLinks';
 
@@ -2915,18 +2916,21 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  'Content is updated continuously to reflect legislative changes, new tax rates, and evolving bilateral agreements. The platform operates independently of any financial institution, insurance provider, or employer, ensuring unbiased information for all users.',
  // The one AI statement shared with the IT page, React /chi-siamo/ and articles.
  AI_USE_STATEMENT.en,
+ renderRevenueModelHtml('en'),
  ],
  de: [
  'Frontaliere Ticino ist eine unabhängige Informationsplattform für Grenzgänger zwischen der Schweiz (Kanton Tessin) und Italien. Die Plattform bietet kostenlose Rechner, Vergleichstools, praktische Leitfäden und Stellenangebote — alle mit Daten aus offiziellen schweizerischen und italienischen Quellen gepflegt.',
  'Das Projekt entstand aus der direkten Erfahrung von Grenzgängern, die es schwierig fanden, die komplexe steuerliche, administrative und praktische Landschaft der Arbeit in einem Land bei Wohnsitz in einem anderen zu navigieren. Jedes Tool beantwortet echte Fragen mit überprüfbaren Daten.',
  'Inhalte werden kontinuierlich aktualisiert, um Gesetzesänderungen, neue Steuersätze und sich weiterentwickelnde bilaterale Abkommen widerzuspiegeln. Die Plattform arbeitet unabhängig von Finanzinstituten, Versicherungsanbietern oder Arbeitgebern.',
  AI_USE_STATEMENT.de,
+ renderRevenueModelHtml('de'),
  ],
  fr: [
  'Frontaliere Ticino est une plateforme d\'information indépendante pour les travailleurs frontaliers entre la Suisse (Canton du Tessin) et l\'Italie. La plateforme offre des calculateurs gratuits, des outils de comparaison, des guides pratiques et des offres d\'emploi — le tout alimenté par des données de sources officielles suisses et italiennes.',
  'Le projet est né de l\'expérience directe de frontaliers qui trouvaient difficile de naviguer dans le paysage fiscal, administratif et pratique complexe du travail dans un pays avec résidence dans un autre. Chaque outil répond à de vraies questions avec des données vérifiables.',
  'Le contenu est mis à jour en continu pour refléter les changements législatifs, les nouveaux taux d\'imposition et l\'évolution des accords bilatéraux. La plateforme fonctionne indépendamment de toute institution financière, assureur ou employeur.',
  AI_USE_STATEMENT.fr,
+ renderRevenueModelHtml('fr'),
  ],
  },
 
@@ -2934,17 +2938,17 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '/contattaci': {
  en: [
  'Frontaliere Ticino is available for questions about taxation, pensions, work permits, and daily life for cross-border workers between Switzerland and Italy. The team responds to practical queries about platform tools, calculator error reports, and suggestions for new features.',
- 'Responses are provided within 48 business hours. For complex tax questions (tax returns, tax credits, 2026 new cross-border worker regime), we recommend the dedicated consulting service with professionals specialising in cross-border taxation between Switzerland and Italy.',
+ 'Responses are provided within 48 business hours and are not tax or legal advice: for complex tax questions about your own case (tax returns, tax credits, 2026 new cross-border worker regime), contact a licensed tax adviser or an Italian patronato.',
  'The platform operates independently of banks, insurance companies, and employers: all information provided is impartial and based on official Swiss and Italian sources (FTA, Italian Revenue Agency, SECO, INPS).',
  ],
  de: [
  'Frontaliere Ticino steht für Fragen zu Besteuerung, Vorsorge, Arbeitsbewilligungen und Alltagsleben für Grenzgänger zwischen der Schweiz und Italien zur Verfügung. Das Team beantwortet praktische Anfragen zu den Plattform-Tools, meldet Rechenfehler und nimmt Vorschläge für neue Funktionen entgegen.',
- 'Antworten werden innerhalb von 48 Arbeitsstunden bereitgestellt. Für komplexe Steuerfragen (Steuererklärung, Steuergutschriften, Regelung für neue Grenzgänger 2026) empfehlen wir den dedizierten Beratungsservice mit Fachleuten für grenzüberschreitende Besteuerung.',
+ 'Antworten werden innerhalb von 48 Arbeitsstunden bereitgestellt und sind keine Steuer- oder Rechtsberatung: Wenden Sie sich bei komplexen Steuerfragen zu Ihrem eigenen Fall (Steuererklärung, Steuergutschriften, Regelung für neue Grenzgänger 2026) an einen zugelassenen Treuhänder oder ein italienisches Patronato.',
  'Die Plattform arbeitet unabhängig von Banken, Versicherungen und Arbeitgebern: Alle bereitgestellten Informationen sind unparteiisch und basieren auf offiziellen Schweizer und italienischen Quellen (ESTV, Agenzia delle Entrate, SECO, INPS).',
  ],
  fr: [
  'Frontaliere Ticino est disponible pour les questions sur la fiscalité, la prévoyance, les permis de travail et la vie quotidienne des travailleurs frontaliers entre la Suisse et l\'Italie. L\'équipe répond aux questions pratiques sur les outils de la plateforme, signalements d\'erreurs et suggestions de nouvelles fonctionnalités.',
- 'Les réponses sont fournies dans les 48 heures ouvrables. Pour les questions fiscales complexes (déclaration de revenus, crédits d\'impôt, régime des nouveaux frontaliers 2026), nous recommandons le service de consultation dédié avec des professionnels spécialisés en fiscalité transfrontalière.',
+ 'Les réponses sont fournies dans les 48 heures ouvrables et ne constituent pas un conseil fiscal ou juridique : pour les questions fiscales complexes sur votre situation (déclaration de revenus, crédits d\'impôt, régime des nouveaux frontaliers 2026), adressez-vous à un fiduciaire agréé ou à un patronato italien.',
  'La plateforme fonctionne indépendamment des banques, assurances et employeurs : toutes les informations fournies sont impartiales et basées sur des sources officielles suisses et italiennes (AFC, Agenzia delle Entrate, SECO, INPS).',
  ],
  },
@@ -3047,6 +3051,11 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  "<p>Il contributo al SSN è previsto dalla legge italiana 213/2023, articolo 1, commi 237–239, e dal decreto 14 novembre 2025. Riguarda le categorie previste dalla legge, compresi i vecchi frontalieri dell'articolo 9 che hanno esercitato l'opzione per l'assistenza italiana, e i familiari a carico. Non è un'imposta svizzera sui soli nuovi frontalieri.</p>",
  "<h2 class=\"s-FoMhWG\">Importi e attuazione regionale</h2>",
  "<p>La legge prevede il 3–6% del salario netto svizzero, con quota familiare progressiva e limiti di 30–200 euro per mese lavorato, raddoppiabili in caso di omesso pagamento o comunicazione. La quota annuale è definita dalla Regione o Provincia autonoma competente: per importo e scadenza 2026 occorre consultare il relativo provvedimento, non applicare automaticamente il 6%.</p>",
+ "<h2 class=\"s-FoMhWG\">Stato in Lombardia e Piemonte al 31 ottobre 2026</h2>",
+ "<p><strong>Lombardia:</strong> la Regione ha comunicato la scelta della soglia minima del 3%: su 4.000 euro netti al mese sono 120 euro. Il <a href=\"https://www.lombardianotizie.online/medici-svizzera-stipendio/\" rel=\"noopener\">23 aprile 2026</a> indicava l'obiettivo di partire entro settembre; il <a href=\"https://www.lombardianotizie.online/frontalieri-ristorni-ticino/\" rel=\"noopener\">1° luglio 2026</a> ha confermato il 3%, senza una data di avvio. Non abbiamo trovato un atto regionale pubblicato con scadenza e modalità di versamento.</p>",
+ "<p><strong>Piemonte:</strong> non abbiamo trovato un provvedimento regionale che applichi il contributo. L'<a href=\"https://www.cr.piemonte.it/mzodgfo/legislatura/12/atto/260/documento/10179/scarica\" rel=\"noopener\">ordine del giorno n. 260</a>, presentato in Consiglio regionale il 9 giugno 2025, afferma che il Piemonte non lo aveva ancora applicato e chiede alla Giunta di confermare la non applicazione: è un atto di consiglieri, non una decisione della Giunta.</p>",
+ "<h2 class=\"s-FoMhWG\">Articoli su questo tema</h2>",
+ "<ul><li><a href=\"/articoli-frontaliere/tassa-salute-aumentano-tensioni-ticino/\">Tensioni tra Italia e Ticino sulla tassa salute</a></li><li><a href=\"/articoli-frontaliere/frontalieri-tassa-salute-lombardia/\">La Lombardia annuncia il contributo entro settembre</a></li><li><a href=\"/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino/\">Lo scontro tra Lombardia e Ticino</a></li><li><a href=\"/articoli-frontaliere/tassa-salute-frontalieri-sertori-2026/\">Il contributo e gli stipendi sanitari</a></li></ul>",
  "<h2 class=\"s-FoMhWG\">Vecchi frontalieri e diritto di opzione</h2>",
  "<p>I vecchi frontalieri non sono esclusi: la legge richiama espressamente quelli dell'articolo 9, paragrafo 1, che hanno esercitato il diritto d'opzione per il SSN. Occorre verificare copertura sanitaria, condizioni personali e provvedimenti territoriali; il solo permesso G o la data di assunzione non bastano.</p>",
  "<h2 class=\"s-FoMhWG\">Versamento del contributo</h2>",
@@ -3062,6 +3071,11 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  "<p>The Italian SSN contribution is established by Law 213/2023, Article 1(237–239), and the decree of 14 November 2025. It covers the statutory categories, including existing cross-border workers under Article 9 who opted for Italian healthcare, and dependent family members. It is not a Swiss tax limited to new workers.</p>",
  "<h2 class=\"s-FoMhWG\">Amounts and regional implementation</h2>",
  "<p>The statutory range is 3–6% of Swiss net salary, with a progressive family contribution and limits of EUR 30–200 per month worked, which may double for omitted payment or reporting. The competent region or autonomous province sets the annual contribution: check its implementing measure for the 2026 amount and deadline rather than automatically applying 6%.</p>",
+ "<h2 class=\"s-FoMhWG\">Status in Lombardy and Piedmont at 31 October 2026</h2>",
+ "<p><strong>Lombardy:</strong> the Region announced it chose the 3% minimum: EUR 120 on EUR 4,000 net a month. On <a href=\"https://www.lombardianotizie.online/medici-svizzera-stipendio/\" rel=\"noopener\">23 April 2026</a> it set the goal of starting by September; on <a href=\"https://www.lombardianotizie.online/frontalieri-ristorni-ticino/\" rel=\"noopener\">1 July 2026</a> it confirmed the 3%, without a start date. We found no published regional measure with a deadline and payment method.</p>",
+ "<p><strong>Piedmont:</strong> we found no regional measure applying the contribution. <a href=\"https://www.cr.piemonte.it/mzodgfo/legislatura/12/atto/260/documento/10179/scarica\" rel=\"noopener\">Agenda item no. 260</a>, tabled in the Regional Council on 9 June 2025, states that Piedmont had not yet applied it and asks the regional government to confirm this: it is an act by councillors, not a decision of the regional government.</p>",
+ "<h2 class=\"s-FoMhWG\">Articles on this topic (in Italian)</h2>",
+ "<ul><li><a href=\"/articoli-frontaliere/tassa-salute-aumentano-tensioni-ticino/\">Tensioni tra Italia e Ticino sulla tassa salute</a></li><li><a href=\"/articoli-frontaliere/frontalieri-tassa-salute-lombardia/\">La Lombardia annuncia il contributo entro settembre</a></li><li><a href=\"/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino/\">Lo scontro tra Lombardia e Ticino</a></li><li><a href=\"/articoli-frontaliere/tassa-salute-frontalieri-sertori-2026/\">Il contributo e gli stipendi sanitari</a></li></ul>",
  "<h2 class=\"s-FoMhWG\">Existing workers and right of option</h2>",
  "<p>Existing cross-border workers are not excluded: the law expressly refers to Article 9(1) workers who exercised the SSN option. Healthcare coverage, individual circumstances and territorial measures must be checked; a G permit or hiring date alone is insufficient.</p>",
  "<h2 class=\"s-FoMhWG\">Paying the contribution</h2>",
@@ -3077,6 +3091,11 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  "<p>Der italienische SSN-Beitrag beruht auf Gesetz 213/2023, Artikel 1 Absätze 237–239, und dem Dekret vom 14. November 2025. Er betrifft die gesetzlich erfassten Gruppen, darunter bisherige Grenzgänger nach Artikel 9 mit Wahl der italienischen Gesundheitsversorgung sowie unterhaltsberechtigte Familienangehörige. Er ist keine Schweizer Steuer nur für neue Grenzgänger.</p>",
  "<h2 class=\"s-FoMhWG\">Beträge und regionale Umsetzung</h2>",
  "<p>Der gesetzliche Rahmen beträgt 3–6% des Schweizer Nettolohns, mit einem progressiven Familienbeitrag und Grenzen von 30–200 Euro je gearbeitetem Monat; bei unterlassener Zahlung oder Meldung können diese verdoppelt werden. Die zuständige Region oder autonome Provinz legt den Jahresbeitrag fest. Für Betrag und Frist 2026 ist deren Umsetzungsvorschrift zu prüfen; 6% gelten nicht automatisch.</p>",
+ "<h2 class=\"s-FoMhWG\">Stand in der Lombardei und im Piemont am 31. Oktober 2026</h2>",
+ "<p><strong>Lombardei:</strong> Die Region hat den Mindestsatz von 3% gewählt: 120 Euro bei 4.000 Euro netto im Monat. Am <a href=\"https://www.lombardianotizie.online/medici-svizzera-stipendio/\" rel=\"noopener\">23. April 2026</a> nannte sie das Ziel eines Starts bis September; am <a href=\"https://www.lombardianotizie.online/frontalieri-ristorni-ticino/\" rel=\"noopener\">1. Juli 2026</a> bestätigte sie die 3%, ohne Startdatum. Einen veröffentlichten regionalen Akt mit Frist und Zahlungsweg haben wir nicht gefunden.</p>",
+ "<p><strong>Piemont:</strong> Wir haben keinen regionalen Akt gefunden, der den Beitrag anwendet. Die <a href=\"https://www.cr.piemonte.it/mzodgfo/legislatura/12/atto/260/documento/10179/scarica\" rel=\"noopener\">Tagesordnung Nr. 260</a>, am 9. Juni 2025 im Regionalrat eingereicht, hält fest, dass das Piemont ihn noch nicht angewendet hatte, und fordert die Regionalregierung zur Bestätigung auf: Das ist ein Akt von Ratsmitgliedern, kein Beschluss der Regionalregierung.</p>",
+ "<h2 class=\"s-FoMhWG\">Artikel zu diesem Thema (auf Italienisch)</h2>",
+ "<ul><li><a href=\"/articoli-frontaliere/tassa-salute-aumentano-tensioni-ticino/\">Tensioni tra Italia e Ticino sulla tassa salute</a></li><li><a href=\"/articoli-frontaliere/frontalieri-tassa-salute-lombardia/\">La Lombardia annuncia il contributo entro settembre</a></li><li><a href=\"/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino/\">Lo scontro tra Lombardia e Ticino</a></li><li><a href=\"/articoli-frontaliere/tassa-salute-frontalieri-sertori-2026/\">Il contributo e gli stipendi sanitari</a></li></ul>",
  "<h2 class=\"s-FoMhWG\">Bisherige Grenzgänger und Optionsrecht</h2>",
  "<p>Bisherige Grenzgänger sind nicht generell befreit: Das Gesetz nennt ausdrücklich Grenzgänger nach Artikel 9 Absatz 1, die das Optionsrecht zugunsten des SSN ausgeübt haben. Versicherung, persönliche Voraussetzungen und regionale Vorschriften sind zu prüfen; G-Bewilligung oder Einstellungsdatum allein reichen nicht.</p>",
  "<h2 class=\"s-FoMhWG\">Zahlung des Beitrags</h2>",
@@ -3092,6 +3111,11 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  "<p>La contribution au SSN italien repose sur la loi 213/2023, article 1, alinéas 237–239, et le décret du 14 novembre 2025. Elle concerne les catégories légales, dont les anciens frontaliers de l'article 9 ayant opté pour la couverture italienne, et les membres de famille à charge. Ce n'est pas un impôt suisse réservé aux nouveaux frontaliers.</p>",
  "<h2 class=\"s-FoMhWG\">Montants et application régionale</h2>",
  "<p>La fourchette légale est de 3–6% du salaire net suisse, avec une contribution familiale progressive et des limites de 30–200 euros par mois travaillé, pouvant doubler en cas de défaut de paiement ou de déclaration. La région ou province autonome compétente fixe la contribution annuelle. Pour le montant et l'échéance 2026, consultez sa décision d'application plutôt que d'appliquer automatiquement 6%.</p>",
+ "<h2 class=\"s-FoMhWG\">Situation en Lombardie et au Piémont au 31 octobre 2026</h2>",
+ "<p><strong>Lombardie :</strong> la Région a annoncé le choix du minimum de 3 % : 120 euros pour 4 000 euros nets par mois. Le <a href=\"https://www.lombardianotizie.online/medici-svizzera-stipendio/\" rel=\"noopener\">23 avril 2026</a>, elle visait un démarrage d'ici septembre ; le <a href=\"https://www.lombardianotizie.online/frontalieri-ristorni-ticino/\" rel=\"noopener\">1er juillet 2026</a>, elle a confirmé les 3 %, sans date de début. Nous n'avons pas trouvé d'acte régional publié fixant l'échéance et le mode de paiement.</p>",
+ "<p><strong>Piémont :</strong> nous n'avons pas trouvé d'acte régional appliquant la contribution. L'<a href=\"https://www.cr.piemonte.it/mzodgfo/legislatura/12/atto/260/documento/10179/scarica\" rel=\"noopener\">ordre du jour n° 260</a>, déposé au Conseil régional le 9 juin 2025, indique que le Piémont ne l'avait pas encore appliquée et demande à l'exécutif régional de le confirmer : c'est un acte de conseillers, pas une décision de l'exécutif.</p>",
+ "<h2 class=\"s-FoMhWG\">Articles sur ce sujet (en italien)</h2>",
+ "<ul><li><a href=\"/articoli-frontaliere/tassa-salute-aumentano-tensioni-ticino/\">Tensioni tra Italia e Ticino sulla tassa salute</a></li><li><a href=\"/articoli-frontaliere/frontalieri-tassa-salute-lombardia/\">La Lombardia annuncia il contributo entro settembre</a></li><li><a href=\"/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino/\">Lo scontro tra Lombardia e Ticino</a></li><li><a href=\"/articoli-frontaliere/tassa-salute-frontalieri-sertori-2026/\">Il contributo e gli stipendi sanitari</a></li></ul>",
  "<h2 class=\"s-FoMhWG\">Anciens frontaliers et droit d’option</h2>",
  "<p>Les anciens frontaliers ne sont pas exclus: la loi vise expressément ceux de l'article 9, paragraphe 1, ayant exercé l'option pour le SSN. Il faut vérifier la couverture, la situation personnelle et les décisions territoriales; le permis G ou la date d'embauche ne suffisent pas.</p>",
  "<h2 class=\"s-FoMhWG\">Paiement de la contribution</h2>",

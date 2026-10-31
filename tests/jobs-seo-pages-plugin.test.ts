@@ -314,6 +314,6 @@ describe('JobPosting locality equals the page locality (review of #9870)', () =>
     expect(pageLocality).toBe('Oerlikon');
     expect(address.addressLocality).toBe(pageLocality);
     expect(address.postalCode).toBe('8001');
-    expect(address.streetAddress).toBe('Oerlikon Stadtzentrum');
+    expect(address.streetAddress).toBe('Oerlikon');
   });
 });

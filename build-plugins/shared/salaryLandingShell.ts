@@ -65,6 +65,8 @@ export interface SalaryFaqItem {
 export interface SalaryLandingData {
   readonly eyebrow: string;
   readonly tagline: string;
+  /** Trusted HTML shown under the tagline, e.g. the date of the parameters. */
+  readonly metaHtml?: string;
   readonly tiles: ReadonlyArray<SalaryTile>;
   readonly advice?: string;
   readonly ctaPrimary: { label: string; href: string };
@@ -2161,7 +2163,7 @@ export function renderSalaryLandingShell(
 
   const eyebrow = `<p style="${HERO_EYEBROW_STYLE}">${esc(data.eyebrow)}</p>`;
   const h1 = `<h1 style="${H1_STYLE}">${esc(args.h1Text)}</h1>`;
-  const lede = `<p style="${LEDE_STYLE}">${esc(data.tagline)}</p>`;
+  const lede = `<p style="${LEDE_STYLE}">${esc(data.tagline)}</p>${data.metaHtml ?? ''}`;
 
   // Wire the primary CTA href into the first `accent`-toned tile so the
   // visually prominent headline metric becomes a tap target. Closes the

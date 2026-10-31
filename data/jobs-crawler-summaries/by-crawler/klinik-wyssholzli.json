@@ -1,66 +1,22 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-10-30T21:28:47.701Z",
+  "generatedAt": "2026-10-31T09:31:32.728Z",
   "total": 5,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 2739,
-  "avgDurationMs": 2739,
+  "durationMs": 3688,
+  "avgDurationMs": 3688,
   "durationHistory": [
-    2739
+    3688
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Praktikantin 2025",
-      "slug": "pratica-2025-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Praktikantin_2025.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "",
-      "_meta": {
-        "sourceFilename": "Praktikantin_2025.pdf"
-      },
-      "id": "klinik-wyssholzli-7463016231c7",
-      "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Psychiater In Ambulatorium Bern 2026 Ab 10",
@@ -273,5 +229,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }
