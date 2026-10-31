@@ -26,6 +26,35 @@ function fixture(question: any = q) {
 }
 
 describe('question confirmation protocol', () => {
+  it.each([{ state: 'sent', channel: 'portal' }, { state: 'sending', channel: 'portal', clickedAt: now }, { state: 'sending', channel: 'email' }])('refuses answer writes for any irreversible round: %j', async record => {
+    const f = fixture(); f.docs.set('assisted_applications/source/automation/submission', { r3: record });
+    await expect(f.save({ english: 'C1' })).rejects.toMatchObject({ status: 409 });
+    expect(f.input().flow.answers).toEqual({}); expect(f.input().flow.answerConfirmations).toBeUndefined();
+    await expect(commitRebuild({ db: f.db, bucket: null, orderId: 'source', flow: f.input().flow, draft: f.input().draft,
+      draftPatch: { forbidden: true }, nowMs: now })).rejects.toMatchObject({ code: 'changed_meanwhile' });
+    expect(f.input().draft.forbidden).toBeUndefined();
+  });
+  it('refuses a send that becomes irreversible during the answer PDF await and cleans only the new PDF', async () => {
+    const f = fixture(); let finish!: (value: any) => void; let enter!: () => void;
+    const entered = new Promise<void>(resolve => { enter = resolve; });
+    vi.mocked(pdf.tailoredCvChanges).mockReturnValue(true);
+    vi.mocked(pdf.rebuildTailoredCvPdf).mockImplementation(() => new Promise(resolve => { finish = resolve; enter(); }));
+    const remove = vi.fn(async () => {});
+    try {
+      const pending = f.save({ english: 'C1' }, { bucket: { file: () => ({ delete: remove }) } });
+      await entered; f.docs.set('assisted_applications/source/automation/submission', { r1: { state: 'sent', channel: 'portal' } });
+      finish({ pdfKey: 'refused-sent.pdf', renderer: 'test', photo: null });
+      await expect(pending).rejects.toMatchObject({ code: 'already_sent', status: 409 });
+      expect(f.input().flow.answers).toEqual({}); expect(f.input().flow.answerConfirmations).toBeUndefined();
+      expect(remove).toHaveBeenCalled();
+    } finally { vi.mocked(pdf.tailoredCvChanges).mockReturnValue(false); }
+  });
+  it('allows recovery after a failed ledger even with stale sentAttempt/queue legacy payload', async () => {
+    const f = fixture(); f.docs.set('assisted_applications/source/automation/submission', { r1: { state: 'failed', clickedAt: now } });
+    Object.assign(f.input().order, { submissionStatus: 'ready_for_manual_submission', submittedAt: now });
+    f.input().draft.sentAttempt = { at: now };
+    await expect(f.save({ english: 'C1' })).resolves.toMatchObject({ answerConfirmation: { authority: true } });
+  });
   it.each(['expired', 'purging'])('does not publish photo/CV/edit rebuilds while the source is %s', async reason => {
     const f = fixture();
     if (reason === 'expired') f.read('assisted_applications/source').cvUploadedAt = now - 90 * 86400000 - 1;
@@ -81,11 +110,12 @@ describe('question confirmation protocol', () => {
   it.each(['intake', 'order_note'])('refuses a correction changed in %s between pre-read and deferred answer commit', async change => {
     const f = fixture(); let finish!: (value: any) => void;
     vi.mocked(pdf.tailoredCvChanges).mockReturnValue(true);
-    vi.mocked(pdf.rebuildTailoredCvPdf).mockImplementation(() => new Promise(resolve => { finish = resolve; }));
+    let entered!: () => void; const rebuilding = new Promise<void>(resolve => { entered = resolve; });
+    vi.mocked(pdf.rebuildTailoredCvPdf).mockImplementation(() => new Promise(resolve => { finish = resolve; entered(); }));
     const remove = vi.fn(async () => {});
     try {
       const pending = f.save({ english: 'C1' }, { bucket: { file: () => ({ delete: remove }) } });
-      await Promise.resolve();
+      await rebuilding;
       if (change === 'intake') f.docs.set('assisted_applications/source/automation/intake', { emailNotes: 'Current A2' });
       else f.read('assisted_applications/source').candidateNotes = 'Current A2';
       finish({ pdfKey: 'refused-counter.pdf', renderer: 'test', photo: null });
@@ -101,11 +131,12 @@ describe('question confirmation protocol', () => {
     let wall = now; const clock = vi.spyOn(Date, 'now').mockImplementation(() => wall);
     let finish!: (value: any) => void;
     vi.mocked(pdf.tailoredCvChanges).mockReturnValue(true);
-    vi.mocked(pdf.rebuildTailoredCvPdf).mockImplementation(() => new Promise(resolve => { finish = resolve; }));
+    let entered!: () => void; const rebuilding = new Promise<void>(resolve => { entered = resolve; });
+    vi.mocked(pdf.rebuildTailoredCvPdf).mockImplementation(() => new Promise(resolve => { finish = resolve; entered(); }));
     const remove = vi.fn(async () => {}); const bucket = { file: () => ({ delete: remove }) };
     try {
       const pending = f.save({ english: 'C1' }, { bucket });
-      await Promise.resolve(); wall = now + 10;
+      await rebuilding; wall = now + 10;
       finish({ pdfKey: 'refused.pdf', renderer: 'test', photo: null });
       await expect(pending).rejects.toMatchObject({ code: 'answer_contract_changed', status: 409 });
       expect(f.read('assisted_applications/source/automation/flow').answers).toEqual({});

@@ -40,7 +40,8 @@ import { ensureOrderAlias } from './assistedApplicationAlias.js';
 import { factCheckTokens, roundWasSent } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
-import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
+import { submissionIrreversibility } from './assistedApplicationSubmissionState.js';
+import { submissionGuard, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 
@@ -248,7 +249,10 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   const freshNow = () => nowMs + Math.max(0, Date.now() - startedAt);
   const orderRef = orderRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
-  const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([orderRef.get(), draftRef.get(), flowRefFor(db, orderId).get()]);
+  const submissionRef = submissionRefFor(db, orderId);
+  const [orderSnapshot, draftSnapshot, flowSnapshot, submissionSnapshot] = await Promise.all([orderRef.get(), draftRef.get(), flowRefFor(db, orderId).get(), submissionRef.get()]);
+  const initialIrreversibility = submissionIrreversibility({ submission: submissionSnapshot.data() });
+  if (initialIrreversibility) throw new AutomationAdminError(initialIrreversibility, 409);
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
   if (!draft || draft.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
   // Sent: the letter that left is the candidate's to keep, a later edit would only change their Word copy (P8).
@@ -297,7 +301,8 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
     && (current.candidateEditedAt || null) === (draft.candidateEditedAt || null)
     && (current.editedAt || null) === (draft.editedAt || null);
   const committed = await db.runTransaction(async (transaction) => {
-    const [current, currentOrder] = await Promise.all([transaction.get(draftRef), transaction.get(orderRef)]);
+    const [current, currentOrder, currentSubmission] = await Promise.all([transaction.get(draftRef), transaction.get(orderRef), transaction.get(submissionRef)]);
+    if (submissionIrreversibility({ submission: currentSubmission.data() })) return false;
     if (!current.exists || !unchanged(current.data()) || !currentOrder.exists || !answerSourceRetained(currentOrder.data(), freshNow())) return false;
     transaction.set(draftRef, {
       coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },

@@ -412,13 +412,14 @@ describe('closed ad refund', () => {
 
 describe('owner queue', () => {
   beforeEach(() => { store.read(ORDER_PATH).cvUploadedAt = T0; });
-  it.each(['expired', 'purging'])('does not publish an owner letter when retention becomes %s during upload', async reason => {
+  it.each(['expired', 'purging', 'sent'])('does not publish an owner letter when the source becomes %s during upload', async reason => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
     store.docs.set(`${ORDER_PATH}/ai_drafts/current`, { ...readyDraft(), language: 'it', profile: {}, coverLetter: { text: 'Original letter' } });
     const removed: string[] = [];
     const bucket = { file: (key: string) => ({ save: async () => {
       if (reason === 'expired') store.read(ORDER_PATH).cvUploadedAt = T0 - 90 * 86400000 - 1;
-      else store.read(ORDER_PATH).retentionPurgingAt = T0;
+      else if (reason === 'purging') store.read(ORDER_PATH).retentionPurgingAt = T0;
+      else store.docs.set(`${ORDER_PATH}/automation/submission`, { r1: { state: 'sent', channel: 'portal' } });
     }, delete: async () => { removed.push(key); } }) };
     await expect(handleAutomationAdminAction(store.db, { action: 'automationEditDraft', orderId: ORDER, coverLetterText: 'Gentili signore e signori,\n\nMi candido per il ruolo.\n\nCordiali saluti' }, 'owner@example.com', { bucket, runEffect, nowMs: T0 }))
       .rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
