@@ -238,6 +238,30 @@ describe('exchangeHreflangManifests', () => {
       expect(downloaded).toEqual(names({ it: 1, en: 2, de: 2 }));
     });
 
+    it('drops a manifest seen earlier when the job list then shows that leg running again', async () => {
+      const jobs: Array<{ name: string; conclusion: string | null; run_attempt?: number }> = [
+        { name: 'build-locale (it)', conclusion: 'success', run_attempt: 1 },
+      ];
+      const available = names({ it: 1, en: 2, de: 2 });
+      const { gh, calls } = fakeGh({ jobs, list: artifactsFor(available) });
+      let polls = 0;
+      await exchangeHreflangManifests({
+        ...base(),
+        ...rerun,
+        gh,
+        sleep: async (ms: number) => {
+          clock += ms;
+          polls += 1;
+          if (polls === 1) jobs[0] = { name: 'build-locale (it)', conclusion: null, run_attempt: 2 };
+          if (polls === 2) available.push(...names({ it: 2, fr: 2 }));
+        },
+      });
+      expect(polls).toBe(2);
+      const downloaded = calls.filter((args) => args[0] === 'run').map((args) => args[args.indexOf('--name') + 1]);
+      expect(downloaded).toContain(manifestArtifactName('it', RUN_ID, 2));
+      expect(downloaded).not.toContain(manifestArtifactName('it', RUN_ID, 1));
+    });
+
     it('does not read an earlier attempt of a leg that is running again', async () => {
       const { gh } = fakeGh({
         jobs: [

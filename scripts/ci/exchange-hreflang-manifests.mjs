@@ -105,8 +105,10 @@ function manifestAttemptOf(locale, jobs, runAttempt) {
 
 async function firstMissingLocale({ gh, repo, runId, runAttempt, jobs, published }) {
   for (const locale of MANIFEST_LOCALES) {
-    if (published.has(locale)) continue;
+    // Decided on every poll: a job list can show a rerun only after the first read.
     const attempt = manifestAttemptOf(locale, jobs, runAttempt);
+    if (published.get(locale) === attempt) continue;
+    published.delete(locale);
     const name = manifestArtifactName(locale, runId, attempt);
     if (!(await isPublished({ gh, repo, runId, name }))) return locale;
     published.set(locale, attempt);
