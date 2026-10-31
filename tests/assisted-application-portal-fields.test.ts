@@ -92,6 +92,25 @@ describe('portal field extraction', () => {
     }]).questions[0];
     expect(manyLabelsQuestion.privacyMetadataIncomplete).toBe(true);
     expect(operationalQuestionTopic(manyLabelsQuestion)).toBeNull();
+
+    const descriptionParts = ['x'.repeat(297), 'x'.repeat(297), 'Email'];
+    const descriptionSnapshot = extract('<form><label for="privacy-ack">' + prompt + '</label>'
+      + '<input id="privacy-ack" type="checkbox" aria-describedby="privacy-hint-1 privacy-hint-2 privacy-hint-3" required>'
+      + descriptionParts.map((part, index) => '<span id="privacy-hint-' + (index + 1) + '">' + part + '</span>').join('')
+      + '</form>');
+    const descriptionField = descriptionSnapshot.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(descriptionField.description).toHaveLength(600);
+    expect(descriptionField.privacyMetadataIncomplete).toBe(true);
+    const descriptionQuestion = portalRequirementsFromMissingRequired(descriptionSnapshot.fields, [{
+      fieldId: descriptionField.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(descriptionQuestion.privacyMetadataIncomplete).toBe(true);
+    expect(operationalQuestionTopic(descriptionQuestion)).toBeNull();
+    // Isolate the fail-closed marker from the full Email label preserved by extraction.
+    const markerOnlyDescriptionQuestion = { ...descriptionQuestion, labels: [prompt] };
+    expect(operationalQuestionTopic(markerOnlyDescriptionQuestion)).toBeNull();
+    expect(operationalQuestionTopic({ ...markerOnlyDescriptionQuestion, privacyMetadataIncomplete: false }))
+      .toBe('privacy_review_ack');
   });
 
   it('recognizes the Deloitte login fields and optional-cookie controls', () => {
