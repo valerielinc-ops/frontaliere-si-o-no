@@ -12,7 +12,7 @@
  *    i nuovi frontalieri sono imponibili in Svizzera fino all'80% e «lo Stato di
  *    residenza assoggetta a sua volta ad imposizione ed elimina la doppia
  *    imposizione»; solo chi rientra nell'art. 9 par. 1 resta imponibile
- *    «soltanto in Svizzera», senza termine. Il 2033 dell'art. 9 par. 2 e' la
+ *    «soltanto in Svizzera». Il 2033 dell'art. 9 par. 2 e' la
  *    fine della compensazione ai Comuni, non del regime fiscale.
  *  - L. 83/2023 art. 4 (dal 2027 TUIR D.Lgs. 117/2026 art. 217): franchigia di
  *    10.000 euro. Nessuna fonte ufficiale attribuisce 7.500 euro ai vecchi
@@ -481,6 +481,7 @@ const CORRECT_DURATION = /(?=.*\b(?:cinque|five|fünf|cinq|5)\b)(?=.*(?:contratt
 
 function classifyGPermit(sentence, locale) {
   if (!G_PERMIT[locale].test(sentence) || G_OTHER_SUBJECT[locale].test(sentence)) return null;
+  if (/\?\s*$/.test(sentence)) return null;
   if (G_BORDER_ZONE_REQUIREMENT[locale].test(sentence) && !G_BORDER_OFF_TOPIC[locale].test(sentence)) return 'zone';
   if (G_WRONG_DURATION[locale].test(sentence) && !CORRECT_DURATION.test(sentence)) return 'duration';
   if (G_DEADLINE[locale].test(sentence)) return 'deadline';
@@ -493,10 +494,69 @@ export function repairGPermitSentence(sentence, locale) {
   const kind = classifyGPermit(sentence, locale);
   if (!kind) return null;
   if (kind === 'cost') return '';
-  if (/\?\s*$/.test(sentence)) return null;
   const marker = sentence.match(LIST_MARKER)?.[0] ?? '';
   return `${marker}${G_TEXT[locale][kind]}`;
 }
+
+/**
+ * Tassa sulla salute. L. 213/2023 art. 1 c. 237-239: quota dal 3% al 6% del
+ * salario netto, da 30 a 200 euro per mese lavorato, definita ogni anno dalla
+ * Regione. Nessun atto regionale verificato ne fissa l'importo: una cifra diversa
+ * non si sostituisce, si toglie. I sondaggi sulla tassa («l'87,8% la ritiene
+ * penalizzante») e i ristorni sospesi non sono importi della tassa.
+ */
+const HEALTH_TAX = {
+  it: /tassa\s+(?:sulla\s+)?salute|tassa\s+sanitaria|tassa\s+sulla\s+sanit\S*|contributo\s+sanitario|compartecipazione\s+al\s+(?:SSN|Servizio)/i,
+  en: /health\s+(?:tax|levy)|healthcare\s+(?:tax|levy)|health\s+contribution/i,
+  de: /Gesundheits(?:steuer|abgabe|beitrag)/i,
+  fr: /taxe\s+(?:sur\s+la\s+)?sant[ée]|taxe\s+sanitaire|contribution\s+sant[ée]|taxe\s+dite\s+«\s*santé/i,
+};
+const HEALTH_TAX_WRONG_LAW = {
+  it: /Legge\s+di\s+Bilancio\s+20(?:19|20|21|22|23)|legge\s+federale\s+[^.;|]{0,30}(?:tassa|sanit)|legge\s+sulla?\s+(?:tassa|tasse)\s+(?:sulla\s+salute|sanitari)/i,
+  en: /(?:Budget|Finance|Stability)\s+(?:Law|Act)\s+(?:of\s+)?20(?:19|20|21|22|23)|federal\s+(?:law|act)\s+[^.;|]{0,30}health\s+tax/i,
+  de: /(?:Haushalts|Stabilitäts|Budget)gesetz\w*\s+(?:von\s+)?20(?:19|20|21|22|23)|Bundesgesetz\s+[^.;|]{0,30}Gesundheitssteuer/i,
+  fr: /loi\s+de\s+(?:finances|budget|bilan)\s+(?:de\s+)?20(?:19|20|21|22|23)|loi\s+fédérale\s+[^.;|]{0,30}taxe\s+(?:sur\s+la\s+)?sant/i,
+};
+const HEALTH_TAX_EXEMPT = {
+  it: /ristorn|sospes|bloccat|franchigi|non\s+esiste|non\s+si\s+tratta|confus|intervistat|sondaggio|penalizzant|LAMal\s+(?:non|è)|(?:non|né)\s+(?:è\s+)?una\s+.?tassa/i,
+  en: /ristorn|rebate|refund|suspend|blocked|deductible|not\s+(?:a|to\s+be\s+confused)|confus|does\s+not\s+exist|surve|respondents|penali[sz]|LAMal\s+is/i,
+  de: /Ristorn|Rückerstatt|Rückzahl|gesperrt|ausgesetzt|Franchise|Selbstbehalt|keine\s+.?Gesundheits|verwechsel|existiert\s+nicht|Umfrage|Befragten|benachteilig|KVG|LAMal\s+ist/i,
+  fr: /ristorn|rétrocession|remboursement|suspend|bloqu|franchise|confond|n['’]est\s+pas\s+une|n['’]existe\s+pas|enquête|sondage|pénalisant|LAMal\s+(?:n['’]|est)/i,
+};
+const SWISS_FRANC_AMOUNT = /(?:CHF|Fr\.)\s?\d|\d[\d.'’\s]*\s?(?:CHF|franchi|Franken|francs)\b/i;
+const YEARLY_EURO = {
+  it: /\d[\d.'’]*\s?(?:euro|€|EUR)\s+(?:l['’]anno|all['’]anno|annu[ie]|annuali)|(?:euro|€)\s?\d[\d.'’]*\s+(?:l['’]anno|all['’]anno|annu[ie]|annuali)/i,
+  en: /\d[\d,.'’]*\s?(?:euros?|€|EUR)\s+(?:a|per)\s+year|(?:€|EUR)\s?\d[\d,.'’]*\s+(?:a|per)\s+year/i,
+  de: /\d[\d.'’]*\s?(?:Euro|€|EUR)\s+(?:pro\s+Jahr|im\s+Jahr|jährlich)|(?:€|EUR)\s?\d[\d.'’]*\s+(?:pro\s+Jahr|im\s+Jahr|jährlich)/i,
+  fr: /\d[\d\s.'’]*\s?(?:euros?|€|EUR)\s+(?:par\s+an|annuels?)/i,
+};
+const PERCENT_OF_PAY = {
+  it: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|per\s+cento)\s+(?:del(?:lo|l['’])?|sul(?:lo|l['’])?)\s+(?:salario|stipendio|reddito|netto|lordo|imposta)/gi,
+  en: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|percent)\s+(?:of|on)\s+(?:the\s+)?(?:gross|net|salary|income|wage)/gi,
+  de: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|Prozent)\s+(?:des|vom|auf\s+das)\s+(?:Brutto|Netto|Lohn\w*|Einkommen\w*|Gehalt\w*)/gi,
+  fr: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|pour\s+cent)\s+(?:du|sur\s+le)\s+(?:salaire|revenu|brut|net)/gi,
+};
+
+function isHealthTaxClaim(sentence, locale) {
+  if (!HEALTH_TAX[locale].test(sentence) || /\?\s*$/.test(sentence)) return false;
+  if (HEALTH_TAX_WRONG_LAW[locale].test(sentence)) return true;
+  if (HEALTH_TAX_EXEMPT[locale].test(sentence)) return false;
+  if (SWISS_FRANC_AMOUNT.test(sentence) || YEARLY_EURO[locale].test(sentence)) return true;
+  return [...sentence.matchAll(PERCENT_OF_PAY[locale])].some(([, value]) => !['3', '6'].includes(value.replace(',', '.')));
+}
+
+/** Un importo o una base non verificabile si toglie: non c'e' un valore da mettere. */
+export function repairHealthTaxSentence(sentence, locale) {
+  return isHealthTaxClaim(sentence, locale) ? '' : null;
+}
+
+/** Sintesi per excerpt e description rimasti vuoti dopo la rimozione di una cifra. */
+export const HEALTH_TAX_SUMMARY = Object.freeze({
+  it: 'Tassa sulla salute: quota al SSN dal 3% al 6% del salario netto svizzero, da 30 a 200 euro per mese lavorato, definita ogni anno dalla Regione.',
+  en: 'Health tax: a contribution to the Italian health service of 3% to 6% of the Swiss net salary, 30 to 200 euros per month worked, set yearly by the region.',
+  de: 'Gesundheitssteuer: Beitrag an den italienischen Gesundheitsdienst von 3 % bis 6 % des Schweizer Nettolohns, 30 bis 200 Euro pro Arbeitsmonat, jährlich von der Region festgelegt.',
+  fr: 'Taxe santé : contribution au service de santé italien de 3 % à 6 % du salaire net suisse, de 30 à 200 euros par mois travaillé, fixée chaque année par la région.',
+});
 
 const CLASS_RULES = Object.freeze([
   { id: 'regime-fiscale', repair: repairRegimeSentence, test: isRegimeClaim },
@@ -507,6 +567,7 @@ const CLASS_RULES = Object.freeze([
     test: (sentence, locale) => isOldRegimeClaim(sentence, locale),
   },
   { id: 'stringa-prompt', repair: repairPromptEchoSentence, test: hasPromptEcho },
+  { id: 'tassa-salute', repair: repairHealthTaxSentence, test: isHealthTaxClaim },
   { id: 'permesso-g', repair: repairGPermitSentence, test: (sentence, locale) => classifyGPermit(sentence, locale) !== null },
 ]);
 
