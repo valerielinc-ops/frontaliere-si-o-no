@@ -1,3 +1,8 @@
+vi.mock('../functions/src/lib/primaryApplicationProtocol.js', async original => {
+  const actual = await original<any>();
+  const { primaryPostingFixture } = await import('./helpers/ownerNativePrimaryFixture');
+  return { ...actual, readPrimaryApplicationProtocol: (input: any, options: any) => primaryPostingFixture(actual.readPrimaryApplicationProtocol, input, options, 'Pflegefachperson') };
+});
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
@@ -173,6 +178,15 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect(kit.answerSourceFingerprint).toMatch(/^[a-f0-9]{64}$/);
     expect(kit).not.toHaveProperty('answerSourceGuard'); expect(kit).not.toHaveProperty('answerCounterContext');
   });
+  it('keeps the independently checked source title separate from the display title', async () => {
+    await seed(takenOver, { job: { ...draft.job, title: 'Display title in another locale' } });
+    const { kit } = await call('automationFillKit') as any;
+    expect(kit.nativeTargetContext.jobTitle).toBe(order.jobTitle);
+    expect(kit.nativeTargetContext.applyUrl).toBe(draft.job.applyUrl);
+    expect(kit.job.title).toBe('Display title in another locale');
+    expect(kit.nativeTargetContext).not.toHaveProperty('sourceAuthority');
+  });
+
   it('hands the kit of an order the robot left to Valerie, with the CV that leaves', async () => {
     await seed(takenOver);
     const { kit } = await call('automationFillKit') as any;

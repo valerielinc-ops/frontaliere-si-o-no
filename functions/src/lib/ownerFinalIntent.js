@@ -1,5 +1,6 @@
 /** The blocked human intent and its complete native snapshot, never a semantic proof by themselves. */
 import { createHash } from 'node:crypto';
+import { cloneNativeApplicationTarget } from './nativeApplicationTarget.js';
 import { canonicalQuestionJson } from './applicationQuestionContract.js';
 import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS } from '../assistedApplicationExtraDocuments.js';
 export const OWNER_NATIVE_PROOF_PROTOCOL = 'owner-final-intent-v1';
@@ -24,13 +25,16 @@ export function ownerFinalIntent(raw, { round, nowMs = Date.now() }) {
     ({ proof, intent } = structuredClone({ proof: raw?.nativeProof, intent: raw?.finalIntent }));
   } catch { throw invalid(); }
   if (raw?.nativeProofProtocol !== OWNER_NATIVE_PROOF_PROTOCOL || !digest(raw?.answerSourceFingerprint)
-    || !object(proof) || !only(proof, ['version', 'frameUrl', 'round', 'fields', 'attachments']) || proof.version !== OWNER_NATIVE_PROOF_VERSION || !httpsUrl(proof.frameUrl)
+    || !object(proof) || !only(proof, ['version', 'frameUrl', 'round', 'fields', 'attachments', 'target']) || proof.version !== OWNER_NATIVE_PROOF_VERSION || !httpsUrl(proof.frameUrl)
     || !Number.isInteger(round) || round < 1 || proof.round !== round || !Array.isArray(proof.fields) || proof.fields.length > 300
     || !Array.isArray(proof.attachments) || proof.attachments.length > 2 + MAX_FILES_PER_DOCUMENT * MAX_REQUIRED_DOCUMENTS
     || !object(intent) || !only(intent, ['id', 'frameUrl', 'nativeDigest', 'materialDigest', 'submitterDigest', 'capturedAt']) || typeof intent.id !== 'string' || !/^[A-Za-z0-9_-]{16,128}$/.test(intent.id)
     || intent.frameUrl !== proof.frameUrl || !digest(intent.nativeDigest) || !digest(intent.materialDigest) || !digest(intent.submitterDigest)
     || !Number.isFinite(nowMs) || !Number.isFinite(intent.capturedAt) || intent.capturedAt <= 0
     || intent.capturedAt > nowMs + 5000 || nowMs - intent.capturedAt > 120_000) throw invalid();
+  const target = cloneNativeApplicationTarget(proof.target);
+  if (!target || target.documentUrl !== proof.frameUrl || sha(target) !== intent.submitterDigest) throw invalid();
+  proof.target = target;
   const ids = new Set();
   for (const field of proof.fields) {
     if (!object(field) || !only(field, ['fieldId', 'nativeFormContract', 'proposedAnswer']) || typeof field.fieldId !== 'string' || !field.fieldId || field.fieldId.length > 1000 || ids.has(field.fieldId)

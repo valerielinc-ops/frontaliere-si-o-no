@@ -956,7 +956,8 @@ async function handleOwnerCvUpload(db, raw, adminEmail, operationStartedAt) {
   return { status: 200, body: { ok: true, orderId, detectedType: type } };
 }
 
-async function handleMutate(db, req, adminEmail, operationStartedAt) {
+async function handleMutate(db, req, adminEmail, operationStartedAt, nativeOperation, auditNativeIntent) {
+
   const raw = req.body && typeof req.body === 'object' ? req.body : {};
   const action = boundedString(raw.action, 80);
   if (action === 'candidateView') return handleCandidateView(db, raw);
@@ -966,6 +967,7 @@ async function handleMutate(db, req, adminEmail, operationStartedAt) {
     try {
       const body = await handleAutomationAdminAction(db, raw, adminEmail, {
         runEffect: runAutomationEffect,
+        nativeOperation, auditNativeIntent,
         requireAnswerContracts: action === 'automationSetAnswers' ? await answerContractRequired(getRemoteConfigValue) : false,
         bucket: getStorage().bucket(STORAGE_BUCKET),
         // Read only by automationRevealAccount (portal accounts on the alias).
@@ -987,7 +989,8 @@ async function handleMutate(db, req, adminEmail, operationStartedAt) {
 }
 
 /** Entry point. Both GET and POST require the verified owner admin. */
-export async function handleAssistedApplicationAdmin(req) {
+export async function handleAssistedApplicationAdmin(req, { nativeOperation = null } = {}) {
+
   const operationStartedAt = Date.now();
   const method = String(req.method || 'GET').toUpperCase();
   if (method !== 'GET' && method !== 'POST') {
@@ -1000,8 +1003,17 @@ export async function handleAssistedApplicationAdmin(req) {
   const db = getAdminDb();
   try {
     if (method === 'GET') return await handleListAssistedApplications(db, requestedStatus(req), requestedBillingMode(req));
-    const result = await handleMutate(db, req, auth.email, operationStartedAt);
-    if (result.status >= 200 && result.status < 300 && boundedString(req.body?.action, 80) !== 'candidateView') {
+    // The native path audits its completed verification before the irreversible marker and ACK clock.
+    // This closure is private: a request/body flag can neither skip the audit nor claim it already ran.
+    let nativeIntentAudited = false;
+    const result = await handleMutate(db, req, auth.email, operationStartedAt, nativeOperation, async ({ orderId }) => {
+      const audit = await writeAdminAuditLog({ db, auth, action: 'assisted_application_automationMarkClicked', target: orderId,
+        status: 200, details: { phase: 'native_intent_verified' } });
+      if (!audit) throw new AssistedApplicationAdminError('native_audit_unavailable', 503);
+      nativeIntentAudited = true;
+    });
+    if (result.status >= 200 && result.status < 300 && boundedString(req.body?.action, 80) !== 'candidateView' && !nativeIntentAudited) {
+
       await writeAdminAuditLog({
         db,
         auth,

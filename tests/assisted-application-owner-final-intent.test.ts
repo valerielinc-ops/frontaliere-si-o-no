@@ -1,3 +1,4 @@
+import { ownerTargetFixture } from './helpers/ownerNativePrimaryFixture';
 import { describe, expect, it } from 'vitest';
 import { createHash } from 'node:crypto';
 import { ownerFinalIntent } from '../functions/src/lib/ownerFinalIntent.js';
@@ -10,9 +11,10 @@ function request() {
     { fieldId: 'cv-upload', nativeFormContract: { question: 'CV', kind: 'file', options: [] } },
   ];
   const attachments = [{ fieldId: 'cv-upload', slot: 'cv', sha256: 'a'.repeat(64), size: 500 }];
+  const target = ownerTargetFixture('https://example.test/apply/');
   return { nativeProofProtocol: 'owner-final-intent-v1', answerSourceFingerprint: 'b'.repeat(64),
-    nativeProof: { version: 'owner-native-proof-v1', frameUrl: 'https://example.test/apply/', round: 1, fields, attachments },
-    finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/apply/', nativeDigest: hash(fields), materialDigest: hash(attachments), submitterDigest: 'c'.repeat(64), capturedAt: now } };
+    nativeProof: { version: 'owner-native-proof-v1', frameUrl: 'https://example.test/apply/', round: 1, target, fields, attachments },
+    finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/apply/', nativeDigest: hash(fields), materialDigest: hash(attachments), submitterDigest: hash(target), capturedAt: now } };
 }
 describe('owner final intent transport (not semantic authority)', () => {
   it('owns the full input snapshot and joins files to their native controls', () => {
@@ -31,7 +33,7 @@ describe('owner final intent transport (not semantic authority)', () => {
     raw.finalIntent.nativeDigest = hash(raw.nativeProof.fields);
     expect(() => ownerFinalIntent(raw, { round: 1, nowMs: now })).toThrow('native_proof_invalid');
   });
-  it.each(['missing_protocol', 'missing_fingerprint', 'stale_round', 'changed_value', 'changed_context', 'wrong_file_field', 'file_fakepath', 'duplicate_field', 'old_intent', 'insecure_url', 'extra_key'])('refuses incomplete/stale native transport: %s', change => {
+  it.each(['missing_protocol', 'missing_fingerprint', 'stale_round', 'changed_value', 'changed_context', 'wrong_file_field', 'file_fakepath', 'duplicate_field', 'old_intent', 'insecure_url', 'extra_key', 'missing_target', 'changed_target', 'oversize_target'])('refuses incomplete/stale native transport: %s', change => {
     const raw: any = request();
     if (change === 'missing_protocol') delete raw.nativeProofProtocol;
     if (change === 'missing_fingerprint') delete raw.answerSourceFingerprint;
@@ -43,6 +45,9 @@ describe('owner final intent transport (not semantic authority)', () => {
     if (change === 'duplicate_field') raw.nativeProof.fields.push(raw.nativeProof.fields[0]);
     if (change === 'old_intent') raw.finalIntent.capturedAt = now - 120001;
     if (change === 'insecure_url') raw.finalIntent.frameUrl = raw.nativeProof.frameUrl = 'http://example.test/apply/';
+    if (change === 'missing_target') delete raw.nativeProof.target;
+    if (change === 'changed_target') raw.nativeProof.target.form.action = 'https://example.test/job99/';
+    if (change === 'oversize_target') raw.nativeProof.target.extra = 'x'.repeat(140000);
     if (change === 'extra_key') raw.nativeProof.approved = true;
     expect(() => ownerFinalIntent(raw, { round: 1, nowMs: now })).toThrow('native_proof_invalid');
   });

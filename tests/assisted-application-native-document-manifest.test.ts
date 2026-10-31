@@ -1,3 +1,10 @@
+import { createNativeOperation } from '../functions/src/lib/assistedApplicationNativeOperation.js';
+import { ownerTargetFixture } from './helpers/ownerNativePrimaryFixture';
+vi.mock('../functions/src/lib/primaryApplicationProtocol.js', async original => {
+  const actual = await original<any>();
+  const { primaryPostingFixture } = await import('./helpers/ownerNativePrimaryFixture');
+  return { ...actual, readPrimaryApplicationProtocol: (input: any, options: any) => primaryPostingFixture(actual.readPrimaryApplicationProtocol, input, options, 'Engineer') };
+});
 import { describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
@@ -20,13 +27,13 @@ describe('current server document manifest for native proof', () => {
     const cvKey = `assisted-application-uploads/${id}/source.pdf`; const key = `assisted-application-uploads/${id}/diploma.pdf`;
     const requested = { id: 'degree', label: 'Degree certificates', kind: 'diploma', keywords: ['degree certificates'], required: true,
       quote: 'degree certificates', originalNativeContract: { question: 'Degree certificates', kind: 'file', options: [] } };
-    const order = { cvStorageKey: cvKey, cvUploadedAt: now, jobId: 'synthetic-job', jobUrl: 'https://example.test/job/' };
+    const order = { cvStorageKey: cvKey, cvUploadedAt: now, jobId: 'synthetic-job', jobTitle: 'Engineer', jobUrl: 'https://example.test/job/engineer.html' };
     const flow = { state: 'owner_takeover', round: 3, answers: {}, documents: assigned ? { degree: { files: [{ key, detectedType: 'pdf' }] } } : {} };
     const draft = { status: 'ready', round: 3, questions: [], cvKey, sourceCvHash: digest(cv), profile: {},
-      channel: { applyUrl: 'https://example.test/apply/' }, requiredDocuments: [requested] };
+      channel: { applyUrl: 'https://example.test/job/engineer.html' }, requiredDocuments: [requested] };
     const f = createMemoryFirestore({ [base]: order, [`${base}/automation/flow`]: flow, [`${base}/ai_drafts/current`]: draft });
     const downloads: any[] = [];
-    const deps = { nowMs: now, originalCvUrl: async () => 'https://example.test/source.pdf', bucket: { file: (objectKey: string, options: any) => ({
+    const deps = { nowMs: now, nativeOperation: createNativeOperation(), originalCvUrl: async () => 'https://example.test/source.pdf', bucket: { file: (objectKey: string, options: any) => ({
       getMetadata: async () => [{ generation: objectKey === cvKey ? '10' : '42', size: (objectKey === cvKey ? cv : diploma).length }],
       download: async () => { downloads.push({ objectKey, options }); return [objectKey === cvKey ? cv : diploma]; },
     }) } };
@@ -35,10 +42,11 @@ describe('current server document manifest for native proof', () => {
     const { kit } = await call('automationFillKit') as any;
     const fields = [{ fieldId: 'diploma-file', nativeFormContract: { question: 'Degree certificates', kind: 'file', options: [] } }];
     const attachments = [{ fieldId: 'diploma-file', slot: 'extra_1', sha256: digest(diploma), size: diploma.length }];
+    const target = ownerTargetFixture('https://example.test/job/engineer.html');
     const request = { answerSourceFingerprint: kit.answerSourceFingerprint,
-      nativeProof: { version: 'owner-native-proof-v1', frameUrl: 'https://example.test/apply/', round: 3, fields, attachments },
-      finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/apply/', nativeDigest: digest(fields),
-        materialDigest: digest(attachments), submitterDigest: 'c'.repeat(64), capturedAt: now } };
+      nativeProof: { version: 'owner-native-proof-v1', frameUrl: 'https://example.test/job/engineer.html', round: 3, target, fields, attachments },
+      finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/job/engineer.html', nativeDigest: digest(fields),
+        materialDigest: digest(attachments), submitterDigest: digest(target), capturedAt: now } };
     captured.proof = null;
     await expect(call('automationMarkClicked', request)).rejects.toMatchObject({ status: 409,
       code: assigned ? 'native_proof_unverified' : 'native_proof_material_changed' });

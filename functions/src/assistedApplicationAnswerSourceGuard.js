@@ -11,7 +11,7 @@ import { cvToSend } from './assistedApplicationDocxInPlace.js';
 import { extraDocumentsToSend, requiredDocumentsOf } from './assistedApplicationExtraDocuments.js';
 
 const selected = (source, fields) => Object.fromEntries(fields.map(field => [field, source?.[field] ?? null]));
-const orderMaterial = order => ({ ...selected(order, ['paymentStatus', 'refundStatus', 'consentVersion', 'withdrawnAt', 'candidateNotes', 'userId', 'jobId', 'jobUrl', 'cvStorageKey', 'cvUploadedAt', 'refundedAt', 'submissionStatus', 'submittedAt', 'retentionPurgingAt', 'retentionPurgedAt', 'talentPoolConsent', 'talentPoolConsentAt', 'talentPoolConsentWithdrawnAt']), consentedAt: timestampMillis(order?.consentedAt) });
+const orderMaterial = order => ({ ...selected(order, ['paymentStatus', 'refundStatus', 'consentVersion', 'withdrawnAt', 'candidateNotes', 'userId', 'jobId', 'jobUrl', 'jobTitle', 'cvStorageKey', 'cvUploadedAt', 'refundedAt', 'submissionStatus', 'submittedAt', 'retentionPurgingAt', 'retentionPurgedAt', 'talentPoolConsent', 'talentPoolConsentAt', 'talentPoolConsentWithdrawnAt']), consentedAt: timestampMillis(order?.consentedAt) });
 const flowMaterial = flow => ({ ...selected(flow, ['candidateNotes', 'state', 'round', 'answers', 'questionAnswers', 'answerConfirmations', 'answerReviewRequired', 'formOverrides', 'feedback', 'retentionPurgedAt']),
   dispatch: selected(flow?.dispatch, ['mode', 'round', 'requestedAt']), roundWasSent: roundWasSent(flow) });
 const draftMaterial = draft => selected(draft, ['status', 'round', 'questions', 'cvKey', 'sourceCvHash', 'qualificationCvLanguageProfile', 'channel', 'job']);

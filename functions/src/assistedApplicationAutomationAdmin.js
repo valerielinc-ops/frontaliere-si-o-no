@@ -1,3 +1,5 @@
+import { loadNativeTargetContext } from './assistedApplicationNativeTargetContext.js';
+import { nativeOperationRemainingMs } from './lib/assistedApplicationNativeOperation.js';
 import { OWNER_NATIVE_PROOF_PROTOCOL, ownerFinalIntent } from './lib/ownerFinalIntent.js';
 import { loadRunnerAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { answerQuestionDescriptor, nativeQuestionOptionsView } from './lib/applicationQuestionContract.js';
@@ -561,7 +563,7 @@ function requireNativeProofProtocol(value) {
 }
 async function ownerSourceFence(work) {
   try { return await work(); } catch (error) {
-    if (['evidence_source_changed', 'submission_retention_changed', 'submission_approval_changed', 'submission_claim_changed', 'submission_already_sent'].includes(error?.code)) throw new AutomationAdminError(error.code, 409);
+    if (['evidence_source_changed', 'submission_retention_changed', 'submission_approval_changed', 'submission_claim_changed', 'submission_already_sent', 'native_target_source_unavailable'].includes(error?.code)) throw new AutomationAdminError(error.code, 409);
     throw error;
   }
 }
@@ -622,14 +624,23 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nativ
     localAnswerEvidence: confirmed.localAnswerEvidence, policyAuthority: confirmed.policyAuthority,
     documents: { cv: cvUrl ? { url: cvUrl, extension: cv.extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
-  await ownerSourceFence(() => db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction)));
-  return { ...kit, nativeProofProtocol: OWNER_NATIVE_PROOF_PROTOCOL, answerSourceFingerprint: confirmed.answerSourceGuard.fingerprint };
+  const targetContext = await ownerSourceFence(() => loadNativeTargetContext({ order, draft, answerSourceGuard: confirmed.answerSourceGuard }));
+  await ownerSourceFence(() => db.runTransaction(transaction => targetContext.sourceGuard.assertInTransaction(transaction)));
+  return { ...kit, nativeProofProtocol: OWNER_NATIVE_PROOF_PROTOCOL, nativeTargetContext: targetContext.nativeTargetContext,
+    answerSourceFingerprint: targetContext.sourceGuard.fingerprint };
 }
 
 
 /** One stopped human intent is acknowledged only after complete server proof and the atomic send fence. */
 async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
   requireNativeProofProtocol(raw.nativeProofProtocol);
+  const nativeOperation = deps.nativeOperation;
+  const remainingBudget = () => {
+    const remaining = nativeOperationRemainingMs(nativeOperation, 5000);
+    if (remaining <= 0) throw new AutomationAdminError('native_operation_expired', 409);
+    return Math.min(90_000, remaining);
+  };
+  remainingBudget();
   const startedAt = Date.now(); const freshNow = () => nowMs + Math.max(0, Date.now() - startedAt);
   const orderRef = orderRefFor(db, orderId);
   const [orderSnapshot, flowSnapshot, draftSnapshot, intakeSnapshot] = await Promise.all([
@@ -641,32 +652,40 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
   let request;
   try { request = ownerFinalIntent(raw, { round: Number(flow.round || 1), nowMs: freshNow() }); }
   catch { throw new AutomationAdminError('native_proof_invalid', 409); }
-  // A syntactically valid form from another job/portal is never this order's destination.
-  // Redirected/embedded destinations require an explicitly verified server namespace before they can be allowed.
-  let expectedFrameUrl;
-  try {
-    const expected = new URL(String(draft.channel?.applyUrl || draft.job?.applyUrl || ''));
-    expectedFrameUrl = expected.href;
-    if (expected.href !== new URL(request.proof.frameUrl).href) throw new Error('destination_changed');
-  } catch { throw new AutomationAdminError('native_proof_destination_changed', 409); }
   const intake = intakeSnapshot.data() || null;
   const confirmed = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, intake, nowMs: freshNow() });
-  if (!confirmed.answerSourceGuard || confirmed.answerSourceGuard.fingerprint !== request.answerSourceFingerprint) throw new AutomationAdminError('evidence_source_changed', 409);
+  const targetContext = await ownerSourceFence(() => loadNativeTargetContext({ order, draft,
+    answerSourceGuard: confirmed.answerSourceGuard, signal: nativeOperation.signal }));
+  remainingBudget();
+  if (targetContext.sourceGuard.fingerprint !== request.answerSourceFingerprint) throw new AutomationAdminError('evidence_source_changed', 409);
+  // The primary posting and the physical Review/iframe URL are distinct. Only the shared validator can bind them.
+  let validateNativeApplicationTarget; let canonicalNativeApplicationFrameUrl;
+  try { ({ validateNativeApplicationTarget, canonicalNativeApplicationFrameUrl } = await import('./lib/nativeApplicationTarget.js')); }
+  catch { throw new AutomationAdminError('native_proof_destination_changed', 409); }
+  if (typeof validateNativeApplicationTarget !== 'function' || typeof canonicalNativeApplicationFrameUrl !== 'function') throw new AutomationAdminError('native_proof_destination_changed', 409);
+  const target = validateNativeApplicationTarget({ target: request.proof.target, expected: targetContext.expected });
+  if (!target?.owned || target.binding?.frameUrl !== canonicalNativeApplicationFrameUrl(request.proof.frameUrl)) throw new AutomationAdminError('native_proof_destination_changed', 409);
   if (!deps.bucket) throw new AutomationAdminError('native_proof_source_unavailable', 409);
   const digest = bytes => createHash('sha256').update(bytes).digest('hex');
   const material = new Map();
   const readMaterial = async (key, keepBytes = false) => {
+    remainingBudget();
     if (!isAssistedApplicationCvKey(orderId, key) || !answerSourceRetained(order, freshNow())) throw new AutomationAdminError('native_proof_source_unavailable', 409);
     if (material.has(key)) return material.get(key);
     try {
       const [metadata] = await deps.bucket.file(key).getMetadata();
+      remainingBudget();
       if (!Number.isSafeInteger(Number(metadata.size)) || Number(metadata.size) < 1 || Number(metadata.size) > 12 * 1024 * 1024
         || !/^\d+$/.test(String(metadata.generation || ''))) throw new Error('invalid_material');
       const [bytes] = await deps.bucket.file(key, { generation: String(metadata.generation) }).download();
+      remainingBudget();
       if (!Buffer.isBuffer(bytes) || bytes.length !== Number(metadata.size)) throw new Error('invalid_material');
       const result = { sha256: digest(bytes), size: bytes.length, generation: String(metadata.generation), ...(keepBytes ? { bytes } : {}) };
       material.set(key, result); return result;
-    } catch { throw new AutomationAdminError('native_proof_source_unavailable', 409); }
+    } catch (error) {
+      if (error instanceof AutomationAdminError) throw error;
+      throw new AutomationAdminError('native_proof_source_unavailable', 409);
+    }
   };
   const original = await readMaterial(order.cvStorageKey, true);
   const selectedCv = cvToSend(draft, flow, order);
@@ -700,16 +719,30 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
     rawCounterContext: confirmed.rawCounterContext, policyAuthority: confirmed.policyAuthority,
     applicationIdentity: buildFillKit({ orderId, order, draft, flow: confirmed.flow }).identity, docsManifest, intake });
   if (!context?.scope || context.scope.orderId !== orderId || context.scope.round !== Number(flow.round || 1)) throw new AutomationAdminError('native_proof_unverified', 409);
-  context.scope = { ...context.scope, expectedFrameUrls: [expectedFrameUrl] };
-  await ownerSourceFence(() => db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction)));
-  const verified = await verifyNativeApplicationProof({ proof: request.proof, context, docsManifest });
+  context.scope = { ...context.scope, primaryPostingUrl: targetContext.expected.applyUrl,
+    sourceProtocol: targetContext.expected.sourceProtocol, jobTitle: targetContext.expected.jobTitle,
+    sourceAuthority: targetContext.sourceAuthority };
+  await ownerSourceFence(() => db.runTransaction(transaction => targetContext.sourceGuard.assertInTransaction(transaction)));
+  const verified = await verifyNativeApplicationProof({ proof: request.proof, context, docsManifest,
+    budgetMs: remainingBudget(), signal: nativeOperation.signal });
+  remainingBudget();
   if (verified?.status !== 'supported' || !/^[a-f0-9]{64}$/.test(verified.verification?.assessmentHash || '')) throw new AutomationAdminError('native_proof_unverified', 409);
+  if (typeof deps.auditNativeIntent !== 'function') throw new AutomationAdminError('native_proof_unverified', 409);
+  // Keep every awaited audit before the final source fence/ARM; ACK issuance has no later audit wait.
+  await deps.auditNativeIntent({ orderId });
+  remainingBudget();
+  // Refresh public source semantics after slow verification/audit, before the final transactional source fence.
+  const finalTargetContext = await ownerSourceFence(() => loadNativeTargetContext({ order, draft,
+    answerSourceGuard: confirmed.answerSourceGuard, signal: nativeOperation.signal }));
+  if (finalTargetContext.sourceGuard.fingerprint !== targetContext.sourceGuard.fingerprint) throw new AutomationAdminError('evidence_source_changed', 409);
+  remainingBudget();
   const ownerIntent = { idHash: digest(Buffer.from(request.intent.id)), nativeDigest: request.intent.nativeDigest,
     materialDigest: request.intent.materialDigest, submitterDigest: request.intent.submitterDigest, assessmentHash: verified.verification.assessmentHash };
-  const sourceGuard = Object.freeze({ fingerprint: confirmed.answerSourceGuard.fingerprint,
+  const sourceGuard = Object.freeze({ fingerprint: finalTargetContext.sourceGuard.fingerprint,
     async assertInTransaction(transaction) {
-      await confirmed.answerSourceGuard.assertInTransaction(transaction);
-      // No awaited work follows: a proof timeout cannot arm a later, different intent.
+      await finalTargetContext.sourceGuard.assertInTransaction(transaction);
+      // No awaited work follows: the entry deadline includes source reads, verification and claim.
+      remainingBudget();
       if (freshNow() - request.intent.capturedAt > 120_000) throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
     },
   });
@@ -719,6 +752,8 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
   const claim = await guard.claim('owner_extension', freshNow(), { resumable: true });
   if (claim.status !== 'claimed') throw new AutomationAdminError(claim.status === 'already_sent' ? 'already_sent' : 'submission_unconfirmed', 409);
   await ownerSourceFence(() => guard.markClicked(freshNow(), { answerSourceGuard: sourceGuard, ownerIntent }));
+  // Commit completion can consume the reserve or observe a disconnect. Keep the durable marker, but never mint a late ACK.
+  remainingBudget();
   const acknowledgedAt = freshNow();
   return { ok: true, state: flow.state, guard: 'sending', nativeProofProtocol: OWNER_NATIVE_PROOF_PROTOCOL,
     finalIntentId: request.intent.id, round: Number(flow.round || 1), ownerIntent, answerSourceFingerprint: request.answerSourceFingerprint,
