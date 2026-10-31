@@ -9,7 +9,7 @@ import { probeDarwinSandbox } from './sandbox-probe.mjs';
 import { probeConciergeTools } from '../setup-claude-haiku-fallback/concierge-tool-probe.mjs';
 import { resolvePinnedCodexNative } from '../setup-claude-haiku-fallback/concierge-tools.mjs';
 import { isInvokedDirectly } from '../../../scripts/lib/is-invoked-directly.mjs';
-import { parseCodexLogin } from '../../../functions/src/codexFallback.js';
+import { nativeConciergeAuth } from './native-auth.mjs';
 
 const VERSION = '0.153.4';
 const action = path.dirname(fileURLToPath(import.meta.url));
@@ -94,9 +94,7 @@ export async function startDarwinBroker({ manifest: manifestPath, manifest_sha25
   privateDirectory(manifest.prefix);
   if (path.dirname(manifestPath) !== manifest.prefix || !path.basename(manifest.prefix).startsWith('codex-luna-max-codex-cli.')) throw new Error('darwin_broker_manifest_invalid');
   checkFile(manifest.node, manifest.nodeHash); checkFile(manifest.cli, manifest.cliHash); checkFile(broker, manifest.brokerHash);
-  if (!auth || Buffer.byteLength(auth) > 256 * 1024) throw new Error('darwin_broker_auth_missing');
-  const subscription = parseCodexLogin(auth);
-  if (!subscription.ok || subscription.expiresAt - Date.now() < 30 * 60_000) throw new Error('darwin_broker_subscription_auth_unavailable');
+  const nativeAuth = nativeConciergeAuth(auth);
   const root = manifest.brokerRoot; privateDirectory(root);
   if (path.dirname(root) !== fs.realpathSync('/tmp') || !/^aa-codex-ipc-[A-Za-z0-9]+$/.test(path.basename(root))
     || manifest.socket !== path.join(root, 'auth.sock')) throw new Error('darwin_broker_socket_invalid');
@@ -108,7 +106,7 @@ export async function startDarwinBroker({ manifest: manifestPath, manifest_sha25
     '--codex-bin', manifest.cli, '--codex-realpath', manifest.cli, '--codex-sha256', manifest.cliHash, '--codex-prefix', manifest.prefix],
   { env: { PATH: `${path.dirname(manifest.node)}:/usr/bin:/bin`, HOME: root, OPENSSL_CONF: '/dev/null' }, detached: true, stdio: ['pipe', 'ignore', 'ignore'] });
   child.stdin.on('error', () => {});
-  child.stdin.end(auth);
+  child.stdin.end(nativeAuth);
   let exited = false; child.once('exit', () => { exited = true; });
   child.once('error', () => { exited = true; });
   let ready = false;

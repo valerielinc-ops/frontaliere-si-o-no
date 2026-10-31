@@ -95,6 +95,16 @@ concierge usa questa modalità; le review agentiche Linux conservano il contratt
 precedente. Prima dell’autenticazione una fixture locale verifica la lista vuota
 anche dentro `additional_tools` del protocollo Lite e il rifiuto di chiamate
 shell/patch inventate senza effetti. Non si dichiara isolamento OS del modello.
+Il solo avvio concierge Darwin adatta il login gestito di Remote Config al
+formato nativo ufficiale `chatgptAuthTokens`: conserva access token, ID token,
+account e timestamp originali, convalida scadenza e tipi delle claim e scrive
+il campo obbligatorio `refresh_token` vuoto. Un eventuale token di rinnovo
+presente nell'input viene scartato. Questa variante nativa non rinnova il login,
+anche dopo una risposta 401; il formato delle review Linux resta invariato.
+Le prove con token sintetici e server locale verificano header originali,
+lista strumenti Lite vuota e zero richieste di rinnovo. Non dimostrano che
+le credenziali reali siano accettate dal provider: quella verifica richiede
+un budget esplicito separato e non autorizza un invio al datore.
 Manager e agente deterministico SUBMIT hanno home e ambiente privati, ma
 l’agente Node è codice fidato senza sandbox filesystem aggiuntiva. Il browser
 applica direttamente il proprio primo profilo Seatbelt stretto; non eredita
