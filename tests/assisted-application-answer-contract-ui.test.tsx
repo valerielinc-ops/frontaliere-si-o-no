@@ -97,12 +97,15 @@ describe('answer contract CAS in actual Review and Admin renderers', () => {
     const onChanged = vi.fn(), view = render(<Admin order={order()} user={null} onChanged={onChanged} />);
     view.rerender(<Admin order={order([replacement], 'B')} user={null} onChanged={onChanged} />);
     fireEvent.click(screen.getByRole('button', { name: 'Rileggi le domande aggiornate' }));
+    expect((screen.getByRole('button', { name: /Approva ora/ }) as HTMLButtonElement).disabled).toBe(true);
     view.rerender(<Admin order={order([], '', 'order-two')} user={null} onChanged={onChanged} />);
+    expect((screen.getByRole('button', { name: /Approva ora/ }) as HTMLButtonElement).disabled).toBe(false);
     expect(screen.queryByRole('button', { name: 'Rileggi le domande aggiornate' })).toBeNull();
     view.rerender(<Admin order={order()} user={null} onChanged={onChanged} />);
     view.rerender(<Admin order={order([], '')} user={null} onChanged={onChanged} />);
     fireEvent.click(screen.getByRole('button', { name: 'Rileggi le domande aggiornate' }));
     expect(screen.queryByRole('button', { name: /Salva risposte/ })).toBeNull();
+    expect((screen.getByRole('button', { name: /Approva ora/ }) as HTMLButtonElement).disabled).toBe(false);
     expect(api.adminAction).not.toHaveBeenCalled();
   });
 });
