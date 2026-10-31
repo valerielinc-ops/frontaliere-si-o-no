@@ -1,6 +1,6 @@
-import { createHash } from 'node:crypto';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { reconcileCanonicalSubmissionReceipt } from '../functions/src/assistedApplicationReceiptReconcile.js';
+import { submissionSlotHash } from '../functions/src/lib/submissionReceiptContract.js';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { transportSourceGuard } from './helpers/submissionSourceGuard';
@@ -26,6 +26,7 @@ async function sentBeforeCrash(channel: 'email' | 'portal' | 'owner_extension' =
     jobId: 'fixture-job', jobUrl: 'https://example.test/jobs/fixture/',
     parentServiceId: 'fixture-service', parentProposalId: 'fixture-proposal',
     cvUploadedAt: now - 100, submissionStatus: 'in_progress',
+    paymentStatus: 'paid', consentVersion: 'assisted-application-v2', consentedAt: now - 100,
   };
   const store = createMemoryFirestore({
     [base]: order,
@@ -40,17 +41,13 @@ async function sentBeforeCrash(channel: 'email' | 'portal' | 'owner_extension' =
     round: 1, status: 'ready', job: { id: 'fixture-job', title: 'Synthetic role' },
     sentAttempt: { ...material, submissionAttempt: guard.attemptBinding() },
   });
-  if (channel === 'email') await guard.markEmailSending(now); else await guard.markClicked(now, channel === 'owner_extension' ? { ownerIntent: Object.fromEntries(
+  if (channel === 'email') await guard.markEmailSending(now, { emailHandoff: { messageId: '<reconcile@example.test>', recipient: 'hr@example.test', slotHash: submissionSlotHash({ orderId, order }) } }); else await guard.markClicked(now, channel === 'owner_extension' ? { ownerIntent: Object.fromEntries(
     ['idHash', 'nativeDigest', 'materialDigest', 'submitterDigest', 'assessmentHash'].map(key => [key, 'a'.repeat(64)])) } : {});
   await guard.markSent({ channel, sent: material }, now);
   const [framePath] = store.list(`${base}/submission_receipts/`);
   const frame = store.read(framePath);
-  // Server receipt-writer boundary: the durable handoff comes from the real
-  // guard; its synthetic acknowledgement is persisted before a simulated crash.
-  store.docs.set(framePath, { ...frame, minimalReceipt: {
-    status: 'sent', attempt: frame.attemptHash, round: 1, at: now,
-    hash: createHash('sha256').update(JSON.stringify(material)).digest('hex'),
-  } });
+  // The actual outcome writer produced this immutable minimum before the crash.
+  expect(frame.minimalReceipt).toMatchObject({ status: 'sent', attempt: frame.attemptHash, round: 1, at: now });
   const writes = vi.fn();
   const transact = store.db.runTransaction;
   store.db.runTransaction = callback => transact(tx => callback({
@@ -253,4 +250,50 @@ it('reconciles a proven extension send from a nonambiguous owner takeover withou
     .find(event => event.eventType === 'automation_transition');
   expect(transition.transitionEventType).toBe('owner_submitted');
   expect((await fixture.guard.claim('owner_extension', now + 1)).status).toBe('sent');
+});
+
+
+describe('a strong historical employer acknowledgement reconciles only state', () => {
+  function legacyFixture() {
+    const order = { jobId: 'legacy-job', jobUrl: 'https://example.test/legacy/', cvUploadedAt: now - 100, submissionStatus: 'in_progress' };
+    const bindingHash = 'b'.repeat(64); const recordHash = 'c'.repeat(64);
+    const receiptPath = `${base}/submission_receipts/${bindingHash}`;
+    const draft = { round: 1, status: 'ready', job: { id: 'legacy-job' }, sentAttempt: { files: [{ key: 'unproven-current-material.pdf' }] } };
+    const store = createMemoryFirestore({ [base]: order, [flowPath]: { state: 'submitting', round: 1 }, [draftPath]: draft,
+      [submissionPath]: { r1: { state: 'sent', channel: 'email', provenance: 'legacy_employer_ack', receiptBindingHash: bindingHash, originalRecordHash: recordHash } },
+      [receiptPath]: { kind: 'legacy_employer_ack', bindingHash, round: 1, slotHash: submissionSlotHash({ orderId, order }), recordHash,
+        leftAt: 500, providerReceivedAt: 800, minimalReceipt: { hash: 'd'.repeat(64), attempt: bindingHash, at: 800, status: 'sent', round: 1 } } });
+    return { store, receiptPath, draft, input: { db: store.db, orderId, round: 1, nowMs: now } };
+  }
+  it('heals the current email slot without synthesizing a material photo, approval or event', async () => {
+    const f = legacyFixture();
+    expect(await reconcileCanonicalSubmissionReceipt(f.input)).toMatchObject({ handled: true, reason: 'reconciled_legacy_ack' });
+    expect(f.store.read(flowPath).state).toBe('submitted');
+    expect(f.store.read(base).submissionStatus).toBe('submitted');
+    expect(f.store.read(draftPath)).toEqual(f.draft);
+    expect(f.store.list(`${base}/events/`)).toHaveLength(0);
+    expect(f.store.read(submissionPath).r1.attemptId).toBeUndefined();
+  });
+  it.each(['new_round', 'retarget', 'bad_binding', 'manual_assertion'])('does not project %s historical evidence', async fault => {
+    const f = legacyFixture();
+    if (fault === 'new_round') f.store.docs.set(flowPath, { state: 'submitting', round: 2 });
+    if (fault === 'retarget') f.store.read(base).jobId = 'another-job';
+    if (fault === 'bad_binding') f.store.read(f.receiptPath).recordHash = 'e'.repeat(64);
+    if (fault === 'manual_assertion') f.store.read(f.receiptPath).kind = 'manual_owner_assertion';
+    const before = [...f.store.docs].map(([key, value]) => [key, structuredClone(value)]);
+    expect((await reconcileCanonicalSubmissionReceipt(f.input)).handled).toBe(true);
+    expect([...f.store.docs]).toEqual(before);
+  });
+  it('checks expiry after the last receipt read and never recreates a missing draft', async () => {
+    const f = legacyFixture(); f.store.docs.delete(draftPath);
+    const transact = f.store.db.runTransaction;
+    f.store.db.runTransaction = callback => transact(tx => callback({ ...tx, get: async ref => {
+      const value = await tx.get(ref);
+      if (ref.path === f.receiptPath) vi.mocked(Date.now).mockReturnValue(now + retentionMs);
+      return value;
+    } }));
+    const before = [...f.store.docs].map(([key, value]) => [key, structuredClone(value)]);
+    expect(await reconcileCanonicalSubmissionReceipt(f.input)).toMatchObject({ handled: true, reason: 'receipt_only' });
+    expect([...f.store.docs]).toEqual(before);
+  });
 });
