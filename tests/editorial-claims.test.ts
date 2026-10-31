@@ -185,3 +185,33 @@ describe('gate di pubblicazione', () => {
     expect(() => assertNoEditorialClaims({ it: { title: 'Titolo', body1: 'Testo corretto.' } })).not.toThrow();
   });
 });
+
+describe('rilievi di review', () => {
+  it('riscrive «senza doppia imposizione» anche dentro la frase', () => {
+    const { value } = repairEditorialClaims('I nuovi frontalieri sono tassati solo in Svizzera senza doppia imposizione.', { locale: 'it' });
+    expect(value).not.toContain('senza doppia imposizione');
+    expect(value).toContain("credito d'imposta");
+  });
+
+  it('il soggetto nuovo frontaliere vince sul confronto con i vecchi', () => {
+    const sentence = 'I nuovi frontalieri sono tassati solo in Svizzera, mentre i vecchi frontalieri seguono un altro regime.';
+    expect(findEditorialClaims(sentence, { locale: 'it' })).not.toEqual([]);
+    const { value } = repairEditorialClaims(sentence, { locale: 'it' });
+    expect(value).not.toBe(sentence);
+    expect(value).toContain('mentre i vecchi frontalieri seguono un altro regime');
+  });
+
+  it('la clausola vera sui vecchi resta', () => {
+    const { value } = repairEditorialClaims('I nuovi frontalieri sono tassati solo in Svizzera, mentre i vecchi restano tassati solo in Svizzera.', { locale: 'it' });
+    expect(value).toContain('mentre i vecchi restano tassati solo in Svizzera');
+  });
+
+  it('un importo mensile fuori da 30-200 euro si toglie', () => {
+    expect(repairEditorialClaims('La tassa sulla salute è di 500 euro al mese.', { locale: 'it' }).value).toBe('');
+    expect(classes('La tassa sulla salute arriva a 200 euro al mese.', 'it')).toEqual([]);
+  });
+
+  it('il gate legge anche array e oggetti annidati', () => {
+    expect(() => assertNoEditorialClaims({ it: { faq: [{ answer: 'La tassa sulla salute è 500 CHF.' }] } })).toThrow(/tassa-salute/);
+  });
+});

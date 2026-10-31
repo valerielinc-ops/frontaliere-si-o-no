@@ -89,7 +89,7 @@ export interface ArticleTransparencyCopy {
  * share of articles "with a source" from 32 to 54 per 100.
  */
 const NON_SOURCE_HOST = /(^|\.)(frontaliereticino\.ch|commons\.wikimedia\.org|upload\.wikimedia\.org|creativecommons\.org)$/i;
-const LINK_TARGET = /(?:href\s*=\s*["']|(?:^|[^!])\[[^\]]*\]\()\s*(https?:\/\/[^\s"'<>)]+)/gim;
+const LINK_TARGET = /(?:href\s*=\s*["']|(?:^|[^!])\[[^\]]*\]\(<?)\s*(https?:\/\/[^\s"'<>)]+)/gim;
 
 /**
  * Whether a body really links an external source. `ARTICLE_TRANSPARENCY.sources`

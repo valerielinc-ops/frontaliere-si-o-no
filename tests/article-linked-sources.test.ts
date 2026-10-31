@@ -7,6 +7,7 @@ describe('hasLinkedSources: la frase "fonti linkate" deve essere vera', () => {
     expect(hasLinkedSources('Fonte: [VareseNews](https://www.varesenews.it/2026/10/x/)')).toBe(true);
     expect(hasLinkedSources('<p><a href="https://www.fedlex.admin.ch/eli/oc/2023/429/it">Fedlex</a></p>')).toBe(true);
     expect(hasLinkedSources(['senza link', '[Agenzia](https://www.agenziaentrate.gov.it/portale/)'])).toBe(true);
+    expect(hasLinkedSources('[Fonte](<https://www.fedlex.admin.ch/eli/cc/2023/410/it>)')).toBe(true);
   });
 
   it('non conta link interni, nav:, immagini e crediti immagine', () => {

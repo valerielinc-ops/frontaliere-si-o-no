@@ -93,10 +93,10 @@ const BOTH_COUNTRIES = {
 };
 
 const NO_DOUBLE_TAXATION = {
-  it: [/(?<=[,—–-]\s)(?:senza(?:\s+alcuna)?|niente|nessuna)\s+doppia\s+(?:imposizione|tassazione)(?:\s+fiscale)?/gi, "con credito d'imposta in Italia per i nuovi frontalieri"],
-  en: [/(?<=[,—–-]\s)(?:without(?:\s+any)?|with\s+no|no)\s+double\s+taxation/gi, 'with an Italian tax credit for new cross-border workers'],
-  de: [/(?<=[,—–-]\s)(?:ohne|keine)\s+Doppelbesteuerung/gi, 'mit Steuergutschrift in Italien für neue Grenzgänger'],
-  fr: [/(?<=[,—–-]\s)(?:sans|pas\s+de|aucune)\s+double\s+imposition/gi, "avec crédit d'impôt en Italie pour les nouveaux frontaliers"],
+  it: [/(?:\bsenza(?:\s+alcuna)?|(?<=[,—–-]\s)(?:niente|nessuna))\s+doppia\s+(?:imposizione|tassazione)(?:\s+fiscale)?/gi, "con credito d'imposta in Italia per i nuovi frontalieri"],
+  en: [/(?:\bwithout(?:\s+any)?|\bwith\s+no|(?<=[,—–-]\s)no)\s+double\s+taxation/gi, 'with an Italian tax credit for new cross-border workers'],
+  de: [/(?:\bohne|(?<=[,—–-]\s)keine)\s+Doppelbesteuerung/gi, 'mit Steuergutschrift in Italien für neue Grenzgänger'],
+  fr: [/(?:\bsans|(?<=[,—–-]\s)(?:pas\s+de|aucune))\s+double\s+imposition/gi, "avec crédit d'impôt en Italie pour les nouveaux frontaliers"],
 };
 
 /** Inserita dove il testo dice «tassato» e non solo «trattenuto». */
@@ -140,8 +140,25 @@ const TERSE_EXCLUSIVE = {
   fr: [/\b(source|retenu\S*)\s+(?:uniquement|seulement)\s+Suisse\b/gi, '$1 en Suisse'],
 };
 
+/** Il soggetto della frase e' il nuovo frontaliere, anche se poi cita i vecchi. */
+const NEW_WORKER_SUBJECT = {
+  it: /\bnuov[oi]\s+frontalier\S*/i,
+  en: /\bnew\s+(?:cross-border|border|frontier)\s+\S+/i,
+  de: /\bneuen?\s+Grenzgänger\S*/i,
+  fr: /\bnouveaux?\s+(?:travailleurs\s+)?frontaliers?\b/i,
+};
+
+function newWorkerExclusiveClause(sentence, locale) {
+  const subject = NEW_WORKER_SUBJECT[locale].exec(sentence);
+  if (!subject) return null;
+  const clause = sentence.slice(subject.index).split(/[,;:]/u)[0];
+  const exclusive = exclusiveRe(locale).exec(clause);
+  return exclusive ? { index: subject.index + exclusive.index, text: exclusive[0] } : null;
+}
+
 /** Vero se la frase generalizza l'imposizione esclusiva svizzera ai frontalieri. */
 function isRegimeClaim(sentence, locale) {
+  if (newWorkerExclusiveClause(sentence, locale)) return true;
   if (LEGITIMATE_SCOPE[locale].test(sentence)) return false;
   if (!TAX_CONTEXT[locale].test(sentence)) return false;
   if (exclusiveRe(locale).test(sentence) || EXCLUSIVE_TAXATION_NOUN[locale].test(sentence)) return true;
@@ -155,6 +172,16 @@ function isRegimeClaim(sentence, locale) {
 /** Riscrive una frase con imposizione esclusiva generalizzata, o torna `null`. */
 export function repairRegimeSentence(sentence, locale) {
   if (!isRegimeClaim(sentence, locale)) return null;
+  // Solo la clausola sul nuovo frontaliere: quella sui vecchi e' vera e resta.
+  const clause = newWorkerExclusiveClause(sentence, locale);
+  if (clause) {
+    const place = clause.text.match(new RegExp(IN_SWITZERLAND[locale], 'i'))?.[0] ?? '';
+    const [noDouble, withCredit] = NO_DOUBLE_TAXATION[locale];
+    const tail = sentence.slice(clause.index + clause.text.length);
+    const fixedTail = tail.replace(noDouble, withCredit);
+    const note = fixedTail === tail ? NEW_WORKER_NOTE[locale] : '';
+    return `${sentence.slice(0, clause.index)}${place}${note}${fixedTail}`;
+  }
   let out = sentence.replace(
     new RegExp(String.raw`(\*\*)?\b${ONLY[locale]}\b(\*\*)?\s+(\*\*)?(${IN_SWITZERLAND[locale]})(\*\*)?`, 'gi'),
     (match, open, innerClose, innerOpen, place, close) => {
@@ -546,6 +573,20 @@ const YEARLY_EURO = {
   de: /\d[\d.'’]*\s?(?:Euro|€|EUR)\s+(?:pro\s+Jahr|im\s+Jahr|jährlich)|(?:€|EUR)\s?\d[\d.'’]*\s+(?:pro\s+Jahr|im\s+Jahr|jährlich)/i,
   fr: /\d[\d\s.'’]*\s?(?:euros?|€|EUR)\s+(?:par\s+an|annuels?)/i,
 };
+const MONTHLY_EURO = {
+  it: /(?:(?:€|EUR)\s?(\d[\d.'’]*)|(\d[\d.'’]*)\s?(?:euro|€|EUR))\s+(?:al\s+mese|mensili|per\s+mese|ogni\s+mese)/gi,
+  en: /(?:(?:€|EUR)\s?(\d[\d,.'’]*)|(\d[\d,.'’]*)\s?(?:euros?|€|EUR))\s+(?:a\s+month|per\s+month|monthly)/gi,
+  de: /(?:(?:€|EUR)\s?(\d[\d.'’]*)|(\d[\d.'’]*)\s?(?:Euro|€|EUR))\s+(?:pro\s+Monat|im\s+Monat|monatlich)/gi,
+  fr: /(?:(?:€|EUR)\s?(\d[\d\s.'’]*)|(\d[\d\s.'’]*)\s?(?:euros?|€|EUR))\s+(?:par\s+mois|mensuels?)/gi,
+};
+
+function hasMonthlyAmountOutOfRange(sentence, locale) {
+  return [...sentence.matchAll(MONTHLY_EURO[locale])].some(([, before, after]) => {
+    const amount = Number(String(before ?? after).replace(/\D/g, ''));
+    return amount < 30 || amount > 200;
+  });
+}
+
 const PERCENT_OF_PAY = {
   it: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|per\s+cento)\s+(?:del(?:lo|l['’])?|sul(?:lo|l['’])?)\s+(?:salario|stipendio|reddito|netto|lordo|imposta)/gi,
   en: /(\d{1,2}(?:[.,]\d+)?)\s?(?:%|percent)\s+(?:of|on)\s+(?:the\s+)?(?:gross|net|salary|income|wage)/gi,
@@ -558,6 +599,7 @@ function isHealthTaxClaim(sentence, locale) {
   if (HEALTH_TAX_WRONG_LAW[locale].test(sentence)) return true;
   if (HEALTH_TAX_EXEMPT[locale].test(sentence)) return false;
   if (SWISS_FRANC_AMOUNT.test(sentence) || YEARLY_EURO[locale].test(sentence)) return true;
+  if (hasMonthlyAmountOutOfRange(sentence, locale)) return true;
   return [...sentence.matchAll(PERCENT_OF_PAY[locale])].some(([, value]) => !['3', '6'].includes(value.replace(',', '.')));
 }
 
@@ -660,21 +702,25 @@ export function repairEditorialClaims(text, { locale = 'it', title = '' } = {}) 
 
 /**
  * Gate di pubblicazione: stessa forma di assertNoFabricatedNormAcronyms, un
- * articolo con una frase vietata non esce in nessuna lingua. Legge ogni campo di
- * testo del contenuto, quindi anche titolo, excerpt e FAQ.
+ * articolo con una frase vietata non esce in nessuna lingua. Legge ogni stringa
+ * del contenuto, anche dentro array e oggetti: titolo, excerpt, FAQ, sezioni.
  *
  * @param {Record<string, Record<string, unknown> | undefined>} contentByLocale
  */
 export function assertNoEditorialClaims(contentByLocale) {
   const issues = [];
-  for (const [locale, content] of Object.entries(contentByLocale ?? {})) {
-    if (!content || !CLAIM_LOCALES.includes(locale)) continue;
-    for (const [field, value] of Object.entries(content)) {
-      if (typeof value !== 'string') continue;
+  const visit = (value, locale, field) => {
+    if (typeof value === 'string') {
       for (const claim of findEditorialClaims(value, { locale })) {
         issues.push(`[${locale}/${field}] ${claim.class}: ${claim.sentence.slice(0, 160)}`);
       }
+    } else if (value && typeof value === 'object') {
+      for (const [key, child] of Object.entries(value)) visit(child, locale, `${field}.${key}`);
     }
+  };
+  for (const [locale, content] of Object.entries(contentByLocale ?? {})) {
+    if (!content || !CLAIM_LOCALES.includes(locale)) continue;
+    for (const [field, value] of Object.entries(content)) visit(value, locale, field);
   }
   if (issues.length > 0) {
     const list = issues.map((item, index) => `  ${index + 1}. ${item}`).join('\n');
