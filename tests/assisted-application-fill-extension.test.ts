@@ -25,6 +25,14 @@ function page(html: string, url = 'https://join.com/companies/acme/1/apply/step'
   return { window: dom.window, document: dom.window.document, F };
 }
 
+function nativeFieldReading(window: JSDOM['window']) {
+  // JSDOM has no layout; expose the visible, simple-ID controls in these
+  // fixtures to the same native field reader the real extension loads.
+  Object.defineProperty(window.HTMLElement.prototype, 'getBoundingClientRect', { value: () => ({ width: 100, height: 24 }) });
+  Object.defineProperty(window, 'CSS', { value: { escape: (value: string) => value } });
+  window.eval(runnerFieldsSource);
+}
+
 // The trial order's kit (JOIN, giro di prova 2026-10-01): the runner's own answers, worded as JOIN asks.
 const kit = {
   orderId: 'trial',
@@ -49,6 +57,233 @@ const run = (F: any, document: Document) => F.fillPage(document, kit, { getFile:
 const continueButtons = '<button type="button"><span>Indietro</span></button><button type="button" disabled=""><span>Continua</span></button>';
 const ariaChoices = (question: string, options: string[]) => `<form><h2>${question}</h2><div>${options
   .map((option, index) => `<div><div role="radio" aria-checked="false" tabindex="0"><div><p>${String.fromCharCode(97 + index)}</p></div><p>${option}</p></div></div>`).join('')}</div>${continueButtons}</form>`;
+
+describe('fill extension: scoped saved geography answers', () => {
+  const personal = { section: 'Personal information', owners: [], unknown: false };
+  const employer = { section: 'Personal information', owners: ['Employer'], unknown: false };
+  function addressPage(scope: string, addressContext: unknown, label = 'City', autocomplete = 'address-level2') {
+    const result = page(`<form><h2>Personal information</h2><fieldset aria-label="${scope}"><label for="city">${label}</label><input id="city" data-aa-id="a1" autocomplete="${autocomplete}" required></fieldset></form>`);
+    Object.defineProperty(result.window.HTMLElement.prototype, 'getBoundingClientRect', { value: () => ({ width: 100, height: 24 }) });
+    // Consumer contract: the production source/bundle producer is tested
+    // separately. This fixture supplies a native read with an explicit owner.
+    (result.window as any).CompilaRunnerFields = () => ({ fields: [{ id: 'a1', label, context: label, section: 'Personal information', autocomplete, addressContext }] });
+    return result;
+  }
+
+  it.each([
+    { section: '', owners: [], unknown: false },
+    { section: ' ', owners: [' '], unknown: false },
+  ])('keeps a saved geographic statement with no named native owner technical', async (addressContext) => {
+    const { window, document, F } = page('<form><label for="city">City</label><input id="city" data-aa-id="f1" autocomplete="address-level2"></form>');
+    (window as any).CompilaRunnerFields = () => ({ fields: [{ id: 'f1', label: 'City', context: 'City', section: '', autocomplete: 'address-level2', addressContext }] });
+    const result = await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Lugano', source: 'answers', current: true, context: 'City', section: '', autocomplete: 'address-level2', addressContext }] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    expect(result.filled).toEqual([]);
+    expect(result.missing).toHaveLength(1);
+    expect(result.missing[0].reason).toBe('native_contract_unavailable');
+    window.close();
+  });
+
+  it.each(['identity', 'profile', 'answers'])('does not use an unbound saved %s city for the employer', async (source) => {
+    const { window, document, F } = addressPage('Employer', employer);
+    await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Como', source }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
+  it.each(['Via', 'Wohnort', 'Località', 'Postleitzahl', 'Place of birth', 'Birthplace', 'Luogo di nascita', 'Geburtsort', 'Lieu de naissance', 'Nato a', 'Ort der Geburt'])('does not reuse unbound identity, profile or user geography for %s', async (label) => {
+    const { window, document, F } = addressPage('Employer', employer, label);
+    document.getElementById('city')?.removeAttribute('autocomplete');
+    for (const source of ['identity', 'profile', 'answers']) {
+      await F.fillPage(document, { ...kit, answers: [{ question: label, answer: 'Como', source }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+      expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    }
+    window.close();
+  });
+
+  it('requires a matching valid owner and preserves the same-owner user statement', async () => {
+    const { window, document, F } = addressPage('Employer', employer);
+    const entry = F.collect(document)[0];
+    const statement = { question: 'City', answer: 'Lugano', source: 'answers', context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext: employer };
+    expect(F.answerFor(entry, { ...kit, answers: [{ ...statement, addressContext: personal }] })).toBeNull();
+    expect(F.answerFor(entry, { ...kit, answers: [{ ...statement, source: 'identity' }] })).toBeNull();
+    expect(F.answerFor(entry, { ...kit, answers: [{ ...statement, addressContext: { ...employer, unknown: true } }] })).toBeNull();
+    expect(F.answerFor(entry, { ...kit, answers: [statement, { ...statement, answer: 'Zurich' }] })).toBeNull();
+    await F.fillPage(document, { ...kit, answers: [statement] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('Lugano');
+    window.close();
+  });
+
+  it.each(['Where would you like to work (City)?', 'In quale città vorresti lavorare?', 'In welcher Stadt möchten Sie arbeiten?', 'Dans quelle ville souhaitez-vous travailler?', 'Which country would you relocate to?'])('keeps residence separate from the candidate preference %s', async (label) => {
+    const autocomplete = /country/.test(label) ? 'country-name' : 'address-level2';
+    const answer = autocomplete === 'country-name' ? 'France' : 'Lugano';
+    const { window, document, F } = addressPage('Personal information', personal, label, autocomplete);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    await F.fillPage(document, { ...kit, answers: [{ question: label, answer, source: 'answers', current: true, context: label, section: 'Personal information', autocomplete, addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(answer);
+    window.close();
+  });
+
+  it.each([['Town', 'Como'], ['Straße', 'Via Roma 1']])('uses the positive %s role before a weak birth-date alias', async (label, expected) => {
+    const { window, document, F } = addressPage('Personal information', personal, label, '');
+    document.getElementById('city')?.setAttribute('placeholder', 'Date of birth');
+    await F.fillPage(document, { ...kit, profile: { dateOfBirth: '1990-01-02' }, identity: { ...kit.identity, address: { ...kit.identity.address, street: 'Via Roma 1' } }, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(expected);
+    window.close();
+  });
+
+  it('does not turn an unknown geographic preference into a weak birth-date alias', async () => {
+    const { window, document, F } = addressPage('Personal information', personal, 'In welcher Stadt möchten Sie arbeiten?', '');
+    document.getElementById('city')?.setAttribute('placeholder', 'Date of birth');
+    await F.fillPage(document, { ...kit, profile: { dateOfBirth: '1990-01-02' }, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
+  it.each([['Email address', 'text'], ['Email address', 'email'], ['Adresse e-mail', 'text'], ['Adresse e-mail', 'email']])('keeps %s/%s as contact identity rather than postal provenance', async (label, type) => {
+    const { window, document, F } = addressPage('Personal information', personal, label, 'email');
+    document.getElementById('city')?.setAttribute('type', type);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(kit.identity.email);
+    window.close();
+  });
+
+  it.each(['<section aria-label="Work preferences">', '<section><h3>Work preferences</h3>', '<section aria-label="Additional questions">'])('does not inherit residence across a closer unknown purpose', async open => {
+    const { window, document, F } = page(`<form><section aria-label="Personal details">${open}<label for="city">City</label><input id="city" name="city"></section></section></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
+  it.each([['', 'it'], ['<fieldset><legend>Telephone</legend>', 'ch']])('distinguishes a named phone prefix scope from a generic personal country', async (phoneScope, expected) => {
+    const { window, document, F } = page(`<form><fieldset><legend>Personal information</legend>${phoneScope}<label for="phone">Phone</label><input id="phone" type="tel"><label for="country">Country</label><select id="country"><option value="">Select</option><option value="it">Italy</option><option value="ch">Switzerland</option></select>${phoneScope ? '</fieldset>' : ''}</fieldset></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, identity: { ...kit.identity, phone: '+41 79 1234567' }, answers: [], language: 'en' }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('country') as HTMLSelectElement).value).toBe(expected);
+    window.close();
+  });
+
+  it.each([
+    '<form aria-label="Work preferences"><h2>Personal information</h2>',
+    '<form><section aria-label="Work preferences"><h2>Personal details</h2>',
+  ])('requires all names of the same physical scope to agree', async open => {
+    const { window, document, F } = page(`${open}<label for="city">City</label><input id="city" name="city"></section></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
+  it.each([
+    ['Telephone', 'Residence', 'it'], ['Residence', 'Telephone', 'ch'],
+    ['Telephone', 'Work preferences', ''],
+  ])('keeps the nearest %s/%s purpose authoritative', async (outer, inner, expected) => {
+    const { window, document, F } = page(`<form><fieldset aria-label="${outer}"><section aria-label="${inner}"><label for="country">Country</label><select id="country"><option value="">Select</option><option value="it">Italy</option><option value="ch">Switzerland</option></select></section></fieldset></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, identity: { ...kit.identity, phone: '+41 79 1234567' }, answers: [], language: 'en' }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('country') as HTMLSelectElement).value).toBe(expected);
+    window.close();
+  });
+
+  it('keeps a bare city autocomplete and an unbound saved answer unknown', async () => {
+    const { window, document, F } = page('<form><label for="city">City</label><input id="city" role="combobox" aria-required="true"></form>');
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Como', source: 'answers' }] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    window.close();
+  });
+
+  it.each<[string, boolean]>([
+    ['<main><h2>My Information</h2><form>FIELD</form></main>', true],
+    ['<section><h2>Personal information</h2><form>FIELD</form></section>', true],
+    ['<main><h2>My Information</h2><form>FIELD</form><form></form></main>', false],
+    ['<h2>My Information</h2><form>FIELD</form>', false],
+    ['<main><section><h2>My Information</h2></section><form>FIELD</form></main>', false],
+    ['<main aria-label="Work preferences"><h2>My Information</h2><form>FIELD</form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Work preferences">FIELD</fieldset></form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Employer">FIELD</fieldset></form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Place of birth">FIELD</fieldset></form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Telephone">FIELD</fieldset></form></main>', false],
+  ])('checks semantic one-form ownership with the legacy reader: %s', async (html, allowed) => {
+    const label = html.includes('Telephone') ? 'City' : 'Country*';
+    const { window, document, F } = page(html.replace('FIELD', `<label for="city">${label}</label><input id="city" name="city">`));
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(allowed ? 'Italia' : '');
+    window.close();
+  });
+
+  it.each(['Email address/login *', 'E-Mail-Adresse erneut eingeben: *', 'Verify Email Address', 'Please enter your email address', 'Adresse e-mail / identifiant'])('keeps the registration alias %s a contact field', async label => {
+    const { window, document, F } = page(`<form><label for="city">${label}</label><input id="city" name="city" type="text" autocomplete="email"></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(kit.identity.email);
+    window.close();
+  });
+
+  it('honors an explicit current residence correction above the CV value', async () => {
+    const { window, document, F } = addressPage('Personal information', personal);
+    await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Lugano', source: 'answers', current: true, context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('Lugano');
+    window.close();
+  });
+
+  it('keeps current residence ahead of a stale saved profile projection', async () => {
+    const { window, document, F } = addressPage('Personal information', personal);
+    await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Zurich', source: 'identity', addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('Como');
+    window.close();
+  });
+});
+
+describe('fill extension: native checkbox ownership contract', () => {
+  it.each([undefined, false, true])('respects consentOwnershipUnknown=%s before required privacy defaults', async (unknown) => {
+    const { window, document, F } = page('<label for="privacy">I agree to the required privacy terms</label><input id="privacy" type="checkbox" required data-aa-id="a1">');
+    (window as any).CompilaRunnerFields = () => ({ fields: [{ id: 'a1', label: 'I agree to the required privacy terms', ...(unknown === undefined ? {} : { consentOwnershipUnknown: unknown }) }] });
+    await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('privacy') as HTMLInputElement).checked).toBe(unknown !== true);
+    window.close();
+  });
+});
+
+describe('fill extension: exact native metadata binding', () => {
+  const field = { id: 'shared', label: 'City', section: 'Personal information', context: 'City',
+    addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false } };
+
+  it.each([false, true])('rejects duplicate reader or DOM IDs without borrowing another owner (DOM duplicate=%s)', async domDuplicate => {
+    const { window, document, F } = page(`<form><section aria-label="Work preferences"><label for="work">City</label><input id="work" data-aa-id="shared"></section>${domDuplicate ? '<section aria-label="Personal information"><label for="home">City</label><input id="home" data-aa-id="shared"></section>' : ''}</form>`);
+    (window as any).CompilaRunnerFields = () => ({ fields: domDuplicate ? [field] : [{ ...field, addressContext: { ...field.addressContext, owners: ['Work preferences'] } }, field] });
+    const result = await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('work') as HTMLInputElement).value).toBe('');
+    expect(result.missing).toHaveLength(domDuplicate ? 2 : 1);
+    expect(result.missing.every((item: any) => item.reason === 'native_contract_unavailable')).toBe(true);
+    expect(F.collect(document).every((entry: any) => entry.labels.length === 0 && entry.label === '')).toBe(true);
+    window.close();
+  });
+
+  it.each(['', 'existing@example.test'])('keeps duplicate annotated contacts technical when the reader omits them (%s)', async existing => {
+    const { window, document, F } = page(`<form><input type="email" value="${existing}" data-aa-id="shared"><input type="email" value="${existing}" data-aa-id="shared"></form>`);
+    (window as any).CompilaRunnerFields = () => ({ fields: [] });
+    const result = await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap() });
+    expect([...document.querySelectorAll('input')].map(input => input.value)).toEqual([existing, existing]);
+    expect(result.filled).toEqual([]);
+    expect(result.missing).toHaveLength(2);
+    expect(result.missing.every((item: any) => item.reason === 'native_contract_unavailable')).toBe(true);
+    window.close();
+  });
+
+  it.each(['nativeContractUnavailable', 'consentOwnershipUnknown'])('does not bypass %s for an optional prefilled control', async flag => {
+    const { window, document, F } = page('<form><label for="contact">Email address</label><input id="contact" type="email" value="existing@example.test" data-aa-id="shared"></form>');
+    (window as any).CompilaRunnerFields = () => ({ fields: [{ ...field, label: 'Email address', [flag]: true }] });
+    const result = await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('contact') as HTMLInputElement).value).toBe('existing@example.test');
+    expect(result.failed).toHaveLength(1);
+    expect(result.missing[0].reason).toBe('native_contract_unavailable');
+    window.close();
+  });
+});
 
 describe('fill extension: patterns', () => {
   it('shares URL-safe Apply selection with the runner', () => {
@@ -242,8 +477,9 @@ describe('fill extension: JOIN steps', () => {
   });
 
   it('picks a searched city among the options the portal lists', async () => {
-    const { F, document } = page(`<form><h2>Dati personali</h2><div role="group"><label for="_r_h_">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
+    const { F, document, window } = page(`<form><h2>Dati personali</h2><div role="group"><label for="city">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
       <div><input id="city" role="combobox" type="text" value=""></div></div></div></div><div id="menu"></div>${continueButtons}</form>`);
+    nativeFieldReading(window);
     const input = document.getElementById('city') as HTMLInputElement;
     const box = document.querySelector('[data-testid="CityName"] > div')!;
     input.addEventListener('input', () => {
@@ -253,6 +489,114 @@ describe('fill extension: JOIN steps', () => {
     const result = await run(F, document);
     expect(result.filled).toEqual(['Città']);
     expect(box.textContent).toBe('Como');
+  });
+
+  it.each(['Informazioni personali', 'Personal information', 'Persönliche Informationen', 'Informations personnelles'])('uses the city control’s own identity meaning under %s', async (heading) => {
+    // The label target is broken, as in the observed JOIN-like wizard. It
+    // cannot name this control; its own placeholder and personal section can
+    // still identify residence without borrowing a neighbouring question.
+    const { F, document, window } = page(`<form><h2>${heading}</h2>
+      <div role="group"><label for="first">First name</label><input id="first"></div>
+      <div role="group"><label for="last">Last name</label><input id="last"></div>
+      <div role="group"><label for="nonexistent">Not this control</label><div data-testid="CityName"><div id="city-box"><div id="react-select-1-placeholder">Select a city</div><div><input id="city" role="combobox" placeholder="City"></div></div></div></div>
+      <div role="group"><label for="company-city">Company city</label><input id="company-city" autocomplete="address-level2"></div>
+      <div role="group"><label for="birthplace">Place of birth</label><input id="birthplace" autocomplete="address-level2"></div>
+      <div id="menu"></div></form>`);
+    nativeFieldReading(window);
+    const input = document.getElementById('city') as HTMLInputElement;
+    let chosen = '';
+    input.addEventListener('input', () => {
+      document.getElementById('menu')!.innerHTML = '<div role="option">Comano</div><div role="option">Como</div><div role="option">Comologno</div>';
+      for (const option of document.querySelectorAll('[role="option"]')) option.addEventListener('click', () => {
+        chosen = option.textContent || '';
+        document.getElementById('city-box')!.innerHTML = `<p>${chosen}</p>`;
+        document.getElementById('menu')!.innerHTML = '';
+      });
+    });
+    const city = F.collect(document).find((entry: any) => entry.element === input);
+    expect(city.label).not.toBe('Not this control');
+    expect(city.section).toBe(heading);
+    expect(F.answerFor(city, { ...kit, answers: [] })).toEqual({ value: 'Como', family: 'city' });
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect(chosen).toBe('Como');
+    expect((document.getElementById('first') as HTMLInputElement).value).toBe('Luigi');
+    expect((document.getElementById('last') as HTMLInputElement).value).toBe('Prova');
+    expect((document.getElementById('company-city') as HTMLInputElement).value).toBe('');
+    expect((document.getElementById('birthplace') as HTMLInputElement).value).toBe('');
+  });
+
+  it.each(['Company information', 'Informazioni professionali', 'Berufliche Informationen', 'Informations professionnelles', 'Details'])('keeps an ownerless city unfilled under %s', (heading) => {
+    const { F, document } = page(`<form><h2>${heading}</h2><label for="city">City</label><input id="city" autocomplete="address-level2"></form>`);
+    expect(F.answerFor(F.collect(document)[0], { ...kit, answers: [] })).toBeNull();
+  });
+
+  it.each(['Luogo di residenza', 'Lieu de résidence', 'Place of residence', 'Wohnort'])('preserves explicit residence autocomplete for %s', (label) => {
+    const { F, document, window } = page(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" autocomplete="address-level2"></form>`);
+    nativeFieldReading(window);
+    expect(F.answerFor(F.collect(document)[0], { ...kit, answers: [] })).toEqual({ value: 'Como', family: 'city' });
+  });
+
+  it.each(['Luogo di nascita', 'Lieu de naissance', 'Place of birth', 'Geburtsort'])('does not substitute residence for %s despite autocomplete', (label) => {
+    const { F, document, window } = page(`<form><h2>Personal information</h2><label for="city">${label}</label><input id="city" autocomplete="address-level2"></form>`);
+    nativeFieldReading(window);
+    expect(F.answerFor(F.collect(document)[0], { ...kit, answers: [] })).toBeNull();
+  });
+
+  it.each([
+    '<form><h2>Personal information</h2><input name="first"></form><form><label for="city">City</label><input id="city" autocomplete="address-level2"></form>',
+    '<form><fieldset><legend>Personal information</legend><input name="first"></fieldset><fieldset><label for="city">City</label><input id="city" autocomplete="address-level2"></fieldset></form>',
+    '<form><h2>Personal information</h2><section><h3>Work history</h3><label for="city">City</label><input id="city" autocomplete="address-level2"></section></form>',
+  ])('does not borrow personal context from another form or section', (html) => {
+    const { F, document, window } = page(html);
+    nativeFieldReading(window);
+    const city = F.collect(document).find((entry: any) => entry.element.id === 'city');
+    expect(F.answerFor(city, { ...kit, answers: [] })).toBeNull();
+  });
+
+  it.each([
+    ['<fieldset aria-label="Employer">', '</fieldset>'],
+    ['<section aria-labelledby="owner"><span id="owner">Work history</span>', '</section>'],
+    ['<fieldset><legend>Company address</legend>', '</fieldset>'],
+    ['<div class="field" aria-label="Employer">', '</div>'],
+    ['<div class="form-group" aria-label="Employer">', '</div>'],
+    ['<div class="application-question" aria-label="Employer">', '</div>'],
+    ['<ul><li aria-label="Employer">', '</li></ul>'],
+    ['<div aria-labelledby="owner"><span id="owner">Employer</span>', '</div>'],
+    ['<fieldset aria-labelledby="owner"><span id="owner" hidden>Employer</span>', '</fieldset>'],
+    ['<fieldset aria-labelledby="owner"><span id="owner" style="display:none">Employer</span>', '</fieldset>'],
+    ['<fieldset aria-labelledby="missing-owner">', '</fieldset>'],
+    ['<fieldset aria-labelledby="owner"><span id="owner">Personal information</span><span id="owner">Employer</span>', '</fieldset>'],
+    [`<fieldset aria-label="${'Details '.repeat(50)}Employer">`, '</fieldset>'],
+    [`<fieldset aria-labelledby="owner"><span id="owner">${'Details '.repeat(50)}Employer</span>`, '</fieldset>'],
+    [`<fieldset><legend>${'Details '.repeat(50)}Employer</legend>`, '</fieldset>'],
+  ])('keeps a named professional owner authoritative inside a personal form', (open, close) => {
+    const { F, document, window } = page(`<form><h2>Personal information</h2>${open}<label for="city">City</label><input id="city" autocomplete="address-level2">${close}</form>`);
+    nativeFieldReading(window);
+    const city = F.collect(document).find((entry: any) => entry.element.id === 'city');
+    expect(F.answerFor(city, { ...kit, answers: [] })).toBeNull();
+  });
+
+  it.each([
+    ['<fieldset aria-label="Personal information">', '</fieldset>'],
+    ['<section aria-labelledby="owner"><span id="owner">Informazioni personali</span>', '</section>'],
+    ['<fieldset><legend>Informations personnelles</legend>', '</fieldset>'],
+  ])('retains explicit personal section ownership without a heading', (open, close) => {
+    const { F, document, window } = page(`<form>${open}<label for="city">City</label><input id="city" autocomplete="address-level2">${close}</form>`);
+    nativeFieldReading(window);
+    const city = F.collect(document).find((entry: any) => entry.element.id === 'city');
+    expect(F.answerFor(city, { ...kit, answers: [] })).toEqual({ value: 'Como', family: 'city' });
+  });
+
+  it.each([
+    ['<fieldset aria-label="Luogo di nascita">', '</fieldset>'],
+    ['<section aria-labelledby="owner"><span id="owner">Lieu de naissance</span>', '</section>'],
+    ['<fieldset><legend>Place of birth</legend>', '</fieldset>'],
+    ['<div role="group" aria-label="Geburtsort">', '</div>'],
+  ])('does not use residence for a birthplace owned by a named section', (open, close) => {
+    const { F, document, window } = page(`<form><h2>Personal information</h2>${open}<label for="city">City</label><input id="city" autocomplete="address-level2">${close}</form>`);
+    nativeFieldReading(window);
+    const city = F.collect(document).find((entry: any) => entry.element.id === 'city');
+    expect(F.answerFor(city, { ...kit, answers: [] })).toBeNull();
   });
 
   it('stops on the review page with «Conferma e applica» and never presses it', async () => {
@@ -515,7 +859,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
   });
 
   it('types into a required non-SuccessFactors ARIA autocomplete', async () => {
-    const { F, document, read } = runnerPage(`<form>
+    const { F, document, read } = runnerPage(`<form><h2>Personal information</h2>
       <label for="city">City</label>
       <div><div><input id="city" type="text" role="combobox" class="rcmpaginatedselectinput" aria-controls="city-options" aria-required="true"></div></div>
       <ul id="city-options" role="listbox"></ul>
@@ -831,8 +1175,8 @@ describe('fill extension: other portals', () => {
   });
 
   it('keeps phone country and residence country separate from stale portal answers', async () => {
-    const { F, document } = page(`<form>
-      <div role="group">
+    const { F, document, window } = page(`<form><h2>Personal information</h2>
+      <div role="group" aria-label="Telephone">
         <label for="phone-country">Land</label>
         <select id="phone-country"><option value="">Bitte wählen</option><option value="CH">Schweiz</option><option value="IT">Italien</option></select>
         <button type="button" aria-haspopup="dialog">+39</button>
@@ -845,6 +1189,7 @@ describe('fill extension: other portals', () => {
       </div>
       <button type="button">Weiter</button>
     </form>`, 'https://jobs.example.ch/apply');
+    nativeFieldReading(window);
     const identity = {
       ...kit.identity,
       phone: '+39 324 0753275',

@@ -30,7 +30,7 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
@@ -39,12 +39,17 @@
   // «Continua con Google»: a sign-in, never the next step.
   const SOCIAL_RE = /(google|linkedin|facebook|apple|microsoft|xing|indeed|github)/i;
 
+  const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
+  const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
+
+  const BIRTH_FIELD_RE = /birth|geburt|nascita|\bnat[oa]\b|naissance/i;
+
   // Field families, on the normalized label (accents gone, lower case).
   // German compounds («Geburtsdatum», «Telefonnummer», «Postleitzahl»): a
   // family word may start a longer word.
   const FAMILIES = [
     ['email', /\b(e ?mail|email address|indirizzo e ?mail|adresse e ?mail)\b/],
-    ['birthDate', /(data di nascita|\bnascita\b|\bnato\b|\bnata\b|\bbirth|\bgeburt|naissance)/],
+    ['birthDate', DATE_OF_BIRTH_RE],
     ['fullName', /^(name|your name|il tuo nome|ihr name|votre nom)$|\b(full name|nome e cognome|nome completo|vor und nachname|vollstandiger name|nom complet)\b/],
     ['firstName', /\b(first name|given name|vorname|prenom|nome)\b/],
     ['lastName', /\b(last name|surname|family name|nachname|familienname|cognome|nom de famille|nom)\b/],
@@ -59,12 +64,13 @@
   ];
   // A place, not a date: «Luogo di nascita», «Geburtsort».
   const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;
+  const BIRTHPLACE_RE = /\b(?:luogo di nascita|geburtsort|lieu de naissance|place of birth|birthplace)\b/;
   const NOT_PERSON_RE = /\b(azienda|company|firma|unternehmen|entreprise|utente|user|benutzer|referenz|reference|riferimento)/;
   const ADDRESS_FAMILIES = new Set(['postalCode', 'city', 'street', 'country']);
   const COUNTRY_WORD_RE = /\b(paese|country|land|pays|nazione)\b/;
   const PHONE_COUNTRY_CODE_RE = /\b(?:country|paese|nazione|pays|land)\s*(?:phone\s*)?(?:code|codice|indicativo|vorwahl|prefix|prefisso)\b/;
   const RESIDENCE_CONTEXT_RE = /\b(?:residen(?:ce|tial)|domicil|address|adresse|indirizz|abitaz|home\s+(?:address|country|city)|wohn(?:sitz|adresse|ort))\b/;
-  const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|dati personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche angaben|personliche daten|private adresse|wohnadresse|adresse personnelle|coordonnees personnelles|adresse du candidat)\b/;
+  const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|(?:dati|informazioni) personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche (?:angaben|daten|informationen)|private adresse|wohnadresse|adresse personnelle|(?:informations|coordonnees) personnelles|adresse du candidat)\b/;
   const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
@@ -416,17 +422,90 @@
     const read = root.CompilaRunnerFields;
     const byId = new Map();
     if (typeof read !== 'function') return byId;
+    const add = (id, field) => {
+      if (!id) return;
+      if (byId.has(id) && byId.get(id) !== field) byId.set(id, { nativeContractUnavailable: true });
+      else if (!byId.has(id)) byId.set(id, field);
+    };
     try {
       for (const field of read({ channelType }).fields || []) {
-        if (field.id) byId.set(field.id, field.label || '');
-        for (const option of field.options || []) if (option.aaId) byId.set(option.aaId, field.label || '');
+        add(field.id, field);
+        for (const option of field.options || []) add(option.aaId, field);
       }
     } catch {
       // A page the runner's reading does not understand: the engine's own names only.
     }
     return byId;
   }
-  const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id')) || '';
+  const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id'))?.label || '';
+
+  /** Residence context stays separate from question labels and kit answers. */
+  function runnerSectionOf(runner, element, suppliedField) {
+    const field = suppliedField || runner.get(element.getAttribute('data-aa-id'));
+    if (!field) return { section: '', scopes: [] };
+    const section = field.section || '';
+    const scopeSelector = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
+    const containingForm = element.closest('form');
+    const actualForm = element.form || containingForm;
+    if ((actualForm && containingForm && actualForm !== containingForm)
+      || ('form' in element && element.hasAttribute('form') && !element.form)) return null;
+    let boundary = actualForm || element.closest('[role="form"], dialog, [role="dialog"], main, [role="main"]');
+    if (actualForm) {
+      const container = actualForm.closest('main, [role="main"], section');
+      const forms = container ? [...container.querySelectorAll('form')] : [];
+      if (container?.contains(element) && forms.length === 1 && forms[0] === actualForm) boundary = container;
+      else if (!containingForm) return null;
+    }
+    if (!boundary) return { section: '', scopes: [] };
+    const names = [];
+    const scopesToRead = [];
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      // A control explicitly associated with this sole form keeps the
+      // submitted form's own names as well as its visible containing scopes.
+      if (node === boundary && actualForm && !containingForm) scopesToRead.push(actualForm);
+      scopesToRead.push(node);
+      if (node === boundary) break;
+    }
+    for (const node of scopesToRead) {
+      if (node.matches(scopeSelector) && (isShown(node) || node === actualForm && !containingForm)) {
+        const scopeNames = [];
+        const heading = [...node.children].filter(child => /^H[1-4]$/.test(child.tagName)
+          && isShown(child) && (node === actualForm && !containingForm || child.compareDocumentPosition(element) & 4)).at(-1);
+        if (heading && normalize(textOf(heading)) !== normalize(field.label || labelOf(element))) scopeNames.push(textOf(heading));
+        if (node.getAttribute('aria-label')) scopeNames.push(node.getAttribute('aria-label'));
+        for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+          const matches = [...node.ownerDocument.querySelectorAll('[id]')].filter(label => label.id === id);
+          if (matches.length !== 1) return null;
+          const label = matches[0];
+          const name = label ? textOf(label) : '';
+          if (!name) return null;
+          scopeNames.push(name);
+        }
+        const legend = [...node.children].find(child => child.tagName === 'LEGEND');
+        if (legend) scopeNames.push(textOf(legend));
+        if (scopeNames.length > 16) return null;
+        const group = [...new Set(scopeNames.map(value => String(value).replace(/\s+/g, ' ').trim()).filter(Boolean))].join(' · ');
+        if (group.length > 300) return null;
+        if (group) names.push(group);
+      }
+      if (node === boundary) break;
+    }
+    // The producer can see headings elsewhere in the document. A matching
+    // heading must also belong to a visible section containing this control;
+    // another form, step or fieldset cannot establish its address owner.
+    let owned = false;
+    for (const heading of boundary.querySelectorAll('h1, h2, h3, h4, legend')) {
+      const owner = heading.closest(scopeSelector);
+      if (!owner?.contains(element) || !isShown(heading) || !(heading.compareDocumentPosition(element) & 4)) continue;
+      const text = textOf(heading).replace(/\s+/g, ' ').trim();
+      if (normalize(text.slice(0, 300)) !== normalize(section)) continue;
+      if (text.length > 300) return null;
+      owned = true;
+    }
+    const context = [...new Set([...names, owned ? section : ''].map(value => String(value).replace(/\s+/g, ' ').trim()).filter(Boolean))];
+    if (context.length > 16 || context.some(value => value.length > 300)) return null;
+    return { section: context.join(' · '), scopes: context };
+  }
 
   function markerText(node) {
     return String(node?.innerText || node?.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 300);
@@ -501,6 +580,11 @@
   function collect(doc, channelType = '') {
     const entries = [];
     const runner = runnerLabels(channelType);
+    const nativeIdCounts = new Map();
+    for (const node of doc.querySelectorAll('[data-aa-id]')) {
+      const id = node.getAttribute('data-aa-id');
+      nativeIdCounts.set(id, (nativeIdCounts.get(id) || 0) + 1);
+    }
     const inPicker = (element) => element.closest('[data-scope="date-picker"]');
     for (const picker of doc.querySelectorAll('[data-scope="date-picker"][data-part="root"]')) {
       if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: labelOf(picker), required: true });
@@ -532,7 +616,7 @@
         : element.tagName === 'SELECT' ? 'select'
           : element.getAttribute('role') === 'combobox' ? 'combobox'
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
-      const label = labelOf(element);
+      const label = runnerLabelOf(runner, element) || labelOf(element);
       const labels = labelsOf(element, label, runnerLabelOf(runner, element));
       entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
         ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
@@ -608,7 +692,27 @@
         required: true,
       });
     }
-    return entries;
+    return entries.map(entry => {
+      const id = entry.element.getAttribute('data-aa-id');
+      const field = runner.get(id);
+      const malformedAddressOwner = Object.hasOwn(field || {}, 'addressContext')
+        && !validAddressContext(field.addressContext)
+        && addressEntryNeedsOwnership({ ...entry, label: field.label || entry.label, addressContext: field.addressContext });
+      if (entry.nativeContractUnavailable === true || field?.nativeContractUnavailable === true
+        || malformedAddressOwner || field?.consentOwnershipUnknown === true || (id && nativeIdCounts.get(id) !== 1)) {
+        return { ...entry, label: '', labels: [], section: null, purposeScopes: null, nativeContractUnavailable: true };
+      }
+      // A styled select's proxy is a locator; the native successful control
+      // owns the submitted meaning and its containing scopes.
+      const purpose = runnerSectionOf(runner, entry.nativeSelect || entry.element, field);
+      if (purpose === null && addressEntryNeedsOwnership({ ...entry, label: field?.label || entry.label })) {
+        return { ...entry, label: '', labels: [], section: null, purposeScopes: null, nativeContractUnavailable: true };
+      }
+      return { ...entry, ...(field?.consentOwnershipUnknown === true ? { consentOwnershipUnknown: true } : {}),
+        section: purpose === null ? null : purpose.section, purposeScopes: purpose === null ? null : purpose.scopes,
+        context: field?.context || '', nativeSection: field?.section || '',
+        ...(Object.hasOwn(field || {}, 'addressContext') ? { addressContext: field.addressContext } : {}) };
+    });
   }
 
   function isEmpty(entry) {
@@ -661,17 +765,51 @@
    * The kit answer whose question is one of the control's names (the
    * runner's own wording first): an exact match on any name, then a prefix.
    */
-  function kitAnswer(labels, kit) {
+  function kitAnswer(labels, kit, entry) {
     const wanted = (Array.isArray(labels) ? labels : [labels]).map(normalize).filter(Boolean);
     if (!wanted.length) return null;
-    const answers = kit.answers || [];
-    const exact = answers.find((item) => wanted.includes(normalize(item.question)));
-    if (exact) return exact;
+    const scopedAddress = Boolean(entry && addressEntryNeedsOwnership(entry));
+    const answers = (kit.answers || []).filter(item => !scopedAddress || ownedKitAddressAnswer(entry, item));
+    const pick = items => {
+      if (!items.length) return null;
+      if (scopedAddress && new Set(items.map(item => normalize(item.answer))).size !== 1) return null;
+      return items[0];
+    };
+    const exact = answers.filter((item) => wanted.includes(normalize(item.question)));
+    if (exact.length) return pick(exact);
+    if (scopedAddress) return null;
     // «Carica il tuo CV · Carica file»: the runner joins a heading and a label.
-    return answers.find((item) => {
+    return pick(answers.filter((item) => {
       const question = normalize(item.question);
       return question.length >= 6 && wanted.some((name) => name.length >= 6 && (question.startsWith(name) || name.startsWith(question) || question.includes(` ${name}`)));
-    }) || null;
+    }));
+  }
+
+  function addressEntryNeedsOwnership(entry) {
+    if (isIdentityEmailCaption(entry.label || entry.labels?.find(Boolean) || '')) return false;
+    if (isPhoneCountryEntry({ ...entry, labels: [entry.label || entry.labels?.find(Boolean) || ''] })) return false;
+    const text = normalize((entry.labels || [entry.label]).join(' '));
+    const auto = String(entry.element.getAttribute('autocomplete') || '').slice(0, 100);
+    const nativeBirthDate = /^(?:birth|nascita|geburt|naissance)$/iu.test(text) && (entry.kind === 'native-date' || entry.type === 'date' || ['date', 'ui5-date'].includes(entry.kind));
+    return mentionsResidenceFieldRole(entry.label || entry.labels?.find(Boolean) || '') || FAMILIES.some(([family, pattern]) => ADDRESS_FAMILIES.has(family) && pattern.test(text))
+      || (BIRTH_FIELD_RE.test(text) && !DATE_OF_BIRTH_RE.test(text) && !nativeBirthDate) || BIRTH_LOCATION_RE.test(text) || /\b(?:city|citta|town|locality|ville|ort|comune|lieu|country|land|pays|nazione|paese|street|strasse|rue|address|adresse|indirizzo|cap|postal|postcode|zip|plz|npa)\b/.test(text)
+      || /(?:^|\s)(?:address-level[1-4]|street-address|address-line[1-3]|postal-code|country|country-name)(?:$|\s)/i.test(auto);
+  }
+
+  function validAddressContext(context) {
+    return hasAddressContextOwnership({ addressContext: context });
+  }
+
+  function ownedKitAddressAnswer(entry, item) {
+    if (!['answers', 'candidate', 'user'].includes(item?.source)) return false;
+    if (entry.section === null) return false;
+    const current = entry.addressContext;
+    const prior = item.addressContext;
+    if (!validAddressContext(current) || !validAddressContext(prior)) return false;
+    return current.section === prior.section && JSON.stringify(current.owners) === JSON.stringify(prior.owners)
+      && normalize(item.context) === normalize(String(entry.context || '').slice(0, 240))
+      && normalize(item.section) === normalize(String(entry.nativeSection || '').slice(0, 240))
+      && String(item.autocomplete || '') === String(entry.element.getAttribute('autocomplete') || '').slice(0, 100);
   }
 
   // HTML autocomplete tokens (the last token: «section-x shipping postal-code»).
@@ -683,30 +821,57 @@
 
   function isPhoneCountryEntry(entry) {
     const labels = entry.labels || [entry.label];
-    const labelText = normalize(labels.join(' '));
+    const primary = entry.label || labels.find(Boolean) || '';
+    const labelText = normalize(primary);
     if (!COUNTRY_WORD_RE.test(labelText) || RESIDENCE_CONTEXT_RE.test(labelText)) return false;
-    const explicit = PHONE_COUNTRY_CODE_RE.test(labelText)
-      || (COUNTRY_WORD_RE.test(labelText) && /\b(?:phone|telephone|telefon|telefono|mobile|natel)\b/.test(labelText));
-    const scope = entry.element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question');
-    const scopeText = normalize(textOf(scope));
-    const hasPhoneControl = Boolean(scope?.querySelector('input[type="tel"], input[autocomplete="tel"], [data-aa-phone]'));
-    return explicit || (hasPhoneControl && !RESIDENCE_CONTEXT_RE.test(scopeText));
+    if (Object.hasOwn(entry, 'addressContext') && !validAddressContext(entry.addressContext)) return false;
+    const ownerText = normalize(Object.hasOwn(entry, 'addressContext')
+      ? [entry.addressContext.section, ...entry.addressContext.owners].join(' ') : entry.section || '');
+    if (NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(ownerText) || BIRTHPLACE_RE.test(ownerText)) return false;
+    const phoneLabel = /\b(?:phone|telephone|telefon|telefono|mobile|natel)\b/.test(labelText);
+    const phoneScope = hasTelephonePurpose(Object.hasOwn(entry, 'addressContext')
+      ? [...entry.addressContext.owners, entry.addressContext.section] : entry.purposeScopes || []);
+    const explicit = (PHONE_COUNTRY_CODE_RE.test(labelText) && (phoneLabel || phoneScope))
+      || (COUNTRY_WORD_RE.test(labelText) && phoneLabel);
+    return explicit || (residenceFieldRole(primary) === 'country' && phoneScope);
   }
 
   function familyOf(entry) {
-    if (entry.type === 'email') return 'email';
-    if (entry.type === 'tel') return 'phone';
+    if ((entry.labels || [entry.label]).some(name => BIRTH_LOCATION_RE.test(normalize(name)))) return null;
+    const nativeBirthDate = (entry.type === 'date' || entry.kind === 'date') && /^(?:birth|nascita|geburt|naissance)$/iu.test(normalize(entry.label));
+    if (BIRTH_FIELD_RE.test(normalize(`${entry.label || ''} ${entry.section || ''}`))
+      && !DATE_OF_BIRTH_RE.test(normalize(entry.label)) && !nativeBirthDate) return null;
+    if (nativeBirthDate) return 'birthDate';
     const labels = entry.labels || [entry.label];
-    if (isPhoneCountryEntry(entry)) return 'phoneCountry';
+    const primaryLabel = entry.label || labels.find(Boolean) || '';
+    if (isPhoneCountryEntry({ ...entry, labels: [primaryLabel] })) return 'phoneCountry';
     const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
     const autoFamily = AUTOCOMPLETE[auto];
     // Autocomplete identifies the value type, not whose address it is. Only
     // visible labels and the surrounding section may establish residence
     // provenance; a section-personal token alone must stay ownerless.
-    const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''}`);
-    const candidateAddress = (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
-      || RESIDENCE_CONTEXT_RE.test(addressContext))
-      && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext);
+    const nativeOwner = validAddressContext(entry.addressContext) ? [entry.addressContext.section, ...entry.addressContext.owners].join(' ') : '';
+    const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''} ${nativeOwner}`);
+    const addressRole = residenceFieldRole(primaryLabel);
+    const candidateAddress = Boolean(addressRole) && entry.section !== null
+      && (!Object.hasOwn(entry, 'addressContext') || validAddressContext(entry.addressContext))
+      && hasResidencePurpose(validAddressContext(entry.addressContext)
+        ? [...entry.addressContext.owners, entry.addressContext.section] : entry.purposeScopes || [], primaryLabel)
+      && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
+      && !BIRTHPLACE_RE.test(addressContext)
+      // A browser autocomplete token describes a type, not its owner. An
+      // explicit birthplace or another person's/company's label vetoes even
+      // a genuine personal section before the autocomplete branch below.
+      && !labels.some(name => NOT_PERSON_RE.test(normalize(name)) || BIRTHPLACE_RE.test(normalize(name)));
+    if (addressRole) {
+      const family = { city: 'city', country: 'country', postalCode: 'postalCode', street: 'street', address: 'street' }[addressRole];
+      return candidateAddress && family ? family : null;
+    }
+    // A weak name/placeholder/autocomplete must not turn an unrecognized
+    // geographic question into another personal fact such as date of birth.
+    if (addressEntryNeedsOwnership({ ...entry, labels: [entry.label || labels.find(Boolean) || ''] })) return null;
+    if (entry.type === 'email') return 'email';
+    if (entry.type === 'tel') return 'phone';
     if (autoFamily) {
       // `postal-code`, `address-level2`, etc. identify a value type, not
       // whose address it is. Require explicit candidate-residence context.
@@ -766,7 +931,8 @@
 
   /** The value for one entry, or null: never invented, always from the kit. */
   function answerFor(entry, kit) {
-    const fromKit = kitAnswer(entry.labels || [entry.label], kit);
+    if (entry.nativeContractUnavailable === true) return null;
+    const fromKit = kitAnswer(entry.labels || [entry.label], kit, entry);
     if (entry.kind === 'file') {
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
       const accept = String(entry.element.getAttribute('accept') || '');
@@ -788,6 +954,7 @@
       return null;
     }
     if (entry.kind === 'checkbox') {
+      if (entry.consentOwnershipUnknown === true) return null;
       // JazzHR/Resumator (Fincons) puts the required privacy statement in the
       // label immediately before a separate «I agree» checkbox. Use all the
       // control's labels, but keep marketing/newsletter opt-ins excluded.
@@ -799,14 +966,16 @@
     // Contact facts are canonical identity data, not answers copied from the
     // last portal run. This is the boundary that prevents a stale «Schweiz»
     // answer from overwriting an Italian phone prefix or a blank residence.
-    if (['phone', 'phoneCountry', 'country'].includes(family)) {
+    if (ADDRESS_FAMILIES.has(family) && fromKit?.current === true) return { value: fromKit.answer };
+    if (['phone', 'phoneCountry', ...ADDRESS_FAMILIES].includes(family)) {
       const value = identityValue(family, kit);
-      return value ? { value, family } : null;
+      if (value) return { value, family };
+      if (['phone', 'phoneCountry', 'country'].includes(family)) return null;
     }
     // A generic country label has no residence provenance. Do not reuse a
     // portal answer whose meaning cannot be established from the page.
     const labelText = normalize((entry.labels || [entry.label]).join(' '));
-    if (!family && COUNTRY_WORD_RE.test(labelText) && !RESIDENCE_CONTEXT_RE.test(labelText)) return null;
+    if (!family && !fromKit && COUNTRY_WORD_RE.test(labelText) && !RESIDENCE_CONTEXT_RE.test(labelText)) return null;
     if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
     const value = family ? identityValue(family, kit) : '';
     // «Full time»/«Part time» describes the desired workload, not a notice
@@ -1269,6 +1438,11 @@
     const preferredCv = new Set(preferredDocumentControls(cvControls));
     for (const entry of entries) {
       if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
+      if (entry.nativeContractUnavailable === true) {
+        failed.push(entry.label || entry.kind);
+        missing.push({ label: entry.label || entry.kind, answer: '', reason: 'native_contract_unavailable' });
+        continue;
+      }
       if (!isEmpty(entry)) continue;
       const answer = answerFor(entry, kit);
       const documentKey = answer?.document ? `${doc.defaultView.location.href}|${answer.document}|${uploadControlId(entry.element)}` : '';
@@ -1329,7 +1503,7 @@
   }
 
   root.CompilaCandidatura = {
-    NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
+    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
     config, normalize, textOf, labelOf, questionOf, collect, isEmpty, answerFor, bestOption,
     parseDate, formatForInput, phoneFor, fillEntry, fillPage, pageState, cookieRefusal,
     pageSignature, nextButton, finalButton, press, setValue, sleep,
