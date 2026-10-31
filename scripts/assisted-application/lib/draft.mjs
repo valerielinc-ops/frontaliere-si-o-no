@@ -136,7 +136,7 @@ export async function buildDraft(ctx) {
   const round = Number(flow?.round) || 1;
   // Fase 2: what the candidate wrote in the e-mail that carried the CV.
   const candidateNotes = String(ctx.intake?.emailNotes || '').slice(0, 4000);
-  const counterContext = qualificationCounterContext({ order, flow, intake: ctx.intake });
+  const counterContext = qualificationCounterContext({ order, flow, intake: ctx.intake, answerCounterContext: ctx.answerCounterContext || [] });
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   maskValues(personalValuesOf(order));
 

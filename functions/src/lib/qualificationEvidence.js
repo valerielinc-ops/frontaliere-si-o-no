@@ -44,7 +44,7 @@ function publicAnswer(record) {
   record = record || {};
   return { id: record.id, version: record.version, key: record.key, question: record.question, answer: record.answer,
     category: record.category, unit: record.unit, scope: record.scope,
-    provenance: { actor: record.provenance?.actor, round: record.provenance?.round, confirmedAt: record.provenance?.confirmedAt, cvHash: record.provenance?.cvHash } };
+    provenance: { actor: record.provenance?.actor, round: record.provenance?.round, confirmedAt: record.provenance?.confirmedAt, cvHash: record.provenance?.cvHash, sourceCounterHash: record.provenance?.sourceCounterHash } };
 }
 
 /** Only server-attested Q/A units are citable; bare answer-map values are context. */

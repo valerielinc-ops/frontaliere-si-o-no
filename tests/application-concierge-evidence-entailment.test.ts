@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { qualificationSources, qualificationSourcesFingerprint, qualificationCounterContext, qualificationCounterContextHash, verifyQualificationEvidence, hasVerifiedQualificationEvidence,
   qualificationAssessmentHash, hasVerifiedQualificationAssessment, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
+import { qualificationAnswerOriginContext } from '../functions/src/lib/qualificationCounterContext.js';
 import { qualificationEvidenceCases } from './fixtures/qualification-evidence-cases.mjs';
 
 function fixture(cases = qualificationEvidenceCases().filter(item => item.group === 'yellowshark-positive')) {
@@ -260,4 +261,32 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     expect(hasVerifiedQualificationAssessment({ ...assessment, counterContext: qualificationCounterContext({ intake: { emailNotes: 'I do not hold that degree.' } }) })).toBe(false);
   });
 
+});
+
+
+describe('attested answer origin corrections', () => {
+  it('invalidates a document witness when its source assertion gains a correction without exposing the origin order', async () => {
+    const f = fixture();
+    const origin = { orderId: 'private-origin', answerIds: ['attested-answer'], round: 1, confirmedHash: 'old', currentHash: 'old',
+      changedSinceConfirmation: false, context: qualificationAnswerOriginContext({ flow: {} }) };
+    const before = qualificationCounterContext({ answerCounterContext: [origin] });
+    const result = await verifyQualificationEvidence({ ...f, purpose: 'documents', unverifiedContext: before });
+    const cached = { requirements: f.requirements, match: f.match, entailment: result.verification };
+    expect(hasVerifiedQualificationAssessment({ ...cached, counterContext: before })).toBe(true);
+    const after = qualificationCounterContext({ answerCounterContext: [{ ...origin, currentHash: 'new', changedSinceConfirmation: true,
+      context: qualificationAnswerOriginContext({ flow: { candidateNotes: 'Correction: the asserted qualification is not current.' } }) }] });
+    expect(hasVerifiedQualificationAssessment({ ...cached, counterContext: after })).toBe(false);
+    const replay = await verifyQualificationEvidence({ ...f, purpose: 'documents', unverifiedContext: after });
+    expect(replay.status).toBe('supported');
+    const payload = JSON.parse(f.generate.mock.calls[1][1]);
+    expect(payload.unverifiedContext.answerSources[0].context.flowNotes).toContain('not current');
+    expect(JSON.stringify(payload)).not.toContain('private-origin');
+  });
+
+  it('keeps derived answer-cache normalization separate from source corrections', () => {
+    const before = qualificationAnswerOriginContext({ flow: { answers: { source: 'C1' }, questionAnswers: { legacy: 'C1' }, candidateNotes: 'Call after 5pm.' } });
+    const after = qualificationAnswerOriginContext({ flow: { answers: { source: 'C1' }, questionAnswers: { normalized: { value: 'C1' } }, candidateNotes: 'Call after 5pm.' } });
+    expect(qualificationCounterContextHash(after)).toBe(qualificationCounterContextHash(before));
+    expect(qualificationCounterContextHash(qualificationAnswerOriginContext({ flow: { candidateNotes: 'Current English A2.' } }))).not.toBe(qualificationCounterContextHash(before));
+  });
 });
