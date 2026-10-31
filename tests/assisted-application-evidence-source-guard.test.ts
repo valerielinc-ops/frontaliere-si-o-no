@@ -20,7 +20,7 @@ describe('current answer source fence before irreversible send', () => {
     const guard = submissionGuard(store.db, 'source_guard_fixture', 1, { answerSourceGuard: { assertInTransaction } });
     await guard.claim(channel, 1);
     store.docs.set(source.path, { answer: 'No' });
-    await expect(guard.markClicked(2)).rejects.toMatchObject({ code: 'evidence_source_changed' });
+    await expect(channel === 'email' ? guard.markEmailSending(2) : guard.markClicked(2)).rejects.toMatchObject({ code: 'evidence_source_changed' });
     expect(store.read(`${base}/automation/submission`).r1.clickedAt).toBeNull();
     expect(assertInTransaction).toHaveBeenCalledTimes(1);
     await guard.release('evidence_source_changed', 3);

@@ -620,7 +620,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       locator: () => answerLocator,
       waitForTimeout: async () => {},
     };
-    const result = await completeWithAgent({
+    await expect(completeWithAgent({
       page: page as any,
       hint: 'no_form_controls',
       candidate,
@@ -628,14 +628,9 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       codex: async () => turn('act', [act({
         action: 'click', ref: 'e13', value: 'Yes', question: '', context: 'German language', answer: '', source: 'widget',
       })]),
-    });
-    expect(result).toMatchObject({
-      status: 'needs_candidate',
-      questions: [expect.objectContaining({
-        question: 'What does the form ask about German language, and how should it be answered?',
-        context: 'German language',
-      })],
-    });
+    })).rejects.toMatchObject({ code: 'evidence_entailment_unverified' });
+    // No original native question was bound: this is a technical hold, not
+    // evidence that the candidate needs to answer an invented question.
     expect(answerClicks).toBe(0);
 
     for (const context of ['Languages', 'German and English languages']) {

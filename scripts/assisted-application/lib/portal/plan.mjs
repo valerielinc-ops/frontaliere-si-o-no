@@ -11,7 +11,8 @@
 import '../../extension/apply-control.js';
 const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
 
-import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalDefaultAnswer, isOperationalDefaultValue, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { createPortalQualificationVerifier, isQualificationAction, uniqueNativeField, PortalQualificationUnverified, withNativeValidation } from './qualification-gate.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -42,6 +43,7 @@ import {
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -433,7 +435,9 @@ export function evidenceSupports(question, answer, evidence) {
     return (!required.length || answerLevel >= Math.max(...required)) && strongestHeld >= answerLevel;
   }
   if (!YES_RE.test(value)) return quote.includes(value);
-  return !/\d/.test(String(question));
+  // An arbitrary authentic quotation does not establish a qualification.
+  // Native answers are authorized by the asynchronous, original-source gate.
+  return false;
 }
 
 
@@ -1547,7 +1551,7 @@ function identityAnswerMatches(candidate, field, value) {
  * Code-side guard on the plan: an answer to a sensitive question must come
  * from the candidate's answers or profile, never from a model "rule".
  */
-export function guardPlan(plan, fields, candidate = null) {
+function proposedPlan(plan, fields, candidate = null, deferQualifications = false) {
   const knownValues = knownValuesOf(candidate);
   const byId = new Map(fields.map((field) => [field.id, field]));
   const actions = [];
@@ -1728,6 +1732,7 @@ export function guardPlan(plan, fields, candidate = null) {
     const languageAbility = isLanguageAbilityQuestion(`${field.label} ${field.context || ''}`);
     const supported = (!languageAbility && knownValues === null) || native || isInferredProfileLanguageAnswer(candidate, field, given)
       || answeredByCandidate(candidate, field.label, given, field.context, field)
+      || (deferQualifications && isQualificationAction(field, action))
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(`${field.label} ${field.context || ''}`, given, action.evidence));
     if ((languageAbility || KNOCK_OUT.test(field.label))
       && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
@@ -1782,6 +1787,50 @@ export function guardPlan(plan, fields, candidate = null) {
   };
 }
 
+export function guardPlan(plan, fields, candidate = null) {
+  return proposedPlan(plan, fields, candidate);
+}
+
+/** Existing deterministic identity, mandate and operational rules remain separate. */
+export function mechanicallyGroundedPortalAction(candidate, field, action, answerEvidence = []) {
+  const value = action.action === 'check' ? 'Yes' : action.action === 'uncheck' ? 'No' : action.value;
+  const equivalent = (a, b) => {
+    if (a == null || b == null || !String(a).trim() || !String(b).trim()) return false;
+    const bool = value => /^(?:yes|ja|si|sì|oui|true)$/i.test(String(value || '').trim()) ? true
+      : /^(?:no|nein|non|false)$/i.test(String(value || '').trim()) ? false : null;
+    return bool(a) !== null && bool(a) === bool(b) || comparableAnswer(a) === comparableAnswer(b);
+  };
+  if (action.source === 'consent' && ownConsent(field)) return true;
+  if (action.source === 'documents' && equivalent(attachedDocumentYes(candidate, field), value)) return true;
+  const otherPersonField = NON_CANDIDATE_NAME_RE.test(`${field.label} ${field.context || ''}`);
+  if (!otherPersonField && identityAnswerMatches(candidate, field, value) && !KNOCK_OUT.test(field.label)) return true;
+  const resolved = candidateAnswerForField(candidate, field);
+  const topic = questionTopic(field.label, field.context, field);
+  // Basic contact data comes from the application identity. Qualifications,
+  // residence, permits and demographic facts require their own source proof.
+  if (resolved?.source === 'identity' && !QUALIFIED_IDENTITY_TOPIC.has(topic)
+    && equivalent(resolved.value, value)) return true;
+  if (operationalQuestionTopic(field)) {
+    if (resolved?.source === 'policy_default' && isOperationalDefaultValue(field, value) && equivalent(resolved.value, value)) return true;
+    const same = (a, b) => String(a || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase() === String(b || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
+    for (const record of answerEvidence) {
+      const question = record?.question || {};
+      if (!['candidate', 'owner'].includes(record?.provenance?.actor)
+        || ![question.applicationQuestion, question.question].some(label => label && same(label, field.label))
+        || !['context', 'section', 'autocomplete'].every(key => same(question[key], field[key]))
+        || JSON.stringify(addressContextContract(question)) !== JSON.stringify(addressContextContract(field))) continue;
+      const explicit = candidateAnswerForField({ identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [{
+        ...question, question: field.label, answer: record.answer, source: 'answers',
+      }] }, field);
+      if (explicit?.source === 'answers' && equivalent(explicit.value, value)) return true;
+    }
+  }
+  return false;
+}
+
+const QUALIFIED_IDENTITY_TOPIC = new Set(['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country',
+  'birth_date', 'nationality', 'permit', 'civil_status', 'salutation']);
+
 const AGENCY_RE = /(vermittlungsb[üu]ro|personalvermittl|placement agency|recruit(ment|ing) agency|staffing agency|agenzia (per il lavoro|di collocamento|interinale|per l['’]impiego)|agence (de placement|de recrutement|d['’]emploi|intérimaire))/i;
 const NO_OPTION_RE = /^(nein|no|non)$/i;
 
@@ -1813,11 +1862,28 @@ export function holdsValue(field) {
   return !PLACEHOLDER.test(value);
 }
 
-export async function planPage({ snapshot, candidate, candidateLocale, codex }) {
+export async function planPage({ snapshot, candidate, candidateLocale, codex, qualificationVerifier, qualificationScope = {}, inspectOnly = false, page }) {
+  if (page) qualificationScope = { ...qualificationScope, url: page.url() };
+  if (page && !inspectOnly) snapshot = { ...snapshot, fields: await withNativeValidation(page, snapshot.fields) };
   const raw = await codex({
     prompt: codexPrompt(planSystemPrompt(candidateLocale), planUserText({ snapshot, candidate })),
     schema: PLAN_SCHEMA,
     timeoutMs: 600_000,
   });
-  return guardPlan(raw, snapshot.fields.filter((field) => field.inputType !== 'password'), candidate);
+  const fields = snapshot.fields.filter((field) => field.inputType !== 'password');
+  if (inspectOnly) return guardPlan(raw, fields, candidate);
+  const proposed = proposedPlan(raw, fields, candidate, true);
+  const verifier = qualificationVerifier || createPortalQualificationVerifier({ codex,
+    trustedAction: (field, action, answerEvidence) => mechanicallyGroundedPortalAction(candidate, field, action, answerEvidence) });
+  const claims = [];
+  for (const action of proposed.actions) {
+    const field = uniqueNativeField(fields, action.fieldId);
+    if (!field && fields.some(item => item.id === action.fieldId && isQualificationAction(item, action))) throw new PortalQualificationUnverified('native_field_ambiguous');
+    if (!field || !verifier.needs(field, action)) continue;
+    const claim = verifier.claim(field, action);
+    if (!claim) throw new PortalQualificationUnverified('form_contract_unbound');
+    claims.push(claim);
+  }
+  await verifier.verify(claims, qualificationScope);
+  return proposed;
 }

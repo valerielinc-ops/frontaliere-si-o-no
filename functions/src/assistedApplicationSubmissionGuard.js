@@ -77,6 +77,31 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       });
       return outcome;
     },
+    /** No claim or repair may hide an application that already left. */
+    async inspect() {
+      return db.runTransaction(async transaction => {
+        const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
+          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
+        ]);
+        const submission = submissionDoc.data();
+        const current = submission?.[key];
+        if (current?.state === 'sent') return { status: 'already_sent', record: current };
+        if (isUnconfirmedSubmission(current)) return { status: 'in_flight', record: current };
+        if (submission?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') return { status: 'withdrawn' };
+        return { status: 'available' };
+      });
+    },
+    /** Immediately before SMTP/provider handoff; this is not a portal click. */
+    async markEmailSending(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard } = {}) {
+      await db.runTransaction(async transaction => {
+        if (currentAnswerSourceGuard) await currentAnswerSourceGuard.assertInTransaction(transaction);
+        const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
+          transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
+        ]);
+        if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') throw new Error('application_withdrawn');
+        transaction.set(ref, { [key]: { state: 'sending', channel: 'email', startedAt: nowMs } }, { merge: true });
+      });
+    },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
     async markClicked(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard } = {}) {
       await db.runTransaction(async transaction => {

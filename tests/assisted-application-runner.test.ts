@@ -1,3 +1,4 @@
+import { reviewedDocumentContext } from './helpers/reviewedDocumentContext';
 import { describe, expect, it, vi } from 'vitest';
 import { isDeepStrictEqual } from 'node:util';
 import { renderPdf } from '../functions/src/assistedApplicationAiDocuments.js';
@@ -16,13 +17,15 @@ import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draf
 import { classifyLiveness, classifyWorkdayLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 import { checkPostingLiveness } from '../scripts/assisted-application/lib/posting-liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
-import { openRequiredQuestions, portalNeedsPlanner, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
+import { openRequiredQuestions, portalNeedsPlanner, submitApplication as submitApplicationRaw } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
+
+async function submitApplication(ctx: any) { return submitApplicationRaw(await reviewedDocumentContext(ctx)); }
 
 const KEY = Buffer.alloc(32, 7);
 const ORDER_ID = 'order_RUN123';

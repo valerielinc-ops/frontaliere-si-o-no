@@ -1,3 +1,4 @@
+import { reviewedDocumentContext } from './helpers/reviewedDocumentContext';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
@@ -18,7 +19,8 @@ const { handleAssistedApplicationReview } = await import('../functions/src/assis
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { permitOptions } = await import('../functions/src/lib/permitStatus.js');
-const { submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
+const { submitApplication: submitApplicationRaw } = await import('../scripts/assisted-application/lib/submit.mjs');
+async function submitApplication(ctx: any) { return submitApplicationRaw(await reviewedDocumentContext(ctx)); }
 
 const SECRET = 's'.repeat(40);
 const T0 = Date.UTC(2026, 9, 4, 10, 0, 0);

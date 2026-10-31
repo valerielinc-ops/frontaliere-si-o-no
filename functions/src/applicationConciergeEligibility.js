@@ -12,11 +12,13 @@ import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SC
   requirementsUserText, MATCH_SCHEMA, matchSystemPrompt, matchUserText } from './assistedApplicationAiPrompts.js';
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
+import { projectAttestedLanguageFacts } from './lib/attestedLanguageProjection.js';
+import { languageCodesIn } from './lib/languageFacts.js';
 import { SOURCE_CITATIONS_VERSION, citationSchema, resolveCitations } from './lib/sourceCitations.js';
 import { EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_PROMPT_HASH, qualificationSources,
   verifyQualificationEvidence, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
 
-export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v4-${SOURCE_CITATIONS_VERSION}-${EVIDENCE_ENTAILMENT_VERSION}-${EVIDENCE_ENTAILMENT_PROMPT_HASH}`;
+export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v5-${SOURCE_CITATIONS_VERSION}-${EVIDENCE_ENTAILMENT_VERSION}-${EVIDENCE_ENTAILMENT_PROMPT_HASH}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
@@ -68,7 +70,7 @@ function profileForEligibility(profile = {}) {
   };
 }
 
-async function evaluateConciergePosting({ job, profile, answers = {}, answerEvidence = [], locale = 'it', sourceText = '', generate = generateJson, readPosting = fetchJobPosting }) {
+async function evaluateConciergePosting({ job, profile, answers = {}, answerEvidence = [], locale = 'it', sourceText = '', cvHash = '', generate = generateJson, readPosting = fetchJobPosting }) {
   if (!sourceText) {
     const deadline = AbortSignal.timeout(PREFLIGHT_ANALYSIS_BUDGET_MS);
     const inference = generate; const read = readPosting;
@@ -84,7 +86,12 @@ async function evaluateConciergePosting({ job, profile, answers = {}, answerEvid
     location: posting.location || job.location, postingText: posting.text }), REQUIREMENTS_SCHEMA);
   if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) return { status: 'unverified', reason: 'requirements_incomplete' };
   const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
-  const normalizedProfile = profileForEligibility(profile);
+  const projected = projectAttestedLanguageFacts({ profile: profileForEligibility(profile), answerEvidence, currentCvHash: cvHash });
+  const conflictedLanguages = new Set(projected.conflicts.map(conflict => conflict.languageCode));
+  if (requirements.requirements.some(row => languageCodesIn(row.quote || row.requirement).some(code => conflictedLanguages.has(code)))) {
+    return { status: 'unverified', reason: 'language_evidence_conflict', gaps: [], questions: [] };
+  }
+  const normalizedProfile = projected.profile;
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
   const sources = qualificationSources({ sourceText, profile: normalizedProfile, answers, answerEvidence });
   const candidateSources = sources.citations;
@@ -149,7 +156,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
       && hasVerifiedQualificationEvidence(cached)) return { ...cached.result, fingerprint, cacheId };
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
-    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,
+    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, cvHash, generate,
       readPosting: async () => posting });
     // A cancelled verifier is still budget-deferred work, not an ordinary
     // technical retry that advances discovery past an unfinished assessment.

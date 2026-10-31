@@ -4,6 +4,7 @@ import { addressQuestionTopic, permitBooleanOptionLabel, questionTopic } from '.
 import { countryCodeOfLabel, formatPhoneForField, phoneCountryCode, phoneDialCode } from '../../../../functions/src/lib/phoneNormalization.js';
 import { residenceCountryCode } from './residence-address.mjs';
 import { dismissOptionalAutofill } from './optional-autofill.mjs';
+import { ownedOption, ownedOptionList, PortalQualificationUnverified } from './qualification-gate.mjs';
 
 const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'residence_country';
 
@@ -292,12 +293,12 @@ async function waitForNationalityOption(page, options, value, language) {
   }
 }
 
-/** The option's own element, or (after a re-render dropped our id) the radio with that label. */
+/** A lost radio ID requires a new plan; another group's same label is not its owner. */
 async function radioLocator(page, field, option) {
-  const byId = locatorFor(page, field, option.aaId);
-  if (await byId.count()) return byId;
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
-  return frame.getByRole('radio', { name: option.label, exact: true }).first();
+  const byId = frame.locator(`[data-aa-id="${String(option.aaId || '').replace(/["\\]/g, '\\$&')}"]`);
+  if (!option.aaId || await byId.count() !== 1) throw new PortalQualificationUnverified('native_radio_owner_unbound');
+  return byId;
 }
 
 export function locatorFor(page, field, aaId = field.id) {
@@ -322,10 +323,23 @@ async function fillText(locator, value) {
  * typed value is picked; with no such option the focus moves on (Tab, not
  * Escape, which would close a surrounding dialog).
  */
-async function pickSuggestion(page, field, locator, value) {
-  const frame = page.frames()[field.frame || 0] || page.mainFrame();
-  const options = frame.locator('[role="option"]:visible');
-  const needle = value.toLowerCase().trim();
+async function pickSuggestion(page, field, locator, value, beforeChoice = async () => {}) {
+  let list;
+  try { list = await ownedOptionList(page, locator); } catch (error) {
+    if (field.search) throw error;
+    return; // Plain text does not select another control's suggestions.
+  }
+  const options = list.getByRole('option');
+  const choose = async () => {
+    const texts = await options.allInnerTexts().catch(() => []);
+    const exact = texts.filter(text => normalizedChoice(text) === normalizedChoice(value));
+    const selected = exact.length === 1 ? exact[0] : isPhoneCountryField(field) ? phoneCountryOptionLabel(value, texts) : '';
+    if (!selected) return false;
+    const option = await ownedOption(page, locator, selected);
+    await beforeChoice(selected);
+    await option.click({ timeout: 4000 });
+    return true;
+  };
   if (field.search) {
     // A search box answers after Enter and a request. Workday's takes the only match by itself («+41»
     // becomes the chosen «Switzerland (+41)» 0.3 s after Enter, measured 2026-10-07): the box is answered
@@ -333,13 +347,10 @@ async function pickSuggestion(page, field, locator, value) {
     // (read 1.2 s after Enter, the first «option» with «+41» was the value just chosen). Five seconds
     // for it; then what is typed is no answer, and the field says so instead of leaving «+41» next to
     // the code the form had picked by itself.
-    await locator.press('Enter').catch(() => {});
     for (const deadline = Date.now() + SUGGESTIONS_TIMEOUT_MS; Date.now() < deadline;) {
       await page.waitForTimeout(300);
       if (searchHolds(await valueShownNow(page, field), value)) return;
-      const texts = await options.allInnerTexts().catch(() => []);
-      const index = texts.findIndex((text) => text.toLowerCase().includes(needle));
-      if (index >= 0) await options.nth(index).click({ timeout: 4000 }).catch(() => {});
+      if (await choose()) return;
     }
     if (searchHolds(await valueShownNow(page, field), value)) return;
     await locator.press('Tab').catch(() => {});
@@ -347,11 +358,7 @@ async function pickSuggestion(page, field, locator, value) {
   }
   // A plain input shows its suggestions at once or has none.
   await page.waitForTimeout(500);
-  const texts = await options.allInnerTexts().catch(() => []);
-  if (!texts.length) return;
-  const index = texts.findIndex((text) => text.toLowerCase().includes(needle));
-  if (index >= 0) await options.nth(index).click({ timeout: 4000 });
-  else await locator.press('Tab').catch(() => {});
+  if (!await choose()) await locator.press('Tab').catch(() => {});
 }
 
 /**
@@ -359,21 +366,23 @@ async function pickSuggestion(page, field, locator, value) {
  * no choice: Enter would take whichever option is highlighted (career-ops,
  * Workday: never pick by position), so the field fails and is planned again.
  */
-async function fillCombobox(page, field, locator, value) {
+async function fillCombobox(page, field, locator, value, beforeChoice = async () => {}) {
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
   await locator.pressSequentially(value.slice(0, 40), { delay: TYPE_DELAY_MS * 2 });
-  const frame = page.frames()[field.frame || 0] || page.mainFrame();
+  const list = await ownedOptionList(page, locator);
   // The exact label only (review of #10715): "IT" never picks "Italy".
   let selectedLabel = value;
-  let option = frame.getByRole('option', { name: value, exact: true }).first();
+  let option;
   try {
+    option = await ownedOption(page, locator, value);
     await option.waitFor({ state: 'visible', timeout: 4000 });
-  } catch {
+  } catch (error) {
+    if (error?.code === 'evidence_entailment_unverified') throw error;
     // ATS picklists vary capitalization, whitespace and accents between the
     // displayed option and the planner's answer. Match one normalized exact
     // label before applying country-specific catalogue rules; never use a
     // substring or a positional fallback.
-    const visibleOptions = frame.locator('[role="option"]:visible');
+    const visibleOptions = list.locator('[role="option"]:visible');
     const visibleLabels = (typeof visibleOptions.allInnerTexts === 'function'
       ? await visibleOptions.allInnerTexts().catch(() => [])
       : [])
@@ -385,6 +394,7 @@ async function fillCombobox(page, field, locator, value) {
       selectedLabel = normalizedMatches[0].label;
       option = visibleOptions.nth(normalizedMatches[0].index);
       await option.waitFor({ state: 'visible', timeout: 4000 });
+      await beforeChoice(selectedLabel);
       await option.click({ timeout: ACTION_TIMEOUT_MS });
       return selectedLabel;
     }
@@ -395,7 +405,7 @@ async function fillCombobox(page, field, locator, value) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    const options = frame.getByRole('option');
+    const options = list.getByRole('option');
     const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
     selectedLabel = nationality
       ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label))
@@ -419,11 +429,11 @@ async function fillCombobox(page, field, locator, value) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    option = frame.getByRole('option', { name: selectedLabel, exact: true }).first();
+    option = await ownedOption(page, locator, selectedLabel);
     try {
       await option.waitFor({ state: 'visible', timeout: 4000 });
     } catch {
-      const fallbackOptions = frame.locator('[role="option"]:visible');
+      const fallbackOptions = list.locator('[role="option"]:visible');
       const fallbackLabels = (typeof fallbackOptions.allInnerTexts === 'function'
         ? await fallbackOptions.allInnerTexts().catch(() => [])
         : [])
@@ -437,14 +447,13 @@ async function fillCombobox(page, field, locator, value) {
       await option.waitFor({ state: 'visible', timeout: 4000 });
     }
   }
+  await beforeChoice(selectedLabel);
   await option.click({ timeout: ACTION_TIMEOUT_MS });
   return selectedLabel;
 }
 
 /** SuccessFactors' picklist: open it, wait for its options to load, click the one named. */
-async function chooseInOwnedList(page, field, locator, value) {
-  const frame = page.frames()[field.frame || 0] || page.mainFrame();
-  const list = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`);
+async function chooseInOwnedList(page, field, locator, value, beforeChoice = async () => {}) {
   const nationality = isNationalityField(field.label);
   const residenceCountry = isResidenceCountryField(field.label);
   const phoneCountry = isPhoneCountryField(field);
@@ -455,6 +464,7 @@ async function chooseInOwnedList(page, field, locator, value) {
       await page.waitForTimeout(250);
     }
     await locator.click({ timeout: ACTION_TIMEOUT_MS });
+    const list = await ownedOptionList(page, locator);
     const options = list.getByRole('option');
     try {
       // Rolex's French nationality list is lazy: after the picklist opens it
@@ -505,7 +515,9 @@ async function chooseInOwnedList(page, field, locator, value) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    await options.nth(selected.index).click({ timeout: ACTION_TIMEOUT_MS });
+    const selectedOption = await ownedOption(page, locator, selectedLabel);
+    await beforeChoice(selectedLabel);
+    await selectedOption.click({ timeout: ACTION_TIMEOUT_MS });
     // SuccessFactors writes the choice into the input a moment after the
     // click (Coop, 2026-10-03: «Nein» was there, the check had looked too
     // early). A Rolex picklist can also re-render once before committing the
@@ -782,6 +794,7 @@ export function documentPaths(files, document) {
 export async function applyActions(page, fields, actions, files, {
   pause = () => page.waitForTimeout(150 + Math.floor(Math.random() * 250)),
   onUploadSelection = () => {},
+  beforeAction = async () => {},
 } = {}) {
   const byId = new Map(fields.map((field) => [field.id, field]));
   const results = [];
@@ -792,6 +805,7 @@ export async function applyActions(page, fields, actions, files, {
     let uploaded = 0;
     try {
       await dismissOptionalAutofill(page);
+      await beforeAction(field, action);
       const locator = locatorFor(page, field);
       if (action.action === 'upload') {
         const paths = documentPaths(files, action.document);
@@ -837,6 +851,7 @@ export async function applyActions(page, fields, actions, files, {
           const menu = frame.locator(`[id="${quote(field.ownedList)}"]`);
           const item = menu.getByText(option.label, { exact: true });
           if (await item.count() !== 1) throw new Error('option_owner_ambiguous');
+          await beforeAction(field, action, { catalogueOpen: true });
           await item.click({ timeout: ACTION_TIMEOUT_MS });
           const selected = await frame.locator(`select[id="${quote(field.nativeSelectId)}"]`).evaluate((select, value) => select.value === value, option.value);
           if (!selected) throw new Error('choice_not_registered');
@@ -851,6 +866,7 @@ export async function applyActions(page, fields, actions, files, {
           const quote = value => String(value).replace(/["\\]/g, '\\$&');
           const checkbox = frame.locator(`input[name="multiselect_${quote(field.nativeSelectId)}"][value="${quote(option.value)}"]`);
           if (await checkbox.count() !== 1) throw new Error('option_owner_ambiguous');
+          await beforeAction(field, action, { catalogueOpen: true });
           await checkbox.setChecked(true, { timeout: ACTION_TIMEOUT_MS });
           await locator.press('Escape').catch(() => {});
           const selected = await frame.locator(`select[id="${quote(field.nativeSelectId)}"]`).evaluate((select, value) => [...select.selectedOptions].some(option => option.value === value), option.value);
@@ -861,12 +877,15 @@ export async function applyActions(page, fields, actions, files, {
         } else if (field.kind === 'listbox') {
           // Workday: open the listbox and click the option (OfferOS dom-fill, fillListboxButton).
           await locator.click({ timeout: ACTION_TIMEOUT_MS });
-          const frame = page.frames()[field.frame || 0] || page.mainFrame();
-          await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });
+          const option = await ownedOption(page, locator, action.value);
+          await beforeAction(field, action, { catalogueOpen: true });
+          await option.click({ timeout: 6000 });
         } else if (field.selectLike) {
-          selectedLabel = await chooseInOwnedList(page, field, locator, action.value);
+          selectedLabel = await chooseInOwnedList(page, field, locator, action.value,
+            value => beforeAction(field, { ...action, value }, { catalogueOpen: true }));
         } else {
-          selectedLabel = await fillCombobox(page, field, locator, action.value);
+          selectedLabel = await fillCombobox(page, field, locator, action.value,
+            value => beforeAction(field, { ...action, value }, { catalogueOpen: true }));
         }
         // A click that did not take leaves the field empty while the run goes on as if answered.
         // SuccessFactors commits a custom picklist on blur; do that without
@@ -894,10 +913,12 @@ export async function applyActions(page, fields, actions, files, {
           })
           : fitToLength(action.value, field.maxLength);
         await fillText(locator, value);
-        if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value);
+        if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value,
+          value => beforeAction(field, { ...action, value }, { catalogueOpen: true }));
       }
       results.push({ fieldId: field.id, ok: true, ...(uploaded ? { files: uploaded } : {}) });
     } catch (error) {
+      if (error?.code === 'evidence_entailment_unverified') throw error;
       results.push({ fieldId: field.id, ok: false, error: String(error?.message || error).slice(0, 120) });
     }
     await pause();

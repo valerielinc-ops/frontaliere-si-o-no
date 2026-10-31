@@ -30,7 +30,8 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption, mechanicallyGroundedPortalAction } from './plan.mjs';
+import { createPortalQualificationVerifier, qualificationActionFence, verifyPortalActions, freshQualificationFields } from './qualification-gate.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -2472,7 +2473,9 @@ async function waitForProfileFields(page, kind, beforeIds, timeoutMs = 10_000) {
  * complete row in source order; incomplete or unfillable rows are cancelled,
  * never turned into invented dates or a reason to stop the application.
  */
-export async function fillProfileSections(page, snapshot, { candidate, candidateLocale, codex, files = {}, done = new Set() } = {}) {
+export async function fillProfileSections(page, snapshot, { candidate, candidateLocale, codex, files = {}, done = new Set(), qualificationVerifier } = {}) {
+  qualificationVerifier ||= createPortalQualificationVerifier({ codex,
+    trustedAction: (field, action, answerEvidence) => mechanicallyGroundedPortalAction(candidate, field, action, answerEvidence) });
   let current = snapshot;
   const counts = [];
   for (const kind of ['experience', 'education']) {
@@ -2507,8 +2510,10 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       };
       let plan;
       try {
-        plan = await planPage({ snapshot: { ...current, fields: rowFields }, candidate: rowCandidate, candidateLocale, codex });
-      } catch {
+        plan = await planPage({ snapshot: { ...current, fields: rowFields }, candidate: rowCandidate, candidateLocale, codex,
+          qualificationVerifier, qualificationScope: { url: page.url() }, page });
+      } catch (error) {
+        if (error?.code === 'evidence_entailment_unverified') throw error;
         plan = null;
       }
       if (plan?.missingRequired.length) {
@@ -2540,7 +2545,10 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
         skipped += 1;
         continue;
       }
-      const results = await applyActions(page, rowFields, plan.actions, files);
+      await verifyPortalActions(qualificationVerifier, (await freshQualificationFields(page)).fields, plan.actions, { url: page.url() });
+      const results = await applyActions(page, rowFields, plan.actions, files, {
+        beforeAction: qualificationActionFence({ page, verifier: qualificationVerifier, scope: { url: page.url() } }),
+      });
       if (results.some((result) => !result.ok)) {
         if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_row_fill_failed' };
         skipped += 1;
@@ -2754,7 +2762,8 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   const candidate = account
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
-  const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+  const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex,
+    qualificationVerifier: ctx.qualificationVerifier, qualificationScope: { url: page.url() }, page });
   const initialRequirements = portalRequirementsFromMissingRequired(others.fields, plan.missingRequired);
   if (initialRequirements.unreadableFields?.length) return { handoff: 'question_label_unreadable' };
   if (plan.missingRequired.length) return {
@@ -2783,7 +2792,9 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   while (true) {
     const passwordActions = registrationSnapshot.fields.filter((field) => field.inputType === 'password')
       .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
-    await applyActions(page, registrationSnapshot.fields, [...registrationPlan.actions, ...passwordActions], ctx.files);
+    await applyActions(page, registrationSnapshot.fields, [...registrationPlan.actions, ...passwordActions], ctx.files, {
+      beforeAction: qualificationActionFence({ page, verifier: ctx.qualificationVerifier, scope: { url: page.url() } }),
+    });
     // After the fields: SuccessFactors opens its statement only for a chosen country.
     const acceptedPrivacy = await acceptPrivacyStatement(page, await extractFields(page, NAVIGATION));
     if (acceptedPrivacy !== 'none') privacy = acceptedPrivacy;
@@ -2816,7 +2827,8 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     // not recognize. Replan against that response before treating it as a
     // permanent refusal; the planner receives the invalid fields and messages.
     const repairSnapshot = { ...after, fields: after.fields.filter((field) => field.inputType !== 'password') };
-    const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex,
+      qualificationVerifier: ctx.qualificationVerifier, qualificationScope: { url: page.url() }, page });
     if (repairPlan.missingRequired.length) {
       const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
       if (repairedRequirements.unreadableFields?.length) {
@@ -3193,7 +3205,7 @@ export async function readPortalRequirements(ctx) {
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
     if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };
-    const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex, inspectOnly: true });
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired);
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
@@ -3237,6 +3249,9 @@ export async function readPortalQuestions(ctx) {
  * @returns {Promise<{event:object, evidence:object}>}
  */
 export async function submitViaPortal(ctx) {
+  const qualificationVerifier = createPortalQualificationVerifier({ context: ctx.qualificationContext, codex: ctx.codex,
+    trustedAction: (field, action, answerEvidence) => mechanicallyGroundedPortalAction(ctx.candidate, field, action, answerEvidence) });
+  ctx = { ...ctx, qualificationVerifier };
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   const channelType = portalChannelType(ctx);
   const extensionPath = !ctx.launch && process.env.NOPECHA_EXTENSION_PATH;
@@ -3473,18 +3488,20 @@ export async function submitViaPortal(ctx) {
           candidate: candidateWithRecordedAnswers(ctx.candidate, current),
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
+          qualificationVerifier,
           files: ctx.files,
           secrets: [...ownPasswords.values()],
           maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
           log,
         });
       } catch (error) {
+        if (error?.code === 'evidence_entailment_unverified') throw error;
         // The fallback is optional: whatever it throws ends in the usual handoff, never a failed run.
         agent = { status: 'stuck', reason: `agent_error: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`, calls: 1, evidence: { hint, rounds: [] } };
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
-      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context);
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context, item.section, item.autocomplete, item);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
       }
@@ -3652,6 +3669,7 @@ export async function submitViaPortal(ctx) {
         codex: ctx.codex,
         files: ctx.files,
         done: profileSectionsDone,
+        qualificationVerifier,
       });
       snapshot = profile.snapshot;
       if (profile.counts.length) evidence.steps.at(-1).profileSections = profile.counts;
@@ -3717,6 +3735,9 @@ export async function submitViaPortal(ctx) {
           candidate: candidateWithRecordedAnswers(ctx.candidate, planned),
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
+          qualificationVerifier,
+          qualificationScope: { url: page.url() },
+          page,
         });
 
         // This synthetic action is executed by applyActions below, which resolves
@@ -3755,7 +3776,9 @@ export async function submitViaPortal(ctx) {
         const selectedUploads = new Map();
         const results = [
           ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
-          ...await applyActions(page, snapshot.fields, choices, ctx.files),
+          ...await applyActions(page, snapshot.fields, choices, ctx.files, {
+            beforeAction: qualificationActionFence({ page, verifier: qualificationVerifier, scope: { url: page.url() } }),
+          }),
         ];
         // The form after the choices: with other fields than the ones planned it is read and planned again
         // (twice at most for one page), and nothing is typed into what is no longer there.
@@ -3769,6 +3792,7 @@ export async function submitViaPortal(ctx) {
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
+          beforeAction: qualificationActionFence({ page, verifier: qualificationVerifier, scope: { url: page.url() } }),
           onUploadSelection: (fieldId, paths) => selectedUploads.set(fieldId, paths),
         }));
         if (!redrawn) {
@@ -4050,6 +4074,9 @@ export async function submitViaPortal(ctx) {
       return { event: { type: 'submit_failed', error: outcome === 'validation' ? 'portal_validation' : antibot ? 'portal_antibot_ambiguous' : 'portal_ambiguous' }, evidence };
     }
     return await handoff('portal_needs_candidate');
+  } catch (error) {
+    if (error?.code !== 'evidence_entailment_unverified') throw error;
+    return { event: { type: 'submit_failed', error: 'evidence_entailment_unverified' }, evidence };
   } finally {
     await diagnostics?.finish();
     await context?.close().catch(() => {});

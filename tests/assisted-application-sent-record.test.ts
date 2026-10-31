@@ -1,3 +1,4 @@
+import { reviewedDocumentContext } from './helpers/reviewedDocumentContext';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
@@ -13,7 +14,8 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { keepSentFiles, portalUploads, recordOfSend, submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
+const { keepSentFiles, portalUploads, recordOfSend, submitApplication: submitApplicationRaw } = await import('../scripts/assisted-application/lib/submit.mjs');
+async function submitApplication(ctx: any) { return submitApplicationRaw(await reviewedDocumentContext(ctx)); }
 const { keepSentRecord } = await import('../scripts/assisted-application/agent.mjs');
 const { decryptJson } = await import('../scripts/assisted-application/lib/secure-run.mjs');
 const { submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
@@ -198,6 +200,39 @@ const pageSize = async (bytes: Buffer, index: number) => {
 const names = (sendCascade: any) => attachmentsOf(sendCascade).map((item) => item.filename);
 
 describe('what leaves by e-mail, and the record of it', () => {
+  it('never sends a legacy email draft without a current document witness and requests bounded repair', async () => {
+    const sendCascade = delivered();
+    const store = createMemoryFirestore({});
+    const event = await submitApplicationRaw({ order, orderId: ORDER, flow: { round: 1 }, draft: draftFor(),
+      cvBuffer: pdfOf('Original CV'), submissionGuard: submissionGuard(store.db, ORDER, 1), sendCascade });
+    expect(event).toEqual({ type: 'submit_failed', error: 'evidence_source_unbound' });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(store.read(`${BASE}/automation/submission`)).toBeUndefined();
+  });
+
+  it('replays a durable sent legacy application before reading CVs or requiring repair proof', async () => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    await guard.markSent({ channel: 'email', to: 'hr@example.com', messageId: 'existing-real-send' }, NOW);
+    const sendCascade = delivered();
+    const event = await submitApplicationRaw({ order, orderId: ORDER, flow: {}, draft: { status: 'ready' },
+      submissionGuard: guard, sendCascade, bucket: { file: () => { throw new Error('sent legacy CV must not be downloaded'); } } });
+    expect(event).toMatchObject({ type: 'submit_succeeded', replayed: true, followup: { messageId: 'existing-real-send' } });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it('checks current answers at the actual email handoff, releases a certainly-unsent claim, and never stamps a portal click', async () => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const sendCascade = delivered();
+    const assertInTransaction = vi.fn(async () => { throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' }); });
+    const event = await submit({ sendCascade, submissionGuard: guard, answerSourceGuard: { assertInTransaction } });
+    expect(event).toEqual({ type: 'submit_failed', error: 'evidence_source_changed' });
+    expect(assertInTransaction).toHaveBeenCalledTimes(1);
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(store.read(`${BASE}/automation/submission`).r1).toMatchObject({ state: 'failed', clickedAt: null, reason: 'evidence_source_changed' });
+  });
+
   it('leaves the CV and the letter apart and the documents as one PDF, keeps what was new and records what left', async () => {
     const bucket = fakeBucket();
     const store = createMemoryFirestore({ [`${BASE}/ai_drafts/current`]: { round: 1 } });

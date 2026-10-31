@@ -39,6 +39,8 @@ import { checkPostingLiveness } from './posting-liveness.mjs';
 import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { portalPassFrom } from './portal/stop-report.mjs';
+import { hasVerifiedQualificationAssessment, qualificationSourcesFingerprint } from '../../../functions/src/lib/qualificationEvidence.js';
+import { portalQualificationContext } from './portal/qualification-gate.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
 
 const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
@@ -205,8 +207,31 @@ export function portalUploads(evidence) {
 
 export async function submitApplication(ctx) {
   const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
-  const { cvBuffer, cvType, cvSent, cvKey } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType, cvKey: order?.cvStorageKey || null });
   const nowMs = ctx.nowMs || Date.now();
+  if (!ctx.dryRun && ctx.submissionGuard?.inspect) {
+    const previous = await ctx.submissionGuard.inspect();
+    if (previous.status === 'already_sent') {
+      const record = previous.record || {};
+      return { type: 'submit_succeeded', channel: record.channel || draft.channel?.type, replayed: true,
+        ...(record.to ? { followup: { to: record.to, subject: record.subject || '', messageId: record.messageId || '', sentAt: record.sentAt || nowMs } } : {}),
+        ...(record.sent ? { sent: record.sent } : {}) };
+    }
+    if (previous.status === 'in_flight') return { type: 'submit_failed', error: previous.record?.channel === 'email' ? 'email_ambiguous' : 'portal_ambiguous' };
+    if (previous.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
+  }
+  const qualificationContext = portalQualificationContext({ order, orderId, draft, cvBuffer: ctx.cvBuffer,
+    answerEvidence: ctx.answerEvidence || [], flow });
+  if (!hasVerifiedQualificationAssessment({ requirements: draft.requirementsRaw, match: draft.qualificationMatch, entailment: draft.entailment })
+    || !qualificationContext.scope.sourceCvHash
+    || draft.qualificationSourceFingerprint !== qualificationSourcesFingerprint(qualificationContext.sources)) {
+    return { type: 'submit_failed', error: 'evidence_source_unbound' };
+  }
+  qualificationContext.documentsCurrent = true;
+  const { cvBuffer, cvType, cvSent, cvKey } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType, cvKey: order?.cvStorageKey || null });
+  const usesAnswerEvidence = Boolean(ctx.answerEvidence?.length || draft.entailment?.checks?.some(check => check.sourceKind === 'candidate_answer'));
+  if (!ctx.dryRun && usesAnswerEvidence && (!ctx.submissionGuard || typeof ctx.answerSourceGuard?.assertInTransaction !== 'function')) {
+    return { type: 'submit_failed', error: 'evidence_source_changed' };
+  }
   // Resolve facts that the CV already states before the generic required-question gate.
   // Older drafts can contain a newly discovered portal question with an empty answer;
   // waiting for the planner would never work because the gate returns first.
@@ -372,6 +397,15 @@ export async function submitApplication(ctx) {
       if (guard) await guard.release('sent_attempt_not_stored', nowMs);
       return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
     }
+    try {
+      if (guard) await guard.markEmailSending(Date.now(), { answerSourceGuard: ctx.answerSourceGuard });
+    } catch (error) {
+      // The transaction vetoed before SMTP: delivery is certainly unsent.
+      if (guard) await guard.release(error?.code || 'pre_send_guard_failed', Date.now());
+      await keepAttempt(null);
+      if (error?.code === 'evidence_source_changed') return { type: 'submit_failed', error: error.code };
+      throw error;
+    }
     const { failed, sent } = await sendCascade(
       [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
       { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS },
@@ -500,6 +534,9 @@ export async function submitApplication(ctx) {
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
         candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
+        // Original bytes only: the outgoing CV may be a tailored replacement.
+        qualificationContext: { ...portalQualificationContext({ order, orderId, draft, cvBuffer: ctx.cvBuffer,
+          answerEvidence: ctx.answerEvidence || [], flow: submitFlow }), documentsCurrent: true },
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,
@@ -518,7 +555,7 @@ export async function submitApplication(ctx) {
             }
             attemptKept = true;
           }
-          await guard.markClicked(Date.now());
+          await guard.markClicked(Date.now(), { answerSourceGuard: ctx.answerSourceGuard });
           clicked = true;
         } : null,
       });
@@ -560,6 +597,7 @@ export async function submitApplication(ctx) {
         // An attempt written for a click that never happened is no record.
         if (attemptKept) await keepAttempt(null);
       }
+      if (!clicked && !succeeded && error?.code === 'evidence_source_changed') return { type: 'submit_failed', error: error.code };
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
       if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable' };
       throw error;

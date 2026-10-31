@@ -21,8 +21,10 @@ import { asksHeldStatus, BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, 
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
 import { isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, permitBooleanOptionLabel, questionFromLabel, questionTopic } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, permitBooleanOptionLabel, questionFromLabel, questionTopic, mechanicallyGroundedPortalAction } from './plan.mjs';
+import { agentNativeBinding, createPortalQualificationVerifier, freshQualificationFields, PortalQualificationUnverified, ownedOption, ownedOptionList } from './qualification-gate.mjs';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
+import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -242,10 +244,22 @@ const TOPICS = [
 ];
 const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
 const contextKey = (context) => normalizedPortalContext(context);
-const questionKey = (question, context = '', section = '', autocomplete = '') => portalQuestionKey(question, boundedPortalContext(context), boundedPortalContext(section), autocomplete);
-const agentTopicKey = (question, context = '') => {
+const ownedContextKey = metadata => {
+  const owned = addressContextContract(metadata);
+  return owned === null || owned?.unknown ? null : owned === undefined ? '' : JSON.stringify(owned);
+};
+const nativeMetadata = item => ({ section: item?.section || '', autocomplete: item?.autocomplete || '',
+  ...(Object.hasOwn(item || {}, 'addressContext') ? { addressContext: item.addressContext } : {}) });
+const questionKey = (question, context = '', section = '', autocomplete = '', metadata = {}) => {
+  const owned = ownedContextKey(metadata);
+  if (owned === null) return '';
+  return portalQuestionKey({ ...nativeMetadata(metadata), question, context: boundedPortalContext(context), section: boundedPortalContext(section), autocomplete })
+    + (owned ? `|ownership:${owned}` : '');
+};
+const agentTopicKey = (question, context = '', metadata = {}) => {
   const topic = topicOf(question);
-  return topic >= 0 ? `agent_topic_${topic}|${contextKey(context)}` : '';
+  const owned = ownedContextKey(metadata);
+  return topic >= 0 && owned !== null ? `agent_topic_${topic}|${contextKey(context)}${owned ? `|ownership:${owned}` : ''}` : '';
 };
 
 /**
@@ -258,36 +272,38 @@ const agentTopicKey = (question, context = '') => {
  * question in the candidate's data (`grounded` carries it across turns):
  * calling the answer itself a widget move answers nothing (review of #10707).
  */
-export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
+function proposedAgentStep(raw, candidate = null, grounded = new Set(), nativeProposals = new Set()) {
   const knownValues = knownValuesOf(candidate);
   const answeredItems = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.question);
   const answered = answeredItems.map((item) => item.question);
   const answeredTopics = new Set([
-    ...answeredItems.map((item) => questionKey(item.question, item.context, item.section, item.autocomplete)).filter(Boolean),
-    ...answeredItems.map((item) => agentTopicKey(item.question, boundedPortalContext(item.context))).filter(Boolean),
+    ...answeredItems.map((item) => questionKey(item.question, item.context, item.section, item.autocomplete, item)).filter(Boolean),
+    ...answeredItems.map((item) => agentTopicKey(item.question, boundedPortalContext(item.context), item)).filter(Boolean),
   ]);
   const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
-  const isAnswered = (question, context = '', section = '', autocomplete = '') => Boolean(candidateAnswerForQuestion(candidate, question, context, { section, autocomplete }))
+  const isAnswered = (question, context = '', section = '', autocomplete = '', metadata = {}) => ownedContextKey(metadata) !== null && (Boolean(candidateAnswerForQuestion(candidate, question, context, { ...nativeMetadata(metadata), section, autocomplete }))
     || nativeLanguageKnown(candidate, question, context)
     || (isLanguageAbilityQuestion(`${question} ${context}`)
-      && Boolean(candidateAnswerForField(candidate, { label: question, context, section, autocomplete, kind: 'text', options: [] })))
-    || (isAddressTopic(questionTopic(question, context, { section, autocomplete })) && Boolean(candidateAnswerForField(candidate, { label: question, context, section, autocomplete, options: [] })))
+        && Boolean(candidateAnswerForField(candidate, { label: question, context, ...nativeMetadata(metadata), section, autocomplete, kind: 'text', options: [] })))
+    || (isAddressTopic(questionTopic(question, context, { ...nativeMetadata(metadata), section, autocomplete })) && Boolean(candidateAnswerForField(candidate, { label: question, context, ...nativeMetadata(metadata), section, autocomplete, options: [] })))
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
     || answeredItems.some((item) => questionFromLabel(item.question).toLowerCase() === questionFromLabel(question).toLowerCase()
       && normalizedPortalContext(item.context) === normalizedPortalContext(context)
       && normalizedPortalContext(item.section) === normalizedPortalContext(section)
+      && ownedContextKey(item) === ownedContextKey(metadata)
       && normalizedPortalContext(item.autocomplete) === normalizedPortalContext(autocomplete))
-    || answeredTopics.has(questionKey(question, context, section, autocomplete))
-    || answeredTopics.has(agentTopicKey(question, context));
+    || answeredTopics.has(questionKey(question, context, section, autocomplete, metadata))
+    || answeredTopics.has(agentTopicKey(question, context, metadata)));
   const questions = [];
   const ask = (item) => {
     const question = questionFromLabel(item.question);
     const context = boundedPortalContext(item.context);
     const section = boundedPortalContext(item.section);
-    if (!question || isAnswered(question, context, section, item.autocomplete) || questions.some((other) => other.question === question
+    if (!question || isAnswered(question, context, section, item.autocomplete, item) || questions.some((other) => other.question === question
       && other.context === context
       && boundedPortalContext(other.section) === section
+      && ownedContextKey(other) === ownedContextKey(item)
       && String(other.autocomplete || '') === String(item.autocomplete || ''))) return;
     const applicationQuestion = String(item.applicationQuestion || item.question || question).trim().slice(0, 300);
     const options = (Array.isArray(item.options) ? item.options : []).map((option) => String(option || '').trim()).filter(Boolean).slice(0, 20);
@@ -319,13 +335,13 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
       || (languageAction && hasLanguageActionAnswer(action))
       || SENSITIVE.test(question)
       || KNOCK_OUT.test(question)
-      || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(question, context, { section: action.section, autocomplete: action.autocomplete }));
+      || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(question, context, nativeMetadata(action)));
   });
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
     const section = boundedPortalContext(action.section);
     const autocomplete = String(action.autocomplete || '').slice(0, 100);
-    const metadata = { section, autocomplete };
+    const metadata = { ...nativeMetadata(action), section, autocomplete };
     const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
     if (!String(action.question || '').trim() && languageLabelOnly) {
       action.question = languageLabelFallback(context);
@@ -342,7 +358,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         if (action.action !== 'press') action.value = previous;
         action.answer = previous;
         action.source = 'answers';
-        grounded.add(questionKey(action.question, context, section, autocomplete));
+        grounded.add(questionKey(action.question, context, section, autocomplete, action));
         continue;
       }
     }
@@ -358,7 +374,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         if (action.action !== 'press') action.value = profileAnswer.value;
         action.answer = profileAnswer.value;
         action.source = profileAnswer.source;
-        grounded.add(questionKey(action.question, context, section, autocomplete));
+        grounded.add(questionKey(action.question, context, section, autocomplete, action));
         continue;
       }
     }
@@ -375,7 +391,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
           action.answer = knownAddress.value;
           action.source = knownAddress.source;
         }
-        grounded.add(questionKey(action.question, context, section, autocomplete));
+        grounded.add(questionKey(action.question, context, section, autocomplete, action));
         continue;
       }
     }
@@ -398,7 +414,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         action.value = profileAnswer.value;
         action.answer = profileAnswer.value;
         action.source = profileAnswer.source;
-        grounded.add(questionKey(action.question, context, section, autocomplete));
+        grounded.add(questionKey(action.question, context, section, autocomplete, action));
         continue;
       }
     }
@@ -428,9 +444,9 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const policy = action.source !== 'widget' && resolved?.source === 'policy_default'
       && isOperationalDefaultValue(policyField, answer);
     if (policy) action.source = 'policy_default';
-    if (policy || fromCandidate || (languageAbility && (native || quoted))
+    if (nativeProposals.has(action) || policy || fromCandidate || (languageAbility && (native || quoted))
       || (!languageIntent && !languageAbility && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {
-      grounded.add(questionKey(action.question, context, section, autocomplete));
+      grounded.add(questionKey(action.question, context, section, autocomplete, action));
     }
   }
   const refused = new Set();
@@ -438,14 +454,14 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const context = boundedPortalContext(action.context);
     const section = boundedPortalContext(action.section);
     const autocomplete = String(action.autocomplete || '').slice(0, 100);
-    const key = questionKey(action.question, context, section, autocomplete);
+    const key = questionKey(action.question, context, section, autocomplete, action);
     if (grounded.has(key)) continue;
     refused.add(key);
     ask({ question: action.question, ...(context ? { context } : {}), ...(section ? { section } : {}), ...(autocomplete ? { autocomplete } : {}) });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
-  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context, action.section, action.autocomplete)) && REF_RE.test(action.ref || ''));
+  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context, action.section, action.autocomplete, action)) && REF_RE.test(action.ref || ''));
   let status = raw.status;
   if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks
@@ -460,6 +476,10 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     advanceRef: REF_RE.test(raw.advanceRef || '') ? raw.advanceRef : '',
     submitRef: REF_RE.test(raw.submitRef || '') ? raw.submitRef : '',
   };
+}
+
+export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
+  return proposedAgentStep(raw, candidate, grounded);
 }
 
 /** What the element is, read in the page: what may be done to it depends on it. */
@@ -528,10 +548,11 @@ export function refusal(action, info) {
   return '';
 }
 
-async function chooseOption(page, locator, info, value, question = '') {
+async function chooseOption(page, locator, info, value, question = '', beforeChoice = async () => {}) {
   if (info.tag === 'select') {
     const labels = await locator.evaluate((element) => [...element.options].map((option) => option.textContent || ''));
     const selectedLabel = isNationalityField(question) ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(question)) || value : value;
+    await beforeChoice(selectedLabel);
     await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
     return;
   }
@@ -541,16 +562,18 @@ async function chooseOption(page, locator, info, value, question = '') {
   // Without it the action fails and the model, seeing the open list on the
   // next snapshot, names an option that exists.
   let selectedLabel = value;
-  let exact = page.getByRole('option', { name: selectedLabel, exact: true }).first();
+  let exact;
   try {
+    exact = await ownedOption(page, locator, selectedLabel);
     await exact.waitFor({ state: 'visible', timeout: 4000 });
-  } catch {
+  } catch (error) {
+    if (error?.code === 'evidence_entailment_unverified') throw error;
     const permit = isPermitField(question) && asksHeldStatus(question);
     if (!isNationalityField(question) && !permit) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    const options = page.getByRole('option');
+    const options = (await ownedOptionList(page, locator)).getByRole('option');
     const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
     selectedLabel = permit
       ? permitBooleanOptionLabel(value, labels)
@@ -559,9 +582,10 @@ async function chooseOption(page, locator, info, value, question = '') {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    exact = page.getByRole('option', { name: selectedLabel, exact: true }).first();
+    exact = await ownedOption(page, locator, selectedLabel);
     await exact.waitFor({ state: 'visible', timeout: 4000 });
   }
+  await beforeChoice(selectedLabel);
   await exact.click({ timeout: ACTION_TIMEOUT_MS });
   // SuccessFactors stores a custom permit choice on blur; Enter is unsafe
   // because it can submit the form, so Tab is the bounded commit signal.
@@ -592,7 +616,7 @@ async function upload(page, locator, info, paths) {
 }
 
 /** One action on its ref; never throws. `files`: how many files an upload set. */
-export async function runAction(page, action, files = {}) {
+export async function runAction(page, action, files = {}, { beforeChoice = async () => {} } = {}) {
   try {
     const locator = page.locator(`aria-ref=${action.ref}`);
     const info = await describe(locator);
@@ -603,7 +627,7 @@ export async function runAction(page, action, files = {}) {
     if (action.action === 'click') await locator.click({ timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'fill') await locator.fill(info.tag === 'textarea' ? value : value.replace(/[\r\n]+/g, ' '), { timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'type') await locator.pressSequentially(value.replace(/[\r\n]+/g, ' '), { delay: 50, timeout: ACTION_TIMEOUT_MS });
-    else if (action.action === 'select') await chooseOption(page, locator, info, value, action.question);
+    else if (action.action === 'select') await chooseOption(page, locator, info, value, action.question, beforeChoice);
     else if (action.action === 'press') await locator.press(value, { timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'upload') {
       const paths = documentPaths(files, action.document);
@@ -612,6 +636,7 @@ export async function runAction(page, action, files = {}) {
     }
     return { ok: true, ...(uploaded ? { files: uploaded } : {}) };
   } catch (error) {
+    if (error?.code === 'evidence_entailment_unverified') throw error;
     return { ok: false, error: String(error?.message || error).split('\n')[0].slice(0, 160) };
   }
 }
@@ -723,6 +748,7 @@ export function withAgentFieldProvenance(raw, fields = []) {
       ...item,
       ...(field.section ? { section: boundedPortalContext(field.section) } : {}),
       ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}),
+      ...(Object.hasOwn(field, 'addressContext') ? { addressContext: structuredClone(field.addressContext) } : {}),
     };
   };
   return {
@@ -736,7 +762,9 @@ export function withAgentFieldProvenance(raw, fields = []) {
  * Completes the current page with Codex on the accessibility snapshot.
  * @returns {Promise<{status:'done'|'needs_candidate'|'stuck'|'unavailable', questions?:Array, advanceRef?:string, moved?:boolean, reason?:string, calls:number, evidence:object}>}
  */
-export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [], maxRounds = AGENT_ROUNDS, fields = [], log = () => {} }) {
+export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [], maxRounds = AGENT_ROUNDS, fields = [], qualificationVerifier, log = () => {} }) {
+  const verifier = qualificationVerifier || createPortalQualificationVerifier({ codex,
+    trustedAction: (field, action, answerEvidence) => mechanicallyGroundedPortalAction(candidate, field, action, answerEvidence) });
   const evidence = { hint, rounds: [] };
   const history = [];
   const startUrl = page.url();
@@ -762,7 +790,53 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
       evidence.rounds.push({ round, status: 'stuck', reason, actions: [] });
       return end({ status: 'stuck', reason, calls: round });
     }
-    const step = guardAgentStep(withAgentFieldProvenance(raw, fields), candidate, grounded);
+    // A model-supplied question cannot bind an aria-ref. Restore the question
+    // from the actual control/owned option before even considering its quote.
+    const nativeSnapshot = await freshQualificationFields(page);
+    const nativeProposals = new Set();
+    const bindings = new Map();
+    const boundRaw = withAgentFieldProvenance(raw, nativeSnapshot.fields);
+    for (const action of boundRaw.actions || []) {
+      const binding = await agentNativeBinding(page, action, nativeSnapshot);
+      if (!binding) {
+        if (action.action !== 'upload') throw new PortalQualificationUnverified('native_field_unbound');
+        continue;
+      }
+      const { field } = binding;
+      action.question = field.label;
+      action.context = field.context || '';
+      action.section = field.section || '';
+      action.autocomplete = field.autocomplete || '';
+      if (Object.hasOwn(field, 'addressContext')) action.addressContext = structuredClone(field.addressContext);
+      else delete action.addressContext;
+      // Opening/focusing a natively bound widget asserts no candidate fact.
+      // Every later value commit still passes the independent answer gate.
+      nativeProposals.add(action);
+      if (binding.commits) {
+        action.answer = binding.answer;
+      }
+      bindings.set(action, binding);
+    }
+    const nextGrounded = new Set(grounded);
+    const step = proposedAgentStep(boundRaw, candidate, nextGrounded, nativeProposals);
+    const scope = { url: page.url() };
+    const claims = [];
+    for (const action of step.actions) {
+      const initial = bindings.get(action);
+      if (!initial?.commits) continue;
+      // The deterministic guard may correct a fill value; verify what will
+      // actually be typed, not the model's earlier answer/rationale.
+      const current = await agentNativeBinding(page, action, nativeSnapshot);
+      if (!current?.commits) throw new PortalQualificationUnverified('native_field_unbound');
+      action.answer = current.answer;
+      const qualifiedAction = { ...action, value: current.answer };
+      if (!verifier.needs(current.field, qualifiedAction)) continue;
+      const claim = verifier.claim(current.field, qualifiedAction, current.answer);
+      if (!claim) throw new PortalQualificationUnverified('form_contract_unbound');
+      claims.push(claim);
+    }
+    await verifier.verify(claims, scope);
+    for (const key of nextGrounded) grounded.add(key);
     const record = { round, status: step.status, reason: step.reason, actions: [], ...(step.truncated ? { truncated: true } : {}) };
     evidence.rounds.push(record);
     log(`portal agent round ${round}: ${step.status} (${step.actions.length} actions)`);
@@ -771,7 +845,16 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
     if (step.status === 'done') return end({ status: 'done', advanceRef: step.advanceRef, submitRef: step.submitRef, calls: round });
     const results = [];
     for (const action of step.actions) {
-      const result = await runAction(page, action, files);
+      const fresh = await freshQualificationFields(page);
+      const current = await agentNativeBinding(page, action, fresh);
+      if (!current && action.action !== 'upload') throw new PortalQualificationUnverified('native_field_unbound');
+      if (current?.commits) verifier.assert(current.field, { ...action, value: current.answer, answer: current.answer }, current.answer, { url: page.url() });
+      const result = await runAction(page, action, files, { beforeChoice: async label => {
+        const fresh = await freshQualificationFields(page);
+        const current = await agentNativeBinding(page, { ...action, value: label }, fresh);
+        if (!current?.commits) throw new PortalQualificationUnverified('native_field_unbound');
+        verifier.assert(current.field, { ...action, value: label, answer: label }, current.answer, { url: page.url() });
+      } });
       // No values in the evidence's rounds: the answers travel apart, to the encrypted record.
       record.actions.push({
         ref: action.ref, action: action.action, question: action.question, source: action.source, ok: result.ok, ...(result.error ? { error: result.error } : {}),
@@ -787,7 +870,8 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
         });
       }
       results.push({ ref: action.ref, action: action.action, value: action.value, question: action.question, ...result });
-      if (result.ok && action.question && action.source !== 'widget') answers.push({ question: action.question, answer: action.answer || action.value, source: action.source });
+      if (result.ok && action.question && action.source !== 'widget') answers.push({ question: action.question, context: action.context || '',
+        ...nativeMetadata(action), answer: action.answer || action.value, source: action.source });
       await page.waitForTimeout(400);
       // The page moved on by itself (a choice that submits its step): the runner reads the new one.
       if (page.url() !== startUrl) return end({ status: 'done', moved: true, calls: round });
