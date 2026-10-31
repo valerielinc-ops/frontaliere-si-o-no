@@ -1,5 +1,6 @@
+import { loadRunnerAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { answerQuestionDescriptor } from './lib/applicationQuestionContract.js';
-import { answerContractsFor, localAnswerEvidence, currentAnswerReviewRequired, answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
+import { answerContractsFor, currentAnswerReviewRequired, answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
 /**
  * Owner-queue side of the automated assisted application: what Valerie sees
  * (state, clocks, why the flow is held, the full draft with the operator
@@ -449,7 +450,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       return { ok: true, host, email: entry.email || '', password };
     }
     case 'automationFillKit':
-      return { ok: true, kit: await fillKitFor(db, orderId, deps, { confirmNotReceived: raw.confirmNotReceived === true, nowMs }) };
+      return { ok: true, kit: await fillKitFor(db, orderId, deps, { confirmNotReceived: raw.confirmNotReceived === true, nativeProofProtocol: raw.nativeProofProtocol, nowMs }) };
     case 'automationMarkClicked': {
       // Valerie pressed the highlighted send button: the extension reports it
       // on the press, before the portal answers. From here the round may have
@@ -527,6 +528,10 @@ async function verificationLinkFor(db, orderId, { sinceMs = 0 } = {}) {
 
 // The orders Valerie completes herself: the robot stopped (owner_takeover).
 const FILL_KIT_STATES = new Set(['owner_takeover']);
+export const OWNER_NATIVE_PROOF_PROTOCOL = 'owner-final-intent-v1';
+function requireNativeProofProtocol(value) {
+  if (value !== OWNER_NATIVE_PROOF_PROTOCOL) throw new AutomationAdminError('extension_update_required', 409);
+}
 
 /**
  * The fill kit of one order (assistedApplicationFillKit.js), with signed
@@ -535,7 +540,10 @@ const FILL_KIT_STATES = new Set(['owner_takeover']);
  * the adapted lines when they chose it and it is ready, otherwise the
  * tailored one unless they chose their original.
  */
-async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs = Date.now() } = {}) {
+async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nativeProofProtocol, nowMs = Date.now() } = {}) {
+  requireNativeProofProtocol(nativeProofProtocol);
+  const startedAt = Date.now();
+  const freshNow = () => nowMs + Math.max(0, Date.now() - startedAt);
   const [orderSnapshot, draftSnapshot, flowSnapshot, intakeSnapshot] = await Promise.all([
     orderRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
@@ -571,12 +579,16 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     ...document,
     files: (await Promise.all(document.files.map(async (file) => ({ url: await sign(file.key), detectedType: file.detectedType })))).filter((file) => file.url),
   })));
-  return buildFillKit({
+  const confirmed = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, intake: intakeSnapshot.data() || null, nowMs: freshNow() });
+  if (!confirmed.answerSourceGuard) throw new AutomationAdminError('evidence_source_changed', 409);
+  const kit = buildFillKit({
     orderId,
     order,
     draft,
-    flow,
-    localAnswerEvidence: localAnswerEvidence({ orderId, order, flow, draft, intake: intakeSnapshot.data() || null, nowMs }),
+    flow: confirmed.flow,
+    localAnswerEvidence: confirmed.localAnswerEvidence,
     documents: { cv: cvUrl ? { url: cvUrl, extension: cv.extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
+  await db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction));
+  return { ...kit, nativeProofProtocol: OWNER_NATIVE_PROOF_PROTOCOL, answerSourceFingerprint: confirmed.answerSourceGuard.fingerprint };
 }

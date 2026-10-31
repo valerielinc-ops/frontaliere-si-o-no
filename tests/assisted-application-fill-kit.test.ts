@@ -28,6 +28,7 @@ const order = {
   jobTitle: 'Pflegefachperson',
   companyName: 'Ospedale',
   cvStorageKey: KEY('1-cv.docx'),
+  cvUploadedAt: T0,
 };
 const draft = {
   round: 1,
@@ -153,7 +154,7 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     await ref.collection('automation').doc('flow').set(flow);
   };
   const call = (action: string, extra: Record<string, unknown> = {}) => handleAutomationAdminAction(
-    store.db, { action, orderId: ORDER, ...extra }, 'owner@example.com', { runEffect, signUrl, originalCvUrl, nowMs: T0 },
+    store.db, { action, orderId: ORDER, nativeProofProtocol: 'owner-final-intent-v1', ...extra }, 'owner@example.com', { runEffect, signUrl, originalCvUrl, nowMs: T0 },
   );
 
   beforeEach(() => {
@@ -163,6 +164,14 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     signUrl.mockClear();
   });
 
+  it('requires the blocking final-intent protocol before giving a new fill kit', async () => {
+    await seed(takenOver);
+    await expect(call('automationFillKit', { nativeProofProtocol: undefined })).rejects.toMatchObject({ code: 'extension_update_required', status: 409 });
+    const { kit } = await call('automationFillKit') as any;
+    expect(kit.nativeProofProtocol).toBe('owner-final-intent-v1'); expect(kit.round).toBe(1);
+    expect(kit.answerSourceFingerprint).toMatch(/^[a-f0-9]{64}$/);
+    expect(kit).not.toHaveProperty('answerSourceGuard'); expect(kit).not.toHaveProperty('answerCounterContext');
+  });
   it('hands the kit of an order the robot left to Valerie, with the CV that leaves', async () => {
     await seed(takenOver);
     const { kit } = await call('automationFillKit') as any;
