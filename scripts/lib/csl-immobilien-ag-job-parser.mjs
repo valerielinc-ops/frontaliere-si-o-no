@@ -28,6 +28,7 @@ export const CSL_IMMOBILIEN_AG_COMPANY_NAME = 'CSL Immobilien AG';
 export const CSL_IMMOBILIEN_AG_COMPANY_DOMAIN = 'app.jobportal.abaservices.ch';
 
 const CAREER_URL = 'https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22?jp=ABACUS';
+const CSL_IMMOBILIEN_AG_JOB_PATH_RE = /^\/job-advertisement\/cslimmobilien\/[a-z0-9-]+\/?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -52,13 +53,22 @@ export function isCslImmobilienAgJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
+  const rawUrl = String(job?.url || '').trim();
+
+  let isCslImmobilienPosting = false;
+  try {
+    const parsed = new URL(rawUrl);
+    isCslImmobilienPosting = parsed.hostname === CSL_IMMOBILIEN_AG_COMPANY_DOMAIN
+      && CSL_IMMOBILIEN_AG_JOB_PATH_RE.test(parsed.pathname);
+  } catch {
+    // URL metadata is optional; company key/name matching remains authoritative.
+  }
 
   return (
     key === CSL_IMMOBILIEN_AG_KEY ||
     key.startsWith('csl-immobilien-ag-') ||
     company.includes('csl immobilien ag') ||
-    url.includes('app.jobportal.abaservices.ch')
+    isCslImmobilienPosting
   );
 }
 

@@ -28,6 +28,9 @@ export const BB_TRADING_WERBEARTIKEL_AG_COMPANY_NAME = 'bb trading werbeartikel 
 export const BB_TRADING_WERBEARTIKEL_AG_COMPANY_DOMAIN = 'link.ostendis.com';
 
 const CAREER_URL = 'https://link.ostendis.com/publication/spezialist-in-sonderanfertigungen-textiles/aaxqrt3i8wz2kyidnxy5ehwtkdxyiqdtkixw7qo7jl1osyqi7o9omytp252x5rmc';
+const BB_TRADING_WERBEARTIKEL_AG_PUBLICATION_PATH = new URL(CAREER_URL).pathname
+  .replace(/\/+$/, '')
+  .toLowerCase();
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -52,13 +55,23 @@ export function isBbTradingWerbeartikelAgJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
+  const url = String(job?.url || '').trim();
+
+  let isKnownPublication = false;
+  try {
+    const parsed = new URL(url);
+    const pathname = parsed.pathname.replace(/\/+$/, '').toLowerCase() || '/';
+    isKnownPublication = parsed.hostname === BB_TRADING_WERBEARTIKEL_AG_COMPANY_DOMAIN
+      && pathname === BB_TRADING_WERBEARTIKEL_AG_PUBLICATION_PATH;
+  } catch {
+    // URL metadata is optional; company key/name matching remains authoritative.
+  }
 
   return (
     key === BB_TRADING_WERBEARTIKEL_AG_KEY ||
     key.startsWith('bb-trading-werbeartikel-ag-') ||
     company.includes('bb trading werbeartikel ag') ||
-    url.includes('link.ostendis.com')
+    isKnownPublication
   );
 }
 

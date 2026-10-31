@@ -24,8 +24,18 @@ describe('CSL Immobilien AG crawler parser', () => {
       expect(isCslImmobilienAgJob({ company: 'CSL Immobilien AG' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isCslImmobilienAgJob({ url: 'https://app.jobportal.abaservices.ch/jobs/123' })).toBe(true);
+    it('matches by the employer-specific tenant path', () => {
+      expect(isCslImmobilienAgJob({
+        url: 'https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22?jp=ABACUS',
+      })).toBe(true);
+    });
+
+    it('rejects an unrelated posting on the shared Abaservices host', () => {
+      expect(isCslImmobilienAgJob({
+        companyKey: 'other-company',
+        company: 'Other AG',
+        url: 'https://app.jobportal.abaservices.ch/job-advertisement/other-employer/38316cd1-2655-177d-5ac2-49bfb8252c24',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

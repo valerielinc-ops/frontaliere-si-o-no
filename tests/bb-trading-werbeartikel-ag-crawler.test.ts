@@ -24,8 +24,18 @@ describe('bb trading werbeartikel ag crawler parser', () => {
       expect(isBbTradingWerbeartikelAgJob({ company: 'bb trading werbeartikel ag' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isBbTradingWerbeartikelAgJob({ url: 'https://link.ostendis.com/jobs/123' })).toBe(true);
+    it('matches by the employer-specific publication identifier', () => {
+      expect(isBbTradingWerbeartikelAgJob({
+        url: 'https://link.ostendis.com/publication/spezialist-in-sonderanfertigungen-textiles/aaxqrt3i8wz2kyidnxy5ehwtkdxyiqdtkixw7qo7jl1osyqi7o9omytp252x5rmc',
+      })).toBe(true);
+    });
+
+    it('rejects an unrelated posting on the shared Ostendis host', () => {
+      expect(isBbTradingWerbeartikelAgJob({
+        companyKey: 'other-company',
+        company: 'Other AG',
+        url: 'https://link.ostendis.com/publication/other-employer/other-posting-token',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
