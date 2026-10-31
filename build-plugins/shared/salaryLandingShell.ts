@@ -1056,7 +1056,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       tagline: 'Conviene davvero il permesso B? Quanto guadagni in più (o in meno) trasferendoti dall\'Italia, su 12 mesi.',
       tiles: [
         { label: 'Permit G → B', value: '+CHF 3-7k/anno', tone: 'success' },
-        { label: 'LAMal da 26 anni, residenti in Italia, senza infortuni (UFSP 2026)', value: '279-487 CHF/mese', tone: 'warning' },
+        { label: 'LAMal in Ticino da 26 anni, franchigia 300 (UFSP 2026)', value: '512-769 CHF/mese', tone: 'warning' },
         { label: 'Soggiorno richiesto', value: '>183 gg/anno CH', tone: 'accent' },
         { label: 'Cassa malati', value: 'LAMal obbligatoria', tone: 'danger' },
       ],
