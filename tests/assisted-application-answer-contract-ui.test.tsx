@@ -41,6 +41,23 @@ const reviewSave = () => screen.getByRole('button', { name: 'jobBoard.assisted.r
 const reviewApprove = () => screen.getByRole('button', { name: 'jobBoard.assisted.review.approve' }) as HTMLButtonElement;
 
 describe('answer contract CAS in actual Review and Admin renderers', () => {
+  it('treats a compatibility200 reviewRequired as unconfirmed in both forms', async () => {
+    const reply = { ok: true, reviewRequired: true, rawSaved: true, answerConfirmation: { status: 'review_required', authority: false } };
+    api.sendReviewAction.mockResolvedValueOnce(reply);
+    render(<Review token="token-compat" />);
+    fireEvent.change(await screen.findByLabelText(/Original privacy question/), { target: { value: 'Yes' } });
+    fireEvent.click(reviewSave());
+    expect(await screen.findByRole('button', { name: 'Rileggi le domande aggiornate' })).toBeTruthy();
+    expect(reviewApprove().disabled).toBe(true);
+    expect((screen.getByLabelText(/Original privacy question/) as HTMLInputElement).value).toBe('Yes');
+    cleanup();
+    api.adminAction.mockResolvedValueOnce(reply);
+    render(<Admin order={order()} user={null} onChanged={vi.fn()} />);
+    fireEvent.change(screen.getByLabelText(/Original privacy question/), { target: { value: 'Yes' } });
+    fireEvent.click(screen.getByRole('button', { name: /Salva risposte/ }));
+    expect(await screen.findByRole('button', { name: 'Rileggi le domande aggiornate' })).toBeTruthy();
+    expect((screen.getByRole('button', { name: /Approva ora/ }) as HTMLButtonElement).disabled).toBe(true);
+  });
   it('keeps an incomplete native contract technical in both forms, without asking for another Yes', async () => {
     const unavailable = { ...question, contractUnavailable: true };
     api.fetchReview.mockResolvedValue(payload([unavailable]));

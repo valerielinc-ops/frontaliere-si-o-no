@@ -149,7 +149,14 @@ export default function AssistedApplicationAutomationPanel({
     if (busy) return;
     setBusy(action);
     try {
-      await runAutomationAdminAction(user, order.orderId, action, extra);
+      const result = await runAutomationAdminAction(user, order.orderId, action, extra);
+      const confirmation = result.answerConfirmation;
+      if (action === 'automationSetAnswers' && (result.reviewRequired === true
+        || confirmation && typeof confirmation === 'object' && 'authority' in confirmation && confirmation.authority === false)) {
+        setAnswerReviewRequired(true);
+        await onChanged({ ok: false, text: 'Le risposte sono conservate. Rileggi le domande aggiornate e confermale di nuovo.' });
+        return;
+      }
       if (action === 'automationSetAnswers') setAnswerConfirmationRequired(false);
       await onChanged({ ok: true, text: success });
     } catch (error) {

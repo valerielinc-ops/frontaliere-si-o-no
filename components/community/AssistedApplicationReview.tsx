@@ -263,7 +263,14 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     setFieldErrors({});
     setEditServerErrors({});
     try {
-      await sendReviewAction(token, action, extra);
+      const result = await sendReviewAction(token, action, extra);
+      if (action === 'answers' && (result.reviewRequired === true || result.answerConfirmation?.authority === false)) {
+        setDone(null);
+        setAnswerReviewRequired(true);
+        await load();
+        setError('answer_contract_required');
+        return false;
+      }
       if (action === 'answers') setAnswerConfirmationRequired(false);
       setDone(action);
       await load();

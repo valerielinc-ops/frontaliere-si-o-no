@@ -10,7 +10,7 @@ import { portalRequirementsFromMissingRequired, localizePortalQuestions, candida
 const open: JSDOM[] = [];
 afterEach(() => { for (const dom of open.splice(0)) dom.window.close(); });
 function readers(html: string) {
-  const dom = new JSDOM(`<form>${html}</form>`, { url: 'https://jobs.example/apply', runScripts: 'outside-only' });
+  const dom = new JSDOM(/<form\b/i.test(html) ? html : `<form>${html}</form>`, { url: 'https://jobs.example/apply', runScripts: 'outside-only' });
   open.push(dom);
   const w = dom.window;
   Object.defineProperty(w.HTMLElement.prototype, 'innerText', { get() { return this.textContent || ''; } });
@@ -190,7 +190,6 @@ describe('native consent authority shared by planner and browser', () => {
       + '<form id="proxy-form"><span id="country-button" class="ui-selectmenu-button" role="combobox" aria-owns="country-menu">Please select</span></form>';
     const { source } = readers(markup);
     const field = source.find((item: any) => item.nativeSelectId === 'country');
-    // readers supplies an outer form; HTML parsing closes it before native-form.
     expect(field).toBeTruthy();
     expect(field.formId).toBe('native-form');
     const duplicate = readers(markup.replace('</select>', '</select><select id="country" style="display:none"><option>Other</option></select>')).source;
