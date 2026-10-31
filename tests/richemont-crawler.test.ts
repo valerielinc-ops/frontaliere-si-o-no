@@ -1,15 +1,104 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+
+const runtimeState = vi.hoisted(() => {
+  class StubAntiBotBlockError extends Error {}
+  class StubNavigationTimeout extends Error {}
+  return {
+    scenario: 'none' as 'none' | 'partial-listing' | 'listing-failure' | 'detail-failure',
+    calls: 0,
+    StubAntiBotBlockError,
+    StubNavigationTimeout,
+  };
+});
+
+vi.mock('../scripts/lib/ats-clients/playwright-runtime.mjs', () => {
+  const page = (result: unknown) => ({
+    waitForSelector: async () => {},
+    evaluate: async () => result,
+    content: async () => '<html></html>',
+    close: async () => {},
+  });
+  return {
+    createBrowser: vi.fn(async () => ({})),
+    createPoliteContext: vi.fn(async () => ({})),
+    closeAll: vi.fn(async () => {}),
+    AntiBotBlockError: runtimeState.StubAntiBotBlockError,
+    NavigationTimeout: runtimeState.StubNavigationTimeout,
+    fetchWithRateLimit: vi.fn(async () => {
+      runtimeState.calls += 1;
+      if (runtimeState.scenario === 'listing-failure') {
+        throw new runtimeState.StubNavigationTimeout('listing timeout');
+      }
+      if (runtimeState.scenario === 'partial-listing') {
+        return page({
+          rows: [{ id: 'jr1', title: 'Role', href: '/en/jobs/jr1/', maison: 'Cartier', department: 'IT', location: 'Geneva, CH' }],
+          total: 3,
+        });
+      }
+      if (runtimeState.scenario === 'detail-failure') {
+        if (runtimeState.calls === 1) {
+          return page({
+            rows: [{ id: 'jr1', title: 'Role', href: '/en/jobs/jr1/', maison: 'Cartier', department: 'IT', location: 'Geneva, CH' }],
+            total: 1,
+          });
+        }
+        return page('');
+      }
+      throw new Error('unexpected Richemont runtime call');
+    }),
+  };
+});
 import {
   RICHEMONT_KEY,
   RICHEMONT_COMPANY_NAME,
   isRichemontJob,
   isTrustedDomain,
+  fetchAllRichemontJobs,
   buildJobDescription,
   detectRichemontSourceLang,
 } from '../scripts/lib/richemont-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
+afterEach(() => {
+  runtimeState.scenario = 'none';
+  runtimeState.calls = 0;
+  vi.useRealTimers();
+});
+
 describe('Richemont crawler parser', () => {
+  it('fails closed when pagination ends before the declared listing total', async () => {
+    runtimeState.scenario = 'partial-listing';
+
+    await expect(fetchAllRichemontJobs()).rejects.toMatchObject({
+      specListingFailure: true,
+      specDiscoveredCount: 1,
+    });
+    expect(runtimeState.calls).toBe(1);
+  });
+
+  it('fails closed when any listed detail page has no readable vacancy body', async () => {
+    runtimeState.scenario = 'detail-failure';
+
+    await expect(fetchAllRichemontJobs()).rejects.toMatchObject({
+      specDiscoveredCount: 1,
+      specDetailDrop: { candidates: 1, gone: 0, rejected: 1 },
+    });
+    expect(runtimeState.calls).toBe(2);
+  });
+
+  it('fails closed after a listing page fails on both attempts', async () => {
+    runtimeState.scenario = 'listing-failure';
+    vi.useFakeTimers();
+    const pending = fetchAllRichemontJobs();
+    await vi.runAllTimersAsync();
+
+    await expect(pending).rejects.toMatchObject({
+      specListingFailure: true,
+      specDiscoveredCount: 0,
+    });
+    expect(runtimeState.calls).toBe(2);
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(RICHEMONT_KEY).toBe('richemont');

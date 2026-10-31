@@ -182,6 +182,34 @@ async function safeClose(page) {
 }
 
 /**
+ * Build the source-extraction error understood by the standard crawler
+ * pipeline. A listing page is the source's authoritative snapshot boundary:
+ * publishing the pages collected before a failed page would retire live jobs
+ * simply because one pagination request was unavailable.
+ */
+function listingSnapshotFailure(message, discoveredCount = 0) {
+  const error = new Error(message);
+  error.specListingFailure = true;
+  if (Number.isInteger(discoveredCount)) error.specDiscoveredCount = discoveredCount;
+  return error;
+}
+
+/**
+ * Build the standard detail-snapshot error for an incomplete enrichment pass.
+ * A listing row without its own readable body is not proof that the vacancy
+ * disappeared; returning the other rows would make the shared merge retire it.
+ */
+function detailSnapshotFailure(candidates, dropped) {
+  const parsed = Math.max(0, candidates - dropped);
+  const error = new Error(
+    `Richemont detail snapshot incomplete: parsed ${parsed}/${candidates}; refusing partial publication.`,
+  );
+  error.specDetailDrop = { candidates, gone: 0, rejected: dropped };
+  error.specDiscoveredCount = candidates;
+  return error;
+}
+
+/**
  * Render one listing page and return the rows visible there.
  *
  * @param {import('playwright').BrowserContext} context
@@ -335,6 +363,7 @@ async function enrichRowsWithDetail(context, rows) {
     }
   }
   console.log(`   Detail enrichment: ${ok} rich, ${fallback} without a readable body`);
+  return { candidates: rows.length, rich: ok, dropped: fallback };
 }
 
 /**
@@ -388,6 +417,7 @@ async function discoverAllRows() {
     const seenIds = new Set();
     const rows = [];
     let totalLabel = null;
+    let paginationComplete = false;
 
     for (let page = 1; page <= MAX_PAGES; page++) {
       let { rows: pageRows, total, failed } = await fetchListingPage(context, page);
@@ -400,39 +430,96 @@ async function discoverAllRows() {
         await new Promise((r) => setTimeout(r, PER_PAGE_DELAY_MS));
         ({ rows: pageRows, total, failed } = await fetchListingPage(context, page));
       }
-      if (total && totalLabel === null) {
+      if (total !== null && totalLabel === null) {
         totalLabel = total;
         console.log(`   Richemont reports ${total} matching jobs`);
+      } else if (total !== null && totalLabel !== total) {
+        throw listingSnapshotFailure(
+          `Richemont listing total changed during pagination (${totalLabel} → ${total})`,
+          rows.length,
+        );
       }
       if (failed) {
-        // Still failing after retry — this page is unreliable, not
-        // necessarily the end of results. Skip it and keep walking rather
-        // than aborting the whole crawl on one bad page.
-        console.warn(`   Page ${page}: still failing after retry — skipping page, continuing pagination`);
-        continue;
+        // Still failing after retry — this page is not evidence of the end of
+        // results. Never publish the prefix collected before it: a partial
+        // listing is exactly the input that previously retired live jobs.
+        throw listingSnapshotFailure(
+          `Richemont listing page ${page} failed after retry; refusing partial publication`,
+          rows.length,
+        );
       }
-      if (!pageRows.length) break;
+      if (!pageRows.length) {
+        if (totalLabel !== null && rows.length < totalLabel) {
+          throw listingSnapshotFailure(
+            `Richemont listing ended at ${rows.length}/${totalLabel} rows`,
+            rows.length,
+          );
+        }
+        paginationComplete = true;
+        break;
+      }
 
       let added = 0;
+      let invalidRows = 0;
       for (const r of pageRows) {
-        const id = r.id || (r.href.match(/jobs\/(jr\d+)/i) || [])[1] || '';
-        if (!id || seenIds.has(id)) continue;
+        const href = String(r.href || '');
+        const id = r.id || (href.match(/jobs\/(jr\d+)/i) || [])[1] || '';
+        if (!id || !href || !String(r.title || '').trim()) {
+          invalidRows += 1;
+          continue;
+        }
+        if (seenIds.has(id)) continue;
         seenIds.add(id);
         rows.push({ ...r, id });
         added++;
       }
+      if (invalidRows > 0) {
+        throw listingSnapshotFailure(
+          `Richemont listing page ${page} contained ${invalidRows} row(s) without a stable id, URL, or title`,
+          rows.length + invalidRows,
+        );
+      }
       console.log(`   Page ${page}: ${pageRows.length} rows on page, ${added} new (running total: ${rows.length})`);
-      if (added === 0) break;
-      if (totalLabel && rows.length >= totalLabel) break;
-      if (pageRows.length < PAGE_SIZE) break;
+      if (totalLabel !== null && rows.length > totalLabel) {
+        throw listingSnapshotFailure(
+          `Richemont listing exceeded its declared total (${rows.length} > ${totalLabel})`,
+          rows.length,
+        );
+      }
+      if (totalLabel !== null && rows.length >= totalLabel) {
+        paginationComplete = true;
+        break;
+      }
+      if (added === 0) {
+        throw listingSnapshotFailure(
+          `Richemont listing page ${page} added no new jobs before coverage was complete`,
+          rows.length,
+        );
+      }
+      if (pageRows.length < PAGE_SIZE) {
+        throw listingSnapshotFailure(
+          `Richemont listing page ${page} ended at ${rows.length}/${totalLabel ?? 'an unverified'} rows`,
+          rows.length,
+        );
+      }
 
       await new Promise((r) => setTimeout(r, PER_PAGE_DELAY_MS));
+    }
+
+    if (!paginationComplete) {
+      throw listingSnapshotFailure(
+        `Richemont listing pagination reached the ${MAX_PAGES}-page safety cap without verified completion`,
+        rows.length,
+      );
     }
 
     // Second pass: visit each detail page in the same context so the
     // Cloudflare clearance cookie carries over. Mutates rows in place.
     if (rows.length) {
-      await enrichRowsWithDetail(context, rows);
+      const detail = await enrichRowsWithDetail(context, rows);
+      if (detail.dropped > 0) {
+        throw detailSnapshotFailure(detail.candidates, detail.dropped);
+      }
     }
 
     return rows;
@@ -460,6 +547,7 @@ export async function fetchAllRichemontJobs() {
     rows = await discoverAllRows();
   } catch (err) {
     console.error(`❌ Richemont Playwright discovery failed: ${err?.message || err}`);
+    if (err?.specListingFailure === true || err?.specDetailDrop) throw err;
     return [];
   }
 
