@@ -49,7 +49,7 @@ describe('shared positive residence field captions', () => {
     expect(role(caption)).toBe(expected);
   });
 
-  it.each(['Email address', 'Adresse e-mail', 'Indirizzo e-mail', 'E-Mail-Adresse', 'Confirm email address'])('keeps contact %s out of postal provenance', caption => {
+  it.each(['Email address', 'Adresse e-mail', 'Indirizzo e-mail', 'E-Mail-Adresse', 'Confirm email address', 'Email address/login *', 'E-Mail-Adresse erneut eingeben: *', 'Verify Email Address', 'Please enter your email address', 'Adresse e-mail / identifiant'])('keeps contact %s out of postal provenance', caption => {
     expect(role(caption)).toBe('');
     expect(mentions(caption)).toBe(false);
     expect(mentions(`${caption} max 200 chars`)).toBe(false);

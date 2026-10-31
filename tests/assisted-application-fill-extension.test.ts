@@ -181,6 +181,34 @@ describe('fill extension: scoped saved geography answers', () => {
     window.close();
   });
 
+  it.each<[string, boolean]>([
+    ['<main><h2>My Information</h2><form>FIELD</form></main>', true],
+    ['<section><h2>Personal information</h2><form>FIELD</form></section>', true],
+    ['<main><h2>My Information</h2><form>FIELD</form><form></form></main>', false],
+    ['<h2>My Information</h2><form>FIELD</form>', false],
+    ['<main><section><h2>My Information</h2></section><form>FIELD</form></main>', false],
+    ['<main aria-label="Work preferences"><h2>My Information</h2><form>FIELD</form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Work preferences">FIELD</fieldset></form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Employer">FIELD</fieldset></form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Place of birth">FIELD</fieldset></form></main>', false],
+    ['<main><h2>My Information</h2><form><fieldset aria-label="Telephone">FIELD</fieldset></form></main>', false],
+  ])('checks semantic one-form ownership with the legacy reader: %s', async (html, allowed) => {
+    const label = html.includes('Telephone') ? 'City' : 'Country*';
+    const { window, document, F } = page(html.replace('FIELD', `<label for="city">${label}</label><input id="city" name="city">`));
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(allowed ? 'Italia' : '');
+    window.close();
+  });
+
+  it.each(['Email address/login *', 'E-Mail-Adresse erneut eingeben: *', 'Verify Email Address', 'Please enter your email address', 'Adresse e-mail / identifiant'])('keeps the registration alias %s a contact field', async label => {
+    const { window, document, F } = page(`<form><label for="city">${label}</label><input id="city" name="city" type="text" autocomplete="email"></form>`);
+    nativeFieldReading(window);
+    await F.fillPage(document, { ...kit, answers: [] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe(kit.identity.email);
+    window.close();
+  });
+
   it('honors an explicit current residence correction above the CV value', async () => {
     const { window, document, F } = addressPage('Personal information', personal);
     await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Lugano', source: 'answers', current: true, context: 'City', section: 'Personal information', autocomplete: 'address-level2', addressContext: personal }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });

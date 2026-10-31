@@ -376,14 +376,32 @@
     if (!field) return { section: '', scopes: [] };
     const section = field.section || '';
     const scopeSelector = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
-    const boundary = element.closest('form, [role="form"], dialog, [role="dialog"], main, [role="main"]');
+    const containingForm = element.closest('form');
+    const actualForm = element.form || containingForm;
+    if ((actualForm && containingForm && actualForm !== containingForm)
+      || ('form' in element && element.hasAttribute('form') && !element.form)) return null;
+    let boundary = actualForm || element.closest('[role="form"], dialog, [role="dialog"], main, [role="main"]');
+    if (actualForm) {
+      const container = actualForm.closest('main, [role="main"], section');
+      const forms = container ? [...container.querySelectorAll('form')] : [];
+      if (container?.contains(element) && forms.length === 1 && forms[0] === actualForm) boundary = container;
+      else if (!containingForm) return null;
+    }
     if (!boundary) return { section: '', scopes: [] };
     const names = [];
+    const scopesToRead = [];
     for (let node = element.parentElement; node; node = node.parentElement) {
-      if (node.matches(scopeSelector) && isShown(node)) {
+      // A control explicitly associated with this sole form keeps the
+      // submitted form's own names as well as its visible containing scopes.
+      if (node === boundary && actualForm && !containingForm) scopesToRead.push(actualForm);
+      scopesToRead.push(node);
+      if (node === boundary) break;
+    }
+    for (const node of scopesToRead) {
+      if (node.matches(scopeSelector) && (isShown(node) || node === actualForm && !containingForm)) {
         const scopeNames = [];
         const heading = [...node.children].filter(child => /^H[1-4]$/.test(child.tagName)
-          && isShown(child) && (child.compareDocumentPosition(element) & 4)).at(-1);
+          && isShown(child) && (node === actualForm && !containingForm || child.compareDocumentPosition(element) & 4)).at(-1);
         if (heading && normalize(textOf(heading)) !== normalize(field.label || labelOf(element))) scopeNames.push(textOf(heading));
         if (node.getAttribute('aria-label')) scopeNames.push(node.getAttribute('aria-label'));
         for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
@@ -395,7 +413,7 @@
           scopeNames.push(name);
         }
         const legend = [...node.children].find(child => child.tagName === 'LEGEND');
-        if (legend && isShown(legend)) scopeNames.push(textOf(legend));
+        if (legend) scopeNames.push(textOf(legend));
         if (scopeNames.length > 16) return null;
         const group = [...new Set(scopeNames.map(value => String(value).replace(/\s+/g, ' ').trim()).filter(Boolean))].join(' · ');
         if (group.length > 300) return null;
@@ -607,13 +625,19 @@
     return entries.map(entry => {
       const id = entry.element.getAttribute('data-aa-id');
       const field = runner.get(id);
+      const malformedAddressOwner = Object.hasOwn(field || {}, 'addressContext')
+        && !validAddressContext(field.addressContext)
+        && addressEntryNeedsOwnership({ ...entry, label: field.label || entry.label, addressContext: field.addressContext });
       if (entry.nativeContractUnavailable === true || field?.nativeContractUnavailable === true
-        || field?.consentOwnershipUnknown === true || (id && nativeIdCounts.get(id) !== 1)) {
-        return { ...entry, label: '', labels: [], nativeContractUnavailable: true };
+        || malformedAddressOwner || field?.consentOwnershipUnknown === true || (id && nativeIdCounts.get(id) !== 1)) {
+        return { ...entry, label: '', labels: [], section: null, purposeScopes: null, nativeContractUnavailable: true };
       }
       // A styled select's proxy is a locator; the native successful control
       // owns the submitted meaning and its containing scopes.
       const purpose = runnerSectionOf(runner, entry.nativeSelect || entry.element, field);
+      if (purpose === null && addressEntryNeedsOwnership({ ...entry, label: field?.label || entry.label })) {
+        return { ...entry, label: '', labels: [], section: null, purposeScopes: null, nativeContractUnavailable: true };
+      }
       return { ...entry, ...(field?.consentOwnershipUnknown === true ? { consentOwnershipUnknown: true } : {}),
         section: purpose === null ? null : purpose.section, purposeScopes: purpose === null ? null : purpose.scopes,
         context: field?.context || '', nativeSection: field?.section || '',
