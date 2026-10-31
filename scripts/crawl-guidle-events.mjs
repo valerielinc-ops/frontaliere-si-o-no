@@ -148,6 +148,11 @@ import {
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 import { parseJsonLdText } from './lib/json-ld-text.mjs';
+import {
+  eventJsonLdCandidates,
+  extractJsonLdScriptContents,
+  isSchemaEventJsonLdType,
+} from './lib/schema-event-jsonld.mjs';
 
 // Re-exported so existing importers (tests/crawl-guidle-events.test.ts) keep
 // working — the parser itself now lives in events-utils.mjs, shared with
@@ -277,20 +282,6 @@ export function extractEventUrlsFromSitemapXml(xml) {
 
 // ── Detail-page parsing (pure — no network) ──────────────────────────────
 
-const LD_JSON_RE = /<script\b[^>]*\btype\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-
-function eventJsonLdCandidates(value) {
-  if (Array.isArray(value)) return value.flatMap(eventJsonLdCandidates);
-  if (!value || typeof value !== 'object') return [];
-  if (value['@graph'] !== undefined) return eventJsonLdCandidates(value['@graph']);
-  return [value];
-}
-
-function isEventJsonLdType(value) {
-  const types = Array.isArray(value) ? value : [value];
-  return types.some((type) => typeof type === 'string' && type.endsWith('Event'));
-}
-
 /**
  * Pick the schema.org Event occurrences off a detail page. A non-recurring
  * event's JSON-LD block is a single Event(-subtype) object; a recurring one
@@ -301,17 +292,15 @@ function isEventJsonLdType(value) {
  */
 export function extractEventJsonLdOccurrences(html) {
   if (typeof html !== 'string' || !html) return [];
-  LD_JSON_RE.lastIndex = 0;
-  let match;
-  while ((match = LD_JSON_RE.exec(html))) {
+  for (const raw of extractJsonLdScriptContents(html)) {
     let parsed;
     try {
-      parsed = parseJsonLdText(match[1]);
+      parsed = parseJsonLdText(raw);
     } catch {
       continue; // malformed block — keep scanning the rest of the page
     }
     const events = eventJsonLdCandidates(parsed)
-      .filter((o) => isEventJsonLdType(o['@type']) && typeof o.startDate === 'string');
+      .filter((o) => isSchemaEventJsonLdType(o['@type']) && typeof o.startDate === 'string');
     if (events.length) return events;
   }
   return [];

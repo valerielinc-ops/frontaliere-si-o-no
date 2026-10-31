@@ -96,6 +96,11 @@ import { sanitizeEventForPublication, stripDescriptionTranslationCache } from '.
 import { fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import { parseJsonLdText } from './lib/json-ld-text.mjs';
 import {
+  eventJsonLdCandidates,
+  extractJsonLdScriptContents,
+  isSchemaEventJsonLdType,
+} from './lib/schema-event-jsonld.mjs';
+import {
   createDetailTransportStats,
   fetchMySwitzerlandDetailPage,
   INDEX_ONLY_FALLBACK_MODE,
@@ -598,29 +603,13 @@ function extractVenue(ld, fallbackPlace) {
   return cleanSourceField(fallbackPlace) || locality;
 }
 
-const LD_JSON_RE = /<script\b[^>]*\btype\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-
-function eventJsonLdCandidates(value) {
-  if (Array.isArray(value)) return value.flatMap(eventJsonLdCandidates);
-  if (!value || typeof value !== 'object') return [];
-  if (Array.isArray(value['@graph'])) return value['@graph'].flatMap(eventJsonLdCandidates);
-  return [value];
-}
-
-function isEventJsonLdType(value) {
-  const types = Array.isArray(value) ? value : [value];
-  return types.some((type) => typeof type === 'string' && (type === 'Event' || type.endsWith('Event')));
-}
-
 /** Pick the schema.org Event(-subtype) JSON-LD node off a detail page (skips BreadcrumbList etc). */
 export function extractEventJsonLd(html) {
   if (typeof html !== 'string' || !html) return null;
-  LD_JSON_RE.lastIndex = 0;
-  let match;
-  while ((match = LD_JSON_RE.exec(html))) {
+  for (const raw of extractJsonLdScriptContents(html)) {
     try {
-      const parsed = parseJsonLdText(match[1]);
-      const event = eventJsonLdCandidates(parsed).find((candidate) => isEventJsonLdType(candidate?.['@type']) && candidate.startDate);
+      const parsed = parseJsonLdText(raw);
+      const event = eventJsonLdCandidates(parsed).find((candidate) => isSchemaEventJsonLdType(candidate?.['@type']) && candidate.startDate);
       if (event) return event;
     } catch {
       // malformed block — keep scanning the rest of the page
