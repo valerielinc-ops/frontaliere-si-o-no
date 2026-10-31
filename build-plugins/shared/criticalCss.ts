@@ -206,7 +206,7 @@ export const STATIC_TOP_AUTO_AD_RESERVE_CSS =
   'main.seo-static-content:has(>article[data-ft-driveby-top-ad]){--driveby-top-ad-reserve:250px}' +
   'main.seo-static-content:has(>article[data-ft-driveby-top-ad])>article>nav.s-bcr{margin-block-end:var(--driveby-top-ad-reserve)}' +
   'main.seo-static-content:has(>article[data-ft-driveby-top-ad])>article:has(>.google-auto-placed+header)>nav.s-bcr{margin-block-end:0}' +
-  'main.seo-static-content:has(>article[data-ft-driveby-top-ad])>article>.google-auto-placed:has(+header){min-height:var(--driveby-top-ad-reserve)}}`;
+  'main.seo-static-content:has(>article[data-ft-driveby-top-ad])>article>.google-auto-placed:has(+header){min-height:var(--driveby-top-ad-reserve)}}';
 
 /**
  * Static SEO landing layout, mirrored from the ASYNC `seo-static.css`
