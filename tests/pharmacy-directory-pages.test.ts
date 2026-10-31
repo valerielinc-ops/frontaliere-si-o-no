@@ -93,6 +93,24 @@ describe('pharmacy directory static pages', () => {
     expect(built.html).toContain('Die Zahl beschreibt die im aktuellen Datensatz veröffentlichten Einträge');
   });
 
+  it('leaves a town with one pharmacy out of the index, not out of the site', async () => {
+    const root = makeTempRoot();
+    await runCloseBundle(root);
+    const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-farmacie.xml'), 'utf8');
+    const cities = pharmacyPageDescriptors().filter((candidate) => candidate.kind === 'city');
+    const built = cities.map((descriptor) => buildPharmacyDirectoryPage(descriptor, 'it', root));
+    const entryCount = (html: string) => new Set([...html.matchAll(/href="?(\/farmacie\/[^"\s>]+)/g)].map((m) => m[1])).size;
+    const single = built.filter((page) => !page.indexable);
+    const several = built.filter((page) => page.indexable);
+    expect(single.length).toBeGreaterThan(0);
+    expect(several.length).toBeGreaterThan(0);
+    for (const page of single.slice(0, 20)) {
+      expect(robotsOf(page.html).replace(/\s+/g, '')).toBe('noindex,follow');
+      expect(sitemap).not.toContain(`<loc>https://frontaliereticino.ch${page.path}</loc>`);
+    }
+    expect(Math.max(...several.slice(0, 20).map((page) => entryCount(page.html)))).toBeGreaterThan(1);
+  });
+
   it('keeps duty-week model indexability fail-closed and tied to the sitemap', async () => {
     const root = makeTempRoot();
     await runCloseBundle(root);
