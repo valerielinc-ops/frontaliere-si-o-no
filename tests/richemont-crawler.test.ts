@@ -4,7 +4,7 @@ const runtimeState = vi.hoisted(() => {
   class StubAntiBotBlockError extends Error {}
   class StubNavigationTimeout extends Error {}
   return {
-    scenario: 'none' as 'none' | 'partial-listing' | 'listing-failure' | 'detail-failure',
+    scenario: 'none' as 'none' | 'partial-listing' | 'listing-failure' | 'detail-failure' | 'over-total-empty' | 'discovery-error',
     calls: 0,
     StubAntiBotBlockError,
     StubNavigationTimeout,
@@ -43,6 +43,38 @@ vi.mock('../scripts/lib/ats-clients/playwright-runtime.mjs', () => {
           });
         }
         return page('');
+      }
+      if (runtimeState.scenario === 'over-total-empty') {
+        if (runtimeState.calls === 1) {
+          return page({
+            rows: Array.from({ length: 50 }, (_, index) => ({
+              id: `jr${index + 1}`,
+              title: `Role ${index + 1}`,
+              href: `/en/jobs/jr${index + 1}/`,
+              maison: 'Cartier',
+              department: 'IT',
+              location: 'Geneva, CH',
+            })),
+            total: null,
+          });
+        }
+        return page({ rows: [], total: 10 });
+      }
+      if (runtimeState.scenario === 'discovery-error') {
+        if (runtimeState.calls === 1) {
+          return page({
+            rows: Array.from({ length: 50 }, (_, index) => ({
+              id: `jr${index + 1}`,
+              title: `Role ${index + 1}`,
+              href: `/en/jobs/jr${index + 1}/`,
+              maison: 'Cartier',
+              department: 'IT',
+              location: 'Geneva, CH',
+            })),
+            total: null,
+          });
+        }
+        throw new Error('evaluate failed');
       }
       throw new Error('unexpected Richemont runtime call');
     }),
@@ -117,6 +149,29 @@ describe('Richemont crawler parser', () => {
       specListingFailure: true,
       specDiscoveredCount: 0,
     });
+    await vi.runAllTimersAsync();
+
+    await rejection;
+    expect(runtimeState.calls).toBe(2);
+  });
+
+  it('fails closed when an empty page reveals a lower declared listing total', async () => {
+    runtimeState.scenario = 'over-total-empty';
+    vi.useFakeTimers();
+    const rejection = expect(fetchAllRichemontJobs()).rejects.toMatchObject({
+      specListingFailure: true,
+      specDiscoveredCount: 50,
+    });
+    await vi.runAllTimersAsync();
+
+    await rejection;
+    expect(runtimeState.calls).toBe(2);
+  });
+
+  it('rethrows an unclassified discovery error after a non-empty prefix', async () => {
+    runtimeState.scenario = 'discovery-error';
+    vi.useFakeTimers();
+    const rejection = expect(fetchAllRichemontJobs()).rejects.toThrow('evaluate failed');
     await vi.runAllTimersAsync();
 
     await rejection;

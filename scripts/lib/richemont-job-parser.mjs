@@ -449,6 +449,12 @@ async function discoverAllRows() {
         );
       }
       if (!pageRows.length) {
+        if (totalLabel !== null && rows.length > totalLabel) {
+          throw listingSnapshotFailure(
+            `Richemont listing exceeded its declared total (${rows.length} > ${totalLabel})`,
+            rows.length,
+          );
+        }
         if (totalLabel !== null && rows.length < totalLabel) {
           throw listingSnapshotFailure(
             `Richemont listing ended at ${rows.length}/${totalLabel} rows`,
@@ -555,8 +561,7 @@ export async function fetchAllRichemontJobs() {
     rows = await discoverAllRows();
   } catch (err) {
     console.error(`❌ Richemont Playwright discovery failed: ${err?.message || err}`);
-    if (err?.specListingFailure === true || err?.specDetailDrop) throw err;
-    return [];
+    throw err;
   }
 
   console.log(`  📋 Total Swiss-located rows discovered: ${rows.length}`);
