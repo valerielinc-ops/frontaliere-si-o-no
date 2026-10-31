@@ -5,7 +5,7 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 const base = 'assisted_applications/source_guard_fixture';
 
 function fixture() {
-  return createMemoryFirestore({ [base]: {}, [`${base}/automation/flow`]: { state: 'submitting' },
+  return createMemoryFirestore({ [base]: {}, [`${base}/automation/flow`]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 } },
     'user_cv_profiles/fixture': { answer: 'Yes' } });
 }
 
@@ -79,14 +79,14 @@ describe('current answer source fence before irreversible send', () => {
   it.each(['new_claim', 'sent_receipt'])('never clears a dossier after release when %s acquired the ledger', async mutation => {
     const store = fixture();
     const draftPath = `${base}/ai_drafts/current`;
-    store.docs.set(draftPath, { sentAttempt: { photo: 'old-dossier' } });
+    store.docs.set(draftPath, { round: 1, sentAttempt: { photo: 'old-dossier' } });
     const old = submissionGuard(store.db, 'source_guard_fixture', 1);
     await old.claim('portal', 1);
     expect(await old.release('certainly unsent', 2)).toBe(true);
     const next = submissionGuard(store.db, 'source_guard_fixture', 1);
     if (mutation === 'new_claim') await next.claim('portal', 3);
     else await next.markSent({ channel: 'portal', messageId: 'actual-ack' }, 3);
-    store.docs.set(draftPath, { sentAttempt: { photo: 'current-dossier' } });
+    store.docs.set(draftPath, { round: 1, sentAttempt: { photo: 'current-dossier' } });
     expect(await old.clearReleasedAttempt()).toBe(false);
     expect(store.read(draftPath).sentAttempt).toEqual({ photo: 'current-dossier' });
   });
@@ -103,6 +103,44 @@ describe('current answer source fence before irreversible send', () => {
       expect(await next.claim(channel, 3, { resumable: true })).toMatchObject({ status: 'in_flight' });
       expect(store.read(`${base}/automation/submission`)).toEqual(original);
     }
+  });
+
+
+  it('keeps a round-two dossier when an old round-one worker finishes cleanup', async () => {
+    const store = fixture();
+    const old = submissionGuard(store.db, 'source_guard_fixture', 1);
+    await old.claim('portal', 1);
+    await old.release('certainly unsent', 2);
+    const second = submissionGuard(store.db, 'source_guard_fixture', 2);
+    store.docs.set(`${base}/automation/flow`, { state: 'submitting', round: 2, dispatch: { mode: 'submit', round: 2 } });
+    await second.claim('portal', 3);
+    const sentAttempt = { photo: 'round-two-dossier', submissionAttempt: second.attemptBinding() };
+    store.docs.set(`${base}/ai_drafts/current`, { status: 'ready', round: 2, sentAttempt });
+    expect(await old.clearReleasedAttempt()).toBe(false);
+    expect(store.read(`${base}/ai_drafts/current`).sentAttempt).toEqual(sentAttempt);
+  });
+
+  it('clears only its own same-round attempt, and never recreates a purged draft', async () => {
+    const store = fixture();
+    const guard = submissionGuard(store.db, 'source_guard_fixture', 1);
+    await guard.claim('portal', 1);
+    store.docs.set(`${base}/ai_drafts/current`, { status: 'ready', round: 1,
+      sentAttempt: { photo: 'own-dossier', submissionAttempt: guard.attemptBinding() } });
+    await guard.release('certainly unsent', 2);
+    expect(await guard.clearReleasedAttempt()).toBe(true);
+    expect(store.read(`${base}/ai_drafts/current`).sentAttempt).toBeNull();
+    store.docs.delete(`${base}/ai_drafts/current`);
+    expect(await guard.clearReleasedAttempt()).toBe(true);
+    expect(store.read(`${base}/ai_drafts/current`)).toBeUndefined();
+  });
+
+  it.each(['email', 'portal'])('stops hosted %s after a same-round owner takeover', async channel => {
+    const store = fixture();
+    const guard = submissionGuard(store.db, 'source_guard_fixture', 1);
+    await guard.claim(channel, 1);
+    store.docs.set(`${base}/automation/flow`, { state: 'owner_takeover', round: 1, dispatch: { mode: 'submit', round: 1 } });
+    await expect(channel === 'email' ? guard.markEmailSending(2) : guard.markClicked(2)).rejects.toMatchObject({ code: 'submission_approval_changed' });
+    expect(store.read(`${base}/automation/submission`).r1.clickedAt).toBeNull();
   });
 
 });

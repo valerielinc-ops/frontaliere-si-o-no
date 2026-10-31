@@ -20,12 +20,21 @@ import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-applic
 import { openRequiredQuestions, portalNeedsPlanner, submitApplication as submitApplicationRaw } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError } from '../functions/src/assistedApplicationFlow.js';
-import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { createMemoryFirestore as createMemoryFirestoreRaw } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 async function submitApplication(ctx: any) { return submitApplicationRaw(await reviewedDocumentContext(ctx)); }
+
+// Transport fixtures start from an actually approved current flow; explicit overrides remain authoritative.
+function createMemoryFirestore(seed: Record<string, any> = {}) {
+  const base = `assisted_applications/${ORDER_ID}`;
+  return createMemoryFirestoreRaw({ ...seed,
+    [`${base}/automation/flow`]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 }, ...seed[`${base}/automation/flow`] },
+    [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, ...seed[`${base}/ai_drafts/current`] },
+  });
+}
 
 const KEY = Buffer.alloc(32, 7);
 const ORDER_ID = 'order_RUN123';

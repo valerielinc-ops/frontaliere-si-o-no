@@ -279,7 +279,8 @@ export async function submitApplication(ctx) {
   const keepAttempt = async (attempt) => {
     if (!ctx.keepSentAttempt) return true;
     try {
-      await ctx.keepSentAttempt(attempt);
+      const binding = attempt && ctx.submissionGuard?.attemptBinding?.();
+      await ctx.keepSentAttempt(binding ? { ...attempt, submissionAttempt: binding } : attempt);
       return true;
     } catch {
       log('send attempt not kept on the draft');
@@ -421,7 +422,7 @@ export async function submitApplication(ctx) {
       const released = guard ? await guard.release(error?.code || 'pre_send_guard_failed', Date.now()) : true;
       if (released === false) return lostSubmissionClaim(guard, 'email', nowMs);
       if (await clearReleasedAttempt(guard, keepAttempt) === false) return lostSubmissionClaim(guard, 'email', nowMs);
-      if (error?.code === 'evidence_source_changed') return { type: 'submit_failed', error: error.code };
+      if (['evidence_source_changed', 'submission_approval_changed'].includes(error?.code)) return { type: 'submit_failed', error: error.code };
       throw error;
     }
     const { failed, sent } = await sendCascade(
@@ -626,7 +627,7 @@ export async function submitApplication(ctx) {
         if (released === false) return lostSubmissionClaim(guard, channelType, nowMs);
         if (attemptKept && await clearReleasedAttempt(guard, keepAttempt) === false) return lostSubmissionClaim(guard, channelType, nowMs);
       }
-      if (!clicked && !succeeded && error?.code === 'evidence_source_changed') return { type: 'submit_failed', error: error.code };
+      if (!clicked && !succeeded && ['evidence_source_changed', 'submission_approval_changed'].includes(error?.code)) return { type: 'submit_failed', error: error.code };
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
       if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable' };
       throw error;

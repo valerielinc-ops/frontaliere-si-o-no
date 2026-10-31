@@ -6,7 +6,7 @@ import { jsPDF } from 'jspdf';
 import sharp from 'sharp';
 import { PDFDocument, PDFHexString, PDFName, PDFString } from 'pdf-lib';
 import { getDocumentProxy, getResolvedPDFJS } from 'unpdf';
-import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { createMemoryFirestore as createMemoryFirestoreRaw } from './helpers/memoryFirestore';
 import { JPEG_2X2 } from './helpers/pdfImages';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
@@ -29,6 +29,15 @@ const { sentSummaryIt } = await import('../services/assistedApplicationSentRecor
 // What leaves with an e-mail application and the record of what left, on the runner's real path
 // (submitApplication with a Typst letter rebuilt at submit and a Typst tailored CV). An invented
 // German nurse (study 2026-10-02).
+// Transport fixtures start from an actually approved current flow; explicit overrides remain authoritative.
+function createMemoryFirestore(seed: Record<string, any> = {}) {
+  const base = `assisted_applications/${ORDER}`;
+  return createMemoryFirestoreRaw({ ...seed,
+    [`${base}/automation/flow`]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 }, ...seed[`${base}/automation/flow`] },
+    [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, ...seed[`${base}/ai_drafts/current`] },
+  });
+}
+
 const ORDER = 'order_SENT01';
 const BASE = `assisted_applications/${ORDER}`;
 const KEY = Buffer.alloc(32, 5);
@@ -239,6 +248,26 @@ describe('what leaves by e-mail, and the record of it', () => {
     expect(store.read(`${BASE}/automation/submission`).r1).toMatchObject({ state: 'sent', messageId: 'actual-acknowledgement' });
     expect(store.read(`${BASE}/ai_drafts/current`).sentAttempt).toBeTruthy();
     expect(keepSentAttempt.mock.calls.every(([attempt]) => attempt !== null)).toBe(true);
+  });
+
+  it.each(['email', 'portal'])('does not hand off %s when the owner takes over the same round after preparation', async channel => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
+    const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
+    const keepSentAttempt = async (attempt: unknown) => { await draftRef.set({ sentAttempt: attempt }, { merge: true });
+      if (attempt) await flowRef.set({ state: 'owner_takeover' }, { merge: true }); };
+    const sendCascade = delivered();
+    let finalClicks = 0;
+    const portalRunner = vi.fn(async ctx => { await ctx.onBeforeSubmit({ uploads: [] }); finalClicks++;
+      return { event: { type: 'submit_succeeded' }, evidence: {} }; });
+    const event = await submit({ draft: draftFor(channel === 'portal' ? { channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } } : {}),
+      sendCascade, keepSentAttempt, submissionGuard: guard, codex: vi.fn(), portalRunner });
+    expect(event).toEqual({ type: 'submit_failed', error: 'submission_approval_changed' });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(finalClicks).toBe(0);
+    expect(store.read(`${BASE}/automation/flow`).state).toBe('owner_takeover');
+    expect(store.read(`${BASE}/automation/submission`).r1.clickedAt).toBeNull();
   });
 
   it('never sends a legacy email draft without a current document witness and requests bounded repair', async () => {

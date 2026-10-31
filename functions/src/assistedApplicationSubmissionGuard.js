@@ -16,6 +16,7 @@
  *   release   the send failed for certain: a later run may try again
  */
 
+import { roundWasSent } from './assistedApplicationFlow.js';
 import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
@@ -39,12 +40,20 @@ export function submissionLeftAt(record) {
   return Number(record?.clickedAt || record?.startedAt) || 0;
 }
 
+/** The existing automatic approval policy, with the owner's manual takeover exception. */
+export function submissionFlowAllowsSend(flow, round, channel) {
+  if (Number(flow?.round) !== Number(round)) return false;
+  return channel === 'owner_extension' ? flow.state === 'owner_takeover'
+    : ['portal', 'email'].includes(channel) && flow.state === 'submitting' && roundWasSent(flow, round);
+}
+
 export function submissionGuard(db, orderId, round, { answerSourceGuard = null } = {}) {
   const ref = submissionRefFor(db, orderId);
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const flowRef = orderRef.collection('automation').doc('flow');
   const draftRef = orderRef.collection('ai_drafts').doc('current');
-  const key = `r${Number(round) || 1}`;
+  const guardedRound = Number(round) || 1;
+  const key = `r${guardedRound}`;
   let claimedAttemptId = null;
   const requireOwnClaim = (submission, channel) => {
     const current = submission?.[key];
@@ -55,6 +64,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
     }
   };
   return {
+    attemptBinding() { return claimedAttemptId ? { id: claimedAttemptId, round: guardedRound } : null; },
     async read() {
       return (await ref.get()).data()?.[key] || null;
     },
@@ -112,6 +122,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         if (currentAnswerSourceGuard) await currentAnswerSourceGuard.assertInTransaction(transaction);
         const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') throw new Error('application_withdrawn');
+        if (!submissionFlowAllowsSend(flowDoc.data(), guardedRound, 'email')) throw Object.assign(new Error('submission_approval_changed'), { code: 'submission_approval_changed' });
         transaction.set(ref, { [key]: { startedAt: nowMs } }, { merge: true });
       });
     },
@@ -127,6 +138,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
           throw new Error('application_withdrawn');
         }
+        if (!submissionFlowAllowsSend(flowDoc.data(), guardedRound, submissionDoc.data()?.[key]?.channel)) throw Object.assign(new Error('submission_approval_changed'), { code: 'submission_approval_changed' });
         transaction.set(ref, { [key]: { clickedAt: nowMs } }, { merge: true });
       });
     },
@@ -136,10 +148,15 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
     /** Cleanup is CAS-protected too: a newer claim/receipt keeps its dossier. */
     async clearReleasedAttempt() {
       return db.runTransaction(async transaction => {
-        const [submissionDoc, draftDoc] = await Promise.all([transaction.get(ref), transaction.get(draftRef)]);
+        const [submissionDoc, draftDoc, flowDoc] = await Promise.all([transaction.get(ref), transaction.get(draftRef), transaction.get(flowRef)]);
         const current = submissionDoc.data()?.[key];
         if (!claimedAttemptId || current?.state !== 'failed' || current.attemptId !== claimedAttemptId) return false;
-        if (!draftDoc.data()) return true;
+        const draft = draftDoc.data();
+        if (!draft) return true;
+        if (Number(draft.round) !== guardedRound || Number(flowDoc.data()?.round) !== guardedRound) return false;
+        if (!draft.sentAttempt) return true;
+        if (draft.sentAttempt.submissionAttempt?.id !== claimedAttemptId
+          || Number(draft.sentAttempt.submissionAttempt?.round) !== guardedRound) return false;
         transaction.set(draftRef, { sentAttempt: null }, { merge: true });
         return true;
       });
