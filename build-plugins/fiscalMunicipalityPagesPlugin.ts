@@ -266,7 +266,7 @@ const COPY: Record<FiscalLocale, Copy> = {
     rowNetMonth: 'Netto mensile',
     explainTitle: 'Come funziona l\'accordo 2024',
     explainOld: (n) =>
-      `I vecchi frontalieri (già frontalieri prima del 17 luglio 2023 e residenti nella fascia di 20 km, come ${n}) restano a tassazione esclusiva in Svizzera: pagano solo l'imposta alla fonte svizzera e non versano IRPEF italiana sul reddito da lavoro frontaliero.`,
+      `I vecchi frontalieri dell'articolo 9 (attività frontaliera in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023 e residenza nella fascia di 20 km, come ${n}) restano a tassazione esclusiva in Svizzera: pagano solo l'imposta alla fonte svizzera e non versano IRPEF italiana sul reddito da lavoro frontaliero.`,
     explainNew: (n, a, ae) =>
       `I nuovi frontalieri sono a tassazione concorrente: la Svizzera trattiene l'imposta alla fonte e l'Italia tassa lo stesso reddito riconoscendo il credito per le imposte svizzere, aggiungendo addizionale regionale e comunale. A ${n} l'addizionale comunale è ${a}, cioè circa ${ae} l'anno nello scenario tipo.`,
     crossTitle: 'Approfondimenti utili',
@@ -300,7 +300,7 @@ const COPY: Record<FiscalLocale, Copy> = {
     faqTitle: 'Domande frequenti',
     faqQ1: 'Conviene di più il vecchio o il nuovo regime?',
     faqA1: (n, d) =>
-      `Nello scenario tipo a ${n} il vecchio regime lascia circa ${d} al mese in più, perché evita la tassazione concorrente italiana. Ma il vecchio regime spetta solo a chi era già frontaliere prima del 17 luglio 2023: chi inizia oggi rientra nel nuovo regime.`,
+      `Nello scenario tipo a ${n} il vecchio regime lascia circa ${d} al mese in più, perché evita la tassazione concorrente italiana. Ma il vecchio regime spetta solo a chi soddisfa l'articolo 9, con attività frontaliera tra il 31 dicembre 2018 e il 17 luglio 2023: chi inizia oggi rientra nel nuovo regime.`,
     faqQ2: 'Chi è vecchio frontaliere e chi è nuovo frontaliere?',
     faqA2:
       'È vecchio frontaliere chi ha svolto attività di frontaliere in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023. Chi ha iniziato dopo il 17 luglio 2023 è nuovo frontaliere e segue la tassazione concorrente dell\'accordo 2024.',
@@ -345,7 +345,7 @@ const COPY: Record<FiscalLocale, Copy> = {
     rowNetMonth: 'Net per month',
     explainTitle: 'How the 2024 agreement works',
     explainOld: (n) =>
-      `Old cross-border workers (already commuting before 17 July 2023 and resident in the 20 km band, like ${n}) stay taxed exclusively in Switzerland: they pay only the Swiss withholding tax and no Italian IRPEF on their frontier income.`,
+      `Old cross-border workers under Article 9 (cross-border work in Ticino, Graubünden or Valais between 31 December 2018 and 17 July 2023 and residence in the 20 km band, like ${n}) stay taxed exclusively in Switzerland: they pay only the Swiss withholding tax and no Italian IRPEF on their frontier income.`,
     explainNew: (n, a, ae) =>
       `New cross-border workers face concurrent taxation: Switzerland withholds tax at source and Italy taxes the same income while granting a credit for the Swiss tax, adding regional and municipal surtaxes. In ${n} the municipal surtax is ${a}, about ${ae} per year in the sample scenario.`,
     crossTitle: 'Useful reading',
@@ -379,7 +379,7 @@ const COPY: Record<FiscalLocale, Copy> = {
     faqTitle: 'FAQ',
     faqQ1: 'Is the old or the new regime better?',
     faqA1: (n, d) =>
-      `In the sample scenario for ${n} the old regime leaves about ${d} more per month, because it avoids Italian concurrent taxation. But the old regime only applies to those already commuting before 17 July 2023: new starters fall under the new regime.`,
+      `In the sample scenario for ${n} the old regime leaves about ${d} more per month, because it avoids Italian concurrent taxation. But the old regime only applies to those meeting Article 9, with cross-border work between 31 December 2018 and 17 July 2023: new starters fall under the new regime.`,
     faqQ2: 'Who is an old vs a new cross-border worker?',
     faqA2:
       'An old cross-border worker commuted to Ticino, Graubünden or Valais between 31 December 2018 and 17 July 2023. Those who started after 17 July 2023 are new cross-border workers under the 2024 agreement\'s concurrent taxation.',
@@ -424,7 +424,7 @@ const COPY: Record<FiscalLocale, Copy> = {
     rowNetMonth: 'Netto pro Monat',
     explainTitle: 'So funktioniert das Abkommen 2024',
     explainOld: (n) =>
-      `Alte Grenzgänger (bereits vor dem 17. Juli 2023 pendelnd und in der 20-km-Zone wohnhaft, wie ${n}) bleiben ausschliesslich in der Schweiz besteuert: Sie zahlen nur die Schweizer Quellensteuer und keine italienische IRPEF auf das Grenzgängereinkommen.`,
+      `Alte Grenzgänger nach Artikel 9 (Grenzgängertätigkeit im Tessin, in Graubünden oder im Wallis zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 und Wohnsitz in der 20-km-Zone, wie ${n}) bleiben ausschliesslich in der Schweiz besteuert: Sie zahlen nur die Schweizer Quellensteuer und keine italienische IRPEF auf das Grenzgängereinkommen.`,
     explainNew: (n, a, ae) =>
       `Neue Grenzgänger unterliegen der konkurrierenden Besteuerung: Die Schweiz behält die Quellensteuer ein und Italien besteuert dasselbe Einkommen, rechnet die Schweizer Steuer an und ergänzt regionalen und kommunalen Zuschlag. In ${n} beträgt der Gemeindezuschlag ${a}, im Musterszenario rund ${ae} pro Jahr.`,
     crossTitle: 'Nützliche Lektüre',
@@ -458,7 +458,7 @@ const COPY: Record<FiscalLocale, Copy> = {
     faqTitle: 'Häufige Fragen',
     faqQ1: 'Ist das alte oder das neue Regime besser?',
     faqA1: (n, d) =>
-      `Im Musterszenario für ${n} lässt das alte Regime rund ${d} pro Monat mehr, weil es die italienische konkurrierende Besteuerung vermeidet. Das alte Regime gilt aber nur für vor dem 17. Juli 2023 Pendelnde: Neueinsteiger fallen unter das neue Regime.`,
+      `Im Musterszenario für ${n} lässt das alte Regime rund ${d} pro Monat mehr, weil es die italienische konkurrierende Besteuerung vermeidet. Das alte Regime gilt aber nur für Personen, die Artikel 9 erfüllen, mit Grenzgängertätigkeit zwischen dem 31. Dezember 2018 und dem 17. Juli 2023: Neueinsteiger fallen unter das neue Regime.`,
     faqQ2: 'Wer ist alter, wer neuer Grenzgänger?',
     faqA2:
       'Alter Grenzgänger ist, wer zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 ins Tessin, nach Graubünden oder ins Wallis pendelte. Wer nach dem 17. Juli 2023 begann, ist neuer Grenzgänger mit konkurrierender Besteuerung nach dem Abkommen 2024.',
@@ -503,7 +503,7 @@ const COPY: Record<FiscalLocale, Copy> = {
     rowNetMonth: 'Net par mois',
     explainTitle: 'Comment fonctionne l\'accord 2024',
     explainOld: (n) =>
-      `Les anciens frontaliers (déjà frontaliers avant le 17 juillet 2023 et résidant dans la bande des 20 km, comme ${n}) restent imposés exclusivement en Suisse : ils ne paient que l'impôt à la source suisse et pas d'IRPEF italien sur le revenu frontalier.`,
+      `Les anciens frontaliers de l'article 9 (activité frontalière au Tessin, aux Grisons ou en Valais entre le 31 décembre 2018 et le 17 juillet 2023 et résidence dans la bande des 20 km, comme ${n}) restent imposés exclusivement en Suisse : ils ne paient que l'impôt à la source suisse et pas d'IRPEF italien sur le revenu frontalier.`,
     explainNew: (n, a, ae) =>
       `Les nouveaux frontaliers relèvent de l'imposition concurrente : la Suisse retient l'impôt à la source et l'Italie impose le même revenu en accordant un crédit pour l'impôt suisse, en ajoutant les surtaxes régionale et communale. À ${n} la surtaxe communale est de ${a}, soit environ ${ae} par an dans le scénario type.`,
     crossTitle: 'À lire aussi',
@@ -537,7 +537,7 @@ const COPY: Record<FiscalLocale, Copy> = {
     faqTitle: 'Questions fréquentes',
     faqQ1: 'L\'ancien ou le nouveau régime est-il plus avantageux ?',
     faqA1: (n, d) =>
-      `Dans le scénario type pour ${n}, l'ancien régime laisse environ ${d} de plus par mois, car il évite l'imposition concurrente italienne. Mais l'ancien régime ne concerne que ceux déjà frontaliers avant le 17 juillet 2023 : les nouveaux relèvent du nouveau régime.`,
+      `Dans le scénario type pour ${n}, l'ancien régime laisse environ ${d} de plus par mois, car il évite l'imposition concurrente italienne. Mais l'ancien régime ne concerne que ceux qui remplissent l'article 9, avec une activité frontalière entre le 31 décembre 2018 et le 17 juillet 2023 : les nouveaux relèvent du nouveau régime.`,
     faqQ2: 'Qui est ancien et qui est nouveau frontalier ?',
     faqA2:
       'Est ancien frontalier celui qui a travaillé comme frontalier au Tessin, aux Grisons ou en Valais entre le 31 décembre 2018 et le 17 juillet 2023. Ceux qui ont commencé après le 17 juillet 2023 sont de nouveaux frontaliers sous l\'imposition concurrente de l\'accord 2024.',

@@ -4,8 +4,8 @@ import { cleanEventText, parsePriceText, withEventPriceSource } from './events-u
  * Small normalizers for optional schema.org Event metadata.
  *
  * They preserve named source entities and usable HTTP(S) URLs. When a source
- * record is incomplete, fillEventPeopleDefaults() adds the configured catalog
- * and venue fallbacks required by the public Event JSON-LD contract.
+ * record has no organizer, fillEventPeopleDefaults() adds the configured
+ * catalog; a performer exists only when the source names one.
  */
 
 function absoluteHttpUrl(value, baseUrl) {
@@ -282,8 +282,8 @@ export function normalizeEventPeople(value, baseUrl, fallbackUrl) {
 /**
  * Ensure every crawled event has deterministic people metadata. Source
  * entities remain authoritative; when a source has no named entity, the
- * catalog organization and venue are explicit fallbacks so every public
- * Event record has the fields required by the configured SEO contract.
+ * catalog organization is the explicit fallback for a missing organizer. A
+ * venue does not perform: performer stays absent without a source name.
  */
 export function fillEventPeopleDefaults(event, source = {}) {
   const sourceName = sourceText(source?.label) || sourceText(event?.sourceName) || 'Frontaliere Ticino';
@@ -298,12 +298,64 @@ export function fillEventPeopleDefaults(event, source = {}) {
       name: sourceName,
       ...(sourceHomepage ? { url: sourceHomepage } : {}),
     };
-  const performer = normalizeEventPeople(event?.performer, baseUrl)
-    || {
-      '@type': 'Organization',
-      name: sourceText(event?.venue) || sourceName,
-    };
-  return { ...event, organizer, performer };
+  const performer = normalizeEventPeople(event?.performer, baseUrl);
+  return { ...event, organizer, ...(performer ? { performer } : {}) };
+}
+
+const foldName = (value) => String(value ?? '').replace(/\s+/g, ' ').trim().toLowerCase();
+
+function nameWithoutAddress(name, addressParts) {
+  const folded = foldName(name);
+  for (const part of addressParts) {
+    if (folded === part) return '';
+    if (folded.endsWith(` ${part}`)) {
+      return String(name).replace(/\s+/g, ' ').trim().slice(0, folded.length - part.length).replace(/[\s,;:–—-]+$/u, '');
+    }
+  }
+  return String(name);
+}
+
+function cleanEntities(value, addressParts, droppedNames = []) {
+  if (value === undefined || value === null) return undefined;
+  const wasArray = Array.isArray(value);
+  const cleaned = (wasArray ? value : [value]).flatMap((entity) => {
+    const name = nameWithoutAddress(entity?.name, addressParts);
+    if (!name || droppedNames.includes(foldName(name))) return [];
+    return [name === entity.name ? entity : { ...entity, name }];
+  });
+  if (!cleaned.length) return undefined;
+  return wasArray ? cleaned : cleaned[0];
+}
+
+/**
+ * Remove addresses from the people of an event. Records already carry them:
+ * the crawlers stamped the venue as performer ("Fiescheralp 4") and agendas
+ * concatenate the address to the organizer ("Schweizer Skischule Fiesch
+ * Fiescheralp 4"). Only the address the event itself states counts: a name
+ * like "Maroon 5" reads as one but has no such evidence. A venue without
+ * digits is a place name, so it may organize its own show, not perform in it.
+ */
+export function withoutAddressPeople(event, source = {}) {
+  const venue = foldName(event?.venue);
+  const street = foldName(event?.address?.street);
+  const locality = foldName(event?.address?.locality);
+  const addressParts = [
+    street && locality ? `${street} ${locality}` : '',
+    street,
+    /\d/.test(venue) ? venue : '',
+  ].filter(Boolean);
+  const organizer = cleanEntities(event?.organizer, addressParts);
+  const performer = cleanEntities(event?.performer, addressParts, [
+    venue,
+    foldName(source?.label),
+    foldName(event?.sourceName),
+  ].filter(Boolean));
+  const { organizer: _organizer, performer: _performer, ...rest } = event;
+  return {
+    ...rest,
+    ...(organizer ? { organizer } : {}),
+    ...(performer ? { performer } : {}),
+  };
 }
 
 /** Return true only when every normalized named entity has a usable URL. */

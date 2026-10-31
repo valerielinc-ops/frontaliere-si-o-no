@@ -112,7 +112,7 @@ import {
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from './src/applicationConciergeMatching.js';
 import { inheritConciergeRenewalMaterials } from './src/applicationConciergeRenewalMaterials.js';
-import { runConciergeLifecycleSweep, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
+import { isFreshConciergeProposalRefreshRequest, runConciergeLifecycleSweep, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
 import { handleConciergeServiceWritten, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
@@ -2936,8 +2936,7 @@ export const processApplicationConciergeCv = onDocumentWritten(
     if (!after?.exists) return;
     const before = event.data?.before?.exists ? event.data.before.data() : null;
     const data = after.data() || {};
-    const periodicRefresh = data.proposalRefreshRequestedBy === 'lifecycle' && data.proposalRefreshRequestId
-      && data.proposalRefreshRequestId !== before?.proposalRefreshRequestId;
+    const periodicRefresh = isFreshConciergeProposalRefreshRequest(before, data);
     if (!periodicRefresh && !shouldRunApplicationConciergeMatchingForServiceUpdate(before, data)) return;
     const matchingDeadlineMs = Date.now() + 480_000;
     try {

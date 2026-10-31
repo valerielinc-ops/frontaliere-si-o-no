@@ -6,6 +6,10 @@ import { buildPath, type ActiveTab } from '@/services/router';
 import { AUTHORS, isEditorialProfile, isRealAuthor } from '@/data/authors';
 import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor } from '@/data/authorLocales';
 import { cdnImageUrl } from '@/services/cdnImageBase';
+import { AUTHOR_PAGE_COPY } from '@/services/authorPageCopy';
+import { FISCAL_PARAMS_UPDATED_AT } from '@/services/contentDates';
+import { FUNDING_SECTION_ID } from '@/services/revenueDisclosure';
+import { formatUpdatedDate } from '@/build-plugins/shared/humanDate';
 import { CHI_SIAMO_COPY } from './chiSiamoCopy';
 
 /** Localised editorial masthead, policy, sources and contact details. */
@@ -47,7 +51,7 @@ export const ChiSiamo: React.FC = () => {
  <Section icon={Newspaper} title={copy.editorial.title}>{sectionBody(copy.editorial)}</Section>
  <Section icon={BarChart3} title={copy.expertise.title}>{sectionBody(copy.expertise)}</Section>
  <Section icon={FileSearch} title={copy.methodology.title}>
- {sectionBody(copy.methodology)}<p className="mt-4 text-xs text-muted">{copy.parameterNote}</p>
+ {sectionBody(copy.methodology)}<p className="mt-4 text-xs text-muted">{copy.parameterUpdated}{' '}<time dateTime={FISCAL_PARAMS_UPDATED_AT}>{formatUpdatedDate(FISCAL_PARAMS_UPDATED_AT, locale)}</time>. {copy.parameterNote}</p>
  </Section>
  <Section icon={BookOpen} title={copy.sourcesTitle}>
  <p>{copy.sourcesIntro}</p>
@@ -56,7 +60,7 @@ export const ChiSiamo: React.FC = () => {
  </div>
  </Section>
  <Section icon={UserCircle} title={copy.signatures}>
- <p>{copy.signaturesIntro}</p>
+ <p>{copy.signaturesIntro}{' '}{localLink('autore', AUTHOR_PAGE_COPY[locale].allAuthors)}.</p>
  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
  {authors.map(author => <li key={author.slug}>
  <a href={buildPath({ activeTab: 'autore', author: author.slug }, locale)} onClick={event => authorLink(event, author.slug)} className="flex items-center gap-3 p-3 rounded-xl bg-info/10 hover:bg-info/20 transition-colors no-underline">
@@ -66,7 +70,7 @@ export const ChiSiamo: React.FC = () => {
  </ul>
  </Section>
  <Section icon={Shield} title={copy.privacyTitle}><p>{copy.privacy}{' '}{localLink('privacy', copy.privacyLink)}.</p></Section>
- <Section id="finanziamento" icon={DollarSign} title={copy.funding.title}>
+ <Section id={FUNDING_SECTION_ID} icon={DollarSign} title={copy.funding.title}>
  {sectionBody(copy.funding)}
  <p className="mt-4"><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 ${linkClass}`}>{copy.ads}<ExternalLink size={12} aria-hidden="true" /></a></p>
  </Section>

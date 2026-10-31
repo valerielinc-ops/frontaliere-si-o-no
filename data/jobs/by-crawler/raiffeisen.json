@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -251,7 +251,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -310,7 +310,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -333,7 +333,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -437,7 +437,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -487,7 +487,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -497,7 +497,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -522,7 +522,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -572,14 +572,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -919,7 +917,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -977,14 +975,14 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       ],
       "firstSeenAt": "2026-10-22T09:33:25.776Z",
       "salaryMin": 110500,
@@ -10588,10 +10586,10 @@
       "id": "raiffeisen-77d5e06df7ee",
       "slug": "apprendistato-ict-fachmann-frau-cfc-in-zurich-lehrbeginn-august-2027-raiffeisen-zurich",
       "slugByLocale": {
-        "it": "apprendistato-ict-fachmann-frau-cfc-in-zurich-lehrbeginn-august-2027-raiffeisen-zurich",
-        "en": "lehrstelle-ict-fachmann-frau-efz-in-zurich-lehrbeginn-august-2027-raiffeisen-zurich",
         "de": "lehrstelle-ict-fachmann-frau-efz-in-zurich-lehrbeginn-august-2027-raiffeisen-zurich",
-        "fr": "lehrstelle-ict-fachmann-frau-efz-in-zurich-lehrbeginn-august-2027-raiffeisen-zurich"
+        "it": "apprendistato-ict-fachmann-frau-cfc-in-zurich-lehrbeginn-august-2027-raiffeisen-zurich",
+        "en": "ict-specialist-efz-apprenticeship-in-zurich-apprenticeship-start-august-2027-raiffeisen-zurich",
+        "fr": "place-d-apprentissage-de-specialiste-ict-cfc-a-zurich-debut-de-l-apprentissage-en-aout-2027-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10638,6 +10636,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-ict-fachmann-frau-efz-in-zurich-lehrbeginn-august-2027-raiffeisen-zurich"
+        ],
+        "en": [
+          "lehrstelle-ict-fachmann-frau-efz-in-zurich-lehrbeginn-august-2027-raiffeisen-zurich"
+        ],
+        "fr": [
+          "lehrstelle-ict-fachmann-frau-efz-in-zurich-lehrbeginn-august-2027-raiffeisen-zurich"
         ]
       },
       "previousSlugs": [
@@ -10661,9 +10665,9 @@
       "id": "raiffeisen-18a18e1795b3",
       "slug": "consulente-clienti-privato-junior-m-f-d-raiffeisen-wurenlos",
       "slugByLocale": {
+        "de": "junior-privatkundenberater-individual-w-m-d-raiffeisen-wurenlos",
         "it": "consulente-clienti-privato-junior-m-f-d-raiffeisen-wurenlos",
         "en": "junior-private-client-advisor-individual-m-f-d-raiffeisen-wurenlos",
-        "de": "junior-privatkundenberater-individual-w-m-d-raiffeisen-wurenlos",
         "fr": "conseiller-client-prive-junior-individuel-h-f-d-raiffeisen-wurenlos"
       },
       "company": "Raiffeisen",
@@ -10741,9 +10745,9 @@
       "id": "raiffeisen-e8d3daf15e50",
       "slug": "consulente-clienti-basis-m-f-d-raiffeisen-beromunster",
       "slugByLocale": {
+        "de": "kundenberater-basis-w-m-d-raiffeisen-beromunster",
         "it": "consulente-clienti-basis-m-f-d-raiffeisen-beromunster",
         "en": "customer-advisor-basis-m-f-d-raiffeisen-beromunster",
-        "de": "kundenberater-basis-w-m-d-raiffeisen-beromunster",
         "fr": "conseiller-client-base-h-f-d-raiffeisen-beromunster"
       },
       "company": "Raiffeisen",
@@ -10895,9 +10899,9 @@
       "id": "raiffeisen-41953e1cb8e0",
       "slug": "responsabile-kreditverarbeitung-raiffeisen-schanis",
       "slugByLocale": {
+        "de": "leiter-in-kreditverarbeitung-raiffeisen-schanis",
         "it": "responsabile-kreditverarbeitung-raiffeisen-schanis",
         "en": "head-of-credit-processing-raiffeisen-schanis",
-        "de": "leiter-in-kreditverarbeitung-raiffeisen-schanis",
         "fr": "responsable-du-traitement-des-credits-raiffeisen-schanis"
       },
       "company": "Raiffeisen",

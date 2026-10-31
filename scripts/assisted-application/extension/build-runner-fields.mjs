@@ -16,6 +16,17 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { extractFieldsInPage } from '../lib/portal/fields.mjs';
 import { markOptionalAutofillDeclineInPage } from '../lib/portal/optional-autofill.mjs';
+import { consentContradictionPatterns, hasConsentContradiction, isOptionalPurpose } from '../../../functions/src/lib/applicationConsent.js';
+
+const APPLY_CONTROL_PATH = fileURLToPath(new URL('./apply-control.js', import.meta.url));
+const renderApplyControl = source => {
+  const block = /(  \/\/ consent-purpose:start\n)[\s\S]*?(  \/\/ consent-purpose:end)/;
+  if (!block.test(source)) throw new Error('apply-control.js is missing its generated consent-purpose block');
+  const patterns = Object.entries(consentContradictionPatterns).map(([name, pattern]) =>
+    `${JSON.stringify(name)}: new RegExp(${JSON.stringify(pattern.source)}, ${JSON.stringify(pattern.flags)})`).join(', ');
+  const shared = `${isOptionalPurpose.toString()}\nconst consentContradictionPatterns = Object.freeze({ ${patterns} });\n${hasConsentContradiction.toString()}`;
+  return source.replace(block, (_match, start, end) => `${start}${shared}\n${end}`);
+};
 
 export const RUNNER_FIELDS_PATH = fileURLToPath(new URL('./runner-fields.js', import.meta.url));
 
@@ -34,13 +45,16 @@ if (isInvokedDirectly(import.meta.url)) {
   if (process.argv.includes('--check')) {
     // The committed file must be what fields.mjs renders today.
     const current = await readFile(RUNNER_FIELDS_PATH, 'utf8').catch(() => '');
-    if (current !== renderRunnerFields()) {
+    const controls = await readFile(APPLY_CONTROL_PATH, 'utf8');
+    if (current !== renderRunnerFields() || controls !== renderApplyControl(controls)) {
       console.error('runner-fields.js is out of date: node scripts/assisted-application/extension/build-runner-fields.mjs');
       process.exit(1);
     }
     console.log('runner-fields.js up to date');
   } else {
     await writeFile(RUNNER_FIELDS_PATH, renderRunnerFields());
+    const controls = await readFile(APPLY_CONTROL_PATH, 'utf8');
+    await writeFile(APPLY_CONTROL_PATH, renderApplyControl(controls));
     console.log(`wrote ${RUNNER_FIELDS_PATH}`);
   }
 }

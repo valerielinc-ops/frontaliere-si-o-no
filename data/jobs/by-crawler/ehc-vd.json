@@ -482,7 +482,7 @@
       "slug": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "it": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "freiwillige-stellenanzeige-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges"
       },
@@ -550,7 +550,7 @@
         "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "spontaneous-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges",
-        "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -559,7 +559,7 @@
         "en": [
           "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
           "spontaneous-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.978Z",
@@ -1694,7 +1694,7 @@
       "slugByLocale": {
         "it": "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "general-practitioner-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "medecin-generaliste-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -1765,7 +1765,7 @@
         "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
         "praktische-arztin-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medecin-generaliste-ehc-vd-morges",
-        "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1774,7 +1774,7 @@
         "de": [
           "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
           "praktische-arztin-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.972Z",
@@ -3884,7 +3884,7 @@
       "slugByLocale": {
         "it": "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "surgical-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "chirurgische-krankenschwester-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-en-chirurgie-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -3931,7 +3931,7 @@
       "previousSlugs": [
         "infirmier-en-chirurgie-f-h-ehc-vd-morges",
         "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "chirurgische-krankenschwester-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3939,7 +3939,7 @@
         ],
         "de": [
           "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "chirurgische-krankenschwester-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-09-29T21:11:56.245Z",
@@ -5753,10 +5753,10 @@
       "id": "ehc-vd-471c3e519b3c",
       "slug": "medicina-interna-assistente-medico-m-f-novembre-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
+        "fr": "medecin-assistant-medecine-interne-f-h-novembre-2028-ehc-vd-morges",
         "it": "medicina-interna-assistente-medico-m-f-novembre-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "medical-assistant-internal-medicine-m-f-november-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "medecin-assistent-medecine-interne-f-h-novembre-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "fr": "medecin-assistant-medecine-interne-f-h-novembre-2028-ehc-vd-morges"
+        "de": "medecin-assistent-medecine-interne-f-h-novembre-2028-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -5832,10 +5832,10 @@
       "id": "ehc-vd-1cfec1099a30",
       "slug": "segretario-amministrativo-m-f-ems-beausobre-park-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
+        "fr": "secretaire-administrative-f-m-ems-parc-de-beausobre-ehc-vd-morges",
         "it": "segretario-amministrativo-m-f-ems-beausobre-park-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "administrative-secretary-m-f-ems-beausobre-park-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "verwaltungssekretar-m-w-ems-beausobre-park-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "fr": "secretaire-administrative-f-m-ems-parc-de-beausobre-ehc-vd-morges"
+        "de": "verwaltungssekretar-m-w-ems-beausobre-park-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -6083,7 +6083,7 @@
       "slugByLocale": {
         "it": "infermiera-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "medical-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "medizinische-krankenschwester-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "infirmier-en-medecine-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-en-medecine-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -6130,8 +6130,8 @@
       "previousSlugs": [
         "infirmier-en-medecine-f-h-ehc-vd-morges",
         "medizinische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "infirmier-en-medecine-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "infermiera-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-68b94bcb05"
+        "infermiera-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-68b94bcb05",
+        "medizinische-krankenschwester-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6140,7 +6140,7 @@
         ],
         "de": [
           "medizinische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "infirmier-en-medecine-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "medizinische-krankenschwester-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-10-07T09:17:14.740Z",

@@ -366,7 +366,7 @@ const IT_STAGE: CareerLandingCopy = {
       title: 'Dopo lo stage: chances di assunzione',
       paragraphs: [
         'Statisticamente, in Ticino, oltre la metà degli stage in ambito bancario e di revisione sfocia in un\'offerta di assunzione. Per le PMI industriali la percentuale è più bassa (30-40%) ma in entrambi i casi la qualità della prestazione durante lo stage è il fattore determinante.',
-        'Per un frontaliere italiano, il passaggio stage → contratto indeterminato richiede attenzione al cambio di statuto fiscale: la tassazione passa dall\'essere integralmente alla fonte (per stage brevi) alla disciplina completa dei nuovi frontalieri (20% residuale in Italia). Il simulatore del sito aiuta a stimare il netto prima di firmare.',
+        'Per un frontaliere italiano, il passaggio stage → contratto indeterminato richiede attenzione al cambio di statuto fiscale: la tassazione passa dall\'essere integralmente alla fonte (per stage brevi) alla disciplina completa dei nuovi frontalieri (imposta alla fonte ridotta in Svizzera e IRPEF in Italia con credito d\'imposta). Il simulatore del sito aiuta a stimare il netto prima di firmare.',
       ],
     },
     {
@@ -392,7 +392,7 @@ const IT_STAGE: CareerLandingCopy = {
     {
       question: 'Lo stage a Lugano è tassato in Italia o in Svizzera?',
       answer:
-        'L\'indennità di stage segue le regole dei frontalieri: imposta alla fonte in Svizzera e, per i nuovi frontalieri, una quota residuale in Italia. Per stage inferiori a 3 mesi alcune regole specifiche possono applicarsi — verificare con il commercialista.',
+        'L\'indennità di stage segue le regole dei frontalieri: imposta alla fonte in Svizzera e, per i nuovi frontalieri, tassazione anche in Italia con credito d\'imposta. Per stage inferiori a 3 mesi alcune regole specifiche possono applicarsi — verificare con il commercialista.',
     },
   ],
 };
@@ -447,8 +447,8 @@ const IT_CONTRATTI: CareerLandingCopy = {
     {
       title: 'Il nuovo accordo fiscale Italia-Svizzera dal 2024',
       paragraphs: [
-        'L\'accordo fiscale del 23 dicembre 2020, entrato in vigore il 17 luglio 2023 e operativo dal 1° gennaio 2024, distingue fra "vecchi frontalieri" (già impiegati al 17 luglio 2023 o residenti nei 20 km dal confine al momento della firma) e "nuovi frontalieri". I vecchi mantengono la tassazione esclusiva in Svizzera (100% imposta alla fonte, nessuna doppia imposizione); i nuovi pagano l\'80% dell\'imposta in Svizzera (imposta alla fonte piena come prima) e poi fanno la dichiarazione italiana dove si calcola l\'IRPEF residua con credito d\'imposta sul 100% del pagato in Svizzera.',
-        'Il telaio di calcolo è complesso: per un nuovo frontaliere con stipendio lordo 80.000 CHF, l\'imposta alla fonte svizzera può essere circa 8.000 CHF (variabile per cantone e situazione familiare); l\'IRPEF italiana sul reddito lordo è circa 22.000 EUR; con credito d\'imposta svizzero, il frontaliere versa residuo circa 14.000 EUR in Italia. La pressione fiscale totale può variare del 5-12% fra vecchio e nuovo regime.',
+        'L\'accordo fiscale del 23 dicembre 2020, entrato in vigore il 17 luglio 2023 e operativo dal 1° gennaio 2024, distingue fra "vecchi frontalieri" (frontalieri fiscali che hanno lavorato in GR, TI o VS al 17 luglio 2023 o tra il 31 dicembre 2018 e quella data) e "nuovi frontalieri". I vecchi mantengono la tassazione esclusiva in Svizzera (100% imposta alla fonte, nessuna doppia imposizione); i nuovi sono in tassazione concorrente: pagano in Svizzera fino all\'80% dell\'imposta alla fonte ordinaria e dichiarano il reddito in Italia con credito per l\'imposta svizzera, entro la quota di IRPEF proporzionale.',
+        'Il telaio di calcolo è complesso: per un nuovo frontaliere con stipendio lordo 80.000 CHF, l\'imposta alla fonte svizzera può essere circa 7.200 CHF (variabile per cantone e situazione familiare); IRPEF e addizionali sono circa 22.000 EUR; dopo il credito d\'imposta il frontaliere versa circa 16.000 EUR in Italia, secondo il calcolatore del sito. La pressione fiscale totale può variare del 5-12% fra vecchio e nuovo regime.',
         'Il calcolatore del sito tiene conto di questo meccanismo per i nuovi frontalieri, integrando cambio CHF/EUR, tabelle cantonali, contributi sociali, spese forfettarie e credito d\'imposta. È essenziale simulare prima di firmare un nuovo contratto: la differenza fra nuovo e vecchio regime può incidere decisamente sulla convenienza dell\'offerta.',
       ],
     },
@@ -481,7 +481,7 @@ const IT_CONTRATTI: CareerLandingCopy = {
       question:
         'Sono un nuovo frontaliere: posso scegliere di essere tassato solo in Svizzera?',
       answer:
-        'No. Il regime dei "vecchi frontalieri" (tassazione esclusiva in Svizzera) è chiuso ai neo-assunti dal 17 luglio 2023 — salvo che tu abbia già lavorato da frontaliere prima di quella data senza soluzione di continuità. Per i nuovi si applica il 20% residuale in Italia con credito d\'imposta.',
+        'No. Il regime dei "vecchi frontalieri" (tassazione esclusiva in Svizzera) vale solo per chi rientra nell\'articolo 9: attività frontaliera in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023 e residenza in un comune entro 20 km dal confine. Per i nuovi la Svizzera trattiene fino all\'80% dell\'imposta alla fonte e l\'Italia tassa il reddito con credito d\'imposta.',
     },
     {
       question:

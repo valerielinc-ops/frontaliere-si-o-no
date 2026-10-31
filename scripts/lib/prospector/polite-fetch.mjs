@@ -249,8 +249,10 @@ export function isRobotsDeniedError(error) {
  * every run into an error-handling exercise instead of a discovery run.
  *
  * @param {string} url
- * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string|undefined>, retries?: number, retryBaseMs?: number, maxRedirects?: number, fetchImpl?: typeof fetch, lookupImpl?: any, urlPolicy?: any, dispatcher?: unknown, signal?: AbortSignal, sleepImpl?: (ms: number) => Promise<unknown>, nowImpl?: () => number, hostDelayMs?: number }} [opts]
- * @returns {Promise<{ ok: boolean, status: number, url: string, body: string, host: string, blockedByRobots?: boolean, policyBlocked?: boolean, error?: string }>}
+ * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string|undefined>, retries?: number, retryBaseMs?: number, maxRedirects?: number, fetchImpl?: typeof fetch, lookupImpl?: any, urlPolicy?: any, dispatcher?: unknown, signal?: AbortSignal, sleepImpl?: (ms: number) => Promise<unknown>, nowImpl?: () => number, hostDelayMs?: number, captureHeaders?: string[] }} [opts]
+ *   `captureHeaders`: response header names to hand back in `headers`. Opt-in,
+ *   because the only callers that need one read a declared total off it.
+ * @returns {Promise<{ ok: boolean, status: number, url: string, body: string, host: string, headers?: Record<string, string|null>, blockedByRobots?: boolean, policyBlocked?: boolean, error?: string }>}
  */
 export async function politeFetch(url, opts = {}) {
   let parsed;
@@ -435,6 +437,9 @@ async function fetchOnce(url, opts) {
     url: effectiveUrl,
     body,
     host: effectiveHost,
+    ...(opts.captureHeaders?.length
+      ? { headers: Object.fromEntries(opts.captureHeaders.map((name) => [name, res.headers?.get?.(name) ?? null])) }
+      : {}),
     [retryAfterHeader]: rawRetryAfter,
   };
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 667,
+  "crawlerCount": 670,
   "groups": {
     "10": [
       "atec-personal",
@@ -454,8 +454,11 @@
       "zaugg"
     ],
     "24": [
+      "asanti-ch",
+      "bb-trading-werbeartikel-ag",
       "comuni-ticino",
-      "knowledge-lab"
+      "csl-immobilien-ag",
+      "seco-jobroom"
     ],
     "25": [
       "protectas"
@@ -765,6 +768,7 @@
     "artisa-group": "data/jobs/by-crawler/artisa-group.json",
     "arxada": "data/jobs/by-crawler/arxada.json",
     "asana-spital": "data/jobs/by-crawler/asana-spital.json",
+    "asanti-ch": "data/jobs/by-crawler/asanti-ch.json",
     "asile-des-aveugles": "data/jobs/by-crawler/asile-des-aveugles.json",
     "atec-personal": "data/jobs/by-crawler/atec-personal.json",
     "audemars-piguet": "data/jobs/by-crawler/audemars-piguet.json",
@@ -781,6 +785,7 @@
     "banca-sempione": "data/jobs/by-crawler/banca-sempione.json",
     "baronie": "data/jobs/by-crawler/baronie.json",
     "barry-callebaut": "data/jobs/by-crawler/barry-callebaut.json",
+    "bb-trading-werbeartikel-ag": "data/jobs/by-crawler/bb-trading-werbeartikel-ag.json",
     "bcv": "data/jobs/by-crawler/bcv.json",
     "bcvs": "data/jobs/by-crawler/bcvs.json",
     "beekeeper": "data/jobs/by-crawler/beekeeper.json",
@@ -874,6 +879,7 @@
     "cseb": "data/jobs/by-crawler/cseb.json",
     "csem": "data/jobs/by-crawler/csem.json",
     "csl-behring": "data/jobs/by-crawler/csl-behring.json",
+    "csl-immobilien-ag": "data/jobs/by-crawler/csl-immobilien-ag.json",
     "css-versicherung": "data/jobs/by-crawler/css-versicherung.json",
     "csvm-mustair": "data/jobs/by-crawler/csvm-mustair.json",
     "csvp-poschiavo": "data/jobs/by-crawler/csvp-poschiavo.json",
@@ -1063,7 +1069,6 @@
     "klinik-susenberg": "data/jobs/by-crawler/klinik-susenberg.json",
     "klinik-wyssholzli": "data/jobs/by-crawler/klinik-wyssholzli.json",
     "kliniken-valens": "data/jobs/by-crawler/kliniken-valens.json",
-    "knowledge-lab": "data/jobs/by-crawler/knowledge-lab.json",
     "komax": "data/jobs/by-crawler/komax.json",
     "kone": "data/jobs/by-crawler/kone.json",
     "ksa": "data/jobs/by-crawler/ksa.json",
@@ -1237,6 +1242,7 @@
     "schindler": "data/jobs/by-crawler/schindler.json",
     "schulthess-klinik": "data/jobs/by-crawler/schulthess-klinik.json",
     "schweizerhof-flims": "data/jobs/by-crawler/schweizerhof-flims.json",
+    "seco-jobroom": "data/jobs/by-crawler/seco-jobroom.json",
     "see-spital": "data/jobs/by-crawler/see-spital.json",
     "seiro": "data/jobs/by-crawler/seiro.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
@@ -1390,5 +1396,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:32f7cdacd6d3748cc7e4af290230b586d90581c7a418be5522ac55888ec1d5a9"
+  "digest": "sha256:c8e5c35e7c731c0a61ab49728370ee466ac3724c38e62aacbc2b1e3b18767a1f"
 }

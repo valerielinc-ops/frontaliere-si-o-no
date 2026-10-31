@@ -11,10 +11,11 @@
 import '../../extension/apply-control.js';
 const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
 
-import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuestionTopic, equivalentOperationalAnswers, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
@@ -120,7 +121,7 @@ const trimField = (field) => ({
   ...(field.value ? { currentValue: field.value } : {}),
   ...(field.maxLength ? { maxLength: field.maxLength } : {}),
   // Whole lists: a country list has ~250 entries and Italien is past the 100th.
-  ...(field.options ? { options: field.options.map((option) => option.label).filter(Boolean).slice(0, 300) } : {}),
+  ...(field.options ? { options: field.options.map((option) => typeof option === 'string' ? option : option.label).filter(Boolean).slice(0, 300) } : {}),
   ...(field.kind === 'file' && field.accept ? { accept: field.accept } : {}),
   ...(field.invalid ? { invalid: true } : {}),
 });
@@ -175,12 +176,11 @@ export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (profession
 // notice, the processing of the data, the terms. Never what the candidate may refuse and still
 // apply, nor a box that also declares a fact (a permit, a licence, a level).
 const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
-const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool|future (openings|opportunities|positions|vacancies)|other (companies|vacancies|positions)|weitere stellen|andere stellen|altre (posizioni|offerte|società)|autres (postes|offres|sociétés)|third part|dritte|\bterzi\b|\btiers\b)/i;
 // Some classic portals enforce their application privacy agreement without
 // adding `required` to the checkbox (Ticino Rexx: `agbs_check`). An explicit
 // acceptance sentence is still the application's own consent, not a fact the
 // candidate must supply. Optional marketing/talent-pool wording is excluded
-// below by OPTIONAL_CONSENT.
+// below by isOptionalPurpose.
 const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
 const APPLICATION_CONSENT_NAME_RE = /^(?:agbs?|privacy(?:[_:-]?(?:policy|statement|notice))?|consent(?:[_:-]?(?:privacy|data))?|terms?)(?:[_:-]|$)/i;
 const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to|will\s+not|won['’]?t|shall\s+not|shan['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
@@ -191,14 +191,18 @@ const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lav
 
 /** A required checkbox that is the application's own consent, and nothing else. */
 export function ownConsent(field) {
-  const label = String(field?.label || '');
+  // A soft hyphen or a decomposed accent must not hide a refusal or a declared fact from the checks below.
+  const label = String(field?.label || '').replace(/\p{Cf}/gu, '').normalize('NFC');
   const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
   const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
   const consentText = `${label} ${name}`;
-  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent;
+  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || isConsentPurpose(label);
   return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent) && ownText
-    && !NEGATED_CONSENT.test(consentText) && !OPTIONAL_CONSENT.test(consentText) && !DECLARES_FACT.test(`${label} ${name}`);
+    && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(`${label} ${name}`)
+    && !hasConsentContradiction(label, field?.name, field?.autocomplete, field?.domId);
 }
+// A notice printed as a control is read by the same grammar as a box.
+Object.assign(ownConsent, { isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice });
 
 // A current job is explicit when the CV's experience period says "ad oggi",
 // "present", "heute", etc. It is not inferred from the first experience entry:
@@ -924,6 +928,7 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
   const b = comparableAnswer(right);
   if (!a || !b) return false;
   const topic = questionTopic(question, context, metadata);
+  if (topic === 'notice_period') return equivalentOperationalAnswers({ ...metadata, question, context }, left, right);
   if (topic === 'preferred_workload') {
     if (a === b) return true;
     const leftPercentage = percentageAnswer(left);
@@ -1074,8 +1079,27 @@ function isChoiceField(field) {
   return Boolean(field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike);
 }
 
+function hasExplicitOperationalAnswer(candidate, field) {
+  const topic = operationalQuestionTopic(field);
+  if (!topic) return false;
+  const recorded = (candidate?.portalQuestionsAnswered || []).filter(item => item?.source !== 'policy_default');
+  const fromIds = Object.entries(candidate?.answers || {}).filter(([id]) => /^portal_/i.test(id))
+    .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
+  return [...recorded, ...fromIds].some(item => String(item?.answer ?? '').trim()
+    && operationalQuestionTopic({ question: item.applicationQuestion || item.question }) === topic);
+}
+
+function operationalChoiceHasNoCatalogue(field) {
+  return Boolean(operationalQuestionTopic(field)
+    && (['select', 'radio', 'listbox'].includes(field?.kind) || field?.selectLike || field?.nativeSelectId)
+    && !(field.options || []).some(option => option?.placeholder !== true && String(typeof option === 'string' ? option : option?.label ?? '').trim()));
+}
+
 function optionForAnswer(field, answer) {
-  const options = Array.isArray(field?.options) ? field.options : [];
+  const rawOptions = Array.isArray(field?.options) ? field.options : [];
+  const options = rawOptions.map(option => typeof option === 'string' ? { label: option, value: option } : option)
+    .filter(option => option && option.placeholder !== true && String(option.label || '').trim());
+  if (rawOptions.length && !options.length) return '';
   const topic = questionTopic(field.label, field.context, field);
   if (topic === 'permit') {
     const status = permitStatusOf(answer) || permitOptionCode(answer);
@@ -1083,6 +1107,7 @@ function optionForAnswer(field, answer) {
     if (permitAnswer) return permitAnswer;
   }
   if (!options.length) return String(answer || '').trim();
+  if (topic === 'notice_period') return operationalAnswerForOption(field, answer) || '';
   const exact = options.find((option) => comparableAnswer(option.label) === comparableAnswer(answer));
   if (exact) return exact.label;
   if (topic.startsWith('language:')) {
@@ -1143,7 +1168,7 @@ function optionForAnswer(field, answer) {
     const match = options.find((option) => answerBoolean !== null && booleanAnswer(option.label) === answerBoolean);
     if (match) return match.label;
   }
-  if (topic === 'civil_status') return civilStatusOption(options.map((option) => option.label), answer);
+  if (topic === 'civil_status') return civilStatusOption(options.map((option) => typeof option === 'string' ? option : option.label), answer);
   return '';
 }
 
@@ -1309,7 +1334,7 @@ function referralSourceAnswer(field) {
       : null;
   }
   const ranked = options.map((option) => {
-    const label = String(option?.label ?? '').trim();
+    const label = String(typeof option === 'string' ? option : option?.label ?? '').trim();
     const score = REFERRAL_JOB_BOARD_OPTION_RE.test(label) ? 4
       : REFERRAL_OTHER_WEBSITE_RE.test(label) ? 3
         : REFERRAL_INTERNET_OPTION_RE.test(label) ? 2
@@ -1342,6 +1367,7 @@ function phoneCountryOption(candidate, field) {
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context, field);
+  if (operationalChoiceHasNoCatalogue(field)) return null;
   if (topic === 'phone') {
     const value = formatInternationalPhone(candidate?.identity?.phone);
     return value ? { value, source: 'identity' } : null;
@@ -1374,6 +1400,7 @@ export function candidateAnswerForField(candidate, field) {
   if (previous) {
     const value = optionForAnswer(field, previous);
     if (value) return { value, source: 'answers' };
+    if (operationalQuestionTopic(field)) return null;
     if (topic === 'permit') {
       const status = permitStatusOf(previous);
       const selected = permitAnswerForStatus(field, status);
@@ -1464,6 +1491,7 @@ export function candidateAnswerForField(candidate, field) {
     const value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     return value ? { value, source: 'profile' } : null;
   }
+  if (hasExplicitOperationalAnswer(candidate, field)) return null;
   const operational = operationalDefaultAnswer(field);
   if (operational) return operational;
   if (topic !== 'current_school') return null;
@@ -1503,7 +1531,11 @@ const statedCivilStatus = (candidate) => String(candidate?.profile?.civilStatus 
 export function answeredByCandidate(candidate, question, answer, context = '', metadata = {}) {
   const given = String(answer || '').trim();
   const previous = candidateAnswerForQuestion(candidate, question, context, metadata);
-  return Boolean(given && previous) && equivalentAnswer(question, previous, given, context, metadata);
+  if (!given || !previous) return false;
+  if (operationalQuestionTopic({ ...metadata, question, context }) === 'notice_period' && metadata.options?.length) {
+    return operationalAnswerForOption({ ...metadata, question, context }, previous) === given;
+  }
+  return equivalentAnswer(question, previous, given, context, metadata);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
@@ -1621,7 +1653,7 @@ export function guardPlan(plan, fields, candidate = null) {
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), ...(field.section ? { section: String(field.section).slice(0, 240) } : {}), ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), ...(field.section ? { section: String(field.section).slice(0, 240) } : {}), ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => typeof option === 'string' ? option : option.label) });
     }
   };
   // Once a candidate-only action has been rejected, the recovery pass below
@@ -1629,10 +1661,14 @@ export function guardPlan(plan, fields, candidate = null) {
   // turn an invalid nationality/permit answer into an unrelated automatic
   // answer instead of keeping the required question.
   const rejectedActionFields = new Set();
+  for (const field of fields) if (operationalChoiceHasNoCatalogue(field)) {
+    rejectedActionFields.add(field.id);
+    ask(field);
+  }
   for (const plannedAction of plan.actions || []) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
-    if (!field) continue;
+    if (!field || rejectedActionFields.has(field.id)) continue;
     // A planner's `consent` provenance never authorizes optional marketing
     // or a box that also declares a candidate fact. Recheck the actual label.
     if (action.action === 'check' && action.source === 'consent' && !ownConsent(field)) {
@@ -1647,8 +1683,23 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
+    if (['check', 'uncheck'].includes(action.action) && operationalQuestionTopic(field)) {
+      const known = candidateAnswerForField(candidate, field);
+      const stated = known ? booleanAnswer(known.value) : null;
+      if (stated === null) {
+        rejectedActionFields.add(field.id);
+        ask(field);
+        continue;
+      }
+      action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value, source: known.source, evidence: '' };
+    }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);
+      if (!known && hasExplicitOperationalAnswer(candidate, field)) {
+        rejectedActionFields.add(field.id);
+        ask(field);
+        continue;
+      }
       if (known?.value) action = { ...action, action: isChoiceField(field) ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
     }
     if (action.action === 'fill' && isDateField(field)) {
@@ -1734,7 +1785,7 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
-    if (action.action === 'select' && field.options?.length && !field.options.some((option) => option.label === action.value)) continue;
+    if (action.action === 'select' && field.options?.length && !field.options.some((option) => (typeof option === 'string' ? option : option.label) === action.value)) continue;
     actions.push(action);
   }
   // A skip answers nothing, and neither does an unchecked box.

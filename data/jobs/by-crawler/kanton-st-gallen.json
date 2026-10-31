@@ -8,7 +8,7 @@
       "slug": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "it": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-        "en": "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil",
+        "en": "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
         "fr": "contremaitre-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
@@ -58,7 +58,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
+        "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,7 +66,7 @@
         ],
         "en": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-          "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
+          "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
@@ -746,10 +746,10 @@
       "id": "kanton-st-gallen-55fa5a628ff3",
       "slug": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
-        "it": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
-        "en": "forester-m-w-d-kanton-st-gallen-oberuzwil",
+        "it": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+        "en": "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
+        "fr": "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -799,23 +799,21 @@
         "forstwart-in-m-w-d-kanton-st-gallen-ch",
         "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
         "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
-        "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
-        "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
-        "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+        "forester-m-w-d-kanton-st-gallen-oberuzwil",
+        "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-          "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil"
+          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
           "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
-          "forest-manager-m-f-d-kanton-st-gallen-oberuzwil"
+          "forester-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+          "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:09:13.851Z",
@@ -5787,9 +5785,9 @@
       "id": "kanton-st-gallen-a9e2206a1493",
       "slug": "social-worker-social-worker-m-f-d-80-kanton-st-gallen-uznach",
       "slugByLocale": {
+        "de": "sozialarbeiterin-sozialarbeiter-w-m-d-80-kanton-st-gallen-ch",
         "it": "social-worker-social-worker-m-f-d-80-kanton-st-gallen-uznach",
         "en": "social-worker-social-worker-m-f-d-80-kanton-st-gallen-uznach",
-        "de": "sozialarbeiterin-sozialarbeiter-w-m-d-80-kanton-st-gallen-ch",
         "fr": "travailleur-social-travailleur-social-h-f-d-80-kanton-st-gallen-uznach"
       },
       "company": "Kanton St. Gallen",
@@ -5868,9 +5866,9 @@
       "id": "kanton-st-gallen-03b99c8d6e82",
       "slug": "sachbearbeitung-finanzen-e-administration-m-w-d-kanton-st-gallen-weesen",
       "slugByLocale": {
+        "de": "sachbearbeitung-finanzen-und-administration-m-w-d-kanton-st-gallen-ch",
         "it": "sachbearbeitung-finanzen-e-administration-m-w-d-kanton-st-gallen-weesen",
         "en": "finance-and-administration-m-f-d-kanton-st-gallen-weesen",
-        "de": "sachbearbeitung-finanzen-und-administration-m-w-d-kanton-st-gallen-ch",
         "fr": "finances-et-administration-h-f-d-kanton-st-gallen-weesen"
       },
       "company": "Kanton St. Gallen",
@@ -5949,10 +5947,10 @@
       "id": "kanton-st-gallen-5ccf43cd5087",
       "slug": "responsabile-it-finanzen-e-logistik-m-w-d-kanton-st-gallen",
       "slugByLocale": {
-        "it": "responsabile-it-finanzen-e-logistik-m-w-d-kanton-st-gallen",
-        "en": "leiter-in-it-finanzen-und-logistik-m-w-d-kanton-st-gallen-ch",
         "de": "leiter-in-it-finanzen-und-logistik-m-w-d-kanton-st-gallen-ch",
-        "fr": "leiter-in-it-finanzen-und-logistik-m-w-d-kanton-st-gallen-ch"
+        "it": "responsabile-it-finanzen-e-logistik-m-w-d-kanton-st-gallen",
+        "en": "head-of-it-finance-and-logistics-m-f-d-kanton-st-gallen-st-gallen",
+        "fr": "responsable-it-finances-et-logistique-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6000,6 +5998,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-it-finanzen-und-logistik-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "leiter-in-it-finanzen-und-logistik-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "leiter-in-it-finanzen-und-logistik-m-w-d-kanton-st-gallen-ch"
         ]
       },
       "previousSlugs": [
@@ -6024,9 +6028,9 @@
       "id": "kanton-st-gallen-236753838760",
       "slug": "protezione-ambientale-professionale-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
+        "de": "fachperson-betrieblicher-umweltschutz-m-w-d-kanton-st-gallen-ch",
         "it": "protezione-ambientale-professionale-m-f-d-kanton-st-gallen-st-gallen",
         "en": "professional-environmental-protection-m-f-d-kanton-st-gallen-st-gallen",
-        "de": "fachperson-betrieblicher-umweltschutz-m-w-d-kanton-st-gallen-ch",
         "fr": "protection-professionnelle-de-l-environnement-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",

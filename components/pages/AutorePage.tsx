@@ -1,13 +1,14 @@
 import React from 'react';
 import { ArrowLeft, Award, Globe } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
-import { getAuthorBySlug, isEditorialProfile, isRealAuthor, type Author } from '@/data/authors';
+import { AUTHORS, getAuthorBySlug, isEditorialProfile, isRealAuthor, type Author } from '@/data/authors';
 import { getMergedAuthor } from '@/services/authorProfileService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { useTranslation } from '@/services/i18n';
 import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor } from '@/data/authorLocales';
 import { AUTHOR_PAGE_COPY } from '@/services/authorPageCopy';
-import { buildAuthorSeo } from '@/services/seo/seo-authors';
+import { buildAuthorSeo, buildAuthorsHubSeo } from '@/services/seo/seo-authors';
+import { buildPath } from '@/services/router';
 
 /**
  * AutorePage — `/autori/{slug}/` author profile page.
@@ -22,6 +23,9 @@ import { buildAuthorSeo } from '@/services/seo/seo-authors';
  *   - Name (`<h1>`), role, biography paragraph.
  *   - Expertise tags and, for editorial profiles, the localized disclosure.
  *   - Inline `Person` or `Organization` JSON-LD via {@link buildAuthorSeo}.
+ *
+ * With no slug it renders the `/autori/` hub, which lists real people and
+ * editorial bylines separately.
  *
  * Layout mirrors `ChiSiamo.tsx` for visual consistency.
  */
@@ -50,6 +54,8 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
   }, [slug]);
 
   const author = sourceAuthor ? localizeAuthor(sourceAuthor, locale) : undefined;
+
+  if (!slug) return <AuthorsHub />;
 
   if (!author) {
     return (
@@ -164,6 +170,12 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
           </Section>
         )}
 
+        <p className="text-sm">
+          <a href={buildPath({ activeTab: 'autore' }, locale)} onClick={(event) => { event.preventDefault(); nav.navigateTo('autore' as any); }} className="text-accent hover:underline font-medium">
+            {copy.allAuthors}
+          </a>
+        </p>
+
         {/* Editorial trust footer */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <h2 className="text-lg font-bold font-display text-strong mb-2">
@@ -187,6 +199,68 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
 };
 
 /* ── Reusable sub-components ── */
+
+const AuthorsHub: React.FC = () => {
+  const nav = useNavigation();
+  const { locale } = useTranslation();
+  const copy = AUTHOR_PAGE_COPY[locale];
+  const { jsonLd } = buildAuthorsHubSeo(locale);
+  const list = (authors: ReadonlyArray<Author>) => (
+    <ul className="mt-3 space-y-3">
+      {authors.map((source) => {
+        const author = localizeAuthor(source, locale);
+        return (
+          <li key={author.slug} className="flex items-center gap-3">
+            <img src={cdnImageUrl(author.photoPath)} alt={`${copy.photo} ${author.name}`} width={48} height={48} loading="lazy" decoding="async" className="w-12 h-12 rounded-full object-cover border border-edge shrink-0" />
+            <span className="min-w-0">
+              <a
+                href={buildPath({ activeTab: 'autore', author: author.slug }, locale)}
+                onClick={(event) => {
+                  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                  event.preventDefault();
+                  nav.navigateTo('autore' as any, author.slug);
+                }}
+                rel="author"
+                className="block text-sm font-semibold text-accent hover:underline"
+              >
+                {author.name}
+              </a>
+              <span className="block text-xs text-muted">{author.role}</span>
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <button
+        onClick={() => nav.navigateTo('chi-siamo' as any)}
+        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent transition-colors"
+      >
+        <ArrowLeft size={16} />
+        {copy.back}
+      </button>
+      <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-lg mb-6">
+        <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-strong">{copy.hubTitle}</h1>
+        <p className="text-sm text-subtle leading-relaxed mt-2">{copy.hubIntro}</p>
+      </div>
+      <div className="space-y-6">
+        <Section icon={Globe} title={copy.hubPeople}>
+          <p>{copy.hubPeopleIntro}</p>
+          {list(AUTHORS.filter(isRealAuthor))}
+        </Section>
+        <Section icon={Award} title={copy.hubSignatures}>
+          <p>{copy.hubSignaturesIntro}</p>
+          {list(AUTHORS.filter(isEditorialProfile))}
+          <p className="mt-4 text-xs text-muted">{EDITORIAL_PROFILE_DISCLOSURE[locale]}</p>
+        </Section>
+      </div>
+    </div>
+  );
+};
 
 function Section({
   icon: Icon,

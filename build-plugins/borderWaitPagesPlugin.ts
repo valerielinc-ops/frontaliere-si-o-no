@@ -2494,11 +2494,11 @@ function renderLeafPage(inp: LeafInputs): string {
     <span>${esc(crossingDisplay)}</span>
   </nav>
   <header class="s-Nv0GaD">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(freshnessCopy.generated)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time></p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
   ${currentCardHtml}
+  <p style="${HERO_EYEBROW_STYLE}">${esc(freshnessCopy.generated)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time></p>
   ${adviceBannerHtml}
   ${renderAboveFoldJobCta(locale)}
   ${webcamHtml}
@@ -2985,11 +2985,11 @@ function renderHubPage(inp: HubInputs): string {
     ${region ? `<a href="${buildRootHubPath(locale)}" class="s-bcl">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
   </nav>
   <header class="s-Nv0GaD">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(freshnessCopy.generated)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time> <span class="s-k7sbVR" data-bw-live-badge data-bw-observed-at="${sourceDateIso(current.updatedAt, today) ? Date.parse(current.updatedAt!) : ''}">${esc(hubSnapshotBadgeText)}</span></p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
   </header>
   ${hubStatsHtml}
+  <p style="${HERO_EYEBROW_STYLE}">${esc(freshnessCopy.generated)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time> <span class="s-k7sbVR" data-bw-live-badge data-bw-observed-at="${sourceDateIso(current.updatedAt, today) ? Date.parse(current.updatedAt!) : ''}">${esc(hubSnapshotBadgeText)}</span></p>
   ${pickerHtml}
   ${bestBannerHtml}
   <section class="s-ziawP1" aria-labelledby="crossingTable">

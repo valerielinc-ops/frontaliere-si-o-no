@@ -8,7 +8,7 @@
 // this file at build time. Keep the same format as other seo-*.ts entries.
 
 import type { SEOMetadata } from '../seoService';
-import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
+import { EXCHANGE_RATE_DATE, EXCHANGE_RATE_EUR } from './exchangeRateMeta';
 import { authorSeoPageEntries } from './authorProfileMetadata';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -54,15 +54,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "url": `${BASE_URL}/`,
  "description": "Strumento completo per frontalieri Svizzera-Italia: simulatore fiscale, pensione, guida e comparatori servizi",
  "inLanguage": ["it", "en", "de", "fr"],
- "speakable": SPEAKABLE_SECTION,
- "potentialAction": {
- "@type": "SearchAction",
- "target": {
- "@type": "EntryPoint",
- "urlTemplate": `${BASE_URL}/?q={search_term_string}`
- },
- "query-input": "required name=search_term_string"
- }
+ "speakable": SPEAKABLE_SECTION
  },
  {
  "@context": "https://schema.org",
@@ -87,9 +79,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   "name": "Frontaliere Ticino",
   "url": "https://frontaliereticino.ch/",
   "sameAs": [
-   "https://www.facebook.com/profile.php?id=61588174947294",
    "https://www.facebook.com/frontaliereticino/",
-   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://www.linkedin.com/company/frontaliere-ticino/",
    "https://github.com/valerielinc-ops/frontaliere-si-o-no"
   ],
   "logo": {
@@ -149,34 +140,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "Permit G Permit B",
  "Canton Ticino employment"
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "mainEntity": [
- { "@type": "Question", "name": "Qual è la differenza tra vecchio e nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il vecchio frontaliere qualificato dall’articolo 9 ha svolto attività come frontaliere fiscale in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023: il salario interessato è tassato esclusivamente in Svizzera. I nuovi frontalieri fiscali pagano l’80% dell’imposta alla fonte ordinaria svizzera e le imposte italiane con credito per quelle svizzere. Contano anche Comune di residenza ammesso e rientro in principio quotidiano, non soltanto la data dell’ultimo contratto. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Conviene lavorare come vecchio o nuovo frontaliere nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Non esiste una soglia salariale universale. Confronta il netto sulla base del tuo status documentato, della tariffa cantonale, dei contributi, delle imposte italiane eventualmente dovute, del credito d'imposta e dei costi di pendolarismo." } },
- { "@type": "Question", "name": "Come si calcola l'imposta alla fonte in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "La tariffa dipende dalla tabella applicabile, dal reddito e dai dati personali. Per i nuovi frontalieri fiscali qualificati si applica l'80% della tariffa ordinaria; le tabelle del regime transitorio sono distinte. Consulta il tariffario ufficiale dell'anno, senza applicare riduzioni fisse per figlio." } },
- { "@type": "Question", "name": "Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il netto dipende da tariffa, contributi, situazione familiare, cambio e regime fiscale italiano eventualmente applicabile. Usa il simulatore con i tuoi dati e verifica il risultato con le tabelle cantonali e la normativa italiana." } },
- { "@type": "Question", "name": "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
- { "@type": "Question", "name": "Come funziona la pensione per i frontalieri svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "Il sistema distingue previdenza statale AVS, professionale LPP e individuale volontaria. Requisiti e prestazioni vanno verificati presso gli enti competenti. Il terzo pilastro non comporta una deduzione automatica per tutti i frontalieri. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
- { "@type": "Question", "name": "Qual è il modo migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Wise (ex TransferWise) e Revolut offrono i tassi migliori con markup dello 0,25-0,5% sul tasso interbancario. Le banche tradizionali (UBS, PostFinance) applicano markup del 2-3%. Per un frontaliere che cambia CHF 5.000/mese, Wise fa risparmiare circa CHF 100-150/mese rispetto alla banca tradizionale, ovvero CHF 1.200-1.800/anno." } },
- { "@type": "Question", "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri fiscali il salario svizzero è imponibile anche in Italia, con credito per le imposte svizzere. I vecchi qualificati dall’articolo 9 sono esenti sul salario coperto dal regime, ma possono avere obblighi italiani per altri redditi o monitoraggio. Lo status dipende dai requisiti fiscali e dall’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, non soltanto dall’ultima assunzione. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (USTAT, I trimestre 2026). I frontalieri rappresentano circa il 32% della forza lavoro cantonale. Negli ultimi due anni il numero è in lieve calo (-0,5% su base annua nel I trimestre 2026, USTAT). I settori principali sono manifattura, costruzioni, finanza, sanità, ospitalità e IT." } },
- { "@type": "Question", "name": "Cosa sono i ristorni fiscali?", "acceptedAnswer": { "@type": "Answer", "text": "L’articolo 9 prevede una compensazione all’Italia pari al 40% del gettito sui vecchi frontalieri fino all’anno fiscale 2033, senza riduzione graduale della percentuale. Dopo tale anno la Svizzera conserva il gettito. Questo non fa passare automaticamente i vecchi frontalieri al regime concorrente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Quanto guadagna un frontaliere in Svizzera al mese?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere in Canton Ticino guadagna in media CHF 5.600 lordi al mese (mediana USS), pari a circa CHF 4.300–4.600 netti dopo imposta alla fonte e contributi AVS/LPP/AC. Profili qualificati (IT, ingegneria, farma, finanza) arrivano a CHF 7.000–9.000 lordi, mentre operai e commercio si attestano intorno a CHF 4.200–4.800. Usa il simulatore gratuito su frontaliereticino.ch per stimare il netto esatto in base a stato civile, figli e comune." } },
- { "@type": "Question", "name": "Quali sono le differenze tra permesso G e permesso B?", "acceptedAnswer": { "@type": "Answer", "text": "Il permesso G prevede domicilio all’estero e rientro almeno settimanale; il B è un permesso di dimora in Svizzera. Il titolo di soggiorno non determina da solo le imposte: per il G occorre distinguere vecchi frontalieri fiscalmente qualificati, nuovi e lavoratori fuori dai requisiti dell’accordo. Confronta residenza effettiva, reddito e costi familiari senza una soglia salariale universale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Dove trovare lavoro da frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Le principali fonti di offerte per frontalieri sono il portale JobRoom della Confederazione, job-board cantonali (lavoro.swiss), siti privati come jobs.ch, jobup.ch e indeed.ch, agenzie interinali (Adecco, Manpower, Randstad, Kelly) e la job-board dedicata ai frontalieri su frontaliereticino.ch/cerca-lavoro-ticino con ~6.000 annunci aggiornati quotidianamente da ricerche specifiche per Ticino." } }
- ],
- "speakable": SPEAKABLE_SECTION
- },
- HOWTO_CALCULATOR
+ }
  ]
  },
 
  petition: {
- title: 'Petizione dosso Stabio-Gaggiolo: chiediamo una soluzione sicura | Frontaliere Ticino',
+ title: 'Petizione dosso Stabio-Gaggiolo: chiediamo una soluzione sicura',
  description: 'Segnalazioni di code dopo il valico di Gaggiolo: chiediamo dati, valutazione tecnica e rimozione o abbassamento del dosso se sicuro.',
  keywords: 'petizione dosso Stabio Gaggiolo, traffico frontalieri, code dogana Gaggiolo, via Gaggiolo, traffico Stabio',
  ogTitle: 'Petizione per il dosso alla dogana di Stabio',
@@ -196,7 +165,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  petitionEn: {
- title: 'Stabio-Gaggiolo speed-bump petition: we ask for a safe solution | Frontaliere Ticino',
+ title: 'Stabio-Gaggiolo speed-bump petition: we ask for a safe solution',
  description: 'Reports of queues after the Gaggiolo crossing: we ask for data, a technical review and removal or lowering of the bump if safe.',
  keywords: 'Stabio Gaggiolo speed bump petition, cross-border traffic, Gaggiolo customs queues, Stabio traffic',
  ogTitle: 'Petition about the speed bump at Stabio customs',
@@ -216,7 +185,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  petitionDe: {
- title: 'Petition zur Schwelle Stabio-Gaggiolo: Wir fordern eine sichere Lösung | Frontaliere Ticino',
+ title: 'Petition zur Schwelle Stabio-Gaggiolo: Wir fordern eine sichere Lösung',
  description: 'Meldungen über Staus nach dem Grenzübergang Gaggiolo: Wir fordern Daten, eine technische Prüfung und eine Entfernung oder Absenkung, falls sicher.',
  keywords: 'Petition Schwelle Stabio Gaggiolo, Grenzverkehr, Stau Zoll Gaggiolo, Verkehr Stabio',
  ogTitle: 'Petition zur Verkehrsschwelle am Zoll Stabio',
@@ -236,7 +205,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  petitionFr: {
- title: 'Pétition dos-d’âne Stabio-Gaggiolo : pour une solution sûre | Frontaliere Ticino',
+ title: 'Pétition dos-d’âne Stabio-Gaggiolo : pour une solution sûre',
  description: 'Signalements de files après le passage de Gaggiolo : nous demandons des données, une expertise technique et le retrait ou l’abaissement si possible.',
  keywords: 'pétition dos-d’âne Stabio Gaggiolo, trafic frontalier, files douane Gaggiolo, trafic Stabio',
  ogTitle: 'Pétition sur le dos-d’âne à la douane de Stabio',
@@ -347,17 +316,17 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogDescription: 'Cosa sono i ristorni fiscali e perché contano per i frontalieri.',
  canonicalPath: '/glossario-frontaliere/ristorni/',
  structuredData: [
- { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: quota delle imposte alla fonte svizzere retrocessa ai comuni italiani di confine dei lavoratori frontalieri.', url: `${BASE_URL}/glossario-frontaliere/ristorni/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: compensazione del 40% dell\'imposta lorda dei frontalieri dell\'art. 9, versata dai Cantoni all\'Italia fino all\'anno fiscale 2033.', url: `${BASE_URL}/glossario-frontaliere/ristorni/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
  {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
- { '@type': 'Question', name: "Cosa sono i ristorni fiscali per i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "I ristorni fiscali sono somme che la Confederazione Svizzera retrocede ai comuni italiani di confine come compensazione per i servizi pubblici erogati ai lavoratori frontalieri residenti in Italia. Storicamente la Svizzera restituiva il 38,8% dell'imposta alla fonte trattenuta ai vecchi frontalieri. I ristorni vengono gestiti dal Ministero dell'Economia italiano e distribuiti ai comuni in base al numero di frontalieri residenti." } },
+ { '@type': 'Question', name: "Cosa sono i ristorni fiscali per i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "I ristorni fiscali sono somme che i Cantoni Grigioni, Ticino e Vallese versano all'Italia a beneficio dei Comuni di frontiera. L'Accordo 2020 prevede il 40% dell'imposta lorda dei frontalieri dell'art. 9, fino all'anno fiscale 2033. Il pagamento avviene su un conto di Tesoreria intestato al MEF e le autorità italiane trasferiscono le somme ai Comuni." } },
  { '@type': 'Question', name: "Chi riceve i ristorni: i frontalieri o i comuni?", acceptedAnswer: { '@type': 'Answer', text: "I comuni italiani di frontiera, non i singoli frontalieri. Il comune usa i ristorni per finanziare infrastrutture e servizi locali (scuole, strade, trasporti, servizi sociali). Il frontaliere non riceve denaro direttamente, ma beneficia indirettamente attraverso migliori servizi nel proprio comune di residenza. Alcuni comuni hanno azzerato l'addizionale IRPEF grazie ai ristorni." } },
  { '@type': 'Question', name: "I ristorni cambiano con l’accordo fiscale Italia-Svizzera del 2020?", acceptedAnswer: { '@type': 'Answer', text: "L’articolo 9 prevede una compensazione all’Italia pari al 40% del gettito sui vecchi frontalieri fino all’anno fiscale 2033, senza riduzione graduale della percentuale. Dopo tale anno la Svizzera conserva il gettito. Questo non fa passare automaticamente i vecchi frontalieri al regime concorrente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { '@type': 'Question', name: "Quali comuni italiani ricevono i ristorni?", acceptedAnswer: { '@type': 'Answer', text: "I comuni italiani entro 20 km dal confine svizzero nelle province di Como, Varese, Verbano-Cusio-Ossola, Sondrio (per il Canton Ticino e Grigioni) e i comuni confinanti per Canton Vallese e Giura. L'elenco è stabilito dalla Convenzione CH-IT del 1974 e aggiornato periodicamente. I principali beneficiari storici sono Como, Chiasso, Ponte Tresa, Luino e Varese." } },
- { '@type': 'Question', name: "Quanto valgono complessivamente i ristorni annui?", acceptedAnswer: { '@type': 'Answer', text: "Negli ultimi anni la Svizzera ha retrocesso tra €70 milioni e €90 milioni l'anno all'Italia per i ristorni dei frontalieri. La quota è cresciuta con l'aumento del numero di frontalieri, ma si prevede una riduzione progressiva nel prossimo decennio per effetto del nuovo accordo che sposta il gettito direttamente nelle casse italiane tramite l'IRPEF." } },
- { '@type': 'Question', name: "I ristorni riguardano anche i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "In misura molto ridotta. Per i nuovi frontalieri, la Svizzera trattiene solo l'80% dell'imposta alla fonte ordinaria e non c'è retrocessione significativa ai comuni italiani, perché l'Italia incassa direttamente l'IRPEF dal lavoratore. Il modello di finanziamento dei comuni di frontiera è in fase di ridisegno tramite negoziati bilaterali." } }
+ { '@type': 'Question', name: "Quanto valgono complessivamente i ristorni annui?", acceptedAnswer: { '@type': 'Answer', text: "L'Accordo fissa una percentuale, non un importo: il 40% dell'imposta lorda dei frontalieri dell'art. 9, fino all'anno fiscale 2033. Le somme dipendono dal gettito dei Cantoni. Lo Stato italiano garantisce inoltre ai Comuni di frontiera 89 milioni di euro l'anno (L. 83/2023 art. 10)." } },
+ { '@type': 'Question', name: "I ristorni riguardano anche i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "No. Per i nuovi frontalieri la Svizzera applica l'80% dell'imposta alla fonte ordinaria e non è prevista alcuna compensazione: l'Italia tassa il reddito con credito per l'imposta svizzera." } }
  ],
  speakable: SPEAKABLE_SECTION,
  }
@@ -422,14 +391,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogDescription: 'Cos\'è il permesso G e cosa cambia rispetto al permesso B.',
  canonicalPath: '/glossario-frontaliere/permesso-g/',
  structuredData: [
- { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Permesso G: autorizzazione di lavoro per frontalieri che risiedono in un Paese confinante e rientrano quotidianamente. Validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-g/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Permesso G: autorizzazione di lavoro per chi risiede in uno Stato UE/AELS e rientra almeno una volta a settimana. Validità 5 anni con contratto superiore a un anno.', url: `${BASE_URL}/glossario-frontaliere/permesso-g/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
  {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
- { '@type': 'Question', name: 'Quali sono i requisiti per ottenere il permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Per ottenere il permesso G devi avere cittadinanza UE/AELS, un contratto di lavoro con un datore svizzero e residenza in un paese confinante (Italia, Francia, Germania, Austria). È obbligatorio rientrare a casa almeno una volta a settimana. La domanda la fa il datore di lavoro tramite l'ufficio migrazione cantonale (in Ticino, la Sezione Popolazione). Il permesso G ha validità di 5 anni rinnovabili, legata al rapporto di lavoro." } },
- { '@type': 'Question', name: 'Quali documenti servono per la domanda del permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Servono: contratto di lavoro firmato dal datore svizzero, documento di identità valido, certificato di residenza italiano, attestazione ISEE o stato di famiglia, modulo ufficiale cantonale compilato dal datore. La procedura richiede tipicamente 2-4 settimane in Ticino. Il costo del permesso è a carico del lavoratore (CHF 65-100 a seconda del cantone) ed è rilasciato in formato card biometrica da esibire al posto di confine quando richiesto." } },
- { '@type': 'Question', name: 'Il permesso G permette di vivere in Svizzera?', acceptedAnswer: { '@type': 'Answer', text: "No: il permesso G autorizza solo a lavorare in Svizzera mantenendo la residenza nel paese confinante di origine, con rientro settimanale obbligatorio. Per vivere in Svizzera serve il permesso B (dimora annuale) o C (stabilimento), che comportano residenza fiscale svizzera e tassazione ordinaria invece di tassazione concorrente. Il permesso G decade se sposti la residenza in Svizzera o se smetti di rientrare settimanalmente nel paese d'origine." } },
+ { '@type': 'Question', name: 'Quali sono i requisiti per ottenere il permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Per ottenere il permesso G devi avere cittadinanza UE/AELS, un contratto di lavoro con un datore svizzero e residenza in uno Stato UE/AELS: le zone di frontiera non valgono più per i cittadini UE/AELS. È obbligatorio rientrare a casa almeno una volta a settimana. La domanda la fa il datore di lavoro tramite l'ufficio migrazione cantonale (in Ticino, la Sezione Popolazione). Il permesso G vale 5 anni con contratto a tempo indeterminato o superiore a un anno; con contratto da 3 mesi a un anno vale per la durata del contratto; sotto i 3 mesi basta la notifica online." } },
+ { '@type': 'Question', name: 'Quali documenti servono per la domanda del permesso G?', acceptedAnswer: { '@type': 'Answer', text: "In Ticino la domanda si presenta online sul portale SPOP prima di iniziare il lavoro, con il contratto e la copia del documento d'identità certificata dalla Gendarmeria. Il rilascio costa CHF 75 per gli adulti UE/AELS e CHF 40 per i minorenni (tariffario SPOP); negli altri cantoni consulta l'ufficio cantonale." } },
+ { '@type': 'Question', name: 'Il permesso G permette di vivere in Svizzera?', acceptedAnswer: { '@type': 'Answer', text: "No: il permesso G autorizza solo a lavorare in Svizzera mantenendo la residenza in uno Stato UE/AELS, con rientro settimanale obbligatorio. Per vivere in Svizzera serve il permesso B (dimora annuale) o C (stabilimento), che comportano residenza fiscale svizzera e tassazione ordinaria invece di tassazione concorrente. Il permesso G decade se sposti la residenza in Svizzera o se smetti di rientrare settimanalmente nel paese d'origine." } },
  { '@type': 'Question', name: 'Cosa succede al permesso G in caso di licenziamento o disoccupazione?', acceptedAnswer: { '@type': 'Answer', text: "In caso di cessazione del rapporto di lavoro, il permesso G perde validità entro pochi mesi (solitamente 3-6 a seconda del cantone e della durata del rapporto pregresso). Il frontaliere può iscriversi alla disoccupazione svizzera (cassa di compensazione AC) solo se si è trasferito in Svizzera; altrimenti fa domanda di NASpI in Italia, dove gli anni di contribuzione AC svizzera vengono totalizzati grazie agli accordi bilaterali UE-CH." } },
  ],
  },
@@ -544,11 +513,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  '@type': 'FAQPage',
  mainEntity: [
  { '@type': 'Question', name: "Cos'è il tasso di cambio CHF/EUR per un frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "Il tasso di cambio CHF/EUR è il rapporto tra franco svizzero ed euro. Indica quanti euro corrispondono a 1 franco (o viceversa). Per un frontaliere è cruciale: determina quanto vale in euro lo stipendio ricevuto in CHF, quanto si pagano le tasse italiane convertendo il reddito svizzero, e quanto costa convertire ogni mese gli stipendi in euro per le spese in Italia. Oscillazioni dell'1% su uno stipendio di CHF 5.000 valgono €50 al mese." } },
- { '@type': 'Question', name: "Quale tasso di cambio si usa in dichiarazione dei redditi italiana?", acceptedAnswer: { '@type': 'Answer', text: "L'Agenzia delle Entrate richiede il cambio medio annuo BCE dell'anno fiscale per convertire il reddito svizzero. Questo valore è pubblicato ufficialmente dall'Agenzia delle Entrate ogni anno (circolare dedicata). Non si usa il cambio giornaliero né quello della banca. Esempio: per il 2025 il cambio medio è circa CHF 1 = €1,04 (da confermare nelle tabelle ufficiali). Usare il cambio sbagliato è un errore frequente che può causare ricalcoli." } },
+ { '@type': 'Question', name: "Quale tasso di cambio si usa in dichiarazione dei redditi italiana?", acceptedAnswer: { '@type': 'Answer', text: "L'Agenzia delle Entrate richiede il cambio medio annuo BCE dell'anno fiscale per convertire il reddito svizzero. Questo valore è pubblicato ufficialmente dall'Agenzia delle Entrate ogni anno (circolare dedicata). Non si usa il cambio giornaliero né quello della banca. Esempio: per il 2025 la media dei tassi di riferimento BCE è circa CHF 1 = €1,067 (da confermare nelle tabelle ufficiali). Usare il cambio sbagliato è un errore frequente che può causare ricalcoli." } },
  { '@type': 'Question', name: "Conviene cambiare CHF in EUR con la banca o con Wise?", acceptedAnswer: { '@type': 'Answer', text: "Wise e Revolut applicano il cambio interbancario con markup 0,25–0,5%, mentre banche tradizionali applicano markup 2–3%. Per un frontaliere che cambia CHF 5.000/mese, la differenza è CHF 100–150/mese, ovvero CHF 1.200–1.800/anno. PostFinance, UBS e Credit Suisse hanno spread più alti; N26 e Revolut offrono condizioni competitive. Molti frontalieri mantengono conto in CHF (svizzero) + conto in EUR (italiano o Wise)." } },
  { '@type': 'Question', name: "Come proteggersi dal rischio di cambio CHF/EUR?", acceptedAnswer: { '@type': 'Answer', text: "Le strategie principali: 1) Mantenere un conto CHF svizzero e convertire solo il necessario ogni mese; 2) Diversificare negli strumenti a cambio forward (Wise, Interactive Brokers) per bloccare un tasso; 3) Tenere un cuscinetto di liquidità CHF per evitare conversioni forzate in periodi di franco debole; 4) Considerare il franco come valuta di riserva (storicamente rifugio), quindi meno volatile in valore reale." } },
  { '@type': 'Question', name: "Il cambio CHF/EUR influisce sul mutuo in Italia?", acceptedAnswer: { '@type': 'Answer', text: "Sì, indirettamente. Le banche italiane valutano il reddito svizzero convertendolo in EUR al cambio attuale per calcolare la capacità di rimborso. Cambi sfavorevoli possono ridurre la somma concessa. Per mitigare, alcune banche accettano la media dei 12 cambi mensili ufficiali. Inoltre, chi ha un mutuo in euro paga con stipendio in franchi: un franco forte riduce la rata in termini relativi; un franco debole la aumenta." } },
- { '@type': 'Question', name: "Il tasso di cambio è rimasto stabile negli ultimi anni?", acceptedAnswer: { '@type': 'Answer', text: "No. Il CHF/EUR ha oscillato sensibilmente: da 1,20 (2011–2014, con floor BNS), a parità a 1:1 nel 2022, fino a 0,93–0,96 nel 2024–2026 (franco forte). Ogni 5% di movimento equivale a circa €200–300/mese di variazione per un frontaliere medio. Monitorare il cambio è importante per pianificare risparmi, trasferimenti e momento ottimale per grandi conversioni CHF→EUR." } }
+ { '@type': 'Question', name: "Il tasso di cambio è rimasto stabile negli ultimi anni?", acceptedAnswer: { '@type': 'Answer', text: "No. Il CHF/EUR ha oscillato sensibilmente: da 1,20 (2011–2014, con floor BNS), a parità a 1:1 nel 2022, fino a circa 1,05–1,11 euro per franco nel 2025–2026 secondo i tassi di riferimento BCE (franco forte). Ogni 5% di movimento equivale a circa €200–300/mese di variazione per un frontaliere medio. Monitorare il cambio è importante per pianificare risparmi, trasferimenti e momento ottimale per grandi conversioni CHF→EUR." } }
  ]
  }
  ],
@@ -606,6 +575,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // A.3 — primary target keyword "calcolo stipendio netto svizzera" (vol 390).
  // See docs/seo-semrush-growth-plan.md Task A.3.
  title: 'Calcolo stipendio netto Svizzera 2026',
+ h1: 'Simulatore stipendio netto per frontalieri 2026',
  description: 'Calcola lo stipendio netto da frontaliere: imposta alla fonte, AVS e LPP. La deduzione italiana di 10.000 € dipende dai requisiti di legge.',
  keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
  ogTitle: 'Calcolo stipendio netto Svizzera 2026',
@@ -750,7 +720,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come diventare frontaliere in Svizzera passo per passo?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Per diventare frontaliere serve: (1) cittadinanza UE/EFTA e residenza in un comune italiano entro 20 km dal confine svizzero; (2) un contratto di lavoro con un datore svizzero; (3) richiesta del permesso G all'Ufficio della migrazione del cantone di lavoro, allegando contratto e documento d'identità. Dopo ~30 giorni ricevi il permesso G, valido 5 anni e rinnovabile. Prima del primo giorno: apri conto svizzero, scegli tra LAMal e SSN entro 3 mesi, e iscrizione AIRE se cambi residenza."
+ "text": "Per diventare frontaliere serve: (1) cittadinanza UE/EFTA e residenza in uno Stato UE/EFTA; (2) un contratto di lavoro con un datore svizzero; (3) richiesta del permesso G all'Ufficio della migrazione del cantone di lavoro, allegando contratto e documento d'identità. Con contratto superiore a un anno il permesso G vale 5 anni e si rinnova. Prima del primo giorno: apri conto svizzero, scegli tra LAMal e SSN entro 3 mesi, e iscrizione AIRE se cambi residenza."
  }
  },
  {
@@ -1095,11 +1065,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  exchange: {
  title: 'Cambio Franco Euro 2026: Tasso Oggi, Spread Wise vs Revolut',
- h1: 'Cambio franco-euro 2026 — tasso in tempo reale, confronto spread, commissioni',
- description: 'Cambio franco-euro 2026: tasso BNS in tempo reale, confronto spread Wise, Revolut, PostFinance, UBS. Commissioni 0,3-3%, calcolatore risparmio su stipendio CHF.',
+ h1: 'Cambio franco-euro 2026: tasso del giorno e confronto spread',
+ description: 'Cambio franco-euro 2026: tasso interbancario del giorno, confronto spread Wise, Revolut, PostFinance, UBS. Commissioni 0,3-3%, calcolatore risparmio su stipendio CHF.',
  keywords: 'cambio franco euro, cambio chf eur oggi, cambio franco svizzero euro, tasso franco euro 2026, wise tasso cambio, revolut commissioni, spread cambio valuta, postfinance cambio valuta, ubs cambio, n26 trasferimenti, miglior cambio svizzera italia, commissioni cambio valuta, calcolo risparmio cambio',
  ogTitle: 'Cambio Franco Euro 2026 — Tasso Oggi + Confronto Spread',
- ogDescription: '💱 Cambio franco-euro 2026: tasso BNS in tempo reale, spread a confronto tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26), calcolatore commissioni.',
+ ogDescription: '💱 Cambio franco-euro 2026: tasso interbancario del giorno, spread a confronto tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26), calcolatore commissioni.',
  canonicalPath: '/compara-servizi/cambio-franco-euro/',
  structuredData: [
  {
@@ -1107,7 +1077,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "WebPage",
  "name": "Comparatore Cambio Franco Euro",
  "url": `${BASE_URL}/compara-servizi/cambio-franco-euro/`,
- "description": "Confronto tassi di cambio franco-euro in tempo reale tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26) con tabella spread e calcolatore commissioni.",
+ "description": "Confronto tassi di cambio franco-euro tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26) con tabella spread e calcolatore commissioni.",
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web Browser",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
@@ -1123,13 +1093,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "UnitPriceSpecification",
  "price": EXCHANGE_RATE_EUR,
  "priceCurrency": "EUR",
+ "validFrom": EXCHANGE_RATE_DATE,
  "referenceQuantity": {
  "@type": "QuantitativeValue",
  "value": "1",
  "unitCode": "CHF"
  }
  },
- "exchangeRateSpread": "0.3-3.0% a seconda del provider"
+ "exchangeRateSpread": { "@type": "MonetaryAmount", "currency": "CHF", "minValue": 0.3, "maxValue": 3, "description": "Costo in CHF per ogni 100 CHF cambiati, a seconda del provider" }
  },
  {
  "@context": "https://schema.org",
@@ -1139,7 +1110,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Qual è il miglior servizio per cambiare franchi svizzeri in euro?", "acceptedAnswer": { "@type": "Answer", "text": "Wise e Revolut offrono generalmente i tassi più vantaggiosi con commissioni tra 0,3% e 0,5% sul tasso mid-market. PostFinance applica uno spread dell'1,5-2%, UBS e Credit Suisse dell'1-2,5%. Le casse Raiffeisen cantonali si fermano tipicamente all'1-1,5%. N26 applica un tasso vicino al mid-market con cambio mensile gratuito fino a €30.000 per i piani You/Metal." } },
  { "@type": "Question", "name": "Quanto costa trasferire CHF in EUR con Wise?", "acceptedAnswer": { "@type": "Answer", "text": "Wise applica una commissione trasparente dello 0,3-0,6% sul tasso di cambio mid-market reale. Per un trasferimento di CHF 5.000 il costo tipico è CHF 15-30. Il servizio offre anche un conto multivaluta gratuito con IBAN svizzero e IBAN europeo, permettendo di ricevere lo stipendio in CHF e convertirlo a scelta del titolare." } },
  { "@type": "Question", "name": "Conviene cambiare lo stipendio frontaliere in banca o con servizi online?", "acceptedAnswer": { "@type": "Answer", "text": "I servizi online come Wise e Revolut sono generalmente più convenienti. Su uno stipendio mensile di CHF 5.000 il risparmio rispetto a una banca tradizionale può essere di CHF 50-150 al mese. Tuttavia, le banche offrono strumenti aggiuntivi (piani d'investimento, mutui, conto business) che i servizi online non coprono. Una strategia ottimale è tenere il conto stipendio presso la banca svizzera e cambiare tramite Wise/Revolut solo la quota da trasferire in Italia." } },
- { "@type": "Question", "name": "Quando è il momento migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Il tasso franco-euro fluttua quotidianamente. Storicamente il franco è stato forte (EUR/CHF sotto 0,95) nei periodi di instabilità finanziaria globale (2015-2017, 2020, 2022). Conviene impostare alert sui provider (Wise Rate Alerts, Revolut Rate Alert) per notifica al superamento di soglie predefinite. Evitare i cambi nei weekend e nelle ore notturne quando gli spread sono più ampi per bassa liquidità interbancaria." } },
+ { "@type": "Question", "name": "Quando è il momento migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Il tasso franco-euro fluttua quotidianamente. Il franco tende a rafforzarsi nei periodi di instabilità finanziaria globale. Conviene impostare alert sui provider (Wise Rate Alerts, Revolut Rate Alert) per notifica al superamento di soglie predefinite. Evitare i cambi nei weekend e nelle ore notturne quando gli spread sono più ampi per bassa liquidità interbancaria." } },
  { "@type": "Question", "name": "Quanto si risparmia usando Revolut Premium o Wise Borderless?", "acceptedAnswer": { "@type": "Answer", "text": "Revolut Premium (€9,99/mese) dà cambio al tasso mid-market illimitato e 3 prelievi ATM gratuiti al mese; Wise Borderless è gratuito con commissione per trasferimento. Per frontalieri che trasferiscono CHF 3.000-7.000/mese, Revolut Premium si ripaga oltre i CHF 3.500/mese di cambio grazie all'azzeramento dello spread; per importi minori Wise resta la scelta più economica." } },
  { "@type": "Question", "name": "Le commissioni di cambio sono detraibili dalle tasse italiane?", "acceptedAnswer": { "@type": "Answer", "text": "No, le commissioni di cambio valuta applicate a spese personali (stipendio frontaliere convertito per spese familiari) non sono deducibili dall'IRPEF italiana. Possono invece essere spesabili per chi ha una partita IVA italiana o un'attività professionale: in quel caso la commissione rientra tra le spese bancarie deducibili al 100%. Conservare sempre l'estratto conto che dettaglia la commissione sul cambio per eventuale contraddittorio con l'Agenzia delle Entrate." } }
  ]
@@ -1231,7 +1202,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Cosa copre l'assicurazione LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La LAMal copre cure mediche, ospedaliere e farmaceutiche in Svizzera. Per cure in Italia, serve la carta europea di assicurazione malattia (CEAM). Per residenti in Italia si applica la franchigia ordinaria CHF300 per adulti e giovani adulti, CHF0 per bambini. Le franchigie opzionali non sono disponibili." } },
  { "@type": "Question", "name": "La LAMal è davvero obbligatoria per tutti i frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. Fonte: UFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" } },
  { "@type": "Question", "name": "Come cambiare cassa malati frontaliere senza penali?", "acceptedAnswer": { "@type": "Answer", "text": "La disdetta dell'assicurazione base LAMal si può presentare due volte l'anno: entro il 30 novembre con effetto 1° gennaio (modifica franchigia o cambio cassa), o entro il 31 marzo con effetto 1° luglio (solo se il premio aumenta). La comunicazione va inviata per raccomandata con ricevuta di ritorno alla vecchia cassa e occorre aver già sottoscritto con la nuova: la mancanza di copertura anche di un solo giorno è sanzionata. Le assicurazioni complementari hanno disdetta libera con preavviso di 3 mesi al 31/12." } },
- { "@type": "Question", "name": "LAMal o SSN: cosa conviene per la famiglia del frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Per famiglie con bambini il SSN italiano è quasi sempre più conveniente: il diritto di opzione copre anche coniuge e figli a carico senza premio aggiuntivo, mentre con LAMal ogni familiare paga il proprio premio (CHF 270–560/mese adulti, CHF 100–150 bambini). Risparmio annuo tipico per famiglia di 4: CHF 8.000–12.000. Il contro è che le cure in Svizzera con SSN richiedono CEAM e pagamento anticipato (poi rimborsato), mentre con LAMal si va direttamente in ospedale CH. Usa il comparatore LAMal vs SSN per stimare il tuo caso." } }
+ { "@type": "Question", "name": "LAMal o SSN: cosa conviene per la famiglia del frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Per famiglie con bambini il SSN italiano è quasi sempre più conveniente: il diritto di opzione copre anche coniuge e figli a carico senza premio aggiuntivo, mentre con LAMal ogni familiare paga il proprio premio (UFSP 2026 per residenti in Italia, senza infortuni: CHF 279–487/mese adulti da 26 anni, CHF 41–204 bambini). Risparmio annuo tipico per famiglia di 4: CHF 8.000–12.000. Il contro è che le cure in Svizzera con SSN richiedono CEAM e pagamento anticipato (poi rimborsato), mentre con LAMal si va direttamente in ospedale CH. Usa il comparatore LAMal vs SSN per stimare il tuo caso." } }
  ]
  }
  ]
@@ -1476,7 +1447,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quando scade la dichiarazione dei redditi per frontalieri in Italia?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il Modello 730 scade il 30 settembre 2026, il Modello Redditi PF (ex Unico) scade il 30 novembre 2026 per l'invio telematico. Il pagamento del saldo IRPEF e primo acconto scade il 30 giugno 2026."
+ "text": "Il Modello 730 scade il 30 settembre 2026, il Modello Redditi PF (ex Unico) scade il 2 novembre 2026 per l'invio telematico. Il pagamento del saldo IRPEF e primo acconto scade il 30 giugno 2026."
  }
  },
  {
@@ -1518,6 +1489,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  permits: {
  title: 'Permesso G Svizzera 2026: Requisiti, Costi e Durata 5 Anni',
+ h1: 'Permesso G e permessi di lavoro in Svizzera',
  description: 'Permesso G 2026 per frontalieri: residenza all’estero, contratto svizzero e rientro almeno settimanale. Requisiti e costi a confronto con B, C e L.',
  keywords: 'permesso g svizzera, permesso b svizzera, permesso c svizzera, permesso l svizzera, permesso frontaliere requisiti, permesso dimora svizzera, documenti permesso lavoro svizzera',
  ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',
@@ -1565,7 +1537,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "HowToStep",
  "position": 4,
  "name": "Ricevi il permesso G",
- "text": "Una volta approvata la domanda ricevi il permesso G: costa circa CHF 65-85 e ha validità 5 anni per i contratti a tempo indeterminato (pari alla durata del contratto se a termine).",
+ "text": "Una volta approvata la domanda ricevi il permesso G: in Ticino costa CHF 75 per gli adulti UE/AELS (CHF 40 per i minorenni) e vale 5 anni con contratto a tempo indeterminato o superiore a un anno, altrimenti per la durata del contratto.",
  "url": `${BASE_URL}/guida-frontaliere/primo-giorno-lavoro/`
  },
  {
@@ -2924,7 +2896,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "HowToStep",
  "position": 1,
  "name": "Richiedere il Permesso G",
- "text": "Richiedi il permesso di lavoro G presso il Cantone Ticino. Servono contratto di lavoro, documento d'identità valido e prova di residenza nella zona di frontiera (entro 20 km).",
+ "text": "Richiedi il permesso di lavoro G presso il Cantone Ticino. Servono contratto di lavoro e documento d'identità valido; in Ticino la copia va certificata dalla Gendarmeria. Per i cittadini UE/AELS non c'è più una zona di frontiera.",
  "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`
  },
  {
@@ -3187,7 +3159,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Devo convertire l'imposta svizzera da CHF a EUR?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Sì, l'imposta alla fonte pagata in CHF va convertita in EUR usando il tasso di cambio medio annuo pubblicato dall'Agenzia delle Entrate. Per il 2025 il tasso medio è indicativo di circa 0,94 EUR per CHF."
+ "text": "Sì, l'imposta alla fonte pagata in CHF va convertita in EUR usando il tasso di cambio medio annuo pubblicato dall'Agenzia delle Entrate. Per il 2025 la media dei tassi di riferimento BCE è di circa 0,937 franchi per euro, cioè circa 1,067 euro per franco."
  }
  }
  ]
@@ -3271,7 +3243,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  applicationConcierge: {
- title: 'Automatizza la ricerca di lavoro in Svizzera | Frontaliere Ticino',
+ title: 'Automatizza la ricerca di lavoro in Svizzera',
  h1: 'Automatizza la tua ricerca di lavoro in Svizzera',
  description: 'Automatizza la ricerca di lavoro in Svizzera: troviamo ruoli adatti e prepariamo candidature su misura. Può aumentare le probabilità di ottenere un colloquio.',
  keywords: 'automatizza ricerca lavoro Svizzera, automazione ricerca lavoro, candidature su misura, candidatura automatica, trovare lavoro in Svizzera, colloquio di lavoro',
@@ -3315,7 +3287,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  applicationConciergeDe: {
- title: 'Automatisiere deine Jobsuche in der Schweiz | Frontaliere Ticino',
+ title: 'Automatisiere deine Jobsuche in der Schweiz',
  h1: 'Automatisiere deine Jobsuche in der Schweiz',
  description: 'Automatisiere deine Jobsuche in der Schweiz: Wir finden passende Jobs und erstellen gezielte Bewerbungen. Das kann die Chancen auf ein Vorstellungsgespräch erhöhen.',
  keywords: 'Jobsuche Schweiz automatisieren, automatisierte Jobsuche, Bewerbung nach Mass, automatische Bewerbung, Arbeit in der Schweiz finden, Vorstellungsgespräch',
@@ -3337,7 +3309,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  applicationConciergeFr: {
- title: 'Automatisez votre recherche d’emploi en Suisse | Frontaliere Ticino',
+ title: 'Automatisez votre recherche d’emploi en Suisse',
  h1: 'Automatisez votre recherche d’emploi en Suisse',
  description: 'Automatisez votre recherche d’emploi en Suisse : nous trouvons des postes adaptés et préparons des candidatures ciblées. Cela peut aider à obtenir un entretien.',
  keywords: 'automatiser recherche emploi Suisse, recherche emploi automatisée, candidature sur mesure, candidature automatique, trouver travail Suisse, entretien emploi',
@@ -3598,7 +3570,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ─── Frontaliere Readiness Wizard ─────────────────────────────────────,
 
  'frontaliere-wizard': {
- title: 'Sei Pronto a Diventare Frontaliere? Test in 2 Minuti | Frontaliere',
+ title: 'Sei pronto a diventare frontaliere? Test in 2 minuti',
  description: 'Test di prontezza per aspiranti frontalieri: 7 domande su confine, permesso G, lavoro, famiglia e lingua, poi un piano personalizzato con i passi da fare.',
  keywords: 'diventare frontaliere, come diventare frontaliere svizzera, test frontaliere, sei pronto frontaliere, piano frontaliere, iniziare a lavorare in svizzera, primi passi frontaliere, guida nuovo frontaliere',
  ogTitle: 'Sei Pronto a Diventare Frontaliere? Scoprilo in 2 Minuti',
@@ -4329,11 +4301,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  ristorni: {
- title: 'Ristorni Fiscali Frontalieri 2026: Importi per Comune Italiano',
- description: 'Ristorni fiscali frontalieri 2026: importi aggiornati per comune italiano, andamento storico e confronto tra le province di confine con la Svizzera.',
+ title: 'Ristorni Fiscali Frontalieri 2026: Come Funziona il 40%',
+ description: 'Ristorni fiscali frontalieri: come funziona la compensazione del 40% prevista dall\'Accordo fino all\'anno fiscale 2033, chi la versa e per quali lavoratori.',
  keywords: 'ristorni fiscali frontalieri, compensi fiscali svizzera italia, ristorni comuni italiani, ristorni como varese, ristorni frontalieri importo',
- ogTitle: 'Ristorni Fiscali Frontalieri | Statistiche per Comune',
- ogDescription: '💶 Statistiche sui ristorni fiscali: importi per comune, andamento storico e confronto tra province.',
+ ogTitle: 'Ristorni Fiscali Frontalieri | Come Funzionano',
+ ogDescription: 'Come funziona la compensazione del 40% ai sensi dell\'Accordo, fino all\'anno fiscale 2033.',
  canonicalPath: '/tasse-e-pensione/ristorni-fiscali/',
  structuredData: [
  {
@@ -4362,7 +4334,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cosa sono i ristorni fiscali per frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I ristorni fiscali sono compensi che la Svizzera versa all'Italia, pari al 40% dell'imposta alla fonte trattenuta ai frontalieri. Questi fondi vengono distribuiti ai comuni italiani di residenza dei frontalieri per finanziare servizi locali."
+ "text": "I ristorni fiscali sono la compensazione che i Cantoni Grigioni, Ticino e Vallese versano all'Italia, pari al 40% dell'imposta lorda dei frontalieri dell'art. 9, fino all'anno fiscale 2033. Le autorità italiane trasferiscono poi le somme ai Comuni."
  }
  },
  {
@@ -4378,7 +4350,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quanto vale un ristorno fisale per comune?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "L'importo varia molto: comuni con molti frontalieri come Lavena Ponte Tresa, Porlezza o Ponte Chiasso ricevono centinaia di migliaia di euro, mentre comuni più piccoli ricevono importi inferiori. Il totale annuo supera i 90 milioni di euro."
+ "text": "L'importo varia da comune a comune e dipende dall'imposta dei frontalieri dell'art. 9 e dalla ripartizione italiana. L'Accordo fissa la percentuale del 40%, non un importo per comune."
  }
  },
  {
@@ -4421,7 +4393,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'for-employers': {
- title: 'Pubblica offerte di lavoro per frontalieri | Frontaliere Ticino',
+ title: 'Pubblica offerte di lavoro per frontalieri',
  description: 'Raggiungi i frontalieri che cercano lavoro in Ticino: pubblica un’offerta con pagina SEO dedicata, presenza su Google for Jobs e promozione newsletter.',
  keywords: 'pubblicare offerte lavoro ticino, assumere frontalieri, annunci lavoro ticino, recruiting frontalieri, pubblica offerta ticino',
  ogTitle: 'Pubblica offerte di lavoro per frontalieri',
@@ -6101,7 +6073,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "Article",
  "headline": "Lavoro Frontaliere Svizzera 2026: Permesso G, Tasse e Stipendio Netto",
- "description": "La guida definitiva per lavoratori frontalieri Italia-Svizzera: permesso G, regime fiscale nuovo accordo, contributi sociali AVS/LPP, assicurazione LAMal, pendolarismo e dichiarazione dei redditi. Aggiornata al 2026.",
+ "description": "La guida definitiva per lavoratori frontalieri Italia-Svizzera: permesso G, regime fiscale nuovo accordo, contributi sociali AVS/LPP, assicurazione LAMal, pendolarismo e dichiarazione dei redditi.",
  "url": `${BASE_URL}/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/`,
  "datePublished": "2026-03-31T08:00:00+02:00",
  "dateModified": "2026-03-31T08:00:00+02:00",
@@ -6132,7 +6104,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quali sono i requisiti per lavorare come frontaliere in Svizzera nel 2026?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Per lavorare come frontaliere in Svizzera serve: cittadinanza UE/AELS, residenza in un comune italiano (preferibilmente entro 20 km dal confine per il regime transitorio), un contratto di lavoro con datore svizzero, e il permesso G rilasciato dal Cantone. Il permesso G ha validità 5 anni per contratti a tempo indeterminato e viene rilasciato in 5-10 giorni lavorativi dalla richiesta."
+ "text": "Per lavorare come frontaliere in Svizzera serve: cittadinanza UE/AELS, residenza in uno Stato UE/AELS, un contratto di lavoro con datore svizzero e il permesso G rilasciato dal Cantone. Il permesso G vale 5 anni con contratto a tempo indeterminato o superiore a un anno."
  }
  },
  {
@@ -6200,7 +6172,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "HowToStep",
  "position": 4,
  "name": "Scegliere l'assicurazione sanitaria",
- "text": "Entro 3 mesi dall'inizio del lavoro, scegli tra LAMal svizzera (270-560 CHF/mese) e SSN italiano (gratuito). La scelta non si modifica liberamente; verifica eventuali nuovi eventi con il Cantone di lavoro. Confronta i premi su frontaliereticino.ch.",
+ "text": "Entro 3 mesi dall'inizio del lavoro, scegli tra LAMal svizzera (UFSP 2026 per residenti in Italia: 279-487 CHF/mese per adulti da 26 anni, senza infortuni) e SSN italiano. La scelta non si modifica liberamente; verifica eventuali nuovi eventi con il Cantone di lavoro. Confronta i premi su frontaliereticino.ch.",
  "url": `${BASE_URL}/compara-servizi/confronta-casse-malati/`
  },
  {
@@ -6328,7 +6300,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quali sono i casi particolari: telelavoro, lavoro in più cantoni, pensionati?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il telelavoro è regolato dall'Accordo integrativo del 6 giugno 2024: fino al 25% del tempo lavorativo dall'Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Per i lavoratori con meno del 50% di attività a domicilio, il permesso G resta valido."
+ "text": "Il telelavoro è regolato dal Protocollo di modifica firmato il 30 maggio e il 6 giugno 2024, in vigore dal 9 febbraio 2026 e applicabile dal 1° gennaio 2024: fino al 25% dell'attività dal domicilio in Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Oltre il 25% di telelavoro le conseguenze non sono disciplinate dal Protocollo e vanno verificate caso per caso."
  }
  },
  {
@@ -6440,9 +6412,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   "name": "Frontaliere Ticino",
   "url": "https://frontaliereticino.ch/",
   "sameAs": [
-   "https://www.facebook.com/profile.php?id=61588174947294",
    "https://www.facebook.com/frontaliereticino/",
-   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://www.linkedin.com/company/frontaliere-ticino/",
    "https://github.com/valerielinc-ops/frontaliere-si-o-no"
   ],
   "logo": {
@@ -6505,7 +6476,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'correzioni': {
- title: 'Correzioni — Politica di rettifica e registro pubblico | Frontaliere Ticino',
+ title: 'Correzioni — Politica di rettifica e registro pubblico',
  description: 'Come segnalare un errore a Frontaliere Ticino e consultare le rettifiche presenti nel registro pubblico.',
  keywords: 'correzioni frontaliere ticino, errata corrige, rettifica articolo, policy correzione, trasparenza editoriale',
  ogTitle: 'Correzioni — Politica di rettifica e registro pubblico',
@@ -6533,7 +6504,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'metodologia': {
- title: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
+ title: 'Metodologia editoriale — Come scriviamo gli articoli',
  description: "Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.",
  keywords: 'metodologia editoriale, intelligenza artificiale giornalismo, frontaliere ticino, fonti primarie, fact checking, politica correzioni, trasparenza editoriale',
  ogTitle: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
@@ -6596,9 +6567,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   "name": "Frontaliere Ticino",
   "url": "https://frontaliereticino.ch/",
   "sameAs": [
-   "https://www.facebook.com/profile.php?id=61588174947294",
    "https://www.facebook.com/frontaliereticino/",
-   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://www.linkedin.com/company/frontaliere-ticino/",
    "https://github.com/valerielinc-ops/frontaliere-si-o-no"
   ],
   "logo": {
@@ -6692,8 +6662,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'tassa-salute-frontalieri': {
  title: 'Tassa Salute Frontalieri 2026: Importo, Chi Paga e Regole',
- h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
- description: 'Tassa salute frontalieri 2026: contributo SSN, calcolo del 3–6% sul salario netto e scadenze regionali.',
+ h1: 'Tassa salute frontalieri 2026 — importo, chi paga, Lombardia e Piemonte',
+ description: 'Tassa salute frontalieri 2026: contributo SSN, calcolo del 3–6% sul salario netto e stato in Lombardia e Piemonte.',
  keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
  ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
  ogDescription: 'Contributo SSN per frontalieri: chi è interessato, importo 3–6%, diritto d’opzione e attuazione regionale.',
@@ -6707,7 +6677,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-22",
- "dateModified": "2026-10-03",
+ "dateModified": "2026-10-31",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/`,
  "speakable": SPEAKABLE_SECTION
@@ -7181,7 +7151,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  pillarNuovaLegge2026: {
- title: 'Regime fiscale frontalieri nel 2026 — Cosa Cambia, Tabelle, Impatti',
+ title: 'Regime fiscale frontalieri 2026: cosa cambia e impatti',
  description: "Regime fiscale frontalieri nel 2026 secondo l'accordo Italia-Svizzera del 2020, requisiti dei regimi nuovo e transitorio, imposizione e credito d'imposta.",
  keywords: 'regime fiscale frontalieri nel 2026, nuovo accordo frontalieri, accordo italia svizzera 2026, tasse frontalieri 2026, nuovi frontalieri 2023, vecchi frontalieri, franchigia 10000',
  ogTitle: "Regime fiscale frontalieri nel 2026 — Guida all'accordo Italia-Svizzera",
@@ -7219,7 +7189,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  pillarOssSvizzera: {
- title: 'OSS in Svizzera 2026 — Stipendi, Riconoscimento Titolo, Offerte',
+ title: 'OSS in Svizzera 2026: stipendi, titolo e offerte',
  description: 'OSS (operatore socio-sanitario) in Svizzera per italiani: stipendi medi, riconoscimento SRK, offerte in Ticino, formazione, confronto con OSS Italia.',
  keywords: 'oss svizzera, operatore socio sanitario svizzera, oss ticino, stipendio oss svizzera, riconoscimento titolo oss srk, lavoro oss lugano, lavoro oss bellinzona',
  ogTitle: 'OSS in Svizzera — Stipendi, Riconoscimento SRK, Offerte 2026',

@@ -86,6 +86,9 @@ export function extractDeclaredIdentity(filePath) {
 const NON_EMPLOYER_SLUGS = new Set([
   // Famiglia di crawler: il datore di ogni annuncio e' il singolo Comune.
   'comuni-ticino',
+  // A multi-employer feed: its slice names hundreds of companies, none of them
+  // the crawler.
+  'seco-jobroom',
   'careers',
   'career',
   'jobs',

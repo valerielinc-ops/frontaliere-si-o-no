@@ -112,6 +112,44 @@ function fixture() {
   fs.writeFileSync(gh, [
     '#!/bin/sh',
     'if [ "$REFRESH_FIXTURE_GH_FAIL" = 1 ]; then exit 19; fi',
+    'if [ "$1" = "api" ] && [ "$2" = "graphql" ] && [ -n "${REFRESH_FIXTURE_REMOTE:-}" ]; then',
+    '  cas_before=""',
+    '  cas_after=""',
+    '  for arg in "$@"; do',
+    '    case "$arg" in',
+    '      beforeOid=*) cas_before="${arg#beforeOid=}" ;;',
+    '      afterOid=*) cas_after="${arg#afterOid=}" ;;',
+    '    esac',
+    '  done',
+    '  if [ "${REFRESH_FIXTURE_ORPHAN_RESET_RACE:-0}" = 1 ]; then',
+    '    /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"',
+    '  fi',
+    '  /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$cas_after" "$cas_before" || exit 1',
+    '  if [ -n "${REFRESH_FIXTURE_PATCH_MARKER:-}" ]; then touch "$REFRESH_FIXTURE_PATCH_MARKER"; fi',
+    '  if [ -n "${REFRESH_FIXTURE_PATCH_LOG:-}" ]; then printf "%s\\n" "$cas_before->$cas_after" >> "$REFRESH_FIXTURE_PATCH_LOG"; fi',
+    '  echo "$cas_after"',
+    '  exit 0',
+    'fi',
+    'if [ "$1" = "api" ] && [ "$2" = "-X" ] && [ "$3" = "PATCH" ] && [ -n "${REFRESH_FIXTURE_REMOTE:-}" ]; then',
+    '  patch_sha=""',
+    '  patch_force=""',
+    '  patch_ref=""',
+    '  for arg in "$@"; do',
+    '    case "$arg" in',
+    '      sha=*) patch_sha="${arg#sha=}" ;;',
+    '      force=*) patch_force="${arg#force=}" ;;',
+    '      repos/*/git/refs/heads/*) patch_ref="${arg##*/git/refs/heads/}" ;;',
+    '    esac',
+    '  done',
+    '  if [ "${REFRESH_FIXTURE_ORPHAN_RESET_RACE:-0}" = 1 ] && [ "$patch_force" = false ]; then',
+    '    /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"',
+    '    exit 1',
+    '  fi',
+    '  if [ -n "${REFRESH_FIXTURE_PATCH_MARKER:-}" ]; then touch "$REFRESH_FIXTURE_PATCH_MARKER"; fi',
+    '  /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$patch_sha"',
+    '  echo "$patch_sha"',
+    '  exit 0',
+    'fi',
     `if [ "$1 $2" = "pr list" ] && { [ "\${REFRESH_FIXTURE_OPEN_PR:-1}" = 1 ] || [ -f "\${REFRESH_FIXTURE_PR_EXISTS_MARKER:-}" ]; }; then echo 42; fi`,
     `if [ "$1 $2" = "pr create" ] && [ "\${REFRESH_FIXTURE_CREATE_502_ONCE:-0}" = 1 ] && [ ! -f "\${REFRESH_FIXTURE_CREATE_ATTEMPT_MARKER:-}" ]; then touch "\${REFRESH_FIXTURE_CREATE_ATTEMPT_MARKER}"; if [ "\${REFRESH_FIXTURE_CREATE_MAKES_PR:-0}" = 1 ]; then touch "\${REFRESH_FIXTURE_PR_EXISTS_MARKER}"; fi; echo 'pull request create failed: HTTP 502: 502 Bad Gateway' >&2; exit 1; fi`,
     'if [ "$1 $2" = "pr create" ]; then echo created; fi',
@@ -122,8 +160,13 @@ function fixture() {
   const gitWrapper = path.join(bin, 'git');
   fs.writeFileSync(gitWrapper, [
     '#!/bin/sh',
+    'saw_push=0',
+    'for arg in "$@"; do [ "$arg" = push ] && saw_push=1; done',
+    'if [ "${REFRESH_FIXTURE_REQUIRE_STALE_RESET:-0}" = 1 ] && [ "$saw_push" = 1 ] && [ ! -f "${REFRESH_FIXTURE_PATCH_MARKER:-}" ]; then',
+    '  echo "fixture: stale branch was pushed before the API reset" >&2',
+    '  exit 78',
+    'fi',
     'if [ "${REFRESH_FIXTURE_FAIL_PRIMARY_PUSH:-0}" = 1 ]; then',
-    '  saw_push=0',
     '  saw_primary=0',
     '  for arg in "$@"; do',
     '    [ "$arg" = push ] && saw_push=1',
@@ -599,11 +642,21 @@ describe('data publisher preserves its source checkout', () => {
     git(setup.repo, ['push', '-q', 'origin', 'main']);
 
     write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
-    const result = publish(setup, false, [], { REFRESH_FIXTURE_OPEN_PR: '0' });
+    const resetMarker = path.join(path.dirname(setup.repo), 'orphan-reset');
+    const resetLog = path.join(path.dirname(setup.repo), 'orphan-reset.log');
+    const result = publishPlain(setup, ['--reconcile-main'], {
+      REFRESH_FIXTURE_OPEN_PR: '0',
+      REFRESH_FIXTURE_REMOTE: setup.remote,
+      REFRESH_FIXTURE_PATCH_MARKER: resetMarker,
+      REFRESH_FIXTURE_PATCH_LOG: resetLog,
+      REFRESH_FIXTURE_REQUIRE_STALE_RESET: '1',
+    });
 
     expect(result.status, result.stderr).toBe(0);
     expect(result.stdout).toContain('No open refresh PR for chore/refresh');
     expect(result.stdout).toContain('created');
+    expect(fs.existsSync(resetMarker)).toBe(true);
+    expect(fs.readFileSync(resetLog, 'utf8').trim().split('\n')).toHaveLength(1);
     expect(git(setup.remote, ['rev-parse', 'chore/refresh^'])).toBe(mainHead);
     expect(git(setup.remote, ['show', 'chore/refresh:data/cache.json'])).toBe('{"version":"current"}');
     expect(git(setup.remote, ['merge-tree', '--write-tree', 'main', 'chore/refresh'])).not.toContain('CONFLICT');
@@ -614,7 +667,10 @@ describe('data publisher preserves its source checkout', () => {
     const setup = fixture();
     const staleHead = git(setup.remote, ['rev-parse', 'chore/refresh']);
     const mainHead = git(setup.remote, ['rev-parse', 'main']);
-    const result = publish(setup, false, ['--reconcile-main'], { REFRESH_FIXTURE_OPEN_PR: '0' });
+    const result = publishPlain(setup, ['--reconcile-main'], {
+      REFRESH_FIXTURE_OPEN_PR: '0',
+      REFRESH_FIXTURE_REMOTE: setup.remote,
+    });
 
     expect(result.status, result.stderr).toBe(0);
     expect(result.stdout).toContain(
@@ -670,17 +726,18 @@ describe('data publisher preserves its source checkout', () => {
     git(setup.repo, ['push', '-q', 'origin', 'fixture-concurrent']);
     git(setup.repo, ['checkout', '-q', 'main']);
 
-    refuseRefreshPushes(setup, {
-      onRefusal: `if [ "$refusals" -eq 1 ]; then git update-ref refs/heads/chore/refresh ${concurrentHead}; fi`,
+    const result = publishPlain(setup, ['--reconcile-main'], {
+      REFRESH_FIXTURE_OPEN_PR: '0',
+      REFRESH_FIXTURE_REMOTE: setup.remote,
+      REFRESH_FIXTURE_ORPHAN_RESET_RACE: '1',
+      REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD: concurrentHead,
     });
-    const result = publish(setup, false, ['--reconcile-main'], { REFRESH_FIXTURE_OPEN_PR: '0' });
 
     expect(result.status, result.stderr).toBe(0);
     expect(result.stdout).toContain('rebuilding from the current main snapshot');
     expect(result.stdout).toContain('lease was lost to a concurrent run');
     expect(result.stdout).not.toContain('created');
     expect(git(setup.remote, ['rev-parse', 'chore/refresh'])).toBe(concurrentHead);
-    expect(fs.readFileSync(path.join(setup.remote, 'fixture-refusals'), 'utf8').trim()).toBe('1');
   });
 
   it('keeps the stable branch as base when a refresh PR is open', () => {
@@ -1386,10 +1443,11 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     const pushLines = lines
       .map((line, index) => ({ line, index }))
       .filter(({ line }) => !line.trimStart().startsWith('#') && /(^|\s)git(\s+-c\s+\S+)*\s+push(\s|$)/.test(line));
-    // The five call sites share two bounded transport forms so the primary and
-    // fallback identities cannot drift apart.
+    // The four Git push call sites share two bounded transport forms so the
+    // primary and fallback identities cannot drift apart.
     expect(pushLines).toHaveLength(2);
-    expect(helper.match(/push_with_fallback /g)).toHaveLength(5);
+    expect(helper.match(/push_with_fallback /g)).toHaveLength(4);
+    expect(helper.match(/update_ref_with_lease /g)).toHaveLength(1);
     for (const { index } of pushLines) {
       // The command the push line belongs to starts at most two lines above it.
       const command = lines.slice(Math.max(0, index - 2), index + 1).join('\n');
@@ -1400,6 +1458,11 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(helper).toMatch(/elif push_new_stable_branch; then/);
     expect(helper).toContain('run_push_with_token "$FALLBACK_PUSH_URL"');
     expect(helper).toContain('GITHUB_PAT fallback');
+    expect(helper).toContain('updateRefs');
+    expect(helper).toContain('beforeOid:$beforeOid');
+    expect(helper).toContain('afterOid:$afterOid');
+    expect(helper).not.toContain('patch_ref_with_fallback');
+    expect(helper).not.toContain('gh api -X PATCH');
     // The cleanup deletes with a lease on the base commit; a REST delete has no such condition.
     expect(helper).toContain('--force-with-lease="refs/heads/${BRANCH}:${REMOTE_BASE_SHA}"');
     expect(helper).not.toContain('-X DELETE');
