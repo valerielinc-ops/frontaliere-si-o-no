@@ -86,6 +86,15 @@ describe('llms family derived from the sitemaps', () => {
     expect(`${llms}${full}`).not.toContain('3,000+');
   });
 
+  it('counts a translation declared only as an hreflang alternate, once', async () => {
+    const f = seeded();
+    const alternate = (lang: string, p: string) => `<xhtml:link rel="alternate" hreflang="${lang}" href="https://frontaliereticino.ch${p}" />`;
+    const block = `<url><loc>https://frontaliereticino.ch/guida/</loc>${alternate('it', '/guida/')}${alternate('en', '/en/guide/')}${alternate('de', '/de/ratgeber/')}${alternate('fr', '/fr/guide/')}${alternate('x-default', '/guida/')}</url>`;
+    fs.writeFileSync(path.join(f.distDir, 'sitemap-blog.xml'), `<urlset>${block}</urlset>`);
+    const { summarizeSitemaps } = await import('../scripts/lib/llms-txt-generator.mjs');
+    expect(summarizeSitemaps(f.publicDir, fs, f.distDir, ['sitemap-blog.xml']).totalUrls).toBe(4);
+  });
+
   it('keeps the per-URL index out of the reference, with its own derived date', async () => {
     const f = seeded();
     await generateLlmsTxtFamily(f);

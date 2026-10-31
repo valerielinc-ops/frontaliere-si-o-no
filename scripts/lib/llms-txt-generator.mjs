@@ -118,7 +118,8 @@ export function parseSitemapUrls(publicDir, fs, locale = 'it', distDir, sitemapF
 
 /**
  * What the sitemaps themselves say, for the counts and dates the llms family
- * publishes. Prefers the file in `distDir`, the final one: `public/` holds only
+ * publishes. A URL counts once, whether it is a `<loc>` or an hreflang alternate.
+ * Prefers the file in `distDir`, the final one: `public/` holds only
  * the seeds, so counting there is how 7,542 came to stand for a site with
  * 159,770 URLs. The newest `<lastmod>` is the index date, because it changes
  * with the content: a rebuild of unchanged pages renews nothing.
@@ -139,6 +140,9 @@ export function summarizeSitemaps(publicDir, fs, distDir, sitemapFiles = SITEMAP
     }
     if (content === null) continue;
     for (const m of content.matchAll(/<loc>([^<]+)<\/loc>/g)) locs.add(m[1]);
+    // Translations are often declared only as hreflang alternates of the IT
+    // <loc>: without them "across all languages" would count one language.
+    for (const m of content.matchAll(/hreflang="[^"]+"\s+href="([^"]+)"/g)) locs.add(m[1]);
     for (const m of content.matchAll(/<lastmod>\s*(\d{4}-\d{2}-\d{2})/g)) {
       if (newestDay === undefined || m[1] > newestDay) newestDay = m[1];
     }
