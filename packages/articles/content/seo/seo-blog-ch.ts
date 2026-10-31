@@ -106815,16 +106815,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-svizzera-vietnam-relazioni-2026': {
     title: 'Svizzera e Vietnam intensificano commercio e investimenti',
-    description: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    description: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile.',
     keywords: 'frontalieri, ticino, svizzera, italia, vietnam, intensificano, commercio, investimenti',
     ogTitle: 'Svizzera e Vietnam intensificano commercio e investimenti',
-    ogDescription: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    ogDescription: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile.',
     canonicalPath: '/articoli-svizzera/svizzera-vietnam-relazioni-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Svizzera e Vietnam intensificano commercio e investimenti",
-      "description": "Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni",
+      "description": "Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",

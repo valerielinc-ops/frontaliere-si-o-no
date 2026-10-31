@@ -136,6 +136,15 @@ function checkIsolatedSectionLabelTail(value, label) {
   return [`${label}: summary ends with isolated section label "${token}"`];
 }
 
+function checkKnownTruncatedTail(value, label) {
+  const normalized = String(value || '').replace(/\s+/gu, ' ').trim();
+  const failures = checkIsolatedSectionLabelTail(normalized, label);
+  if (TRUNCATED_ENDINGS.some((pattern) => pattern.test(normalized))) {
+    failures.push(`${label}: summary ends with a known truncated fragment`);
+  }
+  return failures;
+}
+
 function checkSummary(value, label) {
   const normalized = String(value || '').replace(/\s+/gu, ' ').trim();
   const failures = [];
@@ -146,9 +155,7 @@ function checkSummary(value, label) {
   if (/[.…]{3,}\s*$/u.test(normalized)) {
     failures.push(`${label}: summary ends with an ellipsis`);
   }
-  if (TRUNCATED_ENDINGS.some((pattern) => pattern.test(normalized))) {
-    failures.push(`${label}: summary ends with a known truncated fragment`);
-  }
+  failures.push(...checkKnownTruncatedTail(normalized, label));
   if (!/[.!?]$/u.test(normalized)) {
     failures.push(`${label}: summary does not end with sentence punctuation`);
   }
@@ -167,7 +174,7 @@ export function validateArticleExcerptFiles(files, { all = false } = {}) {
         .filter((entry) => entry.field === 'excerpt');
       for (const entry of entries) {
         checked += 1;
-        failures.push(...checkIsolatedSectionLabelTail(
+        failures.push(...checkKnownTruncatedTail(
           entry.value,
           `${file}:blog.article.${entry.articleId}.excerpt`,
         ));
@@ -178,7 +185,7 @@ export function validateArticleExcerptFiles(files, { all = false } = {}) {
       for (const { key, object } of allSeoRecords(sourceFile)) {
         for (const property of ['description', 'ogDescription', 'structuredData.description']) {
           checked += 1;
-          failures.push(...checkIsolatedSectionLabelTail(
+          failures.push(...checkKnownTruncatedTail(
             valueFromRecord(object, property),
             `${file}:${key}.${property}`,
           ));
