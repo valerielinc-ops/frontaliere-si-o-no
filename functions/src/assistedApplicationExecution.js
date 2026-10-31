@@ -1,10 +1,11 @@
 /** Exclusive execution of an approved, certainly-unsent portal recovery. */
 import { createHash, randomUUID } from 'node:crypto';
 import { evaluateRedFlags, roundWasSent } from './assistedApplicationFlow.js';
-import { hasAssistedApplicationConsent, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 import { AUTOMATED_PORTAL_CHANNELS } from './lib/portalChannels.js';
 import { verifiedInfrastructureProof } from './lib/portalInfrastructureEvidence.js';
-import { hasRecordedSubmission } from './assistedApplicationSubmissionGuard.js';
+import { hasRecordedSubmission, submissionFlowAllowsSend } from './assistedApplicationSubmissionGuard.js';
+import { applicationPolicyAuthority } from './lib/assistedApplicationPolicyAuthority.js';
 import { automationEligibility } from './assistedApplicationEligibility.js';
 import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 
@@ -76,10 +77,10 @@ export function executionEligibility({ orderId, order, flow, draft, submission, 
   if (flow?.history != null && !Array.isArray(flow.history)) return 'submission_history_unknown';
   if (hasRecordedSubmission({ order, flow, draft, submission })) return 'submission_proven';
   if (order?.paymentStatus !== 'paid' || order.withdrawnAt || submission?.withdrawnAt || order.retentionPurgedAt
-    || ['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
+    || ['pending', 'completed', 'succeeded', 'refunded'].includes(order.refundStatus) || order.refundedAt != null
     || !['awaiting_upload', 'ready_for_manual_submission', 'in_progress'].includes(order.submissionStatus)) return 'order_ineligible';
-  if (!hasAssistedApplicationConsent(order)) return 'consent_missing';
-  if (flow?.state !== 'submitting' || Number(flow.round) !== Number(round) || !roundWasSent(flow, round)) return 'round_not_approved';
+  if (!applicationPolicyAuthority({ orderId, order, flow, nowMs })) return 'consent_missing';
+  if (!submissionFlowAllowsSend(flow, Number(round), 'portal')) return 'round_not_approved';
   if (draft?.status !== 'ready' || Number(draft.round) !== Number(round) || draft.sent || draft.sentAttempt || flow.postingExpiredAt) return 'draft_ineligible';
   if (!AUTOMATED_PORTAL_CHANNELS.has(draft.channel?.type)) return 'not_a_portal_channel';
   const flags = evaluateRedFlags(draft, flow.answers || {}, flow.documents || {}, flow.questionAnswers);
@@ -217,11 +218,10 @@ export function executionLease({ db, orderId, executionId, sourceSha, engineVers
     if (materials && execution.materialVersion !== executionMaterialVersion(context)) throw new Error('execution_material_changed');
     if (!outcome && (context.order.paymentStatus !== 'paid' || context.order.withdrawnAt || context.submission.withdrawnAt || !assistedApplicationRetained(context.order, now())
       || context.flow.submittedAt
-      || ['pending', 'succeeded', 'refunded'].includes(context.order.refundStatus)
+      || ['pending', 'completed', 'succeeded', 'refunded'].includes(context.order.refundStatus) || context.order.refundedAt != null
       || !['awaiting_upload', 'ready_for_manual_submission', 'in_progress'].includes(context.order.submissionStatus)
-      || !hasAssistedApplicationConsent(context.order)
-      || context.flow.state !== 'submitting' || Number(context.flow.round) !== execution.round
-      || !roundWasSent(context.flow, execution.round))) throw new Error('execution_not_submittable');
+      || !applicationPolicyAuthority({ orderId, order: context.order, flow: context.flow, nowMs: now() })
+      || !submissionFlowAllowsSend(context.flow, execution.round, 'portal'))) throw new Error('execution_not_submittable');
     return execution;
   };
   const assertInTransaction = async (transaction, options) => {
@@ -246,6 +246,7 @@ export function executionLease({ db, orderId, executionId, sourceSha, engineVers
   };
   let reportedType = null;
   return {
+    clock: now,
     async claim() {
       return db.runTransaction(async transaction => {
         const context = await contextIn(transaction, ref);

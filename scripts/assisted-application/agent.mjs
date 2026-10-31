@@ -385,7 +385,7 @@ export async function runAgent() {
     // An application sent by e-mail gets its follow-ups (day 7 and 14); the
     // recipient and subject stay in Firestore, not in the automation event.
     if (event.followup && !dryRun) {
-      await scheduleFollowups(db, orderId, event.followup);
+      await scheduleFollowups(db, orderId, { ...event.followup, round }, Date.now());
       delete event.followup;
     }
     // A WhatsApp application: its link goes on the order, for the candidate's

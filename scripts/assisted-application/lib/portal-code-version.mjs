@@ -14,7 +14,7 @@ export function currentPortalCodeVersion(root = fileURLToPath(new URL('../../../
     'functions/src/assistedApplicationPortalRecoveryPolicy.js', 'functions/src/assistedApplicationSubmissionGuard.js',
     'functions/src/lib/answerRules.js', 'functions/src/lib/portalQuestionText.js', 'functions/src/lib/portalNativeContract.js', 'scripts/assisted-application/install-nopecha.sh');
   files.push('functions/src/assistedApplicationReceiptReconcile.js', 'functions/src/lib/submissionReceiptContract.js', 'functions/src/lib/qualificationCounterContext.js', 'functions/src/lib/submittedOrderFields.js', 'functions/src/assistedApplicationExecution.js', 'functions/src/assistedApplicationEligibility.js', 'functions/src/codexFallback.js',
-    'functions/src/lib/assistedApplicationRetentionPolicy.js', 'functions/src/lib/assistedApplicationArtifactRetention.js', 'functions/src/assistedApplicationFollowup.js', 'scripts/assisted-application/lib/secure-run.mjs', 'scripts/assisted-application/lib/draft.mjs', 'scripts/assisted-application/lib/docx-inplace.mjs',
+    'functions/src/lib/assistedApplicationRetentionPolicy.js', 'functions/src/lib/assistedApplicationPolicyAuthority.js', 'functions/src/lib/assistedApplicationArtifactRetention.js', 'functions/src/assistedApplicationFollowup.js', 'scripts/assisted-application/lib/secure-run.mjs', 'scripts/assisted-application/lib/draft.mjs', 'scripts/assisted-application/lib/docx-inplace.mjs',
     'functions/src/lib/portalChannels.js', 'functions/src/lib/portalInfrastructureEvidence.js',
     'scripts/assisted-application/remote-controller.mjs', 'scripts/assisted-application/remote-executor.mjs',
     'scripts/assisted-application/supervised-agent.mjs', 'scripts/assisted-application/lib/execution-runtime.mjs',

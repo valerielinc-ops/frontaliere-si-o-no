@@ -30,8 +30,37 @@ export async function reconcileCanonicalSubmissionReceipt({ db, orderId, round, 
     // The durable fact still prevents a resend after deletion or withdrawal.
     // This path creates no event, draft, notification or other retained data.
     if (!order || !flow || !assistedApplicationRetained(order, nowMs)) return handled('receipt_only');
-    if (Number(flow.round) !== guardedRound || Number(draft?.round) !== guardedRound) return handled('stale_round');
+    const legacyAck = record.provenance === 'legacy_employer_ack';
+    if (Number(flow.round) !== guardedRound || (draft && Number(draft.round) !== guardedRound)
+      || (!draft && !legacyAck)) return handled('stale_round');
     if (order.withdrawnAt || flow.state === 'withdrawn') return handled('closed_slot');
+    if (legacyAck) {
+      if (record.channel !== 'email' || record.attemptId || !SHA256.test(record.receiptBindingHash || '') || !SHA256.test(record.originalRecordHash || '')) return handled('legacy_unbound');
+      const receiptRef = orderRef.collection('submission_receipts').doc(record.receiptBindingHash);
+      const receipt = (await tx.get(receiptRef)).data();
+      if (!receipt || receipt.kind !== 'legacy_employer_ack' || receipt.bindingHash !== record.receiptBindingHash
+        || receipt.round !== guardedRound || receipt.recordHash !== record.originalRecordHash
+        || !Number.isFinite(receipt.leftAt) || receipt.leftAt <= 0 || !Number.isFinite(receipt.providerReceivedAt)
+        || receipt.providerReceivedAt < receipt.leftAt || !isMinimalSubmissionReceipt(receipt.minimalReceipt, record.receiptBindingHash, guardedRound)
+        || receipt.minimalReceipt.at !== receipt.providerReceivedAt) return handled('legacy_unbound');
+      if (receipt.slotHash !== submissionSlotHash({ orderId, order })) return handled('slot_changed');
+      const currentNowMs = nowMs + Math.max(0, Date.now() - startedAt);
+      if (!assistedApplicationRetained(order, currentNowMs)) return handled('receipt_only');
+      const timestamp = FieldValue.serverTimestamp();
+      const orderPatch = submittedOrderFields({ order, flow: { ...flow, submittedVia: 'email' }, timestamp });
+      if (!orderPatch && order.submissionStatus !== 'submitted') return handled('closed_slot');
+      const result = flow.state === 'submitted' ? null : transition(flow, { type: 'submit_acknowledged' }, { draft, nowMs: currentNowMs });
+      if (result?.ignored) return handled('flow_not_compatible');
+      if (!assistedApplicationRetained(order, nowMs + Math.max(0, Date.now() - startedAt))) return handled('receipt_only');
+      // A strong historical SMTP acknowledgement proves state only. No draft
+      // photo, material, approval, event or new execution is synthesized.
+      if (result) {
+        tx.set(flowRef, { ...flow, ...result.flow, submittedVia: 'email', updatedAt: currentNowMs });
+        tx.set(orderRef, { automationState: 'submitted', automationDueAt: null, automationUpdatedAt: timestamp }, { merge: true });
+      }
+      if (orderPatch) tx.set(orderRef, orderPatch, { merge: true });
+      return handled(result || orderPatch ? 'reconciled_legacy_ack' : 'already_reconciled');
+    }
     if (typeof record.attemptId !== 'string' || !record.attemptId) return handled('legacy_unbound');
     const attemptHash = submissionAttemptHash(record.attemptId);
     const proofRef = orderRef.collection('submission_receipts').doc(attemptHash);

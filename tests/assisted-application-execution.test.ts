@@ -1,16 +1,30 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { executionController, executionLease, executionMaterialVersion, prepareRemoteExecution, remoteExecutionReason,
   recoveryReasonForDispatch, remoteExecutorReady, EXECUTION_LEASE_MS } from '../functions/src/assistedApplicationExecution.js';
 import { captchaInfrastructureProof, infrastructureReasonForEvent, navigationInfrastructureProof,
   verifiedInfrastructureProof } from '../functions/src/lib/portalInfrastructureEvidence.js';
-import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
+import { submissionGuard: createSubmissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { enterExecution } from '../scripts/assisted-application/lib/execution-runtime.mjs';
 
 const ORDER = 'order_remote_fixture';
 const ROOT = `assisted_applications/${ORDER}`;
 const SHA = 'a'.repeat(40);
 const ENGINE = 'b'.repeat(64);
+
+// These tests isolate execution fencing. The source witness is an explicit DI
+// fixture; production source-lineage certification uses the real P1 provider.
+function submissionGuard(db: any, orderId: string, round: number, options: any = {}) {
+  if (typeof options.execution?.clock === 'function') vi.spyOn(Date, 'now').mockImplementation(options.execution.clock);
+  const sourceGuard = { fingerprint: 'e'.repeat(64), async assertInTransaction(tx: any) {
+    const order = await tx.get(db.collection('assisted_applications').doc(orderId));
+    if (!order.exists) throw new Error('evidence_source_changed');
+  } };
+  return createSubmissionGuard(db, orderId, round, { ...options,
+    answerSourceGuard: Object.hasOwn(options, 'answerSourceGuard') ? options.answerSourceGuard : sourceGuard });
+}
+afterEach(() => vi.restoreAllMocks());
+
 // Metadata copied from the historical ALTEN / FELFEL evidence, without order,
 // profile, portal URL, answers, candidate text or screenshot.
 const measuredResponses = [{ host: 'api.nopecha.com', path: '/v1/status', status: 403, errors: [{ message: 'Banned IP' }] },
@@ -229,6 +243,37 @@ describe('portal infrastructure host recovery', () => {
     store.read(`${ROOT}/automation/execution`)!.controller.expiresAt = nowMs + EXECUTION_LEASE_MS;
     await expect(lease(store, { now: () => nowMs }).claim()).resolves.toMatchObject({ executionId: 'execution-fixture' });
   });
+  it('binds the common UUID and remote token in one click and receipt transaction', async () => {
+    const store = await prepared(); const actor = lease(store); await actor.claim();
+    const guard = submissionGuard(store.db, ORDER, 1, { execution: actor }); await guard.claim('portal', 110);
+    const photo = { at: 110, channel: 'portal', files: [], submissionAttempt: guard.attemptBinding() };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ sentAttempt: photo }, { merge: true });
+    const deadline = await guard.markClicked(110, { receiptWaitMs: 200_000 });
+    const execution = store.read(`${ROOT}/automation/execution`)!;
+    const framePath = store.list(`${ROOT}/submission_receipts/`)[0];
+    const frame = store.read(framePath)!;
+    expect(execution.clickProof.submissionAttemptHash).toBe(frame.attemptHash);
+    expect(deadline).toBe(90_110);
+    await guard.markSent({ sent: photo }, 111);
+    const commonMinimum = store.read(framePath)!.minimalReceipt;
+    const remoteMinimum = store.read(`${ROOT}/automation/execution`)!.minimalReceipt;
+    expect(commonMinimum.hash).toBe(remoteMinimum.hash);
+    expect(commonMinimum.attempt).toBe(execution.clickProof.submissionAttemptHash);
+    expect(remoteMinimum.attempt).toBe(execution.clickProof.executionTokenHash);
+  });
+  it('does not arm either proof if the controller expires during the final source read', async () => {
+    const store = await prepared(); let nowMs = 110;
+    const actor = lease(store, { now: () => nowMs }); await actor.claim();
+    const sourceGuard = { fingerprint: 'e'.repeat(64), async assertInTransaction(tx: any) {
+      await tx.get(store.db.collection('assisted_applications').doc(ORDER)); nowMs = 1_000_000;
+    } };
+    const guard = submissionGuard(store.db, ORDER, 1, { execution: actor, answerSourceGuard: sourceGuard });
+    await guard.claim('portal', 110);
+    await expect(guard.markClicked(110)).rejects.toThrow('execution_lease_lost');
+    expect(store.read(`${ROOT}/automation/submission`)!.r1.clickedAt).toBeNull();
+    expect(store.read(`${ROOT}/automation/execution`)!.clickProof).toBeUndefined();
+    expect(store.list(`${ROOT}/submission_receipts/`)).toHaveLength(0);
+  });
   it('preserves a real outcome after the runner stores its own sent record', async () => {
     const store = await prepared(); const guard = lease(store); await guard.claim();
     const submission = submissionGuard(store.db, ORDER, 1, { execution: guard });
@@ -279,7 +324,13 @@ describe('portal infrastructure host recovery', () => {
     if (phase === 'beforeReport') await guard.markSent(record, 112);
     Object.assign(store.read(ROOT)!, { retentionPurgingAt: 113, retentionPurgedAt: 114 });
     for (const path of ['automation/flow', 'automation/submission', 'ai_drafts/current']) store.docs.delete(`${ROOT}/${path}`);
-    if (phase === 'beforeReceipt') await expect(guard.markSent(record, 115)).resolves.toEqual({ minimal: true });
+    if (phase === 'beforeReceipt') {
+      const result = await guard.markSent(record, 115);
+      expect(result).toMatchObject({ minimal: true, receipt: { status: 'sent', at: 115, round: 1 } });
+      const frame = store.read(store.list(`${ROOT}/submission_receipts/`)[0])!;
+      expect(result.receipt).toEqual(frame.minimalReceipt);
+      expect(result.receipt.hash).toMatch(/^[a-f0-9]{64}$/);
+    }
     const event = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events').doc('purged-receipt');
     await actor.report(event, { type: 'submit_succeeded', privateValue: 'must-not-return' });
     await actor.complete({ artifacts: { stop: { privateValue: 'must-not-return' } } });
@@ -293,22 +344,24 @@ describe('portal infrastructure host recovery', () => {
     await expect(actor.claim()).rejects.toThrow();
   });
   it('uses fresh retention time after receipt reads while preserving the observed timestamp', async () => {
-    vi.useFakeTimers(); vi.setSystemTime(110);
-    try {
-      const store = await prepared(); const actor = lease(store); await actor.claim();
-      const guard = submissionGuard(store.db, ORDER, 1, { execution: actor }); await guard.claim('portal'); await guard.markClicked(111);
-      const run = store.db.runTransaction.bind(store.db);
-      store.db.runTransaction = callback => run(transaction => callback({ ...transaction, async get(ref) {
-        const value = await transaction.get(ref);
-        if (ref.path === `${ROOT}/automation/submission`) vi.setSystemTime(112);
-        return value;
-      } }));
-      const observedAt = 10 + 90 * 24 * 60 * 60_000 - 1;
-      await expect(guard.markSent({ channel: 'portal', private: 'must-not-write' }, observedAt)).resolves.toEqual({ minimal: true });
-      expect(store.read(`${ROOT}/automation/execution`)!.minimalReceipt.at).toBe(observedAt);
-      expect(store.read(`${ROOT}/automation/submission`)!.r1).not.toHaveProperty('private');
-      expect(store.read(`${ROOT}/automation/submission`)!.r1.state).toBe('sending');
-    } finally { vi.useRealTimers(); }
+    let clock = 110;
+    const store = await prepared(); const actor = lease(store, { now: () => clock }); await actor.claim();
+    const guard = submissionGuard(store.db, ORDER, 1, { execution: actor }); await guard.claim('portal'); await guard.markClicked(111);
+    const run = store.db.runTransaction.bind(store.db);
+    const observedAt = 10 + 90 * 24 * 60 * 60_000 - 1;
+    store.db.runTransaction = callback => run(transaction => callback({ ...transaction, async get(ref) {
+      const value = await transaction.get(ref);
+      if (ref.path === `${ROOT}/automation/submission`) clock = observedAt + 1;
+      return value;
+    } }));
+    const result = await guard.markSent({ channel: 'portal', private: 'must-not-write' }, observedAt);
+    expect(result).toMatchObject({ minimal: true, receipt: { status: 'sent', at: observedAt, round: 1 } });
+    const frame = store.read(store.list(`${ROOT}/submission_receipts/`)[0])!;
+    expect(result.receipt).toEqual(frame.minimalReceipt);
+    expect(result.receipt.hash).toMatch(/^[a-f0-9]{64}$/);
+    expect(store.read(`${ROOT}/automation/execution`)!.minimalReceipt.at).toBe(observedAt);
+    expect(store.read(`${ROOT}/automation/submission`)!.r1).not.toHaveProperty('private');
+    expect(store.read(`${ROOT}/automation/submission`)!.r1.state).toBe('sending');
   });
   it('caps receipt observation at the original wait and never renews it with heartbeats', async () => {
     const store = await prepared(); let nowMs = 110;

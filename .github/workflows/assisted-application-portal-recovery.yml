@@ -36,6 +36,7 @@ on:
       - 'functions/src/assistedApplicationExecution.js'
       - 'functions/src/assistedApplicationEligibility.js'
       - 'functions/src/lib/assistedApplicationRetentionPolicy.js'
+      - 'functions/src/lib/assistedApplicationPolicyAuthority.js'
       - 'functions/src/lib/assistedApplicationArtifactRetention.js'
       - 'functions/src/assistedApplicationFollowup.js'
       - 'scripts/assisted-application/lib/secure-run.mjs'
