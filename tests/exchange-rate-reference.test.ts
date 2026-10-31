@@ -54,3 +54,14 @@ describe('scenario netto di riferimento', () => {
     expect(s.oldNetAnnualCHF).toBeGreaterThan(s.newNetAnnualCHF);
   });
 });
+
+describe('netto su CHF 80.000 nelle pagine', () => {
+  it('le pagine scenario non riportano forchette scritte a mano', () => {
+    const source = read('build-plugins/staticPagesPlugin.ts');
+    for (const stale of ["CHF 4'800-5'100", "CHF 5'100-5'400", "CHF 5'000 e CHF 5'300", "CHF 10'000-10'500"]) {
+      expect(source).not.toContain(stale);
+    }
+    const faq = read('services/seo/faq-translations.ts');
+    expect(faq).not.toMatch(/4[.,  ]400-4[.,  ]600/);
+  });
+});

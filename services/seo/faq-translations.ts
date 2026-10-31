@@ -2609,15 +2609,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?": {
  en: {
  q: "How much does a cross-border worker earn net on CHF 80,000 gross in 2026?",
- a: "A single cross-border worker without children earning CHF 80,000 gross/year earns about CHF 4,900-5,100/month net under the old agreement (withholding tax only), or about CHF 4,400-4,600/month net under the new agreement (reduced withholding tax + Italian IRPEF with EUR 10,000 exemption and tax credit). Swiss social contributions (AVS 5.3%, AC 1.1%, LAA, LPP) are deducted from gross."
+ a: "Net pay depends on the tax table, contributions, family situation, exchange rate and any applicable Italian tax regime. Use the simulator with your data and check the result against the cantonal tables and Italian rules."
  },
  de: {
  q: "Wie viel verdient ein Grenzgänger netto bei CHF 80.000 brutto 2026?",
- a: "Ein lediger Grenzgänger ohne Kinder mit CHF 80.000 brutto/Jahr verdient ca. CHF 4.900-5.100/Monat netto nach dem alten Abkommen (nur Quellensteuer), oder ca. CHF 4.400-4.600/Monat netto nach dem neuen Abkommen (reduzierte Quellensteuer + italienische IRPEF mit Freibetrag 10.000 EUR und Steuergutschrift). Schweizer Sozialabgaben (AHV 5,3 %, ALV 1,1 %, UVG, BVG) werden vom Bruttolohn abgezogen."
+ a: "Das Netto hängt von Tarif, Beiträgen, Familiensituation, Wechselkurs und dem gegebenenfalls anwendbaren italienischen Steuerregime ab. Nutzen Sie den Simulator mit Ihren Daten und prüfen Sie das Ergebnis anhand der kantonalen Tarife und der italienischen Vorschriften."
  },
  fr: {
  q: "Combien gagne net un frontalier avec CHF 80 000 bruts en 2026 ?",
- a: "Un frontalier célibataire sans enfants gagnant CHF 80 000 bruts/an touche environ CHF 4 900-5 100/mois nets avec l'ancien accord (impôt à la source uniquement), ou environ CHF 4 400-4 600/mois nets avec le nouvel accord (impôt à la source réduit + IRPEF italienne avec franchise de 10 000 EUR et crédit d'impôt). Les cotisations sociales suisses (AVS 5,3 %, AC 1,1 %, LAA, LPP) sont déduites du brut."
+ a: "Le net dépend du barème, des cotisations, de la situation familiale, du taux de change et du régime fiscal italien éventuellement applicable. Utilisez le simulateur avec vos données et vérifiez le résultat avec les barèmes cantonaux et les règles italiennes."
  }
  },
 

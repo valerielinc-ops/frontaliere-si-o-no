@@ -182,7 +182,7 @@ const deStats: Record<string, string> = {
  'glossary.terms.cu.example': 'Bei ausschliesslich Schweizer Einkommen wird keine CU ausgestellt; der Lohnausweis dient als Basis.',
  'glossary.terms.ral.title': 'RAL – Bruttojahresgehalt',
  'glossary.terms.ral.desc': 'Jahresbruttolohn vor Steuern und Sozialabzügen. Grundlage für die Steuerberechnung.',
- 'glossary.terms.ral.example': 'RAL CHF 80.000: nach AHV, ALV, BVG und Quellensteuer bleiben ca. CHF 58.000-62.000 netto.',
+ 'glossary.terms.ral.example': 'RAL CHF 80.000: nach AHV, ALV, BVG und Quellensteuer bleiben ca. CHF 62.000-64.000; neue Grenzgänger deklarieren das Einkommen danach in Italien.',
  'glossary.terms.modello730.title': 'Formular 730',
  'glossary.terms.modello730.desc': 'Vereinfachte italienische Steuererklärung. NICHT nutzbar für Grenzgänger mit ausländischem Einkommen (Redditi PF erforderlich).',
  'glossary.terms.modello730.example': 'Häufiger Fehler: Das 730 für Schweizer Einkommen nutzen. Grenzgänger müssen Redditi PF verwenden.',

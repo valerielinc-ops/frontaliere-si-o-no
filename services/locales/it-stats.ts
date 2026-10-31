@@ -191,7 +191,7 @@ const translations: Record<string, string> = {
  'glossary.terms.cu.example': 'Se hai redditi solo svizzeri, la CU non viene emessa; usi il Lohnausweis per la dichiarazione.',
  'glossary.terms.ral.title': 'RAL – Retribuzione Annua Lorda',
  'glossary.terms.ral.desc': 'Stipendio annuo lordo prima di tasse e contributi sociali. Base per il calcolo fiscale.',
- 'glossary.terms.ral.example': 'RAL CHF 80.000: dopo AVS, AC, LPP e imposta alla fonte restano circa CHF 58.000-62.000 netti.',
+ 'glossary.terms.ral.example': 'RAL CHF 80.000: dopo AVS, AC, LPP e imposta alla fonte restano circa CHF 62.000-64.000; il nuovo frontaliere dichiara poi il reddito in Italia.',
  'glossary.terms.modello730.title': 'Modello 730',
  'glossary.terms.modello730.desc': 'Dichiarazione dei redditi semplificata italiana. NON utilizzabile dai frontalieri con redditi esteri (serve Redditi PF).',
  'glossary.terms.modello730.example': 'Errore comune: usare il 730 per redditi svizzeri. I frontalieri devono usare il Modello Redditi PF.',
