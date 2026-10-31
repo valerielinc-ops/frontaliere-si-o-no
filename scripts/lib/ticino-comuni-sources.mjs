@@ -22,7 +22,7 @@ import { JSDOM } from 'jsdom';
 import { normalizeSpace, parseMunicipalDate } from './ticino-comuni-job-parser.mjs';
 
 export const ASSOLO_TEXT_QUERY = 'concorso';
-export const MAX_ASSOLO_PAGES = 3;
+export const MAX_ASSOLO_PAGES = 5;
 
 const ITALIAN_MONTHS = [
   'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
@@ -178,6 +178,17 @@ export function parseDedicatedPage(html, view) {
 }
 
 const CITYOS_LIST_SELECTOR = '#dataSmartAppConcorsi';
+/** Attesa del browser: basta un link che possa essere un PDF, lo decide isPdfHref. */
+const CITYOS_DETAIL_SELECTOR = 'main a[href*=".pdf" i]';
+
+/** Un link a un PDF: conta il percorso, non il maiuscolo ne' la query string. */
+export function isPdfHref(href, baseUrl) {
+  try {
+    return new URL(href, baseUrl).pathname.toLowerCase().endsWith('.pdf');
+  } catch {
+    return false;
+  }
+}
 
 /** @param {string} html pagina gia' renderizzata @param {{ baseUrl: string }} view */
 export function parseCityOsList(html, view) {
@@ -206,13 +217,15 @@ export function parseCityOsDetail(html, view) {
   const dom = new JSDOM(String(html || '').replace(/<script[\s\S]*?<\/script>/gi, ''));
   try {
     const main = dom.window.document.querySelector('main') || dom.window.document.body;
-    return [...main.querySelectorAll('a[href$=".pdf"]')].map((anchor) => ({
-      title: normalizeSpace(anchor.textContent).replace(/\.pdf$/i, ''),
-      url: new URL(anchor.getAttribute('href'), view.baseUrl).href,
-    }));
+    return [...main.querySelectorAll('a[href]')]
+      .filter((anchor) => isPdfHref(anchor.getAttribute('href'), view.baseUrl))
+      .map((anchor) => ({
+        title: normalizeSpace(anchor.textContent).replace(/\.pdf$/i, ''),
+        url: new URL(anchor.getAttribute('href'), view.baseUrl).href,
+      }));
   } finally {
     dom.window.close();
   }
 }
 
-export { CITYOS_LIST_SELECTOR };
+export { CITYOS_DETAIL_SELECTOR, CITYOS_LIST_SELECTOR };

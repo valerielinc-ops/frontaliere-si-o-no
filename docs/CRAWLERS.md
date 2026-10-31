@@ -119,6 +119,8 @@ porta il proprio Comune come datore in `company`. Non e' una scorciatoia: i grup
 di workflow hanno un budget di 480 KB (GitHub rifiuta i file oltre ~512 KB), una
 voce ne costa circa 16 e i gruppi sono gia' a circa 30 membri, quindi 67 voci non
 ci stanno. **Aggiungere un Comune e' una riga di registro**, senza file generati.
+Un Comune guasto o letto in parte non ferma gli altri: i suoi annunci memorizzati
+tornano nel lotto e l'esito della famiglia resta non pieno.
 
 Gli adapter stanno in `scripts/lib/ticino-comuni-sources.mjs`:
 

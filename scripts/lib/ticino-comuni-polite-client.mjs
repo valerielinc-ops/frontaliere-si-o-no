@@ -84,18 +84,20 @@ export function createPoliteClient({
     }
   }
 
-  async function robotsFor(origin) {
-    if (robotsByOrigin.has(origin)) return robotsByOrigin.get(origin);
+  async function readRobots(origin) {
     await waitForSlot(new URL(origin).host, MIN_GAP_MS);
-    let robots;
     try {
       const response = await timedFetch(`${origin}/robots.txt`, { headers: { Accept: 'text/plain,*/*;q=0.5' } });
-      robots = robotsFromResponse(response.status, await response.text());
+      return robotsFromResponse(response.status, await response.text());
     } catch {
-      robots = robotsFromResponse(503, '');
+      return robotsFromResponse(503, '');
     }
-    robotsByOrigin.set(origin, robots);
-    return robots;
+  }
+
+  /** La promessa in cache: due letture contemporanee fanno una richiesta sola. */
+  function robotsFor(origin) {
+    if (!robotsByOrigin.has(origin)) robotsByOrigin.set(origin, readRobots(origin));
+    return robotsByOrigin.get(origin);
   }
 
   /** Il verdetto di robots.txt per un URL, senza consumare il turno dell'host. */

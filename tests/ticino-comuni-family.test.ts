@@ -17,6 +17,7 @@ import {
 } from '../scripts/lib/ticino-comuni-polite-client.mjs';
 import {
   assoloListingUrl,
+  isPdfHref,
   parseAssoloListing,
   parseCityOsDetail,
   parseCityOsList,
@@ -345,6 +346,13 @@ describe('parseDedicatedPage e rendered-cityos', () => {
       .toEqual([{ title: 'Concorso permanente', url: 'https://cdn.esempio.ch/a.pdf' }]);
   });
 
+  it('riconosce un PDF col percorso: maiuscole e query string comprese', () => {
+    expect(parseCityOsDetail('<main><a href="/bando.PDF?download=1">Bando</a><a href="/altro.html">Altro</a></main>', { baseUrl: 'https://www.esempio.ch/' }))
+      .toEqual([{ title: 'Bando', url: 'https://www.esempio.ch/bando.PDF?download=1' }]);
+    expect(isPdfHref('/bando.pdf#pagina', 'https://esempio.ch/')).toBe(true);
+    expect(isPdfHref('/pdf/indice.html', 'https://esempio.ch/')).toBe(false);
+  });
+
   it('un elenco ancora in caricamento non e\' un elenco vuoto', () => {
     expect(parseCityOsList('<section id="dataSmartAppConcorsi" class="loading"></section>', { baseUrl: 'https://esempio.ch/' }).recognized).toBe(false);
   });
@@ -401,6 +409,12 @@ describe('createPoliteClient — robots.txt e Crawl-delay', () => {
     expect(calls).toEqual(['https://esempio.ch/robots.txt']);
   });
 
+  it('due letture contemporanee chiedono robots.txt una volta sola', async () => {
+    const { client, calls } = harness('User-agent: *\nDisallow: /x/\n');
+    await Promise.all([client.canFetch('https://esempio.ch/uno'), client.canFetch('https://esempio.ch/due')]);
+    expect(calls).toEqual(['https://esempio.ch/robots.txt']);
+  });
+
   it('robots.txt assente (404): nessuna restrizione', async () => {
     const { client } = harness('', { robotsStatus: 404 });
     await expect(client.fetch('https://esempio.ch/uno')).resolves.toBeInstanceOf(Response);
@@ -431,6 +445,7 @@ describe('fetchTicinoComuneJobs — dal listino agli annunci', () => {
     listingStatus = 200,
     disallowed = [] as string[],
     searchBroken = false,
+    nextPageLink = '',
   }: {
     rows: string;
     docs: Record<string, Doc>;
@@ -438,6 +453,7 @@ describe('fetchTicinoComuneJobs — dal listino agli annunci', () => {
     listingStatus?: number;
     disallowed?: string[];
     searchBroken?: boolean;
+    nextPageLink?: string;
   }) {
     const opened: string[] = [];
     const client = {
@@ -450,7 +466,7 @@ describe('fetchTicinoComuneJobs — dal listino agli annunci', () => {
       fetch: async (url: string) => new Response(
         searchBroken && url.includes('param_textsearch=concorso')
           ? '<html><body>formato inatteso</body></html>'
-          : `<html><body><form name="fric_4925"><select name="fric_4925_cat0"><option value="72" selected="selected">Concorsi</option></select>${rows}</form></body></html>`,
+          : `<html><body>${nextPageLink}<form name="fric_4925"><select name="fric_4925_cat0"><option value="72" selected="selected">Concorsi</option></select>${rows}${nextPageLink ? `<a href="Albo?ris_pg=${new URL(url).searchParams.get('ris_pg') === '1' ? 2 : Number(new URL(url).searchParams.get('ris_pg')) + 1}">oltre</a>` : ''}</form></body></html>`,
         { status: listingStatus },
       ),
     };
@@ -544,6 +560,25 @@ describe('fetchTicinoComuneJobs — dal listino agli annunci', () => {
     expect(isAuthoritativeEmptySnapshot(result)).toBe(true);
   });
 
+  it('tredici bandi aperti entrano tutti', async () => {
+    const slugs = Array.from({ length: 13 }, (_, index) => `Bando-${index}-14e5fc0${index.toString(16)}`);
+    const { result } = await run({
+      rows: slugs.map((slug, index) => row(slug, `Concorso per un operaio comunale numero ${index}`)).join(''),
+      docs: Object.fromEntries(slugs.map((slug) => [slug, { text: bando('Il Municipio di Esempio', italianDate(daysFromNow(15))) }])),
+    });
+    expect((result as { jobs: unknown[] }).jobs).toHaveLength(13);
+  });
+
+  it('un albo che continua oltre l\'ultima pagina letta non e\' un esito pieno', async () => {
+    const { result } = await run({
+      rows: row('Bando-14e5fc00', 'Concorso per un operaio comunale'),
+      docs: { 'Bando-14e5fc00': { text: bando('Il Municipio di Esempio', italianDate(daysFromNow(15))) } },
+      nextPageLink: ' ',
+    });
+    expect(result).toMatchObject({ fetchOutcome: 'selector_miss' });
+    expect((result as { jobs: unknown[] }).jobs).toHaveLength(1);
+  });
+
   it('una ricerca illeggibile non invalida una categoria confermata', async () => {
     const { result } = await run({ rows: '<div>Nessun documento trvato</div>', docs: {}, searchBroken: true });
     expect(isAuthoritativeEmptySnapshot(result)).toBe(true);
@@ -580,7 +615,8 @@ describe('fetchAllTicinoComuniJobs — un Comune guasto non ferma gli altri', ()
     });
     return jobs;
   };
-  const run = (results: Record<string, unknown>) => fetchAllTicinoComuniJobs({
+  const run = (results: Record<string, unknown>, existingJobs: unknown[] = []) => fetchAllTicinoComuniJobs({
+    existingJobs: existingJobs as never,
     comuni: comuni as never,
     fetchComune: fetchComuneFrom(results) as never,
     client: {} as never,
@@ -589,14 +625,28 @@ describe('fetchAllTicinoComuniJobs — un Comune guasto non ferma gli altri', ()
     now: NOW,
   });
 
-  it('somma gli annunci e sopravvive a un Comune che fallisce', async () => {
+  it('somma gli annunci quando tutti i Comuni sono letti', async () => {
     const result = await run({
       'comune-di-uno': { jobs: [job('a')], fetchOutcome: 'ok', discoveredCount: 1 },
-      'comune-di-due': new Error('rete'),
+      'comune-di-due': provenEmpty(),
       'comune-di-tre': { jobs: [job('b')], fetchOutcome: 'ok', discoveredCount: 1 },
     });
-    expect(result).toMatchObject({ fetchOutcome: 'ok', discoveredCount: 2 });
+    expect(result).toMatchObject({ fetchOutcome: 'ok' });
     expect((result as { jobs: unknown[] }).jobs).toHaveLength(2);
+  });
+
+  it('un Comune guasto rende l\'esito non pieno e conserva i suoi annunci', async () => {
+    const stored = { url: 'https://esempio.ch/due.pdf', municipalityKey: 'comune-di-due' };
+    const other = { url: 'https://esempio.ch/uno.pdf', municipalityKey: 'comune-di-uno' };
+    const result = await run({
+      'comune-di-uno': { jobs: [job('a')], fetchOutcome: 'ok', discoveredCount: 1 },
+      'comune-di-due': { jobs: [], fetchOutcome: 'connection_error' },
+      'comune-di-tre': new Error('rete'),
+    }, [stored, other]);
+    expect(result).toMatchObject({ fetchOutcome: 'connection_error' });
+    const { jobs } = result as { jobs: unknown[] };
+    expect(jobs).toContainEqual(stored);
+    expect(jobs).not.toContainEqual(other);
   });
 
   it('lo zero della famiglia e\' autorevole solo se ogni Comune ha provato il proprio', async () => {
@@ -610,7 +660,7 @@ describe('fetchAllTicinoComuniJobs — un Comune guasto non ferma gli altri', ()
       'comune-di-tre': provenEmpty(),
     });
     expect(isAuthoritativeEmptySnapshot(partial)).toBe(false);
-    expect(partial).toMatchObject({ jobs: [], fetchOutcome: 'filtered_empty' });
+    expect(partial).toMatchObject({ jobs: [], fetchOutcome: 'anti_bot_block' });
   });
 
   it('tutti i Comuni guasti non sono un albo vuoto', async () => {

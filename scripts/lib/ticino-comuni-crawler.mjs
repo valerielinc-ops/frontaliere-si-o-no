@@ -6,8 +6,8 @@
  * non lo sono. Nel manifest c'e' un crawler solo: i gruppi di workflow hanno un
  * tetto di 480 KB (GitHub ne rifiuta 512) e ogni voce ne costa circa 16, quindi
  * 67 voci non ci stanno, e il tetto non si alza. Un Comune guasto non ferma gli
- * altri e non perde gli annunci: quelli che il giro non rivede restano nella
- * grazia dei job mancanti.
+ * altri e non perde gli annunci: quelli memorizzati tornano nel lotto e l'esito
+ * della famiglia resta quello del guasto.
  *
  * Le regole sul bando sono in ticino-comuni-notice.mjs, gli adapter in
  * ticino-comuni-sources.mjs, il rispetto di robots.txt in
@@ -49,6 +49,7 @@ import {
 } from './ticino-comuni-polite-client.mjs';
 import {
   ASSOLO_TEXT_QUERY,
+  CITYOS_DETAIL_SELECTOR,
   CITYOS_LIST_SELECTOR,
   MAX_ASSOLO_PAGES,
   assoloListingUrl,
@@ -65,7 +66,6 @@ const REFUSED_STATUS = new Set([401, 403, 406, 429, 451]);
 
 export const TICINO_COMUNI_KEY = 'comuni-ticino';
 export const TICINO_COMUNI_COMPANY_NAME = 'Comuni ticinesi';
-export const MAX_NOTICES_PER_RUN = 12;
 /** Host diversi in parallelo: la pausa per host resta quella del client. */
 export const COMUNI_CONCURRENCY = 8;
 
@@ -143,7 +143,7 @@ async function readRenderedCityOs(listing, client, renderer) {
     for (const row of parsed.rows) {
       if (classifyNoticeTitle(row.title) !== 'job') continue;
       await client.reserve(row.url);
-      const detail = await renderer.render(row.url, { waitForSelector: 'main a[href$=".pdf"]' });
+      const detail = await renderer.render(row.url, { waitForSelector: CITYOS_DETAIL_SELECTOR });
       const pdf = parseCityOsDetail(detail, { baseUrl: row.url })
         .find((candidate) => classifyNoticeTitle(candidate.title) !== 'form');
       if (pdf) rows.push({ title: row.title, date: row.date, url: pdf.url });
@@ -155,7 +155,7 @@ async function readRenderedCityOs(listing, client, renderer) {
 }
 
 /** Tutte le viste dell'albo o della pagina dedicata di un Comune. */
-async function readComuneListing(entry, client, renderer) {
+async function readComuneListing(entry, client, renderer, now) {
   const { listing } = entry;
   if (listing.type === 'rendered-cityos') return readRenderedCityOs(listing, client, renderer);
   if (listing.type === 'page') {
@@ -175,12 +175,22 @@ async function readComuneListing(entry, client, renderer) {
         page,
         ...(view.category ? { catParam: listing.catParam, catId: listing.catId } : {}),
       });
-      // Oltre la prima pagina non tutti gli albi rispondono via GET, e la ricerca
-      // di Muralto rende un formato suo: quello che si e' letto resta valido,
-      // purche' la categoria sia stata confermata, e resta la grazia per il resto.
-      if (!parsed.recognized && (page > 1 || (results.length > 0 && !view.category))) break;
+      // La ricerca e' un complemento: quella di Muralto rende un formato suo, e
+      // non invalida la categoria confermata.
+      if (!parsed.recognized && page === 1 && results.length > 0 && !view.category) break;
+      // Una pagina successiva illeggibile, invece, nasconde documenti: l'esito
+      // del Comune non puo' essere pieno.
+      if (!parsed.recognized && page > 1) {
+        results.push({ recognized: true, empty: false, rows: [], hasNextPage: false, truncated: true });
+        break;
+      }
       results.push(parsed);
       if (!parsed.hasNextPage) break;
+      // L'albo va dal piu' recente: oltre una pagina tutta vecchia non c'e' niente da aprire.
+      const onlyOldDocuments = parsed.rows.length > 0
+        && parsed.rows.every((row) => isTooOldToOpen(row.date, now));
+      if (onlyOldDocuments) break;
+      if (page === MAX_ASSOLO_PAGES) results.push({ ...parsed, rows: [], truncated: true });
     }
   }
   return results;
@@ -262,7 +272,7 @@ export async function fetchTicinoComuneJobs(entry, {
 
   let views;
   try {
-    views = await readComuneListing(entry, client, renderer);
+    views = await readComuneListing(entry, client, renderer, now);
   } catch (error) {
     if (error?.listingRefused) {
       console.warn(`  ⛔ ${entry.company}: ${error.message}. Nessun aggiramento: stop.`);
@@ -292,7 +302,7 @@ export async function fetchTicinoComuneJobs(entry, {
   const sourceBodyFailures = [];
   const skipped = { scansionati: 0, robots: 0, altroEnte: 0, chiusi: 0 };
 
-  for (const notice of candidates.slice(0, MAX_NOTICES_PER_RUN)) {
+  for (const notice of candidates) {
     const verdict = await client.canFetch(notice.url);
     if (!verdict.allowed) {
       skipped.robots += 1;
@@ -345,16 +355,15 @@ export async function fetchTicinoComuneJobs(entry, {
   }
 
   console.log(`  📊 ${entry.company}: ${jobs.length} aperti, esclusi ${JSON.stringify(skipped)}`);
+  const truncated = views.some((view) => view.truncated);
+  if (truncated) console.warn(`  ⚠️ ${entry.company}: albo letto solo in parte.`);
   const unresolved = skipped.scansionati + skipped.robots + sourceBodyFailures.length;
-  if (jobs.length === 0 && unresolved === 0) {
+  if (jobs.length === 0 && unresolved === 0 && !truncated) {
     return reportStampedEmpty(entry, `${rows.length} documenti letti, nessun concorso di assunzione aperto`);
   }
-  return {
-    jobs,
-    discoveredCount: candidates.length,
-    fetchOutcome: jobs.length > 0 ? 'ok' : 'filtered_empty',
-    sourceBodyFailures,
-  };
+  let fetchOutcome = jobs.length > 0 ? 'ok' : 'filtered_empty';
+  if (truncated) fetchOutcome = 'selector_miss';
+  return { jobs, discoveredCount: candidates.length, fetchOutcome, sourceBodyFailures };
 }
 
 /** Un concorso scaduto non deve sopravvivere nella grazia dei job mancanti. */
@@ -417,13 +426,16 @@ export async function fetchAllTicinoComuniJobs({
     Object.defineProperty(empty, 'fetchOutcome', { value: 'ok', enumerable: false });
     return empty;
   }
-  const everyComuneFailed = outcomes.size > 0 && failed.length === outcomes.size;
-  return {
-    jobs,
-    discoveredCount: discoveredCount + provenEmpty,
-    fetchOutcome: jobs.length > 0 ? 'ok' : (everyComuneFailed ? 'connection_error' : 'filtered_empty'),
-    sourceBodyFailures,
-  };
+  // Il giro non ha visto questi Comuni: i loro annunci non sono spariti. Tornano
+  // nel lotto, altrimenti esaurirebbero la grazia durante un guasto lungo.
+  const published = new Set(jobs.map((job) => job.url));
+  for (const [key] of failed) {
+    jobs.push(...existingJobs.filter((job) => job?.municipalityKey === key && !published.has(job.url)));
+  }
+  let fetchOutcome = 'filtered_empty';
+  if (failed.length > 0) [[, fetchOutcome]] = failed;
+  else if (jobs.length > 0) fetchOutcome = 'ok';
+  return { jobs, discoveredCount: discoveredCount + provenEmpty, fetchOutcome, sourceBodyFailures };
 }
 
 export function runTicinoComuniCrawler() {
