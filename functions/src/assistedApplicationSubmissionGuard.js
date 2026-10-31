@@ -38,7 +38,7 @@ export function submissionLeftAt(record) {
   return Number(record?.clickedAt || record?.startedAt) || 0;
 }
 
-export function submissionGuard(db, orderId, round) {
+export function submissionGuard(db, orderId, round, { answerSourceGuard = null } = {}) {
   const ref = submissionRefFor(db, orderId);
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const flowRef = orderRef.collection('automation').doc('flow');
@@ -78,8 +78,11 @@ export function submissionGuard(db, orderId, round) {
       return outcome;
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
-    async markClicked(nowMs = Date.now()) {
+    async markClicked(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard } = {}) {
       await db.runTransaction(async transaction => {
+        // All proof dependencies are reread in the same transaction as the
+        // irreversible-send marker, before any write or external send.
+        if (currentAnswerSourceGuard) await currentAnswerSourceGuard.assertInTransaction(transaction);
         const [submissionDoc, orderDoc, flowDoc] = await Promise.all([
           transaction.get(ref), transaction.get(orderRef), transaction.get(flowRef),
         ]);

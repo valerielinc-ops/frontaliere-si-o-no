@@ -11,7 +11,7 @@
 
 import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequirements.js';
 import { citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
-import { qualificationSources, verifyQualificationEvidence, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
+import { qualificationSources, qualificationSourcesFingerprint, verifyQualificationEvidence, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
 import { conciergeProposalEligibility } from '../../../functions/src/assistedApplicationFitNotice.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
@@ -457,6 +457,7 @@ export async function buildDraft(ctx) {
     round,
     cvKey: order.cvStorageKey,
     sourceCvHash: eligibilityHash(cvBuffer),
+    qualificationSourceFingerprint: qualificationSourcesFingerprint(sources),
     cvTextMethod: cvMethod,
     cvTextVersion: CV_TEXT_VERSION,
     postingHash: hashText(postingText),

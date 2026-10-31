@@ -80,6 +80,13 @@ export function qualificationSources({ sourceText = '', profile = {}, answers = 
     } };
 }
 
+/** Current original CV and attested counter-declarations, never raw projection fields. */
+export function qualificationSourcesFingerprint(sources) {
+  return hash(JSON.stringify(canonical((sources?.evidenceCatalog?.() || []).map(source => ({
+    id: source.id, kind: source.kind, documentHash: source.documentHash,
+  })))));
+}
+
 function schemaFor(claims) {
   return { type: 'object', additionalProperties: false, required: ['assessments'], properties: {
     assessments: { type: 'array', minItems: claims.length, maxItems: claims.length, items: { type: 'object', additionalProperties: false,
