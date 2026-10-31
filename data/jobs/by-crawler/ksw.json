@@ -2835,12 +2835,12 @@
     },
     {
       "id": "ksw-a3320dbe4012",
-      "slug": "mitarbeiterin-collaboratore-trice-room-service-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "addetta-addetto-al-servizio-in-camera-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-room-service-ksw-ch",
-        "it": "mitarbeiterin-collaboratore-trice-room-service-kantonsspital-winterthur-ksw-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-room-service-ksw-ch",
-        "fr": "mitarbeiterin-mitarbeiter-room-service-ksw-ch"
+        "it": "addetta-addetto-al-servizio-in-camera-kantonsspital-winterthur-ksw-winterthur",
+        "en": "employee-room-service-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "service-en-chambre-des-employes-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2888,11 +2888,19 @@
       "department": "Gästeservice",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-room-service-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-room-service-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-room-service-ksw-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-room-service-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-room-service-ksw-ch"
+        "mitarbeiterin-mitarbeiter-room-service-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-room-service-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

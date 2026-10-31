@@ -33,7 +33,7 @@ import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, needsFactRepair, transition
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
-import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
+import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
@@ -331,6 +331,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         reason: dispatch.reason || null,
       };
     }
+    const accountFailure = getAccountFailure(event);
     claim('applied');
     transaction.set(flowRef, nextFlow);
     transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
@@ -340,6 +341,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       fromState: flow.state || null,
       toState: nextFlow.state,
       round: nextFlow.round,
+      ...(accountFailure ? { accountFailure } : {}),
     }));
     outcome = { ok: true, fromState: flow.state, flow: nextFlow, effects: result.effects };
   });
@@ -660,11 +662,13 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     await eventRef.set({ appliedAt: nowMs, result: 'unknown_type' }, { merge: true });
     return { ok: false, ignored: 'unknown_type' };
   }
+  const accountFailure = getAccountFailure(data);
   const event = {
     type,
     round: Number(data.round) || null,
     error: data.error ? String(data.error).slice(0, 120) : undefined,
     reason: data.reason ? String(data.reason).slice(0, 120) : undefined,
+    ...(accountFailure ? { accountFailure } : {}),
     questions: Array.isArray(data.questions) ? data.questions.slice(0, 20) : undefined,
     questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, 20) : undefined,
     documents: Array.isArray(data.documents) ? data.documents.slice(0, 20) : undefined,

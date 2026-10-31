@@ -485,8 +485,8 @@ export async function submitApplication(ctx) {
         return recordOfSend({ at: nowMs, channel: channelType, packaging: 'portal', letterRenderer: letterLeft ? letter.renderer : null, ...kept });
       };
       // A round the guard releases sent nothing: the attempt recorded at its final click is no record.
-      const release = async (reason) => {
-        await guard.release(reason);
+      const release = async (reason, accountFailure = null) => {
+        await guard.release(reason, undefined, accountFailure ? { accountFailure } : {});
         if (attemptKept) await keepAttempt(null);
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
@@ -538,9 +538,9 @@ export async function submitApplication(ctx) {
         // 2026-10-03) sent nothing either.
         const refusedByValidation = (evidence.finalOutcomes || []).length > 0 && evidence.finalOutcomes.every((outcome) => outcome === 'validation');
         if (event.type === 'submit_succeeded') await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord });
-        else if (event.type === 'submit_failed' && event.error === 'portal_refused') await release('portal_refused');
-        else if (refusedByValidation && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release('portal_validation');
-        else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release(event.error || event.reason || event.type);
+        else if (event.type === 'submit_failed' && event.error === 'portal_refused') await release('portal_refused', event.accountFailure);
+        else if (refusedByValidation && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release('portal_validation', event.accountFailure);
+        else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release(event.error || event.reason || event.type, event.accountFailure);
       }
       await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence, cvSent, ...(sentRecord ? { sent: sentRecord } : {}) }, key: runKey, nowMs });
       // What went into the form, for the interview prep and for Valerie: agent.mjs
@@ -591,5 +591,9 @@ export async function submitApplication(ctx) {
     nowMs,
   });
   const reason = channelType === 'pastahr' ? 'whatsapp' : channel.requiresAccount ? 'account' : 'portal_needs_candidate';
-  return { type: 'submit_handoff', reason };
+  return {
+    type: 'submit_handoff',
+    reason,
+    ...(reason === 'account' ? { accountFailure: { code: 'unknown', stage: 'unknown' } } : {}),
+  };
 }

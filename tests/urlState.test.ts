@@ -204,6 +204,7 @@ describe('urlStateService', () => {
         amount: 1500,
         frequency: 'MONTHLY',
       }));
+      // cron-count-ok: due spese create dal test stesso, non un conteggio dallo snapshot del cambio.
       expect(decoded!.expensesIT).toHaveLength(2);
       expect(decoded!.expensesIT![1]).toEqual(expect.objectContaining({
         label: 'IMU',

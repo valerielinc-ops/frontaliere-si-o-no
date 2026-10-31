@@ -84,6 +84,9 @@ export function extractDeclaredIdentity(filePath) {
  * lo slice resta, i job restano pubblicati.
  */
 const NON_EMPLOYER_SLUGS = new Set([
+  // A multi-employer feed: its slice names hundreds of companies, none of them
+  // the crawler.
+  'seco-jobroom',
   'careers',
   'career',
   'jobs',

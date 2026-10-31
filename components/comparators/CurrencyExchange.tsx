@@ -8,7 +8,8 @@ import { SegmentControl } from '@/components/shared/SegmentControl';
 import AffiliateLink from '@/components/shared/AffiliateLink';
 import RevenueNote from '@/components/shared/RevenueNote';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
-import { useExchangeRate } from '@/services/exchangeRateService';
+import { DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE } from '@/constants';
+import { buildSpreadExample } from '@/services/spreadExample';
 import { reportCaughtError } from '@/services/errorReporter';
 import { lazyRetry } from '@/services/lazyRetry';
 import ProviderLogo from '@/components/shared/ProviderLogo';
@@ -294,10 +295,12 @@ const providers: ExchangeProvider[] = [
 
 
 const CurrencyExchange: React.FC = () => {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const [amount, setAmount] = useState<number>(1000);
- // Centralized exchange rate (TwelveData → Firestore cache)
- const { rate: realRate, loading, lastUpdate, refresh } = useExchangeRate();
+ // Stesso tasso e stessa data di /cambio-franco-euro/: un secondo valore live
+ // darebbe a parità di giorno una cifra diversa fra le due pagine.
+ const realRate = DEFAULT_EXCHANGE_RATE;
+ const spreadExample = useMemo(() => buildSpreadExample(realRate, locale), [realRate, locale]);
  const [historyPeriod, setHistoryPeriod] = useState<'1m' | '3m' | '6m' | '1y' | '5y'>('6m');
  const [historyData, setHistoryData] = useState<Array<{ date: string; rate: number }>>([]);
  const [historyLoading, setHistoryLoading] = useState(false);
@@ -492,14 +495,6 @@ const CurrencyExchange: React.FC = () => {
  <Calculator size={20} className="text-success" />
  {t('currency.calculate_exchange')}
  </h2>
- <button
- onClick={refresh}
- disabled={loading}
- className="flex items-center gap-2 px-3 py-2 bg-success-subtle text-success rounded-xl text-xs font-bold hover:bg-success-subtle transition-[color,background-color,border-color,opacity] disabled:opacity-50"
- >
- <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
- {t('currency.refresh_rate')}
- </button>
  </div>
 
  <div className="grid sm:grid-cols-2 gap-4 items-start">
@@ -523,10 +518,9 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </div>
 
- {/* `exchange-rate-panel`: live CHF/EUR mid-market rate + last-update
-     timestamp, sourced from useExchangeRate() (TwelveData → Firestore
-     cache). Both move independently of any code change (real-world FX
-     ticks + refresh cadence), so this is a visual-regression
+ {/* `exchange-rate-panel`: CHF/EUR rate and date from the daily snapshot
+     shared with /cambio-franco-euro/. Both move independently of any
+     code change (daily refresh), so this is a visual-regression
      false-positive source on every deploy — same class of problem as
      DYNAMIC_REGION_SELECTORS in tests/e2e/seo-visual-regression.spec.ts,
      masked here via the currency-comparator case's `extraMaskSelectors`
@@ -558,7 +552,7 @@ const CurrencyExchange: React.FC = () => {
  />
  </div>
  <p className="text-sm text-muted text-right min-h-[16px]">
- {lastUpdate ? `${t('currency.updated')}: ${lastUpdate.toLocaleTimeString('it-IT')}` : '\u00A0'}
+ {t('currency.updated')}: {DEFAULT_EXCHANGE_RATE_DATE.split('-').reverse().join('/')}
  </p>
  </div>
  </div>
@@ -870,11 +864,11 @@ const CurrencyExchange: React.FC = () => {
  <div className="p-4 bg-surface/50 rounded-xl">
  <p className="font-bold text-accent mb-2">📊 {t('currency.practical_example_title')}:</p>
  <ul className="space-y-2 ml-4">
- <li><strong>{t('currency.example_real_rate')}:</strong> {t('currency.example_real_rate_text')}</li>
- <li><strong>{t('currency.example_traditional_bank')}:</strong> {t('currency.example_traditional_bank_text')}</li>
- <li><strong>{t('currency.example_hidden_cost')}:</strong> {t('currency.example_hidden_cost_text')}</li>
- <li><strong>{t('currency.example_wise')}:</strong> {t('currency.example_wise_text')}</li>
- <li><strong>{t('currency.example_savings')}:</strong> <strong className="text-success">{t('currency.example_savings_text')}</strong></li>
+ <li><strong>{t('currency.example_real_rate')}:</strong> {t('currency.example_real_rate_text', spreadExample)}</li>
+ <li><strong>{t('currency.example_traditional_bank')}:</strong> {t('currency.example_traditional_bank_text', spreadExample)}</li>
+ <li><strong>{t('currency.example_hidden_cost')}:</strong> {t('currency.example_hidden_cost_text', spreadExample)}</li>
+ <li><strong>{t('currency.example_wise')}:</strong> {t('currency.example_wise_text', spreadExample)}</li>
+ <li><strong>{t('currency.example_savings')}:</strong> <strong className="text-success">{t('currency.example_savings_text', spreadExample)}</strong></li>
  </ul>
  </div>
 
@@ -898,16 +892,14 @@ const CurrencyExchange: React.FC = () => {
  )}
 
  {/* Data freshness + source — AI SEO citability */}
- {lastUpdate && (
  <div className="mt-6">
  <DataFreshness
- lastUpdated={lastUpdate.toISOString()}
+ lastUpdated={DEFAULT_EXCHANGE_RATE_DATE}
  source="TwelveData / BCE"
  sourceUrl="https://twelvedata.com"
  variant="badge"
  />
  </div>
- )}
  <div className="mt-3 p-4 bg-surface-alt/50 rounded-xl border border-edge">
  <p className="text-sm text-muted leading-relaxed">
  <strong>{t('exchange.methodology.title')}</strong>{' '}

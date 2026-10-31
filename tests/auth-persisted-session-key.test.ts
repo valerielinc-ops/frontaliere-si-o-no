@@ -29,6 +29,14 @@ describe('persisted Firebase auth session detection', () => {
   expect(deriveFirebaseAuthPersistenceKey(undefined)).toBe('');
  });
 
+ it('clears a stale runtime key when configuration is absent or malformed', () => {
+  setFirebaseApiKey('runtime-api-key');
+  setFirebaseApiKey(undefined);
+  expect(getFirebaseAuthPersistenceKey()).toBe('');
+  window.localStorage.setItem('firebase:authUser:runtime-api-key:[DEFAULT]', '{}');
+  expect(hasPersistedAuthSession()).toBe(false);
+ });
+
  it('checks only the active Firebase persistence key', () => {
  window.localStorage.setItem('firebase:authUser:stale-api-key:[DEFAULT]', '{}');
  expect(hasPersistedAuthSession()).toBe(false);

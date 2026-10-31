@@ -160,6 +160,7 @@ const criticalTranslations: Record<string, string> = {
  'profile.signIn': 'Sign in',
  // Homepage H1 — above-the-fold SEO heading (from en-core.ts)
  'seoContent.calculator.title': 'Swiss Cross-Border Salary Calculator 2026',
+ 'seoContent.calculatorIndex.title': 'Net salary simulator for cross-border workers 2026',
  'seoContent.calculator.subtitle': 'Precise fiscal simulation tools for cross-border workers: calculate net salary, payslip, AVS/LPP pension and tax deductions.',
 };
 
