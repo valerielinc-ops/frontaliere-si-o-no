@@ -113,7 +113,15 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       const method = request.method();
       if (['GET', 'HEAD', 'OPTIONS'].includes(method)) {
         if (request.isNavigationRequest() && url.origin !== origin) { proof.blockedRequests++; return route.abort(); }
-        if (/(?:submit|finali[sz]e|withdraw|delete|remove|cancelapplication|applicationapply)/i.test(url.pathname) || [...url.searchParams.keys()].some(key => /^(?:action|submit|send|withdraw|delete|cancel)$/i.test(key))) { proof.blockedRequests++; return route.abort(); }
+        let pathname;
+        try { pathname = decodeURIComponent(url.pathname).replace(/\\/g, '/'); }
+        catch { proof.blockedRequests++; return route.abort(); }
+        // Known mutation routes stay forbidden even as XHR/image GETs. Do
+        // not let encoding hide one, or confuse save.svg with a Save route.
+        if (/%[0-9a-f]{2}/i.test(pathname)
+          || /(?:submit|finali[sz]e|withdraw|delete|remove|cancelapplication|applicationapply)/i.test(pathname)
+          || /(?:^|\/)(?:application)?save(?:\/|$)/i.test(pathname)
+          || [...url.searchParams.keys()].some(key => /^(?:action|submit|send|withdraw|delete|cancel)$/i.test(key))) { proof.blockedRequests++; return route.abort(); }
         if (request.isNavigationRequest() && !navigationTargets.has(url.href)
           && !safeSigninAction(url.href, applyUrl, sourceProtocol)
           && !(portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && /(?:^|\/)(?:home|index)\/?$/i.test(url.pathname) && !url.search)

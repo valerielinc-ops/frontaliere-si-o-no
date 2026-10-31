@@ -20,6 +20,33 @@ const email = { id: 'f1', kind: 'text', inputType: 'email', label: 'Email', fram
 const password = { id: 'f2', kind: 'text', inputType: 'password', label: 'Password', frame: 0 };
 
 describe('verification credential ownership at the frame boundary', () => {
+  it.each([
+    ...['xhr', 'fetch', 'image'].flatMap(type => ['/ApplicationSave', '/Save', '/Tenant/ApplicationSave/'].map(path => ({ type, path, blocked: true }))),
+    ...['/Application%53ave', '/Tenant%2fSave', '/Tenant%5cApplicationSave', String.raw`/Tenant\ApplicationSave`, '/applicationsave', '/Application%2553ave', '/bad%escape'].map(path => ({ type: 'xhr', path, blocked: true })),
+    { type: 'stylesheet', path: '/assets/save.css', blocked: false },
+    { type: 'script', path: '/assets/saved-search.js', blocked: false },
+    { type: 'image', path: '/assets/save.svg', blocked: false },
+    { type: 'xhr', path: '/api/applications/status', blocked: false },
+  ])('fences known save routes for every GET transport while preserving reads: %j', async ({ type, path, blocked }) => {
+    state.snapshot = { fields: [], buttons: [], passwordVisible: false, captcha: false, errors: [], text: 'Please review your application.' };
+    const abort = vi.fn(async () => {});
+    const continueRequest = vi.fn(async () => {});
+    const request = { method: () => 'GET', url: () => `https://careers.example${path}?jobId=42&field=value`,
+      isNavigationRequest: () => false, resourceType: () => type };
+    let intercept: (route: any) => Promise<void>;
+    const page = { url: () => targetUrl, goto: async () => { await intercept({ request: () => request, abort, continue: continueRequest }); },
+      evaluate: async (fn: Function) => fn === applicationHistoryLinksInPage ? [] : state.snapshot.text,
+      screenshot: async () => Buffer.from('fixture') };
+    const context = { route: async (_pattern: string, handler: typeof intercept) => { intercept = handler; },
+      routeWebSocket: async () => {}, addInitScript: async () => {}, newPage: async () => page, close: async () => {} };
+    const proof = await verifyPortalApplication({ applyUrl, targetUrl, job: {}, accounts: {},
+      launch: async () => ({ newContext: async () => context, close: async () => {} }) });
+    expect(proof.conclusion).toBe('unknown');
+    expect(proof.blockedRequests).toBe(blocked ? 1 : 0);
+    expect(abort).toHaveBeenCalledTimes(blocked ? 1 : 0);
+    expect(continueRequest).toHaveBeenCalledTimes(blocked ? 0 : 1);
+  });
+
   it('requires an exact history route before following its GET', () => {
     expect(verificationHistoryTarget('https://careers.example/MyApplications?page=1', applyUrl)).toBe('https://careers.example/MyApplications?page=1');
     expect(verificationHistoryTarget('https://careers.example/Careers/MyApplications', 'https://careers.example/Careers/ApplicationMethods?jobId=42')).toBe('https://careers.example/Careers/MyApplications');
