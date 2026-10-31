@@ -2,12 +2,20 @@
  * Pure policy: no DOM, filesystem, network, provider or candidate-projection resolver.
  */
 import { isConsentOnly, isConsentRefusal, pureApplicationConsent } from './applicationConsent.js';
-import { nativeFormContract, ownedAddressContract, consentContract, nativeScopeAllows } from './nativeFormContract.js';
+import { nativeFormContract, nativeFieldFromContract, ownedAddressContract, consentContract, nativeScopeAllows } from './nativeFormContract.js';
 import { nativeQuestionText } from './nativeQuestionText.js';
 import { candidateIdentityRole, isCandidateIdentityTarget } from './candidateIdentityContract.js';
 import { individualApplicationOriginQuestion } from './applicationOrigin.js';
 import { operationalDefaultAnswer, isOperationalDefaultValue } from '../assistedApplicationOperationalAnswers.js';
-import { formatPhoneForField, phoneCountryCode, countryCodeOfLabel } from './phoneNormalization.js';
+import { formatPhoneForField, phoneCountryCode, phoneDialCode, phoneCountryLabel } from './phoneNormalization.js';
+import { nativeApprovedDocumentPurpose, nativeFilePurposeContract, NATIVE_DOCUMENT_TRANSPORT_VERSION } from './nativeFilePurpose.js';
+import { nativePolicyAuthoritySource } from './nativePolicyAuthority.js';
+export { nativeApprovedDocumentPurpose, nativeApprovedFilePurpose } from './nativeFilePurpose.js';
+
+export const NATIVE_APPLICATION_POLICY_VERSION = 'native-application-policy-v2';
+export const NATIVE_APPLICATION_MAX_FIELDS = 300;
+export const NATIVE_APPLICATION_MAX_CLAIMS = 24;
+export const NATIVE_APPLICATION_MAX_ATTACHMENTS = 82;
 
 const normalized = value => String(value ?? '').normalize('NFKC').replace(/\s+/g, ' ').trim();
 const comparable = value => normalized(value).toLowerCase();
@@ -40,7 +48,7 @@ export function isQualificationAction(field, action) {
   return true;
 }
 
-export function exactAttestedAnswer(context, field, answer) {
+function attestedNativeAnswer(context, field, answer, allowLegacy = false) {
   const contract = nativeFormContract(field);
   if (!contract) return false;
   const matched = (context?.answerEvidence || []).filter(record => {
@@ -48,6 +56,7 @@ export function exactAttestedAnswer(context, field, answer) {
     const question = record.question || {};
     if (Object.hasOwn(question, 'originalNativeContract')) return sameContract(question.originalNativeContract, contract)
       && sameAnswer(record.answer, answer);
+    if (!allowLegacy) return false;
     const names = [question.applicationQuestion, question.question].filter(Boolean).map(questionComparable);
     return names.includes(questionComparable(contract.question))
       && questionComparable(question.context) === questionComparable(contract.context)
@@ -61,6 +70,10 @@ export function exactAttestedAnswer(context, field, answer) {
       && sameAnswer(record.answer, answer);
   });
   return matched.length === 1;
+}
+
+export function exactAttestedAnswer(context, field, answer) {
+  return attestedNativeAnswer(context, field, answer);
 }
 
 /** A conservative refusal veto; it never certifies a positive fact or consent. */
@@ -98,16 +111,17 @@ export function localExactAnswer(context, field, answer) {
     && sameContract(record.question.originalNativeContract, contract)
     && (sameAnswer(record.answer, answer) || isConsentOnly(field) && isConsentRefusal(record.answer) && isConsentRefusal(answer))));
 }
+
+function localCounterCurrent(context, field, answer) {
+  const contract = nativeFormContract(field);
+  return /^[a-f0-9]{64}$/u.test(context?.localAnswerCounterHash || '') && Boolean(contract
+    && (context?.localAnswerEvidence || []).some(record => validLocalReceipt(context, record)
+      && record.sourceCounterChanged !== true
+      && record.provenance.sourceCounterHash === context.localAnswerCounterHash
+      && sameContract(record.question.originalNativeContract, contract) && sameAnswer(record.answer, answer)));
+}
 export function localConsentAnswer(context, field, answer) {
   return isConsentOnly(field) && localExactAnswer(context, field, answer);
-}
-
-/** Closed native purposes only; extra qualifications or instructions are not transport. */
-export function nativeApprovedDocumentPurpose(value) {
-  const text = nativeQuestionText(value).replace(/[＊*]+/gu, '').trim();
-  if (/^(?:(?:please |bitte |carica |inserisci |veuillez )?(?:your |ihr(?:e|en)? |la (?:tua|vostra) |votre )?)?(?:cover(?:ing)? letter|letter of motivation|motivation(?:al)? letter|motivation|motivationsschreiben|bewerbungsschreiben|anschreiben|motivazione|lettera (?:di motivazione|motivazionale|di presentazione)|lettre (?:de motivation|de présentation))[:?!.]?$/iu.test(text)) return 'motivation';
-  if (/^(?:why (?:do you (?:want to work|wish to work)|would you like to work) (?:for|at|with) (?:us|our company)|why (?:our company|this company)|warum (?:möchten|wollen) sie (?:bei uns|für uns|in unserem unternehmen) arbeiten|perché (?:vuoi|desideri|vorresti|vuole|desidera) lavorare (?:con noi|per noi|nella nostra azienda)|pourquoi (?:souhaitez-vous|voulez-vous) travailler (?:chez nous|pour notre entreprise))[:?!.]?$/iu.test(text)) return 'whyCompany';
-  return '';
 }
 
 export function approvedDocumentTransport(context, field, action) {
@@ -123,7 +137,7 @@ export function approvedDocumentTransport(context, field, action) {
 
 export function hasStructuredConflict(context, field) {
   const counter = context?.unverifiedContext || {};
-  return [...(context?.answerEvidence || []), ...(context?.localAnswerEvidence || [])].some(record => exactAttestedAnswer({ answerEvidence: [record] }, field, record.answer)
+  return [...(context?.answerEvidence || []), ...(context?.localAnswerEvidence || [])].some(record => attestedNativeAnswer({ answerEvidence: [record] }, field, record.answer, true)
     && [record.id, record.key, record.question?.id, record.question?.question, record.question?.applicationQuestion]
       .filter(Boolean).some(key => [counter.values || {}, counter.corrections || counter.formOverrides || {}]
         .some(current => Object.hasOwn(current, key) && !sameAnswer(current[key], record.answer))));
@@ -138,7 +152,7 @@ export function attestedAnswerConflict(context, field, proposedAnswer) {
     return matching.length === 1 ? matching[0].label : value;
   };
   return [...(context?.answerEvidence || []), ...(context?.localAnswerEvidence || [])].some(record =>
-    exactAttestedAnswer({ answerEvidence: [record] }, field, record.answer)
+    attestedNativeAnswer({ answerEvidence: [record] }, field, record.answer, true)
     && !sameAnswer(optionAnswer(record.answer), optionAnswer(proposedAnswer))
     && !(isConsentOnly(field) && isConsentRefusal(record.answer) && isConsentRefusal(proposedAnswer)));
 }
@@ -146,20 +160,22 @@ export function attestedAnswerConflict(context, field, proposedAnswer) {
 export function pendingAnswerOrigin(context, field, localOnly = false) {
   const records = localOnly ? context?.localAnswerEvidence || []
     : [...(context?.answerEvidence || []), ...(context?.localAnswerEvidence || [])];
-  const ids = records.filter(record => exactAttestedAnswer({ answerEvidence: [record] }, field, record.answer)).map(record => record.id);
+  const ids = records.filter(record => attestedNativeAnswer({ answerEvidence: [record] }, field, record.answer, true)).map(record => record.id);
   return (context?.unverifiedContext?.answerSources || context?.unverifiedContext?.answerOrigins || []).some(origin => origin.changedSinceConfirmation === true
     && Array.isArray(origin.answerIds) && origin.answerIds.some(id => ids.includes(id)));
 }
 
 export function hasUnverifiedCounterContext(context, actualAnswer, field) {
   const counter = context?.unverifiedContext || {};
-  const cvRevision = (context?.answerEvidence || []).some(record => record.provenance?.cvHash && context?.scope?.sourceCvHash
+  const cvRevision = [...(context?.answerEvidence || []), ...(context?.localAnswerEvidence || [])].some(record => record.provenance?.cvHash && context?.scope?.sourceCvHash
     && record.provenance.cvHash !== context.scope.sourceCvHash
-    && exactAttestedAnswer({ answerEvidence: [record] }, field, record.answer));
-  return Boolean(context?.scope?.answerSourceConflicts?.length || cvRevision || pendingAnswerOrigin(context, field) || normalized(counter.candidateNotes) || normalized(counter.flowNotes) || normalized(counter.intakeNotes)
+    && attestedNativeAnswer({ answerEvidence: [record] }, field, record.answer, true));
+  const rawCounter = Boolean(normalized(counter.candidateNotes) || normalized(counter.flowNotes) || normalized(counter.intakeNotes)
     || (Array.isArray(counter.feedback) ? counter.feedback.length : normalized(counter.feedback))
     || Object.keys(counter.corrections || counter.formOverrides || {}).length
     || normalized(counter.historicalContext) && comparable(counter.historicalContext) !== comparable(actualAnswer));
+  return Boolean(context?.scope?.answerSourceConflicts?.length || cvRevision || pendingAnswerOrigin(context, field)
+    || rawCounter && !localCounterCurrent(context, field, actualAnswer));
 }
 
 export function fieldKey(field) { return String(field.frame || 0) + ':' + field.id; }
@@ -213,7 +229,9 @@ export function claimFor(field, action, proposedAnswer) {
 
 /** Only original identity scalars and positively owned applicant controls. */
 export function mechanicallyGroundedNativeAction(candidate, field, action) {
-  const value = action.action === 'check' ? 'Yes' : action.action === 'uncheck' ? 'No' : action.value;
+  let value;
+  try { value = proposedNativeAnswer(field, action, action.action === 'check' ? 'Yes' : action.action === 'uncheck' ? 'No' : action.value); }
+  catch { return false; }
   const native = nativeFormContract(field);
   if (!native) return false;
   if (action.action === 'uncheck' && !pureApplicationConsent(field) && isConsentOnly(field)) return true;
@@ -225,8 +243,13 @@ export function mechanicallyGroundedNativeAction(candidate, field, action) {
     if (role === 'phone' && normalized(identity.phone) && [false, true].some(separateCountryCode =>
       comparable(value) === comparable(formatPhoneForField(identity.phone,
         { maxLength: Number(field.validation?.maxlength) || field.maxLength, separateCountryCode })))) return true;
-    if (role === 'phoneCountry' && phoneCountryCode(identity.phone)
-      && phoneCountryCode(identity.phone) === countryCodeOfLabel(value)) return true;
+    if (role === 'phoneCountry' && phoneCountryCode(identity.phone)) {
+      const dial = phoneDialCode(identity.phone);
+      const names = [phoneCountryCode(identity.phone), ...['it', 'en', 'de', 'fr'].map(locale => phoneCountryLabel(identity.phone, locale))];
+      const captions = [dial, `+${dial}`, `00${dial}`, ...names.flatMap(name => [name, `${name} (+${dial})`, `${name} +${dial}`,
+        `(+${dial}) ${name}`, `+${dial} ${name}`, `${name} (${dial})`])];
+      if (captions.some(caption => comparable(caption) === comparable(value))) return true;
+    }
   }
   if (candidate && individualApplicationOriginQuestion(native.question)
     && nativeScopeAllows(field, individualApplicationOriginQuestion)) {
@@ -236,6 +259,33 @@ export function mechanicallyGroundedNativeAction(candidate, field, action) {
   const preference = operationalDefaultAnswer(field);
   return Boolean(preference && isOperationalDefaultValue(field, value)
     && nativeScopeAllows(field, text => operationalDefaultAnswer({ ...field, label: text, question: text })?.topic === preference.topic));
+}
+
+/** Classifies a request for real server policy authority. This tag supplies no
+ * authority itself and never applies to qualifications or document contents.
+ */
+function policyAuthorityPurpose(field, action) {
+  const native = nativeFormContract(field);
+  if (!native || isCandidateIdentityTarget(native)
+    || !mechanicallyGroundedNativeAction({ identity: {} }, field, action)) return null;
+  if (action.action === 'check' && pureApplicationConsent(field)) return { purpose: 'application_consent' };
+  if (action.action === 'uncheck' && !pureApplicationConsent(field) && isConsentOnly(field)) return { purpose: 'optional_consent_refusal' };
+  if (individualApplicationOriginQuestion(native.question) && nativeScopeAllows(field, individualApplicationOriginQuestion)) return { purpose: 'individual_application_origin' };
+  const preference = operationalDefaultAnswer(field);
+  return preference ? { purpose: 'operational_preference', preferenceTopic: preference.topic } : null;
+}
+
+/** Recomputed by the verifier; a client-supplied tag is never a policy grant. */
+export function nativePolicyClaimAuthority(claim) {
+  const field = fieldFromNativeProof(claim);
+  if (!field || claim.nativeValueUnknown || !validNativeValue(field, claim.proposedAnswer)
+    || ['select', 'radio', 'listbox', 'combobox'].includes(field.kind) && !field.options?.length) return null;
+  const action = { action: field.kind === 'checkbox' ? booleanAnswer(claim.proposedAnswer) === true ? 'check' : 'uncheck' : 'fill', value: claim.proposedAnswer };
+  if (field.kind === 'checkbox' && booleanAnswer(claim.proposedAnswer) === null) return null;
+  try { proposedNativeAnswer(field, action, claim.proposedAnswer); }
+  catch { return null; }
+  const authority = policyAuthorityPurpose(field, action);
+  return authority ? { version: NATIVE_APPLICATION_POLICY_VERSION, ...authority } : null;
 }
 
 /** All conflict checks precede every exemption; caller provenance is never authority. */
@@ -248,6 +298,7 @@ export function createNativeApplicationAnswerPolicy({ context, candidate } = {})
     && (exactAttestedAnswer(context, field, answer(action)) || localExactAnswer(context, field, answer(action)));
   const counterContext = (field, action) => hasUnverifiedCounterContext(context, answer(action), field);
   const failure = (field, action, proposedAnswer = answer(action)) => {
+    if (field?.nativeValueUnknown) return 'native_value_unverified';
     if (refusalConflict(field, action)) return 'native_attested_refusal';
     if (attestedAnswerConflict(context, field, proposedAnswer)) return 'native_attested_answer_conflict';
     if (pendingLocalConsent(field)) return 'native_consent_confirmation_unverified';
@@ -266,14 +317,20 @@ export function createNativeApplicationAnswerPolicy({ context, candidate } = {})
   };
   const exemption = (field, action) => {
     if (failure(field, action)) return '';
-    if (mechanicallyGroundedNativeAction(candidate, field, action)
-      && (isCandidateIdentityTarget(nativeFormContract(field)) || !counterContext(field, action))) return 'identity_mandate_preference';
+    if (mechanicallyGroundedNativeAction(candidate, field, action)) {
+      if (isCandidateIdentityTarget(nativeFormContract(field))) return 'identity_mandate_preference';
+      const purpose = policyAuthorityPurpose(field, action)?.purpose;
+      const authority = nativePolicyAuthoritySource(context?.policyAuthority);
+      const bound = authority && authority.policyBinding.orderId === context?.scope?.orderId
+        && authority.policyBinding.round === context?.scope?.round && authority.policyRecord.scopes.includes(purpose);
+      if (!counterContext(field, action) && bound) return 'identity_mandate_preference';
+    }
     if (approvedDocumentTransport(context, field, action)) return 'approved_document_bytes';
     if (!counterContext(field, action) && localConsentAnswer(context, field, answer(action))) return 'local_consent';
     if (ownAnswer(field, action) && !counterContext(field, action)) return 'attested_answer';
     return '';
   };
-  const needs = (field, action) => isQualificationAction(field, action) && !exemption(field, action);
+  const needs = (field, action) => Boolean(field?.nativeValueUnknown) || isQualificationAction(field, action) && !exemption(field, action);
   const assertValue = (field, action, proposedAnswer = answer(action)) => {
     const reason = failure(field, action, proposedAnswer);
     if (reason) throw new PortalQualificationUnverified(reason);
@@ -281,70 +338,93 @@ export function createNativeApplicationAnswerPolicy({ context, candidate } = {})
   const claim = (field, action, proposedAnswer = answer(action)) => {
     if (!needs(field, action)) return null;
     assertValue(field, action, proposedAnswer);
-    return claimFor(field, action, proposedAnswer);
+    const result = claimFor(field, action, proposedAnswer);
+    const authority = result && !exactAttestedAnswer(context, field, result.proposedAnswer) && !localExactAnswer(context, field, result.proposedAnswer)
+      && policyAuthorityPurpose(field, action);
+    return result && authority ? { ...result, policyAuthorityNeeded: { version: NATIVE_APPLICATION_POLICY_VERSION, ...authority } } : result;
   };
   return { needs, claim, assertValue, exemption, refuses: field => hasAttestedNativeRefusal(field, refusalEvidence) };
 }
 
 /** Decode the complete wire contract through the same validator used by Node. */
 export function fieldFromNativeProof(entry) {
-  const native = entry?.nativeFormContract;
-  if (!entry || typeof entry.fieldId !== 'string' || !entry.fieldId || !native || typeof native !== 'object'
-    || !Array.isArray(native.ownedScopes)) return null;
-  const validation = native.validation;
-  if (!validation || typeof validation !== 'object' || Array.isArray(validation)
-    || Object.entries(validation).some(([key, value]) => !['type', 'min', 'max', 'minlength', 'maxlength', 'pattern', 'step', 'required', 'aria-required', 'multiple'].includes(key)
-      || !['string', 'number', 'boolean'].includes(typeof value) || typeof value === 'number' && !Number.isFinite(value))) return null;
-  const field = { id: entry.fieldId, label: native.question, context: native.context, section: native.section,
-    inputType: native.controlType, kind: native.kind, name: native.name, required: native.required,
-    autocomplete: native.autocomplete, options: native.optionValues, validation: native.validation,
-    nativeOwnedScopes: native.ownedScopes, nativeUncheckedSubmission: native.uncheckedSubmission,
-    nativeMetadataComplete: true, ...Object.fromEntries(Object.entries(native).filter(([key]) => key.startsWith('ownConsent')
-      || ['addressContext', 'consentOwnershipUnknown'].includes(key))) };
-  return sameContract(nativeFormContract(field), native) ? field : null;
+  return typeof entry?.fieldId === 'string' && entry.fieldId
+    ? nativeFieldFromContract(entry.nativeFormContract, { id: entry.fieldId }) : null;
 }
 
-/** A file role describes transport only. It never proves a qualification. */
-export function nativeApprovedFilePurpose(value) {
-  const text = nativeQuestionText(value).replace(/[＊*]+/gu, '').trim();
-  if (/^(?:(?:upload|attach|please upload|please attach|carica|allega|inserisci|hochladen|bitte hochladen|veuillez joindre|joindre|téléverser)\s+)?(?:(?:your|my|il tuo|la tua|vostro|vostra|ihr(?:en)?|votre)\s+)?(?:cv|résumé|resume|curriculum(?: vitae)?|lebenslauf)[:?!.]?$/iu.test(text)) return 'cv';
-  return nativeApprovedDocumentPurpose(text) === 'motivation' ? 'cover_letter' : '';
+function verifiedDiplomaTransport({ proof, field, selected, purpose, context, verifiedDocumentTransports }) {
+  if (!Array.isArray(verifiedDocumentTransports) || selected.some(file => !file.documentId || !file.fileId || !file.generation)) return null;
+  const matches = verifiedDocumentTransports.filter(result => {
+    const witness = result?.attestation;
+    return result?.status === 'verified' && witness?.version === NATIVE_DOCUMENT_TRANSPORT_VERSION
+      && witness.category === 'file_transport' && witness.provenance?.actor === 'server'
+      && witness.provenance.basis === 'current_server_document_assignment'
+      && witness.scope?.orderId === context?.scope?.orderId && witness.scope?.round === context?.scope?.round
+      && witness.target?.fieldId === field.id && witness.target?.frameUrl === proof.frameUrl
+      && witness.target.multiple === (field.validation?.multiple === true)
+      && sameContract(witness.purpose, purpose) && witness.requestedPurpose?.family === purpose.family
+      && Object.entries(purpose.constraints).every(([key, value]) => witness.requestedPurpose.constraints?.[key] === value)
+      && Array.isArray(witness.files) && witness.files.length === selected.length
+      && selected.every(manifest => witness.documentId === manifest.documentId
+        && witness.files.filter(file => file.documentId === manifest.documentId && file.fileId === manifest.fileId
+          && file.generation === manifest.generation && file.sha256 === manifest.sha256 && file.size === manifest.size).length === 1)
+      && /^document-transport-[a-f0-9]{64}$/u.test(witness.id || '')
+      && /^[a-f0-9]{64}$/u.test(witness.requestContextHash || '') && /^[a-f0-9]{64}$/u.test(witness.nativeContractHash || '');
+  });
+  return matches.length === 1 ? matches[0].attestation : null;
 }
 
-function attachmentCoverage(proof, fields, context, docsManifest) {
-  if (!proof.attachments.length && !fields.length) return { coverage: [] };
+function attachmentCoverage(proof, fields, context, docsManifest, verifiedDocumentTransports) {
+  if (proof.attachments.some(attachment => !attachment || !fields.some(field => field.id === attachment.fieldId))) return { failure: 'native_attachment_ambiguous' };
   const coverage = [];
   for (const field of fields) {
-    if (proof.attachments.some(item => item?.fieldId === field.id)) continue;
-    if (field.required) return { failure: 'native_attachment_missing' };
-    coverage.push({ fieldId: field.id, kind: 'empty' });
-  }
-  if (!proof.attachments.length) return { coverage };
-  if (context?.documentsCurrent !== true || !context.scope?.sourceCvHash) return { failure: 'native_documents_stale' };
-  if (!Array.isArray(docsManifest)) return { failure: 'native_manifest_unverified' };
-  const seen = new Set();
-  for (const attachment of proof.attachments) {
-    const owned = fields.filter(field => field.id === attachment?.fieldId);
-    if (owned.length !== 1 || seen.has(attachment.fieldId)) return { failure: 'native_attachment_ambiguous' };
-    seen.add(attachment.fieldId);
-    const field = owned[0];
-    const purpose = nativeApprovedFilePurpose(field.label);
-    if (!purpose || !nativeScopeAllows(field, text => nativeApprovedFilePurpose(text) === purpose)) return { failure: 'native_attachment_purpose_unverified' };
-    if (attachment.slot !== purpose || !/^[a-f0-9]{64}$/u.test(attachment.sha256 || '')
-      || !Number.isSafeInteger(attachment.size) || attachment.size <= 0) return { failure: 'native_attachment_unverified' };
-    const matches = docsManifest.filter(item => item?.slot === attachment.slot);
-    if (matches.length !== 1 || matches[0].sha256 !== attachment.sha256 || matches[0].size !== attachment.size) return { failure: 'native_attachment_unverified' };
-    coverage.push({ fieldId: attachment.fieldId, kind: 'mechanical', exemption: 'approved_file_bytes',
-      slot: attachment.slot, sha256: attachment.sha256, size: attachment.size });
+    const attachments = proof.attachments.filter(item => item.fieldId === field.id);
+    if (!attachments.length) {
+      if (field.required) return { failure: 'native_attachment_missing' };
+      coverage.push({ fieldId: field.id, kind: 'empty' });
+      continue;
+    }
+    if (!Array.isArray(docsManifest)) return { failure: 'native_manifest_unverified' };
+    if (attachments.length > 1 && field.validation?.multiple !== true) return { failure: 'native_attachment_ambiguous' };
+    const filePurpose = nativeFilePurposeContract(nativeFormContract(field));
+    const purpose = filePurpose?.family;
+    if (!['cv', 'cover_letter', 'diploma'].includes(purpose)) return { failure: 'native_attachment_purpose_unverified' };
+    const selected = []; const seen = new Set();
+    for (const attachment of attachments) {
+      if (Object.hasOwn(attachment, 'files') || typeof attachment.slot !== 'string' || !attachment.slot || attachment.slot.length > 512
+        || !/^[a-f0-9]{64}$/u.test(attachment.sha256 || '') || !Number.isSafeInteger(attachment.size) || attachment.size <= 0) return { failure: 'native_attachment_unverified' };
+      const matches = docsManifest.filter(item => item?.slot === attachment.slot && item.sha256 === attachment.sha256 && item.size === attachment.size);
+      if (matches.length !== 1) return { failure: 'native_attachment_unverified' };
+      const key = JSON.stringify([attachment.slot, attachment.sha256, attachment.size]);
+      if (seen.has(key)) return { failure: 'native_attachment_ambiguous' };
+      seen.add(key);
+      selected.push({ slot: attachment.slot, sha256: attachment.sha256, size: attachment.size,
+        ...(purpose === 'diploma' ? { documentId: matches[0].documentId, fileId: matches[0].fileId, generation: matches[0].generation } : {}) });
+    }
+    if (purpose === 'diploma') {
+      if (selected.some(file => ['cv', 'cover_letter'].includes(file.slot))) return { failure: 'native_attachment_purpose_unverified' };
+      const transport = verifiedDiplomaTransport({ proof, field, selected, purpose: filePurpose, context, verifiedDocumentTransports });
+      if (!transport) return { failure: 'native_document_transport_unverified' };
+      coverage.push({ fieldId: field.id, kind: 'mechanical', exemption: 'server_document_transport', transportId: transport.id,
+        ...(selected.length === 1 ? selected[0] : { files: selected }) });
+      continue;
+    }
+    if (context?.documentsCurrent !== true || !context.scope?.sourceCvHash) return { failure: 'native_documents_stale' };
+    if (selected.some(file => file.slot !== purpose)) return { failure: 'native_attachment_purpose_unverified' };
+    coverage.push({ fieldId: field.id, kind: 'mechanical', exemption: 'approved_file_bytes',
+      ...(selected.length === 1 ? selected[0] : { files: selected }) });
   }
   return { coverage };
 }
 
 /** Derive claims from every submitted value, never from a client-selected subset. */
-export function deriveNativeApplicationClaims({ proof, context, docsManifest, candidate } = {}) {
+export function deriveNativeApplicationClaims({ proof, context, docsManifest, candidate, targetVerified = false, verifiedDocumentTransports = [] } = {}) {
   const fail = failure => ({ status: 'unverified', failure, claims: [], coverage: [] });
+  // Only the server wrapper may provide this result after the canonical target
+  // validator binds the physical form/control/destination to its expected job.
+  if (targetVerified !== true) return fail('native_target_unverified');
   if (!proof || proof.version !== 'owner-native-proof-v1' || !Array.isArray(proof.fields)
-    || !Array.isArray(proof.attachments) || !proof.fields.length || proof.fields.length > 256 || proof.attachments.length > proof.fields.length
+    || !Array.isArray(proof.attachments) || !proof.fields.length || proof.fields.length > NATIVE_APPLICATION_MAX_FIELDS || proof.attachments.length > NATIVE_APPLICATION_MAX_ATTACHMENTS
     || !Number.isInteger(proof.round) || proof.round !== Number(context?.scope?.round)
     || typeof proof.frameUrl !== 'string' || !proof.frameUrl) return fail('native_proof_shape');
   try { const url = new URL(proof.frameUrl); if (!['https:', 'http:'].includes(url.protocol) || url.username || url.password) return fail('native_proof_shape'); }
@@ -353,6 +433,7 @@ export function deriveNativeApplicationClaims({ proof, context, docsManifest, ca
   const ids = new Set(); const claims = []; const coverage = []; const fileFields = [];
   const policy = createNativeApplicationAnswerPolicy({ context, candidate: candidate || (context?.applicationIdentity ? { identity: context.applicationIdentity } : undefined) });
   for (const entry of proof.fields) {
+    if (entry?.nativeValueUnknown) return fail('native_value_unverified');
     const field = fieldFromNativeProof(entry);
     if (!field || ids.has(entry.fieldId)) return fail('form_contract_unbound');
     ids.add(entry.fieldId);
@@ -379,9 +460,9 @@ export function deriveNativeApplicationClaims({ proof, context, docsManifest, ca
       coverage.push({ fieldId: entry.fieldId, kind: claim ? 'claim' : 'mechanical', exemption: policy.exemption(field, action) });
     } catch (error) { return fail(error instanceof PortalQualificationUnverified ? error.reason : 'native_policy_unknown'); }
   }
-  const files = attachmentCoverage(proof, fileFields, context, docsManifest);
+  const files = attachmentCoverage(proof, fileFields, context, docsManifest, verifiedDocumentTransports);
   if (files.failure) return fail(files.failure);
   coverage.push(...files.coverage);
-  if (claims.length > 12) return fail('claim_budget');
+  if (claims.length > NATIVE_APPLICATION_MAX_CLAIMS) return fail('claim_budget');
   return { status: 'ready', claims, coverage };
 }
