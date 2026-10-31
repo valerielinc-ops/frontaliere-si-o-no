@@ -91,6 +91,11 @@ describe('portal infrastructure host recovery', () => {
     await expect(lease(store, { owner: 'second-run', token: 'second-token' }).claim()).rejects.toThrow('execution_already_leased');
     await lease(store).assert();
   });
+  it.each(['retentionPurgingAt', 'retentionPurgedAt', 'retentionPayloadPurgedAt'])('denies %s even with an active talent pool', async tombstone => {
+    const store = await prepared(); Object.assign(store.read(ROOT)!, { talentPoolConsent: true, [tombstone]: 110 });
+    await expect(lease(store).claim()).rejects.toThrow();
+    expect(store.read(`${ROOT}/automation/flow`)!.remoteExecutionAttempts).toBeUndefined();
+  });
   it('fences the old worker after lease expiry and reassignment', async () => {
     const store = await prepared(); let nowMs = 110;
     const first = lease(store, { now: () => nowMs });
