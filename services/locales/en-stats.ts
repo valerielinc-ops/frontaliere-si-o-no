@@ -209,7 +209,7 @@ const enStats: Record<string, string> = {
  'glossary.terms.prestazioneLiberoPassaggio.example': 'When changing jobs, LPP capital is automatically transferred to the new employer\'s pension fund.',
  'glossary.terms.lamal.title': 'LAMal',
  'glossary.terms.lamal.desc': 'Federal Health Insurance Act. Mandatory Swiss health insurance with deductible and co-payment.',
- 'glossary.terms.lamal.example': 'Cross-border worker with LAMal: premium ~CHF 400-600/month, deductible CHF 300-2,500, 10% co-pay up to CHF 700.',
+ 'glossary.terms.lamal.example': 'Cross-border worker living in Italy with LAMal: premium CHF 279-487/month from age 26, without accident cover (FOPH 2026), ordinary deductible CHF 300, 10% co-pay up to CHF 700.',
  'glossary.terms.cmu.title': 'CMU (France)',
  'glossary.terms.cmu.desc': 'Universal Health Coverage. French health insurance alternative to LAMal for French-Swiss cross-border workers.',
  'glossary.terms.cmu.example': 'CMU cost: ~8% of reference taxable income. For high incomes, it can be more expensive than LAMal.',

@@ -785,7 +785,7 @@ const enGuide: Record<string, string> = {
  'firstday.bank_sub2': 'Main banks for cross-border workers: PostFinance, UBS, Raiffeisen',
  'firstday.bank_sub3': 'Also consider multi-currency accounts (CHF/EUR) like Revolut Business',
  'firstday.insurance_sub1': 'You have 3 months to choose between LAMal (CH) and SSN (IT)',
- 'firstday.insurance_sub2': 'LAMal: monthly premium ~CHF 300-400, full coverage in CH',
+ 'firstday.insurance_sub2': 'LAMal: monthly premium CHF 279-487 from age 26, without accident cover (FOPH 2026), full coverage in CH',
  'firstday.insurance_sub3': 'SSN: free but limited coverage in Switzerland',
  'firstday.sim_sub1': 'Recommended operators with cross-border plans: Salt, Sunrise, Swisscom',
  'firstday.sim_sub2': 'Check coverage in your work area',
