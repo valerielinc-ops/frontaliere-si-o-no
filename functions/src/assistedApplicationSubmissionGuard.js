@@ -16,7 +16,9 @@
  *   release   the send failed for certain: a later run may try again
  */
 
-import { submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash, submissionOwnerIntent } from './lib/submissionReceiptContract.js';
+import { applicationPolicyAuthority } from './lib/assistedApplicationPolicyAuthority.js';
+import { qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
+import { submissionEmployerAckProof, submissionEmailHandoff, submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash, submissionOwnerIntent, minimalSubmissionReceipt, isMinimalSubmissionReceipt } from './lib/submissionReceiptContract.js';
 import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 import { roundWasSent } from './assistedApplicationFlow.js';
 import { randomUUID } from 'node:crypto';
@@ -49,7 +51,7 @@ export function submissionFlowAllowsSend(flow, round, channel) {
     : ['portal', 'email'].includes(channel) && flow.state === 'submitting' && roundWasSent(flow, round);
 }
 
-export function submissionGuard(db, orderId, round, { answerSourceGuard = null } = {}) {
+export function submissionGuard(db, orderId, round, { answerSourceGuard = null, outcomeAuthority = null, receiptClock = Date.now } = {}) {
   const ref = submissionRefFor(db, orderId);
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const flowRef = orderRef.collection('automation').doc('flow');
@@ -63,6 +65,11 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
     if (!claimedAttemptId || current?.state !== 'sending' || current.attemptId !== claimedAttemptId
       || !(Array.isArray(channel) ? channel : [channel]).includes(current.channel) || current.clickedAt) {
       throw Object.assign(new Error('submission_claim_changed'), { code: 'submission_claim_changed' });
+    }
+  };
+  const requireCurrentMandate = (order, flow, nowMs) => {
+    if (!applicationPolicyAuthority({ orderId: String(orderId), order, flow, nowMs })) {
+      throw Object.assign(new Error('submission_mandate_changed'), { code: 'evidence_source_changed' });
     }
   };
   const armHandoff = async (transaction, submission, nowMs, currentAnswerSourceGuard, materialHashes) => {
@@ -137,7 +144,9 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       });
     },
     /** Immediately before SMTP/provider handoff; this is not a portal click. */
-    async markEmailSending(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard } = {}) {
+    async markEmailSending(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard, emailHandoff = null } = {}) {
+      let emailSnapshot;
+      try { emailSnapshot = submissionEmailHandoff(emailHandoff); } catch { emailSnapshot = null; }
       const markerStartedAt = Date.now();
       await db.runTransaction(async transaction => {
         const submissionDoc = await transaction.get(ref);
@@ -146,12 +155,17 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') throw new Error('application_withdrawn');
         if (!assistedApplicationRetained(orderDoc.data(), nowMs)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
         if (!submissionFlowAllowsSend(flowDoc.data(), guardedRound, 'email')) throw Object.assign(new Error('submission_approval_changed'), { code: 'submission_approval_changed' });
+        requireCurrentMandate(orderDoc.data(), flowDoc.data(), nowMs);
+        if (!emailSnapshot || emailSnapshot.slotHash !== submissionSlotHash({ orderId, order: orderDoc.data() })) throw Object.assign(new Error('submission_email_handoff_changed'), { code: 'evidence_source_changed' });
         const proof = await armHandoff(transaction, submissionDoc.data(), nowMs, currentAnswerSourceGuard, { slotHash: submissionSlotHash({ orderId, order: orderDoc.data() }),
           draftMaterialHash: submissionDraftMaterialHash(draftDoc.data()), attemptMaterialHash: submissionAttemptMaterialHash(draftDoc.data()) });
         const handoffAt = nowMs + Math.max(0, Date.now() - markerStartedAt);
         if (!assistedApplicationRetained(orderDoc.data(), handoffAt)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
-        transaction.set(proof.ref, { ...proof.frame, handoffAt });
-        transaction.set(ref, { [key]: { startedAt: handoffAt } }, { merge: true });
+        requireCurrentMandate(orderDoc.data(), flowDoc.data(), handoffAt);
+        let currentEmail; try { currentEmail = submissionEmailHandoff(emailHandoff); } catch { currentEmail = null; }
+        if (JSON.stringify(currentEmail) !== JSON.stringify(emailSnapshot)) throw Object.assign(new Error('submission_email_handoff_changed'), { code: 'evidence_source_changed' });
+        transaction.set(proof.ref, { ...proof.frame, handoffAt, emailHandoffHash: qualificationCounterContextHash(emailSnapshot) });
+        transaction.set(ref, { [key]: { startedAt: handoffAt, emailHandoff: emailSnapshot } }, { merge: true });
       });
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
@@ -170,11 +184,13 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         }
         if (!assistedApplicationRetained(orderDoc.data(), nowMs)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
         if (!submissionFlowAllowsSend(flowDoc.data(), guardedRound, submissionDoc.data()?.[key]?.channel)) throw Object.assign(new Error('submission_approval_changed'), { code: 'submission_approval_changed' });
+        requireCurrentMandate(orderDoc.data(), flowDoc.data(), nowMs);
         if (submissionDoc.data()?.[key]?.channel === 'owner_extension' && !intentSnapshot) throw Object.assign(new Error('submission_intent_changed'), { code: 'evidence_source_changed' });
         const proof = await armHandoff(transaction, submissionDoc.data(), nowMs, currentAnswerSourceGuard, { slotHash: submissionSlotHash({ orderId, order: orderDoc.data() }),
           draftMaterialHash: submissionDraftMaterialHash(draftDoc.data()), attemptMaterialHash: submissionAttemptMaterialHash(draftDoc.data()) });
         const handoffAt = nowMs + Math.max(0, Date.now() - markerStartedAt);
         if (!assistedApplicationRetained(orderDoc.data(), handoffAt)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
+        requireCurrentMandate(orderDoc.data(), flowDoc.data(), handoffAt);
         if (intentSnapshot) {
           let currentIntent; try { currentIntent = submissionOwnerIntent(ownerIntent); } catch { currentIntent = null; }
           if (JSON.stringify(currentIntent) !== JSON.stringify(intentSnapshot)) throw Object.assign(new Error('submission_intent_changed'), { code: 'evidence_source_changed' });
@@ -183,8 +199,143 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         transaction.set(ref, { [key]: { clickedAt: handoffAt } }, { merge: true });
       });
     },
-    async markSent(record = {}, nowMs = Date.now()) {
-      await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
+    async markSent(record = {}, observedAt = receiptClock()) {
+      if (!Number.isFinite(observedAt) || observedAt <= 0 || typeof receiptClock !== 'function') throw new Error('submission_receipt_invalid');
+      let receiptRecord;
+      try { receiptRecord = structuredClone(record); } catch { throw new Error('submission_receipt_invalid'); }
+      if (!receiptRecord || typeof receiptRecord !== 'object' || Array.isArray(receiptRecord)) throw new Error('submission_receipt_invalid');
+      let authority;
+      const ackKind = ['employer_ack', 'legacy_employer_ack'].includes(outcomeAuthority?.kind);
+      const assertAckInTransaction = ackKind && typeof outcomeAuthority.assertInTransaction === 'function'
+        ? outcomeAuthority.assertInTransaction.bind(outcomeAuthority) : null;
+      try {
+        const { assertInTransaction: _assert, ...snapshot } = outcomeAuthority || {};
+        authority = outcomeAuthority == null ? null : structuredClone(snapshot);
+      } catch { throw new Error('submission_receipt_authority_invalid'); }
+      const ackProof = ackKind ? submissionEmployerAckProof(authority.proof) : null;
+      if (ackKind && (!ackProof || !assertAckInTransaction || ackProof.orderId !== String(orderId)
+        || ackProof.round !== guardedRound)) throw new Error('submission_receipt_authority_invalid');
+      const intent = authority?.kind === 'owner_extension' ? submissionOwnerIntent(authority.ownerIntent) : null;
+      if (authority?.kind === 'owner_extension' && !intent) throw new Error('submission_intent_changed');
+      if (authority && !['owner_extension', 'employer_ack', 'legacy_employer_ack', 'manual_owner'].includes(authority.kind)) throw new Error('submission_receipt_authority_invalid');
+      if (authority?.kind === 'manual_owner' && (typeof authority.actor !== 'string' || !authority.actor.trim())) throw new Error('submission_receipt_authority_invalid');
+      return db.runTransaction(async transaction => {
+        const [orderDoc, submissionDoc, draftDoc] = await Promise.all([
+          transaction.get(orderRef), transaction.get(ref), transaction.get(draftRef),
+        ]);
+        if (!orderDoc.exists) throw new Error('submission_receipt_order_missing');
+        const current = submissionDoc.data()?.[key];
+        if (ackProof && authority.kind === 'legacy_employer_ack') {
+          // Historical truth has no ARM/UUID/material photograph. It receives
+          // its own content-free provenance and can never authorize a send.
+          const bindingHash = qualificationCounterContextHash(ackProof);
+          const receiptRef = orderRef.collection('submission_receipts').doc(bindingHash);
+          const [receiptDoc, flowDoc] = await Promise.all([transaction.get(receiptRef), transaction.get(flowRef)]);
+          const stored = receiptDoc.data();
+          if (receiptDoc.exists && (stored.kind !== 'legacy_employer_ack' || stored.bindingHash !== bindingHash
+            || stored.round !== guardedRound || stored.slotHash !== ackProof.slotHash || stored.recordHash !== ackProof.recordHash
+            || stored.leftAt !== ackProof.leftAt || stored.providerReceivedAt !== ackProof.providerReceivedAt || !isMinimalSubmissionReceipt(stored.minimalReceipt, bindingHash, guardedRound))) throw new Error('legacy_ack_authority_changed');
+          if (current?.state === 'sent') {
+            // SENT wins over a new claim. An unbound historical SENT is not
+            // silently upgraded into a new verified source or photograph.
+            const retained = assistedApplicationRetained(orderDoc.data(), receiptClock());
+            return { minimal: !retained || !stored || current.receiptBindingHash !== bindingHash || current.originalRecordHash !== ackProof.recordHash, alreadySent: true,
+              ...(retained && stored && current.receiptBindingHash === bindingHash && current.originalRecordHash === ackProof.recordHash ? { record: current } : {}), receipt: stored?.minimalReceipt || null };
+          }
+          if (!current && stored) return { minimal: true, receipt: stored.minimalReceipt };
+          if (current?.state !== 'sending' || Object.hasOwn(current, 'attemptId')
+            || current.channel !== ackProof.channel || !isUnconfirmedSubmission(current)
+            || submissionLeftAt(current) !== ackProof.leftAt
+            || Number(flowDoc.data()?.round) !== guardedRound
+            || qualificationCounterContextHash(current) !== ackProof.recordHash
+            || submissionSlotHash({ orderId, order: orderDoc.data() }) !== ackProof.slotHash) throw new Error('legacy_ack_authority_changed');
+          const asserted = submissionEmployerAckProof(await assertAckInTransaction(transaction));
+          if (!asserted || qualificationCounterContextHash(asserted) !== bindingHash) throw new Error('legacy_ack_authority_changed');
+          const currentNow = receiptClock();
+          if (!Number.isFinite(currentNow) || ackProof.providerReceivedAt > currentNow) throw new Error('legacy_ack_authority_changed');
+          const legacyRecord = { channel: ackProof.channel, confirmedBy: 'acknowledgement',
+            confirmedAt: ackProof.providerReceivedAt, provenance: 'legacy_employer_ack',
+            receiptBindingHash: bindingHash, originalRecordHash: ackProof.recordHash };
+          const minimum = stored?.minimalReceipt || minimalSubmissionReceipt({ record: legacyRecord,
+            attemptHash: bindingHash, round: guardedRound, at: ackProof.providerReceivedAt });
+          transaction.set(receiptRef, { kind: 'legacy_employer_ack', bindingHash, round: guardedRound, slotHash: ackProof.slotHash, recordHash: ackProof.recordHash,
+            leftAt: ackProof.leftAt, providerReceivedAt: ackProof.providerReceivedAt, minimalReceipt: minimum }, { merge: true });
+          if (!assistedApplicationRetained(orderDoc.data(), currentNow)) return { minimal: true, receipt: minimum };
+          transaction.set(ref, { [key]: { ...legacyRecord, state: 'sent', sentAt: ackProof.leftAt } }, { merge: true });
+          return { minimal: false, receipt: minimum };
+        }
+        let id = claimedAttemptId || (authority?.kind === 'employer_ack' ? authority.attemptId : null);
+        if (authority?.kind === 'manual_owner' && !id) id = current?.attemptId || null;
+        let proofRef; let frame;
+        if (intent) {
+          // The ledger is deleted by purge; the original intent still locates
+          // exactly one immutable frame, without accepting a client attempt ID.
+          const matches = await transaction.get(orderRef.collection('submission_receipts')
+            .where('ownerIntent.idHash', '==', intent.idHash).limit(2));
+          if (matches.docs.length !== 1) throw new Error('submission_intent_changed');
+          proofRef = matches.docs[0].ref; frame = matches.docs[0].data();
+          if (JSON.stringify(submissionOwnerIntent(frame.ownerIntent)) !== JSON.stringify(intent)
+            || frame.channel !== 'owner_extension') throw new Error('submission_intent_changed');
+        } else if (id) {
+          proofRef = orderRef.collection('submission_receipts').doc(submissionAttemptHash(id));
+          frame = (await transaction.get(proofRef)).data();
+        } else if (authority?.kind === 'manual_owner') {
+          // Explicit authenticated human truth is distinct from automatic
+          // admission. Its unbound receipt never grants automatic healing.
+          proofRef = orderRef.collection('submission_receipts').doc(submissionAttemptHash(`manual-owner-receipt:${guardedRound}`));
+          frame = (await transaction.get(proofRef)).data();
+        } else throw new Error('submission_receipt_unbound');
+        const manual = authority?.kind === 'manual_owner' && !frame;
+        const attemptHash = proofRef.id;
+        const unboundManual = manual || frame?.kind === 'manual_owner_assertion';
+        if (unboundManual && (authority?.kind !== 'manual_owner'
+          || (frame && (frame.attemptHash !== attemptHash || frame.round !== guardedRound)))) throw new Error('submission_receipt_unbound');
+        if (!unboundManual && (!frame || frame.attemptHash !== attemptHash || frame.round !== guardedRound
+          || !['portal', 'email', 'owner_extension'].includes(frame.channel)
+          || !['sourceFingerprint', 'slotHash', 'draftMaterialHash', 'attemptMaterialHash'].every(field => /^[a-f0-9]{64}$/.test(frame[field] || ''))
+          || !Number.isFinite(frame.claimArmedAt) || frame.claimArmedAt <= 0
+          || !Number.isFinite(frame.handoffAt) || frame.handoffAt <= 0)) throw new Error('submission_receipt_unbound');
+        if (!unboundManual && current?.attemptId && submissionAttemptHash(current.attemptId) !== attemptHash) throw new Error('submission_claim_changed');
+        if (!id && current?.attemptId && submissionAttemptHash(current.attemptId) === attemptHash) id = current.attemptId;
+        if (!unboundManual && current && frame.channel !== 'email' && (!current.clickedAt || Number(current.clickedAt) !== frame.handoffAt)) throw new Error('submission_receipt_unbound');
+        if (authority?.kind === 'employer_ack' && Number(authority.leftAt) !== frame?.handoffAt) throw new Error('submission_receipt_unbound');
+        if (ackProof && !current && isMinimalSubmissionReceipt(frame.minimalReceipt, attemptHash, guardedRound)) return { minimal: true, receipt: frame.minimalReceipt };
+        if (ackProof && current?.state === 'sent' && isMinimalSubmissionReceipt(frame.minimalReceipt, attemptHash, guardedRound)) {
+          const retained = assistedApplicationRetained(orderDoc.data(), receiptClock());
+          return { minimal: !retained, alreadySent: true, ...(retained ? { record: current } : {}), receipt: frame.minimalReceipt };
+        }
+        if (ackProof) {
+          const email = submissionEmailHandoff(current?.emailHandoff);
+          if (!email || frame.channel !== 'email' || frame.emailHandoffHash !== qualificationCounterContextHash(email)
+            || ackProof.channel !== 'email' || ackProof.leftAt !== frame.handoffAt
+            || ackProof.slotHash !== frame.slotHash
+            || (current?.state !== 'sent' && qualificationCounterContextHash(current) !== ackProof.recordHash)) throw new Error('submission_receipt_authority_invalid');
+          const asserted = submissionEmployerAckProof(await assertAckInTransaction(transaction));
+          if (!asserted || qualificationCounterContextHash(asserted) !== qualificationCounterContextHash(ackProof)) throw new Error('submission_receipt_authority_invalid');
+          receiptRecord = { ...receiptRecord, confirmedBy: 'acknowledgement', confirmedAt: ackProof.providerReceivedAt };
+        }
+        const photo = draftDoc.data()?.sentAttempt;
+        if (!receiptRecord.sent && photo && !unboundManual && frame.attemptMaterialHash === submissionAttemptMaterialHash(draftDoc.data())
+          && submissionAttemptHash(photo.submissionAttempt?.id || '') === attemptHash && Number(photo.submissionAttempt?.round) === guardedRound) {
+          receiptRecord = { ...receiptRecord, sent: { ...photo,
+            ...(receiptRecord.confirmedBy ? { confirmedBy: receiptRecord.confirmedBy, confirmedAt: receiptRecord.confirmedAt || observedAt } : {}) } };
+        }
+        const minimum = frame?.minimalReceipt || minimalSubmissionReceipt({ record: receiptRecord, attemptHash, round: guardedRound, at: ackProof?.providerReceivedAt ?? observedAt });
+        if (!isMinimalSubmissionReceipt(minimum, attemptHash, guardedRound)) throw new Error('submission_receipt_unbound');
+        // The observed timestamp is not a retention clock. Re-read the private
+        // clock after the final await; no eligibility/QA gate follows a send.
+        const currentNow = receiptClock();
+        if (!Number.isFinite(currentNow) || (ackProof && ackProof.providerReceivedAt > currentNow)) throw new Error('submission_receipt_clock_unknown');
+        transaction.set(proofRef, { ...(manual ? { kind: 'manual_owner_assertion', attemptHash, round: guardedRound } : {}),
+          minimalReceipt: minimum }, { merge: true });
+        if (!assistedApplicationRetained(orderDoc.data(), currentNow)) return { minimal: true, receipt: minimum };
+        if (current?.state === 'sent') return { minimal: false, alreadySent: true, record: current, receipt: minimum };
+        if (!unboundManual && (!current || submissionAttemptHash(current.attemptId || '') !== attemptHash)) return { minimal: true, receipt: minimum };
+        transaction.set(ref, { [key]: { ...receiptRecord, state: 'sent', sentAt: ackProof?.leftAt ?? observedAt,
+          attemptId: id || null, ...(unboundManual ? { provenance: 'manual_owner_assertion' } : {}),
+          ...(frame?.channel ? { channel: frame.channel } : {}) } }, { merge: true });
+        return { minimal: false, receipt: minimum };
+      });
     },
     /** Cleanup is CAS-protected too: a newer claim/receipt keeps its dossier. */
     async clearReleasedAttempt() {
@@ -211,4 +362,11 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       });
     },
   };
+}
+
+/** Outcome only: the authenticated owner extension supplies its original captured intent. */
+export async function adoptConfirmedOwnerIntentReceipt({ db, orderId, round, ownerIntent, record, nowMs = Date.now(), receiptClock = Date.now }) {
+  const guardedRound = Number(round);
+  if (!Number.isInteger(guardedRound) || guardedRound < 1 || guardedRound > 20) throw new Error("submission_receipt_invalid_round");
+  return submissionGuard(db, orderId, guardedRound, { outcomeAuthority: { kind: "owner_extension", ownerIntent }, receiptClock }).markSent(record, nowMs);
 }
