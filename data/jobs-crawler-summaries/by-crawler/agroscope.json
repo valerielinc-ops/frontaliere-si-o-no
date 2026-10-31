@@ -1,21 +1,24 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-30T21:16:49.355Z",
+  "generatedAt": "2026-10-31T09:15:10.203Z",
   "total": 14,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 13,
-  "durationMs": 7446,
-  "avgDurationMs": 7446,
+  "unchangedCount": 14,
+  "durationMs": 9028,
+  "avgDurationMs": 9028,
   "durationHistory": [
-    7446
+    9028
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Leiter/-in Zentralsupport (Teamleiter/-in)",
-      "slug": "responsabile-zentralsupport-teamleiter-in-agroscope-posieux",
+      "slug": "responsabile-del-supporto-centrale-responsabile-di-team-agroscope-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-zentralsupport-teamleiter-in/684f1639-0804-4c7a-9bb4-bb7014123065",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20905",
       "company": "Agroscope",
@@ -39,24 +42,19 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-5ad1f73bb798",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-30T21:16:35.548Z",
-      "_qualityScore": 90,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Laborant/in Umweltanalytik (80-100%)",
       "slug": "tecnico-a-di-laboratorio-in-analisi-ambientali-80-100-agroscope-posieux",
@@ -331,45 +329,6 @@
       }
     },
     {
-      "title": "Postdoktorand/-in Ackerbauforschung",
-      "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
-      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-ackerbauforschung/039aa536-beb5-4eb2-8508-9744b1dfb72a",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20610",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Nyon",
-      "addressLocality": "Nyon",
-      "postalCode": "1260",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-08T06:33:10Z",
-      "postedDate": "2026-10-08T06:33:10Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-08",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-f28407128d3f",
-      "salaryMin": 81000,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-08T09:15:20.136Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Wissenschaftliche/r Mitarbeiter/in - Kartoffelzüchtung und Genomik",
       "slug": "collaboratore-trice-scientifico-a-miglioramento-genetico-delle-patate-e-genomica-agroscope-zurich",
       "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-kartoffelzuechtung-und-genomik/c13e4aa6-25a0-47dc-81b1-0b68a64e3a73",
@@ -404,6 +363,45 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Postdoktorand/-in Ackerbauforschung",
+      "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
+      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-ackerbauforschung/039aa536-beb5-4eb2-8508-9744b1dfb72a",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20610",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Nyon",
+      "addressLocality": "Nyon",
+      "postalCode": "1260",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-08T06:33:10Z",
+      "postedDate": "2026-10-08T06:33:10Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-08",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-f28407128d3f",
+      "salaryMin": 81000,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-08T09:15:20.136Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -566,5 +564,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

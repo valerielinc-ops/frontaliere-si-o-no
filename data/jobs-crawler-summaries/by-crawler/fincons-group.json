@@ -1,23 +1,24 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-10-30T21:19:45.472Z",
+  "generatedAt": "2026-10-31T09:22:06.945Z",
   "total": 37,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 36,
-  "durationMs": 11868,
-  "avgDurationMs": 11868,
+  "durationMs": 10989,
+  "avgDurationMs": 10989,
   "durationHistory": [
-    11868
+    10989
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Senior Platform Engineer 80 - 100%",
-      "slug": "senior-platform-engineer-80-100-fincons-group-full-time",
+      "slug": "senior-platform-ingegnere-80-100-fincons-group-bern",
       "url": "https://fincons.applytojob.com/apply/g81ECZvqD0/Senior-Platform-Engineer-80-100",
       "applyUrl": "https://fincons.applytojob.com/apply/g81ECZvqD0/Senior-Platform-Engineer-80-100",
       "company": "Fincons Group",
@@ -54,55 +55,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-30T21:19:32.707Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 25
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Senior Applikations-Entwickler:in 80 - 100%",
-      "slug": "sviluppatore-trice-senior-di-applicazioni-80-100-fincons-group-bern-c8361d",
-      "url": "https://fincons.applytojob.com/apply/g81ECZvqD0/Senior-ApplikationsEntwicklerin-80-100",
-      "applyUrl": "https://fincons.applytojob.com/apply/g81ECZvqD0/Senior-ApplikationsEntwicklerin-80-100",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Bundesplatz 3",
-      "canton": "BE",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-26",
-      "postedDate": "2026-10-26",
-      "postingDateSource": "reported",
-      "validThrough": "2027-01-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20261026165324_PWQAPVIAT3ZLQWMF",
-        "listingLocation": "Bern, Bern, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-9effb51a1b69",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-18T23:16:19.604Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -112,6 +64,7 @@
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Applikations-Manager:in 80 - 100%",
@@ -1494,5 +1447,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

@@ -36,7 +36,6 @@ import {
   __faqSiblingEntriesForTest,
 } from '@/build-plugins/faqHubPlugin';
 
-const DATE = '2026-08-05';
 const BASE = 'https://frontaliereticino\\.ch';
 /** entry id → locales whose page this build writes. */
 const ENTRY_LOCALES = new Map<string, Set<FaqHubLocale>>(
@@ -50,7 +49,6 @@ const render = (entry: FaqHubEntry, locale: FaqHubLocale) =>
   __renderFaqEntryPageForTest(
     entry,
     locale,
-    DATE,
     __faqLinkedIdsForLocaleForTest(locale, ENTRY_LOCALES),
     ENTRY_LOCALES.get(entry.id)!,
   );
@@ -143,7 +141,7 @@ describe('a per-question page is the answer to exactly one question', () => {
 
 describe('FAQ hub landmark contract', () => {
   it('keeps the FAQ hub and question pages to one main landmark', () => {
-    const hub = __renderFaqHubPageForTest('it', DATE, undefined, new Set(FAQ_HUB_LOCALES), ELIGIBLE).html;
+    const hub = __renderFaqHubPageForTest('it', undefined, new Set(FAQ_HUB_LOCALES), ELIGIBLE).html;
     const entry = render(firstEligible, 'it').html;
     expect(hub.match(/<main\b[^>]*>/gi) ?? []).toHaveLength(1);
     expect(entry.match(/<main\b[^>]*>/gi) ?? []).toHaveLength(1);
@@ -206,7 +204,7 @@ describe('eligibility — nothing thin ships, and nothing links to what did not 
   });
 
   it('the hub links to every question that has a page', () => {
-    const hub = __renderFaqHubPageForTest('it', DATE, undefined, new Set(FAQ_HUB_LOCALES), ELIGIBLE).html;
+    const hub = __renderFaqHubPageForTest('it', undefined, new Set(FAQ_HUB_LOCALES), ELIGIBLE).html;
     for (const entry of ALL_FAQ_HUB) {
       expect(hub, `${entry.id} should be linked`).toContain(
         `href="${buildFaqEntryPath('it', entry.id)}"`,
@@ -221,7 +219,7 @@ describe('eligibility — nothing thin ships, and nothing links to what did not 
     // stays unlinked and the answer stays readable inline on the hub.
     const dropped = ALL_FAQ_HUB[0];
     const restricted = new Set([...ELIGIBLE].filter((id) => id !== dropped.id));
-    const hub = __renderFaqHubPageForTest('it', DATE, undefined, new Set(FAQ_HUB_LOCALES), restricted).html;
+    const hub = __renderFaqHubPageForTest('it', undefined, new Set(FAQ_HUB_LOCALES), restricted).html;
 
     expect(hub).not.toContain(`href="${buildFaqEntryPath('it', dropped.id)}"`);
     expect(hub).toMatch(new RegExp(`id="?${dropped.id}"?`));
