@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
-import { extractJobPostingDescription } from './jobposting-jsonld.mjs';
+import { extractJobPostingDescription, extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -62,13 +62,28 @@ function blockParagraphs(block) {
     .filter(Boolean);
 }
 
+function isRittmeyerListingHref(rawHref = '') {
+  try {
+    const parsed = new URL(rawHref, 'https://brugg.onlyfy.jobs/');
+    if (/^https?:\/\//i.test(rawHref)
+      && !['brugg.onlyfy.jobs', 'karriere.rittmeyer.com', 'rittmeyer.com'].includes(parsed.hostname.toLowerCase())) {
+      return false;
+    }
+    const pathname = parsed.pathname;
+    return /^\/offene-stellen\/[^/?#]+\/?$/i.test(pathname)
+      || /^\/(?:[a-z]{2}\/)?job\/[^/?#]+\/?$/i.test(pathname);
+  } catch {
+    return false;
+  }
+}
+
 export function parseRittmeyerListingsPage(html = '') {
   const document = new JSDOM(html).window.document;
   const byHref = new Map();
   let skippedMalformedRows = 0;
-  for (const anchor of document.querySelectorAll('a[href^="/offene-stellen/"]')) {
+  for (const anchor of document.querySelectorAll('a[href]')) {
     const href = String(anchor.getAttribute('href') || '').trim();
-    if (!href || href === '/offene-stellen/') continue;
+    if (!isRittmeyerListingHref(href)) continue;
     const text = normalizeSpace(anchor.textContent || '');
     if (!text) {
       skippedMalformedRows += 1;
@@ -85,7 +100,7 @@ export function parseRittmeyerListingsPage(html = '') {
   }
   const rows = [...byHref.values()];
   const listingContainer = document.querySelector(
-    'ul.rex-navi2, .job-list, [data-job-list], [class*="job-list"], [class*="stellen"], [class*="career"]',
+    '#jobList, ul.rex-navi2, .job-list, [data-job-list], [class*="job-list"], [class*="stellen"], [class*="career"]',
   );
   Object.defineProperties(rows, {
     rittmeyerListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
@@ -107,10 +122,27 @@ export function isRittmeyerTicinoListing(listing = {}) {
 }
 
 export function parseRittmeyerJobDetail(html = '') {
+  return parseRittmeyerJobDetailWithUrl(html, '');
+}
+
+export function parseRittmeyerJobDetailWithUrl(html = '', pageUrl = '') {
   const document = new JSDOM(html).window.document;
-  const title = normalizeSpace(document.querySelector('h1')?.textContent || '');
-  const applyUrl =
-    [...document.querySelectorAll('a[href*="onlyfy.jobs/job/"]')].map((link) => link.href).find(Boolean) || '';
+  const jsonLd = extractJobPostingNodes(html)[0] || {};
+  const address = Array.isArray(jsonLd.jobLocation)
+    ? (jsonLd.jobLocation[0]?.address || {})
+    : (jsonLd.jobLocation?.address || {});
+  const title = normalizeSpace(jsonLd.title || document.querySelector('h1')?.textContent || '');
+  const rawApplyUrl = [...document.querySelectorAll('a[href]')]
+    .map((link) => String(link.getAttribute('href') || '').trim())
+    .find((href) => /(?:onlyfy\.jobs\/(?:job|application)\/|\/application\/)/i.test(href)) || '';
+  let applyUrl = rawApplyUrl;
+  if (rawApplyUrl && pageUrl) {
+    try {
+      applyUrl = new URL(rawApplyUrl, pageUrl).toString();
+    } catch {
+      applyUrl = rawApplyUrl;
+    }
+  }
 
   const facts = {};
   const paragraphs = [...document.querySelectorAll('p')].map((node) => normalizeSpace(node.textContent || '')).filter(Boolean);
@@ -155,8 +187,12 @@ export function parseRittmeyerJobDetail(html = '') {
     summary,
     applyUrl,
     area: facts.Bereich || '',
-    location: facts.Schweiz || '',
+    location: facts.Schweiz || normalizeSpace(address.addressLocality || address.addressRegion || ''),
     workload: facts.Pensum || '',
+    employmentType: normalizeSpace(Array.isArray(jsonLd.employmentType)
+      ? jsonLd.employmentType.join(' ')
+      : jsonLd.employmentType || ''),
+    datePosted: jsonLd.datePosted || '',
     company: blockParagraphs(companyBlock).join('\n\n'),
     responsibilitiesHeading: blockHeading(impact),
     responsibilities: blockListItems(impact),
