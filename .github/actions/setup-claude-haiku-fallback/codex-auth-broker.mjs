@@ -48,7 +48,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import { brokerPermissionConfig as permissionConfig } from './broker-permissions.mjs';
-import { prepareConciergeTools, FUNCTION_PROFILE_DISABLED_FEATURES } from './concierge-tools.mjs';
+import { prepareConciergeTools, resolvePinnedCodexNative, FUNCTION_PROFILE_DISABLED_FEATURES } from './concierge-tools.mjs';
 import {
   CODEX_FALLBACK_EFFORT,
   CODEX_FALLBACK_MODEL,
@@ -254,6 +254,7 @@ function validateCodexCli() {
     throw new Error('Codex CLI path must be a real file, not a symlink');
   }
   const cli = fs.realpathSync(codexCliArgument);
+  if (conciergeJsonOnly && cli !== resolvePinnedCodexNative(prefix)) throw new Error('Concierge JSON requires the attested native executable');
   const expectedCli = fs.realpathSync(codexCliRealpathArgument);
   if (cli !== expectedCli) throw new Error('Codex CLI realpath attestation does not match');
   const relative = path.relative(prefix, cli);

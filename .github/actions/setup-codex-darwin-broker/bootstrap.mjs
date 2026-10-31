@@ -7,6 +7,7 @@ import { spawn, execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { probeDarwinSandbox } from './sandbox-probe.mjs';
 import { probeConciergeTools } from '../setup-claude-haiku-fallback/concierge-tool-probe.mjs';
+import { resolvePinnedCodexNative } from '../setup-claude-haiku-fallback/concierge-tools.mjs';
 import { isInvokedDirectly } from '../../../scripts/lib/is-invoked-directly.mjs';
 import { parseCodexLogin } from '../../../functions/src/codexFallback.js';
 
@@ -69,7 +70,7 @@ export async function prepareDarwinBroker({
       checkFile(node, nodeHash);
       execFileSync(node, [npm, 'install', '--prefix', prefix, '--no-save', '--no-package-lock', '--no-fund', '--no-audit', `@openai/codex@${VERSION}`],
         { env, timeout: 180_000, stdio: ['ignore', 'ignore', 'ignore'] });
-      const cli = fs.realpathSync(path.join(prefix, 'node_modules/.bin/codex'));
+      const cli = resolvePinnedCodexNative(prefix);
       if (outside(cli, prefix)) throw new Error('darwin_broker_cli_outside_prefix');
       checkFile(node, nodeHash);
       const version = execFileSync(cli, ['--version'], { env: { PATH: env.PATH, HOME: npmHome, CODEX_HOME: npmHome, OPENSSL_CONF: '/dev/null' }, encoding: 'utf8', timeout: 10_000 }).trim();

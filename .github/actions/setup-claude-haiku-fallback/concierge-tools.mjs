@@ -18,6 +18,22 @@ export const FUNCTION_PROFILE_DISABLED_FEATURES = Object.freeze([
   'tool_suggest', 'skill_search',
 ]);
 
+/** Resolve the native executable selected by the official 0.153.4 launcher;
+ * hashing only codex.js would not attest the binary which actually runs. */
+export function resolvePinnedCodexNative(prefix, { platform = process.platform, arch = process.arch } = {}) {
+  if (!['darwin', 'linux'].includes(platform) || !['arm64', 'x64'].includes(arch)) throw new Error('concierge_native_platform_unsupported');
+  const root = fs.realpathSync(prefix);
+  const metadata = JSON.parse(fs.readFileSync(path.join(root, 'node_modules/@openai/codex/package.json'), 'utf8'));
+  const packageRoot = path.join(root, `node_modules/@openai/codex-${platform}-${arch}`);
+  const nativeMetadata = JSON.parse(fs.readFileSync(path.join(packageRoot, 'package.json'), 'utf8'));
+  if (metadata.version !== '0.153.4' || nativeMetadata.version !== `0.153.4-${platform}-${arch}`) throw new Error('concierge_native_pin_mismatch');
+  const triple = `${arch === 'arm64' ? 'aarch64' : 'x86_64'}-${platform === 'darwin' ? 'apple-darwin' : 'unknown-linux-musl'}`;
+  const native = path.join(packageRoot, 'vendor', triple, 'bin/codex'); const stat = fs.lstatSync(native);
+  const real = fs.realpathSync(native);
+  if (!stat.isFile() || stat.isSymbolicLink() || !(stat.mode & 0o111) || !real.startsWith(`${root}${path.sep}`)) throw new Error('concierge_native_path_invalid');
+  return real;
+}
+
 export function prepareConciergeTools(directory, model) {
   const raw = fs.readFileSync(source);
   if (hash(raw) !== SOURCE_HASH) throw new Error('concierge_catalogue_source_changed');

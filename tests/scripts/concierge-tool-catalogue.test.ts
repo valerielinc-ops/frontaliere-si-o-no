@@ -2,9 +2,24 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
-import { prepareConciergeTools } from '../../.github/actions/setup-claude-haiku-fallback/concierge-tools.mjs';
+import { prepareConciergeTools, resolvePinnedCodexNative } from '../../.github/actions/setup-claude-haiku-fallback/concierge-tools.mjs';
 
 describe('pinned concierge capability catalogue', () => {
+  it('attests the selected native binary rather than its JavaScript launcher', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'concierge-native-'));
+    try {
+      const base = path.join(root, 'node_modules/@openai/codex');
+      const platform = path.join(root, 'node_modules/@openai/codex-darwin-arm64');
+      const native = path.join(platform, 'vendor/aarch64-apple-darwin/bin/codex');
+      fs.mkdirSync(base, { recursive: true }); fs.mkdirSync(path.dirname(native), { recursive: true });
+      fs.writeFileSync(path.join(base, 'package.json'), JSON.stringify({ version: '0.153.4' }));
+      fs.writeFileSync(path.join(platform, 'package.json'), JSON.stringify({ version: '0.153.4-darwin-arm64' }));
+      fs.writeFileSync(native, 'synthetic executable, never launched', { mode: 0o500 });
+      expect(resolvePinnedCodexNative(root, { platform: 'darwin', arch: 'arm64' })).toBe(fs.realpathSync(native));
+      fs.writeFileSync(path.join(platform, 'package.json'), JSON.stringify({ version: '0.153.5-darwin-arm64' }));
+      expect(() => resolvePinnedCodexNative(root, { platform: 'darwin', arch: 'arm64' })).toThrow('concierge_native_pin_mismatch');
+    } finally { fs.rmSync(root, { recursive: true, force: true }); }
+  });
   it('removes only the six capability fields while preserving the model and Lite transport', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'concierge-catalogue-'));
     try {

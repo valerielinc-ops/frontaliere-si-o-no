@@ -477,6 +477,7 @@ runs:
         TRUSTED_NPM: ${{ steps.trusted_toolchain.outputs.npm_realpath }}
         TRUSTED_NPM_SHA256: ${{ steps.trusted_toolchain.outputs.npm_sha256 }}
         CODEX_CLI_VERSION: ${{ inputs.codex_cli_version }}
+        CONCIERGE_JSON_ONLY: ${{ inputs.concierge_json_only }}
       run: |
         set +e
         trusted_node="${TRUSTED_NODE:-}"
@@ -566,6 +567,9 @@ runs:
           exit 0
         fi
         codex_realpath="$($trusted_node -e 'console.log(require("node:fs").realpathSync(process.argv[1]))' "$codex_link" 2>/dev/null)"
+        if [ "$CONCIERGE_JSON_ONLY" = 'true' ]; then
+          codex_realpath="$($trusted_node --input-type=module -e 'import {pathToFileURL} from "node:url"; const {resolvePinnedCodexNative}=await import(pathToFileURL(process.argv[1]).href); process.stdout.write(resolvePinnedCodexNative(process.argv[2]));' "$GITHUB_ACTION_PATH/concierge-tools.mjs" "$codex_prefix" 2>/dev/null)"
+        fi
         case "$codex_realpath" in
           "$codex_prefix"/*) ;;
           *)
