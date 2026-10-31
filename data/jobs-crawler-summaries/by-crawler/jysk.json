@@ -1,99 +1,20 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-10-31T09:53:28.472Z",
-  "total": 53,
+  "generatedAt": "2026-10-31T21:51:47.216Z",
+  "total": 52,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 2,
-  "unchangedCount": 53,
-  "durationMs": 85790,
-  "avgDurationMs": 85790,
+  "removedCount": 0,
+  "unchangedCount": 52,
+  "durationMs": 83327,
+  "avgDurationMs": 83327,
   "durationHistory": [
-    85790
+    83327
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "company-hhg69q",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-sursee-jysk-sursee-hhg69q",
-      "company": "JYSK",
-      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Sursee",
-      "location": "Sursee",
-      "canton": "LU",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-sursee",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-09-01T08:47:05.924Z",
-      "firstSeenAt": "2026-07-30T22:22:51.016Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Sursee",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "LU",
-      "salarySource": "reported",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-sursee",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "6210",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "company-hu3y8o",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-herisau-jysk-herisau-hu3y8o",
-      "company": "JYSK",
-      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Herisau",
-      "location": "Herisau",
-      "canton": "AR",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-herisau",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-09-01T08:47:05.924Z",
-      "firstSeenAt": "2026-07-30T22:22:51.016Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Herisau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "AR",
-      "salarySource": "reported",
-      "salaryMin": 55000,
-      "salaryMax": 83000,
-      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-herisau",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "9100",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "company-w76zez",
@@ -1208,5 +1129,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }
