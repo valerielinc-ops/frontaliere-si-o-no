@@ -1,21 +1,22 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-10-30T21:29:16.975Z",
+  "generatedAt": "2026-10-31T09:29:47.443Z",
   "total": 246,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 241,
-  "durationMs": 493288,
-  "avgDurationMs": 493288,
+  "unchangedCount": 243,
+  "durationMs": 493769,
+  "avgDurationMs": 493769,
   "durationHistory": [
-    493288
+    493769
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "CHEF/FE DE PROJETS en installations électriques (100%)",
-      "slug": "chef-fe-de-projets-en-installations-electriques-100-sedelec-sa-succursale-de-la-cote-nyon",
+      "slug": "head-fe-di-progetti-in-impianti-elettrici-100-sedelec-sa-succursale-de-la-cote-carouge",
       "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projets-en-installations-electriques-1755",
       "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projets-en-installations-electriques-1755",
       "company": "Sedelec SA, Succursale de la Côte",
@@ -38,68 +39,21 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.984Z",
+      "crawledAt": "2026-10-31T09:29:34.526Z",
       "coordinates": [
         46.3939445,
         6.2296183
       ],
       "id": "burkhalter-group-9edd858d13cd",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "firstSeenAt": "2026-10-30T21:29:05.984Z",
-      "_qualityScore": 90,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "title": "Projektleiter / Bauleiter Lüftung (100%)",
-      "slug": "project-manager-construction-manager-ventilation-100-m-kunz-ag-klosters-klosters-dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-lueftung-756",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-lueftung-756",
-      "company": "M. Kunz AG Klosters",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Klosters Dorf",
-      "addressLocality": "Klosters Dorf",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "7252",
-      "streetAddress": "Landstrasse 44",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.986Z",
-      "coordinates": [
-        46.8823512,
-        9.8788827
-      ],
-      "id": "burkhalter-group-250b87296359",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-10-30T09:24:34.482Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -129,7 +83,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.996Z",
+      "crawledAt": "2026-10-31T09:29:34.543Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -169,7 +123,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.002Z",
+      "crawledAt": "2026-10-31T09:29:34.551Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -189,51 +143,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Elektroinstallateur/in (100%)",
-      "slug": "elektroinstallateur-in-100-eigenmann-ag-munchwilen",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-18",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-18",
-      "company": "Eigenmann AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Münchwilen",
-      "addressLocality": "Münchwilen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2019-04-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.115Z",
-      "coordinates": [
-        47.4800309,
-        8.9938264
-      ],
-      "id": "burkhalter-group-2687dc74e28c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Frauenfelderstrasse 13",
-      "postalCode": "9542",
-      "firstSeenAt": "2026-05-17T09:50:15.035Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-18",
-      "datePosted": "2019-04-02",
-      "postingDateSource": "reported",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 25
       }
@@ -266,7 +175,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.985Z",
+      "crawledAt": "2026-10-31T09:29:34.527Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -276,6 +185,50 @@
       "salaryMax": 102000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "firstSeenAt": "2026-10-30T09:24:34.482Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Projektleiter / Bauleiter Lüftung (100%)",
+      "slug": "project-manager-construction-manager-ventilation-100-m-kunz-ag-klosters-klosters-dorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-lueftung-756",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-lueftung-756",
+      "company": "M. Kunz AG Klosters",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Klosters Dorf",
+      "addressLocality": "Klosters Dorf",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7252",
+      "streetAddress": "Landstrasse 44",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-10-31T09:29:34.529Z",
+      "coordinates": [
+        46.8823512,
+        9.8788827
+      ],
+      "id": "burkhalter-group-250b87296359",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "salarySource": "reported",
       "firstSeenAt": "2026-10-30T09:24:34.482Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -310,7 +263,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.986Z",
+      "crawledAt": "2026-10-31T09:29:34.530Z",
       "coordinates": [
         47.3182296,
         8.5215463
@@ -354,7 +307,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.987Z",
+      "crawledAt": "2026-10-31T09:29:34.531Z",
       "coordinates": [
         47.3182296,
         8.5215463
@@ -398,7 +351,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.989Z",
+      "crawledAt": "2026-10-31T09:29:34.533Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -442,7 +395,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.989Z",
+      "crawledAt": "2026-10-31T09:29:34.533Z",
       "coordinates": [
         46.815006,
         7.1356868
@@ -486,7 +439,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.990Z",
+      "crawledAt": "2026-10-31T09:29:34.534Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -530,7 +483,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.990Z",
+      "crawledAt": "2026-10-31T09:29:34.535Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -574,7 +527,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.991Z",
+      "crawledAt": "2026-10-31T09:29:34.536Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -618,7 +571,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.991Z",
+      "crawledAt": "2026-10-31T09:29:34.536Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -658,7 +611,7 @@
       "postedDate": "2026-09-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.992Z",
+      "crawledAt": "2026-10-31T09:29:34.537Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -703,7 +656,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.992Z",
+      "crawledAt": "2026-10-31T09:29:34.537Z",
       "coordinates": [
         46.1080222,
         7.9256477
@@ -748,7 +701,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.993Z",
+      "crawledAt": "2026-10-31T09:29:34.538Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -793,7 +746,7 @@
       "postedDate": "2026-08-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.993Z",
+      "crawledAt": "2026-10-31T09:29:34.539Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -838,7 +791,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.994Z",
+      "crawledAt": "2026-10-31T09:29:34.539Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -883,7 +836,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.994Z",
+      "crawledAt": "2026-10-31T09:29:34.540Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -928,7 +881,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.995Z",
+      "crawledAt": "2026-10-31T09:29:34.541Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -973,7 +926,7 @@
       "postedDate": "2026-08-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.995Z",
+      "crawledAt": "2026-10-31T09:29:34.541Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -1018,7 +971,7 @@
       "postedDate": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.996Z",
+      "crawledAt": "2026-10-31T09:29:34.542Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1063,7 +1016,7 @@
       "postedDate": "2026-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.996Z",
+      "crawledAt": "2026-10-31T09:29:34.543Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -1108,7 +1061,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.997Z",
+      "crawledAt": "2026-10-31T09:29:34.544Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1153,7 +1106,7 @@
       "postedDate": "2026-07-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:05.997Z",
+      "crawledAt": "2026-10-31T09:29:34.544Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -1198,7 +1151,7 @@
       "postedDate": "2026-06-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.000Z",
+      "crawledAt": "2026-10-31T09:29:34.548Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -1243,7 +1196,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.002Z",
+      "crawledAt": "2026-10-31T09:29:34.550Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -1288,7 +1241,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.003Z",
+      "crawledAt": "2026-10-31T09:29:34.551Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1333,7 +1286,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.003Z",
+      "crawledAt": "2026-10-31T09:29:34.552Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1378,7 +1331,7 @@
       "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.004Z",
+      "crawledAt": "2026-10-31T09:29:34.552Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1423,7 +1376,7 @@
       "postedDate": "2026-05-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.006Z",
+      "crawledAt": "2026-10-31T09:29:34.555Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -1468,7 +1421,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.006Z",
+      "crawledAt": "2026-10-31T09:29:34.556Z",
       "coordinates": [
         47.3935972,
         8.1643977
@@ -1513,7 +1466,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.007Z",
+      "crawledAt": "2026-10-31T09:29:34.556Z",
       "coordinates": [
         47.3096077,
         7.8926763
@@ -1536,52 +1489,7 @@
         "translation": 25,
         "completeness": 25
       }
-    },
-    {
-      "title": "Chef de chantier / Cheffe de chantier – Installations électriques (100%)",
-      "slug": "construction-manager-construction-manager-impianti-elettrici-100-sedelec-yverdon-succursale-de-sedelec-sa-lausanne-yverd",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1663",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1663",
-      "company": "Sedelec Yverdon, succursale de Sedelec SA Lausanne",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Yverdon-Les-Bains",
-      "addressLocality": "Yverdon-Les-Bains",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "canton": "NE",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-05-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-30T21:29:06.007Z",
-      "coordinates": [
-        46.7838193,
-        6.6264028
-      ],
-      "id": "burkhalter-group-95b7122a1cc3",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Rue de la Blancherie 2",
-      "postalCode": "1400",
-      "firstSeenAt": "2026-05-11T21:39:47.287Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1663",
-      "datePosted": "2026-05-01",
-      "postingDateSource": "reported",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

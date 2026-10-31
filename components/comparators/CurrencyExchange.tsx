@@ -6,6 +6,7 @@ import { buildExchangeHubPath } from '@/services/exchangeSsgPaths';
 import DataFreshness from '@/components/shared/DataFreshness';
 import { SegmentControl } from '@/components/shared/SegmentControl';
 import AffiliateLink from '@/components/shared/AffiliateLink';
+import RevenueNote from '@/components/shared/RevenueNote';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -613,6 +614,7 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </div>
 
+ <RevenueNote />
  {/* Best-offer CTA — prominent affiliate banner for top-ranked partner */}
  {topAffiliate && (
  <AffiliateLink
