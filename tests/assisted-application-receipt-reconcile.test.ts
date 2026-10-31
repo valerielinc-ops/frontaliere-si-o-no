@@ -21,7 +21,7 @@ const retentionMs = 90 * 86400000;
 beforeEach(() => { vi.spyOn(Date, 'now').mockReturnValue(now); });
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
-async function sentBeforeCrash(channel: 'email' | 'portal' = 'email') {
+async function sentBeforeCrash(channel: 'email' | 'portal' | 'owner_extension' = 'email') {
   const order = {
     jobId: 'fixture-job', jobUrl: 'https://example.test/jobs/fixture/',
     parentServiceId: 'fixture-service', parentProposalId: 'fixture-proposal',
@@ -29,7 +29,8 @@ async function sentBeforeCrash(channel: 'email' | 'portal' = 'email') {
   };
   const store = createMemoryFirestore({
     [base]: order,
-    [flowPath]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 } },
+    [flowPath]: { state: channel === 'owner_extension' ? 'owner_takeover' : 'submitting', round: 1,
+      heldBy: channel === 'owner_extension' ? ['portal_needs_candidate'] : [], dispatch: { mode: 'submit', round: 1 } },
     [executionPath]: { state: 'expired', leaseUntil: now - 1, executionId: 'old-execution' },
   });
   const guard = submissionGuard(store.db, orderId, 1, { answerSourceGuard: transportSourceGuard() });
@@ -39,7 +40,8 @@ async function sentBeforeCrash(channel: 'email' | 'portal' = 'email') {
     round: 1, status: 'ready', job: { id: 'fixture-job', title: 'Synthetic role' },
     sentAttempt: { ...material, submissionAttempt: guard.attemptBinding() },
   });
-  if (channel === 'email') await guard.markEmailSending(now); else await guard.markClicked(now);
+  if (channel === 'email') await guard.markEmailSending(now); else await guard.markClicked(now, channel === 'owner_extension' ? { ownerIntent: Object.fromEntries(
+    ['idHash', 'nativeDigest', 'materialDigest', 'submitterDigest', 'assessmentHash'].map(key => [key, 'a'.repeat(64)])) } : {});
   await guard.markSent({ channel, sent: material }, now);
   const [framePath] = store.list(`${base}/submission_receipts/`);
   const frame = store.read(framePath);
@@ -240,4 +242,15 @@ describe('canonical SENT receipt reconciliation without another send', () => {
     expect(fixture.writes).not.toHaveBeenCalled();
     expect(snapshot(fixture)).toEqual(before);
   });
+});
+
+
+it('reconciles a proven extension send from a nonambiguous owner takeover without another click', async () => {
+  const fixture = await sentBeforeCrash('owner_extension');
+  expect(await reconcileCanonicalSubmissionReceipt(fixture.input)).toMatchObject({ handled: true, reason: 'reconciled' });
+  expect(fixture.store.read(flowPath).state).toBe('submitted');
+  const transition = fixture.store.list(`${base}/events/`).map(path => fixture.store.read(path))
+    .find(event => event.eventType === 'automation_transition');
+  expect(transition.transitionEventType).toBe('owner_submitted');
+  expect((await fixture.guard.claim('owner_extension', now + 1)).status).toBe('sent');
 });
