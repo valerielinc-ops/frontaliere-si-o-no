@@ -1231,10 +1231,11 @@ jobs:
       # One step for the barrier and the download. The script retries transient
       # errors and validates each manifest, so a missing, truncated, or foreign
       # manifest cannot be interpreted as an unknown member and let one shard
-      # publish a different graph. Bound: 60 min barrier + 20 min downloads.
+      # publish a different graph. Bound: 120 min barrier + 20 min downloads,
+      # inside the unchanged 360-minute build-locale job budget.
       - name: Exchange same-run hreflang manifests
         id: exchange-hreflang-index-manifests
-        timeout-minutes: 85
+        timeout-minutes: 145
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}

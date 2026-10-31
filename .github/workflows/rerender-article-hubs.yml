@@ -291,7 +291,8 @@ jobs:
       #
       # Deliberately NO full `npm ci`: the targeted installer above materializes
       # the renderer’s locked runtime dependencies (`@noble/hashes` for the
-      # shared job inventory and `html-entities` for the article engine), while
+      # shared job inventory, `esbuild` for static shell serialization and
+      # `html-entities` for the article engine), while
       # `tsx` stays on-demand and the workflow remains off the full-install /
       # full-build critical path.
       - name: Load secrets from Remote Config

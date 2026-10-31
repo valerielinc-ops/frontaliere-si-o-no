@@ -1,7 +1,7 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-10-30T09:45:54.187Z",
-  "runId": "41030838967",
+  "assembledAt": "2026-10-30T21:13:56.921Z",
+  "runId": "41128284929",
   "jobs": [
     {
       "id": "vaxcyte-6b03024d1766",
@@ -34,7 +34,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:45:47.220Z",
+      "crawledAt": "2026-10-30T21:13:45.812Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:45:47.201Z",
+      "crawledAt": "2026-10-30T21:13:45.781Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:45:47.198Z",
+      "crawledAt": "2026-10-30T21:13:45.774Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:45:47.150Z",
+      "crawledAt": "2026-10-30T21:13:45.619Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -423,7 +423,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "vaxcyte-f57d2d8f4e2b",
@@ -510,7 +511,7 @@
         }
       },
       "retranslationAttempts": 0,
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

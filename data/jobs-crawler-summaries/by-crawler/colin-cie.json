@@ -1,16 +1,16 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-10-30T09:23:17.237Z",
+  "generatedAt": "2026-10-30T21:23:04.062Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 5164,
-  "avgDurationMs": 5164,
+  "durationMs": 5030,
+  "avgDurationMs": 5030,
   "durationHistory": [
-    5164
+    5030
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -49,7 +49,7 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-ch-zuerich-07-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-30T09:23:05.489Z",
+      "crawledAt": "2026-10-30T21:22:48.667Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,7 +91,7 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-re-schaffhausen-07-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-30T09:23:06.185Z",
+      "crawledAt": "2026-10-30T21:22:49.324Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -134,7 +134,7 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-regionale-kunden-lugano-09-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-30T09:23:06.863Z",
+      "crawledAt": "2026-10-30T21:22:49.984Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -177,7 +177,7 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-nl-zuerich-07-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-30T09:23:07.549Z",
+      "crawledAt": "2026-10-30T21:22:50.638Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -220,7 +220,7 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-norditalien-lugano-09-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-30T09:23:08.236Z",
+      "crawledAt": "2026-10-30T21:22:51.293Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -263,7 +263,7 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-de-zuerich-07-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-30T09:23:08.917Z",
+      "crawledAt": "2026-10-30T21:22:51.956Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -273,5 +273,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

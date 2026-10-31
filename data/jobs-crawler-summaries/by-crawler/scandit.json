@@ -1,7 +1,7 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-10-30T09:42:29.646Z",
+  "generatedAt": "2026-10-30T21:57:04.466Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,13 +13,13 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4290,
-  "avgDurationMs": 4290,
+  "unchangedCount": 0,
+  "durationMs": 4014,
+  "avgDurationMs": 4014,
   "durationHistory": [
-    4290
+    4014
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8333916",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:42:13.406Z",
+      "crawledAt": "2026-10-30T21:56:49.797Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -64,10 +64,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "scandit-08ee2b53999e",
       "slug": "ingegnere-senior-di-machine-learning-biometria-e-riconoscimento-facciale-scandit-ag-zurich",
@@ -80,7 +77,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7552679",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:42:13.100Z",
+      "crawledAt": "2026-10-30T21:56:49.493Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,5 +107,7 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

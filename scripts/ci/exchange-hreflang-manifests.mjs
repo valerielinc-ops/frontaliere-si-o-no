@@ -37,10 +37,11 @@ import { buildLocaleFromJobName } from './lib/deploy-job-failure-signature.mjs';
 
 const execFileAsync = promisify(execFile);
 
-// The locale matrix builds in parallel but completion times differ a lot: a
-// short barrier expires while the slower de/fr legs are still producing their
-// manifests, so the wait stays inside the job's normal budget.
-export const DEFAULT_BARRIER_MS = 60 * 60_000;
+// Run 41119148516 published the last healthy locale 62m04s after the first:
+// the one-hour barrier killed the faster legs just before the set was complete.
+// Allow two hours of locale skew within the unchanged six-hour job budget;
+// every manifest is still required and a failed sibling still aborts at once.
+export const DEFAULT_BARRIER_MS = 120 * 60_000;
 export const DEFAULT_POLL_MS = 10_000;
 // Shared by the three downloads, so the step has one known upper bound.
 export const DEFAULT_DOWNLOAD_BUDGET_MS = 20 * 60_000;
@@ -116,7 +117,7 @@ export async function waitForManifestSet({
       waitingFor = missing;
       // A sibling that has terminated cannot publish its manifest. Stop now, so
       // the rearm job classifies the failed leg itself instead of three
-      // misleading barrier timeouts one hour later.
+      // misleading barrier timeouts after the readiness budget expires.
       const failed = await terminatedLocaleJob({ gh, repo, runId });
       if (failed) {
         throw new ManifestExchangeError(

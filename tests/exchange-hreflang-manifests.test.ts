@@ -7,6 +7,7 @@ import YAML from 'yaml';
 import { serializeHreflangManifest } from '../scripts/lib/hreflang-index-manifest.mjs';
 import {
   DEFAULT_BARRIER_MS,
+  DEFAULT_POLL_MS,
   DEFAULT_DOWNLOAD_BUDGET_MS,
   ManifestExchangeError,
   exchangeHreflangManifests,
@@ -241,6 +242,29 @@ describe('exchangeHreflangManifests', () => {
     expect(written()).toHaveLength(3);
   });
 
+  it('waits for the healthy locale skew observed in run 41119148516', async () => {
+    const start = clock;
+    // The first and last manifests were published 62m04s apart. All producer
+    // jobs were still healthy when the old one-hour readiness budget expired.
+    const slowestManifestLagMs = (62 * 60 + 4) * 1_000;
+    const published = ['en', 'de', 'fr'];
+    const { gh, calls } = fakeGh({ published });
+    await exchangeHreflangManifests({
+      ...base(),
+      gh,
+      pollMs: 60_000,
+      sleep: async (ms: number) => {
+        clock += ms;
+        if (clock - start >= slowestManifestLagMs) published.push('it');
+      },
+    });
+    expect(clock - start).toBeGreaterThan(60 * 60_000);
+    expect(clock - start).toBeLessThan(DEFAULT_BARRIER_MS);
+    expect(written()).toEqual(['de.json', 'en.json', 'it.json']);
+    expect(calls.findIndex((args) => args[0] === 'run'))
+      .toBeGreaterThan(calls.findLastIndex((args) => args[0] === 'api'));
+  });
+
   it('ignores an expired artifact', async () => {
     const { gh } = fakeGh({
       list: (url) => (url.includes('-de-') ? { artifacts: [{ name: url.split('name=')[1], expired: true }] } : undefined),
@@ -269,6 +293,7 @@ describe('exchangeHreflangManifests', () => {
     const start = clock;
     await expect(exchangeHreflangManifests({ ...base(), gh })).rejects.toThrow(/barrier timed out waiting for en/);
     expect(clock - start).toBeGreaterThanOrEqual(DEFAULT_BARRIER_MS);
+    expect(clock - start).toBeLessThanOrEqual(DEFAULT_BARRIER_MS + DEFAULT_POLL_MS);
   });
 
   it('refuses an unknown leg or a missing input before touching the network', async () => {
@@ -333,6 +358,7 @@ describe('deploy.yml hreflang manifest exchange', () => {
     ]));
     expect(exchange['continue-on-error']).toBeUndefined();
     expect((exchange['timeout-minutes'] ?? 0) * 60_000).toBeGreaterThan(DEFAULT_BARRIER_MS + DEFAULT_DOWNLOAD_BUDGET_MS);
+    expect(exchange['timeout-minutes']).toBeLessThan(YAML.parse(raw).jobs['build-locale']['timeout-minutes']);
   });
 
   it('lets the leg read artifacts with the job token', () => {

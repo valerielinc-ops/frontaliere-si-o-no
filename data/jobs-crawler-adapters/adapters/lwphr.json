@@ -9,6 +9,7 @@
     "pdf"
   ],
   "seedUrls": [
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/verkaufsleiter_in_industrieverpackungen.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_controller_and_coo_deputy.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_shift_leader.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/direttore_ufficio_tecnico.pdf",
@@ -29,8 +30,15 @@
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/full_stack_developer.pdf"
   ],
   "notes": "Dedicated LWPHR crawler parses the open positions accordion and extracts descriptions directly from the linked PDF files.",
-  "updatedAt": "2026-10-30T09:20:26.984Z",
+  "updatedAt": "2026-10-30T21:24:24.765Z",
   "seedMetaByUrl": {
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/verkaufsleiter_in_industrieverpackungen.pdf": {
+      "canton": "",
+      "company": "LWP Ledermann Wieting & Partners",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_controller_and_coo_deputy.pdf": {
       "canton": "",
       "company": "LWP Ledermann Wieting & Partners",
