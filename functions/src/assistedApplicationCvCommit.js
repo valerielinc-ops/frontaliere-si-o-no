@@ -10,7 +10,7 @@
 
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
-import { answerContractsFor, planAnswerConfirmations, localAnswerEvidence, sameAnswerMaterial, AnswerConfirmationError } from './assistedApplicationAnswerConfirmation.js';
+import { answerContractsFor, planAnswerConfirmations, localAnswerEvidence, sameAnswerMaterial, answerSourceRetained, AnswerConfirmationError } from './assistedApplicationAnswerConfirmation.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { planCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
@@ -114,6 +114,8 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * @returns {Promise<{rebuilt:boolean}>}
  */
 export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs, answerActor = null, answerContracts = {}, requireAnswerContracts = false }) {
+  const startedAt = Date.now();
+  const currentTime = () => nowMs + Math.max(0, Date.now() - startedAt);
   let confirmation;
   try {
     confirmation = planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts, actor: answerActor, nowMs });
@@ -139,8 +141,8 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         const [snapshot, sourceOrder, sourceFlow, sourceDraft] = await Promise.all([
           transaction.get(profileRef), transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
         ]);
-        if (!snapshot.exists || !sourceOrder.exists || !sourceFlow.exists || !sourceDraft.exists) return;
-        const local = localAnswerEvidence({ orderId, order: sourceOrder.data(), flow: sourceFlow.data(), draft: sourceDraft.data(), nowMs });
+        if (!snapshot.exists || !sourceOrder.exists || !sourceFlow.exists || !sourceDraft.exists || !answerSourceRetained(sourceOrder.data(), currentTime())) return;
+        const local = localAnswerEvidence({ orderId, order: sourceOrder.data(), flow: sourceFlow.data(), draft: sourceDraft.data(), nowMs: currentTime() });
         const confirmed = Object.fromEntries(local.map(record => [record.question.id, record]));
         // A late mirror cannot resurrect a receipt that a later save cleared/replaced.
         const changed = Object.fromEntries(Object.entries(answers).filter(([id]) =>
@@ -187,6 +189,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         && ['tailoredCv', 'candidateEditedAt', 'coverLetterPdfKey'].every(field => sameAnswerMaterial(draft[field], currentDraft[field]));
       if (!unchanged) return false;
       // Revalidate source retention and all supplied contracts inside the write transaction.
+      if (!answerSourceRetained(os.data(), currentTime())) throw new AnswerConfirmationError('answer_contract_changed');
       planAnswerConfirmations({ orderId, order: os.data(), flow: currentFlow, draft: currentDraft, answers, answerContracts, actor: answerActor, nowMs });
       transaction.set(flowRef, { answers: mergedAnswers, questionAnswers, answerConfirmations: confirmation.confirmations,
         answerReviewRequired: confirmation.reviewRequired, updatedAt: nowMs },
@@ -196,7 +199,10 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     });
   } catch (error) {
     // A transaction may have committed before a transport failure; never delete its possibly referenced PDF.
-    if (error instanceof AnswerConfirmationError) throw new CvCommitError(error.code, error.status, error.details);
+    if (error instanceof AnswerConfirmationError) {
+      if (rebuilt) await deleteStored(bucket, orderId, [rebuilt.pdfKey]);
+      throw new CvCommitError(error.code, error.status, error.details);
+    }
     throw error;
   }
   if (!committed) {

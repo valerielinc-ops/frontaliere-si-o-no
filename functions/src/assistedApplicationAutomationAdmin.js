@@ -123,6 +123,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const interviewPrep = orderSnapshot.data()?.interviewPrep || null;
   const flow = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+  const answerContracts = answerContractsFor({ orderId, order: orderSnapshot.data() || {}, flow: flow || {}, draft: draft || {} });
   // Portal accounts the runner created on the alias: never the password here.
   // A registration the portal refused left no account (`discarded`, no password).
   const accounts = Object.values(accountsSnapshot.exists ? accountsSnapshot.data() || {} : {})
@@ -159,7 +160,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const [letterUrl, tailoredCvUrl, inPlaceUrl, sent] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey), sentView(draft?.sent, signed)]);
   const candidateState = draft ? candidateWithEdits({ order: orderSnapshot.data() || {}, draft, flow }) : { profile: {}, answers: {} };
   return {
-    answerContracts: answerContractsFor({ orderId, order: orderSnapshot.data() || {}, flow: flow || {}, draft: draft || {} }),
+    answerContracts,
     inbox,
     candidateAlias: orderSnapshot.data()?.candidateAlias?.address || null,
     accounts,
@@ -194,7 +195,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       requirements: draft.requirements || [],
       matches: draft.matches || [],
       questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers).map(question => ({ ...question,
-        ...(!answerContractsFor({ orderId, order: orderSnapshot.data() || {}, flow: flow || {}, draft })[question.id] ? { contractUnavailable: true } : {}) })),
+        ...(!answerContracts[question.id] ? { contractUnavailable: true } : {}) })),
       coverLetter: draft.coverLetter || null,
       applicationEmail: draft.applicationEmail || null,
       formAnswers: formAnswersWithEdits({ order: orderSnapshot.data() || {}, draft, flow }),

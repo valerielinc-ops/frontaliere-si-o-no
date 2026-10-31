@@ -296,6 +296,7 @@ export function sendReviewResponse(res, { status, body, file }) {
 export function buildReviewPayload({ orderId, order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
+  const answerContracts = answerContractsFor({ orderId, order, flow, draft });
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, flow?.questionAnswers).map((question) => {
@@ -348,8 +349,8 @@ export function buildReviewPayload({ orderId, order, flow, draft, round, coverLe
     formAnswers: formAnswers.map((field) => fieldView(field, { draft, locale })),
     editLimits: TEXT_LIMITS,
     editedAt: draft?.candidateEditedAt || null,
-    questions: questions.map(question => ({ ...question, ...(!answerContractsFor({ orderId, order, flow, draft })[question.id] ? { contractUnavailable: true } : {}) })),
-    answerContracts: answerContractsFor({ orderId, order, flow, draft }),
+    questions: questions.map(question => ({ ...question, ...(!answerContracts[question.id] ? { contractUnavailable: true } : {}) })),
+    answerContracts,
     // The posting's decisive requirements the CV does not show, said above the questions (null: a full match).
     fit: ready ? fitNoticeOf(draft) : null,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),

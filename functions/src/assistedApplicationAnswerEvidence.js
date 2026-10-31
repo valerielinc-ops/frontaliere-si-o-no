@@ -1,3 +1,4 @@
+import { isConsentRefusal } from './lib/applicationConsent.js';
 import { localAnswerEvidence, sameAnswerMaterial } from './assistedApplicationAnswerConfirmation.js';
 import { createAnswerSourceGuard } from './assistedApplicationAnswerSourceGuard.js';
 import { answerQuestionDescriptor as descriptor } from './lib/applicationQuestionContract.js';
@@ -161,7 +162,7 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   const local = orderId ? localAnswerEvidence({ orderId, order, flow, draft, nowMs }) : [];
   const verifiedLocalAnswers = Object.fromEntries(local.map(record => [record.question.id, record.answer]));
   // Unattested current raw values remain on the DB snapshot for CAS. Only explicit No is retained as a conservative veto.
-  const refusals = Object.fromEntries(Object.entries(flow.answers || {}).filter(([, value]) => /^(?:no|nein|non|false)$/i.test(String(value).trim())));
+  const refusals = Object.fromEntries(Object.entries(flow.answers || {}).filter(([, value]) => isConsentRefusal(value)));
   const safeAnswers = { ...refusals, ...verifiedLocalAnswers };
   return { flow: { ...flow, answers: safeAnswers, questionAnswers: { ...contextFor(order, { purpose: 'form' }).answers,
     ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: verifiedLocalAnswers }) } },

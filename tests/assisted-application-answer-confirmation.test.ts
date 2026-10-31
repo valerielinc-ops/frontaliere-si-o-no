@@ -8,9 +8,10 @@ vi.mock('../functions/src/assistedApplicationAutomation.js', () => ({
   draftRefFor: (db: any, id: string) => db.collection('assisted_applications').doc(id).collection('ai_drafts').doc('current'),
 }));
 vi.mock('../functions/src/assistedApplicationTailoredCvPdf.js', () => ({
-  tailoredCvChanges: () => false, rebuildTailoredCvPdf: vi.fn(), supersededPhotoPdf: () => null,
+  tailoredCvChanges: vi.fn(() => false), rebuildTailoredCvPdf: vi.fn(), supersededPhotoPdf: () => null,
 }));
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
+const pdf = await import('../functions/src/assistedApplicationTailoredCvPdf.js');
 const now = Date.now(); const hash = 'a'.repeat(64);
 const q = { id: 'english', question: 'What is your English proficiency level?', type: 'text' };
 function fixture(question: any = q) {
@@ -25,6 +26,43 @@ function fixture(question: any = q) {
 }
 
 describe('question confirmation protocol', () => {
+  it.each([101, 250])('confirms an unchanged complete native catalog of %i options, including beyond index100', async size => {
+    const options = Array.from({ length: size }, (_, i) => `Country ${i}`);
+    const question = { id: 'country', question: 'Country of birth', type: 'choice', options,
+      originalNativeContract: { question: 'Country of birth', kind: 'select', options } };
+    const f = fixture(question); const answerContracts = answerContractsFor(f.input());
+    expect(answerContracts.country).toMatch(/^[a-f0-9]{64}$/);
+    await f.save({ country: options[size - 1] }, { answerContracts });
+    expect(localAnswerEvidence(f.input())[0].answer).toBe(options[size - 1]);
+    expect(localAnswerEvidence(f.input())[0].question.originalNativeContract.options).toEqual(options);
+  });
+  it.each(['questionOwned', 'metadataComplete', 'ownershipUnknown', 'ownConsentQuestionOwned', 'ownConsentMetadataComplete', 'consentOwnershipUnknown'])('does not issue a hash for explicit invalid ownership %s at either level', field => {
+    const metadata = { ownConsentText: ['I agree'], ownConsentQuestionLabels: ['I agree'], ownConsentLinks: [], ownConsentOwnerKey: '{"v":1,"scopes":[]}',
+      ownConsentMetadataComplete: true, ownConsentQuestionOwned: true, consentOwnershipUnknown: false };
+    for (const native of [false, true]) {
+      const flags = { ...metadata, [field]: field.endsWith('Unknown') ? true : false };
+      const question = { ...q, ...(native ? { originalNativeContract: { question: 'I agree', kind: 'checkbox', options: [], ...flags } } : flags) };
+      const f = fixture(question); expect(answerContractsFor(f.input())).toEqual({});
+    }
+  });
+  it('rechecks source deadline after an awaited PDF rebuild and never references its refused PDF', async () => {
+    const f = fixture(); f.read('assisted_applications/source').cvUploadedAt = now - 90 * 86400000 + 5;
+    let wall = now; const clock = vi.spyOn(Date, 'now').mockImplementation(() => wall);
+    let finish!: (value: any) => void;
+    vi.mocked(pdf.tailoredCvChanges).mockReturnValue(true);
+    vi.mocked(pdf.rebuildTailoredCvPdf).mockImplementation(() => new Promise(resolve => { finish = resolve; }));
+    const remove = vi.fn(async () => {}); const bucket = { file: () => ({ delete: remove }) };
+    try {
+      const pending = f.save({ english: 'C1' }, { bucket });
+      await Promise.resolve(); wall = now + 10;
+      finish({ pdfKey: 'refused.pdf', renderer: 'test', photo: null });
+      await expect(pending).rejects.toMatchObject({ code: 'answer_contract_changed', status: 409 });
+      expect(f.read('assisted_applications/source/automation/flow').answers).toEqual({});
+      expect(f.read('assisted_applications/source/automation/flow').answerConfirmations).toBeUndefined();
+      expect(f.read('assisted_applications/source/ai_drafts/current').tailoredCv).toBeUndefined();
+      expect(remove).toHaveBeenCalled();
+    } finally { clock.mockRestore(); vi.mocked(pdf.tailoredCvChanges).mockReturnValue(false); }
+  });
   it('binds the server hash to full original context, native ownership, order, round and CV bytes', async () => {
     const f = fixture(); const expected = answerContractsFor(f.input());
     await f.save({ english: 'C1' }, { answerContracts: expected });
@@ -82,6 +120,13 @@ describe('question confirmation protocol', () => {
 });
 
 describe('private final-send source fence', () => {
+  it.each([false, 0, 'No', '0', 'Non accetto', 'Ich stimme nicht', 'Je refuse'])('retains the canonical legacy refusal %s only as a local veto', async refusal => {
+    const f = fixture(); const raw = { ...f.input().flow, answers: { legacy_consent: refusal, legacy_yes: 'Yes' } };
+    const context = await loadRunnerAnswerContext({ db: f.db, orderId: 'source', order: f.input().order, flow: raw, draft: f.input().draft, nowMs: now });
+    expect(context.flow.answers).toEqual({ legacy_consent: refusal });
+    expect(context.localAnswerEvidence).toEqual([]); expect(context.answerEvidence).toEqual([]);
+    expect(raw.answers.legacy_yes).toBe('Yes');
+  });
   async function executionFixture() {
     const f = fixture(); await f.save({ english: 'C1' });
     const childOrder = { ...f.input().order, jobId: 'child', jobUrl: 'https://example.test/child/', cvStorageKey: 'copy.pdf', cvUploadedAt: now + 10 };

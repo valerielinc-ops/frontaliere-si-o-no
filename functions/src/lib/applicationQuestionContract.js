@@ -15,7 +15,8 @@ function boundedNativeContract(value) {
     if (serialized.length > 64000) return null;
     const copy = JSON.parse(serialized);
     if (typeof copy.question !== 'string' || copy.question.length > 8000 || typeof copy.kind !== 'string'
-      || !Array.isArray(copy.options) || copy.options.length > 100 || copy.options.some(value => typeof value !== 'string')
+      || !Array.isArray(copy.options) || copy.options.length > 300 || copy.options.some(value => typeof value !== 'string')
+      || ['questionOwned', 'metadataComplete', 'ownershipUnknown'].some(field => Object.hasOwn(copy, field) && typeof copy[field] !== 'boolean')
       || consentOwnershipContract(copy) === null || addressContextContract(copy) === null) return null;
     return copy;
   } catch { return null; }
@@ -32,7 +33,7 @@ export function answerQuestionDescriptor(question) {
   const ownership = addressContextContract(q);
   if (ownership === null) return null;
   const fields = ['id', 'question', 'applicationQuestion', 'context', 'section', 'autocomplete', 'source', 'minDate', 'why'];
-  if (fields.some(field => String(q[field] || '').length > (['question', 'applicationQuestion', 'why'].includes(field) ? 8000 : 1000)) || Array.isArray(q.options) && q.options.length > 100) return null;
+  if (fields.some(field => String(q[field] || '').length > (['question', 'applicationQuestion', 'why'].includes(field) ? 8000 : 1000)) || Array.isArray(q.options) && q.options.length > 300) return null;
   if (!['text', 'number', 'date', 'yes_no', 'choice', 'checkbox', 'multi_choice'].includes(q.type)
     || q.required != null && typeof q.required !== 'boolean') return null;
   const result = { ...Object.fromEntries(fields.map(field => [field, String(q[field] || '').trim()])),

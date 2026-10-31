@@ -1,4 +1,6 @@
-/** Server-owned confirmation of the exact question shown in one order/round. */
+/** Latest server-owned, value-bound receipt for the exact question shown in one order/round.
+ * A new confirmation replaces the current pointer with a new ID; clear retains metadata only.
+ * No permanent history of superseded Q/A is kept, and old pointers fail closed. */
 import { createHash } from 'node:crypto';
 import { answerQuestionDescriptor, canonicalQuestionJson } from './lib/applicationQuestionContract.js';
 import { validateAnswer } from './lib/answerRules.js';
@@ -37,10 +39,12 @@ function contractOf({ orderId, order = {}, flow = {}, draft = {}, question }) {
   const descriptor = answerQuestionDescriptor(question);
   const native = descriptor?.originalNativeContract;
   const round = Number(flow.round || 1);
+  const unavailableOwner = value => value && (value.questionOwned === false || value.ownConsentQuestionOwned === false
+    || value.metadataComplete === false || value.ownConsentMetadataComplete === false
+    || value.ownershipUnknown === true || value.consentOwnershipUnknown === true);
   if (!orderId || !descriptor || !descriptor.id || !Number.isInteger(round) || round < 1 || Number(draft.round) !== round
-    || descriptor.addressContext?.unknown || descriptor.ownershipUnknown || descriptor.metadataComplete === false
-    || descriptor.consentOwnershipUnknown || descriptor.ownConsentMetadataComplete === false
-    || native?.addressContext?.unknown || native?.consentOwnershipUnknown || native?.ownConsentMetadataComplete === false) return null;
+    || descriptor.addressContext?.unknown || unavailableOwner(descriptor)
+    || native?.addressContext?.unknown || unavailableOwner(native)) return null;
   return { version: ANSWER_CONFIRMATION_VERSION, orderId, userId: String(order.userId || ''), round,
     jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || ''),
     applyUrl: String(draft.channel?.applyUrl || draft.job?.applyUrl || ''), cvHash: confirmedCvHash(order, draft), question: descriptor };
