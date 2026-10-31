@@ -7,7 +7,7 @@ import {
   EMPTY_JOB_POPULARITY,
   __resetJobPopularityCache,
 } from '../services/jobPopularityService';
-import { COPIED_DATA_FILES } from '../build-plugins/adminDataPlugin';
+import { COPIED_DATA_FILES, JOB_POPULARITY_MIN_VIEWS, trimJobPopularity } from '../build-plugins/adminDataPlugin';
 
 // Issue #5001 — /cerca-lavoro-ticino/ measured Lighthouse mobile perf 0.03, the
 // worst template on the site. Cause: components/community/JobBoard.tsx STATICALLY
@@ -31,6 +31,22 @@ function setBase(v: string | undefined): void {
     (window as unknown as { __CDN_DATA_BASE__?: string }).__CDN_DATA_BASE__ = v;
   }
 }
+
+describe('the runtime copy of job-popularity is trimmed', () => {
+  it('drops single-view entries and keeps everything that can rank', () => {
+    const trimmed = JSON.parse(trimJobPopularity(JSON.stringify({ a: 1, b: 2, c: 40 })));
+    expect(trimmed).toEqual({ b: 2, c: 40 });
+    expect(JOB_POPULARITY_MIN_VIEWS).toBe(2);
+  });
+
+  it('leaves a non-numeric value for the loader sanitizer to judge', () => {
+    expect(JSON.parse(trimJobPopularity('{"a":"x"}'))).toEqual({ a: 'x' });
+  });
+
+  it('never rewrites a payload of another shape', () => {
+    expect(trimJobPopularity('[1,2]')).toBe('[1,2]');
+  });
+});
 
 describe('job-popularity is not bundled into the JobBoard chunk', () => {
   it('JobBoard.tsx has no static import of data/job-popularity.json', () => {
