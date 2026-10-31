@@ -68,6 +68,35 @@ let inFlight = ((): boolean => {
 // traffic, without emitting telemetry for every anonymous page view.
 const attemptedAtLoad = inFlight;
 
+type NewsletterAutologinAttempt = {
+ key: string;
+ promise: Promise<unknown>;
+};
+
+// React StrictMode (and a few static-to-live remount paths) can run the App
+// effect more than once for the same URL. Keep the exchange and its telemetry
+// terminal state single-flight for that URL, while still allowing a later
+// in-SPA newsletter link with a different credential to start a new attempt.
+let activeAutologinAttempt: NewsletterAutologinAttempt | null = null;
+
+export function claimNewsletterAutologinAttempt<T>(
+ key: string,
+ factory: () => Promise<T>,
+): { promise: Promise<T>; owner: boolean } {
+ if (activeAutologinAttempt?.key === key) {
+  return {
+   promise: activeAutologinAttempt.promise as Promise<T>,
+   owner: false,
+  };
+ }
+
+ // Defer the factory to the next microtask so the owner can emit the attempt
+ // marker before the network/auth exchange starts.
+ const promise = Promise.resolve().then(factory);
+ activeAutologinAttempt = { key, promise };
+ return { promise, owner: true };
+}
+
 const subscribers = new Set<() => void>();
 
 export function isNewsletterAutologinInFlight(): boolean {

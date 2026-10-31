@@ -75,6 +75,25 @@ describe('newsletter autologin → sign-in affordance suppression', () => {
  const sig = await freshSignal();
  expect(sig.isNewsletterAutologinInFlight()).toBe(false);
  });
+
+ it('claims one exchange and one terminal owner per credential-bearing URL', async () => {
+  const sig = await freshSignal();
+  const factory = vi.fn(async () => 'signed-in-user');
+
+  const first = sig.claimNewsletterAutologinAttempt('same-link', factory);
+  const second = sig.claimNewsletterAutologinAttempt('same-link', factory);
+
+  expect(first.owner).toBe(true);
+  expect(second.owner).toBe(false);
+  await expect(first.promise).resolves.toBe('signed-in-user');
+  await expect(second.promise).resolves.toBe('signed-in-user');
+  expect(factory).toHaveBeenCalledTimes(1);
+
+  const later = sig.claimNewsletterAutologinAttempt('different-link', factory);
+  expect(later.owner).toBe(true);
+  await expect(later.promise).resolves.toBe('signed-in-user');
+  expect(factory).toHaveBeenCalledTimes(2);
+ });
 });
 
 describe('parseNewsletterAutologin (shared source of truth)', () => {
@@ -129,8 +148,9 @@ describe('promptOneTap suppression wiring', () => {
  const firstAwait = effect.indexOf('await ');
  const firstDelete = effect.indexOf('u.searchParams.delete(');
  const settleCall = effect.indexOf('settleNewsletterAutologin();');
+ const claimCall = effect.indexOf('claimNewsletterAutologinAttempt(');
  const outcomeCall = effect.indexOf("Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', user ? 'success' : 'failed');");
- const cancelledGuard = effect.indexOf('if (cancelled) return;');
+ const ownerAttemptCall = effect.indexOf('if (autologinAttempt.owner)');
 
  expect(effectStart).toBeGreaterThanOrEqual(0);
  expect(effectEnd).toBeGreaterThan(effectStart);
@@ -138,9 +158,12 @@ describe('promptOneTap suppression wiring', () => {
  expect(firstAwait).toBeGreaterThanOrEqual(0);
  expect(firstDelete).toBeGreaterThan(firstAwait);
  expect(settleCall).toBeGreaterThan(finallyStart);
+ expect(claimCall).toBeGreaterThanOrEqual(0);
+ expect(ownerAttemptCall).toBeGreaterThan(claimCall);
  expect(outcomeCall).toBeGreaterThan(firstAwait);
- // Telemetry must survive an App remount while the auth exchange settles.
- expect(cancelledGuard).toBe(-1);
+ // The single-flight owner, rather than an effect-local cancellation flag,
+ // keeps StrictMode/remount telemetry to one attempt + one terminal outcome.
+ expect(effect).not.toContain('if (cancelled) return;');
  expect(effect.slice(0, finallyStart)).not.toContain('settleNewsletterAutologin();');
  expect(effect.slice(finallyStart, settleCall)).toContain('window.history.replaceState');
  });
