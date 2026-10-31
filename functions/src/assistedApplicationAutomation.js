@@ -34,7 +34,8 @@ import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, needsFactRepair, transition
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
-import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
+import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
+import { publicSubmissionState, submissionIrreversibility } from './assistedApplicationSubmissionState.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
@@ -252,11 +253,12 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
     const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, orderSnapshot.data()?.userId);
-    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot] = await Promise.all([
+    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot, submissionSnapshot] = await Promise.all([
       transaction.get(flowRef),
       transaction.get(draftRef),
       claimRef ? transaction.get(claimRef) : Promise.resolve(null),
       candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
+      transaction.get(submissionRefFor(db, orderId)),
     ]);
     if (claimSnapshot?.data()?.appliedAt) {
       outcome = { ok: false, ignored: 'already_applied' };
@@ -274,6 +276,20 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const submission = submissionSnapshot.data() || {};
+    const irreversible = submissionIrreversibility({ submission });
+    const currentSend = submission[`r${Number(flow.round) || 1}`];
+    const currentIrreversible = currentSend?.state === 'sent' || isUnconfirmedSubmission(currentSend);
+    const confirmsSubmission = ['submit_succeeded', 'submit_acknowledged', 'owner_submitted', 'candidate_confirmed_submitted'].includes(event.type);
+    const recordsOutcome = ['submit_failed', 'submit_handoff'].includes(event.type);
+    const ignoreIrreversible = () => {
+      // No workflow/round/slot writes, including the event claim, for a refused new execution.
+      outcome = { ok: false, ignored: irreversible, state: publicSubmissionState({ order: orderSnapshot.data(), flow, submission }) };
+    };
+    if (irreversible && (!currentIrreversible || (!confirmsSubmission && !(irreversible === 'submission_unconfirmed' && recordsOutcome)))) {
+      ignoreIrreversible();
+      return;
+    }
     if (currentAnswerReviewRequired(flow, draft || {}) && ['candidate_approve', 'owner_approve', 'owner_retry_submit'].includes(event.type)) {
       claim('ignored:answer_contract_required');
       outcome = { ok: false, ignored: 'answer_contract_required' };
@@ -300,6 +316,12 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       return;
     }
     const result = transition(flowForTransition, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    // An ambiguous send may record an outcome; it cannot dispatch another attempt or refund a slot.
+    if (irreversible && (result.effects.some(effect => ['dispatch', 'refund'].includes(effect.type))
+      || (result.flow.state !== 'submitted' && Number(result.flow.portalAutoRetryAt) > 0))) {
+      ignoreIrreversible();
+      return;
+    }
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
     // continuing a fact-repair chain, including its candidate-review emails.
