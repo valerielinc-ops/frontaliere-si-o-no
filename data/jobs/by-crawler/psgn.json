@@ -741,12 +741,12 @@
     },
     {
       "id": "psgn-2ec21f5dadaa",
-      "slug": "leiterin-leiter-hospitality-management-psychiatrie-st-gallen-wil",
+      "slug": "responsabile-gestione-dell-ospitalita-psychiatrie-st-gallen-wil",
       "slugByLocale": {
         "de": "leiterin-leiter-hospitality-management-psgn-wil",
-        "it": "leiterin-leiter-hospitality-management-psychiatrie-st-gallen-wil",
-        "en": "leiterin-leiter-hospitality-management-psgn-wil",
-        "fr": "leiterin-leiter-hospitality-management-psgn-wil"
+        "it": "responsabile-gestione-dell-ospitalita-psychiatrie-st-gallen-wil",
+        "en": "head-of-hospitality-management-psychiatrie-st-gallen-wil",
+        "fr": "chef-de-la-gestion-de-l-accueil-psychiatrie-st-gallen-wil"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -793,11 +793,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-hospitality-management-psgn-wil",
+          "leiterin-leiter-hospitality-management-psychiatrie-st-gallen-wil"
+        ],
+        "en": [
+          "leiterin-leiter-hospitality-management-psgn-wil"
+        ],
+        "fr": [
           "leiterin-leiter-hospitality-management-psgn-wil"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-hospitality-management-psgn-wil"
+        "leiterin-leiter-hospitality-management-psgn-wil",
+        "leiterin-leiter-hospitality-management-psychiatrie-st-gallen-wil"
       ],
       "salaryMin": 110500,
       "salaryMax": 154000,

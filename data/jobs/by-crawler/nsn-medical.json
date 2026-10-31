@@ -1178,12 +1178,12 @@
     },
     {
       "id": "nsn-medical-ad0a666e3083",
-      "slug": "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-60-90-nsn-medical-zurich",
+      "slug": "dipl-infermiera-hf-dipl-professionista-hf-60-90-nsn-medical-group-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-60-90-nsn-medical-zurich",
-        "it": "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-60-90-nsn-medical-zurich",
-        "en": "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-60-90-nsn-medical-zurich",
-        "fr": "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-60-90-nsn-medical-zurich"
+        "it": "dipl-infermiera-hf-dipl-professionista-hf-60-90-nsn-medical-group-zurich",
+        "en": "dipl-nurse-hf-dipl-care-professional-hf-60-90-nsn-medical-group-zurich",
+        "fr": "dipl-infirmiere-hf-dipl-professionnel-de-soins-hf-60-90-nsn-medical-group-zurich"
       },
       "company": "NSN Medical Group",
       "companyKey": "nsn-medical",
@@ -1242,7 +1242,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:24:50.876Z"
+      "firstSeenAt": "2026-10-30T21:24:50.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-60-90-nsn-medical-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-60-90-nsn-medical-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-60-90-nsn-medical-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-60-90-nsn-medical-zurich"
+      ]
     }
   ]
 }

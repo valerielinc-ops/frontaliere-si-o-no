@@ -1675,12 +1675,12 @@
     },
     {
       "id": "kanton-solothurn-051c68675a0c",
-      "slug": "sachbearbeiter-in-100-kanton-solothurn-solothurn",
+      "slug": "impiegato-a-amministrativo-a-100-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "sachbearbeiter-in-100-kanton-solothurn-solothurn",
-        "it": "sachbearbeiter-in-100-kanton-solothurn-solothurn",
-        "en": "sachbearbeiter-in-100-kanton-solothurn-solothurn",
-        "fr": "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+        "it": "impiegato-a-amministrativo-a-100-kanton-solothurn-solothurn",
+        "en": "administrative-clerk-100-kanton-solothurn-solothurn",
+        "fr": "employe-e-administratif-ve-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1739,7 +1739,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:27:55.557Z"
+      "firstSeenAt": "2026-10-30T21:27:55.557Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+      ]
     }
   ]
 }

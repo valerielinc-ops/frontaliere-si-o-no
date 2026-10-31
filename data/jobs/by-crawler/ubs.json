@@ -3486,12 +3486,12 @@
     },
     {
       "id": "ubs-c01d3f6db92b",
-      "slug": "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich",
+      "slug": "2027-stage-ufficio-investimenti-capo-swiss-global-real-estate-ubs-zurich",
       "slugByLocale": {
         "en": "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich",
-        "it": "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich",
+        "it": "2027-stage-ufficio-investimenti-capo-swiss-global-real-estate-ubs-zurich",
         "de": "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich",
-        "fr": "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich"
+        "fr": "2027-stage-bureau-d-investissement-en-chef-swiss-global-real-estate-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3558,7 +3558,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-30T21:13:32.762Z"
+      "firstSeenAt": "2026-10-30T21:13:32.762Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich"
+        ],
+        "fr": [
+          "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-chief-investment-office-swiss-global-real-estate-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-fe024364acad",
@@ -10112,7 +10123,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -10165,11 +10176,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",

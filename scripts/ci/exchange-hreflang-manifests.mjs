@@ -19,9 +19,9 @@
  * start together but reach this step far apart, and the gap follows their
  * incremental cache hits: run 41119148516 published en at 21:19 and it at 22:21,
  * two minutes after a fixed 60-minute wait had expired and taken the other legs
- * with it. That wait had already been raised from 15 minutes (#15173): no fixed
- * duration fits a gap that moves. A leg that died is caught by the sibling check,
- * so the only real limit is the job budget.
+ * with it. That wait had already gone from 15 to 60 minutes (#15173) and then to
+ * 120 (#16148): no fixed duration fits a gap that moves. A leg that died is caught
+ * by the sibling check, so the only real limit is the job budget.
  *
  * Failure model
  *   - Listing or download errors are transient: retried inside a bounded budget.
@@ -128,7 +128,7 @@ export async function waitForManifestSet({
       waitingFor = missing;
       // A sibling that has terminated cannot publish its manifest. Stop now, so
       // the rearm job classifies the failed leg itself instead of three
-      // misleading barrier timeouts one hour later.
+      // misleading barrier timeouts after the readiness budget expires.
       const failed = await terminatedLocaleJob({ gh, repo, runId });
       if (failed) {
         throw new ManifestExchangeError(

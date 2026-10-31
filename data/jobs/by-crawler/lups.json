@@ -5670,12 +5670,12 @@
     },
     {
       "id": "lups-fe104ac95ea3",
-      "slug": "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban",
+      "slug": "professionista-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "pflegefachperson-w-m-d-60-80-lups-st-urban",
-        "it": "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban",
-        "en": "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban",
-        "fr": "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
+        "it": "professionista-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
+        "en": "care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
+        "fr": "professionnel-de-soins-h-f-d-60-80-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -5722,11 +5722,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-w-m-d-60-80-lups-st-urban"
+          "pflegefachperson-w-m-d-60-80-lups-st-urban",
+          "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
+        ],
+        "en": [
+          "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
+        ],
+        "fr": [
+          "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-w-m-d-60-80-lups-st-urban"
+        "pflegefachperson-w-m-d-60-80-lups-st-urban",
+        "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,
