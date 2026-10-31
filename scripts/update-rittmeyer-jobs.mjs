@@ -31,7 +31,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseRittmeyerListingsPage,
-  parseRittmeyerJobDetail,
+  parseRittmeyerJobDetailWithUrl,
   isRittmeyerTicinoListing,
   buildRittmeyerLocalizedContent,
   RITTMEYER_LEGACY_PLACEHOLDER_TITLES,
@@ -40,6 +40,7 @@ import {
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { onlyfyFullAdUrl, extractOnlyfyJobAdText, isOnlyfyJobAdText } from './lib/onlyfy-listing-common.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -58,11 +59,16 @@ const COMPANY_KEY = 'rittmeyer-ag';
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Rittmeyer AG';
-const COMPANY_HOST = 'karriere.rittmeyer.com';
+const ONLYFY_HOST = 'brugg.onlyfy.jobs';
+const COMPANY_HOST = ONLYFY_HOST;
 const COMPANY_DOMAIN = 'rittmeyer.com';
-// No `location` filter → all Swiss Rittmeyer sites (country=1 keeps it Swiss-only).
-const CAREERS_URL = 'https://karriere.rittmeyer.com/offene-stellen/?suche=&country=1';
-const DETAIL_BASE = 'https://karriere.rittmeyer.com';
+// The public Rittmeyer careers site now answers 401 from crawler egress. The
+// employer's own Onlyfy board is the same public vacancy source and keeps the
+// role details available without an authenticated session.
+const CAREERS_URL = 'https://brugg.onlyfy.jobs/en/';
+const DETAIL_BASE = 'https://brugg.onlyfy.jobs/';
+const LEGACY_CAREERS_URL = 'https://karriere.rittmeyer.com/offene-stellen/';
+const LEGACY_DETAIL_BASE = 'https://karriere.rittmeyer.com/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 // Rittmeyer publishes jobs across multiple Swiss sites; address attribution
@@ -155,37 +161,67 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
   });
 }
 
-function absoluteUrl(raw = '') {
+function absoluteUrl(raw = '', base = DETAIL_BASE) {
   if (!raw) return '';
-  if (/^https?:\/\//i.test(raw)) return raw;
-  return new URL(raw, DETAIL_BASE).toString();
+  const resolved = new URL(raw, base);
+  if (resolved.hostname.toLowerCase() === ONLYFY_HOST && !resolved.pathname.endsWith('/')) {
+    resolved.pathname += '/';
+  }
+  return resolved.toString();
 }
 
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
   const url = String(job.url || '').toLowerCase();
-  return key === COMPANY_KEY || company.includes('rittmeyer') || url.includes('karriere.rittmeyer.com/offene-stellen/');
+  return key === COMPANY_KEY || company.includes('rittmeyer')
+    || url.includes('karriere.rittmeyer.com/offene-stellen/')
+    || url.includes('brugg.onlyfy.jobs/');
 }
 
 function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'karriere.rittmeyer.com' || host.endsWith('.rittmeyer.com') || host === 'rittmeyer.com';
+    return host === ONLYFY_HOST || host === 'karriere.rittmeyer.com' || host.endsWith('.rittmeyer.com') || host === 'rittmeyer.com';
   } catch {
     return false;
   }
 }
 
 async function fetchListings() {
-  console.log('🔍 Fetching Rittmeyer jobs from careers page...');
-  const html = await fetchText(CAREERS_URL);
-  const sourceRows = parseRittmeyerListingsPage(html);
+  console.log('🔍 Fetching Rittmeyer jobs from the public employer board...');
+  const sources = [
+    { url: CAREERS_URL, detailBase: DETAIL_BASE, label: 'Onlyfy employer board' },
+    { url: LEGACY_CAREERS_URL, detailBase: LEGACY_DETAIL_BASE, label: 'Rittmeyer careers page' },
+  ];
+  let lastError;
+  let sourceRows;
+  let sourceLabel;
+  for (const source of sources) {
+    try {
+      const html = await fetchText(source.url);
+      const parsedRows = parseRittmeyerListingsPage(html);
+      for (const row of parsedRows) row.sourceBase = source.detailBase;
+      const sourceReadComplete = Boolean(
+        parsedRows.rittmeyerListingSkippedMalformedRows === 0
+        && (parsedRows.length > 0 ? parsedRows.rittmeyerListingMarkupSeen : parsedRows.rittmeyerListingEmptyStateObserved)
+        && (parsedRows.rittmeyerListingAdvertisedCount == null
+          || parsedRows.length === parsedRows.rittmeyerListingAdvertisedCount),
+      );
+      if (!sourceReadComplete) {
+        throw new Error(`Rittmeyer: ${source.label} listing markup was not read completely`);
+      }
+      sourceRows = parsedRows;
+      sourceLabel = source.label;
+      break;
+    } catch (err) {
+      lastError = err;
+      console.warn(`⚠️  ${source.label} unavailable: ${err?.message || err}`);
+    }
+  }
+  if (!sourceRows) throw lastError || new Error('Rittmeyer: no public listing source available');
+  console.log(`  Source: ${sourceLabel}`);
   const rows = sourceRows.filter(isRittmeyerTicinoListing);
-  const sourceReadComplete = Boolean(
-    sourceRows.rittmeyerListingSkippedMalformedRows === 0
-    && (sourceRows.length > 0 ? sourceRows.rittmeyerListingMarkupSeen : sourceRows.rittmeyerListingEmptyStateObserved),
-  );
   const unrecognizedLocations = sourceRows.filter((row) => !isRecognizedRittmeyerSourceLocation(row));
   console.log(`📋 Matching Ticino listing rows: ${rows.length}`);
   for (const row of rows) {
@@ -196,7 +232,7 @@ async function fetchListings() {
   }
   Object.defineProperties(rows, {
     rittmeyerSourceRows: { value: sourceRows, enumerable: false },
-    rittmeyerSourceReadComplete: { value: sourceReadComplete, enumerable: false },
+    rittmeyerSourceReadComplete: { value: true, enumerable: false },
     rittmeyerSourceTerminationProven: { value: true, enumerable: false },
     rittmeyerSourceTargetCount: { value: rows.length, enumerable: false },
     rittmeyerSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
@@ -246,9 +282,30 @@ function inferCategory(detail = {}) {
 }
 
 async function buildRittmeyerJob(listing) {
-  const detailUrl = absoluteUrl(listing.href);
-  const html = await fetchText(detailUrl);
-  const detail = parseRittmeyerJobDetail(html);
+  const detailUrl = absoluteUrl(listing.href, listing.sourceBase || DETAIL_BASE);
+  const shellHtml = await fetchText(detailUrl);
+  const shellDetail = parseRittmeyerJobDetailWithUrl(shellHtml, detailUrl);
+  const fullAdUrl = onlyfyFullAdUrl(detailUrl);
+  let detail = shellDetail;
+  if (fullAdUrl) {
+    try {
+      const fullAdHtml = await fetchText(fullAdUrl);
+      const fullAdText = extractOnlyfyJobAdText(fullAdHtml);
+      if (!isOnlyfyJobAdText(fullAdText)) {
+        throw new Error('full ad response did not contain a complete job body');
+      }
+      const fullAdDetail = parseRittmeyerJobDetailWithUrl(fullAdHtml, detailUrl);
+      detail = {
+        ...fullAdDetail,
+        ...Object.fromEntries(Object.entries(shellDetail).filter(([, value]) => value)),
+        summary: fullAdText,
+      };
+    } catch (err) {
+      if (!isOnlyfyJobAdText(shellDetail.summary)) {
+        throw new Error(`Rittmeyer: Onlyfy detail body unavailable for ${detailUrl}: ${err?.message || err}`);
+      }
+    }
+  }
   // Postings are German, French or Italian; the source slot must carry the
   // posting's own language so the translation step fills the other three.
   const sourceLang = detectLang(
@@ -259,6 +316,7 @@ async function buildRittmeyerJob(listing) {
   // Trust the parsed `Schweiz` field (and fall back to the listing title
   // when missing) so off-Camorino postings get the right canton + postal.
   const site = resolveRittmeyerSiteAddress(detail.location || listing.title || '');
+  const workload = detail.workload || String(listing.snippet || listing.title || '').match(/\b\d{2,3}\s*[-–]\s*\d{2,3}\s*%\b/)?.[0] || '';
   return {
     title: detail.title,
     slug: localized.slugByLocale[sourceLang],
@@ -279,10 +337,10 @@ async function buildRittmeyerJob(listing) {
     sector: 'Energia',
     source: 'rittmeyer-dedicated-crawler',
     sourceLang,
-    ...sourcePostingDateFields(''),
+    ...sourcePostingDateFields(detail.datePosted || ''),
     crawledAt: new Date().toISOString(),
-    employmentType: detail.workload && detail.workload.includes('80') ? 'full-time' : 'other',
-    contractType: detail.workload && detail.workload.includes('80') ? 'full-time' : 'other',
+    employmentType: workload && workload.includes('80') ? 'full-time' : detail.employmentType || 'other',
+    contractType: workload && workload.includes('80') ? 'full-time' : detail.employmentType || 'other',
     validThrough: '',
     description: localized.descriptionByLocale[sourceLang],
     titleByLocale: localized.titleByLocale,
@@ -341,8 +399,18 @@ export function scrubRittmeyerLegacyLocaleCopies(job = {}) {
   };
 }
 
-function jobMatchKey(job = {}) {
-  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
+export function jobMatchKey(job = {}) {
+  // The legacy careers URL and the Onlyfy board assign unrelated vendor IDs
+  // to the same vacancy. Prefer the source-independent role/location identity
+  // so a source migration keeps previousSlugs and locale continuity.
+  const titleLocationKey = `title:${normalizeKey(job.title)}|location:${normalizeKey(job.location)}`;
+  if (titleLocationKey !== 'title:|location:') return titleLocationKey;
+
+  const stableUrlKey = extractStableJobId(job.url);
+  if (stableUrlKey && !stableUrlKey.startsWith('url:')) return stableUrlKey;
+  const stableApplyKey = extractStableJobId(job.applyUrl);
+  if (stableApplyKey && !stableApplyKey.startsWith('url:')) return stableApplyKey;
+  return String(job.slug || '').trim().toLowerCase();
 }
 
 function mergeJobs(discoveredJobs) {
@@ -403,8 +471,8 @@ function updateAdapterConfig(jobs) {
     enabled: true,
     priority: 14,
     crawlerModes: ['html'],
-    seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Rittmeyer crawler parses the Rittmeyer careers page and keeps the Ticino vacancy exposed on the filtered public listing.',
+    seedUrls: [CAREERS_URL, LEGACY_CAREERS_URL],
+    notes: 'Dedicated Rittmeyer crawler reads the public employer Onlyfy board (with the legacy careers page as fallback) and keeps the Ticino vacancy exposed on the filtered public listing.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });

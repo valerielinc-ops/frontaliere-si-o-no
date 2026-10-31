@@ -9,11 +9,13 @@
 import { isDeepStrictEqual } from 'node:util';
 import { dedupePortalQuestions, portalQuestionKey } from './portal.mjs';
 import { mergeRequiredDocuments, requiredDocumentLabelKey, requiredDocumentsOf } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { privacySemanticIdentifierFields } from '../../../../functions/src/lib/applicationConsent.js';
 
 const label = question => String(question?.applicationQuestion || question?.question || '').replace(/\s*\*\s*$/, '').trim().replace(/\s+/g, ' ');
 const PROVENANCE_KEYS = ['portalNativeContract', 'originalNativeContract', 'ownConsentText', 'ownConsentQuestionLabels',
   'ownConsentLinks', 'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'ownConsentOwnerKey', 'consentOwnershipUnknown'];
-const CONTRACT_KEYS = ['question', 'applicationQuestion', 'type', 'options', 'applicationOptions', 'optionMap', 'validation', 'required', 'context', 'section', 'autocomplete', ...PROVENANCE_KEYS];
+const CONTRACT_KEYS = [...new Set(['question', 'applicationQuestion', 'type', 'options', 'applicationOptions', 'optionMap', 'validation', 'required', 'context', 'section', 'autocomplete', ...PROVENANCE_KEYS,
+  ...privacySemanticIdentifierFields.filter(key => key !== 'id')])];
 function sameField(old, live) {
   if (old?.source !== 'portal' || live?.source !== 'portal' || !label(old) || label(old) !== label(live)) return false;
   return ['context', 'section', 'autocomplete'].every(key => !String(old[key] || '').trim()

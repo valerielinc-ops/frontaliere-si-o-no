@@ -1,7 +1,7 @@
 {
   "key": "servicekuhn-ch",
   "label": "servicekuhn",
-  "generatedAt": "2026-10-31T09:31:41.700Z",
+  "generatedAt": "2026-10-31T22:14:48.205Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4730,
-  "avgDurationMs": 4730,
+  "durationMs": 4263,
+  "avgDurationMs": 4263,
   "durationHistory": [
-    4730
+    4263
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://servicekuhn.ch/jobs/",
       "source": "servicekuhn Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:31:26.839Z",
+      "crawledAt": "2026-10-31T22:14:34.563Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

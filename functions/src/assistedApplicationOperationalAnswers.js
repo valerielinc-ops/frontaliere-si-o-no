@@ -4,8 +4,9 @@
  */
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
+import { isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v1';
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v2';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -108,6 +109,14 @@ export function operationalQuestionTopic(question) {
   const label = String(question?.question || question?.label || question?.applicationQuestion || '')
     .replace(/\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*)\s*$/i, '');
   const text = norm(label + ' ' + (question?.applicationQuestion || ''));
+  const privacyRepresentations = [question?.question, question?.label, question?.applicationQuestion]
+    .filter(value => typeof value === 'string' && value.trim());
+  const supplementalPrivacyLabels = Array.isArray(question?.labels)
+    ? question.labels.filter(value => typeof value === 'string' && value.trim()) : [];
+  const privacyReviewAck = privacyRepresentations.length > 0
+    && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
+    && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, question, ...privacyRepresentations, ...supplementalPrivacyLabels));
+  if (privacyReviewAck) return 'privacy_review_ack';
   if (!text || HARD_DECLARATION.test(text) || question?.type === 'date' || question?.inputType === 'date') return null;
   if (NOTICE.test(text) && OTHER_NOTICE_TOPIC.test(text)) return null;
   if (isPreferredWorkloadQuestion(label)) return 'preferred_workload';
@@ -134,7 +143,14 @@ export function operationalDefaultAnswer(question, { locale } = {}) {
   const text = norm(question?.applicationQuestion || question?.question || question?.label);
   const language = languageOf(text, locale);
   let value;
-  if (topic === 'notice_period') {
+  if (topic === 'privacy_review_ack') {
+    if (options.length) {
+      const matches = options.filter(option => YES.test(norm(option.label)));
+      if (matches.length !== 1) return null;
+      value = matches[0].label;
+    } else value = question?.kind === 'checkbox' || question?.type === 'checkbox'
+      ? 'true' : { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
+  } else if (topic === 'notice_period') {
     if (options.length) {
       value = operationalAnswerForOption(question, '3 months');
       if (!value) return null;
