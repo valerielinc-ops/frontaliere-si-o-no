@@ -231,7 +231,7 @@ const BankComparison: React.FC = () => {
  <div className="space-y-6 pb-8">
  <Callout status="warning" icon={<Building2 size={32} />} className="p-5 sm:p-8">
  <div className="mb-1">
- <h2 className="text-2xl sm:text-3xl font-bold font-display text-heading">{t('banks.title')}</h2>
+ <h1 className="text-2xl sm:text-3xl font-bold font-display text-heading">{t('banks.title')}</h1>
  </div>
  <p className="text-muted text-lg">{t('banks.subtitle')}</p>
  <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Siti ufficiali banche" variant="badge" /></div>

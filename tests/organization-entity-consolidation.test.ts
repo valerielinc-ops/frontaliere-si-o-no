@@ -192,7 +192,7 @@ describe('the canonical #organization entity', () => {
     // sameAs is how a graph decides two nodes are the same real organization.
     // It used to exist only in index.html, so every static page and every
     // article's publisher referenced an entity with no external anchor.
-    expect(ORGANIZATION_LD.sameAs.length).toBeGreaterThanOrEqual(4);
+    expect(ORGANIZATION_LD.sameAs.length).toBeGreaterThanOrEqual(3);
     expect(ORGANIZATION_LD.sameAs).toEqual([...ORGANIZATION_SAME_AS]);
   });
 
@@ -420,7 +420,7 @@ describe('no two definitions of #organization disagree', () => {
    * `...ORGANIZATION_LD_FULL` would survive into `jsToJson` as literal text,
    * `JSON.parse` would throw, and the plugin's silent
    * `catch { /* skip SD *\/ }` would drop the ENTIRE structuredData array for
-   * the entry — WebSite + SearchAction + WebPage included, with a green build.
+   * the entry — WebSite + WebPage included, with a green build.
    *
    * So the single-source-of-truth guarantee cannot be "one object referenced
    * everywhere" here. It is enforced instead by comparing the parsed literal

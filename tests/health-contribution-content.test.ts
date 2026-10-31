@@ -51,3 +51,19 @@ it('calculator static FAQ does not promise a flat SSN premium', () => {
   expect(block.match(/3–6%/g)).toHaveLength(4);
   expect(block.match(/30–200 EUR|EUR 30–200/g)).toHaveLength(4);
 });
+
+describe('stato regionale della tassa salute', () => {
+  it.each(['it', 'en', 'de', 'fr'] as const)('%s nomina Lombardia e Piemonte con le fonti ufficiali', locale => {
+    const visible = editorial[locale].join('\n');
+    expect(visible).toMatch(/Lombardia|Lombardy|Lombardei|Lombardie/);
+    expect(visible).toMatch(/Piemonte|Piedmont|Piemont|Piémont/);
+    expect(visible).toContain('lombardianotizie.online/medici-svizzera-stipendio/');
+    expect(visible).toContain('cr.piemonte.it/mzodgfo/legislatura/12/atto/260/');
+  });
+
+  it('collega gli articoli del tema con trailing slash', () => {
+    const links = editorial.it.join('\n').match(/href="\/articoli-frontaliere\/[^"]+"/g) ?? [];
+    expect(links.length).toBeGreaterThanOrEqual(4);
+    for (const link of links) expect(link.endsWith('/"')).toBe(true);
+  });
+});

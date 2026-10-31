@@ -18,6 +18,11 @@ describe('article registry metadata boundaries', () => {
     const source = "const RAW_ARTICLES = [{id:'one', description: 'id: fake, updatedAt: bad }', nested: {updatedAt:'wrong'}, related:[{id:'nested',updatedAt:'wrong'}], template: `id: fake ${ {updatedAt:'fake'} }`, /* updatedAt:'comment' */ authorName:\"D’Angelo\"}, {updatedAt: /* actual */ '2026-10-03',id:'two'}];";
     expect(readArticleRegistryMetadata(source)).toEqual([{id:'one',authorName:'D’Angelo'}, {id:'two',updatedAt:'2026-10-03'}]);
   });
+  it('reads only the two declared article types', () => {
+    expect(readArticleRegistryMetadata(
+      "const A=[{id:'a',articleType:'evergreen'},{id:'b',articleType:'news'},{id:'c',articleType:'other'}];",
+    )).toEqual([{id:'a',articleType:'evergreen'},{id:'b',articleType:'news'},{id:'c'}]);
+  });
   it('rejects duplicate ids and truncated registry objects instead of merging entries', () => {
     expect(() => readArticleRegistryMetadata("const A=[{id:'a'},{id:'a'}];")).toThrow(/Duplicate/);
     expect(() => readArticleRegistryMetadata("const A=[{id:'a'}")).toThrow(/Unbalanced/);

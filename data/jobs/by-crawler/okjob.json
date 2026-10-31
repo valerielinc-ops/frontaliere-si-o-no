@@ -1,16 +1,16 @@
 {
   "crawlerKey": "okjob",
-  "assembledAt": "2026-10-30T21:46:40.569Z",
-  "runId": "41130235490",
+  "assembledAt": "2026-10-31T09:48:27.353Z",
+  "runId": "41188271558",
   "jobs": [
     {
       "id": "okjob-adbb942d4e57",
       "slug": "verniciatore-trice-con-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d",
       "slugByLocale": {
         "it": "verniciatore-trice-con-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d",
-        "en": "painter-machine-with-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d",
-        "de": "maler-maschine-mit-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d",
-        "fr": "peintre-machine-avec-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d"
+        "en": "painter-machine-with-afc-ok-job-sa-succursale-di-mendrisio-mendrisio-adbb942d",
+        "de": "maler-maschine-mit-afc-ok-job-sa-succursale-di-mendrisio-mendrisio-adbb942d",
+        "fr": "peintre-machine-avec-afc-ok-job-sa-succursale-di-mendrisio-mendrisio-adbb942d"
       },
       "slugDisambiguator": "adbb942d",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -69,46 +69,63 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:46:18.396Z"
+      "firstSeenAt": "2026-10-30T21:46:18.396Z",
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "painter-machine-with-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d"
+        ],
+        "de": [
+          "maler-maschine-mit-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d"
+        ],
+        "fr": [
+          "peintre-machine-avec-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d"
+        ]
+      },
+      "previousSlugs": [
+        "painter-machine-with-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d",
+        "maler-maschine-mit-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d",
+        "peintre-machine-avec-afc-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-adbb942d"
+      ]
     },
     {
-      "id": "okjob-b2ad86c3a060",
-      "slug": "esperienza-cfc-automatico-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b2ad86c3",
+      "id": "okjob-1393ed912bfa",
+      "slug": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
       "slugByLocale": {
-        "fr": "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b2ad86c3",
-        "it": "esperienza-cfc-automatico-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b2ad86c3",
-        "en": "experienced-cfc-automatician-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b2ad86c3",
-        "de": "erfahrener-cfc-automatiker-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b2ad86c3"
+        "de": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
+        "it": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
+        "en": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91",
+        "fr": "betriebselektriker-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-1393ed91"
       },
-      "slugDisambiguator": "b2ad86c3",
+      "slugDisambiguator": "1393ed91",
       "company": "OK Job SA, succursale di Mendrisio",
       "companyKey": "okjob",
       "companyDomain": "okjob.ch",
-      "title": "Automaticien CFC expérimenté (H/F)",
+      "title": "Betriebselektriker (m/w/d)",
       "titleByLocale": {
-        "fr": "Automaticien CFC expérimenté (H/F)",
-        "it": "Esperienza CFC Automatico (M/F)",
-        "en": "Experienced CFC Automatician (M/F)",
-        "de": "Erfahrener CFC Automatiker (M/W)"
+        "de": "Betriebselektriker (m/w/d)",
+        "it": "Betriebselektriker (m/w/d)",
+        "en": "Betriebselektriker (m/w/d)",
+        "fr": "Betriebselektriker (m/w/d)"
       },
-      "description": "Automaticien CFC expérimenté (H/F)\nretour à la liste\nAfin de renforcer nos équipes, nous recherchons un automaticien CFC expérimenté (H/F)\nDescription du job\nVotre mission :\n- Concevoir, modéliser et mettre en service des installations automatisées et leurs commandes électriques (robots, ascenseurs, portes coulissantes, etc.)\n- Programmer et paramétrer les automates afin d'optimiser le fonctionnement et l'efficacité énergétique des machines\n- Diagnostiquer et résoudre les pannes électriques et automatisées\n- Participer aux projets d'amélioration continue et d'investissement\n- Collaborer avec les équipes de production, méthodes et ingénierie\n- Rédiger la documentation technique (schémas, modes opératoires, rapports, etc.)\n- Assurer un support technique aux opérateurs et former les utilisateurs\nProfil\nProfil souhaité :\n- Titulaire d'un CFC d'automaticien (H/F), requis\n- Expérience confirmée de 3 à 5 ans minimum dans un environnement industriel\n- Solides connaissances en câblage, montage électrique et lecture de schémas techniques\n- Expérience dans la mise en service, le dépannage et la maintenance d'équipements automatisés\n- Connaissances des automates programmables (Siemens, Beckhoff, Schneider ou équivalent), un atout\n- Bonnes compétences en diagnostic de pannes électriques, pneumatiques et automatisées\n- Autonomie, esprit méthodique et orientation solutions\n- Capacité à travailler en équipe et à intervenir efficacement en environnement industriel, de production automatisée ou de maintenance technique\nAutomaticien CFC expérimenté (H/F) / Fixe\n- Localité\nYverdon-les-Bains\nDisponibilité\nDe suite\nTipo\nFixe\nRéférence\n42875\nPublié le\n30/10/2026\nAgence en charge\nYverdon-les-Bains\nLaura Scorrano\n+41 24 420 27 60\nlaura.scorrano@okjob.ch\nRue de Neuchâtel 16\nCH-1400 Yverdon\nTéléphone +41 24 420 27 60\nVotre agence de placement à Yverdon-les-Bains\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
+      "description": "Betriebselektriker (m/w/d)\nzurück zur Liste\nOK JOB SA ist ein 2012 gegründetes Schweizer Personal- und Zeitarbeitsunternehmen. Zertifiziert nach ISO 9001, ISO 14001 und ISO 45001.\nWir leben werteorientiertes Engagement bei der Vermittlung von Mitarbeitern in temporäre und Dauerstellen\nFür unseren Kunden im Baselbiet suchen wir eine/n\nArbeitsbeschreibung\n- Durchführung von elektrischen Wartungsarbeiten an unseren Produktionsanlagen, einschliesslich Mechanik, Pneumatik und Hydraulik\n- Analyse und Behebung von Störungen, einschliesslich solcher, die SPS-Systeme betreffen\n- Umsetzung kleinerer Installationsprojekte gemäss NIN/NIV\n- Aktualisierung von Elektroschemas\n- Bereitschaft zur Übernahme regelmässiger Pikettdienste\n- Planung und Durchführung von Retrofit-Projekten an Maschinen und Infrastruktur\nProfil\n- Ausbildung als Elektriker oder Automatiker, idealerweise in einem Industriebetrieb\n- Kenntnisse in SPS (insbesondere Siemens S5, S7)\n- Freude an der Weitergabe von Wissen an Kolleginnen und Kollegen\n- Sehr gute Deutschkenntnisse in Wort und Schrift\n- Führerausweis der Kategorie B (für Pikettdiensteinsätze)\nGerne freuen wir uns über Ihre kompletten Bewerbungsunterlagen per E-Mail oder Ihre telefonische Kontaktaufnahme:\nIhr Ansprechpartner:\nNikson Nikolla\nPersonalberater\nEisengasse 6\n4051 Basel\nTel. : +41 (0) 61 260 35 04\nE-mail : nikson.nikolla@okjob.ch\nwww.okjob.ch\nBetriebselektriker (m/w/d) / Fest\n- Lage\nBâle\nVerfügbarkeit\nDe suite\nType\nDauerstellen\nReferenz\n42930\nVeröffentlicht am\n31/10/2026\nVerantwortliche Agentur\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefon 0612603500\nIhre Vermittlungsagentur in Basel\nSie müssen Ihr Profil im Bereich \"Mein Konto\" als \"vollständig\" kennzeichnen, bevor Sie sich für diese Stelle bewerben.",
       "descriptionByLocale": {
-        "fr": "Automaticien CFC expérimenté (H/F)\nretour à la liste\nAfin de renforcer nos équipes, nous recherchons un automaticien CFC expérimenté (H/F)\nDescription du job\nVotre mission :\n- Concevoir, modéliser et mettre en service des installations automatisées et leurs commandes électriques (robots, ascenseurs, portes coulissantes, etc.)\n- Programmer et paramétrer les automates afin d'optimiser le fonctionnement et l'efficacité énergétique des machines\n- Diagnostiquer et résoudre les pannes électriques et automatisées\n- Participer aux projets d'amélioration continue et d'investissement\n- Collaborer avec les équipes de production, méthodes et ingénierie\n- Rédiger la documentation technique (schémas, modes opératoires, rapports, etc.)\n- Assurer un support technique aux opérateurs et former les utilisateurs\nProfil\nProfil souhaité :\n- Titulaire d'un CFC d'automaticien (H/F), requis\n- Expérience confirmée de 3 à 5 ans minimum dans un environnement industriel\n- Solides connaissances en câblage, montage électrique et lecture de schémas techniques\n- Expérience dans la mise en service, le dépannage et la maintenance d'équipements automatisés\n- Connaissances des automates programmables (Siemens, Beckhoff, Schneider ou équivalent), un atout\n- Bonnes compétences en diagnostic de pannes électriques, pneumatiques et automatisées\n- Autonomie, esprit méthodique et orientation solutions\n- Capacité à travailler en équipe et à intervenir efficacement en environnement industriel, de production automatisée ou de maintenance technique\nAutomaticien CFC expérimenté (H/F) / Fixe\n- Localité\nYverdon-les-Bains\nDisponibilité\nDe suite\nTipo\nFixe\nRéférence\n42875\nPublié le\n30/10/2026\nAgence en charge\nYverdon-les-Bains\nLaura Scorrano\n+41 24 420 27 60\nlaura.scorrano@okjob.ch\nRue de Neuchâtel 16\nCH-1400 Yverdon\nTéléphone +41 24 420 27 60\nVotre agence de placement à Yverdon-les-Bains\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
-        "it": "Esperienza CFC Automatico (M/F)\ntorna alla lista\nPer rafforzare i nostri team, stiamo cercando un operatore automatico CFC esperto (M/F)\nDescrizione del lavoro\nLa vostra missione:\n- Progettazione, modello e messa in servizio impianti automatizzati e loro controlli elettrici (robot, ascensori, porte scorrevoli, ecc.)\n- Programmazione e regolazione dell'automazione per ottimizzare il funzionamento e l'efficienza energetica delle macchine\n- Diagnosi e risoluzione di guasti elettrici e automatizzati\n- Partecipazione a progetti di miglioramento e investimento continui\n- Collabora con team di produzione, metodi e ingegneria\n- Scrivere documentazione tecnica (scheduli, procedure operative, relazioni, ecc.)\n- Fornire supporto tecnico agli operatori e agli utenti dei treni\nProfilo\nProfilo desiderato:\n- Titolare di un CFC automatico (M/F), richiesto\n- Esperienza confermata da 3 a 5 anni minimo in un ambiente industriale\n- Conoscenza solida nel cablaggio, assemblaggio elettrico e lettura diagramma tecnico\n- Esperienza nella messa in servizio, risoluzione dei problemi e manutenzione di apparecchiature automatizzate\n- Conoscenza dei controller programmabili (Siemens, Beckhoff, Schneider o equivalente), un asset\n- Buone competenze diagnostiche per guasti elettrici, pneumatici e automatizzati\n- Soluzioni di autonomia, mente metodica e orientamento\n- Capacità di lavorare come team e di intervenire efficacemente nell'ambiente industriale, automatizzato di produzione o manutenzione tecnica\nEsperienza CFC Automatico (M/F) / Fisso\n- Località\nYverdon-les-Bains\nDisponibilità\nImmediatamente\nTipo\nFisso\nRiferimento\n42875\nPubblicato il\n30/10/2026\nAgenzia responsabile\nYverdon-les-Bains\nLaura Scorrano\n+41 24 420 27 60\nlaura.scorrano@okjob.ch\nRue de Neuchâtel 16\nCH-1400 Yverdon\nTel. +41 24 420 27 60\nLa tua agenzia di lavoro a Yverdon-les-Bains\nDevi definire il tuo profilo come \"pieno\" nella sezione \"Il mio account\" prima di richiedere questo lavoro.",
-        "en": "Experienced CFC Automatician (M/F)\nback to list\nIn order to strengthen our teams, we are looking for an experienced CFC automatic operator (M/F)\nJob description\nYour mission:\n- Design, model and commission automated installations and their electrical controls (robots, elevators, sliding doors, etc.)\n- Programming and setting automation to optimize the operation and energy efficiency of machines\n- Diagnosis and resolve electrical and automated failures\n- Participate in continuous improvement and investment projects\n- Collaborate with production teams, methods and engineering\n- Write technical documentation (schedules, operating procedures, reports, etc.)\n- Provide technical support to operators and train users\nProfile\nProfile desired:\n- Holder of a (M/F) automated CFC, required\n- Confirmed experience from 3 to 5 years minimum in an industrial environment\n- Solid knowledge in wiring, electrical assembly and technical diagram reading\n- Experience in commissioning, troubleshooting and maintenance of automated equipment\n- Knowledge of programmable controllers (Siemens, Beckhoff, Schneider or equivalent), an asset\n- Good diagnostic skills for electrical, pneumatic and automated faults\n- Autonomy, methodical mind and orientation solutions\n- Ability to work as a team and to intervene effectively in the industrial, automated production or technical maintenance environment\nExperienced CFC Automatician (M/F) / Fixed\n- Locality\nYverdon-les-Bains\nAvailability\nImmediately\nTipo\nFixed\nReference\n42875\nPublished on\n30/10/2026\nAgency in charge\nYverdon-les-Bains\nLaura Scorrano\n+41 24 420 27 60\nlaura.scorrano@okjob.ch\nRue de Neuchâtel 16\nCH-1400 Yverdon\nTel. +41 24 420 27 60\nYour employment agency in Yverdon-les-Bains\nYou must define your profile as \"full\" in the \"My Account\" section before applying for this job.",
-        "de": "Erfahrener CFC Automatiker (M/W)\nZurück zur Liste\nUm unsere Teams zu stärken, suchen wir einen erfahrenen CFC Automatiker (M/W)\nStellenbeschreibung\nIhre Mission:\n- Entwurf, Modellierung und Inbetriebnahme automatisierter Anlagen und ihrer elektrischen Steuerungen (Roboter, Aufzüge, Schiebetüren usw.)\n- Programmierung und Einstellung der Automatisierung zur Optimierung des Betriebs und der Energieeffizienz von Maschinen\n- Diagnose und Behebung elektrischer und automatisierter Störungen\n- Teilnahme an kontinuierlichen Verbesserungs- und Investitionsprojekten\n- Zusammenarbeit mit Produktionsteams, Methoden und Engineering\n- Verfassen Sie technische Dokumentation (Zeitpläne, Betriebsverfahren, Berichte usw.)\n- Bereitstellung technischer Unterstützung für Betreiber und Zugnutzer\nProfil\nProfil gewünscht:\n- Halter eines (M/W) automatisierten CFC, erforderlich\n- Bestätigte Erfahrung von mindestens 3 bis 5 Jahren in einem industriellen Umfeld\n- Fundierte Kenntnisse in Verdrahtung, elektrischer Baugruppe und technischem Diagrammlesen\n- Erfahrung in der Inbetriebnahme, Fehlersuche und Wartung von automatisierten Geräten\n- Kenntnisse über speicherprogrammierbare Steuerungen (Siemens, Beckhoff, Schneider oder gleichwertig), ein Asset\n- Gute Diagnosekenntnisse bei elektrischen, pneumatischen und automatisierten Störungen\n- Autonomie, methodische Denkweise und Orientierungslösungen\n- Fähigkeit, als Team zu arbeiten und effektiv in die industrielle, automatisierte Produktion oder technische Wartungsumgebung einzugreifen\nErfahrener CFC Automatiker (M/W) / Fixed\n- Ort\nYverdon-les-Bains\nVerfügbarkeit\nSofort\nTipo\nFestgelegt\nReferenznummer\n42875\nVeröffentlicht am\n30/10/2026\nZuständige Agentur\nYverdon-les-Bains\nLaura Scorrano\n+41 24 420 27 60\nlaura.scorrano@okjob.ch\nRue de Neuchâtel 16\nCH-1400 Yverdon\nTel. +41 24 420 27 60\nIhre Arbeitsagentur in Yverdon-les-Bains\nSie müssen Ihr Profil im Abschnitt \"Mein Konto\" als \"vollständig\" definieren, bevor Sie sich für diese Stelle bewerben."
+        "de": "Betriebselektriker (m/w/d)\nzurück zur Liste\nOK JOB SA ist ein 2012 gegründetes Schweizer Personal- und Zeitarbeitsunternehmen. Zertifiziert nach ISO 9001, ISO 14001 und ISO 45001.\nWir leben werteorientiertes Engagement bei der Vermittlung von Mitarbeitern in temporäre und Dauerstellen\nFür unseren Kunden im Baselbiet suchen wir eine/n\nArbeitsbeschreibung\n- Durchführung von elektrischen Wartungsarbeiten an unseren Produktionsanlagen, einschliesslich Mechanik, Pneumatik und Hydraulik\n- Analyse und Behebung von Störungen, einschliesslich solcher, die SPS-Systeme betreffen\n- Umsetzung kleinerer Installationsprojekte gemäss NIN/NIV\n- Aktualisierung von Elektroschemas\n- Bereitschaft zur Übernahme regelmässiger Pikettdienste\n- Planung und Durchführung von Retrofit-Projekten an Maschinen und Infrastruktur\nProfil\n- Ausbildung als Elektriker oder Automatiker, idealerweise in einem Industriebetrieb\n- Kenntnisse in SPS (insbesondere Siemens S5, S7)\n- Freude an der Weitergabe von Wissen an Kolleginnen und Kollegen\n- Sehr gute Deutschkenntnisse in Wort und Schrift\n- Führerausweis der Kategorie B (für Pikettdiensteinsätze)\nGerne freuen wir uns über Ihre kompletten Bewerbungsunterlagen per E-Mail oder Ihre telefonische Kontaktaufnahme:\nIhr Ansprechpartner:\nNikson Nikolla\nPersonalberater\nEisengasse 6\n4051 Basel\nTel. : +41 (0) 61 260 35 04\nE-mail : nikson.nikolla@okjob.ch\nwww.okjob.ch\nBetriebselektriker (m/w/d) / Fest\n- Lage\nBâle\nVerfügbarkeit\nDe suite\nType\nDauerstellen\nReferenz\n42930\nVeröffentlicht am\n31/10/2026\nVerantwortliche Agentur\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefon 0612603500\nIhre Vermittlungsagentur in Basel\nSie müssen Ihr Profil im Bereich \"Mein Konto\" als \"vollständig\" kennzeichnen, bevor Sie sich für diese Stelle bewerben.",
+        "it": "Betriebselektriker (m/w/d)\nzurück zur Liste\nOK JOB SA ist ein 2012 gegründetes Schweizer Personal- und Zeitarbeitsunternehmen. Zertifiziert nach ISO 9001, ISO 14001 und ISO 45001.\nWir leben werteorientiertes Engagement bei der Vermittlung von Mitarbeitern in temporäre und Dauerstellen\nFür unseren Kunden im Baselbiet suchen wir eine/n\nArbeitsbeschreibung\n- Durchführung von elektrischen Wartungsarbeiten an unseren Produktionsanlagen, einschliesslich Mechanik, Pneumatik und Hydraulik\n- Analyse und Behebung von Störungen, einschliesslich solcher, die SPS-Systeme betreffen\n- Umsetzung kleinerer Installationsprojekte gemäss NIN/NIV\n- Aktualisierung von Elektroschemas\n- Bereitschaft zur Übernahme regelmässiger Pikettdienste\n- Planung und Durchführung von Retrofit-Projekten an Maschinen und Infrastruktur\nProfil\n- Ausbildung als Elektriker oder Automatiker, idealerweise in einem Industriebetrieb\n- Kenntnisse in SPS (insbesondere Siemens S5, S7)\n- Freude an der Weitergabe von Wissen an Kolleginnen und Kollegen\n- Sehr gute Deutschkenntnisse in Wort und Schrift\n- Führerausweis der Kategorie B (für Pikettdiensteinsätze)\nGerne freuen wir uns über Ihre kompletten Bewerbungsunterlagen per E-Mail oder Ihre telefonische Kontaktaufnahme:\nIhr Ansprechpartner:\nNikson Nikolla\nPersonalberater\nEisengasse 6\n4051 Basel\nTel. : +41 (0) 61 260 35 04\nE-mail : nikson.nikolla@okjob.ch\nwww.okjob.ch\nBetriebselektriker (m/w/d) / Fest\n- Lage\nBâle\nVerfügbarkeit\nDe suite\nType\nDauerstellen\nReferenz\n42930\nVeröffentlicht am\n31/10/2026\nVerantwortliche Agentur\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefon 0612603500\nIhre Vermittlungsagentur in Basel\nSie müssen Ihr Profil im Bereich \"Mein Konto\" als \"vollständig\" kennzeichnen, bevor Sie sich für diese Stelle bewerben.",
+        "en": "Betriebselektriker (m/w/d)\nzurück zur Liste\nOK JOB SA ist ein 2012 gegründetes Schweizer Personal- und Zeitarbeitsunternehmen. Zertifiziert nach ISO 9001, ISO 14001 und ISO 45001.\nWir leben werteorientiertes Engagement bei der Vermittlung von Mitarbeitern in temporäre und Dauerstellen\nFür unseren Kunden im Baselbiet suchen wir eine/n\nArbeitsbeschreibung\n- Durchführung von elektrischen Wartungsarbeiten an unseren Produktionsanlagen, einschliesslich Mechanik, Pneumatik und Hydraulik\n- Analyse und Behebung von Störungen, einschliesslich solcher, die SPS-Systeme betreffen\n- Umsetzung kleinerer Installationsprojekte gemäss NIN/NIV\n- Aktualisierung von Elektroschemas\n- Bereitschaft zur Übernahme regelmässiger Pikettdienste\n- Planung und Durchführung von Retrofit-Projekten an Maschinen und Infrastruktur\nProfil\n- Ausbildung als Elektriker oder Automatiker, idealerweise in einem Industriebetrieb\n- Kenntnisse in SPS (insbesondere Siemens S5, S7)\n- Freude an der Weitergabe von Wissen an Kolleginnen und Kollegen\n- Sehr gute Deutschkenntnisse in Wort und Schrift\n- Führerausweis der Kategorie B (für Pikettdiensteinsätze)\nGerne freuen wir uns über Ihre kompletten Bewerbungsunterlagen per E-Mail oder Ihre telefonische Kontaktaufnahme:\nIhr Ansprechpartner:\nNikson Nikolla\nPersonalberater\nEisengasse 6\n4051 Basel\nTel. : +41 (0) 61 260 35 04\nE-mail : nikson.nikolla@okjob.ch\nwww.okjob.ch\nBetriebselektriker (m/w/d) / Fest\n- Lage\nBâle\nVerfügbarkeit\nDe suite\nType\nDauerstellen\nReferenz\n42930\nVeröffentlicht am\n31/10/2026\nVerantwortliche Agentur\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefon 0612603500\nIhre Vermittlungsagentur in Basel\nSie müssen Ihr Profil im Bereich \"Mein Konto\" als \"vollständig\" kennzeichnen, bevor Sie sich für diese Stelle bewerben.",
+        "fr": "Betriebselektriker (m/w/d)\nzurück zur Liste\nOK JOB SA ist ein 2012 gegründetes Schweizer Personal- und Zeitarbeitsunternehmen. Zertifiziert nach ISO 9001, ISO 14001 und ISO 45001.\nWir leben werteorientiertes Engagement bei der Vermittlung von Mitarbeitern in temporäre und Dauerstellen\nFür unseren Kunden im Baselbiet suchen wir eine/n\nArbeitsbeschreibung\n- Durchführung von elektrischen Wartungsarbeiten an unseren Produktionsanlagen, einschliesslich Mechanik, Pneumatik und Hydraulik\n- Analyse und Behebung von Störungen, einschliesslich solcher, die SPS-Systeme betreffen\n- Umsetzung kleinerer Installationsprojekte gemäss NIN/NIV\n- Aktualisierung von Elektroschemas\n- Bereitschaft zur Übernahme regelmässiger Pikettdienste\n- Planung und Durchführung von Retrofit-Projekten an Maschinen und Infrastruktur\nProfil\n- Ausbildung als Elektriker oder Automatiker, idealerweise in einem Industriebetrieb\n- Kenntnisse in SPS (insbesondere Siemens S5, S7)\n- Freude an der Weitergabe von Wissen an Kolleginnen und Kollegen\n- Sehr gute Deutschkenntnisse in Wort und Schrift\n- Führerausweis der Kategorie B (für Pikettdiensteinsätze)\nGerne freuen wir uns über Ihre kompletten Bewerbungsunterlagen per E-Mail oder Ihre telefonische Kontaktaufnahme:\nIhr Ansprechpartner:\nNikson Nikolla\nPersonalberater\nEisengasse 6\n4051 Basel\nTel. : +41 (0) 61 260 35 04\nE-mail : nikson.nikolla@okjob.ch\nwww.okjob.ch\nBetriebselektriker (m/w/d) / Fest\n- Lage\nBâle\nVerfügbarkeit\nDe suite\nType\nDauerstellen\nReferenz\n42930\nVeröffentlicht am\n31/10/2026\nVerantwortliche Agentur\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefon 0612603500\nIhre Vermittlungsagentur in Basel\nSie müssen Ihr Profil im Bereich \"Mein Konto\" als \"vollständig\" kennzeichnen, bevor Sie sich für diese Stelle bewerben."
       },
-      "location": "1400 Yverdon",
-      "canton": "VD",
-      "url": "https://www.okjob.ch/offres-demplois/automaticien-cfc-experimente-h-f-yverdon-les-bains/?ref=42875",
+      "location": "4051 Basel",
+      "canton": "BS",
+      "url": "https://www.okjob.ch/de/jobangebote/betriebselektriker-m-w-d-basel/?ref=42930",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:46:18.379Z",
-      "addressLocality": "Yverdon",
-      "addressRegion": "VD",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-31T09:47:50.955Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1400",
+      "postalCode": "4001",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -119,39 +136,26 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://www.okjob.ch/offres-demplois/automaticien-cfc-experimente-h-f-yverdon-les-bains/?ref=42875",
+      "applyUrl": "https://www.okjob.ch/de/jobangebote/betriebselektriker-m-w-d-basel/?ref=42930",
       "requirements": [],
       "requirementsByLocale": {
-        "fr": []
+        "de": []
       },
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T22:01:23.422Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b2ad86c3"
-        ],
-        "en": [
-          "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b2ad86c3"
-        ],
-        "de": [
-          "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b2ad86c3"
-        ]
-      },
-      "previousSlugs": [
-        "automaticien-cfc-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b2ad86c3"
-      ]
+      "firstSeenAt": "2026-10-31T09:47:50.955Z"
     }
   ]
 }

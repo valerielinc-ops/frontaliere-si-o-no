@@ -87,7 +87,8 @@ Allow: /data/switzerland-unemployment-rate.json
 Allow: /manifest.webmanifest
 Disallow: /*?debug=*
 Disallow: /*?status=*
-# Internal job search query strings — handled by canonical + noindex meta runtime
+# Internal job search query strings — blocked here, so crawlers never fetch the
+# URL and cannot read any on-page signal; the canonical only helps links seen elsewhere
 Disallow: /*?q=*
 Disallow: /*&q=*
 # AI-readable content files (llmstxt.org standard)

@@ -1831,8 +1831,9 @@ function BlogArticlesContent({
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
  // An article without a documented publication date is an evergreen page,
- // not a NewsArticle with an unknown timestamp.
- '@type': schemaDates.datePublished ? 'NewsArticle' : 'WebPage',
+ // not a NewsArticle with an unknown timestamp. A dated guide the generator
+ // declared evergreen is an Article, as on the static page.
+ '@type': !schemaDates.datePublished ? 'WebPage' : article.articleType === 'evergreen' ? 'Article' : 'NewsArticle',
  '@id': `${canonicalUrl}#article`,
  headline: title,
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
@@ -2822,6 +2823,7 @@ function BlogArticlesContent({
  {articleAtfTreatment && !staticArticleAtfHandoff && adEligibleInline && (
  <div
   className="ft-article-atf-ad"
+  role="region"
   data-ft-article-atf-slot="true"
   data-ad-experiment={ARTICLE_DETAIL_ATF_EXPERIMENT_ID}
   data-ad-variant={articleAtfVariant}
@@ -3294,11 +3296,12 @@ function BlogArticlesContent({
 
  </div>
 
- {/* FRO-301: Sticky bottom nav on mobile — reduces bounce from social referrals */}
- <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-surface/95 border-t border-edge px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] flex items-center justify-between">
+ {/* FRO-301: azioni di fine articolo su mobile. Blocco statico: da fixed
+     bottom-0 z-40 finiva interamente sotto la navigazione mobile z-50. */}
+ <div className="sm:hidden mt-6 mx-4 border-t border-edge pt-2.5 flex items-center justify-between">
  <button
  onClick={handleBackToList}
- className="inline-flex items-center gap-1.5 text-sm font-semibold text-body"
+ className="inline-flex items-center gap-1.5 min-h-[44px] text-sm font-semibold text-body"
  aria-label={t('blog.backToList')}
  >
  <ArrowLeft size={16} />
