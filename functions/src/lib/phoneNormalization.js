@@ -140,3 +140,21 @@ export const PHONE_COUNTRY_CATALOGUE = PHONE_COUNTRIES.map((country) => ({
   dial: country.dial,
   labels: { ...country.labels },
 }));
+
+/** One closed option matcher shared by the Node policy and generated browser code. */
+export function createPhoneCountryOptionMatcher({ phoneCountryCode, phoneDialCode, phoneCountryLabel }) {
+  const comparable = value => String(value ?? '').normalize('NFKC').replace(/\s+/gu, ' ').trim().toLowerCase();
+  return function phoneCountryOptionMatches(option, originalPhone) {
+    // Native labels carry every qualifier. An opaque option value never
+    // substitutes for a missing or contradictory displayed assertion.
+    const label = typeof option === 'string' ? option : option && typeof option.label === 'string' ? option.label : null;
+    if (!label || !phoneCountryCode(originalPhone)) return false;
+    const dial = phoneDialCode(originalPhone);
+    if (!dial) return false;
+    const names = [phoneCountryCode(originalPhone), ...['it', 'en', 'de', 'fr'].map(locale => phoneCountryLabel(originalPhone, locale))].filter(Boolean);
+    const captions = [dial, `+${dial}`, `00${dial}`, ...names.flatMap(name => [name, `${name} (+${dial})`, `${name} +${dial}`,
+      `(+${dial}) ${name}`, `+${dial} ${name}`, `${name} (${dial})`])];
+    return captions.some(caption => comparable(caption) === comparable(label));
+  };
+}
+export const phoneCountryOptionMatches = createPhoneCountryOptionMatcher({ phoneCountryCode, phoneDialCode, phoneCountryLabel });
