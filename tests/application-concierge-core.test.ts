@@ -3,7 +3,11 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const mocks = vi.hoisted(() => {
   const documents = new Map<string, Record<string, unknown>>();
   const files = new Set<string>();
+  const fileMetadata = new Map<string, any>();
   let childSequence = 0;
+  let fileGeneration = 1;
+  let transactionQueue = Promise.resolve();
+  let commitHook: (() => void) | null = null;
   let copyHook: (() => void) | null = null;
 
   function pathKey(path: string) {
@@ -29,14 +33,16 @@ const mocks = vi.hoisted(() => {
     const parts = normalized.split('/');
     return {
       id: parts[parts.length - 1],
+      path: normalized,
       data: () => documents.get(normalized),
       async get() {
         const data = documents.get(normalized);
-        return { id: parts[parts.length - 1], exists: Boolean(data), data: () => data };
+        return { id: parts[parts.length - 1], ref: makeDocRef(normalized), exists: Boolean(data), data: () => data };
       },
       set(data: Record<string, unknown>, options?: { merge?: boolean }) {
         mergeData(normalized, data, options?.merge === true);
       },
+      delete() { documents.delete(normalized); },
       collection(name: string) {
         return makeCollection(normalized + '/' + name);
       },
@@ -63,10 +69,15 @@ const mocks = vi.hoisted(() => {
   const firestore = {
     collection: (name: string) => makeCollection(name),
     async runTransaction(callback: (transaction: any) => Promise<unknown>) {
-      return callback({
+      const result = transactionQueue.then(async () => {
+        const value = await callback({
         get: (ref: any) => ref.get(),
         set: (ref: any, data: Record<string, unknown>, options?: { merge?: boolean }) => ref.set(data, options),
+        delete: (ref: any) => ref.delete(),
+        });
+        commitHook?.(); return value;
       });
+      transactionQueue = result.then(() => undefined, () => undefined); return result;
     },
     batch() {
       const operations: Array<() => void> = [];
@@ -82,21 +93,31 @@ const mocks = vi.hoisted(() => {
   };
 
   const bucket = {
-    file(path: string) {
+    file(path: string, fileOptions?: { generation?: string }) {
       return {
         path,
         async exists() {
           return [files.has(path)];
         },
         async getMetadata() {
-          return [{ size: 100, contentType: 'application/pdf' }];
+          if (!files.has(path)) throw Object.assign(new Error('missing'), { code: 404 });
+          return [fileMetadata.get(path) || { size: 100, generation: '1', contentType: 'application/pdf', metadata: {} }];
         },
-        async copy(target: { path: string }) {
-          files.add(target.path);
+        async download() {
+          if (!files.has(path) || fileOptions?.generation !== '1') throw Object.assign(new Error('missing generation'), { code: 404 });
+          return [Buffer.alloc(100, 'x')];
+        },
+        async save(content: Buffer, options: any) {
+          if (options.preconditionOpts?.ifGenerationMatch !== 0) throw new Error('create-only precondition required');
+          if (files.has(path)) throw Object.assign(new Error('exists'), { code: 412 });
+          files.add(path);
+          fileMetadata.set(path, { size: content.length, generation: String(++fileGeneration), contentType: options.contentType, metadata: options.metadata.metadata });
           copyHook?.();
         },
-        async delete() {
+        async delete(options: any) {
+          if (files.has(path) && options?.ifGenerationMatch !== fileMetadata.get(path)?.generation) throw Object.assign(new Error('generation mismatch'), { code: 412 });
           files.delete(path);
+          fileMetadata.delete(path);
         },
       };
     },
@@ -108,6 +129,7 @@ const mocks = vi.hoisted(() => {
     documents,
     files,
     setCopyHook(hook: (() => void) | null) { copyHook = hook; },
+    setCommitHook(hook: (() => void) | null) { commitHook = hook; },
     firestore,
     bucket,
     getAdminDb: vi.fn(() => firestore),
@@ -117,8 +139,12 @@ const mocks = vi.hoisted(() => {
     reset() {
       documents.clear();
       files.clear();
+      fileMetadata.clear();
       childSequence = 0;
+      fileGeneration = 1;
+      transactionQueue = Promise.resolve();
       copyHook = null;
+      commitHook = null;
     },
   };
 });
@@ -324,6 +350,21 @@ describe('application concierge candidate API', () => {
     expect(result).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
     expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
     expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+  });
+
+  it('does not delete a child CV when the publication committed but its ACK was lost', async () => {
+    let lost = false;
+    mocks.setCommitHook(() => {
+      if (!lost && mocks.documents.has('assisted_applications/child-1')) { lost = true; throw new Error('publication_ack_lost'); }
+    });
+    const req = { method: 'POST', body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' } };
+    const first = await handleApplicationConcierge(req);
+    const replay = await handleApplicationConcierge(req);
+    expect(first).toMatchObject({ status: 200, body: { childApplicationId: 'child-1' } });
+    expect(replay).toMatchObject({ status: 200, body: { childApplicationId: 'child-1' } });
+    expect(mocks.documents.get('application_concierge_services/service-1')!.acceptedPositionsCount).toBe(1);
+    expect(mocks.files.has(mocks.documents.get('assisted_applications/child-1')!.cvStorageKey as string)).toBe(true);
+    expect([...mocks.documents.keys()].filter(path => /^assisted_applications\/[^/]+$/.test(path))).toHaveLength(1);
   });
 
   it('rejects an acceptance when the service CV changes while the proposal CV is being copied', async () => {

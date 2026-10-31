@@ -1,3 +1,6 @@
+import { reviewedDocumentContext } from './helpers/reviewedDocumentContext';
+import { answerContractsFor } from '../functions/src/assistedApplicationAnswerConfirmation.js';
+
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
@@ -18,7 +21,8 @@ const { handleAssistedApplicationReview } = await import('../functions/src/assis
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { permitOptions } = await import('../functions/src/lib/permitStatus.js');
-const { submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
+const { submitApplication: submitApplicationRaw } = await import('../scripts/assisted-application/lib/submit.mjs');
+async function submitApplication(ctx: any) { return submitApplicationRaw(await reviewedDocumentContext(ctx)); }
 
 const SECRET = 's'.repeat(40);
 const T0 = Date.UTC(2026, 9, 4, 10, 0, 0);
@@ -77,7 +81,7 @@ const runEffect = vi.fn(async ({ effect }: any) => {
 function seed({ draft = {}, flow = {}, person = {} }: { draft?: Record<string, any>, flow?: Record<string, any>, person?: Record<string, any> } = {}) {
   store = createMemoryFirestore({
     [BASE]: {
-      paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital Beispiel', locale: 'de',
+      cvUploadedAt: T0, paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital Beispiel', locale: 'de',
       applicantName: 'Giulia Verdi', applicantEmail: 'giulia.verdi@example.com', applicantPhone: '+39 333 000 0000',
     },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [], ...flow },
@@ -105,7 +109,10 @@ const deps = (extra: Record<string, any> = {}) => ({ db: store.db, bucket, runEf
 // The review link of round 1 (assistedApplicationReviewToken.js).
 const link = { secret: SECRET, orderId: ORDER, round: 1, nowMs: T0, kind: 'review' as const };
 const token = () => mintReviewToken(link);
-const post = (body: Record<string, any>, extra: Record<string, any> = {}) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), ...body } }, deps(extra));
+const post = async (body: Record<string, any>, extra: Record<string, any> = {}) => {
+  const shown = body.action === 'answers' ? await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps(extra)) : null;
+  return handleAssistedApplicationReview({ method: 'POST', body: { t: token(), ...(shown ? { answerContracts: shown.body?.answerContracts } : {}), ...body } }, deps(extra));
+};
 const draftNow = () => store.read(`${BASE}/ai_drafts/current`);
 const flowNow = () => store.read(`${BASE}/automation/flow`);
 /** What the tailored CV the draft names prints. */
@@ -171,10 +178,10 @@ describe('a correction always reaches the tailored CV that leaves', () => {
     expect(await post({ action: 'answers', answers: { salary_expectation: 'CHF 80000' } })).toMatchObject({ status: 200 });
     expect([draftNow().tailoredCv.pdfKey, renders()]).toEqual([key, before]);
 
-    // The owner's answer, a legacy «B», rebuilds it too.
-    await handleAutomationAdminAction(store.db, { action: 'automationSetAnswers', orderId: ORDER, answers: { work_permit: 'B' } }, 'owner@example.com', { runEffect, bucket, nowMs: T0 });
+    // The owner's explicit canonical B option rebuilds it too; opaque legacy text grants no receipt.
+    await handleAutomationAdminAction(store.db, { action: 'automationSetAnswers', orderId: ORDER, answers: { work_permit: DE[2] }, answerContracts: answerContractsFor({ orderId: ORDER, order: store.read(BASE), flow: flowNow(), draft: draftNow() }) }, 'owner@example.com', { runEffect, bucket, nowMs: T0 });
     expect(printed().personal).toContainEqual(['Arbeitsbewilligung', 'Aufenthaltsbewilligung B']);
-    expect(flowNow().answers).toMatchObject({ work_permit: 'B', availability: start, salary_expectation: 'CHF 80000' });
+    expect(flowNow().answers).toMatchObject({ work_permit: DE[2], availability: start, salary_expectation: 'CHF 80000' });
   });
 
   it('commits the rebuilt CV before the answer dispatches the waiting submission', async () => {
@@ -206,10 +213,10 @@ describe('a correction always reaches the tailored CV that leaves', () => {
     expect(printed().personal).toEqual([['Nationalität', 'Italien (EU)']]);
   });
 
-  it('keeps the PDF of a sent application, and saves nothing without Storage', async () => {
+  it('refuses answers on a sent application and keeps its PDF, and saves nothing without Storage', async () => {
     seed({ flow: { state: 'submitted' }, draft: { questions: [permitQuestion] } });
-    expect(await post({ action: 'answers', answers: { work_permit: DE[2] } })).toMatchObject({ status: 200 });
-    expect([flowNow().answers, draftNow().tailoredCv.pdfKey, renders()]).toEqual([{ work_permit: DE[2] }, CV_KEY, 0]);
+    expect(await post({ action: 'answers', answers: { work_permit: DE[2] } })).toMatchObject({ status: 409, body: { ok: false, error: 'already_sent', state: 'submitted' } });
+    expect([flowNow().answers, draftNow().tailoredCv.pdfKey, renders()]).toEqual([{}, CV_KEY, 0]);
 
     seed({ draft: { questions: [permitQuestion] } });
     expect(await post({ action: 'answers', answers: { work_permit: DE[2] } }, { bucket: undefined })).toMatchObject({ status: 503, body: { ok: false, error: 'storage_unavailable' } });

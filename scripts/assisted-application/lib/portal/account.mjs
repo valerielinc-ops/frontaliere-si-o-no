@@ -23,6 +23,7 @@ import { randomBytes } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from '../../../../functions/src/assistedApplicationConstants.js';
 import { sameSite } from '../../../../functions/src/assistedApplicationPortalSites.js';
 import { decryptJson, encryptJson } from '../secure-run.mjs';
+import { assistedApplicationRetained } from '../../../../functions/src/lib/assistedApplicationRetentionPolicy.js';
 
 export const VERIFICATION_TIMEOUT_MS = 10 * 60 * 1000;
 const VERIFICATION_POLL_MS = 10_000;
@@ -196,7 +197,16 @@ export function accountsRefFor(db, orderId) {
  */
 export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = () => Date.now(), sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)) }) {
   const ref = accountsRefFor(db, orderId);
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const inbox = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('inbox');
+  const update = (host, patch, { requireCurrent = true } = {}) => db.runTransaction(async transaction => {
+    const [order, accounts] = await Promise.all([transaction.get(orderRef), transaction.get(ref)]);
+    if (!order.exists || !assistedApplicationRetained(order.data(), nowMs())) return false;
+    const current = accounts.data()?.[hostKey(host)];
+    if (requireCurrent && !current) return false;
+    transaction.set(ref, { [hostKey(host)]: { ...(current || {}), ...patch } }, { merge: true });
+    return true;
+  });
   return {
     /** A password typed but never stored (a dry run's) is masked in the log all the same. */
     mask,
@@ -210,9 +220,10 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
     /** Before the "create account" click: `pending` until the portal confirms it. */
     async save(host, { email, password }) {
       mask(password);
-      await ref.set({
-        [hostKey(host)]: { host: String(host).toLowerCase(), email, passwordEnc: encryptJson({ password }, key), status: 'pending', createdAt: nowMs(), verifiedAt: null, lastSignInAt: null },
-      }, { merge: true });
+      if (!(await update(host, { host: String(host).toLowerCase(), email, passwordEnc: encryptJson({ password }, key),
+        status: 'pending', createdAt: nowMs(), verifiedAt: null, lastSignInAt: null }, { requireCurrent: false }))) {
+        throw new Error('application_retention_closed');
+      }
     },
     /**
      * The portal refused the registration (validation error, still on the
@@ -220,14 +231,10 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
      * signing in. The password envelope goes; the entry stays as a trace.
      */
     async discard(host, reason = '') {
-      const current = (await ref.get()).data()?.[hostKey(host)];
-      if (!current) return;
-      await ref.set({ [hostKey(host)]: { ...current, passwordEnc: null, status: 'discarded', discardedAt: nowMs(), discardReason: String(reason).slice(0, 80) } }, { merge: true });
+      return update(host, { passwordEnc: null, status: 'discarded', discardedAt: nowMs(), discardReason: String(reason).slice(0, 80) });
     },
     async mark(host, patch) {
-      const current = (await ref.get()).data()?.[hostKey(host)];
-      if (!current) return;
-      await ref.set({ [hostKey(host)]: { ...current, ...patch } }, { merge: true });
+      return update(host, patch);
     },
     /** Message ids already present before a portal asks us to resend a code. */
     async verificationMessageIds() {

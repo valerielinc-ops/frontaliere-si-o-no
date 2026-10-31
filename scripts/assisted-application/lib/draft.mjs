@@ -1,3 +1,4 @@
+import { requirementLanguageCodes } from '../../../functions/src/lib/requirementLanguageCodes.js';
 /**
  * Draft mode of the assisted-application agent (GitHub Actions).
  *
@@ -10,7 +11,12 @@
  */
 
 import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequirements.js';
-import { sourceCitations, citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
+import { citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
+import { languageAnswerSourceConflicts } from '../../../functions/src/lib/answerSourceConflicts.js';
+import { currentJobLanguageEvidence } from '../../../functions/src/lib/currentJobLanguageEvidence.js';
+import { projectAttestedLanguageFacts } from '../../../functions/src/lib/attestedLanguageProjection.js';
+import { qualificationSources, originalCvLanguageProfile, qualificationCounterContext, qualificationSourcesFingerprint, verifyQualificationEvidence, verifiedQualificationAnswerIds, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
+import { conciergeProposalEligibility } from '../../../functions/src/assistedApplicationFitNotice.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
 import {
@@ -52,7 +58,7 @@ import {
   requirementsUserText,
   resolveLetterLanguage,
 } from '../../../functions/src/assistedApplicationAiPrompts.js';
-import { vettedConciergeDraftInputs } from '../../../functions/src/applicationConciergeEligibility.js';
+import { eligibilityHash, vettedConciergeDraftInputs } from '../../../functions/src/applicationConciergeEligibility.js';
 import { canonicalizeEmployerAgeCitations } from '../../../functions/src/lib/employerFacts.js';
 import { atsReport } from '../../../functions/src/assistedApplicationAts.js';
 import { assessLegitimacy } from '../../../functions/src/assistedApplicationLegitimacy.js';
@@ -85,6 +91,7 @@ const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
 // One repair of a text the fact gate stopped (the letter, the tailored CV). Shorter than a first writing:
 // profile ∥ requirements, match, documents and the repair still fit the job's 120 minutes.
 const REPAIR_TIMEOUT_MS = 10 * 60 * 1000;
+const EVIDENCE_TIMEOUT_MS = 5 * 60 * 1000;
 const MAX_REPAIR_FINDINGS = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 
@@ -126,11 +133,13 @@ function candidateLocale(order) {
  */
 export async function buildDraft(ctx) {
   const { order, orderId, flow, previousDraft, cvBuffer, cvType, codex, bucket, runKey } = ctx;
+  const answerEvidence = structuredClone(ctx.answerEvidence || []);
   const fetchImpl = ctx.fetchImpl || fetch;
   const nowMs = ctx.nowMs || Date.now();
   const round = Number(flow?.round) || 1;
   // Fase 2: what the candidate wrote in the e-mail that carried the CV.
   const candidateNotes = String(ctx.intake?.emailNotes || '').slice(0, 4000);
+  const counterContext = qualificationCounterContext({ order, flow, intake: ctx.intake, answerCounterContext: ctx.answerCounterContext || [], rawCounterContext: ctx.rawCounterContext || null });
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   maskValues(personalValuesOf(order));
 
@@ -142,6 +151,10 @@ export async function buildDraft(ctx) {
 
   const reuse = previousDraft?.status === 'ready'
     && previousDraft.cvKey === order.cvStorageKey
+    && previousDraft.sourceCvHash === eligibilityHash(cvBuffer)
+    && previousDraft.qualificationCvLanguageProfile?.version === 'cv-language-profile-v1'
+    && previousDraft.qualificationCvLanguageProfile.cvHash === eligibilityHash(cvBuffer)
+    && previousDraft.qualificationCvLanguageProfile.documentHash === eligibilityHash(previousDraft.factSources?.text || '')
     && previousDraft.postingHash === hashText(postingText)
     && previousDraft.profile && previousDraft.requirementsRaw
     // A CV text read before a fix of the reading is read again, and the profile with it.
@@ -180,6 +193,10 @@ export async function buildDraft(ctx) {
     profile = sanitizeProfile(profileRaw, { cvText });
     requirements = verifyQuotes(sanitizeRequirements(requirementsRaw), postingText);
   }
+  // Capture only the raw extraction from these original CV bytes. Edited or
+  // attested language projections never become the native conflict baseline.
+  const qualificationCvLanguageProfile = reuse ? structuredClone(previousDraft.qualificationCvLanguageProfile)
+    : originalCvLanguageProfile({ profile, cvHash: eligibilityHash(cvBuffer), sourceText: cvText });
   // The CV may state a locality and province without spelling out the CAP or
   // country. Resolve those address properties locally before the portal plan
   // is built; ambiguous localities remain empty and stay candidate questions.
@@ -192,6 +209,18 @@ export async function buildDraft(ctx) {
   // status) is known from here on, and neither is asked (lib/personalFacts.js).
   const edited = candidateWithEdits({ order, draft: { profile, factSources: { text: cvText } }, flow });
   profile = edited.profile;
+  const projected = projectAttestedLanguageFacts({ profile, answerEvidence, currentCvHash: eligibilityHash(cvBuffer) });
+  const scoped = currentJobLanguageEvidence({ profile: projected.profile, answerEvidence, currentCvHash: eligibilityHash(cvBuffer),
+    job: { id: order.jobId, url: order.jobUrl || posting.jobUrl || posting.url } });
+  const conflictedLanguages = new Set([...projected.conflicts, ...scoped.conflicts].map(conflict => conflict.languageCode));
+  if (requirements.requirements.some(row => languageAnswerSourceConflicts({ text: row.quote || row.requirement, languageCodes: requirementLanguageCodes(requirements, row),
+    answerSourceConflicts: ctx.answerSourceConflicts || [], currentCvHash: eligibilityHash(cvBuffer) }).length)) {
+    throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
+  }
+  if (requirements.requirements.some(row => requirementLanguageCodes(requirements, row).some(code => conflictedLanguages.has(code)))) {
+    throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
+  }
+  profile = scoped.profile;
   const answers = edited.answers;
   const identity = edited.identity;
   const personal = edited.personal;
@@ -201,8 +230,45 @@ export async function buildDraft(ctx) {
   const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
   // Apprentice, first job or qualified, and the sector: the CV's sections and the letter's plan follow it.
   const kind = candidateType({ profile, postingTitle: title || order.jobTitle, postingText });
-  // The tailored ATS CV needs only the profile and the requirements: it runs
-  // while the match and the letter are written.
+  const reuseQualifiedMatch = qualification && !candidateNotes && !Object.keys(edited.overrides).length
+    && !Object.keys(answers).some(key => key !== 'salutation') && !flow?.feedback?.length;
+  const sources = qualificationSources({ sourceText: cvText, profile, answers, answerEvidence });
+  const candidateSources = sources.citations;
+  const matchRaw = reuseQualifiedMatch ? qualification.match : await codex({
+    prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
+      profile, requirements, answers: sources.modelAnswers, candidateNotes, postingExcerpt: postingText, candidateSourceExcerpts: candidateSources.excerpts,
+    })),
+    schema: citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources),
+    timeoutMs: CODEX_TIMEOUT_MS,
+  });
+  // A vetted cache is bound to the complete match, current CV, posting, answers and protocol.
+  // Other paths resolve only original CV / server-attested Q/A, never raw notes or corrections.
+  let match = reuseQualifiedMatch ? structuredClone(qualification.match)
+    : guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, sources.verificationText),
+      { profile, sourceText: cvText, answers, memory: flow?.questionAnswers || {}, locale });
+  const checked = reuseQualifiedMatch && hasVerifiedQualificationEvidence({ ...qualification, requirements, match, counterContext })
+    ? { status: 'supported', verification: qualification.entailment }
+    : await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources,
+      preliminary: conciergeProposalEligibility(requirements, match, { profile, answers }), purpose: 'documents',
+      unverifiedContext: counterContext,
+      generate: (system, user, schema) => codex({ prompt: codexPrompt(system, user), schema, timeoutMs: EVIDENCE_TIMEOUT_MS }) });
+  if (checked.status === 'unverified') throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
+  requirements = checked.assessment?.requirements || requirements;
+  match = checked.assessment?.match || match;
+  if (checked.status === 'supported' && scoped.deferredCodes.length) {
+    const indexes = requirements.requirements.flatMap((row, index) => requirementLanguageCodes(requirements, row).some(code => scoped.deferredCodes.includes(code)) ? [index] : []);
+    const verifiedAnswerIds = verifiedQualificationAnswerIds({ requirements, match, rawMatch: matchRaw, sources, verification: checked.verification, indexes });
+    const resolved = currentJobLanguageEvidence({ profile: projected.profile, answerEvidence, currentCvHash: eligibilityHash(cvBuffer),
+      job: { id: order.jobId, url: order.jobUrl || posting.jobUrl || posting.url }, verifiedAnswerIds });
+    if (resolved.conflicts.some(conflict => requirements.requirements.some(row => requirementLanguageCodes(requirements, row).includes(conflict.languageCode)))) {
+      throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
+    }
+    profile = resolved.profile;
+  }
+  const qualificationMatch = structuredClone(match);
+  // Start parallel artifact work only after the evidence gate: a technical abort above
+  // cannot leave a tailored-CV promise or an uploaded PDF behind.
+  // The tailored ATS CV runs alongside document writing after qualification.
   const tailoredCvPromise = buildTailoredCv({
     kind,
     rendererMode: await pdfRendererMode(),
@@ -210,20 +276,6 @@ export async function buildDraft(ctx) {
     cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT), flow,
     cvBuffer, cvType, cvKey: order.cvStorageKey, inPlace: ctx.inPlace,
   });
-  const reuseQualifiedMatch = qualification && !candidateNotes && !Object.keys(edited.overrides).length
-    && !Object.keys(answers).some(key => key !== 'salutation') && !flow?.feedback?.length;
-  const evidenceText = `${cvText}\n${JSON.stringify(answers)}\n${candidateNotes}\n${JSON.stringify(edited.overrides)}`;
-  const candidateSources = sourceCitations({ cv: cvText, answers: Object.keys(answers).length ? JSON.stringify(answers) : '', notes: candidateNotes,
-    corrections: Object.keys(edited.overrides).length ? JSON.stringify(edited.overrides) : '' });
-  const matchRaw = reuseQualifiedMatch ? qualification.match : await codex({
-    prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
-      profile, requirements, answers, candidateNotes, postingExcerpt: postingText, candidateSourceExcerpts: candidateSources.excerpts,
-    })),
-    schema: citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources),
-    timeoutMs: CODEX_TIMEOUT_MS,
-  });
-  const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, evidenceText),
-    { profile, sourceText: `${cvText}\n${candidateNotes}`, answers, memory: flow?.questionAnswers || {}, locale });
   let requiredDocuments = requiredDocumentsFromRequirements(requirements);
   // A document the posting requires is uploaded, not asked about (owner decision 2026-10-08): «do you hold the
   // driver qualification card?» next to that very card among the documents held the order twice for one
@@ -418,7 +470,9 @@ export async function buildDraft(ctx) {
     enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)), type: kind.type,
   }), { mode: rendererMode, log });
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
-  await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+  if (ctx.artifactStore) {
+    if (!(await ctx.artifactStore.save(pdfKey, pdf, { contentType: 'application/pdf', resumable: false }))) throw new DraftAbort('draft_failed', 'application_retention_closed');
+  } else await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
 
   // Extras (career-ops): the ATS check of the candidate's own CV and of the
   // tailored one, and the posting's legitimacy tier (Block G).
@@ -439,6 +493,9 @@ export async function buildDraft(ctx) {
     status: 'ready',
     round,
     cvKey: order.cvStorageKey,
+    sourceCvHash: eligibilityHash(cvBuffer),
+    qualificationCvLanguageProfile,
+    qualificationSourceFingerprint: qualificationSourcesFingerprint(sources),
     cvTextMethod: cvMethod,
     cvTextVersion: CV_TEXT_VERSION,
     postingHash: hashText(postingText),
@@ -461,6 +518,8 @@ export async function buildDraft(ctx) {
     // The letter's recipient: every rebuild of the letter (candidate edits, owner edits, submission) prints it.
     letterAddress,
     matches: match.matches,
+    entailment: checked.verification || null,
+    qualificationMatch,
     verdict: match.verdict,
     summaryIt: match.summaryIt,
     checksIt: match.checksIt,
@@ -495,6 +554,7 @@ export async function buildDraft(ctx) {
     payload: { postingText, posting, draft: { ...draft, factSources: undefined } },
     key: runKey,
     nowMs,
+    artifactStore: ctx.artifactStore,
   });
   return draft;
 }
@@ -504,7 +564,7 @@ export async function buildDraft(ctx) {
  * fails the draft: without it the original CV is sent.
  * @returns {Promise<{record: object, text: string}>}
  */
-async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt, flow, cvBuffer, cvType, cvKey, inPlace = inPlaceCvRecord }) {
+async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt, flow, cvBuffer, cvType, cvKey, inPlace = inPlaceCvRecord, artifactStore = null }) {
   try {
     const write = async (findings = [], timeoutMs = CODEX_TIMEOUT_MS) => {
       const raw = await codex({
@@ -547,9 +607,11 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     // The photo the candidate gave on an earlier round stays on the new tailored CV.
     const photo = await candidatePhoto(flow, bucket);
     const { pdf, renderer, photo: photoPrinted } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log, ...photo });
-    await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+    if (artifactStore) {
+      if (!(await artifactStore.save(pdfKey, pdf, { contentType: 'application/pdf', resumable: false }))) throw new Error('application_retention_closed');
+    } else await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
     // Phase 5: the candidate's own Word file with the adapted lines, when the switch is on.
-    const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log });
+    const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log, artifactStore });
     // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
     // `photo`: this PDF carries it (not what was given: the standard-font writer prints none).
     return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}), ...(repaired ? { repaired: true } : {}) }, text };

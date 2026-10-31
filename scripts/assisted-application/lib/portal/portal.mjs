@@ -30,7 +30,8 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption, mechanicallyGroundedPortalAction } from './plan.mjs';
+import { createPortalQualificationVerifier, qualificationActionFence, freshQualificationFields, nativeQuestionMetadata, assertExistingPortalAnswers, withNativeValidation } from './qualification-gate.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -45,12 +46,9 @@ import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 
-export const WAVE1_CHANNELS = new Set([
-  'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch',
-  // Workday and SuccessFactors: a guest application where the tenant allows
-  // it, otherwise an account on the order's alias (account.mjs).
-  'workday', 'successfactors',
-]);
+import { AUTOMATED_PORTAL_CHANNELS as WAVE1_CHANNELS } from '../../../../functions/src/lib/portalChannels.js';
+import { captchaInfrastructureProof } from '../../../../functions/src/lib/portalInfrastructureEvidence.js';
+export { WAVE1_CHANNELS };
 // Login pages in one run: create, verify, sign in, and one retry.
 const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
@@ -2481,7 +2479,9 @@ async function waitForProfileFields(page, kind, beforeIds, timeoutMs = 10_000) {
  * complete row in source order; incomplete or unfillable rows are cancelled,
  * never turned into invented dates or a reason to stop the application.
  */
-export async function fillProfileSections(page, snapshot, { candidate, candidateLocale, codex, files = {}, done = new Set() } = {}) {
+export async function fillProfileSections(page, snapshot, { candidate, candidateLocale, codex, files = {}, done = new Set(), qualificationVerifier } = {}) {
+  qualificationVerifier ||= createPortalQualificationVerifier({ codex,
+    candidate: candidate });
   let current = snapshot;
   const counts = [];
   for (const kind of ['experience', 'education']) {
@@ -2516,20 +2516,22 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       };
       let plan;
       try {
-        plan = await planPage({ snapshot: { ...current, fields: rowFields }, candidate: rowCandidate, candidateLocale, codex });
-      } catch {
+        plan = await planPage({ snapshot: { ...current, fields: rowFields }, candidate: rowCandidate, candidateLocale, codex,
+          qualificationVerifier, qualificationScope: { url: page.url() }, page,
+          completeProposals: proposed => {
+            const unresolved = [];
+            const recoveredActions = [...proposed.actions];
+            for (const missing of proposed.missingRequired) {
+              const field = rowFields.find(item => item.id === missing.fieldId);
+              const answer = profileEntryAnswer(entry, kind, field);
+              if (answer) recoveredActions.push({ fieldId: missing.fieldId, action: 'fill', ...answer, document: 'none', evidence: '' });
+              else unresolved.push(missing);
+            }
+            return { ...proposed, actions: recoveredActions, missingRequired: unresolved };
+          } });
+      } catch (error) {
+        if (error?.code === 'evidence_entailment_unverified') throw error;
         plan = null;
-      }
-      if (plan?.missingRequired.length) {
-        const unresolved = [];
-        const recoveredActions = [...plan.actions];
-        for (const missing of plan.missingRequired) {
-          const field = rowFields.find((item) => item.id === missing.fieldId);
-          const answer = profileEntryAnswer(entry, kind, field);
-          if (answer) recoveredActions.push({ fieldId: missing.fieldId, action: 'fill', ...answer, document: 'none', evidence: '' });
-          else unresolved.push(missing);
-        }
-        plan = { ...plan, actions: recoveredActions, missingRequired: unresolved };
       }
       const cancel = async () => {
         current = await extractFields(page);
@@ -2549,7 +2551,9 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
         skipped += 1;
         continue;
       }
-      const results = await applyActions(page, rowFields, plan.actions, files);
+      const results = await applyActions(page, rowFields, plan.actions, files, {
+        beforeAction: qualificationActionFence({ page, verifier: qualificationVerifier, scope: { url: page.url() } }),
+      });
       if (results.some((result) => !result.ok)) {
         if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_row_fill_failed' };
         skipped += 1;
@@ -2763,7 +2767,8 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   const candidate = account
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
-  const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+  const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex,
+    qualificationVerifier: ctx.qualificationVerifier, qualificationScope: { url: page.url() }, page });
   const initialRequirements = portalRequirementsFromMissingRequired(others.fields, plan.missingRequired);
   if (initialRequirements.unreadableFields?.length) return { handoff: 'question_label_unreadable' };
   const initialRequest = await portalRequirementsForCandidate(initialRequirements, {
@@ -2788,7 +2793,9 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   while (true) {
     const passwordActions = registrationSnapshot.fields.filter((field) => field.inputType === 'password')
       .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
-    await applyActions(page, registrationSnapshot.fields, [...registrationPlan.actions, ...passwordActions], ctx.files);
+    await applyActions(page, registrationSnapshot.fields, [...registrationPlan.actions, ...passwordActions], ctx.files, {
+      beforeAction: qualificationActionFence({ page, verifier: ctx.qualificationVerifier, scope: { url: page.url() } }),
+    });
     // After the fields: SuccessFactors opens its statement only for a chosen country.
     const acceptedPrivacy = await acceptPrivacyStatement(page, await extractFields(page, NAVIGATION));
     if (acceptedPrivacy !== 'none') privacy = acceptedPrivacy;
@@ -2821,7 +2828,8 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     // not recognize. Replan against that response before treating it as a
     // permanent refusal; the planner receives the invalid fields and messages.
     const repairSnapshot = { ...after, fields: after.fields.filter((field) => field.inputType !== 'password') };
-    const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex,
+      qualificationVerifier: ctx.qualificationVerifier, qualificationScope: { url: page.url() }, page });
     if (repairPlan.missingRequired.length) {
       const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
       if (repairedRequirements.unreadableFields?.length) {
@@ -2983,16 +2991,27 @@ export function urlConfirms(url, snapshot) {
   return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && Boolean(snapshot) && !findButton(snapshot.buttons || [], SUBMIT_RE, { includeDisabled: true });
 }
 
-async function waitForOutcome(page, captchaEnabled = false) {
+async function waitForOutcome(page, captchaEnabled = false, receiptControl = null, receiptEvidence = null) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS + (captchaEnabled ? CAPTCHA_TIMEOUT_MS : 0);
   while (Date.now() < deadline) {
-    await page.waitForTimeout(1000);
+    if (receiptControl) await receiptControl.authorizeContinuation();
+    if (receiptControl?.closed) return 'ambiguous';
+    try { await page.waitForTimeout(1000); }
+    catch (error) { if (receiptControl?.closed) return 'ambiguous'; throw error; }
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     // The portal says it did not send: nothing left, by its own word.
     if (REFUSED_RE.test(text)) return 'refused';
     // Refusal takes precedence when an error page retains generic thank-you copy.
-    if (CONFIRM_RE.test(text)) return 'confirmed';
+    const confirmation = CONFIRM_RE.exec(text);
+    if (confirmation) {
+      if (receiptEvidence) receiptEvidence.receiptObservation = { kind: 'confirmation_text', at: Date.now(), url: page.url(),
+        text: text.slice(Math.max(0, confirmation.index - 400), confirmation.index + 1200) };
+      return 'confirmed';
+    }
+    // Handover permits only observing the already-started request. No plugin,
+    // validation repair, model request or new form interaction is authorised.
+    if (receiptControl?.receiptOnly) continue;
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (snapshot?.captcha && captchaEnabled) {
       snapshot = await awaitCaptcha(page, snapshot, { enabled: true, timeoutMs: Math.max(0, deadline - Date.now()) });
@@ -3000,7 +3019,11 @@ async function waitForOutcome(page, captchaEnabled = false) {
       // never press the final button a second time.
       if (!snapshot.captcha) continue;
     }
-    if (urlConfirms(page.url(), snapshot)) return 'confirmed';
+    if (urlConfirms(page.url(), snapshot)) {
+      if (receiptEvidence) receiptEvidence.receiptObservation = { kind: 'confirmation_url_without_submit', at: Date.now(),
+        url: page.url(), text: text.slice(0, 1600), submitButtonAbsent: true };
+      return 'confirmed';
+    }
     if (snapshot?.captcha) return 'captcha';
     if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
   }
@@ -3198,7 +3221,8 @@ export async function readPortalRequirements(ctx) {
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
     if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };
-    const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    snapshot = { ...snapshot, fields: await withNativeValidation(page, snapshot.fields) };
+    const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex, inspectOnly: true });
     const requirements = portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired);
     if (requirements.unreadableFields?.length) {
       (ctx.log || (() => {}))('portal pre-read handoff: question_label_unreadable');
@@ -3242,6 +3266,9 @@ export async function readPortalQuestions(ctx) {
  * @returns {Promise<{event:object, evidence:object}>}
  */
 export async function submitViaPortal(ctx) {
+  const qualificationVerifier = createPortalQualificationVerifier({ context: ctx.qualificationContext, codex: ctx.codex,
+    candidate: ctx.candidate });
+  ctx = { ...ctx, qualificationVerifier };
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   const channelType = portalChannelType(ctx);
   const extensionPath = !ctx.launch && process.env.NOPECHA_EXTENSION_PATH;
@@ -3255,8 +3282,11 @@ export async function submitViaPortal(ctx) {
   let page = null;
   let diagnostics = null;
   let finalClickAttempted = false;
+  let unregisterReceiptObserver = null;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason) => {
+    const infrastructureProof = captchaInfrastructureProof(reason, { diagnostics: evidence.diagnostics,
+      attempt: diagnostics?.currentAttempt(), finalClickAttempted });
     reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, attempt: diagnostics?.currentAttempt(), finalClickAttempted });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
@@ -3266,7 +3296,7 @@ export async function submitViaPortal(ctx) {
         evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
       }
     }
-    return { event: { type: 'submit_handoff', reason }, evidence };
+    return { event: { type: 'submit_handoff', reason, ...(infrastructureProof ? { infrastructureProof } : {}) }, evidence };
   };
   // What each portal taught earlier runs (level 2), read once per host.
   const knowledge = new Map();
@@ -3293,6 +3323,12 @@ export async function submitViaPortal(ctx) {
     context = extensionPath
       ? await launchNopechaContext(extensionPath, { ...contextOptions, headless: !headedBrowser() })
       : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
+    if (ctx.receiptControl) unregisterReceiptObserver = ctx.receiptControl.register({
+      // The installed CAPTCHA extension exposes no attestable stop/ACK API.
+      // Closing its context is the only supported quiescence on handover.
+      quiesce: async () => !extensionPath,
+      close: () => context.close(),
+    });
     registerPortalChannelType(context, channelType);
     await registerCookieSessionRecovery(context, { log: ctx.log });
     diagnostics = startPortalDiagnostics(context, (evidence.submitHttpFailures = []));
@@ -3412,15 +3448,16 @@ export async function submitViaPortal(ctx) {
       const name = String(document);
       evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source, context = '', section = '', autocomplete = '') => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}) => {
       if (!question || !String(answer ?? '').trim()) return;
-      const label = String(question).slice(0, 200);
-      const surrounding = String(context || '').slice(0, 240);
-      const heading = String(section || '').slice(0, 240);
+      const label = String(question).slice(0, 8000);
+      const surrounding = String(context || '').slice(0, 12000);
+      const heading = String(section || '').slice(0, 8000);
       const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
-      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete };
+      const item = { ...nativeQuestionMetadata(metadata), question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete };
       const key = portalQuestionKey(item) || portalQuestionId(item) || label;
       given.set(key, {
+        ...nativeQuestionMetadata(metadata),
         question: label,
         answer: String(answer).slice(0, 2000),
         source: source || '',
@@ -3446,7 +3483,8 @@ export async function submitViaPortal(ctx) {
           const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
           if (isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
           return {
-            question: String(field.label || field.name || field.id || '').slice(0, 200),
+            ...nativeQuestionMetadata(field),
+            question: String(field.label || field.name || field.id || '').slice(0, 8000),
             answer,
             context: String(field.context || '').slice(0, 240),
             section: String(field.section || '').slice(0, 240),
@@ -3478,25 +3516,28 @@ export async function submitViaPortal(ctx) {
           candidate: candidateWithRecordedAnswers(ctx.candidate, current),
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
+          qualificationVerifier,
           files: ctx.files,
           secrets: [...ownPasswords.values()],
           maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
           log,
         });
       } catch (error) {
+        if (error?.code === 'evidence_entailment_unverified') throw error;
         // The fallback is optional: whatever it throws ends in the usual handoff, never a failed run.
         agent = { status: 'stuck', reason: `agent_error: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`, calls: 1, evidence: { hint, rounds: [] } };
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
-      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context);
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context, item.section, item.autocomplete, item);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
       }
       return agent;
     };
     const askCandidate = async (questions) => {
-      const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions);
+      const native = await freshQualificationFields(page, { listboxOptions: true });
+      const requirements = portalRequirementsFromMissingRequired(native.fields, questions);
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
       const request = await portalRequirementsForCandidate(requirements, {
         candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log,
@@ -3657,6 +3698,7 @@ export async function submitViaPortal(ctx) {
         codex: ctx.codex,
         files: ctx.files,
         done: profileSectionsDone,
+        qualificationVerifier,
       });
       snapshot = profile.snapshot;
       if (profile.counts.length) evidence.steps.at(-1).profileSections = profile.counts;
@@ -3712,6 +3754,7 @@ export async function submitViaPortal(ctx) {
       let after = snapshot;
       let unclearQuestions = [];
       if (workable(snapshot)) {
+        snapshot = { ...snapshot, fields: await withNativeValidation(page, snapshot.fields) };
         // The planner never sees a password field, nor what a retry finds typed in it.
         const cvFields = preferredCvFields(snapshot.fields);
         const preferredCvIds = new Set(cvFields.map(field => field.id));
@@ -3722,6 +3765,9 @@ export async function submitViaPortal(ctx) {
           candidate: candidateWithRecordedAnswers(ctx.candidate, planned),
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
+          qualificationVerifier,
+          qualificationScope: { url: page.url() },
+          page,
         });
 
         // This synthetic action is executed by applyActions below, which resolves
@@ -3764,7 +3810,9 @@ export async function submitViaPortal(ctx) {
         const selectedUploads = new Map();
         const results = [
           ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
-          ...await applyActions(page, snapshot.fields, choices, ctx.files),
+          ...await applyActions(page, snapshot.fields, choices, ctx.files, {
+            beforeAction: qualificationActionFence({ page, verifier: qualificationVerifier, scope: { url: page.url() } }),
+          }),
         ];
         // The form after the choices: with other fields than the ones planned it is read and planned again
         // (twice at most for one page), and nothing is typed into what is no longer there.
@@ -3778,6 +3826,7 @@ export async function submitViaPortal(ctx) {
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
+          beforeAction: qualificationActionFence({ page, verifier: qualificationVerifier, scope: { url: page.url() } }),
           onUploadSelection: (fieldId, paths) => selectedUploads.set(fieldId, paths),
         }));
         if (!redrawn) {
@@ -3804,7 +3853,7 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete);
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
@@ -3925,6 +3974,7 @@ export async function submitViaPortal(ctx) {
         }
       }
       if ((next || advance) && !submit) {
+        await assertExistingPortalAnswers(page, qualificationVerifier, { url: page.url() }, holdsValue);
         const before = pageSignature(page, after);
         if (next) await clickButton(page, next);
         else {
@@ -4002,6 +4052,7 @@ export async function submitViaPortal(ctx) {
           return await handoff('portal_required_fields_unfilled');
         }
       }
+      await assertExistingPortalAnswers(page, qualificationVerifier, { url: page.url() }, holdsValue);
       if (ctx.dryRun) {
         evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
         evidence.finalButton = { label: final.label, by: final.by };
@@ -4013,12 +4064,23 @@ export async function submitViaPortal(ctx) {
       await diagnostics.beforeSubmit(page);
       // From here the outcome may be unknown: the submission guard records the click, and
       // submit.mjs what the form holds (the record of an attempt whose outcome may stay unknown).
-      if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads });
+      if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads,
+        receiptWaitMs: OUTCOME_TIMEOUT_MS + (extensionPath ? CAPTCHA_TIMEOUT_MS : 0) });
       finalClickAttempted = true;
       diagnostics.finalClick();
       await final.click();
-      const outcome = await waitForOutcome(page, Boolean(extensionPath));
+      const outcome = await waitForOutcome(page, Boolean(extensionPath), ctx.receiptControl, evidence);
       (evidence.finalOutcomes ||= []).push(outcome);
+      if (outcome === 'confirmed') {
+        evidence.finalUrl = page.url();
+        // Persist the observation before diagnostics, optional bookkeeping or
+        // cleanup can stall. A just-closed page cannot erase an observed ACK.
+        const receipt = ctx.onReceipt ? await ctx.onReceipt(evidence) : null;
+        if (receipt?.minimal || ctx.receiptControl?.receiptOnly || ctx.receiptControl?.closed) {
+          return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
+        }
+      }
+      if (ctx.receiptControl?.closed) return { event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence };
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
@@ -4035,6 +4097,9 @@ export async function submitViaPortal(ctx) {
       }
       if (outcome === 'captcha') return await handoff('captcha');
       if (outcome === 'validation' && validationRetries < 1) {
+        if (ctx.receiptControl && !(await ctx.receiptControl.authorizeContinuation())) {
+          return { event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence };
+        }
         validationRetries += 1;
         // A server-side validation response can clear a required agreement
         // that was accepted in the same URL (SIX resets its data privacy
@@ -4071,10 +4136,20 @@ export async function submitViaPortal(ctx) {
       return { event: { type: 'submit_failed', error: outcome === 'validation' ? 'portal_validation' : antibot ? 'portal_antibot_ambiguous' : 'portal_ambiguous' }, evidence };
     }
     return await handoff('portal_needs_candidate');
+  } catch (error) {
+    if (error?.code !== 'evidence_entailment_unverified') throw error;
+    return { event: { type: 'submit_failed', error: error.reason === 'source_unbound' && ctx.qualificationContext?.scope?.sourceUnbound
+      ? 'evidence_source_unbound' : 'evidence_entailment_unverified' }, evidence };
   } finally {
-    await diagnostics?.finish();
-    await context?.close().catch(() => {});
-    await browser?.close().catch(() => {});
+    try { await diagnostics?.finish(); }
+    finally {
+      const contextClosed = context ? await context.close().then(() => true, () => false) : false;
+      const browserClosed = browser ? await browser.close().then(() => true, () => false) : false;
+      // Keep the deadline's close/termination capability during every await
+      // above. An unfinished cleanup is not a quiescence acknowledgement.
+      if (ctx.receiptControl && !contextClosed && !(browser && browserClosed)) await ctx.receiptControl.cleanupFailed();
+      else unregisterReceiptObserver?.();
+    }
   }
 }
 

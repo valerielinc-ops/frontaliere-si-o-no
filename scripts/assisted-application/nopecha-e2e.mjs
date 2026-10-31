@@ -6,9 +6,14 @@ import { once } from 'node:events';
 import { awaitCaptcha, launchNopechaContext } from './lib/portal/nopecha.mjs';
 import { extractFields } from './lib/portal/fields.mjs';
 import { probeAnonymousRecaptchaV3 } from './lib/nopecha-probe.mjs';
+import { requestProcessRegistration } from './lib/process-registry.mjs';
 
 const extension = process.env.NOPECHA_EXTENSION_PATH;
 assert.ok(extension, 'NOPECHA_EXTENSION_PATH is required');
+if (process.env.ASSISTED_APPLICATION_PROCESS_REGISTRY_SOCKET) await requestProcessRegistration({
+  socket: process.env.ASSISTED_APPLICATION_PROCESS_REGISTRY_SOCKET, nonce: process.env.ASSISTED_APPLICATION_PROCESS_REGISTRY_NONCE,
+  role: 'agent', pid: process.pid,
+});
 const received = [];
 const server = http.createServer(async (req, res) => {
   if (req.method === 'POST' && req.url === '/submit') {
@@ -33,7 +38,9 @@ const server = http.createServer(async (req, res) => {
       };
     </script></body></html>`);
 });
-server.listen(0, '127.0.0.1');
+const fixturePort = Number(process.env.ASSISTED_APPLICATION_FIXTURE_PORT || 0);
+assert.ok(Number.isInteger(fixturePort) && fixturePort >= 0 && fixturePort <= 65535, 'fixture port invalid');
+server.listen(fixturePort, '127.0.0.1');
 await once(server, 'listening');
 let context;
 try {

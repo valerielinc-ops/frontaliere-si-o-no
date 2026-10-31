@@ -1,33 +1,104 @@
+import { Timestamp } from 'firebase-admin/firestore';
 import { describe, expect, it, vi } from 'vitest';
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 vi.mock('../functions/src/geminiGenerate.js', () => ({ generateServerText: vi.fn() }));
 const { generateServerText } = await import('../functions/src/geminiGenerate.js');
-vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems\nLanguages: English B2, French B2\nInfrastructure management and operations experience.') }));
-const { prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
+vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn() }));
+const { extractCvText } = await import('../functions/src/assistedApplicationAiDocuments.js');
+const { evaluateConciergePosting, prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
 const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
 const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
+const { EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } = await import('../functions/src/lib/qualificationEvidence.js');
+import { qualificationEvidenceCases } from './fixtures/qualification-evidence-cases.mjs';
 
 const requirements = { requirements: [{ requirement: 'Tedesco fluente', importance: 'critical', basis: 'stated', quote: 'Fluent German required' }] };
 const rawProfile = { fullName: 'Candidate Example', languages: [{ language: 'English', level: 'B2' }, { language: 'French', level: 'B2' }], languagesExplicitList: true, experience: [] };
 function fixture(match: any) {
+  vi.mocked(extractCvText).mockResolvedValue('Candidate Example\nIT Manager, Example Systems\nLanguages: English B2, French B2\nInfrastructure management and operations experience.');
   const records = new Map<string, any>();
   function ref(path: string): any {
-    return { id: path.split('/').at(-1), get: async () => ({ exists: records.has(path), data: () => records.get(path) }),
+    return { path, id: path.split('/').at(-1), get: async () => ({ exists: records.has(path), data: () => records.get(path) }),
       set: async (value: any, options?: any) => { records.set(path, options?.merge ? { ...records.get(path), ...value } : value); }, collection: (name: string) => ({ doc: (id: string) => ref(`${path}/${name}/${id}`) }) };
   }
   const serviceRef = ref('application_concierge_services/service');
-  const service = { userId: 'candidate', cvStorageKey: 'application-concierge-uploads/service/cv.pdf', locale: 'it' };
+  const service = { userId: 'candidate', cvStorageKey: 'application-concierge-uploads/service/cv.pdf', locale: 'it',
+    paymentStatus: 'paid', serviceStatus: 'active', expiresAt: Date.now() + 30 * 86400000, maxPositions: 10, acceptedPositionsCount: 0 };
   records.set('application_concierge_services/service', service);
   records.set('user_cv_profiles/candidate', {});
   const bytes = Buffer.from('%PDF-1.7 test CV');
   const bucket: any = { file: () => ({ getMetadata: async () => [{ size: bytes.length }], download: async () => [bytes] }) };
-  const generate = vi.fn(async (system: string, _user: string, _schema: any) => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? requirements : match);
+  const generate = vi.fn(async (system: string, user: string, _schema: any, _options?: any) => system === PROFILE_SYSTEM_PROMPT ? rawProfile
+    : system === REQUIREMENTS_SYSTEM_PROMPT ? requirements : system === EVIDENCE_ENTAILMENT_SYSTEM_PROMPT ? supportedEvidence(user) : match);
   const readPosting = vi.fn(async () => ({ text: `Fluent German required. ${'IT operations and infrastructure. '.repeat(400)}`, source: 'job_detail', textTruncated: false }));
-  const db: any = { collection: (name: string) => ({ doc: (id: string) => ref(`${name}/${id}`) }) };
+  const db: any = { collection: (name: string) => ({ doc: (id: string) => ref(`${name}/${id}`) }),
+    runTransaction: (callback: any) => callback({ get: (target: any) => target.get(), set: (target: any, value: any, options?: any) => target.set(value, options) }) };
   return { records, serviceRef, service, bytes, bucket, generate, readPosting, db };
 }
 
+function supportedEvidence(user: string) {
+  return { assessments: JSON.parse(user).claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id,
+    verdict: 'supported', reason: 'explicit_fact' })) };
+}
+
 describe('qualification before proposal publication', () => {
+  it('preserves actual SDK Timestamp semantics before snapshotting service sources', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] });
+    const uploadedAt = Date.now() - 1000;
+    Object.assign(f.service, { cvUploadedAt: Timestamp.fromMillis(uploadedAt), expiresAt: Timestamp.fromMillis(Date.now() + 30 * 86400000) });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const job = { id: 'sdk-timestamp', url: 'https://example.test/jobs/sdk-timestamp/' };
+    const first = await check(job);
+    expect(first.status).toBe('incompatible');
+    const calls = f.generate.mock.calls.length;
+    expect((await check(job)).status).toBe('incompatible');
+    expect(f.generate.mock.calls).toHaveLength(calls);
+    f.records.get('application_concierge_services/service').cvUploadedAt = Timestamp.fromMillis(uploadedAt + 1);
+    expect(await check(job)).toMatchObject({ status: 'unverified', reason: 'evidence_source_changed' });
+  });
+
+  it.each(['service_notes', 'cv_key', 'profile_cv', 'answer_pointer', 'service_expiry', 'position_cap'])('does not cache an assessment when %s changes during inference', async mutation => {
+    const f = fixture({ matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] });
+    const original = f.generate.getMockImplementation()!;
+    f.generate.mockImplementation(async (system, user, schema, options) => {
+      const response = await original(system, user, schema, options);
+      if (system === REQUIREMENTS_SYSTEM_PROMPT) {
+        const current = f.records.get('application_concierge_services/service');
+        if (mutation === 'service_notes') current.candidateNotes = 'Correction: my current language level is A2.';
+        if (mutation === 'cv_key') current.cvStorageKey = 'application-concierge-uploads/service/replacement.pdf';
+        if (mutation === 'service_expiry') current.expiresAt = Date.now() - 1;
+        if (mutation === 'position_cap') current.acceptedPositionsCount = 10;
+        const profile = f.records.get('user_cv_profiles/candidate');
+        if (mutation === 'profile_cv') profile.profile = { searchText: 'Replacement CV' };
+        if (mutation === 'answer_pointer') profile.applicationQuestionAnswersUpdatedAt = Date.now();
+      }
+      return response;
+    });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    expect(await check({ id: 'race', url: 'https://example.test/jobs/race/' })).toMatchObject({ status: 'unverified', reason: 'evidence_source_changed' });
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+  });
+  it('keeps the publication capability private and revalidates cached facts', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const job = { id: 'private-capability', url: 'https://example.test/jobs/private-capability/' };
+    const result = await check(job);
+    expect(typeof result.publicationGuard.assertInTransaction).toBe('function');
+    expect(JSON.stringify(result)).not.toContain('publicationGuard');
+    f.records.get('user_cv_profiles/candidate').applicationQuestionAnswersUpdatedAt = Date.now();
+    expect(await check(job)).toMatchObject({ status: 'unverified', reason: 'evidence_source_changed' });
+  });
+
+  it('invalidates a cached assessment when only service candidate notes change', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] });
+    const job = { id: 'notes-cache', url: 'https://example.test/jobs/notes-cache/' };
+    const before = await (await prepareConciergeEligibility({ ...f, profileRecord: {} }))(job);
+    const priorCalls = f.generate.mock.calls.length;
+    const service = { ...f.service, candidateNotes: 'Correction: I do not hold the required degree.' };
+    f.records.set('application_concierge_services/service', service);
+    const after = await (await prepareConciergeEligibility({ ...f, service, profileRecord: {} }))(job);
+    expect(after.fingerprint).not.toBe(before.fingerprint);
+    expect(f.generate.mock.calls.length).toBeGreaterThan(priorCalls);
+  });
   it('allows all three bounded primary/fallback attempts without the long-running Codex rung', async () => {
     const match = { matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] };
     const f = fixture(match);
@@ -215,18 +286,33 @@ describe('qualification before proposal publication', () => {
   it('reuses a verified positive only for identical CV, posting and answer memory', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     const required = { requirements: [{ requirement: 'English B2', importance: 'critical', basis: 'stated', quote: 'English B2' }] };
-    f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? required : { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    f.generate.mockImplementation(async (system, user) => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? required
+      : system === EVIDENCE_ENTAILMENT_SYSTEM_PROMPT ? supportedEvidence(user) : { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     f.readPosting.mockResolvedValue({ text: `English B2 ${'IT operations and infrastructure. '.repeat(20)}`, textTruncated: false, source: 'job_detail' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
     const job = { id: 'job', title: 'IT Manager', company: 'Example' };
     const result = await check(job);
     expect(result.status).toBe('compatible');
     await check(job);
-    expect(f.generate).toHaveBeenCalledTimes(3);
+    expect(f.generate).toHaveBeenCalledTimes(4);
+    f.records.get(`application_concierge_services/service/eligibility/${result.cacheId}`).version = 'full-posting-requirements-v3-source-citations-v1';
+    await check(job);
+    expect(f.generate).toHaveBeenCalledTimes(7);
     f.records.set('application_concierge_services/service/proposals/proposal', { eligibilityCacheId: result.cacheId, eligibilityFingerprint: result.fingerprint });
     const order = { userId: 'candidate', parentServiceId: 'service', parentProposalId: 'proposal' };
     const input = { db: f.db, order, cvBuffer: f.bytes, postingText: (await f.readPosting()).text };
     expect(await vettedConciergeDraftInputs(input)).toMatchObject({ result: { status: 'compatible' } });
+    const cached = f.records.get(`application_concierge_services/service/eligibility/${result.cacheId}`);
+    const witness = cached.entailment;
+    cached.entailment = undefined;
+    expect(await vettedConciergeDraftInputs(input)).toBeNull();
+    cached.entailment = witness;
+    const oldRequirements = cached.requirements; const oldMatch = cached.match;
+    cached.requirements = { ...oldRequirements, requirements: [...oldRequirements.requirements,
+      { requirement: 'Analytical work', importance: 'meaningful', basis: 'stated', quote: 'Analytical work' }] };
+    cached.match = { ...oldMatch, matches: [...oldMatch.matches, { index: 1, status: 'met', evidence: 'Chronology only' }] };
+    expect(await vettedConciergeDraftInputs(input)).toBeNull();
+    cached.requirements = oldRequirements; cached.match = oldMatch;
     expect(await vettedConciergeDraftInputs({ ...input, cvBuffer: Buffer.from('different CV') })).toBeNull();
     expect(await vettedConciergeDraftInputs({ ...input, postingText: `${input.postingText} changed` })).toBeNull();
     f.records.set('user_cv_profiles/candidate', { applicationQuestionAnswers: { language_en_any_proficiency: 'C1' } });
@@ -243,6 +329,7 @@ describe('qualification before proposal publication', () => {
     f.generate.mockImplementation(async (system, user, schema) => {
       if (system === PROFILE_SYSTEM_PROMPT) return rawProfile;
       if (system === REQUIREMENTS_SYSTEM_PROMPT) return { requirements: [{ requirement: 'English B2', importance: 'critical', basis: 'stated', quote: 'English B2 required' }] };
+      if (system === EVIDENCE_ENTAILMENT_SYSTEM_PROMPT) return supportedEvidence(user);
       const payload = JSON.parse(user.split('\n\n<<<POSTING EXCERPT')[0]);
       const source = payload.candidateSourceExcerpts.find((item: any) => item.text.includes('English B2'));
       expect(schema.properties.matches.items.properties.evidence.enum).toContain(source.id);
@@ -254,6 +341,52 @@ describe('qualification before proposal publication', () => {
     expect(result.status).toBe('compatible');
     const cached = f.records.get(`application_concierge_services/service/eligibility/${result.cacheId}`);
     expect(cached.match.matches[0]).toMatchObject({ evidence: 'Languages: English B2, French B2', evidenceUnverified: false });
+  });
+  it.each(qualificationEvidenceCases().filter(item => item.group === 'sgkb-negative'))('retries unsupported primary quotations through the real evaluator without caching a candidate gap: $name', async item => {
+    const f = fixture(null);
+    const degree = qualificationEvidenceCases().find(example => example.name === 'computer science degree');
+    const cv = `Candidate Example\n${degree.evidence}\n${item.evidence}\nLanguages: English B2, French B2\nDocumented employment history.`;
+    vi.mocked(extractCvText).mockResolvedValueOnce(cv);
+    const requested = { requirements: [
+      { requirement: degree.requirement, quote: degree.quote, importance: 'critical', basis: 'stated' },
+      { requirement: item.requirement, quote: item.quote, importance: item.name.includes('chronology') ? 'meaningful' : 'high', basis: 'stated' },
+    ] };
+    f.readPosting.mockResolvedValue({ text: `${degree.quote}\n${item.quote}\n${'Position duties. '.repeat(20)}`, textTruncated: false, source: 'job_detail' });
+    f.generate.mockImplementation(async (system, user) => {
+      if (system === PROFILE_SYSTEM_PROMPT) return rawProfile;
+      if (system === REQUIREMENTS_SYSTEM_PROMPT) return requested;
+      if (system === EVIDENCE_ENTAILMENT_SYSTEM_PROMPT) return { assessments: JSON.parse(user).claims.map((claim: any) => ({
+        index: claim.index, proofId: claim.proof.id, verdict: claim.index ? 'unsupported' : 'supported',
+        reason: claim.index ? 'unrelated_evidence' : 'explicit_fact',
+      })) };
+      return { matches: [{ index: 0, status: 'met', evidence: degree.evidence }, { index: 1, status: 'met', evidence: item.evidence }],
+        verdict: 'good', questions: [{ id: 'candidate_question', question: 'When are you available?', type: 'date', required: true }] };
+    });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    for (let retry = 0; retry < 2; retry++) expect(await check({ id: 'unsupported', title: 'Example role' }))
+      .toMatchObject({ status: 'unverified', reason: 'evidence_entailment_unverified', gaps: [], questions: [] });
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+    expect(f.generate.mock.calls.filter(([system]) => system === EVIDENCE_ENTAILMENT_SYSTEM_PROMPT)).toHaveLength(2);
+  });
+  it('preserves budget cancellation during the verifier instead of caching a retry or candidate gap', async () => {
+    const f = fixture(null); const controller = new AbortController();
+    let release!: (value: any) => void; let notify!: () => void;
+    const started = new Promise<void>(resolve => { notify = resolve; });
+    f.readPosting.mockResolvedValue({ text: `English B2 required. ${'IT management duties. '.repeat(20)}`, textTruncated: false, source: 'job_detail' });
+    f.generate.mockImplementation(async system => {
+      if (system === PROFILE_SYSTEM_PROMPT) return rawProfile;
+      if (system === REQUIREMENTS_SYSTEM_PROMPT) return { requirements: [{ requirement: 'English B2', quote: 'English B2 required', importance: 'high', basis: 'stated' }] };
+      if (system === EVIDENCE_ENTAILMENT_SYSTEM_PROMPT) { notify(); return new Promise(resolve => { release = resolve; }); }
+      return { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'good' };
+    });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {}, signal: controller.signal });
+    const pending = check({ id: 'deadline', title: 'IT Manager' });
+    await started;
+    const rejected = expect(pending).rejects.toThrow('matching deadline');
+    controller.abort(new Error('matching deadline'));
+    await rejected;
+    release({ assessments: [] }); await Promise.resolve();
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
   });
   it('does not cache invented posting quotes as missing candidate qualifications', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong' });
@@ -297,5 +430,28 @@ describe('qualification before proposal publication', () => {
       generate: f.generate,
       readPosting: f.readPosting,
     })).toEqual({ status: 'unverified', reason: 'profile_not_ready' });
+  });
+});
+
+
+describe('retained clear metadata before known-missing language guards', () => {
+  it.each(['de', 'fr'])('uses the verified sidecar for compound German captions (cleared %s)', async languageCode => {
+    const quote = 'Verhandlungssichere Deutschkenntnisse erforderlich';
+    const requirements = { requirements: [{ requirement: 'Deutschkenntnisse', quote, basis: 'stated', importance: 'high' }],
+      languageRequirements: [{ language: 'de-CH', level: 'verhandlungssicher', quote }] };
+    const generate = vi.fn(async (system: string) => system === REQUIREMENTS_SYSTEM_PROMPT ? requirements
+      : { matches: [{ index: 0, status: 'met', evidence: '[[cv:0]]' }], verdict: 'good', questions: [] });
+    const result = await evaluateConciergePosting({ job: { id: 'compound-language' }, profile: { languages: [{ language: 'de', level: 'A2' }], languagesExplicitList: true },
+      sourceText: 'Current German A2', cvHash: 'a'.repeat(64), answerSourceConflicts: [{ key: `language_${languageCode}_any_proficiency`, property: 'language_proficiency',
+        languageCode, scope: 'candidate', cvHash: 'a'.repeat(64), reason: 'explicit_clear', at: 1 }], generate,
+      readPosting: async () => ({ text: quote + '. ' + 'Company and role duties. '.repeat(10), source: 'job_detail', textTruncated: false }) });
+    if (languageCode === 'de') {
+      expect(result).toMatchObject({ status: 'unverified', reason: 'answer_source_conflict', gaps: [], questions: [] });
+      expect(generate).toHaveBeenCalledTimes(1);
+    } else {
+      expect(result.status).toBe('incompatible');
+      expect(result.gaps).toEqual(expect.arrayContaining([expect.objectContaining({ knownMissing: true })]));
+      expect(generate).toHaveBeenCalledTimes(2);
+    }
   });
 });

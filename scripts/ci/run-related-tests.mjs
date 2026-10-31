@@ -123,6 +123,9 @@ const socialRobotClosurePaths = new Set([
   'scripts/load-rc-env.mjs',
 ]);
 const sourceTreeLintTests = new Map([
+  // These real node:test suites run in a Vitest wrapper subprocess. Passing
+  // their .mjs paths to Vitest alone would match no configured test include.
+  ['tests/native-scope-node-suites.test.ts', /^tests\/(?:native-scope-interpretation|native-form-scope-contract|candidate-identity-caption-normalization)\.test\.mjs$/],
   // The mid-plugin equivalence suite imports its variants dynamically and is
   // the trusted oracle for the module-load flag contract. The shared facade
   // is otherwise only consumed by build plugins, so a facade-only change can

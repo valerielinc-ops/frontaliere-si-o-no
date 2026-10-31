@@ -73,12 +73,15 @@ export function runKeyFrom(raw = process.env.ASSISTED_APPLICATION_RUN_KEY) {
  * the retention job deletes the whole `assisted-application-uploads/<order>/`
  * folder, and its key check accepts no sub-folders.
  */
-export async function storeEvidence({ bucket, orderId, name, payload, key, nowMs = Date.now() }) {
+export async function storeEvidence({ bucket, orderId, name, payload, key, nowMs = Date.now(), artifactStore = null }) {
   const safeName = String(name).replace(/[^A-Za-z0-9_-]/g, '-').slice(0, 60);
   const path = `assisted-application-uploads/${orderId}/run-${nowMs}-${safeName}.json.enc`;
-  await bucket.file(path).save(JSON.stringify(encryptJson(payload, key)), {
+  const bytes = JSON.stringify(encryptJson(payload, key));
+  const options = {
     contentType: 'application/octet-stream',
     resumable: false,
-  });
+  };
+  if (artifactStore) return artifactStore.save(path, bytes, options);
+  await bucket.file(path).save(bytes, options);
   return path;
 }

@@ -22,6 +22,10 @@ description: >-
   setup-omniroute/action.yml and translate-pending.yml's
   TRANSLATE_ARGOS_FIRST_DISABLE (`!= '1'`) gate.
 inputs:
+  concierge_json_only:
+    description: 'Require the pinned tool-free concierge JSON catalogue and offline capability preflight; other lanes remain unchanged.'
+    required: false
+    default: 'false'
   codex_cli_version:
     description: >-
       Pinned Codex CLI version. Existing text lanes keep 0.153.4; image
@@ -473,6 +477,7 @@ runs:
         TRUSTED_NPM: ${{ steps.trusted_toolchain.outputs.npm_realpath }}
         TRUSTED_NPM_SHA256: ${{ steps.trusted_toolchain.outputs.npm_sha256 }}
         CODEX_CLI_VERSION: ${{ inputs.codex_cli_version }}
+        CONCIERGE_JSON_ONLY: ${{ inputs.concierge_json_only }}
       run: |
         set +e
         trusted_node="${TRUSTED_NODE:-}"
@@ -562,6 +567,9 @@ runs:
           exit 0
         fi
         codex_realpath="$($trusted_node -e 'console.log(require("node:fs").realpathSync(process.argv[1]))' "$codex_link" 2>/dev/null)"
+        if [ "$CONCIERGE_JSON_ONLY" = 'true' ]; then
+          codex_realpath="$($trusted_node --input-type=module -e 'import {pathToFileURL} from "node:url"; const {resolvePinnedCodexNative}=await import(pathToFileURL(process.argv[1]).href); process.stdout.write(resolvePinnedCodexNative(process.argv[2]));' "$GITHUB_ACTION_PATH/concierge-tools.mjs" "$codex_prefix" 2>/dev/null)"
+        fi
         case "$codex_realpath" in
           "$codex_prefix"/*) ;;
           *)
@@ -588,6 +596,16 @@ runs:
         printf 'codex_prefix=%s\n' "$codex_prefix" >> "$GITHUB_OUTPUT"
         echo "codex CLI installed and attested ($requested_codex_version)"
 
+    - name: Verify tool-free concierge capabilities before authentication
+      if: inputs.concierge_json_only == 'true' && steps.install_codex_cli.outputs.codex_bin != ''
+      shell: bash
+      env:
+        TRUSTED_NODE: ${{ steps.trusted_toolchain.outputs.node_realpath }}
+        CODEX_PROBE_CLI: ${{ steps.install_codex_cli.outputs.codex_bin }}
+        CODEX_PROBE_ROOT: ${{ steps.install_codex_cli.outputs.codex_prefix }}
+      run: |
+        "$TRUSTED_NODE" "$GITHUB_ACTION_PATH/concierge-tool-probe.mjs" "$CODEX_PROBE_CLI" "$CODEX_PROBE_ROOT"
+
     # Keep the subscription secret on this one action step. Only an explicit
     # AI consumer step receives the output socket path; unrelated housekeeping
     # steps do not inherit a broker capability.
@@ -600,6 +618,7 @@ runs:
         BROKER_IDLE_TTL_MS: ${{ inputs.broker_idle_ttl_ms }}
         BROKER_MAX_CONCURRENCY: ${{ inputs.broker_max_concurrency }}
         BROKER_MAX_TIMEOUT_MS: ${{ inputs.broker_max_timeout_ms }}
+        CONCIERGE_JSON_ONLY: ${{ inputs.concierge_json_only }}
         CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
         CODEX_CLI_REALPATH: ${{ steps.install_codex_cli.outputs.codex_realpath }}
         CODEX_CLI_SHA256: ${{ steps.install_codex_cli.outputs.codex_sha256 }}
@@ -717,7 +736,9 @@ runs:
         # The broker receives the credential only through the FIFO. Start it
         # with an empty environment so CODEX_AUTH_JSON from this step cannot
         # leak into the long-lived broker process or any diagnostics.
-        nohup /usr/bin/env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
+        concierge_args=()
+        if [ "$CONCIERGE_JSON_ONLY" = 'true' ]; then concierge_args+=(--concierge-json-only); fi
+        nohup /usr/bin/env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" "${concierge_args[@]}" \
           --socket "$broker_socket" --ttl-ms "$broker_ttl_ms" --max-requests 512 \
           --max-concurrency "$broker_max_concurrency" --max-timeout-ms "$broker_max_timeout_ms" \
           --codex-cli-version "${CODEX_CLI_VERSION:-0.153.4}" \

@@ -1,9 +1,12 @@
+import { requirementLanguageCodes } from './lib/requirementLanguageCodes.js';
+import { qualificationCounterContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 /** Full-posting qualification before a concierge proposal is published. All caches are owner-private. */
 import { createHash } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
-import { timestampMillis } from './applicationConciergeConstants.js';
+import { timestampMillis, serviceIsActive, acceptedPositionsCount, APPLICATION_CONCIERGE_MAX_POSITIONS } from './applicationConciergeConstants.js';
+import { timestampMillis as strictTimestampMillis } from './lib/assistedApplicationRetentionPolicy.js';
 import { FieldValue } from 'firebase-admin/firestore';
-import { generateServerText } from './geminiGenerate.js';
+import { generateQualificationJson as generateJson } from './lib/qualificationGenerate.js';
 import { detectCvFileType, ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { extractCvText } from './assistedApplicationAiDocuments.js';
 import { fetchJobPosting } from './assistedApplicationAiJob.js';
@@ -12,12 +15,49 @@ import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SC
   requirementsUserText, MATCH_SCHEMA, matchSystemPrompt, matchUserText } from './assistedApplicationAiPrompts.js';
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
-import { SOURCE_CITATIONS_VERSION, sourceCitations, citationSchema, resolveCitations } from './lib/sourceCitations.js';
+import { languageAnswerSourceConflicts } from './lib/answerSourceConflicts.js';
+import { currentJobLanguageEvidence } from './lib/currentJobLanguageEvidence.js';
+import { projectAttestedLanguageFacts } from './lib/attestedLanguageProjection.js';
+import { SOURCE_CITATIONS_VERSION, citationSchema, resolveCitations } from './lib/sourceCitations.js';
+import { EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_PROMPT_HASH, qualificationSources,
+  verifyQualificationEvidence, verifiedQualificationAnswerIds, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
+import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
 
-export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v3-${SOURCE_CITATIONS_VERSION}`;
+export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v5-${SOURCE_CITATIONS_VERSION}-${EVIDENCE_ENTAILMENT_VERSION}-${EVIDENCE_ENTAILMENT_PROMPT_HASH}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
+const PREFLIGHT_ANALYSIS_BUDGET_MS = 90_000; // The 120s checkout also needs time for its transaction and Stripe.
+
+const serviceSourceMaterial = service => ({ userId: service?.userId ?? null, cvStorageKey: service?.cvStorageKey ?? null,
+  cvUploadedAt: strictTimestampMillis(service?.cvUploadedAt), candidateNotes: service?.candidateNotes ?? null,
+  applicantLocation: service?.applicantLocation ?? null, locale: service?.locale ?? null });
+const profileSourceMaterial = record => ({ status: record?.status ?? null, profile: record?.profile ?? null,
+  cvStorageKey: record?.cvStorageKey ?? null, cvHash: record?.cvHash ?? null });
+const sourceChanged = () => Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
+
+/** Private capability; never serialized into a cached result or a model request. */
+function conciergePublicationGuard({ db, serviceRef, service, expected, source, cvHash }) {
+  const profileRef = db.collection('user_cv_profiles').doc(String(service.userId));
+  return Object.freeze({
+    fingerprint: qualificationCounterContextHash({ source: source.sourceFingerprint, expected, cvHash }),
+    async assertInTransaction(tx) {
+      if (typeof source.assertInTransaction !== 'function' || !/^[a-f0-9]{64}$/.test(source.sourceFingerprint || '')) throw sourceChanged();
+      const [currentService, currentProfile] = await Promise.all([tx.get(serviceRef), tx.get(profileRef)]);
+      if (!currentService.exists || qualificationCounterContextHash({ service: serviceSourceMaterial(currentService.data()),
+        profile: profileSourceMaterial(currentProfile.data()) }) !== expected) throw sourceChanged();
+      // The same FACT recipe fences origin notes/clear/retention and the global pointer.
+      await source.assertInTransaction(tx);
+      const current = currentService.data();
+      // No awaited work follows the service window/cap check.
+      if (!serviceIsActive(current, Date.now()) || acceptedPositionsCount(current) >= (Number(current.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) throw sourceChanged();
+    },
+  });
+}
+
+function withPublicationGuard(result, guard) {
+  return Object.defineProperty(result, 'publicationGuard', { value: guard, enumerable: false });
+}
 
 export function normalizeConciergeJobRecord(job = {}) {
   return {
@@ -28,17 +68,6 @@ export function normalizeConciergeJobRecord(job = {}) {
     company: job.company || job.companyName || '',
     location: job.location || '',
   };
-}
-
-async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
-  const response = await generateServerText({ systemPrompt: `${systemPrompt}\nReturn ONLY valid JSON matching this schema:\n${JSON.stringify(schema)}`,
-    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false, ...options });
-  options.signal?.throwIfAborted();
-  if (!response.body?.ok) throw new Error('eligibility_provider_unavailable');
-  const text = response.body.text.replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
-  const result = JSON.parse(text);
-  if (!result || typeof result !== 'object' || Array.isArray(result)) throw new Error('eligibility_invalid_json');
-  return result;
 }
 
 async function beforeCancellation(operation, signal) {
@@ -65,7 +94,16 @@ function profileForEligibility(profile = {}) {
   };
 }
 
-async function evaluateConciergePosting({ job, profile, answers = {}, locale = 'it', sourceText = '', generate = generateJson, readPosting = fetchJobPosting }) {
+export async function evaluateConciergePosting({ job, profile, answers = {}, answerEvidence = [], answerCounterContext = [], answerSourceConflicts = [], rawCounterContext = null, locale = 'it', sourceText = '', cvHash = '', generate = generateJson, readPosting = fetchJobPosting }) {
+  // The later row witness and job-only reassessment must read the same owned Q/A units.
+  answerEvidence = structuredClone(answerEvidence);
+  if (!sourceText) {
+    const deadline = AbortSignal.timeout(PREFLIGHT_ANALYSIS_BUDGET_MS);
+    const inference = generate; const read = readPosting;
+    generate = (system, user, schema, options = {}) => beforeCancellation(
+      () => inference(system, user, schema, { ...options, signal: deadline }), deadline);
+    readPosting = (order, options) => beforeCancellation(() => read(order, { ...options, signal: deadline }), deadline);
+  }
   job = normalizeConciergeJobRecord(job);
   const posting = await readPosting({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
   if (!posting.text || posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
@@ -74,19 +112,50 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
     location: posting.location || job.location, postingText: posting.text }), REQUIREMENTS_SCHEMA);
   if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) return { status: 'unverified', reason: 'requirements_incomplete' };
   const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
-  const normalizedProfile = profileForEligibility(profile);
+  const projected = projectAttestedLanguageFacts({ profile: profileForEligibility(profile), answerEvidence, currentCvHash: cvHash });
+  const scoped = currentJobLanguageEvidence({ profile: projected.profile, answerEvidence, currentCvHash: cvHash, job });
+  const conflictedLanguages = new Set([...projected.conflicts, ...scoped.conflicts].map(conflict => conflict.languageCode));
+  if (requirements.requirements.some(row => languageAnswerSourceConflicts({ text: row.quote || row.requirement, languageCodes: requirementLanguageCodes(requirements, row), answerSourceConflicts, currentCvHash: cvHash }).length)) {
+    return { status: 'unverified', reason: 'answer_source_conflict', gaps: [], questions: [] };
+  }
+  if (requirements.requirements.some(row => requirementLanguageCodes(requirements, row).some(code => conflictedLanguages.has(code)))) {
+    return { status: 'unverified', reason: 'language_evidence_conflict', gaps: [], questions: [] };
+  }
+  const normalizedProfile = scoped.profile;
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
-  const candidateSources = sourceCitations({ cv: evidenceText, answers: Object.keys(answers).length ? JSON.stringify(answers) : '' });
-  const matchRaw = await generate(matchSystemPrompt(locale), matchUserText({ profile: normalizedProfile, requirements, answers,
+  const sources = qualificationSources({ sourceText, profile: normalizedProfile, answers, answerEvidence });
+  const candidateSources = sources.citations;
+  const matchRaw = await generate(matchSystemPrompt(locale), matchUserText({ profile: normalizedProfile, requirements, answers: sources.modelAnswers,
     postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
-  const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
+  const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, sources.verificationText),
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
-  const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
-  return { ...result, postingHash, requirements, match, posting };
+  const preliminary = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
+  const checked = await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources, preliminary, generate,
+    unverifiedContext: qualificationCounterContext({ flow: { answers }, answerCounterContext, rawCounterContext }) });
+  let assessed = preliminary;
+  if (checked.status === 'supported' && scoped.deferredCodes.length) {
+    const indexes = requirements.requirements.flatMap((row, index) => requirementLanguageCodes(requirements, row).some(code => scoped.deferredCodes.includes(code)) ? [index] : []);
+    const verifiedAnswerIds = verifiedQualificationAnswerIds({ requirements, match, rawMatch: matchRaw, sources, verification: checked.verification, indexes });
+    const resolved = currentJobLanguageEvidence({ profile: projected.profile, answerEvidence, currentCvHash: cvHash, job, verifiedAnswerIds });
+    if (resolved.conflicts.some(conflict => requirements.requirements.some(row => requirementLanguageCodes(requirements, row).includes(conflict.languageCode)))) {
+      assessed = { status: 'unverified', reason: 'language_evidence_conflict', gaps: [], questions: [] };
+    } else assessed = conciergeProposalEligibility(requirements, checked.assessment?.match || match, { profile: resolved.profile, answers });
+  }
+  const scopedLanguageUnresolved = assessed.gaps?.some(gap => requirementLanguageCodes(requirements, requirements.requirements[gap.index]).some(code => scoped.deferredCodes.includes(code)));
+  const result = checked.status === 'unverified' ? { status: 'unverified', reason: checked.reason, gaps: [], questions: [] }
+    : scopedLanguageUnresolved && !assessed.gaps.some(gap => gap.knownMissing) ? { status: 'unverified', reason: 'job_language_evidence_unverified', gaps: [], questions: [] } : assessed;
+  const entailment = checked.verification || { version: EVIDENCE_ENTAILMENT_VERSION, status: 'not_required' };
+  return { ...result, postingHash, requirements: checked.assessment?.requirements || requirements,
+    match: checked.assessment?.match || match, posting, entailment };
 }
 
 export async function prepareConciergeEligibility({ db, serviceRef, service, profileRecord, bucket = null, generate = null, readPosting = fetchJobPosting, background = false, signal = null }) {
-  const generation = generate || ((system, user, schema) => generateJson(system, user, schema, { background, signal }));
+  // Normalize SDK timestamp semantics before owning the runtime data. The raw
+  // attested ledger stays with its existing provider/fence snapshot recipe.
+  const sourceBaseline = qualificationCounterContextHash({ service: serviceSourceMaterial(service), profile: profileSourceMaterial(profileRecord) });
+  service = structuredClone({ ...service, cvUploadedAt: strictTimestampMillis(service.cvUploadedAt),
+    paidAt: strictTimestampMillis(service.paidAt), expiresAt: strictTimestampMillis(service.expiresAt) });
+  const generation = generate || ((system, user, schema, options = {}) => generateJson(system, user, schema, { ...options, background, signal }));
   generate = (...args) => beforeCancellation(() => generation(...args), signal);
   const read = (order, options) => beforeCancellation(() => readPosting(order, { ...options, ...(signal ? { signal } : {}) }), signal);
   signal?.throwIfAborted();
@@ -113,11 +182,15 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     profile = sanitizeProfile(raw, { cvText });
     await profileRef.set({ cvHash, promptVersion: PROMPT_VERSION, profile, updatedAt: FieldValue.serverTimestamp() });
   }
-  const answers = profileRecord.applicationQuestionAnswers || {};
-  const answerHash = eligibilityHash(JSON.stringify(answers));
+  const answerContextFor = await beforeCancellation(() => loadCandidateAnswerEvidence({ db, profileRecord, userId: service.userId }), signal);
   let analyses = 0;
   return async (job) => {
     job = normalizeConciergeJobRecord(job);
+    const source = answerContextFor(job);
+    const { answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterAnswers, fingerprint: answerContext } = source;
+    const publicationGuard = conciergePublicationGuard({ db, serviceRef, service, expected: sourceBaseline, source, cvHash });
+    const rawCounterContext = qualificationCounterContext({ order: service, flow: { questionAnswers: rawCounterAnswers }, answerCounterContext });
+    const answerHash = eligibilityHash(JSON.stringify([answerContext, qualificationCounterContextHash(rawCounterContext)]));
     const normalizedProfile = profileForEligibility(profile);
     if (signal?.aborted) return { status: 'unverified', reason: 'analysis_deferred' };
     const posting = await read({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
@@ -128,16 +201,33 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
     const ref = cache.doc(cacheId);
     const cached = (await ref.get()).data();
-    if (cached?.fingerprint === fingerprint) return { ...cached.result, fingerprint, cacheId };
+    if (cached?.fingerprint === fingerprint && cached.version === CONCIERGE_ELIGIBILITY_VERSION
+      && hasVerifiedQualificationEvidence(cached)) {
+      try { await db.runTransaction(tx => publicationGuard.assertInTransaction(tx)); }
+      catch (error) { if (error?.code === 'evidence_source_changed') return { status: 'unverified', reason: 'evidence_source_changed', fingerprint, cacheId }; throw error; }
+      return withPublicationGuard({ ...cached.result, fingerprint, cacheId }, publicationGuard);
+    }
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
-    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, locale: service.locale, sourceText: cvText, generate,
+    const analysis = await evaluateConciergePosting({ job, profile: normalizedProfile, answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterContext, locale: service.locale, sourceText: cvText, cvHash, generate,
+
       readPosting: async () => posting });
-    const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, ...result } = analysis;
+    // A cancelled verifier is still budget-deferred work, not an ordinary
+    // technical retry that advances discovery past an unfinished assessment.
+    signal?.throwIfAborted();
+    const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, entailment, ...result } = analysis;
     // Unknown sources and incomplete responses are retried, never cached as a positive result.
-    if (result.status !== 'unverified') await ref.set({ fingerprint, cvHash, answerHash, postingHash, promptVersion: PROMPT_VERSION,
-      version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });
-    return { ...result, fingerprint, cacheId };
+    if (result.status !== 'unverified') {
+      const cachedAssessment = { fingerprint, cvHash, answerHash, postingHash, promptVersion: PROMPT_VERSION,
+        version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, entailment, updatedAt: FieldValue.serverTimestamp() };
+      try {
+        await db.runTransaction(async tx => {
+          await publicationGuard.assertInTransaction(tx);
+          tx.set(ref, cachedAssessment);
+        });
+      } catch (error) { if (error?.code === 'evidence_source_changed') return { status: 'unverified', reason: 'evidence_source_changed', fingerprint, cacheId }; throw error; }
+    }
+    return withPublicationGuard({ ...result, fingerprint, cacheId }, publicationGuard);
   };
 }
 
@@ -155,12 +245,17 @@ export async function preflightExistingCvEligibility({ db, userId, job, generate
   if (!record || record.status !== 'ready' || !record.profile || record.profile.extractedTextAvailable === false) {
     return { status: 'unverified', reason: 'profile_not_ready' };
   }
-  const answers = record.applicationQuestionAnswers && typeof record.applicationQuestionAnswers === 'object'
-    ? record.applicationQuestionAnswers : {};
+  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord: record, userId });
+  const { answers, answerEvidence, answerCounterContext, answerSourceConflicts, rawCounterAnswers } = contextFor(normalizeConciergeJobRecord(job));
+  const rawCounterContext = qualificationCounterContext({ flow: { questionAnswers: rawCounterAnswers }, answerCounterContext });
   const result = await evaluateConciergePosting({
     job,
     profile: record.profile,
     answers,
+    answerEvidence,
+    answerCounterContext,
+    answerSourceConflicts,
+    rawCounterContext,
     locale: record.locale || 'it',
     generate,
     readPosting,
@@ -184,8 +279,12 @@ export async function vettedConciergeDraftInputs({ db, order, cvBuffer, postingT
   const proposal = proposalDoc.data();
   if (serviceDoc.data()?.userId !== order.userId || !/^job-[a-f0-9]{32}$/.test(proposal?.eligibilityCacheId || '')) return null;
   const cached = (await serviceRef.collection('eligibility').doc(proposal.eligibilityCacheId).get()).data();
-  const answerHash = eligibilityHash(JSON.stringify(profileDoc.data()?.applicationQuestionAnswers || {}));
+  const answerContextFor = await loadCandidateAnswerEvidence({ db, profileRecord: profileDoc.data() || {}, userId: order.userId });
+  const context = answerContextFor({ id: order.jobId || proposal.jobId, url: order.jobUrl || proposal.jobUrl });
+  const rawCounterContext = qualificationCounterContext({ order: serviceDoc.data() || {}, flow: { questionAnswers: context.rawCounterAnswers }, answerCounterContext: context.answerCounterContext });
+  const answerHash = eligibilityHash(JSON.stringify([context.fingerprint, qualificationCounterContextHash(rawCounterContext)]));
   if (cached?.result?.status !== 'compatible' || cached.promptVersion !== PROMPT_VERSION || cached.version !== CONCIERGE_ELIGIBILITY_VERSION
+    || !hasVerifiedQualificationEvidence(cached)
     || cached.fingerprint !== proposal.eligibilityFingerprint || cached.cvHash !== eligibilityHash(cvBuffer)
     || cached.postingHash !== sourceHash(postingText) || cached.answerHash !== answerHash) return null;
   return cached;

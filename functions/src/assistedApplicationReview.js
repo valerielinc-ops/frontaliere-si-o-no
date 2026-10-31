@@ -1,3 +1,7 @@
+import { retainedArtifactStore } from './lib/assistedApplicationArtifactRetention.js';
+import { answerContractsFor, currentAnswerReviewRequired, sameAnswerMaterial } from './assistedApplicationAnswerConfirmation.js';
+import { answerQuestionDescriptor, nativeQuestionOptionsView } from './lib/applicationQuestionContract.js';
+import { CONSENT_OWNERSHIP_FIELDS } from './lib/consentOwnershipContract.js';
 /**
  * Candidate review page API of the automated assisted application.
  *
@@ -22,11 +26,12 @@ import { operationalEmailBody, withOperationalQuestionAnswers } from './assisted
 import { MAX_REVIEW_ROUNDS, roundsShown } from './assistedApplicationFlow.js';
 import { canWithdrawApplication, withdrawAssistedApplication, WithdrawalError } from './assistedApplicationWithdrawal.js';
 import { submissionRefFor } from './assistedApplicationSubmissionGuard.js';
+import { publicSubmissionState, submissionIrreversibility } from './assistedApplicationSubmissionState.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { applicationFileName, checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { letterBlocksFor, rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import {
-  MAX_PHOTO_BYTES, PHOTO_TYPES, jpegIsWhole, photoAdvice, rebuildInPlaceDocx, rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvCarriesPhoto, tailoredCvChanges,
+  MAX_PHOTO_BYTES, PHOTO_TYPES, jpegIsWhole, photoAdvice, rebuildInPlaceDocx, supersededPhotoPdf, tailoredCvCarriesPhoto, tailoredCvChanges,
   tailoredCvDocumentFor,
 } from './assistedApplicationTailoredCvPdf.js';
 import { CvCommitError, commitRebuild, deleteStored, rebuildCvToCommit, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
@@ -131,9 +136,15 @@ export function defaultStartDate(nowMs = Date.now()) {
 }
 
 function questionView(question, nowMs = Date.now()) {
+  const descriptor = answerQuestionDescriptor(question);
   return {
+    ...(descriptor ? Object.fromEntries(['applicationQuestion', 'context', 'section', 'autocomplete', ...CONSENT_OWNERSHIP_FIELDS].filter(field => Object.hasOwn(descriptor, field)).map(field => [field, descriptor[field]])) : { contractUnavailable: true }),
     id: question.id,
     question: question.question,
+    applicationQuestion: question.applicationQuestion || descriptor?.originalNativeContract?.question || '',
+    originalQuestionContext: descriptor?.originalNativeContract?.context || '',
+    originalQuestionSection: descriptor?.originalNativeContract?.section || '',
+    ...(descriptor ? nativeQuestionOptionsView(descriptor) : {}),
     why: question.why || '',
     type: question.type,
     options: question.options || [],
@@ -215,13 +226,50 @@ export function buildWordCopy(file, { order, orderId, flow, draft, nowMs }) {
   return null;
 }
 
+/** The current round's canonical SENT record: the ledger's, never the draft's. */
+function sentRecordOf({ flow, submission }) {
+  const record = submission?.[`r${Number(flow?.round) || 1}`];
+  return record?.state === 'sent' ? record : null;
+}
+
+/** The one proof that `draft.sent` says what left: the canonical record holds that exact snapshot. */
+function sentSnapshotBound({ flow, draft, submission }) {
+  const record = sentRecordOf({ flow, submission });
+  return Boolean(record?.sent && draft?.sent && sameAnswerMaterial(record.sent, draft.sent));
+}
+
+/**
+ * What the page may list of keptDocumentsOf's result. With a canonical SENT, only the files of its exact
+ * snapshot; without one the files stay available, as prepared: the runner's record alone proves nothing.
+ * @param {{flow:object, draft:object, submission:object, keptDocuments:object|null}} input
+ * @returns {object|null}
+ */
+function keptOnPage({ flow, draft, submission, keptDocuments }) {
+  if (flow?.state !== 'submitted' || !keptDocuments?.files?.length) return null;
+  const bound = sentSnapshotBound({ flow, draft, submission });
+  if (sentRecordOf({ flow, submission }) && !(bound && keptDocuments.source === 'sent')) return null;
+  return keptDocuments.source === 'sent' && !bound ? { ...keptDocuments, source: 'prepared' } : keptDocuments;
+}
+
+/**
+ * The Word copies on offer, for the payload and the download alike. Before the sending, what can be built;
+ * afterwards, only those the page lists beside a kept file: never a copy of what did not leave.
+ * @returns {{letter:boolean, cv:boolean}}
+ */
+function wordOffered({ flow, draft, submission, keptDocuments }) {
+  if (flow?.state !== 'submitted' && !sentRecordOf({ flow, submission })) return wordCopiesOf({ flow, draft });
+  const listed = (keptOnPage({ flow, draft, submission, keptDocuments })?.files || []).flatMap((file) => file.word || []);
+  return { letter: listed.includes('letter.docx'), cv: listed.includes('cv.docx') };
+}
+
 /**
  * What the candidate keeps once the application left (owner decision 2026-10-03): the files the runner
  * recorded as sent or, for an older order and a record of which nothing can be signed, the stored letter
  * PDF and the CV that leaves (cvToSend). A WhatsApp application leaves from the candidate's phone and the
  * candidate chooses the CV they send in the chat (owner decision 2026-10-03): the letter, the tailored CV,
  * highlighted when there is one (`suggested`, never stored as a choice), and their own CV. Only keys in
- * the order's folder; the Word copies go beside the letter and the tailored CV.
+ * the order's folder; the Word copies go beside the letter and the tailored CV. `source` says where the
+ * list comes from: keptOnPage decides whether the page can attest it.
  * @returns {{source:'sent'|'prepared', whatsapp:boolean, files:Array<{kind:string, name:string, key:string, word:string[], suggested:boolean}>}|null}
  */
 export function keptDocumentsOf({ order, orderId, flow, draft }) {
@@ -229,8 +277,9 @@ export function keptDocumentsOf({ order, orderId, flow, draft }) {
   const whatsapp = order?.submissionChannel === 'whatsapp';
   const copies = wordCopiesOf({ flow, draft });
   const cv = cvToSend(draft, flow, order);
+  // Without `letterAddress` the stored PDF left (submit.mjs letterForSubmission): its recipient and date are not the Word's.
   const wordFor = (kind) => [
-    ...((kind === 'letter' || kind === 'dossier') && copies.letter ? ['letter.docx'] : []),
+    ...((kind === 'letter' || kind === 'dossier') && copies.letter && draft.letterAddress ? ['letter.docx'] : []),
     ...((kind === 'cvTailored' || (kind === 'dossier' && cv.cv === 'tailored')) && copies.cv ? ['cv.docx'] : []),
   ];
   // A key outside the order's folder is never signed (resolveCvLink hands an https:// value back as it is).
@@ -289,9 +338,12 @@ export function sendReviewResponse(res, { status, body, file, noStore }) {
   return res.status(status).json(body);
 }
 
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
+export function buildReviewPayload({ orderId, order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
-  const state = flow?.state || 'drafting';
+  const state = publicSubmissionState({ order, flow, submission });
+  const irreversible = submissionIrreversibility({ submission });
+  const answerContracts = answerContractsFor({ orderId, order, flow, draft });
+  const reviewRequired = currentAnswerReviewRequired(flow, draft);
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, flow?.questionAnswers, draft).map((question) => {
@@ -318,6 +370,7 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     // being prepared, which is what the page says (not "an older version").
     preparingNext: stale && current === Number(round) + 1 && ['regenerating', 'drafting', 'owner_review'].includes(state),
     state,
+    reviewRequired,
     round: current,
     // Of the drafts the candidate was shown, not of the round's number: one Valerie regenerated before it
     // reached them cost them nothing (assistedApplicationFlow.js roundsShown).
@@ -344,7 +397,8 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     formAnswers: formAnswers.map((field) => fieldView(field, { draft, locale })),
     editLimits: TEXT_LIMITS,
     editedAt: draft?.candidateEditedAt || null,
-    questions,
+    questions: questions.map(question => ({ ...question, ...(!answerContracts[question.id] ? { contractUnavailable: true } : {}) })),
+    answerContracts,
     // The posting's decisive requirements the CV does not show, said above the questions (null: a full match).
     fit: ready ? fitNoticeOf(draft) : null,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
@@ -375,22 +429,23 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
       permitOmitted: permitOmitted(profile.permitStatus, profile.nationality),
     } : null,
     // The editable Word copies the server builds on request: never stored, never a CV choice.
-    word: wordCopiesOf({ flow, draft }),
+    word: wordOffered({ flow, draft, submission, keptDocuments }),
     // After the sending: what the candidate keeps (keptDocumentsOf), with signed links.
-    keptDocuments: state === 'submitted' && keptDocuments?.files?.length ? keptDocuments : null,
+    // Projection proves that a send happened, never that today's draft files left.
+    keptDocuments: keptOnPage({ flow, draft, submission, keptDocuments }),
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
-      approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
-      reject: !stale && state === 'candidate_review',
+      approve: !stale && !irreversible && !reviewRequired && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
+      reject: !stale && !irreversible && state === 'candidate_review',
       withdraw: !stale && canWithdrawApplication({ order, flow, draft, submission }),
-      answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),
-      uploadDocuments: !stale && DOCUMENT_STATES.has(state) && documents.length > 0,
-      confirmSubmitted: !stale && state === 'candidate_handoff',
-      chooseCv: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
+      answer: !stale && !irreversible && (state === 'candidate_review' || state === 'needs_candidate_action'),
+      uploadDocuments: !stale && !irreversible && DOCUMENT_STATES.has(state) && documents.length > 0,
+      confirmSubmitted: !stale && !irreversible && state === 'candidate_handoff',
+      chooseCv: !stale && !irreversible && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
       // A tailored CV kept on the draft can be rebuilt with a photo (drafts from before it was kept cannot).
-      uploadPhoto: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
-      reviewCvLines: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
-      edit: !stale && state === 'candidate_review' && ready,
+      uploadPhoto: !stale && !irreversible && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
+      reviewCvLines: !stale && !irreversible && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
+      edit: !stale && !irreversible && state === 'candidate_review' && ready,
     },
   };
 }
@@ -454,6 +509,9 @@ export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', s
  * the candidate has now.
  */
 async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, body, nowMs }) {
+  const startedAt = Date.now();
+  const artifactStore = bucket ? retainedArtifactStore({ db, bucket, orderId, round: flow.round || 1,
+    now: () => Math.max(nowMs + Math.max(0, Date.now() - startedAt), Date.now()) }) : null;
   const locale = order?.locale || 'it';
   const plan = planCandidateEdits(body, { order, draft, flow, locale, nowMs });
   if (Object.keys(plan.errors).length) throw new ReviewError('invalid_edits', 400, { fields: plan.errors });
@@ -480,11 +538,11 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
     const rebuilt = await rebuildLetterPdf({ order, orderId, draft: next, flow: nextFlow, letter: next.coverLetter, nowMs });
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-candidate-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
     coverLetterRenderer = rebuilt.renderer;
-    await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
+    if (!await artifactStore.save(coverLetterPdfKey, rebuilt.pdf, { contentType: 'application/pdf', resumable: false })) throw new ReviewError('changed_meanwhile', 409);
   }
   // The tailored CV is rebuilt when a value it prints changed: the header, the personal data, LinkedIn, languages.
   const tailored = tailoredCvChanges({ order, draft, flow, nextDraft: next, nextFlow })
-    ? await rebuildCvToCommit({ bucket, order, orderId, draft: next, flow: nextFlow, nowMs, created: [coverLetterPdfKey] })
+    ? await rebuildCvToCommit({ db, bucket, order, orderId, draft: next, flow: nextFlow, nowMs, created: [coverLetterPdfKey] })
     : null;
   await commitRebuild({
     db, bucket, orderId, flow, draft, nowMs,
@@ -567,7 +625,7 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
   if (!facts.ok) throw new ReviewError('cv_fact_check_failed', 409, { unsupported: facts.unsupported.map((item) => item.token).slice(0, 5) });
   const cvChoicesRound = Number(draft.round) || 1;
   const nextFlow = { ...flow, cvChoices: choices, cvChoicesRound };
-  const rebuilt = await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
+  const rebuilt = await rebuildCvToCommit({ db, bucket, order, orderId, draft, flow: nextFlow, nowMs });
   if (!rebuilt) throw new ReviewError('not_allowed', 409);
   // The same choices in the candidate's own Word file, when there is one.
   const inplace = await rebuildInPlaceDocx({ bucket, order, draft, flow: nextFlow });
@@ -595,6 +653,9 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
  * carried it.
  */
 async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action, body, nowMs }) {
+  const startedAt = Date.now();
+  const artifactStore = bucket ? retainedArtifactStore({ db, bucket, orderId, round: flow.round || 1,
+    now: () => Math.max(nowMs + Math.max(0, Date.now() - startedAt), Date.now()) }) : null;
   if (!bucket) throw new ReviewError('storage_unavailable', 503);
   let photo = null;
   if (action === 'photo_upload') {
@@ -608,12 +669,12 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
     // A JPG cut on the way passes the first-bytes check and Typst prints what arrived, half grey: refused here.
     if (type === 'jpg' && !jpegIsWhole(buffer)) throw new ReviewError('photo_unreadable');
     const key = `assisted-application-uploads/${orderId}/photo-${nowMs}-${randomUUID().slice(0, 8)}.${type}`;
-    await bucket.file(key).save(buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false });
+    if (!await artifactStore.save(key, buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false })) throw new ReviewError('changed_meanwhile', 409);
     photo = { key, detectedType: type, size: buffer.length, uploadedAt: nowMs };
   }
   let rebuilt;
   try {
-    rebuilt = await rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow: { ...flow, photo }, nowMs });
+    rebuilt = await rebuildCvToCommit({ db, bucket, order, orderId, draft, flow: { ...flow, photo }, nowMs, created: [photo?.key] });
   } catch (error) {
     // Nothing names the new photo yet: it does not stay behind a failed request.
     await deleteStored(bucket, orderId, [photo?.key]);
@@ -646,7 +707,25 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
  * else: a required document is given, or the application waits
  * (assistedApplicationExtraDocuments.js).
  */
+async function mutableReviewFlowInTransaction({ transaction, db, orderId, round, states }) {
+  const [orderDoc, flowDoc, submissionDoc] = await Promise.all([
+    transaction.get(orderRefFor(db, orderId)), transaction.get(flowRefFor(db, orderId)), transaction.get(submissionRefFor(db, orderId)),
+  ]);
+  const order = orderDoc.data() || {};
+  const current = flowDoc.data() || {};
+  const submission = submissionDoc.data() || {};
+  const irreversible = submissionIrreversibility({ submission });
+  if (irreversible) throw new ReviewError(irreversible, 409, { state: publicSubmissionState({ order, flow: current, submission }) });
+  if (!orderDoc.exists || !flowDoc.exists || order.withdrawnAt || order.retentionPurgedAt || order.retentionPurgingAt
+    || ['withdrawn', 'closed', 'cancelled', 'refunded'].includes(order.submissionStatus)
+    || Number(current.round || 1) !== Number(round) || !states.has(current.state)) throw new ReviewError('not_allowed', 409);
+  return current;
+}
+
 async function saveDocumentChange({ db, bucket, orderId, flow, requested, action, body, nowMs }) {
+  const startedAt = Date.now();
+  const artifactStore = bucket ? retainedArtifactStore({ db, bucket, orderId, round: flow.round || 1,
+    now: () => Math.max(nowMs + Math.max(0, Date.now() - startedAt), Date.now()) }) : null;
   const flowRef = flowRefFor(db, orderId);
   const filesOf = (current) => (Array.isArray(current?.documents?.[requested.id]?.files) ? current.documents[requested.id].files : []);
   if (action === 'document_upload') {
@@ -663,15 +742,22 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     if (filesOf(flow).length >= MAX_FILES_PER_DOCUMENT) throw new ReviewError('too_many_files', 409);
     const key = `assisted-application-uploads/${orderId}/doc-${requested.id.slice(0, 30)}-${nowMs}-${randomUUID().slice(0, 8)}.${type}`;
     if (!bucket) throw new ReviewError('storage_unavailable', 503);
-    await bucket.file(key).save(buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false });
+    if (!await artifactStore.save(key, buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false })) throw new ReviewError('changed_meanwhile', 409);
     const file = { key, name: clean(body.fileName, 120) || `${requested.id}.${type}`, size: buffer.length, detectedType: type, uploadedAt: nowMs, clientCheck: sanitizeClientCheck(body.clientCheck) };
-    const added = await db.runTransaction(async (transaction) => {
-      const current = (await transaction.get(flowRef)).data() || {};
-      const files = filesOf(current);
-      if (files.length >= MAX_FILES_PER_DOCUMENT) return false;
-      transaction.set(flowRef, { documents: { [requested.id]: { files: [...files, file] } }, updatedAt: nowMs }, { merge: true });
-      return true;
-    });
+    let added;
+    try {
+      added = await db.runTransaction(async (transaction) => {
+        const current = await mutableReviewFlowInTransaction({ transaction, db, orderId, round: flow.round || 1, states: DOCUMENT_STATES });
+        const files = filesOf(current);
+        if (files.length >= MAX_FILES_PER_DOCUMENT) return false;
+        transaction.set(flowRef, { documents: { [requested.id]: { files: [...files, file] } }, updatedAt: nowMs }, { merge: true });
+        return true;
+      });
+    } catch (error) {
+      // Only this request's unassociated upload is safe to remove after a deterministic refusal.
+      if (error instanceof ReviewError) await bucket.file(key).delete().catch(() => {});
+      throw error;
+    }
     if (!added) {
       await bucket.file(key).delete().catch(() => {});
       throw new ReviewError('too_many_files', 409);
@@ -682,7 +768,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     const fileId = String(body.fileId || '');
     let removed = null;
     await db.runTransaction(async (transaction) => {
-      const current = (await transaction.get(flowRef)).data() || {};
+      const current = await mutableReviewFlowInTransaction({ transaction, db, orderId, round: flow.round || 1, states: DOCUMENT_STATES });
       const files = filesOf(current);
       removed = files.find((file) => documentFileId(file.key) === fileId) || null;
       if (!removed) return;
@@ -691,6 +777,30 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     if (!removed) throw new ReviewError('invalid_file');
     if (bucket) await bucket.file(removed.key).delete().catch(() => {});
   }
+}
+
+/** One signature per key and request: the letter can be both the review's and a kept file. */
+function requestSigner(deps) {
+  const signed = new Map();
+  return (key) => {
+    if (!key || !deps.signUrl) return null;
+    if (!signed.has(key)) signed.set(key, deps.signUrl(key).catch(() => null));
+    return signed.get(key);
+  };
+}
+
+/** keptDocumentsOf with signed links only: the storage keys never reach the page. A file without a link is not offered. */
+async function signedKeptDocuments(input, sign) {
+  const kept = keptDocumentsOf(input);
+  if (!kept) return null;
+  const urls = await Promise.all(kept.files.map((file) => sign(file.key)));
+  return {
+    source: kept.source,
+    whatsapp: kept.whatsapp,
+    files: withSuggestion(kept.files
+      .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: urls[index] }))
+      .filter((file) => file.url), kept.whatsapp),
+  };
 }
 
 /**
@@ -710,7 +820,11 @@ export async function handleAssistedApplicationReview(req, deps) {
       // An editable Word copy: the page's token checks, then built in memory and answered as a file.
       if (req.query?.file !== undefined) {
         if (kind !== 'review' || !WORD_FILES.has(String(req.query.file))) throw new ReviewError('not_found', 404);
-        const { order, flow, draft } = await loadAll(deps.db, orderId);
+        const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
+        // The list the page shows decides, signed links included: no signature is made before the sending.
+        const keptDocuments = await signedKeptDocuments({ order, orderId, flow, draft }, requestSigner(deps));
+        const offered = wordOffered({ flow, draft, submission, keptDocuments });
+        if (!offered[String(req.query.file) === 'letter.docx' ? 'letter' : 'cv']) throw new ReviewError('not_found', 404);
         const file = buildWordCopy(String(req.query.file), { order, orderId, flow, draft, nowMs });
         if (!file) throw new ReviewError('not_found', 404);
         return { status: 200, file };
@@ -723,29 +837,14 @@ export async function handleAssistedApplicationReview(req, deps) {
         return { status: 200, body: followupReviewPayload({ order: orderSnapshot.data(), draft: draftSnapshot.data() || {}, followup: followupSnapshot.data(), n: round }) };
       }
       const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
-      // One signature per key and request: the letter can be both the review's and a kept file.
-      const signed = new Map();
-      const sign = (key) => {
-        if (!key || !deps.signUrl) return null;
-        if (!signed.has(key)) signed.set(key, deps.signUrl(key).catch(() => null));
-        return signed.get(key);
-      };
-      const kept = keptDocumentsOf({ order, orderId, flow, draft });
-      const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, ...keptUrls] = await Promise.all([
+      const sign = requestSigner(deps);
+      const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments] = await Promise.all([
         sign(draft?.coverLetterPdfKey),
         sign(draft?.tailoredCv?.status === 'ready' ? draft.tailoredCv.pdfKey : null),
         sign(inPlaceReady(draft) ? draft.tailoredCv.inplace.docxKey : null),
-        ...(kept?.files || []).map((file) => sign(file.key)),
+        signedKeptDocuments({ order, orderId, flow, draft }, sign),
       ]);
-      // Signed links only: the storage keys never reach the page. A file without a link is not offered.
-      const keptDocuments = kept && {
-        source: kept.source,
-        whatsapp: kept.whatsapp,
-        files: withSuggestion(kept.files
-          .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
-          .filter((file) => file.url), kept.whatsapp),
-      };
-      return { status: 200, body: { ...buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
+      return { status: 200, body: { ...buildReviewPayload({ orderId, order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
         employerResponse: employerResponseView(await loadEmployerResponse(orderRefFor(deps.db, orderId), order)),
       } };
     }
@@ -772,19 +871,26 @@ export async function handleAssistedApplicationReview(req, deps) {
       });
       return { status: 200, noStore: true, body: { ok: true, ...check } };
     }
-    const { order, flow, draft } = await loadAll(deps.db, orderId);
+    const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
     if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
 
     if (action === 'withdraw') {
       return { status: 200, body: await withdrawAssistedApplication({ db: deps.db, orderId, round, nowMs }) };
     }
 
+    const irreversible = submissionIrreversibility({ submission });
+    if (irreversible && action !== 'confirm_submitted') throw new ReviewError(irreversible, 409,
+      { state: publicSubmissionState({ order, flow, submission }) });
+
     if (action === 'cv_choice') {
       // Which CV leaves: no flow event, the next submission reads it.
       const choice = String(body.cvChoice || '');
       if (!CV_CHOICES.has(choice) || draft?.tailoredCv?.status !== 'ready' || (choice === 'inplace' && !inPlaceReady(draft))) throw new ReviewError('invalid_cv_choice');
       if (flow.state !== 'candidate_review') throw new ReviewError('not_allowed', 409);
-      await flowRefFor(deps.db, orderId).set({ cvChoice: choice, updatedAt: nowMs }, { merge: true });
+      await deps.db.runTransaction(async transaction => {
+        await mutableReviewFlowInTransaction({ transaction, db: deps.db, orderId, round, states: new Set(['candidate_review']) });
+        transaction.set(flowRefFor(deps.db, orderId), { cvChoice: choice, updatedAt: nowMs }, { merge: true });
+      });
       return { status: 200, body: { ok: true, state: flow.state, cvChoice: choice } };
     }
     if (action === 'edit') {
@@ -817,6 +923,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
     }
     if (action === 'answers') {
+      // Left, receipt or not: refused before any validation or provider check (saveAnswersWithCv repeats it in its commit).
+      if (flow.state === 'submitted') throw new ReviewError('already_sent', 409, { state: publicSubmissionState({ order, flow, submission }) });
       const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', flow.answers || {}, flow.questionAnswers || {});
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
       // The questions are dynamic (one set per posting), so the fixed rules
@@ -835,7 +943,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       }
       // A status or an availability the tailored CV prints: rebuilt and committed with the answers, before the
       // event can dispatch the submission (decision 7).
-      await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers, nowMs });
+      const saved = await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers, nowMs, answerActor: 'candidate', answerContracts: body.answerContracts, requireAnswerContracts: deps.requireAnswerContracts === true });
+      if (saved.reviewRequired) return { status: 200, body: { ok: true, ...saved } };
     }
     const event = {
       approve: { type: 'candidate_approve' },
@@ -847,12 +956,13 @@ export async function handleAssistedApplicationReview(req, deps) {
     const result = await applyAutomationEvent({
       db: deps.db, orderId, event, actor: 'candidate', runEffect: deps.runEffect, nowMs,
     });
-    if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409);
+    if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409,
+      result.state ? { state: result.state } : null);
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
   } catch (error) {
     if (error instanceof ReviewError || error instanceof WithdrawalError || error instanceof DocumentRecheckError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     // A guarded commit refused (another request saved first) or no Storage for the rebuild.
-    if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code } };
+    if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     throw error;
   }
 }

@@ -57,10 +57,18 @@ const match = vi.fn(async ({ serviceId }: any) => {
   await ref(`application_concierge_services/${serviceId}`).set({ matchingCompletedAt: new Date(now), matchingStatus: 'complete', matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION });
   return { status: 'complete' };
 });
-const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, match, send, unsubscribeSecret: 'test-only-secret', enqueueOnly: false, ...options });
+const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, match, send, unsubscribeSecret: 'test-only-secret', enqueueOnly: false,
+  cleanupMaterialCopies: async () => ({ scanned: 0, failed: 0 }), ...options });
 beforeEach(() => { records = new Map(); queue = Promise.resolve(); deliveries.length = 0; vi.clearAllMocks(); });
 
 describe('concierge refresh and notification lifecycle', () => {
+  it('runs pending material cleanup independently of the paid service filter', async () => {
+    records.set('application_concierge_services/refunded', active({ paymentStatus: 'refunded' }));
+    const cleanupMaterialCopies = vi.fn(async ({ nowMs }: any) => { expect(nowMs).toBe(now); return { scanned: 1, failed: 0 }; });
+    await sweep({ cleanupMaterialCopies });
+    expect(cleanupMaterialCopies).toHaveBeenCalledTimes(1);
+    expect(match).not.toHaveBeenCalled();
+  });
   it('respects a future retry when discovery is complete, without postponing fresh discovery', () => {
     const service = active({ matchingStatus: 'complete', matchingCompletedAt: now - 3600000,
       matchingPendingCount: 0, matchingUnverifiedCount: 2, matchingRetryAt: now + 12 * 3600000 });

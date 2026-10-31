@@ -101,6 +101,29 @@ afterEach(() => {
 });
 
 describe('run-related-tests selection contract', () => {
+  it('selects the real Node-suite wrapper for a pure leaf or a node:test-only change', () => {
+    const wrapper = 'tests/native-scope-node-suites.test.ts';
+    const root = fixture({
+      'functions/src/lib/nativeScopeInterpretation.js': 'export const fixture = true;\n',
+      'functions/src/lib/nativeApplicationPolicy.js': 'export const fixture = true;\n',
+      'functions/src/lib/qualificationEvidence.js': 'export const fixture = true;\n',
+      'functions/src/lib/nativeAnswerConstraints.js': 'export const fixture = true;\n',
+      'functions/src/lib/candidateIdentityContract.js': 'export const fixture = true;\n',
+      'tests/native-scope-interpretation.test.mjs': 'export const fixture = true;\n',
+      'tests/native-form-scope-contract.test.mjs': 'export const fixture = true;\n',
+      'tests/candidate-identity-caption-normalization.test.mjs': 'export const fixture = true;\n',
+      [wrapper]: fs.readFileSync(path.join(ROOT, wrapper), 'utf8'),
+      'tests/unrelated.test.ts': 'export const fixture = true;\n',
+    });
+    for (const changed of ['functions/src/lib/nativeScopeInterpretation.js', 'functions/src/lib/candidateIdentityContract.js',
+      'tests/native-scope-interpretation.test.mjs', 'tests/native-form-scope-contract.test.mjs', 'tests/candidate-identity-caption-normalization.test.mjs']) {
+      const result = select(root, [changed]);
+      expect(result.status, result.stderr || result.stdout).toBe(0);
+      expect(result.stdout).toContain(wrapper);
+      expect(result.stdout).not.toContain('tests/unrelated.test.ts');
+    }
+  });
+
   it('selects pruner subprocess safety tests for a pruner-only change, not unrelated scripts', () => {
     const prunerTests = [
       'tests/pruner-isolation.test.ts',

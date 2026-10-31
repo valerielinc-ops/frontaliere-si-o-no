@@ -19,6 +19,8 @@ function deepMerge(target: Data, patch: Data): Data {
   return out;
 }
 
+const fieldValue = (data: Data | undefined, field: string) => field.split('.').reduce((value, key) => value?.[key], data as any);
+
 const OPERATORS: Record<string, (left: any, right: any) => boolean> = {
   'in': (left, right) => Array.isArray(right) && right.includes(left),
   '==': (left, right) => left === right,
@@ -41,9 +43,11 @@ export function createMemoryFirestore(initial: Record<string, Data> = {}) {
         const data = docs.get(path);
         return { id, ref, exists: data !== undefined, data: () => (data === undefined ? undefined : structuredClone(data)) };
       },
-      async set(data: Data, options?: { merge?: boolean }) {
+      async set(data: Data, options?: { merge?: boolean; mergeFields?: string[] }) {
         const current = docs.get(path);
-        docs.set(path, options?.merge && current ? deepMerge(current, data) : { ...data });
+        docs.set(path, options?.mergeFields
+          ? { ...current, ...Object.fromEntries(options.mergeFields.map(field => [field, data[field]])) }
+          : options?.merge && current ? deepMerge(current, data) : { ...data });
       },
       async delete() {
         docs.delete(path);
@@ -65,10 +69,10 @@ export function createMemoryFirestore(initial: Record<string, Data> = {}) {
       orderBy: (field: string) => query(filters, max, field, afterId),
       limit: (value: number) => query(filters, value, sortField, afterId),
       startAfter: (cursor: string | { id: string }) => query(filters, max, sortField, typeof cursor === 'string' ? cursor : cursor.id),
-      count: () => ({ get: async () => ({ data: () => ({ count: list().filter(key => filters.every(([field, operator, value]) => OPERATORS[operator](docs.get(key)?.[field], value))).slice(0, max).length }) }) }),
+      count: () => ({ get: async () => ({ data: () => ({ count: list().filter(key => filters.every(([field, operator, value]) => OPERATORS[operator](fieldValue(docs.get(key), field), value))).slice(0, max).length }) }) }),
       async get() {
         const matching = list().filter((key) => (!afterId || key.split('/').pop()! > afterId)
-          && filters.every(([field, operator, value]) => OPERATORS[operator](docs.get(key)?.[field], value)));
+          && filters.every(([field, operator, value]) => OPERATORS[operator](fieldValue(docs.get(key), field), value)));
         if (sortField && sortField !== '__name__') matching.sort((a, b) => {
           const left = docs.get(a)?.[sortField]; const right = docs.get(b)?.[sortField];
           return left < right ? -1 : left > right ? 1 : a.localeCompare(b);

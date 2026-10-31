@@ -1,3 +1,4 @@
+import { reviewedDocumentContext } from './helpers/reviewedDocumentContext';
 import { describe, expect, it, vi } from 'vitest';
 import { isDeepStrictEqual } from 'node:util';
 import { renderPdf } from '../functions/src/assistedApplicationAiDocuments.js';
@@ -7,20 +8,35 @@ import {
   MATCH_SCHEMA,
   PROFILE_SCHEMA,
   REQUIREMENTS_SCHEMA,
+  PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt,
 } from '../functions/src/assistedApplicationAiPrompts.js';
+import { CONCIERGE_ELIGIBILITY_VERSION, eligibilityHash } from '../functions/src/applicationConciergeEligibility.js';
 import { TAILORED_CV_SCHEMA } from '../functions/src/assistedApplicationTailoredCv.js';
 import { CV_TEXT_VERSION } from '../scripts/assisted-application/lib/cv-text.mjs';
 import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draft.mjs';
 import { classifyLiveness, classifyWorkdayLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 import { checkPostingLiveness } from '../scripts/assisted-application/lib/posting-liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
-import { openRequiredQuestions, portalNeedsPlanner, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
+import { openRequiredQuestions, portalNeedsPlanner, submitApplication as submitApplicationRaw } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError } from '../functions/src/assistedApplicationFlow.js';
-import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { createMemoryFirestore as createMemoryFirestoreRaw } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
+import { portalQualificationContext, createPortalQualificationVerifier, verifyPortalActions } from '../scripts/assisted-application/lib/portal/qualification-gate.mjs';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
+
+async function submitApplication(ctx: any) { return submitApplicationRaw(await reviewedDocumentContext(ctx)); }
+
+// Transport fixtures start from an actually approved current flow; explicit overrides remain authoritative.
+function createMemoryFirestore(seed: Record<string, any> = {}) {
+  const base = `assisted_applications/${ORDER_ID}`;
+  return createMemoryFirestoreRaw({ ...seed,
+    [base]: { cvUploadedAt: Date.now(), ...seed[base] },
+    [`${base}/automation/flow`]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 }, ...seed[`${base}/automation/flow`] },
+    [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, ...seed[`${base}/ai_drafts/current`] },
+  });
+}
 
 const KEY = Buffer.alloc(32, 7);
 const ORDER_ID = 'order_RUN123';
@@ -111,6 +127,11 @@ function fakeCodex() {
         verdict: 'good', summaryIt: 'Buon profilo.', checksIt: [], questions: [],
       };
     }
+    if ((schema as any)?.properties?.assessments) {
+      const payload = JSON.parse(prompt.split('\n\nReturn exactly one JSON object')[0].split('\n\n').at(-1)!);
+      return { assessments: payload.claims.map((claim: any) => ({ index: claim.index, proofId: claim.proof.id,
+        verdict: 'supported', reason: 'explicit_fact' })) };
+    }
     if (schema === DOCUMENTS_SCHEMA) {
       return {
         coverLetter: {
@@ -149,6 +170,47 @@ const quiet = () => {};
 const publicDns = async () => [{ address: "93.184.216.34", family: 4 }];
 
 describe('draft mode', () => {
+  it.each([false, true])('keeps the original CV language baseline for an ATS-only requirement (same CV copy=%s)', async sameCv => {
+    const bytes = renderPdf(CV_LINES.map(text => ({ text: text.replace('tedesco B1', 'tedesco A2') })));
+    const base = fakeCodex();
+    const original = base.getMockImplementation()!;
+    base.mockImplementation(async request => {
+      if (request.schema === PROFILE_SCHEMA) return { ...await original(request), languages: [{ language: 'tedesco', level: 'A2' }] };
+      if (request.schema === REQUIREMENTS_SCHEMA) return { requirements: [{ requirement: 'Esperienza di reparto', quote: 'esperienza di reparto', importance: 'high', basis: 'stated' }], languageRequirements: [], postingLanguage: 'it' };
+      if (isMatchSchema(request.schema)) {
+        const payload = JSON.parse(request.prompt.split('\n\n<<<POSTING EXCERPT')[0].split('\n\n').at(-1)!);
+        return { matches: [{ index: 0, status: 'met', evidence: payload.candidateSourceExcerpts.find((source: any) => source.text.includes('infermiera di reparto')).id }], verdict: 'good', questions: [] };
+      }
+      return original(request);
+    });
+    const flow = { round: 1, answers: {}, formOverrides: { languages: 'tedesco C1' } };
+    const record = { id: 'answer-de', key: 'language_de', question: { question: 'What is your current German level?', type: 'choice', options: ['A2', 'C1'] },
+      answer: 'C1', category: 'language', unit: 'CEFR_or_stated_level', scope: 'candidate',
+      provenance: { actor: 'candidate', round: 1, confirmedAt: Date.now(), cvHash: sameCv ? eligibilityHash(bytes) : 'a'.repeat(64) } };
+    const fetchImpl = async (url: string, init: any = {}) => {
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) return new Response(JSON.stringify({
+        description: 'Requisiti: esperienza di reparto. ' + 'Attività e contesto del reparto. '.repeat(10), applyUrl: order.jobUrl,
+      }), { status: 200 });
+      return fakeFetch()(url, init);
+    };
+    const draft = await buildDraft({ order, orderId: ORDER_ID, flow, cvBuffer: bytes, cvType: 'pdf', bucket: fakeBucket(), runKey: KEY,
+      codex: base, answerEvidence: [record], fetchImpl, resolve: publicDns, log: quiet });
+    expect(draft.requirements).toHaveLength(1);
+    expect(draft.requirements[0].quote).not.toMatch(/German|tedesco/i);
+    expect(draft.qualificationCvLanguageProfile.profile.languages[0]).toMatchObject({ language: 'tedesco', level: 'A2' });
+    const context = portalQualificationContext({ order, orderId: ORDER_ID, draft, cvBuffer: bytes, flow, answerEvidence: [record] });
+    const nativeCodex = vi.fn(async ({ prompt }: any) => {
+      const payload = JSON.parse(prompt.split('\n\nReturn exactly one JSON object')[0].split('\n\n').at(-1)!);
+      return { assessments: payload.sourceColumns ? [{ index: 0, sourceIds: [payload.sources.find((row: any[]) => row[1] === 'qa')[0]] }]
+        : [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'supported', reason: 'explicit_fact' }] };
+    });
+    const verifier = createPortalQualificationVerifier({ context, codex: nativeCodex });
+    const proposed = () => verifyPortalActions(verifier, [{ id: 'ats-language', kind: 'text', inputType: 'text', label: 'Do you speak German at C1?', context: 'Languages', options: [] }],
+      [{ fieldId: 'ats-language', action: 'fill', value: 'Yes', source: 'profile', evidence: 'tedesco C1' }]);
+    if (sameCv) { await expect(proposed()).resolves.toBeUndefined(); expect(nativeCodex).toHaveBeenCalledTimes(2); }
+    else { await expect(proposed()).rejects.toMatchObject({ code: 'evidence_entailment_unverified', reason: 'language_revision_unverified' }); expect(nativeCodex).not.toHaveBeenCalled(); }
+  }, 60_000);
+
   it('builds the draft from Codex answers, with the career-ops guards applied in code', async () => {
     const bucket = fakeBucket();
     const codex = fakeCodex();
@@ -158,7 +220,8 @@ describe('draft mode', () => {
     });
     // Profile, requirements, match, letter and the tailored ATS CV (career-ops extras), and the one repair
     // of the letter: the gate stops «7 anni» (below), so the texts are asked once more.
-    expect(codex).toHaveBeenCalledTimes(6);
+    expect(codex).toHaveBeenCalledTimes(7);
+    expect(draft.sourceCvHash).toBe(eligibilityHash(cvPdf()));
     expect(draft.tailoredCv).toMatchObject({ status: 'ready', dropped: ['astrofisica'] });
     expect(bucket.files.has(draft.tailoredCv.pdfKey)).toBe(true);
     expect(draft.ats.original.structural.grade).toBeTruthy();
@@ -190,6 +253,82 @@ describe('draft mode', () => {
     expect(draft.applicationEmail.body).toBe('Gentili signore e signori,\n\nin allegato CV e lettera.\n\nCordiali saluti\n\nMaria Rossi\nmaria.rossi@example.com\n+41 79 123 45 67');
     const documentsPrompt = (codex.mock.calls as any[]).find(([request]) => request.schema === DOCUMENTS_SCHEMA)[0].prompt;
     expect(documentsPrompt).toContain('emailBody is the message only: no greeting, no closing formula and no signature');
+  });
+
+  it.each(['generic_title', 'date_only', 'judge_unavailable', 'conflicting_correction'])('stops unsupported fresh-draft evidence before documents or artifacts: %s', async scenario => {
+    const base = fakeCodex();
+    const bucket = fakeBucket();
+    const codex = vi.fn(async (request: any) => {
+      if (request.schema === REQUIREMENTS_SCHEMA) {
+        const raw = await base(request);
+        // The hard missing qualification does not bypass verification of a low positive row used in documents.
+        return { ...raw, requirements: [raw.requirements[0], { requirement: 'Lavoro strutturato', importance: 'low', basis: 'stated', quote: 'esperienza di reparto' }] };
+      }
+      if (isMatchSchema(request.schema)) {
+        const payload = JSON.parse(request.prompt.split('\n\n<<<POSTING EXCERPT')[0].split('\n\n').at(-1)!);
+        const source = payload.candidateSourceExcerpts.find((item: any) => item.text.includes(scenario === 'date_only' ? '2018' : 'Maria Rossi'));
+        return { matches: [{ index: 0, status: 'missing', evidence: '' }, { index: 1, status: 'met', evidence: source.id }], verdict: 'poor', summaryIt: '', checksIt: [], questions: [] };
+      }
+      if (request.schema?.properties?.assessments) {
+        expect(request.timeoutMs).toBeLessThanOrEqual(5 * 60_000);
+        if (scenario === 'judge_unavailable') throw new Error('broker unavailable');
+        const { claims } = JSON.parse(request.prompt.split('\n\nReturn exactly one JSON object')[0].split('\n\n').at(-1)!);
+        expect(claims).toHaveLength(1);
+        if (scenario === 'conflicting_correction') {
+          const payload = JSON.parse(request.prompt.split('\n\nReturn exactly one JSON object')[0].split('\n\n').at(-1)!);
+          expect(payload.unverifiedContext.candidateNotes).toContain('never worked in a ward');
+          return { assessments: [{ index: claims[0].index, proofId: claims[0].proof.id, verdict: 'uncertain', reason: 'contradiction' }] };
+        }
+        return { assessments: [{ index: claims[0].index, proofId: claims[0].proof.id, verdict: 'unsupported', reason: scenario === 'date_only' ? 'chronology_without_behavior' : 'title_without_activity' }] };
+      }
+      return base(request);
+    });
+    await expect(buildDraft({ order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null,
+      cvBuffer: cvPdf(), cvType: 'pdf', codex, bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      intake: scenario === 'conflicting_correction' ? { emailNotes: 'I have never worked in a ward; the old CV assertion is incorrect.' } : {},
+    })).rejects.toMatchObject({ eventType: 'draft_failed', code: 'evidence_entailment_unverified' });
+    expect(codex.mock.calls.some(([request]) => request.schema === DOCUMENTS_SCHEMA || request.schema === TAILORED_CV_SCHEMA)).toBe(false);
+    expect(bucket.files.size).toBe(0);
+  });
+
+  it('reuses an identical vetted witness in the real draft, and rechecks a changed full match', async () => {
+    const base = fakeCodex();
+    const fresh = vi.fn(async (request: any) => {
+      if (request.schema === REQUIREMENTS_SCHEMA) {
+        const raw = await base(request);
+        return { ...raw, requirements: [raw.requirements[1]], salaryRequested: false };
+      }
+      if (isMatchSchema(request.schema)) {
+        const payload = JSON.parse(request.prompt.split('\n\n<<<POSTING EXCERPT')[0].split('\n\n').at(-1)!);
+        return { matches: [{ index: 0, status: 'met', evidence: payload.candidateSourceExcerpts.find((row: any) => row.text.includes('tedesco B1')).id }], verdict: 'good', summaryIt: 'Buon profilo.', checksIt: [], questions: [] };
+      }
+      return base(request);
+    });
+    const bytes = cvPdf();
+    const ctx = { order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: bytes, cvType: 'pdf',
+      bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet };
+    const first = await buildDraft({ ...ctx, codex: fresh });
+    const cacheId = `job-${'a'.repeat(32)}`;
+    const cachePath = `application_concierge_services/service/eligibility/${cacheId}`;
+    const match = { matches: first.matches, verdict: first.verdict, summaryIt: first.summaryIt, checksIt: first.checksIt, questions: [] };
+    const cached = { profile: first.profile, requirements: first.requirementsRaw, match, entailment: first.entailment,
+      result: { status: 'compatible' }, fingerprint: 'same', cvHash: eligibilityHash(bytes), answerHash: eligibilityHash('{}'),
+      postingHash: eligibilityHash(POSTING.replace(/\s+/g, ' ').trim()), version: CONCIERGE_ELIGIBILITY_VERSION,
+      promptVersion: eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n')) };
+    const store = createMemoryFirestore({ 'application_concierge_services/service': { userId: 'candidate' },
+      'application_concierge_services/service/proposals/proposal': { eligibilityCacheId: cacheId, eligibilityFingerprint: 'same' },
+      'user_cv_profiles/candidate': {}, [cachePath]: cached });
+    const run = async () => {
+      const codex = vi.fn(fresh.getMockImplementation()!);
+      await buildDraft({ ...ctx, db: store.db, order: { ...order, userId: 'candidate', parentServiceId: 'service', parentProposalId: 'proposal' }, codex });
+      return codex.mock.calls.map(([request]) => request.schema);
+    };
+    const reused = await run();
+    expect(reused.some(schema => isMatchSchema(schema) || schema?.properties?.assessments || schema === PROFILE_SCHEMA || schema === REQUIREMENTS_SCHEMA)).toBe(false);
+    store.read(cachePath).match.summaryIt = 'Changed match after verification';
+    const rechecked = await run();
+    expect(rechecked.some(schema => isMatchSchema(schema))).toBe(true);
+    expect(rechecked.some(schema => schema?.properties?.assessments)).toBe(true);
   });
 
   it('writes an apprenticeship’s subject from the trade, and the fact gate reads that subject as a name', async () => {
@@ -238,16 +377,17 @@ describe('draft mode', () => {
     const reused = await run({ ...first, profile: { ...first.profile, fullName: '  Maria   Rossi  ' } });
     // Match, documents and tailored CV only: profile and requirements are reused.
     // …and the one repair of the letter the gate stops («7 anni»), in every run of this fake.
-    expect(reused.calls).toBe(4);
+    expect(reused.calls).toBe(5);
     expect(reused.draft.profile.fullName).toBe('Maria Rossi');
+    expect((await run({ ...first, sourceCvHash: 'changed-original-file' })).calls).toBe(7);
     const { aptitudeTests, recognitions, projects, interests, references, drivingLicence, ...older } = first.profile;
     const reread = await run({ ...first, profile: { ...older, experience: older.experience.map(({ kind, ...role }: any) => role) } });
-    expect(reread.calls).toBe(6);
+    expect(reread.calls).toBe(7);
     // A CV text read before a fix of the reading (2026-10-07: the boxes of a PDF glued together) is read again.
     expect(first.cvTextVersion).toBe(CV_TEXT_VERSION);
     const { cvTextVersion, ...unversioned } = first;
-    expect((await run(unversioned)).calls).toBe(6);
-    expect((await run({ ...first, cvTextVersion: CV_TEXT_VERSION - 1 })).calls).toBe(6);
+    expect((await run(unversioned)).calls).toBe(7);
+    expect((await run({ ...first, cvTextVersion: CV_TEXT_VERSION - 1 })).calls).toBe(7);
   });
 
   it('writes once more the texts the fact gate stops, told what the gate did not find, and keeps only a better version', async () => {
@@ -374,15 +514,15 @@ describe('draft mode', () => {
       return { draft, elapsedMs: clock.elapsedMs(), calls: clock.codex.mock.calls.length };
     };
     const MINUTE = 60_000;
-    // Profile ∥ requirements, match ∥ tailored CV, documents: three half hours in a row, as before the repairs.
+    // Profile ∥ requirements, match, bounded evidence judge, tailored CV ∥ documents.
     const baseline = await run(false);
     expect(baseline.draft.factRepair).toBeUndefined();
-    expect(baseline).toMatchObject({ calls: 5, elapsedMs: 90 * MINUTE });
+    expect(baseline).toMatchObject({ calls: 6, elapsedMs: 95 * MINUTE });
     // Both repairs asked for, and both in vain: ten minutes more, never the two in a row.
     const worst = await run(true);
     expect(worst.draft.factRepair).toMatchObject({ before: 1, after: 0, method: 'verified_paragraphs' });
     expect(worst.draft.tailoredCv.status).toBe('fact_check_failed');
-    expect(worst).toMatchObject({ calls: 7, elapsedMs: 100 * MINUTE });
+    expect(worst).toMatchObject({ calls: 8, elapsedMs: 105 * MINUTE });
     expect(worst.elapsedMs).toBeLessThanOrEqual(120 * MINUTE);
   });
 
@@ -790,6 +930,7 @@ describe('submit mode', () => {
       order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
       codex: vi.fn(), portalRunner, submissionGuard: submissionGuard(db, ORDER_ID, 1),
+      keepSentAttempt: async (attempt: unknown) => db.collection('assisted_applications').doc(ORDER_ID).collection('ai_drafts').doc('current').set({ sentAttempt: attempt }, { merge: true }),
     });
     const sent = createMemoryFirestore();
     const clicksAndSends = vi.fn(async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [] } }; });
@@ -884,6 +1025,7 @@ describe('submit mode', () => {
       order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
       submissionGuard: submissionGuard(store.db, ORDER_ID, 1),
+      keepSentAttempt: async (attempt: unknown) => store.db.collection('assisted_applications').doc(ORDER_ID).collection('ai_drafts').doc('current').set({ sentAttempt: attempt }, { merge: true }),
     });
     expect(await run()).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
     // The first run sent it, then died before its event: the retry does not send again.

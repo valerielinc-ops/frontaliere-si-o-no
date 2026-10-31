@@ -1,3 +1,4 @@
+import { answerSourceRetained, currentAnswerReviewRequired } from './assistedApplicationAnswerConfirmation.js';
 /**
  * Orchestrator of the automated assisted application (the second half of the
  * 1,99 € service, formerly done by hand).
@@ -25,18 +26,32 @@
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
+import { submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash,
+  isMinimalSubmissionReceipt, submissionOwnerIntent } from './lib/submissionReceiptContract.js';
+import { qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
+import { isCvReady, automationEligibility } from './assistedApplicationEligibility.js';
+export { isCvReady, automationEligibility } from './assistedApplicationEligibility.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
-import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
+import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
+import { publicSubmissionState, submissionIrreversibility } from './assistedApplicationSubmissionState.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
+import { rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { reconcileCanonicalSubmissionReceipt } from './assistedApplicationReceiptReconcile.js';
+import { submissionEmailHandoff } from './lib/submissionReceiptContract.js';
+
+import { REMOTE_EXECUTOR_FLAG, REMOTE_EXECUTOR, prepareRemoteExecution, remoteExecutionReason, remoteExecutorReady,
+  recoveryReasonForDispatch, executionEligibility } from './assistedApplicationExecution.js';
+import { verifiedInfrastructureProof, infrastructureReasonForEvent } from './lib/portalInfrastructureEvidence.js';
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -66,8 +81,6 @@ const RUNNER_EVENT_TYPES = new Set([
   'submit_needs_candidate',
   'submit_failed',
 ]);
-const STARTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
-const SUPPORTED_CV_TYPES = new Set(['pdf', 'docx', 'doc']);
 
 export function orderRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
@@ -84,11 +97,6 @@ export function draftRefFor(db, orderId) {
 function candidateQuestionAnswersRefFor(db, userId) {
   const id = String(userId || '').trim();
   return id ? db.collection('user_cv_profiles').doc(id) : null;
-}
-
-function candidateQuestionAnswersOf(snapshot) {
-  const memory = snapshot?.data()?.applicationQuestionAnswers;
-  return memory && typeof memory === 'object' && !Array.isArray(memory) ? memory : {};
 }
 
 /** Fails closed: any error reading Remote Config means "off". */
@@ -113,22 +121,6 @@ export async function isAutomationEnabledFor(orderId, read = null) {
   return flag.all || flag.orders.has(String(orderId || ''));
 }
 
-/** The order's CV passed the magic-byte check for its current key. */
-export function isCvReady(order) {
-  const check = order?.cvFileCheck;
-  return Boolean(order?.cvStorageKey && check && check.key === order.cvStorageKey && check.verdict === 'ok');
-}
-
-export function automationEligibility(order, orderId) {
-  if (!order || order.paymentStatus !== 'paid') return { eligible: false, reason: 'not_paid' };
-  if (!STARTABLE_STATUSES.has(order.submissionStatus)) return { eligible: false, reason: 'order_closed' };
-  if (order.refundStatus === 'pending') return { eligible: false, reason: 'refund_in_progress' };
-  if (!isAssistedApplicationCvKey(orderId, order.cvStorageKey)) return { eligible: false, reason: 'cv_missing' };
-  if (!isCvReady(order)) return { eligible: false, reason: 'cv_not_verified' };
-  if (!SUPPORTED_CV_TYPES.has(order.cvFileCheck.detectedType)) return { eligible: false, reason: 'cv_format_unsupported' };
-  return { eligible: true, reason: null };
-}
-
 /** Backfill old fact-held orders into the normal scheduled recovery, without dispatching here. */
 export async function reconcileFactRepairSchedule({ db, orderId, apply = false }) {
   return db.runTransaction(async (transaction) => {
@@ -138,7 +130,7 @@ export async function reconcileFactRepairSchedule({ db, orderId, apply = false }
     ]);
     const order = orderSnapshot.data() || {};
     const flow = flowSnapshot.data() || {};
-    if (order.paymentStatus !== 'paid' || !STARTABLE_STATUSES.has(order.submissionStatus)
+    if (!automationEligibility(order, orderId).eligible
       || order.refundStatus === 'pending' || !needsFactRepair(flow) || order.automationDueAt === 1) return { changed: false };
     if (apply) transaction.set(orderRef, { automationDueAt: 1 }, { merge: true });
     return { changed: true };
@@ -183,8 +175,8 @@ export async function claimWatchdogDispatch({ db, orderId, nowMs }) {
     if (!dueAt || dueAt > nowMs || attempts >= MAX_DISPATCH_ATTEMPTS) return null;
     const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
     const dispatch = { ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 };
-    const nextFlow = { ...flow, dispatch, updatedAt: nowMs };
-    transaction.set(flowRef, { dispatch, updatedAt: nowMs }, { merge: true });
+    const nextFlow = { ...flow, dispatch, executionId: null, updatedAt: nowMs };
+    transaction.set(flowRef, { dispatch, executionId: null, updatedAt: nowMs }, { merge: true });
     transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
     return nextFlow;
   });
@@ -213,13 +205,29 @@ export async function reconcilePortalRetrySchedule({ db, orderId, apply = false 
  * leave for GitHub: the repository is public, so nothing personal may appear
  * in the run's inputs.
  */
-export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = fetch, getRepoConfigImpl = getRepoConfig }) {
+export async function dispatchAgentWorkflow({ orderId, mode, round, db, flow, fetchImpl = fetch, getRepoConfigImpl = getRepoConfig,
+  readRemoteExecutor = getRemoteConfigValue }) {
   const { pat, owner, repo } = await getRepoConfigImpl();
   if (!pat) throw new Error('github_pat_not_configured');
+  const inputs = { order_id: String(orderId), mode, round: String(round) };
+  if (Number(flow?.dispatch?.requestedAt) > 0) inputs.dispatch_at = String(flow.dispatch.requestedAt);
+  if (db && remoteExecutionReason(flow, mode) && await readRemoteExecutor(REMOTE_EXECUTOR_FLAG) === REMOTE_EXECUTOR) {
+    const registry = (await db.collection('assisted_application_executors').doc(REMOTE_EXECUTOR).get()).data();
+    if (remoteExecutorReady(registry)) {
+      const sourceResponse = await fetchImpl(`${GITHUB_API}/repos/${owner}/${repo}/commits/main`, {
+        headers: githubApiHeaders(pat), signal: AbortSignal.timeout(DISPATCH_TIMEOUT_MS),
+      });
+      if (!sourceResponse.ok) throw new Error(`execution_source_unavailable:${sourceResponse.status}`);
+      const sourceSha = (await sourceResponse.json()).sha;
+      const execution = await prepareRemoteExecution({ db, orderId, flow, mode, round, sourceSha });
+      if (!execution) return { ok: false, skipped: 'remote_execution_not_admitted' };
+      Object.assign(inputs, { executor: execution.executor, source_sha: execution.sourceSha, execution_id: execution.id });
+    }
+  }
   const response = await fetchImpl(`${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/${AGENT_WORKFLOW}/dispatches`, {
     method: 'POST',
     headers: githubApiHeaders(pat, { 'Content-Type': 'application/json' }),
-    body: JSON.stringify({ ref: 'main', inputs: { order_id: String(orderId), mode, round: String(round) } }),
+    body: JSON.stringify({ ref: 'main', inputs }),
     signal: AbortSignal.timeout(DISPATCH_TIMEOUT_MS),
   });
   if (!response.ok) {
@@ -247,18 +255,29 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  *   an event marked applied with the flow unchanged (a redelivery then applies it)
  */
 export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), patchFlow = null, claimRef = null }) {
+  const operationStartedAt = Date.now();
+  const freshNow = () => nowMs + Math.max(0, Date.now() - operationStartedAt);
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
+  const infrastructureProof = verifiedInfrastructureProof(event.infrastructureProof);
+  let expediteRemote = false;
+  if (infrastructureProof && event.type === 'submit_handoff') {
+    try {
+      expediteRemote = await getRemoteConfigValue(REMOTE_EXECUTOR_FLAG) === REMOTE_EXECUTOR
+        && remoteExecutorReady((await db.collection('assisted_application_executors').doc(REMOTE_EXECUTOR).get()).data(), nowMs);
+    } catch { /* Missing policy/readiness retains the existing bounded backoff. */ }
+  }
   let outcome = null;
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
     const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, orderSnapshot.data()?.userId);
-    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot] = await Promise.all([
+    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot, submissionSnapshot] = await Promise.all([
       transaction.get(flowRef),
       transaction.get(draftRef),
       claimRef ? transaction.get(claimRef) : Promise.resolve(null),
       candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
+      transaction.get(submissionRefFor(db, orderId)),
     ]);
     if (claimSnapshot?.data()?.appliedAt) {
       outcome = { ok: false, ignored: 'already_applied' };
@@ -276,14 +295,55 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    const submission = submissionSnapshot.data() || {};
+    const irreversible = submissionIrreversibility({ submission });
+    const currentSend = submission[`r${Number(flow.round) || 1}`];
+    const currentIrreversible = currentSend?.state === 'sent' || isUnconfirmedSubmission(currentSend);
+    const confirmsSubmission = ['submit_succeeded', 'submit_acknowledged', 'owner_submitted', 'candidate_confirmed_submitted'].includes(event.type);
+    const recordsOutcome = ['submit_failed', 'submit_handoff'].includes(event.type);
+    const ignoreIrreversible = () => {
+      // No workflow/round/slot writes, including the event claim, for a refused new execution.
+      outcome = { ok: false, ignored: irreversible, state: publicSubmissionState({ order: orderSnapshot.data(), flow, submission }) };
+    };
+    if (irreversible && (!currentIrreversible || (!confirmsSubmission && !(irreversible === 'submission_unconfirmed' && recordsOutcome)))) {
+      ignoreIrreversible();
+      return;
+    }
+    if (currentAnswerReviewRequired(flow, draft || {}) && ['candidate_approve', 'owner_approve', 'owner_retry_submit'].includes(event.type)) {
+      claim('ignored:answer_contract_required');
+      outcome = { ok: false, ignored: 'answer_contract_required' };
+      return;
+    }
+    if (event.type === 'owner_submitted' && Number(event.round) !== Number(flow.round || 1)) {
+      outcome = { ok: false, ignored: 'stale_round', state: flow.state }; return;
+    }
+    const sharedAnswersFor = event.type === 'owner_submitted' ? () => ({ answers: {} }) : await loadCandidateAnswerEvidence({ db, profileRecord: candidateProfileSnapshot?.data() || {},
+      userId: orderSnapshot.data()?.userId, nowMs, getDocument: ref => transaction.get(ref) });
+    if (actor === 'runner' && event.dispatchAt && Number(event.dispatchAt) !== Number(flow.dispatch?.requestedAt)) {
+      claim('ignored:dispatch_superseded');
+      outcome = { ok: false, ignored: 'dispatch_superseded' };
+      return;
+    }
+    if (actor === 'runner' && (flow.executionId || event.executionId)) {
+      const execution = (await transaction.get(orderRef.collection('automation').doc('execution'))).data() || {};
+      if (event.executionId !== flow.executionId || execution.id !== event.executionId
+        || event.executionGeneration !== execution.generation
+        || execution.sourceSha !== event.sourceSha || (execution.engineVersion || null) !== (event.engineVersion || null)
+        || execution.materialVersion !== event.materialVersion) {
+        claim('ignored:execution_superseded');
+        outcome = { ok: false, ignored: 'execution_superseded' };
+        return;
+      }
+    }
     // Answers explicitly saved on this order win over the candidate-wide
     // ledger. The latter fills only semantic gaps, so a new posting can reuse
     // a confirmed answer without asking the same person again.
     const flowForTransition = {
       ...flow,
       questionAnswers: {
-        ...candidateQuestionAnswersOf(candidateProfileSnapshot),
-        ...(flow.questionAnswers || {}),
+        ...sharedAnswersFor(orderSnapshot.data() || {}, { purpose: 'form' }).answers,
+        // Direct current-round answers remain authoritative; ambiguous legacy memory is not imported.
+        ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: flow.answers || {} }),
       },
     };
     // A runner event from a superseded round is stale: never let it move the
@@ -294,6 +354,12 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       return;
     }
     const result = transition(flowForTransition, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    // An ambiguous send may record an outcome; it cannot dispatch another attempt or refund a slot.
+    if (irreversible && (result.effects.some(effect => ['dispatch', 'refund'].includes(effect.type))
+      || (result.flow.state !== 'submitted' && Number(result.flow.portalAutoRetryAt) > 0))) {
+      ignoreIrreversible();
+      return;
+    }
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
     // continuing a fact-repair chain, including its candidate-review emails.
@@ -318,10 +384,21 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       ...(patchFlow ? patchFlow(flow) : {}),
       updatedAt: nowMs,
     };
+    if (event.type === 'submit_handoff') {
+      if (infrastructureProof && event.reason === infrastructureProof.class) nextFlow.infrastructureProof = infrastructureProof;
+      else if (event.reason !== 'remote_executor_unavailable') nextFlow.infrastructureProof = null;
+    }
+    if (expediteRemote && nextFlow.state === 'owner_takeover' && infrastructureProof
+      && JSON.stringify(flow.infrastructureProof) !== JSON.stringify(infrastructureProof)) {
+      const submission = (await transaction.get(orderRef.collection('automation').doc('submission'))).data();
+      if (!executionEligibility({ orderId, order: orderSnapshot.data(), flow: { ...nextFlow, state: 'submitting', dispatch: flow.dispatch },
+        draft, submission, round: nextFlow.round, nowMs })) nextFlow.portalAutoRetryAt = nowMs;
+    }
     // A dispatch effect is recorded now, in the same write, so the watchdog
     // always knows when the run was asked for.
     const dispatch = result.effects.find((effect) => effect.type === 'dispatch');
     if (dispatch) {
+      nextFlow.executionId = null;
       nextFlow.dispatch = {
         mode: dispatch.mode,
         round: nextFlow.round,
@@ -329,7 +406,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         // A retry carries its count, so the watchdog and the flow share the limit.
         attempts: Number(dispatch.attempts) || 1,
         reason: dispatch.reason || null,
+        recoveryReason: recoveryReasonForDispatch(flow, dispatch.reason),
       };
+    }
+    if (confirmsSubmission && !answerSourceRetained(orderSnapshot.data(), freshNow())) {
+      outcome = { ok: false, ignored: 'retention_expired', state: 'submitted' }; return;
     }
     claim('applied');
     transaction.set(flowRef, nextFlow);
@@ -433,7 +514,9 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
     // A live flow is never restarted; a finished takeover can be restarted by the owner.
     if (existing && !(reason === 'owner_request' && existing.state === 'owner_takeover')) return;
     if (!automationEligibility(order, orderId).eligible) return;
-    const candidateQuestionAnswers = candidateQuestionAnswersOf(candidateProfileSnapshot);
+    const sharedAnswersFor = await loadCandidateAnswerEvidence({ db, profileRecord: candidateProfileSnapshot?.data() || {},
+      userId: order.userId, nowMs, getDocument: ref => transaction.get(ref) });
+    const candidateQuestionAnswers = sharedAnswersFor(order, { purpose: 'form' }).answers;
     const flow = {
       state: 'drafting',
       round: 1,
@@ -660,14 +743,24 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     await eventRef.set({ appliedAt: nowMs, result: 'unknown_type' }, { merge: true });
     return { ok: false, ignored: 'unknown_type' };
   }
+  const infrastructureProof = verifiedInfrastructureProof(data.infrastructureProof);
+  const infrastructureReason = infrastructureReasonForEvent(data.reason, infrastructureProof);
   const event = {
     type,
     round: Number(data.round) || null,
     error: data.error ? String(data.error).slice(0, 120) : undefined,
-    reason: data.reason ? String(data.reason).slice(0, 120) : undefined,
+    reason: infrastructureReason || (data.reason ? String(data.reason).slice(0, 120) : undefined),
+    infrastructureProof: infrastructureReason ? infrastructureProof : undefined,
     questions: Array.isArray(data.questions) ? data.questions.slice(0, 20) : undefined,
     questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, 20) : undefined,
     documents: Array.isArray(data.documents) ? data.documents.slice(0, 20) : undefined,
+    portalCodeVersion: /^[a-f0-9]{64}$/.test(data.portalCodeVersion || '') ? data.portalCodeVersion : undefined,
+    executionId: data.executionId,
+    executionGeneration: data.executionGeneration,
+    sourceSha: data.sourceSha,
+    engineVersion: data.engineVersion,
+    materialVersion: data.materialVersion,
+    dispatchAt: Number(data.dispatchAt) || undefined,
   };
   const result = await applyAutomationEvent({
     db,
@@ -684,23 +777,48 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
 
 // ── Employer e-mail on the alias (inbox) ───────────────────────────────────
 
-const ACKNOWLEDGED = Object.freeze({ type: 'submit_acknowledged' });
-
 /**
  * A send whose outcome was uncertain, now confirmed (Valerie's «Segna come inviata», or the employer's
  * e-mail on the alias): the record the runner wrote before it (`sentAttempt`,
  * scripts/assisted-application/lib/submit.mjs) becomes the record of what left (`sent`), with who
  * confirmed it. Only on the round's own draft; nothing when there is no attempt.
- * @param {{db, orderId:string, round?:number, confirmedBy:'owner'|'acknowledgement', nowMs?:number}} args
+ * Only the immutable SENT writer's already-bound photo may be projected.
+ * Legacy confirmation arguments remain accepted; they never attest a new photo.
+ * @param {{db, orderId:string, round:number, confirmedBy?:'owner'|'acknowledgement', nowMs?:number, clock?:()=>number}} args
  * @returns {Promise<boolean>} whether a record was confirmed
  */
-export async function confirmSentAttempt({ db, orderId, round, confirmedBy, nowMs = Date.now() }) {
-  const ref = draftRefFor(db, orderId);
-  return db.runTransaction(async (transaction) => {
-    const draft = (await transaction.get(ref)).data() || {};
-    const attempt = draft.sentAttempt;
-    if (!attempt || typeof attempt !== 'object' || (round && Number(draft.round) !== Number(round))) return false;
-    transaction.set(ref, { sent: { ...attempt, confirmedBy, confirmedAt: nowMs }, sentAttempt: null }, { merge: true });
+export async function confirmSentAttempt({ db, orderId, round, confirmedBy: _confirmedBy, nowMs: _nowMs, clock = Date.now }) {
+  const guardedRound = Number(round);
+  if (!Number.isInteger(guardedRound) || guardedRound < 1 || typeof clock !== 'function') return false;
+  const orderRef = orderRefFor(db, orderId);
+  const draftRef = draftRefFor(db, orderId);
+  const submissionRef = orderRef.collection('automation').doc('submission');
+  return db.runTransaction(async transaction => {
+    const [orderDoc, draftDoc, submissionDoc] = await Promise.all([
+      transaction.get(orderRef), transaction.get(draftRef), transaction.get(submissionRef),
+    ]);
+    const order = orderDoc.data(); const draft = draftDoc.data();
+    const record = submissionDoc.data()?.[`r${guardedRound}`];
+    const sent = record?.sent;
+    if (!orderDoc.exists || !draftDoc.exists || Number(draft.round) !== guardedRound || record?.state !== 'sent'
+      || typeof record.attemptId !== 'string' || !record.attemptId || !sent
+      || sent.submissionAttempt?.id !== record.attemptId || Number(sent.submissionAttempt?.round) !== guardedRound) return false;
+    const attemptHash = submissionAttemptHash(record.attemptId);
+    const frame = (await transaction.get(orderRef.collection('submission_receipts').doc(attemptHash))).data();
+    if (!frame || frame.attemptHash !== attemptHash || frame.round !== guardedRound
+      || !/^[a-f0-9]{64}$/.test(frame.sourceFingerprint || '')
+      || (frame.channel === 'owner_extension' && !submissionOwnerIntent(frame.ownerIntent))
+      || !isMinimalSubmissionReceipt(frame.minimalReceipt, attemptHash, guardedRound)
+      || frame.slotHash !== submissionSlotHash({ orderId, order })
+      || frame.draftMaterialHash !== submissionDraftMaterialHash(draft)) return false;
+    if (draft.sent && qualificationCounterContextHash(draft.sent) !== qualificationCounterContextHash(sent)) return false;
+    if (draft.sentAttempt && (frame.attemptMaterialHash !== submissionAttemptMaterialHash(draft)
+      || draft.sentAttempt.submissionAttempt?.id !== record.attemptId
+      || Number(draft.sentAttempt.submissionAttempt?.round) !== guardedRound)) return false;
+    // The observed send/confirmation time is not a retention clock. This is
+    // only a projection of the immutable writer's photo, never a new truth.
+    if (!assistedApplicationRetained(order, clock())) return false;
+    transaction.set(draftRef, { sent, sentAttempt: null }, { merge: true });
     return true;
   });
 }
@@ -717,53 +835,51 @@ export async function confirmSentAttempt({ db, orderId, round, confirmedBy, nowM
  * something else), for a message older than the send, or once the flow is
  * past it: a second message finds it submitted.
  *
- * @param {{db, orderId:string, receivedAt:number, runEffect:Function, nowMs?:number}} args
+ * @param {{db: any, orderId: string, receivedAt: number, createOutcomeAuthority?: ((input: {record: any, round: number}) => any) | null, nowMs?: number, receiptClock?: (() => number) | null}} args
  */
-export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, runEffect, nowMs = Date.now() }) {
+export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, createOutcomeAuthority = null, nowMs = Date.now(), receiptClock = null }) {
+  const startedAt = Date.now();
+  const now = typeof receiptClock === 'function' ? receiptClock : () => nowMs + Math.max(0, Date.now() - startedAt);
   const flowSnapshot = await flowRefFor(db, orderId).get();
   if (!flowSnapshot.exists) return { ok: false, ignored: 'no_flow' };
   const flow = flowSnapshot.data() || {};
-  // The flow's own rule decides first: the guard is never touched for a flow past it.
-  const refused = transition(flow, ACKNOWLEDGED, { nowMs }).ignored;
-  if (refused) return { ok: false, ignored: refused };
+  // An actual receipt remains a fact after a withdrawal or approval change.
+  // Its current round/source must still bind; the shared reconciler alone
+  // decides whether the retained workflow/materials may be projected.
   const guard = submissionGuard(db, orderId, flow.round);
   const record = await guard.read();
   const leftAt = submissionLeftAt(record);
   // Confirmed by an earlier message whose flow event did not land: applied now.
-  const confirmedBefore = record?.state === 'sent' && record.confirmedBy === 'acknowledgement';
+  const confirmedBefore = record?.state === 'sent';
   if (!confirmedBefore) {
     if (!isUnconfirmedSubmission(record)) return { ok: false, ignored: 'nothing_unconfirmed' };
     if (Number(receivedAt) < leftAt) return { ok: false, ignored: 'before_submit' };
-    await guard.markSent({ channel: record.channel, confirmedBy: 'acknowledgement', confirmedAt: nowMs }, leftAt);
+    const outcomeAuthority = typeof createOutcomeAuthority === 'function'
+      ? await createOutcomeAuthority({ record, round: Number(flow.round) }) : null;
+    if (!outcomeAuthority) return { ok: false, ignored: 'employer_receipt_unverified' };
+    const receiptGuard = submissionGuard(db, orderId, flow.round, { outcomeAuthority, receiptClock: now });
+    await receiptGuard.markSent({ channel: record.channel, confirmedBy: 'acknowledgement', confirmedAt: nowMs }, leftAt);
   }
-  const result = await applyAutomationEvent({
-    db,
-    orderId,
-    event: ACKNOWLEDGED,
-    actor: 'employer_email',
-    runEffect,
-    nowMs,
-    patchFlow: () => ({ submittedVia: record.channel }),
-  });
-  // What the runner was sending is what arrived: its record follows the send (best effort, the flow is settled).
-  if (result.ok) {
-    await confirmSentAttempt({ db, orderId, round: flow.round, confirmedBy: 'acknowledgement', nowMs })
-      .catch((error) => console.warn('[assistedApplicationAutomation] sent record not confirmed', orderId, error instanceof Error ? error.message : String(error)));
+  // The same receipt reconciler owns the retained flow/photo projection for
+  // every channel. An expired receipt or an unbound legacy attempt remains a
+  // content-free outcome, never a reconstructed current draft or new effect.
+  const result = await reconcileCanonicalSubmissionReceipt({ db, orderId, round: Number(flow.round), nowMs: now() });
+  if (record.channel === 'email' && ['reconciled', 'reconciled_legacy_ack', 'already_reconciled', 'legacy_unbound'].includes(result.reason)) {
+    await scheduleConfirmedEmailFollowups(db, orderId, record, Number(flow.round), leftAt, now());
   }
-  if (result.ok && record.channel === 'email') await scheduleConfirmedEmailFollowups(db, orderId, leftAt);
-  return result;
+  return { ok: true, receiptRecorded: true, reconciliation: result.reason };
 }
 
 /**
  * The follow-ups the runner schedules after an e-mail application that went
- * through; this one's outcome was unknown, so it had none. Its Message-ID is
- * not on record: the "Re:" subject threads them anyway.
+ * through; this one's outcome was unknown, so it had none. Only the recorded
+ * outbound target/thread may be used; the current editable draft is not its
+ * historical application. The shared scheduler fences retention and round.
  */
-async function scheduleConfirmedEmailFollowups(db, orderId, sentAt) {
-  const draft = (await draftRefFor(db, orderId).get()).data() || {};
-  const to = String(draft.applicationEmail?.to || draft.channel?.email || '').trim().toLowerCase();
-  if (!to) return null;
-  return scheduleFollowups(db, orderId, { to, subject: draft.applicationEmail?.subject || '', messageId: '', sentAt });
+async function scheduleConfirmedEmailFollowups(db, orderId, record, round, sentAt, nowMs) {
+  const source = submissionEmailHandoff(record.emailHandoff || { messageId: record.messageId, recipient: record.to, slotHash: record.slotHash });
+  if (!source) return null;
+  return scheduleFollowups(db, orderId, { to: source.recipient, subject: String(record.subject || ''), messageId: source.messageId, sentAt, round }, nowMs);
 }
 
 export function newRequestId() {

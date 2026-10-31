@@ -1,3 +1,4 @@
+import { reviewedDocumentContext } from './helpers/reviewedDocumentContext';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
@@ -5,7 +6,7 @@ import { jsPDF } from 'jspdf';
 import sharp from 'sharp';
 import { PDFDocument, PDFHexString, PDFName, PDFString } from 'pdf-lib';
 import { getDocumentProxy, getResolvedPDFJS } from 'unpdf';
-import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { createMemoryFirestore as createMemoryFirestoreRaw } from './helpers/memoryFirestore';
 import { JPEG_2X2 } from './helpers/pdfImages';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
@@ -13,10 +14,30 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { keepSentFiles, portalUploads, recordOfSend, submitApplication } = await import('../scripts/assisted-application/lib/submit.mjs');
-const { keepSentRecord } = await import('../scripts/assisted-application/agent.mjs');
+const { keepSentFiles, portalUploads, recordOfSend, submitApplication: submitApplicationRaw } = await import('../scripts/assisted-application/lib/submit.mjs');
+async function submitApplication(ctx: any) { return submitApplicationRaw(await reviewedDocumentContext(ctx)); }
+const { keepSentRecord, keepAndReportSubmissionOutcome } = await import('../scripts/assisted-application/agent.mjs');
 const { decryptJson } = await import('../scripts/assisted-application/lib/secure-run.mjs');
-const { submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
+const { submissionGuard: createSubmissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
+// Record fixtures use the runner's durable draft callback, unless a test explicitly removes it.
+const fixtureAttemptKeepers = new WeakMap<object, (attempt: unknown) => Promise<void>>();
+const fixtureGuardContexts = new WeakMap<object, { db: any; orderId: string; sourceGuard: any }>();
+function submissionGuard(db: any, orderId: string, round: number, options: any = {}) {
+  const sourceGuard = { fingerprint: 'e'.repeat(64), async assertInTransaction(tx: any) {
+    const current = await tx.get(db.collection('assisted_applications').doc(orderId));
+    if (!current.exists) throw new Error('evidence_source_changed');
+  } };
+  const effectiveSourceGuard = Object.hasOwn(options, 'answerSourceGuard') ? options.answerSourceGuard : sourceGuard;
+  const guard = createSubmissionGuard(db, orderId, round, { ...options, answerSourceGuard: effectiveSourceGuard });
+  fixtureGuardContexts.set(guard, { db, orderId, sourceGuard: effectiveSourceGuard });
+  fixtureAttemptKeepers.set(guard, async attempt => {
+    await db.collection('assisted_applications').doc(orderId).collection('ai_drafts').doc('current').set({ sentAttempt: attempt }, { merge: true });
+  });
+  return guard;
+}
+const { executionLease, executionController, prepareRemoteExecution } = await import('../functions/src/assistedApplicationExecution.js');
+const { captchaInfrastructureProof } = await import('../functions/src/lib/portalInfrastructureEvidence.js');
+const { retainedArtifactStore } = await import('../functions/src/lib/assistedApplicationArtifactRetention.js');
 const { loadAutomationForAdmin, recordOwnerSubmission } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { checkDraftTexts, sanitizeProfile } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { renderCvPdf } = await import('../functions/src/assistedApplicationPdfRenderer.js');
@@ -27,6 +48,16 @@ const { sentSummaryIt } = await import('../services/assistedApplicationSentRecor
 // What leaves with an e-mail application and the record of what left, on the runner's real path
 // (submitApplication with a Typst letter rebuilt at submit and a Typst tailored CV). An invented
 // German nurse (study 2026-10-02).
+// Transport fixtures start from an actually approved current flow; explicit overrides remain authoritative.
+function createMemoryFirestore(seed: Record<string, any> = {}) {
+  const base = `assisted_applications/${ORDER}`;
+  return createMemoryFirestoreRaw({ ...seed,
+    [base]: { cvUploadedAt: Date.now(), ...seed[base] },
+    [`${base}/automation/flow`]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 }, ...seed[`${base}/automation/flow`] },
+    [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, ...seed[`${base}/ai_drafts/current`] },
+  });
+}
+
 const ORDER = 'order_SENT01';
 const BASE = `assisted_applications/${ORDER}`;
 const KEY = Buffer.alloc(32, 5);
@@ -111,6 +142,7 @@ afterEach(() => {
 
 function fakeBucket({ refuse = null as RegExp | null } = {}) {
   const files = new Map<string, Buffer>();
+  const metadata = new Map<string, any>(); let generation = 0;
   const saved: Array<{ key: string; options: any }> = [];
   files.set(TAILORED_KEY, fixtures.tailoredCv);
   files.set(DOCUMENT_KEYS.pdf, fixtures.reference);
@@ -125,13 +157,18 @@ function fakeBucket({ refuse = null as RegExp | null } = {}) {
       async save(content: Buffer | string, options?: any) {
         if (refuse?.test(key)) throw Object.assign(new Error('storage unavailable'), { code: 503 });
         files.set(key, Buffer.from(content));
+        metadata.set(key, { generation: String(++generation), metadata: options?.metadata?.metadata || {} });
         saved.push({ key, options });
       },
+      async getMetadata() { if (!files.has(key)) throw Object.assign(new Error('missing'), { code: 404 }); return [metadata.get(key)]; },
       async download() {
         if (!files.has(key)) throw Object.assign(new Error('missing'), { code: 404 });
         return [files.get(key)];
       },
-      async delete() { files.delete(key); },
+      async delete(options?: any) {
+        if (files.has(key) && options?.ifGenerationMatch && options.ifGenerationMatch !== metadata.get(key)?.generation) throw Object.assign(new Error('changed'), { code: 412 });
+        files.delete(key); metadata.delete(key);
+      },
     }),
   };
 }
@@ -169,10 +206,28 @@ const fakeFetch = () => vi.fn(async (url: string, init: any = {}) => {
 const delivered = () => vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
 
 async function submit({ draft = draftFor(), flow = TWO_DOCUMENTS, bucket = fakeBucket(), sendCascade = delivered(), lines = [] as string[], nowMs = NOW, ...extra }: Record<string, any> = {}) {
+  const context = extra.submissionGuard ? fixtureGuardContexts.get(extra.submissionGuard) : null;
+  const serviceOrder = { ...order, paymentStatus: 'paid', submissionStatus: 'in_progress', cvUploadedAt: NOW - 1000,
+    cvFileCheck: { key: order.cvStorageKey, verdict: 'ok', detectedType: 'pdf' }, consentVersion: 'assisted-application-v2', consentedAt: NOW - 1000 };
+  const approvedFlow = { state: 'submitting', round: Number(draft.round),
+    dispatch: { mode: 'submit', round: Number(draft.round), requestedAt: NOW }, ...flow };
+  if (context) {
+    // Archive/transport fixtures supply a valid service, not an implicit policy bypass.
+    // Existing documents (including all purge/drift negatives) are never repaired.
+    const ref = context.db.collection('assisted_applications').doc(context.orderId);
+    if (!(await ref.get()).exists) await ref.set({ ...serviceOrder, ...(extra.order || {}) });
+    const flowRef = ref.collection('automation').doc('flow');
+    if (!(await flowRef.get()).exists) await flowRef.set(approvedFlow);
+    const draftRef = ref.collection('ai_drafts').doc('current');
+    const currentDraft = await draftRef.get();
+    if (!currentDraft.exists) await draftRef.set(draft);
+  }
   return submitApplication({
-    order, orderId: ORDER, flow, draft, bucket, runKey: KEY, nowMs, sendCascade,
+    order: context ? serviceOrder : order, orderId: ORDER, flow: context ? approvedFlow : flow, draft, bucket, runKey: KEY, nowMs, sendCascade,
+    answerSourceGuard: context?.sourceGuard,
     cvBuffer: pdfOf('Lebenslauf Maria Rossi'), cvType: 'pdf',
     resolve: publicDns, fetchImpl: fakeFetch(), log: (...args: unknown[]) => lines.push(args.join(' ')),
+    keepSentAttempt: extra.submissionGuard ? fixtureAttemptKeepers.get(extra.submissionGuard) : undefined,
     ...extra,
   });
 }
@@ -198,9 +253,114 @@ const pageSize = async (bytes: Buffer, index: number) => {
 const names = (sendCascade: any) => attachmentsOf(sendCascade).map((item) => item.filename);
 
 describe('what leaves by e-mail, and the record of it', () => {
+  it.each(['email', 'portal'])('replays concurrent SENT before the %s handoff and preserves its receipt and attempt', async channel => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const sendCascade = delivered();
+    let finalClicks = 0;
+    const keepSentAttempt = vi.fn(async (attempt: unknown) => {
+      if (attempt) await guard.markSent({ channel: channel === 'portal' ? 'lever' : 'email', messageId: 'concurrent-real-send' }, NOW);
+    });
+    const portalRunner = vi.fn(async ctx => {
+      await ctx.onBeforeSubmit({ uploads: [] });
+      finalClicks++;
+      return { event: { type: 'submit_succeeded' }, evidence: {} };
+    });
+    const event = await submit({ draft: draftFor(channel === 'portal' ? { channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } } : {}),
+      sendCascade, keepSentAttempt, submissionGuard: guard, codex: vi.fn(), portalRunner });
+    expect(event).toMatchObject({ type: 'submit_succeeded', replayed: true });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(finalClicks).toBe(0);
+    expect(keepSentAttempt.mock.calls.every(([attempt]) => attempt !== null)).toBe(true);
+    expect(store.read(`${BASE}/automation/submission`).r1).toMatchObject({ state: 'sent', messageId: 'concurrent-real-send' });
+    expect(await guard.release('stale callback cleanup')).toBe(false);
+    expect(store.read(`${BASE}/automation/submission`).r1.state).toBe('sent');
+  });
+
+  it.each(['email', 'portal'])('preserves the dossier when a stale %s failure arrives after canonical acknowledgement', async channel => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
+    const keepSentAttempt = vi.fn(async (attempt: unknown) => draftRef.set({ sentAttempt: attempt }, { merge: true }));
+    const acknowledge = () => guard.markSent({ channel: channel === 'portal' ? 'lever' : 'email', messageId: 'actual-acknowledgement' }, NOW);
+    const sendCascade = vi.fn(async () => { await acknowledge(); return { failed: [{ error: 'rejected', ambiguousDelivery: false }], sent: [] }; });
+    const portalRunner = vi.fn(async ctx => { await ctx.onBeforeSubmit({ uploads: [] }); await acknowledge();
+      return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence: {} }; });
+    const event = await submit({ draft: draftFor(channel === 'portal' ? { channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } } : {}),
+      sendCascade, keepSentAttempt, submissionGuard: guard, codex: vi.fn(), portalRunner });
+    expect(event).toMatchObject({ type: 'submit_succeeded', replayed: true });
+    expect(store.read(`${BASE}/automation/submission`).r1).toMatchObject({ state: 'sent', messageId: 'actual-acknowledgement' });
+    expect(store.read(`${BASE}/ai_drafts/current`).sentAttempt).toBeTruthy();
+    expect(keepSentAttempt.mock.calls.every(([attempt]) => attempt !== null)).toBe(true);
+  });
+
+  it.each(['email', 'portal'])('does not hand off %s when the owner takes over the same round after preparation', async channel => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
+    const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
+    const keepSentAttempt = async (attempt: unknown) => { await draftRef.set({ sentAttempt: attempt }, { merge: true });
+      if (attempt) await flowRef.set({ state: 'owner_takeover' }, { merge: true }); };
+    const sendCascade = delivered();
+    let finalClicks = 0;
+    const portalRunner = vi.fn(async ctx => { await ctx.onBeforeSubmit({ uploads: [] }); finalClicks++;
+      return { event: { type: 'submit_succeeded' }, evidence: {} }; });
+    const event = await submit({ draft: draftFor(channel === 'portal' ? { channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } } : {}),
+      sendCascade, keepSentAttempt, submissionGuard: guard, codex: vi.fn(), portalRunner });
+    expect(event).toEqual({ type: 'submit_failed', error: 'submission_approval_changed' });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(finalClicks).toBe(0);
+    expect(store.read(`${BASE}/automation/flow`).state).toBe('owner_takeover');
+    expect(store.read(`${BASE}/automation/submission`).r1.clickedAt).toBeNull();
+  });
+
+  it.each(['feedback', 'intake'])('rejects an old email document witness when a new %s correction predates bootstrap', async source => {
+    const cvBuffer = pdfOf('Original CV');
+    const base = await reviewedDocumentContext({ order, flow: TWO_DOCUMENTS, draft: draftFor(), cvBuffer });
+    const sendCascade = delivered();
+    const current = source === 'feedback' ? { flow: { ...TWO_DOCUMENTS, feedback: [{ text: 'I do not hold that degree; the old CV is wrong.' }] } }
+      : { intake: { emailNotes: 'I do not hold that degree; the old CV is wrong.' } };
+    const event = await submitApplicationRaw({ ...base, ...current, orderId: ORDER, sendCascade });
+    expect(event).toEqual({ type: 'submit_failed', error: 'evidence_source_unbound' });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it('never sends a legacy email draft without a current document witness and requests bounded repair', async () => {
+    const sendCascade = delivered();
+    const store = createMemoryFirestore({});
+    const event = await submitApplicationRaw({ order, orderId: ORDER, flow: { round: 1 }, draft: draftFor(),
+      cvBuffer: pdfOf('Original CV'), submissionGuard: submissionGuard(store.db, ORDER, 1), sendCascade });
+    expect(event).toEqual({ type: 'submit_failed', error: 'evidence_source_unbound' });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(store.read(`${BASE}/automation/submission`)).toBeUndefined();
+  });
+
+  it('replays a durable sent legacy application before reading CVs or requiring repair proof', async () => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    await guard.markSent({ channel: 'email', to: 'hr@example.com', messageId: 'existing-real-send' }, NOW);
+    const sendCascade = delivered();
+    const event = await submitApplicationRaw({ order, orderId: ORDER, flow: {}, draft: { status: 'ready' },
+      submissionGuard: guard, sendCascade, bucket: { file: () => { throw new Error('sent legacy CV must not be downloaded'); } } });
+    expect(event).toMatchObject({ type: 'submit_succeeded', replayed: true, followup: { messageId: 'existing-real-send' } });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it('checks current answers at the actual email handoff, releases a certainly-unsent claim, and never stamps a portal click', async () => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const sendCascade = delivered();
+    const assertInTransaction = vi.fn(async () => { throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' }); });
+    const event = await submit({ sendCascade, submissionGuard: guard, answerSourceGuard: { assertInTransaction } });
+    expect(event).toEqual({ type: 'submit_failed', error: 'evidence_source_changed' });
+    expect(assertInTransaction).toHaveBeenCalledTimes(1);
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(store.read(`${BASE}/automation/submission`).r1).toMatchObject({ state: 'failed', clickedAt: null, reason: 'evidence_source_changed' });
+  });
+
   it('leaves the CV and the letter apart and the documents as one PDF, keeps what was new and records what left', async () => {
     const bucket = fakeBucket();
-    const store = createMemoryFirestore({ [`${BASE}/ai_drafts/current`]: { round: 1 } });
+    const store = createMemoryFirestore({ [`${BASE}/ai_drafts/current`]: draftFor() });
     const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
     const steps: string[] = [];
     const keepSentAttempt = vi.fn(async (attempt: unknown) => {
@@ -243,7 +403,10 @@ describe('what leaves by e-mail, and the record of it', () => {
     expect(bucket.saved.filter((item) => /\/sent-r1-/.test(item.key)).map((item) => item.options?.contentType)).toEqual(['application/pdf', 'application/pdf']);
     // The same record in the encrypted evidence and in the guard of the round.
     expect(evidence(bucket, 'submit-email').sent).toEqual(sent);
-    expect(store.read(`${BASE}/automation/submission`)!.r1).toMatchObject({ state: 'sent', sent });
+    const ledger = store.read(`${BASE}/automation/submission`)!.r1;
+    expect(ledger).toMatchObject({ state: 'sent', sent });
+    expect(sent.submissionAttempt).toEqual({ id: ledger.attemptId, round: 1 });
+    expect(store.read(`${BASE}/ai_drafts/current`)!.sentAttempt).toEqual(sent);
 
     // On the draft as the attempt before the send; the send confirmed, agent.mjs keeps it as what left.
     expect(steps).toEqual(['attempt', 'send']);
@@ -388,10 +551,111 @@ describe('what a portal and WhatsApp received', () => {
   const portalDraft = () => draftFor({ channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } });
   const UPLOADED = [{ document: 'cv' }, { document: 'cover_letter' }, { document: 'extra_1', files: 1 }];
 
+  it('preserves a real portal success after a concurrent purge without restoring any personal data', async () => {
+    vi.spyOn(Date, 'now').mockReturnValue(NOW + 10);
+    const bucket = fakeBucket(); const draft = portalDraft(); draft.verdict = 'good'; draft.job.source = 'job_detail';
+    const liveOrder = { ...order, paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission', cvUploadedAt: NOW,
+      cvFileCheck: { key: order.cvStorageKey, verdict: 'ok', detectedType: 'pdf' }, consentVersion: 'assisted-application-v2', consentedAt: NOW };
+    const flow = { ...TWO_DOCUMENTS, state: 'submitting', dispatch: { mode: 'submit', round: 1, requestedAt: NOW,
+      recoveryReason: 'portal:captcha_provider_unavailable' }, infrastructureProof: captchaInfrastructureProof('captcha', {
+        diagnostics: { responses: [{ host: 'api.nopecha.com', path: '/v1/status', status: 403, errors: [{ message: 'Banned IP' }] }] }, attempt: 1 }) };
+    const store = createMemoryFirestore({ [BASE]: liveOrder, [`${BASE}/automation/flow`]: flow, [`${BASE}/ai_drafts/current`]: draft,
+      [`${BASE}/automation/submission`]: { r1: { state: 'failed', channel: 'portal', clickedAt: null, releasedAt: NOW - 1 } } });
+    const sha = 'a'.repeat(40); const engine = 'b'.repeat(64);
+    await prepareRemoteExecution({ db: store.db, orderId: ORDER, flow, mode: 'submit', round: 1, sourceSha: sha, nowMs: NOW, id: 'purge-submit-fixture' });
+    await executionController({ db: store.db, orderId: ORDER, executionId: 'purge-submit-fixture', sourceSha: sha, runId: 'fixture', now: () => NOW }).ready();
+    const actor = executionLease({ db: store.db, orderId: ORDER, executionId: 'purge-submit-fixture', sourceSha: sha,
+      engineVersion: engine, owner: 'fixture', token: 'fixture-token', now: () => NOW + 10 });
+    await actor.claim(); const guard = submissionGuard(store.db, ORDER, 1, { execution: actor });
+    const artifactStore = retainedArtifactStore({ db: store.db, bucket, orderId: ORDER, round: 1, execution: actor, now: () => NOW + 10 });
+    const runner = vi.fn(async ({ onBeforeSubmit }: any) => {
+      await onBeforeSubmit({ uploads: [] });
+      Object.assign(store.read(BASE)!, { retentionPurgingAt: NOW + 11, retentionPurgedAt: NOW + 12 });
+      for (const path of ['automation/flow', 'automation/submission', 'ai_drafts/current']) store.docs.delete(`${BASE}/${path}`);
+      bucket.files.clear();
+      return { event: { type: 'submit_succeeded' }, evidence: { steps: [], uploads: UPLOADED, finalUrl: 'https://employer.example/private-receipt' } };
+    });
+    const event: any = await submit({ order: liveOrder, draft, flow, bucket, portalRunner: runner, codex: vi.fn(), submissionGuard: guard, artifactStore,
+      keepSentAttempt: (sentAttempt: any) => artifactStore.mergeDraft(store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current'), { sentAttempt }) });
+    expect(event).toEqual({ type: 'submit_succeeded', channel: 'lever', retentionMinimal: true });
+    await keepSentRecord(event, { draftRef: store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current'), dryRun: false, artifactStore });
+    await actor.report(store.db.collection('assisted_applications').doc(ORDER).collection('automation_events').doc('late'), event);
+    expect(store.read(`${BASE}/automation/execution`)!.minimalReceipt.status).toBe('sent');
+    expect(store.read(`${BASE}/automation_events/late`)).toBeUndefined();
+    expect(store.read(`${BASE}/ai_drafts/current`)).toBeUndefined(); expect(store.read(`${BASE}/automation/submission`)).toBeUndefined();
+    expect(bucket.files.size).toBe(0); expect(runner).toHaveBeenCalledTimes(1);
+  }, 60_000);
+
+  it('records the receipt before portal bookkeeping or context cleanup can fail', async () => {
+    const store = createMemoryFirestore(); const bucket = fakeBucket();
+    const runner = vi.fn(async ({ onBeforeSubmit, onReceipt }: any) => {
+      await onBeforeSubmit({ uploads: UPLOADED });
+      await onReceipt({ finalUrl: 'https://employer.example/received' });
+      expect(store.read(`${BASE}/automation/submission`)!.r1.state).toBe('sent');
+      throw new Error('synthetic_context_cleanup_failed');
+    });
+    const event: any = await submit({ draft: portalDraft(), bucket, codex: vi.fn(), portalRunner: runner,
+      submissionGuard: submissionGuard(store.db, ORDER, 1) });
+    expect(event.type).toBe('submit_succeeded');
+    expect(event.sent.files).toHaveLength(3);
+    expect(store.read(`${BASE}/automation/submission`)!.r1.sent).toEqual(event.sent);
+    expect(runner).toHaveBeenCalledTimes(1);
+  }, 60_000);
+
+  it('does not arm SMTP or deliver when the durable photo keeper is missing', async () => {
+    const store = createMemoryFirestore();
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const arm = vi.spyOn(guard, 'markEmailSending');
+    const sendCascade = vi.fn();
+    expect(await submit({ draft: draftFor({ letterAddress: undefined }), submissionGuard: guard,
+      keepSentAttempt: null, sendCascade })).toMatchObject({ type: 'submit_failed', error: 'sent_attempt_not_stored' });
+    expect(arm).not.toHaveBeenCalled();
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect([...store.docs.keys()].some(key => key.includes('/submission_receipts/'))).toBe(false);
+  });
+
+  it('does not click or hand off when a guarded caller omits the durable photo keeper', async () => {
+    const store = createMemoryFirestore();
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const markClicked = vi.spyOn(guard, 'markClicked');
+    const sendCascade = vi.fn();
+    let finalClicks = 0;
+    const runner = vi.fn(async ({ onBeforeSubmit }: any) => {
+      await onBeforeSubmit({ uploads: UPLOADED });
+      finalClicks += 1;
+      return { event: { type: 'submit_succeeded' }, evidence: { steps: [] } };
+    });
+    expect(await submit({ draft: portalDraft(), codex: vi.fn(), portalRunner: runner,
+      submissionGuard: guard, keepSentAttempt: null, sendCascade })).toMatchObject({ type: 'submit_failed', error: 'sent_attempt_not_stored' });
+    expect(markClicked).not.toHaveBeenCalled();
+    expect(finalClicks).toBe(0);
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it('keeps the first acknowledged handoff photograph when later portal bookkeeping differs', async () => {
+    const store = createMemoryFirestore();
+    const bucket = fakeBucket();
+    const runner = vi.fn(async ({ onBeforeSubmit, onReceipt }: any) => {
+      await onBeforeSubmit({ uploads: UPLOADED });
+      await onReceipt({ finalUrl: 'https://employer.example/received' });
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: [] } };
+    });
+    const event: any = await submit({ draft: portalDraft(), bucket, codex: vi.fn(), portalRunner: runner,
+      submissionGuard: submissionGuard(store.db, ORDER, 1) });
+    expect(event.type).toBe('submit_succeeded');
+    expect(event.sent.files).toHaveLength(3);
+    expect(store.read(`${BASE}/automation/submission`)!.r1.sent).toEqual(event.sent);
+    expect(evidence(bucket, 'submit-portal-submit_succeeded').sent).toEqual(event.sent);
+  });
+
   it('records the files the form’s fields received, keeps the letter, and hands the record over on a replay', async () => {
     const store = createMemoryFirestore();
     const bucket = fakeBucket();
-    const runner = vi.fn(async () => ({ event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: UPLOADED } }));
+    const runner = vi.fn(async ({ onBeforeSubmit, onReceipt }: any) => {
+      await onBeforeSubmit?.({ uploads: UPLOADED });
+      await onReceipt?.({ finalUrl: 'https://employer.example/received' });
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads: UPLOADED } };
+    });
     const run = () => submit({ draft: portalDraft(), bucket, codex: vi.fn(), portalRunner: runner, submissionGuard: submissionGuard(store.db, ORDER, 1) });
     const event: any = await run();
     expect(event.sent).toMatchObject({ at: NOW, channel: 'lever', packaging: 'portal', letterRenderer: 'typst', letterKey: SENT_KEY('letter') });
@@ -440,8 +704,10 @@ describe('what a portal and WhatsApp received', () => {
 describe('an uncertain send keeps its record until it is confirmed', () => {
   async function ambiguousSetup() {
     const store = createMemoryFirestore({
-      [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'submitting' },
-      [`${BASE}/automation/flow`]: { state: 'submitting', round: 1, heldBy: [], answers: {}, feedback: [] },
+      [BASE]: { ...order, paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'submitting',
+        cvUploadedAt: NOW - 1000, consentVersion: 'assisted-application-v2', consentedAt: NOW - 1000 },
+      [`${BASE}/automation/flow`]: { state: 'submitting', round: 1, heldBy: [], answers: {}, feedback: [],
+        dispatch: { mode: 'submit', round: 1, requestedAt: NOW } },
       [`${BASE}/ai_drafts/current`]: draftFor(),
     });
     const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
@@ -483,7 +749,7 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
     const steps: unknown[] = [];
     const event = await submit({ sendCascade, keepSentAttempt: async (attempt: unknown) => { steps.push(attempt && 'attempt'); await keepSentAttempt(attempt); }, submissionGuard: submissionGuard(store.db, ORDER, 1) });
     expect(event).toEqual({ type: 'submit_failed', error: 'email_failed' });
-    expect(steps).toEqual(['attempt', null]);
+    expect(steps).toEqual(['attempt']);
     expect(draft()).toMatchObject({ sentAttempt: null });
     expect(draft().sent).toBeUndefined();
     expect(store.read(`${BASE}/automation/submission`)!.r1).toMatchObject({ state: 'failed', reason: 'email_failed' });
@@ -519,9 +785,15 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
   it('agent.mjs keeps the record of what left before every other after-send write (review of #11505)', () => {
     const src = readFileSync('scripts/assisted-application/agent.mjs', 'utf8');
     const submitAt = src.indexOf('const event = await submitApplication(');
-    const keepAt = src.indexOf('await keepSentRecord(event', submitAt);
+    const keepAt = src.indexOf('await keepAndReportSubmissionOutcome(event', submitAt);
     expect(submitAt).toBeGreaterThan(-1);
     expect(keepAt).toBeGreaterThan(submitAt);
+    const helperStart = src.indexOf('export async function keepAndReportSubmissionOutcome(');
+    const helper = src.slice(helperStart, src.indexOf('\n/**', helperStart));
+    const saved = helper.indexOf('await keepSentRecord(event');
+    expect(helperStart).toBeGreaterThan(-1);
+    expect(saved).toBeGreaterThan(-1);
+    expect(helper.indexOf('await report(')).toBeGreaterThan(saved);
     for (const later of ['await scheduleFollowups(', "submissionChannel: 'whatsapp'", 'portalAnswers: event.portalAnswers', 'takeFactCheck(event', 'await report(event)']) {
       expect([later, src.indexOf(later, submitAt) > keepAt]).toEqual([later, true]);
     }
@@ -671,5 +943,45 @@ describe('the owner’s view of what left', () => {
       .toBe('un PDF unico con lettera, CV e documenti richiesti (lo chiede l’annuncio) · 1 documento firmato digitalmente a parte — lettera composta con Typst');
     expect(line({ packaging: 'separate', reason: 'default', confirmedBy: 'acknowledgement', files: [file('cv'), file('letter')] }))
       .toBe('lettera e CV separati · invio dall’esito incerto, confermato dalla risposta del datore — lettera composta con Typst');
+  });
+});
+
+it('never starts an e-mail handoff without a current source guard, even with no candidate-answer proof', async () => {
+  const sendCascade = delivered();
+  const event = await submit({ answerSourceGuard: null, sendCascade });
+  expect(event).toEqual({ type: 'submit_failed', error: 'evidence_source_changed' });
+  expect(sendCascade).not.toHaveBeenCalled();
+});
+
+describe('durable success before optional draft projections', () => {
+  it('defers WhatsApp success until its candidate link and instructions are stored', async () => {
+    const draftRef = { set: vi.fn(async () => {}) };
+    const report = vi.fn();
+    const event = { type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: 'https://employer.invalid/whatsapp', sent: { files: [] } };
+    expect(await keepAndReportSubmissionOutcome(event, { draftRef, dryRun: false, report })).toBe(false);
+    expect(report).not.toHaveBeenCalled();
+    expect(draftRef.set).toHaveBeenCalledOnce();
+    expect(event.whatsappUrl).toBe('https://employer.invalid/whatsapp');
+  });
+
+  it('publishes only the whitelisted success after keeping the exact durable photograph', async () => {
+    const store = createMemoryFirestore({
+      [BASE]: { paymentStatus: 'paid', cvUploadedAt: NOW },
+      [`${BASE}/ai_drafts/current`]: { round: 1, status: 'ready' },
+    });
+    const artifactStore = retainedArtifactStore({ db: store.db, bucket: {}, orderId: ORDER, round: 1, now: () => NOW });
+    const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
+    const sent = { at: NOW, channel: 'portal', files: [{ kind: 'cv', key: TAILORED_KEY }] };
+    const event: any = { type: 'submit_succeeded', channel: 'portal', sent, portalAnswers: { answers: [{ answer: 'private' }] }, followup: { to: 'private@example.com' } };
+    const report = vi.fn(async clean => {
+      expect(store.read(`${BASE}/ai_drafts/current`)!.sent).toEqual(sent);
+      expect(store.read(`${BASE}/ai_drafts/current`)!.portalAnswers).toBeUndefined();
+      expect(clean).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    });
+    expect(await keepAndReportSubmissionOutcome(event, { draftRef, artifactStore, dryRun: false, report })).toBe(true);
+    expect(report).toHaveBeenCalledTimes(1);
+    expect(event.sent).toBeUndefined();
+    await artifactStore.mergeDraft(draftRef, { portalAnswers: event.portalAnswers });
+    expect(store.read(`${BASE}/ai_drafts/current`)!.sent).toEqual(sent);
   });
 });

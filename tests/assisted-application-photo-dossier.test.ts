@@ -51,6 +51,7 @@ const tailoredCv = (extra: Record<string, any> = {}) => ({
 
 function fakeBucket() {
   const files = new Map<string, Buffer>();
+  const metadata = new Map<string, any>();
   const bucket = {
     files,
     // Set by a test to act while a request is between its rebuild (the object just stored) and its commit.
@@ -60,13 +61,14 @@ function fakeBucket() {
     // Storage refusing every delete.
     failDeletes: false,
     file: (key: string) => ({
-      save: async (buffer: Buffer) => { files.set(key, Buffer.from(buffer)); await bucket.afterSave?.(key); },
+      save: async (buffer: Buffer, options: any = {}) => { files.set(key, Buffer.from(buffer)); metadata.set(key, { generation: '1', metadata: options.metadata?.metadata || {} }); await bucket.afterSave?.(key); },
+      getMetadata: async () => { if (!files.has(key)) throw Object.assign(new Error('missing'), { code: 404 }); return [metadata.get(key) || { generation: '1', metadata: {} }]; },
       download: async () => {
         await bucket.beforeDownload?.(key);
         if (!files.has(key)) throw Object.assign(new Error('missing'), { code: 404 });
         return [files.get(key)];
       },
-      delete: async () => { if (bucket.failDeletes) throw new Error('storage unavailable'); files.delete(key); },
+      delete: async () => { if (bucket.failDeletes) throw new Error('storage unavailable'); files.delete(key); metadata.delete(key); },
     }),
   };
   return bucket;
@@ -87,7 +89,7 @@ const sentCvHasPhoto = async () => pdfPaintsImage((await chooseCv({ draft: draft
 
 function seed(draftExtra: Record<string, any> = {}) {
   store = createMemoryFirestore({
-    [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital', locale: 'de', applicantName: 'Maria Rossi', applicantPhone: '+41 79 123 45 67' },
+    [BASE]: { cvUploadedAt: T0, paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Pflegefachperson HF', companyName: 'Spital', locale: 'de', applicantName: 'Maria Rossi', applicantPhone: '+41 79 123 45 67' },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [] },
     [`${BASE}/ai_drafts/current`]: {
       status: 'ready', round: 1, language: 'de', profile, job: { title: 'Pflegefachperson HF' },

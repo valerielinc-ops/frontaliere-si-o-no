@@ -12,6 +12,7 @@ const deleteFileMock = vi.fn(async () => {});
 function docRef(id: string) {
   return {
     id,
+    async get() { return { exists: Object.hasOwn(orders, id), data: () => orders[id] }; },
     async set(data: Record<string, unknown>, options?: { merge?: boolean }) {
       orders[id] = options?.merge ? { ...(orders[id] || {}), ...data } : data;
     },
@@ -20,8 +21,9 @@ function docRef(id: string) {
 
 const firestore = Object.assign(
   () => ({
+    runTransaction: async (callback: any) => callback({ get: (ref: any) => ref.get(), set: (ref: any, patch: any, options: any) => ref.set(patch, options) }),
     collection: () => ({
-      where: (field: string, _operator: string, cutoff: { millis: number }) => {
+      where: (field: string, operator: string, cutoff: any) => {
         let cursorId: string | null = null;
         let pageSize = Number.POSITIVE_INFINITY;
         const query = {
@@ -37,6 +39,7 @@ const firestore = Object.assign(
           async get() {
             const ids = Object.keys(orders)
               .filter((id) => {
+                if (operator === '==') return orders[id][field] === cutoff;
                 const value = orders[id][field] as { toMillis?: () => number } | undefined;
                 return typeof value?.toMillis === 'function' && value.toMillis() < cutoff.millis;
               })
@@ -95,6 +98,7 @@ async function load() {
 }
 
 beforeEach(() => {
+  deleteFileMock.mockReset(); deleteFileMock.mockResolvedValue(undefined);
   orders = {
     submitted_old: {
       submissionStatus: 'ready_for_manual_submission',
@@ -143,6 +147,14 @@ beforeEach(() => {
 });
 
 describe('purgeExpiredAssistedApplicationFiles', () => {
+  it('persists the server embargo before deleting the first object', async () => {
+    deleteFileMock.mockImplementation(async (key: string) => {
+      const id = key.split('/')[1]; expect(orders[id].retentionPurgingAt).toBe('__server_timestamp__');
+    });
+    const { purgeExpiredAssistedApplicationFiles } = await load();
+    await purgeExpiredAssistedApplicationFiles(90, NOW);
+    expect(deleteFileMock).toHaveBeenCalled();
+  });
   it('is wired to a daily Cloud Scheduler function', () => {
     expect(functionsIndexSource).toContain("export const purgeAssistedApplicationFiles = onSchedule(");
     expect(functionsIndexSource).toContain("schedule: 'every 24 hours'");

@@ -12,54 +12,15 @@ import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATIONS_COLLECTION, FOLLOWUP_DOC_ID, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { SUBMISSION_DOC_ID } from './assistedApplicationSubmissionGuard.js';
+import { artifactKeyForOrder, cleanupPendingArtifacts } from './lib/assistedApplicationArtifactRetention.js';
+import { cleanupExpiredInitialCvArtifacts } from './lib/assistedApplicationInitialCvIngress.js';
 
-export const ASSISTED_APPLICATION_RETENTION_DAYS = 90;
+import { ASSISTED_APPLICATION_RETENTION_DAYS, timestampMillis, retentionAnchor } from './lib/assistedApplicationRetentionPolicy.js';
+export { ASSISTED_APPLICATION_RETENTION_DAYS, retentionPurgeDueAt, talentPoolConsentActive } from './lib/assistedApplicationRetentionPolicy.js';
 
 const ASSISTED_STORAGE_PREFIX = 'assisted-application-uploads/';
 const RETENTION_PAGE_SIZE = 500;
 const STORAGE_BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
-
-function timestampMillis(value) {
-  if (value && typeof value.toMillis === 'function') {
-    const result = value.toMillis();
-    return Number.isFinite(result) ? result : null;
-  }
-  if (value instanceof Date) return Number.isFinite(value.getTime()) ? value.getTime() : null;
-  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
-  return null;
-}
-
-function retentionAnchor(order) {
-  if (order?.refundedAt != null) return order.refundedAt;
-  if (order?.submissionStatus === 'ready_for_manual_submission' && order.submittedAt != null) {
-    return order.submittedAt;
-  }
-  return order?.cvUploadedAt ?? null;
-}
-
-/**
- * The order is kept for the talent pool: the consent is given and the purge has not run. The «inviata»
- * link of such an order lasts while this holds (owner decision 2026-10-05, «Fino a fine consenso»).
- * As of 2026-10-05 no code writes `talentPoolConsent`: the consent, its withdrawal and its duration are
- * not modelled yet (one boolean, no end date). Withdrawn = no longer true; the order then falls back to
- * the retention below.
- */
-export function talentPoolConsentActive(order) {
-  return order?.talentPoolConsent === true && order.retentionPurgedAt == null;
-}
-
-/**
- * When the purge below is due to delete the order's files and data (its anchor plus the retention days),
- * or null when it never is (no anchor, the talent pool). The «inviata» e-mail's link to the candidate's
- * documents lasts until then (owner decision 2026-10-03); for the talent pool, as long as the consent
- * (talentPoolConsentActive, owner decision 2026-10-05).
- * @returns {number|null} epoch ms
- */
-export function retentionPurgeDueAt(order, retentionDays = ASSISTED_APPLICATION_RETENTION_DAYS) {
-  if (order?.talentPoolConsent === true) return null;
-  const anchorMillis = timestampMillis(retentionAnchor(order));
-  return anchorMillis === null ? null : anchorMillis + retentionDays * 86400000;
-}
 
 function storageKeyForOrder(orderId, value) {
   const key = String(value || '');
@@ -89,6 +50,19 @@ async function candidateDocs(collection, field, cutoff) {
   return candidates;
 }
 
+async function pendingArtifactOrders(collection) {
+  const out = []; let cursor = null;
+  while (true) {
+    let query = collection.where('artifactCleanupPending', '==', true).orderBy('__name__').limit(RETENTION_PAGE_SIZE);
+    if (cursor) query = query.startAfter(cursor);
+    const page = await query.get(); const docs = page.docs || []; out.push(...docs);
+    if (docs.length < RETENTION_PAGE_SIZE) return out;
+    const next = docs[docs.length - 1];
+    if (!next || next.id === cursor?.id) throw new Error('artifact_cleanup_cursor_stalled');
+    cursor = next;
+  }
+}
+
 /**
  * The automated flow (assistedApplicationAutomation.js) adds more personal
  * data next to the CV: generated cover letters and encrypted run evidence in
@@ -97,11 +71,13 @@ async function candidateDocs(collection, field, cutoff) {
  * the candidate's e-mails (assistedApplicationEmailEvents.js). They share the
  * CV's retention: the whole order folder and those documents go with it.
  */
-async function purgeAutomationData(bucket, orderRef, orderId) {
+async function purgeAutomationData(bucket, orderRef, orderId, db, order, nowMs) {
   if (typeof bucket.deleteFiles === 'function') {
     await bucket.deleteFiles({ prefix: `${ASSISTED_STORAGE_PREFIX}${orderId}/` });
   }
   if (typeof orderRef?.collection !== 'function') return;
+  const execution = orderRef.collection('automation').doc('execution');
+  if ((await execution.get()).exists) await execution.set({ artifacts: null }, { merge: true });
   for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake'], ['automation', PORTAL_ACCOUNTS_DOC_ID], ['automation', FOLLOWUP_DOC_ID]]) {
     await orderRef.collection(collection).doc(id).delete();
   }
@@ -109,6 +85,9 @@ async function purgeAutomationData(bucket, orderRef, orderId) {
     const docs = await orderRef.collection(name).get();
     for (const doc of docs.docs || []) await doc.ref.delete();
   }
+  // This copy follows the source order's consent and retention window as well.
+  const { purgeCandidateAnswerEvidence } = await import('./assistedApplicationAnswerEvidence.js');
+  await purgeCandidateAnswerEvidence({ db, userId: order.userId, orderId, nowMs });
 }
 
 /**
@@ -128,10 +107,11 @@ export async function purgeExpiredAssistedApplicationFiles(
   const cutoffMillis = nowMs - retentionDays * 86400000;
   const cutoff = Timestamp.fromMillis(cutoffMillis);
   const collection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
-  const [submittedDocs, refundedDocs, uploadedDocs] = await Promise.all([
+  const [submittedDocs, refundedDocs, uploadedDocs, pendingDocs] = await Promise.all([
     candidateDocs(collection, 'submittedAt', cutoff),
     candidateDocs(collection, 'refundedAt', cutoff),
     candidateDocs(collection, 'cvUploadedAt', cutoff),
+    pendingArtifactOrders(collection),
   ]);
 
   const candidates = new Map();
@@ -139,6 +119,7 @@ export async function purgeExpiredAssistedApplicationFiles(
     ...submittedDocs,
     ...refundedDocs,
     ...uploadedDocs,
+    ...pendingDocs,
   ]) {
     candidates.set(snapshot.id, snapshot);
   }
@@ -149,7 +130,25 @@ export async function purgeExpiredAssistedApplicationFiles(
   let failed = 0;
 
   for (const snapshot of candidates.values()) {
-    const order = snapshot.data() || {};
+    let order = snapshot.data() || {};
+    // First-upload operations have no CV anchor yet. Revisit their technical
+    // reservations before the normal 90-day eligibility test, without an order embargo.
+    if (order.artifactCleanupPending) {
+      try {
+        await cleanupExpiredInitialCvArtifacts({ db: firestore, bucket, orderRef: snapshot.ref, nowMs });
+        order = (await snapshot.ref.get()).data() || {};
+      } catch { failed += 1; continue; }
+    }
+    if (order.retentionPurgedAt || order.retentionPayloadPurgedAt) {
+      if (order.artifactCleanupPending) {
+        try {
+          const cleanup = await cleanupPendingArtifacts({ db: firestore, bucket, orderRef: snapshot.ref });
+          if (!cleanup.pending && !order.retentionPurgedAt) await snapshot.ref.set({ retentionPurgedAt: FieldValue.serverTimestamp(), artifactCleanupPending: false }, { merge: true });
+        }
+        catch { failed += 1; }
+      }
+      continue;
+    }
     const anchorMillis = timestampMillis(retentionAnchor(order));
     if (order.talentPoolConsent === true || anchorMillis === null || anchorMillis >= cutoffMillis) {
       skipped += 1;
@@ -172,10 +171,22 @@ export async function purgeExpiredAssistedApplicationFiles(
       continue;
     }
     try {
-      for (const key of keys) {
+      const admitted = await firestore.runTransaction(async transaction => {
+        const fresh = await transaction.get(snapshot.ref); const current = fresh.data() || {};
+        const anchor = timestampMillis(retentionAnchor(current));
+        if (!fresh.exists || current.retentionPurgedAt || current.talentPoolConsent === true || anchor === null || anchor >= cutoffMillis) return null;
+        const currentKeys = [current.cvStorageKey, current.coverLetterStorageKey].map(value => String(value || '').trim()).filter(Boolean);
+        if (!currentKeys.every(key => artifactKeyForOrder(snapshot.id, key))) throw new Error('artifact_retention_key_invalid');
+        transaction.set(snapshot.ref, { retentionPurgingAt: FieldValue.serverTimestamp(), automationDueAt: null, followupDueAt: null }, { merge: true });
+        return { order: current, keys: currentKeys };
+      });
+      if (!admitted) { skipped += 1; continue; }
+      order = admitted.order;
+      for (const key of admitted.keys) {
         await bucket.file(key).delete({ ignoreNotFound: true });
       }
-      await purgeAutomationData(bucket, snapshot.ref, snapshot.id);
+      await purgeAutomationData(bucket, snapshot.ref, snapshot.id, firestore, order, nowMs);
+      const cleanup = await cleanupPendingArtifacts({ db: firestore, bucket, orderRef: snapshot.ref });
       if (order.candidateAlias?.address) {
         const { removeOrderAlias } = await import('./assistedApplicationAlias.js');
         await removeOrderAlias({ db: firestore, order });
@@ -193,7 +204,9 @@ export async function purgeExpiredAssistedApplicationFiles(
         employerReplies: 0,
         lastEmployerReplyAt: null,
         lastEmployerReplyCategory: null,
-        retentionPurgedAt: FieldValue.serverTimestamp(),
+        retentionPayloadPurgedAt: FieldValue.serverTimestamp(),
+        retentionPurgedAt: cleanup.pending ? null : FieldValue.serverTimestamp(),
+        artifactCleanupPending: cleanup.pending,
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
       purged += 1;

@@ -46,8 +46,19 @@ describe('draft failures', () => {
     expect(real.flow.state).toBe('owner_takeover');
   });
 
+  it('retries an uncertain qualification technically with the existing attempt cap', () => {
+    const current = { state: 'drafting', round: 1, dispatch: { mode: 'draft', round: 1, attempts: 1 } };
+    const event = { type: 'draft_failed', error: 'evidence_entailment_unverified' };
+    const retry = transition(current, event, { draft: cleanDraft, nowMs: T0 });
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: 2 }]);
+    expect(retry.flow.heldBy || []).not.toContain('candidate');
+    const last = transition({ ...current, dispatch: { ...current.dispatch, attempts: MAX_RUN_ATTEMPTS } }, event, { draft: cleanDraft, nowMs: T0 });
+    expect(last.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['draft_failed'] });
+    expect(last.effects.some(effect => effect.type === 'dispatch')).toBe(false);
+  });
+
   it('knows which errors another run can fix', () => {
-    for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded']) {
+    for (const error of [brokerError, 'evidence_entailment_unverified', 'evidence_source_changed', 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded']) {
       expect(isTransientRunError(error)).toBe(true);
     }
     // runner_timeout: the watchdog already re-dispatched the silent run.
@@ -197,6 +208,16 @@ describe('approval flow', () => {
     expect(transition(step.flow, { type: 'owner_approve' }, { draft: flagged, nowMs: T0 }).ignored).toBe('not_owner_review');
     step = transition(step.flow, { type: 'draft_ready' }, { draft: cleanDraft, nowMs: T0 });
     expect(step.flow).toMatchObject({ state: 'candidate_review', factRepairAttempts: 1 });
+  });
+
+  it('regenerates an unbound legacy evidence draft with the existing repair cap and a fresh review round', () => {
+    const old = { state: 'submitting', round: 2, shownRounds: [1, 2], dispatch: { mode: 'submit', round: 2 } };
+    const event = { type: 'submit_failed', error: 'evidence_source_unbound' };
+    const step = transition(old, event, { draft: { ...cleanDraft, round: 2 }, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'regenerating', round: 3, factRepairAttempts: 1 });
+    expect(step.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'fact_repair' }]);
+    expect(transition({ ...old, factRepairAttempts: MAX_RUN_ATTEMPTS }, event, { draft: cleanDraft, nowMs: T0 }).flow)
+      .toMatchObject({ state: 'owner_takeover', heldBy: ['fact_repair_failed'] });
   });
 
   it('recovers legacy fact holds and requires a fresh review when the old draft was shown', () => {

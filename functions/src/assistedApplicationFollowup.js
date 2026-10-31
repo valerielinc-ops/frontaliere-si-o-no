@@ -20,6 +20,7 @@
  */
 
 import { ASSISTED_APPLICATIONS_COLLECTION, FOLLOWUP_DOC_ID } from './assistedApplicationConstants.js';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 
 export const DAY_MS = 24 * 60 * 60 * 1000;
 export const FOLLOWUP_DAYS = [7, 14];
@@ -42,39 +43,40 @@ export function followupDueAt(submittedAt, n) {
  * Called by the runner when the e-mail application left: follow-up 1 at day 7.
  * The order mirrors the next due time (`followupDueAt`) for the sweep's query.
  */
-export async function scheduleFollowups(db, orderId, { to, subject, messageId, sentAt }) {
+export async function scheduleFollowups(db, orderId, { to, subject, messageId, sentAt, round = null }, nowMs = Date.now()) {
+  const startedAt = Date.now();
   const ref = followupRefFor(db, orderId);
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const dueAt = followupDueAt(sentAt, 1);
-  let created = false;
-  let existingDueAt = null;
-  // Once per submission: a replayed "sent" event (the submission guard hands
-  // back the record of the first send) keeps the follow-ups already running,
-  // their counter and history, and never schedules the first one again.
-  await db.runTransaction(async (transaction) => {
-    created = false;
-    existingDueAt = null;
-    const current = (await transaction.get(ref)).data();
-    if (current) {
-      existingDueAt = current.dueAt ?? null;
-      return;
-    }
-    transaction.set(ref, {
-      state: 'scheduled',
-      to: String(to || '').slice(0, 320),
-      subject: String(subject || '').slice(0, 300),
-      messageId: String(messageId || '').slice(0, 300),
-      submittedAt: sentAt,
-      sent: 0,
-      dueAt,
-      pending: null,
-      stopReason: null,
-      history: [{ at: sentAt, event: 'scheduled' }],
-    });
-    created = true;
+  const expectedRound = round == null ? null : Number(round);
+  if (expectedRound !== null && (!Number.isInteger(expectedRound) || expectedRound < 1)) return null;
+  // Replays keep the existing cadence, counter and history. Both new writes
+  // share the same retained order/round read and cannot restore a purged order.
+  return db.runTransaction(async transaction => {
+    const [orderDoc, currentDoc, flowDoc] = await Promise.all([
+      transaction.get(orderRef), transaction.get(ref),
+      expectedRound === null ? Promise.resolve(null) : transaction.get(orderRef.collection('automation').doc('flow')),
+    ]);
+    const current = currentDoc.data();
+    const scheduled = current ? null : {
+      state: 'scheduled', to: String(to || '').slice(0, 320), subject: String(subject || '').slice(0, 300),
+      messageId: String(messageId || '').slice(0, 300), submittedAt: sentAt, sent: 0, dueAt,
+      pending: null, stopReason: null, history: [{ at: sentAt, event: 'scheduled' }],
+      ...(expectedRound === null ? {} : { round: expectedRound }),
+    };
+    const order = orderDoc.data();
+    const roundMatches = expectedRound === null || Number(flowDoc?.data()?.round) === expectedRound
+      && (current?.round == null || Number(current.round) === expectedRound);
+    const refunded = order?.refundedAt != null || order?.paymentStatus === 'refunded'
+      || ['pending', 'completed', 'succeeded', 'refunded'].includes(order?.refundStatus);
+    // This is the final clock after every awaited read and material conversion.
+    const now = nowMs + Math.max(0, Date.now() - startedAt);
+    if (!orderDoc.exists || !roundMatches || refunded || !assistedApplicationRetained(order, now)) return null;
+    if (current) return current.dueAt ?? null;
+    transaction.set(ref, scheduled);
+    transaction.set(orderRef, { followupDueAt: dueAt }, { merge: true });
+    return dueAt;
   });
-  if (!created) return existingDueAt;
-  await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).set({ followupDueAt: dueAt }, { merge: true });
-  return dueAt;
 }
 
 // A message is stored first and classified by the inbound trigger afterwards.

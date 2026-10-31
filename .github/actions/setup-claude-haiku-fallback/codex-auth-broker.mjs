@@ -47,6 +47,8 @@ import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
+import { brokerPermissionConfig as permissionConfig } from './broker-permissions.mjs';
+import { prepareConciergeTools, resolvePinnedCodexNative, FUNCTION_PROFILE_DISABLED_FEATURES } from './concierge-tools.mjs';
 import {
   CODEX_FALLBACK_EFFORT,
   CODEX_FALLBACK_MODEL,
@@ -58,7 +60,6 @@ const CODEX_EFFORT = CODEX_FALLBACK_EFFORT;
 // existing text lanes. Image generation passes its explicitly attested CLI
 // version without changing that default.
 const CODEX_CLI_VERSION = argument('--codex-cli-version', '0.153.4');
-const CODEX_PROFILE = 'codex-luna-max';
 const MAX_REQUEST_BYTES = 1024 * 1024;
 const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 const MAX_AUTH_BYTES = 256 * 1024;
@@ -86,12 +87,8 @@ const LOGIN_ACCESS_TOKEN_MIN_REMAINING_MS = MAX_TIMEOUT_MS + 30 * 60 * 1000;
 // spente sono i tool dell'agente; tutte esistono nella 0.153.4 pinnata e
 // `--strict-config` rifiuta una feature o una chiave sconosciuta.
 const FUNCTION_PROFILE_INSTRUCTIONS = 'You are a stateless text-processing function called by a batch job. Read the request, produce the requested output directly, and never use tools, run commands or ask questions.\n';
-const FUNCTION_PROFILE_DISABLED_FEATURES = Object.freeze([
-  'shell_tool', 'unified_exec', 'multi_agent', 'image_generation', 'browser_use',
-  'computer_use', 'apps', 'plugins', 'view_image', 'goals', 'sleep_tool',
-  'tool_suggest', 'skill_search',
-]);
 const REQUEST_PROFILES = new Set(['agent', 'function']);
+const conciergeJsonOnly = process.argv.includes('--concierge-json-only');
 const MAX_STDERR_TAIL_CHARS = 16 * 1024;
 // Sta nei 300 caratteri dell'errore che il broker restituisce, dopo il suo prefisso.
 const MAX_FAILURE_REASON_CHARS = 200;
@@ -162,35 +159,18 @@ function validateSocketParent() {
   }
 }
 
-// Niente regola ":slash_tmp", a differenza di claude-codex-fallback/action.yml:
-// li' workspace, CODEX_HOME e TMPDIR stanno sotto RUNNER_TEMP, qui runCodex()
-// li costruisce sotto os.tmpdir(), cioe' /tmp (il broker parte con `env -i`).
-// Negare /tmp negava la radice del workspace stesso e, insieme a ":tmpdir",
-// bwrap non poteva montare TMPDIR dentro un /tmp in sola lettura: nel gemello
-// del corpus ogni richiesta moriva prima del modello ("Codex CLI exited with
-// code 1", frontaliere-articles run 36001495484). ":root" = "deny" nasconde gia'
-// il resto di /tmp: con `codex sandbox` 0.153.4 il workspace resta leggibile,
-// auth.json, config.toml e gli altri file di /tmp no, e TMPDIR resta negato.
-function permissionConfig() {
-  return `default_permissions = "${CODEX_PROFILE}"
-
-[permissions.${CODEX_PROFILE}]
-description = "Read-only Codex primary in an empty temporary workspace"
-extends = ":read-only"
-
-[permissions.${CODEX_PROFILE}.network]
-enabled = false
-
-[permissions.${CODEX_PROFILE}.filesystem]
-":root" = "deny"
-":minimal" = "read"
-":tmpdir" = "deny"
-
-[permissions.${CODEX_PROFILE}.filesystem.":workspace_roots"]
-"." = "read"
-`;
+// Linux keeps its proven bwrap layout. Darwin :minimal permits scratch by
+// default, so the shared permission helper denies scratch globs and all real
+// request/auth trees live under the attested private cache prefix instead.
+function runtimeParent() {
+  if (process.platform !== 'darwin') return os.tmpdir();
+  if (!codexCliPrefix) throw new Error('Darwin broker runtime prefix missing');
+  const root = fs.realpathSync(codexCliPrefix);
+  if (['/tmp', '/private/tmp', '/var/tmp', '/private/var/tmp'].some(value => root === value || root.startsWith(`${value}/`))) {
+    throw new Error('Darwin broker runtime cannot live in scratch');
+  }
+  return root;
 }
-
 function childEnv(codexHome, codexTmp) {
   const env = {
     PATH: safePath(),
@@ -251,6 +231,7 @@ function assertOutsideWorkspace(target, label) {
  * reports the pinned version without inheriting credentials.
  */
 function validateCodexCli() {
+  if (conciergeJsonOnly && CODEX_CLI_VERSION !== '0.153.4') throw new Error('Concierge JSON requires its attested catalogue pin');
   if (!path.isAbsolute(codexCliArgument) || !path.isAbsolute(codexCliRealpathArgument) || !path.isAbsolute(codexCliPrefixArgument)) {
     throw new Error('Codex CLI requires absolute --codex-bin, --codex-realpath, and --codex-prefix');
   }
@@ -273,6 +254,7 @@ function validateCodexCli() {
     throw new Error('Codex CLI path must be a real file, not a symlink');
   }
   const cli = fs.realpathSync(codexCliArgument);
+  if (conciergeJsonOnly && cli !== resolvePinnedCodexNative(prefix)) throw new Error('Concierge JSON requires the attested native executable');
   const expectedCli = fs.realpathSync(codexCliRealpathArgument);
   if (cli !== expectedCli) throw new Error('Codex CLI realpath attestation does not match');
   const relative = path.relative(prefix, cli);
@@ -400,7 +382,7 @@ function readUsableAuth(authPath) {
  */
 function prepareAuthHome(credential) {
   if (!authHome) {
-    const home = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-auth-'));
+    const home = fs.mkdtempSync(path.join(runtimeParent(), 'codex-luna-max-auth-'));
     authHome = home;
     fs.chmodSync(home, 0o700);
   }
@@ -490,7 +472,7 @@ function removeAuthHome() {
 function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = 'agent', imageGeneration = false, imagePath = '', imageOutputPath = '', onSpawn, job }) {
   // Per-request tree: workspace, TMPDIR and the output files. The login lives
   // in the per-job home instead (prepareAuthHome), outside this tree.
-  const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-broker-'));
+  const runtimeRoot = fs.mkdtempSync(path.join(runtimeParent(), 'codex-luna-max-broker-'));
   const codexWorkspace = path.join(runtimeRoot, 'workspace');
   const codexTmp = path.join(runtimeRoot, 'tmp');
   const codexOut = path.join(runtimeRoot, 'out');
@@ -573,6 +555,8 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
           ...FUNCTION_PROFILE_DISABLED_FEATURES.flatMap((feature) => ['--disable', feature]),
         );
       }
+      const conciergeTools = conciergeJsonOnly ? prepareConciergeTools(runtimeRoot, CODEX_MODEL) : null;
+      if (conciergeTools) args.push(...conciergeTools.args);
       assertPrivateRuntime(
         runtimeRoot,
         [codexWorkspace, codexTmp, codexOut],
@@ -584,6 +568,7 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
         throw new Error('Codex CLI changed after attestation');
       }
       const imageGenerationStartedAt = Date.now();
+      conciergeTools?.assert();
       child = spawn(codexCliPath, args, {
         stdio: ['pipe', 'ignore', 'pipe'],
         env: childEnv(codexHome, codexTmp),
@@ -669,6 +654,8 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
 function validateRequest(request) {
   if (request?.op === 'cleanup') return '';
   if (!request || request.op !== 'exec') return 'unsupported request';
+  if (conciergeJsonOnly && (request.profile !== 'function' || !request.schema || Array.isArray(request.schema)
+    || request.imageGeneration || request.imagePath || request.imageOutputPath)) return 'concierge JSON-only request required';
   if (typeof request.prompt !== 'string' || !request.prompt.trim()) return 'prompt is required';
   const timeoutMs = Number(request.timeoutMs);
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0 || timeoutMs > MAX_TIMEOUT_MS) return 'invalid timeout';

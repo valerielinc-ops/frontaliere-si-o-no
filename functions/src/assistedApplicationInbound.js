@@ -23,18 +23,24 @@
  */
 
 import { employerResponseOf, loadEmployerResponse, mergeEmployerResponse } from './assistedApplicationEmployerResponse.js';
-import { randomUUID, timingSafeEqual } from 'node:crypto';
+import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { sameSite } from './assistedApplicationPortalSites.js';
-import { orderIdForAlias } from './assistedApplicationAlias.js';
+import { ALIASES_COLLECTION, ALIAS_DOMAIN, aliasLocalPart, orderIdForAlias } from './assistedApplicationAlias.js';
 import { confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
 import { decryptJson, encryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
-import { addressOf, parseMimeMessage } from './lib/mimeMessage.js';
+import { addressOf, parseMimeMessage, senderAuthenticated } from './lib/mimeMessage.js';
+import { handleAssistedApplicationEmailCv } from './assistedApplicationEmailCv.js';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
+import { deleteOwnedArtifactGeneration, retainedArtifactStore } from './lib/assistedApplicationArtifactRetention.js';
+import { isUnconfirmedSubmission, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
+import { submissionAttemptHash, submissionEmailHandoff, submissionEmployerAckProof, submissionSlotHash } from './lib/submissionReceiptContract.js';
+import { qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 
 export const INBOUND_CATEGORIES = [
   'interview_invite', 'rejection', 'documents_request', 'question', 'assessment',
@@ -185,6 +191,14 @@ function secretsMatch(expected, provided) {
   return left.length > 0 && left.length === right.length && timingSafeEqual(left, right);
 }
 
+// `nowMs` remains an injectable starting clock, never a deadline frozen across
+// a storage, model, mail-provider or retried-transaction await.
+function currentClock({ nowMs, now } = {}) {
+  if (typeof now === 'function') return now;
+  const start = Date.now();
+  return nowMs == null ? Date.now : () => Number(nowMs) + Math.max(0, Date.now() - start);
+}
+
 /**
  * Step 1, HTTP from the Email Worker: accept the message durably and answer at
  * once — the raw message stored encrypted, an inbox document `received`. The
@@ -197,6 +211,8 @@ function secretsMatch(expected, provided) {
  * @param {{db, bucket, secret:string, runKey:string, nowMs?:number}} deps
  */
 export async function handleAssistedApplicationInbound(req, deps) {
+  const now = currentClock(deps);
+  const operationStartedAt = deps.operationStartedAt ?? now();
   if (String(req.method || '').toUpperCase() !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   if (!secretsMatch(deps.secret, req.get?.('x-stop-secret'))) return { status: 403, body: { ok: false, error: 'forbidden' } };
   const raw = Buffer.isBuffer(req.rawBody) ? req.rawBody : Buffer.from(typeof req.body === 'string' ? req.body : '');
@@ -206,19 +222,114 @@ export async function handleAssistedApplicationInbound(req, deps) {
   const orderId = await orderIdForAlias(deps.db, envelopeTo);
   if (!orderId) return { status: 200, body: { ok: true, matched: false, reason: 'unknown_alias' } };
   const orderRef = deps.db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
-
-  const nowMs = deps.nowMs || Date.now();
+  const alias = aliasLocalPart(envelopeTo);
+  const aliasRef = deps.db.collection(ALIASES_COLLECTION).doc(alias);
+  const initialOrder = await orderRef.get();
+  if (!initialOrder.exists) return { status: 200, body: { ok: true, matched: false, reason: 'order_missing' } };
+  // The candidate may send their first CV to the order alias. The dedicated
+  // receiver checks the original authenticated sender, payment and flag; it
+  // selects this exact order and does not create a retained employer inbox.
+  if (!initialOrder.data()?.cvStorageKey && typeof deps.isEnabled === 'function') {
+    return handleAssistedApplicationEmailCv(req, { ...deps, now, expectedOrderId: orderId, operationStartedAt });
+  }
+  if (!assistedApplicationRetained(initialOrder.data(), now())) return { status: 200, body: { ok: true, matched: false, reason: 'retention_closed' } };
+  const nowMs = now();
   const messageId = `${nowMs}-${randomUUID().slice(0, 8)}`;
   const rawKey = `assisted-application-uploads/${orderId}/inbox-${messageId}.eml.json.enc`;
-  await deps.bucket.file(rawKey).save(JSON.stringify(encryptJson({ raw: raw.toString('base64') }, runKeyFrom(deps.runKey))), {
+  const artifacts = retainedArtifactStore({ db: deps.db, bucket: deps.bucket, orderId, now });
+  if (!await artifacts.save(rawKey, JSON.stringify(encryptJson({ raw: raw.toString('base64') }, runKeyFrom(deps.runKey))), {
     contentType: 'application/octet-stream',
     resumable: false,
+  })) return { status: 200, body: { ok: true, matched: false, reason: 'retention_closed' } };
+  const published = await deps.db.runTransaction(async transaction => {
+    const [order, mapping] = await Promise.all([transaction.get(orderRef), transaction.get(aliasRef)]);
+    if (!order.exists || mapping.data()?.orderId !== orderId || !assistedApplicationRetained(order.data(), now())) return false;
+    transaction.set(orderRef.collection('inbox').doc(messageId), {
+      receivedAt: nowMs, status: 'received', rawKey, envelopeAlias: alias,
+      rawSha256: createHash('sha256').update(raw).digest('hex'),
+    });
+    return true;
   });
-  await orderRef.collection('inbox').doc(messageId).set({ receivedAt: nowMs, status: 'received', rawKey });
+  if (!published) {
+    const owned = artifacts.savedArtifact(rawKey);
+    if (owned) await deleteOwnedArtifactGeneration(deps.bucket.file(rawKey), owned.generation);
+    return { status: 200, body: { ok: true, matched: false, reason: 'retention_closed' } };
+  }
   return { status: 200, body: { ok: true, matched: true, accepted: messageId } };
 }
 
 const PROCESSING_STALE_MS = 10 * 60 * 1000;
+
+/** Message-IDs are opaque, case-sensitive values; never match a substring. */
+function replyMessageIds(headers) {
+  const values = headers.filter(([key]) => ['in-reply-to', 'references'].includes(key)).map(([, value]) => String(value));
+  if (values.length > 4 || values.reduce((length, value) => length + value.length, 0) > 4096) return [];
+  const ids = values.flatMap(value => value.match(/<[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9.-]+>/g) || []);
+  return ids.length <= 32 && ids.every(id => id.length <= 254) ? [...new Set(ids)] : [];
+}
+
+/**
+ * A private capability built only from MIME bytes this handler actually read.
+ * A category, an alias and the employer's receipt wording cannot grant it.
+ * Older attempts without a recorded outbound thread AND historical slot stay
+ * uncertain; the employer message is still shown and forwarded normally.
+ */
+export function employerReceiptAuthority({ db, orderId, messageId, claimed, message, rawBytes }) {
+  const receiptSource = structuredClone({ receivedAt: claimed?.receivedAt, rawKey: claimed?.rawKey,
+    rawSha256: claimed?.rawSha256, envelopeAlias: claimed?.envelopeAlias });
+  const rawSha256 = createHash('sha256').update(rawBytes).digest('hex');
+  const sender = addressOf(message.from);
+  const senderDomain = sender.split('@')[1] || '';
+  const references = replyMessageIds(message.headers);
+  const applicationReceipt = APPLICATION_RECEIVED_RE.test(`${message.subject}\n${message.text}`.slice(0, 20_000));
+  const autoReply = message.headers.some(([key, value]) => key === 'auto-submitted' && /auto-replied/i.test(value));
+  const alias = aliasLocalPart(`${receiptSource.envelopeAlias}@${ALIAS_DOMAIN}`);
+  if (!alias || receiptSource.rawSha256 !== rawSha256 || !Number.isFinite(receiptSource.receivedAt) || receiptSource.receivedAt <= 0
+    || !senderAuthenticated(message.headers, sender) || !references.length || !applicationReceipt || autoReply) return null;
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  const inboxRef = orderRef.collection('inbox').doc(messageId);
+  const aliasRef = db.collection(ALIASES_COLLECTION).doc(alias);
+  return async ({ record, round }) => {
+    record = structuredClone(record);
+    if (!Number.isInteger(round) || round < 1 || record?.channel !== 'email' || !isUnconfirmedSubmission(record)) return null;
+    const leftAt = submissionLeftAt(record);
+    const modern = Object.hasOwn(record, 'attemptId');
+    if (modern && !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(record.attemptId || '')) return null;
+    const source = submissionEmailHandoff(record.emailHandoff || (!modern && { messageId: record.messageId, recipient: record.to, slotHash: record.slotHash }));
+    if (!source) return null;
+    const outboundId = source.messageId;
+    const recipient = addressOf(source.recipient);
+    if (!Number.isFinite(leftAt) || leftAt <= 0 || receiptSource.receivedAt < leftAt || !recipient
+      || recipient.split('@')[1] !== senderDomain || !references.includes(outboundId)) return null;
+    const frameRef = modern ? orderRef.collection('submission_receipts').doc(submissionAttemptHash(record.attemptId)) : null;
+    const [snapshot, frame] = await Promise.all([orderRef.get(), frameRef?.get()]);
+    if (!snapshot.exists || submissionSlotHash({ orderId, order: snapshot.data() }) !== source.slotHash) return null;
+    const emailHandoffHash = qualificationCounterContextHash(source);
+    if (modern && (!frame?.exists || frame.data()?.round !== round || frame.data()?.emailHandoffHash !== emailHandoffHash)) return null;
+    const frameHash = modern ? qualificationCounterContextHash(frame.data()) : null;
+    const normalizedProof = submissionEmployerAckProof({ orderId, round, channel: record.channel, leftAt,
+      recordHash: qualificationCounterContextHash(record), messageId, providerReceivedAt: receiptSource.receivedAt, slotHash: source.slotHash });
+    if (!normalizedProof) return null;
+    const proof = Object.freeze(normalizedProof);
+    return Object.freeze({ kind: modern ? 'employer_ack' : 'legacy_employer_ack', proof,
+      ...(modern ? { attemptId: record.attemptId, leftAt } : {}),
+      async assertInTransaction(transaction) {
+        const [inbox, mapping, order, currentFrame] = await Promise.all([
+          transaction.get(inboxRef), transaction.get(aliasRef), transaction.get(orderRef),
+          frameRef ? transaction.get(frameRef) : null,
+        ]);
+        const current = inbox.data();
+        if (!inbox.exists || current?.rawSha256 !== rawSha256 || current.envelopeAlias !== alias
+          || current.receivedAt !== receiptSource.receivedAt || current.rawKey !== receiptSource.rawKey
+          || mapping.data()?.orderId !== orderId || !order.exists
+          || submissionSlotHash({ orderId, order: order.data() }) !== proof.slotHash
+          || (modern && (!currentFrame?.exists || currentFrame.data()?.emailHandoffHash !== emailHandoffHash
+            || qualificationCounterContextHash(currentFrame.data()) !== frameHash))) return null;
+        return proof;
+      },
+    });
+  };
+}
 
 /**
  * A portal account of the order (scripts/assisted-application/lib/portal/
@@ -261,26 +372,47 @@ async function settleSubmission(args) {
  * @param {{db, bucket, orderId:string, messageId:string, runKey:string, classify:Function, sendCascade:Function, runEffect?:Function, nowMs?:number}} deps
  *   runEffect: the automation's effects (assistedApplicationAutomationEffects.js), for the settlement
  */
-export async function processAssistedApplicationInbound({ db, bucket, orderId, messageId, runKey, classify, sendCascade, runEffect = null, nowMs = Date.now() }) {
+export async function processAssistedApplicationInbound({ db, bucket, orderId, messageId, runKey, classify, sendCascade, runEffect = null, nowMs, now: injectedNow }) {
+  const now = currentClock({ nowMs, now: injectedNow });
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const ref = orderRef.collection('inbox').doc(messageId);
   let claimed = null;
   await db.runTransaction(async (transaction) => {
     claimed = null; // reset on every retry of the transaction
-    const current = (await transaction.get(ref)).data();
+    const [messageSnapshot, orderSnapshot] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
+    const current = messageSnapshot.data();
+    if (!orderSnapshot.exists || !assistedApplicationRetained(orderSnapshot.data(), now())) return;
     if (!current || current.processedAt) return;
-    if (current.status === 'processing' && nowMs - Number(current.processingSince || 0) < PROCESSING_STALE_MS) return;
-    transaction.set(ref, { status: 'processing', processingSince: nowMs }, { merge: true });
+    if (current.status === 'processing' && now() - Number(current.processingSince || 0) < PROCESSING_STALE_MS) return;
+    transaction.set(ref, { status: 'processing', processingSince: now() }, { merge: true });
     claimed = current;
   });
   if (!claimed) return { ok: true, skipped: true };
 
+  const retained = async () => {
+    const live = await orderRef.get();
+    return live.exists && assistedApplicationRetained(live.data(), now());
+  };
+  const closed = { ok: true, skipped: true, reason: 'retention_closed' };
+
   try {
     const order = (await orderRef.get()).data() || {};
+    if (!assistedApplicationRetained(order, now())) return closed;
     const previousResponse = await loadEmployerResponse(orderRef, order);
+    if (!await retained()) return closed;
     const [file] = await bucket.file(claimed.rawKey).download();
     const { raw } = decryptJson(JSON.parse(Buffer.from(file).toString('utf8')), runKeyFrom(runKey));
-    const message = parseMimeMessage(Buffer.from(raw, 'base64'));
+    if (!await retained()) return closed;
+    const rawBytes = Buffer.from(raw, 'base64');
+    const message = parseMimeMessage(rawBytes);
+    const createOutcomeAuthority = employerReceiptAuthority({ db, orderId, messageId, claimed, message, rawBytes });
+    const settleObserved = async () => runEffect && createOutcomeAuthority
+      ? settleSubmission({ db, orderId, receivedAt: claimed.receivedAt, createOutcomeAuthority, nowMs: now(), receiptClock: now }) : null;
+    const closedAfterObservation = async () => {
+      const settled = await settleObserved();
+      return { ...closed, ...(settled?.ok ? { submissionConfirmed: true } : {}) };
+    };
+    if (!await retained()) return closedAfterObservation();
     const sender = addressOf(message.from);
     const autoSubmitted = /auto-(generated|replied)/i.test(message.headers.find(([key]) => key === 'auto-submitted')?.[1] || '');
     let classification;
@@ -299,6 +431,8 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       classification = sanitizeClassification({ category: classifyByRules({ ...message, autoSubmitted }) }, message);
     }
 
+    if (!await retained()) return closedAfterObservation();
+
     const to = customerEmailFor(order);
     let forwarded = null;
     // A portal's account verification (a verbatim link or code) is read by the
@@ -307,6 +441,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // that portal's site, or a code. Anything else reaches the candidate.
     const consumedByRunner = classification.category === 'verification'
       && await claimedByPortalAccount(orderRef, classification, sender);
+    if (!await retained()) return closedAfterObservation();
     if (consumedByRunner) forwarded = { status: 'skipped', reason: 'portal_verification' };
     else if (to) {
       const attachments = [];
@@ -341,17 +476,17 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       forwarded = failed.length ? { status: 'failed', error: String(failed[0].error || '').slice(0, 120) } : { status: 'sent', provider: sent[0]?.provider || null };
     }
 
-    await db.runTransaction(async transaction => {
+    const recorded = await db.runTransaction(async transaction => {
       const [currentMessage, currentOrder] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
-      if (!currentMessage.exists || currentMessage.data()?.processedAt) return;
+      if (!currentMessage.exists || currentMessage.data()?.processedAt) return false;
       const liveOrder = currentOrder.data() || {};
-      if (liveOrder.retentionPurgedAt) { transaction.delete(ref); return; }
+      if (!currentOrder.exists || !assistedApplicationRetained(liveOrder, now())) return false;
       const employerResponse = mergeEmployerResponse(mergeEmployerResponse(previousResponse, employerResponseOf(liveOrder)), {
         ...classification, receivedAt: claimed.receivedAt, messageId,
       });
       transaction.set(ref, {
         status: 'processed',
-        processedAt: nowMs,
+        processedAt: now(),
         from: sender,
         subject: String(message.subject || '').slice(0, 300),
         attachments: message.attachments.map((item) => item.filename || 'allegato').slice(0, 20),
@@ -367,9 +502,11 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         } : {}),
         ...(employerResponse ? { employerResponse } : {}),
       }, { merge: true });
+      return true;
     });
+    if (!recorded) return closedAfterObservation();
     const settled = runEffect && RECEIPT_CATEGORIES.has(classification.category)
-      ? await settleSubmission({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
+      ? await settleObserved()
       : null;
     return {
       ok: true,
@@ -380,7 +517,9 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
   } catch (error) {
     // Back to `received`: the trigger's retry processes it again.
     await db.runTransaction(async transaction => {
-      const current = (await transaction.get(ref)).data();
+      const [messageSnapshot, orderSnapshot] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
+      const current = messageSnapshot.data();
+      if (!orderSnapshot.exists || !assistedApplicationRetained(orderSnapshot.data(), now())) return;
       if (current && !current.processedAt) transaction.set(ref, { status: 'received', lastError: (error instanceof Error ? error.message : String(error)).slice(0, 120) }, { merge: true });
     });
     throw error;

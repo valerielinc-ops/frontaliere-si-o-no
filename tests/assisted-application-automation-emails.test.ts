@@ -156,6 +156,28 @@ describe('automation e-mails', () => {
     expect(takeover.text).toContain('rifiutato la bozza per 3 volte');
   });
 
+  it('describes a scheduled infrastructure recovery accurately without promising endless retries', () => {
+    const result = buildOwnerAutomationEmail('owner_takeover', { job: 'Fixture role', company: 'Fixture employer', orderId: 'fixture_order',
+      reason: 'portal:remote_executor_unavailable', portalAutoRetryAt: DEADLINE });
+    expect(result.subject).toContain('Nuovo tentativo automatico previsto');
+    expect(result.text).toContain('il recupero tecnico della candidatura è temporaneamente indisponibile');
+    expect(result.text).toContain(`Riproveremo automaticamente ${formatDeadline(DEADLINE, 'it')}`);
+    expect(result.text).toContain('limiti previsti');
+    expect(result.text).toContain('verificato che non sia già stata inviata');
+    expect(result.text).not.toContain('proseguiranno mentre');
+    expect(result.text).not.toContain('connessione al portale non è riuscita');
+  });
+
+  it('requests verification when no infrastructure retry is scheduled instead of promising another send', () => {
+    const result = buildOwnerAutomationEmail('owner_takeover', { job: 'Fixture role', company: 'Fixture employer', orderId: 'fixture_order',
+      reason: 'portal:remote_executor_unavailable', portalAutoRetryAt: null });
+    expect(result.subject).toContain('Presa in carico necessaria');
+    expect(result.text).toContain('il recupero tecnico della candidatura è temporaneamente indisponibile');
+    expect(result.text).toContain('Non è pianificato un nuovo tentativo automatico');
+    expect(result.text).toContain('controlla eventuali ricevute prima di un altro invio');
+    expect(result.text).not.toContain('Riproveremo automaticamente');
+  });
+
   it('explains a stopped run in words, with the runner error only as a detail', () => {
     // Trial run 2026-09-30, round 2: the e-mail said only the raw English error.
     const error = 'Codex auth broker rejected the request: Codex CLI timed out after 600000ms';

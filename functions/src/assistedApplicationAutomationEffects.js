@@ -1,3 +1,4 @@
+import { submittedOrderFields } from './lib/submittedOrderFields.js';
 /**
  * Side effects of the automated assisted-application flow.
  *
@@ -13,7 +14,7 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { dispatchAgentWorkflow, draftRefFor, orderRefFor } from './assistedApplicationAutomation.js';
+import { applyAutomationEvent, dispatchAgentWorkflow, draftRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { buildCandidateAutomationEmail, buildOwnerAutomationEmail } from './assistedApplicationAutomationEmails.js';
 import {
   buildReviewPageUrl,
@@ -27,7 +28,6 @@ import { fitNoticeOf, fitNoticeWording } from './assistedApplicationFitNotice.js
 import { candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 import { withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 
-const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
 
 function formatPrice(order, locale) {
@@ -151,31 +151,19 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
 
 async function markSubmitted({ db, orderId, effect, flow }) {
   const orderRef = orderRefFor(db, orderId);
-  const via = effect.by === 'candidate' ? 'il candidato dal portale (handoff)'
-    : effect.by === 'owner' ? 'Valerie sul portale, dopo lo stop del robot'
-      : `automazione (${flow.submittedVia || 'invio'})`;
-  const notes = flow.submittedVia === 'whatsapp'
-    ? 'Candidatura via WhatsApp: link e istruzioni inviati al candidato, che la completa dal proprio telefono.'
-    : `Candidatura inviata da ${via}.`;
   let changed = false;
   await db.runTransaction(async (transaction) => {
     changed = false; // reset on every retry of the transaction
     const snapshot = await transaction.get(orderRef);
     const order = snapshot.data() || {};
-    if (!SUBMITTABLE_STATUSES.has(order.submissionStatus)) return;
-    const timestamp = FieldValue.serverTimestamp();
-    transaction.set(orderRef, {
-      submissionStatus: 'submitted',
-      submittedAt: timestamp,
-      statusChangedAt: timestamp,
-      updatedAt: timestamp,
-      submissionNotes: notes,
-    }, { merge: true });
+    const patch = submittedOrderFields({ order, effect, flow, timestamp: FieldValue.serverTimestamp() });
+    if (!patch) return;
+    transaction.set(orderRef, patch, { merge: true });
     transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('manual_submission_completed', {
       actorEmail: 'automation',
       fromStatus: order.submissionStatus,
       toStatus: 'submitted',
-      submissionNotes: notes,
+      submissionNotes: patch.submissionNotes,
       channel: flow.submittedVia || (effect.by === 'candidate' ? 'handoff' : effect.by === 'owner' ? 'owner' : 'automation'),
     }));
     changed = true;
@@ -229,7 +217,14 @@ export async function runAutomationEffect(context, deps = {}) {
   const { db, orderId, effect, flow } = context;
   switch (effect.type) {
     case 'dispatch':
-      return (deps.dispatch || dispatchAgentWorkflow)({ orderId, mode: effect.mode, round: flow.round || 1 });
+      try {
+        return await (deps.dispatch || (args => dispatchAgentWorkflow({ ...args, db, flow })))({ orderId, mode: effect.mode, round: flow.round || 1 });
+      } catch (error) {
+        if (error?.message !== 'execution_attempt_limit') throw error;
+        return applyAutomationEvent({ db, orderId, actor: 'executor-policy', nowMs: context.nowMs || Date.now(),
+          event: { type: 'submit_handoff', reason: 'remote_executor_unavailable', error: 'remote_execution_attempt_limit' },
+          runEffect: next => runAutomationEffect(next, deps) });
+      }
     case 'email':
       return sendAutomationEmail({ ...context, deps });
     case 'mark_submitted':

@@ -1,3 +1,8 @@
+vi.mock('../functions/src/lib/primaryApplicationProtocol.js', async original => {
+  const actual = await original<any>();
+  const { primaryPostingFixture } = await import('./helpers/ownerNativePrimaryFixture');
+  return { ...actual, readPrimaryApplicationProtocol: (input: any, options: any) => primaryPostingFixture(actual.readPrimaryApplicationProtocol, input, options, 'Pflegefachperson') };
+});
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
@@ -21,6 +26,7 @@ const KEY = (name: string) => `assisted-application-uploads/${ORDER}/${name}`;
 const order = {
   orderId: ORDER,
   paymentStatus: 'paid',
+  cvUploadedAt: Date.now(),
   submissionStatus: 'in_progress',
   applicantName: 'Maria Rossi',
   applicantEmail: 'maria@example.com',
@@ -28,6 +34,7 @@ const order = {
   jobTitle: 'Pflegefachperson',
   companyName: 'Ospedale',
   cvStorageKey: KEY('1-cv.docx'),
+  cvUploadedAt: T0,
 };
 const draft = {
   round: 1,
@@ -153,7 +160,7 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     await ref.collection('automation').doc('flow').set(flow);
   };
   const call = (action: string, extra: Record<string, unknown> = {}) => handleAutomationAdminAction(
-    store.db, { action, orderId: ORDER, ...extra }, 'owner@example.com', { runEffect, signUrl, originalCvUrl, nowMs: T0 },
+    store.db, { action, orderId: ORDER, nativeProofProtocol: 'owner-final-intent-v1', ...extra }, 'owner@example.com', { runEffect, signUrl, originalCvUrl, nowMs: T0 },
   );
 
   beforeEach(() => {
@@ -161,6 +168,23 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     effects = [];
     runEffect.mockClear();
     signUrl.mockClear();
+  });
+
+  it('requires the blocking final-intent protocol before giving a new fill kit', async () => {
+    await seed(takenOver);
+    await expect(call('automationFillKit', { nativeProofProtocol: undefined })).rejects.toMatchObject({ code: 'extension_update_required', status: 409 });
+    const { kit } = await call('automationFillKit') as any;
+    expect(kit.nativeProofProtocol).toBe('owner-final-intent-v1'); expect(kit.round).toBe(1);
+    expect(kit.answerSourceFingerprint).toMatch(/^[a-f0-9]{64}$/);
+    expect(kit).not.toHaveProperty('answerSourceGuard'); expect(kit).not.toHaveProperty('answerCounterContext');
+  });
+  it('keeps the independently checked source title separate from the display title', async () => {
+    await seed(takenOver, { job: { ...draft.job, title: 'Display title in another locale' } });
+    const { kit } = await call('automationFillKit') as any;
+    expect(kit.nativeTargetContext.jobTitle).toBe(order.jobTitle);
+    expect(kit.nativeTargetContext.applyUrl).toBe(draft.job.applyUrl);
+    expect(kit.job.title).toBe('Display title in another locale');
+    expect(kit.nativeTargetContext).not.toHaveProperty('sourceAuthority');
   });
 
   it('hands the kit of an order the robot left to Valerie, with the CV that leaves', async () => {
@@ -286,15 +310,14 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect((await call('automationFillKit') as any).kit.orderId).toBe(ORDER);
   });
 
-  it('records Valerie’s press before the portal answers, so the browser dying after it leaves no second kit', async () => {
+  it('refuses a notification-only old extension press before creating a durable click', async () => {
     await seed(takenOver);
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('submission').set({ r1: { state: 'failed', reason: 'portal_refused' } });
-    expect(await call('automationMarkClicked')).toEqual({ ok: true, state: 'owner_takeover', guard: 'sending' });
-    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending', channel: 'owner_extension', clickedAt: T0 } });
-    await expect(call('automationFillKit')).rejects.toMatchObject({ code: 'submission_unconfirmed', status: 409 });
-    // The portal's confirmation then closes it as sent.
-    expect(await call('automationMarkSubmitted', { via: 'extension' })).toEqual({ ok: true, state: 'submitted' });
-    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'owner_extension' } });
+    await expect(call('automationMarkClicked')).rejects.toMatchObject({ code: 'native_proof_invalid', status: 409 });
+    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'failed' } });
+    expect(store.read(`${PATH}/automation/submission`).r1.clickedAt).toBeUndefined();
+    expect((await call('automationFillKit') as any).kit.answerSourceFingerprint).toMatch(/^[a-f0-9]{64}$/);
+
   });
 
   it('marks the order as sent by Valerie, so no retry presses it again', async () => {

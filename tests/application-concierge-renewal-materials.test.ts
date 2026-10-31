@@ -1,21 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import { inheritConciergeRenewalMaterials } from '../functions/src/applicationConciergeRenewalMaterials.js';
+import { materialCopyFixture } from './helpers/conciergeMaterialCopyFixture.mjs';
 
 function fixture() {
-  const now = Date.now();
-  const documents = new Map<string, any>([
-    ['renewal', { userId: 'candidate', paymentStatus: 'paid', serviceStatus: 'active', expiresAt: new Date(now + 30 * 86400000), renewalOfServiceId: 'original', renewalConsentVersion: 'application-concierge-v1', renewalConsentedAt: new Date(now) }],
-    ['original', { userId: 'candidate', cvStorageKey: 'application-concierge-uploads/original/cv.pdf', consentVersion: 'application-concierge-v1', consentedAt: new Date(now - 30 * 86400000), applicantName: 'Candidate Example' }],
-  ]);
-  const files = new Set(['application-concierge-uploads/original/cv.pdf']);
-  const deleted: string[] = [];
-  let onCopy = () => {};
-  let queue = Promise.resolve();
-  const ref = (id: string): any => ({ get: async () => ({ data: () => documents.get(id) }), set: async (data: any) => documents.set(id, { ...documents.get(id), ...data }) });
-  const tx = { get: (r: any) => r.get(), set: (r: any, data: any) => r.set(data) };
-  const db: any = { collection: () => ({ doc: ref }), runTransaction: (callback: any) => { const next = queue.then(() => callback(tx)); queue = next.then(() => undefined, () => undefined); return next; } };
-  const file = (key: string): any => ({ key, copy: async (target: any) => { files.add(target.key); onCopy(); }, delete: async () => { deleted.push(key); files.delete(key); } });
-  return { now, documents, files, deleted, db, bucket: { file }, setOnCopy: (fn: () => void) => { onCopy = fn; } };
+  const f = materialCopyFixture(), now = f.now, prefix = 'application_concierge_services/';
+  f.documents.clear();
+  f.documents.set(prefix + 'renewal', { userId: 'candidate', paymentStatus: 'paid', serviceStatus: 'active', expiresAt: new Date(now + 30 * 86400000), renewalOfServiceId: 'original', renewalConsentVersion: 'application-concierge-v1', renewalConsentedAt: new Date(now) });
+  f.documents.set(prefix + 'original', { userId: 'candidate', paymentStatus: 'paid', serviceStatus: 'expired', expiresAt: new Date(now - 1),
+    cvStorageKey: 'application-concierge-uploads/original/cv.pdf', consentVersion: 'application-concierge-v1', consentedAt: new Date(now - 30 * 86400000), applicantName: 'Candidate Example' });
+  f.objects.set('application-concierge-uploads/original/cv.pdf', f.objects.get(f.sourceKey)!);
+  f.objects.delete(f.sourceKey);
+  return { ...f, documents: { get: (id: string) => f.documents.get(prefix + id), set: (id: string, data: any) => f.documents.set(prefix + id, data),
+    delete: (id: string) => f.documents.delete(prefix + id) }, files: f.objects,
+    setOnCopy(fn: () => void) { f.hooks.afterSave = fn; } };
 }
 
 describe('renewal owns a separate CV with fresh consent', () => {
@@ -32,13 +29,38 @@ describe('renewal owns a separate CV with fresh consent', () => {
     expect((await inheritConciergeRenewalMaterials({ ...f, serviceId: 'renewal', nowMs: f.now })).copied).toBe(false);
     expect(f.documents.get('renewal').cvStorageKey).toBe(later);
   });
-  it('two deliveries retain the winner copy and delete only the unused unique copy', async () => {
+  it('two deliveries share one uploader and never delete the published CV', async () => {
     const f = fixture();
     const results = await Promise.all([inheritConciergeRenewalMaterials({ ...f, serviceId: 'renewal', nowMs: f.now }), inheritConciergeRenewalMaterials({ ...f, serviceId: 'renewal', nowMs: f.now })]);
     expect(results.filter(result => result.copied)).toHaveLength(1);
-    expect(f.deleted).toHaveLength(1);
+    expect(f.deleted).toHaveLength(0);
+    expect(f.files.size).toBe(2);
     expect(f.files.has(f.documents.get('renewal').cvStorageKey)).toBe(true);
     expect(f.deleted).not.toContain(f.documents.get('renewal').cvStorageKey);
+  });
+  it('preserves the renewed CV after a committed publication loses its ACK', async () => {
+    const f = fixture(); let lost = false;
+    f.hooks.afterCommit = async () => {
+      if (!lost && f.documents.get('renewal').cvStorageKey) { lost = true; throw new Error('commit_ack_lost'); }
+    };
+    expect((await inheritConciergeRenewalMaterials({ ...f, serviceId: 'renewal', nowMs: f.now })).copied).toBe(true);
+    expect(f.files.has(f.documents.get('renewal').cvStorageKey)).toBe(true);
+    expect(f.deleted).toHaveLength(0);
+    expect((await inheritConciergeRenewalMaterials({ ...f, serviceId: 'renewal', nowMs: f.now })).copied).toBe(false);
+    expect(f.files.size).toBe(2);
+  });
+  it('a concurrent user upload wins and only the unpublished copy is cleaned', async () => {
+    const f = fixture(), later = 'application-concierge-uploads/renewal/user-cv.pdf';
+    f.setOnCopy(() => {
+      f.files.set(later, { bytes: Buffer.from('user CV'), generation: '888', contentType: 'application/pdf', metadata: {} });
+      f.documents.get('renewal').cvStorageKey = later;
+    });
+    expect((await inheritConciergeRenewalMaterials({ ...f, serviceId: 'renewal', nowMs: f.now })).copied).toBe(false);
+    expect(f.documents.get('renewal').cvStorageKey).toBe(later);
+    expect(f.files.has(later)).toBe(true);
+    expect(f.deleted).toHaveLength(1);
+    expect(f.deleted).not.toContain(later);
+    expect(f.files.size).toBe(2);
   });
   it('does not copy another owner’s CV or copy without new consent', async () => {
     const f = fixture();

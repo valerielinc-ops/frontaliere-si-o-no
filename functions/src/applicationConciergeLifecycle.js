@@ -1,5 +1,8 @@
 /** Scheduled lifecycle: refresh active services, deliver new proposals, then offer a renewal on expiry. */
 import { inheritConciergeRenewalMaterials } from './applicationConciergeRenewalMaterials.js';
+import { cleanupConciergeMaterialCopies } from './applicationConciergeMaterialCopy.js';
+import { getStorage } from 'firebase-admin/storage';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getNewsletterSecrets } from './remoteConfigSecrets.js';
 import { paymentReminderUrl } from './applicationConciergePaymentReminders.js';
 import { createHash, randomUUID } from 'node:crypto';
@@ -89,7 +92,10 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
   }
 }
 
-export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification, unsubscribeSecret = null, enqueueOnly = true }) {
+export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification, unsubscribeSecret = null, enqueueOnly = true, cleanupMaterialCopies = cleanupConciergeMaterialCopies, bucket = null }) {
+  // Cleanup also visits revoked/refunded or deleted parents, before the paid-only business sweep.
+  await cleanupMaterialCopies({ db, nowMs, bucket,
+    getBucket: () => getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET) });
   const secret = unsubscribeSecret ?? (await getNewsletterSecrets()).newsletterSecret;
   const snapshot = await db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).where('paymentStatus', '==', 'paid').get();
   const summary = { queuedRefreshes: 0, refreshed: 0, newJobEmails: 0, renewalEmails: 0, failed: 0 };

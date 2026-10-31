@@ -1,4 +1,5 @@
 import { employerResponseView, loadEmployerResponse } from './assistedApplicationEmployerResponse.js';
+import { publicSubmissionState } from './assistedApplicationSubmissionState.js';
 /**
  * Candidate and owner API for the application concierge.
  *
@@ -15,7 +16,7 @@ import { prepareConciergeEligibility } from './applicationConciergeEligibility.j
 import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatusCore.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
-import { randomUUID } from 'node:crypto';
+import { conciergeMaterialCopy, CONCIERGE_MAX_CV_BYTES } from './applicationConciergeMaterialCopy.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertSiteAdmin } from './adminAuth.js';
 import { writeAdminAuditLog } from './adminAudit.js';
@@ -37,7 +38,7 @@ import {
 } from './applicationConciergeConstants.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX_CV_BYTES = 5 * 1024 * 1024;
+const MAX_CV_BYTES = CONCIERGE_MAX_CV_BYTES;
 const CV_CONTENT_TYPES = new Set([
   'application/pdf',
   'application/msword',
@@ -108,11 +109,6 @@ function cvKeyForService(serviceId, value) {
   const prefix = `${APPLICATION_CONCIERGE_CV_PREFIX}/${serviceId}/`;
   const file = key.startsWith(prefix) ? key.slice(prefix.length) : '';
   return file && /^[A-Za-z0-9._-]+$/.test(file) && !file.includes('..') ? key : '';
-}
-
-function extensionForCvKey(key) {
-  const extension = String(key || '').split('.').pop()?.toLowerCase() || 'pdf';
-  return ['pdf', 'doc', 'docx'].includes(extension) ? extension : 'pdf';
 }
 
 function serializeProposal(doc) {
@@ -224,7 +220,8 @@ async function loadService(db, serviceId) {
     if (child?.userId !== parent.userId || child.parentServiceId !== serviceId || child.parentProposalId !== proposal.id) return proposal;
     const employerResponse = await loadEmployerResponse(childRef, child);
     const flow = flowDoc.data();
-    const childApplicationState = flow?.state || child.automationState || null;
+    const childApplicationState = publicSubmissionState({ order: child,
+      flow: flow || { state: child.automationState || null }, submission: submissionDoc.data() || {} });
     const send = submissionDoc.data()?.[`r${Number(flow?.round) || 1}`];
     return { id: proposal.id, ref: proposal.ref || proposal, data: () => ({ ...data,
       childEmployerResponse: employerResponseView(employerResponse),
@@ -370,47 +367,51 @@ function proposalJobData(data) {
   };
 }
 
-async function acceptProposal(db, serviceId, proposalId, uid) {
+async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt) {
   if (!validId(proposalId)) throw new ApplicationConciergeError('invalid_proposal_id', 400);
   const { ref: serviceRef, snapshot: serviceSnapshot } = await loadService(db, serviceId);
   const service = serviceSnapshot.data() || {};
   assertCandidateOwns(service, uid);
+  const proposalRef = proposalRefFor(db, serviceId, proposalId);
+  const proposalSnapshot = await proposalRef.get();
+  if (!proposalSnapshot.exists) throw new ApplicationConciergeError('proposal_not_found', 404);
+  const proposal = proposalSnapshot.data() || {};
+  // A response may be lost after the child and the acceptance committed.
+  if (proposal.status === 'accepted' && validId(proposal.childApplicationId)) {
+    const child = (await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(proposal.childApplicationId).get()).data();
+    if (child?.userId === uid && child.parentServiceId === serviceId && child.parentProposalId === proposalId) {
+      const fresh = await loadService(db, serviceId);
+      return { service: serializeApplicationConciergeService(fresh.snapshot, fresh.proposals), childApplicationId: proposal.childApplicationId };
+    }
+  }
+  if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
   assertActive(service);
   const sourceKey = cvKeyForService(serviceId, service.cvStorageKey);
   if (!sourceKey) throw new ApplicationConciergeError('cv_required', 409);
   if (service.consentVersion !== APPLICATION_CONCIERGE_CONSENT_VERSION || timestampMillis(service.consentedAt) <= 0) {
     throw new ApplicationConciergeError('consent_required', 409);
   }
-
-  const proposalRef = proposalRefFor(db, serviceId, proposalId);
-  const proposalSnapshot = await proposalRef.get();
-  if (!proposalSnapshot.exists) throw new ApplicationConciergeError('proposal_not_found', 404);
-  const proposal = proposalSnapshot.data() || {};
-  if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
   if (proposal.eligibilityStatus !== 'compatible' || proposal.eligibilityCvStorageKey !== service.cvStorageKey) {
     throw new ApplicationConciergeError('proposal_requires_verification', 409);
   }
 
   const childRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc();
-  const extension = extensionForCvKey(sourceKey);
-  const targetKey = `assisted-application-uploads/${childRef.id}/${Date.now()}-${randomUUID()}-cv.${extension}`;
   const bucket = getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
+  const copy = conciergeMaterialCopy({ db, bucket, serviceId, proposalId, targetId: childRef.id,
+    uid, source: service, proposal, purpose: 'proposal', operationStartedAt });
   let childApplicationId;
-  try {
-    const [exists] = await bucket.file(sourceKey).exists();
-    if (!exists) throw new ApplicationConciergeError('cv_not_found', 409);
-    await bucket.file(sourceKey).copy(bucket.file(targetKey));
-
-    await db.runTransaction(async (transaction) => {
-      const [currentServiceSnapshot, currentProposalSnapshot] = await Promise.all([
-        transaction.get(serviceRef),
-        transaction.get(proposalRef),
-      ]);
-      const currentService = currentServiceSnapshot.exists ? currentServiceSnapshot.data() || {} : null;
-      const currentProposal = currentProposalSnapshot.exists ? currentProposalSnapshot.data() || {} : null;
+  let uploaded;
+  try { uploaded = await copy.save(); }
+  catch (error) {
+    if (error?.code === 'material_copy_in_progress') throw new ApplicationConciergeError('material_copy_in_progress', 503);
+    throw error;
+  }
+  if (!uploaded) throw new ApplicationConciergeError('proposal_requires_verification', 409);
+  childApplicationId = uploaded.targetId;
+  const published = await copy.publish((transaction, { service: currentService, proposal: currentProposal, key: targetKey, targetId, writeId }) => {
       assertCandidateOwns(currentService, uid);
       assertActive(currentService);
-      if (!currentProposalSnapshot.exists || currentProposal.status !== 'proposed') {
+      if (!currentProposal || currentProposal.status !== 'proposed') {
         throw new ApplicationConciergeError('proposal_already_decided', 409);
       }
       if (currentProposal.eligibilityStatus !== 'compatible'
@@ -421,7 +422,7 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
       const accepted = acceptedPositionsCount(currentService);
       const maxPositions = Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
       if (accepted >= maxPositions) throw new ApplicationConciergeError('position_limit_reached', 409);
-      childApplicationId = childRef.id;
+      childApplicationId = targetId;
       const now = Timestamp.now();
       transaction.set(proposalRef, {
         status: 'accepted',
@@ -433,7 +434,7 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
         acceptedPositionsCount: FieldValue.increment(1),
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
-      transaction.set(childRef, {
+      transaction.set(db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(targetId), {
         orderId: childApplicationId,
         userId: currentService.userId,
         billingMode: 'application_concierge',
@@ -459,14 +460,15 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
         consentVersion: ASSISTED_APPLICATION_CONSENT_VERSION,
         consentedAt: currentService.consentedAt || now,
         cvStorageKey: targetKey,
+        cvMaterialCopyWriteId: writeId,
         cvUploadedAt: now,
         createdAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       });
     });
-  } catch (error) {
-    await bucket.file(targetKey).delete({ ignoreNotFound: true }).catch(() => {});
-    throw error;
+  if (!published) {
+    await copy.abandon();
+    throw new ApplicationConciergeError('proposal_requires_verification', 409);
   }
 
   const fresh = await loadService(db, serviceId);
@@ -536,6 +538,7 @@ async function openChildReview(db, serviceId, proposalId, uid) {
 }
 
 export async function handleApplicationConcierge(req) {
+  const operationStartedAt = Date.now();
   const method = String(req.method || 'GET').toUpperCase();
   if (method !== 'GET' && method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   const action = method === 'POST' ? boundedString(req.body?.action, 40) : '';
@@ -581,7 +584,7 @@ export async function handleApplicationConcierge(req) {
       return { status: 200, body: { ok: true, token } };
     }
     if (action === 'acceptProposal') {
-      const result = await acceptProposal(db, serviceId, proposalId, decoded.uid);
+      const result = await acceptProposal(db, serviceId, proposalId, decoded.uid, operationStartedAt);
       return { status: 200, body: { ok: true, ...result } };
     }
     if (action === 'declineProposal') {
