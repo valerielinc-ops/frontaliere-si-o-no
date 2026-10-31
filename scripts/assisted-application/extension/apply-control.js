@@ -22,6 +22,26 @@ const startsApplication = (text) => {
   };
   const isNonCvDocumentLabel = value => /\b(?:degree|diplom\w*|certificat\w*|(?:arbeits|schul|abschluss)?zeugni\w*|attestat\w*|abschluss\w*|reference\w*|referenz\w*|transcript\w*|bulletin\w*|pagell\w*|passport\w*|passaport\w*|passeport\w*|ausweis\w*|licen[cs]\w*|patent\w*|photo\w*|foto\w*|permits?|permess\w*|permis|(?:arbeits)?bewilligung\w*|other (?:documents|attachments)|additional (?:documents|attachments)|weitere unterlagen|altri (?:documenti|allegati)|autres (?:documents|pieces))\b/i
     .test(String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[_:.-]+/g, ' '));
+  // Serialized from functions/src/lib/addressContextContract.js; parity is tested.
+/** Native control ownership is distinct from flattened sibling labels. Missing is not an owned contract. */
+function addressContextContract(question) {
+  if (!Object.hasOwn(question || {}, 'addressContext')) return undefined;
+  const context = question.addressContext;
+  if (!context || typeof context !== 'object' || Array.isArray(context)
+    || Object.keys(context).some(key => !['section', 'owners', 'unknown'].includes(key))
+    || typeof context.section !== 'string' || context.section.length > 300
+    || typeof context.unknown !== 'boolean' || !Array.isArray(context.owners) || context.owners.length > 16
+    || context.owners.some(owner => typeof owner !== 'string' || owner.length > 300)) return null;
+  return { section: context.section, owners: [...context.owners], unknown: context.unknown };
+}
+
+/** A valid representation is not ownership proof. This does not identify self/employer or an address purpose. */
+function hasAddressContextOwnership(question) {
+  const context = addressContextContract(question);
+  return context != null && context.unknown === false
+    && (Boolean(context.section.trim()) || context.owners.some(owner => Boolean(owner.trim())));
+}
+
   // Serialized from functions/src/lib/nativeQuestionText.js; parity is tested.
 function nativeQuestionText(value, counter = null) {
   const text = String(value ?? '').normalize('NFKC').replace(/\s+/g, ' ').trim();
@@ -131,5 +151,5 @@ function individualApplicationOriginQuestion(value) {
     return Boolean(residenceFieldRole(value)) || words.some((word, index) =>
       residenceFieldRole(word) || residenceFieldRole(`${word} ${words[index + 1] || ''}`));
   };
-  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, nativeQuestionText, individualApplicationOriginQuestion });
+  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, nativeQuestionText, individualApplicationOriginQuestion, addressContextContract, hasAddressContextOwnership });
 })(globalThis);
