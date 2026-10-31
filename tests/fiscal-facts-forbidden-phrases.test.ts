@@ -31,6 +31,8 @@ const SCAN_FILES = [
 
 const FORBIDDEN: ReadonlyArray<{ pattern: RegExp; why: string }> = [
   { pattern: /38[,.]8\s?%/, why: 'Accordo 2020 art. 9: la cifra normativa e\' 40%' },
+  { pattern: /CHF 3[.,' ]104\b/, why: 'era il 38,8% di CHF 8.000: l\'Accordo prevede il 40% dell\'imposta lorda art. 9' },
+  { pattern: /bleibt die Steuer vollstaendig in der Schweiz|l.imposta resta integralmente trattenuta in Svizzera/, why: 'oltre 20 km l\'Italia tassa con credito' },
   { pattern: /\b(?:art\.?|Art\.)\s?66\b[^.\n]{0,30}(?:83\/2023|L\. 83)/, why: 'la L. 83/2023 ha 15 articoli' },
   { pattern: /83\/2023[^.\n]{0,12}\bart\.?\s?66\b/i, why: 'la L. 83/2023 ha 15 articoli' },
   {

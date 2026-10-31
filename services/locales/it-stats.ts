@@ -170,7 +170,7 @@ const translations: Record<string, string> = {
  'glossary.terms.franchigia.example': 'Reddito lordo €40.000: con franchigia, solo €30.000 sono soggetti a IRPEF.',
  'glossary.terms.ristorni.title': 'Ristorni fiscali',
  'glossary.terms.ristorni.desc': 'Compensazione versata dai Cantoni GR, TI e VS all\'Italia: 40% dell\'imposta lorda dei frontalieri dell\'art. 9, fino all\'anno fiscale 2033.',
- 'glossary.terms.ristorni.example': 'Un frontaliere che paga CHF 8.000 di imposta alla fonte genera circa CHF 3.104 di ristorni al suo comune.',
+ 'glossary.terms.ristorni.example': 'Per un frontaliere dell\'art. 9 con CHF 8.000 di imposta lorda, la compensazione prevista dall\'Accordo è di CHF 3.200, versata dal Cantone all\'Italia.',
  'glossary.terms.doppiaimposizione.title': 'Doppia imposizione',
  'glossary.terms.doppiaimposizione.desc': 'Situazione in cui lo stesso reddito viene tassato sia in Svizzera che in Italia. Evitata tramite convenzioni e crediti d\'imposta.',
  'glossary.terms.doppiaimposizione.example': 'Il credito d\'imposta permette di detrarre le tasse svizzere dall\'IRPEF italiana, evitando di pagare due volte.',

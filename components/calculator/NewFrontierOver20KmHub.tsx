@@ -151,7 +151,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  subtitle: 'Praxisfaelle, Vergleich mit Wohnsitz innerhalb von 20 km und direkter Netto-Rechner.',
  intro: 'Diese Seite zeigt konkret, was sich aendert, wenn du ein neuer Grenzgaenger bist, im Tessin arbeitest und in einer italienischen Gemeinde mehr als 20 km von der Grenze entfernt wohnst. Unten findest du drei bereits berechnete Faelle und einen direkten Vergleich mit dem Szenario innerhalb von 20 km.',
  bullets: [
- 'Ueber 20 km bleibt die Steuer vollstaendig in der Schweiz einbehalten.',
+ 'Ueber 20 km gilt die ordentliche Schweizer Quellensteuer und Italien besteuert das Einkommen mit Anrechnung.',
  'Innerhalb von 20 km behaelt die Schweiz 80% ein und Italien besteuert mit Steuergutschrift.',
  'Die Distanz des Wohnsitzes veraendert Cashflow, Steuererklaerung und den effektiven Netto-Vorteil.',
  ],

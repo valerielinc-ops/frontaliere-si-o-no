@@ -161,7 +161,7 @@ const enStats: Record<string, string> = {
  'glossary.terms.franchigia.example': 'Gross income €40,000: with the allowance, only €30,000 is subject to IRPEF.',
  'glossary.terms.ristorni.title': 'Tax rebates (Ristorni)',
  'glossary.terms.ristorni.desc': 'Compensation paid by the cantons of GR, TI and VS to Italy: 40% of the gross tax on art. 9 cross-border workers, through tax year 2033.',
- 'glossary.terms.ristorni.example': 'A cross-border worker paying CHF 8,000 in withholding tax generates about CHF 3,104 in rebates to their municipality.',
+ 'glossary.terms.ristorni.example': 'For an art. 9 cross-border worker with CHF 8,000 of gross tax, the compensation under the Agreement is CHF 3,200, paid by the canton to Italy.',
  'glossary.terms.doppiaimposizione.title': 'Double taxation',
  'glossary.terms.doppiaimposizione.desc': 'Situation where the same income is taxed in both Switzerland and Italy. Avoided through conventions and tax credits.',
  'glossary.terms.doppiaimposizione.example': 'The tax credit allows deducting Swiss taxes from Italian IRPEF, avoiding paying twice.',

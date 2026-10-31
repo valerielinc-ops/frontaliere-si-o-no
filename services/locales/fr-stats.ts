@@ -161,7 +161,7 @@ const frStats: Record<string, string> = {
  'glossary.terms.franchigia.example': 'Revenu brut €40 000 : avec franchise, seuls €30 000 sont soumis à l\'IRPEF.',
  'glossary.terms.ristorni.title': 'Rétrocessions fiscales (Ristorni)',
  'glossary.terms.ristorni.desc': 'Compensation versée par les cantons GR, TI et VS à l\'Italie : 40 % de l\'impôt brut des frontaliers de l\'art. 9, jusqu\'à l\'année fiscale 2033.',
- 'glossary.terms.ristorni.example': 'Un frontalier payant CHF 8 000 d\'impôt à la source génère environ CHF 3 104 de ristorni pour sa commune.',
+ 'glossary.terms.ristorni.example': 'Pour un frontalier de l\'art. 9 avec CHF 8 000 d\'impôt brut, la compensation prévue par l\'Accord est de CHF 3 200, versée par le canton à l\'Italie.',
  'glossary.terms.doppiaimposizione.title': 'Double imposition',
  'glossary.terms.doppiaimposizione.desc': 'Situation où le même revenu est imposé en Suisse et en Italie. Évitée par des conventions et crédits d\'impôt.',
  'glossary.terms.doppiaimposizione.example': 'Le crédit d\'impôt permet de déduire les impôts suisses de l\'IRPEF italienne, évitant de payer deux fois.',

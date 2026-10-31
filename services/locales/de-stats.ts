@@ -161,7 +161,7 @@ const deStats: Record<string, string> = {
  'glossary.terms.franchigia.example': 'Bruttoeinkommen €40.000: mit Freibetrag nur €30.000 unterliegen der IRPEF.',
  'glossary.terms.ristorni.title': 'Steuerrückerstattungen (Ristorni)',
  'glossary.terms.ristorni.desc': 'Ausgleich der Kantone GR, TI und VS an Italien: 40 % der Bruttosteuer der Grenzgänger nach Art. 9, bis zum Steuerjahr 2033.',
- 'glossary.terms.ristorni.example': 'Ein Grenzgänger, der CHF 8.000 Quellensteuer zahlt, generiert etwa CHF 3.104 Ristorni für seine Gemeinde.',
+ 'glossary.terms.ristorni.example': 'Bei einem Grenzgänger nach Art. 9 mit CHF 8.000 Bruttosteuer beträgt der Ausgleich nach dem Abkommen CHF 3.200, gezahlt vom Kanton an Italien.',
  'glossary.terms.doppiaimposizione.title': 'Doppelbesteuerung',
  'glossary.terms.doppiaimposizione.desc': 'Situation, in der dasselbe Einkommen sowohl in der Schweiz als auch in Italien besteuert wird. Durch Abkommen und Steueranrechnungen vermieden.',
  'glossary.terms.doppiaimposizione.example': 'Die Steueranrechnung ermöglicht es, Schweizer Steuern von der italienischen IRPEF abzuziehen.',

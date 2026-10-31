@@ -422,7 +422,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  name: 'Cosa cambia rispetto a chi vive entro 20 km?',
  acceptedAnswer: {
  '@type': 'Answer',
- text: 'Per i nuovi frontalieri oltre 20 km l’imposta resta integralmente trattenuta in Svizzera, mentre entro 20 km la Svizzera trattiene l’80% e l’Italia tassa il reddito con credito per le imposte già pagate.',
+ text: 'Oltre 20 km si applica la ritenuta svizzera ordinaria, entro 20 km la Svizzera trattiene l’80% di quella ordinaria. In entrambi i casi l’Italia tassa il reddito con credito per l’imposta svizzera.',
  },
  },
  {

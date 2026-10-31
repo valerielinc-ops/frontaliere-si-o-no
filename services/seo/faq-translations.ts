@@ -1969,15 +1969,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Cosa cambia rispetto a chi vive entro 20 km?": {
  en: {
  q: "What changes compared to those living within 20 km?",
- a: "For new cross-border workers beyond 20 km, the tax is fully withheld in Switzerland, while within 20 km Switzerland withholds 80% and Italy taxes the income with a credit for taxes already paid."
+ a: "Beyond 20 km ordinary Swiss withholding applies, while within 20 km Switzerland withholds 80% of the ordinary tax. In both cases Italy taxes the income with a credit for Swiss tax."
  },
  de: {
  q: "Was ändert sich im Vergleich zu denjenigen, die innerhalb von 20 km wohnen?",
- a: "Bei neuen Grenzgängern über 20 km wird die Steuer vollständig in der Schweiz einbehalten, während innerhalb von 20 km die Schweiz 80 % einbehält und Italien das Einkommen mit Anrechnung der bereits gezahlten Steuern besteuert."
+ a: "Über 20 km gilt die ordentliche Schweizer Quellensteuer, innerhalb von 20 km behält die Schweiz 80 % der ordentlichen Steuer ein. In beiden Fällen besteuert Italien das Einkommen mit Anrechnung der Schweizer Steuer."
  },
  fr: {
  q: "Qu'est-ce qui change par rapport à ceux qui habitent dans les 20 km ?",
- a: "Pour les nouveaux frontaliers au-delà de 20 km, l'impôt est intégralement retenu en Suisse, tandis qu'en deçà de 20 km la Suisse retient 80 % et l'Italie impose le revenu avec un crédit pour les impôts déjà payés."
+ a: "Au-delà de 20 km la retenue suisse ordinaire s'applique, tandis qu'en deçà de 20 km la Suisse retient 80 % de l'impôt ordinaire. Dans les deux cas l'Italie impose le revenu avec un crédit pour l'impôt suisse."
  }
  },
  "Questa pagina sostituisce la consulenza fiscale?": {
