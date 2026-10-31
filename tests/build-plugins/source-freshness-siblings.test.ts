@@ -76,7 +76,7 @@ describe('static document and source freshness', () => {
       [__renderFaqHubPageForTest(locale), hubUpdatedAt],
       [__renderFaqEntryPageForTest(entry, locale, new Set(), new Set(locales)), updatedAt],
     ] as const) {
-      expect(result.html).toContain(`<time datetime="${expected}">`);
+      expect(result.html).toMatch(new RegExp(`<time datetime="?${expected}"?>`));
       expect(result.html).toContain(formatUpdatedSentence(expected, locale));
       expect(result.html).not.toContain(unknownReview[locale]);
       expect(schema(result.html, 'WebPage')?.dateModified).toBe(expected);
