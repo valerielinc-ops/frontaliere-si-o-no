@@ -106,7 +106,7 @@ export function planAnswerConfirmations({ orderId, order, flow, draft, answers, 
 
 /** Recheck the current pointer, raw value, native contract and source retention. */
 export function localAnswerEvidence({ orderId, order, flow, draft, intake = null, nowMs = Date.now() }) {
-  if (!answerSourceRetained(order, nowMs) || flow?.retentionPurgedAt != null) return [];
+  if (!answerSourceRetained(order, nowMs) || flow?.retentionPurgingAt != null || flow?.retentionPurgedAt != null) return [];
   const contracts = answerContractsFor({ orderId, order, flow, draft });
   const currentSourceCounterHash = qualificationCounterContextHash(qualificationAnswerOriginContext({ order, flow, intake }));
   return Object.entries(object(flow?.answerConfirmations)).slice(0, 80).flatMap(([id, record]) => {
@@ -125,7 +125,7 @@ export function localAnswerEvidence({ orderId, order, flow, draft, intake = null
 
 /** Current-order conflicts survive a clear even without an account-wide profile. */
 export function localAnswerSourceConflicts({ orderId, order, flow, draft, intake = null, nowMs = Date.now() }) {
-  if (!answerSourceRetained(order, nowMs) || !flow || !draft) return [];
+  if (!answerSourceRetained(order, nowMs) || !flow || !draft || flow.retentionPurgingAt != null || flow.retentionPurgedAt != null) return [];
   const validIds = new Set(localAnswerEvidence({ orderId, order, flow, draft, intake, nowMs }).map(record => record.id));
   return Object.values(object(flow.answerConfirmations)).slice(0, 80).flatMap(record => {
     if (!record || record.version !== ANSWER_CONFIRMATION_VERSION || !/^confirmation-[a-f0-9]{64}$/.test(record.id || '')

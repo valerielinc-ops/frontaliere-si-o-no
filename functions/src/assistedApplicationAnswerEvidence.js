@@ -190,6 +190,7 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
       .sort((a, b) => a.key.localeCompare(b.key));
     const applicableConflicts = conflictRecords.filter(({ record, metadata }) => metadata
       && sources.get(record.provenance.orderId)?.order?.userId === userId
+      && sources.get(record.provenance.orderId)?.flow?.retentionPurgingAt == null && sources.get(record.provenance.orderId)?.flow?.retentionPurgedAt == null
       && retained(sources.get(record.provenance.orderId)?.order, nowMs + Math.max(0, Date.now() - startedAt))
       && (metadata.scope === 'candidate' || samePosting(record.provenance, job)));
     const answerSourceConflicts = applicableConflicts

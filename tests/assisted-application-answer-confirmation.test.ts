@@ -218,6 +218,13 @@ describe('private final-send source fence', () => {
     else expect(context.answerEvidence).toEqual([]);
     expect(context.localAnswerEvidence).toHaveLength(1);
   });
+  it.each(['retentionPurgingAt', 'retentionPurgedAt'])('drops all answer-derived channels after source flow %s', async flag => {
+    const f = fixture(); await f.save({ english: 'C1' });
+    f.read('assisted_applications/source/automation/flow')[flag] = now + 1;
+    const context = await loadRunnerAnswerContext({ ...f.input(), nowMs: now + 2 });
+    expect(context.localAnswerEvidence).toEqual([]); expect(context.answerEvidence).toEqual([]);
+    expect(context.answerSourceConflicts).toEqual([]);
+  });
   it('does not fence a child on an expired source that contributes no answer or conflict', async () => {
     const f = fixture(); await f.save({ english: 'C1' });
     f.read('assisted_applications/source').cvUploadedAt = now - 90 * 86400000 - 1;
