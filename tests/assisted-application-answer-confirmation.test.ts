@@ -26,6 +26,9 @@ function fixture(question: any = q) {
 }
 
 describe('question confirmation protocol', () => {
+  it('keeps the pending predicate safe before the first flow/draft exists', () => {
+    expect(currentAnswerReviewRequired(null, null)).toBe(false);
+  });
   it('keeps a different current pending question on hold, but lets withdrawn/empty question sets recover', async () => {
     const first = { ...q, id: 'first' }; const second = { id: 'second', question: 'Which value?', type: 'text' };
     const f = fixture(first); f.read('assisted_applications/source/ai_drafts/current').questions.push(second);

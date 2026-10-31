@@ -62,8 +62,9 @@ export function answerContractsFor(input) {
 
 /** Withdrawn questions do not keep a current round in an unresolvable review hold. */
 export function currentAnswerReviewRequired(flow = {}, draft = {}) {
-  const ids = new Set((Array.isArray(draft.questions) ? draft.questions : []).map(question => question?.id));
-  return Object.entries(object(flow.answerConfirmations)).some(([id, record]) => ids.has(id) && record?.provisional === true);
+  const questions = object(draft).questions;
+  const ids = new Set((Array.isArray(questions) ? questions : []).map(question => question?.id));
+  return Object.entries(object(object(flow).answerConfirmations)).some(([id, record]) => ids.has(id) && record?.provisional === true);
 }
 
 /** Missing hashes are provisional; a supplied stale hash never confirms a changed question. */

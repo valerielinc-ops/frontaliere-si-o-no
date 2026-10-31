@@ -73,6 +73,12 @@ beforeEach(() => {
 });
 
 describe('candidate review API', () => {
+  it('returns a preparing payload when the first draft does not exist yet', async () => {
+    store.docs.delete(`${BASE}/ai_drafts/current`);
+    store.read(`${BASE}/automation/flow`).state = 'drafting';
+    const response = await reviewHandler({ method: 'GET', query: { t: token() } }, deps());
+    expect(response).toMatchObject({ status: 200, body: { ready: false, reviewRequired: false, questions: [], answerContracts: {} } });
+  });
   it('exposes the current GET hash, keeps legacy saves provisional and requires a fresh explicit confirmation', async () => {
     const provisional = await reviewHandler({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } }, deps());
     expect(provisional).toMatchObject({ status: 200, body: { reviewRequired: true, rawSaved: true, answerConfirmation: { authority: false } } });
