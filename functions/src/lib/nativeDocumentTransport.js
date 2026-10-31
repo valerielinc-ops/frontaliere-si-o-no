@@ -5,11 +5,11 @@
  * No IO, candidate confirmation, content classification or qualification claim.
  */
 import { createHash } from 'node:crypto';
-import { nativeFilePurposeCaption, nativeFilePurposeContract } from './nativeFilePurpose.js';
+import { NATIVE_DOCUMENT_TRANSPORT_VERSION, nativeFilePurposeCaption, nativeFilePurposeContract, nativeDocumentInstruction } from './nativeFilePurpose.js';
 import { neutralApplicationScopePattern } from './nativeFormContract.js';
 import { nativeQuestionText } from './nativeQuestionText.js';
 
-export const NATIVE_DOCUMENT_TRANSPORT_VERSION = 'server-native-document-transport-v1';
+export { NATIVE_DOCUMENT_TRANSPORT_VERSION } from './nativeFilePurpose.js';
 const neutralScope = new RegExp(neutralApplicationScopePattern, 'iu');
 const HASH = /^[a-f0-9]{64}$/u;
 const ID = value => typeof value === 'string' && value.length > 0 && value.length <= 512 && value === value.trim();
@@ -66,15 +66,30 @@ function requestedPurpose(request) {
   const purpose = nativeFilePurposeCaption(request.label);
   if (purpose?.family !== 'diploma') return null;
   const constraints = { ...purpose.constraints };
-  // Request aliases and quoted instructions cannot silently discard a subject,
-  // degree level or competing purpose. Unknown meaning needs a new selection.
-  for (const text of [...(request.keywords || []), request.quote || ''].filter(text => text.trim())) {
-    if (text === request.quote && neutralScope.test(nativeQuestionText(text))) continue;
-    const alias = nativeFilePurposeCaption(text);
-    if (!alias || alias.family !== purpose.family) return null;
+  const merge = alias => {
+    if (!alias || alias.family !== purpose.family) return false;
     for (const [key, value] of Object.entries(alias.constraints)) {
-      if (constraints[key] != null && constraints[key] !== value) return null;
+      if (constraints[key] != null && constraints[key] !== value) return false;
       constraints[key] = value;
+    }
+    return true;
+  };
+  // Keywords remain exact aliases for this request; broad lists cannot turn an
+  // ambiguous label or a competing document family into a diploma request.
+  for (const text of (request.keywords || []).filter(text => text.trim())) {
+    if (!merge(nativeFilePurposeCaption(text))) return null;
+  }
+  if (request.quote?.trim() && !neutralScope.test(nativeQuestionText(request.quote))) {
+    const caption = nativeFilePurposeCaption(request.quote);
+    if (caption) {
+      if (!merge(caption)) return null;
+    } else {
+      // The same whole-instruction decoder validates native owned scopes. Its
+      // explicit document set may serve several separately assigned requests;
+      // only the matching request's complete constraints apply to this file.
+      const instruction = nativeDocumentInstruction(request.quote);
+      const matching = instruction?.purposes.filter(item => item.family === purpose.family);
+      if (matching?.length !== 1 || !merge(matching[0])) return null;
     }
   }
   return { family: purpose.family, constraints };

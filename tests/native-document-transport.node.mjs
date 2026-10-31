@@ -116,3 +116,36 @@ test('multiple control accepts only an explicit unique file set for the same ser
   denied(edit(input, x => x.attachment.files.push(clone(x.attachment.files[0]))));
   denied(edit(input, x => x.target.multiple = false));
 });
+
+const completeApplicationInstruction = 'Please click on "apply now" to submit a complete application, including CV, cover letter, references and degree certificates.';
+
+test('historical complete application instruction preserves its explicit document set in both request and full native scope', () => {
+  const input = fixture();
+  input.documents[0].requestedDocument.quote = completeApplicationInstruction;
+  input.nativeField.nativeFormContract.context = completeApplicationInstruction;
+  input.nativeField.nativeFormContract.ownedScopes = [{ kind: 'form', names: [completeApplicationInstruction], unknown: false }];
+  const result = resolve(input);
+  assert.equal(result.status, 'verified');
+  assert.deepEqual(result.attestation.purpose, { family: 'diploma', constraints: { educationalScope: 'university' } });
+  assert.equal(validate(result.attestation, input).status, 'verified');
+  // No new candidate act or v4 advisory proof is needed for existing membership.
+  assert.equal(Object.hasOwn(input.documents[0], 'clientCheck'), false);
+  assert.equal(Object.hasOwn(result.attestation, 'candidateConfirmed'), false);
+});
+
+test('a document-list quote never replaces the specific native file label or full owned meaning', () => {
+  const input = fixture(); input.documents[0].requestedDocument.quote = completeApplicationInstruction;
+  input.nativeField.nativeFormContract.context = completeApplicationInstruction;
+  for (const change of [x => x.nativeField.nativeFormContract.question = 'CV',
+    x => x.nativeField.nativeFormContract.question = 'Other documents',
+    x => x.nativeField.nativeFormContract.question = 'Degree certificate in medicine',
+    x => x.nativeField.nativeFormContract.ownedScopes[0].names = ['I hold a degree'],
+    x => x.nativeField.nativeFormContract.ownedScopes[0].unknown = true,
+    x => x.documents[0].requestedDocument.label = 'CV',
+    x => x.documents[0].requestedDocument.keywords.push('CV'),
+    x => x.documents[0].requestedDocument.quote = 'Please click on "apply now" to submit a complete application, including CV, cover letter and references.',
+    x => x.documents[0].requestedDocument.quote = completeApplicationInstruction.replace('degree certificates', 'degree certificates in medicine'),
+    x => x.documents[0].requestedDocument.quote = completeApplicationInstruction + ' I hold a degree.',
+    x => x.nativeField.nativeFormContract.context = completeApplicationInstruction.replace('degree certificates', 'degree certificates with grade 5')])
+    denied(edit(input, change));
+});
