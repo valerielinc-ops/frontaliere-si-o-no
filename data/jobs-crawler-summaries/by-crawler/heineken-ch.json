@@ -1,7 +1,7 @@
 {
   "key": "heineken-ch",
   "label": "Heineken Switzerland",
-  "generatedAt": "2026-10-31T09:36:42.502Z",
+  "generatedAt": "2026-10-31T22:08:18.748Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 81502,
-  "avgDurationMs": 81502,
+  "unchangedCount": 9,
+  "durationMs": 85509,
+  "avgDurationMs": 85509,
   "durationHistory": [
-    81502
+    85509
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "heineken-ch-a716028f91b3",
       "jobReqId": "149312",
@@ -54,7 +52,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:36:32.385Z",
+      "crawledAt": "2026-10-31T22:08:00.694Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -66,7 +64,10 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "heineken-ch-a2a2ef235f05",
       "jobReqId": "156187",
@@ -96,7 +97,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:36:24.720Z",
+      "crawledAt": "2026-10-31T22:07:52.698Z",
       "firstSeenAt": "2026-10-07T21:49:20.415Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -139,7 +140,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:36:16.867Z",
+      "crawledAt": "2026-10-31T22:07:45.318Z",
       "firstSeenAt": "2026-09-04T13:46:55.443Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -182,7 +183,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:36:09.065Z",
+      "crawledAt": "2026-10-31T22:07:36.456Z",
       "firstSeenAt": "2026-09-07T23:43:35.597Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -225,7 +226,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164826&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:36:01.122Z",
+      "crawledAt": "2026-10-31T22:07:29.038Z",
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2505,
@@ -272,7 +273,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:35:52.532Z",
+      "crawledAt": "2026-10-31T22:07:20.210Z",
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1327,
@@ -319,7 +320,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:35:45.006Z",
+      "crawledAt": "2026-10-31T22:07:12.660Z",
       "firstSeenAt": "2026-09-19T23:10:19.910Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -362,7 +363,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:35:36.559Z",
+      "crawledAt": "2026-10-31T22:07:06.763Z",
       "firstSeenAt": "2026-09-28T21:34:24.739Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -405,7 +406,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=168013&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:35:28.932Z",
+      "crawledAt": "2026-10-31T22:06:57.169Z",
       "firstSeenAt": "2026-10-28T21:49:33.128Z",
       "salaryMin": 31600,
       "salaryMax": 48600,
@@ -448,7 +449,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=168001&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:35:21.244Z",
+      "crawledAt": "2026-10-31T22:06:49.092Z",
       "firstSeenAt": "2026-10-28T21:49:25.082Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -463,5 +464,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }
