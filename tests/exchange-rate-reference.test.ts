@@ -4,7 +4,8 @@ import { describe, expect, it, vi } from 'vitest';
 // Il tasso vero cambia ogni giorno: qui conta che la costante segua il file.
 vi.mock('../data/exchange-rate-snapshot.json', () => ({ currentRate: 1.0777, rateDate: '2026-10-30' }));
 
-import { DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE } from '../constants';
+import { DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE, DEFAULT_INPUTS } from '../constants';
+import { calculateSimulation } from '../services/calculationService';
 import { buildSpreadExample } from '../services/spreadExample';
 import { buildReferenceNetScenario } from '../services/referenceNetScenario';
 
@@ -48,9 +49,27 @@ describe('tasso CHF/EUR di riferimento', () => {
 describe('scenario netto di riferimento', () => {
   it('ricompone il netto dal lordo, nel motore del calcolatore', () => {
     const s = buildReferenceNetScenario(1.08, '2026-10-30');
+    const expected = calculateSimulation({
+      ...DEFAULT_INPUTS,
+      annualIncomeCHF: 80_000,
+      healthInsuranceCHF: 0,
+      customExchangeRate: 1.08,
+    }).itResident;
     expect(s.grossCHF - s.socialCHF - s.sourceTaxCHF).toBeCloseTo(s.swissNetCHF, 6);
     expect(s.newNetMonthlyCHF).toBeCloseTo(s.newNetAnnualCHF / 12, 6);
     expect(s.newNetAnnualEUR).toBeCloseTo(s.newNetAnnualCHF * 1.08, 6);
+    expect(s.newNetAnnualCHF).toBe(expected.netIncomeAnnual);
     expect(s.oldNetAnnualCHF).toBeGreaterThan(s.newNetAnnualCHF);
+  });
+});
+
+describe('netto su CHF 80.000 nelle pagine', () => {
+  it('le pagine scenario non riportano forchette scritte a mano', () => {
+    const source = read('build-plugins/staticPagesPlugin.ts');
+    for (const stale of ["CHF 4'800-5'100", "CHF 5'100-5'400", "CHF 5'000 e CHF 5'300", "CHF 10'000-10'500"]) {
+      expect(source).not.toContain(stale);
+    }
+    const faq = read('services/seo/faq-translations.ts');
+    expect(faq).not.toMatch(/4[.,  ]400-4[.,  ]600/);
   });
 });
