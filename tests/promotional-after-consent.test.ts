@@ -7,6 +7,7 @@ describe('a consent choice spends the promotional cap', () => {
   beforeEach(() => {
     vi.useFakeTimers({ now: new Date('2026-10-31T10:00:00Z') });
     vi.stubGlobal('window', new EventTarget());
+    vi.stubGlobal('sessionStorage', { getItem: () => null, setItem: () => {} });
     vi.resetModules();
   });
   afterEach(() => {
@@ -27,44 +28,42 @@ describe('a consent choice spends the promotional cap', () => {
 });
 
 describe('a consent decision taken before the queue module loads', () => {
-  function storage(): Pick<Storage, 'getItem' | 'setItem'> {
-    const values = new Map<string, string>();
-    return {
-      getItem: (key) => values.get(key) ?? null,
-      setItem: (key, value) => { values.set(key, value); },
-    };
-  }
-
   beforeEach(() => {
     vi.useFakeTimers({ now: new Date('2026-10-31T10:00:00Z') });
     vi.resetModules();
-    const target = new EventTarget() as EventTarget & Record<string, unknown>;
-    target.localStorage = storage();
-    target.sessionStorage = storage();
-    vi.stubGlobal('window', target);
-    vi.stubGlobal('sessionStorage', target.sessionStorage);
+    vi.stubGlobal('window', new EventTarget());
+    vi.stubGlobal('sessionStorage', { getItem: () => null, setItem: () => {} });
   });
   afterEach(() => {
     vi.useRealTimers();
     vi.unstubAllGlobals();
   });
 
-  it('holds the newsletter for 60 s when the real CMP bridge answered first', async () => {
-    const { FC_CONSENT_BRIDGE_JS } = await import('@/build-plugins/constants');
-    new Function(FC_CONSENT_BRIDGE_JS)();
-    const bridge = window as unknown as {
-      googlefc: { callbackQueue: Array<{ CONSENT_DATA_READY: () => void }> };
-      __tcfapi?: unknown;
-    };
-    bridge.__tcfapi = (_command: string, _version: number, callback: (data: unknown, ok: boolean) => void) => {
-      callback({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: true } } }, true);
-    };
-    bridge.googlefc.callbackQueue[0].CONSENT_DATA_READY();
+  function cmpReplays(eventStatus: string) {
+    (window as unknown as { __tcfapi: unknown }).__tcfapi = (
+      _command: string,
+      _version: number,
+      callback: (data: unknown, ok: boolean) => void,
+    ) => callback({ eventStatus }, true);
+  }
 
+  it('holds the newsletter for 60 s when the CMP already answered', async () => {
+    cmpReplays('useractioncomplete');
     const { canShowPromotionalPrompt, requestSlot, POPUP_PRIORITY } = await import('@/services/popupQueue');
     expect(requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER)).toBe(false);
-    expect(canShowPromotionalPrompt()).toBe(false);
     vi.advanceTimersByTime(60_000);
+    expect(canShowPromotionalPrompt()).toBe(true);
+  });
+
+  it('does not penalise a returning visitor whose choice was only reloaded', async () => {
+    cmpReplays('tcloaded');
+    const { canShowPromotionalPrompt } = await import('@/services/popupQueue');
+    expect(canShowPromotionalPrompt()).toBe(true);
+  });
+
+  it('survives a broken CMP', async () => {
+    (window as unknown as { __tcfapi: unknown }).__tcfapi = () => { throw new Error('cmp'); };
+    const { canShowPromotionalPrompt } = await import('@/services/popupQueue');
     expect(canShowPromotionalPrompt()).toBe(true);
   });
 });

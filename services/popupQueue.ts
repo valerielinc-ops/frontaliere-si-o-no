@@ -18,7 +18,7 @@
  * 3. Only render visible UI when `isActive(id)` returns true
  * 4. Call `releaseSlot(id)` when dismissed / auto-hidden
  */
-import { ADS_CONSENT_CHANGE_EVENT, PROMOTIONAL_PROMPT_KEY } from './adsConsent';
+import { ADS_CONSENT_CHANGE_EVENT } from './adsConsent';
 
 
 type Listener = () => void;
@@ -273,6 +273,7 @@ export const POPUP_PRIORITY = {
 } as const;
 
 /** Shared frequency cap for unsolicited promotions. Auth/consent never use it. */
+const PROMOTIONAL_PROMPT_KEY = 'ft_promotional_prompt_at';
 let lastPromotionalPromptAt = 0;
 function promotionalDelay(now = Date.now()): number {
   let last = lastPromotionalPromptAt;
@@ -296,8 +297,20 @@ export function markPromotionalPromptShown(now = Date.now()): void {
 
 // The consent wall is an interstitial too: the visitor who has just closed it must
 // not get a second one (a full-screen newsletter 10-15 s later, seen on every page
-// on 2026-10-31). The CMP bridge also writes PROMOTIONAL_PROMPT_KEY, which covers a
-// decision taken before this module loaded; this listener covers blocked storage.
+// on 2026-10-31). The CMP bridge fires this event only when the choice changes.
+//
+// The bridge runs inline and can answer before this module exists, and it cannot
+// carry a timestamp: it is part of the fingerprinted shell shared with the corpus
+// repository. The TCF API replays the current state to a new listener, so a decision
+// taken earlier in this page view is still readable here as `useractioncomplete`.
 if (typeof window !== 'undefined') {
   window.addEventListener(ADS_CONSENT_CHANGE_EVENT, () => markPromotionalPromptShown());
+  const { __tcfapi: tcfApi } = window as unknown as {
+    __tcfapi?: (command: string, version: number, callback: (data?: { eventStatus?: string }, ok?: boolean) => void) => void;
+  };
+  try {
+    tcfApi?.('addEventListener', 2, (data, ok) => {
+      if (ok && data?.eventStatus === 'useractioncomplete') markPromotionalPromptShown();
+    });
+  } catch { /* a broken CMP must not stop the queue */ }
 }

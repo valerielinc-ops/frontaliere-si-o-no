@@ -57,12 +57,6 @@ export type AdsConsentValue = typeof ADS_CONSENT_GRANTED | typeof ADS_CONSENT_DE
  * subscriber reacts to a CMP decision exactly as it reacted to the old banner.
  */
 export const ADS_CONSENT_CHANGE_EVENT = 'frontaliere:ads-consent';
-/**
- * When the last unsolicited prompt appeared (services/popupQueue.ts). A consent
- * decision writes it too: the CMP bridge runs inline and can answer before the
- * queue module exists, so an event listener alone would miss that decision.
- */
-export const PROMOTIONAL_PROMPT_KEY = 'ft_promotional_prompt_at';
 const CHANGE_EVENT = ADS_CONSENT_CHANGE_EVENT;
 
 /**
@@ -118,11 +112,6 @@ export function setAdsConsent(value: AdsConsentValue): void {
   } catch {
     /* quota / private mode — the in-memory notification below still runs, so
        the current page behaves as chosen; the next page load re-asks. */
-  }
-  try {
-    window.sessionStorage.setItem(PROMOTIONAL_PROMPT_KEY, String(Date.now()));
-  } catch {
-    /* storage optional: the listener in popupQueue covers this page view. */
   }
   try {
     window.dispatchEvent(new CustomEvent<AdsConsentValue>(CHANGE_EVENT, { detail: value }));
