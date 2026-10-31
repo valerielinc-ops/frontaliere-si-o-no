@@ -313,11 +313,19 @@ describe('private final-send source fence', () => {
     expect(context.localAnswerEvidence).toEqual([]); expect(context.answerEvidence).toEqual([]);
     expect(raw.answers.legacy_yes).toBe('Yes');
   });
-  async function executionFixture() {
+  it.each(['native_contract', 'file_choice_receipt'])('fences the current attachment purpose binding: %s', async change => {
+    const { f, context } = await executionFixture({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true,
+      originalNativeContract: { question: 'Diploma for this employer', kind: 'file', options: [] } }],
+      documents: { diploma: { files: [{ key: 'assisted-application-uploads/child/diploma.pdf', detectedType: 'pdf', confirmationId: 'source-file-choice' }] } } });
+    if (change === 'native_contract') f.read('assisted_applications/child/ai_drafts/current').requiredDocuments[0].originalNativeContract.question = 'A different diploma';
+    else f.read('assisted_applications/child/automation/flow').documents.diploma.files[0].confirmationId = 'changed-file-choice';
+    await expect(f.db.runTransaction(tx => context.answerSourceGuard.assertInTransaction(tx))).rejects.toMatchObject({ code: 'evidence_source_changed' });
+  });
+  async function executionFixture(material: any = {}) {
     const f = fixture(); await f.save({ english: 'C1' });
     const childOrder = { ...f.input().order, jobId: 'child', jobUrl: 'https://example.test/child/', cvStorageKey: 'copy.pdf', cvUploadedAt: now + 10 };
-    const childFlow = { state: 'submitting', round: 1, answers: {}, questionAnswers: {}, feedback: [] };
-    const childDraft = { round: 1, cvKey: 'copy.pdf', sourceCvHash: hash, questions: [] };
+    const childFlow = { state: 'submitting', round: 1, answers: {}, questionAnswers: {}, feedback: [], documents: material.documents || {} };
+    const childDraft = { round: 1, cvKey: 'copy.pdf', sourceCvHash: hash, questions: [], requiredDocuments: material.requiredDocuments || [] };
     f.docs.set('assisted_applications/child', childOrder); f.docs.set('assisted_applications/child/automation/flow', childFlow);
     f.docs.set('assisted_applications/child/ai_drafts/current', childDraft);
     const context = await loadRunnerAnswerContext({ db: f.db, orderId: 'child', order: childOrder, flow: childFlow, draft: childDraft, nowMs: now + 10 });

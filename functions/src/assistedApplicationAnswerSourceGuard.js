@@ -25,7 +25,8 @@ function currentKitMaterial({ orderId, order = {}, flow = {}, draft = {} }) {
   return { identity: kit.identity, profile: kit.profile, answers: kit.answers, texts: kit.texts,
     job: kit.job, language: kit.language, applyUrl: kit.applyUrl, channelType: kit.channelType,
     cv: cvToSend(draft, flow, order), letterKey: draft?.coverLetterPdfKey || null,
-    requiredDocuments: requiredDocumentsOf(draft),
+    requiredDocuments: requiredDocumentsOf(draft), documentContracts: draft?.requiredDocuments || [],
+    documentRecords: Object.fromEntries(extraDocumentsToSend(draft, flow, orderId).map(document => [document.id, flow?.documents?.[document.id] || null])),
     extra: extraDocumentsToSend(draft, flow, orderId).map(document => ({ slot: document.slot, kind: document.kind,
       files: document.files.map(file => ({ key: file.key, detectedType: file.detectedType })) })) };
 }

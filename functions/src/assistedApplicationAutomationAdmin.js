@@ -640,7 +640,8 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
   const available = [{ slot: 'cv', kind: 'cv', key: selectedCv.key },
     ...(draft.coverLetterPdfKey ? [{ slot: 'cover_letter', kind: 'cover_letter', key: draft.coverLetterPdfKey }] : []),
     ...extraDocumentsToSend(draft, flow, orderId).flatMap(document => document.files.map(file => ({ slot: document.slot,
-      kind: document.kind, key: file.key, purpose: { id: document.id, label: document.label, keywords: document.keywords } })))];
+      kind: document.kind, key: file.key, purpose: { id: document.id, label: document.label, keywords: document.keywords,
+        request: (draft.requiredDocuments || []).find(required => required?.id === document.id) || null } })))];
   const docsManifest = [];
   // Only slots actually selected in the fresh DOM need bytes; no parallel buffers of every stored document.
   for (const file of available.filter(file => request.proof.attachments.some(attachment => attachment.slot === file.slot))) {
