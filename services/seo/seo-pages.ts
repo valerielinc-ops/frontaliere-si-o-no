@@ -391,14 +391,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogDescription: 'Cos\'è il permesso G e cosa cambia rispetto al permesso B.',
  canonicalPath: '/glossario-frontaliere/permesso-g/',
  structuredData: [
- { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Permesso G: autorizzazione di lavoro per frontalieri che risiedono in un Paese confinante e rientrano quotidianamente. Validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-g/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Permesso G: autorizzazione di lavoro per chi risiede in uno Stato UE/AELS e rientra almeno una volta a settimana. Validità 5 anni con contratto superiore a un anno.', url: `${BASE_URL}/glossario-frontaliere/permesso-g/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
  {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
- { '@type': 'Question', name: 'Quali sono i requisiti per ottenere il permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Per ottenere il permesso G devi avere cittadinanza UE/AELS, un contratto di lavoro con un datore svizzero e residenza in un paese confinante (Italia, Francia, Germania, Austria). È obbligatorio rientrare a casa almeno una volta a settimana. La domanda la fa il datore di lavoro tramite l'ufficio migrazione cantonale (in Ticino, la Sezione Popolazione). Il permesso G ha validità di 5 anni rinnovabili, legata al rapporto di lavoro." } },
- { '@type': 'Question', name: 'Quali documenti servono per la domanda del permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Servono: contratto di lavoro firmato dal datore svizzero, documento di identità valido, certificato di residenza italiano, attestazione ISEE o stato di famiglia, modulo ufficiale cantonale compilato dal datore. La procedura richiede tipicamente 2-4 settimane in Ticino. Il costo del permesso è a carico del lavoratore (CHF 65-100 a seconda del cantone) ed è rilasciato in formato card biometrica da esibire al posto di confine quando richiesto." } },
- { '@type': 'Question', name: 'Il permesso G permette di vivere in Svizzera?', acceptedAnswer: { '@type': 'Answer', text: "No: il permesso G autorizza solo a lavorare in Svizzera mantenendo la residenza nel paese confinante di origine, con rientro settimanale obbligatorio. Per vivere in Svizzera serve il permesso B (dimora annuale) o C (stabilimento), che comportano residenza fiscale svizzera e tassazione ordinaria invece di tassazione concorrente. Il permesso G decade se sposti la residenza in Svizzera o se smetti di rientrare settimanalmente nel paese d'origine." } },
+ { '@type': 'Question', name: 'Quali sono i requisiti per ottenere il permesso G?', acceptedAnswer: { '@type': 'Answer', text: "Per ottenere il permesso G devi avere cittadinanza UE/AELS, un contratto di lavoro con un datore svizzero e residenza in uno Stato UE/AELS: le zone di frontiera non valgono più per i cittadini UE/AELS. È obbligatorio rientrare a casa almeno una volta a settimana. La domanda la fa il datore di lavoro tramite l'ufficio migrazione cantonale (in Ticino, la Sezione Popolazione). Il permesso G vale 5 anni con contratto a tempo indeterminato o superiore a un anno; con contratto da 3 mesi a un anno vale per la durata del contratto; sotto i 3 mesi basta la notifica online." } },
+ { '@type': 'Question', name: 'Quali documenti servono per la domanda del permesso G?', acceptedAnswer: { '@type': 'Answer', text: "In Ticino la domanda si presenta online sul portale SPOP prima di iniziare il lavoro, con il contratto e la copia del documento d'identità certificata dalla Gendarmeria. Il rilascio costa CHF 75 per gli adulti UE/AELS e CHF 40 per i minorenni (tariffario SPOP); negli altri cantoni consulta l'ufficio cantonale." } },
+ { '@type': 'Question', name: 'Il permesso G permette di vivere in Svizzera?', acceptedAnswer: { '@type': 'Answer', text: "No: il permesso G autorizza solo a lavorare in Svizzera mantenendo la residenza in uno Stato UE/AELS, con rientro settimanale obbligatorio. Per vivere in Svizzera serve il permesso B (dimora annuale) o C (stabilimento), che comportano residenza fiscale svizzera e tassazione ordinaria invece di tassazione concorrente. Il permesso G decade se sposti la residenza in Svizzera o se smetti di rientrare settimanalmente nel paese d'origine." } },
  { '@type': 'Question', name: 'Cosa succede al permesso G in caso di licenziamento o disoccupazione?', acceptedAnswer: { '@type': 'Answer', text: "In caso di cessazione del rapporto di lavoro, il permesso G perde validità entro pochi mesi (solitamente 3-6 a seconda del cantone e della durata del rapporto pregresso). Il frontaliere può iscriversi alla disoccupazione svizzera (cassa di compensazione AC) solo se si è trasferito in Svizzera; altrimenti fa domanda di NASpI in Italia, dove gli anni di contribuzione AC svizzera vengono totalizzati grazie agli accordi bilaterali UE-CH." } },
  ],
  },
@@ -719,7 +719,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come diventare frontaliere in Svizzera passo per passo?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Per diventare frontaliere serve: (1) cittadinanza UE/EFTA e residenza in un comune italiano entro 20 km dal confine svizzero; (2) un contratto di lavoro con un datore svizzero; (3) richiesta del permesso G all'Ufficio della migrazione del cantone di lavoro, allegando contratto e documento d'identità. Dopo ~30 giorni ricevi il permesso G, valido 5 anni e rinnovabile. Prima del primo giorno: apri conto svizzero, scegli tra LAMal e SSN entro 3 mesi, e iscrizione AIRE se cambi residenza."
+ "text": "Per diventare frontaliere serve: (1) cittadinanza UE/EFTA e residenza in uno Stato UE/EFTA; (2) un contratto di lavoro con un datore svizzero; (3) richiesta del permesso G all'Ufficio della migrazione del cantone di lavoro, allegando contratto e documento d'identità. Con contratto superiore a un anno il permesso G vale 5 anni e si rinnova. Prima del primo giorno: apri conto svizzero, scegli tra LAMal e SSN entro 3 mesi, e iscrizione AIRE se cambi residenza."
  }
  },
  {
@@ -1535,7 +1535,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "HowToStep",
  "position": 4,
  "name": "Ricevi il permesso G",
- "text": "Una volta approvata la domanda ricevi il permesso G: costa circa CHF 65-85 e ha validità 5 anni per i contratti a tempo indeterminato (pari alla durata del contratto se a termine).",
+ "text": "Una volta approvata la domanda ricevi il permesso G: in Ticino costa CHF 75 per gli adulti UE/AELS (CHF 40 per i minorenni) e vale 5 anni con contratto a tempo indeterminato o superiore a un anno, altrimenti per la durata del contratto.",
  "url": `${BASE_URL}/guida-frontaliere/primo-giorno-lavoro/`
  },
  {
@@ -2894,7 +2894,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "HowToStep",
  "position": 1,
  "name": "Richiedere il Permesso G",
- "text": "Richiedi il permesso di lavoro G presso il Cantone Ticino. Servono contratto di lavoro, documento d'identità valido e prova di residenza nella zona di frontiera (entro 20 km).",
+ "text": "Richiedi il permesso di lavoro G presso il Cantone Ticino. Servono contratto di lavoro e documento d'identità valido; in Ticino la copia va certificata dalla Gendarmeria. Per i cittadini UE/AELS non c'è più una zona di frontiera.",
  "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`
  },
  {
@@ -6102,7 +6102,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quali sono i requisiti per lavorare come frontaliere in Svizzera nel 2026?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Per lavorare come frontaliere in Svizzera serve: cittadinanza UE/AELS, residenza in un comune italiano (preferibilmente entro 20 km dal confine per il regime transitorio), un contratto di lavoro con datore svizzero, e il permesso G rilasciato dal Cantone. Il permesso G ha validità 5 anni per contratti a tempo indeterminato e viene rilasciato in 5-10 giorni lavorativi dalla richiesta."
+ "text": "Per lavorare come frontaliere in Svizzera serve: cittadinanza UE/AELS, residenza in uno Stato UE/AELS, un contratto di lavoro con datore svizzero e il permesso G rilasciato dal Cantone. Il permesso G vale 5 anni con contratto a tempo indeterminato o superiore a un anno."
  }
  },
  {

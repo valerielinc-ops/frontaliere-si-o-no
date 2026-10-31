@@ -1535,17 +1535,17 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  },
  '/guida-frontaliere/permessi-di-lavoro': {
  en: [
- 'The work permits comparison analyses the operational differences between G permit (cross-border, annual renewal) and B permit (residence, 5 years): taxation, access to services, right of stay, and implications for the family.',
+ 'The work permits comparison analyses the operational differences between G permit (cross-border, 5 years with a contract over one year) and B permit (residence, 5 years): taxation, access to services, right of stay, and implications for the family.',
  'The choice between G and B permit depends on distance from the border, family situation, fiscal circumstances, and expected duration of Swiss employment. This tool helps weigh the pros and cons of each scenario.',
  'The comparison also covers pension implications (AVS, LPP, unemployment insurance), family member residence rights, and the impact on both Italian and Swiss taxation.',
  ],
  de: [
- 'Der Bewilligungsvergleich analysiert die betrieblichen Unterschiede zwischen Ausweis G (Grenzgänger, jährliche Verlängerung) und Ausweis B (Aufenthalt, 5 Jahre): Besteuerung, Zugang zu Dienstleistungen, Aufenthaltsrecht und Auswirkungen auf die Familie.',
+ 'Der Bewilligungsvergleich analysiert die betrieblichen Unterschiede zwischen Ausweis G (Grenzgänger, 5 Jahre bei Vertrag über einem Jahr) und Ausweis B (Aufenthalt, 5 Jahre): Besteuerung, Zugang zu Dienstleistungen, Aufenthaltsrecht und Auswirkungen auf die Familie.',
  'Die Wahl zwischen Ausweis G und B hängt von der Entfernung zur Grenze, der familiären Situation, den steuerlichen Umständen und der erwarteten Dauer der Beschäftigung in der Schweiz ab.',
  'Der Vergleich umfasst auch Vorsorgeaspekte (AHV, BVG, Arbeitslosenversicherung), Aufenthaltsrechte für Familienangehörige und die Auswirkungen auf die Besteuerung in beiden Ländern.',
  ],
  fr: [
- 'La comparaison des permis de travail analyse les différences opérationnelles entre le permis G (frontalier, renouvellement annuel) et le permis B (séjour, 5 ans) : fiscalité, accès aux services, droit de séjour et implications pour la famille.',
+ 'La comparaison des permis de travail analyse les différences opérationnelles entre le permis G (frontalier, 5 ans avec un contrat de plus d\'un an) et le permis B (séjour, 5 ans) : fiscalité, accès aux services, droit de séjour et implications pour la famille.',
  'Le choix entre permis G et B dépend de la distance de la frontière, de la situation familiale, des circonstances fiscales et de la durée prévue de l\'emploi en Suisse.',
  'La comparaison couvre aussi les implications de prévoyance (AVS, LPP, assurance chômage), les droits de séjour des membres de la famille et l\'impact sur la fiscalité italienne et suisse.',
  ],
