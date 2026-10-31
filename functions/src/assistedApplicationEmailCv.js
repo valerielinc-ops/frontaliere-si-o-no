@@ -22,10 +22,11 @@
 
 import { randomUUID, timingSafeEqual } from 'node:crypto';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { detectCvFileType } from './assistedApplicationCvCheck.js';
 import { addressOf, parseMimeMessage, senderAuthenticated } from './lib/mimeMessage.js';
+import { initialCvArtifactStore } from './lib/assistedApplicationInitialCvIngress.js';
 
 export const MAX_RAW_MESSAGE_BYTES = 9 * 1024 * 1024;
 const MAX_CV_BYTES = 5 * 1024 * 1024;
@@ -62,12 +63,19 @@ export function candidateNotesFrom(text) {
   return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim().slice(0, MAX_NOTES_CHARS);
 }
 
-async function findWaitingOrder(db, sender) {
-  const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION).where('paymentStatus', '==', 'paid').get();
+async function findWaitingOrder(db, sender, expectedOrderId) {
+  const orders = db.collection(ASSISTED_APPLICATIONS_COLLECTION);
+  // Only a trusted server caller resolving an alias supplies this dependency.
+  // A mismatched target never falls back to another order owned by the sender.
+  if (expectedOrderId !== undefined && (typeof expectedOrderId !== 'string' || !ASSISTED_APPLICATION_ORDER_ID_RE.test(expectedOrderId))) return null;
+  const expected = expectedOrderId === undefined ? null : await orders.doc(expectedOrderId).get();
+  const snapshot = expectedOrderId === undefined
+    ? await orders.where('paymentStatus', '==', 'paid').get()
+    : { docs: expected?.exists ? [expected] : [] };
   const candidates = (snapshot.docs || []).filter((doc) => {
     const order = doc.data() || {};
     const addresses = [order.customerEmail, order.applicantEmail].map((value) => String(value || '').trim().toLowerCase());
-    return addresses.includes(sender) && WAITING_STATUSES.has(order.submissionStatus) && !order.cvStorageKey;
+    return order.paymentStatus === 'paid' && addresses.includes(sender) && WAITING_STATUSES.has(order.submissionStatus) && !order.cvStorageKey;
   });
   candidates.sort((left, right) => millis(right.data()?.paidAt) - millis(left.data()?.paidAt));
   return candidates[0] || null;
@@ -80,10 +88,12 @@ function fileStem(name) {
 
 /**
  * @param {{method:string, get:(name:string)=>string|undefined, rawBody?:Buffer, body?:any}} req
- * @param {{db, bucket, secret:string, nowMs?:number}} deps
+ * @param {{db, bucket, secret:string, nowMs?:number, now?:()=>number, expectedOrderId?:string, operationStartedAt?:number, isEnabled?:(orderId:string)=>Promise<boolean>}} deps
  * @returns {Promise<{status:number, body:object}>}
  */
 export async function handleAssistedApplicationEmailCv(req, deps) {
+  const now = deps.now || Date.now;
+  const operationStartedAt = deps.operationStartedAt ?? now();
   if (String(req.method || '').toUpperCase() !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   if (!secretsMatch(deps.secret, req.get?.('x-stop-secret'))) return { status: 403, body: { ok: false, error: 'forbidden' } };
   const raw = Buffer.isBuffer(req.rawBody) ? req.rawBody : Buffer.from(typeof req.body === 'string' ? req.body : '');
@@ -97,7 +107,7 @@ export async function handleAssistedApplicationEmailCv(req, deps) {
     .find((item) => CONTENT_TYPES[item.type] && item.content.length > 0 && item.content.length <= MAX_CV_BYTES);
   if (!attachment) return { status: 200, body: { ok: true, matched: false, reason: 'no_cv_attachment' } };
 
-  const orderDoc = await findWaitingOrder(deps.db, sender);
+  const orderDoc = await findWaitingOrder(deps.db, sender, deps.expectedOrderId);
   if (!orderDoc) return { status: 200, body: { ok: true, matched: false, reason: 'no_waiting_order' } };
 
   const orderId = orderDoc.id;
@@ -105,44 +115,47 @@ export async function handleAssistedApplicationEmailCv(req, deps) {
   // (owner decision: everything off until the final trial run), for this
   // order. Off: the e-mail reaches Valerie's inbox as today, nothing attached.
   if (deps.isEnabled && !(await deps.isEnabled(orderId))) return { status: 200, body: { ok: true, matched: false, reason: 'automation_off' } };
-  const nowMs = deps.nowMs || Date.now();
+  const nowMs = deps.nowMs || operationStartedAt;
   const key = `assisted-application-uploads/${orderId}/${nowMs}-${randomUUID()}-${fileStem(attachment.filename)}.${attachment.type}`;
-  await deps.bucket.file(key).save(attachment.content, { contentType: CONTENT_TYPES[attachment.type], resumable: false });
-
   const orderRef = orderDoc.ref;
-  let stored = false;
-  await deps.db.runTransaction(async (transaction) => {
-    // Firestore retries a contended transaction: a retry that finds another CV
-    // must not keep the first attempt's "stored", or the losing file would stay.
-    stored = false;
-    const snapshot = await transaction.get(orderRef);
-    const order = snapshot.data() || {};
-    // Raced with an upload from the order page: keep that one.
-    if (order.cvStorageKey || !WAITING_STATUSES.has(order.submissionStatus)) return;
-    const timestamp = FieldValue.serverTimestamp();
-    transaction.set(orderRef, {
-      cvStorageKey: key,
-      cvFileName: `${fileStem(attachment.filename)}.${attachment.type}`,
-      cvUploadedAt: Timestamp.fromMillis(nowMs),
-      cvUploadedBy: 'email_reply',
-      updatedAt: timestamp,
-      ...(order.submissionStatus === 'awaiting_upload' ? { submissionStatus: 'in_progress', statusChangedAt: timestamp } : {}),
-    }, { merge: true });
-    transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('materials_received_by_email', {
-      actorEmail: 'email_reply',
-      fromStatus: order.submissionStatus,
-      toStatus: order.submissionStatus === 'awaiting_upload' ? 'in_progress' : order.submissionStatus,
-      detectedType: attachment.type,
-    }));
-    const notes = candidateNotesFrom(message.text);
-    if (notes) {
-      transaction.set(orderRef.collection('automation').doc('intake'), { emailNotes: notes, receivedAt: nowMs }, { merge: true });
-    }
-    stored = true;
+  // Receiving a first attachment grants no application approval, resume or sending.
+  const artifacts = initialCvArtifactStore({ db: deps.db, bucket: deps.bucket, orderId, key, operationStartedAt, now,
+    uploaderAllows: order => order.paymentStatus === 'paid' && !order.cvStorageKey && WAITING_STATUSES.has(order.submissionStatus)
+      && [order.customerEmail, order.applicantEmail].some(address => String(address || '').trim().toLowerCase() === sender)
+      && senderAuthenticated(message.headers, sender),
   });
+  let stored = false;
+  try {
+    if (await artifacts.save(attachment.content, { contentType: CONTENT_TYPES[attachment.type], resumable: false })) {
+      stored = await artifacts.publish((transaction, { order, nowMs: publishedAt }) => {
+        const timestamp = FieldValue.serverTimestamp();
+        transaction.set(orderRef, {
+          cvStorageKey: key,
+          cvFileName: `${fileStem(attachment.filename)}.${attachment.type}`,
+          cvUploadedAt: Timestamp.fromMillis(publishedAt),
+          cvUploadedBy: 'email_reply',
+          updatedAt: timestamp,
+          ...(order.submissionStatus === 'awaiting_upload' ? { submissionStatus: 'in_progress', statusChangedAt: timestamp } : {}),
+        }, { merge: true });
+        transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('materials_received_by_email', {
+          actorEmail: 'email_reply',
+          fromStatus: order.submissionStatus,
+          toStatus: order.submissionStatus === 'awaiting_upload' ? 'in_progress' : order.submissionStatus,
+          detectedType: attachment.type,
+        }));
+        const notes = candidateNotesFrom(message.text);
+        if (notes) transaction.set(orderRef.collection('automation').doc('intake'), { emailNotes: notes, receivedAt: publishedAt }, { merge: true });
+      });
+    }
+  } catch (error) {
+    // Transport-unknown uploads/publications keep the engine's private reconciliation marker.
+    await artifacts.abandon().catch(() => {});
+    throw error;
+  }
   if (!stored) {
-    await deps.bucket.file(key).delete({ ignoreNotFound: true }).catch(() => {});
-    return { status: 200, body: { ok: true, matched: false, reason: 'cv_already_present' } };
+    await artifacts.abandon();
+    const current = (await orderRef.get()).data() || {};
+    return { status: 200, body: { ok: true, matched: false, reason: current.cvStorageKey ? 'cv_already_present' : 'order_changed' } };
   }
   return { status: 200, body: { ok: true, matched: true } };
 }

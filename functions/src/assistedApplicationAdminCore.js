@@ -10,6 +10,7 @@ import { answerContractRequired } from './assistedApplicationAnswerConfirmation.
  */
 
 import { randomUUID } from 'node:crypto';
+import { isDeepStrictEqual } from 'node:util';
 import { getStorage } from 'firebase-admin/storage';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { assertSiteAdmin } from './adminAuth.js';
@@ -18,6 +19,11 @@ import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { initialCvArtifactStore } from './lib/assistedApplicationInitialCvIngress.js';
+import { retainedArtifactStore } from './lib/assistedApplicationArtifactRetention.js';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
+import { submissionIrreversibility } from './assistedApplicationSubmissionState.js';
+import { submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import {
   refundSumUpTransaction,
   retrieveSumUpCheckout,
@@ -857,7 +863,7 @@ const OWNER_UPLOAD_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_subm
  * upload (storage.rules); the order-trigger then runs the usual type check,
  * which is what starts the automated flow.
  */
-async function handleOwnerCvUpload(db, raw, adminEmail) {
+async function handleOwnerCvUpload(db, raw, adminEmail, operationStartedAt) {
   const orderId = boundedString(raw.orderId, 200);
   const content = String(raw.contentBase64 || '');
   if (!orderId || !content || content.length > Math.ceil(MAX_CV_BYTES / 3) * 4 + 8) {
@@ -875,42 +881,87 @@ async function handleOwnerCvUpload(db, raw, adminEmail) {
   if (current.paymentStatus !== 'paid') throw new AssistedApplicationAdminError('payment_not_confirmed', 409);
   if (!OWNER_UPLOAD_STATUSES.has(statusFor(current))) throw new AssistedApplicationAdminError('invalid_transition', 409);
   const bucket = getStorage().bucket(STORAGE_BUCKET);
-  await bucket.file(key).save(buffer, { contentType: CV_CONTENT_TYPES[type], resumable: false });
-  const fromStatus = statusFor(current);
-  const timestamp = FieldValue.serverTimestamp();
-  await db.runTransaction(async (transaction) => {
+  if (!current.cvStorageKey) {
+    // assertSiteAdmin authenticated this private caller; this purpose only receives the first CV.
+    const artifacts = initialCvArtifactStore({ db, bucket, orderId, key, operationStartedAt,
+      uploaderAllows: order => order.paymentStatus === 'paid' && !order.cvStorageKey && OWNER_UPLOAD_STATUSES.has(statusFor(order)),
+    });
+    let stored = false;
+    try {
+      if (await artifacts.save(buffer, { contentType: CV_CONTENT_TYPES[type], resumable: false })) {
+        stored = await artifacts.publish((transaction, { order, nowMs }) => {
+          const fromStatus = statusFor(order);
+          const timestamp = FieldValue.serverTimestamp();
+          transaction.set(orderRef, {
+            cvStorageKey: key, cvUploadedAt: Timestamp.fromMillis(nowMs), cvUploadedBy: 'owner', updatedAt: timestamp,
+            ...(fromStatus === 'awaiting_upload' ? { submissionStatus: 'in_progress', statusChangedAt: timestamp } : {}),
+          }, { merge: true });
+          transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('cv_uploaded_by_owner', {
+            actorEmail: adminEmail, detectedType: type,
+          }));
+          if (fromStatus === 'awaiting_upload') transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('materials_received_by_email', {
+            actorEmail: adminEmail, fromStatus, toStatus: 'in_progress',
+          }));
+        });
+      }
+    } catch (error) {
+      await artifacts.abandon().catch(() => {});
+      throw error;
+    }
+    if (!stored) {
+      await artifacts.abandon();
+      throw new AssistedApplicationAdminError('cv_upload_no_longer_allowed', 409);
+    }
+    return { status: 200, body: { ok: true, orderId, detectedType: type } };
+  }
+  const submissionRef = submissionRefFor(db, orderId);
+  const irreversible = submissionIrreversibility({ submission: (await submissionRef.get()).data() || {} });
+  if (irreversible) throw new AssistedApplicationAdminError(irreversible, 409);
+  const artifacts = retainedArtifactStore({ db, bucket, orderId });
+  if (!await artifacts.save(key, buffer, { contentType: CV_CONTENT_TYPES[type], resumable: false })) {
+    throw new AssistedApplicationAdminError('cv_upload_no_longer_allowed', 409);
+  }
+  const ownArtifact = artifacts.savedArtifact(key);
+  if (!ownArtifact) throw new AssistedApplicationAdminError('cv_upload_ownership_unknown', 409);
+  const sourceFields = ['cvStorageKey', 'cvUploadedAt', 'submittedAt', 'refundedAt', 'cvFileCheck'];
+  const publication = await db.runTransaction(async transaction => {
+    const [freshSnapshot, submissionSnapshot] = await Promise.all([transaction.get(orderRef), transaction.get(submissionRef)]);
+    const fresh = freshSnapshot.data() || {};
+    const irreversible = submissionIrreversibility({ submission: submissionSnapshot.data() || {} });
+    if (irreversible) return { published: false, reason: irreversible };
+    if (!freshSnapshot.exists || fresh.paymentStatus !== 'paid' || !OWNER_UPLOAD_STATUSES.has(statusFor(fresh))
+      || ['pending', 'completed', 'succeeded', 'refunded'].includes(fresh.refundStatus) || fresh.retentionPayloadPurgedAt != null
+      || !sourceFields.every(field => isDeepStrictEqual(fresh[field] ?? null, current[field] ?? null))
+      || !assistedApplicationRetained(fresh, Date.now())) return { published: false, reason: 'cv_upload_no_longer_allowed' };
+    const fromStatus = statusFor(fresh);
+    const timestamp = FieldValue.serverTimestamp();
     transaction.set(orderRef, {
-      cvStorageKey: key,
-      cvUploadedAt: Timestamp.now(),
-      cvUploadedBy: 'owner',
-      updatedAt: timestamp,
+      // Replacement changes the file, never the original retention anchor.
+      cvStorageKey: key, cvUploadedBy: 'owner', updatedAt: timestamp,
       ...(fromStatus === 'awaiting_upload' ? { submissionStatus: 'in_progress', statusChangedAt: timestamp } : {}),
     }, { merge: true });
     transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('cv_uploaded_by_owner', {
-      actorEmail: adminEmail,
-      detectedType: type,
+      actorEmail: adminEmail, detectedType: type,
     }));
-    if (fromStatus === 'awaiting_upload') {
-      transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('materials_received_by_email', {
-        actorEmail: adminEmail,
-        fromStatus,
-        toStatus: 'in_progress',
-      }));
-    }
+    if (fromStatus === 'awaiting_upload') transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('materials_received_by_email', {
+      actorEmail: adminEmail, fromStatus, toStatus: 'in_progress',
+    }));
+    return { published: true };
   });
-  const previous = current.cvStorageKey;
-  if (previous && previous !== key && isAssistedApplicationStorageKey(orderId, previous)) {
-    await bucket.file(previous).delete({ ignoreNotFound: true }).catch(() => {});
+  if (!publication.published) {
+    await bucket.file(ownArtifact.key).delete({ ifGenerationMatch: ownArtifact.generation, ignoreNotFound: true });
+    throw new AssistedApplicationAdminError(publication.reason, 409);
   }
+  // Old CV objects can still be named by sent evidence; their original purge clock owns them.
   return { status: 200, body: { ok: true, orderId, detectedType: type } };
 }
 
-async function handleMutate(db, req, adminEmail) {
+async function handleMutate(db, req, adminEmail, operationStartedAt) {
   const raw = req.body && typeof req.body === 'object' ? req.body : {};
   const action = boundedString(raw.action, 80);
   if (action === 'candidateView') return handleCandidateView(db, raw);
   if (action === 'refund') return handleRefund(db, raw, adminEmail);
-  if (action === 'uploadCv') return handleOwnerCvUpload(db, raw, adminEmail);
+  if (action === 'uploadCv') return handleOwnerCvUpload(db, raw, adminEmail, operationStartedAt);
   if (AUTOMATION_ADMIN_ACTIONS.has(action)) {
     try {
       const body = await handleAutomationAdminAction(db, raw, adminEmail, {
@@ -937,6 +988,7 @@ async function handleMutate(db, req, adminEmail) {
 
 /** Entry point. Both GET and POST require the verified owner admin. */
 export async function handleAssistedApplicationAdmin(req) {
+  const operationStartedAt = Date.now();
   const method = String(req.method || 'GET').toUpperCase();
   if (method !== 'GET' && method !== 'POST') {
     return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
@@ -948,7 +1000,7 @@ export async function handleAssistedApplicationAdmin(req) {
   const db = getAdminDb();
   try {
     if (method === 'GET') return await handleListAssistedApplications(db, requestedStatus(req), requestedBillingMode(req));
-    const result = await handleMutate(db, req, auth.email);
+    const result = await handleMutate(db, req, auth.email, operationStartedAt);
     if (result.status >= 200 && result.status < 300 && boundedString(req.body?.action, 80) !== 'candidateView') {
       await writeAdminAuditLog({
         db,

@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { addressOf, decodeEncodedWords, parseMimeMessage, senderAuthenticated } from '../functions/src/lib/mimeMessage.js';
 import { candidateNotesFrom, handleAssistedApplicationEmailCv } from '../functions/src/assistedApplicationEmailCv.js';
+import { initialCvBucket } from './helpers/initialCvCallersFixture.mjs';
 
 const SECRET = 'stop-secret-for-tests';
 const PDF = Buffer.from('%PDF-1.4\nfake cv content\n%%EOF');
@@ -48,14 +49,7 @@ function rawMessage({
 }
 
 function fakeBucket() {
-  const files = new Map<string, Buffer>();
-  return {
-    files,
-    file: (key: string) => ({
-      async save(content: Buffer) { files.set(key, Buffer.from(content)); },
-      async delete() { files.delete(key); },
-    }),
-  };
+  return initialCvBucket();
 }
 
 const request = (raw: Buffer, secret = SECRET) => ({
@@ -128,7 +122,7 @@ describe('CV by e-mail reply', () => {
     expect(order.cvStorageKey).toMatch(new RegExp(`^assisted-application-uploads/${ORDER}/\\d+-[0-9a-f-]+-CV-Maria\\.pdf$`));
     expect(order.cvFileName).toBe('CV-Maria.pdf');
     expect(order).toMatchObject({ cvUploadedBy: 'email_reply', submissionStatus: 'in_progress' });
-    expect(bucket.files.get(order.cvStorageKey)!.equals(PDF)).toBe(true);
+    expect(bucket.files.get(order.cvStorageKey)!.content.equals(PDF)).toBe(true);
     expect(database.read(`${BASE}/automation/intake`)).toMatchObject({ emailNotes: 'Ciao Valerie, ho il permesso G e sono disponibile dal 1° novembre.' });
     expect(database.read('assisted_applications/order_OTHER')!.cvStorageKey).toBeUndefined();
   });
