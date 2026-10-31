@@ -1,0 +1,144 @@
+import { afterEach, describe, expect, it } from 'vitest';
+import { JSDOM } from 'jsdom';
+import { readFileSync } from 'node:fs';
+import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { ownConsent, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { isConsentOnly, readOwnConsentMetadata } from '../functions/src/lib/applicationConsent.js';
+import { renderConsentControls, renderConsentMetadataInFields } from '../scripts/assisted-application/extension/build-consent-controls.mjs';
+import { portalRequirementsFromMissingRequired, localizePortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+
+const open: JSDOM[] = [];
+afterEach(() => { for (const dom of open.splice(0)) dom.window.close(); });
+function readers(html: string) {
+  const dom = new JSDOM(`<form>${html}</form>`, { url: 'https://jobs.example/apply', runScripts: 'outside-only' });
+  open.push(dom);
+  const w = dom.window;
+  Object.defineProperty(w.HTMLElement.prototype, 'innerText', { get() { return this.textContent || ''; } });
+  w.Element.prototype.getBoundingClientRect = () => ({ width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON() {} });
+  (w as any).CSS = { escape: (value: string) => value };
+  const source = w.eval(`(${extractFieldsInPage.toString()})()`).fields;
+  for (const file of ['apply-control.js', 'runner-fields.js', 'filler.js']) w.eval(readFileSync(new URL(`../scripts/assisted-application/extension/${file}`, import.meta.url), 'utf8'));
+  const F = (w as any).CompilaCandidatura;
+  expect(JSON.parse(JSON.stringify((w as any).CompilaRunnerFields().fields))).toEqual(JSON.parse(JSON.stringify(source)));
+  return { dom, F, source, entries: F.collect(w.document) };
+}
+const box = (label: string, attrs = '', extra = '') => `<label for="consent">${label}</label><input id="consent" type="checkbox" required ${attrs}>${extra}`;
+const positives = [
+  'I have read and accept the Privacy Policy.',
+  'Ho letto l’informativa privacy e acconsento al trattamento dei dati.',
+  'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+  'J’ai lu et j’accepte la politique de confidentialité.',
+  'Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di protezione dei dati.',
+  'By clicking I agree you are confirming that you have read the Privacy Policy',
+];
+describe('native consent authority shared by planner and browser', () => {
+  it.each(positives)('keeps pure application privacy and commits its current native checkbox: %s', async label => {
+    const { F, source, entries } = readers(box(label));
+    expect(ownConsent(source[0])).toBe(true);
+    const answer = F.answerFor(entries[0], { answers: [], identity: {} });
+    expect(answer).toEqual({ check: true });
+    expect(await F.fillEntry(entries[0], answer, {})).toBe(true);
+    expect(entries[0].element.checked).toBe(true);
+  });
+  it.each([
+    'I decline the privacy policy', 'I do not agree to the privacy policy',
+    'Ich stimme der Datenschutzerklärung nicht zu', 'Je ne consens pas au traitement de mes données',
+    'Non accetto l’informativa privacy',
+    'I agree to the privacy policy and that I speak fluent German',
+    'I agree to the privacy policy and that I can relocate worldwide',
+    'I hold a valid work permit and accept the privacy policy',
+    'Ho una laurea e accetto l’informativa privacy',
+    'Ich habe zehn Jahre Berufserfahrung und akzeptiere die Datenschutzerklärung',
+    'Je possède un diplôme et j’accepte la politique de confidentialité',
+    'I confirm that all information is accurate and accept the privacy policy',
+    'Confermo che le informazioni sono corrette e accetto l’informativa privacy',
+    'Ich bestätige die Richtigkeit meiner Angaben und akzeptiere den Datenschutz',
+    'Je confirme que les renseignements sont exacts et j’accepte la confidentialité',
+    'I agree to the terms and conditions', 'I accept the agency terms and privacy policy',
+    'I agree to receive newsletters in accordance with the privacy policy',
+  ])('never grants an automatic consent exemption to another assertion: %s', label => {
+    const { F, source, entries } = readers(box(label));
+    expect(ownConsent(source[0])).toBe(false);
+    expect(F.answerFor(entries[0], { answers: [], identity: {} })).toBeNull();
+    expect(guardPlan({ actions: [{ fieldId: source[0].id, action: 'check', source: 'consent' }], missingRequired: [] }, source).actions).toEqual([]);
+  });
+  it.each(['aria-label', 'aria-description', 'title', 'placeholder'])('checks every own %s before default', attribute => {
+    const { F, source, entries } = readers(box('I agree to the Privacy Policy', `${attribute}="Newsletter"`));
+    expect(ownConsent(source[0])).toBe(false);
+    expect(F.answerFor(entries[0], { answers: [] })).toBeNull();
+  });
+  it.each(['aria-describedby', 'aria-details'])('does not inherit another control through a %s container', attribute => {
+    const { F, source, entries } = readers(box('I agree', `${attribute}="shared"`, '<div id="shared"><label for="other">Privacy policy</label></div><input id="other" type="checkbox">'));
+    expect(source[0]).toMatchObject({ ownConsentMetadataComplete: false, consentOwnershipUnknown: true, ownConsentText: [] });
+    expect(ownConsent(source[0])).toBe(false);
+    expect(F.answerFor(entries[0], { answers: [] })).toBeNull();
+    expect(portalRequirementsFromMissingRequired(source, [{ fieldId: source[0].id, question: 'I agree' }])).toMatchObject({ questions: [], unreadableFields: [source[0].id] });
+  });
+  it.each([
+    ['missing', 'aria-describedby="missing"', ''],
+    ['duplicate', 'aria-describedby="description"', '<p id="description">Privacy</p><p id="description">Newsletter</p>'],
+    ['oversize', 'aria-describedby="description"', `<p id="description">${'x'.repeat(8001)}</p>`],
+    ['cycle', 'aria-details="description"', '<p id="description" aria-details="description">Privacy</p>'],
+  ])('rejects an incomplete whole description: %s', (_name, attrs, html) => {
+    const { source, F, entries } = readers(box('I accept the Privacy Policy', attrs, html));
+    expect(source[0].ownConsentMetadataComplete).toBe(false);
+    expect(source[0].ownConsentText).toEqual([]);
+    expect(F.answerFor(entries[0], { answers: [] })).toBeNull();
+  });
+  it.each(['/marketing-consent', '/work-permit', '/agency-terms', '/unidentified-purpose'])('does not authorize a different owned destination: %s', href => {
+    const { source, F, entries } = readers(box(`I agree to the <a href="${href}">Privacy Policy</a>`));
+    expect(ownConsent(source[0])).toBe(false);
+    expect(F.answerFor(entries[0], { answers: [] })).toBeNull();
+  });
+  it('keeps a privacy link and ignores sibling birth/employer text as consent authority', () => {
+    const { source } = readers(box('I agree to the <a href="/privacy-policy">Privacy Policy</a>', '', '<label for="birth">Date of birth</label><input id="birth"><fieldset aria-label="Employer"><input name="employer"></fieldset>'));
+    expect(ownConsent(source[0])).toBe(true);
+  });
+  it.each(['No', false, 0, 'Nein', 'Non'])('preserves a scoped explicit refusal for action and omitted-action paths: %s', answer => {
+    const { source, F, entries } = readers(box('I agree to the Privacy Policy'));
+    const candidate = { portalQuestionsAnswered: [{ question: source[0].label, answer, source: 'answers' }] };
+    for (const actions of [[], [{ fieldId: source[0].id, action: 'check', source: 'consent' }]]) {
+      expect(() => guardPlan({ actions, missingRequired: [] }, source, candidate)).toThrowError('native_attested_refusal');
+    }
+    expect(F.answerFor(entries[0], { answers: [{ question: source[0].label, answer, source: 'answers' }] })).toBeNull();
+  });
+  it.each(['detached', 'question', 'description', 'owner', 'link'])('rechecks the native owner and entire contract before a click: %s', async change => {
+    const { dom, F, entries } = readers(box('I agree to the <a href="/privacy-policy">Privacy Policy</a>'));
+    const entry = entries[0], answer = F.answerFor(entry, { answers: [] });
+    expect(answer).toEqual({ check: true });
+    if (change === 'detached') entry.element.replaceWith(entry.element.cloneNode(true));
+    if (change === 'question') dom.window.document.querySelector('label')!.textContent = 'I have a work permit and agree to Privacy';
+    if (change === 'description') entry.element.setAttribute('aria-description', 'Newsletter');
+    if (change === 'owner') entry.element.name = 'changed-purpose';
+    if (change === 'link') dom.window.document.querySelector('a')!.setAttribute('href', '/marketing-consent');
+    expect(await F.fillEntry(entry, answer, {})).toBe(false);
+    expect(dom.window.document.querySelector('input')!.checked).toBe(false);
+  });
+  it('classifies optional pure permission separately without granting a default or hard-fact exemption', () => {
+    const { source, F, entries } = readers(box('I agree to receive newsletters'));
+    expect(isConsentOnly(source[0])).toBe(true);
+    expect(ownConsent(source[0])).toBe(false);
+    expect(F.answerFor(entries[0], { answers: [] })).toBeNull();
+  });
+  it('does not derive authority from a technical name or caller-provided complete=false metadata', () => {
+    expect(ownConsent({ kind: 'checkbox', name: 'agbs_check', required: true })).toBe(false);
+    const { source } = readers(box('I agree to the Privacy Policy'));
+    expect(ownConsent({ ...source[0], consentOwnershipUnknown: true })).toBe(false);
+    expect(ownConsent({ ...source[0], ownConsentMetadataComplete: false })).toBe(false);
+  });
+  it('preserves the opaque original native contract and ownership through candidate localization', async () => {
+    const { source } = readers(box('I hold a valid work permit and accept the privacy policy'));
+    source[0].originalNativeContract = { kind: 'checkbox', nativeValidation: { required: true }, ownConsentOwnerKey: source[0].ownConsentOwnerKey };
+    const dto = portalRequirementsFromMissingRequired(source, [{ fieldId: source[0].id, question: source[0].label }]).questions;
+    const localized = await localizePortalQuestions(dto, { candidateLocale: 'it', applicationLocale: 'en' });
+    expect(localized[0].originalNativeContract).toEqual(source[0].originalNativeContract);
+    expect(localized[0].ownConsentText).toEqual(source[0].ownConsentText);
+  });
+  it('generates the same policy and reader into both browser runtimes', () => {
+    const apply = readFileSync(new URL('../scripts/assisted-application/extension/apply-control.js', import.meta.url), 'utf8');
+    const fields = readFileSync(new URL('../scripts/assisted-application/lib/portal/fields.mjs', import.meta.url), 'utf8');
+    expect(renderConsentControls(apply)).toBe(apply);
+    expect(renderConsentMetadataInFields(fields)).toBe(fields);
+    expect(typeof readOwnConsentMetadata).toBe('function');
+  });
+});

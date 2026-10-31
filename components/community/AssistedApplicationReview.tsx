@@ -1,3 +1,4 @@
+import { captureAnswerContracts, answerContractsChanged, type AnswerContractSnapshot } from '@/services/assistedApplicationAnswerContracts';
 import { AssistedApplicationEmployerResponse } from '@/components/community/AssistedApplicationEmployerResponse';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
@@ -188,6 +189,10 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [busy, setBusy] = useState<string | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [answerSnapshot, setAnswerSnapshot] = useState<AnswerContractSnapshot<ReviewQuestion> | null>(null);
+  const answerSnapshotRef = useRef<AnswerContractSnapshot<ReviewQuestion> | null>(null);
+  const [answerReviewRequired, setAnswerReviewRequired] = useState(false);
+  const [answerConfirmationRequired, setAnswerConfirmationRequired] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [showFeedback, setShowFeedback] = useState(false);
   const [confirmWithdrawal, setConfirmWithdrawal] = useState(false);
@@ -218,7 +223,16 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       const proposed = Object.fromEntries((review.questions || [])
         .filter((question) => question.suggested && !String(review.answers?.[question.id] || '').trim())
         .map((question) => [question.id, question.suggested as string]));
-      setAnswers({ ...(review.answers || {}), ...proposed });
+      const existing = answerSnapshotRef.current;
+      if (!existing || existing.scope !== token) {
+        const captured = captureAnswerContracts(token, review.questions || [], review.answerContracts);
+        answerSnapshotRef.current = captured;
+        setAnswerSnapshot(captured);
+        setAnswers({ ...(review.answers || {}), ...proposed });
+        setAnswerReviewRequired(false);
+      } else if (answerContractsChanged(existing, token, review.questions || [], review.answerContracts)) {
+        setAnswerReviewRequired(true);
+      }
       setError(null);
     } catch (reason) {
       if (currentToken.current === token) setError(reason instanceof ReviewRequestError ? reason.code : 'network');
@@ -245,6 +259,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     setEditServerErrors({});
     try {
       await sendReviewAction(token, action, extra);
+      if (action === 'answers') setAnswerConfirmationRequired(false);
       setDone(action);
       await load();
       // The buttons are at the bottom of a long page and the new state (sending,
@@ -258,6 +273,10 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       // what is there now, then say why (load clears the error it finds). An open
       // edit form still holds the values it was opened with: close it, so that a
       // second save cannot send them back over the other tab's change.
+      if (code === 'answer_contract_required' || code === 'answer_contract_changed') {
+        setAnswerReviewRequired(true);
+        await load();
+      }
       if (code === 'changed_meanwhile' || code === 'withdrawal_unavailable') {
         await load();
         if (action === 'edit') setEditing(false);
@@ -278,20 +297,21 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const clientErrors = useMemo(() => {
     const todayIso = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
     const errors: Record<string, string> = {};
-    for (const question of data?.questions || []) {
+    for (const question of answerSnapshot?.questions || []) {
       const view = { ...question, required: false };
       const result = validateAnswer(answers[question.id] || '', view, { todayIso });
       if (!result.ok) errors[question.id] = answerMessage(result, view, locale || 'it');
     }
     return errors;
-  }, [data, answers, locale]);
+  }, [answerSnapshot, answers, locale]);
 
   const saveAnswers = () => {
+    if (answerReviewRequired || !answerSnapshot) return;
     if (Object.keys(clientErrors).length) {
       setTouched(Object.fromEntries(Object.keys(clientErrors).map((id) => [id, true])));
       return;
     }
-    void run('answers', { answers });
+    void run('answers', { answers, answerContracts: answerSnapshot.contracts });
   };
 
   // The documents the posting requires besides the CV and the letter: the file
@@ -404,7 +424,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   );
   const pageLocale = data?.locale || locale || 'it';
 
-  const errorText = error ? t(`jobBoard.assisted.review.error.${error}`, t('jobBoard.assisted.review.error.generic')) : null;
+  const contractError = error === 'answer_contract_required' || error === 'answer_contract_changed';
+  const contractNotice = t('jobBoard.assisted.review.contractChanged', 'Le domande sono cambiate. Le risposte che hai scritto sono conservate: rileggi le domande aggiornate e confermale di nuovo.');
+  const errorText = contractError ? contractNotice : error ? t(`jobBoard.assisted.review.error.${error}`, t('jobBoard.assisted.review.error.generic')) : null;
 
   // A follow-up to the employer (af1 link): send it now, or stop it.
   if (followup) {
@@ -539,13 +561,26 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           <AssistedApplicationFitNotice fit={data.fit} locale={pageLocale} hasQuestions={data.questions.length > 0} canEdit={Boolean(data.can.edit)} />
         )}
 
+        {data && answerReviewRequired && <div role="alert" className="space-y-2 text-sm text-warning">
+              <p>{contractNotice}</p>
+              <button type="button" className="underline" disabled={Boolean(busy)} onClick={() => {
+                const captured = captureAnswerContracts(token, data.questions || [], data.answerContracts);
+                answerSnapshotRef.current = captured;
+                setAnswerSnapshot(captured);
+                setAnswerReviewRequired(false);
+                setAnswerConfirmationRequired(data.questions.length > 0);
+                setError(null);
+                setDone(null);
+              }}>{t('jobBoard.assisted.review.reviewUpdatedQuestions', 'Rileggi le domande aggiornate')}</button>
+            </div>}
+
         {data && data.can.answer && data.questions.length > 0 && (
           <form
             className="space-y-4 rounded-xl border border-edge bg-surface-alt p-4"
             onSubmit={(event) => { event.preventDefault(); saveAnswers(); }}
           >
             <h2 className="text-base font-bold text-heading">{t('jobBoard.assisted.review.questionsTitle')}</h2>
-            {data.questions.map((question) => (
+            {(answerSnapshot?.questions || []).map((question) => (
               <QuestionField
                 key={question.id}
                 question={question}
@@ -559,7 +594,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                 error={fieldErrors[question.id] || (touched[question.id] ? clientErrors[question.id] : '')}
               />
             ))}
-            <button type="submit" disabled={Boolean(busy)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-accent px-4 text-sm font-semibold text-accent hover:bg-accent-subtle disabled:opacity-60">
+            <button type="submit" disabled={Boolean(busy) || answerReviewRequired} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-accent px-4 text-sm font-semibold text-accent hover:bg-accent-subtle disabled:opacity-60">
               {busy === 'answers' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
               {busy === 'answers' ? t('jobBoard.assisted.review.checkingAnswers') : t('jobBoard.assisted.review.saveAnswers')}
             </button>
@@ -662,7 +697,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                   </fieldset>
                 )}
                 <div className="flex flex-wrap gap-2">
-                  <button type="submit" disabled={Boolean(busy)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:opacity-60">
+                  <button type="submit" disabled={Boolean(busy) || answerReviewRequired} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:opacity-60">
                     {busy === 'edit' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
                     {t('jobBoard.assisted.review.saveEdits')}
                   </button>
@@ -837,7 +872,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <button
               type="button"
               onClick={() => { void run('approve'); }}
-              disabled={Boolean(busy) || !data.can.approve || editing}
+              disabled={Boolean(busy) || !data.can.approve || editing || answerReviewRequired || answerConfirmationRequired}
               className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
             >
               {busy === 'approve' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Send className="h-4 w-4" aria-hidden="true" />}

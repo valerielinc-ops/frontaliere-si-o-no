@@ -66,6 +66,7 @@ export interface AutomationSentView {
 }
 
 export interface AssistedApplicationAutomationView {
+  answerContracts?: Record<string, string>;
   candidateAlias?: string | null;
   /** Employer messages received on the order alias (newest first, max 10). */
   inbox?: Array<{ receivedAt: number | null; from: string; subject: string; category: string; summaryIt: string; interviewWhen: string; forwarded: string | null }>;
@@ -292,6 +293,8 @@ function errorMessage(error: unknown, status: number): string {
     not_taken_over: 'L’automazione non è sospesa.',
     not_approved: 'Il candidato non ha ancora approvato questa bozza: il robot non la invia. Premi «Riprendi automazione» per rimetterla in revisione.',
     not_retryable: 'In questo stato l’invio automatico non si può rilanciare.',
+    answer_contract_required: 'Le domande devono essere ricontrollate prima di confermare le risposte.',
+    answer_contract_changed: 'Il portale ha cambiato la domanda. Rileggila e conferma di nuovo la risposta.',
     no_approved_draft: 'Non c’è una bozza approvata per questo giro.',
     already_started_or_ineligible: 'Automazione già avviata, oppure ordine senza CV verificato.',
     no_flow: 'L’automazione non è stata avviata per questo ordine.',

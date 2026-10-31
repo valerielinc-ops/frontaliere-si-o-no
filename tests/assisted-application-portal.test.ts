@@ -1,3 +1,4 @@
+import { nativeConsentField } from './helpers/nativeConsentField';
 import { describe, expect, it, vi } from 'vitest';
 import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic, targetEmployerNoOption } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
@@ -1570,7 +1571,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       { id: 'f3', kind: 'text', label: 'E-Mail', required: true, value: 'c-abcdefghjk@candidature.frontaliereticino.ch' },
       { id: 'f4', kind: 'listbox', label: 'Land', required: true, value: 'Select One' },
       { id: 'f5', kind: 'select', label: 'Anrede', required: true, value: '-1', options: [{ value: '-1', label: 'Bitte wählen' }, { value: 'f', label: 'Frau' }] },
-      { id: 'f6', kind: 'checkbox', label: 'Datenschutz', required: true, checked: false },
+      nativeConsentField('Datenschutz', { id: 'f6', required: true, checked: false }),
       { id: 'f7', kind: 'text', label: 'Zweiter Vorname', required: false, value: '' },
     ];
     const plan = {
@@ -1598,7 +1599,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       missingRequired: [],
     }, [
       { id: 'p1', kind: 'select', label: 'Country', required: true, value: '', options: [{ value: '', label: 'Select One' }, { value: 'ch', label: 'Switzerland' }] },
-      { id: 'p2', kind: 'checkbox', label: 'Datenschutz', required: true, checked: true },
+      nativeConsentField('Datenschutz', { id: 'p2', required: true, checked: true }),
       { id: 'p3', kind: 'checkbox', label: 'Newsletter', required: false, checked: true },
     ], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
     expect(projected.actions).toEqual([{ fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' }]);
@@ -1613,14 +1614,14 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
   it('ticks the application’s own required consent in code when the plan leaves it, and nothing else', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const fields = [
-      { id: 'c1', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false },
-      { id: 'c2', kind: 'checkbox', label: 'Newsletter gemäss Datenschutzerklärung abonnieren', required: true, checked: false },
-      { id: 'c3', kind: 'checkbox', label: 'I hold a valid work permit and accept the privacy policy', required: true, checked: false },
-      { id: 'c4', kind: 'checkbox', label: 'Datenschutzerklärung gelesen', required: false, checked: false },
-      { id: 'c5', kind: 'checkbox', label: 'Ho letto l’informativa privacy e acconsento al trattamento dei dati', required: true, checked: false },
+      nativeConsentField('I agree to the Privacy Policy Statement', { id: 'c1', required: true, checked: false }),
+      nativeConsentField('Newsletter gemäss Datenschutzerklärung abonnieren', { id: 'c2', required: true, checked: false }),
+      nativeConsentField('I hold a valid work permit and accept the privacy policy', { id: 'c3', required: true, checked: false }),
+      nativeConsentField('Datenschutzerklärung gelesen', { id: 'c4', required: false, checked: false }),
+      nativeConsentField('Ho letto l’informativa privacy e acconsento al trattamento dei dati', { id: 'c5', required: true, checked: false }),
       // Ticino Rexx omits the HTML `required` attribute even though its
       // server rejects the application until this agreement is checked.
-      { id: 'c6', kind: 'checkbox', label: 'Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di protezione dei dati.', required: false, checked: false },
+      nativeConsentField('Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di protezione dei dati.', { id: 'c6', required: false, checked: false }),
     ];
     // umantis, 2026-10-03: the planner skipped the required privacy box, and the candidate was asked it as a text question.
     const guarded = guardPlan({
@@ -1637,7 +1638,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(ownConsent({ kind: 'checkbox', label: 'I will not accept the privacy policy', required: false, checked: false })).toBe(false);
     // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
     expect(planSystemPrompt('it')).toContain('select the option that deletes it');
-    expect(ownConsent({ kind: 'checkbox', name: 'agbs_check', label: '', required: false })).toBe(true);
+    expect(ownConsent(nativeConsentField('', { name: 'agbs_check', required: false }))).toBe(false);
     expect(ownConsent({ kind: 'checkbox', name: 'privacy_marketing', label: '', required: false })).toBe(false);
   });
 
@@ -1668,7 +1669,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(failedConsentRequiresHandoff(
       { ok: false, error: 'choice_not_registered' },
       { action: 'check', source: 'rule' },
-      { kind: 'checkbox', name: 'agbs_check', label: '', required: false },
+      nativeConsentField('', { name: 'agbs_check', required: false }),
     )).toBe(true);
     expect(failedConsentRequiresHandoff(
       { ok: false, error: 'choice_not_registered' },
@@ -2614,7 +2615,7 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
   });
 
   it('never ticks a consent that also declares a work authorisation or a citizenship', () => {
-    const box = (label: string) => ownConsent({ kind: 'checkbox', required: true, label });
+    const box = (label: string) => ownConsent(nativeConsentField(label));
     expect(box('Ich habe eine gültige Arbeitserlaubnis und akzeptiere die Datenschutzerklärung')).toBe(false);
     expect(box('I am authorised to work in Switzerland and accept the privacy policy')).toBe(false);
     expect(box('Ho la cittadinanza svizzera e accetto l’informativa privacy')).toBe(false);

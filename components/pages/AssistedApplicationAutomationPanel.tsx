@@ -1,3 +1,4 @@
+import { captureAnswerContracts, answerContractsChanged, type AnswerContractSnapshot } from '@/services/assistedApplicationAnswerContracts';
 import { useEffect, useRef, useState } from 'react';
 import { AlertTriangle, CheckCircle2, FileText, Loader2, Pause, Play, RefreshCw, Save, Send, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
 import {
@@ -5,6 +6,7 @@ import {
   uploadAssistedApplicationCv,
   type AssistedApplicationAdminOrder,
   type AutomationAdminAction,
+  type AutomationQuestionView,
 } from '@/services/assistedApplicationAdminService';
 import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererStatus';
 import { sentSummaryIt } from '@/services/assistedApplicationSentRecord';
@@ -119,6 +121,10 @@ export default function AssistedApplicationAutomationPanel({
   const [emailSubject, setEmailSubject] = useState(draft?.applicationEmail?.subject || '');
   const [emailBody, setEmailBody] = useState(draft?.applicationEmail?.body || '');
   const [answers, setAnswers] = useState<Record<string, string>>(flow?.answers || {});
+  const answerSnapshotRef = useRef<AnswerContractSnapshot<AutomationQuestionView>>(captureAnswerContracts(order.orderId, draft?.questions || [], automation?.answerContracts));
+  const [answerSnapshot, setAnswerSnapshot] = useState(answerSnapshotRef.current);
+  const [answerReviewRequired, setAnswerReviewRequired] = useState(false);
+  const [answerConfirmationRequired, setAnswerConfirmationRequired] = useState(false);
   const [ackFlags, setAckFlags] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -126,16 +132,28 @@ export default function AssistedApplicationAutomationPanel({
     setEmailTo(draft?.applicationEmail?.to || '');
     setEmailSubject(draft?.applicationEmail?.subject || '');
     setEmailBody(draft?.applicationEmail?.body || '');
-    setAnswers(flow?.answers || {});
-  }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, flow?.answers]);
+    const old = answerSnapshotRef.current;
+    if (old.scope !== order.orderId) {
+      const captured = captureAnswerContracts(order.orderId, draft?.questions || [], automation?.answerContracts);
+      answerSnapshotRef.current = captured;
+      setAnswerSnapshot(captured);
+      setAnswers(flow?.answers || {});
+      setAnswerReviewRequired(false);
+    } else if (answerContractsChanged(old, order.orderId, draft?.questions || [], automation?.answerContracts)) {
+      setAnswerReviewRequired(true);
+    }
+  }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, flow?.answers, order.orderId, draft?.questions, automation?.answerContracts]);
 
   const act = async (action: AutomationAdminAction, extra: Record<string, unknown> = {}, success = 'Fatto.') => {
     if (busy) return;
     setBusy(action);
     try {
       await runAutomationAdminAction(user, order.orderId, action, extra);
+      if (action === 'automationSetAnswers') setAnswerConfirmationRequired(false);
       await onChanged({ ok: true, text: success });
     } catch (error) {
+      const code = error && typeof error === 'object' && 'code' in error ? error.code : '';
+      if (code === 'answer_contract_required' || code === 'answer_contract_changed') setAnswerReviewRequired(true);
       await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Operazione non riuscita.' });
     } finally {
       setBusy(null);
@@ -502,16 +520,27 @@ export default function AssistedApplicationAutomationPanel({
             </ul>
           </details>
 
+              {answerReviewRequired && <div role="alert" className="space-y-2 text-xs text-warning">
+                <p>Le domande sono cambiate. Le risposte scritte sono conservate: rileggi e conferma di nuovo.</p>
+                <button type="button" className="underline" disabled={Boolean(busy)} onClick={() => {
+                  const captured = captureAnswerContracts(order.orderId, draft?.questions || [], automation?.answerContracts);
+                  answerSnapshotRef.current = captured;
+                  setAnswerSnapshot(captured);
+                  setAnswerReviewRequired(false);
+                  setAnswerConfirmationRequired(Boolean(draft?.questions.length));
+                }}>Rileggi le domande aggiornate</button>
+              </div>}
+
           {draft.questions.length > 0 && (
             <div className="space-y-2 rounded-stripe border border-edge bg-surface p-3">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted">Domande per il candidato (puoi rispondere tu se te lo ha detto via email)</p>
-              {draft.questions.map((question) => (
+              {answerSnapshot.questions.map((question) => (
                 <label key={question.id} className="block text-xs text-body">
                   {question.question}{question.required ? ' *' : ''}
                   <input value={answers[question.id] || ''} onChange={(event) => setAnswers((current) => ({ ...current, [question.id]: event.target.value }))} className="mt-1 w-full rounded border border-edge bg-surface-alt px-2 py-1.5 text-sm" />
                 </label>
               ))}
-              <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationSetAnswers', { answers }, 'Risposte salvate.'); }}>
+              <button type="button" className={secondary} disabled={Boolean(busy) || answerReviewRequired} onClick={() => { void act('automationSetAnswers', { answers, answerContracts: answerSnapshot.contracts }, 'Risposte salvate.'); }}>
                 {spinner('automationSetAnswers') || <Save size={14} aria-hidden="true" />} Salva risposte
               </button>
             </div>
@@ -592,7 +621,7 @@ export default function AssistedApplicationAutomationPanel({
         )}
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
           {flow.state === 'owner_review' && !repairingFacts && (
-            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
+            <button type="button" className={primary} disabled={Boolean(busy) || answerReviewRequired || answerConfirmationRequired} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
               {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
             </button>
           )}

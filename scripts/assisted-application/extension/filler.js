@@ -66,8 +66,6 @@
   const RESIDENCE_CONTEXT_RE = /\b(?:residen(?:ce|tial)|domicil|address|adresse|indirizz|abitaz|home\s+(?:address|country|city)|wohn(?:sitz|adresse|ort))\b/;
   const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|dati personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche angaben|personliche daten|private adresse|wohnadresse|adresse personnelle|coordonnees personnelles|adresse du candidat)\b/;
   const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
-  const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
-  const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
   // Keep the same required-marker vocabulary as the portal snapshot. A
   // SuccessFactors label may carry only “(erforderlich)” while the input has
   // neither native nor ARIA requiredness.
@@ -536,7 +534,7 @@
       const searchSelect = element.getAttribute('data-uxi-widget-type') === 'selectinput';
       if (type === 'search' && !searchSelect) continue;
       if (inPicker(element) || element.disabled || element.readOnly) continue;
-      if (type !== 'file' && !isShown(element)) continue;
+      if (type !== 'file' && !isShown(element) && !(type === 'checkbox' && [...element.labels || []].some(isShown))) continue;
       const requiredByAttribute = isRequiredControl(element);
       if (type === 'radio') {
         const key = element.name || element.closest('[role="radiogroup"], fieldset') || element;
@@ -1147,7 +1145,9 @@
           ...consentMetadataFor(element, labelOf(element)) };
         if (!receipt || receipt.element !== element || receipt.form !== element.form || !element.isConnected
           || receipt.contract !== JSON.stringify(fresh) || !pureApplicationConsent(fresh)) return false;
-        if (!element.checked) press(element);
+        const target = isShown(element) ? element : [...element.labels || []].find(label => label.control === element && isShown(label));
+        if (!target) return false;
+        if (!element.checked) press(target);
         return element.checked;
       }
       case 'radio': {

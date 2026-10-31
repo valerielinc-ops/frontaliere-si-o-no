@@ -18,6 +18,7 @@ on:
       - 'functions/src/assistedApplicationSubmissionGuard.js'
       - 'functions/src/lib/answerRules.js'
       - 'functions/src/lib/portalQuestionText.js'
+      - 'functions/src/lib/applicationConsent.js'
   workflow_dispatch:
 
 permissions:

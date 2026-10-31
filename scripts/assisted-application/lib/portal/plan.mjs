@@ -1523,8 +1523,11 @@ function identityAnswerMatches(candidate, field, value) {
  * from the candidate's answers or profile, never from a model "rule".
  */
 export function guardPlan(plan, fields, candidate = null, { refuses } = {}) {
+  const refusalCandidate = candidate && { ...candidate,
+    portalQuestionsAnswered: (candidate.portalQuestionsAnswered || []).map(item => ({ ...item, answer: isConsentRefusal(item.answer) ? 'No' : item.answer })),
+    answers: Object.fromEntries(Object.entries(candidate.answers || {}).map(([id, value]) => [id, isConsentRefusal(value) ? 'No' : value])) };
   const refused = new Set(fields.filter(field => field.kind === 'checkbox' && (refuses?.(field)
-    || isConsentRefusal(recordedAnswerForQuestion(candidate, field.label, field.context, field)))).map(field => field.id));
+    || isConsentRefusal(recordedAnswerForQuestion(refusalCandidate, field.label, field.context, field)))).map(field => field.id));
   for (const field of fields) {
     if (refused.has(field.id) && field.required) {
       const error = new Error('native_attested_refusal');

@@ -181,6 +181,7 @@ export interface ReviewPayload {
   /** The posting’s decisive requirements the CV does not show, said above the questions (null: a full match). */
   fit?: ReviewFitNotice | null;
   answers: Record<string, string>;
+  answerContracts?: Record<string, string>;
   /** School reports, test results… the posting requires besides the CV and the letter. */
   documents?: ReviewDocument[];
   documentLimits?: { maxBytes: number; maxFiles: number };
@@ -262,6 +263,7 @@ export async function sendReviewAction(
   extra: {
     feedback?: string;
     answers?: Record<string, string>;
+    answerContracts?: Record<string, string>;
     cvChoice?: string;
     documentId?: string;
     fileName?: string;

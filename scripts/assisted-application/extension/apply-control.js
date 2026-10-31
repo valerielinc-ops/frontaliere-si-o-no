@@ -34,19 +34,13 @@ const startsApplication = (text) => {
   const OTHER_TERMS = /vermittlungsburo|personalvermittl|placement agency|recruit(?:ment|ing) agency|staffing agency|agenzia (?:per il lavoro|di collocamento|interinale)|agence (?:de placement|de recrutement)|erfolgsbasis|success fee|membership|subscription|abonnement|abbonamento|purchase|purchasing|agency terms|commercial terms|conditions de vente|condizioni di vendita|verkaufsbedingungen|credit check|background check|medical examination|drug test/;
   const factSource = String.raw`permit|bewilligung|permesso di (?:lavoro|soggiorno|domicilio)|\bvisa\b|passport|passaport|passeport|reisepass|ausweis|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de (?:conduire|travail|séjour)|\b[abc][12]\b|years? of|berufserfahrung|anni di esperienza|ann[ée]es d.exp[ée]rience|strafregister|casellario|criminal|\bdiplom|\bdegree\b|abschluss|\blaurea\b|certificat|attestat|zeugnis|\bexperience\b|\berfahrung\b|\besperienza\b|qualification|requirements|voraussetzungen|requisiti|maggiorenn|volljahr|\bmajeur\b|\bover\s+18\b`;
   const FACTS = new RegExp([factSource, ...Object.values(factSources).filter(Boolean)].join('|'), 'i');
-  const DECLARATION = /\b(?:certif\w*|attest\w*|dichiar\w*|declar\w*|confirm\w*|conferm\w*|bestatig\w*|bestaetig\w*|versichere(?:n)?)\b|\b(?:i (?:am|have|hold|possess|meet|satisfy|fulfil|qualify)|we (?:are|have|hold)|ich (?:bin|habe|besitze|verfuge)|sono|ho|je (?:suis|possede)|j ai|having|holding|possessing)\b/;
   const ACCURACY = /(?:information|details|answers|angaben|informationen|dati|informazioni|renseignements).{0,80}(?:true|accurate|correct|complete|truthful|wahr|richtig|vollstandig|veritier|corrett|veriti|esatt|sincere|exact|complet)/;
-  const withoutReadingAcknowledgement = value => value
-    .replace(/\b(?:i (?:confirm|certify) (?:that )?)?i have read\b/g, '')
-    .replace(/\b(?:ho letto|confermo di aver letto|aver letto)\b/g, '')
-    .replace(/\bich habe (?=(?:(?:die|den|das) )?(?:datenschutz|privacy|nutzungsbedingungen))/g, '')
-    .replace(/\b(?:je confirme avoir lu|j ai lu|j ai pris connaissance|avoir lu)\b/g, '');
 
   // A privacy word is not authority for the rest of a sentence. Every word
   // must stay in the closed language of reading/accepting this notice.
   // New declarations, qualifications or other purposes remain unknown.
   const PRIVACY_WORDS = new Set(`i me my myself you your yours we our the a an and or to of for in on by with under as per that this these have has having am are is been be it its here hereby do yes read reading understood understand acknowledge acknowledged acknowledgment consent consenting accept accepts accepted accepting agree agreed agreement clicking click confirming confirm accordance pursuant subject comply complies provided provide provision provisions terms conditions application applications candidate candidates applicant applicants applying privacy policy policies statement statements notice notices protection processing process processed collection collected collecting storage storing stored electronic electronically personal data information handling use using accordance
-  io me mia mie miei mio tu tuo tua tuoi tue noi nostri nostri il lo la le gli l dei degli delle della dello dell di del al alla allo all ai agli alle a da dal dalla in con su per e o secondo sensi disposizioni materia accetto accetta accettare accettazione acconsento consenso consento autorizzo autorizzazione letto letta leggere lettura compreso compresa comprendo preso visione informativa trattamento trattati trattare protezione dati personali memorizzazione elettronica elettronico conservazione candidatura candidature candidato candidati condizioni termini sensi
+  io ho do permesso me mia mie miei mio tu tuo tua tuoi tue noi nostri nostri il lo la le gli l dei degli delle della dello dell di del al alla allo all ai agli alle a da dal dalla in con su per e o secondo sensi disposizioni materia accetto accetta accettare accettazione acconsento consenso consento autorizzo autorizzazione letto letta leggere lettura compreso compresa comprendo preso visione informativa trattamento trattati trattare protezione dati personali memorizzazione elettronica elettronico conservazione candidatura candidature candidato candidati condizioni termini sensi
   ich mir mich mein meine meiner meinen meines du dir dich dein deine ihrer ihre ihren ihrem sie wir uns unser unsere der die das des den dem ein eine einer eines einem einen und oder zu zur zum von im in am an fur mit nach gemaess gemass laut dass diese dieser dieses diesen hiermit habe haben gelesen lesen verstanden verstehe akzeptiere akzeptieren akzeptiert stimme stimmen zustimmung einwillige einwilligung einverstanden erklarung erklarungen datenschutz datenschutzerklarung datenschutzerklaerung datenschutzhinweise datenschutzbestimmungen daten personenbezogenen personenbezogener personlichen verarbeitung verarbeiten speicherung elektronischen elektronischer elektronische bewerbung bewerbungen bewerber bewerberin nutzungsbedingungen bewerbungsbedingungen hinweise bestimmungen
   je moi mon ma mes me vous votre vos nous nos le la les l de des du d au aux a par pour en avec et ou que cette ce ces j ai lu lire pris prise connaissance compris comprends accepte accepter acceptation consens consentement autorise autorisation conformement dispositions matiere politique confidentialite protection traitement donnees personnelles conservation electronique candidature candidatures candidat candidats conditions generales utilisation`.split(/\s+/));
   const OPTIONAL_WORDS = new Set(`receive receiving send sending subscribe subscribing subscription newsletter newsletters marketing promotional promotion advertising advertisements job jobs alert alerts pool talent future opportunities openings positions vacancies whatsapp messages message communication communications contacted contact updates offers other companies third parties
@@ -58,7 +52,7 @@ const startsApplication = (text) => {
 
   const GENERIC_TERMS = /\bterms\b|nutzungsbedingungen|teilnahmebedingungen|\bagb\b|termini|condizioni|conditions generales|conditions d utilisation/;
   const context = field => {
-    if (field?.kind !== 'checkbox' || field.ownConsentMetadataComplete !== true
+    if (field?.kind !== 'checkbox' || field.consentOwnershipUnknown === true || field.ownConsentMetadataComplete !== true
       || field.ownConsentQuestionOwned !== true || !Array.isArray(field.ownConsentText)
       || !Array.isArray(field.ownConsentLinks) || typeof field.ownConsentOwnerKey !== 'string') return null;
     const own = [...new Set([field.label, ...field.ownConsentText].map(value => String(value || '').trim()).filter(Boolean))].join(' ');
@@ -70,7 +64,7 @@ const startsApplication = (text) => {
     const normalizedVeto = plain(veto);
     if (NEGATED.test(normalizedVeto) || OTHER_TERMS.test(normalizedVeto)
       || FACTS.test(veto) || FACTS.test(normalizedVeto) || ACCURACY.test(normalizedVeto)
-      || DECLARATION.test(withoutReadingAcknowledgement(normalizedVeto))) return null;
+      ) return null;
     if (field.ownConsentLinks.length > 16) return null;
     const purposes = [];
     for (const link of field.ownConsentLinks) {
@@ -85,7 +79,7 @@ const startsApplication = (text) => {
   const isConsentOnly = field => {
     const value = context(field);
     return Boolean(value && value.optionalPositive && (PRIVACY.test(value.text) || APPLICATION_TERMS.test(value.text) || OPTIONAL.test(value.text))
-      && !OTHER_TERMS.test(value.purposes.join(' ')));
+      && value.purposes.every(purpose => !OTHER_TERMS.test(purpose) && !FACTS.test(purpose) && (PRIVACY.test(purpose) || APPLICATION_TERMS.test(purpose) || OPTIONAL.test(purpose))));
   };
   const isConsentRefusal = value => value === false || value === 0
     || /^(?:no|nein|non|false|0|decline|refuse|rifiuto|non accetto|ich stimme nicht|je refuse)(?:$|[ ,;.!])/.test(plain(value));

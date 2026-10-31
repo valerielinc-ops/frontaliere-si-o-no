@@ -82,7 +82,7 @@ export const REMOVE_FILE_RE = /(^|\b)(delete|remove|löschen|entfernen|elimina|r
 /** A failed consent click never permits the runner to navigate or submit. */
 export function failedConsentRequiresHandoff(result, action, field) {
   if (result?.ok || action?.action !== 'check') return false;
-  return action.source === 'consent' || Boolean(field?.required) || ownConsent(field);
+  return action.source === 'consent' || Boolean(field?.required) || ownConsent(field) || field?.consentOwnershipUnknown === true;
 }
 
 /** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
@@ -1047,6 +1047,12 @@ export function sendsApplication(snapshot) {
   return (snapshot.buttons || []).some((button) => SUBMIT_RE.test(button.text) && NAMES_APPLICATION_RE.test(button.text));
 }
 
+// Metadata comes from the worker's current native read, never candidate copy or model output.
+const nativeQuestionMetadata = field => Object.fromEntries([
+  'originalNativeContract', 'ownConsentText', 'ownConsentQuestionLabels', 'ownConsentLinks',
+  'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'ownConsentOwnerKey', 'consentOwnershipUnknown',
+].filter(key => Object.prototype.hasOwnProperty.call(field || {}, key)).map(key => [key, structuredClone(field[key])]));
+
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
 function questionsFrom(missingRequired) {
   const questions = [];
@@ -1066,6 +1072,7 @@ function questionsFrom(missingRequired) {
       id,
       question: item.question,
       applicationQuestion,
+      ...nativeQuestionMetadata(item),
       ...(applicationOptions.length ? { applicationOptions } : {}),
       ...(optionMap.length ? { optionMap } : {}),
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
@@ -3102,6 +3109,10 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
       if (!field || (field.kind !== 'file' && field.inputType !== 'file')) {
         // A live field is authoritative. An agent's candidate-language copy
         // must never replace the exact label/options read from the ATS.
+        if (field?.consentOwnershipUnknown === true) {
+          unreadableFields.push(field.id || item.fieldId || 'unknown');
+          continue;
+        }
         const applicationQuestion = String(field ? field.label || '' : item.applicationQuestion || item.portalQuestion || item.question || '').trim();
         if (!readablePortalQuestionText(applicationQuestion) || machineLabel(applicationQuestion)) {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
@@ -3132,6 +3143,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
         readable.push({
           ...item,
           applicationQuestion,
+          ...nativeQuestionMetadata(field),
           type,
           validation: field && (type !== item.type || ['choice', 'yes_no'].includes(type)) ? {} : item.validation,
           required: true,
