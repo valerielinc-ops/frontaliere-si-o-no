@@ -47,5 +47,6 @@ export function retentionPurgeDueAt(order, retentionDays = ASSISTED_APPLICATION_
 export function assistedApplicationRetained(order, nowMs = Date.now()) {
   const dueAt = retentionPurgeDueAt(order);
   return Number.isFinite(nowMs) && order?.retentionPurgedAt == null && order?.retentionPurgingAt == null
+    && order?.retentionPayloadPurgedAt == null
     && (talentPoolConsentActive(order) || (Number.isFinite(dueAt) && dueAt > nowMs));
 }

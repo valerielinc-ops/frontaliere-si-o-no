@@ -246,3 +246,14 @@ it('rejects owner-intent mutation during the final source await before either ha
   await expect(guard.markClicked(2, { ownerIntent })).rejects.toMatchObject({ code: 'evidence_source_changed' });
   expect([...store.docs.keys()].filter(key => key.includes('/submission_receipts/'))).toHaveLength(0);
 });
+
+
+it.each(['retentionPurgingAt', 'retentionPayloadPurgedAt', 'retentionPurgedAt'])('never arms after %s even for an active talent pool', async flag => {
+  for (const channel of ['email', 'portal', 'owner_extension']) {
+    const store = fixture(); store.docs.set(base, { cvUploadedAt: 1, talentPoolConsent: true, [flag]: 2 });
+    if (channel === 'owner_extension') store.docs.set(`${base}/automation/flow`, { state: 'owner_takeover', round: 1 });
+    const guard = rawSubmissionGuard(store.db, 'source_guard_fixture', 1); await guard.claim(channel, 1);
+    await expect(channel === 'email' ? guard.markEmailSending(3) : guard.markClicked(3)).rejects.toMatchObject({ code: 'submission_retention_changed' });
+    expect([...store.docs.keys()].filter(key => key.includes('/submission_receipts/'))).toHaveLength(0);
+  }
+});
