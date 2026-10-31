@@ -1788,17 +1788,19 @@ main.seo-static-content:has([data-bw-crossing]) > article > .google-auto-placed:
    manual drive-by reserve was raised from 1534px to 1790px. Keep the measured
    250px gap transfer route-scoped to those pages; this leaves Auto Ads active
    while preventing the late sibling insertion from moving the header. */
-main.seo-static-content:has(> article[data-ft-driveby-top-ad]) {
-  --driveby-top-ad-reserve: 250px;
-}
-main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article > nav.s-bcr {
-  margin-block-end: var(--driveby-top-ad-reserve);
-}
-main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article:has(> .google-auto-placed + header) > nav.s-bcr {
-  margin-block-end: 0;
-}
-main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article > .google-auto-placed:has(+ header) {
-  min-height: var(--driveby-top-ad-reserve);
+@media (min-width: 1280px) {
+  main.seo-static-content:has(> article[data-ft-driveby-top-ad]) {
+    --driveby-top-ad-reserve: 250px;
+  }
+  main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article > nav.s-bcr {
+    margin-block-end: var(--driveby-top-ad-reserve);
+  }
+  main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article:has(> .google-auto-placed + header) > nav.s-bcr {
+    margin-block-end: 0;
+  }
+  main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article > .google-auto-placed:has(+ header) {
+    min-height: var(--driveby-top-ad-reserve);
+  }
 }
 
 /* The third outcome of an Auto Ad request, the one the two `:empty` /
