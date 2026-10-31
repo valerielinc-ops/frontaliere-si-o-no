@@ -3148,7 +3148,8 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(retryPreparation.run).toContain('retrySparseCheckout() {');
       expect(retryPreparation.run).toContain('git -C "$workspace" reset --hard HEAD');
       expect(retryPreparation.run).toContain('git -C "$workspace" clean -ffdx');
-      expect(retryPreparation.run).toContain('git -C "$workspace" sparse-checkout disable');
+      expect(retryPreparation.run).toContain('The second actions/checkout invocation replaces the sparse patterns atomically.');
+      expect(retryPreparation.run).not.toContain('sparse-checkout disable');
 
       const reporter = job.steps.find((step: any) => step.name === 'Report exhausted site checkout');
       expect(reporter).toMatchObject({

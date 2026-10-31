@@ -356,10 +356,12 @@ jobs:
               echo "::error::Sparse checkout retry found unreadable Git metadata; refusing to reuse the workspace" >&2
               return 1
             fi
-            for lock_file in "$git_dir/index.lock" "$git_dir/shallow.lock" "$git_dir/config.lock"; do
-              if [ -e "$lock_file" ]; then
-                rm -f "$lock_file"
-              fi
+            local lock_files=()
+            while IFS= read -r -d "" lock_file; do
+              lock_files+=("$lock_file")
+            done < <(find "$git_dir" -type f -name "*.lock" -print0)
+            for lock_file in "${lock_files[@]}"; do
+              unlink "$lock_file"
             done
             if ! git -C "$workspace" rev-parse --verify HEAD >/dev/null 2>&1; then
               echo "::error::Sparse checkout retry found partial Git metadata without a valid HEAD; refusing to reuse the workspace" >&2
@@ -367,9 +369,8 @@ jobs:
             fi
             git -C "$workspace" reset --hard HEAD
             git -C "$workspace" clean -ffdx
-            if [ "$(git -C "$workspace" config --bool core.sparseCheckout 2>/dev/null || true)" = "true" ]; then
-              git -C "$workspace" sparse-checkout disable
-            fi
+            # Keep sparse mode enabled: disabling it would materialize the full repository.
+            # The second actions/checkout invocation replaces the sparse patterns atomically.
           }
           retrySparseCheckout
       - name: Checkout frontaliere-si-o-no (attempt 2/2, sparse)
