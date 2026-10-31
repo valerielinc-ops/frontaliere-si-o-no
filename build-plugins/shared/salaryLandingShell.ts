@@ -1893,7 +1893,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
         footnote: 'Stime al netto di trasporto (G) e LAMal (B). Il permesso B vince quasi sempre per i nuovi frontalieri oltre 20 km.',
       },
       faqs: [
-        { q: 'Perché il delta è così alto oltre 20 km?', a: 'Perché il nuovo regime tassa il 100% in CH + l\'IRPEF italiana piena (no split 80/20). Il permesso B paga solo la fonte CH, evitando la doppia imposta.' },
+        { q: 'Perché il delta è così alto oltre 20 km?', a: 'Perché oltre 20 km la ritenuta svizzera è ordinaria, senza la riduzione all\'80%, e l\'Italia tassa il reddito con credito per l\'imposta svizzera. Il permesso B paga solo la fonte CH.' },
         { q: 'Quali requisiti per il permesso B?', a: 'Contratto di lavoro CH valido, alloggio a tuo nome, dimostrazione mezzi sufficienti, dichiarazione iscrizione anagrafica al Comune CH. Variabile per cantone.' },
         { q: 'Conviene anche se ho famiglia in Italia?', a: 'Più complesso: trasferimento famiglia comporta cambio scuole, lavoro coniuge, sanità. Spesso conviene se entrambi possono trasferirsi.' },
       ],
@@ -1921,7 +1921,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
         footnote: 'Net of travel (G) and LAMal (B). Permit B almost always wins for new cross-border workers over 20 km.',
       },
       faqs: [
-        { q: 'Why is the delta so large over 20 km?', a: 'Because the new regime taxes 100% in CH plus full Italian IRPEF (no 80/20 split). Permit B pays only Swiss source tax, avoiding double taxation.' },
+        { q: 'Why is the delta so large over 20 km?', a: 'Because over 20 km Swiss withholding is ordinary, without the reduction to 80%, and Italy taxes the income with a credit for Swiss tax. Permit B pays only Swiss source tax.' },
         { q: 'What are B-permit requirements?', a: 'Valid Swiss employment contract, accommodation in your name, sufficient means, registration at the Swiss municipality. Varies by canton.' },
         { q: 'Worth it if my family lives in Italy?', a: 'More complex: family move means new schools, partner job, healthcare. Often worth it if both can relocate.' },
       ],
@@ -1949,7 +1949,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
         footnote: 'Netto nach Pendel (G) und LAMal (B). B-Bewilligung gewinnt fast immer für neue Grenzgänger über 20 km.',
       },
       faqs: [
-        { q: 'Warum ist die Differenz über 20 km so gross?', a: 'Weil das neue Regime 100 % in CH + volle italienische IRPEF besteuert (kein 80/20-Split). B zahlt nur CH-Quellensteuer und vermeidet die Doppelbesteuerung.' },
+        { q: 'Warum ist die Differenz über 20 km so gross?', a: 'Weil über 20 km die ordentliche Schweizer Quellensteuer gilt, ohne Reduktion auf 80 %, und Italien das Einkommen mit Anrechnung der Schweizer Steuer besteuert. B zahlt nur CH-Quellensteuer.' },
         { q: 'Was braucht eine B-Bewilligung?', a: 'Gültiger CH-Arbeitsvertrag, Wohnung auf eigenen Namen, ausreichende Mittel, Anmeldung bei der CH-Wohngemeinde. Kanton-abhängig.' },
         { q: 'Lohnt es sich auch mit Familie in Italien?', a: 'Komplexer: Familienumzug bedeutet Schulwechsel, Partnerarbeit, Gesundheit. Oft lohnend, wenn beide umziehen können.' },
       ],
@@ -1977,7 +1977,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
         footnote: 'Net après transport (G) et LAMal (B). Le permis B gagne presque toujours pour les nouveaux frontaliers au-delà de 20 km.',
       },
       faqs: [
-        { q: 'Pourquoi un delta si grand au-delà de 20 km ?', a: 'Parce que le nouveau régime impose 100 % en CH + IRPEF italien plein (pas de split 80/20). Le permis B ne paie que l\'impôt source CH, évitant la double imposition.' },
+        { q: 'Pourquoi un delta si grand au-delà de 20 km ?', a: 'Parce qu\'au-delà de 20 km la retenue suisse est ordinaire, sans réduction à 80 %, et l\'Italie impose le revenu avec un crédit pour l\'impôt suisse. Le permis B ne paie que l\'impôt source CH.' },
         { q: 'Quelles sont les exigences du permis B ?', a: 'Contrat de travail CH valide, logement à votre nom, ressources suffisantes, déclaration d\'inscription à la commune CH. Variable selon canton.' },
         { q: 'Vaut-il le coup avec famille en Italie ?', a: 'Plus complexe : déménagement familial = nouvelles écoles, emploi conjoint, santé. Souvent intéressant si les deux peuvent déménager.' },
       ],

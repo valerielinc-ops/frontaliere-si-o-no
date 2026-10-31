@@ -46,7 +46,6 @@ describe('events pagination policy (P1)', () => {
   it('lists only page 1 of the archive and no ladder page in sitemap-eventi.xml', () => {
     const xml = buildSitemap(
       [{ canton: 'TI', comuni: [], digests: [], hasOtherEvents: false, ladders: [] }],
-      BUILD_DATE_STAMP,
       [],
       12,
     );

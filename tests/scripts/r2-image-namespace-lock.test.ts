@@ -6,6 +6,9 @@ import { join, resolve } from 'node:path';
 import {
   acquireImageNamespaceLock,
   acquireImageNamespaceLeases,
+  IMAGE_LOCK_POLL_MS,
+  IMAGE_LOCK_PRIORITY_POLL_MS,
+  imageLeasePollMs,
   classifyReleaseDeadlineRace,
   IMAGE_LOCK_KEY_PREFIX,
   IMAGE_LOCK_RELEASE_RETRY_MS,
@@ -264,6 +267,36 @@ describe('r2-image-namespace-lock', () => {
     expect(polls).toBe(5);
     expect(calls.filter((call) => call.method === 'PUT')).toHaveLength(2);
     expect(calls.filter((call) => call.method === 'GET').length).toBeGreaterThanOrEqual(5);
+  });
+
+  it('lets only the deploy poll faster than the file-by-file uploaders', () => {
+    expect(imageLeasePollMs({})).toBe(IMAGE_LOCK_POLL_MS);
+    expect(imageLeasePollMs({ FRONTALIERE_R2_IMAGE_LEASE_PRIORITY: '0' })).toBe(IMAGE_LOCK_POLL_MS);
+    expect(imageLeasePollMs({ FRONTALIERE_R2_IMAGE_LEASE_PRIORITY: '1' })).toBe(IMAGE_LOCK_PRIORITY_POLL_MS);
+    expect(IMAGE_LOCK_PRIORITY_POLL_MS).toBeLessThan(IMAGE_LOCK_POLL_MS);
+
+    const flag = 'FRONTALIERE_R2_IMAGE_LEASE_PRIORITY=1 node "$_lease_cli" acquire';
+    expect(readFileSync(resolve('scripts/lib/deploy-it-pages-prep.sh'), 'utf8')).toContain(flag);
+    expect(readFileSync(resolve('scripts/lib/upload-cdn-file.sh'), 'utf8')).not.toContain('FRONTALIERE_R2_IMAGE_LEASE_PRIORITY');
+  });
+
+  it('applies the poll interval while a lease is held', async () => {
+    const { request, objects } = fakeR2();
+    await acquireImageNamespaceLeases(['blog'], { request, timeoutMs: 1_000 });
+    const waits: number[] = [];
+
+    await acquireImageNamespaceLeases(['blog'], {
+      request,
+      pollMs: IMAGE_LOCK_PRIORITY_POLL_MS,
+      timeoutMs: 60_000,
+      sleep: async (ms: number) => {
+        if (ms === 100) return;
+        waits.push(ms);
+        objects.delete(imageNamespaceLockKey('blog'));
+      },
+    });
+
+    expect(waits).toEqual([IMAGE_LOCK_PRIORITY_POLL_MS]);
   });
 
   it('reconciles a committed image lease when the PUT response is ambiguous', async () => {

@@ -1,7 +1,7 @@
 name: sitemap-shard-size-monitor
 
 # Weekly check that no sitemap shard is approaching Google's 50,000 URL cap.
-# Fetches https://frontaliereticino.ch/sitemap-index.xml, walks every shard,
+# Fetches https://frontaliereticino.ch/sitemap.xml, walks every shard,
 # and opens a GitHub issue (severity-tagged) when any shard exceeds 40k urls.
 #
 # Runs Mondays 08:00 UTC, after the GSC monitor has refreshed weekly metrics.

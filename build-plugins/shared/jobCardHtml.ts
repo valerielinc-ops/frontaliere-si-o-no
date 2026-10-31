@@ -299,6 +299,18 @@ function renderSaveIsland(job: JobCardJob, company: string): string {
   return `<span data-job-save="${escHtml(id)}"${attr('slug', job.slug)}${attr('company', company)}${attr('canton', job.canton)}${attr('category', job.category)}></span>`;
 }
 
+/**
+ * Same data for the plain `<a>` job links the orphan page turns into cards
+ * (`extractActiveJobLinks` in components/community/JobOrphanView.tsx).
+ */
+export function jobSaveLinkAttrs(job: JobCardJob): string {
+  const id = typeof job.id === 'string' ? job.id.trim() : '';
+  if (!id) return '';
+  const attr = (name: string, value: unknown) =>
+    typeof value === 'string' && value ? ` data-job-${name}="${escHtml(value)}"` : '';
+  return `${attr('id', id)}${attr('slug', job.slug)}${attr('company', job.company)}${attr('canton', job.canton)}${attr('category', job.category)}`;
+}
+
 // ── Main renderer ────────────────────────────────────────────────────
 
 /**

@@ -2069,6 +2069,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  // internal job search `?q=` strings (Issue 24, 531 hreflang conflicts on
  // /cerca-lavoro-ticino/?q=...). Google honours the canonical → consolidates;
  // Semrush stops surfacing the URLs as blocked or as hreflang conflicts.
+ // `?q=` went back under a robots.txt Disallow that binds every crawler since
+ // 2026-10, so this branch only serves the head after a client navigation.
  const filterQueryKeys = ['canton', 'age', 'q'] as const;
  const hasFilterQuery = (() => {
  try {
