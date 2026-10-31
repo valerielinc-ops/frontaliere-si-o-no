@@ -14,8 +14,9 @@ import { privacySemanticIdentifierFields } from '../../../../functions/src/lib/a
 const label = question => String(question?.applicationQuestion || question?.question || '').replace(/\s*\*\s*$/, '').trim().replace(/\s+/g, ' ');
 const PROVENANCE_KEYS = ['portalNativeContract', 'originalNativeContract', 'ownConsentText', 'ownConsentQuestionLabels',
   'ownConsentLinks', 'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'ownConsentOwnerKey', 'consentOwnershipUnknown'];
+const PORTAL_FIELD_METADATA_KEYS = ['ariaLabel', 'ariaDescription', 'title', 'placeholder', 'description', 'labels', 'privacyMetadataIncomplete'];
 const CONTRACT_KEYS = [...new Set(['question', 'applicationQuestion', 'type', 'options', 'applicationOptions', 'optionMap', 'validation', 'required', 'context', 'section', 'autocomplete', ...PROVENANCE_KEYS,
-  ...privacySemanticIdentifierFields.filter(key => key !== 'id')])];
+  ...privacySemanticIdentifierFields.filter(key => key !== 'id'), ...PORTAL_FIELD_METADATA_KEYS])];
 function sameField(old, live) {
   if (old?.source !== 'portal' || live?.source !== 'portal' || !label(old) || label(old) !== label(live)) return false;
   return ['context', 'section', 'autocomplete'].every(key => !String(old[key] || '').trim()
@@ -62,7 +63,7 @@ export function mergeLivePortalQuestions(existingQuestions = [], incomingQuestio
     if (old) {
       for (const key of references.has(live) ? [] : CONTRACT_KEYS) {
         if (Object.hasOwn(live, key)) old[key] = structuredClone(live[key]);
-        else if (['optionMap', 'validation', ...PROVENANCE_KEYS].includes(key)) delete old[key];
+        else if (['optionMap', 'validation', ...PROVENANCE_KEYS, ...PORTAL_FIELD_METADATA_KEYS].includes(key)) delete old[key];
       }
       ids.set(live.id, old.id);
     } else {

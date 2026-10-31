@@ -290,6 +290,19 @@ describe('required privacy notice dialog controls', () => {
     expect(controls.accept).toBe(null);
   });
 
+  it('blocks the privacy default when dialog metadata contradicts the review label', () => {
+    const review = {
+      ...box('privacy', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.'),
+      required: true, ariaLabel: 'Email', privacyMetadataIncomplete: true,
+    };
+    const controls = privacyConsentControls({
+      buttons: [dialogButton('ok', 'Accept')],
+      fields: [review],
+    });
+    expect(controls.review).toBe(null);
+    expect(controls.accept).toBe(null);
+  });
+
   it('never ticks a marketing box beside the notice review', () => {
     const controls = privacyConsentControls({
       buttons: [dialogButton('ok', 'Akzeptieren', { disabled: true })],

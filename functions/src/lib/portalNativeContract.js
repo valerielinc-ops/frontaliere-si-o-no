@@ -9,10 +9,12 @@ const canonicalUrl = value => { try { return new URL(String(value || '')).href; 
 export function provenOptionalOperationalPortalQuestion(question, draft) {
   const proof = question?.portalNativeContract;
   const applyUrl = canonicalUrl(draft?.channel?.applyUrl || draft?.job?.applyUrl);
-  const privacyText = [question?.applicationQuestion, question?.question, proof?.label].map(text).filter(Boolean).join(' ');
+  const privacyText = [question?.applicationQuestion, question?.question, proof?.label,
+    ...(Array.isArray(question?.labels) ? question.labels : []), ...(Array.isArray(proof?.labels) ? proof.labels : [])]
+    .map(text).filter(Boolean).join(' ');
   const privacyIdentifiers = privacySemanticIdentifiers(question, proof);
   const privacyContractSafe = proof?.topic !== 'privacy_review_ack'
-    || !hasConsentContradiction(privacyText, ...privacyIdentifiers);
+    || !hasConsentContradiction(privacyText, question, proof, ...privacyIdentifiers);
   return Boolean(applyUrl) && canonicalUrl(proof?.url) === applyUrl
     && Number.isInteger(Number(draft?.round)) && Number(draft.round) > 0 && Number(proof?.round) === Number(draft.round)
     && question?.source === 'portal' && question.required === false && proof?.required === false
