@@ -2,6 +2,9 @@
 import { createHash } from 'node:crypto';
 import { parseEndpoint } from './cvPeriod.js';
 import { sourceCitations } from './sourceCitations.js';
+import { projectAttestedLanguageFacts } from './attestedLanguageProjection.js';
+import { languageCodesIn } from './languageFacts.js';
+import { isPortableCandidateLanguageQuestion } from './candidateLanguageQuestion.js';
 import { nativeCvDomainConstraint, sameNativeQuestion, typedNativeAnswerConstraint } from './nativeAnswerConstraints.js';
 
 export const EVIDENCE_ENTAILMENT_VERSION = 'evidence-entailment-v2';
@@ -81,6 +84,13 @@ export function qualificationSources({ sourceText = '', profile = {}, answers = 
       const found = [...entries.values()].filter(entry => entry.quote.includes(quote));
       return found.length === 1 ? structuredClone(found[0]) : null;
     } };
+}
+
+/** Negative/conflict checks only; this projection is never primary evidence. */
+export function originalCvLanguageProfile({ profile = {}, cvHash, sourceText }) {
+  return { version: 'cv-language-profile-v1', purpose: 'conflict_only', cvHash, documentHash: hash(sourceText),
+    profile: structuredClone({ languages: profile.languages || [], languagesExplicitList: profile.languagesExplicitList,
+      languagesListTruncated: profile.languagesListTruncated }) };
 }
 
 /** Current original CV and attested counter-declarations, never raw projection fields. */
@@ -234,7 +244,7 @@ Evaluate the TRUTH OF THE PROPOSED VALUE, not whether the source mentions the qu
 Candidate-answer records: actual answer is authoritative; printed options are never the answer. A2 does not support proposed C1; an actual No does not support proposed Yes. Scope, target, unit and original question must match. Future wishes/training do not establish present ability. Do not infer consent, status or qualifications.
 CV sources: a generic management title does not establish a degree, provider/change processes or analytical ability. Dates establish tenure only with the clearly identified role/domain. Original positions identify the paragraph/ordinal of each source. A role and its dates must both be selected; unselected neighboring text will never reach the adjudicator. All AND conditions must be supported; one OR alternative may suffice.
 Attested declarations and unverifiedContext may contradict older CV text: do not select an unresolved contradicted assertion. Raw notes/corrections never become primary sources. Use empty sourceIds when meaning, scope or coverage cannot be established.`;
-export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
+export const NATIVE_FORM_ENTAILMENT_VERSION = `${EVIDENCE_ENTAILMENT_VERSION}-native-form-multi-two-pass-cv-revision1-language05a89dae-owner4dfe7840-${EVIDENCE_ENTAILMENT_PROMPT_HASH}-${hash(NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT).slice(0, 16)}`;
 
 function nativePrimarySources(sources) {
   const seenAnswers = new Set();
@@ -264,6 +274,19 @@ function dateOnlyUnit(quote) {
   return pieces.length > 0 && pieces.every(piece => Boolean(parseEndpoint(piece)));
 }
 
+function nativeLanguageRevisionConflict(claim, record, scope, catalog, constraint) {
+  if (!scope.sourceCvHash || constraint === 'unrelated' || record?.category !== 'language' || record.scope !== 'candidate'
+    || !isPortableCandidateLanguageQuestion(record.question) || record.provenance?.cvHash === scope.sourceCvHash) return false;
+  const raw = scope.cvLanguageProfile;
+  const cv = catalog.filter(source => source.kind === 'cv_original');
+  if (raw?.version !== 'cv-language-profile-v1' || raw.purpose !== 'conflict_only' || raw.cvHash !== scope.sourceCvHash
+    || !Array.isArray(raw.profile?.languages) || !cv.length || cv.some(source => source.documentHash !== raw.documentHash)
+    || record.unit !== 'CEFR_or_stated_level' || !Number.isFinite(record.provenance?.confirmedAt)) return true;
+  const projected = projectAttestedLanguageFacts({ profile: raw.profile, answerEvidence: [record], currentCvHash: scope.sourceCvHash });
+  const targets = languageCodesIn(`${claim.nativeFormContract.question} ${claim.nativeFormContract.context || ''}`);
+  return projected.conflicts.some(conflict => targets.includes(conflict.languageCode));
+}
+
 /** One source-selecting, blind assessment for all native claims on a page. */
 export async function verifyNativeFormAnswers({ claims, sources, generate, scope = {}, unverifiedContext = null }) {
   const fail = failure => ({ ...unknown(failure), verification: { version: NATIVE_FORM_ENTAILMENT_VERSION, status: 'unverified', failure } });
@@ -288,6 +311,7 @@ export async function verifyNativeFormAnswers({ claims, sources, generate, scope
   for (const claim of claims) {
     for (const source of catalog.filter(item => item.kind === 'candidate_answer')) {
       const constraint = typedNativeAnswerConstraint(claim, source.answerRecord);
+      if (nativeLanguageRevisionConflict(claim, source.answerRecord, scope, catalog, constraint)) return fail('language_revision_unverified');
       if (constraint === 'contradicts') return fail('actual_answer_conflict');
       if (sameNativeQuestion(claim, source.answerRecord) && constraint !== 'supports') return fail('answer_contract_unresolved');
     }

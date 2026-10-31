@@ -13,7 +13,7 @@ import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequireme
 import { citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
 import { projectAttestedLanguageFacts } from '../../../functions/src/lib/attestedLanguageProjection.js';
 import { languageCodesIn } from '../../../functions/src/lib/languageFacts.js';
-import { qualificationSources, qualificationCounterContext, qualificationSourcesFingerprint, verifyQualificationEvidence, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
+import { qualificationSources, originalCvLanguageProfile, qualificationCounterContext, qualificationSourcesFingerprint, verifyQualificationEvidence, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
 import { conciergeProposalEligibility } from '../../../functions/src/assistedApplicationFitNotice.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
@@ -149,6 +149,9 @@ export async function buildDraft(ctx) {
   const reuse = previousDraft?.status === 'ready'
     && previousDraft.cvKey === order.cvStorageKey
     && previousDraft.sourceCvHash === eligibilityHash(cvBuffer)
+    && previousDraft.qualificationCvLanguageProfile?.version === 'cv-language-profile-v1'
+    && previousDraft.qualificationCvLanguageProfile.cvHash === eligibilityHash(cvBuffer)
+    && previousDraft.qualificationCvLanguageProfile.documentHash === eligibilityHash(previousDraft.factSources?.text || '')
     && previousDraft.postingHash === hashText(postingText)
     && previousDraft.profile && previousDraft.requirementsRaw
     // A CV text read before a fix of the reading is read again, and the profile with it.
@@ -187,6 +190,10 @@ export async function buildDraft(ctx) {
     profile = sanitizeProfile(profileRaw, { cvText });
     requirements = verifyQuotes(sanitizeRequirements(requirementsRaw), postingText);
   }
+  // Capture only the raw extraction from these original CV bytes. Edited or
+  // attested language projections never become the native conflict baseline.
+  const qualificationCvLanguageProfile = reuse ? structuredClone(previousDraft.qualificationCvLanguageProfile)
+    : originalCvLanguageProfile({ profile, cvHash: eligibilityHash(cvBuffer), sourceText: cvText });
   // The CV may state a locality and province without spelling out the CAP or
   // country. Resolve those address properties locally before the portal plan
   // is built; ambiguous localities remain empty and stay candidate questions.
@@ -466,6 +473,7 @@ export async function buildDraft(ctx) {
     round,
     cvKey: order.cvStorageKey,
     sourceCvHash: eligibilityHash(cvBuffer),
+    qualificationCvLanguageProfile,
     qualificationSourceFingerprint: qualificationSourcesFingerprint(sources),
     cvTextMethod: cvMethod,
     cvTextVersion: CV_TEXT_VERSION,

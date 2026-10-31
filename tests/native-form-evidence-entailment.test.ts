@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { nativeEvidenceCatalog } from './helpers/nativeEvidenceCatalog';
-import { nativeFormAssessmentHash, NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT, qualificationSources, verifyNativeFormAnswers } from '../functions/src/lib/qualificationEvidence.js';
+import { nativeFormAssessmentHash, NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT, qualificationSources, originalCvLanguageProfile, verifyNativeFormAnswers } from '../functions/src/lib/qualificationEvidence.js';
 
 function fixture() {
   const sources = qualificationSources({ sourceText: 'Senior IT Manager\nMaster’s Degree in Computer Science\nWorked as a software engineer for eight years' });
@@ -265,6 +265,29 @@ describe('blind native form answer evidence selection', () => {
       sources: qualificationSources({ sourceText }) });
     expect(result.status).toBe('supported');
     expect(f.generate).toHaveBeenCalledTimes(2);
+  });
+
+
+  it.each(['changed', 'same', 'legacy', 'other_language'])('checks original CV revision conflicts for ATS-only language requirements: %s', async scenario => {
+    const f = fixture();
+    const sourceText = 'Languages: German A2\nDegree in computer science';
+    const cvHash = scenario === 'same' ? 'a'.repeat(64) : 'b'.repeat(64);
+    const record = { id: 'answer-de', key: 'language_de', question: { question: 'What is your current German level?', type: 'choice', options: ['A2', 'C1'] },
+      answer: 'C1', category: 'language', unit: 'CEFR_or_stated_level', scope: 'candidate',
+      provenance: { actor: 'candidate', confirmedAt: Date.now(), cvHash: 'a'.repeat(64), round: 1 } };
+    const raw = originalCvLanguageProfile({ profile: { languages: [{ language: 'German', level: 'A2' }] }, cvHash, sourceText });
+    const scope = { sourceCvHash: cvHash, ...(scenario === 'legacy' ? {} : { cvLanguageProfile: raw }) };
+    f.generate.mockImplementation(async (system, user) => {
+      const payload = JSON.parse(user);
+      if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) return { assessments: [{ index: 0,
+        sourceIds: [nativeEvidenceCatalog(payload).find(source => scenario === 'other_language' ? source.quote.includes('Degree') : source.kind === 'candidate_answer').sourceId] }] };
+      return { assessments: [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'supported', reason: 'explicit_fact' }] };
+    });
+    const result = await verifyNativeFormAnswers({ ...f, scope, sources: qualificationSources({ sourceText, answerEvidence: [record], purpose: 'native_form' }),
+      claims: [{ fieldId: 'ats-extra', nativeFormContract: { question: scenario === 'other_language' ? 'Do you hold a degree?' : 'Do you speak German at C1?', context: 'Languages' }, proposedAnswer: 'Yes' }] });
+    expect(result.status).toBe(['changed', 'legacy'].includes(scenario) ? 'unverified' : 'supported');
+    expect(f.generate).toHaveBeenCalledTimes(['changed', 'legacy'].includes(scenario) ? 0 : 2);
+    expect(raw.profile.languages[0].level).toBe('A2');
   });
 
 });
