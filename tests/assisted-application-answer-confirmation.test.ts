@@ -170,6 +170,16 @@ describe('private final-send source fence', () => {
     const context = await loadRunnerAnswerContext({ db: f.db, orderId: 'child', order: childOrder, flow: childFlow, draft: childDraft, nowMs: now + 10 });
     return { f, context };
   }
+  it('lets an origin finish normally without revoking an unchanged shared fact or the child approval', async () => {
+    const { f, context } = await executionFixture();
+    f.read('assisted_applications/source').submissionStatus = 'ready_for_manual_submission';
+    f.read('assisted_applications/source').submittedAt = now + 11;
+    f.read('assisted_applications/source/automation/flow').state = 'submitted';
+    f.read('assisted_applications/source/automation/flow').dispatch = { mode: 'submit', round: 1, requestedAt: now + 11 };
+    f.read('assisted_applications/source/ai_drafts/current').status = 'submitted';
+    f.read('assisted_applications/source/ai_drafts/current').questions.push({ id: 'other', question: 'Unrelated later question', type: 'text' });
+    await expect(f.db.runTransaction((tx: any) => context.answerSourceGuard!.assertInTransaction(tx))).resolves.toBeUndefined();
+  });
   it('accepts an unchanged source and identical CV-byte copy after confirmation', async () => {
     const { f, context } = await executionFixture();
     expect(context.answerEvidence[0].provenance.cvHash).toBe(hash);

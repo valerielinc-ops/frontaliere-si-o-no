@@ -1,6 +1,6 @@
 /** Private server-only source fence, evaluated in the same transaction as the irreversible send marker. */
 import { createHash } from 'node:crypto';
-import { canonicalQuestionJson } from './lib/applicationQuestionContract.js';
+import { canonicalQuestionJson, answerQuestionDescriptor } from './lib/applicationQuestionContract.js';
 import { answerSourceRetained, currentAnswerReviewRequired } from './assistedApplicationAnswerConfirmation.js';
 import { roundWasSent } from './assistedApplicationFlow.js';
 import { qualificationCounterContext } from './lib/qualificationCounterContext.js';
@@ -12,6 +12,10 @@ const flowMaterial = flow => ({ ...selected(flow, ['candidateNotes', 'state', 'r
   dispatch: selected(flow?.dispatch, ['mode', 'round', 'requestedAt']), roundWasSent: roundWasSent(flow) });
 const draftMaterial = draft => selected(draft, ['status', 'round', 'questions', 'cvKey', 'sourceCvHash', 'qualificationCvLanguageProfile', 'channel', 'job']);
 const profileMaterial = record => selected(record, ['applicationQuestionAnswers', 'applicationQuestionAnswerEvidence', 'applicationQuestionAnswersUpdatedAt']);
+// Finishing the origin application does not revoke an unchanged personal fact.
+// Its current retention is checked separately, rather than freezing an operational anchor/status.
+const sourceOrderMaterial = order => selected(order, ['userId', 'jobId', 'jobUrl', 'cvStorageKey', 'candidateNotes', 'retentionPurgingAt', 'retentionPurgedAt', 'talentPoolConsent']);
+const sourceFlowMaterial = flow => selected(flow, ['round', 'answers', 'questionAnswers', 'answerConfirmations', 'formOverrides', 'feedback', 'candidateNotes', 'retentionPurgingAt', 'retentionPurgedAt']);
 
 export function evidenceSourceChanged() {
   const error = new Error('evidence_source_changed'); error.code = 'evidence_source_changed'; return error;
@@ -25,8 +29,15 @@ export function createAnswerSourceGuard({ db, orderId, order, flow, draft, intak
   });
   // Exact source snapshots are already loaded by the evidence validator, not re-inferred from a destination child.
   for (const { ref, data } of sources) {
-    const material = ref.path.endsWith('/automation/flow') ? flowMaterial : ref.path.endsWith('/ai_drafts/current') ? draftMaterial : orderMaterial;
-    add(ref, data, material, material === orderMaterial);
+    const originId = ref.path.split('/')[1];
+    const questionIds = new Set(Object.values(profileRecord.applicationQuestionAnswerEvidence || {})
+      .filter(record => record?.provenance?.orderId === originId).map(record => record?.question?.id).filter(Boolean));
+    const sourceDraftMaterial = value => ({ ...selected(value, ['round', 'cvKey', 'sourceCvHash']),
+      applyUrl: String(value?.channel?.applyUrl || value?.job?.applyUrl || ''),
+      questions: (Array.isArray(value?.questions) ? value.questions : []).filter(question => questionIds.has(question?.id)).map(answerQuestionDescriptor) });
+    const material = ref.path.endsWith('/automation/flow') ? sourceFlowMaterial : ref.path.endsWith('/ai_drafts/current') ? sourceDraftMaterial
+      : ref.path.endsWith('/automation/intake') ? value => value ?? null : sourceOrderMaterial;
+    add(ref, data, material, material === sourceOrderMaterial);
   }
   if (profileRef) add(profileRef, profileRecord, profileMaterial);
   add(orderRef, order, orderMaterial, true);
