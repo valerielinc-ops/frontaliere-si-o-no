@@ -48,6 +48,30 @@ vi.mock('../scripts/lib/ats-clients/playwright-runtime.mjs', () => {
     }),
   };
 });
+
+// The parser tests exercise the Playwright/listing contract and pure job
+// helpers; JSON-LD extraction is not part of those scenarios. Mocking it also
+// keeps this scoped sparse-checkout test independent of the optional postal
+// snapshot used by the generic prospector extractor.
+vi.mock('../scripts/lib/prospector/extract.mjs', () => ({
+  extractJsonLd: () => [],
+}));
+
+vi.mock('../scripts/lib/crawler-template.mjs', async () => {
+  const { slugify } = await import('../scripts/lib/slugify.mjs');
+  const { normalizeDescriptionBullets } = await import('../scripts/lib/description-artifacts.mjs');
+  return {
+    slugify,
+    stripHtml: (html = '') => String(html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
+    normalizeDescriptionSpace: (value = '') => String(value || '')
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim(),
+    normalizeDescriptionBullets,
+  };
+});
+
 import {
   RICHEMONT_KEY,
   RICHEMONT_COMPANY_NAME,
@@ -57,7 +81,7 @@ import {
   buildJobDescription,
   detectRichemontSourceLang,
 } from '../scripts/lib/richemont-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { slugify } from '../scripts/lib/slugify.mjs';
 
 afterEach(() => {
   runtimeState.scenario = 'none';
@@ -89,13 +113,13 @@ describe('Richemont crawler parser', () => {
   it('fails closed after a listing page fails on both attempts', async () => {
     runtimeState.scenario = 'listing-failure';
     vi.useFakeTimers();
-    const pending = fetchAllRichemontJobs();
-    await vi.runAllTimersAsync();
-
-    await expect(pending).rejects.toMatchObject({
+    const rejection = expect(fetchAllRichemontJobs()).rejects.toMatchObject({
       specListingFailure: true,
       specDiscoveredCount: 0,
     });
+    await vi.runAllTimersAsync();
+
+    await rejection;
     expect(runtimeState.calls).toBe(2);
   });
 
