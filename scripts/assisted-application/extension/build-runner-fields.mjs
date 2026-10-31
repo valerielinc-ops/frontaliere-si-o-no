@@ -16,7 +16,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { extractFieldsInPage } from '../lib/portal/fields.mjs';
 import { markOptionalAutofillDeclineInPage } from '../lib/portal/optional-autofill.mjs';
-import { consentContradictionPatterns, hasConsentContradiction, isOptionalPurpose, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape } from '../../../functions/src/lib/applicationConsent.js';
+import { consentContradictionPatterns, hasConsentContradiction, isOptionalPurpose, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifierFields, privacySemanticIdentifiers } from '../../../functions/src/lib/applicationConsent.js';
 
 const APPLY_CONTROL_PATH = fileURLToPath(new URL('./apply-control.js', import.meta.url));
 const renderApplyControl = source => {
@@ -26,11 +26,11 @@ const renderApplyControl = source => {
   if (!exports.test(source)) throw new Error('apply-control.js is missing its shared control export');
   const patterns = Object.entries(consentContradictionPatterns).map(([name, pattern]) =>
     `${JSON.stringify(name)}: new RegExp(${JSON.stringify(pattern.source)}, ${JSON.stringify(pattern.flags)})`).join(', ');
-  const shared = `${isOptionalPurpose.toString()}\nconst consentContradictionPatterns = Object.freeze({ ${patterns} });\n${hasConsentContradiction.toString()}\n${privacyReviewAcknowledgmentShape.toString()}\n${isPrivacyReviewAcknowledgment.toString()}`;
+  const shared = `${isOptionalPurpose.toString()}\nconst consentContradictionPatterns = Object.freeze({ ${patterns} });\nconst privacySemanticIdentifierFields = Object.freeze(${JSON.stringify(privacySemanticIdentifierFields)});\n${privacySemanticIdentifiers.toString()}\n${hasConsentContradiction.toString()}\n${privacyReviewAcknowledgmentShape.toString()}\n${isPrivacyReviewAcknowledgment.toString()}`;
   const rendered = source.replace(block, (_match, start, end) => `${start}${shared}\n${end}`);
-  return rendered.replace(exports, line => line.includes('privacyReviewAcknowledgmentShape')
+  return rendered.replace(exports, line => line.includes('privacySemanticIdentifiers')
     ? line
-    : line.replace('hasConsentContradiction });', 'hasConsentContradiction, privacyReviewAcknowledgmentShape, isPrivacyReviewAcknowledgment });'));
+    : line.replace('hasConsentContradiction, privacyReviewAcknowledgmentShape', 'privacySemanticIdentifiers, hasConsentContradiction, privacyReviewAcknowledgmentShape'));
 };
 
 export const RUNNER_FIELDS_PATH = fileURLToPath(new URL('./runner-fields.js', import.meta.url));

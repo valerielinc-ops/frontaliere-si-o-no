@@ -109,12 +109,9 @@ export function operationalQuestionTopic(question) {
   const label = String(question?.question || question?.label || question?.applicationQuestion || '')
     .replace(/\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*)\s*$/i, '');
   const text = norm(label + ' ' + (question?.applicationQuestion || ''));
-  const privacySemanticIds = [question?.name, question?.id, question?.fieldId, question?.controlId, question?.nativeControlId,
-    question?.semanticId, question?.autocomplete, question?.domId]
-    .filter(value => value !== undefined && value !== null);
   const privacyReviewAck = [question?.question, question?.label, question?.applicationQuestion]
-    .filter(value => String(value ?? '').trim())
-    .some(value => isPrivacyReviewAcknowledgment(value, ...privacySemanticIds));
+    .filter(value => typeof value === 'string' && value.trim())
+    .some(value => isPrivacyReviewAcknowledgment(value, question));
   if (privacyReviewAck) return 'privacy_review_ack';
   if (!text || HARD_DECLARATION.test(text) || question?.type === 'date' || question?.inputType === 'date') return null;
   if (NOTICE.test(text) && OTHER_NOTICE_TOPIC.test(text)) return null;

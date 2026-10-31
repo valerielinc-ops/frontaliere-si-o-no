@@ -73,9 +73,46 @@ export const isNoticeDialog = (title, review = '') => {
 // Native identifiers may contradict a privacy-looking label. Their technical words
 // never provide consent authority, but explicit factual roles must not be ignored.
 export const consentContradictionPatterns = Object.freeze({ negated: NEGATED, facts: FACTS, otherTerms: OTHER_TERMS, accuracy: ACCURACY });
+/**
+ * The closed identifier contract shared by native questions and the injected
+ * consumer. Only scalar metadata is admitted; unknown objects are ignored so
+ * a contract can never become the literal string "[object Object]".
+ * Nested native contracts are read because legacy descriptors preserve their
+ * evidence there rather than at the question's top level.
+ */
+export const privacySemanticIdentifierFields = Object.freeze([
+    'name', 'id', 'fieldId', 'controlId', 'nativeControlId', 'nativeSelectId',
+    'semanticId', 'autocomplete', 'domId', 'dataAutomationId', 'dataControlId',
+    'dataSemanticId', 'elementId', 'nativeFieldId',
+]);
+export function privacySemanticIdentifiers(...sources) {
+  const keys = privacySemanticIdentifierFields;
+  const nestedKeys = ['portalNativeContract', 'originalNativeContract', 'nativeContract'];
+  const values = [];
+  const seen = new Set();
+  const add = value => {
+    if (!['string', 'number'].includes(typeof value)) return;
+    const normalized = String(value).normalize('NFKC').replace(/\p{Cf}/gu, '').trim();
+    if (!normalized) return;
+    const key = normalized.toLocaleLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    values.push(normalized);
+  };
+  const visit = source => {
+    if (source == null) return;
+    if (['string', 'number'].includes(typeof source)) { add(source); return; }
+    if (typeof source !== 'object' || Array.isArray(source)) return;
+    for (const key of keys) add(source[key]);
+    for (const key of nestedKeys) visit(source[key]);
+  };
+  sources.forEach(visit);
+  return values;
+}
 export function hasConsentContradiction(value, ...semanticIds) {
-  const ids = semanticIds.map(id => String(id || '').normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_:.-]+/g, ' ')).join(' ');
-  const text = `${value || ''} ${ids}`.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  const ids = privacySemanticIdentifiers(...semanticIds).map(id => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_:.-]+/g, ' ')).join(' ');
+  const primary = ['string', 'number'].includes(typeof value) ? String(value) : '';
+  const text = `${primary} ${ids}`.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
   return consentContradictionPatterns.negated.test(text) || consentContradictionPatterns.facts.test(text)
     || /\b(?:bday|dob|sex|gender|country|paese|nazione|pays|land)\b/.test(text)
@@ -89,7 +126,8 @@ export function hasConsentContradiction(value, ...semanticIds) {
  * Keep the body self-contained because the extension serializes this guard.
  */
 export function privacyReviewAcknowledgmentShape(value) {
-  const text = String(value || '').replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  const raw = ['string', 'number'].includes(typeof value) ? String(value) : '';
+  const text = raw.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim()
     .replace(/\b(?:required|mandatory|obbligatorio|obligatoire|obligatorisch|erforderlich|pflichtfeld)\b$/, '').trim();
   const exactPatterns = [

@@ -1338,4 +1338,14 @@ describe('fill extension: native fact metadata vetoes a privacy label', () => {
     const entry = F.collect(document).find((item: any) => item.element.id === 'workPermitCheckbox');
     expect(F.answerFor(entry, kit)).toBe(null);
   });
+  it.each([
+    ['data-control-id', 'country-of-residence'],
+    ['data-semantic-id', 'workpermit'],
+  ])('propagates the real native %s veto through the extension consumer', (attribute, value) => {
+    const label = 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.';
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox" required ${attribute}="${value}"> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor(entry, kit)).toBe(null);
+    expect((document.getElementById('privacyAck') as HTMLInputElement).checked).toBe(false);
+  });
 });

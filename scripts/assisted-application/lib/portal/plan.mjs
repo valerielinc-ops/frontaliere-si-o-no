@@ -15,7 +15,7 @@ import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuesti
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape } from '../../../../functions/src/lib/applicationConsent.js';
+import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
@@ -196,14 +196,15 @@ export function ownConsent(field) {
   const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
   const fieldId = String(field?.id || '').trim();
   const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
-  const consentText = `${label} ${name} ${fieldId}`.trim();
-  const privacyReviewAck = isPrivacyReviewAcknowledgment(label, field?.name, field?.autocomplete, field?.domId, fieldId);
+  const privacyIdentifiers = privacySemanticIdentifiers(field);
+  const consentText = `${label} ${privacyIdentifiers.join(' ')}`.trim();
+  const privacyReviewAck = isPrivacyReviewAcknowledgment(label, field);
   const privacyReviewShape = privacyReviewAcknowledgmentShape(label);
   const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || isConsentPurpose(label);
   return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck) && ownText
     && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(consentText)
     && !(privacyReviewShape.shape && !privacyReviewAck)
-    && !hasConsentContradiction(label, field?.name, field?.autocomplete, field?.domId, fieldId);
+    && !hasConsentContradiction(label, field);
 }
 // A notice printed as a control is read by the same grammar as a box.
 Object.assign(ownConsent, { isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice });
