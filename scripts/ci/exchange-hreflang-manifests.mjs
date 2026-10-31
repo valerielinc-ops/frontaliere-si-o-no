@@ -95,8 +95,17 @@ async function readJobs({ gh, repo, runId }) {
   return jobs;
 }
 
+// The newest attempt decides, whatever order the API lists the job entries in.
+function latestLocaleJob(locale, jobs) {
+  return jobs
+    .filter((candidate) => buildLocaleFromJobName(candidate?.name) === locale)
+    .reduce((latest, candidate) => (
+      !latest || Number(candidate?.run_attempt) > Number(latest?.run_attempt) ? candidate : latest
+    ), null);
+}
+
 function manifestAttemptOf(locale, jobs, runAttempt) {
-  const job = jobs.find((candidate) => buildLocaleFromJobName(candidate?.name) === locale);
+  const job = latestLocaleJob(locale, jobs);
   const attempt = Number(job?.run_attempt);
   return job?.conclusion === 'success' && attempt >= 1 && attempt < Number(runAttempt)
     ? String(attempt)
@@ -117,8 +126,9 @@ async function firstMissingLocale({ gh, repo, runId, runAttempt, jobs, published
 }
 
 function terminatedLocaleJob(jobs) {
-  const job = jobs.find((candidate) => buildLocaleFromJobName(candidate?.name)
-    && TERMINAL_FAILURE_CONCLUSIONS.has(candidate?.conclusion));
+  const job = MANIFEST_LOCALES
+    .map((locale) => latestLocaleJob(locale, jobs))
+    .find((candidate) => TERMINAL_FAILURE_CONCLUSIONS.has(candidate?.conclusion));
   return job?.name ?? null;
 }
 

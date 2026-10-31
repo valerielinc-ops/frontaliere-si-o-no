@@ -262,6 +262,27 @@ describe('exchangeHreflangManifests', () => {
       expect(downloaded).not.toContain(manifestArtifactName('it', RUN_ID, 1));
     });
 
+    it('lets the newest attempt decide, whatever order the jobs are listed in', async () => {
+      const older = { name: 'build-locale (it)', conclusion: 'success', run_attempt: 1 };
+      const newer = { name: 'build-locale (it)', conclusion: null, run_attempt: 2 };
+      for (const jobs of [[older, newer], [newer, older]]) {
+        const { gh } = fakeGh({ jobs, list: artifactsFor(names({ it: 1, en: 2, de: 2, fr: 2 })) });
+        await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out waiting for it/);
+        clock = JOB_START_MS;
+      }
+    });
+
+    it('does not abort on a failed entry of a leg that is running again', async () => {
+      const { gh } = fakeGh({
+        jobs: [
+          { name: 'build-locale (de)', conclusion: 'failure', run_attempt: 1 },
+          { name: 'build-locale (de)', conclusion: null, run_attempt: 2 },
+        ],
+        list: artifactsFor(names({ it: 2, en: 2, fr: 2 })),
+      });
+      await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out waiting for de/);
+    });
+
     it('does not read an earlier attempt of a leg that is running again', async () => {
       const { gh } = fakeGh({
         jobs: [
