@@ -123,6 +123,7 @@ const PAST_INTERVIEW_RE = phrases(String.raw`(?:thank you|thanks|danke|vielen da
 const NEGATED_INTERVIEW_NEAR_RE = phrases(String.raw`(?:${NEGATION}|no)\s+${words(2)}${INTERVIEW}`);
 // The refusal is the invitation being negated, not any negation near the word.
 const NEGATED_INVITATION_RE = phrases(String.raw`${NEGATION}\s+${words(5)}${INVITE_VERB}\s+${words(4)}${INTERVIEW}|${NEGATION}\s+${words(4)}${INTERVIEW}\s+(?:einladen|einzuladen)`);
+const NEGATED_VERIFY_INSTRUCTION_RE = phrases(String.raw`(?:please\s+)?do(?:n't| not)\s+(?:${words(3)})?(?:verify|activate|validate|confirm)`);
 const NOT_EVERYONE_RE = phrases(String.raw`all|every|each|alle\p{L}*|jede\p{L}*|tutt\p{L}*|ogni|tous|toutes|chaque`);
 const INTERVIEW_CHANGE_RE = phrases(String.raw`reschedul\p{L}*|postpon\p{L}*|verschieb\p{L}*|verleg\p{L}*|absag\p{L}*|abgesagt|cancel\p{L}*|annul\p{L}*|rinvi\p{L}*|spostar\p{L}*|reporter|d[ée]placer|anderen? termin|altra data|autre date|another (?:date|time)`);
 const REJECTION_RE = phrases(String.raw`regret to inform|unsuccessful|not successful|not (?:been )?(?:selected|shortlisted)|(?:not|cannot|unable to|\p{L}+n['’]t) (?:be )?(?:proceed\p{L}*|progress\p{L}*|continu\p{L}*|consider\p{L}*|pursu\p{L}*|mov\p{L}* forward)|position has been filled|(?:stelle|position) (?:wurde|ist) (?:bereits |anderweitig )*(?:vergeben|besetzt)|(?:nicht|kein\p{L}*)\s+${words(3)}(?:ber[üu]cksichtig\p{L}*|weiterverfolg\p{L}*)|non (?:possiamo|potremo) (?:proseguire|dare seguito)|non (?:è|e) stat[ao] selezionat[ao]|pas (?:donner )?suite|pas (?:été )?retenu\p{L}*`);
@@ -218,11 +219,12 @@ const rejectsApplication = (sentence) => !HYPOTHETICAL_RE.test(sentence) && (
   || (REFUSAL_WORD_RE.test(sentence) && !NEGATED.test(sentence) && (REGRET_RE.test(sentence) || APPLICATION_TOPIC_RE.test(sentence))));
 
 const requestsVerification = (sentence) => VERIFY_REQUEST_RE.test(sentence) && !RECEIPT_WORD_RE.test(sentence)
+  && !NEGATED_VERIFY_INSTRUCTION_RE.test(sentence)
   && (!NEGATED.test(sentence) || UNTIL_RE.test(sentence));
 
-const asksAccountVerification = (sentence) => requestsVerification(sentence)
+const asksAccountVerification = (sentence) => !NEGATED_VERIFY_INSTRUCTION_RE.test(sentence) && (requestsVerification(sentence)
   || (VERIFICATION_NAMED_RE.test(sentence) && (!NEGATED.test(sentence) || /\d{4,8}/.test(sentence)))
-  || (VERIFY_WORD_RE.test(sentence) && LINK_WORD_RE.test(sentence) && /https:\/\/\S/i.test(sentence) && !APPLICATION_TOPIC_RE.test(sentence));
+  || (VERIFY_WORD_RE.test(sentence) && LINK_WORD_RE.test(sentence) && /https:\/\/\S/i.test(sentence) && !APPLICATION_TOPIC_RE.test(sentence)));
 
 const offersJob = (sentence) => (OFFER_RE.test(sentence) || (CONTRACT_RE.test(sentence) && CONTRACT_SENT_RE.test(sentence)))
   && !NEGATED.test(sentence) && !HYPOTHETICAL_RE.test(sentence) && !INTERVIEW_RE.test(sentence);

@@ -586,6 +586,24 @@ describe('verification is not a reason to hide unrelated employer mail', () => {
     });
   }
 
+  it('forwards a directly negated verification instruction even when it says before', async () => {
+    const host = 'portal.example';
+    const text = `Do not verify your account before Monday: https://${host}/verify/123`;
+    expect(classifyByRules({ subject: '', text })).toBe('other');
+    const { store, alias } = await setup('it', host);
+    const { inbox, sendCascade } = await deliverWithoutModel({
+      store,
+      alias,
+      raw: plainMail({
+        subject: 'Security',
+        text,
+        headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'],
+      }),
+    });
+    expect(inbox).toMatchObject({ category: 'other', verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'sent' } });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
   it('never shortens a model-proposed link into a different verification token', async () => {
     const { store, alias } = await setup('it', 'careers.employer.example');
     const text = `Please verify your email: https://careers.employer.example/v?token=${'x'.repeat(2100)}`;
