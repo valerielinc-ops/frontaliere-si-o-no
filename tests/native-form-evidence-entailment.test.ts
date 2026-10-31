@@ -230,4 +230,22 @@ describe('blind native form answer evidence selection', () => {
     expect(f.generate).toHaveBeenCalledTimes(supported ? 2 : 1);
   });
 
+
+  it('owns source Q/A descriptors and catalog entries rather than relabelling a stored document hash', () => {
+    const record = { question: { question: 'Do you hold a degree?' }, answer: true, category: 'qualification', unit: 'boolean', provenance: { actor: 'candidate' } };
+    const sources = qualificationSources({ sourceText: 'Degree in Computer Science', answerEvidence: [record] });
+    const f = { ...fixture(), sources };
+    const before = nativeFormAssessmentHash(f);
+    record.question.question = 'Do you want a degree after training?';
+    sources.evidenceCatalog()[0].quote = 'No degree';
+    expect(nativeFormAssessmentHash(f)).toBe(before);
+    expect(sources.evidenceCatalog()[0].quote).toBe('Degree in Computer Science');
+    expect(sources.evidenceCatalog().find(source => source.kind === 'candidate_answer').answerRecord.question.question).toBe('Do you hold a degree?');
+    const catalog = sources.evidenceCatalog();
+    const injected = { ...f, sources: { ...sources, evidenceCatalog: () => catalog } };
+    expect(nativeFormAssessmentHash(injected)).toBe(before);
+    catalog[0].quote = 'No degree';
+    expect(nativeFormAssessmentHash(injected)).not.toBe(before);
+  });
+
 });

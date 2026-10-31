@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { qualificationSources, verifyQualificationEvidence, hasVerifiedQualificationEvidence,
+import { qualificationSources, qualificationSourcesFingerprint, verifyQualificationEvidence, hasVerifiedQualificationEvidence,
   qualificationAssessmentHash, hasVerifiedQualificationAssessment, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
 import { qualificationEvidenceCases } from './fixtures/qualification-evidence-cases.mjs';
 
@@ -230,4 +230,19 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     expect(await verifyQualificationEvidence(f)).toMatchObject({ status: 'unverified', verification: { failure: 'claim_budget' } });
     expect(f.generate).not.toHaveBeenCalled();
   });
+
+  it('binds document source freshness to the full current attested declaration including CV bytes provenance', () => {
+    const record = { id: 'answer-current', version: 'confirmed-question-evidence-v1', key: 'language_de',
+      question: { question: 'What is your current German level?', type: 'choice' }, answer: 'C1', category: 'language', unit: 'CEFR_or_stated_level', scope: 'candidate',
+      provenance: { actor: 'candidate', round: 1, confirmedAt: new Date().toISOString(), cvHash: 'a'.repeat(64) } };
+    const make = (answerEvidence = [record]) => qualificationSources({ sourceText: 'German A2 in the original CV', answerEvidence });
+    const original = make();
+    expect(original.verifiedDeclarations[0].provenance.cvHash).toBe(record.provenance.cvHash);
+    const key = qualificationSourcesFingerprint(original);
+    expect(qualificationSourcesFingerprint(make())).toBe(key);
+    expect(qualificationSourcesFingerprint(make([{ ...record, answer: 'A2' }]))).not.toBe(key);
+    expect(qualificationSourcesFingerprint(make([{ ...record, provenance: { ...record.provenance, cvHash: 'b'.repeat(64) } }]))).not.toBe(key);
+    expect(qualificationSourcesFingerprint(make([]))).not.toBe(key);
+  });
+
 });

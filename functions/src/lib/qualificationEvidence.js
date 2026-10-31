@@ -43,7 +43,7 @@ function publicAnswer(record) {
 
 /** Only server-attested Q/A units are citable; bare answer-map values are context. */
 export function qualificationSources({ sourceText = '', profile = {}, answers = {}, answerEvidence = [] }) {
-  const records = Array.isArray(answerEvidence) ? answerEvidence.filter(record => record?.category !== 'form_preference').map(publicAnswer) : [];
+  const records = Array.isArray(answerEvidence) ? answerEvidence.filter(record => record?.category !== 'form_preference').map(record => structuredClone(publicAnswer(record))) : [];
   const documents = [{ key: sourceText ? 'cv' : 'profile_projection', kind: sourceText ? 'cv_original' : 'profile_projection',
     text: sourceText || JSON.stringify(profile) }];
   for (const [index, record] of records.entries()) documents.push({ key: `answer_${index}`, kind: 'candidate_answer',
@@ -69,21 +69,21 @@ export function qualificationSources({ sourceText = '', profile = {}, answers = 
   }
   return { citations, modelAnswers: { values: answers, evidence: records }, verifiedDeclarations: records,
     verificationText: documents.map(doc => doc.text).join('\n'),
-    evidenceCatalog: () => [...entries.values()],
+    evidenceCatalog: () => structuredClone([...entries.values()]),
     bind(quote, selectedId) {
       const selected = entries.get(selectedId);
-      if (selected?.quote.includes(quote)) return selected;
+      if (selected?.quote.includes(quote)) return structuredClone(selected);
       // Literal legacy output or a server guard's independently grounded proof
       // is usable only when its source unit is unambiguous, never first-match.
       const found = [...entries.values()].filter(entry => entry.quote.includes(quote));
-      return found.length === 1 ? found[0] : null;
+      return found.length === 1 ? structuredClone(found[0]) : null;
     } };
 }
 
 /** Current original CV and attested counter-declarations, never raw projection fields. */
 export function qualificationSourcesFingerprint(sources) {
   return hash(JSON.stringify(canonical((sources?.evidenceCatalog?.() || []).map(source => ({
-    id: source.id, kind: source.kind, documentHash: source.documentHash,
+    id: source.id, kind: source.kind, documentHash: source.documentHash, quote: source.quote, position: source.position, answerRecord: source.answerRecord,
   })))));
 }
 
@@ -244,7 +244,8 @@ function nativePrimarySources(sources) {
 
 function nativeAssessmentHash({ claims, catalog, scope, unverifiedContext, asOf }) {
   return hash(JSON.stringify(canonical({ version: NATIVE_FORM_ENTAILMENT_VERSION, asOf, claims, scope, unverifiedContext,
-    sources: catalog.map(source => ({ id: source.id, kind: source.kind, documentHash: source.documentHash })) })));
+    sources: catalog.map(source => ({ id: source.id, kind: source.kind, documentHash: source.documentHash,
+      quote: source.quote, position: source.position, answerRecord: source.answerRecord })) })));
 }
 
 export function nativeFormAssessmentHash({ claims, sources, scope = {}, unverifiedContext = null }) {
