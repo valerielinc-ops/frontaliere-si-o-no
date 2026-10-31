@@ -656,7 +656,7 @@
   const submittedSelectMetadata = native => {
     const label = labelFor(native);
     return { ...dialogMeta(native), label, context: sectionContext(native), section: headingBefore(native),
-      name: clean(native.getAttribute('name') || ''), inputType: 'select', form: formOf(native), formId: native.form?.id || '',
+      name: clean(native.getAttribute('name') || ''), inputType: 'select', form: formOf(native), formId: native.form ? idFor(native.form) : '',
       autocomplete: clean(native.getAttribute('autocomplete') || ''), invalid: native.getAttribute('aria-invalid') === 'true',
       search: false, maxLength: null,
       required: native.required || native.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(label) || hasRequiredMarker(native, label),

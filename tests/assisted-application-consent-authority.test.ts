@@ -194,10 +194,10 @@ describe('native consent authority shared by planner and browser', () => {
   it('takes the native select form owner instead of the styled proxy form and rejects duplicate bindings', () => {
     const markup = '<form id="native-form"><label for="country">Country</label><select id="country" style="display:none"><option value="IT">Italy</option></select></form>'
       + '<form id="proxy-form"><span id="country-button" class="ui-selectmenu-button" role="combobox" aria-owns="country-menu">Please select</span></form>';
-    const { source } = readers(markup);
+    const { source, dom } = readers(markup);
     const field = source.find((item: any) => item.nativeSelectId === 'country');
     expect(field).toBeTruthy();
-    expect(field.formId).toBe('native-form');
+    expect(field.formId).toBe(dom.window.document.getElementById('native-form')!.getAttribute('data-aa-id'));
     const duplicate = readers(markup.replace('</select>', '</select><select id="country" style="display:none"><option>Other</option></select>')).source;
     expect(duplicate.some((item: any) => item.nativeSelectId === 'country')).toBe(false);
     expect(duplicate.some((item: any) => item.nativeContractUnavailable === true)).toBe(true);
@@ -205,9 +205,10 @@ describe('native consent authority shared by planner and browser', () => {
   it.each([['Work preferences', 'Personal information', false], ['Personal information', 'Employer', true]])('uses the native provider semantic owner %s instead of proxy %s', (nativeHeading, proxyHeading, expected) => {
     const markup = `<form id="native-form"><h2>${nativeHeading}</h2><label for="city">City</label><select id="city" name="native-city" autocomplete="address-level2" style="display:none"><option value="">---</option><option value="Como">Como</option></select></form>`
       + `<form id="proxy-form"><h2>${proxyHeading}</h2><span id="city-button" class="ui-selectmenu-button" role="combobox" aria-owns="city-menu">Please select</span></form>`;
-    const { source, F, entries } = readers(markup);
+    const { source, F, entries, dom } = readers(markup);
     const field = source.find((item: any) => item.nativeSelectId === 'city');
-    expect(field).toMatchObject({ formId: 'native-form', inputType: 'select', name: 'native-city', autocomplete: 'address-level2', section: nativeHeading });
+    expect(field).toMatchObject({ inputType: 'select', name: 'native-city', autocomplete: 'address-level2', section: nativeHeading });
+    expect(field.formId).toBe(dom.window.document.getElementById('native-form')!.getAttribute('data-aa-id'));
     expect(field.context).not.toContain(proxyHeading);
     const candidate = candidateForForm({ identity: { name: 'Test Candidate' }, profile: { location: 'Como, Italia', address: { city: 'Como', country: 'Italia' } } });
     expect(Boolean(candidateAnswerForField(candidate, field)?.value)).toBe(expected);
