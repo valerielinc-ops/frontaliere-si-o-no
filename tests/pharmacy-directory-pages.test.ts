@@ -140,6 +140,9 @@ describe('pharmacy directory static pages', () => {
     );
     expect(sitemapRoutes.has(current.path)).toBe(current.indexable);
     expect(sitemapRoutes.has(hub.path)).toBe(true);
+    // A listing has no date of its own; a single pharmacy has its verification day.
+    expect(sitemap).toContain(`<loc>https://frontaliereticino.ch${hub.path}</loc><changefreq>`);
+    expect(sitemap).toMatch(/<\/loc><lastmod>\d{4}-\d{2}-\d{2}<\/lastmod><changefreq>/);
 
     const tampered = {
       ...dutiesJson,

@@ -4,11 +4,12 @@
  *    that violate Google's sitemap-hreflang method (issue #3474). See
  *    `sanitizeSitemapHreflangReciprocity` below.
  * 1. Keep backward compatibility with the legacy sitemap_news.xml filename
- * 2. Regenerate `dist/sitemap.xml` as a sitemap index containing EVERY
- *    `dist/sitemap-*.xml` file present after the build. This turns the
- *    index into an auto-discovered manifest so future feature plugins
- *    don't have to manually patch the index — they just write their
- *    own `sitemap-*.xml` at `closeBundle` and this plugin picks it up.
+ * 2. Regenerate `dist/sitemap.xml` as a sitemap index containing every
+ *    `dist/sitemap-*.xml` file present after the build, minus the families in
+ *    `INDEX_RETIRED_SITEMAP_FILES`. This turns the index into an
+ *    auto-discovered manifest so future feature plugins don't have to
+ *    manually patch the index — they just write their own `sitemap-*.xml`
+ *    at `closeBundle` and this plugin picks it up.
  *
  * Ordering:
  *   - `enforce: 'post'` + `closeBundle.order: 'post'` ensure this plugin
@@ -74,6 +75,32 @@ const EXCLUDED_SITEMAP_FILES = new Set<string>([
   'sitemap-index.xml',
 ]);
 
+/**
+ * Template families kept out of the sitemap index (SEO audit 2026-10-31): a few
+ * percent of their URLs ever earned an impression. This narrows what we ask
+ * Google to crawl and nothing else: the pages stay 200, `index,follow` and
+ * internally linked, because the owner decided on 2026-06-24 not to give up the
+ * traffic they do bring (no 404, no noindex).
+ *
+ * The files stay in dist/ on purpose. Their producers read them back, the
+ * topic pair is an edge-pushed surface the hub-landing watchdog fetches, and
+ * audit:max-bfs-depth keeps guarding the internal links of these pages. Only
+ * the index, which is what crawlers follow, stops announcing them.
+ */
+const INDEX_RETIRED_SITEMAP_FILES: ReadonlySet<string> = new Set([
+  'sitemap-orphan-landings.xml',
+  'sitemap-profession-cantons.xml',
+  'sitemap-profession-cities.xml',
+  'sitemap-fuel-italian-stations.xml',
+  'sitemap-job-market.xml',
+]);
+const INDEX_RETIRED_SITEMAP_RE = /^sitemap-topics-[a-z0-9-]+\.xml$/i;
+
+/** True for a sitemap family the index must not announce. */
+export function isIndexRetiredSitemapFile(file: string): boolean {
+  return INDEX_RETIRED_SITEMAP_FILES.has(file) || INDEX_RETIRED_SITEMAP_RE.test(file);
+}
+
 /** Match `sitemap-<name>.xml` — underscore separator is reserved for legacy. */
 const SITEMAP_FILE_PATTERN = /^sitemap-[a-z0-9][a-z0-9-]*\.xml$/i;
 const ARTICLE_SITEMAP_FILE_PATTERN = /^sitemap-(?:blog(?:-ch)?|locale-variants(?:-\d+)?|news)\.xml$/i;
@@ -87,7 +114,8 @@ export interface DiscoveredSitemap {
 /**
  * Discover every `sitemap-*.xml` in `distDir` and return a de-duplicated,
  * alphabetically sorted list with the date of each file's newest entry.
- * `sitemap.xml` itself and `sitemap_news.xml` are excluded.
+ * `sitemap.xml` itself, `sitemap_news.xml` and the index-retired families are
+ * excluded.
  *
  * The date comes from the file's content, never from its mtime: every sitemap
  * is rewritten on every build, so the mtime only ever said "built today" and
@@ -106,6 +134,7 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
   const discovered: DiscoveredSitemap[] = [];
   for (const file of entries) {
     if (EXCLUDED_SITEMAP_FILES.has(file)) continue;
+    if (isIndexRetiredSitemapFile(file)) continue;
     if (!SITEMAP_FILE_PATTERN.test(file)) continue;
     if (seen.has(file)) continue;
     seen.add(file);
@@ -677,7 +706,13 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
           console.log('\x1b[36m[sitemap-alias]\x1b[0m Created sitemap_news.xml alias');
         }
 
-        // 3. Auto-discover all sitemap-*.xml in dist/ and regenerate the index
+        // 3. The job shard writer still leaves its own `sitemap-index.xml`, a
+        //    partial duplicate of the real index (96 of 159 children, SEO audit
+        //    2026-10-31) that nothing declares. /sitemap.xml is the only index:
+        //    the file stops being published and the edge redirects its URL.
+        fs.rmSync(path.join(distDir, 'sitemap-index.xml'), { force: true });
+
+        // 4. Auto-discover all sitemap-*.xml in dist/ and regenerate the index
         const discovered = await discoverSitemapFiles(distDir);
         const indexPath = path.join(distDir, 'sitemap.xml');
         const xml = buildSitemapIndexXml(discovered, BASE_URL);

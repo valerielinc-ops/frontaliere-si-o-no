@@ -36,6 +36,7 @@ import {
   categoryLabel,
   normalizeCategoryKey,
 } from '../build-plugins/eventsSeoPagesPlugin';
+import { sanitizeSitemapHreflangReciprocity } from '../build-plugins/sitemapAliasPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { stableTitleToken } from '../build-plugins/shared/titleSuffix';
 import { parsePath } from '../services/router';
@@ -1171,24 +1172,29 @@ describe('renderEventDetailPage', () => {
   });
 });
 
-describe('buildSitemap historical detail entries', () => {
-  it('publishes historical detail routes with the same locale alternates as live details', () => {
-    const dateStamp = new Date().toISOString().slice(0, 10);
-    const xml = buildSitemap([], dateStamp, [{ canton: 'TI', comune: 'Lugano', slug: 'evento-storico' }]);
+describe('buildSitemap locale coverage', () => {
+  it('lists a detail in all four locales, each with the reciprocal group', () => {
+    const xml = buildSitemap([], [{ canton: 'TI', comune: 'Lugano', slug: 'evento-futuro' }]);
+    const group = [
+      'https://frontaliereticino.ch/eventi/ticino/lugano/evento-futuro/',
+      'https://frontaliereticino.ch/en/events/ticino/lugano/evento-futuro/',
+      'https://frontaliereticino.ch/de/veranstaltungen/tessin/lugano/evento-futuro/',
+      'https://frontaliereticino.ch/fr/evenements/tessin/lugano/evento-futuro/',
+    ];
 
-    expect(xml).toContain('<loc>https://frontaliereticino.ch/eventi/ticino/lugano/evento-storico/</loc>');
-    expect(xml).toContain('hreflang="en" href="https://frontaliereticino.ch/en/events/ticino/lugano/evento-storico/"');
-    expect(xml).toContain('hreflang="de" href="https://frontaliereticino.ch/de/veranstaltungen/tessin/lugano/evento-storico/"');
-    expect(xml).toContain('hreflang="fr" href="https://frontaliereticino.ch/fr/evenements/tessin/lugano/evento-storico/"');
+    for (const url of group) expect(xml).toContain(`<loc>${url}</loc>`);
+    // Without a <loc> per alternate the reciprocity sanitizer strips the group.
+    const sanitized = sanitizeSitemapHreflangReciprocity([{ file: 'sitemap-eventi.xml', xml }]);
+    expect(sanitized.has('sitemap-eventi.xml')).toBe(false);
   });
 
   // P1 noindex plan (paginationIndexPolicy, 2026-10-24): only page 1 of the
   // archive is advertised; page 2+ stays reachable through its pager.
   it('includes page 1 of the historical archive with localized alternates, never page 2+', () => {
-    const dateStamp = new Date().toISOString().slice(0, 10);
-    const xml = buildSitemap([], dateStamp, [], 2);
+    const xml = buildSitemap([], [], 2);
 
     expect(xml).toContain('<loc>https://frontaliereticino.ch/eventi/ticino/archivio/</loc>');
+    expect(xml).toContain('<loc>https://frontaliereticino.ch/en/events/ticino/archive/</loc>');
     expect(xml).toContain('hreflang="en" href="https://frontaliereticino.ch/en/events/ticino/archive/"');
     expect(xml).toContain('hreflang="de" href="https://frontaliereticino.ch/de/veranstaltungen/tessin/archiv/"');
     expect(xml).toContain('hreflang="fr" href="https://frontaliereticino.ch/fr/evenements/tessin/archives/"');
