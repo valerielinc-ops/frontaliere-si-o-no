@@ -67,6 +67,41 @@ export function isJavascriptCareerSurface(html = '') {
     || (atsShell && /(?:career|careers|job|jobs|search)/i.test(source));
 }
 
+const HIRING_OPENINGS_RX = /\b(?:posizion[ei] (?:aperte?|disponibili)|posti vacanti|offene stellen\s*:)/gi;
+const HIRING_NEGATION_RX = /\b(?:non|nessun[ao]?|niente|keine?|aucune?|pas de)\b[^.!?]{0,40}$/i;
+const HIRING_VERB_RX = /\b(?:cercasi|cerchiamo|stiamo cercando|ricerchiamo|assumiamo|wir suchen|nous recherchons)\b([^.!?]{0,120})/gi;
+const HIRING_ROLE_RX = /\b(?:apprendist|collaborator|addett|operai|montator|meccanic|commess|cuoc|camerier|impiegat|magazzinier|autist|muratore|elettricist|falegnam|gestore|gerente|responsabile|lehrling|lernend|mitarbeiter|fachperson|verk[aä]ufer|koch\b|apprenti|employ[ée]|vendeu|cuisini|serveu)/i;
+
+/**
+ * Does this text announce a vacancy?
+ *
+ * A micro-employer has no careers page: the vacancy is one sentence
+ * ("Cercasi gestore bistrot-bar", "Cerchiamo apprendisti"). A hiring verb alone
+ * is marketing ("Cerchiamo soluzioni", "Wir suchen Testhörer"), so it must be
+ * followed by an occupation in the same sentence, and an openings phrase counts
+ * only when the sentence does not deny it ("Non ci sono posizioni aperte").
+ *
+ * @param {string} text
+ * @returns {boolean}
+ */
+export function announcesVacancy(text = '') {
+  const value = String(text || '').replace(/\s+/g, ' ');
+  const openings = [...value.matchAll(HIRING_OPENINGS_RX)]
+    .some((match) => !HIRING_NEGATION_RX.test(value.slice(0, match.index)));
+  return openings
+    || [...value.matchAll(HIRING_VERB_RX)].some((match) => HIRING_ROLE_RX.test(match[1]));
+}
+
+/**
+ * Does a homepage itself announce a vacancy?
+ *
+ * @param {string} html
+ * @returns {boolean}
+ */
+export function hasHomepageHiringSignal(html = '') {
+  return announcesVacancy(textOf(String(html || '')));
+}
+
 /**
  * Tidy anchor text: decode entities, collapse whitespace, and drop the
  * immediate self-repetition that markup like
@@ -201,7 +236,7 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     const textWindowEnd = Math.min(html.length, nextAnchorStart, anchorContentStart + 4000);
     const closeOffset = html.slice(anchorContentStart, textWindowEnd).search(/<\/a>/i);
     const anchorClose = closeOffset >= 0 ? anchorContentStart + closeOffset : -1;
-    const href = readAttr(attrs, 'href');
+    const href = decodeEntities(readAttr(attrs, 'href'));
     if (!href) continue;
     if (/^(#|mailto:|tel:|javascript:|data:)/i.test(href.trim())) continue;
     // Anchor text = the markup up to the next </a>, tags stripped.
@@ -251,7 +286,7 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
 export function isCareerLink(link) {
   let pathPart = '';
   pathPart = safeDecodePath(link.url) || link.url;
-  return hasCareerToken(link.text) || hasCareerToken(pathPart);
+  return hasCareerToken(link.text) || hasCareerToken(pathPart) || announcesVacancy(link.text);
 }
 
 /**
@@ -704,6 +739,11 @@ export async function traceCareers(domain, opts = {}) {
     for (const ext of externalAtsLinks(links, homeHost, { relaxed: true, globalLinks: homeLinks })) {
       if (!result.externalHosts.some((e) => e.host === ext.host)) result.externalHosts.push(ext);
     }
+  }
+
+  if (!result.careersUrls.length && !result.externalHosts.length && hasHomepageHiringSignal(home.body)) {
+    result.careersUrls.push(home.url);
+    result.via.push('homepage-hiring-signal');
   }
 
   // Verify each candidate before it is allowed to reach the registry. Capped:
