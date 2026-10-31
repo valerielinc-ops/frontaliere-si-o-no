@@ -878,6 +878,34 @@ jobs:
                   }
                   continue;
                 }
+                if (existing.state.status === 'pending') {
+                  const latest = await runForHead(pr.head.sha, pr.head.ref, number);
+                  if (!latest) continue;
+                  const observedAttempt = validRunAttempt(latest.run_attempt);
+                  if (observedAttempt === null) continue;
+                  const exactRun = markerMatchesRun(existing.state, latest);
+                  const newerAttempt = markerSameRunWithNewerAttempt(existing.state, latest);
+                  if (!exactRun && !newerAttempt) continue;
+                  let pending = existing;
+                  if (newerAttempt) {
+                    pending = await persistMarker(number, {
+                      ...existing.state, runId: latest.id, runAttempt: observedAttempt,
+                    }, existing);
+                  }
+                  if (latest.status !== 'completed') {
+                    await retryCompletedRun(number, pr, latest, pending,
+                      'scheduled reconciliation of a pending body-recovery run');
+                    continue;
+                  }
+                  const reason = await retryReasonForCompletedRun(number, pr, latest, pending);
+                  if (!reason) {
+                    await completeWithoutRetry(number, pr, latest, pending,
+                      'scheduled reconciliation found the pending run already validated the current body');
+                  } else {
+                    await retryCompletedRun(number, pr, latest, pending, reason);
+                  }
+                  continue;
+                }
                 if (existing.state.status !== 'manual'
                     || (!nativeRevokeRequired
                       && !['rerun-ambiguous', 'no-existing-pull-request-run'].includes(sourceEvent))) continue;

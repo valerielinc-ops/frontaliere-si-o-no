@@ -765,6 +765,12 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(result.dispatches).toEqual([]);
   });
 
+  it('reconciles a pending body-recovery marker when workflow_run delivery is lost', async () => {
+    const result = await runRecovery({ eventName: 'schedule', pendingStatus: 'pending', body: 'success', conclusion: 'cancelled' });
+    expect(result.reruns).toEqual([42]);
+    expect(result.dispatches).toEqual([]);
+  });
+
   it('dispatches native auto-merge when a scheduled reconciliation observes the accepted rerun completed', async () => {
     const result = await runRecovery({ eventName: 'schedule', pendingStatus: 'manual', changedAttempt: true });
     expect(result.reruns).toEqual([]);
