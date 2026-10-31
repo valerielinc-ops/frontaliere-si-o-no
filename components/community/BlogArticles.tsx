@@ -1,3 +1,4 @@
+import { runOnFirstEngagement } from '@/services/runOnFirstEngagement';
 import AffiliateLink from '@/components/shared/AffiliateLink';
 import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
@@ -1602,7 +1603,10 @@ function BlogArticlesContent({
  }).catch(() => {
   if (!cancelled) setBodyLoadIssueState({ key: requestBodyKey, issue: 'error', handoff: false });
  });
- trackArticleView(selectedArticle);
+ // A view is one Firestore write, and the client costs 598 KB on a page that
+ // otherwise never needs it: count it when the reader engages, not during hydration.
+ const articleId = selectedArticle;
+ runOnFirstEngagement(() => { void trackArticleView(articleId); });
  return () => { cancelled = true; };
  }, [selectedArticle, section, locale, bodyRetry]);
 
