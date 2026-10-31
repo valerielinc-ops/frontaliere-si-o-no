@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-10-30T21:56:22.886Z",
-  "runId": "41130651027",
+  "assembledAt": "2026-10-31T09:32:38.381Z",
+  "runId": "41188495912",
   "jobs": [
     {
       "title": "Vault Operations Specialist",
@@ -24,7 +24,7 @@
       "datePosted": "2026-10-08T11:03:47+02:00",
       "postedDate": "2026-10-08T11:03:47+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-30T21:56:19.326Z",
+      "crawledAt": "2026-10-31T09:32:35.857Z",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -94,7 +94,7 @@
       "datePosted": "2026-10-02T15:18:11+02:00",
       "postedDate": "2026-10-02T15:18:11+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-30T21:56:19.328Z",
+      "crawledAt": "2026-10-31T09:32:35.858Z",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -208,7 +208,7 @@
       "firstSeenAt": "2026-09-29T21:39:07.108Z",
       "datePosted": "2026-09-29T16:44:49+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-30T21:56:19.330Z",
+      "crawledAt": "2026-10-31T09:32:35.859Z",
       "postalCode": "6874"
     },
     {
@@ -268,11 +268,15 @@
       },
       "firstSeenAt": "2026-08-19T21:38:27.862Z",
       "salarySource": "estimated",
+      "datePosted": "2026-08-19T12:39:04+02:00",
+      "postingDateSource": "reported",
+      "crawledAt": "2026-10-31T09:32:35.861Z",
+      "postalCode": "6874",
       "previousSlugsByLocale": {
-        "fr": [
+        "it": [
           "precious-metal-control-manager-mks-pamp-castel-san-pietro"
         ],
-        "it": [
+        "fr": [
           "precious-metal-control-manager-mks-pamp-castel-san-pietro"
         ],
         "de": [
@@ -284,11 +288,7 @@
       },
       "previousSlugs": [
         "precious-metal-control-manager-mks-pamp-castel-san-pietro"
-      ],
-      "datePosted": "2026-08-19T12:39:04+02:00",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-10-30T21:56:19.332Z",
-      "postalCode": "6874"
+      ]
     },
     {
       "title": "Operatore reparto Raffineria",
@@ -382,7 +382,7 @@
       "retranslationAttempts": 0,
       "datePosted": "2026-01-28T12:40:44+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-30T21:56:19.333Z"
+      "crawledAt": "2026-10-31T09:32:35.861Z"
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
@@ -482,7 +482,7 @@
       "salarySource": "reported",
       "datePosted": "2026-01-28T11:17:43+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-30T21:56:19.334Z"
+      "crawledAt": "2026-10-31T09:32:35.862Z"
     }
   ]
 }
