@@ -160,6 +160,17 @@ describe('native consent authority shared by planner and browser', () => {
     expect(localized[0].originalNativeContract).toEqual(source[0].originalNativeContract);
     expect(localized[0].ownConsentText).toEqual(source[0].ownConsentText);
   });
+  it('keeps same-label native assertions independently answerable and stable under DOM ordering', () => {
+    const markup = (id: string, assertion: string) => `<div class="field"><label for="${id}">I agree</label><input id="${id}" type="checkbox" required aria-describedby="${id}-details"><p id="${id}-details">${assertion}</p></div>`;
+    const { source } = readers(markup('permit', 'I hold a work permit') + markup('degree', 'I hold a degree'));
+    const questions = portalRequirementsFromMissingRequired(source, source.map((field: any) => ({ fieldId: field.id, question: field.label }))).questions;
+    expect(questions).toHaveLength(2);
+    expect(new Set(questions.map((question: any) => question.id)).size).toBe(2);
+    expect(questions.map((question: any) => question.id).every((id: string) => /^portal_native_[a-f0-9]{64}$/.test(id))).toBe(true);
+    // Reorder the DTO inputs, without rewriting owners: each assertion keeps its own identity.
+    const reordered = portalRequirementsFromMissingRequired([...source].reverse(), [...source].reverse().map((field: any) => ({ fieldId: field.id, question: field.label }))).questions;
+    expect(reordered.map((question: any) => question.id)).toEqual(questions.map((question: any) => question.id).reverse());
+  });
   it('preserves a full native question beyond300characters and holds oversize text technically', () => {
     const label = 'I agree to the Privacy Policy. '.repeat(12) + 'I hold a degree.';
     const { source } = readers(box(label));

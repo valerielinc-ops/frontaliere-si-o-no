@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { questionTopic } from './plan.mjs';
 export { portalAnswerForApplication, portalOptionMap } from '../../../../functions/src/lib/portalQuestionMapping.js';
 
@@ -35,8 +36,19 @@ function applicationLabel(question) {
     : question;
 }
 
+// Distinct owned assertions can have the same visible label («I agree»).
+// Keep legacy IDs unchanged; native metadata never dedupes across owners.
+function nativeQuestionIdentity(question) {
+  if (!question || typeof question !== 'object' || typeof question.ownConsentOwnerKey !== 'string' || !question.ownConsentOwnerKey) return '';
+  return JSON.stringify({ question: applicationLabel(question),
+    ...Object.fromEntries(['ownConsentText', 'ownConsentQuestionLabels', 'ownConsentLinks', 'ownConsentMetadataComplete',
+      'ownConsentQuestionOwned', 'ownConsentOwnerKey', 'consentOwnershipUnknown'].map(key => [key, question[key]])) });
+}
+
 /** A stable answer id that keeps same-label fields in different fieldsets independent. */
 export function portalQuestionId(question, context = '', section = '', autocomplete = '') {
+  const native = nativeQuestionIdentity(question);
+  if (native) return `portal_native_${createHash('sha256').update(native).digest('hex')}`;
   const label = applicationLabel(question);
   const surrounding = typeof question === 'object' ? question?.context : context;
   const heading = typeof question === 'object' ? question?.section : section;
@@ -48,6 +60,7 @@ export function portalQuestionId(question, context = '', section = '', autocompl
 
 /** Dedupe reworded questions by a proven candidate fact; keep context when it selects which fact is meant. */
 export function portalQuestionKey(question, context = '', section = '', autocomplete = '') {
+  if (nativeQuestionIdentity(question)) return portalQuestionId(question);
   const label = applicationLabel(question);
   const surrounding = typeof question === 'object' ? question?.context : context;
   const heading = typeof question === 'object' ? question?.section : section;
