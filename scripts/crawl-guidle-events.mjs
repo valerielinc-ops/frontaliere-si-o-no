@@ -35,8 +35,9 @@ import { realpathSync } from 'node:fs';
  *   - Every event detail page (e.g.
  *     `https://www.guidle.com/it/eventi/party/ascona/floating-notes…_AS26x6V`)
  *     is plain server-rendered HTML (no JS needed, no bot UA needed) and
- *     embeds schema.org `Event` JSON-LD (a single object, or an ARRAY of
- *     objects — one per occurrence — for recurring events), the primary data
+ *     embeds schema.org Event JSON-LD (a single object, an ARRAY of objects,
+ *     or an `@graph` containing event nodes — one per occurrence for recurring
+ *     events), the primary data
  *     source here (title, description, startDate/endDate/time, venue,
  *     address, image, organizer and performer). `<meta name="geo.position" content="lat;lng">` gives
  *     geo coordinates and `<meta name="geo.region" content="CH-ZG">` gives the
@@ -147,6 +148,11 @@ import {
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 import { parseJsonLdText } from './lib/json-ld-text.mjs';
+import {
+  eventJsonLdCandidates,
+  extractJsonLdScriptContents,
+  isSchemaEventJsonLdType,
+} from './lib/schema-event-jsonld.mjs';
 
 // Re-exported so existing importers (tests/crawl-guidle-events.test.ts) keep
 // working — the parser itself now lives in events-utils.mjs, shared with
@@ -276,28 +282,25 @@ export function extractEventUrlsFromSitemapXml(xml) {
 
 // ── Detail-page parsing (pure — no network) ──────────────────────────────
 
-const LD_JSON_RE = /<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
-
 /**
  * Pick the schema.org Event occurrences off a detail page. A non-recurring
- * event's JSON-LD block is a single `{"@type":"Event",…}` object; a
- * recurring one is a JSON ARRAY of such objects, one per future occurrence
- * (verified live: an 18-item array for a weekly guided tour). Both shapes are
- * normalized here into a flat array (empty when no Event block is found).
+ * event's JSON-LD block is a single Event(-subtype) object; a recurring one
+ * can be a JSON ARRAY or an `@graph` containing one object per future
+ * occurrence (verified live: an 18-item array for a weekly guided tour). All
+ * shapes are normalized here into a flat array (empty when no Event block is
+ * found).
  */
 export function extractEventJsonLdOccurrences(html) {
   if (typeof html !== 'string' || !html) return [];
-  LD_JSON_RE.lastIndex = 0;
-  let match;
-  while ((match = LD_JSON_RE.exec(html))) {
+  for (const raw of extractJsonLdScriptContents(html)) {
     let parsed;
     try {
-      parsed = parseJsonLdText(match[1]);
+      parsed = parseJsonLdText(raw);
     } catch {
       continue; // malformed block — keep scanning the rest of the page
     }
-    const list = Array.isArray(parsed) ? parsed : [parsed];
-    const events = list.filter((o) => o && typeof o === 'object' && o['@type'] === 'Event' && typeof o.startDate === 'string');
+    const events = eventJsonLdCandidates(parsed)
+      .filter((o) => isSchemaEventJsonLdType(o['@type']) && typeof o.startDate === 'string');
     if (events.length) return events;
   }
   return [];
