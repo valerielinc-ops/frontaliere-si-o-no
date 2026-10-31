@@ -68,6 +68,41 @@ describe('a consent decision taken before the queue module loads', () => {
   });
 });
 
+describe('a consent event dispatched after the entry but before the queue module', () => {
+  beforeEach(() => {
+    vi.useFakeTimers({ now: new Date('2026-10-31T10:00:00Z') });
+    vi.resetModules();
+    vi.stubGlobal('window', new EventTarget());
+    const values = new Map<string, string>();
+    vi.stubGlobal('sessionStorage', {
+      getItem: (key: string) => values.get(key) ?? null,
+      setItem: (key: string, value: string) => { values.set(key, value); },
+    });
+  });
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+  });
+
+  it('keeps the newsletter out for 60 s', async () => {
+    await import('@/services/consentDecisionMark');
+    window.dispatchEvent(new Event(ADS_CONSENT_CHANGE_EVENT));
+
+    const { canShowPromotionalPrompt, requestSlot, POPUP_PRIORITY } = await import('@/services/popupQueue');
+    expect(requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER)).toBe(false);
+    vi.advanceTimersByTime(59_000);
+    expect(canShowPromotionalPrompt()).toBe(false);
+    vi.advanceTimersByTime(1_000);
+    expect(canShowPromotionalPrompt()).toBe(true);
+  });
+
+  it('has the entry as its only importer: a shared module would land in the entry chunk', () => {
+    expect(readFileSync(resolve(import.meta.dirname, '../index.tsx'), 'utf8')).toContain("import './services/consentDecisionMark';");
+    const popupQueue = readFileSync(resolve(import.meta.dirname, '../services/popupQueue.ts'), 'utf8');
+    expect(popupQueue).not.toContain('consentDecisionMark');
+  });
+});
+
 describe('article share row tap targets', () => {
   it('keeps every icon button at 44 px', () => {
     const source = readFileSync(resolve(import.meta.dirname, '../components/community/BlogArticles.tsx'), 'utf8');
