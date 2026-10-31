@@ -21,7 +21,7 @@ const frNsFaq: Record<string, string> = {
  'faq.questions.taxes.q3': 'Puis-je déduire le 3e pilier en Italie ?',
  'faq.questions.taxes.a3': 'Les versements au pilier 3a sont déductibles de l\'impôt à la source suisse. En Italie non déductibles mais inclus dans le revenu total.',
  'faq.questions.taxes.q4': 'Que sont les rétrocessions fiscales (ristorni) ?',
- 'faq.questions.taxes.a4': 'Ce sont 38,8% de l\'impôt à la source payé en CH, rétrocédés aux communes italiennes frontalières. Pas un avantage direct pour le travailleur.',
+ 'faq.questions.taxes.a4': 'Ce sont 40 % de l\'impôt brut des frontaliers de l\'art. 9, versés par les cantons à l\'Italie jusqu\'à l\'année fiscale 2033. Pas un avantage direct pour le travailleur.',
  'faq.questions.taxes.q5': 'Dois-je déclarer mon compte bancaire suisse ?',
  'faq.questions.taxes.a5': 'Oui, il doit être déclaré dans la section RW du modèle Redditi PF pour le suivi fiscal. Pas d\'IVAFE sur les comptes courants suisses.',
  'faq.questions.taxes.q6': 'Comment fonctionne le Modello Redditi PF pour les frontaliers ?',
