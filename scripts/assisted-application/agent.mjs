@@ -18,7 +18,7 @@ import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { appendFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../functions/src/assistedApplicationCvCheck.js';
-import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedApplicationConstants.js';
+import { ASSISTED_APPLICATION_ORDER_ID_RE, hasAssistedApplicationConsent } from '../../functions/src/assistedApplicationConstants.js';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
@@ -29,11 +29,17 @@ import { dedupePortalQuestions, portalQuestionKey, readPortalRequirements } from
 import { mergeRequiredDocuments, requiredDocumentLabelKey, requiredDocumentsOf } from '../../functions/src/assistedApplicationExtraDocuments.js';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
-import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
+import { submissionGuard, hasRecordedSubmission } from '../../functions/src/assistedApplicationSubmissionGuard.js';
+import { retainedArtifactStore } from '../../functions/src/lib/assistedApplicationArtifactRetention.js';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
+import { enterExecution } from './lib/execution-runtime.mjs';
+import { assistedApplicationRetained } from '../../functions/src/lib/assistedApplicationRetentionPolicy.js';
+import { reconcileCanonicalSubmissionReceipt } from '../../functions/src/assistedApplicationReceiptReconcile.js';
+
+let executionRuntime = null;
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 // dry_run: the submission without the final click, for the owner's tests.
@@ -135,16 +141,34 @@ function portalAnswersForDraft(portalAnswers) {
  * write that fails never turns a sent application into a failure: the submission guard and the
  * encrypted evidence hold the same record.
  */
-export async function keepSentRecord(event, { draftRef, dryRun }) {
+export async function keepSentRecord(event, { draftRef, dryRun, artifactStore = null }) {
   if (!event?.sent) return;
   const { sent } = event;
   delete event.sent;
   if (dryRun) return;
   try {
-    await draftRef.set({ sent, sentAttempt: null }, { merge: true });
+    if (artifactStore) await artifactStore.mergeDraft(draftRef, { sent, sentAttempt: null });
+    else await draftRef.set({ sent, sentAttempt: null }, { merge: true });
   } catch (error) {
     summary(`sent record not kept on the draft: ${safeErrorCode(error)}`);
   }
+}
+
+/** A receipt-bearing send differs from a link the candidate still has to open. */
+export function hasRecordedSubmissionOutcome(event) {
+  return event?.type === 'submit_succeeded' && event.channel !== 'whatsapp'
+    && Boolean(event.sent || event.replayed === true || event.retentionMinimal === true);
+}
+
+/** Keep the handoff photo and publish success before any optional draft projection. */
+export async function keepAndReportSubmissionOutcome(event, { draftRef, dryRun, artifactStore = null, report }) {
+  const recorded = hasRecordedSubmissionOutcome(event);
+  await keepSentRecord(event, { draftRef, dryRun, artifactStore });
+  if (!recorded) return false;
+  await report({ type: event.type, channel: event.channel,
+    ...(event.replayed === true ? { replayed: true } : {}),
+    ...(event.retentionMinimal === true ? { retentionMinimal: true } : {}) });
+  return true;
 }
 
 /**
@@ -154,8 +178,11 @@ export async function keepSentRecord(event, { draftRef, dryRun }) {
  * folder is the backstop), so a photo taken back in a later round is in no
  * PDF left behind.
  */
-export async function writeDraft({ orderRef, bucket, draft, previousDraft }) {
-  await orderRef.collection('ai_drafts').doc('current').set(draft);
+export async function writeDraft({ orderRef, bucket, draft, previousDraft, artifactStore = null }) {
+  const target = orderRef.collection('ai_drafts').doc('current');
+  if (artifactStore) {
+    if (!(await artifactStore.writeDraft(target, draft))) throw new DraftAbort('draft_failed', 'draft_context_changed');
+  } else await target.set(draft);
   const superseded = supersededPhotoPdf(previousDraft);
   if (!superseded || superseded === draft.tailoredCv?.pdfKey) return;
   try {
@@ -165,7 +192,7 @@ export async function writeDraft({ orderRef, bucket, draft, previousDraft }) {
   }
 }
 
-async function main() {
+export async function runAgent() {
   const { values } = parseArgs({
     options: { order: { type: 'string' }, mode: { type: 'string' }, round: { type: 'string' } },
   });
@@ -180,12 +207,20 @@ async function main() {
   const { getStorage } = await import('firebase-admin/storage');
   const bucket = getStorage().bucket(BUCKET);
   const orderRef = db.collection('assisted_applications').doc(orderId);
-  const [orderSnapshot, flowSnapshot, draftSnapshot, intakeSnapshot] = await Promise.all([
+  const [orderSnapshot, flowSnapshot, draftSnapshot, intakeSnapshot, submissionSnapshot] = await Promise.all([
     orderRef.get(),
     orderRef.collection('automation').doc('flow').get(),
     orderRef.collection('ai_drafts').doc('current').get(),
     orderRef.collection('automation').doc('intake').get(),
+    orderRef.collection('automation').doc('submission').get(),
   ]);
+  if (mode === 'submit') {
+    const receipt = await reconcileCanonicalSubmissionReceipt({ db, orderId, round });
+    if (receipt.handled) {
+      summary(`submit skipped: durable receipt ${receipt.reason} round=${round}`);
+      return;
+    }
+  }
   if (!orderSnapshot.exists || !flowSnapshot.exists) {
     summary(`mode=${mode} skipped: no order or no flow`);
     return;
@@ -204,11 +239,32 @@ async function main() {
     summary(`mode=${mode} round=${round} skipped: flow is ${flow.state} round ${flow.round}`);
     return;
   }
+  if (process.env.ASSISTED_APPLICATION_DISPATCH_AT
+    && Number(process.env.ASSISTED_APPLICATION_DISPATCH_AT) !== Number(flow.dispatch?.requestedAt)) {
+    summary('run skipped: dispatch superseded');
+    return;
+  }
 
   if (Number(flow.factRepairAttempts) > 0 && !automationEligibility(order, orderId).eligible) {
     summary(`mode=${mode} round=${round} skipped: fact recovery order is no longer eligible`);
     return;
   }
+
+  if (mode === 'submit' && (!automationEligibility(order, orderId).eligible || !hasAssistedApplicationConsent(order)
+    || !assistedApplicationRetained(order))) {
+    summary('submit skipped: payment, verified CV or mandate is no longer eligible');
+    return;
+  }
+  const priorSubmission = submissionSnapshot.data() || {};
+  if (mode === 'submit' && hasRecordedSubmission({ order, flow, draft: previousDraft, submission: priorSubmission })
+    && priorSubmission[`r${round}`]?.state !== 'sent') {
+    summary('submit skipped: an earlier confirmed submission requires reconciliation');
+    return;
+  }
+
+  executionRuntime = await enterExecution({ db, orderId, flow, mode });
+  const execution = executionRuntime?.lease || null;
+  const artifactStore = retainedArtifactStore({ db, bucket, orderId, round, dispatchAt: flow.dispatch?.requestedAt, execution });
 
   const runKey = runKeyFrom();
   const events = orderRef.collection('automation_events');
@@ -216,9 +272,25 @@ async function main() {
   const report = async (event) => {
     // A dry run writes no event: whatever it finds (a closed ad, a question
     // for the candidate) must not move the flow, and the watchdog never sees it.
-    if (!dryRun) await events.add({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null });
+    if (!dryRun) {
+      const record = { ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null,
+        dispatchAt: Number(flow.dispatch?.requestedAt) || null };
+      if (execution) await execution.report(events.doc(), record);
+      else await db.runTransaction(async transaction => {
+        const current = await transaction.get(orderRef);
+        if (current.exists && assistedApplicationRetained(current.data())) transaction.set(events.doc(), record);
+      });
+    }
     summary(`mode=${mode} round=${round} event=${event.type}${event.error ? ` error=${event.error}` : ''}${event.channel ? ` channel=${event.channel}` : ''}`);
   };
+
+  if (mode === 'submit' && !execution && priorSubmission[`r${round}`]?.state === 'sent') {
+    const record = priorSubmission[`r${round}`];
+    const event = { type: 'submit_succeeded', channel: record.channel || 'portal', ...(record.sent ? { sent: record.sent } : {}) };
+    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun: false, artifactStore });
+    await report(event);
+    return;
+  }
 
   let cvBuffer;
   let cvType;
@@ -239,12 +311,13 @@ async function main() {
       maskValues([...confirmed.answerEvidence, ...confirmed.localAnswerEvidence].map(record => record.answer));
       const draft = await buildDraft({
         db, order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, answerCounterContext: confirmed.answerCounterContext, answerSourceConflicts: confirmed.answerSourceConflicts, rawCounterContext: confirmed.rawCounterContext, localAnswerEvidence: confirmed.localAnswerEvidence, answerSourceGuard: confirmed.answerSourceGuard, policyAuthority: confirmed.policyAuthority, previousDraft, cvBuffer, cvType, bucket, runKey,
+        artifactStore,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
         // A portal form read ahead: its questions and required file fields reach the first review.
         readPortalRequirements,
       });
-      await writeDraft({ orderRef, bucket, draft, previousDraft });
+      await writeDraft({ orderRef, bucket, draft, previousDraft, artifactStore });
       summary(`draft ready in ${Math.round((Date.now() - started) / 1000)}s: verdict=${draft.verdict} channel=${draft.channel?.type} questions=${draft.questions.length} factWarnings=${draft.factCheck.unsupported.length}`);
       await report({ type: 'draft_ready' });
     } catch (error) {
@@ -273,18 +346,25 @@ async function main() {
   const submitDraft = normalizedQuestions.length === (previousDraft.questions || []).length
     ? previousDraft
     : { ...previousDraft, questions: normalizedQuestions };
-  if (!dryRun && submitDraft !== previousDraft) {
-    await orderRef.collection('ai_drafts').doc('current').set({ questions: normalizedQuestions }, { merge: true });
+  if (!dryRun && !execution && submitDraft !== previousDraft) {
+    if (!(await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), { questions: normalizedQuestions }))) {
+      summary('submit skipped: draft or retention context changed');
+      return;
+    }
   }
+  let confirmedOutcome = false;
   try {
     const confirmed = await loadRunnerAnswerContext({ db, orderId, order, flow, draft: submitDraft, intake: intakeSnapshot.exists ? intakeSnapshot.data() : null });
     maskValues([...confirmed.answerEvidence, ...confirmed.localAnswerEvidence].map(record => record.answer));
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
+      fetchImpl: executionRuntime?.fetchImpl,
+      receiptControl: executionRuntime?.receiptControl,
+      artifactStore,
       order, orderId, flow: confirmed.flow, answerEvidence: confirmed.answerEvidence, answerCounterContext: confirmed.answerCounterContext, answerSourceConflicts: confirmed.answerSourceConflicts, rawCounterContext: confirmed.rawCounterContext, localAnswerEvidence: confirmed.localAnswerEvidence, answerSourceGuard: confirmed.answerSourceGuard, policyAuthority: confirmed.policyAuthority, draft: submitDraft, intake: intakeSnapshot.exists ? intakeSnapshot.data() : null, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
-      submissionGuard: dryRun ? null : submissionGuard(db, orderId, round, { answerSourceGuard: confirmed.answerSourceGuard }),
+      submissionGuard: dryRun ? null : submissionGuard(db, orderId, round, { execution, answerSourceGuard: confirmed.answerSourceGuard }),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
       // Portal accounts on the order's alias: passwords masked in the log, encrypted in Firestore.
       accounts: portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }),
@@ -292,7 +372,9 @@ async function main() {
       knowledge: portalKnowledgeStore({ db }),
       // The record of a send whose outcome may stay unknown, on the draft before the send (null: it failed
       // for certain). A dry run sends nothing.
-      keepSentAttempt: dryRun ? null : (sentAttempt) => orderRef.collection('ai_drafts').doc('current').set({ sentAttempt }, { merge: true }),
+      keepSentAttempt: dryRun ? null : async (sentAttempt) => {
+        if (!(await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), { sentAttempt }))) throw new Error('application_retention_closed');
+      },
     });
     // What left (lib/submit.mjs), on the draft first: before the event marks the order sent (whatever it
     // sets off, the candidate's «inviata» e-mail and the review page, finds it there), and before every
@@ -300,17 +382,21 @@ async function main() {
     if (event.type === 'submit_handoff') {
       try { event.portalCodeVersion = currentPortalCodeVersion(); } catch { /* A missing source marker cannot lose the real outcome. */ }
     }
-    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun });
+    confirmedOutcome = hasRecordedSubmissionOutcome(event);
+    const successReported = await keepAndReportSubmissionOutcome(event, {
+      draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun, artifactStore, report,
+    });
+    if (!dryRun && !(await artifactStore.retained())) return;
     // An application sent by e-mail gets its follow-ups (day 7 and 14); the
     // recipient and subject stay in Firestore, not in the automation event.
     if (event.followup && !dryRun) {
-      await scheduleFollowups(db, orderId, event.followup);
+      await scheduleFollowups(db, orderId, { ...event.followup, round }, Date.now());
       delete event.followup;
     }
     // A WhatsApp application: its link goes on the order, for the candidate's
     // «inviata» e-mail with the steps (assistedApplicationNotifications.js).
     if (event.whatsappUrl) {
-      if (!dryRun) await orderRef.set({ submissionChannel: 'whatsapp', whatsappApplyUrl: String(event.whatsappUrl).slice(0, 1000) }, { merge: true });
+      if (!dryRun) await artifactStore.mergeOrder({ submissionChannel: 'whatsapp', whatsappApplyUrl: String(event.whatsappUrl).slice(0, 1000) });
       delete event.whatsappUrl;
     }
     // What the portal received (career-ops application-answers), next to the
@@ -318,7 +404,7 @@ async function main() {
     if (event.portalAnswers) {
       event.portalAnswers = portalAnswersForDraft(event.portalAnswers);
       if (!dryRun && Array.isArray(event.portalAnswers?.answers) && event.portalAnswers.answers.length) {
-        await orderRef.collection('ai_drafts').doc('current').set({ portalAnswers: event.portalAnswers }, { merge: true });
+        await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), { portalAnswers: event.portalAnswers });
       }
       delete event.portalAnswers;
     }
@@ -347,7 +433,7 @@ async function main() {
     // The fact gate's result of a stopped submit, next to the draft before the
     // event moves the flow; never in the event or the log.
     const factCheckPatch = takeFactCheck(event, previousDraft);
-    if (factCheckPatch && !dryRun) await orderRef.collection('ai_drafts').doc('current').set(factCheckPatch, { merge: true });
+    if (factCheckPatch && !dryRun) await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), factCheckPatch);
     // Questions and file fields a portal asked become part of the draft, so
     // the review page shows them and the flow waits for the answers/uploads.
     // The event keeps every unresolved id, not only newly discovered ones: a
@@ -388,21 +474,25 @@ async function main() {
       const patch = {};
       if (incoming.length || added.length) patch.questions = questions;
       if (incomingDocuments.length) patch.requiredDocuments = requiredDocuments;
-      if (Object.keys(patch).length) await orderRef.collection('ai_drafts').doc('current').set(patch, { merge: true });
+      if (Object.keys(patch).length) await artifactStore.mergeDraft(orderRef.collection('ai_drafts').doc('current'), patch);
       event.questions = rawQuestions.map((question) => typeof question === 'string' ? question : question?.id).filter(Boolean);
       const questionDetails = questionDetailsForEvent(rawQuestionDetails);
       if (questionDetails.length) event.questionDetails = questionDetails;
       else delete event.questionDetails;
       event.documents = documentIds;
     }
-    await report(event);
+    if (!successReported) await report(event);
   } catch (error) {
-    await report({ type: 'submit_failed', error: safeErrorCode(error) });
+    if (confirmedOutcome) summary(`confirmed submit postprocessing incomplete: ${safeErrorCode(error)}`);
+    else await report({ type: 'submit_failed', error: safeErrorCode(error) });
   }
 }
 
 const invokedDirectly = isInvokedDirectly(import.meta.url);
-if (invokedDirectly) main().catch((error) => {
+export async function runAgentAndClose() {
+  try { await runAgent(); } finally { await executionRuntime?.close(); }
+}
+if (invokedDirectly) runAgentAndClose().catch((error) => {
   console.error('[assisted-application] fatal', safeErrorCode(error));
   process.exitCode = 1;
 });

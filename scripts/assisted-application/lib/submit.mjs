@@ -31,13 +31,15 @@ import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, sen
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
 import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
+import { navigationInfrastructureProof } from '../../../functions/src/lib/portalInfrastructureEvidence.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { postingAddressOf } from './liveness.mjs';
-import { storeEvidence } from './secure-run.mjs';
+import { storeEvidence as writeEvidence } from './secure-run.mjs';
 import { portalPassFrom } from './portal/stop-report.mjs';
 import { hasCurrentQualificationDocuments, qualificationCounterContext, qualificationSourcesFingerprint } from '../../../functions/src/lib/qualificationEvidence.js';
 import { submissionSlotHash } from '../../../functions/src/lib/submissionReceiptContract.js';
@@ -182,9 +184,11 @@ const NEW_FILE_KINDS = new Set(['dossier', 'documents']);
  *   attachments:Array<{kind:string, name:string, buffer?:Buffer, key?:string|null}>}} input
  * @returns {Promise<{letterKey:string|null, files:Array<{kind:string, name:string, key:string|null}>}>}
  */
-export async function keepSentFiles({ bucket, orderId, round, nowMs, prefix = 'sent', letter = null, attachments }) {
+export async function keepSentFiles({ bucket, orderId, round, nowMs, prefix = 'sent', letter = null, attachments, artifactStore = null }) {
+  if (artifactStore && !(await artifactStore.retained())) return { letterKey: null, files: [] };
   const keep = async (kind, buffer) => {
     const key = `assisted-application-uploads/${orderId}/${prefix}-r${round}-${nowMs}-${kind}.pdf`;
+    if (artifactStore) return artifactStore.save(key, buffer, { contentType: 'application/pdf', resumable: false });
     await bucket.file(key).save(buffer, { contentType: 'application/pdf', resumable: false });
     return key;
   };
@@ -226,6 +230,7 @@ async function clearReleasedAttempt(guard, keepAttempt) {
 
 export async function submitApplication(ctx) {
   const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
+  const storeEvidence = options => writeEvidence({ ...options, artifactStore: ctx.artifactStore || null });
   const nowMs = ctx.nowMs || Date.now();
   if (!ctx.dryRun && ctx.submissionGuard?.inspect) {
     const previous = await ctx.submissionGuard.inspect();
@@ -235,6 +240,7 @@ export async function submitApplication(ctx) {
     if (previous.status === 'in_flight') return { type: 'submit_failed', error: previous.record?.channel === 'email' ? 'email_ambiguous' : 'portal_ambiguous' };
     if (previous.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
   }
+  if (ctx.receiptControl && ctx.answerSourceGuard) await ctx.receiptControl.bindSourceGuard(ctx.answerSourceGuard);
   const qualificationContext = portalQualificationContext({ order, orderId, draft, cvBuffer: ctx.cvBuffer,
     answerEvidence: ctx.answerEvidence || [], answerCounterContext: ctx.answerCounterContext || [], answerSourceConflicts: ctx.answerSourceConflicts || [], rawCounterContext: ctx.rawCounterContext || null, policyAuthority: ctx.policyAuthority || null, intake: ctx.intake, flow });
   if (!hasCurrentQualificationDocuments({ draft, sourceCvHash: qualificationContext.scope.sourceCvHash,
@@ -361,7 +367,7 @@ export async function submitApplication(ctx) {
       `documents=${packaged.documentsGrouped ? 'grouped' : packaged.documentsReason || packaged.attachments.filter((item) => item.kind === 'document').length}`,
       packaged.pages ? `${packaged.pages} pages ${packaged.bytes} bytes` : '');
     const attachments = packaged.attachments.map((item) => ({ filename: item.name, content: item.buffer.toString('base64') }));
-    const keep = (prefix) => keepSentFiles({ bucket, orderId, round: Number(draft.round) || 1, nowMs, prefix, letter: { buffer: letter.pdf, key: letter.key }, attachments: packaged.attachments });
+    const keep = (prefix) => keepSentFiles({ bucket, orderId, artifactStore: ctx.artifactStore, round: Number(draft.round) || 1, nowMs, prefix, letter: { buffer: letter.pdf, key: letter.key }, attachments: packaged.attachments });
     const recordOf = (kept) => recordOfSend({ ...packaged, ...kept, at: nowMs, channel: 'email', letterRenderer: letter.renderer });
     if (ctx.dryRun) {
       // A dry run shows what would leave (encrypted, next to the order; its files under dry-run-…) and sends nothing.
@@ -505,6 +511,9 @@ export async function submitApplication(ctx) {
     // The attempt on the draft at the final click: kept, or not durable (then no click).
     let attemptKept = false;
     let attemptNotStored = false;
+    let armedRecord = null;
+    let receiptStored = false;
+    let receiptMinimal = false;
     try {
       dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
       const letter = await letterForSubmission({ bucket, order, orderId, draft, flow: submitFlow, nowMs });
@@ -527,6 +536,7 @@ export async function submitApplication(ctx) {
       // What the form's file fields received (portal.mjs evidence.uploads), kept and recorded as an e-mail's
       // attachments are. Never fails the run: the application may have left.
       const portalRecord = async (uploadList, prefix) => {
+        if (ctx.artifactStore && !(await ctx.artifactStore.retained())) return null;
         const uploads = portalUploads({ uploads: uploadList });
         const letterLeft = uploads.has('cover_letter') ? { buffer: letter.pdf, key: letter.key } : null;
         const uploaded = [
@@ -535,11 +545,12 @@ export async function submitApplication(ctx) {
           ...extras.flatMap((document) => document.files.slice(0, uploads.get(document.slot) || 0)
             .map((file) => ({ kind: 'document', name: file.fileName, key: file.key }))),
         ];
-        const kept = await keepSentFiles({ bucket, orderId, round: Number(draft.round) || 1, nowMs, prefix, letter: letterLeft, attachments: uploaded })
+        const kept = await keepSentFiles({ bucket, orderId, artifactStore: ctx.artifactStore, round: Number(draft.round) || 1, nowMs, prefix, letter: letterLeft, attachments: uploaded })
           .catch(() => {
             log('sent files not kept');
             return { letterKey: letterLeft?.key || null, files: uploaded.map(({ kind, name, key }) => ({ kind, name, key: key || null })) };
           });
+        if (ctx.artifactStore && !(await ctx.artifactStore.retained())) return null;
         return recordOfSend({ at: nowMs, channel: channelType, packaging: 'portal', letterRenderer: letterLeft ? letter.renderer : null, ...kept });
       };
       // A round the guard releases sent nothing: the attempt recorded at its final click is no record.
@@ -554,6 +565,14 @@ export async function submitApplication(ctx) {
           if (current.status === 'already_sent') throw Object.assign(new Error('submission_already_sent'), { code: 'submission_already_sent', record: current.record });
           throw Object.assign(new Error('submission_claim_changed'), { code: 'submission_claim_changed' });
         }
+      };
+      const persistReceipt = async evidence => {
+        if (!guard || receiptStored) return { minimal: receiptMinimal };
+        const receipt = await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: armedRecord,
+          ...(evidence.receiptObservation ? { receiptObservationHash: createHash('sha256').update(JSON.stringify(evidence.receiptObservation)).digest('hex') } : {}) });
+        receiptStored = true; receiptMinimal = receipt?.minimal === true; succeeded = true;
+        await ctx.receiptControl?.received();
+        return { minimal: receiptMinimal };
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
@@ -576,25 +595,36 @@ export async function submitApplication(ctx) {
         knowledge: ctx.knowledge || null,
         log,
         dryRun: Boolean(ctx.dryRun),
+        receiptControl: ctx.receiptControl,
+        onReceipt: guard ? persistReceipt : null,
         onBeforeSubmit: guard ? async (form = {}) => {
+          if (ctx.artifactStore && !(await ctx.artifactStore.retained())) throw new Error('application_retention_closed');
           // From here the outcome may stay unknown: what the form holds goes on the draft first, durably, or
           // the click does not happen (submitViaPortal does not catch this throw: see the catch below).
           const attempt = await portalRecord(form.uploads, 'sent').catch(() => null);
-          if (attempt) {
-            if (!(await keepAttempt(attempt))) {
-              attemptNotStored = true;
-              throw new Error('sent_attempt_not_stored');
-            }
-            attemptKept = true;
+          if (!attempt || !(await keepAttempt(attempt))) {
+            attemptNotStored = true;
+            throw new Error('sent_attempt_not_stored');
           }
-          await guard.markClicked(Date.now(), { answerSourceGuard: ctx.answerSourceGuard });
+          attemptKept = true;
+          armedRecord = attempt;
+          await guard.markClicked(Date.now(), { answerSourceGuard: ctx.answerSourceGuard, receiptWaitMs: form.receiptWaitMs ?? 60_000 });
           clicked = true;
         } : null,
       });
       succeeded = event.type === 'submit_succeeded';
+      // Persist the actual acknowledgement before any post-receipt upload.
+      // The durable pre-click record already identifies the submitted files.
+      if (succeeded && guard) {
+        const receipt = await persistReceipt(evidence);
+        if (receipt.minimal) return { type: 'submit_succeeded', channel: channelType, retentionMinimal: true };
+      }
       const portalPass = portalPassFrom({ applyUrl, channel: channelType, event, evidence, dryRun: Boolean(ctx.dryRun) });
       // A dry run keeps its files under dry-run-… and its record in the evidence only.
-      const sentRecord = succeeded || event.type === 'dry_run_ready' ? await portalRecord(evidence.uploads, ctx.dryRun ? 'dry-run' : 'sent') : null;
+      // The first durable receipt and the draft must describe the same bytes
+      // handed off. A later observation cannot replace its file photograph.
+      const sentRecord = succeeded && guard ? armedRecord
+        : succeeded || event.type === 'dry_run_ready' ? await portalRecord(evidence.uploads, ctx.dryRun ? 'dry-run' : 'sent') : null;
       if (guard) {
         // Sent: on record. After the final click any other outcome (ambiguous,
         // a CAPTCHA or an error page that appeared afterwards) is left
@@ -606,8 +636,7 @@ export async function submitApplication(ctx) {
         // fields missing, the form still there: Coop's SuccessFactors
         // 2026-10-03) sent nothing either.
         const refusedByValidation = (evidence.finalOutcomes || []).length > 0 && evidence.finalOutcomes.every((outcome) => outcome === 'validation');
-        if (event.type === 'submit_succeeded') await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord });
-        else if (event.type === 'submit_failed' && event.error === 'portal_refused') await release('portal_refused');
+        if (event.type === 'submit_failed' && event.error === 'portal_refused') await release('portal_refused');
         else if (refusedByValidation && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release('portal_validation');
         else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release(event.error || event.reason || event.type);
       }
@@ -622,6 +651,14 @@ export async function submitApplication(ctx) {
         ? { ...event, channel: channelType, portalAnswers, sent: sentRecord, ...pass }
         : { ...event, portalAnswers, ...stopReport, ...pass };
     } catch (error) {
+      if (receiptStored) {
+        if (ctx.artifactStore) {
+          try { receiptMinimal ||= !(await ctx.artifactStore.retained()); }
+          catch { receiptMinimal = true; }
+        }
+        return { type: 'submit_succeeded', channel: channelType,
+          ...(receiptMinimal ? { retentionMinimal: true } : { sent: armedRecord }) };
+      }
       if (error?.code === 'submission_already_sent') return replayedSubmission(error.record, channelType, nowMs);
       if (error?.code === 'submission_claim_changed') return { type: 'submit_failed', error: 'portal_ambiguous' };
       // Failed before the final click (temp dir, files, browser, network): nothing
@@ -634,7 +671,8 @@ export async function submitApplication(ctx) {
       }
       if (!clicked && !succeeded && ['evidence_source_changed', 'submission_approval_changed', 'submission_retention_changed'].includes(error?.code)) return { type: 'submit_failed', error: error.code };
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
-      if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable' };
+      if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable',
+        infrastructureProof: navigationInfrastructureProof(error) };
       throw error;
     } finally {
       if (dir) await rm(dir, { recursive: true, force: true });

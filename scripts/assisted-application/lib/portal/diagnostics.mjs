@@ -3,6 +3,7 @@ import { build } from 'esbuild';
 import { fileURLToPath } from 'node:url';
 import { DIAGNOSTIC_BODY_LIMIT, DIAGNOSTIC_BODY_READ_LIMIT, diagnosticLocation, diagnosticText, hasBoundedBodyLength, responseErrors, settleDiagnostics } from './diagnostic-values.mjs';
 import { FETCH_DIAGNOSTIC_BINDING, FETCH_DIAGNOSTIC_CONTROL } from './diagnostic-fetch.mjs';
+import { captchaInfrastructureProof } from '../../../../functions/src/lib/portalInfrastructureEvidence.js';
 export { diagnosticLocation, diagnosticText, responseErrors } from './diagnostic-values.mjs';
 
 let browserScript;
@@ -30,21 +31,7 @@ export function isChallengeRequest(url) {
 
 /** A provider outage before the final click is technical, not an unanswered candidate question. */
 export function portalHandoffReason(reason, { diagnostics, attempt, finalClickAttempted = false } = {}) {
-  if (finalClickAttempted || !['captcha', 'portal_needs_candidate'].includes(reason)) return reason;
-  const unavailable = (Array.isArray(diagnostics?.responses) ? diagnostics.responses : []).some(entry => {
-    if (entry?.attempt !== attempt) return false;
-    const host = String(entry?.host || '').toLowerCase();
-    const path = String(entry?.path || '');
-    const status = Number(entry?.status);
-    if (!/^api\.nopecha\.com(?::443)?$/.test(host)) return false;
-    // The free provider can reject a shared runner IP before a solve starts.
-    // This is not a candidate question, even without a later 5xx response.
-    if (path === '/v1/status' && status === 403 && Array.isArray(entry.errors)
-      && entry.errors.some(error => /^banned\s+ip$/i.test(String(error?.message || '').trim()))) return true;
-    return /^\/v1\/(?:recognition|token)\/(?:turnstile|recaptcha|hcaptcha)(?:\/|$)/.test(path)
-      && (status === 429 || (status >= 500 && status < 600));
-  });
-  return unavailable ? 'captcha_provider_unavailable' : reason;
+  return captchaInfrastructureProof(reason, { diagnostics, attempt, finalClickAttempted })?.class || reason;
 }
 
 /** Read validity without checkValidity/reportValidity, which would change the page. */

@@ -6,7 +6,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const { atsReport, keywordCoverage, structuralCheck, titlePhrases } = await import('../functions/src/assistedApplicationAts.js');
 const { assessLegitimacy, isSeasonalTitle, salaryRange } = await import('../functions/src/assistedApplicationLegitimacy.js');
 const { buildTailoredCvPdf, checkTailoredCvFacts, sanitizeTailoredCv, tailoredCvPlainText, withoutWorkload } = await import('../functions/src/assistedApplicationTailoredCv.js');
-const { employerReplied, followupDueAt, sanitizeFollowup, scheduleFollowups, DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
+const { employerReplied, followupDueAt, sanitizeFollowup, scheduleFollowups: rawScheduleFollowups, DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
 const { decideFollowup, followupReviewPayload, runFollowupSweep, sendFollowup } = await import('../functions/src/assistedApplicationFollowupSweep.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
@@ -14,6 +14,7 @@ const { buildInterviewPrepEmail, isNewlyProcessedInterviewInvite, prepareIntervi
 const { evaluateRedFlags } = await import('../functions/src/assistedApplicationFlow.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
+const scheduleFollowups = (db: any, id: string, submission: any) => rawScheduleFollowups(db, id, submission, T0);
 const ORDER = 'order_EXTRAS1';
 const ORDER_PATH = `assisted_applications/${ORDER}`;
 const SECRET = 's'.repeat(40);
@@ -269,7 +270,7 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
       const seed: Record<string, any> = {};
       for (const id of ids) {
         const path = `assisted_applications/${id}`;
-        seed[path] = { submissionStatus: 'submitted', locale: 'it', applicantName: 'Maria Rossi', customerEmail: 'maria.rossi@example.com', jobTitle: 'Infermiera', companyName: 'Ospedale' };
+        seed[path] = { submissionStatus: 'submitted', cvUploadedAt: T0, locale: 'it', applicantName: 'Maria Rossi', customerEmail: 'maria.rossi@example.com', jobTitle: 'Infermiera', companyName: 'Ospedale' };
         seed[`${path}/ai_drafts/current`] = {
           language: 'it', job: { title: 'Infermiera' }, profile: { fullName: 'Maria Rossi' }, applicationEmail: { body: 'Gentili Signori, in allegato la mia candidatura.' },
           matches: [], factSources: { text: CV_TEXT, posting: 'Ospedale cerca infermiera', order: 'Infermiera\nOspedale\nMaria Rossi', answers: '' },

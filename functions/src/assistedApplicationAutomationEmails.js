@@ -434,11 +434,15 @@ const RUNNER_HINTS = {
  */
 export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt }) {
   const raw = String(reason || '').trim();
-  if (isInfrastructureRetryHold({ heldBy: [raw] }) && Number(portalAutoRetryAt) > 0) {
+  if (isInfrastructureRetryHold({ heldBy: [raw] })) {
+    const retryScheduled = Number.isFinite(Number(portalAutoRetryAt)) && Number(portalAutoRetryAt) > 0;
     return {
-      reason: raw === 'portal:captcha_provider_unavailable' ? 'il servizio di verifica anti-robot non è disponibile'
+      reason: raw === 'portal:remote_executor_unavailable' ? 'il recupero tecnico della candidatura è temporaneamente indisponibile'
+        : raw === 'portal:captcha_provider_unavailable' ? 'il servizio di verifica anti-robot non è disponibile'
         : raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio' : 'la connessione al portale non è riuscita',
-      hint: `La candidatura resta in coda. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')} e i tentativi proseguiranno mentre l’annuncio è disponibile. Non serve intervenire sulla singola candidatura.`,
+      hint: retryScheduled
+        ? `La candidatura resta in coda. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')}, dopo aver verificato che non sia già stata inviata e che i requisiti siano ancora validi. Il tentativo segue i controlli e i limiti previsti: se mancano requisiti o l’esito di un invio è incerto, la candidatura resta ferma per una verifica. Per questo tentativo non serve intervenire sulla singola candidatura.`
+        : 'Non è pianificato un nuovo tentativo automatico per questo recupero. Verifica la candidatura dalla coda e controlla eventuali ricevute prima di un altro invio.',
       detail: '',
     };
   }

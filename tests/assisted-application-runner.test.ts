@@ -930,6 +930,7 @@ describe('submit mode', () => {
       order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
       codex: vi.fn(), portalRunner, submissionGuard: submissionGuard(db, ORDER_ID, 1),
+      keepSentAttempt: async (attempt: unknown) => db.collection('assisted_applications').doc(ORDER_ID).collection('ai_drafts').doc('current').set({ sentAttempt: attempt }, { merge: true }),
     });
     const sent = createMemoryFirestore();
     const clicksAndSends = vi.fn(async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [] } }; });
@@ -1024,6 +1025,7 @@ describe('submit mode', () => {
       order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
       submissionGuard: submissionGuard(store.db, ORDER_ID, 1),
+      keepSentAttempt: async (attempt: unknown) => store.db.collection('assisted_applications').doc(ORDER_ID).collection('ai_drafts').doc('current').set({ sentAttempt: attempt }, { merge: true }),
     });
     expect(await run()).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
     // The first run sent it, then died before its event: the retry does not send again.

@@ -470,7 +470,9 @@ export async function buildDraft(ctx) {
     enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)), type: kind.type,
   }), { mode: rendererMode, log });
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
-  await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+  if (ctx.artifactStore) {
+    if (!(await ctx.artifactStore.save(pdfKey, pdf, { contentType: 'application/pdf', resumable: false }))) throw new DraftAbort('draft_failed', 'application_retention_closed');
+  } else await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
 
   // Extras (career-ops): the ATS check of the candidate's own CV and of the
   // tailored one, and the posting's legitimacy tier (Block G).
@@ -552,6 +554,7 @@ export async function buildDraft(ctx) {
     payload: { postingText, posting, draft: { ...draft, factSources: undefined } },
     key: runKey,
     nowMs,
+    artifactStore: ctx.artifactStore,
   });
   return draft;
 }
@@ -561,7 +564,7 @@ export async function buildDraft(ctx) {
  * fails the draft: without it the original CV is sent.
  * @returns {Promise<{record: object, text: string}>}
  */
-async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt, flow, cvBuffer, cvType, cvKey, inPlace = inPlaceCvRecord }) {
+async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt, flow, cvBuffer, cvType, cvKey, inPlace = inPlaceCvRecord, artifactStore = null }) {
   try {
     const write = async (findings = [], timeoutMs = CODEX_TIMEOUT_MS) => {
       const raw = await codex({
@@ -604,9 +607,11 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     // The photo the candidate gave on an earlier round stays on the new tailored CV.
     const photo = await candidatePhoto(flow, bucket);
     const { pdf, renderer, photo: photoPrinted } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log, ...photo });
-    await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+    if (artifactStore) {
+      if (!(await artifactStore.save(pdfKey, pdf, { contentType: 'application/pdf', resumable: false }))) throw new Error('application_retention_closed');
+    } else await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
     // Phase 5: the candidate's own Word file with the adapted lines, when the switch is on.
-    const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log });
+    const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log, artifactStore });
     // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
     // `photo`: this PDF carries it (not what was given: the standard-font writer prints none).
     return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}), ...(repaired ? { repaired: true } : {}) }, text };

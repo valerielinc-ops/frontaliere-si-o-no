@@ -392,7 +392,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
   }: any = {}) {
     const { store, alias } = await setupInbound();
     const orderRef = store.db.collection('assisted_applications').doc(ORDER);
-    await orderRef.set({ submissionStatus: 'ready_for_manual_submission' }, { merge: true });
+    await orderRef.set({ submissionStatus: 'ready_for_manual_submission', cvUploadedAt: 500 }, { merge: true });
     await orderRef.collection('automation').doc('flow').set(flow);
     if (boundEmail) guard = { ...guard, emailHandoff: { messageId: '<original-application@candidature.frontaliereticino.ch>', recipient: 'jobs@arbeitgeber.ch', slotHash: submissionSlotHash({ orderId: ORDER, order: store.read(ORDER_PATH) }) } };
     await orderRef.collection('automation').doc('submission').set({ r1: guard });

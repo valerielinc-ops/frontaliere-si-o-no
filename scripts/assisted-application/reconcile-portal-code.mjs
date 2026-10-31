@@ -33,8 +33,8 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           transaction.get(submissionRef),
         ]);
         const order = orderDoc.data(); const flow = flowDoc.data(); const draft = draftDoc.data();
-        if (!portalRecoveryDefinitelyUnsent({ order, flow, draft, submission: submissionDoc.data(), version })
-          || !roundWasSent(flow) || flow.postingExpiredAt) return false;
+        if (!portalRecoveryDefinitelyUnsent({ orderId: doc.id, order, flow, draft, submission: submissionDoc.data(), version, nowMs })
+          || !roundWasSent(flow) || flow.postingExpiredAt || !operationalPortalRecoveryReady({ order, flow, draft })) return false;
         const flags = evaluateRedFlags(draft, flow.answers || {}, flow.documents || {}, flow.questionAnswers);
         if (flags.owner.length || flags.candidate.length || flags.documents.length) return false;
         const receipt = submissionDoc.data()?.portalCodeRecovery;

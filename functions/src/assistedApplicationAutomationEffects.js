@@ -14,7 +14,7 @@ import { submittedOrderFields } from './lib/submittedOrderFields.js';
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { dispatchAgentWorkflow, draftRefFor, orderRefFor } from './assistedApplicationAutomation.js';
+import { applyAutomationEvent, dispatchAgentWorkflow, draftRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { buildCandidateAutomationEmail, buildOwnerAutomationEmail } from './assistedApplicationAutomationEmails.js';
 import {
   buildReviewPageUrl,
@@ -217,7 +217,14 @@ export async function runAutomationEffect(context, deps = {}) {
   const { db, orderId, effect, flow } = context;
   switch (effect.type) {
     case 'dispatch':
-      return (deps.dispatch || dispatchAgentWorkflow)({ orderId, mode: effect.mode, round: flow.round || 1 });
+      try {
+        return await (deps.dispatch || (args => dispatchAgentWorkflow({ ...args, db, flow })))({ orderId, mode: effect.mode, round: flow.round || 1 });
+      } catch (error) {
+        if (error?.message !== 'execution_attempt_limit') throw error;
+        return applyAutomationEvent({ db, orderId, actor: 'executor-policy', nowMs: context.nowMs || Date.now(),
+          event: { type: 'submit_handoff', reason: 'remote_executor_unavailable', error: 'remote_execution_attempt_limit' },
+          runEffect: next => runAutomationEffect(next, deps) });
+      }
     case 'email':
       return sendAutomationEmail({ ...context, deps });
     case 'mark_submitted':

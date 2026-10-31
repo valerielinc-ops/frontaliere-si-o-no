@@ -31,6 +31,23 @@ on:
         required: true
         type: string
         default: '1'
+      executor:
+        description: 'Server-authorised executor; the Mac consumes only its private execution record.'
+        type: choice
+        options: [github, mac-agenti]
+        default: github
+      execution_id:
+        description: 'Opaque server-owned execution nonce for a Mac recovery.'
+        type: string
+        default: ''
+      source_sha:
+        description: 'Exact trusted main source selected by the normal dispatcher.'
+        type: string
+        default: ''
+      dispatch_at:
+        description: 'Server-owned dispatch timestamp; a superseded job cannot act on a newer dispatch.'
+        type: string
+        default: ''
 
 run-name: assisted-application ${{ inputs.mode }} r${{ inputs.round }}
 
@@ -44,6 +61,7 @@ permissions:
 
 jobs:
   agent:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     # Draft at Codex effort max: 4 calls, measured 6-15 min on 2026-09-30,
     # but one call of round 2 of the trial ran past 10 min. Each call may now
@@ -55,15 +73,38 @@ jobs:
         env:
           ORDER_ID: ${{ inputs.order_id }}
           ROUND: ${{ inputs.round }}
+          EXECUTOR: ${{ inputs.executor }}
+          MODE: ${{ inputs.mode }}
+          EXECUTION_ID: ${{ inputs.execution_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          DISPATCH_AT: ${{ inputs.dispatch_at }}
         run: |
           [[ "$ORDER_ID" =~ ^[A-Za-z0-9_-]{6,128}$ ]] || { echo "invalid order id"; exit 1; }
           [[ "$ROUND" =~ ^[0-9]{1,2}$ ]] || { echo "invalid round"; exit 1; }
+          if [ -n "$DISPATCH_AT" ]; then [[ "$DISPATCH_AT" =~ ^[0-9]{10,16}$ ]] || exit 1; fi
+          if [ "$EXECUTOR" = mac-agenti ]; then
+            [ "$MODE" = submit ] || exit 1
+            [[ "$EXECUTION_ID" =~ ^[A-Za-z0-9_-]{6,128}$ ]] || exit 1
+            [[ "$SOURCE_SHA" =~ ^[a-f0-9]{40}$ ]] || exit 1
+          fi
           echo "AGENT_RUN_STARTED_AT=$(date +%s%3N)" >> "$GITHUB_ENV"
+          umask 077
+          mkdir -p "$RUNNER_TEMP/assisted-private"
+          echo "TMPDIR=$RUNNER_TEMP/assisted-private" >> "$GITHUB_ENV"
 
       - name: Checkout
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
+          ref: ${{ github.sha }}
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/actions/**
+            /scripts/**
+            /functions/**
+            /packages/*/package.json
+            /package.json
+            /package-lock.json
         timeout-minutes: 10
 
       - name: Setup Node.js
@@ -90,8 +131,9 @@ jobs:
             echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON secret is not set."
             exit 1
           fi
-          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          umask 077
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/assisted-private/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/assisted-private/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
@@ -104,9 +146,11 @@ jobs:
       # Codex Luna Max at effort max: the same bounded broker as the article
       # lanes. The draft writes with it; the submit plans each portal page.
       - id: codex
+        if: inputs.executor != 'mac-agenti'
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          concierge_json_only: 'true'
           broker_idle_ttl_ms: '3600000'
           broker_max_concurrency: '2'
           # A slow draft must finish (owner decision 2026-09-30): 30 min per call.
@@ -115,10 +159,11 @@ jobs:
       # The portal runner drives Chromium; the draft reads a single-page form's
       # questions ahead (career-ops apply.md: identify all questions first).
       - name: Install Chromium for the portal runner
+        if: inputs.executor != 'mac-agenti'
         run: npx playwright install --with-deps chromium
 
       - name: Install NopeCHA for portal submissions
-        if: inputs.mode != 'draft'
+        if: inputs.mode != 'draft' && inputs.executor != 'mac-agenti'
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/assisted-application/install-nopecha.sh "${{ runner.temp }}/nopecha"
@@ -128,6 +173,10 @@ jobs:
           ORDER_ID: ${{ inputs.order_id }}
           MODE: ${{ inputs.mode }}
           ROUND: ${{ inputs.round }}
+          EXECUTOR: ${{ inputs.executor }}
+          EXECUTION_ID: ${{ inputs.execution_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          ASSISTED_APPLICATION_DISPATCH_AT: ${{ inputs.dispatch_at }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
           CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
           # The trial run printed MaxListenersExceededWarning on a PassThrough
@@ -142,7 +191,9 @@ jobs:
         # browser that calls itself HeadlessChrome, in its user agent and in its
         # client hints. Nothing is disguised (owner decision 2026-10-01).
         run: |
-          if command -v xvfb-run >/dev/null 2>&1; then
+          if [ "$EXECUTOR" = mac-agenti ]; then
+            node scripts/assisted-application/remote-controller.mjs --order "$ORDER_ID" --execution "$EXECUTION_ID" --source "$SOURCE_SHA"
+          elif command -v xvfb-run >/dev/null 2>&1; then
             export ASSISTED_APPLICATION_HEADED=1
             xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
           else
@@ -150,12 +201,13 @@ jobs:
           fi
 
       - name: Reconcile failed executor with the application queue
-        if: failure()
+        if: failure() && inputs.executor != 'mac-agenti'
         env:
           ORDER_ID: ${{ inputs.order_id }}
           MODE: ${{ inputs.mode }}
           ROUND: ${{ inputs.round }}
           AGENT_BOOT_ERROR_FILE: ${{ runner.temp }}/agent-boot-error.txt
+          ASSISTED_APPLICATION_DISPATCH_AT: ${{ inputs.dispatch_at }}
         run: node scripts/assisted-application/report-runner-failure.mjs
 
       - name: Cleanup Codex auth broker
@@ -198,3 +250,7 @@ jobs:
 
           I log della run vengono cancellati dal janitor: le prove cifrate sono nello Storage dell'ordine (scripts/assisted-application/decrypt-run.mjs)." \
             --workflow "${{ github.workflow }}"
+
+      - name: Remove private runtime material
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/assisted-private"

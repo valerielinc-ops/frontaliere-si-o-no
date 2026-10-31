@@ -21,8 +21,17 @@ import { qualificationCounterContextHash } from './lib/qualificationCounterConte
 import { submissionEmployerAckProof, submissionEmailHandoff, submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash, submissionOwnerIntent, minimalSubmissionReceipt, isMinimalSubmissionReceipt } from './lib/submissionReceiptContract.js';
 import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 import { roundWasSent } from './assistedApplicationFlow.js';
-import { randomUUID } from 'node:crypto';
+import { randomUUID, createHash } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+
+function executionRecordOf(execution) {
+  return { executionId: execution.id, executionGeneration: execution.lease.generation, executionSourceSha: execution.sourceSha,
+    executionEngineVersion: execution.engineVersion, executionMaterialVersion: execution.materialVersion, executionRound: execution.round,
+    executionTokenHash: createHash('sha256').update(execution.lease.token).digest('hex') };
+}
+function matchesExecutionRecord(record, execution) {
+  return record && Object.entries(executionRecordOf(execution)).every(([key, value]) => record[key] === value);
+}
 
 export const SUBMISSION_DOC_ID = 'submission';
 
@@ -51,7 +60,17 @@ export function submissionFlowAllowsSend(flow, round, channel) {
     : ['portal', 'email'].includes(channel) && flow.state === 'submitting' && roundWasSent(flow, round);
 }
 
-export function submissionGuard(db, orderId, round, { answerSourceGuard = null, outcomeAuthority = null, receiptClock = Date.now } = {}) {
+/** AssistedApplicationUpload.tsx also stamps order.submittedAt when a CV is queued for this
+ * service. That legacy field alone never proves delivery to the employer. */
+export function hasRecordedSubmission({ order, flow, draft, submission = {} }) {
+  return order?.submissionStatus === 'submitted' || flow?.state === 'submitted' || Boolean(flow?.submittedAt) || Boolean(draft?.sent)
+    || Object.entries(submission || {}).some(([key, record]) => /^r\d+$/.test(key) && record?.state === 'sent')
+    || (Array.isArray(flow?.history) ? flow.history : []).some(entry => entry?.state === 'submitted'
+      && ['submit_succeeded', 'submit_acknowledged', 'owner_submitted'].includes(entry.event));
+}
+
+export function submissionGuard(db, orderId, round, { execution = null, answerSourceGuard = null, outcomeAuthority = null, receiptClock = execution?.clock || Date.now } = {}) {
+  if (execution && outcomeAuthority) throw new Error('execution_outcome_actor_invalid');
   const ref = submissionRefFor(db, orderId);
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const flowRef = orderRef.collection('automation').doc('flow');
@@ -123,7 +142,10 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null, 
           outcome = { status: 'in_flight', record: current };
           return;
         }
-        transaction.set(ref, { [key]: { state: 'sending', channel, attemptId, startedAt: nowMs, clickedAt: null } }, { merge: true });
+        if (execution && channel !== 'portal') throw new Error('execution_channel_unsupported');
+        const context = execution ? await execution.assertInTransaction(transaction) : null;
+        transaction.set(ref, { [key]: { state: 'sending', channel, attemptId, startedAt: nowMs, clickedAt: null,
+          ...(context ? executionRecordOf(context.execution) : {}) } }, { merge: true });
         claimedAttemptId = attemptId;
         outcome = { status: 'claimed', resumed: current?.state === 'sending' };
       });
@@ -169,15 +191,18 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null, 
       });
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
-    async markClicked(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard, ownerIntent = null } = {}) {
+    async markClicked(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard, ownerIntent = null, receiptWaitMs = 60_000 } = {}) {
       let intentSnapshot;
       try { intentSnapshot = submissionOwnerIntent(ownerIntent); } catch { intentSnapshot = null; }
       const markerStartedAt = Date.now();
-      await db.runTransaction(async transaction => {
+      const deadline = await db.runTransaction(async transaction => {
         // All proof dependencies are reread in the same transaction as the
         // irreversible-send marker, before any write or external send.
         const submissionDoc = await transaction.get(ref);
         requireOwnClaim(submissionDoc.data(), ['portal', 'owner_extension']);
+        const executionContext = execution ? await execution.assertInTransaction(transaction) : null;
+        if (executionContext && !matchesExecutionRecord(submissionDoc.data()?.[key], executionContext.execution)) throw new Error('execution_submission_superseded');
+        if (executionContext && (!Number.isFinite(receiptWaitMs) || receiptWaitMs <= 0)) throw new Error('execution_receipt_wait_invalid');
         const [orderDoc, flowDoc, draftDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef)]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
           throw new Error('application_withdrawn');
@@ -195,9 +220,25 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null, 
           let currentIntent; try { currentIntent = submissionOwnerIntent(ownerIntent); } catch { currentIntent = null; }
           if (JSON.stringify(currentIntent) !== JSON.stringify(intentSnapshot)) throw Object.assign(new Error('submission_intent_changed'), { code: 'evidence_source_changed' });
         }
+        if (executionContext) {
+          const clickNow = receiptClock();
+          const actor = executionContext.execution;
+          if (!Number.isFinite(clickNow) || !Number.isFinite(actor.lease?.expiresAt) || actor.lease.expiresAt <= clickNow
+            || !Number.isFinite(actor.controller?.expiresAt) || actor.controller.expiresAt <= clickNow
+            || !actor.controller.runId) throw new Error('execution_lease_lost');
+        }
+        const prior = executionContext?.execution.clickProof;
+        if (prior && (!matchesExecutionRecord(prior, executionContext.execution)
+          || prior.submissionAttemptHash !== proof.frame.attemptHash)) throw new Error('execution_click_superseded');
+        const drainUntil = executionContext ? prior?.drainUntil || handoffAt + Math.min(90_000, receiptWaitMs) : null;
         transaction.set(proof.ref, { ...proof.frame, handoffAt, ...(intentSnapshot ? { ownerIntent: intentSnapshot } : {}) });
         transaction.set(ref, { [key]: { clickedAt: handoffAt } }, { merge: true });
+        if (executionContext && !prior) transaction.set(orderRef.collection('automation').doc('execution'), { clickProof: {
+          ...executionRecordOf(executionContext.execution), submissionAttemptHash: proof.frame.attemptHash, clickedAt: handoffAt, drainUntil,
+        } }, { merge: true });
+        return drainUntil;
       });
+      return deadline;
     },
     async markSent(record = {}, observedAt = receiptClock()) {
       if (!Number.isFinite(observedAt) || observedAt <= 0 || typeof receiptClock !== 'function') throw new Error('submission_receipt_invalid');
@@ -220,6 +261,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null, 
       if (authority && !['owner_extension', 'employer_ack', 'legacy_employer_ack', 'manual_owner'].includes(authority.kind)) throw new Error('submission_receipt_authority_invalid');
       if (authority?.kind === 'manual_owner' && (typeof authority.actor !== 'string' || !authority.actor.trim())) throw new Error('submission_receipt_authority_invalid');
       return db.runTransaction(async transaction => {
+        const executionContext = execution ? await execution.assertOutcomeInTransaction(transaction) : null;
         const [orderDoc, submissionDoc, draftDoc] = await Promise.all([
           transaction.get(orderRef), transaction.get(ref), transaction.get(draftRef),
         ]);
@@ -314,6 +356,12 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null, 
           if (!asserted || qualificationCounterContextHash(asserted) !== qualificationCounterContextHash(ackProof)) throw new Error('submission_receipt_authority_invalid');
           receiptRecord = { ...receiptRecord, confirmedBy: 'acknowledgement', confirmedAt: ackProof.providerReceivedAt };
         }
+        if (executionContext) {
+          const clickProof = executionContext.execution.clickProof;
+          if (!matchesExecutionRecord(clickProof, executionContext.execution) || !clickProof.clickedAt
+            || clickProof.submissionAttemptHash !== attemptHash || clickProof.executionRound !== guardedRound
+            || (current && (!matchesExecutionRecord(current, executionContext.execution) || !current.clickedAt))) throw new Error('execution_receipt_unproven');
+        }
         const photo = draftDoc.data()?.sentAttempt;
         if (!receiptRecord.sent && photo && !unboundManual && frame.attemptMaterialHash === submissionAttemptMaterialHash(draftDoc.data())
           && submissionAttemptHash(photo.submissionAttempt?.id || '') === attemptHash && Number(photo.submissionAttempt?.round) === guardedRound) {
@@ -326,8 +374,15 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null, 
         // clock after the final await; no eligibility/QA gate follows a send.
         const currentNow = receiptClock();
         if (!Number.isFinite(currentNow) || (ackProof && ackProof.providerReceivedAt > currentNow)) throw new Error('submission_receipt_clock_unknown');
+        let executionMinimum = null;
+        if (executionContext) {
+          const tokenHash = executionContext.execution.clickProof.executionTokenHash;
+          executionMinimum = executionContext.execution.minimalReceipt || { ...minimum, attempt: tokenHash };
+          if (!isMinimalSubmissionReceipt(executionMinimum, tokenHash, guardedRound) || executionMinimum.hash !== minimum.hash) throw new Error('execution_receipt_superseded');
+        }
         transaction.set(proofRef, { ...(manual ? { kind: 'manual_owner_assertion', attemptHash, round: guardedRound } : {}),
           minimalReceipt: minimum }, { merge: true });
+        if (executionMinimum) transaction.set(orderRef.collection('automation').doc('execution'), { minimalReceipt: executionMinimum }, { merge: true });
         if (!assistedApplicationRetained(orderDoc.data(), currentNow)) return { minimal: true, receipt: minimum };
         if (current?.state === 'sent') return { minimal: false, alreadySent: true, record: current, receipt: minimum };
         if (!unboundManual && (!current || submissionAttemptHash(current.attemptId || '') !== attemptHash)) return { minimal: true, receipt: minimum };
@@ -357,6 +412,11 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null, 
       return db.runTransaction(async transaction => {
         const current = (await transaction.get(ref)).data()?.[key];
         if (!claimedAttemptId || current?.state !== 'sending' || current.attemptId !== claimedAttemptId) return false;
+        if (execution) {
+          const context = await execution.assertInTransaction(transaction);
+          if (!matchesExecutionRecord(current, context.execution)) throw new Error('execution_submission_superseded');
+          if (current.clickedAt && !['portal_refused', 'portal_validation'].includes(reason)) throw new Error('execution_ambiguous_release_forbidden');
+        }
         transaction.set(ref, { [key]: { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs } }, { merge: true });
         return true;
       });
