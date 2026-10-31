@@ -67,6 +67,27 @@ export function isJavascriptCareerSurface(html = '') {
     || (atsShell && /(?:career|careers|job|jobs|search)/i.test(source));
 }
 
+const HIRING_PHRASE_RX = /\b(?:cercasi|posizion[ei] (?:aperte?|disponibili)|posti vacanti|offene stellen\s*:)/i;
+const HIRING_VERB_RX = /\b(?:cerchiamo|stiamo cercando|ricerchiamo|assumiamo|wir suchen|nous recherchons)\b([^.!?]{0,120})/gi;
+const HIRING_ROLE_RX = /\b(?:apprendist|collaborator|addett|operai|montator|meccanic|commess|cuoc|camerier|impiegat|magazzinier|autist|muratore|elettricist|falegnam|lehrling|lernend|mitarbeiter|fachperson|verk[aä]ufer|koch\b|apprenti|employ[ée]|vendeu|cuisini|serveu)/i;
+
+/**
+ * Does a homepage itself announce a vacancy?
+ *
+ * A micro-employer has no careers page: the vacancy is one sentence on the
+ * homepage ("Cercasi gestore bistrot-bar", "Cerchiamo apprendisti"). A hiring
+ * verb alone is marketing ("cerchiamo soluzioni", "Wir suchen Testhörer"), so
+ * it must be followed by an occupation in the same sentence.
+ *
+ * @param {string} html
+ * @returns {boolean}
+ */
+export function hasHomepageHiringSignal(html = '') {
+  const text = textOf(String(html || '')).replace(/\s+/g, ' ');
+  if (HIRING_PHRASE_RX.test(text)) return true;
+  return [...text.matchAll(HIRING_VERB_RX)].some((match) => HIRING_ROLE_RX.test(match[1]));
+}
+
 /**
  * Tidy anchor text: decode entities, collapse whitespace, and drop the
  * immediate self-repetition that markup like
@@ -201,7 +222,7 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     const textWindowEnd = Math.min(html.length, nextAnchorStart, anchorContentStart + 4000);
     const closeOffset = html.slice(anchorContentStart, textWindowEnd).search(/<\/a>/i);
     const anchorClose = closeOffset >= 0 ? anchorContentStart + closeOffset : -1;
-    const href = readAttr(attrs, 'href');
+    const href = decodeEntities(readAttr(attrs, 'href'));
     if (!href) continue;
     if (/^(#|mailto:|tel:|javascript:|data:)/i.test(href.trim())) continue;
     // Anchor text = the markup up to the next </a>, tags stripped.
@@ -704,6 +725,11 @@ export async function traceCareers(domain, opts = {}) {
     for (const ext of externalAtsLinks(links, homeHost, { relaxed: true, globalLinks: homeLinks })) {
       if (!result.externalHosts.some((e) => e.host === ext.host)) result.externalHosts.push(ext);
     }
+  }
+
+  if (!result.careersUrls.length && !result.externalHosts.length && hasHomepageHiringSignal(home.body)) {
+    result.careersUrls.push(home.url);
+    result.via.push('homepage-hiring-signal');
   }
 
   // Verify each candidate before it is allowed to reach the registry. Capped:

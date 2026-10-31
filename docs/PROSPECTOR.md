@@ -27,6 +27,25 @@ giù come conseguenza.
 L'economia: un estrattore di famiglia per un vendor costa come un crawler per
 una sola azienda, e rende ogni tenant che quel vendor ha.
 
+Questa intuizione vale per chi usa un ATS, non per la micro-impresa. Misurato il
+31/10/2026 sui candidati tracciati: 4.474 self-hosted contro 748 su piattaforma.
+La salumeria non affitta nulla: scrive una frase sul proprio sito, e il loop deve
+saperla leggere. Per questo TRACE accetta anche un'offerta in homepage e rilegge
+periodicamente chi oggi non assume.
+
+Tre regole seguono da qui:
+
+- **Dominio dall'email.** Gli annunci SECO portano spesso un indirizzo di
+  candidatura. Si tiene solo il dominio, mai la casella. Caselle gratuite, ISP e
+  domini visti su due datori diversi (agenzie) non contano. Il dominio resta un
+  suggerimento: `resolveDomain` lo accetta solo se la pagina nomina il datore.
+  Misurato su 100 annunci ticinesi: 15 datori con suggerimento, 11 risolti.
+- **Segnale in homepage.** Se non c'è pagina carriere ma la homepage annuncia un
+  posto (`hasHomepageHiringSignal`), la homepage diventa il seed
+  (`trailVia: homepage-hiring-signal`).
+- **"Nessuna pagina carriere" scade.** Il verdetto descrive una data, non un
+  datore: dopo 60 giorni TRACE lo rimette in coda, 150 per run, Ticino prima.
+
 ## I sei stadi
 
 | stadio | script | cosa fa |

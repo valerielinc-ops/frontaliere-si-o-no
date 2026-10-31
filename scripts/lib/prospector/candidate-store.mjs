@@ -366,7 +366,7 @@ const RETRYABLE_TRACE_REASON_RX = /(?:sito|dominio|pagina|rete|host|dns|timeout|
 const STAGE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
 const MAX_SYNTHESIS_RETRIES = 5;
 const DOMAIN_RETRY_FRESH_OBSERVATION_AFTER = 4;
-const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts']);
+const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts', 'emailDomainHints']);
 const SECO_IDENTITY_FIELDS = new Set(['secoEmployerName']);
 const TRACE_RETRY_EVIDENCE_FIELDS = ['name', 'domain', 'careersUrl', 'city', 'zip', 'country'];
 const TRACE_RETRY_DISCOVERY_SOURCES = new Set(['own', 'seco', 'osm', 'web']);
@@ -867,6 +867,7 @@ export function isRetryableTraceReason(reason = '') {
  * @returns {boolean}
  */
 export function isTraceRetryDue(candidate, now = Date.now()) {
+  if (hasUntriedEmailDomainHint(candidate)) return true;
   if (hasExhaustedDomainResolution(candidate)) {
     const lastEvidence = candidate?.traceLastEvidenceSnapshot;
     // Old or malformed records have no trustworthy baseline. Fail closed until
@@ -878,6 +879,56 @@ export function isTraceRetryDue(candidate, now = Date.now()) {
   }
   const at = Date.parse(String(candidate?.traceRetryAt || ''));
   return !Number.isFinite(at) || at <= now;
+}
+
+/**
+ * A domain read from an application address is new evidence even after name
+ * guessing has given up, and it is checked once: TRACE records what it tried.
+ *
+ * @param {Record<string, any>} candidate
+ * @returns {boolean}
+ */
+export function hasUntriedEmailDomainHint(candidate) {
+  if (candidate?.domain) return false;
+  const tried = new Set(candidate?.emailDomainHintsTried || []);
+  return (candidate?.emailDomainHints || []).some((domain) => !tried.has(domain));
+}
+
+/** A site without vacancies today can hire next quarter. */
+export const NO_CAREERS_RECHECK_DAYS = 60;
+export const NO_CAREERS_RECHECK_BATCH = 150;
+const NO_CAREERS_REASON = 'nessuna pagina carriere';
+
+/**
+ * Return the stalest "no careers page" verdicts to the TRACE queue. Hiring is
+ * temporary, so this verdict describes a date and not an employer. Ticino comes
+ * first because it is the loop's home market. The batch cap keeps the sweep from
+ * crowding out candidates that were never traced.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {{ now?: number, limit?: number, minAgeDays?: number, ledgerFile?: string|null }} [options]
+ * @returns {string[]} the keys returned to the queue
+ */
+export function reviveStaleNoCareersCandidates(store, options = {}) {
+  const now = options.now ?? Date.now();
+  const limit = options.limit ?? NO_CAREERS_RECHECK_BATCH;
+  const cutoff = now - (options.minAgeDays ?? NO_CAREERS_RECHECK_DAYS) * 86_400_000;
+  const checkedAt = (candidate) => Date.parse(String(candidate.updatedAt || '')) || 0;
+  const due = Object.entries(store.candidates)
+    .filter(([, candidate]) => candidate.status === 'dead'
+      && candidate.reason === NO_CAREERS_REASON
+      && candidate.domain
+      && checkedAt(candidate) <= cutoff)
+    .sort(([, a], [, b]) => Number(b.canton === 'TI') - Number(a.canton === 'TI')
+      || checkedAt(a) - checkedAt(b))
+    .slice(0, limit);
+  for (const [key] of due) {
+    setStatus(store, key, 'new', {
+      reason: 'ricontrollo periodico: nessuna pagina carriere',
+      traceRetryAt: null,
+    }, options.ledgerFile);
+  }
+  return due.map(([key]) => key);
 }
 
 /**

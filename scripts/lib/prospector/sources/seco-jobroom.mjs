@@ -20,9 +20,58 @@
  * anyone naming a vendor.
  */
 import { politeFetch } from './../polite-fetch.mjs';
-import { normalizeHost } from './../registrable.mjs';
+import { normalizeHost, registrableDomain } from './../registrable.mjs';
+import { NON_PLATFORM_HOSTS } from './../config.mjs';
 
 const API = 'https://www.job-room.ch/jobadservice/api/jobAdvertisements/_search';
+
+/**
+ * Mailbox providers: the domain after `@` says nothing about the employer.
+ * Swiss ISPs are listed because a micro-employer's address is often theirs.
+ */
+const SHARED_MAIL_DOMAINS = new Set([
+  'bluewin.ch', 'gmail.com', 'gmx.ch', 'gmx.net', 'hispeed.ch', 'hotmail.com',
+  'hotmail.it', 'icloud.com', 'libero.it', 'me.com', 'mac.com', 'outlook.com',
+  'protonmail.com', 'proton.me', 'sunrise.ch', 'swissonline.ch', 'ticino.com',
+  'tiscali.it', 'vtxmail.ch', 'yahoo.com', 'yahoo.it', 'zoho.com',
+]);
+
+/**
+ * The employer domain an application address points at, or null when the
+ * address cannot identify the employer. Only the domain ever leaves this
+ * function: the mailbox can name a person and must not reach the store.
+ *
+ * @param {unknown} email
+ * @returns {string|null}
+ */
+export function employerEmailDomain(email) {
+  const match = /^[^@\s]+@([a-z0-9.-]+\.[a-z]{2,})$/i.exec(String(email || '').trim());
+  if (!match) return null;
+  const domain = registrableDomain(match[1].toLowerCase());
+  if (!domain || SHARED_MAIL_DOMAINS.has(domain) || NON_PLATFORM_HOSTS.has(domain)) return null;
+  return domain;
+}
+
+/**
+ * Domain hints per employer name. A domain seen on two different employers is
+ * an agency or a recruiting service rather than either employer's own site, the
+ * same "two unrelated employers" reading the platform registry applies.
+ *
+ * @param {SecoEmployer[]} employers
+ * @returns {Map<string, string[]>}
+ */
+export function emailDomainHintsByEmployer(employers = []) {
+  const owners = new Map();
+  for (const employer of employers) {
+    for (const domain of employer.emailDomains || []) {
+      owners.set(domain, (owners.get(domain) || 0) + 1);
+    }
+  }
+  return new Map(employers.map((employer) => [
+    employer.name,
+    (employer.emailDomains || []).filter((domain) => owners.get(domain) === 1).slice(0, 3),
+  ]));
+}
 
 /**
  * @typedef {Object} SecoEmployer
@@ -32,6 +81,7 @@ const API = 'https://www.job-room.ch/jobadservice/api/jobAdvertisements/_search'
  * @property {string} canton
  * @property {string} [website]
  * @property {string[]} applyHosts  hosts seen on this employer's apply URLs
+ * @property {string[]} emailDomains  employer domains seen on application addresses
  * @property {number} adCount
  * @property {string[]} titles
  */
@@ -160,6 +210,7 @@ export async function fetchSecoEmployers(opts = {}) {
         canton: cantons.length === 1 ? cantons[0] : '',
         website: c.website || undefined,
         applyHosts: [],
+        emailDomains: [],
         adCount: 0,
         titles: [],
       });
@@ -168,6 +219,8 @@ export async function fetchSecoEmployers(opts = {}) {
     e.adCount++;
     const title = (jc.jobDescriptions || [])[0]?.title;
     if (title && e.titles.length < 5) e.titles.push(String(title).slice(0, 120));
+    const emailDomain = employerEmailDomain(jc.applyChannel?.emailAddress);
+    if (emailDomain && !e.emailDomains.includes(emailDomain)) e.emailDomains.push(emailDomain);
     const url = jc.externalUrl || jc.applyChannel?.formUrl || null;
     if (url) {
       try {

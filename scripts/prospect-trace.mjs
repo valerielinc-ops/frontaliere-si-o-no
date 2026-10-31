@@ -29,6 +29,8 @@ import {
   setStatus,
   byStatus,
   isTraceRetryDue,
+  NO_CAREERS_RECHECK_BATCH,
+  reviveStaleNoCareersCandidates,
   scheduleTraceRetry,
   statusCounts,
   startLedgerPhase,
@@ -59,6 +61,8 @@ startLedgerPhase('trace', { dryRun });
 const store = loadCandidates();
 const registry = loadRegistry();
 
+const rechecked = onlyKey || dryRun ? [] : reviveStaleNoCareersCandidates(store);
+
 const queue = onlyKey
   // Manual --key intentionally bypasses automatic retry cooldown/evidence suppression.
   ? [store.candidates[resolveCandidateKey(store, onlyKey)]].filter(Boolean)
@@ -72,6 +76,7 @@ const queue = onlyKey
   );
 
 console.log('═══ Prospector · TRACE ═══');
+if (rechecked.length) console.log(`ricontrollo periodico: ${rechecked.length} siti senza pagina carriere (max ${NO_CAREERS_RECHECK_BATCH} per run)`);
 console.log(`in coda: ${queue.length} candidati (di ${byStatus(store, 'new').length} nuovi)\n`);
 
 const results = await mapPool(queue, CONCURRENCY, (c) => traceCandidate(c));
@@ -85,6 +90,7 @@ const promoted = [];
 for (const r of results) {
   if (!r) continue;
   const { c } = r;
+  if (c.emailDomainHints?.length) store.candidates[c.key].emailDomainHintsTried = c.emailDomainHints;
   if (r.verdict === 'retry') {
     deferred++;
     setStatus(store, c.key, 'new', scheduleTraceRetry(c, r.reason));
