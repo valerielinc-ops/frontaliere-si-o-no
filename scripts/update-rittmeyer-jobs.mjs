@@ -399,15 +399,18 @@ export function scrubRittmeyerLegacyLocaleCopies(job = {}) {
   };
 }
 
-function jobMatchKey(job = {}) {
+export function jobMatchKey(job = {}) {
+  // The legacy careers URL and the Onlyfy board assign unrelated vendor IDs
+  // to the same vacancy. Prefer the source-independent role/location identity
+  // so a source migration keeps previousSlugs and locale continuity.
+  const titleLocationKey = `title:${normalizeKey(job.title)}|location:${normalizeKey(job.location)}`;
+  if (titleLocationKey !== 'title:|location:') return titleLocationKey;
+
   const stableUrlKey = extractStableJobId(job.url);
   if (stableUrlKey && !stableUrlKey.startsWith('url:')) return stableUrlKey;
   const stableApplyKey = extractStableJobId(job.applyUrl);
   if (stableApplyKey && !stableApplyKey.startsWith('url:')) return stableApplyKey;
-  const titleLocationKey = `title:${normalizeKey(job.title)}|location:${normalizeKey(job.location)}`;
-  return titleLocationKey !== 'title:|location:'
-    ? titleLocationKey
-    : String(job.slug || '').trim().toLowerCase();
+  return String(job.slug || '').trim().toLowerCase();
 }
 
 function mergeJobs(discoveredJobs) {

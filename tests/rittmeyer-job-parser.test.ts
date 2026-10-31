@@ -11,6 +11,7 @@ import {
   resolveRittmeyerSiteAddress,
   RITTMEYER_SITES,
   scrubRittmeyerLegacyLocaleCopies,
+  jobMatchKey,
 } from '../scripts/update-rittmeyer-jobs.mjs';
 
 describe('rittmeyer-job-parser', () => {
@@ -217,6 +218,22 @@ describe('rittmeyer-job-parser', () => {
     expect(scrubbed.titleByLocale).not.toHaveProperty('it');
     expect(scrubbed.titleByLocale.de).toBe('Titel Deutsch');
     expect(scrubbed.needsRetranslation).toBe(true);
+  });
+
+  it('matches legacy and Onlyfy URLs by normalized title and location', () => {
+    const legacy = {
+      url: 'https://karriere.rittmeyer.com/offene-stellen/legacy-0441e237-ebd9-4263-9fe5-e21facbd03ba/',
+      title: 'Engineer',
+      location: 'Camorino',
+    };
+    const onlyfy = {
+      url: 'https://brugg.onlyfy.jobs/en/job/new-8f6d1a2b-3c4d-4e5f-8a9b-0c1d2e3f4a5b/',
+      title: 'Engineer',
+      location: 'Camorino',
+    };
+
+    expect(jobMatchKey(legacy)).toBe('title:engineer|location:camorino');
+    expect(jobMatchKey(onlyfy)).toBe(jobMatchKey(legacy));
   });
 });
 
