@@ -290,3 +290,14 @@ describe('attested answer origin corrections', () => {
     expect(qualificationCounterContextHash(qualificationAnswerOriginContext({ flow: { candidateNotes: 'Current English A2.' } }))).not.toBe(qualificationCounterContextHash(before));
   });
 });
+
+
+it('preserves the complete private raw correction snapshot after the runtime answer map is filtered', async () => {
+  const rawCounterContext = qualificationCounterContext({ flow: { answers: { source_question: 'I never managed providers.' }, candidateNotes: 'Call after 5pm.' } });
+  const safeFlow = { answers: {} };
+  const current = qualificationCounterContext({ flow: safeFlow, rawCounterContext });
+  expect(current.values.source_question).toBe('I never managed providers.');
+  rawCounterContext.values.source_question = 'mutated later';
+  expect(current.values.source_question).toBe('I never managed providers.');
+  expect(() => qualificationCounterContext({ rawCounterContext: {} })).toThrow('evidence_entailment_unverified');
+});

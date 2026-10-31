@@ -71,7 +71,7 @@ function profileForEligibility(profile = {}) {
   };
 }
 
-export async function evaluateConciergePosting({ job, profile, answers = {}, answerEvidence = [], answerCounterContext = [], answerSourceConflicts = [], locale = 'it', sourceText = '', cvHash = '', generate = generateJson, readPosting = fetchJobPosting }) {
+export async function evaluateConciergePosting({ job, profile, answers = {}, answerEvidence = [], answerCounterContext = [], answerSourceConflicts = [], rawCounterContext = null, locale = 'it', sourceText = '', cvHash = '', generate = generateJson, readPosting = fetchJobPosting }) {
   if (!sourceText) {
     const deadline = AbortSignal.timeout(PREFLIGHT_ANALYSIS_BUDGET_MS);
     const inference = generate; const read = readPosting;
@@ -105,7 +105,7 @@ export async function evaluateConciergePosting({ job, profile, answers = {}, ans
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
   const preliminary = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
   const checked = await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources, preliminary, generate,
-    unverifiedContext: qualificationCounterContext({ flow: { answers }, answerCounterContext }) });
+    unverifiedContext: qualificationCounterContext({ flow: { answers }, answerCounterContext, rawCounterContext }) });
   const result = checked.status === 'unverified'
     ? { status: 'unverified', reason: checked.reason, gaps: [], questions: [] } : preliminary;
   const entailment = checked.verification || { version: EVIDENCE_ENTAILMENT_VERSION, status: 'not_required' };
