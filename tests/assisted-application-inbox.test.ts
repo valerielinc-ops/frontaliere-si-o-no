@@ -109,9 +109,10 @@ describe('order alias', () => {
   });
 });
 
-function employerMail({ subject = 'Einladung zum Vorstellungsgespräch', text = 'Guten Tag, wir laden Sie am 12. Oktober um 10:00 ein. Code: 482913', auto = false } = {}) {
+function employerMail({ subject = 'Einladung zum Vorstellungsgespräch', text = 'Guten Tag, wir laden Sie am 12. Oktober um 10:00 ein. Code: 482913', auto = false, authenticated = false } = {}) {
   return Buffer.from([
     'From: Anna Muster <hr@arbeitgeber.ch>',
+    ...(authenticated ? ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=arbeitgeber.ch'] : []),
     `Subject: ${subject}`,
     ...(auto ? ['Auto-Submitted: auto-generated'] : []),
     'Content-Type: multipart/mixed; boundary="m"',
@@ -135,6 +136,7 @@ function htmlEmployerMail({ subject = 'Mot de passe à usage unique pour vérifi
   const html = `<html><head><title>SuccessFactors</title></head><body><p>Mot de passe à usage unique pour vérifier le compte du candidat.</p><p>Votre code est <strong>${code}</strong>.</p><p><a href="https://career5.successfactors.eu/verify?code=${code}&amp;source=email">Vérifier le compte</a></p><script>ignore-me-482913</script></body></html>`;
   return Buffer.from([
     'From: Carrières Rolex <system@successfactors.eu>',
+    'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=successfactors.eu',
     `Subject: ${subject}`,
     'Content-Type: text/html; charset=utf-8',
     'Content-Transfer-Encoding: base64',
@@ -244,10 +246,10 @@ describe('employer messages on the alias', () => {
     const { store, alias } = await setupInbound();
     // The runner created an account on this portal and waits for its verification.
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
-      .set({ careers_arbeitgeber_ch: { host: 'careers.arbeitgeber.ch', passwordEnc: { v: 1 }, verifiedAt: null } });
+      .set({ arbeitgeber_ch: { host: 'arbeitgeber.ch', passwordEnc: { v: 1 }, verifiedAt: null } });
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
     await deliver({
-      store, alias, raw: employerMail({ subject: 'Bitte bestätigen Sie Ihre E-Mail', text: 'Ihr Bestätigungscode lautet 482913' }), sendCascade,
+      store, alias, raw: employerMail({ subject: 'Bitte bestätigen Sie Ihre E-Mail', text: 'Ihr Bestätigungscode lautet 482913', authenticated: true }), sendCascade,
       classify: async () => ({ category: 'verification', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: '482913', verificationUrl: '', needsReply: false }),
     });
     const [first] = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
@@ -291,7 +293,7 @@ describe('employer messages on the alias', () => {
 
   it('forwards a verification message no waiting portal account claims', async () => {
     const verification = (url: string, code = '') => async () => ({ category: 'verification', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: code, verificationUrl: url, needsReply: false });
-    const mail = (text: string) => employerMail({ subject: 'Confirm your e-mail', text });
+    const mail = (text: string) => employerMail({ subject: 'Confirm your e-mail', text, authenticated: true });
 
     // An account waits on careers.arbeitgeber.ch, but the link is on another site.
     const other = await setupInbound();

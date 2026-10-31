@@ -27,14 +27,14 @@ import { randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
-import { sameSite } from './assistedApplicationPortalSites.js';
+import { exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
 import { decryptJson, encryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
-import { addressOf, parseMimeMessage } from './lib/mimeMessage.js';
+import { addressOf, parseMimeMessage, senderAuthenticated } from './lib/mimeMessage.js';
 
 export const INBOUND_CATEGORIES = [
   'interview_invite', 'rejection', 'documents_request', 'question', 'assessment',
@@ -78,15 +78,6 @@ verificationCode / verificationUrl: copied character by character from the e-mai
 needsReply: true when the employer expects an answer from the candidate.`;
 }
 
-const RULES = [
-  ['verification', /\b(verify|verification|bestätig|verifica|confirm your (e-?mail|account)|code de (vérification|confirmation)|best[aä]tigungscode|codice di verifica|mot de passe [àa] usage unique|one[- ]time (?:password|passcode)|otp|einmal(?:passwort|code))/i],
-  ['interview_invite', /\b(interview|colloquio|vorstellungsgespr[aä]ch|entretien|kennenlernen|incontro conoscitivo)/i],
-  ['offer', /\b(job offer|offerta di lavoro|arbeitsvertrag|stellenangebot|offre d'emploi|contratto di lavoro)/i],
-  ['rejection', /\b(unfortunately|purtroppo|leider|malheureusement|non (possiamo|potremo) (proseguire|dare seguito)|anderen kandidat|autre candidat)/i],
-  ['assessment', /\b(assessment|online test|test online|case study|video interview|hirevue|codility)/i],
-  ['documents_request', /\b(please send|inviarci|zusenden|nous faire parvenir|documenti|unterlagen|zeugnisse|diplomi|certificati)/i],
-  ['auto_acknowledgement', /\b(we have received|abbiamo ricevuto|wir haben ihre bewerbung erhalten|eingang ihrer bewerbung|nous avons bien reçu|thank you for (your )?appl)/i],
-];
 const VERIFICATION_CODE_RE = /(?:\b(?:code|codice)\s+(?:confidentiel|de vérification|de verification|de confirmation|di verifica)|\bbest[aä]tigungscode\b|\b(?:one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique)\b)[^\d]{0,100}\b(\d{4,8})\b/i;
 
 // A job portal's own account mail (Coop's SuccessFactors, 2026-10-03:
@@ -104,21 +95,235 @@ export function correctedCategory(category, { subject = '', text = '' } = {}) {
   return category;
 }
 
-/** Deterministic fallback: the first matching rule wins; auto-generated mail defaults to acknowledgement. */
-export function classifyByRules({ subject, text, autoSubmitted }) {
-  const haystack = `${subject}\n${text}`.slice(0, 20_000);
-  const matched = RULES.find(([, pattern]) => pattern.test(haystack))?.[0];
-  return correctedCategory(matched || (autoSubmitted ? 'auto_acknowledgement' : 'other'), { subject, text });
+const phrases = (source) => new RegExp(String.raw`(?<![\p{L}\p{N}])(?:${source})(?![\p{L}\p{N}])`, 'iu');
+const words = (max) => String.raw`(?:[\p{L}\p{N}-]+(?:\s+|['’])){0,${max}}`;
+
+const NEGATION = String.raw`(?:not|never|cannot|unable to|\p{L}+n['’]t|nicht|nie|niemals|kein\p{L}*|non|pas|jamais|aucun\p{L}*|nessun\p{L}*)`;
+const INTERVIEW = String.raw`(?:(?<!video[- ])interviews?|colloqui[oa]?|\p{L}*gespr(?:ä|ae)ch(?:e|en|s|es)?|(?<!(?:agents?|techniciens?|personnel|services?|travaux|ouvriers?)\s+d['’])entretiens?|kennenlernen|incontro conoscitivo)`;
+const INVITE_VERB = String.raw`(?:invit\p{L}*|einlad\p{L}*|schedul\p{L}*|arrange|offer|propos\p{L}*|propor\p{L}*|convoc\p{L}*)`;
+// Neither a receipt nor the channel: "confirm by e-mail" asks for an answer, not for a proof of the address.
+const NOT_A_RECEIPT = String.raw`(?:(?!receipt|reception|réception|eingang|erhalt|ricezione|ricevimento|(?:by|via|per|par|tramite)\s)[\p{L}\p{N}-]+\s+){0,2}`;
+const ACCOUNT_DE = String.raw`(?:e-?mail(?:-?adresse)?|adresse|konto|benutzerkonto|account|registrierung|profil)`;
+const VERIFY_DE = String.raw`(?:best[aä]tigen|verifizieren|aktivieren)`;
+
+const NEGATED = phrases(NEGATION);
+const INTERVIEW_RE = phrases(INTERVIEW);
+const INVITATION_RE = phrases(String.raw`${INVITE_VERB}|book|laden|lädt|eingeladen|vereinbar\p{L}*|termin|terminvorschl\p{L}*|terminvereinbarung|fissar\p{L}*|appuntamento|proponi\p{L}*|rendez-vous|availab\p{L}*|verfügbarkeit|disponibilit\p{L}*`);
+const REGRET_RE = phrases(String.raw`unfortunately|regret\p{L}*|sorry|leider|bedauer\p{L}*|purtroppo|spiacent\p{L}*|dispiace|malheureusement`);
+const APPLICATION_TOPIC_RE = phrases(String.raw`applications?|applying|candidacy|bewerbung\p{L}*|kandidatur|candidatura|candidature`);
+const COURTESY_RE = /do(?:n['’]t| not) hesitate|n['’]h[ée]sitez pas|non esit\p{L}*|z[öo]gern sie nicht|(?:can['’]t|cannot) wait|not only|non vediamo l['’]ora|non manch\p{L}*|ne manquer\p{L}* pas/giu;
+const UNTIL_RE = phrases(String.raw`until|before|bevor|ehe|finch[eé]|prima (?:di|che)|avant|tant que|jusqu['’]?`);
+// General process text, not this candidate: "we may invite", "suitable applicants will be invited".
+const CONDITIONAL_INVITE_RE = phrases(String.raw`(?:we|you) (?:may|might|could)|(?:selected|successful|shortlisted|suitable|qualified) (?:applicants?|candidates?)|eventuell|gegebenenfalls|ggf|passend\p{L}*|potremmo|potrebbe\p{L}*|eventualmente|idone\p{L}*|pourrions|pourrait|pourront|[ée]ventuellement`);
+// The reader, in any of the four languages; Italian also as an enclitic (invitarla).
+const ADDRESSEE_RE = phrases(String.raw`you|your|sie|ihnen|ihre?\p{L}*|dich|dir|du|dein\p{L}*|la|lei|le|ti|sua|suo|tua|tuo|\p{L}+(?:arla|arle|arti|erla|irla)|vous|votre|vos|tu|te|ton|ta`);
+const POST_FILLED_RE = phrases(String.raw`filled|vergeben|besetzt`);
+const HYPOTHETICAL_RE = phrases(String.raw`if|unless|once (?:we|your|the)|in case|should (?:you|your|we|there)|whether|without|wenn|falls|sofern|sobald|solange|sollten?|ohne|qualora|nel caso|senza|au cas où|sans|si(?=\s+(?:vous|votre|nous|notre|tu|on|le|la|les|un|une))|se(?=\s+(?:il|lo|un|una|sua|suo|tua|tuo|non|sar\p{L}*|verr\p{L}*|dovess\p{L}*|ci|ti|lei|hai|ha))|selected candidates|shortlisted candidates|ausgewählte\p{L}*|geeignete\p{L}*|candidati selezionati|candidats (?:retenus|sélectionnés)`);
+const PAST_INTERVIEW_RE = phrases(String.raw`(?:thank you|thanks|danke|vielen dank|grazie|merci|following|after|nach|dopo|suite [àa]|après)\s+${words(4)}${INTERVIEW}`);
+const NEGATED_INTERVIEW_NEAR_RE = phrases(String.raw`(?:${NEGATION}|no)\s+${words(2)}${INTERVIEW}`);
+// The refusal is the invitation being negated, not any negation near the word.
+const NEGATED_INVITATION_RE = phrases(String.raw`${NEGATION}\s+${words(5)}${INVITE_VERB}\s+${words(4)}${INTERVIEW}|${NEGATION}\s+${words(4)}${INTERVIEW}\s+(?:einladen|einzuladen)`);
+const NOT_EVERYONE_RE = phrases(String.raw`all|every|each|alle\p{L}*|jede\p{L}*|tutt\p{L}*|ogni|tous|toutes|chaque`);
+const INTERVIEW_CHANGE_RE = phrases(String.raw`reschedul\p{L}*|postpon\p{L}*|verschieb\p{L}*|verleg\p{L}*|absag\p{L}*|abgesagt|cancel\p{L}*|annul\p{L}*|rinvi\p{L}*|spostar\p{L}*|reporter|d[ée]placer|anderen? termin|altra data|autre date|another (?:date|time)`);
+const REJECTION_RE = phrases(String.raw`regret to inform|unsuccessful|not successful|not (?:been )?(?:selected|shortlisted)|(?:not|cannot|unable to|\p{L}+n['’]t) (?:be )?(?:proceed\p{L}*|progress\p{L}*|continu\p{L}*|consider\p{L}*|pursu\p{L}*|mov\p{L}* forward)|position has been filled|(?:stelle|position) (?:wurde|ist) (?:bereits |anderweitig )*(?:vergeben|besetzt)|(?:nicht|kein\p{L}*)\s+${words(3)}(?:ber[üu]cksichtig\p{L}*|weiterverfolg\p{L}*)|non (?:possiamo|potremo) (?:proseguire|dare seguito)|non (?:è|e) stat[ao] selezionat[ao]|pas (?:donner )?suite|pas (?:été )?retenu\p{L}*`);
+const OTHER_CANDIDATE_RE = phrases(String.raw`(?:other|another|anderen?|andere|autres?|altr[aeio]) (?:\p{L}+ )?(?:candidat\p{L}*|applicant\p{L}*|kandidat\p{L}*|bewerber\p{L}*|person\p{L}*|profil\p{L}*)`);
+const DECISION_RE = phrases(String.raw`decided|chosen|selected|(?:proceed\p{L}*|mov\p{L}* forward) with (?:an)?other|entschieden|gewählt|ausgewählt|retenu\p{L}*|choisi\p{L}*|scelto|scelta|selezionat\p{L}*|preferit\p{L}*|optato`);
+const REFUSAL_WORD_RE = phrases(String.raw`absag\p{L}*|abgesagt|abgelehnt|rejected|declined|respint\p{L}*|rifiutat\p{L}*|rejet[ée]e?|refus[ée]e?`);
+const OFFER_RE = phrases(String.raw`(?:pleased|happy|delighted) to offer you|offer you the (?:position|role|job)|your (?:job|employment) offer|freuen uns\s+${words(5)}anzubieten|lieti di (?:offrir|proporl)\p{L}*|offre de poste`);
+const CONTRACT_RE = phrases(String.raw`employment contract|arbeitsvertrag|contratto di lavoro|contrat de travail`);
+const CONTRACT_SENT_RE = phrases(String.raw`attached|enclosed|anbei|beigefügt|allegato|ci-jointe?|sign\p{L}*|unterschreib\p{L}*|unterzeich\p{L}*|firmar\p{L}*`);
+const ASSESSMENT_RE = phrases(String.raw`assessment\p{L}*|online[- ]test|test online|case study|video[- ]interview|hirevue|codility`);
+const COMPLETE_RE = phrases(String.raw`complete|completare|compl[ée]ter|absolvieren|durchf[üu]hren|ausf[üu]llen|svolgere|passer`);
+const DOCUMENT_REQUEST_RE = phrases(String.raw`please send|inviarci|zusenden|nous faire parvenir`);
+const DOCUMENT_VERB_RE = phrases(String.raw`send|senden|zusenden|schicken|nachreichen|einreichen|hochladen|envoyer|transmettre|fournir|faire parvenir|invia\p{L}*|fornir\p{L}*|trasmett\p{L}*|caric\p{L}*|provide|submit|upload`);
+const DOCUMENT_NOUN_RE = phrases(String.raw`documents?|documenti|unterlagen|zeugnisse|diplomi|diplômes|diplomas?|certificati|certificats|certificates?|lebenslauf|curriculum|cv|resume|justificatifs`);
+const PLEASE_RE = phrases(String.raw`please|kindly|bitte|per favore|la preghiamo|ti preghiamo|si prega|veuillez|merci de`);
+const NOT_RECEIVED_RE = phrases(String.raw`${NEGATION}\s+${words(3)}(?:received?|erhalten|eingegangen|ricevut\p{L}*|reçu\p{L}*)`);
+const MANY_APPLICATIONS_RE = phrases(String.raw`many|numerous|large number|zahlreiche\p{L}*|viele|molte|numerose|nombreuses`);
+// A request to prove an address or account. The verb alone is not enough: "we
+// confirm the receipt of your e-mail" is no such request.
+const VERIFY_REQUEST_RE = phrases([
+  String.raw`(?:verify|activate|validate)\s+${NOT_A_RECEIPT}(?:e-?mail|address|account|identity|registration|profile)`,
+  String.raw`(?<!we\s)confirm\s+${NOT_A_RECEIPT}(?:e-?mail|account|identity|registration)`,
+  String.raw`${ACCOUNT_DE}\s+${NOT_A_RECEIPT}${VERIFY_DE}(?!\s+wir)`,
+  String.raw`${VERIFY_DE}\s+sie\s+${NOT_A_RECEIPT}${ACCOUNT_DE}`,
+  String.raw`(?:verifica(?:re)?|conferma(?:re)?|attiva(?:re)?)\s+${NOT_A_RECEIPT}(?:e-?mail|indirizzo|account|profilo|registrazione|identit[aà])`,
+  String.raw`(?:v[eé]rifie[rz]|confirme[rz]|active[rz])\s+${NOT_A_RECEIPT}(?:adresse|e-?mail|courriel|compte|profil|identit[eé])`,
+].join('|'));
+// A code or link with its own explicit name, also in a sentence that warns about it.
+const VERIFICATION_NAMED_RE = phrases([
+  String.raw`(?:verification|confirmation|activation|security|verifizierungs|best[aä]tigungs|aktivierungs|sicherheits)[- ]?(?:code|link)`,
+  String.raw`(?:codice|link) di (?:verifica|conferma|attivazione)`,
+  String.raw`(?:code|lien) de (?:v[eé]rification|confirmation|activation)`,
+  String.raw`one[- ]time (?:password|passcode|code)|otp|mot de passe [àa] usage unique|einmal(?:passwort|code)`,
+  String.raw`(?:e-?mail|account)[- ](?:verification|verifizierung)|verifica (?:dell['’]|del |della )?(?:account|e-?mail|indirizzo)|v[eé]rification (?:de (?:votre |l['’])|d['’])?(?:compte|e-?mail|adresse)`,
+].join('|'));
+const RECEIPT_WORD_RE = phrases(String.raw`received|erhalten|eingegangen|ricevut\p{L}*|reçu\p{L}*`);
+const LINK_WORD_RE = phrases(String.raw`link|lien|collegamento|click|klicken|clicca|cliquez`);
+const VERIFY_WORD_RE = phrases(String.raw`verify|verifica|verifizieren|v[eé]rifier|v[eé]rification|verification`);
+// Labels only the fallback reads; VERIFICATION_CODE_RE stays the model's net.
+const NAMED_CODE_RE = /(?<![\p{L}\p{N}])(?:(?:verification|confirmation|activation|security|one[- ]time)\s+(?:code|passcode)|(?:verifizierungs|sicherheits|aktivierungs)code)(?![\p{L}\p{N}])[^\d]{0,100}(?<!\d)(\d{4,8})(?!\d)/iu;
+
+const REPLY_SUBJECT_RE = /^\s*(?:re|aw|antw|wg|fw|fwd|tr|r|i|sv)\s*(?:\[\d+\])?\s*:/i;
+const QUOTE_RULE_RE = /^\s*[-_=]{2,}\s*(?:original message|forwarded message|original-nachricht|ursprüngliche nachricht|weitergeleitete nachricht|messaggio originale|messaggio inoltrato|message d['’]origine|message original|message transféré)/i;
+const QUOTE_FORWARD_RE = /^\s*(?:begin forwarded message|anfang der weitergeleiteten nachricht|inizio messaggio inoltrato|début du message réexpédié)\s*:/i;
+const QUOTE_HEADER_RE = /^\s*(?:from|von|da|de)\s*:/i;
+const QUOTE_HEADER_NEXT_RE = /^\s*(?:sent|date|gesendet|datum|inviato|data|envoyé|to|an|a|à|subject|betreff|oggetto|objet)\s*:/i;
+const QUOTE_ATTRIBUTION_RE = /(?:^|\s)(?:wrote|schrieb|ha scritto|a écrit)(?:\s[^\n]{0,120})?\s*:\s*$/i;
+
+const normalizedMail = (value) => String(value || '').normalize('NFC').replace(/\r\n?/g, '\n')
+  .replace(/[\u00ad\u200b-\u200d\u2060\ufeff]/g, '').replace(/[\u00a0\u2009\u202f]/g, ' ');
+
+/** What the sender wrote now: an earlier message quoted below says nothing about this one. */
+function ownMessageText(text) {
+  const lines = text.split('\n');
+  const own = [];
+  for (let index = 0; index < lines.length; index += 1) {
+    const rawLine = lines[index];
+    const line = normalizedMail(rawLine);
+    if (/^\s*>/.test(line)) continue;
+    if (QUOTE_RULE_RE.test(line) || QUOTE_FORWARD_RE.test(line) || (QUOTE_HEADER_RE.test(line) && QUOTE_HEADER_NEXT_RE.test(normalizedMail(lines[index + 1] || '')))) break;
+    if (QUOTE_ATTRIBUTION_RE.test(line) && /\d|@/.test(`${lines[index - 1] || ''} ${line}`)) {
+      if (!/\d|@/.test(line)) own.pop(); // the attribution was wrapped on two lines
+      break;
+    }
+    own.push(rawLine);
+  }
+  return own.join('\n');
+}
+
+/** Sentences of a text wrapped at any width; a date such as "12. Oktober" does not end one. */
+function sentencesOf(text) {
+  return text.split(/(?<=[^\d\s][.!?;])\s+|\n\s*\n/u)
+    .map((sentence) => sentence.replace(COURTESY_RE, ' ').replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .slice(0, 200);
+}
+
+const negatesInterview = (sentence) => INTERVIEW_RE.test(sentence) && !NOT_EVERYONE_RE.test(sentence) && !UNTIL_RE.test(sentence)
+  && (NEGATED_INVITATION_RE.test(sentence) || (NEGATED_INTERVIEW_NEAR_RE.test(sentence) && REGRET_RE.test(sentence)));
+
+const namesInterview = (sentence) => INTERVIEW_RE.test(sentence) && !HYPOTHETICAL_RE.test(sentence) && !CONDITIONAL_INVITE_RE.test(sentence) && !PAST_INTERVIEW_RE.test(sentence);
+
+const proposesInterview = (sentence) => namesInterview(sentence) && INVITATION_RE.test(sentence) && !negatesInterview(sentence);
+
+const invitesToInterview = (sentence) => proposesInterview(sentence) && !NEGATED.test(sentence) && ADDRESSEE_RE.test(sentence);
+
+const changesInterview = (sentence) => INTERVIEW_RE.test(sentence) && INTERVIEW_CHANGE_RE.test(sentence) && !HYPOTHETICAL_RE.test(sentence);
+
+const rejectsApplication = (sentence) => !HYPOTHETICAL_RE.test(sentence) && (
+  (REJECTION_RE.test(sentence) && (ADDRESSEE_RE.test(sentence) || REGRET_RE.test(sentence) || POST_FILLED_RE.test(sentence)))
+  || negatesInterview(sentence)
+  || (OTHER_CANDIDATE_RE.test(sentence) && DECISION_RE.test(sentence))
+  || (REFUSAL_WORD_RE.test(sentence) && !NEGATED.test(sentence) && (REGRET_RE.test(sentence) || APPLICATION_TOPIC_RE.test(sentence))));
+
+const requestsVerification = (sentence) => VERIFY_REQUEST_RE.test(sentence) && !RECEIPT_WORD_RE.test(sentence)
+  && (!NEGATED.test(sentence) || UNTIL_RE.test(sentence));
+
+const asksAccountVerification = (sentence) => requestsVerification(sentence)
+  || (VERIFICATION_NAMED_RE.test(sentence) && (!NEGATED.test(sentence) || /\d{4,8}/.test(sentence)))
+  || (VERIFY_WORD_RE.test(sentence) && LINK_WORD_RE.test(sentence) && /https:\/\/\S/i.test(sentence) && !APPLICATION_TOPIC_RE.test(sentence));
+
+const offersJob = (sentence) => (OFFER_RE.test(sentence) || (CONTRACT_RE.test(sentence) && CONTRACT_SENT_RE.test(sentence)))
+  && !NEGATED.test(sentence) && !HYPOTHETICAL_RE.test(sentence) && !INTERVIEW_RE.test(sentence);
+
+const assignsAssessment = (sentence) => ASSESSMENT_RE.test(sentence) && !NEGATED.test(sentence) && !HYPOTHETICAL_RE.test(sentence)
+  && (PLEASE_RE.test(sentence) || INVITATION_RE.test(sentence) || COMPLETE_RE.test(sentence));
+
+const requestsDocuments = (sentence) => DOCUMENT_NOUN_RE.test(sentence) && DOCUMENT_VERB_RE.test(sentence)
+  && (PLEASE_RE.test(sentence) || DOCUMENT_REQUEST_RE.test(sentence))
+  && !NEGATED.test(sentence) && !HYPOTHETICAL_RE.test(sentence);
+
+/** About the application, stated as a fact: not denied, asked, conditional or about everyone's. */
+function acknowledgesApplication(sentence) {
+  const receipt = APPLICATION_RECEIVED_RE.exec(sentence);
+  return Boolean(receipt) && APPLICATION_TOPIC_RE.test(sentence) && !NOT_RECEIVED_RE.test(sentence)
+    && !MANY_APPLICATIONS_RE.test(sentence) && !/\?\s*$/.test(sentence)
+    && !HYPOTHETICAL_RE.test(sentence.slice(0, receipt.index));
+}
+
+function categoryOfSentences(sentences, topic, body) {
+  const any = (purpose) => sentences.some(purpose);
+  if (any(asksAccountVerification)) return 'verification';
+  if (any(changesInterview)) return 'other';
+  if (any(rejectsApplication)) return any(proposesInterview) ? 'other' : 'rejection';
+  if (any(invitesToInterview)) return 'interview_invite';
+  if (any(offersJob)) return 'offer';
+  if (any(assignsAssessment)) return 'assessment';
+  if (any(requestsDocuments)) return 'documents_request';
+  if (any(acknowledgesApplication)) return 'auto_acknowledgement';
+  if (!body.length && topic.some(namesInterview)) return 'interview_invite';
+  if (ACCOUNT_NOTICE_RE.test(sentences.join('\n'))) return 'verification';
+  return 'other';
+}
+
+/** The sender's own words with their category; a reply's subject repeats the old message. */
+function readByRules({ subject = '', text = '' }) {
+  const heading = normalizedMail(subject);
+  const reply = REPLY_SUBJECT_RE.test(heading);
+  const sourceText = ownMessageText(String(text || '').replace(/\r\n?/g, '\n').slice(0, 20_000));
+  const current = normalizedMail(sourceText);
+  const topic = reply ? [] : sentencesOf(heading);
+  const body = sentencesOf(current);
+  const sentences = [...topic, ...body];
+  return {
+    subject: reply ? '' : heading,
+    text: current,
+    sourceSubject: reply ? '' : String(subject || ''),
+    sourceText,
+    category: categoryOfSentences(sentences, topic, body),
+    verificationAsked: sentences.some(asksAccountVerification),
+    linkAsked: sentences.some(requestsVerification) && !sentences.some(acknowledgesApplication) && !sentences.some((sentence) => INTERVIEW_RE.test(sentence)),
+  };
+}
+
+/**
+ * Deterministic fallback when Codex is unavailable: the purpose of the sender's
+ * own sentences. An Auto-Submitted header says who wrote the message, not what
+ * it says, so only the receipt wording makes an acknowledgement.
+ */
+export function classifyByRules(message) {
+  return readByRules(message).category;
+}
+
+/** The one link of the sender's own text, verbatim: with two, nothing says which one verifies. */
+const MAX_VERIFICATION_URL = MAX_PORTAL_VERIFICATION_URL; // sanitizeClassification keeps this much: a longer link would lose its token
+function soleSecureLink(text) {
+  const links = [...new Set((text.match(/(?:\bhttps?:\/\/|\bwww\.)[^\x00-\x20<>"']+/gi) || []))];
+  if (links.length !== 1 || links[0].length > MAX_VERIFICATION_URL || !/^[\x21-\x7e]+$/.test(links[0])) return '';
+  try {
+    const url = new URL(links[0]);
+    return url.protocol === 'https:' && !url.username && !url.password ? links[0] : '';
+  } catch {
+    return '';
+  }
+}
+
+function containsVerbatimCode(text, code) {
+  if (!code) return false;
+  const tokenCharacter = /[\p{L}\p{N}\p{M}\p{Cf}_-]/u;
+  let from = 0;
+  while (from <= text.length) {
+    const index = text.indexOf(code, from);
+    if (index < 0) return false;
+    const before = Array.from(text.slice(Math.max(0, index - 2), index)).at(-1) || '';
+    const after = Array.from(text.slice(index + code.length, index + code.length + 2))[0] || '';
+    if (!tokenCharacter.test(before) && !tokenCharacter.test(after)) return true;
+    from = index + 1;
+  }
+  return false;
 }
 
 function sanitizeClassification(raw, message) {
-  const text = `${message.subject}\n${message.text}`;
+  const text = `${message.subject}\n${message.text}`.slice(0, 20_000);
   const category = correctedCategory(INBOUND_CATEGORIES.includes(raw?.category) ? raw.category : 'other', message);
-  const proposedCode = String(raw?.verificationCode || '').trim().slice(0, 40);
-  const code = proposedCode && text.includes(proposedCode)
+  const rawCode = String(raw?.verificationCode || '').trim();
+  const proposedCode = rawCode.length <= 40 ? rawCode : '';
+  const code = proposedCode && containsVerbatimCode(text, proposedCode)
     ? proposedCode
     : category === 'verification' ? (VERIFICATION_CODE_RE.exec(text)?.[1] || '') : '';
-  const url = String(raw?.verificationUrl || '').trim().slice(0, 2000);
+  const proposedUrl = String(raw?.verificationUrl || '').trim();
+  const url = proposedUrl.length <= MAX_VERIFICATION_URL ? proposedUrl : '';
   return {
     category,
     summaryIt: String(raw?.summaryIt || '').trim().slice(0, 400),
@@ -126,7 +331,7 @@ function sanitizeClassification(raw, message) {
     interviewWhen: String(raw?.interviewWhen || '').trim().slice(0, 200),
     requestedDocuments: (Array.isArray(raw?.requestedDocuments) ? raw.requestedDocuments : []).map((item) => String(item).trim().slice(0, 200)).filter(Boolean).slice(0, 10),
     // Kept only if the message really contains them (never a constructed value).
-    verificationCode: code && text.includes(code) ? code : '',
+    verificationCode: code && containsVerbatimCode(text, code) ? code : '',
     verificationUrl: url && /^https:\/\//i.test(url) && text.includes(url) ? url : '',
     needsReply: raw?.needsReply === true,
   };
@@ -146,11 +351,63 @@ const FORWARD_COPY = {
   en: { lead: 'You received a message from {company} about your application to {job}.', summary: 'In short:', reply: 'To answer, just reply to this email: it goes straight to the person who wrote to you.', original: 'Original message' },
 };
 
+const OMITTED_ATTACHMENTS_COPY = {
+  it: { one: 'Attenzione: 1 allegato non è stato inoltrato perché supererebbe il limite complessivo di {limit} MB. Per riceverlo, chiedilo a chi ti ha scritto.', many: 'Attenzione: {count} allegati non sono stati inoltrati perché supererebbero il limite complessivo di {limit} MB. Per riceverli, chiedili a chi ti ha scritto.', names: 'Non inoltrati:', fallback: 'allegato' },
+  de: { one: 'Achtung: 1 Anhang wurde nicht weitergeleitet, weil er die Gesamtgrenze von {limit} MB überschreiten würde. Bitte frag die Person, die dir geschrieben hat, danach.', many: 'Achtung: {count} Anhänge wurden nicht weitergeleitet, weil sie die Gesamtgrenze von {limit} MB überschreiten würden. Bitte frag die Person, die dir geschrieben hat, danach.', names: 'Nicht weitergeleitet:', fallback: 'Anhang' },
+  fr: { one: 'Attention : 1 pièce jointe n’a pas été transférée car elle dépasserait la limite totale de {limit} Mo. Pour la recevoir, demandez-la à la personne qui vous a écrit.', many: 'Attention : {count} pièces jointes n’ont pas été transférées car elles dépasseraient la limite totale de {limit} Mo. Pour les recevoir, demandez-les à la personne qui vous a écrit.', names: 'Non transférées :', fallback: 'pièce jointe' },
+  en: { one: 'Warning: 1 attachment was not forwarded because it would exceed the {limit} MB total limit. To get it, ask the person who wrote to you.', many: 'Warning: {count} attachments were not forwarded because they would exceed the {limit} MB total limit. To get them, ask the person who wrote to you.', names: 'Not forwarded:', fallback: 'attachment' },
+};
+const OMITTED_NAMES_SHOWN = 10;
+const ATTACHMENT_URI_PREFIX_RE = /^(?:[a-z][a-z\d+.-]*:|\/\/|www\.)/i;
+const SAFE_ATTACHMENT_NAME_RE = /^[\p{L}\p{M}\p{N}\p{Pd}\p{Pc}\p{Sc} .()[\]{}+,&'’!=\$]+$/u;
+
+/** A file name is sender text: display only positive filename-safe names. */
+function safeAttachmentName(name, fallback) {
+  if (typeof name !== 'string') return fallback;
+  const normalized = name.normalize('NFC');
+  const trimmed = normalized.trim();
+  if (!trimmed || /[\p{Cc}\p{Cf}\p{Zl}\p{Zp}]/u.test(normalized) || /[\\/]/u.test(normalized)
+    || ATTACHMENT_URI_PREFIX_RE.test(trimmed)) return fallback;
+  const display = trimmed;
+  if (!display || !SAFE_ATTACHMENT_NAME_RE.test(display)) return fallback;
+  return [...display].slice(0, 80).join('');
+}
+
+function omittedAttachmentsNotice(locale, names) {
+  if (!names.length) return null;
+  const copy = OMITTED_ATTACHMENTS_COPY[locale] || OMITTED_ATTACHMENTS_COPY.it;
+  const limit = String(MAX_FORWARD_ATTACHMENTS_BYTES / (1024 * 1024));
+  const warning = (names.length === 1 ? copy.one : copy.many).replace('{count}', String(names.length)).replace('{limit}', limit);
+  const shown = names.slice(0, OMITTED_NAMES_SHOWN).map((name) => safeAttachmentName(name, copy.fallback));
+  const more = names.length - shown.length;
+  return { warning, list: `${copy.names} ${shown.join(', ')}${more > 0 ? ` +${more}` : ''}` };
+}
+
+/** The cap is on the total: a file that does not fit never costs the smaller ones after it. */
+function forwardableAttachments(attachments) {
+  const included = [];
+  const omittedAttachments = [];
+  let total = 0;
+  for (const attachment of attachments) {
+    if (total + attachment.content.length > MAX_FORWARD_ATTACHMENTS_BYTES) {
+      omittedAttachments.push(attachment.filename);
+      continue;
+    }
+    total += attachment.content.length;
+    included.push({
+      filename: attachment.filename || 'allegato',
+      ...(attachment.contentType ? { contentType: attachment.contentType } : {}),
+      content: attachment.content.toString('base64'),
+    });
+  }
+  return { attachments: included, omittedAttachments };
+}
+
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
-export function buildForward({ order, message, classification, sender }) {
+export function buildForward({ order, message, classification, sender, omittedAttachments = [] }) {
   const locale = resolveOrderLocale(order);
   const copy = FORWARD_COPY[locale] || FORWARD_COPY.it;
   const prefix = (PREFIX[locale] || PREFIX.it)[classification.category];
@@ -159,6 +416,7 @@ export function buildForward({ order, message, classification, sender }) {
   const original = String(message.text || '').trim().slice(0, 50_000);
   const subject = `[${prefix}] ${String(message.subject || '').replace(/^\s*(\[[^\]]*\]\s*)+/, '')}`.slice(0, 250);
   const summary = classification.summaryCandidate ? `${copy.summary} ${classification.summaryCandidate}` : '';
+  const omitted = omittedAttachmentsNotice(locale, omittedAttachments);
   const html = renderBrandedEmail({
     locale,
     preheader: summary || lead,
@@ -168,6 +426,7 @@ export function buildForward({ order, message, classification, sender }) {
     bodyHtml: [
       brandParagraph(escapeHtml(lead)),
       summary ? brandCallout(`<strong>${escapeHtml(summary)}</strong>`) : '',
+      omitted ? brandCallout(`<strong>${escapeHtml(omitted.warning)}</strong><br>${escapeHtml(omitted.list)}`) : '',
       brandParagraph(escapeHtml(copy.reply)),
       `<p style="margin:16px 0 4px;font-size:12px;color:#64748b">${escapeHtml(copy.original)} — ${escapeHtml(sender)}</p>`,
       `<div style="white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;line-height:1.6;max-width:100%;border-left:3px solid #e2e8f0;padding-left:12px;font-size:14px;color:#1e293b">${escapeHtml(original)}</div>`,
@@ -175,7 +434,7 @@ export function buildForward({ order, message, classification, sender }) {
     ].join(''),
     footerLines: [],
   });
-  const text = [lead, summary, copy.reply, `---- ${copy.original} (${sender}) ----`, original].filter(Boolean).join('\n\n');
+  const text = [lead, summary, omitted ? `${omitted.warning}\n${omitted.list}` : '', copy.reply, `---- ${copy.original} (${sender}) ----`, original].filter(Boolean).join('\n\n');
   return { subject, html, text };
 }
 
@@ -223,19 +482,44 @@ const PROCESSING_STALE_MS = 10 * 60 * 1000;
 /**
  * A portal account of the order (scripts/assisted-application/lib/portal/
  * account.mjs) still waiting for its verification claims this message: its
- * link is on that portal's site (the runner opens no other), or it carries a
- * code and comes from that portal's site (or its ATS family). Unclaimed
+ * link is on that exact portal host (the runner opens no other), or it carries a
+ * code and comes from that exact portal host. Unclaimed
  * messages go to the candidate as usual; the runner still reads a code from
  * the inbox, so forwarding a doubtful one never blocks it.
  */
-export async function claimedByPortalAccount(orderRef, classification, sender = '') {
+async function portalAccountsWaiting(orderRef) {
   const snapshot = await orderRef.collection('automation').doc(PORTAL_ACCOUNTS_DOC_ID).get();
-  const waiting = Object.values(snapshot.data() || {}).filter((entry) => entry?.passwordEnc && !entry.verifiedAt);
-  if (!waiting.length) return false;
-  if (classification.verificationUrl && waiting.some((entry) => sameSite(classification.verificationUrl, entry.host))) return true;
-  const senderDomain = String(sender || '').split('@')[1] || '';
-  return Boolean(classification.verificationCode && senderDomain)
-    && waiting.some((entry) => sameSite(`https://${senderDomain}/`, entry.host));
+  return Object.values(snapshot.data() || {}).filter((entry) => entry?.passwordEnc && !entry.verifiedAt);
+}
+
+async function verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked, linkAsked, text } = {}) {
+  if (!authenticated || !verificationAsked || classification.category !== 'verification') return '';
+  const waiting = await portalAccountsWaiting(orderRef);
+  const link = classification.verificationUrl;
+  const senderHost = String(sender || '').split('@')[1] || '';
+  const account = waiting.find((entry) => link
+    ? Boolean(linkAsked && soleSecureLink(String(text || '')) === link && exactPortalVerificationUrl(link, entry.host))
+    : Boolean(classification.verificationCode && containsVerbatimCode(String(text || ''), classification.verificationCode)
+      && senderHost === String(entry.host || '').toLowerCase()));
+  return account ? String(account.host).toLowerCase() : '';
+}
+
+export async function claimedByPortalAccount(orderRef, classification, sender = '', context = {}) {
+  return Boolean(await verificationAccountHost(orderRef, classification, sender, context));
+}
+
+/**
+ * Without the model nothing judges the message, and a claimed one is kept from
+ * the candidate: a link is claimed only for an authenticated sender who asks to
+ * verify, when it is the only one in their own text and its host is exactly the
+ * host of an account of this order that is waiting. sameSite is too wide here
+ * (shared ATS tenants, ATS families, two-label suffixes). Anything else stays
+ * with the candidate.
+ */
+async function linkOfWaitingAccount(orderRef, { sourceText, linkAsked, authenticated }) {
+  const link = linkAsked && authenticated ? soleSecureLink(sourceText) : '';
+  if (!link) return '';
+  return (await portalAccountsWaiting(orderRef)).some((entry) => exactPortalVerificationUrl(link, entry.host)) ? link : '';
 }
 
 /**
@@ -282,7 +566,8 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     const { raw } = decryptJson(JSON.parse(Buffer.from(file).toString('utf8')), runKeyFrom(runKey));
     const message = parseMimeMessage(Buffer.from(raw, 'base64'));
     const sender = addressOf(message.from);
-    const autoSubmitted = /auto-(generated|replied)/i.test(message.headers.find(([key]) => key === 'auto-submitted')?.[1] || '');
+    const rules = readByRules(message);
+    const authenticated = senderAuthenticated(message.headers, sender);
     let classification;
     let classifiedBy = 'codex';
     try {
@@ -296,7 +581,11 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     } catch (error) {
       classifiedBy = 'rules';
       console.warn('[assistedApplicationInbound] Codex classification failed, rules used:', error instanceof Error ? error.message.slice(0, 80) : String(error));
-      classification = sanitizeClassification({ category: classifyByRules({ ...message, autoSubmitted }) }, message);
+      classification = sanitizeClassification({
+        category: rules.category,
+        verificationCode: rules.verificationAsked ? NAMED_CODE_RE.exec(rules.sourceText)?.[1] : '',
+        verificationUrl: await linkOfWaitingAccount(orderRef, { ...rules, authenticated }),
+      }, { subject: rules.sourceSubject, text: rules.sourceText });
     }
 
     const to = customerEmailFor(order);
@@ -305,22 +594,12 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // runner that created the account on the alias, and kept from the
     // candidate, only when an account of this order waits for it: a link on
     // that portal's site, or a code. Anything else reaches the candidate.
-    const consumedByRunner = classification.category === 'verification'
-      && await claimedByPortalAccount(orderRef, classification, sender);
+    const portalVerificationHost = await verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText });
+    const consumedByRunner = Boolean(portalVerificationHost);
     if (consumedByRunner) forwarded = { status: 'skipped', reason: 'portal_verification' };
     else if (to) {
-      const attachments = [];
-      let total = 0;
-      for (const attachment of message.attachments) {
-        total += attachment.content.length;
-        if (total > MAX_FORWARD_ATTACHMENTS_BYTES) break;
-        attachments.push({
-          filename: attachment.filename || 'allegato',
-          ...(attachment.contentType ? { contentType: attachment.contentType } : {}),
-          content: attachment.content.toString('base64'),
-        });
-      }
-      const forward = buildForward({ order, message, classification, sender: sender || message.from });
+      const { attachments, omittedAttachments } = forwardableAttachments(message.attachments);
+      const forward = buildForward({ order, message, classification, sender: sender || message.from, omittedAttachments });
       const replyTo = sender && sender !== OWNER_MAILBOX && !sender.endsWith('@candidature.frontaliereticino.ch') ? sender : undefined;
       const company = String(order.companyName || 'Frontaliere Ticino').replace(/["<>\\\r\n]/g, '').slice(0, 60);
       const { failed, sent } = await sendCascade([{
@@ -357,6 +636,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         attachments: message.attachments.map((item) => item.filename || 'allegato').slice(0, 20),
         classifiedBy,
         ...classification,
+        portalVerificationHost,
         forwarded,
       }, { merge: true });
       transaction.set(orderRef, {

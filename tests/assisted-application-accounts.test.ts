@@ -223,7 +223,7 @@ describe('portal account store', () => {
       now += ms;
       if (now >= 20_500) {
         await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('real')
-          .set({ receivedAt: now, category: 'verification', verificationUrl: `https://${HOST}/de-CH/Sunrise/activate/xyz`, verificationCode: '' });
+          .set({ receivedAt: now, category: 'verification', portalVerificationHost: HOST, verificationUrl: `https://${HOST}/de-CH/Sunrise/activate/xyz`, verificationCode: '' });
       }
     });
     const mask = vi.fn();
@@ -248,7 +248,7 @@ describe('portal account store', () => {
     await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('old')
       .set({ receivedAt: 6000 }, { merge: true });
     await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('new')
-      .set({ receivedAt: 7000, category: 'verification', verificationUrl: '', verificationCode: '222222' });
+      .set({ receivedAt: 7000, category: 'verification', portalVerificationHost: HOST, verificationUrl: '', verificationCode: '222222' });
     now = 7000;
     expect(await accounts.waitForVerification({ host: HOST, sinceMs: 5000, excludeMessageIds: beforeResend })).toMatchObject({ messageId: 'new', code: '222222' });
   });

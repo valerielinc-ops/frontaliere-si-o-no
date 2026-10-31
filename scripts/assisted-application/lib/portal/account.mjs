@@ -21,7 +21,7 @@
 
 import { randomBytes } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from '../../../../functions/src/assistedApplicationConstants.js';
-import { sameSite } from '../../../../functions/src/assistedApplicationPortalSites.js';
+import { sameSite, exactPortalVerificationUrl } from '../../../../functions/src/assistedApplicationPortalSites.js';
 import { decryptJson, encryptJson } from '../secure-run.mjs';
 
 export const VERIFICATION_TIMEOUT_MS = 10 * 60 * 1000;
@@ -182,8 +182,8 @@ export function hostKey(host) {
   return String(host || '').toLowerCase().replace(/[^a-z0-9-]/g, '_').slice(0, 120);
 }
 
-// A verification link is opened only on the portal's own site (or its ATS
-// family); the inbound handler uses the same rule to keep a message from the candidate.
+// sameSite stays exported for compatibility. Opening verification links uses
+// the exact account host and the inbound handler's validated host binding.
 export { sameSite };
 
 export function accountsRefFor(db, orderId) {
@@ -236,7 +236,7 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
     },
     /**
      * The first verification message classified by the inbound handler after
-     * `sinceMs` whose link is on the portal's site (or that carries a code).
+     * `sinceMs` bound by inbound to this exact account host.
      */
     async waitForVerification({ host, sinceMs, timeoutMs = VERIFICATION_TIMEOUT_MS, excludeMessageIds = [] }) {
       const excluded = new Set(excludeMessageIds);
@@ -246,8 +246,8 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
         for (const doc of snapshot.docs) {
           if (excluded.has(doc.id)) continue;
           const message = doc.data();
-          if (message.category !== 'verification') continue;
-          const url = message.verificationUrl && sameSite(message.verificationUrl, host) ? message.verificationUrl : '';
+          if (message.category !== 'verification' || message.portalVerificationHost !== String(host).toLowerCase()) continue;
+          const url = exactPortalVerificationUrl(message.verificationUrl, host);
           const code = String(message.verificationCode || '');
           if (url || code) {
             mask(url);
