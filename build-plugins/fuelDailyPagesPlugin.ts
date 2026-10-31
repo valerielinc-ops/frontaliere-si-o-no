@@ -2347,7 +2347,9 @@ interface StationContext {
   zone: FuelZone;
   city: string; // display-case, from address
   slug: string;
+  /** With the slug's trailing number: keeps <title> unique, never structured data. */
   brandDisplay: string;
+  brandName: string;
   streetDisplay: string;
   prices: { diesel: number | null; benzina: number | null };
 }
@@ -2415,6 +2417,7 @@ export function collectSwissStationContexts(dataset: FuelPricesDataset): Station
       city: cityFromAddr,
       slug,
       brandDisplay,
+      brandName: baseBrandDisplay,
       streetDisplay: street,
       prices,
     });
@@ -3255,7 +3258,7 @@ function renderStationPage(opts: {
   const gasStationLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'GasStation',
-    name: `${ctx.brandDisplay} ${ctx.streetDisplay}`.trim(),
+    name: `${ctx.brandName} ${ctx.streetDisplay}`.trim(),
     address: {
       '@type': 'PostalAddress',
       streetAddress: ctx.streetDisplay,
@@ -3271,7 +3274,7 @@ function renderStationPage(opts: {
           },
         }
       : {}),
-    brand: ctx.brandDisplay,
+    brand: ctx.brandName,
     url: canonicalUrl,
   });
 
@@ -4616,7 +4619,9 @@ interface ItalianStationContext {
   readonly station: ItalianCityStation;
   readonly cityEntry: ItalianCityEntry;
   readonly slug: string;
+  /** With the slug's trailing number: keeps <title> unique, never structured data. */
   readonly brandDisplay: string;
+  readonly brandName: string;
   readonly streetDisplay: string;
   readonly priceEur: number;
 }
@@ -4686,6 +4691,7 @@ function collectItalianStationContexts(
         cityEntry: entry,
         slug,
         brandDisplay,
+        brandName: baseBrandDisplay,
         streetDisplay: street,
         priceEur: s.priceEur as number,
       });
@@ -5120,7 +5126,7 @@ function renderItalianStationPage(opts: {
   const gasStationLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'GasStation',
-    name: `${ctx.brandDisplay} ${ctx.streetDisplay}`.trim(),
+    name: `${ctx.brandName} ${ctx.streetDisplay}`.trim(),
     address: {
       '@type': 'PostalAddress',
       streetAddress: ctx.streetDisplay,
@@ -5137,7 +5143,7 @@ function renderItalianStationPage(opts: {
           },
         }
       : {}),
-    brand: ctx.brandDisplay,
+    brand: ctx.brandName,
     url: canonicalUrl,
   });
 

@@ -60,6 +60,69 @@ describe('AI reference source provenance', () => {
   });
 });
 
+describe('llms family derived from the sitemaps', () => {
+  const urls = (...paths: string[]) => `<urlset>${paths.map((p) => `<url><loc>https://frontaliereticino.ch${p}</loc><lastmod>2026-10-20</lastmod></url>`).join('')}</urlset>`;
+
+  function seeded() {
+    const f = fixture();
+    fs.writeFileSync(path.join(f.distDir, 'llms.txt'), '# Reference\n- **3000+ Blog Articles** — hub\n');
+    fs.writeFileSync(path.join(f.distDir, 'llms-full.txt'), '# Reference\nWe publish **3,000+ in-depth articles**.\n');
+    fs.writeFileSync(path.join(f.publicDir, 'sitemap-pages.xml'), '<urlset></urlset>');
+    fs.writeFileSync(path.join(f.publicDir, 'sitemap-blog.xml'), urls('/articoli-frontaliere/a/', '/articoli-frontaliere/b/'));
+    // The dist copy is the final one, and it has more URLs than the seed.
+    fs.writeFileSync(path.join(f.distDir, 'sitemap-blog.xml'), urls('/articoli-frontaliere/a/', '/articoli-frontaliere/b/', '/en/cross-border-articles/a/'));
+    return f;
+  }
+
+  it('states one article count everywhere and the real total of URLs', async () => {
+    const f = seeded();
+    await generateLlmsTxtFamily(f);
+    const llms = fs.readFileSync(path.join(f.distDir, 'llms.txt'), 'utf8');
+    const full = fs.readFileSync(path.join(f.distDir, 'llms-full.txt'), 'utf8');
+    expect(llms).toContain('**2 Blog Articles**');
+    expect(llms).toContain('- **Blog Articles**: 2 pages');
+    expect(llms).toContain('3 URLs in the sitemaps across all languages');
+    expect(full).toContain('**2 in-depth articles**');
+    expect(`${llms}${full}`).not.toContain('3,000+');
+  });
+
+  it('counts a translation declared only as an hreflang alternate, once', async () => {
+    const f = seeded();
+    const alternate = (lang: string, p: string) => `<xhtml:link rel="alternate" hreflang="${lang}" href="https://frontaliereticino.ch${p}" />`;
+    const block = `<url><loc>https://frontaliereticino.ch/guida/</loc>${alternate('it', '/guida/')}${alternate('en', '/en/guide/')}${alternate('de', '/de/ratgeber/')}${alternate('fr', '/fr/guide/')}${alternate('x-default', '/guida/')}</url>`;
+    fs.writeFileSync(path.join(f.distDir, 'sitemap-blog.xml'), `<urlset>${block}</urlset>`);
+    const { summarizeSitemaps } = await import('../scripts/lib/llms-txt-generator.mjs');
+    expect(summarizeSitemaps(f.publicDir, fs, f.distDir, ['sitemap-blog.xml']).totalUrls).toBe(4);
+  });
+
+  it('keeps the per-URL index out of the reference, with its own derived date', async () => {
+    const f = seeded();
+    await generateLlmsTxtFamily(f);
+    const full = fs.readFileSync(path.join(f.distDir, 'llms-full.txt'), 'utf8');
+    const index = fs.readFileSync(path.join(f.distDir, 'llms-index.txt'), 'utf8');
+    expect(full).not.toContain('/articoli-frontaliere/a/');
+    expect(full).toContain('/llms-index.txt');
+    expect(index).toContain('/articoli-frontaliere/a/');
+    expect(index).toContain('Newest indexed change: 2026-10-20');
+  });
+
+  it('is idempotent: a second run on its own output replaces the pointer', async () => {
+    const f = seeded();
+    await generateLlmsTxtFamily(f);
+    const once = fs.readFileSync(path.join(f.distDir, 'llms-full.txt'), 'utf8');
+    await generateLlmsTxtFamily(f);
+    expect(fs.readFileSync(path.join(f.distDir, 'llms-full.txt'), 'utf8')).toBe(once);
+  });
+
+  it.each(['public/llms.txt', 'public/llms-full.txt', 'public/en/llms.txt', 'public/en/llms-full.txt'])(
+    '%s makes no competitive superlative about the site', (file) => {
+      const text = fs.readFileSync(path.resolve(file), 'utf8');
+      expect(text).not.toMatch(/Frontaliere Ticino[^\n]{0,80}most comprehensive/);
+      expect(text).not.toMatch(/How Our Tools Compare|Fiscomania|TiConsiglio/);
+    },
+  );
+});
+
 describe('AI fiscal reference consistency', () => {
   it.each(['public/llms.txt', 'public/llms-full.txt', 'public/en/llms.txt', 'public/en/llms-full.txt'])(
     '%s distinguishes the treaty history from present employer and residence', (file) => {

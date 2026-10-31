@@ -620,11 +620,11 @@ describe('runtime reliability watchdog', () => {
     });
 
     it('pins the content-sample window once per job', () => {
-      expect(workflow).toContain('echo "CHUNK_GRAPH_ROTATION=$(( $(date -u +%s) / 3600 ))" >> "$GITHUB_ENV"');
+      expect(workflow).toContain('echo "CHUNK_GRAPH_ROTATION=$(( $(date -u +%s) / 1800 ))" >> "$GITHUB_ENV"');
       expect(workflow).toContain('probeRuntime({ chunkGraphOptions: { rotation: rotationFromEnv() } })');
       expect(rotationFromEnv({ CHUNK_GRAPH_ROTATION: '497314' }, 0)).toBe(497314);
-      expect(rotationFromEnv({}, 3 * 3_600_000 + 5)).toBe(3);
-      expect(rotationFromEnv({ CHUNK_GRAPH_ROTATION: 'x' }, 7_200_000)).toBe(2);
+      expect(rotationFromEnv({}, 3 * 1_800_000 + 5)).toBe(3);
+      expect(rotationFromEnv({ CHUNK_GRAPH_ROTATION: 'x' }, 7_200_000)).toBe(4);
     });
   });
 

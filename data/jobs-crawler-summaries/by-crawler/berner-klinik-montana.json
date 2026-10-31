@@ -1,7 +1,7 @@
 {
   "key": "berner-klinik-montana",
   "label": "Berner Klinik Montana",
-  "generatedAt": "2026-10-30T21:15:37.357Z",
+  "generatedAt": "2026-10-31T09:16:38.964Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 13596,
-  "avgDurationMs": 13596,
+  "durationMs": 15342,
+  "avgDurationMs": 15342,
   "durationHistory": [
-    13596
+    15342
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/infirmier-ere-100-2074/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:15:17.706Z",
+      "crawledAt": "2026-10-31T09:16:15.282Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -66,50 +66,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "berner-klinik-montana-90b105c30604",
-      "slug": "collaboratore-di-catering-berner-klinik-montana-crans-montana",
-      "company": "Berner Klinik Montana",
-      "companyKey": "berner-klinik-montana",
-      "companyDomain": "bernerklinik.ch",
-      "title": "Collaborateur.trice restauration",
-      "location": "Crans-Montana",
-      "canton": "VS",
-      "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/collaborateur-trice-restauration-2237/",
-      "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-29T14:32:29.778Z",
-      "addressLocality": "Crans-Montana",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3963",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/collaborateur-trice-restauration-2237/",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-29T14:32:29.778Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "berner-klinik-montana-15179945cb12",
@@ -124,7 +81,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-charge-e-de-communication-a-40-50-2917/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:15:22.077Z",
+      "crawledAt": "2026-10-31T09:16:20.144Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -165,7 +122,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/physiotherapeute-a-100-2872/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:15:20.988Z",
+      "crawledAt": "2026-10-31T09:16:18.857Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -207,7 +164,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/collaborateur-trice-restauration-80-100-2237/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:15:19.858Z",
+      "crawledAt": "2026-10-31T09:16:17.642Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -248,7 +205,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/assistant-e-en-soins-et-sante-communautaire-80-100-2095/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:15:18.804Z",
+      "crawledAt": "2026-10-31T09:16:16.472Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -290,7 +247,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-medecin-chef-de-clinique-ou-chef-de-clinique-adjoint-e-2475/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:15:16.611Z",
+      "crawledAt": "2026-10-31T09:16:14.145Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -331,7 +288,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/medecin-chef-fe-adjoint-e-en-readaptation-neurologique-2852/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:15:15.562Z",
+      "crawledAt": "2026-10-31T09:16:12.974Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -361,5 +318,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

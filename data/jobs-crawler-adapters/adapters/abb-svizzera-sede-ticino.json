@@ -54,8 +54,16 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051419EXTERNALENGLOBAL/R-D-Testing---Lab-Specialist--m-w-d--80--100"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-10-30T21:19:33.044Z",
+  "updatedAt": "2026-10-31T09:22:20.582Z",
   "seedMetaByUrl": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00050946EXTERNALENGLOBAL/PIM-Senior-Admin_JR00050946-1": {
+      "location": "Heidelberg, Baden-Wurttemberg, Germany",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00026201EXTERNALENGLOBAL/Internship-in-Domain-Adaptation-for-Time-Series-Using-Deep-Learning--80-100": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
@@ -152,14 +160,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051041EXTERNALENGLOBAL/XMLNAME--80---100---Customer-Application-Engineer": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00048851EXTERNALENGLOBAL/XMLNAME--80--100---R-D-Electronics-Hardware--Engineer": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -168,9 +168,9 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00050946EXTERNALENGLOBAL/PIM-Senior-Admin_JR00050946-1": {
-      "location": "Heidelberg, Baden-Wurttemberg, Germany",
-      "canton": "AG",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00051041EXTERNALENGLOBAL/XMLNAME--80---100---Customer-Application-Engineer": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "komax",
-  "assembledAt": "2026-10-30T21:39:46.234Z",
-  "runId": "41130235490",
+  "assembledAt": "2026-10-31T09:43:46.171Z",
+  "runId": "41188271558",
   "jobs": [
     {
       "id": "komax-38b4439706fb",
@@ -10,7 +10,7 @@
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
         "de": "facility-manager-w-m-d-komax-ch",
-        "fr": "responsable-de-l-installation-m-w-d-komax-dierikon"
+        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -34,7 +34,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:41.038Z",
+      "crawledAt": "2026-10-31T09:43:39.160Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -61,7 +61,8 @@
         "facility-manager-w-m-d-komax-ch-68e9421a",
         "gestionnaire-d-installations-h-f-d-komax-dierikon",
         "facility-manager-w-m-d-komax-ch-ji9uhd",
-        "facility-manager-m-w-d-komax-dierikon"
+        "facility-manager-m-w-d-komax-dierikon",
+        "responsable-de-l-installation-m-w-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -79,7 +80,7 @@
           "facility-manager-w-m-d-komax-ch-68e9421a"
         ],
         "fr": [
-          "gestionnaire-d-installations-h-f-d-komax-dierikon"
+          "responsable-de-l-installation-m-w-d-komax-dierikon"
         ]
       },
       "firstSeenAt": "2026-09-21T16:17:37.993Z",
@@ -128,7 +129,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Sales-Engineer-80-100-%28mw%29-3608/1165611355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:41.038Z",
+      "crawledAt": "2026-10-31T09:43:39.162Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -206,7 +207,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T21:39:41.037Z",
+      "crawledAt": "2026-10-31T09:43:39.159Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -285,7 +286,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Sales-Switzerland-Technical-Sales-Engineer-%28wmd%29-6036/1165252555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:41.036Z",
+      "crawledAt": "2026-10-31T09:43:39.158Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -370,7 +371,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:39:41.035Z",
+      "crawledAt": "2026-10-31T09:43:39.157Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -498,7 +499,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "komax-2aed90f8cb85",
@@ -618,7 +619,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

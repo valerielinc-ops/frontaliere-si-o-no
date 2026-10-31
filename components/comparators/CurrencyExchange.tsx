@@ -6,6 +6,7 @@ import { buildExchangeHubPath } from '@/services/exchangeSsgPaths';
 import DataFreshness from '@/components/shared/DataFreshness';
 import { SegmentControl } from '@/components/shared/SegmentControl';
 import AffiliateLink from '@/components/shared/AffiliateLink';
+import RevenueNote from '@/components/shared/RevenueNote';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -535,7 +536,7 @@ const CurrencyExchange: React.FC = () => {
  <label htmlFor="exchange-rate" className="text-xs font-bold text-muted uppercase tracking-wide flex items-center gap-2">
  {t('currency.real_market_rate')}
  <div className="group relative inline-flex items-center cursor-help">
- <button type="button" onClick={(e) => { const tip = e.currentTarget.nextElementSibling; if (tip) tip.classList.toggle('hidden'); }} aria-label="Info" className="inline-flex">
+ <button type="button" onClick={(e) => { const tip = e.currentTarget.nextElementSibling; if (tip) tip.classList.toggle('hidden'); }} aria-label="Info" className="inline-flex items-center justify-center w-11 h-11 -my-3.5 -mx-2">
  <Info size={12} className="text-muted" />
  </button>
  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-surface-inverted text-on-accent text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-edge z-50 text-center">
@@ -613,6 +614,7 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </div>
 
+ <RevenueNote />
  {/* Best-offer CTA — prominent affiliate banner for top-ranked partner */}
  {topAffiliate && (
  <AffiliateLink
