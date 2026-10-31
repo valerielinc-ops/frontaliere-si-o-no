@@ -6,7 +6,8 @@ import { useNavigation } from '@/services/NavigationContext';
 import { useTabContent } from '@/services/TabContentContext';
 import { useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analyticsProxy';
-import { isCalculatorIndexPath, pushRoute } from '@/services/router';
+import { pushRoute } from '@/services/router';
+import { isCalculatorIndexPath } from '@/services/calculatorIndexPath';
 import type { ActiveTab, CalcolatoreSubTab, BlogArticleId } from '@/services/router';
 import { Briefcase } from 'lucide-react';
 import {

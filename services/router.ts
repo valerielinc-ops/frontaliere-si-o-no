@@ -19,6 +19,7 @@ import { seededExpiredDocumentMatchesSlug } from './seededExpiredJob';
 import { STABIO_DOSSO_PETITION_PATHS } from './petitionRoute';
 import { EVENTS_ARCHIVE_SEGMENT } from './eventsArchivePaths';
 import { SLUG_TABLES, type SlugTable } from './routeSlugs.data';
+import { isCalculatorIndexPath } from './calculatorIndexPath';
 import { isAdminSectionSlug } from '../components/admin/adminSections';
 import { cdnDataUrl } from './cdnDataBase';
 import { buildJobSlugRecord, jobSlugShardKey, jobSlugShardPath } from './jobSlugShards';
@@ -4191,17 +4192,7 @@ function isLocaleRoot(path: string): boolean {
  return path === '/' || /^\/(?:en|de|fr)\/?$/.test(path);
 }
 
-/**
- * `/calcola-stipendio/` e i suoi equivalenti: pagine indicizzate con canonical
- * proprio. buildPath() riporta il calcolatore alla radice, quindi senza questo
- * controllo l'URL passava a `/` dopo l'idratazione.
- */
-export function isCalculatorIndexPath(path: string): boolean {
- const normalized = path.replace(/\/+$/, '');
- return (Object.keys(SLUG_TABLES) as Locale[]).some(
-  (locale) => normalized === `${localePrefix(locale)}/${SLUG_TABLES[locale].calcolatore}`,
- );
-}
+export { isCalculatorIndexPath };
 
 /** Pagina che mostra già il calcolatore: la rotta di default non deve cambiarne l'URL. */
 function staysOnCalculatorPage(path: string, route: AppRoute): boolean {
