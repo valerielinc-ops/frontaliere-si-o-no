@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { isCalculatorIndexPath, pushRoute, replaceRoute, updatePathForLocale } from '@/services/router';
 import { readStructuredFaq } from '@/components/calculator/StructuredFaqList';
@@ -35,7 +36,7 @@ describe('/calcola-stipendio/ tiene il proprio URL', () => {
 });
 
 describe('H1 uguali prima e dopo idratazione', () => {
-  const read = (rel: string) => readFileSync(new URL(`../${rel}`, import.meta.url), 'utf8');
+  const read = (rel: string) => readFileSync(path.resolve(rel), 'utf8');
 
   it("la home statica usa il testo dell'H1 React", () => {
     const title = read('services/locales/it-critical.ts').match(/'seoContent\.calculator\.title': '([^']+)'/)?.[1];
