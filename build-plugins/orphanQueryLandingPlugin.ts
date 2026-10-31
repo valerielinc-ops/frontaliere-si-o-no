@@ -20,10 +20,10 @@ import { CROSS_BORDER_TAX_FACTS, CROSS_BORDER_TAX_SOURCE } from '../services/cro
  *     present in the clusters file.
  *
  * Anti-doorway mitigations:
- *   - Clusters with <3 matching jobs at build time, or a query naming Ticino
- *     with <3 of them in Ticino, emit
+ *   - Clusters with <3 matching jobs at build time emit
  *     <meta name="robots" content="noindex,follow"> and are NOT added to
- *     the sitemap.
+ *     the sitemap. Ticino queries report Ticino and outside-Ticino counts and
+ *     label wider results when the local count is below three.
  *   - Role-aware editorial (tech / healthcare / retail / hospitality /
  *     office / logistics / generic) ensures pages are NOT templated copies.
  *
@@ -75,6 +75,7 @@ import {
   type OrphanQueryClustersFile,
   type OrphanCountableJob,
   type OrphanLandingRoute,
+  type OrphanLandingRegionCoverage,
 } from './orphanQueryData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
@@ -511,6 +512,38 @@ function buildEditorialDescription(query: string, locale: OrphanLandingLocale, e
   return truncateHeadline(prefix[locale] + editorial, META_DESCRIPTION_MAX_CHARS);
 }
 
+function regionCoverageText(
+  coverage: OrphanLandingRegionCoverage,
+  locale: OrphanLandingLocale,
+): string {
+  const scope = {
+    it: coverage.resultScope === 'ticino'
+      ? 'solo offerte localizzate in Ticino'
+      : 'risultati estesi con sedi fuori dal Ticino o non verificate, perché quelle verificate in Ticino sono sotto soglia',
+    en: coverage.resultScope === 'ticino'
+      ? 'Ticino locations only'
+      : 'all matching openings, not limited to Ticino, because local matches are below the threshold',
+    de: coverage.resultScope === 'ticino'
+      ? 'nur Stellen im Tessin'
+      : 'alle passenden Stellen, nicht nur im Tessin, weil die lokalen Treffer unter dem Mindestwert liegen',
+    fr: coverage.resultScope === 'ticino'
+      ? 'uniquement des postes au Tessin'
+      : 'tous les postes correspondants, pas seulement au Tessin, car les résultats locaux sont sous le seuil',
+  }[locale];
+  const locationCounts = {
+    it: `Ticino: ${coverage.regionMatchCount}; fuori dal Ticino: ${coverage.outsideRegionMatchCount}${coverage.unresolvedRegionMatchCount > 0 ? `; cantone non verificato: ${coverage.unresolvedRegionMatchCount}` : ''}`,
+    en: `Ticino: ${coverage.regionMatchCount}; outside Ticino: ${coverage.outsideRegionMatchCount}${coverage.unresolvedRegionMatchCount > 0 ? `; canton not verified: ${coverage.unresolvedRegionMatchCount}` : ''}`,
+    de: `Tessin: ${coverage.regionMatchCount}; ausserhalb des Tessins: ${coverage.outsideRegionMatchCount}${coverage.unresolvedRegionMatchCount > 0 ? `; Kanton nicht bestätigt: ${coverage.unresolvedRegionMatchCount}` : ''}`,
+    fr: `Tessin : ${coverage.regionMatchCount} ; hors du Tessin : ${coverage.outsideRegionMatchCount}${coverage.unresolvedRegionMatchCount > 0 ? ` ; canton non vérifié : ${coverage.unresolvedRegionMatchCount}` : ''}`,
+  }[locale];
+  return {
+    it: `Copertura dei risultati: ${locationCounts} (${coverage.totalMatchCount} totali). Elenco mostrato: ${scope}.`,
+    en: `Result coverage: ${locationCounts} (${coverage.totalMatchCount} total). Results shown: ${scope}.`,
+    de: `Abdeckung der Ergebnisse: ${locationCounts} (${coverage.totalMatchCount} insgesamt). Angezeigt werden: ${scope}.`,
+    fr: `Couverture des résultats : ${locationCounts} (${coverage.totalMatchCount} au total). Résultats affichés : ${scope}.`,
+  }[locale];
+}
+
 async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): Promise<Record<string, string>> {
   const modPath = path.join(rootDir, 'services', 'locales', `${locale}-orphan-landings.ts`);
   // Plain regex parse — avoid bundling TS at build time.
@@ -545,6 +578,9 @@ interface RenderedPageResult {
   wordCount: number;
   /** Number of matching jobs rendered. */
   matchingJobsCount: number;
+  /** Extra visible copy reporting local vs wider coverage on Ticino queries. */
+  regionCoverageWordCount: number;
+  regionCoverageResultScope?: OrphanLandingRegionCoverage['resultScope'];
   /** Whether this page should be indexed. */
   indexable: boolean;
 }
@@ -552,15 +588,16 @@ interface RenderedPageResult {
 function renderPage(opts: {
   cluster: OrphanQueryCluster;
   matchingJobs: OrphanCountableJob[];
-  /** False when the jobs are not where the query says; see selectOrphanLandingJobs. */
+  /** False when the selected result set cannot clear the minimum-size gate. */
   regionRelevant?: boolean;
+  regionCoverage?: OrphanLandingRegionCoverage;
   strings: Record<string, string>;
   dateStamp: string;
   knownSlugsByLocale: Map<OrphanLandingLocale, Set<string>>;
   /** dist directory for entry-asset resolution. Omit in tests. */
   distDir?: string;
 }): RenderedPageResult {
-  const { cluster, matchingJobs, regionRelevant = true, strings, dateStamp, knownSlugsByLocale, distDir } = opts;
+  const { cluster, matchingJobs, regionRelevant = true, regionCoverage, strings, dateStamp, knownSlugsByLocale, distDir } = opts;
   const locale = cluster.locale;
   const urlPath = buildOrphanLandingPath(locale, cluster.canonicalSlug);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -681,9 +718,13 @@ function renderPage(opts: {
     isPartOf: { '@type': 'WebSite', url: `${BASE_URL}/`, name: 'Frontaliere Ticino' },
   });
 
-  // Decide indexability — <MIN_MATCHING_JOBS jobs, or jobs elsewhere than the
-  // place the query names → noindex (anti-doorway).
+  // The selector keeps the requested region when it clears its local floor;
+  // otherwise an explicit wider-region summary keeps the displayed scope
+  // honest, while the total-match floor excludes empty/thin landings.
   const indexable = matchingJobs.length >= MIN_MATCHING_JOBS && regionRelevant;
+  const regionCoverageHtml = regionCoverage
+    ? `<p data-orphan-region-coverage="ticino" class="s-WzYXnb">${esc(regionCoverageText(regionCoverage, locale))}</p>`
+    : '';
 
   const body = `
     <nav class="s-bcr">
@@ -696,6 +737,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
       <p style="${LEDE_STYLE}">${esc(matchingJobs.length > 0 ? (locale === 'it' ? `${matchingJobs.length} offerte attive per "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · mediana salario CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'en' ? `${matchingJobs.length} active openings for "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · median salary CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'de' ? `${matchingJobs.length} aktive Stellen für "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · Median CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : `${matchingJobs.length} offres actives pour « ${cluster.canonicalQuery} »${medianSalary > 0 ? ` · médiane CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.`) : esc(t('orphanLanding.noResults', 'No openings.')))}</p>
     </header>
+    ${regionCoverageHtml}
     <section class="s-IdxvJZ">
       <div class="s-tbase">
         <div class="s-tlbl">${esc(t('orphanLanding.medianSalary', 'Median salary'))}</div>
@@ -841,6 +883,8 @@ function renderPage(opts: {
     html,
     wordCount,
     matchingJobsCount: matchingJobs.length,
+    regionCoverageWordCount: regionCoverage ? countHtmlBodyWords(regionCoverageText(regionCoverage, locale)) : 0,
+    regionCoverageResultScope: regionCoverage?.resultScope,
     indexable: indexable && wordCount >= MIN_INDEXABLE_WORDS,
   };
 }
@@ -916,6 +960,8 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       const routes: OrphanLandingRoute[] = [];
       let pagesGenerated = 0;
       let pagesIndexable = 0;
+      let pagesIndexableWithWiderTicinoCoverage = 0;
+      let widerTicinoCoverageWords = 0;
       let canonicalBridges = 0;
 
       // Track every indexable cluster per locale so the hub index can list
@@ -940,6 +986,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           cluster,
           matchingJobs: selected.jobs,
           regionRelevant: selected.regionRelevant,
+          regionCoverage: selected.regionCoverage,
           strings: localeStrings[cluster.locale] || {},
           dateStamp,
           knownSlugsByLocale,
@@ -991,6 +1038,10 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
 
         if (render.indexable) {
           pagesIndexable++;
+          if (render.regionCoverageResultScope === 'broader') {
+            pagesIndexableWithWiderTicinoCoverage++;
+            widerTicinoCoverageWords += render.regionCoverageWordCount;
+          }
           sitemapEntries.push(
             `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`,
           );
@@ -1235,7 +1286,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       collector.add(path.join(distDir, 'orphan-query-aliases.json'), JSON.stringify({ schema: 1, aliases: buildOrphanQueryAliases(clusters) }));
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[orphan-query-landings]\x1b[0m Generated ${pagesGenerated} pages (${pagesIndexable} indexable, ${pagesGenerated - pagesIndexable} noindex, ${canonicalBridges} canonical nursing bridges) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+        `\x1b[36m[orphan-query-landings]\x1b[0m Generated ${pagesGenerated} pages (${pagesIndexable} indexable, ${pagesGenerated - pagesIndexable} noindex, ${canonicalBridges} canonical nursing bridges); ${pagesIndexableWithWiderTicinoCoverage} indexable Ticino pages use wider matches with ${(pagesIndexableWithWiderTicinoCoverage ? widerTicinoCoverageWords / pagesIndexableWithWiderTicinoCoverage : 0).toFixed(1)} added coverage words/page — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
       );
     },
   };

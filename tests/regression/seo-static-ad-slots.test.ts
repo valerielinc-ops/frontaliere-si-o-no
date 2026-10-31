@@ -204,7 +204,7 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
 
   it('pharmacy directory gates its multiplex on the same indexable flag as robots', () => {
     const src = fs.readFileSync(path.join(ROOT, 'build-plugins/pharmacyDirectoryPagesPlugin.ts'), 'utf8');
-    expect(src).toMatch(/descriptor\.kind !== 'duty-city'\s*&&\s*!singleEntryCity\s*&&\s*wordCount >= MIN_INDEXABLE_WORDS;/);
+    expect(src).toMatch(/const indexable = releaseReady && descriptor\.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;/);
     expect(src).toMatch(/endOfContentMultiplexHtml\(\{ indexable, contentHtml: body \}\)/);
     expect(src).not.toContain('endOfContentMultiplexHtml({ indexable: true })');
   });

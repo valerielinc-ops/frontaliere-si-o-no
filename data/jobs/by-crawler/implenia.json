@@ -10,7 +10,7 @@
         "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
         "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
-        "fr": "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -57,7 +57,7 @@
       "previousSlugs": [
         "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-        "depollution-m-j-implenia-glattpark-opfikon"
+        "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -68,7 +68,7 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-          "depollution-m-j-implenia-glattpark-opfikon"
+          "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-05T23:08:18.837Z",
@@ -928,7 +928,7 @@
       "slug": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "it": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
-        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
+        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
         "de": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
         "fr": "construction-de-bois-de-contremaitre-m-f-d-80-100-implenia-rumlang"
       },
@@ -979,7 +979,8 @@
         "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
         "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
-        "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
+        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -990,7 +991,7 @@
           "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
         ],
         "en": [
-          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3"
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
         ],
         "fr": [
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
@@ -1167,7 +1168,7 @@
       "slugByLocale": {
         "de": "projektleiter-umbau-w-m-d-implenia-ch",
         "en": "project-manager-conversion-f-m-d-implenia-opfikon",
-        "fr": "projektleiter-umbau-m-w-d-implenia-opfikon",
+        "fr": "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon",
         "it": "conversione-di-project-manager-f-m-d-implenia-opfikon"
       },
       "company": "Implenia",
@@ -1219,12 +1220,12 @@
           "projektleiter-umbau-w-m-d-implenia-ch"
         ],
         "fr": [
-          "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon"
+          "projektleiter-umbau-m-w-d-implenia-opfikon"
         ]
       },
       "previousSlugs": [
         "projektleiter-umbau-w-m-d-implenia-ch",
-        "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon"
+        "projektleiter-umbau-m-w-d-implenia-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1296,11 +1297,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
+          "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
+          "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
+          "responsabile-costruzione-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+          "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+          "direttore-dei-lavori-gu-tu-zurigo-f-m-d-implenia-glattpark-opfikon",
+          "construction-manager-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+          "directeur-de-la-construction-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
-        "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
+        "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
+        "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
+        "responsabile-costruzione-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+        "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+        "direttore-dei-lavori-gu-tu-zurigo-f-m-d-implenia-glattpark-opfikon",
+        "construction-manager-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+        "directeur-de-la-construction-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3028,9 +3041,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "own-initiative-application-implenia-opfikon",
+        "en": "initiativbewerbung-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "demande-d-initiative-implenia-opfikon"
+        "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3084,17 +3097,18 @@
         ],
         "en": [
           "speculative-application-implenia-opfikon",
-          "initiativbewerbung-implenia-opfikon"
+          "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
-          "initiativbewerbung-implenia-ch"
+          "demande-d-initiative-implenia-opfikon"
         ]
       },
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
         "speculative-application-implenia-opfikon",
         "initiativebewerbung-implenia-opfikon",
-        "initiativbewerbung-implenia-opfikon"
+        "own-initiative-application-implenia-opfikon",
+        "demande-d-initiative-implenia-opfikon"
       ],
       "firstSeenAt": "2026-08-11T10:27:35.418Z",
       "salaryMin": 73500,

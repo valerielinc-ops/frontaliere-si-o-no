@@ -22871,10 +22871,6 @@
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2726,
-      "retranslationAttempts": 21,
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -22888,7 +22884,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 22,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2726,
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ebe0e147c966",
@@ -24747,10 +24747,6 @@
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2472,
-      "retranslationAttempts": 21,
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -24764,7 +24760,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 22,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2472,
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e9e38224a2be",

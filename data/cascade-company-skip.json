@@ -1,13 +1,15 @@
 {
-  "run": 277,
+  "run": 278,
   "companies": {
     "fielmann": {
-      "sterile": 1,
-      "signature": "8d912bf111bc74eb"
+      "sterile": 0,
+      "signature": "8d912bf111bc74eb",
+      "skipUntilRun": 281
     },
     "migrolino": {
-      "sterile": 1,
-      "signature": "b7c5f981ef83f8c3"
+      "sterile": 0,
+      "signature": "b7c5f981ef83f8c3",
+      "skipUntilRun": 281
     },
     "pemsa": {
       "sterile": 1,

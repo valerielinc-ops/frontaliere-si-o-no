@@ -71,6 +71,7 @@ export default function CalcolatoreTabContent() {
  } = useTabContent();
  const { t } = useTranslation();
  const onCalculatorIndex = isCalculatorIndexPath(window.location.pathname);
+ const hasPrerenderedHomepageFaq = onCalculatorIndex && document.getElementById('hp-faq-visible') !== null;
  // Hidden desktop results still ran charts/effects on every mobile salary edit.
  // Mount only the calculator for the active breakpoint; state lives in the parent.
  const isDesktopViewport = useMediaQuery('(min-width: 768px)');
@@ -374,7 +375,7 @@ export default function CalcolatoreTabContent() {
  />
  </div>
  </details>
- {onCalculatorIndex && <StructuredFaqList title={t('faq.title')} />}
+ {onCalculatorIndex && !hasPrerenderedHomepageFaq && <StructuredFaqList title={t('faq.title')} />}
  {/* Homepage end-of-page multiplex — complements the compact post-result slot
   * in ResultsView without competing with the hero/input on first paint. */}
  <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as React.CSSProperties} className="mt-8 mb-4 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>

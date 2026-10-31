@@ -62,6 +62,11 @@ export function legacyTiSectionRoot(locale: CantonLocale): string {
   return `${prefix}/${SECTION_LEGACY_TI[locale]}`;
 }
 
+/** Resolve only explicit or municipality-backed geography; keep unknown unknown. */
+export function resolveKnownJobCanton(job: { canton?: string; location?: string }): string | null {
+  return resolvers.resolveKnownJobCanton(job);
+}
+
 export function resolveJobCanton(job: { canton?: string; location?: string }): string {
   return resolvers.resolveJobCanton(job);
 }

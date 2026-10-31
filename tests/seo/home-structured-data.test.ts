@@ -10,7 +10,7 @@ import { resolve } from 'node:path';
 import { JSDOM } from 'jsdom';
 import { describe, expect, it } from 'vitest';
 
-import { renderLocaleRootShell } from '../../build-plugins/staticPagesPlugin';
+import { injectHomepageSeoContent, renderLocaleRootShell } from '../../build-plugins/staticPagesPlugin';
 import { ORGANIZATION_LD, ORGANIZATION_SAME_AS } from '../../services/seo/organizationLd';
 import { EXCHANGE_RATE_DATE } from '../../services/seo/exchangeRateMeta';
 import { jsToJson } from '../../build-plugins/shared/jsToJson';
@@ -34,12 +34,28 @@ const byType = (nodes: Node[], type: string) => nodes.filter((node) => node['@ty
 describe('the Italian home template', () => {
   const nodes = jsonLd(INDEX_HTML);
 
-  it('declares no FAQPage or HowTo the page does not show', () => {
-    expect(byType(nodes, 'FAQPage')).toEqual([]);
+  it('marks the 14 verified FAQs that the initial homepage HTML visibly renders', () => {
+    const [faq] = byType(nodes, 'FAQPage');
+    expect(faq.mainEntity).toHaveLength(14);
     expect(byType(nodes, 'HowTo')).toEqual([]);
     const calculator = JSON.stringify(SEO_PAGES_METADATA.calculator.structuredData);
-    expect(calculator).not.toContain('FAQPage');
+    expect(calculator).toContain('FAQPage');
     expect(calculator).not.toContain('HowTo');
+
+    const rendered = injectHomepageSeoContent(INDEX_HTML, 'it');
+    const { document } = new JSDOM(rendered).window;
+    const visibleFaq = document.querySelector('#hp-faq-visible');
+    expect(visibleFaq).not.toBeNull();
+    const visibleEntries = [...visibleFaq!.querySelectorAll('details')].map((item) => ({
+      question: item.querySelector('summary')?.textContent,
+      answer: item.querySelector('p')?.textContent,
+    }));
+    expect(visibleEntries).toEqual((faq.mainEntity as Array<{ name: string; acceptedAnswer: { text: string } }>).map((item) => ({
+      question: item.name,
+      answer: item.acceptedAnswer.text,
+    })));
+    expect(document.querySelectorAll('#hp-calculator-steps li')).toHaveLength(4);
+    expect(document.querySelector('#hp-calculator-steps')?.textContent).toContain('Inserisci lo stipendio lordo annuo in CHF');
   });
 
   it('offers no SearchAction, because ?q= is disallowed and only the job board reads it', () => {
@@ -73,7 +89,8 @@ describe('the Italian home template', () => {
 });
 
 describe.each(['en', 'de', 'fr'] as const)('the %s home shell', (locale) => {
-  const nodes = jsonLd(renderLocaleRootShell(INDEX_HTML, locale));
+  const rendered = renderLocaleRootShell(INDEX_HTML, locale);
+  const nodes = jsonLd(rendered);
 
   it('has its own WebPage', () => {
     const webPages = byType(nodes, 'WebPage');
@@ -86,6 +103,25 @@ describe.each(['en', 'de', 'fr'] as const)('the %s home shell', (locale) => {
   it('carries no Italian-only block', () => {
     expect(byType(nodes, 'DefinedTermSet')).toEqual([]);
     expect(byType(nodes, 'Dataset')).toEqual([]);
+  });
+
+  it('localizes exactly the questions and answers shown in its initial HTML', () => {
+    const [faq] = byType(nodes, 'FAQPage');
+    expect(faq.inLanguage).toBe(locale);
+    expect(faq.url).toBe(`https://frontaliereticino.ch/${locale}/`);
+    expect(faq.mainEntity).toHaveLength(14);
+    const { document } = new JSDOM(rendered).window;
+    const visibleFaq = document.querySelector('#hp-faq-visible');
+    const visibleEntries = [...visibleFaq!.querySelectorAll('details')].map((item) => ({
+      question: item.querySelector('summary')?.textContent,
+      answer: item.querySelector('p')?.textContent,
+    }));
+    expect(visibleEntries).toEqual((faq.mainEntity as Array<{ name: string; acceptedAnswer: { text: string } }>).map((item) => ({
+      question: item.name,
+      answer: item.acceptedAnswer.text,
+    })));
+    expect(document.querySelectorAll('#hp-calculator-steps li')).toHaveLength(4);
+    expect(byType(nodes, 'HowTo')).toEqual([]);
   });
 
   it('is stable when the shell is rendered twice', () => {

@@ -3,7 +3,7 @@ import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import PharmacyDirectory from '../components/pages/PharmacyDirectory';
 import PharmacyItalyDutyCoverageMatrix from '../components/pharmacies/PharmacyItalyDutyCoverageMatrix';
-import { ITALY_BORDER_PHARMACIES, ITALY_BORDER_PROVINCES, TICINO_CITIES } from '../services/pharmacies/data';
+import { ITALY_BORDER_PHARMACIES, ITALY_BORDER_PROVINCES, TICINO_CITIES, TICINO_PHARMACIES } from '../services/pharmacies/data';
 import { buildDutyCoverageMatrix } from '../services/pharmacies/dutyCoverageMatrix';
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import { buildAtomicItalyDutySnapshots, type ItalyDutySnapshot } from '../services/pharmacies/italyRelease';
@@ -120,6 +120,30 @@ describe('pharmacy country SPA route', () => {
     expect(container.querySelectorAll('article')).toHaveLength(0);
     expect(container.querySelector('#pharmacy-search')).toBeNull();
     expect(container.querySelector('#pharmacy-map-heading')).toBeNull();
+  });
+
+  it.each(locales)('shows nearby pharmacies, published hours and duty context for singleton Ticino towns (%s)', (locale) => {
+    const airoloPharmacy = TICINO_PHARMACIES.find((pharmacy) => pharmacy.city === 'Airolo');
+    expect(TICINO_PHARMACIES.filter((pharmacy) => pharmacy.city === 'Airolo')).toHaveLength(1);
+    expect(airoloPharmacy).toBeDefined();
+    const { container } = render(<PharmacyDirectory page={{ kind: 'city', citySlug: 'airolo', locale }} />);
+    const enrichment = container.querySelector('[data-single-pharmacy-city-enrichment="true"]');
+
+    expect(enrichment).toBeInTheDocument();
+    expect(enrichment?.querySelector('[data-distance-km]')).toBeInTheDocument();
+    expect(enrichment?.textContent).toContain(airoloPharmacy!.name);
+    expect(enrichment?.querySelector('[data-city-duty-verified="true"], [data-city-duty-available="false"]')).toBeInTheDocument();
+  });
+
+  it('does not calculate a distance for a singleton locality without published coordinates', () => {
+    const arbedoPharmacy = TICINO_PHARMACIES.find((pharmacy) => pharmacy.city === 'Arbedo');
+    expect(arbedoPharmacy).toBeDefined();
+    const { container } = render(<PharmacyDirectory page={{ kind: 'city', citySlug: 'arbedo', locale: 'it' }} />);
+    const enrichment = container.querySelector('[data-single-pharmacy-city-enrichment="true"]');
+
+    expect(enrichment).toHaveAttribute('data-pharmacy-id', arbedoPharmacy!.id);
+    expect(enrichment?.querySelector('[data-distance-unavailable="coordinates"]')).toBeInTheDocument();
+    expect(enrichment?.querySelector('[data-distance-km]')).toBeNull();
   });
 
   it('shows the fail-closed coverage matrix when the dataset has no active interval', () => {
