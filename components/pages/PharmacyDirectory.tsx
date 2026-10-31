@@ -28,6 +28,7 @@ import {
   provinceSlugForPharmacy,
 } from '@/services/pharmacies/data';
 import { buildPharmacyPath, type PharmacyPath } from '@/services/pharmacies/paths';
+import { SINGLE_CITY_COPY, hasValidPharmacyCoordinates, nearestPharmacies, nextVerifiedCityDuty } from '@/services/pharmacies/cityEnrichment';
 import { currentDutyForRegion, isDutyCurrentlyActive, publicDutiesForRegion } from '@/services/pharmacies/duties';
 import type { Locale } from '@/services/i18n';
 import {
@@ -302,9 +303,50 @@ function DetailPage({ pharmacy, locale, now }: { pharmacy: Pharmacy; locale: Loc
   </div>;
 }
 
+function SinglePharmacyCityEnrichment({ pharmacy, locale, now }: { pharmacy: Pharmacy; locale: Locale; now: Date }) {
+  const labels = SINGLE_CITY_COPY[locale];
+  const nearby = useMemo(() => nearestPharmacies(pharmacy), [pharmacy]);
+  const schedule = useMemo(() => nextVerifiedCityDuty(pharmacy, DUTIES, now), [pharmacy, now]);
+  const nearbyList = hasValidPharmacyCoordinates(pharmacy)
+    ? nearby.length > 0
+      ? <>
+        <ul className="mt-3 grid gap-3 md:grid-cols-2">
+          {nearby.map(({ pharmacy: candidate, distanceKm: distance }) => {
+            const distanceText = new Intl.NumberFormat(locale === 'it' ? 'it-CH' : locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 }).format(distance);
+            return <li key={candidate.id} data-nearby-pharmacy-id={candidate.id} data-distance-km={distance.toFixed(1)} className="pharmacy-detail-card p-4">
+              <h4 className="font-display text-lg font-bold text-heading"><a className="text-link underline-offset-4 hover:underline" href={href(detailPath(candidate, locale))}>{candidate.name}</a></h4>
+              <address className="mt-1 not-italic text-sm leading-6 text-body">{candidate.address}, {candidate.postalCode} {candidate.city}</address>
+              <p className="mt-2 text-sm text-muted"><strong>{labels.distance}:</strong> {distanceText} km {labels.distanceMethod}.</p>
+              <div className="mt-3"><p className="mb-1 text-sm font-semibold text-heading">{labels.hours}</p><Hours pharmacy={candidate} locale={locale} /></div>
+            </li>;
+          })}
+        </ul>
+      </>
+      : <p className="text-sm text-muted">{labels.noNearby}</p>
+    : <p data-distance-unavailable="coordinates" className="text-sm text-muted">{labels.noCoordinates}</p>;
+  const duty = schedule
+    ? <article data-city-duty-verified="true" className="rounded-xl border border-edge bg-surface p-4">
+      <p className="text-sm leading-6 text-body"><strong>{labels.duty}:</strong> {schedule.duty.coverageName} · <time dateTime={schedule.duty.startsAt}>{formatDate(schedule.duty.startsAt, locale, pharmacy.country)}</time> – <time dateTime={schedule.duty.endsAt}>{formatDate(schedule.duty.endsAt, locale, pharmacy.country)}</time></p>
+      <p className="mt-2 text-sm text-muted">{labels.dutyArea}</p>
+      <p className="mt-2 text-sm"><a className="text-link underline-offset-4 hover:underline" href={schedule.sourceUrl} rel="nofollow noopener">{labels.source}</a></p>
+    </article>
+    : <p data-city-duty-available="false" className="text-sm text-muted">{labels.dutyUnavailable}</p>;
+
+  return <section data-single-pharmacy-city-enrichment="true" data-pharmacy-id={pharmacy.id} className="pharmacy-detail-card space-y-5 p-5 sm:p-6" aria-labelledby="single-pharmacy-city-heading">
+    <div>
+      <h2 id="single-pharmacy-city-heading" className="font-display text-xl font-bold text-heading">{labels.heading}</h2>
+      <h3 className="mt-4 text-base font-semibold text-heading">{pharmacy.name} · {labels.hours}</h3>
+      <div className="mt-2"><Hours pharmacy={pharmacy} locale={locale} /></div>
+    </div>
+    <section aria-labelledby="single-city-nearby-heading"><h3 id="single-city-nearby-heading" className="mb-2 text-base font-semibold text-heading">{labels.nearby}</h3>{nearbyList}</section>
+    <section aria-labelledby="single-city-duty-heading"><h3 id="single-city-duty-heading" className="mb-2 text-base font-semibold text-heading">{labels.duty}</h3>{duty}</section>
+  </section>;
+}
+
 function DirectoryPageRedesign({ page, locale, now }: { page: PharmacyPath; locale: Locale; now: Date }) {
   const copy = COPY[locale];
   const base = useMemo(() => scopeForPage(page), [page]);
+  const singleCityPharmacy = page.kind === 'city' && base.length === 1 ? base[0] : null;
   const fixedCountry: CountryFilter = page.kind === 'canton' || page.kind === 'duty-city'
     ? 'CH'
     : page.country || (page.areaSlug ? 'IT' : page.kind === 'city' ? 'CH' : 'all');
@@ -449,6 +491,7 @@ function DirectoryPageRedesign({ page, locale, now }: { page: PharmacyPath; loca
         <div className="pharmacy-detail-card p-4 sm:p-5"><div className="mb-3 flex flex-wrap items-end justify-between gap-3"><div><p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">{copy.map}</p><h2 id="pharmacy-map-heading" className="mt-1 font-display text-xl font-bold text-heading">{copy.map}</h2></div>{mapPharmacies.length < list.length && <span className="text-xs text-muted">{copy.count(mapPharmacies.length)}</span>}</div><PharmacyMap pharmacies={mapPharmacies} getHref={(pharmacy) => href(detailPath(pharmacy, locale))} openLabel={copy.details} noLocationLabel={copy.noMap} /></div>
       </aside>
     </div>
+    {singleCityPharmacy && <SinglePharmacyCityEnrichment pharmacy={singleCityPharmacy} locale={locale} now={now} />}
     <aside className="rounded-2xl border border-accent-border bg-accent-subtle p-5 text-sm leading-6 text-body"><strong className="text-heading">{copy.verifyHeading}</strong><p className="mt-2 text-muted">{copy.verify}</p></aside>
   </div>;
 }
