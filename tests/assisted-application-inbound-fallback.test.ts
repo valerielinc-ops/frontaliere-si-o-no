@@ -586,13 +586,16 @@ describe('verification is not a reason to hide unrelated employer mail', () => {
     });
   }
 
-  for (const [label, text] of [
-    ['do not', 'Do not verify your account before Monday: https://portal.example/verify/123'],
-    ['must not', 'You must not verify your account before Monday: https://portal.example/verify/123'],
+  for (const [label, locale, text] of [
+    ['do not', 'en', 'Do not verify your account before Monday: https://portal.example/verify/123'],
+    ['must not', 'en', 'You must not verify your account before Monday: https://portal.example/verify/123'],
+    ['italian', 'it', 'Non verificare il tuo account prima di lunedì: https://portal.example/verify/123'],
+    ['german', 'de', 'Bitte verifizieren Sie Ihr Konto nicht vor Montag: https://portal.example/verify/123'],
+    ['french', 'fr', 'Ne vérifiez pas votre compte avant lundi: https://portal.example/verify/123'],
   ] as const) {
     it(`forwards a directly negated verification instruction (${label}) even when it says before`, async () => {
       expect(classifyByRules({ subject: '', text })).toBe('other');
-      const { store, alias } = await setup('it', 'portal.example');
+      const { store, alias } = await setup(locale, 'portal.example');
       const { inbox, sendCascade } = await deliverWithoutModel({
         store,
         alias,

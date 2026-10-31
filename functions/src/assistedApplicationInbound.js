@@ -123,9 +123,13 @@ const PAST_INTERVIEW_RE = phrases(String.raw`(?:thank you|thanks|danke|vielen da
 const NEGATED_INTERVIEW_NEAR_RE = phrases(String.raw`(?:${NEGATION}|no)\s+${words(2)}${INTERVIEW}`);
 // The refusal is the invitation being negated, not any negation near the word.
 const NEGATED_INVITATION_RE = phrases(String.raw`${NEGATION}\s+${words(5)}${INVITE_VERB}\s+${words(4)}${INTERVIEW}|${NEGATION}\s+${words(4)}${INTERVIEW}\s+(?:einladen|einzuladen)`);
-// Keep direct negations out of the temporal exception below: the shared
-// vocabulary also covers modal forms such as "must not verify".
-const NEGATED_VERIFY_INSTRUCTION_RE = phrases(String.raw`(?:please\s+)?${NEGATION}\s+(?:${words(3)})?(?:verify|activate|validate|confirm)`);
+// Keep direct negations out of the temporal exception below. Each branch is
+// bounded to a supported language's verification verbs; it is not a generic
+// veto for every negated message.
+const NEGATED_VERIFY_EN_RE = phrases(String.raw`(?:please\s+)?${NEGATION}\s+(?:${words(3)})?(?:verify|activate|validate|confirm)`);
+const NEGATED_VERIFY_IT_RE = phrases(String.raw`(?:per favore\s+)?non\s+(?:${words(3)})?(?:verifica(?:re)?|conferma(?:re)?|attiva(?:re)?)`);
+const NEGATED_VERIFY_DE_RE = phrases(String.raw`(?:nicht\s+(?:${words(3)})?(?:best[aä]tigen|verifizieren|aktivieren)|(?:bitte\s+)?(?:${words(3)})?(?:best[aä]tigen|verifizieren|aktivieren)(?:\s+${words(3)})?nicht)`);
+const NEGATED_VERIFY_FR_RE = phrases(String.raw`(?:ne\s+|n['’])(?:${words(3)})?(?:v[eé]rifie[rz]|confirme[rz]|active[rz])(?:\s+${words(3)})?pas`);
 const NOT_EVERYONE_RE = phrases(String.raw`all|every|each|alle\p{L}*|jede\p{L}*|tutt\p{L}*|ogni|tous|toutes|chaque`);
 const INTERVIEW_CHANGE_RE = phrases(String.raw`reschedul\p{L}*|postpon\p{L}*|verschieb\p{L}*|verleg\p{L}*|absag\p{L}*|abgesagt|cancel\p{L}*|annul\p{L}*|rinvi\p{L}*|spostar\p{L}*|reporter|d[ée]placer|anderen? termin|altra data|autre date|another (?:date|time)`);
 const REJECTION_RE = phrases(String.raw`regret to inform|unsuccessful|not successful|not (?:been )?(?:selected|shortlisted)|(?:not|cannot|unable to|\p{L}+n['’]t) (?:be )?(?:proceed\p{L}*|progress\p{L}*|continu\p{L}*|consider\p{L}*|pursu\p{L}*|mov\p{L}* forward)|position has been filled|(?:stelle|position) (?:wurde|ist) (?:bereits |anderweitig )*(?:vergeben|besetzt)|(?:nicht|kein\p{L}*)\s+${words(3)}(?:ber[üu]cksichtig\p{L}*|weiterverfolg\p{L}*)|non (?:possiamo|potremo) (?:proseguire|dare seguito)|non (?:è|e) stat[ao] selezionat[ao]|pas (?:donner )?suite|pas (?:été )?retenu\p{L}*`);
@@ -220,7 +224,12 @@ const rejectsApplication = (sentence) => !HYPOTHETICAL_RE.test(sentence) && (
   || (OTHER_CANDIDATE_RE.test(sentence) && DECISION_RE.test(sentence))
   || (REFUSAL_WORD_RE.test(sentence) && !NEGATED.test(sentence) && (REGRET_RE.test(sentence) || APPLICATION_TOPIC_RE.test(sentence))));
 
-const isDirectlyNegatedVerificationInstruction = (sentence) => NEGATED_VERIFY_INSTRUCTION_RE.test(sentence);
+const isDirectlyNegatedVerificationInstruction = (sentence) => [
+  NEGATED_VERIFY_EN_RE,
+  NEGATED_VERIFY_IT_RE,
+  NEGATED_VERIFY_DE_RE,
+  NEGATED_VERIFY_FR_RE,
+].some((pattern) => pattern.test(sentence));
 
 const requestsVerification = (sentence) => {
   // A direct "do not verify" instruction stays visible even when it mentions before/until.
