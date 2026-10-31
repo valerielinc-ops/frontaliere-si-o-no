@@ -15,7 +15,7 @@ import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuesti
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice } from '../../../../functions/src/lib/applicationConsent.js';
+import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
@@ -198,7 +198,8 @@ export function ownConsent(field) {
   const consentText = `${label} ${name}`;
   const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || isConsentPurpose(label);
   return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent) && ownText
-    && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(`${label} ${name}`);
+    && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(`${label} ${name}`)
+    && !hasConsentContradiction(label, field?.name, field?.autocomplete, field?.domId);
 }
 // A notice printed as a control is read by the same grammar as a box.
 Object.assign(ownConsent, { isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice });

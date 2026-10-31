@@ -1418,6 +1418,7 @@ function visibleDialogTokens(snapshot = {}) {
   const controls = [
     ...(Array.isArray(snapshot.fields) ? snapshot.fields : []),
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.dialogs) ? snapshot.dialogs : []),
   ];
   return new Set(controls.map(dialogToken).filter(Boolean));
 }
@@ -1445,22 +1446,23 @@ export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = nu
   // the disabled-button preference keeps direct snapshot inspection safe too.
   const dialogFields = fields.filter((field) => isDialogControl(field) && inScope(field));
   const dialogButtons = buttons.filter((button) => isDialogControl(button) && inScope(button));
-  const reviewFields = dialogFields.filter((field) => field.kind === 'checkbox'
-    && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`)
-    && !ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete) && ownConsent.isNoticeReview(field.label));
+  const reviewCandidate = field => field.kind === 'checkbox' && (field.required || ownConsent(field)
+    || PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+  const reviewFields = dialogFields.filter((field) => reviewCandidate(field)
+    && !ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete) && ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId));
   const candidateTokens = new Set([
     ...reviewFields.map(dialogToken),
     ...dialogButtons.map(dialogToken),
   ].filter(Boolean));
   const candidates = [...candidateTokens].map((token) => {
-    const review = reviewFields.find((field) => dialogToken(field) === token) || null;
+    const reviews = reviewFields.filter((field) => dialogToken(field) === token);
+    const review = reviews[0] || null;
     const buttonsInDialog = dialogButtons.filter((button) => dialogToken(button) === token && !optionalNotice(button));
     // An enabled Accept must not bypass an unrecognised factual or negated review box.
-    const unknownReview = dialogFields.some((field) => dialogToken(field) === token && field.kind === 'checkbox'
-      && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`)
-      && !ownConsent.isNoticeReview(field.label)
+    const unknownReview = dialogFields.some((field) => dialogToken(field) === token && reviewCandidate(field)
+      && !ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId)
       && (!ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete) || !review || field.required));
-    return { token, review, accept: unknownReview ? null : findButton(buttonsInDialog, PRIVACY_ACCEPT_RE, { includeDisabled: true }) };
+    return { token, review, reviews, accept: unknownReview ? null : findButton(buttonsInDialog, PRIVACY_ACCEPT_RE, { includeDisabled: true }) };
   });
   const preferred = preferredDialogToken
     ? candidates.find((candidate) => candidate.token === preferredDialogToken) || null
@@ -1477,6 +1479,7 @@ export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = nu
     // the candidate. Never pressed: the caller can only name it.
     notice: notices.find((control) => !optionalNotice(control)) || notices[0] || null,
     review,
+    reviews: candidate?.reviews || [],
     // A disabled accept button is useful evidence while the required review
     // box is being checked; the caller still waits for it to become enabled.
     accept: candidate?.accept || null,
@@ -1513,8 +1516,12 @@ async function ownPrivacyDialog(page, token, review) {
 }
 
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
-export async function acceptPrivacyStatement(page, snapshot) {
-  if (!privacyConsentControls(snapshot).trigger) return 'none';
+export async function acceptPrivacyStatement(page, snapshot, { targetControl = registrationButton(snapshot) } = {}) {
+  const sameTargetForm = control => targetControl && targetControl.form >= 0
+    && control.form === targetControl.form && control.frame === targetControl.frame;
+  const targetControls = current => privacyConsentControls({ ...current,
+    buttons: (current.buttons || []).filter(sameTargetForm), links: (current.links || []).filter(sameTargetForm) });
+  if (!targetControls(snapshot).trigger) return privacyConsentControls(snapshot).trigger ? 'unavailable' : 'none';
   // The last field filled (the password repeat) checks itself on blur:
   // SuccessFactors asks its password policy and a click on the statement's
   // link meanwhile is lost. Blur first, wait for that request, then open the
@@ -1524,7 +1531,7 @@ export async function acceptPrivacyStatement(page, snapshot) {
   for (let attempt = 0; attempt < 2; attempt += 1) {
     const deadline = Date.now() + 8_000;
     const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
-    const trigger = privacyConsentControls(currentSnapshot).trigger;
+    const trigger = targetControls(currentSnapshot).trigger;
     if (!trigger) break;
     const beforeDialogTokens = visibleDialogTokens(currentSnapshot);
     // The statement opens in the document of its link; a dialog that appears
@@ -1554,20 +1561,26 @@ export async function acceptPrivacyStatement(page, snapshot) {
       const controls = current ? controlsForOpenedDialog(current) : {};
       // Nothing is touched in a dialog that does not name this notice: it may still be loading, or be another's.
       if (controls.dialogToken && await ownPrivacyDialog(page, controls.dialogToken, controls.review)) {
-        if (controls.review && !controls.review.checked) {
+        const expectedReviews = controls.reviews || [];
+        const uncheckedReviews = expectedReviews.filter(review => !review.checked);
+        if (uncheckedReviews.length) {
           // A box that does not register is an unfinished notice, not a crash.
-          await applyActions(page, current.fields, [{ fieldId: controls.review.id, action: 'check' }], {}, { pause: async () => {} }).catch(() => {});
+          await applyActions(page, current.fields, uncheckedReviews.map(review => ({ fieldId: review.id, action: 'check' })), {}, { pause: async () => {} }).catch(() => {});
           await scrollPrivacyStatement(page);
         }
         const refreshed = await extractFields(page, NAVIGATION).catch(() => null);
-        const { accept, review } = controlsForOpenedDialog(refreshed || {});
-        if (accept && !accept.disabled && (!review || review.checked)) {
+        const { accept, reviews = [] } = controlsForOpenedDialog(refreshed || {});
+        const reviewed = reviews.every(review => review.checked) && expectedReviews.every(expected =>
+          reviews.some(review => review.id === expected.id && review.frame === expected.frame && review.checked));
+        if (accept && !accept.disabled && reviewed) {
           try {
             await clickButton(page, accept);
             await page.waitForTimeout(800);
             // Accepted only once the dialog has gone: a click it ignored proves nothing.
             const closed = await extractFields(page, NAVIGATION).catch(() => null);
-            if (closed && !controlsForOpenedDialog(closed).accept) return 'accepted';
+            const scannedFrame = closed?.frames?.some(frame => frame.index === Number(trigger.frame || 0));
+            const remaining = closed && [...visibleDialogTokens(closed)].some(token => token.startsWith(triggerFrame) && !beforeDialogTokens.has(token));
+            if (scannedFrame && !remaining) return 'accepted';
           } catch {
             // A portal can replace the dialog button after the review checkbox;
             // rescan and retry within the bounded window.
@@ -1593,7 +1606,9 @@ const registrationButton = (snapshot) => [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE]
  * @returns {Promise<{ privacy: 'none'|'accepted'|'unavailable', filled: object, blocked: boolean }>}
  */
 export async function registrationPrivacyPreflight(page, { accepted = false, timeoutMs = PRIVACY_ENABLE_TIMEOUT_MS } = {}) {
-  const privacy = await acceptPrivacyStatement(page, await extractFields(page, NAVIGATION));
+  const initial = await extractFields(page, NAVIGATION);
+  const targetControl = registrationButton(initial);
+  const privacy = await acceptPrivacyStatement(page, initial, { targetControl });
   let filled = await extractFields(page, NAVIGATION);
   if (privacy === 'unavailable') return { privacy, filled, blocked: true };
   // A repair of the same form: the link of a notice already accepted can stay on the page, shut.
@@ -1601,7 +1616,8 @@ export async function registrationPrivacyPreflight(page, { accepted = false, tim
   if (privacy === 'none') {
     // A button shut by its styling alone reads as free: only an optional notice
     // leaves the way open, and then only past a button that is not shut.
-    const { notice } = privacyConsentControls(filled);
+    const sameForm = control => targetControl && targetControl.form >= 0 && control.form === targetControl.form && control.frame === targetControl.frame;
+    const { notice } = privacyConsentControls({ ...filled, buttons: filled.buttons.filter(sameForm), links: (filled.links || []).filter(sameForm) });
     // A link off the form is no way to accept: a ticked own box of the form already is.
     const cta = registrationButton(filled);
     const answered = Boolean(notice?.leavesDocument) && cta && !cta.disabled && notice.form >= 0

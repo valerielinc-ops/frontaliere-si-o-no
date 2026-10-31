@@ -65,7 +65,18 @@ export const isNoticeDialog = (title, review = '') => {
   return (!plain(title) || isConsentPurpose(title)) && (isConsentPurpose(title) || isConsentPurpose(review));
 };
 /** A review box says only that the notice was read and accepted: no fact, no refusal, no other purpose. */
-export const isNoticeReview = value => {
+// Native identifiers may contradict a privacy-looking label. Their technical words
+// never provide consent authority, but explicit factual roles must not be ignored.
+export const consentContradictionPatterns = Object.freeze({ negated: NEGATED, facts: FACTS, otherTerms: OTHER_TERMS, accuracy: ACCURACY });
+export function hasConsentContradiction(value, ...semanticIds) {
+  const ids = semanticIds.map(id => String(id || '').normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_:.-]+/g, ' ')).join(' ');
+  const text = `${value || ''} ${ids}`.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
+  return consentContradictionPatterns.negated.test(text) || consentContradictionPatterns.facts.test(text)
+    || /\b(?:bday|dob|sex|gender)\b/.test(text) || consentContradictionPatterns.otherTerms.test(text)
+    || consentContradictionPatterns.accuracy.test(text) || isOptionalPurpose(text);
+}
+export const isNoticeReview = (value, ...semanticIds) => {
   const text = plain(value);
-  return Boolean(text) && positiveLanguage(text) && !NEGATED.test(text) && !FACTS.test(text) && !OTHER_TERMS.test(text) && !ACCURACY.test(text) && !isOptionalPurpose(text);
+  return Boolean(text) && positiveLanguage(text) && !hasConsentContradiction(value, ...semanticIds);
 };

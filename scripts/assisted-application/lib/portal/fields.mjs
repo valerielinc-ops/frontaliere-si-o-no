@@ -563,6 +563,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       ...dialogMeta(element),
       inputType: type,
       form: formOf(element),
+      domId: element.id || '',
       name: clean(element.getAttribute('name') || ''),
       label,
       context: sectionContext(element),
@@ -883,6 +884,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     fields,
     buttons,
     links,
+    dialogs: [...document.querySelectorAll(DIALOG_SELECTOR)].filter(visible).map(dialog => dialogMeta(dialog)),
     captcha,
     passwordVisible,
     errors,
@@ -973,7 +975,7 @@ function isTurnstileFrame(url) {
 
 export async function extractFields(page, { listboxOptions = true, channelType = '', includeHidden = false } = {}) {
   const frames = page.frames();
-  const result = { url: page.url(), fields: [], buttons: [], links: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
+  const result = { url: page.url(), fields: [], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
   const context = typeof page.context === 'function' ? page.context() : null;
   const effectiveChannelType = String(channelType || portalChannelTypes.get(context) || '').trim();
   for (const [index, frame] of frames.entries()) {
@@ -1001,6 +1003,7 @@ export async function extractFields(page, { listboxOptions = true, channelType =
     result.fields.push(...snapshot.fields.map((field) => ({ ...field, frame: index })));
     result.buttons.push(...snapshot.buttons.map((button) => ({ ...button, frame: index })));
     result.links.push(...(snapshot.links || []).map((link) => ({ ...link, frame: index })));
+    result.dialogs.push(...(snapshot.dialogs || []).map((dialog) => ({ ...dialog, frame: index })));
     result.captcha ||= snapshot.captcha;
     result.passwordVisible ||= snapshot.passwordVisible;
     result.errors.push(...snapshot.errors);

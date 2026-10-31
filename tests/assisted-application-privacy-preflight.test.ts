@@ -683,3 +683,79 @@ describe('partner data sharing stays a candidate decision in both consent paths'
     expect(ownConsent({ kind: 'checkbox', required: true, label })).toBe(false);
   });
 });
+
+
+describe('CI review: native ownership and positive acceptance proof', () => {
+  it.each(['same frame', 'other frame'])('does not borrow a privacy trigger from an unrelated form in the %s', async (where) => {
+    const foreign = `<form><a role="button" id="foreignNotice">Read and accept the privacy policy</a></form><div role="dialog" id="foreignDialog" hidden><h2>Privacy policy</h2><button id="foreignAccept">Accept</button></div>`;
+    const target = ACCOUNT_FORM('<a id="notice"></a>', STYLED_CTA, '');
+    const fixture = fakePage(where === 'same frame' ? [foreign + target] : [foreign, target]);
+    const frame = where === 'same frame' ? 0 : 1;
+    const seen = { foreign: 0, accepted: 0, cta: 0 };
+    fixture.element('foreignNotice').addEventListener('click', () => { seen.foreign += 1; fixture.element('foreignDialog').hidden = false; });
+    fixture.element('foreignAccept').addEventListener('click', () => { seen.accepted += 1; fixture.element('foreignDialog').hidden = true; });
+    fixture.element('create', frame).addEventListener('click', () => { seen.cta += 1; });
+    expect(await preflight(fixture.page)).toMatchObject({ privacy: 'unavailable', blocked: true });
+    expect(seen).toEqual({ foreign: 0, accepted: 0, cta: 0 });
+  });
+
+  it.each([false, true])('requires a positive I agree checkbox to register before Accept, registers=%s', async (boxRegisters) => {
+    const dialog = NOTICE_DIALOG.replace('Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.', 'I agree to the privacy policy')
+      .replace('id="noticeReview"', 'required id="noticeReview"').replace('id="noticeAccept" disabled', 'id="noticeAccept"');
+    const fixture = fakePage([ACCOUNT_FORM(NOTICE_LINK, STYLED_CTA, dialog)], { boxRegisters });
+    const seen = wireAccount(fixture);
+    const result = await preflight(fixture.page);
+    expect(result).toMatchObject(boxRegisters ? { privacy: 'accepted', blocked: false } : { privacy: 'unavailable', blocked: true });
+    expect(seen.accepted).toBe(boxRegisters ? 1 : 0);
+    expect(seen.ctaClicks).toBe(0);
+    expect(fixture.element('noticeReview').checked).toBe(boxRegisters);
+  });
+
+  it('keeps a spinner-only dialog visible after Accept unaccepted', async () => {
+    const fixture = fakePage([ACCOUNT_FORM(NOTICE_LINK, STYLED_CTA)]);
+    const seen = wireAccount(fixture);
+    fixture.element('noticeAccept').addEventListener('click', () => {
+      fixture.element('noticeDialog').hidden = false;
+      fixture.element('noticeDialog').innerHTML = '<h2>Privacy policy</h2><span role="status">Working</span>';
+    });
+    expect((await runRegistration(fixture)).reason).toBe('privacy_not_accepted');
+    expect(seen).toMatchObject({ accepted: 1, ctaClicks: 0, requests: 0 });
+    const snapshot = await extractFields(fixture.page, NAVIGATION);
+    expect(snapshot.dialogs.length).toBeGreaterThan(0);
+  });
+});
+
+
+describe('native consent metadata cannot contradict a privacy-looking label', () => {
+  it.each([
+    ['name', 'workPermit'],
+    ['name', 'nationalityConsent'],
+    ['name', 'experienceYears'],
+    ['name', 'experience\u00adYears'],
+    ['name', 'ｗｏｒｋＰｅｒｍｉｔ'],
+    ['autocomplete', 'bday'],
+    ['autocomplete', 'sex'],
+    ['domId', 'workPermitCheckbox'],
+  ])('keeps the contradictory native %s=%s unknown', async (key, value) => {
+    const label = 'I agree to the privacy policy';
+    const field = { kind: 'checkbox', required: true, label, [key]: value };
+    expect(ownConsent(field)).toBe(false);
+    const native = key === 'domId' ? `id="${value}"` : `id="noticeReview" ${key}="${value}"`;
+    const dialog = `<div role="dialog" id="noticeDialog" hidden><h2>Privacy policy</h2><label><input type="checkbox" required ${native}>${label}</label><button id="noticeAccept" type="button">Accept</button></div>`;
+    const fixture = fakePage([ACCOUNT_FORM(NOTICE_LINK, STYLED_CTA, dialog)]);
+    let accepted = 0;
+    fixture.element('notice').addEventListener('click', () => { fixture.element('noticeDialog').hidden = false; });
+    fixture.element('noticeAccept').addEventListener('click', () => { accepted += 1; fixture.element('noticeDialog').hidden = true; });
+    expect(await preflight(fixture.page)).toMatchObject({ privacy: 'unavailable', blocked: true });
+    expect(accepted).toBe(0);
+    expect(fixture.element(key === 'domId' ? value : 'noticeReview').checked).toBe(false);
+  });
+
+  it('does not auto-accept a standalone notice with no owned application control', async () => {
+    const fixture = fakePage([NOTICE_LINK + NOTICE_DIALOG]);
+    let opened = 0;
+    fixture.element('notice').addEventListener('click', () => { opened += 1; fixture.element('noticeDialog').hidden = false; });
+    expect(await acceptPrivacyStatement(fixture.page, await extractFields(fixture.page, NAVIGATION))).toBe('unavailable');
+    expect(opened).toBe(0);
+  });
+});

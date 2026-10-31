@@ -1284,3 +1284,21 @@ describe('fill extension: optional purposes share the runner consent guard', () 
     expect((document.getElementById('mixedConsent') as HTMLInputElement).checked).toBe(false);
   });
 });
+
+
+describe('fill extension: native fact metadata vetoes a privacy label', () => {
+  it.each([
+    ['name', 'workPermit'], ['name', 'experienceYears'], ['name', 'experience\u00adYears'],
+    ['name', 'ｗｏｒｋＰｅｒｍｉｔ'], ['autocomplete', 'bday'], ['autocomplete', 'sex'],
+  ])('leaves %s=%s unchecked', (key, value) => {
+    const { document, F } = page(`<label><input id="nativeFact" type="checkbox" required ${key}="${value}"> I agree to the privacy policy</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'nativeFact');
+    expect(F.answerFor(entry, kit)).toBe(null);
+    expect((document.getElementById('nativeFact') as HTMLInputElement).checked).toBe(false);
+  });
+  it('includes a contradictory native ID in the shared veto', () => {
+    const { document, F } = page('<label><input id="workPermitCheckbox" type="checkbox" required> I agree to the privacy policy</label>');
+    const entry = F.collect(document).find((item: any) => item.element.id === 'workPermitCheckbox');
+    expect(F.answerFor(entry, kit)).toBe(null);
+  });
+});
