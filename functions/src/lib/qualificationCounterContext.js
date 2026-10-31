@@ -7,7 +7,7 @@ function canonical(value) {
   return value;
 }
 
-export const qualificationCounterContextHash = value => createHash('sha256').update(JSON.stringify(canonical(value))).digest('hex');
+export const qualificationCounterContextHash = value => createHash('sha256').update(String(JSON.stringify(canonical(value)))).digest('hex');
 
 export function qualificationCounterContext({ order = {}, flow = {}, intake = null, answerCounterContext = [] } = {}) {
   return structuredClone({ values: flow.answers || {}, questionAnswers: flow.questionAnswers || {},
