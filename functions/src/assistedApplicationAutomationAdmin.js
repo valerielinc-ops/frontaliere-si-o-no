@@ -624,8 +624,10 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
   catch { throw new AutomationAdminError('native_proof_invalid', 409); }
   // A syntactically valid form from another job/portal is never this order's destination.
   // Redirected/embedded destinations require an explicitly verified server namespace before they can be allowed.
+  let expectedFrameUrl;
   try {
     const expected = new URL(String(draft.channel?.applyUrl || draft.job?.applyUrl || ''));
+    expectedFrameUrl = expected.href;
     if (expected.href !== new URL(request.proof.frameUrl).href) throw new Error('destination_changed');
   } catch { throw new AutomationAdminError('native_proof_destination_changed', 409); }
   const intake = intakeSnapshot.data() || null;
@@ -674,6 +676,8 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
     answerEvidence: confirmed.answerEvidence, localAnswerEvidence: confirmed.localAnswerEvidence,
     answerCounterContext: confirmed.answerCounterContext, answerSourceConflicts: confirmed.answerSourceConflicts,
     rawCounterContext: confirmed.rawCounterContext, intake });
+  if (!context?.scope || context.scope.orderId !== orderId || context.scope.round !== Number(flow.round || 1)) throw new AutomationAdminError('native_proof_unverified', 409);
+  context.scope = { ...context.scope, expectedFrameUrls: [expectedFrameUrl] };
   await ownerSourceFence(() => db.runTransaction(transaction => confirmed.answerSourceGuard.assertInTransaction(transaction)));
   const verified = await verifyNativeApplicationProof({ proof: request.proof, context, docsManifest });
   if (verified?.status !== 'supported' || !/^[a-f0-9]{64}$/.test(verified.verification?.assessmentHash || '')) throw new AutomationAdminError('native_proof_unverified', 409);
