@@ -624,8 +624,8 @@ describe('data publisher preserves its source checkout', () => {
     git(setup.repo, ['push', '-q', 'origin', 'main']);
 
     write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
-    const resetMarker = path.join(setup.directory, 'orphan-reset');
-    const result = publish(setup, false, [], {
+    const resetMarker = path.join(path.dirname(setup.repo), 'orphan-reset');
+    const result = publishPlain(setup, [], {
       REFRESH_FIXTURE_OPEN_PR: '0',
       REFRESH_FIXTURE_REMOTE: setup.remote,
       REFRESH_FIXTURE_PATCH_MARKER: resetMarker,
@@ -702,7 +702,7 @@ describe('data publisher preserves its source checkout', () => {
     git(setup.repo, ['push', '-q', 'origin', 'fixture-concurrent']);
     git(setup.repo, ['checkout', '-q', 'main']);
 
-    const result = publish(setup, false, ['--reconcile-main'], {
+    const result = publishPlain(setup, ['--reconcile-main'], {
       REFRESH_FIXTURE_OPEN_PR: '0',
       REFRESH_FIXTURE_REMOTE: setup.remote,
       REFRESH_FIXTURE_ORPHAN_RESET_RACE: '1',
@@ -1419,10 +1419,11 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     const pushLines = lines
       .map((line, index) => ({ line, index }))
       .filter(({ line }) => !line.trimStart().startsWith('#') && /(^|\s)git(\s+-c\s+\S+)*\s+push(\s|$)/.test(line));
-    // The five call sites share two bounded transport forms so the primary and
-    // fallback identities cannot drift apart.
+    // The four Git push call sites share two bounded transport forms so the
+    // primary and fallback identities cannot drift apart.
     expect(pushLines).toHaveLength(2);
-    expect(helper.match(/push_with_fallback /g)).toHaveLength(5);
+    expect(helper.match(/push_with_fallback /g)).toHaveLength(4);
+    expect(helper.match(/patch_ref_with_fallback /g)).toHaveLength(2);
     for (const { index } of pushLines) {
       // The command the push line belongs to starts at most two lines above it.
       const command = lines.slice(Math.max(0, index - 2), index + 1).join('\n');
