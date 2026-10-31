@@ -622,6 +622,12 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
   let request;
   try { request = ownerFinalIntent(raw, { round: Number(flow.round || 1), nowMs: freshNow() }); }
   catch { throw new AutomationAdminError('native_proof_invalid', 409); }
+  // A syntactically valid form from another job/portal is never this order's destination.
+  // Redirected/embedded destinations require an explicitly verified server namespace before they can be allowed.
+  try {
+    const expected = new URL(String(draft.channel?.applyUrl || draft.job?.applyUrl || ''));
+    if (expected.href !== new URL(request.proof.frameUrl).href) throw new Error('destination_changed');
+  } catch { throw new AutomationAdminError('native_proof_destination_changed', 409); }
   const intake = intakeSnapshot.data() || null;
   const confirmed = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, intake, nowMs: freshNow() });
   if (!confirmed.answerSourceGuard || confirmed.answerSourceGuard.fingerprint !== request.answerSourceFingerprint) throw new AutomationAdminError('evidence_source_changed', 409);

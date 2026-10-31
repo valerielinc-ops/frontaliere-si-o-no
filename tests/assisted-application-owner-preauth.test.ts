@@ -28,13 +28,14 @@ async function fixture() {
   return { store, call, raw, metadata };
 }
 describe('complete owner preauthorization refuses before a click', () => {
-  it.each(['missing_proof', 'stale_kit', 'wrong_file', 'unproved_degree'])('refuses %s without a claim, click or ACK', async mode => {
+  it.each(['missing_proof', 'stale_kit', 'wrong_file', 'wrong_destination', 'unproved_degree'])('refuses %s without a claim, click or ACK', async mode => {
     const f = await fixture();
     if (mode === 'stale_kit') f.store.docs.set(base, { ...f.store.read(base), applicantName: 'Changed Candidate' });
     if (mode === 'wrong_file') { f.raw.nativeProof.attachments[0].sha256 = 'f'.repeat(64); f.raw.finalIntent.materialDigest = hash(f.raw.nativeProof.attachments); }
-    const codes = { missing_proof: 'native_proof_invalid', stale_kit: 'evidence_source_changed', wrong_file: 'native_proof_material_changed', unproved_degree: 'native_proof_unverified' };
+    if (mode === 'wrong_destination') f.raw.nativeProof.frameUrl = f.raw.finalIntent.frameUrl = 'https://different.example.test/another-job/';
+    const codes: Record<string, string> = { missing_proof: 'native_proof_invalid', stale_kit: 'evidence_source_changed', wrong_file: 'native_proof_material_changed', wrong_destination: 'native_proof_destination_changed', unproved_degree: 'native_proof_unverified' };
     await expect(f.call('automationMarkClicked', mode === 'missing_proof' ? {} : f.raw)).rejects.toMatchObject({ code: codes[mode], status: 409 });
     expect(f.store.read(`${base}/automation/submission`)).toBeUndefined();
-    if (['missing_proof', 'stale_kit'].includes(mode)) expect(f.metadata).not.toHaveBeenCalled();
+    if (['missing_proof', 'stale_kit', 'wrong_destination'].includes(mode)) expect(f.metadata).not.toHaveBeenCalled();
   });
 });
