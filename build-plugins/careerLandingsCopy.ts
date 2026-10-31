@@ -366,7 +366,7 @@ const IT_STAGE: CareerLandingCopy = {
       title: 'Dopo lo stage: chances di assunzione',
       paragraphs: [
         'Statisticamente, in Ticino, oltre la metà degli stage in ambito bancario e di revisione sfocia in un\'offerta di assunzione. Per le PMI industriali la percentuale è più bassa (30-40%) ma in entrambi i casi la qualità della prestazione durante lo stage è il fattore determinante.',
-        'Per un frontaliere italiano, il passaggio stage → contratto indeterminato richiede attenzione al cambio di statuto fiscale: la tassazione passa dall\'essere integralmente alla fonte (per stage brevi) alla disciplina completa dei nuovi frontalieri (20% residuale in Italia). Il simulatore del sito aiuta a stimare il netto prima di firmare.',
+        'Per un frontaliere italiano, il passaggio stage → contratto indeterminato richiede attenzione al cambio di statuto fiscale: la tassazione passa dall\'essere integralmente alla fonte (per stage brevi) alla disciplina completa dei nuovi frontalieri (imposta alla fonte ridotta in Svizzera e IRPEF in Italia con credito d\'imposta). Il simulatore del sito aiuta a stimare il netto prima di firmare.',
       ],
     },
     {
