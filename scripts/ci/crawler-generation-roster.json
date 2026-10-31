@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 670,
+  "crawlerCount": 669,
   "groups": {
     "10": [
       "atec-personal",
@@ -457,7 +457,6 @@
       "asanti-ch",
       "bb-trading-werbeartikel-ag",
       "csl-immobilien-ag",
-      "knowledge-lab",
       "seco-jobroom"
     ],
     "25": [
@@ -1068,7 +1067,6 @@
     "klinik-susenberg": "data/jobs/by-crawler/klinik-susenberg.json",
     "klinik-wyssholzli": "data/jobs/by-crawler/klinik-wyssholzli.json",
     "kliniken-valens": "data/jobs/by-crawler/kliniken-valens.json",
-    "knowledge-lab": "data/jobs/by-crawler/knowledge-lab.json",
     "komax": "data/jobs/by-crawler/komax.json",
     "kone": "data/jobs/by-crawler/kone.json",
     "ksa": "data/jobs/by-crawler/ksa.json",
@@ -1396,5 +1394,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:ed77d937e1b2064db4488edf17aa27591d38c8075e8f6cf523b63f23885e6eaf"
+  "digest": "sha256:df5adaf7b43ffa08e40d9f97496e25f3afbd9e5d8352c519221be85997148aea"
 }

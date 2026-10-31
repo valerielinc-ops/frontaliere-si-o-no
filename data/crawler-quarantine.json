@@ -11,6 +11,12 @@
     }
   },
   "retired": {
+    "knowledge-lab": {
+      "retiredAt": "2026-10-31T12:59:02Z",
+      "issue": 11091,
+      "homeGroup": 15,
+      "reason": "La pagina pubblica Freshteam di Knowledge Lab non espone piu' un tenant careers riconoscibile; il crawler fallisce fail-closed e le run 41130914142 e 41188636324 non hanno prodotto una pubblicazione."
+    },
     "bally": {
       "retiredAt": "2026-10-03T13:45:10Z",
       "issue": 11073,
