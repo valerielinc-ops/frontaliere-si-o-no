@@ -545,23 +545,24 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.endDate).toBeUndefined();
   });
 
-  it('single-day timed event preserves the source end date without inventing its end time', () => {
+  it('single-day timed event normalizes the source end date to the start timestamp', () => {
     const ld = eventLd(
       {
         id: 'tio-agenda:3b',
-        title: 'Concerto estivo',
-        startDate: '2026-07-04',
-        endDate: '2026-07-04',
-        startTime: '20:00',
+        title: 'Concerto',
+        startDate: '2026-11-15',
+        endDate: '2026-11-15',
+        startTime: '12:00',
+        recurring: false,
         canton: 'TI',
-        url: 'https://www.tio.ch/agenda/day/20260704/62103',
+        url: 'https://www.tio.ch/agenda/day/20261115/62103',
         sourceKey: 'tio-agenda',
         sourceName: 'Tio.ch Agenda',
       },
       'it',
     ) as Record<string, any>;
-    expect(ld.startDate).toBe('2026-07-04T20:00:00+02:00');
-    expect(ld.endDate).toBe('2026-07-04');
+    expect(ld.startDate).toBe('2026-11-15T12:00:00+01:00');
+    expect(ld.endDate).toBe('2026-11-15T12:00:00+01:00');
   });
 
   it('multi-day event keeps a distinct later endDate', () => {

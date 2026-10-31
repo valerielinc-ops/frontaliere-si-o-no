@@ -1696,11 +1696,12 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const locality = addressLocality || comune || (event.canton ? cantonName : venueName || 'Svizzera');
   const offset = zurichOffset(event.startDate);
   const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;
-  // Preserve the source's date-only endDate when its end time is unknown.
-  // Never copy startTime into endDate: that would invent an end time.
+  // Keep a same-day endDate at the same precision as startDate. A date-only
+  // endDate sorts before a timed startDate for consumers comparing timestamps.
+  // Distinct multi-day end dates stay date-only because the source has no end time.
   const hasMultiDay = Boolean(event.endDate && event.endDate !== event.startDate);
   const isSeries = hasMultiDay && event.recurring === true;
-  const endIso = isSeries ? undefined : event.endDate;
+  const endIso = isSeries ? undefined : event.endDate === event.startDate ? startIso : event.endDate;
   const cat = categoryLabel(event.category, locale);
   const when = humanDateRange(event.startDate, event.endDate, locale);
   const title = localizedTitle(event, locale);

@@ -1014,7 +1014,8 @@ describe('renderEventDetailPage', () => {
       .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
       .find((schema) => schema['@type'] === 'Event');
     expect(eventSchema?.startDate).toBe('2026-05-04T20:00:00+02:00');
-    expect(eventSchema?.endDate).toBe('2026-05-04');
+    expect(eventSchema?.endDate).toBe('2026-05-04T20:00:00+02:00');
+    expect(eventSchema?.endDate).toBe(eventSchema?.startDate);
     expect(eventSchema?.eventStatus).toBe('https://schema.org/EventScheduled');
     expect(pastPage.html).toContain('"@type":"BreadcrumbList"');
     expect(pastPage.html).toContain('data-events-lifecycle=past');
