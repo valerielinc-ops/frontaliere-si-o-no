@@ -33,6 +33,7 @@
   const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
+  const COOKIE_CUSTOMIZE_RE = /^(customi[sz]e cookies|cookie (?:settings|preferences)|manage cookies|modify cookie preferences)$/i;
   // The portal waits for the address to be verified (JOIN after the send
   // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
   const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
@@ -1494,7 +1495,10 @@
 
   /** A cookie banner in the way: refuse the non-essential cookies when offered. */
   function cookieRefusal(doc) {
-    return buttons(doc).find((button) => COOKIE_REJECT_RE.test(button.text))?.element || null;
+    const available = buttons(doc);
+    return available.find((button) => COOKIE_REJECT_RE.test(button.text))?.element
+      || available.find((button) => COOKIE_CUSTOMIZE_RE.test(button.text))?.element
+      || null;
   }
 
   /** What changes when the portal moves to another step. */
@@ -1503,7 +1507,7 @@
   }
 
   root.CompilaCandidatura = {
-    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
+    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, COOKIE_CUSTOMIZE_RE, VERIFY_RE,
     config, normalize, textOf, labelOf, questionOf, collect, isEmpty, answerFor, bestOption,
     parseDate, formatForInput, phoneFor, fillEntry, fillPage, pageState, cookieRefusal,
     pageSignature, nextButton, finalButton, press, setValue, sleep,

@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { COOKIE_ACCEPT_RE, COOKIE_REJECT_RE, openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, unknown> = {}) {
@@ -56,6 +56,48 @@ describe('portal field extraction', () => {
     ]));
     expect(findButton(snapshot.buttons, COOKIE_REJECT_RE)?.text).toBe('Decline optional cookies');
     expect(findButton(snapshot.buttons, COOKIE_ACCEPT_RE)?.text).toBe('Accept optional cookies');
+  });
+
+  it('opens the Deloitte cookie preferences when only the customizer covers the login', async () => {
+    const url = 'https://apply.deloitte.ch/CHCareers/Login';
+    let customized = false;
+    const clicks: string[] = [];
+    const currentSnapshot = () => ({
+      url,
+      fields: [
+        { id: 'username', kind: 'text', inputType: 'email', label: 'Username (private email address)', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Password', required: true },
+      ],
+      buttons: [
+        { id: 'login', text: 'Login', disabled: false },
+        customized
+          ? { id: 'decline', text: 'Decline optional cookies', disabled: false }
+          : { id: 'customize', text: 'Customise Cookies', disabled: false },
+      ],
+      links: [], dialogs: [], captcha: false, passwordVisible: true, errors: [], text: '',
+    });
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            clicks.push(selector);
+            if (selector.includes('customize')) customized = true;
+          }),
+        }),
+      })),
+    };
+    const page = {
+      url: () => url,
+      frames: () => [frame],
+      waitForTimeout: vi.fn(async () => {}),
+    };
+    const initial = currentSnapshot();
+
+    expect(COOKIE_CUSTOMIZE_RE.test('Customise Cookies')).toBe(true);
+    expect(await dismissCookieBanner(page as any, initial as any)).toBe(true);
+    expect(clicks).toEqual(['[data-aa-id="customize"]', '[data-aa-id="decline"]']);
   });
 
   it('uses the extracted SuccessFactors marker when a private-use upload button has only a generated snapshot id', async () => {
