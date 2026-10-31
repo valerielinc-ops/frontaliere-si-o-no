@@ -118,6 +118,23 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
     expect(decision.detail).toContain('build-locale (en)');
   });
 
+  it('ignores a sibling that failed in an earlier attempt', () => {
+    const decision = decideBuildLocaleRecovery({
+      run: { ...RECOVERY_RUN, run_attempt: 2 },
+      workflow: RECOVERY_WORKFLOW,
+      jobs: [
+        localeJob({ run_attempt: 2 }),
+        localeJob({ id: 101, name: 'build-locale (en)', run_attempt: 1, steps: [] }),
+      ],
+      artifacts: [PREPARED_SNAPSHOT],
+      expectedSha: HEAD,
+      nowMs: RECOVERY_NOW,
+      maxRecoveryAttempts: 2,
+    });
+
+    expect(decision.action).toBe('rerun');
+  });
+
   it('still retries one lost leg when the siblings succeeded', () => {
     const decision = decideBuildLocaleRecovery({
       run: RECOVERY_RUN,

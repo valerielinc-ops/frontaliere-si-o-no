@@ -187,6 +187,7 @@ export function decideBuildLocaleRecovery({
   // barrier. Rerunning it alone cannot turn the run green, and would only spend
   // hours before the same whole-run re-arm that this skip reaches at once.
   const failedSibling = currentJobs.find((other) => other?.id !== job.id
+    && Number(other?.run_attempt) === attempt
     && buildLocaleFromJobName(other?.name)
     && FAILED_LEG_CONCLUSIONS.has(other?.conclusion));
   if (failedSibling) {

@@ -305,10 +305,19 @@ describe('exchangeHreflangManifests', () => {
       await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out waiting for it/);
     });
 
-    it('still aborts on a sibling left failed by the rerun', async () => {
+    it('waits for a sibling whose only failure belongs to an earlier attempt', async () => {
       const { gh } = fakeGh({
         published: [],
         jobs: [{ name: 'build-locale (de)', conclusion: 'failure', run_attempt: 1 }],
+      });
+      await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(/barrier timed out/);
+      expect(clock - JOB_START_MS).toBeGreaterThanOrEqual(BARRIER_JOB_ELAPSED_MS);
+    });
+
+    it('aborts on a sibling that failed in this attempt', async () => {
+      const { gh } = fakeGh({
+        published: [],
+        jobs: [{ name: 'build-locale (de)', conclusion: 'failure', run_attempt: 2 }],
       });
       await expect(exchangeHreflangManifests({ ...base(), ...rerun, gh })).rejects.toThrow(
         'same-run hreflang manifest barrier aborted: build-locale (de)',
@@ -384,9 +393,9 @@ describe('exchangeHreflangManifests', () => {
     const { gh } = fakeGh({
       published: ['fr'],
       jobs: [
-        { name: 'prep', conclusion: 'failure' },
-        { name: 'build-locale (fr)', conclusion: null },
-        { name: 'build-locale (de)', conclusion: 'failure' },
+        { name: 'prep', conclusion: 'failure', run_attempt: 1 },
+        { name: 'build-locale (fr)', conclusion: null, run_attempt: 1 },
+        { name: 'build-locale (de)', conclusion: 'failure', run_attempt: 1 },
       ],
     });
     const start = clock;

@@ -125,10 +125,14 @@ async function firstMissingLocale({ gh, repo, runId, runAttempt, jobs, published
   return null;
 }
 
-function terminatedLocaleJob(jobs) {
+// Only this attempt counts: on a rerun an older failed entry can still be the
+// newest one listed for a leg that is about to run again. A leg nobody reruns
+// then costs the wait up to the deadline, which stays bounded.
+function terminatedLocaleJob(jobs, runAttempt) {
   const job = MANIFEST_LOCALES
     .map((locale) => latestLocaleJob(locale, jobs))
-    .find((candidate) => TERMINAL_FAILURE_CONCLUSIONS.has(candidate?.conclusion));
+    .find((candidate) => Number(candidate?.run_attempt) === Number(runAttempt)
+      && TERMINAL_FAILURE_CONCLUSIONS.has(candidate?.conclusion));
   return job?.name ?? null;
 }
 
@@ -164,7 +168,7 @@ export async function waitForManifestSet({
       // A sibling that has terminated cannot publish its manifest. Stop now, so
       // the rearm job classifies the failed leg itself instead of three
       // misleading barrier timeouts after the readiness budget expires.
-      const failed = terminatedLocaleJob(jobs);
+      const failed = terminatedLocaleJob(jobs, runAttempt);
       if (failed) {
         throw new ManifestExchangeError(
           `same-run hreflang manifest barrier aborted: ${failed} terminated before publishing its manifest`,
