@@ -13,8 +13,9 @@ import {
   reviveStaleNoCareersCandidates,
 } from '../scripts/lib/prospector/candidate-store.mjs';
 import { emailDomainHintsByEmployer, employerEmailDomain } from '../scripts/lib/prospector/sources/seco-jobroom.mjs';
-import { extractLinks, hasHomepageHiringSignal } from '../scripts/lib/prospector/careers-trail.mjs';
+import { extractLinks, hasHomepageHiringSignal, isCareerLink } from '../scripts/lib/prospector/careers-trail.mjs';
 import { resolveDomain } from '../scripts/lib/prospector/domain-resolve.mjs';
+import { traceCandidate } from '../scripts/lib/prospector/trace-candidate.mjs';
 
 const body = (text: string) => `<html><body><p>${text}</p></body></html>`;
 
@@ -65,6 +66,22 @@ describe('email-domain hints in domain resolution', () => {
     expect(politeFetch).toHaveBeenCalledTimes(1);
   });
 
+  it('reports only the hints it actually tried', async () => {
+    politeFetch.mockResolvedValue(page('Fondazione Sirio, Lugano, +41 91 000 00 00'));
+    const result = await resolveDomain({
+      name: 'Fondazione Sirio', city: 'Lugano', domainHints: ['first.ch', 'second.ch'],
+    });
+    expect(result.triedHints).toEqual(['first.ch']);
+  });
+
+  it('offers untried hints first on the next attempt', async () => {
+    const resolveDomainStub = vi.fn(async () => ({ domain: null, retryable: false }));
+    await traceCandidate({
+      name: 'Fondazione Sirio', emailDomainHints: ['first.ch', 'second.ch'], emailDomainHintsTried: ['first.ch'],
+    }, { resolveDomain: resolveDomainStub as never });
+    expect(resolveDomainStub.mock.calls[0][0]).toMatchObject({ domainHints: ['second.ch', 'first.ch'] });
+  });
+
   it('refuses a hinted agency site that matches only town and country', async () => {
     politeFetch.mockImplementation(async (url: string) => (String(url).includes('agenzia')
       ? page('Agenzia di collocamento a Lugano, Svizzera, +41')
@@ -86,7 +103,14 @@ describe('vacancies without a careers page', () => {
     'Cerchiamo soluzioni su misura per ogni cliente',
     'Aufladbares Mini-Hörgerät: Wir suchen Testhörer!',
     'Chi siamo, servizi e contatti',
+    'Non ci sono posizioni aperte',
+    'Cercasi casa in affitto',
   ])('sees no vacancy in: %s', (text) => expect(hasHomepageHiringSignal(body(text))).toBe(false));
+
+  it('treats a link as careers only when it announces a real vacancy', () => {
+    expect(isCareerLink({ url: 'https://x.ch/a', text: 'Cerchiamo soluzioni' })).toBe(false);
+    expect(isCareerLink({ url: 'https://x.ch/a', text: 'Cercasi gestore bistrot-bar' })).toBe(true);
+  });
 
   it('decodes entities in an href before following it', () => {
     const [link] = extractLinks('<a href="/job?a=1&amp;b=2">Offerte di lavoro</a>', 'https://x.ch/');
@@ -95,10 +119,21 @@ describe('vacancies without a careers page', () => {
 });
 
 describe('periodic recheck of "no careers page"', () => {
+  it('dates the verdict and not the latest SECO sighting', () => {
+    const at = Date.parse('2026-10-31T00:00:00.000Z');
+    const daysAgo = (days: number) => new Date(at - days * 86_400_000).toISOString();
+    const record = (key: string, days: number) => ({
+      key, status: 'dead', reason: 'nessuna pagina carriere', domain: `${key}.ch`,
+      noCareersVerdictAt: daysAgo(days), updatedAt: daysAgo(0),
+    });
+    const store = { candidates: { old: record('old', 61), recent: record('recent', 59) } };
+    expect(reviveStaleNoCareersCandidates(store as never, { now: at, ledgerFile: '/dev/null' })).toEqual(['old']);
+  });
+
   const now = Date.parse('2026-10-31T00:00:00.000Z');
   const dead = (canton: string, updatedAt: string, extra = {}) => ({
     status: 'dead', reason: 'nessuna pagina carriere', domain: `${canton.toLowerCase()}.ch`,
-    canton, updatedAt, ...extra,
+    canton, noCareersVerdictAt: updatedAt, ...extra,
   });
 
   it('returns stale verdicts Ticino first, within the batch, and leaves the rest', () => {

@@ -29,6 +29,7 @@ import {
   setStatus,
   byStatus,
   isTraceRetryDue,
+  NO_CAREERS_REASON,
   NO_CAREERS_RECHECK_BATCH,
   reviveStaleNoCareersCandidates,
   scheduleTraceRetry,
@@ -61,7 +62,7 @@ startLedgerPhase('trace', { dryRun });
 const store = loadCandidates();
 const registry = loadRegistry();
 
-const rechecked = onlyKey || dryRun ? [] : reviveStaleNoCareersCandidates(store);
+const rechecked = onlyKey || onlySource || dryRun ? [] : reviveStaleNoCareersCandidates(store);
 
 const queue = onlyKey
   // Manual --key intentionally bypasses automatic retry cooldown/evidence suppression.
@@ -90,7 +91,11 @@ const promoted = [];
 for (const r of results) {
   if (!r) continue;
   const { c } = r;
-  if (c.emailDomainHints?.length) store.candidates[c.key].emailDomainHintsTried = c.emailDomainHints;
+  if (r.resolution?.triedHints?.length) {
+    store.candidates[c.key].emailDomainHintsTried = [
+      ...new Set([...(c.emailDomainHintsTried || []), ...r.resolution.triedHints]),
+    ];
+  }
   if (r.verdict === 'retry') {
     deferred++;
     setStatus(store, c.key, 'new', scheduleTraceRetry(c, r.reason));
@@ -101,6 +106,7 @@ for (const r of results) {
     dead++;
     setStatus(store, c.key, 'dead', {
       reason: r.reason,
+      ...(r.reason === NO_CAREERS_REASON ? { noCareersVerdictAt: new Date().toISOString() } : {}),
       traceRetryable: false,
       domain: r.domain || undefined,
       traceRetryAt: null,

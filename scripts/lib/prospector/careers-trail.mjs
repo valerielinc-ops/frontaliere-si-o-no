@@ -67,25 +67,39 @@ export function isJavascriptCareerSurface(html = '') {
     || (atsShell && /(?:career|careers|job|jobs|search)/i.test(source));
 }
 
-const HIRING_PHRASE_RX = /\b(?:cercasi|posizion[ei] (?:aperte?|disponibili)|posti vacanti|offene stellen\s*:)/i;
-const HIRING_VERB_RX = /\b(?:cerchiamo|stiamo cercando|ricerchiamo|assumiamo|wir suchen|nous recherchons)\b([^.!?]{0,120})/gi;
-const HIRING_ROLE_RX = /\b(?:apprendist|collaborator|addett|operai|montator|meccanic|commess|cuoc|camerier|impiegat|magazzinier|autist|muratore|elettricist|falegnam|lehrling|lernend|mitarbeiter|fachperson|verk[aä]ufer|koch\b|apprenti|employ[ée]|vendeu|cuisini|serveu)/i;
+const HIRING_OPENINGS_RX = /\b(?:posizion[ei] (?:aperte?|disponibili)|posti vacanti|offene stellen\s*:)/gi;
+const HIRING_NEGATION_RX = /\b(?:non|nessun[ao]?|niente|keine?|aucune?|pas de)\b[^.!?]{0,40}$/i;
+const HIRING_VERB_RX = /\b(?:cercasi|cerchiamo|stiamo cercando|ricerchiamo|assumiamo|wir suchen|nous recherchons)\b([^.!?]{0,120})/gi;
+const HIRING_ROLE_RX = /\b(?:apprendist|collaborator|addett|operai|montator|meccanic|commess|cuoc|camerier|impiegat|magazzinier|autist|muratore|elettricist|falegnam|gestore|gerente|responsabile|lehrling|lernend|mitarbeiter|fachperson|verk[aä]ufer|koch\b|apprenti|employ[ée]|vendeu|cuisini|serveu)/i;
+
+/**
+ * Does this text announce a vacancy?
+ *
+ * A micro-employer has no careers page: the vacancy is one sentence
+ * ("Cercasi gestore bistrot-bar", "Cerchiamo apprendisti"). A hiring verb alone
+ * is marketing ("Cerchiamo soluzioni", "Wir suchen Testhörer"), so it must be
+ * followed by an occupation in the same sentence, and an openings phrase counts
+ * only when the sentence does not deny it ("Non ci sono posizioni aperte").
+ *
+ * @param {string} text
+ * @returns {boolean}
+ */
+export function announcesVacancy(text = '') {
+  const value = String(text || '').replace(/\s+/g, ' ');
+  const openings = [...value.matchAll(HIRING_OPENINGS_RX)]
+    .some((match) => !HIRING_NEGATION_RX.test(value.slice(0, match.index)));
+  return openings
+    || [...value.matchAll(HIRING_VERB_RX)].some((match) => HIRING_ROLE_RX.test(match[1]));
+}
 
 /**
  * Does a homepage itself announce a vacancy?
- *
- * A micro-employer has no careers page: the vacancy is one sentence on the
- * homepage ("Cercasi gestore bistrot-bar", "Cerchiamo apprendisti"). A hiring
- * verb alone is marketing ("cerchiamo soluzioni", "Wir suchen Testhörer"), so
- * it must be followed by an occupation in the same sentence.
  *
  * @param {string} html
  * @returns {boolean}
  */
 export function hasHomepageHiringSignal(html = '') {
-  const text = textOf(String(html || '')).replace(/\s+/g, ' ');
-  if (HIRING_PHRASE_RX.test(text)) return true;
-  return [...text.matchAll(HIRING_VERB_RX)].some((match) => HIRING_ROLE_RX.test(match[1]));
+  return announcesVacancy(textOf(String(html || '')));
 }
 
 /**
@@ -272,7 +286,7 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
 export function isCareerLink(link) {
   let pathPart = '';
   pathPart = safeDecodePath(link.url) || link.url;
-  return hasCareerToken(link.text) || hasCareerToken(pathPart);
+  return hasCareerToken(link.text) || hasCareerToken(pathPart) || announcesVacancy(link.text);
 }
 
 /**

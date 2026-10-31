@@ -118,8 +118,10 @@ export async function resolveDomain(employer, opts = {}) {
   const minScore = opts.minScore ?? 3;
   const guesses = domainGuesses(employer.name);
   let best = { domain: null, score: 0, evidence: [], tried: 0, retryable: false, failureStatuses: [] };
+  const triedHints = [];
   for (const hint of employer.domainHints || []) {
     best.tried++;
+    triedHints.push(hint);
     let res;
     try {
       res = await politeFetch(`https://${hint}/`, opts);
@@ -141,6 +143,7 @@ export async function resolveDomain(employer, opts = {}) {
         domain: registrableDomain(new URL(res.url).hostname),
         score: v.score,
         evidence: [...v.evidence, 'email-domain'],
+        triedHints,
       };
     }
   }
@@ -170,5 +173,5 @@ export async function resolveDomain(employer, opts = {}) {
     }
     if (best.score >= minScore + 1) break; // decisive, stop paying for more probes
   }
-  return best.score >= minScore ? best : { ...best, domain: null };
+  return best.score >= minScore ? { ...best, triedHints } : { ...best, domain: null, triedHints };
 }

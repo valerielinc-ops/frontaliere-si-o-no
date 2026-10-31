@@ -81,7 +81,7 @@ export const CAREER_PATH_HINTS = [
  * costs a whole employer.
  */
 export const CAREER_TOKEN_RX =
-  /(lavora[\s-]?con[\s-]?noi|posizioni[\s-]?aperte|posti[\s-]?liberi|cercasi|cerchiamo|offerte[\s-]?di[\s-]?lavoro|opportunit[aà]|carrier[ae]|karriere|offene[\s-]?stellen|stellenangebote|stellen|jobs?\b|job[\s-]?board|emplois?|carri[eè]res?|nous[\s-]?rejoindre|arbeiten[\s-]?bei|vacanc|recruit|bewerb|candidat|unisciti|join[\s-]?us|work[\s-]?with[\s-]?us|we[\s-]?are[\s-]?hiring)/i;
+  /(lavora[\s-]?con[\s-]?noi|posizioni[\s-]?aperte|posti[\s-]?liberi|offerte[\s-]?di[\s-]?lavoro|opportunit[aà]|carrier[ae]|karriere|offene[\s-]?stellen|stellenangebote|stellen|jobs?\b|job[\s-]?board|emplois?|carri[eè]res?|nous[\s-]?rejoindre|arbeiten[\s-]?bei|vacanc|recruit|bewerb|candidat|unisciti|join[\s-]?us|work[\s-]?with[\s-]?us|we[\s-]?are[\s-]?hiring)/i;
 
 /**
  * Hosts that are never a company's own ATS: social, CDNs, analytics, and the

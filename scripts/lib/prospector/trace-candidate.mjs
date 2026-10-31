@@ -3,12 +3,12 @@ import { isRetryableTraceStatus, traceCareers as defaultTraceCareers, traceFromC
 import { registrableDomain } from './registrable.mjs';
 
 function employerIdentity(candidate) {
-  return {
-    name: candidate.name,
-    city: candidate.city,
-    zip: candidate.zip,
-    domainHints: candidate.emailDomainHints,
-  };
+  const tried = new Set(candidate.emailDomainHintsTried || []);
+  const hints = candidate.emailDomainHints || [];
+  const identity = { name: candidate.name, city: candidate.city, zip: candidate.zip };
+  if (!hints.length) return identity;
+  // A hint can pass as the owner and then prove unusable: untried ones go first.
+  return { ...identity, domainHints: [...hints.filter((d) => !tried.has(d)), ...hints.filter((d) => tried.has(d))] };
 }
 
 /**

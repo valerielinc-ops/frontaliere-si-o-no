@@ -366,7 +366,7 @@ const RETRYABLE_TRACE_REASON_RX = /(?:sito|dominio|pagina|rete|host|dns|timeout|
 const STAGE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
 const MAX_SYNTHESIS_RETRIES = 5;
 const DOMAIN_RETRY_FRESH_OBSERVATION_AFTER = 4;
-const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts', 'emailDomainHints']);
+const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts']);
 const SECO_IDENTITY_FIELDS = new Set(['secoEmployerName']);
 const TRACE_RETRY_EVIDENCE_FIELDS = ['name', 'domain', 'careersUrl', 'city', 'zip', 'country'];
 const TRACE_RETRY_DISCOVERY_SOURCES = new Set(['own', 'seco', 'osm', 'web']);
@@ -897,7 +897,7 @@ export function hasUntriedEmailDomainHint(candidate) {
 /** A site without vacancies today can hire next quarter. */
 export const NO_CAREERS_RECHECK_DAYS = 60;
 export const NO_CAREERS_RECHECK_BATCH = 150;
-const NO_CAREERS_REASON = 'nessuna pagina carriere';
+export const NO_CAREERS_REASON = 'nessuna pagina carriere';
 
 /**
  * Return the stalest "no careers page" verdicts to the TRACE queue. Hiring is
@@ -913,7 +913,10 @@ export function reviveStaleNoCareersCandidates(store, options = {}) {
   const now = options.now ?? Date.now();
   const limit = options.limit ?? NO_CAREERS_RECHECK_BATCH;
   const cutoff = now - (options.minAgeDays ?? NO_CAREERS_RECHECK_DAYS) * 86_400_000;
-  const checkedAt = (candidate) => Date.parse(String(candidate.updatedAt || '')) || 0;
+  // `updatedAt` cannot date the verdict: every later SECO sighting refreshes it.
+  // Records older than `noCareersVerdictAt` fall back to their first sighting,
+  // and the worst case is one early recheck.
+  const checkedAt = (candidate) => Date.parse(String(candidate.noCareersVerdictAt || candidate.firstSeenAt || '')) || 0;
   const due = Object.entries(store.candidates)
     .filter(([, candidate]) => candidate.status === 'dead'
       && candidate.reason === NO_CAREERS_REASON
@@ -1406,6 +1409,11 @@ export function upsertCandidate(store, incoming, source) {
     }
     if (k === 'commoncrawlCollection') {
       if (source === 'web') existing.commoncrawlCollection = v;
+      continue;
+    }
+    if (k === 'emailDomainHints') {
+      // A hint outlives the ad that carried it: the 30-day window slides.
+      if (source === 'seco') existing[k] = [...new Set([...(existing[k] || []), ...(v || [])])].slice(0, 3);
       continue;
     }
     if (SECO_SIGNAL_FIELDS.has(k)) {
