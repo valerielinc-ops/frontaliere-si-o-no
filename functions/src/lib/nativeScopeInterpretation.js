@@ -1,4 +1,5 @@
 /** Pure structural scope view; it never supplies candidate facts or SELF ownership. */
+export function createNativeScopeTools() {
 const titleText = value => value.normalize('NFC').replace(/\s+/gu, ' ').trim();
 const plain = value => value && typeof value === 'object' && !Array.isArray(value)
   && [Object.prototype, null].includes(Object.getPrototypeOf(value));
@@ -6,7 +7,7 @@ const onlyKeys = (value, keys) => Object.keys(value).every(key => keys.includes(
 const boundedText = (value, max) => typeof value === 'string' && value.length <= max;
 
 /** sourceAuthority is a private Stage/Backend argument, never a field or candidate flag. */
-export function nativeScopeView(field, { sourceAuthority } = {}) {
+function nativeScopeView(field, { sourceAuthority } = {}) {
   let raw;
   try { raw = {
     context: structuredClone(field?.context), section: structuredClone(field?.section),
@@ -62,3 +63,7 @@ export function nativeScopeView(field, { sourceAuthority } = {}) {
     section: titleText(raw.section) === expected && uncertain.some(index => scopes[index].names.some(name => titleText(name) === titleText(raw.section))) ? '' : raw.section,
     structuralScopeIndexes: uncertain, structuralTitle: expected }, raw, authorityKey: sourceAuthority.sourceFingerprint };
 }
+return { nativeScopeView };
+}
+
+export const { nativeScopeView } = createNativeScopeTools();

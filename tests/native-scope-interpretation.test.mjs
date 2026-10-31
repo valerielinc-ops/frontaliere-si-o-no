@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { nativeScopeView } from '../functions/src/lib/nativeScopeInterpretation.js';
+import { runInNewContext } from 'node:vm';
+import { nativeScopeView, createNativeScopeTools } from '../functions/src/lib/nativeScopeInterpretation.js';
 
 function fixture(title = 'Sales consultant') {
   const field = { context: 'Recruitment source · ' + title, section: title,
@@ -15,6 +16,15 @@ function fixture(title = 'Sales consultant') {
     sourceFingerprint: '{"version":"native-application-target-fixture","authority":"private-stage-fixture"}' };
   return { field, sourceAuthority };
 }
+
+test('serializes the actual factory without relying on module lexical helpers', () => {
+  const item = fixture();
+  const source = '(' + createNativeScopeTools.toString() + ')().nativeScopeView(field, { sourceAuthority })';
+  const serialized = runInNewContext(source, { Object, structuredClone, field: item.field, sourceAuthority: item.sourceAuthority });
+  assert.equal(JSON.stringify(serialized), JSON.stringify(nativeScopeView(item.field, item)));
+  const denied = runInNewContext(source, { Object, structuredClone, field: item.field, sourceAuthority: undefined });
+  assert.equal(denied.status, 'unknown');
+});
 
 test('interprets only the structural title while preserving every raw unknown and qualifier', () => {
   const item = fixture(); const before = structuredClone(item.field);
