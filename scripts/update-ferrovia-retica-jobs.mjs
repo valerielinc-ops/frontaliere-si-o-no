@@ -36,6 +36,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -324,7 +325,11 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
 
   const discoveredJobs = await fetchJobs();
-  if (discoveredJobs.length === 0) { console.log('ℹ️  No job listings found — skipping crawl.'); return; }
+  if (discoveredJobs.length === 0) {
+    markCrawlerSummaryAbortKind('no-jobs-parsed');
+    console.log('ℹ️  No job listings found — skipping crawl.');
+    return;
+  }
 
   const seedUrls = discoveredJobs.map((j) => j.url);
   const { total, added, updated, diff } = mergeJobs(discoveredJobs);

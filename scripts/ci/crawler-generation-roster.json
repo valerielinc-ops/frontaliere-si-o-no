@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 666,
+  "crawlerCount": 667,
   "groups": {
     "10": [
       "atec-personal",
@@ -454,7 +454,8 @@
       "zaugg"
     ],
     "24": [
-      "knowledge-lab"
+      "knowledge-lab",
+      "seco-jobroom"
     ],
     "25": [
       "protectas"
@@ -1235,6 +1236,7 @@
     "schindler": "data/jobs/by-crawler/schindler.json",
     "schulthess-klinik": "data/jobs/by-crawler/schulthess-klinik.json",
     "schweizerhof-flims": "data/jobs/by-crawler/schweizerhof-flims.json",
+    "seco-jobroom": "data/jobs/by-crawler/seco-jobroom.json",
     "see-spital": "data/jobs/by-crawler/see-spital.json",
     "seiro": "data/jobs/by-crawler/seiro.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
@@ -1388,5 +1390,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:81b1fd6490a285b4da30aebf459d5be4958723250513b49fa567bf586c2a84a4"
+  "digest": "sha256:6038bb31d426bbfae93bac5f3b60fb8184eef9d054aa9e41c76297b8af40f5f4"
 }

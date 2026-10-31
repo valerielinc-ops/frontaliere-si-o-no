@@ -9215,8 +9215,13 @@ ${staticAnalyticsHtml}
  : `${sectorDisplay} en Suisse (${sJobs.length}) ${year} | Frontaliere Ticino`
  : locale === 'it' ? `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
  : locale === 'en' ? `${sectorDisplay} jobs ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
- : locale === 'de' ? `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
- : `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`;
+ // Keep the locale in the title itself.  German and French can legitimately
+ // share both the sector label and the canton label (e.g. "Industrie Uri"),
+ // so the old templates collapsed two alternate URLs to the same `<title>`.
+ // The preposition/role marker is natural copy and is also the stable
+ // discriminator required by the duplicate-title audit.
+ : locale === 'de' ? `${sectorDisplay} Jobs in ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
+ : `Emploi ${sectorDisplay} à ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`;
  const pageDesc = isAggregate
  ? locale === 'it' ? `${sJobs.length} offerte di lavoro ${sectorDisplay.toLowerCase()} in Svizzera. Annunci aggiornati quotidianamente. Cerca il tuo prossimo lavoro come frontaliere.`
  : locale === 'en' ? `${sJobs.length} ${sectorDisplay.toLowerCase()} job openings across Switzerland. Listings updated daily. Find your next cross-border job.`

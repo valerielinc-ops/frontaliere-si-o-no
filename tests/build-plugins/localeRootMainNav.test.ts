@@ -301,9 +301,9 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(html.match(/<h1\b/g)).toHaveLength(1);
     expect(html).toContain(
       {
-        en: 'Ticino Cross-Border Workers 2026 — Switzerland-Italy Net Salary Calculator',
-        de: 'Grenzgänger Tessin 2026 — Nettolohnrechner Schweiz-Italien',
-        fr: 'Frontaliers Tessin 2026 — Calculateur de salaire net Suisse-Italie',
+        en: 'Swiss Cross-Border Salary Calculator 2026',
+        de: 'Schweizer Grenzgänger-Lohnrechner 2026',
+        fr: 'Calculateur Salaire Frontalier Suisse 2026',
       }[locale],
     );
     expect(html).not.toContain('position:absolute;left:-9999px');

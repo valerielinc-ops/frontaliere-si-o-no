@@ -804,10 +804,11 @@ export function localizeHomepageStructuredData(html: string, locale: 'en' | 'de'
 }
 
 const HOMEPAGE_STATIC_H1_TEXT: Record<HpSeoLocale, string> = {
- it: 'Frontaliere Ticino 2026 — Calcolatore Stipendio Netto Svizzera-Italia',
- en: 'Ticino Cross-Border Workers 2026 — Switzerland-Italy Net Salary Calculator',
- de: 'Grenzgänger Tessin 2026 — Nettolohnrechner Schweiz-Italien',
- fr: 'Frontaliers Tessin 2026 — Calculateur de salaire net Suisse-Italie',
+ // Stesso testo di `seoContent.calculator.title`, l'H1 dopo l'idratazione.
+ it: 'Calcolatore Stipendio Frontaliere Svizzera 2026',
+ en: 'Swiss Cross-Border Salary Calculator 2026',
+ de: 'Schweizer Grenzgänger-Lohnrechner 2026',
+ fr: 'Calculateur Salaire Frontalier Suisse 2026',
 };
 
 /**
@@ -4425,7 +4426,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  );
  } else if (canonicalPath.startsWith('/guida-frontaliere/permessi-di-lavoro')) {
  editorialBlocks.push(
- `Il confronto permessi analizza le differenze operative tra permesso G (frontaliere, rinnovo annuale) e permesso B (domiciliato, 5 anni): tassazione, accesso ai servizi, diritto di soggiorno e implicazioni per la famiglia.`,
+ `Il confronto permessi analizza le differenze operative tra permesso G (frontaliere, 5 anni con contratto superiore a un anno) e permesso B (dimora, 5 anni): tassazione, accesso ai servizi, diritto di soggiorno e implicazioni per la famiglia.`,
  `La scelta tra permesso G e B dipende dalla distanza dal confine, dalla situazione familiare e fiscale, e dalla durata prevista dell'impiego in Svizzera. Lo strumento aiuta a valutare i pro e i contro di ogni scenario.`,
  `Il confronto include anche le implicazioni previdenziali (AVS, LPP, disoccupazione), la differenza nei diritti di soggiorno per familiari e l'impatto sulla tassazione italiana e svizzera.`,
  );
