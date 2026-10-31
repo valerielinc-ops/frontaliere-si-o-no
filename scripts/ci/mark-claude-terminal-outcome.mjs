@@ -58,9 +58,11 @@ import {
 } from './claude-rate-limit.mjs';
 import {
   DELIVERY_STATUS,
+  FIX_OUTCOME,
   PR_LIST_FIELDS,
   PR_LIST_LIMIT,
   evaluatePrDelivery,
+  outcomeFromDeliveryEvidence,
 } from './lib/pr-delivery-evidence.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
@@ -234,7 +236,7 @@ export function deliveredPrNumber(issue) {
  * @param {number} prNumber
  */
 export function formatDeliveredDespiteMaxTurnsComment(prNumber) {
-  return '<!-- FIX_OUTCOME: pr-created -->\n' +
+  return `<!-- FIX_OUTCOME: ${FIX_OUTCOME.PR_CREATED} -->\n` +
     `_La CLI è uscita \`error_max_turns\`, ma la delivery corrente della PR #${prNumber} è verificata nel tentativo: il lavoro è stato consegnato._\n` +
     '_Il verdetto separa l\'esito della CLI dall\'evidenza di delivery. Questa riga viene emessa solo con una prova corrente; un lookup non disponibile non viene interpretato come assenza._';
 }
@@ -256,26 +258,27 @@ function main() {
   // --- max-turns (precedenza, vedi docstring) --------------------------------
   if (subtype === 'error_max_turns') {
     const delivery = deliveryEvidence(ISSUE);
-    if (delivery.status === DELIVERY_STATUS.DELIVERED) {
+    const terminal = outcomeFromDeliveryEvidence(delivery, { noneOutcome: FIX_OUTCOME.MAX_TURNS });
+    if (terminal.outcome === FIX_OUTCOME.PR_CREATED) {
       const deliveredPr = delivery.prNumber;
-      console.log(`Terminal outcome: error_max_turns MA la PR #${deliveredPr} esiste (open/merged) → marker \`pr-created\`, non \`max-turns\`.`);
+      console.log(`Terminal outcome: error_max_turns MA la PR #${deliveredPr} esiste (open/merged) → marker \`${terminal.outcome}\`, non \`${FIX_OUTCOME.MAX_TURNS}\`.`);
       if (DRY_RUN) return;
       gh(['issue', 'comment', ISSUE, ...repoArgs, '--body',
         formatDeliveredDespiteMaxTurnsComment(deliveredPr)]);
       return;
     }
-    if (delivery.status === DELIVERY_STATUS.UNAVAILABLE) {
+    if (terminal.outcome === null) {
       console.log(`Terminal outcome: error_max_turns ma delivery non verificabile (${delivery.reason}) → nessun marker terminale.`);
       return;
     }
-    console.log('Terminal outcome: error_max_turns → marker granulare `max-turns`.');
+    console.log(`Terminal outcome: error_max_turns → marker granulare \`${terminal.outcome}\`.`);
     const work = recoverableBranchWork(ISSUE);
     if (work) console.log(`Lavoro recuperabile: ${work.branch} è ${work.aheadBy} commit avanti a main (PR mai aperta).`);
     if (DRY_RUN) return;
     // Marker SENZA la stringa BACKSTOP_MARKER ('post-step deterministico') così
     // `latestFixOutcomeFromComments` del drainer lo legge come verdetto vero.
     gh(['issue', 'comment', ISSUE, ...repoArgs, '--body',
-      '<!-- FIX_OUTCOME: max-turns -->\n_Run terminata error_max_turns (turn budget esaurito) — telemetria granulare per il drainer._' +
+      `<!-- FIX_OUTCOME: ${terminal.outcome} -->\n_Run terminata error_max_turns (turn budget esaurito) — telemetria granulare per il drainer._` +
       formatRecoverableBranchStamp(work)]);
     return;
   }

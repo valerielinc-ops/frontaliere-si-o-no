@@ -1,3 +1,4 @@
+import { renderSitemapLastmod } from './shared/sitemapLastmod';
 import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { fuelObservation } from './shared/fuelObservation';
 import {
@@ -2009,7 +2010,7 @@ function renderPage(inp: PageInputs): string {
 
   // Main body markup (kept plain + inline-styled so we don't depend on the
   // SPA bundle and the static page ranks on its own).
-  const bodyHtml = `<article class="s-xzWvwM">
+  const bodyHtml = `<article class="s-xzWvwM" data-ft-driveby-top-ad="true">
   <nav class="s-bcr">
     <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -3856,6 +3857,15 @@ export const FUEL_OBSERVATION_STALE_HOURS = 48;
  * week must not claim today's date (observed 2026-10-23, when MIMIT stopped
  * answering and every Italian title still read the build day).
  */
+/** Day of the Swiss station price the page shows, or null when the source gives none. */
+function stationObservationDay(station: StationContext['station'], fuel: FuelType): string | null {
+  const observedAt = fuel === 'diesel'
+    ? station.dieselUpdatedAt ?? station.updatedAt ?? station.observedAt
+    : station.updatedAt ?? station.observedAt;
+  const ms = typeof observedAt === 'string' ? Date.parse(observedAt) : Number.NaN;
+  return Number.isFinite(ms) ? new Date(ms).toISOString().slice(0, 10) : null;
+}
+
 export function latestItalianObservationDay(
   stations: readonly ItalianCityStation[],
   fuel: FuelType,
@@ -4268,6 +4278,8 @@ export function generateFuelStationPages(opts: {
    * hook so the index plugin and the detail-page generator share one list.
    */
   contexts?: readonly StationContext[];
+  /** Filled with path → day of the price shown, for the sitemap `<lastmod>`. */
+  lastmodByPath?: Map<string, string>;
   /** History snapshots — drives the per-page zone history chart. */
   history?: readonly HistorySnapshot[];
   /** Project root dir — passed to renderStationPage so it can resolve brand logos. */
@@ -4330,6 +4342,8 @@ export function generateFuelStationPages(opts: {
           rootDir,
         });
         pages[canonicalPath] = html;
+        const observedDay = stationObservationDay(ctx.station, fuel);
+        if (observedDay) opts.lastmodByPath?.set(canonicalPath, observedDay);
         emitted++;
         if (emitted >= maxPages) {
           console.warn(`[fuel-daily-pages] MAX_FUEL_STATION_PAGES_PER_BUILD=${maxPages} reached — halting station page emission`);
@@ -4413,6 +4427,8 @@ export function generateFuelItalianCityPages(opts: {
   today?: Date;
   distDir?: string;
   rootDir?: string;
+  /** Filled with path → newest day among the prices shown, for `<lastmod>`. */
+  lastmodByPath?: Map<string, string>;
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
@@ -4463,6 +4479,8 @@ export function generateFuelItalianCityPages(opts: {
           rootDir,
         });
         pages[canonicalPath] = html;
+        const observedDay = latestItalianObservationDay(stations, fuel);
+        if (observedDay) opts.lastmodByPath?.set(canonicalPath, observedDay);
       }
     }
   }
@@ -5605,6 +5623,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         today,
         distDir,
       });
+      const lastmodByPath = new Map<string, string>();
       const stationPages = generateFuelStationPages({
         dataset,
         today,
@@ -5612,8 +5631,9 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         contexts: swissContexts,
         history,
         rootDir,
+        lastmodByPath,
       });
-      const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir, rootDir });
+      const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir, rootDir, lastmodByPath });
       const italianStationPages = generateFuelItalianStationPages({
         dataset,
         history,
@@ -5721,6 +5741,8 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), html);
         sitemapPaths.push(path);
+        const observedDay = html.match(/"dateModified":"(\d{4}-\d{2}-\d{2})/)?.[1];
+        if (observedDay) lastmodByPath.set(path, observedDay);
         pagesWritten++;
       }
 
@@ -5896,12 +5918,15 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       // The sitemapAliasPlugin auto-discovers every `sitemap-*.xml` in dist/
       // and weaves it into the master sitemap index, so no manual patching
       // of `dist/sitemap.xml` is needed here.
+      // The day of the data each page shows: never the build day, which would
+      // relabel a carried-over MIMIT snapshot as fresh. No known day, no tag.
       const writeSitemap = (paths: string[], filename: string, changefreq: string): void => {
         if (paths.length === 0) return;
         try {
           const urlEntries = paths
             .map((p) => {
-              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+              const lastmod = renderSitemapLastmod(lastmodByPath.get(p));
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>${lastmod ? `\n    ${lastmod}` : ''}\n    <changefreq>${changefreq}</changefreq>\n    <priority>0.6</priority>\n  </url>`;
             })
             .join('\n');
           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

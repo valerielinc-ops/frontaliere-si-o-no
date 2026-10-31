@@ -200,51 +200,51 @@ function buildPermitFaq(opts: BuildJobPostingFaqOptions): JobFaqPair {
     if (locale === 'en') {
       return {
         q: `Do I need the G permit to apply for this role in Ticino as an Italian cross-border worker?`,
-        a: `Yes, if you are resident in Italy within the 20 km border zone. The Swiss employer files the G-permit application at the Ticino cantonal migration office after the contract is signed — first issuance takes 2-6 weeks, then automatic yearly renewal for as long as the employment continues. Weekly return to your Italian home is required to keep the status.${isRemote ? ' Note: this listing allows remote work — teleworking above 25 % of your time can shift your social-security base to Italy, so confirm the agreed remote share with HR before signing.' : ''}`,
+        a: `Yes. For EU/EFTA citizens the G permit no longer depends on a border zone: you need residence in an EU/EFTA state, a Swiss contract and a return home at least once a week. The 20 km band matters for taxation, not for the permit. The Swiss employer files the G-permit application at the Ticino cantonal migration office after the contract is signed — first issuance takes 2-6 weeks. The permit lasts five years with an open-ended contract or one over a year, otherwise for the length of the contract.${isRemote ? ' Note: this listing allows remote work — teleworking above 25 % of your time can shift your social-security base to Italy, so confirm the agreed remote share with HR before signing.' : ''}`,
       };
     }
     if (locale === 'de') {
       return {
         q: `Brauche ich als italienischer Grenzgänger die G-Bewilligung für diese Tessiner Stelle?`,
-        a: `Ja, sofern Sie in Italien innerhalb der 20-km-Grenzzone wohnen. Der Schweizer Arbeitgeber beantragt die G-Bewilligung nach Vertragsunterzeichnung beim Migrationsamt des Kantons Tessin — die Erstausstellung dauert 2-6 Wochen, danach automatische jährliche Verlängerung, solange das Arbeitsverhältnis besteht. Eine wöchentliche Rückkehr zum italienischen Wohnsitz ist für den Status erforderlich.${isRemote ? ' Hinweis: Diese Stelle erlaubt Homeoffice — Telearbeit über 25 % der Arbeitszeit kann die Sozialversicherungsbasis nach Italien verschieben; klären Sie den vereinbarten Anteil vorab mit HR.' : ''}`,
+        a: `Ja. Für EU/EFTA-Bürger hängt die G-Bewilligung nicht mehr von einer Grenzzone ab: Nötig sind ein Wohnsitz in einem EU/EFTA-Staat, ein Schweizer Vertrag und die Rückkehr mindestens einmal pro Woche. Die 20-km-Regel betrifft die Besteuerung, nicht die Bewilligung. Der Schweizer Arbeitgeber beantragt die G-Bewilligung nach Vertragsunterzeichnung beim Migrationsamt des Kantons Tessin — die Erstausstellung dauert 2-6 Wochen. Die Bewilligung gilt fünf Jahre bei unbefristetem oder über einjährigem Vertrag, sonst für die Vertragsdauer.${isRemote ? ' Hinweis: Diese Stelle erlaubt Homeoffice — Telearbeit über 25 % der Arbeitszeit kann die Sozialversicherungsbasis nach Italien verschieben; klären Sie den vereinbarten Anteil vorab mit HR.' : ''}`,
       };
     }
     if (locale === 'fr') {
       return {
         q: `Ai-je besoin du permis G pour postuler à ce poste au Tessin en tant que frontalier italien ?`,
-        a: `Oui, si vous résidez en Italie dans la zone frontalière des 20 km. L'employeur suisse dépose la demande de permis G à l'office cantonal des migrations du Tessin après signature du contrat — la première délivrance prend 2-6 semaines, puis renouvellement annuel automatique tant que l'emploi se poursuit. Un retour hebdomadaire à votre domicile italien est requis pour conserver le statut.${isRemote ? ' Remarque : cette offre autorise le télétravail — au-delà de 25 % du temps, la base de sécurité sociale peut basculer vers l\'Italie ; vérifiez la part convenue avec les RH avant de signer.' : ''}`,
+        a: `Oui. Pour les citoyens UE/AELE, le permis G ne dépend plus d'une zone frontalière : il faut résider dans un État UE/AELE, avoir un contrat suisse et rentrer au moins une fois par semaine. La bande des 20 km concerne la fiscalité, pas le permis. L'employeur suisse dépose la demande de permis G à l'office cantonal des migrations du Tessin après signature du contrat — la première délivrance prend 2-6 semaines. Le permis vaut cinq ans avec un contrat à durée indéterminée ou de plus d'un an, sinon pour la durée du contrat.${isRemote ? ' Remarque : cette offre autorise le télétravail — au-delà de 25 % du temps, la base de sécurité sociale peut basculer vers l\'Italie ; vérifiez la part convenue avec les RH avant de signer.' : ''}`,
       };
     }
     return {
       q: `Serve il Permesso G per candidarmi a questa posizione in Ticino da frontaliere italiano?`,
-      a: `Sì, se risiedi in Italia entro la zona di frontiera dei 20 km. Il datore di lavoro svizzero presenta la domanda di Permesso G all'Ufficio della migrazione del Cantone Ticino dopo la firma del contratto — la prima emissione richiede 2-6 settimane, poi il rinnovo è automatico ogni anno finché prosegue il rapporto di lavoro. Il rientro al domicilio italiano almeno una volta a settimana è obbligatorio per mantenere lo status.${isRemote ? ' Nota: questo annuncio prevede lavoro da remoto — il telelavoro sopra il 25% del tempo può spostare la base previdenziale verso l\'Italia, verifica con HR la quota concordata prima di firmare.' : ''}`,
+      a: `Sì. Per i cittadini UE/AELS il permesso G non dipende più da una zona di frontiera: servono residenza in uno Stato UE/AELS, contratto svizzero e rientro almeno una volta a settimana. La fascia dei 20 km riguarda il fisco, non il permesso. Il datore di lavoro svizzero presenta la domanda di Permesso G all'Ufficio della migrazione del Cantone Ticino dopo la firma del contratto — la prima emissione richiede 2-6 settimane. Il permesso vale cinque anni con contratto a tempo indeterminato o superiore a un anno, altrimenti per la durata del contratto.${isRemote ? ' Nota: questo annuncio prevede lavoro da remoto — il telelavoro sopra il 25% del tempo può spostare la base previdenziale verso l\'Italia, verifica con HR la quota concordata prima di firmare.' : ''}`,
     };
   }
 
   // Non-Ticino canton: keep the answer general (G-permit exists CH-wide for
-  // EU border-zone residents) without inventing canton-specific numbers we
+  // EU/EFTA residents, with no border zone) without inventing canton-specific numbers we
   // have not verified, and point the reader to the cantonal authority.
   if (locale === 'en') {
     return {
       q: `Do I need a cross-border work permit for a role in ${cantonDisplay}?`,
-      a: `EU/EFTA residents living in the border zone of the country adjoining Canton ${cantonDisplay} can apply for a G permit; the Swiss employer files it with that canton's migration office after the contract is signed. Border-zone rules and processing times vary by neighbouring country and canton, so confirm the specifics with ${cantonDisplay}'s cantonal migration office or with HR during the application.`,
+      a: `EU/EFTA citizens living in an EU/EFTA state can apply for a G permit and can work anywhere in Switzerland: border zones no longer apply to them, and they must return home at least once a week. The Swiss employer files the request with Canton ${cantonDisplay}'s migration office after the contract is signed. Processing times vary by canton, so confirm the specifics with ${cantonDisplay}'s cantonal migration office or with HR during the application.`,
     };
   }
   if (locale === 'de') {
     return {
       q: `Brauche ich eine Grenzgänger-Bewilligung für eine Stelle im Kanton ${cantonDisplay}?`,
-      a: `EU/EFTA-Bürger mit Wohnsitz in der Grenzzone des an den Kanton ${cantonDisplay} angrenzenden Landes können eine G-Bewilligung beantragen; der Schweizer Arbeitgeber reicht sie nach Vertragsunterzeichnung beim Migrationsamt dieses Kantons ein. Grenzzonen-Regeln und Bearbeitungszeiten variieren je nach Nachbarland und Kanton — klären Sie die Details mit dem Migrationsamt des Kantons ${cantonDisplay} oder mit HR während der Bewerbung.`,
+      a: `EU/EFTA-Bürger mit Wohnsitz in einem EU/EFTA-Staat können eine G-Bewilligung beantragen und in der ganzen Schweiz arbeiten: Grenzzonen gelten für sie nicht mehr, und sie müssen mindestens einmal pro Woche heimkehren. Der Schweizer Arbeitgeber reicht den Antrag nach Vertragsunterzeichnung beim Migrationsamt des Kantons ${cantonDisplay} ein. Die Bearbeitungszeiten variieren je nach Kanton — klären Sie die Details mit dem Migrationsamt des Kantons ${cantonDisplay} oder mit HR während der Bewerbung.`,
     };
   }
   if (locale === 'fr') {
     return {
       q: `Ai-je besoin d'un permis de frontalier pour un poste dans le canton de ${cantonDisplay} ?`,
-      a: `Les résidents UE/AELE domiciliés dans la zone frontalière du pays voisin du canton de ${cantonDisplay} peuvent demander un permis G ; l'employeur suisse le dépose auprès de l'office cantonal des migrations après signature du contrat. Les règles de zone frontalière et les délais varient selon le pays voisin et le canton — confirmez les détails auprès de l'office des migrations du canton de ${cantonDisplay} ou avec les RH pendant la candidature.`,
+      a: `Les citoyens UE/AELE résidant dans un État UE/AELE peuvent demander un permis G et travailler dans toute la Suisse : les zones frontalières ne s'appliquent plus à eux, et ils doivent rentrer au moins une fois par semaine. L'employeur suisse dépose la demande auprès de l'office des migrations du canton de ${cantonDisplay} après signature du contrat. Les délais varient selon le canton — confirmez les détails auprès de l'office des migrations du canton de ${cantonDisplay} ou avec les RH pendant la candidature.`,
     };
   }
   return {
     q: `Serve un permesso da frontaliere per un ruolo nel canton ${cantonDisplay}?`,
-    a: `I residenti UE/AELS nella zona di frontiera del paese confinante con il canton ${cantonDisplay} possono richiedere il Permesso G; il datore di lavoro svizzero lo presenta all'ufficio della migrazione di quel canton dopo la firma del contratto. Regole sulla zona di frontiera e tempi di lavorazione variano per paese confinante e canton — verifica i dettagli con l'ufficio della migrazione del canton ${cantonDisplay} o con HR durante il colloquio.`,
+    a: `I cittadini UE/AELS residenti in uno Stato UE/AELS possono richiedere il Permesso G e lavorare in tutta la Svizzera: le zone di frontiera per loro non valgono più e il rientro è almeno settimanale. Il datore di lavoro svizzero presenta la domanda all'ufficio della migrazione del canton ${cantonDisplay} dopo la firma del contratto. I tempi di lavorazione variano per canton — verifica i dettagli con l'ufficio della migrazione del canton ${cantonDisplay} o con HR durante il colloquio.`,
   };
 }
 

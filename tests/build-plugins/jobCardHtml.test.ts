@@ -7,6 +7,7 @@ import { describe, expect, it } from 'vitest';
 import {
   renderJobCardHtml,
   renderJobCardListHtml,
+  jobSaveLinkAttrs,
   localizedContract,
   relativePostedLabel,
   isJobNew,
@@ -47,6 +48,13 @@ describe('jobCardHtml — save bookmark island', () => {
 
   it('renders no placeholder without a job id', () => {
     expect(renderJobCardHtml(baseJob, { href, locale: 'it' })).not.toContain('data-job-save');
+  });
+
+  it('puts the same data on plain job links, only when the job has an id', () => {
+    expect(jobSaveLinkAttrs({ ...baseJob, id: 'alten-1', slug: 'full-stack', company: 'R&D' })).toContain(
+      ' data-job-id="alten-1" data-job-slug="full-stack" data-job-company="R&amp;D" data-job-canton="TI"',
+    );
+    expect(jobSaveLinkAttrs(baseJob)).toBe('');
   });
 });
 

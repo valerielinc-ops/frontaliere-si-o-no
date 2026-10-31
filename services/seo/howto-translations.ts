@@ -97,7 +97,7 @@ export const HOWTO_TRANSLATIONS: HowToLocaleMap = {
  name: "First Day as a Cross-Border Worker: Complete Guide",
  description: "Complete checklist for your first day as a cross-border worker: G permit, AIRE registration, bank, insurance, transport",
  steps: [
- { name: "Apply for the G Permit", text: "Apply for a G work permit from Canton Ticino. You need an employment contract, valid ID, and proof of residence in the border zone (within 20 km)." },
+ { name: "Apply for the G Permit", text: "Apply for a G work permit from Canton Ticino. You need an employment contract and valid ID; in Ticino the copy must be certified by the Gendarmeria. Border zones no longer apply to EU/EFTA citizens." },
  { name: "Register with AIRE", text: "If you are moving to Switzerland, register with AIRE (Registry of Italians Residing Abroad) at the competent Italian consulate within 90 days." },
  { name: "Open a Swiss Bank Account", text: "Open a current account in Switzerland (PostFinance, Raiffeisen, UBS or Credit Suisse) to receive your salary in CHF." },
  { name: "Choose Health Insurance", text: "Choose between Swiss LAMal and Italian SSN (right of option). Compare premiums among the 14 health insurers available for Canton Ticino." },
@@ -109,7 +109,7 @@ export const HOWTO_TRANSLATIONS: HowToLocaleMap = {
  name: "Erster Tag als Grenzgaenger: Vollstaendiger Leitfaden",
  description: "Vollstaendige Checkliste fuer den ersten Tag als Grenzgaenger: G-Bewilligung, AIRE-Anmeldung, Bank, Versicherung, Transport",
  steps: [
- { name: "G-Bewilligung beantragen", text: "Beantragen Sie die G-Arbeitsbewilligung beim Kanton Tessin. Sie benoetigen einen Arbeitsvertrag, einen gueltigen Ausweis und einen Wohnsitznachweis in der Grenzzone (innerhalb von 20 km)." },
+ { name: "G-Bewilligung beantragen", text: "Beantragen Sie die G-Arbeitsbewilligung beim Kanton Tessin. Sie benoetigen einen Arbeitsvertrag und einen gueltigen Ausweis; im Tessin muss die Kopie von der Gendarmerie beglaubigt werden. Fuer EU/EFTA-Buerger gelten keine Grenzzonen mehr." },
  { name: "Bei AIRE anmelden", text: "Wenn Sie in die Schweiz ziehen, melden Sie sich innerhalb von 90 Tagen beim zustaendigen italienischen Konsulat bei AIRE (Register der im Ausland lebenden Italiener) an." },
  { name: "Schweizer Bankkonto eroeffnen", text: "Eroeffnen Sie ein Girokonto in der Schweiz (PostFinance, Raiffeisen, UBS oder Credit Suisse), um Ihr Gehalt in CHF zu erhalten." },
  { name: "Krankenversicherung waehlen", text: "Waehlen Sie zwischen Schweizer KVG und italienischem SSN (Optionsrecht). Vergleichen Sie die Praemien der 14 im Kanton Tessin verfuegbaren Krankenkassen." },
@@ -121,7 +121,7 @@ export const HOWTO_TRANSLATIONS: HowToLocaleMap = {
  name: "Premier jour en tant que frontalier : guide complet",
  description: "Checklist complete pour le premier jour en tant que frontalier : permis G, inscription AIRE, banque, assurance, transports",
  steps: [
- { name: "Demander le permis G", text: "Demandez le permis de travail G aupres du Canton du Tessin. Vous avez besoin d'un contrat de travail, d'une piece d'identite valide et d'un justificatif de domicile dans la zone frontiere (dans les 20 km)." },
+ { name: "Demander le permis G", text: "Demandez le permis de travail G aupres du Canton du Tessin. Vous avez besoin d'un contrat de travail et d'une piece d'identite valide ; au Tessin, la copie doit etre certifiee par la Gendarmerie. Les zones frontalieres ne s'appliquent plus aux citoyens UE/AELE." },
  { name: "S'inscrire a l'AIRE", text: "Si vous vous installez en Suisse, inscrivez-vous a l'AIRE (Registre des Italiens residant a l'etranger) aupres du consulat italien competent dans les 90 jours." },
  { name: "Ouvrir un compte bancaire suisse", text: "Ouvrez un compte courant en Suisse (PostFinance, Raiffeisen, UBS ou Credit Suisse) pour recevoir votre salaire en CHF." },
  { name: "Choisir l'assurance maladie", text: "Choisissez entre la LAMal suisse et le SSN italien (droit d'option). Comparez les primes parmi les 14 assureurs disponibles pour le Canton du Tessin." },
@@ -286,9 +286,9 @@ export const HOWTO_TRANSLATIONS: HowToLocaleMap = {
  description: "Step-by-step guide to obtaining the G work permit as a cross-border worker in Switzerland: requirements, application, costs and renewal.",
  steps: [
  { name: "Find a Swiss employer", text: "Secure an employment contract with an employer based in Switzerland: this is the basic requirement to apply for the G permit." },
- { name: "Check the residence requirement", text: "Make sure you reside within the 20 km border zone (or a concordat municipality) and can guarantee a weekly return to your country of residence." },
+ { name: "Check the residence requirement", text: "Make sure you reside in an EU/EFTA state and can guarantee a return home at least once a week. Border zones no longer apply to EU/EFTA citizens." },
  { name: "The employer submits the application", text: "The Swiss employer submits the G permit application to the cantonal Migration Office where the workplace is located." },
- { name: "Receive the G permit", text: "Once approved, you receive the G permit: it costs about CHF 65-85 and is valid for 5 years for open-ended contracts (matching the contract term for fixed-term contracts)." },
+ { name: "Receive the G permit", text: "Once approved, you receive the G permit: in Ticino it costs CHF 75 for EU/EFTA adults (CHF 40 for minors) and is valid for 5 years with an open-ended contract or one over a year, otherwise for the contract term." },
  { name: "Renew at expiry", text: "Renewal is automatic on the employer's request, as long as the employment relationship is still active." }
  ]
  },
@@ -297,9 +297,9 @@ export const HOWTO_TRANSLATIONS: HowToLocaleMap = {
  description: "Schritt-fuer-Schritt-Anleitung zur G-Bewilligung als Grenzgaenger in der Schweiz: Voraussetzungen, Antrag, Kosten und Verlaengerung.",
  steps: [
  { name: "Schweizer Arbeitgeber finden", text: "Sichern Sie sich einen Arbeitsvertrag mit einem Arbeitgeber mit Sitz in der Schweiz: das ist die Grundvoraussetzung fuer die G-Bewilligung." },
- { name: "Wohnsitzvoraussetzung pruefen", text: "Stellen Sie sicher, dass Sie in der 20-km-Grenzzone (oder einer Konkordatsgemeinde) wohnen und woechentlich in Ihr Wohnsitzland zurueckkehren koennen." },
+ { name: "Wohnsitzvoraussetzung pruefen", text: "Stellen Sie sicher, dass Sie in einem EU/EFTA-Staat wohnen und mindestens einmal pro Woche heimkehren koennen. Fuer EU/EFTA-Buerger gelten keine Grenzzonen mehr." },
  { name: "Arbeitgeber reicht den Antrag ein", text: "Der Schweizer Arbeitgeber reicht den Antrag auf die G-Bewilligung beim kantonalen Migrationsamt am Arbeitsort ein." },
- { name: "G-Bewilligung erhalten", text: "Nach Genehmigung erhalten Sie die G-Bewilligung: sie kostet rund CHF 65-85 und ist bei unbefristeten Vertraegen 5 Jahre gueltig (bei befristeten Vertraegen entsprechend der Vertragsdauer)." },
+ { name: "G-Bewilligung erhalten", text: "Nach Genehmigung erhalten Sie die G-Bewilligung: im Tessin kostet sie CHF 75 fuer Erwachsene aus EU/EFTA (CHF 40 fuer Minderjaehrige) und gilt 5 Jahre bei unbefristetem oder ueber einjaehrigem Vertrag, sonst fuer die Vertragsdauer." },
  { name: "Bei Ablauf verlaengern", text: "Die Verlaengerung erfolgt automatisch auf Antrag des Arbeitgebers, solange das Arbeitsverhaeltnis weiterhin besteht." }
  ]
  },
@@ -308,9 +308,9 @@ export const HOWTO_TRANSLATIONS: HowToLocaleMap = {
  description: "Guide etape par etape pour obtenir le permis de travail G en tant que frontalier en Suisse : conditions, demande, couts et renouvellement.",
  steps: [
  { name: "Trouvez un employeur suisse", text: "Obtenez un contrat de travail aupres d'un employeur base en Suisse : c'est la condition de base pour demander le permis G." },
- { name: "Verifiez la condition de residence", text: "Assurez-vous de resider dans la zone frontaliere de 20 km (ou une commune concordataire) et de pouvoir garantir un retour hebdomadaire dans votre pays de residence." },
+ { name: "Verifiez la condition de residence", text: "Assurez-vous de resider dans un Etat UE/AELE et de pouvoir rentrer au moins une fois par semaine. Les zones frontalieres ne s'appliquent plus aux citoyens UE/AELE." },
  { name: "L'employeur depose la demande", text: "L'employeur suisse depose la demande de permis G aupres de l'Office cantonal des migrations du lieu de travail." },
- { name: "Recevez le permis G", text: "Une fois approuve, vous recevez le permis G : il coute environ CHF 65-85 et est valable 5 ans pour les contrats a duree indeterminee (correspondant a la duree du contrat pour les contrats a duree determinee)." },
+ { name: "Recevez le permis G", text: "Une fois approuve, vous recevez le permis G : au Tessin il coute CHF 75 pour les adultes UE/AELE (CHF 40 pour les mineurs) et vaut 5 ans avec un contrat a duree indeterminee ou de plus d'un an, sinon pour la duree du contrat." },
  { name: "Renouvelez a l'echeance", text: "Le renouvellement est automatique sur demande de l'employeur, tant que la relation de travail est toujours active." }
  ]
  }

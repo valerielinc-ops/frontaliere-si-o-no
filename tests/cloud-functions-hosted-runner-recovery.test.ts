@@ -17,6 +17,10 @@ const DEPLOY_WORKFLOW_PATH = path.resolve(
   import.meta.dirname,
   '../.github/workflows/deploy-cloud-functions.yml',
 );
+const RULES_DEPLOY_WORKFLOW_PATH = path.resolve(
+  import.meta.dirname,
+  '../.github/workflows/deploy-firestore-rules.yml',
+);
 
 const sourceRun = {
   id: 37517850000,
@@ -92,5 +96,43 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
     expect(recovery.jobs.retry.steps.at(-1).uses).toBe('actions/github-script@v9');
     expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('shouldRetryCloudFunctionsRun');
     expect(deploy.concurrency['cancel-in-progress']).toBe(false);
+  });
+
+  it.each([
+    ['Cloud Functions', DEPLOY_WORKFLOW_PATH],
+    ['Firestore/Storage rules', RULES_DEPLOY_WORKFLOW_PATH],
+  ])('retries the %s sparse checkout once before deploy logic', (_label, workflowPath) => {
+    const workflow = parse(fs.readFileSync(workflowPath, 'utf8')) as any;
+    const job = Object.values(workflow.jobs)[0] as any;
+    const steps = job.steps as Array<Record<string, any>>;
+    const primary = steps.find((step) => step.id === 'checkout_primary');
+    const retry = steps.find((step) => step.id === 'checkout_retry');
+    const backoff = steps.find((step) => step.name === 'Backoff 30s before checkout retry');
+    const ready = steps.find((step) => step.id === 'checkout');
+    const setupNodeIndex = steps.findIndex((step) => step.name === 'Setup Node.js');
+
+    expect(primary).toMatchObject({
+      uses: 'actions/checkout@v7',
+      'continue-on-error': true,
+    });
+    expect(String(primary?.with?.['sparse-checkout'])).toContain('/*');
+    expect(primary?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(retry).toMatchObject({
+      uses: 'actions/checkout@v7',
+      if: "steps.checkout_primary.outcome == 'failure'",
+    });
+    expect(retry?.['continue-on-error']).toBeUndefined();
+    expect(retry?.with?.['sparse-checkout']).toBe(primary?.with?.['sparse-checkout']);
+    expect(backoff).toMatchObject({
+      if: "steps.checkout_primary.outcome == 'failure'",
+    });
+    expect(backoff?.run).toContain('sleep 30');
+    expect(ready?.if).toContain('always()');
+    expect(ready?.if).toContain("steps.checkout_retry.outcome == 'success'");
+    expect(setupNodeIndex).toBeGreaterThan(steps.indexOf(ready));
+
+    const report = steps.find((step) => step.name === 'Report failure to GitHub Issues');
+    expect(report?.if).toContain("steps.checkout_primary.outcome == 'success'");
+    expect(report?.if).toContain("steps.checkout_retry.outcome == 'success'");
   });
 });

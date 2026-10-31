@@ -1402,6 +1402,28 @@ const EDGE_PUSHED_FETCH_TIMEOUT_MS = 2000;
 // could silently drift from this one.
 export const EDGE_PUSHED_CACHE_TTL = 300; // 5 min
 
+// Google News only wants articles from the last 48 hours, the window of
+// data/news-sitemap-whitelist.ts (a test keeps the two numbers equal). Every
+// writer of this file prunes it, but none of them runs on the clock: the sync
+// reaches R2 only after its refresh PR merges, so on 2026-10-31 the served file
+// held 40 of 56 URLs past the window. The window is applied here, at the moment
+// of the request, so it keeps moving whatever the pipeline is doing.
+export const NEWS_SITEMAP_PATH = '/sitemap-news.xml';
+export const NEWS_SITEMAP_WINDOW_HOURS = 48;
+
+// Drops the <url> blocks published outside the window. Same predicate as the
+// writers: a missing or unparsable date, or one in the future, is out. A file
+// that is not a news sitemap (no publication date at all) is returned as is, so
+// a surprising payload degrades to today's behaviour instead of an empty file.
+export function pruneNewsSitemapToWindow(xml, nowMs) {
+  if (!xml.includes('<news:publication_date>')) return xml;
+  return xml.replace(/[ \t]*<url>[\s\S]*?<\/url>\s*/g, (block) => {
+    const published = block.match(/<news:publication_date>\s*([^<]+?)\s*<\/news:publication_date>/)?.[1];
+    const ageMs = nowMs - Date.parse(published ?? '');
+    return ageMs >= 0 && ageMs <= NEWS_SITEMAP_WINDOW_HOURS * 3_600_000 ? block : '';
+  });
+}
+
 // Returns a 200 Response served from the R2-pushed copy of `pathname`, or
 // null when the path is not in EDGE_PUSHED_FILES, the object hasn't been
 // published yet (R2 miss), or the subrequest fails/times out. Mirrors
@@ -1423,7 +1445,9 @@ async function servePushedEdgeFile(pathname) {
       cf: publicOriginCacheOptions(EDGE_PUSHED_CACHE_TTL),
     });
     if (!resp.ok) return null; // not yet published (or purged/expired) → origin passthrough
-    const body = await resp.arrayBuffer();
+    const body = pathname === NEWS_SITEMAP_PATH
+      ? pruneNewsSitemapToWindow(await resp.text(), Date.now())
+      : await resp.arrayBuffer();
     return new Response(body, {
       status: 200,
       headers: {
@@ -1651,6 +1675,12 @@ export const EDGE_RETIRED_PATHS = {
   '/en/swiss-articles/news-not-relevant/': null,
   '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': null,
   '/fr/articles-suisse/information-non-pertinente/': null,
+
+  // ── 410 — article withdrawn on the 2026-10-31 audit, no substitute (4 URLs).
+  '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/': null,
+  '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/': null,
+  '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/': null,
+  '/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/': null,
 
   // ── GSC 404 decisions checked 2026-10-21 (6 gone, 1 moved). ────────────
   // These six old article URLs have no current corpus owner or equivalent
@@ -1910,6 +1940,7 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/cookie/': '/privacy/',
   // Conventional sitemap names probed by crawlers; the index is /sitemap.xml.
   '/sitemap_index.xml': '/sitemap.xml',
+  '/sitemap-index.xml': '/sitemap.xml',
   '/sitemap-jobs-ticino.xml': '/sitemap.xml',
   // Same NASpI consolidation already declared for the Italian article in the SSG map.
   '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/': '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/',

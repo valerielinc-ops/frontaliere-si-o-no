@@ -45,5 +45,6 @@ describe('close-recovered-failure-issues.yml stays parseable by GitHub Actions',
       /close-recovered-failure-issues\.mjs/.test(String(s.run || '')),
     );
     expect(step?.run).toContain('scripts/ci/close-recovered-failure-issues.mjs');
+    expect(step?.run).toContain('inputs.dry_run');
   });
 });
