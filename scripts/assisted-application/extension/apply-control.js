@@ -74,7 +74,7 @@ const startsApplication = (text) => {
     try { owner = JSON.parse(field.ownConsentOwnerKey); } catch { return null; }
     if (owner?.v !== 1 || !Array.isArray(owner.scopes)) return null;
     const text = plain(own);
-    const nativeNames = `${field.name || ''} ${field.autocomplete || ''}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[_:-]+/g, ' ');
+    const nativeNames = `${field.name || ''} ${field.autocomplete || ''}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[^\p{L}\p{N}]+/gu, ' ');
     const veto = `${own} ${nativeNames}`;
     const normalizedVeto = plain(veto);
     if (NEGATED.test(normalizedVeto) || OTHER_TERMS.test(normalizedVeto)

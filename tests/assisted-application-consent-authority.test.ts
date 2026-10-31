@@ -63,7 +63,7 @@ describe('native consent authority shared by planner and browser', () => {
     expect(F.answerFor(entries[0], { answers: [], identity: {} })).toBeNull();
     expect(guardPlan({ actions: [{ fieldId: source[0].id, action: 'check', source: 'consent' }], missingRequired: [] }, source).actions).toEqual([]);
   });
-  it.each(['work_authorization', 'degree_attestation', 'newsletter_marketing', 'recruitment_agency'])('does not grant consent when its native identifier contradicts the visible privacy purpose: %s', name => {
+  it.each(['work_authorization', 'work–authorization', 'workAuthorization', 'degree_attestation', 'newsletter_marketing', 'recruitment_agency'])('does not grant consent when its native identifier contradicts the visible privacy purpose: %s', name => {
     const { source, F, entries } = readers(box('I agree to the Privacy Policy', `name="${name}"`));
     expect(ownConsent(source[0])).toBe(false);
     expect(isConsentOnly(source[0])).toBe(false);
