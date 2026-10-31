@@ -46,6 +46,39 @@ export function avaturePortalDirectory(value, protocol) {
   } catch { return null; }
 }
 
+function pathDirectory(url) {
+  return url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1);
+}
+
+export function portalDirectory(value) {
+  return pathDirectory(value instanceof URL ? value : new URL(value));
+}
+
+/**
+ * ATS review/login routes may expose one explicit `application/` segment
+ * between the posting directory and the terminal route. The directory still
+ * has to be the source namespace (or that one bounded child), while Avature's
+ * combined `ApplicationReview` spelling remains an ordinary source-directory
+ * route.
+ */
+export function samePortalRouteDirectory(value, source, protocol = null) {
+  try {
+    const target = new URL(value);
+    const sourceUrl = new URL(source);
+    const expected = avaturePortalDirectory(sourceUrl.href, protocol) || portalDirectory(sourceUrl);
+    const actual = portalDirectory(target);
+    if (actual === expected) return true;
+    return actual.startsWith(expected) && /^application\/$/i.test(actual.slice(expected.length));
+  } catch { return false; }
+}
+
+/** Match a terminal route with an optional `application/` segment. */
+export function isPortalRoutePath(pathname, suffixes) {
+  const escaped = (Array.isArray(suffixes) ? suffixes : [suffixes])
+    .map(value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  return new RegExp(`(?:^|\\/)(?:(?:application\\/)?(?:${escaped})|application(?:${escaped}))\\/?$`, 'i').test(String(pathname || ''));
+}
+
 export function sameAvaturePortal(source, current, url) {
   return avatureProtocolMatches(source, `${source?.origin}${source?.path}`) && avatureProtocolMatches(current, url)
     && source.portalId === current.portalId && source.namespace === current.namespace && source.origin === current.origin;
