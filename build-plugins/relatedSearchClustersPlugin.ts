@@ -4852,6 +4852,12 @@ async function probeForeignPresentPage(
 }
 
 /**
+ * In the `<head>` of every closed-offer soft landing and of nothing else. Those
+ * pages are deliberately `index,follow`, so the noindex check cannot see them.
+ */
+const CLOSED_JOB_PAGE_HEAD_MARKER = 'window.__EXPIRED_JOB_DATA__=';
+
+/**
  * Async parallel variant. Replaced the sync version (180k `fs.readFileSync`
  * + 360k `fs.existsSync` per build, ~41s under `sitemap-write` in run
  * 26597194374) with a fixed-size concurrency pool of async readFile attempts.
@@ -4892,6 +4898,8 @@ export async function dropOverwrittenLocs(
     inspectForeignPresent?: boolean;
     keepMissing?: boolean;
     preserveCanonicalExemptions?: boolean;
+    /** Also drop a closed offer: its soft landing is `index,follow` but no sitemap entry. */
+    dropClosedJobPages?: boolean;
     foreignDirectoryIndex?: ForeignDirectoryIndex;
     /** Etichetta del chiamante, solo per la riga `[sitemap-truth]` di diagnosi. */
     label?: string;
@@ -5041,6 +5049,10 @@ export async function dropOverwrittenLocs(
       }
       if (facts ? facts.metaRefresh : hasMetaRefresh(html)) {
         flags[i] = DROP_REDIRECT;
+        continue;
+      }
+      if (options.dropClosedJobPages && html.includes(CLOSED_JOB_PAGE_HEAD_MARKER)) {
+        flags[i] = DROP_NOINDEX;
         continue;
       }
       const canonHref = facts ? facts.canonicalHref : extractCanonicalHref(html);
@@ -5416,6 +5428,7 @@ export async function reconcileSitemapJobsWithDist(
         (await dropOverwrittenLocs(distDir, locs, {
           inspectForeignPresent: true,
           preserveCanonicalExemptions: true,
+          dropClosedJobPages: true,
           foreignDirectoryIndex: options.foreignDirectoryIndex,
           label: 'jobs',
         }))

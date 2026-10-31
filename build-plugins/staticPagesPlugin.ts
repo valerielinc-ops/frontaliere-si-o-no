@@ -204,7 +204,7 @@ import {
   isLocaleVariantSitemapFile,
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
-import { routeModulePreloadTags } from './shared/modulePreloads';
+import { declareRouteHintEmitter, routeChunksMetaTag } from './shared/modulePreloads';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 import {
   glossaryTermSlugFromItalianPath,
@@ -774,6 +774,32 @@ function replaceHomepageSeoHead(html: string, locale: HpSeoLocale): string {
  out = replaceTagAttribute(out, 'meta', 'name', 'twitter:url', 'content', BASE_URL + '/' + locale + '/');
  out = replaceTagAttribute(out, 'link', 'rel', 'canonical', 'href', BASE_URL + '/' + locale + '/');
  return out;
+}
+
+/**
+ * The locale home's own `WebPage`, in place of the Italian root one that
+ * index.html ships, and without the index.html blocks that have no translation.
+ */
+export function localizeHomepageStructuredData(html: string, locale: 'en' | 'de' | 'fr'): string {
+ const copy = HOMEPAGE_SEO_META[locale];
+ const url = BASE_URL + '/' + locale + '/';
+ const webPage = inlineScriptJson({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': url + '#webpage',
+  name: copy.title,
+  url,
+  description: copy.description,
+  screenshot: BASE_URL + '/og-image.png',
+  author: { '@id': BASE_URL + '/#organization' },
+  inLanguage: locale,
+ });
+ return html
+  .replace(/<script\b[^>]*\bdata-hp-it-only\b[^>]*>[\s\S]*?<\/script>\s*/gi, '')
+  .replace(
+   /<script\b[^>]*\bid=["']?hp-webpage-ld["']?[^>]*>[\s\S]*?<\/script>/i,
+   () => '<script type="application/ld+json" id="hp-webpage-ld">' + webPage + '</script>',
+  );
 }
 
 const HOMEPAGE_STATIC_H1_TEXT: Record<HpSeoLocale, string> = {
@@ -1692,7 +1718,7 @@ export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'):
    de: ['Die interaktiven Rechner benötigen JavaScript. Sie können weiterhin die Ratgeber lesen und die folgenden Links nutzen.', 'Website erkunden'],
    fr: ['Les calculateurs interactifs nécessitent JavaScript. Vous pouvez toujours lire les guides et parcourir les liens ci-dessous.', 'Parcourir le site'],
  }[locale];
- let out = replaceHomepageSeoHead(html, locale);
+ let out = localizeHomepageStructuredData(replaceHomepageSeoHead(html, locale), locale);
  // Replace only the content fallback; stylesheet noscript blocks must survive.
  out = out.replace(/<noscript\b[^>]*\bid="homepage-nojs"[^>]*>[\s\S]*?<\/noscript>/i,
    `<noscript id="homepage-nojs"><p>${noJsCopy[0]} <a href="/${SITE_MAP_PAGE_DIR[locale]}/">${noJsCopy[1]}</a></p></noscript>`);
@@ -1834,14 +1860,21 @@ const STATIC_ONLY_PATHS = new Set([
 export function staticPagesPlugin(rootDir: string): Plugin {
   const plugin = buildStaticPagesPlugin(rootDir);
   const inner = plugin.closeBundle as (this: unknown, ...args: unknown[]) => unknown;
+  const innerBuildStart = plugin.buildStart as ((this: unknown, ...args: unknown[]) => unknown) | undefined;
+  let endRouteHints = (): void => {};
   return withPhaseInstrument('static-pages', {
     ...plugin,
+    buildStart: function (this: unknown, ...args: unknown[]) {
+      endRouteHints = declareRouteHintEmitter();
+      return innerBuildStart?.apply(this, args);
+    } as Plugin['buildStart'],
     closeBundle: async function (this: unknown, ...args: unknown[]) {
       beginJobDetailExistenceMemo();
       try {
         return await inner.apply(this, args);
       } finally {
         endJobDetailExistenceMemo();
+        endRouteHints();
       }
     } as Plugin['closeBundle'],
   });
@@ -2484,14 +2517,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // branches that still gate template fragments on it; it's tautologically
  // `true` here.
  const hasSpaBundle = spaBundle.hasSpaBundle;
- const corePreloads = [
- vendorReactChunk ? `<link rel="modulepreload" crossorigin href="/assets/${vendorReactChunk}">` : '',
- ...itCriticalChunks.map(c => `<link rel="modulepreload" href="/assets/${c}">`),
- ].filter(Boolean).join('\n ');
- const preloadTag = corePreloads ? '\n ' + corePreloads : '';
- // What `corePreloads` already hints: the page list below must not repeat it
- // (shared/modulePreloads.ts — /calcola-stipendio/ shipped it-calculator twice).
- const corePreloadedChunks: ReadonlySet<string> = new Set([vendorReactChunk, ...itCriticalChunks].filter(Boolean));
+ // Core chunks of every SPA-shell page. They reach the browser as a hint for the
+ // release bootstrap, never as a preload of the root alias (shared/modulePreloads.ts).
+ const corePreloadChunks: string[] = [vendorReactChunk, ...itCriticalChunks].filter(Boolean);
 
  /* ── 0b. Build page-component modulepreload map ────────────── */
  // Maps URL path prefixes → component chunk filename prefixes so static HTML
@@ -2762,7 +2790,10 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  const segs = urlPath.split('/').filter(Boolean);
  const localePrefixes = ['en', 'de', 'fr'];
  const firstSeg = (segs.length > 0 && localePrefixes.includes(segs[0])) ? (segs[1] ?? '') : (segs[0] ?? '');
- if (!firstSeg) return '';
+ if (!firstSeg) {
+ const coreHint = routeChunksMetaTag(corePreloadChunks);
+ return coreHint ? '\n ' + coreHint : '';
+ }
 
  const tags: string[] = [];
  // The first two article cards are marked fetchpriority="high" by the
@@ -2782,7 +2813,8 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // Add locale-specific translation chunk (e.g., it-guide-xxx.js)
  const localeChunkKey = sectionLocaleChunks[firstSeg];
  if (localeChunkKey) routeChunks.push(stableChunkFile(`${locale}-${localeChunkKey}`));
- tags.push(...routeModulePreloadTags(routeChunks, corePreloadedChunks));
+ const routeHint = routeChunksMetaTag([...corePreloadChunks, ...routeChunks]);
+ if (routeHint) tags.push(routeHint);
  // Preload the first-paint hero image on article listing and detail pages.
  // #5001: su una pagina di DETTAGLIO va preloadata la hero DI QUELL'ARTICOLO.
  // Preloadare quella dell'hub significava un fetch ad alta priorita' per
@@ -6234,7 +6266,7 @@ ${hrefTags}
  ${CRITICAL_CSS_LINK}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
- ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
+ ${stylesheetMarkup}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
  ${SPA_ANALYTICS_SNIPPET}${jobBoardHeadTags(fullUrl)}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}

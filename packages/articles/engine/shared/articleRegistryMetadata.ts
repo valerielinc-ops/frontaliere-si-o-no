@@ -17,6 +17,8 @@ export interface ArticleRegistryMetadata {
   authorSlug?: string;
   authorName?: string;
   aiAssisted?: boolean;
+  /** Generator's declaration; a value other than the two known ones is dropped. */
+  articleType?: 'news' | 'evergreen';
 }
 
 /**
@@ -37,7 +39,7 @@ export function readArticleRegistryMetadata(source: string): ArticleRegistryMeta
   const objects = findTopLevelStaticObjectLiterals(sourceFile);
   if (objects.length === 0) return [];
   const records: ArticleRegistryMetadata[] = [];
-  const stringFields = new Set(['id', 'category', 'date', 'image', 'updatedAt', 'authorSlug', 'authorName']);
+  const stringFields = new Set(['id', 'category', 'date', 'image', 'updatedAt', 'authorSlug', 'authorName', 'articleType']);
   const fields = new Set([...stringFields, 'aiAssisted']);
   const seen = new Set<string>();
   for (const object of objects) {
@@ -68,6 +70,7 @@ export function readArticleRegistryMetadata(source: string): ArticleRegistryMeta
       ...(typeof values.authorSlug === 'string' ? { authorSlug: values.authorSlug } : {}),
       ...(typeof values.authorName === 'string' ? { authorName: values.authorName } : {}),
       ...(typeof values.aiAssisted === 'boolean' ? { aiAssisted: values.aiAssisted } : {}),
+      ...(values.articleType === 'news' || values.articleType === 'evergreen' ? { articleType: values.articleType } : {}),
     });
   }
   return records;
