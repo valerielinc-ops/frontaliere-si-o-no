@@ -491,6 +491,10 @@ jobs:
           [ -s dist/build-id.txt ] || fail "dist/build-id.txt missing or empty"
           [ "$(cat dist/build-id.txt)" = "$DEPLOY_BUILD_ID" ] || fail "build id $(cat dist/build-id.txt) != $DEPLOY_BUILD_ID"
           [ -s "dist/${BUILD_LOCALE}/index.html" ] || fail "dist/${BUILD_LOCALE}/index.html missing or empty"
+          [ -s dist/locale-sitemap-manifest.json ] || fail "dist/locale-sitemap-manifest.json missing or empty"
+          node scripts/validate-sitemap-links.mjs \
+            --owned-locale="${BUILD_LOCALE}" \
+            --verify-manifest=dist/locale-sitemap-manifest.json
           # Only what deploy.yml's «Pack non-IT locale shard source artifact»
           # ALWAYS packs may be required here: the locale subtree and
           # build-id.txt. It adds the flat homepage `<loc>.html` only when the

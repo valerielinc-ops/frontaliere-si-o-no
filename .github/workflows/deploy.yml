@@ -1179,6 +1179,25 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
+      # A locale sitemap can be assembled from the shared job inventory while
+      # its own leg fails to materialize one detail page. Validate the owned
+      # URL set before pruning the other locales, then hand the exact set to
+      # deploy-publish.yml so an incomplete artifact cannot reach a shard push.
+      - name: Validate owned sitemap pages before locale prune
+        id: validate-owned-sitemap-pages
+        env:
+          LOCALE_SITEMAP_MANIFEST_OUT: ${{ runner.temp }}/locale-sitemap-manifest-${{ matrix.locale }}.json
+        run: |
+          set -euo pipefail
+          if [ "${{ matrix.locale }}" = "it" ]; then
+            node scripts/validate-sitemap-links.mjs --owned-locale=it
+          else
+            node scripts/validate-sitemap-links.mjs \
+              --owned-locale="${{ matrix.locale }}" \
+              --manifest-out="$LOCALE_SITEMAP_MANIFEST_OUT"
+            test -s "$LOCALE_SITEMAP_MANIFEST_OUT"
+          fi
+
       # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
       # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
       # write every locale. This removes the non-owned locale output the same
@@ -1300,6 +1319,10 @@ jobs:
           source scripts/lib/parallel-tar.sh
           printf '%s\n' "${DEPLOY_BUILD_ID}" > dist/build-id.txt
           members=("${{ matrix.locale }}" build-id.txt)
+          manifest="$RUNNER_TEMP/locale-sitemap-manifest-${{ matrix.locale }}.json"
+          test -s "$manifest"
+          cp "$manifest" dist/locale-sitemap-manifest.json
+          members+=(locale-sitemap-manifest.json)
           if [ -f "dist/${{ matrix.locale }}.html" ]; then
             members+=("${{ matrix.locale }}.html")
           fi
