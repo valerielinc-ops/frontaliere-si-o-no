@@ -117,7 +117,7 @@ jobs:
             exit 1
           fi
           ARGS=""
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
             ARGS="--dry-run"
           fi
           node scripts/ci/close-recovered-failure-issues.mjs $ARGS
