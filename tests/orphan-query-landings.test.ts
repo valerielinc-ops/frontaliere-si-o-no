@@ -39,6 +39,7 @@ import {
   parseOrphanLandingPath,
   buildOrphanLandingRoutes,
   filterMatchingJobs,
+  selectOrphanLandingJobs,
   jobMatchesCluster,
   median,
   topCounts,
@@ -332,27 +333,6 @@ describe('orphanQueryData — job matching', () => {
     expect(jobMatchesCluster(job, cluster)).toBe(true);
   });
 
-  it('a query that names Ticino needs a job in Ticino (GEO audit 2026-10-31)', () => {
-    const c = makeCluster('it', 'offerte-di-lavoro-architetto-ticino', 30, ['architett'], ['ticino']);
-    const inTicino = activeJob({ title: 'Architetto', canton: 'TI', location: 'Lugano', addressLocality: 'Lugano' });
-    const inZurich = activeJob({ title: 'Cloud Architetto', canton: 'ZH', location: 'Zurigo', addressLocality: 'Zurigo' });
-    expect(jobMatchesCluster(inTicino, c)).toBe(true);
-    expect(jobMatchesCluster(inZurich, c)).toBe(false);
-    // Same verdict from the memoised path the plugin actually runs.
-    expect(filterMatchingJobs([inZurich, inTicino], c, 15)).toEqual([inTicino]);
-  });
-
-  it('a nationwide query keeps matching every canton', () => {
-    const inZurich = activeJob({ title: 'Chauffeur', canton: 'ZH', location: 'Zurigo', addressLocality: 'Zurigo' });
-    expect(jobMatchesCluster(inZurich, cluster)).toBe(true);
-  });
-
-  it('a city in the query decides over the Ticino token', () => {
-    const c = makeCluster('it', 'lavoro-cuoco-lugano-ticino', 30, ['cuoc'], ['lugano', 'ticino']);
-    expect(jobMatchesCluster(activeJob({ title: 'Cuoco', canton: 'TI', location: 'Lugano', addressLocality: 'Lugano' }), c)).toBe(true);
-    expect(jobMatchesCluster(activeJob({ title: 'Cuoco', canton: 'TI', location: 'Bellinzona', addressLocality: 'Bellinzona' }), c)).toBe(false);
-  });
-
   it('requires the complete profession and ignores salary/search filler', () => {
     const c = makeCluster('it', 'stipendio-specialista-delle-dogane-svizzera', 30,
       ['dogan', 'specialist', 'stipendi'], ['svizzera']);
@@ -469,6 +449,47 @@ describe('orphanQueryData — job matching', () => {
 });
 
 // ─── Small helpers ───────────────────────────────────────────
+describe('selectOrphanLandingJobs — relevance gate (GEO audit 2026-10-31)', () => {
+  const architect = (canton: string, location: string, slug: string) =>
+    activeJob({ title: 'Architetto', canton, location, addressLocality: location, slug });
+  const ticinoQuery = makeCluster('it', 'offerte-di-lavoro-architetto-ticino', 30, ['architett'], ['ticino']);
+
+  it('below the floor in Ticino the page is not relevant, whatever the rest of Switzerland offers', () => {
+    const jobs = [architect('ZH', 'Zurigo', 'a'), architect('BE', 'Berna', 'b'), architect('VD', 'Losanna', 'c'), architect('TI', 'Lugano', 'd')];
+    const selected = selectOrphanLandingJobs(jobs, ticinoQuery, 15, 3);
+    expect(selected.regionRelevant).toBe(false);
+    // Visitors of the noindex page keep the wider list instead of an empty one.
+    expect(selected.jobs).toHaveLength(4);
+  });
+
+  it('with enough jobs in Ticino the page shows only those', () => {
+    const jobs = [architect('ZH', 'Zurigo', 'a'), architect('TI', 'Lugano', 'b'), architect('TI', 'Bellinzona', 'c'), architect('TI', 'Locarno', 'd')];
+    const selected = selectOrphanLandingJobs(jobs, ticinoQuery, 15, 3);
+    expect(selected.regionRelevant).toBe(true);
+    expect(selected.jobs.map((job) => job.slug).sort()).toEqual(['b', 'c', 'd']);
+  });
+
+  it('looks past the limit: recent jobs elsewhere do not hide jobs in Ticino', () => {
+    const elsewhere = Array.from({ length: 5 }, (_, i) => architect('ZH', 'Zurigo', `zh-${i}`));
+    const jobs = [...elsewhere, architect('TI', 'Lugano', 'x'), architect('TI', 'Lugano', 'y'), architect('TI', 'Lugano', 'z')];
+    const selected = selectOrphanLandingJobs(jobs, ticinoQuery, 3, 3);
+    expect(selected.regionRelevant).toBe(true);
+    expect(selected.jobs.map((job) => job.slug).sort()).toEqual(['x', 'y', 'z']);
+  });
+
+  it('leaves a nationwide query alone', () => {
+    const c = makeCluster('it', 'architetto-svizzera', 30, ['architett'], ['svizzera']);
+    const selected = selectOrphanLandingJobs([architect('ZH', 'Zurigo', 'a')], c, 15, 3);
+    expect(selected).toEqual({ jobs: [expect.objectContaining({ slug: 'a' })], regionRelevant: true });
+  });
+
+  it('lets a city in the query decide over the Ticino token', () => {
+    const c = makeCluster('it', 'architetto-lugano-ticino', 30, ['architett'], ['lugano', 'ticino']);
+    const selected = selectOrphanLandingJobs([architect('TI', 'Lugano', 'a')], c, 15, 3);
+    expect(selected.regionRelevant).toBe(true);
+  });
+});
+
 describe('orphanQueryData — helpers', () => {
   it('median returns 0 for empty / all-zero input', () => {
     expect(median([])).toBe(0);

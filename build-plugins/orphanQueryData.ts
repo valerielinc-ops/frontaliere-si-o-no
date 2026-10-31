@@ -139,8 +139,8 @@ function isJobActiveForLocale(job: OrphanCountableJob, locale: OrphanLandingLoca
 
 /**
  * Region tokens that denote the whole country / canton rather than a single
- * locality. When only these are present no city constrains the match, though
- * a canton still does: see {@link TICINO_REGION_TOKENS}. Crucially they
+ * locality. When these are the ONLY region tokens of a cluster, every active
+ * Ticino job is geographically relevant (site-wide coverage). Crucially they
  * must NOT let a cluster that ALSO names a specific city (e.g.
  * "lavoro stabio svizzera") silently match jobs anywhere in Switzerland — that
  * was the doorway bug where the city page surfaced wrong-city openings.
@@ -149,16 +149,6 @@ const BROAD_REGION_TOKENS = new Set<string>([
   'svizzera', 'suisse', 'switzerland', 'schweiz',
   'ticino', 'tessin', 'ch',
 ]);
-
-/**
- * A query that names Ticino asks for jobs in Ticino. This used to be implied:
- * the dataset was Ticino-only, so "broad" meant "everything we have". Now that
- * it covers all of Switzerland, `/ricerca/offerte-di-lavoro-architetto-ticino/`
- * listed cloud architects in other cantons (GEO audit 2026-10-31). With the
- * canton enforced, a query with too few real matches falls under
- * MIN_MATCHING_JOBS and the landing's existing noindex,follow gate takes over.
- */
-const TICINO_REGION_TOKENS = new Set<string>(['ticino', 'tessin']);
 
 /**
  * Role stems that mean "job / work / opening / hiring / company / recently"
@@ -216,7 +206,7 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
     ...normalizeTokens(job.addressLocality),
   ]);
 
-  return matchesClusterFacts(titleTokens, locTokens, clusterMatchFacts(cluster), resolveJobCanton(job) === 'TI');
+  return matchesClusterFacts(titleTokens, locTokens, clusterMatchFacts(cluster));
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -260,8 +250,6 @@ interface ClusterMatchFacts {
   readonly roleTokens: readonly string[];
   readonly specificRegions: readonly string[];
   readonly allRolesGeneric: boolean;
-  /** The query names Ticino and no city, so the job's canton decides. */
-  readonly ticinoOnly: boolean;
 }
 
 const clusterFactsCache = new WeakMap<OrphanQueryCluster, ClusterMatchFacts>();
@@ -276,8 +264,7 @@ function clusterMatchFacts(cluster: OrphanQueryCluster): ClusterMatchFacts {
   const allRolesGeneric =
     cluster.roleTokens.length === 0 || occupationalRoleTokens(cluster.roleTokens).length === 0;
   const roleTokens = occupationalRoleTokens(cluster.roleTokens);
-  const ticinoOnly = specificRegions.length === 0 && cluster.regionTokens.some((r) => TICINO_REGION_TOKENS.has(r));
-  const facts: ClusterMatchFacts = { roleTokens, specificRegions, allRolesGeneric, ticinoOnly };
+  const facts: ClusterMatchFacts = { roleTokens, specificRegions, allRolesGeneric };
   clusterFactsCache.set(cluster, facts);
   return facts;
 }
@@ -291,10 +278,7 @@ function matchesClusterFacts(
   titleTokens: Iterable<string>,
   locTokens: Iterable<string>,
   facts: ClusterMatchFacts,
-  isTicinoJob: boolean,
 ): boolean {
-  if (facts.ticinoOnly && !isTicinoJob) return false;
-
   // Pure geographic search ("jobs in <city>"): no occupational intent, just a
   // named city → match by locality alone.
   if (facts.specificRegions.length > 0 && facts.allRolesGeneric) {
@@ -320,8 +304,6 @@ interface JobMatchEntry {
   locTokens?: string[];
   /** Verified publication timestamp (or zero), locale-invariant. */
   postedMs: number;
-  /** Resolved canton is Ticino, locale-invariant. */
-  isTicino?: boolean;
   activeByLocale: Partial<Record<OrphanLandingLocale, boolean>>;
   titleTokensByLocale: Partial<Record<OrphanLandingLocale, string[]>>;
 }
@@ -363,11 +345,6 @@ function entryLocTokens(entry: JobMatchEntry, job: OrphanCountableJob): string[]
     entry.locTokens = t;
   }
   return t;
-}
-
-function entryIsTicino(entry: JobMatchEntry, job: OrphanCountableJob): boolean {
-  entry.isTicino ??= resolveJobCanton(job) === 'TI';
-  return entry.isTicino;
 }
 
 function entryTitleTokens(
@@ -419,7 +396,7 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
   for (let i = 0; i < jobs.length; i++) {
     const entry = index.entries[i];
     if (!entryActive(entry, jobs[i], locale)) continue;
-    if (!matchesClusterFacts(entryTitleTokens(entry, jobs[i], locale), entryLocTokens(entry, jobs[i]), facts, entryIsTicino(entry, jobs[i]))) {
+    if (!matchesClusterFacts(entryTitleTokens(entry, jobs[i], locale), entryLocTokens(entry, jobs[i]), facts)) {
       continue;
     }
     matched.push(i);
@@ -433,6 +410,41 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
   const out: T[] = [];
   for (let i = 0; i < matched.length && i < limit; i++) out.push(jobs[matched[i]]);
   return out;
+}
+
+const TICINO_REGION_TOKENS = new Set<string>(['ticino', 'tessin']);
+
+/** The jobs a landing shows, and whether they answer the place the query names. */
+export interface OrphanLandingJobs<T> {
+  readonly jobs: T[];
+  readonly regionRelevant: boolean;
+}
+
+/**
+ * Relevance gate of a landing, on top of the role match.
+ *
+ * `filterMatchingJobs` treats `ticino` as "no city, so anywhere", which is right
+ * for a match and wrong for a landing now that the dataset is national:
+ * `/ricerca/offerte-di-lavoro-architetto-ticino/` listed cloud architects in
+ * other cantons (GEO audit 2026-10-31). With at least `minJobs` matches in Ticino
+ * the page shows those, so a query that names Ticino gets Ticino. Below that it
+ * has no honest answer: the page keeps the wider list for visitors and reports
+ * `regionRelevant: false`, which the landing turns into noindex,follow at the
+ * same URL. A query that names a city is already constrained by the match.
+ */
+export function selectOrphanLandingJobs<T extends OrphanCountableJob>(
+  jobs: readonly T[],
+  cluster: OrphanQueryCluster,
+  limit: number,
+  minJobs: number,
+): OrphanLandingJobs<T> {
+  const matched = filterMatchingJobs(jobs, cluster, limit);
+  const namesTicino = cluster.regionTokens.some((r) => TICINO_REGION_TOKENS.has(r));
+  if (!namesTicino || clusterMatchFacts(cluster).specificRegions.length > 0) return { jobs: matched, regionRelevant: true };
+  const inTicino = filterMatchingJobs(jobs, cluster, Number.POSITIVE_INFINITY).filter((job) => resolveJobCanton(job) === 'TI');
+  return inTicino.length >= minJobs
+    ? { jobs: inTicino.slice(0, limit), regionRelevant: true }
+    : { jobs: matched, regionRelevant: false };
 }
 
 /** Median of a number array; returns 0 for empty input. */
