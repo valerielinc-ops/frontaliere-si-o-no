@@ -26,6 +26,10 @@ import { answerSourceRetained, currentAnswerReviewRequired } from './assistedApp
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
+import { submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash,
+  isMinimalSubmissionReceipt, submissionOwnerIntent } from './lib/submissionReceiptContract.js';
+import { qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
@@ -41,6 +45,9 @@ import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
 import { rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { reconcileCanonicalSubmissionReceipt } from './assistedApplicationReceiptReconcile.js';
+import { submissionEmailHandoff } from './lib/submissionReceiptContract.js';
+
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -722,23 +729,48 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
 
 // ── Employer e-mail on the alias (inbox) ───────────────────────────────────
 
-const ACKNOWLEDGED = Object.freeze({ type: 'submit_acknowledged' });
-
 /**
  * A send whose outcome was uncertain, now confirmed (Valerie's «Segna come inviata», or the employer's
  * e-mail on the alias): the record the runner wrote before it (`sentAttempt`,
  * scripts/assisted-application/lib/submit.mjs) becomes the record of what left (`sent`), with who
  * confirmed it. Only on the round's own draft; nothing when there is no attempt.
- * @param {{db, orderId:string, round?:number, confirmedBy:'owner'|'acknowledgement', nowMs?:number}} args
+ * Only the immutable SENT writer's already-bound photo may be projected.
+ * Legacy confirmation arguments remain accepted; they never attest a new photo.
+ * @param {{db, orderId:string, round:number, confirmedBy?:'owner'|'acknowledgement', nowMs?:number, clock?:()=>number}} args
  * @returns {Promise<boolean>} whether a record was confirmed
  */
-export async function confirmSentAttempt({ db, orderId, round, confirmedBy, nowMs = Date.now() }) {
-  const ref = draftRefFor(db, orderId);
-  return db.runTransaction(async (transaction) => {
-    const draft = (await transaction.get(ref)).data() || {};
-    const attempt = draft.sentAttempt;
-    if (!attempt || typeof attempt !== 'object' || (round && Number(draft.round) !== Number(round))) return false;
-    transaction.set(ref, { sent: { ...attempt, confirmedBy, confirmedAt: nowMs }, sentAttempt: null }, { merge: true });
+export async function confirmSentAttempt({ db, orderId, round, confirmedBy: _confirmedBy, nowMs: _nowMs, clock = Date.now }) {
+  const guardedRound = Number(round);
+  if (!Number.isInteger(guardedRound) || guardedRound < 1 || typeof clock !== 'function') return false;
+  const orderRef = orderRefFor(db, orderId);
+  const draftRef = draftRefFor(db, orderId);
+  const submissionRef = orderRef.collection('automation').doc('submission');
+  return db.runTransaction(async transaction => {
+    const [orderDoc, draftDoc, submissionDoc] = await Promise.all([
+      transaction.get(orderRef), transaction.get(draftRef), transaction.get(submissionRef),
+    ]);
+    const order = orderDoc.data(); const draft = draftDoc.data();
+    const record = submissionDoc.data()?.[`r${guardedRound}`];
+    const sent = record?.sent;
+    if (!orderDoc.exists || !draftDoc.exists || Number(draft.round) !== guardedRound || record?.state !== 'sent'
+      || typeof record.attemptId !== 'string' || !record.attemptId || !sent
+      || sent.submissionAttempt?.id !== record.attemptId || Number(sent.submissionAttempt?.round) !== guardedRound) return false;
+    const attemptHash = submissionAttemptHash(record.attemptId);
+    const frame = (await transaction.get(orderRef.collection('submission_receipts').doc(attemptHash))).data();
+    if (!frame || frame.attemptHash !== attemptHash || frame.round !== guardedRound
+      || !/^[a-f0-9]{64}$/.test(frame.sourceFingerprint || '')
+      || (frame.channel === 'owner_extension' && !submissionOwnerIntent(frame.ownerIntent))
+      || !isMinimalSubmissionReceipt(frame.minimalReceipt, attemptHash, guardedRound)
+      || frame.slotHash !== submissionSlotHash({ orderId, order })
+      || frame.draftMaterialHash !== submissionDraftMaterialHash(draft)) return false;
+    if (draft.sent && qualificationCounterContextHash(draft.sent) !== qualificationCounterContextHash(sent)) return false;
+    if (draft.sentAttempt && (frame.attemptMaterialHash !== submissionAttemptMaterialHash(draft)
+      || draft.sentAttempt.submissionAttempt?.id !== record.attemptId
+      || Number(draft.sentAttempt.submissionAttempt?.round) !== guardedRound)) return false;
+    // The observed send/confirmation time is not a retention clock. This is
+    // only a projection of the immutable writer's photo, never a new truth.
+    if (!assistedApplicationRetained(order, clock())) return false;
+    transaction.set(draftRef, { sent, sentAttempt: null }, { merge: true });
     return true;
   });
 }
@@ -755,53 +787,51 @@ export async function confirmSentAttempt({ db, orderId, round, confirmedBy, nowM
  * something else), for a message older than the send, or once the flow is
  * past it: a second message finds it submitted.
  *
- * @param {{db, orderId:string, receivedAt:number, runEffect:Function, nowMs?:number}} args
+ * @param {{db: any, orderId: string, receivedAt: number, createOutcomeAuthority?: ((input: {record: any, round: number}) => any) | null, nowMs?: number, receiptClock?: (() => number) | null}} args
  */
-export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, runEffect, nowMs = Date.now() }) {
+export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, createOutcomeAuthority = null, nowMs = Date.now(), receiptClock = null }) {
+  const startedAt = Date.now();
+  const now = typeof receiptClock === 'function' ? receiptClock : () => nowMs + Math.max(0, Date.now() - startedAt);
   const flowSnapshot = await flowRefFor(db, orderId).get();
   if (!flowSnapshot.exists) return { ok: false, ignored: 'no_flow' };
   const flow = flowSnapshot.data() || {};
-  // The flow's own rule decides first: the guard is never touched for a flow past it.
-  const refused = transition(flow, ACKNOWLEDGED, { nowMs }).ignored;
-  if (refused) return { ok: false, ignored: refused };
+  // An actual receipt remains a fact after a withdrawal or approval change.
+  // Its current round/source must still bind; the shared reconciler alone
+  // decides whether the retained workflow/materials may be projected.
   const guard = submissionGuard(db, orderId, flow.round);
   const record = await guard.read();
   const leftAt = submissionLeftAt(record);
   // Confirmed by an earlier message whose flow event did not land: applied now.
-  const confirmedBefore = record?.state === 'sent' && record.confirmedBy === 'acknowledgement';
+  const confirmedBefore = record?.state === 'sent';
   if (!confirmedBefore) {
     if (!isUnconfirmedSubmission(record)) return { ok: false, ignored: 'nothing_unconfirmed' };
     if (Number(receivedAt) < leftAt) return { ok: false, ignored: 'before_submit' };
-    await guard.markSent({ channel: record.channel, confirmedBy: 'acknowledgement', confirmedAt: nowMs }, leftAt);
+    const outcomeAuthority = typeof createOutcomeAuthority === 'function'
+      ? await createOutcomeAuthority({ record, round: Number(flow.round) }) : null;
+    if (!outcomeAuthority) return { ok: false, ignored: 'employer_receipt_unverified' };
+    const receiptGuard = submissionGuard(db, orderId, flow.round, { outcomeAuthority, receiptClock: now });
+    await receiptGuard.markSent({ channel: record.channel, confirmedBy: 'acknowledgement', confirmedAt: nowMs }, leftAt);
   }
-  const result = await applyAutomationEvent({
-    db,
-    orderId,
-    event: ACKNOWLEDGED,
-    actor: 'employer_email',
-    runEffect,
-    nowMs,
-    patchFlow: () => ({ submittedVia: record.channel }),
-  });
-  // What the runner was sending is what arrived: its record follows the send (best effort, the flow is settled).
-  if (result.ok) {
-    await confirmSentAttempt({ db, orderId, round: flow.round, confirmedBy: 'acknowledgement', nowMs })
-      .catch((error) => console.warn('[assistedApplicationAutomation] sent record not confirmed', orderId, error instanceof Error ? error.message : String(error)));
+  // The same receipt reconciler owns the retained flow/photo projection for
+  // every channel. An expired receipt or an unbound legacy attempt remains a
+  // content-free outcome, never a reconstructed current draft or new effect.
+  const result = await reconcileCanonicalSubmissionReceipt({ db, orderId, round: Number(flow.round), nowMs: now() });
+  if (record.channel === 'email' && ['reconciled', 'reconciled_legacy_ack', 'already_reconciled', 'legacy_unbound'].includes(result.reason)) {
+    await scheduleConfirmedEmailFollowups(db, orderId, record, Number(flow.round), leftAt, now());
   }
-  if (result.ok && record.channel === 'email') await scheduleConfirmedEmailFollowups(db, orderId, leftAt);
-  return result;
+  return { ok: true, receiptRecorded: true, reconciliation: result.reason };
 }
 
 /**
  * The follow-ups the runner schedules after an e-mail application that went
- * through; this one's outcome was unknown, so it had none. Its Message-ID is
- * not on record: the "Re:" subject threads them anyway.
+ * through; this one's outcome was unknown, so it had none. Only the recorded
+ * outbound target/thread may be used; the current editable draft is not its
+ * historical application. The shared scheduler fences retention and round.
  */
-async function scheduleConfirmedEmailFollowups(db, orderId, sentAt) {
-  const draft = (await draftRefFor(db, orderId).get()).data() || {};
-  const to = String(draft.applicationEmail?.to || draft.channel?.email || '').trim().toLowerCase();
-  if (!to) return null;
-  return scheduleFollowups(db, orderId, { to, subject: draft.applicationEmail?.subject || '', messageId: '', sentAt });
+async function scheduleConfirmedEmailFollowups(db, orderId, record, round, sentAt, nowMs) {
+  const source = submissionEmailHandoff(record.emailHandoff || { messageId: record.messageId, recipient: record.to, slotHash: record.slotHash });
+  if (!source) return null;
+  return scheduleFollowups(db, orderId, { to: source.recipient, subject: String(record.subject || ''), messageId: source.messageId, sentAt, round }, nowMs);
 }
 
 export function newRequestId() {

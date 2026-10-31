@@ -6,7 +6,7 @@ import { submissionGuard } from '../functions/src/assistedApplicationSubmissionG
 import { applyAutomationEvent } from '../functions/src/assistedApplicationAutomation.js';
 const now = Date.now(); const id = 'synthetic-owner'; const base = `assisted_applications/${id}`;
 function fixture() {
-  const order = { cvUploadedAt: now, cvStorageKey: `assisted-application-uploads/${id}/cv.pdf` };
+  const order = { paymentStatus: 'paid', consentVersion: 'assisted-application-v2', consentedAt: now, cvUploadedAt: now, cvStorageKey: `assisted-application-uploads/${id}/cv.pdf` };
   const flow = { round: 1, state: 'owner_takeover', answers: {}, questionAnswers: {} };
   const draft = { round: 1, status: 'ready', questions: [], cvKey: order.cvStorageKey, sourceCvHash: 'a'.repeat(64) };
   const f = createMemoryFirestore({ [base]: order, [`${base}/automation/flow`]: flow, [`${base}/ai_drafts/current`]: draft });

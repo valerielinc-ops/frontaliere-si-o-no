@@ -17,6 +17,7 @@
  */
 
 import { randomUUID } from 'node:crypto';
+import { retainedArtifactStore } from './lib/assistedApplicationArtifactRetention.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { buildInPlaceDocx, documentXmlOf } from './assistedApplicationDocxInPlace.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
@@ -142,13 +143,17 @@ export function tailoredCvChanges({ order, draft, flow, nextDraft = draft, nextF
  * @returns {Promise<{pdfKey:string, renderer:string, photo:boolean}|null>} photo: the PDF carries the candidate's photo;
  *   null when the draft has no tailored CV to rebuild
  */
-export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow = {}, cv, nowMs, mode, log }) {
+export async function rebuildTailoredCvPdf({ db, bucket, order, orderId, draft, flow = {}, cv, nowMs = Date.now(), mode, log }) {
+  const startedAt = Date.now();
   const document = bucket ? tailoredCvDocumentFor({ order, draft, flow, cv }) : null;
   if (!document) return null;
   const { pdf, renderer, photo } = await renderCvPdf({ ...document, ...await candidatePhoto(flow, bucket) }, { mode: mode || await pdfRendererMode(), log });
   // A key of its own per rebuild: a request refused at its commit deletes its PDF, never the one another request published.
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
-  await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+  const stored = await retainedArtifactStore({ db, bucket, orderId, round: draft.round || flow.round || 1,
+    now: () => Math.max(nowMs + Math.max(0, Date.now() - startedAt), Date.now()) })
+    .save(pdfKey, pdf, { contentType: 'application/pdf', resumable: false });
+  if (!stored) throw Object.assign(new Error('artifact_retention_closed'), { code: 'artifact_retention_closed' });
   return { pdfKey, renderer, photo };
 }
 

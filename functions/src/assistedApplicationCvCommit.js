@@ -108,6 +108,10 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
   try {
     return await rebuildTailoredCvPdf(input);
   } catch (error) {
+    if (error?.code === 'artifact_retention_closed') {
+      await deleteStored(input.bucket, input.orderId, created);
+      throw new CvCommitError('changed_meanwhile', 409);
+    }
     // Storage answers 404 for the photo that is no longer there.
     if (error?.code !== 404 || !input.flow?.photo?.key) throw error;
     await deleteStored(input.bucket, input.orderId, created);
@@ -126,7 +130,7 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
 export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs, answerActor = null, answerContracts = {}, requireAnswerContracts = false }) {
   if (!answers || !Object.keys(answers).length) throw new CvCommitError('no_valid_answers', 400);
   const startedAt = Date.now();
-  const currentTime = () => nowMs + Math.max(0, Date.now() - startedAt);
+  const currentTime = () => Math.max(nowMs + Math.max(0, Date.now() - startedAt), Date.now());
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
@@ -205,7 +209,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && !['submitted', 'failed'].includes(flow.state);
   const needsRebuild = !confirmation.reviewRequired && live && tailoredCvChanges({ order, draft, flow, nextFlow });
   if (needsRebuild && !bucket) throw new CvCommitError('storage_unavailable', 503);
-  const rebuilt = needsRebuild ? await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs }) : null;
+  const rebuilt = needsRebuild ? await rebuildCvToCommit({ db, bucket, order, orderId, draft, flow: nextFlow, nowMs }) : null;
   let committed;
   try {
     committed = await db.runTransaction(async transaction => {

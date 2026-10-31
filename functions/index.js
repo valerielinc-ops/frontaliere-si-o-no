@@ -3021,7 +3021,7 @@ export const assistedApplicationEmailCv = onRequest(
         db: getAdminDb(),
         bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         secret: newsletterSecret,
-        isEnabled: (orderId) => isAutomationEnabledFor(orderId),
+        isEnabled: isAutomationEnabledFor,
       });
       if (body.matched) console.log('[assistedApplicationEmailCv] CV attached to an order');
       res.status(status).json(body);
@@ -3046,6 +3046,7 @@ export const assistedApplicationInbound = onRequest(
         bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         secret: newsletterSecret,
         runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+        isEnabled: isAutomationEnabledFor,
       });
       if (body.matched) console.log('[assistedApplicationInbound] employer message accepted');
       res.status(status).json(body);
@@ -3068,6 +3069,7 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
       orderId: event.params.orderId,
       messageId: event.params.messageId,
       runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+        isEnabled: isAutomationEnabledFor,
       classify: (request) => codexStructured(request),
       sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
       // An acknowledgement or a reply settles a submission of unknown outcome.

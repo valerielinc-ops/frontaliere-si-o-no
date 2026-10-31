@@ -1,3 +1,4 @@
+import { retainedArtifactStore } from './lib/assistedApplicationArtifactRetention.js';
 import { answerContractsFor, currentAnswerReviewRequired, sameAnswerMaterial } from './assistedApplicationAnswerConfirmation.js';
 import { answerQuestionDescriptor, nativeQuestionOptionsView } from './lib/applicationQuestionContract.js';
 import { CONSENT_OWNERSHIP_FIELDS } from './lib/consentOwnershipContract.js';
@@ -29,7 +30,7 @@ import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './as
 import { applicationFileName, checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { letterBlocksFor, rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import {
-  MAX_PHOTO_BYTES, PHOTO_TYPES, jpegIsWhole, photoAdvice, rebuildInPlaceDocx, rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvCarriesPhoto, tailoredCvChanges,
+  MAX_PHOTO_BYTES, PHOTO_TYPES, jpegIsWhole, photoAdvice, rebuildInPlaceDocx, supersededPhotoPdf, tailoredCvCarriesPhoto, tailoredCvChanges,
   tailoredCvDocumentFor,
 } from './assistedApplicationTailoredCvPdf.js';
 import { CvCommitError, commitRebuild, deleteStored, rebuildCvToCommit, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
@@ -472,6 +473,9 @@ export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', s
  * the candidate has now.
  */
 async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, body, nowMs }) {
+  const startedAt = Date.now();
+  const artifactStore = bucket ? retainedArtifactStore({ db, bucket, orderId, round: flow.round || 1,
+    now: () => Math.max(nowMs + Math.max(0, Date.now() - startedAt), Date.now()) }) : null;
   const locale = order?.locale || 'it';
   const plan = planCandidateEdits(body, { order, draft, flow, locale, nowMs });
   if (Object.keys(plan.errors).length) throw new ReviewError('invalid_edits', 400, { fields: plan.errors });
@@ -498,11 +502,11 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
     const rebuilt = await rebuildLetterPdf({ order, orderId, draft: next, flow: nextFlow, letter: next.coverLetter, nowMs });
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-candidate-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
     coverLetterRenderer = rebuilt.renderer;
-    await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
+    if (!await artifactStore.save(coverLetterPdfKey, rebuilt.pdf, { contentType: 'application/pdf', resumable: false })) throw new ReviewError('changed_meanwhile', 409);
   }
   // The tailored CV is rebuilt when a value it prints changed: the header, the personal data, LinkedIn, languages.
   const tailored = tailoredCvChanges({ order, draft, flow, nextDraft: next, nextFlow })
-    ? await rebuildCvToCommit({ bucket, order, orderId, draft: next, flow: nextFlow, nowMs, created: [coverLetterPdfKey] })
+    ? await rebuildCvToCommit({ db, bucket, order, orderId, draft: next, flow: nextFlow, nowMs, created: [coverLetterPdfKey] })
     : null;
   await commitRebuild({
     db, bucket, orderId, flow, draft, nowMs,
@@ -585,7 +589,7 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
   if (!facts.ok) throw new ReviewError('cv_fact_check_failed', 409, { unsupported: facts.unsupported.map((item) => item.token).slice(0, 5) });
   const cvChoicesRound = Number(draft.round) || 1;
   const nextFlow = { ...flow, cvChoices: choices, cvChoicesRound };
-  const rebuilt = await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
+  const rebuilt = await rebuildCvToCommit({ db, bucket, order, orderId, draft, flow: nextFlow, nowMs });
   if (!rebuilt) throw new ReviewError('not_allowed', 409);
   // The same choices in the candidate's own Word file, when there is one.
   const inplace = await rebuildInPlaceDocx({ bucket, order, draft, flow: nextFlow });
@@ -613,6 +617,9 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
  * carried it.
  */
 async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action, body, nowMs }) {
+  const startedAt = Date.now();
+  const artifactStore = bucket ? retainedArtifactStore({ db, bucket, orderId, round: flow.round || 1,
+    now: () => Math.max(nowMs + Math.max(0, Date.now() - startedAt), Date.now()) }) : null;
   if (!bucket) throw new ReviewError('storage_unavailable', 503);
   let photo = null;
   if (action === 'photo_upload') {
@@ -626,12 +633,12 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
     // A JPG cut on the way passes the first-bytes check and Typst prints what arrived, half grey: refused here.
     if (type === 'jpg' && !jpegIsWhole(buffer)) throw new ReviewError('photo_unreadable');
     const key = `assisted-application-uploads/${orderId}/photo-${nowMs}-${randomUUID().slice(0, 8)}.${type}`;
-    await bucket.file(key).save(buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false });
+    if (!await artifactStore.save(key, buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false })) throw new ReviewError('changed_meanwhile', 409);
     photo = { key, detectedType: type, size: buffer.length, uploadedAt: nowMs };
   }
   let rebuilt;
   try {
-    rebuilt = await rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow: { ...flow, photo }, nowMs });
+    rebuilt = await rebuildCvToCommit({ db, bucket, order, orderId, draft, flow: { ...flow, photo }, nowMs, created: [photo?.key] });
   } catch (error) {
     // Nothing names the new photo yet: it does not stay behind a failed request.
     await deleteStored(bucket, orderId, [photo?.key]);
@@ -680,6 +687,9 @@ async function mutableReviewFlowInTransaction({ transaction, db, orderId, round,
 }
 
 async function saveDocumentChange({ db, bucket, orderId, flow, requested, action, body, nowMs }) {
+  const startedAt = Date.now();
+  const artifactStore = bucket ? retainedArtifactStore({ db, bucket, orderId, round: flow.round || 1,
+    now: () => Math.max(nowMs + Math.max(0, Date.now() - startedAt), Date.now()) }) : null;
   const flowRef = flowRefFor(db, orderId);
   const filesOf = (current) => (Array.isArray(current?.documents?.[requested.id]?.files) ? current.documents[requested.id].files : []);
   if (action === 'document_upload') {
@@ -696,7 +706,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     if (filesOf(flow).length >= MAX_FILES_PER_DOCUMENT) throw new ReviewError('too_many_files', 409);
     const key = `assisted-application-uploads/${orderId}/doc-${requested.id.slice(0, 30)}-${nowMs}-${randomUUID().slice(0, 8)}.${type}`;
     if (!bucket) throw new ReviewError('storage_unavailable', 503);
-    await bucket.file(key).save(buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false });
+    if (!await artifactStore.save(key, buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false })) throw new ReviewError('changed_meanwhile', 409);
     const file = { key, name: clean(body.fileName, 120) || `${requested.id}.${type}`, size: buffer.length, detectedType: type, uploadedAt: nowMs, clientCheck: sanitizeClientCheck(body.clientCheck) };
     let added;
     try {

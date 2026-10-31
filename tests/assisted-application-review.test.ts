@@ -354,6 +354,7 @@ describe('candidate review API', () => {
     const bucket = () => ({
       file: (key: string) => ({
         save: async (content: Buffer, options: any) => { saved.set(key, { content, options }); },
+        getMetadata: async () => [{ generation: '1', metadata: saved.get(key)?.options?.metadata?.metadata || {} }],
         delete: async () => { deleted.push(key); saved.delete(key); },
       }),
     });
@@ -540,7 +541,11 @@ describe('candidate review API', () => {
 
   it('lets the candidate correct the letter and their data before approving', async () => {
     const saved: string[] = [];
-    const bucket = { file: (key: string) => ({ save: async () => { saved.push(key); } }) };
+    const metadata = new Map<string, any>();
+    const bucket = { file: (key: string) => ({
+      save: async (_bytes: Buffer, options: any) => { saved.push(key); metadata.set(key, { generation: '1', metadata: options.metadata?.metadata || {} }); },
+      getMetadata: async () => [metadata.get(key)], delete: async () => { metadata.delete(key); },
+    }) };
     const view = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
     expect(view.body.can.edit).toBe(true);
     const fields = Object.fromEntries(view.body.formAnswers.map((field: any) => [field.key, field]));
