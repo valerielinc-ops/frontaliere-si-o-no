@@ -74,7 +74,7 @@ per run, Ticino prima (`reviveUnresolvedDomainCandidates`).
 
 | stadio | script | cosa fa |
 |---|---|---|
-| DISCOVER | `prospect-discover.mjs` | quattro sorgenti riempiono la coda dei candidati |
+| DISCOVER | `prospect-discover.mjs` | cinque sorgenti riempiono la coda dei candidati |
 | TRACE | `prospect-trace.mjs` | segue la traccia carriere e impara le piattaforme |
 | EXPAND | `prospect-expand.mjs` | enumera i tenant di una piattaforma — qui la copertura moltiplica |
 | SYNTHESIZE | `prospect-synthesize.mjs` | genera la spec del crawler dalla pagina viva |
@@ -83,7 +83,7 @@ per run, Ticino prima (`reviveUnresolvedDomainCandidates`).
 
 `prospect-report.mjs` stampa lo stato e **dove il loop non arriva**.
 
-## Le quattro sorgenti di scoperta
+## Le cinque sorgenti di scoperta
 
 | sorgente | costo | cosa vede | resa misurata |
 |---|---|---|---|
@@ -91,6 +91,7 @@ per run, Ticino prima (`reviveUnresolvedDomainCandidates`).
 | `seco` | API pubblica | chi assume **ora**, per obbligo di legge (Stellenmeldepflicht) | 5.923 datori nuovi su 26 cantoni |
 | `osm` | Overpass | imprese con sito, per cantone | 1.411 in Ticino |
 | `web` | indice Common Crawl | pagine carriere di **tutto il web svizzero** | ~11 datori per pagina d'indice, su 1.223 pagine |
+| `zefix` | SPARQL LINDAS | ogni società iscritta, anche senza annunci né sito | 15 siti su 80 società ticinesi recenti |
 
 Nessuna richiede chiave o quota.
 
@@ -98,6 +99,19 @@ DISCOVER registra per fonte `complete`, `partial`, `unavailable` o `malformed`.
 Un risultato parziale resta utilizzabile e non viene contato come outage totale.
 Lo storico separa i record ricevuti dai nuovi candidati davvero inseriti in
 coda; il report tratta i record senza outcome come `legacy/unknown`.
+
+`zefix` è l'unica sorgente che dà un'identità e nessun segnale. Registro di
+commercio: nome legale, sede, scopo. Lo scopo serve a scartare, non resta nel
+candidato: fuori holding, immobiliari e casse pensioni (18% delle righe sul
+campione ticinese), oltre a ditte individuali e associazioni per forma giuridica.
+Una riga non riapre un candidato morto e non fa da prova di assunzione: ogni
+stadio dopo cerca la sua evidenza sul sito. Entrano 60 candidati nuovi per run,
+Ticino prima, iscrizioni nuove prima e poi l'arretrato dal più recente, con un
+cursore per cantone in `zefix-cursors.json`. A questo ritmo l'arretrato ticinese
+copre più di un anno e `candidates.json` cresce di circa 20 KB al giorno, poi i
+morti escono con la ritenzione a 90 giorni. Le righe finiscono nel bucket
+`fallback` di TRACE, il più lento. Dati: opendata.swiss, «Open use. Must provide
+the source», citati in `THIRD_PARTY_NOTICES.md`.
 
 Il budget predefinito di Common Crawl è 40 pagine per run e quello OSM è 3
 cantoni per run. Common Crawl usa una permutazione dell'intero intervallo della
