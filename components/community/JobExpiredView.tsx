@@ -47,6 +47,7 @@ import { jobDescriptionPlainText, jobDescriptionPreview } from '@/services/jobs/
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { renderJobDescriptionContent } from '@/build-plugins/shared/jobDescriptionContent';
+import { formatDaysAgo, formatJobContractLabel, formatJobSalary } from '@/services/jobs/jobCardMetadata';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
 import JobSaveButton from '@/components/community/JobSaveButton';
@@ -71,7 +72,9 @@ interface RelatedJob {
  crawledAt?: string;
  salaryMin?: number;
  salaryMax?: number;
+ salarySource?: string;
  currency?: string;
+ salaryCurrency?: string;
  featured?: boolean;
 }
 
@@ -108,31 +111,6 @@ function slugifyLocationName(name: string): string {
  return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-const CONTRACT_COPY: Record<string, Record<string, string>> = {
- 'full-time': { it: 'Tempo pieno', en: 'Full-time', de: 'Vollzeit', fr: 'Temps plein' },
- 'part-time': { it: 'Part-time', en: 'Part-time', de: 'Teilzeit', fr: 'Temps partiel' },
- temporary: { it: 'Temporaneo', en: 'Temporary', de: 'Temporär', fr: 'Temporaire' },
- internship: { it: 'Stage', en: 'Internship', de: 'Praktikum', fr: 'Stage' },
- apprenticeship: { it: 'Apprendistato', en: 'Apprenticeship', de: 'Lehrstelle', fr: 'Apprentissage' },
-};
-function formatContractLabel(contract: string | undefined, locale: string): string | null {
- if (!contract) return null;
- return CONTRACT_COPY[contract]?.[locale] ?? CONTRACT_COPY[contract]?.it ?? contract;
-}
-function formatDaysAgo(dateStr: string | undefined, locale: string): string | null {
- if (!dateStr) return null;
- const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
- if (diff < 0) return null;
- if (diff === 0) return locale === 'it' ? 'Oggi' : locale === 'de' ? 'Heute' : locale === 'fr' ? "Aujourd'hui" : 'Today';
- if (diff === 1) return locale === 'it' ? 'Ieri' : locale === 'de' ? 'Gestern' : locale === 'fr' ? 'Hier' : 'Yesterday';
- return locale === 'it' ? `${diff} giorni fa` : locale === 'de' ? `Vor ${diff} Tagen` : locale === 'fr' ? `Il y a ${diff} jours` : `${diff} days ago`;
-}
-function formatRelatedSalary(rj: RelatedJob): string | null {
- if (!rj.salaryMin) return null;
- const min = (rj.salaryMin / 1000).toFixed(0);
- const max = rj.salaryMax ? (rj.salaryMax / 1000).toFixed(0) : null;
- return max ? `${rj.currency ?? 'CHF'} ${min}k – ${max}k` : `${rj.currency ?? 'CHF'} ${min}k+`;
-}
 
 const BANNER_COPY: Record<string, string> = {
  it: 'Questa posizione non è più attiva.',
@@ -227,6 +205,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const expiredDate = job.expiredAt
  ? new Date(job.expiredAt).toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
  : null;
+ const jobSalary = formatJobSalary(job, locale);
+ const jobContract = formatJobContractLabel(job.contract || job.employmentType || job.contractType, locale);
+ const jobPosted = formatDaysAgo(resolveReportedPostingDate(job) ?? undefined, locale);
 
  const logoUrl = cdnImageUrl(resolveCompanyLogoUrl({ company: job.company, companyKey: job.companyKey }));
  const jobLocation = job.addressLocality ?? job.location ?? '';
@@ -596,6 +577,24 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it} {expiredDate}
  </span>
  )}
+ {jobSalary && (
+ <span className="inline-flex items-center gap-1 font-semibold text-success">
+ <Euro size={14} aria-hidden="true" />
+ {jobSalary}
+ </span>
+ )}
+ {jobContract && (
+ <span className="inline-flex items-center gap-1">
+ <Briefcase size={14} aria-hidden="true" />
+ {jobContract}
+ </span>
+ )}
+ {jobPosted && (
+ <span className="inline-flex items-center gap-1">
+ <Clock size={14} aria-hidden="true" />
+ {jobPosted}
+ </span>
+ )}
  </div>
  </div>
  </div>
@@ -656,8 +655,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const rjLocation = formatJobLocation(rj.location, rj.canton);
  const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));
- const rjSalary = formatRelatedSalary(rj);
- const rjContract = formatContractLabel(rj.contract, locale);
+ const rjSalary = formatJobSalary(rj, locale);
+ const rjContract = formatJobContractLabel(rj.contract, locale);
  const rjPosted = formatDaysAgo(resolveReportedPostingDate(rj) ?? undefined, locale);
  const card = (
  <article
@@ -737,6 +736,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const locationSnapshot = getJobLocationSnapshot({
  location: job.location,
  addressLocality: job.addressLocality,
+ postalCode: job.postalCode,
  });
  const relatedSearchTerms: string[] = Array.from(
  new Set(
@@ -812,7 +812,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <aside className="hidden lg:block lg:col-span-4">
  <div className="sticky top-20 space-y-4">
  {/* Snapshot annuncio */}
- {(jobLocation || expiredDate || (locationSnapshot?.crossings && locationSnapshot.crossings.length > 0)) && (
+ {(jobLocation || expiredDate || jobContract || jobPosted || (locationSnapshot?.crossings && locationSnapshot.crossings.length > 0)) && (
  <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl">
  <div className="text-sm font-bold font-display text-heading">
  {t('jobBoard.snapshotTitle')}
@@ -837,6 +837,18 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="flex items-center justify-between gap-2">
  <span>{EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it}</span>
  <span className="font-semibold font-display text-strong">{expiredDate}</span>
+ </div>
+ )}
+ {jobContract && (
+ <div className="flex items-center justify-between gap-2">
+ <span>{t('jobBoard.snapshot.contract')}</span>
+ <span className="font-semibold font-display text-strong">{jobContract}</span>
+ </div>
+ )}
+ {jobPosted && (
+ <div className="flex items-center justify-between gap-2">
+ <span>{t('jobBoard.snapshot.published')}</span>
+ <span className="font-semibold font-display text-strong">{jobPosted}</span>
  </div>
  )}
  {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && (

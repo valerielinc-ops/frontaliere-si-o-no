@@ -25,6 +25,13 @@ const fullJob: ExpiredJob = {
  },
  sector: 'IT & Software',
  expiredAt: '2025-11-15T00:00:00.000Z',
+ salaryMin: 80000,
+ salaryMax: 95000,
+ currency: 'CHF',
+ salarySource: 'reported',
+ contract: 'full-time',
+ postingDateSource: 'reported',
+ datePosted: new Date(Date.now() - 2 * 86400000).toISOString(),
 };
 
 const minimalJob: ExpiredJob = {
@@ -80,6 +87,14 @@ describe('JobExpiredView (logged-in)', () => {
 
   // No "Scaduta il" line since no expiredAt
   expect(screen.queryByText(/Scaduta il/i)).not.toBeInTheDocument();
+ });
+
+ it('renders available salary, contract, and posting metadata in the standard detail header', () => {
+  render(<JobExpiredView job={fullJob} hasAccess />);
+
+  expect(screen.getByText('CHF 80k – 95k')).toBeInTheDocument();
+  expect(screen.getAllByText('Tempo pieno').length).toBeGreaterThan(0);
+  expect(screen.getAllByText(/2 giorni fa/i).length).toBeGreaterThan(0);
  });
 
  it('places related jobs in the standard full-width three-column section', () => {
