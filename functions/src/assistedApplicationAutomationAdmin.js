@@ -1,3 +1,4 @@
+import { OWNER_NATIVE_PROOF_PROTOCOL } from './lib/ownerFinalIntent.js';
 import { loadRunnerAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { answerQuestionDescriptor } from './lib/applicationQuestionContract.js';
 import { answerContractsFor, currentAnswerReviewRequired, answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
@@ -545,7 +546,7 @@ async function verificationLinkFor(db, orderId, { sinceMs = 0 } = {}) {
 
 // The orders Valerie completes herself: the robot stopped (owner_takeover).
 const FILL_KIT_STATES = new Set(['owner_takeover']);
-export const OWNER_NATIVE_PROOF_PROTOCOL = 'owner-final-intent-v1';
+export { OWNER_NATIVE_PROOF_PROTOCOL } from './lib/ownerFinalIntent.js';
 function requireNativeProofProtocol(value) {
   if (value !== OWNER_NATIVE_PROOF_PROTOCOL) throw new AutomationAdminError('extension_update_required', 409);
 }
