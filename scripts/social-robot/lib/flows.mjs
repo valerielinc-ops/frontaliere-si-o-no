@@ -24,6 +24,14 @@ import path from 'node:path';
 
 export const INSTAGRAM_HOME = 'https://www.instagram.com/';
 export const TIKTOK_UPLOAD = 'https://www.tiktok.com/tiktokstudio/upload';
+export const TIKTOK_CONTENT = 'https://www.tiktok.com/tiktokstudio/content';
+export const TIKTOK_CONTENT_LOOKUP_MS = 30_000;
+const TIKTOK_POST_LIST_API = /\/tiktok\/creator\/manage\/item_list\//;
+// Values read from Studio on 2026-10-31, on every published public post.
+const TIKTOK_POST_STATUS_PUBLISHED = 102;
+const TIKTOK_POST_VISIBILITY_PUBLIC = 1;
+// A literal, not an import: the launchd snapshot copies only scripts/social-robot.
+const TIKTOK_SPOKEN_CREATIVES = new Set(['answer-voice-v1']);
 export const DEFAULT_TIKTOK_USERNAME = 'frontaliereticino';
 export const TIKTOK_MUSIC_MODES = Object.freeze(['off', 'trend']);
 export const DEFAULT_TIKTOK_MUSIC_MODE = 'off';
@@ -1470,7 +1478,9 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   await human.pause();
   await waitForTikTokProcessing(page, { timeout: t.upload, guard });
   await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: t.optional });
-  const music = await ensureTikTokMusic({ page, musicVariant, human, snap, guard, step, timeout: TIKTOK_MUSIC_TIMEOUT_MS });
+  // A spoken video is its own audio track: a trending sound would replace it.
+  const effectiveMusicVariant = TIKTOK_SPOKEN_CREATIVES.has(video?.creativeVariant) ? 'control' : musicVariant;
+  const music = await ensureTikTokMusic({ page, musicVariant: effectiveMusicVariant, human, snap, guard, step, timeout: TIKTOK_MUSIC_TIMEOUT_MS });
 
   const editor = await required(step, 'caption', [
     page.locator('[data-e2e="caption_container"] [contenteditable="true"]'),
@@ -1523,6 +1533,42 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
     }
     throw new RobotError('confirmation-missing', 'Post was pressed but TikTok showed no confirmation', { step: 'confirmation', pressed: true });
   });
+}
+
+/**
+ * Look for an unconfirmed press in TikTok Studio's post list. Read-only: the
+ * proof is a public, published row of the list API with the exact caption, so
+ * a draft or a similar post can never release a hold.
+ */
+export async function findTikTokPublishedPost({ page, caption, startUrl = TIKTOK_CONTENT, timeout = TIKTOK_CONTENT_LOOKUP_MS, step = stepTracker() }) {
+  const expected = normalize(caption);
+  if (!expected) return null;
+  const guard = tiktokGuard(page, step);
+  let found = null;
+  const onResponse = async (response) => {
+    if (!TIKTOK_POST_LIST_API.test(response.url())) return;
+    const payload = await response.json().catch(() => null);
+    const row = (payload?.item_list || []).find((item) => (
+      item?.status === TIKTOK_POST_STATUS_PUBLISHED
+      && item?.visibility === TIKTOK_POST_VISIBILITY_PUBLIC
+      && normalize(item?.desc) === expected
+    ));
+    if (row) found = row.item_id;
+  };
+  page.on('response', onResponse);
+  try {
+    step.set('open');
+    await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
+    const deadline = Date.now() + timeout;
+    for (;;) {
+      await guard();
+      if (found) return `published row ${found} in ${new URL(page.url()).pathname}`;
+      if (Date.now() >= deadline) return null;
+      await sleep(1_000);
+    }
+  } finally {
+    page.off('response', onResponse);
+  }
 }
 
 export const FLOWS = Object.freeze({ instagram: instagramFlow, tiktok: tiktokFlow });
