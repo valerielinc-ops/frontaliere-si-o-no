@@ -1831,8 +1831,9 @@ function BlogArticlesContent({
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
  // An article without a documented publication date is an evergreen page,
- // not a NewsArticle with an unknown timestamp.
- '@type': schemaDates.datePublished ? 'NewsArticle' : 'WebPage',
+ // not a NewsArticle with an unknown timestamp. A dated guide the generator
+ // declared evergreen is an Article, as on the static page.
+ '@type': !schemaDates.datePublished ? 'WebPage' : article.articleType === 'evergreen' ? 'Article' : 'NewsArticle',
  '@id': `${canonicalUrl}#article`,
  headline: title,
  description: excerpt.startsWith('blog.article.') ? title : excerpt,

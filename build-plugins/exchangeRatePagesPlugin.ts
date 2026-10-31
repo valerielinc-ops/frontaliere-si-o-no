@@ -979,6 +979,7 @@ function exchangeRateLd(snapshot: ExchangeSnapshot): string {
       '@type': 'UnitPriceSpecification',
       price: snapshot.currentRate,
       priceCurrency: 'EUR',
+      validFrom: snapshot.rateDate,
     },
   });
 }
