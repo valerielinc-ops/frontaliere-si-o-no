@@ -16,6 +16,7 @@ on:
       - 'scripts/assisted-application/lib/portal-code-version.mjs'
       - 'scripts/assisted-application/install-nopecha.sh'
       - 'functions/src/assistedApplicationConstants.js'
+      - 'functions/src/assistedApplicationPortalSites.js'
       - 'functions/src/assistedApplicationRetention.js'
       - 'functions/src/assistedApplicationExtraDocuments.js'
       - 'functions/src/assistedApplicationOperationalAnswers.js'

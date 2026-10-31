@@ -170,7 +170,6 @@
     "sector": "Trasporti / Logistica",
     "expiredAt": "2026-10-30T21:17:38.344Z",
     "previousSlugs": [
-      "logistiker-efz-m-w-d-planzer-seewen",
       "logistiker-cfc-m-w-d-planzer-seewen-93d361c2",
       "logistiker-efz-m-w-d-planzer-seewen-1152552a",
       "logistiker-efz-m-w-d-planzer-seewen-b483c250",
@@ -1964,6 +1963,10 @@
       "package-delivery-m-f-d-planzer-seewen-52857f22",
       "paketzusteller-m-w-d-planzer-seewen-4eccc12e",
       "livraison-de-colis-h-f-d-planzer-seewen-45321ed1",
+      "consegna-del-pacchetto-m-f-d-planzer-seewen-b8dbba3a",
+      "package-delivery-m-f-d-planzer-seewen-93e9977a",
+      "paketzusteller-m-w-d-planzer-seewen-7b9a602e",
+      "livraison-de-colis-h-f-d-planzer-seewen-a615aee0",
       "consegna-del-pacchetto-m-f-d-planzer-seewen",
       "package-delivery-m-f-d-planzer-seewen",
       "paketzusteller-m-w-d-planzer-seewen",
@@ -2004,6 +2007,8 @@
         "paketzusteller-m-w-d-planzer-seewen-9fd129d4",
         "consegna-del-pacchetto-m-f-d-planzer-seewen-55fa82fa",
         "paketzusteller-m-w-d-planzer-seewen-4eccc12e",
+        "consegna-del-pacchetto-m-f-d-planzer-seewen-b8dbba3a",
+        "paketzusteller-m-w-d-planzer-seewen-7b9a602e",
         "consegna-del-pacchetto-m-f-d-planzer-seewen",
         "paketzusteller-m-w-d-planzer-seewen"
       ],
@@ -2030,6 +2035,7 @@
         "paketzusteller-m-w-d-planzer-seewen-9df095a5",
         "paketzusteller-m-w-d-planzer-seewen-9fd129d4",
         "paketzusteller-m-w-d-planzer-seewen-4eccc12e",
+        "paketzusteller-m-w-d-planzer-seewen-7b9a602e",
         "paketzusteller-m-w-d-planzer-seewen"
       ],
       "fr": [
@@ -2075,6 +2081,8 @@
         "livraison-de-colis-h-f-d-planzer-seewen-3315c398",
         "paketzusteller-m-w-d-planzer-seewen-4eccc12e",
         "livraison-de-colis-h-f-d-planzer-seewen-45321ed1",
+        "paketzusteller-m-w-d-planzer-seewen-7b9a602e",
+        "livraison-de-colis-h-f-d-planzer-seewen-a615aee0",
         "paketzusteller-m-w-d-planzer-seewen",
         "livraison-de-colis-h-f-d-planzer-seewen"
       ]
@@ -4468,6 +4476,11 @@
       "chauffeur-cat-ce-m-f-d-z-planzer-zurich-9d5e08b7",
       "chauffeur-cat-ce-h-f-d-z-planzer-zurich-d6e5bd46",
       "chauffeur-kat-ce-m-w-d-planzer-zurich-6486a91f",
+      "chauffeur-cat-ce-regione-zurigo-m-f-d-planzer-buchs-b13ff732",
+      "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs-4812151d",
+      "chauffeur-cat-ce-m-f-d-z-planzer-zurich-4ab06124",
+      "chauffeur-cat-ce-h-f-d-z-planzer-zurich-7cc65dec",
+      "chauffeur-kat-ce-m-w-d-planzer-zurich-318387b7",
       "chauffeur-cat-ce-regione-zurigo-m-f-d-planzer-buchs",
       "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
       "chauffeur-cat-ce-m-f-d-z-planzer-zurich",
@@ -4554,6 +4567,11 @@
         "chauffeur-cat-ce-m-f-d-z-planzer-zurich-9d5e08b7",
         "chauffeur-cat-ce-h-f-d-z-planzer-zurich-d6e5bd46",
         "chauffeur-kat-ce-m-w-d-planzer-zurich-6486a91f",
+        "chauffeur-cat-ce-regione-zurigo-m-f-d-planzer-buchs-b13ff732",
+        "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs-4812151d",
+        "chauffeur-cat-ce-m-f-d-z-planzer-zurich-4ab06124",
+        "chauffeur-cat-ce-h-f-d-z-planzer-zurich-7cc65dec",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich-318387b7",
         "chauffeur-cat-ce-regione-zurigo-m-f-d-planzer-buchs",
         "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
         "chauffeur-cat-ce-m-f-d-z-planzer-zurich",
@@ -4610,6 +4628,9 @@
         "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs-4feef995",
         "chauffeur-cat-ce-m-f-d-z-planzer-zurich-9d5e08b7",
         "chauffeur-kat-ce-m-w-d-planzer-zurich-6486a91f",
+        "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs-4812151d",
+        "chauffeur-cat-ce-m-f-d-z-planzer-zurich-4ab06124",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich-318387b7",
         "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
         "chauffeur-cat-ce-m-f-d-z-planzer-zurich",
         "chauffeur-kat-ce-m-w-d-planzer-zurich"
@@ -4668,6 +4689,9 @@
         "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs-4feef995",
         "chauffeur-cat-ce-h-f-d-z-planzer-zurich-d6e5bd46",
         "chauffeur-kat-ce-m-w-d-planzer-zurich-6486a91f",
+        "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs-4812151d",
+        "chauffeur-cat-ce-h-f-d-z-planzer-zurich-7cc65dec",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich-318387b7",
         "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
         "chauffeur-cat-ce-h-f-d-z-planzer-zurich",
         "chauffeur-kat-ce-m-w-d-planzer-zurich"
@@ -4704,6 +4728,8 @@
         "chauffeur-kat-ce-m-w-d-planzer-zurich-8c0614d3",
         "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs-4feef995",
         "chauffeur-kat-ce-m-w-d-planzer-zurich-6486a91f",
+        "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs-4812151d",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich-318387b7",
         "chauffeur-kat-ce-region-zurich-m-w-d-planzer-buchs",
         "chauffeur-kat-ce-m-w-d-planzer-zurich"
       ]

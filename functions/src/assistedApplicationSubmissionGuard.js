@@ -20,6 +20,39 @@ import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants
 
 export const SUBMISSION_DOC_ID = 'submission';
 
+// Account failures are deliberately a closed, retention-safe vocabulary. The
+// runner may report only these two fields: no portal text, locator, URL,
+// credential or candidate answer crosses the event boundary.
+export const ACCOUNT_FAILURE_CODES = Object.freeze([
+  'no_create_button',
+  'no_sign_in_button',
+  'login_unobserved',
+  'create_unanswered',
+  'create_refused',
+  'locator_control_error',
+  'verification_timeout',
+  'verification_unobserved',
+  'verification_rejected',
+  'auth_steps_exhausted',
+  'unknown',
+]);
+export const ACCOUNT_FAILURE_STAGES = Object.freeze(['login', 'registration', 'verification', 'application', 'unknown']);
+const ACCOUNT_FAILURE_FIELDS = Object.freeze(['code', 'stage']);
+
+/** Serialize only the finite admin/read-only account diagnostic shape. */
+export function serializeAccountFailure(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const keys = Object.keys(value);
+  if (keys.length !== ACCOUNT_FAILURE_FIELDS.length || keys.some(key => !ACCOUNT_FAILURE_FIELDS.includes(key))) return null;
+  if (!ACCOUNT_FAILURE_CODES.includes(value.code) || !ACCOUNT_FAILURE_STAGES.includes(value.stage)) return null;
+  return { code: value.code, stage: value.stage };
+}
+
+/** Read a stored diagnostic without exposing or accepting any extra fields. */
+export function getAccountFailure(record) {
+  return serializeAccountFailure(record?.accountFailure);
+}
+
 export function submissionRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('automation').doc(SUBMISSION_DOC_ID);
 }
@@ -92,8 +125,13 @@ export function submissionGuard(db, orderId, round) {
     async markSent(record = {}, nowMs = Date.now()) {
       await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
     },
-    async release(reason, nowMs = Date.now()) {
-      await ref.set({ [key]: { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs } }, { merge: true });
+    async release(reason, nowMs = Date.now(), metadata = {}) {
+      const failure = Object.prototype.hasOwnProperty.call(metadata || {}, 'accountFailure')
+        ? serializeAccountFailure(metadata.accountFailure)
+        : undefined;
+      const record = { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs };
+      if (failure) record.accountFailure = failure;
+      await ref.set({ [key]: record }, { merge: true });
     },
   };
 }

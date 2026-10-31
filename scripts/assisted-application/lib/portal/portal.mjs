@@ -40,6 +40,7 @@ import { operationalAnswerForOption, operationalQuestionTopic } from '../../../.
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
@@ -157,6 +158,19 @@ const POPUP_GRACE_MS = 6_000;
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
 const MAX_AGENT_CALLS = 16;
+
+function accountFailure(code, stage) {
+  return serializeAccountFailure({ code, stage }) || { code: 'unknown', stage: 'unknown' };
+}
+
+function accountHandoff(handoff, code, stage) {
+  return { handoff, accountFailure: accountFailure(code, stage) };
+}
+
+function accountStageFor(snapshot) {
+  const kind = authPageKind(snapshot);
+  return kind === 'create' ? 'registration' : kind === 'sign_in' ? 'login' : 'unknown';
+}
 
 function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
   try {
@@ -1337,7 +1351,7 @@ async function waitForVerificationOutcome(page) {
 }
 
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
-async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
+export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   let current = snapshot || await extractFields(page);
   const existingVerificationIds = typeof ctx.accounts.verificationMessageIds === 'function'
     ? await ctx.accounts.verificationMessageIds()
@@ -1360,21 +1374,24 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     sinceMs,
     ...(resendRequested ? { excludeMessageIds: existingVerificationIds } : {}),
   });
-  if (!verification) return { handoff: 'account_verification_timeout' };
+  if (!verification) return accountHandoff('account_verification_timeout', 'verification_timeout', 'verification');
   if (verification.url) {
     await page.goto(verification.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
   } else {
     const field = codeField(current);
-    if (!field) return { handoff: 'account' };
+    if (!field) return accountHandoff('account', 'verification_unobserved', 'verification');
     await applyActions(page, current.fields, [{ fieldId: field.id, action: 'fill', value: verification.code }], {});
-    if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return { handoff: 'account' };
+    if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return accountHandoff('account', 'verification_unobserved', 'verification');
     await settle(page);
   }
   const { after, outcome } = await waitForVerificationOutcome(page);
   // Verified only when the portal says so: an expired or refused token never
   // marks the account verified for the next runs.
-  if (outcome !== 'accepted') return { handoff: `account_verification_${outcome}` };
+  if (outcome !== 'accepted') {
+    const code = outcome === 'pending' ? 'verification_timeout' : outcome === 'rejected' ? 'verification_rejected' : 'verification_unobserved';
+    return accountHandoff(`account_verification_${outcome}`, code, 'verification');
+  }
   await ctx.accounts.mark(host, { verifiedAt: Date.now() });
   return { snapshot: after, reopen: true };
 }
@@ -2790,13 +2807,13 @@ async function awaitAuthView(page, before) {
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false }) {
+export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
 
   if (kind === 'sign_in' && !account) {
-    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account' };
+    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account', 'no_create_button', 'login');
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
 
@@ -2808,9 +2825,9 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   // issue a fresh OTP; do not throw the credential away and try to create a
   // second one.
   if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
-    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account_verification' };
+    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account_verification', 'no_create_button', 'verification');
     const registration = await awaitAuthView(page, snapshot);
-    if (authPageKind(registration) !== 'create') return { handoff: 'account_verification' };
+    if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
     return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
   }
 
@@ -2822,7 +2839,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     let typed = false;
     for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
       const { email, password } = loginFields(form);
-      if (!email || !password) return { handoff: 'account' };
+      if (!email || !password) return accountHandoff('account', 'login_unobserved', 'login');
       await applyActions(page, form.fields, [
         { fieldId: email.id, action: 'fill', value: account.email },
         { fieldId: password.id, action: 'fill', value: account.password },
@@ -2832,26 +2849,26 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       const now = loginFields(form);
       typed = Boolean(now.email?.value) && Boolean(now.password?.value);
     }
-    if (!typed) return { handoff: 'account' };
+    if (!typed) return accountHandoff('account', 'login_unobserved', 'login');
     const shown = form.errors || [];
     diagnostics?.beforeClick('account');
     const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
-    if (!pressed) return { handoff: 'account' };
+    if (!pressed) return accountHandoff('account', 'no_sign_in_button', 'login');
     const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
     diagnostics?.afterClick();
     if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
     // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
-    if (authPageKind(after) === 'create') return { handoff: 'account_sign_in_failed', pressed };
+    if (authPageKind(after) === 'create') return { ...accountHandoff('account_sign_in_failed', 'login_unobserved', 'login'), pressed };
     if (authPageKind(after) === 'sign_in') {
       // A registration the portal never answered (status `unanswered`): the account was not created after
       // all. It is created now, once; any other account that cannot sign in is the owner's to look at.
-      if (account.status !== 'unanswered' || recreated) return { handoff: 'account_sign_in_failed', pressed };
+      if (account.status !== 'unanswered' || recreated) return { ...accountHandoff('account_sign_in_failed', 'login_unobserved', 'login'), pressed };
       await ctx.accounts.discard(host, 'never_created');
-      if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return { handoff: 'account_sign_in_failed' };
+      if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return accountHandoff('account_sign_in_failed', 'no_create_button', 'login');
       const registration = await awaitAuthView(page, after);
-      if (authPageKind(registration) !== 'create') return { handoff: 'account_sign_in_failed' };
+      if (authPageKind(registration) !== 'create') return accountHandoff('account_sign_in_failed', 'login_unobserved', 'login');
       return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
@@ -2864,7 +2881,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   const retryingUnverifiedAccount = Boolean(account && !account.verifiedAt && allowExistingRegistration);
   if (account && !retryingUnverifiedAccount) {
     // Created by an earlier run: sign in instead.
-    if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return { handoff: 'account' };
+    if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return accountHandoff('account', 'no_sign_in_button', 'registration');
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
@@ -2913,7 +2930,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       // A retry is still the same unverified account: keep its encrypted
       // password so the owner can retry after the portal exposes its button.
       if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
-      return noted({ handoff: 'account' });
+      return noted(accountHandoff('account', 'no_create_button', 'registration'));
     }
     const after = await awaitAuthOutcome(page, 'create', filled.errors, filled.fields);
     diagnostics?.afterClick();
@@ -2929,7 +2946,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       // gone through, so the password stays; the next run signs in with it, and creates the account again
       // only if that sign-in fails.
       await ctx.accounts.mark(host, { status: 'unanswered' });
-      return noted({ handoff: 'account_create_unanswered' });
+      return noted(accountHandoff('account_create_unanswered', 'create_unanswered', 'registration'));
     }
 
     // A form-level validation response can expose fields the first plan did
@@ -2990,11 +3007,11 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
 
     const passwordNeedsRefill = retryableFields.some((field) => field.inputType === 'password');
     if (repairAttempts >= 2 || (!repairActions.length && !passwordNeedsRefill)) {
-      if (retryingUnverifiedAccount) return noted({ handoff: 'account_verification_retry_refused' });
+      if (retryingUnverifiedAccount) return noted(accountHandoff('account_verification_retry_refused', 'create_refused', 'registration'));
       // No candidate answer or concrete correction remains: do not keep
       // credentials for an account the portal explicitly rejected.
       await ctx.accounts.discard(host, 'registration_refused');
-      return noted({ handoff: 'account_create_refused' });
+      return noted(accountHandoff('account_create_refused', 'create_refused', 'registration'));
     }
 
     repairAttempts += 1;
@@ -3371,7 +3388,7 @@ export async function submitViaPortal(ctx) {
   let diagnostics = null;
   let finalClickAttempted = false;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
-  const handoff = async (reason) => {
+  const handoff = async (reason, metadata = {}) => {
     reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, attempt: diagnostics?.currentAttempt(), finalClickAttempted });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
@@ -3381,7 +3398,8 @@ export async function submitViaPortal(ctx) {
         evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
       }
     }
-    return { event: { type: 'submit_handoff', reason }, evidence };
+    const failure = serializeAccountFailure(metadata.accountFailure);
+    return { event: { type: 'submit_handoff', reason, ...(failure ? { accountFailure: failure } : {}) }, evidence };
   };
   // What each portal taught earlier runs (level 2), read once per host.
   const knowledge = new Map();
@@ -3647,7 +3665,7 @@ export async function submitViaPortal(ctx) {
       // password field, so it must be handled before the application planner.
       const otpAccount = await pendingOtpAccount(snapshot);
       if (otpAccount) {
-        if (++authSteps > MAX_AUTH_STEPS) return await handoff('account_verification');
+        if (++authSteps > MAX_AUTH_STEPS) return await handoff('account_verification', { accountFailure: accountFailure('auth_steps_exhausted', 'verification') });
         const auth = await verifyAccount({
           page,
           host: otpAccount.host,
@@ -3659,7 +3677,7 @@ export async function submitViaPortal(ctx) {
           kind: 'otp_verification',
           outcome: auth.handoff || 'ok',
         };
-        if (auth.handoff) return await handoff(auth.handoff);
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
         snapshot = auth.snapshot;
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -3705,9 +3723,10 @@ export async function submitViaPortal(ctx) {
       // The form asks for its account's password itself (umantis): no login
       // page to get through, the password is typed with the rest of the form.
       let ownAccount = ownAccountForm(snapshot, channelType);
-      if (ownAccount && !ctx.accounts) return await handoff('account');
+      if (ownAccount && !ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'application') });
       if (snapshot.passwordVisible && !ownAccount) {
-        if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
+        if (!ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'login') });
+        if (++authSteps > MAX_AUTH_STEPS) return await handoff('account', { accountFailure: accountFailure('auth_steps_exhausted', 'login') });
         let auth;
         try {
           auth = await handleAuth({ page, snapshot, ctx, diagnostics });
@@ -3716,14 +3735,14 @@ export async function submitViaPortal(ctx) {
           // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
           // and, read as a timeout, the run was started again twice; the owner gets the page instead.
           if (!/^locator\./.test(String(error?.message || ''))) throw error;
-          evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'control_error', error: String(error.message).split('\n')[0].slice(0, 160) };
+          evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'control_error' };
           // A registration whose password was stored and whose button then could not be pressed: whether the
           // account exists is not known. Left `pending`, the next run would sign in, fail and stop there;
           // as `unanswered` it signs in and, when that fails, creates the account.
           const authHost = new URL(page.url()).hostname;
           const stored = await ctx.accounts.load(authHost).catch(() => null);
           if (stored?.status === 'pending') await ctx.accounts.mark(authHost, { status: 'unanswered' }).catch(() => {});
-          return await handoff('account');
+          return await handoff('account', { accountFailure: accountFailure('locator_control_error', accountStageFor(snapshot)) });
         }
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),
@@ -3732,7 +3751,7 @@ export async function submitViaPortal(ctx) {
           // How the sign-in button was found (clickButton): by its id, again after a redraw, or by its text.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
         };
-        if (auth.handoff) return await handoff(auth.handoff);
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
         if (auth.questions?.length || auth.documents?.length) return {
           event: { type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [] }, evidence,
         };
@@ -3948,7 +3967,7 @@ export async function submitViaPortal(ctx) {
         if (ownAccount) {
           const typed = await typeOwnPassword({ page, snapshot, ctx, passwords: ownPasswords });
           evidence.steps.at(-1).auth = { kind: 'inline', outcome: !typed ? 'password_not_typed' : ctx.dryRun ? 'dry_run' : 'ok' };
-          if (!typed) return await handoff('account');
+          if (!typed) return await handoff('account', { accountFailure: accountFailure('login_unobserved', 'application') });
         }
 
         after = await extractFields(page, NAVIGATION);
