@@ -134,6 +134,7 @@ import { CRAWLED_COMPANY_LOGOS, logoUrlForRenderedOutput } from '../services/job
 import {
  renderJobCardHtml,
  renderJobCardListHtml,
+ jobSaveLinkAttrs,
  JOB_CARD_ICON_SYMBOLS,
  type JobCardJob,
  type JobCardLocale,
@@ -14449,7 +14450,7 @@ ${staticAnalyticsHtml}
  const jHref = activeCanonicalJobHref(j, locale);
  if (!jHref) return [];
  const jTitle = stripLiteralMarkdownFromTitle(jobDisplayTitle(j));
- return [`<li><a href="${jHref}">${esc(jTitle)}</a> — ${esc(j.location)}</li>`];
+ return [`<li><a href="${jHref}"${jobSaveLinkAttrs(j)}>${esc(jTitle)}</a> — ${esc(j.location)}</li>`];
  }).join('');
  if (companyJobsList) staticBodyParts.push(`<section><h2>${companyJobsHeading}</h2><ul>${companyJobsList}</ul></section>`);
  }
@@ -14517,7 +14518,7 @@ ${staticAnalyticsHtml}
  const jTitle = stripLiteralMarkdownFromTitle(jobDisplayTitle(j));
  const jCompany = String(j.company || '');
  const jLoc = String(j.location || '');
- return [`<li><a href="${jHref}">${esc(jTitle)}</a>${jCompany ? ` \u2014 ${esc(jCompany)}` : ''}${jLoc ? `, ${esc(jLoc)}` : ''}</li>`];
+ return [`<li><a href="${jHref}"${jobSaveLinkAttrs(j)}>${esc(jTitle)}</a>${jCompany ? ` \u2014 ${esc(jCompany)}` : ''}${jLoc ? `, ${esc(jLoc)}` : ''}</li>`];
  }).join('');
  if (recentList) staticBodyParts.push(`<section><h2>${recentHeading} — ${esc(displayCanton)}</h2><ul>${recentList}</ul></section>`);
  }

@@ -17,6 +17,13 @@ export const IMAGE_LOCK_ACQUIRE_TIMEOUT_MS = 15 * 60 * 1000;
 export const IMAGE_LEASE_RELEASE_TIMEOUT_MS = 30_000;
 export const IMAGE_LOCK_RELEASE_RETRY_MS = 1_000;
 export const IMAGE_LOCK_POLL_MS = 5_000;
+// The lease has no queue, so a waiter wins only if it reads the lock in the gap
+// between two holders. Run 41145698648 lost 15 minutes and a whole publish to
+// cover-publish-section, whose 23 shards take the lease one file at a time. No
+// single holder was slow; the free gaps were just shorter than a 5-second poll.
+// The deploy waits for a batch that everything else depends on, so it alone
+// polls faster. At most 3,600 reads per wait, and only while contended.
+export const IMAGE_LOCK_PRIORITY_POLL_MS = 250;
 export const IMAGE_LEASE_CONTEXT_ENV = 'FRONTALIERE_R2_IMAGE_LEASE_CONTEXT';
 export const DECIMAL_LEASE_TIMESTAMP_RE = DECIMAL_SAFE_LEASE_TIMESTAMP_RE;
 
@@ -68,6 +75,10 @@ function describeHolder(holder) {
   if (!holder) return '';
   const at = (timestamp) => new Date(timestamp).toISOString();
   return ` (held by ${holder.owner}, acquired ${at(holder.acquiredAt)}, expires ${at(holder.expiresAt)})`;
+}
+
+export function imageLeasePollMs(env = process.env) {
+  return env.FRONTALIERE_R2_IMAGE_LEASE_PRIORITY === '1' ? IMAGE_LOCK_PRIORITY_POLL_MS : IMAGE_LOCK_POLL_MS;
 }
 
 export function parseLeaseTimestamp(raw) {
@@ -968,6 +979,7 @@ async function acquireFromCli(namespaces, request, env = process.env) {
       owner,
       leaseId,
       acquiredAt: pendingAcquiredAt,
+      pollMs: imageLeasePollMs(env),
     });
     if (signalExitStatus !== 0) {
       // A signal can race with the final promise resolution. In that case the
