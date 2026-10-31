@@ -249,6 +249,23 @@ describe('private final-send source fence', () => {
     else expect(context.answerEvidence).toEqual([]);
     expect(context.localAnswerEvidence).toHaveLength(1);
   });
+  it('does not restart the retention clock after an awaited profile/source load', async () => {
+    const f = fixture(); await f.save({ english: 'C1' });
+    f.read('assisted_applications/source').cvUploadedAt = now - 90 * 86400000 + 5;
+    let wall = now; const clock = vi.spyOn(Date, 'now').mockImplementation(() => wall);
+    const collection = f.db.collection.bind(f.db);
+    vi.spyOn(f.db, 'collection').mockImplementation((name: string) => {
+      const result = collection(name); if (name !== 'user_cv_profiles') return result;
+      const doc = result.doc.bind(result);
+      return { ...result, doc: (id: string) => { const ref = doc(id); const get = ref.get.bind(ref);
+        return { ...ref, get: async () => { const snapshot = await get(); wall = now + 10; return snapshot; } }; } };
+    });
+    try {
+      const context = await loadRunnerAnswerContext({ ...f.input(), nowMs: now });
+      expect(context.answerEvidence).toEqual([]); expect(context.localAnswerEvidence).toEqual([]);
+      await expect(f.db.runTransaction(tx => context.answerSourceGuard.assertInTransaction(tx))).rejects.toMatchObject({ code: 'evidence_source_changed' });
+    } finally { clock.mockRestore(); }
+  });
   it.each(['retentionPurgingAt', 'retentionPurgedAt'])('drops all answer-derived channels after source flow %s', async flag => {
     const f = fixture(); await f.save({ english: 'C1' });
     f.read('assisted_applications/source/automation/flow')[flag] = now + 1;

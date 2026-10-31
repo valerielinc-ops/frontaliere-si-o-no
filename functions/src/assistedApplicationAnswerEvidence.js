@@ -216,15 +216,17 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
 
 /** Runner reads keep the raw CAS/lease snapshot untouched and project only the execution's answer context. */
 export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft, intake = null, nowMs = Date.now() }) {
+  const startedAt = Date.now();
+  const currentTime = () => nowMs + Math.max(0, Date.now() - startedAt);
   const profileRef = order.userId ? db.collection('user_cv_profiles').doc(order.userId) : null;
   const profileRecord = profileRef ? (await profileRef.get()).data() || {} : {};
   const sources = new Map();
   const getDocument = async ref => { const snapshot = await ref.get(); sources.set(ref.path, { ref, data: snapshot.data() }); return snapshot; };
-  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs, getDocument });
-  const local = orderId ? localAnswerEvidence({ orderId, order, flow, draft, intake, nowMs }) : [];
+  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs: currentTime(), getDocument });
+  const local = orderId ? localAnswerEvidence({ orderId, order, flow, draft, intake, nowMs: currentTime() }) : [];
   const formContext = contextFor(order, { purpose: 'form' });
   const globalConflicts = formContext.answerSourceConflicts;
-  const localConflicts = orderId ? localAnswerSourceConflicts({ orderId, order, flow, draft, intake, nowMs }) : [];
+  const localConflicts = orderId ? localAnswerSourceConflicts({ orderId, order, flow, draft, intake, nowMs: currentTime() }) : [];
   const answerSourceConflicts = [...globalConflicts, ...localConflicts.filter(local => !globalConflicts.some(global => global.key === local.key
     && global.property === local.property && global.cvHash === local.cvHash))];
   const localContext = qualificationAnswerOriginContext({ order, flow, intake });
@@ -250,7 +252,7 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
     ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: verifiedLocalAnswers }) } },
     answerEvidence: [...globalEvidence, ...localQualificationEvidence], answerSourceConflicts, localAnswerEvidence: local,
     answerCounterContext, rawCounterContext,
-    answerSourceGuard: orderId ? createAnswerSourceGuard({ db, orderId, order, flow, draft, intake, profileRef, profileRecord, sources: [...sources.values()].filter(({ ref }) => formContext.sourceOrderIds.includes(ref.path.split('/')[1])), nowMs }) : null };
+    answerSourceGuard: orderId ? createAnswerSourceGuard({ db, orderId, order, flow, draft, intake, profileRef, profileRecord, sources: [...sources.values()].filter(({ ref }) => formContext.sourceOrderIds.includes(ref.path.split('/')[1])), nowMs: currentTime() }) : null };
 }
 
 /** A source purge removes only records/clocks still owned by that order, never newer confirmations. */
