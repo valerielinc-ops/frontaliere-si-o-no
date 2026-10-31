@@ -186,6 +186,27 @@ describe('scope, languages and actual field options', () => {
   });
 
   it.each([
+    ['factual sibling', 'Country of residence'],
+    ['optional-purpose sibling', 'Privacy notice for marketing'],
+  ])('keeps a privacy default closed when another question representation is a %s', (_name, sibling) => {
+    const italianPrompt = 'Seleziona questa casella per confermare di aver letto l\'Informativa sulla privacy per i candidati.';
+    const question = {
+      id: 'q1', kind: 'checkbox', question: italianPrompt, applicationQuestion: sibling,
+      type: 'text', options: [], required: true, source: 'portal',
+    };
+    expect(operationalQuestionTopic(question)).toBeNull();
+    expect(operationalDefaultAnswer(question)).toBeNull();
+
+    const field = {
+      id: 'q1', kind: 'checkbox', inputType: 'checkbox', type: 'text', label: italianPrompt,
+      question: italianPrompt, applicationQuestion: sibling, required: true, checked: false, options: [],
+    };
+    const plan = guardPlan({ actions: [], missingRequired: [] }, [field], { identity: {}, profile: {}, answers: {} });
+    expect(plan.actions).not.toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'check' }));
+    expect(plan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it.each([
     ['country control', { controlId: 'country-of-residence' }],
     ['work permit semantic', { semanticId: 'workpermit' }],
   ])('does not default the legacy text descriptor when its native identifier is factual: %s', (_name, identifiers) => {

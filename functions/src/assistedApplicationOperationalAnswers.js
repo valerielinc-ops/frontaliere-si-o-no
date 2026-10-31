@@ -4,7 +4,7 @@
  */
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
-import { isPrivacyReviewAcknowledgment } from './lib/applicationConsent.js';
+import { isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
 export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v2';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -109,9 +109,13 @@ export function operationalQuestionTopic(question) {
   const label = String(question?.question || question?.label || question?.applicationQuestion || '')
     .replace(/\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*)\s*$/i, '');
   const text = norm(label + ' ' + (question?.applicationQuestion || ''));
-  const privacyReviewAck = [question?.question, question?.label, question?.applicationQuestion]
-    .filter(value => typeof value === 'string' && value.trim())
-    .some(value => isPrivacyReviewAcknowledgment(value, question));
+  const privacyRepresentations = [question?.question, question?.label, question?.applicationQuestion]
+    .filter(value => typeof value === 'string' && value.trim());
+  const supplementalPrivacyLabels = Array.isArray(question?.labels)
+    ? question.labels.filter(value => typeof value === 'string' && value.trim()) : [];
+  const privacyReviewAck = privacyRepresentations.length > 0
+    && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
+    && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, question, ...privacyRepresentations, ...supplementalPrivacyLabels));
   if (privacyReviewAck) return 'privacy_review_ack';
   if (!text || HARD_DECLARATION.test(text) || question?.type === 'date' || question?.inputType === 'date') return null;
   if (NOTICE.test(text) && OTHER_NOTICE_TOPIC.test(text)) return null;

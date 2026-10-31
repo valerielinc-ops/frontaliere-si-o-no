@@ -973,12 +973,19 @@
         semanticId: entry.semanticId || attr('semanticId') || attr('data-semantic-id') || attr('data-semanticid'),
       };
       const privacyIdentifiers = privacySemanticIdentifiers(privacyMetadata);
+      const privacyRepresentations = [entry.question, entry.label, entry.applicationQuestion]
+        .filter(value => typeof value === 'string' && value.trim());
+      const supplementalPrivacyLabels = Array.isArray(entry.labels)
+        ? entry.labels.filter(value => typeof value === 'string' && value.trim()) : [];
       const privacyReviewAck = typeof isPrivacyReviewAcknowledgment === 'function'
-        && isPrivacyReviewAcknowledgment(entry.label, ...privacyIdentifiers);
+        && typeof privacyReviewAcknowledgmentShape === 'function'
+        && privacyRepresentations.length > 0
+        && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
+        && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
       const privacyReviewShape = typeof privacyReviewAcknowledgmentShape === 'function'
-        && privacyReviewAcknowledgmentShape(entry.label).shape;
+        && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
       // Only the required acceptance of the portal's terms: never a newsletter or a talent pool.
-      return (entry.required || privacyReviewAck) && (privacyReviewAck || (CONSENT_RE.test(label) && !privacyReviewShape)) && typeof hasConsentContradiction === 'function' && !hasConsentContradiction(rawLabel,
+      return (entry.required || privacyReviewAck) && (privacyReviewAck || (CONSENT_RE.test(label) && !privacyReviewShape)) && typeof hasConsentContradiction === 'function' && !hasConsentContradiction([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
         ...privacyIdentifiers) ? { check: true } : null;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;

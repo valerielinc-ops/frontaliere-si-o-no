@@ -1299,6 +1299,13 @@ describe('fill extension: shared privacy-reading acknowledgement', () => {
     expect(F.answerFor(entry, kit)).toEqual({ check: true });
   });
 
+  it('keeps a native privacy label unresolved when another question representation is factual', () => {
+    const label = 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.';
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox"> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor({ ...entry, question: label, applicationQuestion: 'Country of residence' }, kit)).toBe(null);
+  });
+
   it.each(['false', 'No'])('does not overwrite an explicit negative privacy answer: %s', answer => {
     const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
     const { document, F } = page(`<label><input id="privacyAck" type="checkbox"> ${label}</label>`);

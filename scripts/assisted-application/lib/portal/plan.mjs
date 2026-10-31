@@ -197,14 +197,20 @@ export function ownConsent(field) {
   const fieldId = String(field?.id || '').trim();
   const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
   const privacyIdentifiers = privacySemanticIdentifiers(field);
-  const consentText = `${label} ${privacyIdentifiers.join(' ')}`.trim();
-  const privacyReviewAck = isPrivacyReviewAcknowledgment(label, field);
-  const privacyReviewShape = privacyReviewAcknowledgmentShape(label);
+  const privacyRepresentations = [field?.question, field?.label, field?.applicationQuestion]
+    .filter(value => typeof value === 'string' && value.trim());
+  const supplementalPrivacyLabels = Array.isArray(field?.labels)
+    ? field.labels.filter(value => typeof value === 'string' && value.trim()) : [];
+  const consentText = `${[...privacyRepresentations, ...supplementalPrivacyLabels].join(' ')} ${privacyIdentifiers.join(' ')}`.trim();
+  const privacyReviewAck = privacyRepresentations.length > 0
+    && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
+    && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, field, ...privacyRepresentations, ...supplementalPrivacyLabels));
+  const privacyReviewShape = privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
   const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || isConsentPurpose(label);
   return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck) && ownText
     && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(consentText)
-    && !(privacyReviewShape.shape && !privacyReviewAck)
-    && !hasConsentContradiction(label, field);
+    && !(privacyReviewShape && !privacyReviewAck)
+    && !hasConsentContradiction(consentText, field);
 }
 // A notice printed as a control is read by the same grammar as a box.
 Object.assign(ownConsent, { isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice });
