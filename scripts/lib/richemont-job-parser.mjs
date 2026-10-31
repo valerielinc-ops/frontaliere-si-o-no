@@ -497,10 +497,18 @@ async function discoverAllRows() {
         );
       }
       if (pageRows.length < PAGE_SIZE) {
-        throw listingSnapshotFailure(
-          `Richemont listing page ${page} ended at ${rows.length}/${totalLabel ?? 'an unverified'} rows`,
-          rows.length,
-        );
+        // When the portal omits its summary, a valid short response is the
+        // only available end-of-pagination signal. A declared total remains
+        // authoritative: an earlier branch already rejects a short page that
+        // leaves that total uncovered.
+        if (totalLabel !== null) {
+          throw listingSnapshotFailure(
+            `Richemont listing page ${page} ended at ${rows.length}/${totalLabel} rows`,
+            rows.length,
+          );
+        }
+        paginationComplete = true;
+        break;
       }
 
       await new Promise((r) => setTimeout(r, PER_PAGE_DELAY_MS));
