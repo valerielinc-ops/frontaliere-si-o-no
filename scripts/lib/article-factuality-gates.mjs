@@ -3114,6 +3114,39 @@ export function normalizeRemediationIssues(issues) {
 }
 
 /**
+ * Normalizes only representation-level differences that a model can
+ * introduce while copying a source passage. Punctuation and words remain
+ * significant: a quote must still be a contiguous passage of the source.
+ */
+function normalizeSourceQuoteForComparison(value) {
+  return String(value ?? '')
+    .normalize('NFKC')
+    .replace(/[\u2018\u2019]/gu, "'")
+    .replace(/[\u201C\u201D]/gu, '"')
+    .replace(/[\u2013\u2014\u2212]/gu, '-')
+    .replace(/\s+/gu, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * A verifier's sourceQuote is evidence, not a free-text annotation. Keep it
+ * only when the same source supplied to the verifier contains that passage;
+ * otherwise the regeneration prompt would present model-invented text as an
+ * authoritative extract.
+ *
+ * Sources shorter than the verifier's 100-character floor are treated as
+ * evergreen by llmFactCheck, so they cannot substantiate a quote either.
+ */
+function sourceQuoteSupportedBySource(sourceQuote, sourceText) {
+  if (typeof sourceText !== 'string' || sourceText.length < 100) return '';
+  const quote = normalizeSourceQuoteForComparison(sourceQuote);
+  if (!quote) return '';
+  const source = normalizeSourceQuoteForComparison(sourceText);
+  return source.includes(quote) ? String(sourceQuote).trim() : '';
+}
+
+/**
  * Renders issues as CORRECTIVE INSTRUCTIONS for the regeneration prompt.
  *
  * The regeneration loop used to receive a bare list of complaints. Faced with
@@ -3124,7 +3157,7 @@ export function normalizeRemediationIssues(issues) {
  *
  * @param {Array<{claim: string, reason: string, severity: string, category: string,
  *   sourceQuote: string, fix?: string}>} issues
- * @param {{cap?: number}} [opts]
+ * @param {{cap?: number, sourceText?: string}} [opts]
  */
 export function formatRemediation(issues, opts = {}) {
   const cap = opts.cap ?? 8;
@@ -3135,8 +3168,9 @@ export function formatRemediation(issues, opts = {}) {
     const what = i.reason;
     const how = i.fix || REMEDIATION_BY_CATEGORY[i.category] || '';
     const where = i.claim;
-    const sourceQuote = i.sourceQuote
-      ? `   ESTRATTO FONTE: "${String(i.sourceQuote).slice(0, 180)}"`
+    const supportedSourceQuote = sourceQuoteSupportedBySource(i.sourceQuote, opts.sourceText);
+    const sourceQuote = supportedSourceQuote
+      ? `   ESTRATTO FONTE: "${supportedSourceQuote.slice(0, 180)}"`
       : '';
     return [
       `${n + 1}. PROBLEMA: ${what}`,
