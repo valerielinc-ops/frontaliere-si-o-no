@@ -131,6 +131,49 @@
     const node = id && document.getElementById(id);
     return node ? clean(node.innerText || node.textContent) : '';
   };
+  const privacyFieldMetadata = (element, primaryLabel = '') => {
+    const rawText = value => String(value || '').replace(/\s+/g, ' ').trim();
+    const rawTextOf = id => {
+      const node = id && document.getElementById(id);
+      return node ? rawText(node.innerText || node.textContent) : '';
+    };
+    const ariaLabelText = rawText(element.getAttribute('aria-label') || '');
+    const ariaDescriptionText = rawText(element.getAttribute('aria-description') || '');
+    const titleText = rawText(element.getAttribute('title') || '');
+    const placeholderText = rawText(element.getAttribute('placeholder') || '');
+    const ariaLabel = clean(ariaLabelText);
+    const ariaDescription = clean(ariaDescriptionText);
+    const title = clean(titleText);
+    const placeholder = clean(placeholderText);
+    const descriptionTexts = ['aria-describedby', 'aria-details'].flatMap(attribute =>
+      (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean).map(rawTextOf)).filter(Boolean);
+    const description = descriptionTexts.join(' ');
+    const associatedLabels = [...(element.labels || [])].map(node => rawText(node.innerText || node.textContent)).filter(Boolean);
+    const references = ['aria-labelledby', 'aria-describedby', 'aria-details'].flatMap(attribute =>
+      (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean).map(rawTextOf));
+    const allLabels = [
+      primaryLabel,
+      ...associatedLabels,
+      ...references,
+      ariaLabelText, ariaDescriptionText, titleText, placeholderText,
+    ].map(clean).filter(Boolean);
+    const labels = [...new Set(allLabels)].slice(0, 12);
+    // clean() truncates each string at 300 characters and the stored contract
+    // caps labels at 12 entries. Preserve a fail-closed marker if either cap
+    // could hide a contradictory control role from the consent guard.
+    const privacyMetadataIncomplete = [primaryLabel, ...associatedLabels, ...references,
+      ariaLabelText, ariaDescriptionText, titleText, placeholderText].some(value => String(value || '').length >= 300)
+      || description.length > 600 || allLabels.length > 12;
+    return {
+      ...(ariaLabel ? { ariaLabel } : {}),
+      ...(ariaDescription ? { ariaDescription } : {}),
+      ...(title ? { title } : {}),
+      ...(placeholder ? { placeholder } : {}),
+      ...(description ? { description: description.slice(0, 600) } : {}),
+      ...(labels.length ? { labels } : {}),
+      ...(privacyMetadataIncomplete ? { privacyMetadataIncomplete: true } : {}),
+    };
+  };
   const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
   const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
   const DATE_QUESTION_SELECTOR = '[ui5-date-picker], [data-scope="date-picker"][data-part="root"]';
@@ -539,7 +582,7 @@
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), ...privacyFieldMetadata(element, question || labelFor(element)), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
       entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question))
         || hasRequiredMarker(element, question || labelFor(element));
@@ -565,6 +608,7 @@
       ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,
+      ...privacyFieldMetadata(element, label),
       context: sectionContext(element),
       section: headingBefore(element),
       required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),

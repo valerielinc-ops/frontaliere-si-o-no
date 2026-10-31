@@ -290,6 +290,19 @@ describe('required privacy notice dialog controls', () => {
     expect(controls.accept).toBe(null);
   });
 
+  it('blocks the privacy default when dialog metadata contradicts the review label', () => {
+    const review = {
+      ...box('privacy', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.'),
+      required: true, ariaLabel: 'Email', privacyMetadataIncomplete: true,
+    };
+    const controls = privacyConsentControls({
+      buttons: [dialogButton('ok', 'Accept')],
+      fields: [review],
+    });
+    expect(controls.review).toBe(null);
+    expect(controls.accept).toBe(null);
+  });
+
   it('never ticks a marketing box beside the notice review', () => {
     const controls = privacyConsentControls({
       buttons: [dialogButton('ok', 'Akzeptieren', { disabled: true })],
@@ -516,6 +529,19 @@ describe('the same grammar on the canonical consent path', () => {
     const field = semanticId ? { name: semanticId } : {};
     expect(isPrivacyReviewAcknowledgment(label, semanticId)).toBe(false);
     expect(ownConsent({ kind: 'checkbox', required: true, label, ...field })).toBe(false);
+  });
+
+  it.each([
+    ['email aria label', { ariaLabel: 'Email' }],
+    ['phone control id', { semanticId: 'candidate_phone' }],
+    ['Italian mobile control id', { semanticId: 'cellulare' }],
+    ['residence address name', { name: 'residence_address' }],
+    ['German postal code id', { semanticId: 'PLZ' }],
+    ['disclosed partner purpose', { ariaDescription: 'Candidate data disclosed to our partners' }],
+  ])('vetoes a privacy-reading default when control metadata is factual or has another purpose: %s', (_name, metadata) => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    expect(isPrivacyReviewAcknowledgment(label, metadata)).toBe(false);
+    expect(ownConsent({ kind: 'checkbox', required: true, label, ...metadata })).toBe(false);
   });
 
   it.each([
