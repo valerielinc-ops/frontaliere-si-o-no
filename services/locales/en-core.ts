@@ -2810,6 +2810,7 @@ Rules:
  'seoContent.whatYouFind': 'What you\'ll find here',
 
  'seoContent.calculator.title': 'Swiss Cross-Border Salary Calculator 2026',
+ 'seoContent.calculatorIndex.title': 'Net salary simulator for cross-border workers 2026',
  'seoContent.calculator.subtitle': 'Precise fiscal simulation tools for cross-border workers: calculate net salary, payslip, AVS/LPP pension and tax deductions.',
  'seoContent.calculator.feature1.title': 'Net cross-border salary',
  'seoContent.calculator.feature1.desc': 'Precise calculation with withholding tax, AVS, AC, LPP and social contributions.',

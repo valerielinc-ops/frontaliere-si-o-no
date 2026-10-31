@@ -2899,6 +2899,7 @@ Regole:
  'seoContent.whatYouFind': 'Cosa trovi in questa sezione',
 
  'seoContent.calculator.title': 'Calcolatore Stipendio Frontaliere Svizzera 2026',
+ 'seoContent.calculatorIndex.title': 'Simulatore stipendio netto per frontalieri 2026',
  'seoContent.calculator.subtitle': 'Strumenti di simulazione fiscale precisi per lavoratori frontalieri: calcola stipendio netto, busta paga, pensione AVS/LPP e deduzioni fiscali.',
  'seoContent.calculator.feature1.title': 'Stipendio netto frontaliere',
  'seoContent.calculator.feature1.desc': 'Calcolo preciso con imposta alla fonte, AVS, AC, LPP e contributi sociali.',

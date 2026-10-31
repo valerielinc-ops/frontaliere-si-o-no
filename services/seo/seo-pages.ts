@@ -575,6 +575,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // A.3 — primary target keyword "calcolo stipendio netto svizzera" (vol 390).
  // See docs/seo-semrush-growth-plan.md Task A.3.
  title: 'Calcolo stipendio netto Svizzera 2026',
+ h1: 'Simulatore stipendio netto per frontalieri 2026',
  description: 'Calcola lo stipendio netto da frontaliere: imposta alla fonte, AVS e LPP. La deduzione italiana di 10.000 € dipende dai requisiti di legge.',
  keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
  ogTitle: 'Calcolo stipendio netto Svizzera 2026',
@@ -1064,7 +1065,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  exchange: {
  title: 'Cambio Franco Euro 2026: Tasso Oggi, Spread Wise vs Revolut',
- h1: 'Cambio franco-euro 2026 — tasso del giorno, confronto spread, commissioni',
+ h1: 'Cambio franco-euro 2026: tasso del giorno e confronto spread',
  description: 'Cambio franco-euro 2026: tasso interbancario del giorno, confronto spread Wise, Revolut, PostFinance, UBS. Commissioni 0,3-3%, calcolatore risparmio su stipendio CHF.',
  keywords: 'cambio franco euro, cambio chf eur oggi, cambio franco svizzero euro, tasso franco euro 2026, wise tasso cambio, revolut commissioni, spread cambio valuta, postfinance cambio valuta, ubs cambio, n26 trasferimenti, miglior cambio svizzera italia, commissioni cambio valuta, calcolo risparmio cambio',
  ogTitle: 'Cambio Franco Euro 2026 — Tasso Oggi + Confronto Spread',
@@ -1488,6 +1489,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  permits: {
  title: 'Permesso G Svizzera 2026: Requisiti, Costi e Durata 5 Anni',
+ h1: 'Permesso G e permessi di lavoro in Svizzera',
  description: 'Permesso G 2026 per frontalieri: residenza all’estero, contratto svizzero e rientro almeno settimanale. Requisiti e costi a confronto con B, C e L.',
  keywords: 'permesso g svizzera, permesso b svizzera, permesso c svizzera, permesso l svizzera, permesso frontaliere requisiti, permesso dimora svizzera, documenti permesso lavoro svizzera',
  ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',

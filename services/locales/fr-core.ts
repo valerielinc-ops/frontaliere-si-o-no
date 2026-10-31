@@ -2787,6 +2787,7 @@ Règles :
  'seoContent.whatYouFind': 'Ce que vous trouverez ici',
 
  'seoContent.calculator.title': 'Calculateur Salaire Frontalier Suisse 2026',
+ 'seoContent.calculatorIndex.title': 'Simulateur de salaire net pour frontaliers 2026',
  'seoContent.calculator.subtitle': 'Outils de simulation fiscale précis pour frontaliers : calculez salaire net, fiche de paie, retraite AVS/LPP et déductions fiscales.',
  'seoContent.calculator.feature1.title': 'Salaire net frontalier',
  'seoContent.calculator.feature1.desc': 'Calcul précis avec impôt à la source, AVS, AC, LPP et cotisations sociales.',

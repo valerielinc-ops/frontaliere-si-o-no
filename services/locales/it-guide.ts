@@ -8,7 +8,7 @@ const translations: Record<string, string> = {
  'permits.documents': 'Documenti necessari',
  'permits.processingTime': 'Tempi di rilascio',
  'permits.cost': 'Costo',
- 'permits.pageTitle': 'Permessi di Lavoro in Svizzera',
+ 'permits.pageTitle': 'Permesso G e permessi di lavoro in Svizzera',
  'permits.pageSubtitle': 'Guida completa ai permessi G, B, C e L per lavoratori UE',
  'permits.sectionRights': 'Diritti',
  'permits.sectionLimitations': 'Limitazioni',

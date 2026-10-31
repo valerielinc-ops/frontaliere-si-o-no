@@ -2813,6 +2813,7 @@ Regeln:
  'seoContent.whatYouFind': 'Was Sie hier finden',
 
  'seoContent.calculator.title': 'Schweizer Grenzgänger-Lohnrechner 2026',
+ 'seoContent.calculatorIndex.title': 'Nettolohn-Simulator für Grenzgänger 2026',
  'seoContent.calculator.subtitle': 'Präzise Steuer-Simulationstools für Grenzgänger: Nettolohn, Lohnabrechnung, AHV/BVG-Rente und Steuerabzüge berechnen.',
  'seoContent.calculator.feature1.title': 'Nettolohn Grenzgänger',
  'seoContent.calculator.feature1.desc': 'Präzise Berechnung mit Quellensteuer, AHV, ALV, BVG und Sozialabzügen.',
