@@ -31466,3 +31466,6 @@
 {"eventType":"phase_finished","at":"2026-10-31T13:17:49.527Z","outcome":"complete","durationMs":794842,"inputCount":65,"successCount":25,"retryCount":40,"runId":"41189854124","runAttempt":1,"phase":"validate","eventId":"c28132390a648d407cd3ae7c"}
 {"eventType":"phase_started","at":"2026-10-31T13:19:39.306Z","runId":"41189854124","runAttempt":1,"phase":"promote","eventId":"dfa10511108b650bb8d2df6b"}
 {"eventType":"candidate_attempt","key":"elektriker-elektromonteur-jobs.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-10-31T13:19:42.278Z","runId":"41189854124","runAttempt":1,"phase":"promote","eventId":"731074dd6a0116a731591ab2"}
+{"eventType":"candidate_transition","key":"asanti","from":"promoted","to":"promoting","at":"2026-10-31T13:20:16.338Z","runId":"41189854124","runAttempt":1,"phase":"promote","eventId":"1afd5b608aeed8898a046046"}
+{"eventType":"candidate_transition","key":"bb-trading-werbeartikel@dietikon","from":"promoted","to":"promoting","at":"2026-10-31T13:20:16.338Z","runId":"41189854124","runAttempt":1,"phase":"promote","eventId":"f85bb15e7ff39c9d62b2f69d"}
+{"eventType":"candidate_transition","key":"csl-immobilien@zurich","from":"promoted","to":"promoting","at":"2026-10-31T13:20:16.338Z","runId":"41189854124","runAttempt":1,"phase":"promote","eventId":"af3a32f176206b51c7329d25"}
