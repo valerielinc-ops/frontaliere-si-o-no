@@ -27,7 +27,7 @@ import {
   type StatTileTone,
 } from './seoContentTokens';
 import { calculateSimulation, calculateSeasonalScenario } from '../../services/calculationService';
-import { DEFAULT_INPUTS, DEFAULT_EXCHANGE_RATE } from '../../constants';
+import { DEFAULT_INPUTS, DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE } from '../../constants';
 import { MUNICIPALITIES } from '../../data/municipalities';
 import { HEALTH_HREF, JOBS_HREF } from './comparatorHref';
 
@@ -1167,6 +1167,15 @@ interface TierConfig {
   readonly variant: TierVariant;
 }
 
+/** Tasso e data del calcolo statico, nel formato di ogni lingua. */
+const REFERENCE_FX: Record<SalaryLocale, string> = {
+  it: DEFAULT_EXCHANGE_RATE.toFixed(4).replace('.', ','),
+  en: DEFAULT_EXCHANGE_RATE.toFixed(4),
+  de: DEFAULT_EXCHANGE_RATE.toFixed(4).replace('.', ','),
+  fr: DEFAULT_EXCHANGE_RATE.toFixed(4).replace('.', ','),
+};
+const REFERENCE_FX_DATE = DEFAULT_EXCHANGE_RATE_DATE.split('-').reverse().join('/');
+
 const SALARY_TIER_LABELS: Record<SalaryLocale, {
   eyebrow: string;
   taglinePrefix: string;
@@ -1200,9 +1209,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Fonte cantonale',
     irpefTile: 'Franchigia IT',
     tableLabel: 'Tabella A · B · C',
-    fxLabel: 'Tasso fisso 1,096',
+    fxLabel: `Cambio ${REFERENCE_FX.it} (${REFERENCE_FX_DATE})`,
     rateTile: 'Cambio CHF/EUR',
-    adviceTpl: (g, n, e) => `Su CHF ${g.toLocaleString('it-CH')} di lordo, ti restano circa CHF ${n.toLocaleString('it-CH')} netti — equivalenti a EUR ${e.toLocaleString('it-CH')} al tasso fisso del calcolatore (CHF 1 = EUR 1,096).`,
+    adviceTpl: (g, n, e) => `Su CHF ${g.toLocaleString('it-CH')} di lordo, ti restano circa CHF ${n.toLocaleString('it-CH')} netti — equivalenti a EUR ${e.toLocaleString('it-CH')} al tasso di riferimento del ${REFERENCE_FX_DATE} (CHF 1 = EUR ${REFERENCE_FX.it}).`,
     tableCaption: (g, p) => `Decomposizione: lordo CHF ${g.toLocaleString('it-CH')} (${p})`,
     captionProfileBase: 'single A0, Lugano',
     grossAllowanceLabel: 'Lordo + assegni familiari',
@@ -1214,7 +1223,7 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     faqQ2: 'Quanto incide la fascia LPP?',
     faqA2: 'Tanto: il LPP varia dal 7% (25-34 anni) al 18% (55-65 anni) del salario coordinato. Un over-50 con lo stesso lordo prende ~CHF 4.000/anno netti in meno.',
     faqQ3: 'Il netto è in CHF o EUR?',
-    faqA3: 'Il simulatore mostra entrambi: CHF per la busta paga, EUR convertito al tasso fisso del calcolatore (CHF 1 = EUR 1,096, aggiornato a ogni build) per pianificare le spese in Italia.',
+    faqA3: `Il simulatore mostra entrambi: CHF per la busta paga, EUR convertito al tasso di riferimento di /cambio-franco-euro/ (CHF 1 = EUR ${REFERENCE_FX.it} del ${REFERENCE_FX_DATE}) per pianificare le spese in Italia.`,
     variantSuffix: {
       base: '',
       new: ' · Nuovo frontaliere 2026',
@@ -1231,9 +1240,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Cantonal source',
     irpefTile: 'IT allowance',
     tableLabel: 'Table A · B · C',
-    fxLabel: 'Fixed 1.096',
+    fxLabel: `Rate ${REFERENCE_FX.en} (${REFERENCE_FX_DATE})`,
     rateTile: 'CHF/EUR rate',
-    adviceTpl: (g, n, e) => `On CHF ${g.toLocaleString('en-US')} gross, about CHF ${n.toLocaleString('en-US')} net remains — equivalent to EUR ${e.toLocaleString('en-US')} at the calculator's fixed rate (CHF 1 = EUR 1.096).`,
+    adviceTpl: (g, n, e) => `On CHF ${g.toLocaleString('en-US')} gross, about CHF ${n.toLocaleString('en-US')} net remains — equivalent to EUR ${e.toLocaleString('en-US')} at the reference rate of ${REFERENCE_FX_DATE} (CHF 1 = EUR ${REFERENCE_FX.en}).`,
     tableCaption: (g, p) => `Breakdown: gross CHF ${g.toLocaleString('en-US')} (${p})`,
     captionProfileBase: 'single A0, Lugano',
     grossAllowanceLabel: 'Gross + family allowance',
@@ -1245,7 +1254,7 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     faqQ2: 'How much does the LPP bracket matter?',
     faqA2: 'A lot: LPP ranges from 7% (age 25-34) to 18% (age 55-65) of the coordinated salary. An over-50 worker with the same gross takes home ~CHF 4,000/year less.',
     faqQ3: 'Is the net in CHF or EUR?',
-    faqA3: 'The simulator shows both: CHF for the payslip, EUR converted at the calculator\'s fixed rate (CHF 1 = EUR 1.096, updated each build) so you can plan Italian expenses.',
+    faqA3: `The simulator shows both: CHF for the payslip, EUR converted at the site\'s reference rate (CHF 1 = EUR ${REFERENCE_FX.en} on ${REFERENCE_FX_DATE}) so you can plan Italian expenses.`,
     variantSuffix: {
       base: '',
       new: ' · New 2026 cross-border worker',
@@ -1262,9 +1271,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Kantonale Quelle',
     irpefTile: 'IT-Freibetrag',
     tableLabel: 'Tabelle A · B · C',
-    fxLabel: 'Fester Kurs 1,096',
+    fxLabel: `Kurs ${REFERENCE_FX.de} (${REFERENCE_FX_DATE})`,
     rateTile: 'CHF/EUR-Kurs',
-    adviceTpl: (g, n, e) => `Bei CHF ${g.toLocaleString('de-CH')} brutto bleiben rund CHF ${n.toLocaleString('de-CH')} netto — entspricht EUR ${e.toLocaleString('de-CH')} zum festen Kurs des Rechners (CHF 1 = EUR 1,096).`,
+    adviceTpl: (g, n, e) => `Bei CHF ${g.toLocaleString('de-CH')} brutto bleiben rund CHF ${n.toLocaleString('de-CH')} netto — entspricht EUR ${e.toLocaleString('de-CH')} zum Referenzkurs vom ${REFERENCE_FX_DATE} (CHF 1 = EUR ${REFERENCE_FX.de}).`,
     tableCaption: (g, p) => `Aufschlüsselung: Brutto CHF ${g.toLocaleString('de-CH')} (${p})`,
     captionProfileBase: 'ledig A0, Lugano',
     grossAllowanceLabel: 'Brutto + Familienzulagen',
@@ -1276,7 +1285,7 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     faqQ2: 'Wie stark wirkt die BVG-Altersgruppe?',
     faqA2: 'Stark: BVG reicht von 7 % (25-34) bis 18 % (55-65) des koordinierten Lohns. Ein Über-50 mit gleichem Brutto erhält ~CHF 4.000/Jahr weniger netto.',
     faqQ3: 'Ist das Netto in CHF oder EUR?',
-    faqA3: 'Der Simulator zeigt beides: CHF für den Lohnausweis, EUR zum festen Kurs des Rechners (CHF 1 = EUR 1,096, bei jedem Build aktualisiert) zur Planung italienischer Ausgaben.',
+    faqA3: `Der Simulator zeigt beides: CHF für den Lohnausweis, EUR zum Referenzkurs der Website (CHF 1 = EUR ${REFERENCE_FX.de} vom ${REFERENCE_FX_DATE}) zur Planung italienischer Ausgaben.`,
     variantSuffix: {
       base: '',
       new: ' · Neuer Grenzgänger 2026',
@@ -1293,9 +1302,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Source cantonale',
     irpefTile: 'Franchise IT',
     tableLabel: 'Barème A · B · C',
-    fxLabel: 'Taux fixe 1,096',
+    fxLabel: `Taux ${REFERENCE_FX.fr} (${REFERENCE_FX_DATE})`,
     rateTile: 'Taux CHF/EUR',
-    adviceTpl: (g, n, e) => `Sur CHF ${g.toLocaleString('fr-CH')} brut, il reste ~CHF ${n.toLocaleString('fr-CH')} nets — soit EUR ${e.toLocaleString('fr-CH')} au taux fixe du calculateur (CHF 1 = EUR 1,096).`,
+    adviceTpl: (g, n, e) => `Sur CHF ${g.toLocaleString('fr-CH')} brut, il reste ~CHF ${n.toLocaleString('fr-CH')} nets — soit EUR ${e.toLocaleString('fr-CH')} au taux de référence du ${REFERENCE_FX_DATE} (CHF 1 = EUR ${REFERENCE_FX.fr}).`,
     tableCaption: (g, p) => `Décomposition : brut CHF ${g.toLocaleString('fr-CH')} (${p})`,
     captionProfileBase: 'célibataire A0, Lugano',
     grossAllowanceLabel: 'Brut + allocations familiales',
@@ -1307,7 +1316,7 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     faqQ2: 'Combien impacte la tranche LPP ?',
     faqA2: 'Beaucoup : la LPP va de 7 % (25-34 ans) à 18 % (55-65 ans) du salaire coordonné. Un 50+ avec le même brut touche ~CHF 4 000/an de moins.',
     faqQ3: 'Le net est en CHF ou EUR ?',
-    faqA3: 'Le simulateur affiche les deux : CHF pour la fiche de paie, EUR converti au taux fixe du calculateur (CHF 1 = EUR 1,096, mis à jour à chaque build) pour planifier les dépenses en Italie.',
+    faqA3: `Le simulateur affiche les deux : CHF pour la fiche de paie, EUR converti au taux de référence du site (CHF 1 = EUR ${REFERENCE_FX.fr} du ${REFERENCE_FX_DATE}) pour planifier les dépenses en Italie.`,
     variantSuffix: {
       base: '',
       new: ' · Nouveau frontalier 2026',
@@ -1388,7 +1397,7 @@ function buildSalaryTierData(cfg: TierConfig, locale: SalaryLocale): SalaryLandi
   const ralCHF = cfg.ral * 1000;
 
   // Every variant is derived from the live calculator: no fabricated deltas, and
-  // the same DEFAULT_EXCHANGE_RATE (1.096) the tool uses for EUR (issues #1137,
+  // the same DEFAULT_EXCHANGE_RATE the tool uses for EUR (issues #1137,
   // #1150). `gross` is RAL + CH family allowance (allowance > 0 only for
   // `married`), so net == gross - social - source - italian reconciles exactly.
   const d = tierDecomposition(ralCHF, cfg.variant);

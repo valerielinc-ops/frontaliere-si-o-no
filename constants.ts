@@ -1,4 +1,13 @@
-export const DEFAULT_EXCHANGE_RATE = 1.096;
+import { currentRate, rateDate } from './data/exchange-rate-snapshot.json';
+
+/**
+ * Tasso CHF→EUR di riferimento: lo stesso della pagina /cambio-franco-euro/,
+ * letto dallo snapshot giornaliero e non riscritto a mano. Con i valori named
+ * il bundle prende solo questi due campi, non tutto lo storico del file.
+ */
+export const DEFAULT_EXCHANGE_RATE: number = currentRate;
+/** Giorno di rilevazione di DEFAULT_EXCHANGE_RATE (AAAA-MM-GG). */
+export const DEFAULT_EXCHANGE_RATE_DATE: string = rateDate;
 export const FRANCHIGIA_NUOVI_FRONTALIERI = 10000;
 export const SWISS_CHILD_ALLOWANCE_ANNUAL = 3000;
 export const ITALY_CHILD_ALLOWANCE_ANNUAL_MIN = 684;
