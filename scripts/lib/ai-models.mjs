@@ -7474,19 +7474,26 @@ function _callModel(model, messages, opts) {
   const started = Date.now();
   let heartbeat;
   let capTimer;
+  let raceSettled = false;
   const call = (async () => _routeModelCall(model, messages, effOpts))();
   const capped = new Promise((_resolve, reject) => {
-    capTimer = setTimeout(() => {
-      const err = new Error(
-        `[${model}] hard cap: no response after ${Math.round(capMs / 1000)}s (provider timeout never fired) — abandoning call`,
-      );
-      // Named so the existing timeout branches (retry suppression in the
-      // provider callers, the timeout circuit-breaker in callLLM's catch)
-      // classify it exactly as they classify a provider-side abort.
-      err.name = 'TimeoutError';
-      reject(err);
-    }, capMs);
-    capTimer.unref?.();
+    // Let the provider install its own timeout before arming an equal absolute
+    // deadline. Otherwise the cap timer can win the same-deadline race and
+    // discard provider diagnostics (including Claude stderr).
+    queueMicrotask(() => {
+      if (raceSettled) return;
+      capTimer = setTimeout(() => {
+        const err = new Error(
+          `[${model}] hard cap: no response after ${Math.round(capMs / 1000)}s (provider timeout never fired) — abandoning call`,
+        );
+        // Named so the existing timeout branches (retry suppression in the
+        // provider callers, the timeout circuit-breaker in callLLM's catch)
+        // classify it exactly as they classify a provider-side abort.
+        err.name = 'TimeoutError';
+        reject(err);
+      }, capMs);
+      capTimer.unref?.();
+    });
   });
   heartbeat = setInterval(() => {
     console.warn(`⏳ [${model}] in-flight ${Math.round((Date.now() - started) / 1000)}s (hard cap ${Math.round(capMs / 1000)}s)`);
@@ -7523,6 +7530,7 @@ function _callModel(model, messages, opts) {
       throw err;
     },
   ).finally(() => {
+    raceSettled = true;
     clearTimeout(capTimer);
     clearInterval(heartbeat);
   });
