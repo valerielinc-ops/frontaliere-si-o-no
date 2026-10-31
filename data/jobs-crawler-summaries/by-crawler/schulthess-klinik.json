@@ -1,7 +1,7 @@
 {
   "key": "schulthess-klinik",
   "label": "Schulthess Klinik",
-  "generatedAt": "2026-10-30T09:47:45.338Z",
+  "generatedAt": "2026-10-30T21:17:09.710Z",
   "total": 9,
   "discovered": null,
   "parsed": 7,
@@ -12,30 +12,30 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 2912,
-  "avgDurationMs": 2912,
+  "durationMs": 3684,
+  "avgDurationMs": 3684,
   "durationHistory": [
-    2912
+    3684
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "schulthess-klinik-dfb14ac0ec5a",
-      "slug": "mitarbeiterin-collaboratore-trice-room-service-schulthess-klinik-zurich",
+      "slug": "addetta-addetto-al-servizio-in-camera-schulthess-klinik-zurich",
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
       "companyDomain": "schulthess-klinik.ch",
       "title": "Mitarbeiterin / Mitarbeiter Room Service",
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/cb300619-f117-472e-8e8d-335c4f038eb6",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:47:36.966Z",
+      "crawledAt": "2026-10-30T21:16:54.087Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,20 +53,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2124",
+      "firstSeenAt": "2026-10-30T09:47:36.966Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-30T09:47:36.966Z",
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +80,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/senior-cloud-system-engineer/9be11ac1-1153-4e3f-a0ce-23e312012c61",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:47:36.970Z",
+      "crawledAt": "2026-10-30T21:16:54.099Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +122,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/325df460-7ca5-4c5f-8931-d867bd6bd673",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:47:36.969Z",
+      "crawledAt": "2026-10-30T21:16:54.094Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,7 +165,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/e7f5a02e-b37e-4d50-b8c3-ce008b0ebf47",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:47:36.967Z",
+      "crawledAt": "2026-10-30T21:16:54.090Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -209,7 +208,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung/6b7dae22-2c37-4ac9-b66b-88a790a091c5",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:47:36.962Z",
+      "crawledAt": "2026-10-30T21:16:54.080Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -251,7 +250,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/oberarzt-oberaerztin-rheumatologie/80b383ed-c642-450a-8422-c8bf703f03ce",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:47:36.959Z",
+      "crawledAt": "2026-10-30T21:16:54.077Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -294,7 +293,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/director-of-research/cb21f8f4-78f5-4eb2-bd59-fb63262a7b67",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:47:36.942Z",
+      "crawledAt": "2026-10-30T21:16:54.052Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -359,7 +358,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -403,7 +402,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -413,5 +412,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }
