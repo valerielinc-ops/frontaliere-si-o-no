@@ -174,6 +174,19 @@ describe('scripts/lib/push-article-shard-incremental.sh — tree preflight', () 
   });
 });
 
+describe('rerender article hubs — shard credential probe', () => {
+  const workflow = read('.github/workflows/rerender-article-hubs.yml');
+
+  it('probes the same owner-aware HTTPS PAT fallback as the incremental publisher', () => {
+    expect(workflow).toContain('source scripts/lib/shard-git-helpers.sh');
+    expect(workflow).toContain('shard_push_token_for_repo "$repo"');
+    expect(workflow).toContain('shard_https_push_url "$repo"');
+    expect(workflow).toContain('credential.helper=$_SHARD_CRED_HELPER');
+    expect(workflow).toContain('cannot resolve the owner for $shard');
+    expect(workflow).not.toContain('push-article-shard-incremental.sh would skip');
+  });
+});
+
 describe('scripts/ci/report-shard-push-failure.mjs — cause ordering', () => {
   it('apre l’issue con la causa letta dal file dello shard', () => {
     const runnerTemp = mkdtempSync(join(tmpdir(), 'shard-report-'));

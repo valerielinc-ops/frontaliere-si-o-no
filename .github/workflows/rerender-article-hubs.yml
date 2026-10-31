@@ -282,12 +282,12 @@ jobs:
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
             echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
           else
-            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON not set — Remote Config load will be limited (R2/CF credentials, and the PAT fallback for a refused deploy key)"
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON not set — Remote Config load will be limited (R2/CF credentials, and the PAT fallback for a missing or refused deploy key)"
           fi
 
       # R2 + Cloudflare credentials for the edge publish and the purge below,
-      # and GITHUB_PAT as push-article-shard-incremental.sh's last-resort
-      # fallback for a refused deploy key.
+      # and GITHUB_PAT as push-article-shard-incremental.sh's owner-aware
+      # HTTPS fallback for a missing or refused deploy key.
       #
       # Deliberately NO full `npm ci`: the targeted installer above materializes
       # the renderer’s locked runtime dependencies (`@noble/hashes` for the
@@ -312,20 +312,19 @@ jobs:
 
       # PROVE THE CREDENTIALS BEFORE RENDERING, not half-way through pushing.
       #
-      # The failure this catches is silent by design: with no
-      # SHARD_<SECTION>_<LOCALE>_DEPLOY_KEY in the environment,
-      # push-article-shard-incremental.sh prints a notice and EXITS 0 — "fast
-      # path not provisioned", which for a publish is the right call (the
-      # article rides the next full deploy) and for a repair is a green run
-      # that repaired nothing.
+      # Probe the same two-transport contract as
+      # push-article-shard-incremental.sh: prefer the per-shard deploy key and
+      # use the owner-aware HTTPS PAT when the key is absent. A missing pair or
+      # a remote without main remains a hard failure, so a repair cannot render
+      # successfully and then report that it published nothing.
       #
-      # What this proves and what it does not: `git ls-remote` over SSH with
-      # the deploy key proves the key authenticates and that the shard has a
-      # `main` to build on — the script's other permanent-fail case. It does
-      # NOT prove the key's write bit; the SSH receive-pack advertisement would,
-      # but its quoting is fiddly enough that a probe which false-fails would
-      # cost more than it catches, and a genuinely read-only key still fails
-      # loudly at the push (3 attempts, then the PAT fallback, then exit 1).
+      # What this proves and what it does not: `git ls-remote` proves that the
+      # selected credential authenticates and that the shard has a `main` to
+      # build on — the script's other permanent-fail case. It does NOT prove
+      # the key's write bit; the receive-pack advertisement would, but its
+      # quoting is fiddly enough that a probe which false-fails would cost more
+      # than it catches, and a genuinely read-only key still fails loudly at
+      # the push (bounded retries, then the PAT fallback).
       - name: Probe shard access (${{ matrix.section }})
         if: steps.mode.outputs.dry != 'true'
         env:
@@ -342,8 +341,12 @@ jobs:
           INPUT_SECTION: ${{ matrix.section }}
         run: |
           set -euo pipefail
+          source scripts/lib/shard-git-helpers.sh
           shard="articoli$INPUT_SECTION"
-          owner="$(jq -r --arg s "$shard" '.[$s] // "valerielinc-ops"' scripts/lib/section-shard-owners.json)"
+          if ! owner="$(jq -er --arg s "$shard" '.[$s] | select(type == "string" and length > 0)' scripts/lib/section-shard-owners.json)"; then
+            echo "::error::cannot resolve the owner for $shard from scripts/lib/section-shard-owners.json"
+            exit 1
+          fi
           upper="$(printf '%s' "$shard" | LC_ALL=C tr '[:lower:]' '[:upper:]')"
 
           fail=0
@@ -351,23 +354,42 @@ jobs:
             locupper="$(printf '%s' "$loc" | LC_ALL=C tr '[:lower:]' '[:upper:]')"
             var="SHARD_${upper}_${locupper}_DEPLOY_KEY"
             key="${!var:-}"
-            if [ -z "$key" ]; then
-              echo "::error::$var is empty — push-article-shard-incremental.sh would skip $shard/$loc and exit 0, reporting a repair that never happened"
-              fail=1
-              continue
-            fi
-            kf="$RUNNER_TEMP/probe_${shard}_${loc}"
-            printf '%s\n' "$key" > "$kf"
-            chmod 600 "$kf"
-            if GIT_SSH_COMMAND="ssh -i $kf -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes" \
-               git ls-remote --heads "git@github.com:$owner/frontaliere-$shard-$loc.git" main \
-               2>/dev/null | grep 'refs/heads/main' >/dev/null; then
-              echo "  reachable  $owner/frontaliere-$shard-$loc"
+            repo="git@github.com:$owner/frontaliere-$shard-$loc.git"
+            if [ -n "$key" ]; then
+              kf="$RUNNER_TEMP/probe_${shard}_${loc}"
+              printf '%s\n' "$key" > "$kf"
+              chmod 600 "$kf"
+              if GIT_SSH_COMMAND="ssh -i $kf -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes" \
+                 git ls-remote --heads "$repo" main \
+                 2>/dev/null | grep 'refs/heads/main' >/dev/null; then
+                echo "  reachable via deploy key  $owner/frontaliere-$shard-$loc"
+              else
+                echo "::error::$owner/frontaliere-$shard-$loc: the deploy key did not authenticate, or the shard has no main branch to build on"
+                fail=1
+              fi
+              rm -f "$kf"
             else
-              echo "::error::$owner/frontaliere-$shard-$loc: the deploy key did not authenticate, or the shard has no main branch to build on"
-              fail=1
+              token="$(shard_push_token_for_repo "$repo")"
+              if [ -z "$token" ]; then
+                echo "::error::$var and no SHARD_PUSH_PAT/GITHUB_PAT credential are available for $owner/frontaliere-$shard-$loc"
+                fail=1
+                continue
+              fi
+              if ! https_repo="$(shard_https_push_url "$repo")"; then
+                echo "::error::$owner/frontaliere-$shard-$loc: cannot derive an HTTPS remote for the PAT fallback"
+                fail=1
+                continue
+              fi
+              echo "::add-mask::$token"
+              if SHARD_PUSH_TOKEN="$token" \
+                 git -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
+                 ls-remote --heads "$https_repo" main 2>/dev/null | grep 'refs/heads/main' >/dev/null; then
+                echo "  reachable via HTTPS PAT  $owner/frontaliere-$shard-$loc"
+              else
+                echo "::error::$owner/frontaliere-$shard-$loc: the PAT did not authenticate, or the shard has no main branch to build on"
+                fail=1
+              fi
             fi
-            rm -f "$kf"
           done
           [ "$fail" = "0" ] || exit 1
 
