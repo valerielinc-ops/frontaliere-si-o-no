@@ -3133,7 +3133,7 @@ const App: React.FC = () => {
  <SafeLazy boundary="rail-ad-left"><ArticleRailAdStack side="left" narrow onEmptyResolved={handleLeftRailEmpty} /></SafeLazy>
  </aside>
  )}
- <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
+ <main id="main-content" tabIndex={-1} className={`flex-grow min-h-dvh mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : activeTab === 'job-board' ? '!max-w-[2400px] w-full min-w-0 px-3 sm:px-4' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'plate-auctions') ? ' xlw:!w-full' : ''}`
  }`}>
  <Suspense fallback={staticSnapshotOwnsBody ? null : <LazyFallback />}>
