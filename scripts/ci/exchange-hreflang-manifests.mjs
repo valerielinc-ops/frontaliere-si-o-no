@@ -23,6 +23,13 @@
  * 120 (#16148): no fixed duration fits a gap that moves. A leg that died is caught
  * by the sibling check, so the only real limit is the job budget.
  *
+ * Which attempt a manifest belongs to. Every leg of an attempt publishes under
+ * that attempt, so no leg judges a sibling against a different snapshot. The one
+ * exception is a sibling that already succeeded in an earlier attempt: "Re-run
+ * failed jobs" does not run it again, and its shard is the one that shipped, so
+ * its manifest is the correct one. Reading only the current attempt would leave a
+ * rerun waiting for a file nobody will ever write.
+ *
  * Failure model
  *   - Listing or download errors are transient: retried inside a bounded budget.
  *   - Unreadable manifest content is not: an artifact is immutable, so a second
@@ -82,21 +89,50 @@ async function isPublished({ gh, repo, runId, name }) {
   return artifacts.some((artifact) => artifact?.name === name && artifact?.expired === false);
 }
 
-async function firstMissingLocale({ gh, repo, runId, runAttempt, published }) {
+async function readJobs({ gh, repo, runId }) {
+  const url = `repos/${repo}/actions/runs/${runId}/jobs?filter=latest&per_page=100`;
+  const { jobs = [] } = JSON.parse(await gh(['api', '-X', 'GET', url], API_TIMEOUT_MS));
+  return jobs;
+}
+
+// The newest attempt decides, whatever order the API lists the job entries in.
+function latestLocaleJob(locale, jobs) {
+  return jobs
+    .filter((candidate) => buildLocaleFromJobName(candidate?.name) === locale)
+    .reduce((latest, candidate) => (
+      !latest || Number(candidate?.run_attempt) > Number(latest?.run_attempt) ? candidate : latest
+    ), null);
+}
+
+function manifestAttemptOf(locale, jobs, runAttempt) {
+  const job = latestLocaleJob(locale, jobs);
+  const attempt = Number(job?.run_attempt);
+  return job?.conclusion === 'success' && attempt >= 1 && attempt < Number(runAttempt)
+    ? String(attempt)
+    : String(runAttempt);
+}
+
+async function firstMissingLocale({ gh, repo, runId, runAttempt, jobs, published }) {
   for (const locale of MANIFEST_LOCALES) {
-    if (published.has(locale)) continue;
-    const name = manifestArtifactName(locale, runId, runAttempt);
+    // Decided on every poll: a job list can show a rerun only after the first read.
+    const attempt = manifestAttemptOf(locale, jobs, runAttempt);
+    if (published.get(locale) === attempt) continue;
+    published.delete(locale);
+    const name = manifestArtifactName(locale, runId, attempt);
     if (!(await isPublished({ gh, repo, runId, name }))) return locale;
-    published.add(locale);
+    published.set(locale, attempt);
   }
   return null;
 }
 
-async function terminatedLocaleJob({ gh, repo, runId }) {
-  const url = `repos/${repo}/actions/runs/${runId}/jobs?filter=latest&per_page=100`;
-  const { jobs = [] } = JSON.parse(await gh(['api', '-X', 'GET', url], API_TIMEOUT_MS));
-  const job = jobs.find((candidate) => buildLocaleFromJobName(candidate?.name)
-    && TERMINAL_FAILURE_CONCLUSIONS.has(candidate?.conclusion));
+// Only this attempt counts: on a rerun an older failed entry can still be the
+// newest one listed for a leg that is about to run again. A leg nobody reruns
+// then costs the wait up to the deadline, which stays bounded.
+function terminatedLocaleJob(jobs, runAttempt) {
+  const job = MANIFEST_LOCALES
+    .map((locale) => latestLocaleJob(locale, jobs))
+    .find((candidate) => Number(candidate?.run_attempt) === Number(runAttempt)
+      && TERMINAL_FAILURE_CONCLUSIONS.has(candidate?.conclusion));
   return job?.name ?? null;
 }
 
@@ -104,6 +140,8 @@ async function terminatedLocaleJob({ gh, repo, runId }) {
  * Block until the four manifests of this run attempt are published. One failed
  * API read must not end a leg that has already built for two hours, so an
  * unreadable poll only counts as "not complete yet".
+ *
+ * @returns {Promise<Map<string, string>>} locale → attempt of its manifest.
  */
 export async function waitForManifestSet({
   gh,
@@ -116,20 +154,21 @@ export async function waitForManifestSet({
   sleep,
   log = console.log,
 }) {
-  const published = new Set();
+  const published = new Map();
   let waitingFor = 'the first poll';
   for (;;) {
     try {
-      const missing = await firstMissingLocale({ gh, repo, runId, runAttempt, published });
+      const jobs = await readJobs({ gh, repo, runId });
+      const missing = await firstMissingLocale({ gh, repo, runId, runAttempt, jobs, published });
       if (missing === null) {
         log('✓ complete same-run hreflang manifest set is available');
-        return;
+        return published;
       }
       waitingFor = missing;
       // A sibling that has terminated cannot publish its manifest. Stop now, so
       // the rearm job classifies the failed leg itself instead of three
       // misleading barrier timeouts after the readiness budget expires.
-      const failed = await terminatedLocaleJob({ gh, repo, runId });
+      const failed = terminatedLocaleJob(jobs, runAttempt);
       if (failed) {
         throw new ManifestExchangeError(
           `same-run hreflang manifest barrier aborted: ${failed} terminated before publishing its manifest`,
@@ -175,7 +214,7 @@ export async function downloadManifest({
   gh,
   repo,
   runId,
-  runAttempt,
+  manifestAttempt,
   locale,
   manifestDir,
   deadline,
@@ -183,7 +222,7 @@ export async function downloadManifest({
   sleep,
   log = console.log,
 }) {
-  const name = manifestArtifactName(locale, runId, runAttempt);
+  const name = manifestArtifactName(locale, runId, manifestAttempt);
   const unavailable = (tries, reason) => new ManifestExchangeError(
     `same-run hreflang manifest unavailable after ${tries} tries: ${locale} (${reason})`,
   );
@@ -239,7 +278,7 @@ export async function exchangeHreflangManifests({
   if (!Number.isSafeInteger(jobStartMs) || jobStartMs <= 0) {
     throw new ManifestExchangeError(`invalid hreflang job start epoch: ${jobStartEpoch}`);
   }
-  await waitForManifestSet({
+  const attempts = await waitForManifestSet({
     gh,
     repo,
     runId,
@@ -255,7 +294,8 @@ export async function exchangeHreflangManifests({
   const deadline = now() + downloadBudgetMs;
   for (const locale of MANIFEST_LOCALES) {
     if (locale === buildLocale) continue;
-    const tries = await downloadManifest({ gh, repo, runId, runAttempt, locale, manifestDir, deadline, now, sleep, log });
+    const manifestAttempt = attempts.get(locale);
+    const tries = await downloadManifest({ gh, repo, runId, manifestAttempt, locale, manifestDir, deadline, now, sleep, log });
     log(`✓ same-run hreflang manifest ${locale} downloaded (${tries} ${tries === 1 ? 'try' : 'tries'})`);
   }
 }

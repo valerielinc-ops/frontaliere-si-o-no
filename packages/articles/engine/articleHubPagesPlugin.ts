@@ -899,7 +899,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
       { '@type': 'ListItem', position: 2, name: sectionLabel, item: `${BASE_URL}${basePath}` },
       ...(page > 1
         ? [{ '@type': 'ListItem', position: 3, name: pageLabel(locale, page), item: canonicalUrl }]
