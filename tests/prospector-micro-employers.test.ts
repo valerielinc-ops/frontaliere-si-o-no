@@ -133,6 +133,13 @@ describe('domain verdicts older than the guesser', () => {
     expect(isTraceRetryDue(parked)).toBe(true);
   });
 
+  it('dates a malformed attempt from when the candidate was first seen', () => {
+    const store = { candidates: {
+      broken: unresolved({ key: 'broken', traceLastAttemptAt: 'not a date', firstSeenAt: new Date(Date.now() + 1000).toISOString() }),
+    } };
+    expect(reviveUnresolvedDomainCandidates(store as never, { ledgerFile: '/dev/null' })).toEqual([]);
+  });
+
   it('leaves alone a verdict the new guesser already gave and any found domain', () => {
     const store = { candidates: {
       fresh: unresolved({ key: 'fresh', traceLastAttemptAt: new Date(Date.now() + 1000).toISOString() }),

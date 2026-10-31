@@ -952,7 +952,8 @@ export const DOMAIN_UNRESOLVED_REASON = 'dominio non risolto';
  */
 export function reviveUnresolvedDomainCandidates(store, options = {}) {
   const revisedAt = Date.parse(DOMAIN_GUESSER_REVISED_AT);
-  const attemptedAt = (candidate) => Date.parse(String(candidate.traceLastAttemptAt || candidate.firstSeenAt || '')) || 0;
+  const attemptedAt = (candidate) => Date.parse(String(candidate.traceLastAttemptAt || ''))
+    || Date.parse(String(candidate.firstSeenAt || '')) || 0;
   const due = Object.entries(store.candidates)
     .filter(([, candidate]) => (candidate.status === 'dead' || candidate.status === 'new')
       && candidate.reason === DOMAIN_UNRESOLVED_REASON

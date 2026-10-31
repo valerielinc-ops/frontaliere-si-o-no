@@ -192,6 +192,32 @@ describe('Prospector domain verification', () => {
     expect(result).toMatchObject({ domain: null, retryable: false });
   });
 
+  it('shares one request budget across hinted and guessed domains', async () => {
+    politeFetch.mockImplementation(async (url: string) => (String(url).startsWith('https://www.')
+      ? { ok: true, status: 200, url: String(url), body: 'short' }
+      : { ok: false, status: 404, body: '' }));
+    const hints = ['a.ch', 'b.ch', 'c.ch', 'd.ch', 'e.ch', 'f.ch'];
+    const result = await resolveDomain(
+      { name: 'Rossi Costruzioni SA', domainHints: hints },
+      { lookupImpl: everyHostExists as never },
+    );
+    expect(politeFetch.mock.calls.length).toBeLessThanOrEqual(10);
+    expect(result.triedHints).toEqual(['a.ch', 'b.ch', 'c.ch', 'd.ch', 'e.ch']);
+  });
+
+  it.each([
+    ['a guessed domain', { name: 'Ristorante Ciani Lugano', city: 'Lugano', zip: '6900' }],
+    ['a hinted domain', { name: 'Ristorante Ciani Lugano', city: 'Lugano', zip: '6900', domainHints: ['cianilugano.ch'] }],
+  ])('reads www when the apex of %s answers with a stub', async (_, employer) => {
+    politeFetch.mockImplementation(async (url: string) => (String(url).startsWith('https://www.')
+      ? page(String(url), 'Ristorante Ciani Lugano, 6900 Lugano, Svizzera')
+      : { ok: true, status: 200, url: String(url), body: 'x'.repeat(399) }));
+    const result = await resolveDomain(employer, {
+      lookupImpl: onlyHosts('cianilugano.ch', 'www.cianilugano.ch') as never,
+    });
+    expect(result.domain).toBe('cianilugano.ch');
+  });
+
   it('still refuses a page that names the employer without a second signal', async () => {
     politeFetch.mockImplementation(async (url: string) => page(String(url), 'Iride, il blog dei colori'));
     const result = await resolveDomain(

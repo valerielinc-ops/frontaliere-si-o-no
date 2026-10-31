@@ -203,8 +203,10 @@ export function verifyOwnership(html, employer) {
 /** The application address already vouches for the domain, so one more signal beside the name settles it. */
 const HINTED_DOMAIN_MIN_SCORE = 2;
 
-/** Requests one employer may cost. DNS spends this budget on domains that exist. */
+/** Page requests one employer may cost, shared by every domain tried. DNS spends them on domains that exist. */
 const MAX_SITE_PROBES = 10;
+/** Below this a response is a parking page or a redirect stub, not a site to read. */
+const MIN_SITE_BODY_CHARS = 400;
 const DNS_LOOKUP_BATCH = 6;
 const DNS_MISSING_CODES = new Set(['ENOTFOUND', 'ENODATA', 'EAI_NONAME', 'EAI_NODATA']);
 
@@ -248,13 +250,14 @@ function identifiesEmployer(evidence, domain, name) {
  *
  * @param {string[]} guesses
  * @param {typeof dnsLookup} lookupImpl
+ * @param {number} wanted
  * @returns {Promise<{ live: { domain: string, hosts: string[] }[], unknown: number, absent: number }>}
  */
-async function filterByDns(guesses, lookupImpl) {
+async function filterByDns(guesses, lookupImpl, wanted) {
   const live = [];
   let unknown = 0;
   let absent = 0;
-  for (let start = 0; start < guesses.length && live.length < MAX_SITE_PROBES; start += DNS_LOOKUP_BATCH) {
+  for (let start = 0; start < guesses.length && live.length < wanted; start += DNS_LOOKUP_BATCH) {
     const checked = await Promise.all(guesses.slice(start, start + DNS_LOOKUP_BATCH).map(async (domain) => {
       const hosts = [domain, `www.${domain}`];
       return { domain, hosts, states: await Promise.all(hosts.map((host) => dnsState(host, lookupImpl))) };
@@ -266,11 +269,12 @@ async function filterByDns(guesses, lookupImpl) {
       else absent++;
     }
   }
-  return { live: live.slice(0, MAX_SITE_PROBES), unknown, absent };
+  return { live: live.slice(0, wanted), unknown, absent };
 }
 
 /**
- * Fetch an employer's homepage on the apex or on `www.`.
+ * Fetch an employer's homepage on the apex or on `www.`, stopping at the first
+ * host that serves a real page. A short 200 on the apex says nothing about `www.`.
  *
  * `politeFetch` allows only the origin of the URL it is given, and most Swiss
  * SME sites redirect the apex to `www.`, so without both origins in the policy
@@ -280,26 +284,31 @@ async function filterByDns(guesses, lookupImpl) {
  * @param {string} domain
  * @param {string[]} hosts
  * @param {Record<string, any>} opts
+ * @param {{ left: number }} budget  shared by every domain of one employer
  * @returns {Promise<{ response: any, failures: any[] }>}
  */
-async function fetchSite(domain, hosts, opts) {
+async function fetchSite(domain, hosts, opts, budget) {
   const urlPolicy = createSpecUrlPolicy(
     { seedUrls: [`https://${domain}/`, `https://www.${domain}/`] },
     { lookupImpl: opts.lookupImpl },
   );
   const failures = [];
+  let answered = false;
   try {
     for (const host of hosts) {
+      if (budget.left <= 0) break;
+      budget.left--;
       let response;
       try {
         response = await politeFetch(`https://${host}/`, { ...opts, urlPolicy, dispatcher: urlPolicy.dispatcher });
       } catch {
         response = { ok: false, status: 0, body: '', transportError: 'network' };
       }
-      if (response.ok) return { response, failures: [] };
-      failures.push(response);
+      if (response.ok && response.body.length >= MIN_SITE_BODY_CHARS) return { response, failures: [] };
+      if (response.ok) answered = true;
+      else failures.push(response);
     }
-    return { response: null, failures };
+    return { response: null, failures: answered ? [] : failures };
   } finally {
     await urlPolicy.dispatcher?.close?.();
   }
@@ -320,19 +329,20 @@ export async function resolveDomain(employer, opts = {}) {
     }
   };
   const triedHints = [];
+  const budget = { left: MAX_SITE_PROBES };
   const vouched = [
     ...(employer.domainHints || []).map((domain) => ({ domain, proof: 'email-domain' })),
     ...embeddedDomains(employer.name).map((domain) => ({ domain, proof: 'name-domain' })),
   ];
   for (const { domain, proof } of vouched) {
+    if (budget.left <= 0) break;
     best.tried++;
     if (proof === 'email-domain') triedHints.push(domain);
-    const { response: res, failures } = await fetchSite(domain, [domain, `www.${domain}`], opts);
+    const { response: res, failures } = await fetchSite(domain, [domain, `www.${domain}`], opts, budget);
     if (!res) {
       recordFailures(failures);
       continue;
     }
-    if (res.body.length < 400) continue;
     const v = verifyOwnership(res.body, employer);
     // An agency's site can match the town and the country, never the employer.
     const namesEmployer = v.evidence.some((e) => e === 'all-tokens' || e === 'title' || e.startsWith('tokens:'));
@@ -348,17 +358,17 @@ export async function resolveDomain(employer, opts = {}) {
   }
   const tested = new Set(vouched.map(({ domain }) => domain));
   const guesses = domainGuesses(employer.name).filter((domain) => !tested.has(domain));
-  const { live, unknown, absent } = await filterByDns(guesses, opts.lookupImpl || dnsLookup);
+  const { live, unknown, absent } = await filterByDns(guesses, opts.lookupImpl || dnsLookup, budget.left);
   best.dnsAbsent = absent;
   if (unknown) best.retryable = true;
   for (const { domain, hosts } of live) {
+    if (budget.left <= 0) break;
     best.tried++;
-    const { response: res, failures } = await fetchSite(domain, hosts, opts);
+    const { response: res, failures } = await fetchSite(domain, hosts, opts, budget);
     if (!res) {
       recordFailures(failures);
       continue;
     }
-    if (res.body.length < 400) continue;
     const v = verifyOwnership(res.body, employer);
     if (v.score > best.score && identifiesEmployer(v.evidence, domain, employer.name)) {
       best = {
