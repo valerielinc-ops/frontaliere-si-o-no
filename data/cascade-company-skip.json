@@ -1,19 +1,17 @@
 {
-  "run": 276,
+  "run": 277,
   "companies": {
     "fielmann": {
       "sterile": 1,
       "signature": "8d912bf111bc74eb"
     },
     "migrolino": {
-      "sterile": 0,
-      "signature": "b7c5f981ef83f8c3",
-      "skipUntilRun": 276
+      "sterile": 1,
+      "signature": "b7c5f981ef83f8c3"
     },
     "pemsa": {
-      "sterile": 0,
-      "signature": "d4cdb525ea223104",
-      "skipUntilRun": 276
+      "sterile": 1,
+      "signature": "d4cdb525ea223104"
     },
     "bosch-thermotechnik-ag": {
       "sterile": 1,
