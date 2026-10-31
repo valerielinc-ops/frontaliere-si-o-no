@@ -278,15 +278,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quando scade la dichiarazione dei redditi per frontalieri in Italia?": {
  en: {
  q: "When is the tax return deadline for cross-border workers in Italy?",
- a: "Model 730 (if applicable) by 30 September 2026. Modello Redditi PF (ex Unico) by 30 November 2026. First IRPEF instalment (40%) by 30 June 2026. Second instalment (60%) by 30 November 2026. Balance from the previous year's return by 30 June 2026."
+ a: "Model 730 (if applicable) by 30 September 2026. Modello Redditi PF (ex Unico) by 2 November 2026. First IRPEF instalment (40%) by 30 June 2026. Second instalment (60%) by 30 November 2026. Balance from the previous year's return by 30 June 2026."
  },
  de: {
  q: "Wann ist die Abgabefrist der Steuererklärung für Grenzgänger in Italien?",
- a: "Modell 730 (falls zutreffend) bis 30. September 2026. Modello Redditi PF (ex Unico) bis 30. November 2026. Erste IRPEF-Rate (40 %) bis 30. Juni 2026. Zweite Rate (60 %) bis 30. November 2026. Saldo aus der Vorjahreserklärung bis 30. Juni 2026."
+ a: "Modell 730 (falls zutreffend) bis 30. September 2026. Modello Redditi PF (ex Unico) bis 2. November 2026. Erste IRPEF-Rate (40 %) bis 30. Juni 2026. Zweite Rate (60 %) bis 30. November 2026. Saldo aus der Vorjahreserklärung bis 30. Juni 2026."
  },
  fr: {
  q: "Quelle est la date limite de la déclaration fiscale pour les frontaliers en Italie ?",
- a: "Modèle 730 (le cas échéant) avant le 30 septembre 2026. Modello Redditi PF (ex Unico) avant le 30 novembre 2026. Premier acompte IRPEF (40 %) avant le 30 juin 2026. Deuxième acompte (60 %) avant le 30 novembre 2026. Solde de la déclaration précédente avant le 30 juin 2026."
+ a: "Modèle 730 (le cas échéant) avant le 30 septembre 2026. Modello Redditi PF (ex Unico) avant le 2 novembre 2026. Premier acompte IRPEF (40 %) avant le 30 juin 2026. Deuxième acompte (60 %) avant le 30 novembre 2026. Solde de la déclaration précédente avant le 30 juin 2026."
  }
  },
 
@@ -1526,15 +1526,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Cosa sono i ristorni fiscali per frontalieri?": {
  en: {
  q: "What are fiscal rebates (ristorni) for cross-border workers?",
- a: "Fiscal rebates are compensations that Switzerland pays to Italy, equal to 40% of the withholding tax deducted from cross-border workers. These funds are distributed to the Italian municipalities where the workers reside to finance local services."
+ a: "Fiscal rebates are the compensation that the cantons of Grigioni, Ticino and Valais pay to Italy, equal to 40% of the gross tax on art. 9 cross-border workers, through tax year 2033. The Italian authorities then transfer the sums to municipalities."
  },
  de: {
  q: "Was sind die steuerlichen Rückvergütungen (Ristorni) für Grenzgänger?",
- a: "Steuerliche Rückvergütungen sind Ausgleichszahlungen, die die Schweiz an Italien leistet, in Höhe von 40 % der Quellensteuer, die Grenzgängern abgezogen wird. Diese Mittel werden an die italienischen Wohnsitzgemeinden der Grenzgänger verteilt, um lokale Dienstleistungen zu finanzieren."
+ a: "Ristorni sind der Ausgleich, den die Kantone Graubünden, Tessin und Wallis an Italien zahlen: 40 % der Bruttosteuer der Grenzgänger nach Art. 9, bis zum Steuerjahr 2033. Die italienischen Behörden leiten die Beträge an die Gemeinden weiter."
  },
  fr: {
  q: "Que sont les rétrocessions fiscales (ristorni) pour les frontaliers ?",
- a: "Les rétrocessions fiscales sont des compensations que la Suisse verse à l'Italie, égales à 40 % de l'impôt à la source prélevé aux frontaliers. Ces fonds sont distribués aux communes italiennes de résidence des travailleurs pour financer les services locaux."
+ a: "Les ristorni sont la compensation que les cantons des Grisons, du Tessin et du Valais versent à l'Italie : 40 % de l'impôt brut des frontaliers de l'art. 9, jusqu'à l'année fiscale 2033. Les autorités italiennes transfèrent ensuite les sommes aux communes."
  }
  },
 
@@ -1558,15 +1558,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanto vale un ristorno fisale per comune?": {
  en: {
  q: "How much is a fiscal rebate worth per municipality?",
- a: "The amount varies greatly: municipalities with many cross-border workers like Lavena Ponte Tresa, Porlezza, or Ponte Chiasso receive hundreds of thousands of euros, while smaller municipalities receive lower amounts. The annual total exceeds €90 million."
+ a: "The amount varies by municipality and depends on the tax of art. 9 cross-border workers and on the Italian allocation. The Agreement sets the 40% rate, not an amount per municipality."
  },
  de: {
  q: "Wie viel ist eine steuerliche Rückvergütung pro Gemeinde wert?",
- a: "Der Betrag variiert stark: Gemeinden mit vielen Grenzgängern wie Lavena Ponte Tresa, Porlezza oder Ponte Chiasso erhalten Hunderttausende Euro, während kleinere Gemeinden geringere Beträge erhalten. Die Jahressumme übersteigt 90 Millionen Euro."
+ a: "Der Betrag variiert je nach Gemeinde und hängt von der Steuer der Grenzgänger nach Art. 9 und der italienischen Verteilung ab. Das Abkommen legt den Satz von 40 % fest, keinen Betrag pro Gemeinde."
  },
  fr: {
  q: "Combien vaut une rétrocession fiscale par commune ?",
- a: "Le montant varie considérablement : les communes avec de nombreux frontaliers comme Lavena Ponte Tresa, Porlezza ou Ponte Chiasso reçoivent des centaines de milliers d'euros, tandis que les plus petites communes reçoivent des montants inférieurs. Le total annuel dépasse 90 millions d'euros."
+ a: "Le montant varie selon la commune et dépend de l'impôt des frontaliers de l'art. 9 et de la répartition italienne. L'Accord fixe le taux de 40 %, pas un montant par commune."
  }
  },
 

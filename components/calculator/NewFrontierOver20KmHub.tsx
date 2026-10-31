@@ -47,13 +47,13 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  subtitle: 'Casi pratici, confronto con chi vive entro 20 km e simulazione immediata del tuo netto.',
  intro: 'Questa landing serve a capire in modo concreto cosa cambia se sei un nuovo frontaliere, lavori in Ticino e vivi in un comune italiano oltre 20 km dal confine. Sotto trovi tre casi già calcolati e un confronto diretto con lo scenario entro 20 km.',
  bullets: [
- 'Oltre 20 km l’imposta resta integralmente trattenuta in Svizzera.',
+ 'Oltre 20 km si applica la ritenuta svizzera ordinaria e l’Italia tassa il reddito con credito.',
  'Entro 20 km la Svizzera trattiene l’80% e l’Italia tassa con credito per le imposte già pagate.',
  'La distanza di residenza cambia quindi cash flow, dichiarazione fiscale e convenienza netta.',
  ],
  casesTitle: 'Casi pratici già calcolati',
  compareTitle: 'Confronto rapido entro vs oltre 20 km',
- compareBody: 'Per uno stesso nuovo frontaliere single con 80.000 CHF, il punto chiave è dove si sposta il carico fiscale: oltre 20 km rimane in Svizzera, entro 20 km si apre la tassazione concorrente con credito d’imposta.',
+ compareBody: 'Per uno stesso nuovo frontaliere single con 80.000 CHF, il punto chiave è quanto trattiene la Svizzera: oltre 20 km la ritenuta è ordinaria, entro 20 km è ridotta all’80%. In entrambi i casi l’Italia tassa con credito d’imposta.',
  compareOver: 'Netto mensile oltre 20 km',
  compareWithin: 'Netto mensile entro 20 km',
  compareDelta: 'Differenza mensile a favore dello scenario migliore',
@@ -66,19 +66,19 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  ],
  editorialTitle: 'Come si calcolano le tasse del frontaliere oltre 20 km',
  editorialParagraphs: [
- 'Per i nuovi frontalieri che risiedono oltre 20 km dal confine, l\'Accordo 2020 (in vigore dal 17 luglio 2023) introduce la regola della **tassazione esclusiva svizzera**: il reddito da lavoro dipendente prodotto in Ticino è tassato integralmente e solo in Svizzera, tramite l\'imposta alla fonte trattenuta in busta paga. In Italia non si dichiara questo reddito (se non ci sono altri redditi rilevanti), e non si applica la tassazione concorrente.',
- 'La differenza con i **vecchi frontalieri** (assunti prima del 17 luglio 2023) è sostanziale: i vecchi frontalieri — se residenti nella fascia dei 20 km — continuano a essere tassati solo in Svizzera grazie al regime transitorio, mentre i nuovi frontalieri entro 20 km rientrano nella tassazione concorrente (Svizzera trattiene l\'80% come acconto, Italia completa con credito d\'imposta). Superati i 20 km, invece, i nuovi frontalieri tornano al regime di tassazione esclusiva, simile a quello dei vecchi frontalieri, semplificando di fatto la dichiarazione.',
- 'Esempio pratico su uno stipendio lordo di CHF 60\'000 annui (5\'000 CHF/mese), single senza figli: i contributi sociali obbligatori (AVS/AI/IPG/AD ~6,25%, LPP ~7-8%, AINF ~1%, totale circa 14%) sottraggono ~700 CHF/mese, lasciando un imponibile di ~4\'300 CHF. L\'imposta alla fonte ticinese 2026 su questo scaglione (tariffa A0, single) si attesta attorno al 9-11%, ovvero ~420-480 CHF/mese. Il **netto mensile in tasca** risulta quindi di circa **CHF 3\'820-3\'880**, senza ulteriori prelievi italiani. Per numeri esatti sul tuo caso, usa il calcolatore qui sopra inserendo comune di residenza e composizione familiare.',
+ 'Chi risiede oltre 20 km dal confine non è frontaliere ai sensi dell\'Accordo 2020 (in vigore dal 17 luglio 2023, applicabile dal 1° gennaio 2024): in Svizzera si applica la **ritenuta alla fonte ordinaria**, senza la riduzione all\'80%. In Italia il reddito va dichiarato e tassato con **credito per l\'imposta svizzera**, entro la quota di IRPEF proporzionale al reddito estero. I dati vengono scambiati automaticamente tra i due Paesi.',
+ 'La differenza con i **vecchi frontalieri** dell\'art. 9 è sostanziale: chi risiede nella fascia dei 20 km e ha lavorato come frontaliere tra il 31 dicembre 2018 e il 17 luglio 2023 resta tassato solo in Svizzera, mentre i nuovi frontalieri entro 20 km pagano in Svizzera l\'80% dell\'imposta ordinaria e dichiarano il reddito in Italia con credito d\'imposta. Oltre 20 km la ritenuta svizzera è piena e la dichiarazione italiana resta dovuta; la franchigia di 10.000 € non è esclusa solo dalla distanza, se ne ricorrono i requisiti.',
+ 'Esempio pratico su uno stipendio lordo di CHF 60\'000 annui (5\'000 CHF/mese), single senza figli: i contributi sociali obbligatori (AVS/AI/IPG/AD ~6,25%, LPP ~7-8%, AINF ~1%, totale circa 14%) sottraggono ~700 CHF/mese, lasciando un imponibile di ~4\'300 CHF. L\'imposta alla fonte ticinese 2026 su questo scaglione (tariffa A0, single) si attesta attorno al 9-11%, ovvero ~420-480 CHF/mese. Il **netto mensile in tasca** risulta quindi di circa **CHF 3\'820-3\'880**, prima del saldo IRPEF in Italia. Per numeri esatti sul tuo caso, usa il calcolatore qui sopra inserendo comune di residenza e composizione familiare.',
  ],
  faqTitle: 'FAQ essenziali',
  faq: [
  {
  q: 'Chi è considerato nuovo frontaliere oltre 20 km?',
- a: 'Chi ha iniziato a lavorare in Svizzera dal 17 luglio 2023 in poi e vive in un comune italiano oltre 20 km dalla frontiera.',
+ a: 'Chi lavora in Svizzera e vive in un comune italiano fuori dall’elenco della fascia di 20 km. Ai sensi dell’Accordo non è frontaliere: ritenuta ordinaria in Svizzera e tassazione in Italia con credito.',
  },
  {
  q: 'È meglio vivere entro o oltre 20 km?',
- a: 'Non esiste una risposta unica: oltre 20 km spesso semplifica la tassazione svizzera, entro 20 km può cambiare il saldo finale in Italia. Va simulato sul tuo reddito reale.',
+ a: 'Non esiste una risposta unica: oltre 20 km la ritenuta svizzera è piena, entro 20 km è ridotta all’80%, e in entrambi i casi l’Italia tassa con credito. Va simulato sul tuo reddito reale.',
  },
  {
  q: 'Questa pagina basta per fare la dichiarazione?',
@@ -99,13 +99,13 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  subtitle: 'Practical cases, comparison with residents within 20 km, and a ready-to-use net salary simulation.',
  intro: 'This page helps you understand what changes when you are a new cross-border worker, work in Ticino, and live in an Italian municipality more than 20 km from the border. Below you can see three pre-calculated cases and a direct comparison with the within-20-km scenario.',
  bullets: [
- 'Over 20 km, tax is fully withheld in Switzerland.',
+ 'Over 20 km, ordinary Swiss withholding applies and Italy taxes the income with a credit.',
  'Within 20 km, Switzerland withholds 80% and Italy taxes the income with a foreign tax credit.',
  'Your residence distance changes cash flow, tax filing, and overall net convenience.',
  ],
  casesTitle: 'Pre-calculated practical cases',
  compareTitle: 'Quick comparison: within vs over 20 km',
- compareBody: 'For the same new single cross-border worker earning CHF 80,000, the key difference is where taxation is settled: over 20 km it remains in Switzerland, within 20 km it becomes concurrent taxation with tax credit.',
+ compareBody: 'For the same new single cross-border worker earning CHF 80,000, the key difference is how much Switzerland withholds: over 20 km the ordinary rate, within 20 km 80% of it. In both cases Italy taxes the income with a tax credit.',
  compareOver: 'Monthly net over 20 km',
  compareWithin: 'Monthly net within 20 km',
  compareDelta: 'Monthly difference in favor of the better scenario',
@@ -118,19 +118,19 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  ],
  editorialTitle: 'How taxes are calculated for cross-border workers over 20 km',
  editorialParagraphs: [
- 'For new cross-border workers residing more than 20 km from the border, the 2020 Agreement (in force from 17 July 2023) introduces **Swiss-exclusive taxation**: employment income earned in Ticino is taxed fully and only in Switzerland via payroll withholding tax. In Italy this income is not declared (unless other Italian-source income exists), and concurrent taxation does not apply.',
- 'The contrast with **old cross-border workers** (hired before 17 July 2023) is significant: old frontalieri — when living inside the 20 km band — remain taxed only in Switzerland under the transitional regime, while new frontalieri inside 20 km fall under concurrent taxation (Switzerland withholds 80% as an advance, Italy tops it up with a foreign tax credit). Beyond 20 km, new frontalieri return to an exclusive-taxation regime similar to old frontalieri, which materially simplifies the Italian filing.',
- 'Worked example on a gross salary of CHF 60\'000/year (CHF 5\'000/month), single, no children: mandatory social contributions (AHV/AI/EO/ALV ~6.25%, BVG ~7-8%, accident ~1%, total around 14%) remove ~CHF 700/month, leaving a taxable base of ~CHF 4\'300. Ticino 2026 withholding tax on this bracket (A0 single tariff) lands around 9-11%, i.e. ~CHF 420-480/month. The **monthly take-home net** therefore sits around **CHF 3\'820-3\'880**, with no further Italian withholdings. For exact figures on your own case, use the calculator above with your residence municipality and family composition.',
+ 'Anyone living more than 20 km from the border is not a cross-border worker under the 2020 Agreement (in force from 17 July 2023, applicable from 1 January 2024): Switzerland applies **ordinary withholding tax**, without the reduction to 80%. In Italy the income must be declared and is taxed with a **credit for the Swiss tax**, up to the IRPEF share proportional to foreign income. Data is exchanged automatically between the two countries.',
+ 'The contrast with **old cross-border workers** under art. 9 is significant: those living inside the 20 km band who worked as cross-border workers between 31 December 2018 and 17 July 2023 remain taxed only in Switzerland, while new workers inside 20 km pay 80% of the ordinary Swiss tax and declare the income in Italy with a tax credit. Beyond 20 km Swiss withholding is in full and the Italian return remains due; the €10,000 exemption is not excluded by distance alone, if its requirements are met.',
+ 'Worked example on a gross salary of CHF 60\'000/year (CHF 5\'000/month), single, no children: mandatory social contributions (AHV/AI/EO/ALV ~6.25%, BVG ~7-8%, accident ~1%, total around 14%) remove ~CHF 700/month, leaving a taxable base of ~CHF 4\'300. Ticino 2026 withholding tax on this bracket (A0 single tariff) lands around 9-11%, i.e. ~CHF 420-480/month. The **monthly take-home net** therefore sits around **CHF 3\'820-3\'880**, before the Italian IRPEF balance. For exact figures on your own case, use the calculator above with your residence municipality and family composition.',
  ],
  faqTitle: 'Essential FAQ',
  faq: [
  {
  q: 'Who is considered a new cross-border worker over 20 km?',
- a: 'Someone who started cross-border work in Switzerland on or after July 17, 2023 and lives in an Italian municipality more than 20 km from the border.',
+ a: 'Someone who works in Switzerland and lives in an Italian municipality outside the official 20 km list. Under the Agreement this is not a cross-border worker: ordinary Swiss withholding and taxation in Italy with a credit.',
  },
  {
  q: 'Is it better to live within or over 20 km?',
- a: 'There is no universal answer: over 20 km often simplifies Swiss taxation, while within 20 km may change the final Italian balance. It should be simulated on your actual income.',
+ a: 'There is no universal answer: over 20 km Swiss withholding is in full, within 20 km it is reduced to 80%, and in both cases Italy taxes with a credit. It should be simulated on your actual income.',
  },
  {
  q: 'Is this page enough to file taxes?',
@@ -157,7 +157,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  ],
  casesTitle: 'Berechnete Praxisfaelle',
  compareTitle: 'Schnellvergleich: innerhalb vs ueber 20 km',
- compareBody: 'Bei einem neuen alleinstehenden Grenzgaenger mit CHF 80.000 liegt der Unterschied vor allem darin, wo die Steuerwirkung entsteht: ueber 20 km in der Schweiz, innerhalb 20 km als konkurrierende Besteuerung mit Steuergutschrift.',
+ compareBody: 'Bei einem neuen alleinstehenden Grenzgaenger mit CHF 80.000 liegt der Unterschied vor allem darin, wie viel die Schweiz einbehaelt: ueber 20 km den ordentlichen Satz, innerhalb 20 km 80 % davon. In beiden Faellen besteuert Italien mit Steueranrechnung.',
  compareOver: 'Monatliches Netto ueber 20 km',
  compareWithin: 'Monatliches Netto innerhalb 20 km',
  compareDelta: 'Monatliche Differenz zugunsten des besseren Szenarios',
@@ -170,19 +170,19 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  ],
  editorialTitle: 'So werden die Steuern fuer Grenzgaenger ueber 20 km berechnet',
  editorialParagraphs: [
- 'Fuer neue Grenzgaenger mit Wohnsitz mehr als 20 km von der Grenze entfernt fuehrt das Abkommen 2020 (in Kraft seit 17. Juli 2023) die **ausschliessliche Besteuerung in der Schweiz** ein: das in Tessin erzielte Arbeitseinkommen wird voll und ausschliesslich in der Schweiz ueber die Lohnquellensteuer besteuert. In Italien wird dieses Einkommen nicht deklariert (sofern keine weiteren italienischen Einkuenfte vorliegen), und eine konkurrierende Besteuerung findet nicht statt.',
- 'Der Unterschied zu den **alten Grenzgaengern** (vor dem 17. Juli 2023 angestellt) ist erheblich: alte Grenzgaenger innerhalb der 20-km-Zone bleiben dank der Uebergangsregelung nur in der Schweiz steuerpflichtig, waehrend neue Grenzgaenger innerhalb 20 km der konkurrierenden Besteuerung unterliegen (Schweiz behaelt 80 % als Vorauszahlung ein, Italien ergaenzt mit Steuergutschrift). Ueber 20 km kehren die neuen Grenzgaenger zur ausschliesslichen Besteuerung zurueck, aehnlich dem Regime der alten Grenzgaenger, was die italienische Erklaerung erheblich vereinfacht.',
- 'Rechenbeispiel bei einem Bruttolohn von CHF 60\'000/Jahr (CHF 5\'000/Monat), alleinstehend, kinderlos: die Pflichtsozialabgaben (AHV/IV/EO/ALV ~6,25 %, BVG ~7-8 %, UVG ~1 %, insgesamt rund 14 %) reduzieren den Betrag um ~CHF 700/Monat und lassen eine Bemessungsgrundlage von ~CHF 4\'300. Die Tessiner Quellensteuer 2026 liegt fuer diesen Bereich (Tarif A0, alleinstehend) bei rund 9-11 %, also ~CHF 420-480/Monat. Das **monatliche Netto auf dem Konto** betraegt damit rund **CHF 3\'820-3\'880**, ohne weitere italienische Abzuege. Fuer exakte Werte verwende den obigen Rechner mit Wohngemeinde und Familienstand.',
+ 'Wer mehr als 20 km von der Grenze entfernt wohnt, ist kein Grenzgaenger im Sinne des Abkommens 2020 (in Kraft seit 17. Juli 2023, anwendbar ab 1. Januar 2024): In der Schweiz gilt die **ordentliche Quellensteuer**, ohne Reduktion auf 80 %. In Italien muss das Einkommen deklariert werden und wird mit **Anrechnung der Schweizer Steuer** besteuert, begrenzt auf den zum Auslandseinkommen proportionalen IRPEF-Anteil. Die Daten werden automatisch zwischen beiden Staaten ausgetauscht.',
+ 'Der Unterschied zu den **alten Grenzgaengern** nach Art. 9 ist erheblich: Wer in der 20-km-Zone wohnt und zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 Grenzgaenger war, bleibt nur in der Schweiz steuerpflichtig, waehrend neue Grenzgaenger innerhalb 20 km 80 % der ordentlichen Schweizer Steuer zahlen und das Einkommen in Italien mit Anrechnung deklarieren. Ueber 20 km ist die Schweizer Quellensteuer voll und die italienische Erklaerung bleibt geschuldet; der Freibetrag von 10\'000 € ist nicht allein wegen der Distanz ausgeschlossen, sofern seine Voraussetzungen erfuellt sind.',
+ 'Rechenbeispiel bei einem Bruttolohn von CHF 60\'000/Jahr (CHF 5\'000/Monat), alleinstehend, kinderlos: die Pflichtsozialabgaben (AHV/IV/EO/ALV ~6,25 %, BVG ~7-8 %, UVG ~1 %, insgesamt rund 14 %) reduzieren den Betrag um ~CHF 700/Monat und lassen eine Bemessungsgrundlage von ~CHF 4\'300. Die Tessiner Quellensteuer 2026 liegt fuer diesen Bereich (Tarif A0, alleinstehend) bei rund 9-11 %, also ~CHF 420-480/Monat. Das **monatliche Netto auf dem Konto** betraegt damit rund **CHF 3\'820-3\'880**, vor dem italienischen IRPEF-Saldo. Fuer exakte Werte verwende den obigen Rechner mit Wohngemeinde und Familienstand.',
  ],
  faqTitle: 'Wichtige FAQ',
  faq: [
  {
  q: 'Wer gilt als neuer Grenzgaenger ueber 20 km?',
- a: 'Wer ab dem 17. Juli 2023 eine grenzueberschreitende Beschaeftigung begonnen hat und in einer italienischen Gemeinde mehr als 20 km von der Grenze entfernt wohnt.',
+ a: 'Wer in der Schweiz arbeitet und in einer italienischen Gemeinde ausserhalb der offiziellen 20-km-Liste wohnt. Im Sinne des Abkommens ist das kein Grenzgaenger: ordentliche Quellensteuer und Besteuerung in Italien mit Anrechnung.',
  },
  {
  q: 'Ist es besser innerhalb oder ueber 20 km zu wohnen?',
- a: 'Das haengt vom konkreten Fall ab: ueber 20 km ist die Schweizer Besteuerung oft einfacher, innerhalb 20 km kann sich der Endsaldo in Italien aendern. Man sollte es konkret simulieren.',
+ a: 'Das haengt vom konkreten Fall ab: ueber 20 km ist die Schweizer Quellensteuer voll, innerhalb 20 km auf 80 % reduziert, und in beiden Faellen besteuert Italien mit Anrechnung. Man sollte es konkret simulieren.',
  },
  {
  q: 'Reicht diese Seite fuer die Steuererklaerung aus?',
@@ -203,13 +203,13 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  subtitle: 'Cas pratiques, comparaison avec les residents a moins de 20 km et simulation immediate du net.',
  intro: 'Cette page explique concretement ce qui change si vous etes un nouveau frontalier, travaillez au Tessin et vivez dans une commune italienne a plus de 20 km de la frontiere. Vous trouverez ci-dessous trois cas deja calcules et une comparaison directe avec le scenario a moins de 20 km.',
  bullets: [
- 'Au-dela de 20 km, l’impot reste integralement retenu en Suisse.',
+ 'Au-dela de 20 km, la retenue suisse ordinaire s’applique et l’Italie impose le revenu avec credit.',
  'En dessous de 20 km, la Suisse retient 80% et l’Italie taxe avec credit pour l’impot deja paye.',
  'La distance de residence change donc le cash-flow, la declaration et l’avantage net reel.',
  ],
  casesTitle: 'Cas pratiques deja calcules',
  compareTitle: 'Comparaison rapide: moins vs plus de 20 km',
- compareBody: 'Pour un meme nouveau frontalier celibataire avec CHF 80 000, la difference principale est l’endroit ou l’effet fiscal se produit: au-dela de 20 km il reste en Suisse, en dessous de 20 km il y a une imposition concurrente avec credit d’impot.',
+ compareBody: 'Pour un meme nouveau frontalier celibataire avec CHF 80 000, la difference principale est ce que la Suisse retient: au-dela de 20 km le taux ordinaire, en dessous de 20 km 80 % de ce taux. Dans les deux cas l’Italie impose avec credit d’impot.',
  compareOver: 'Net mensuel au-dela de 20 km',
  compareWithin: 'Net mensuel dans les 20 km',
  compareDelta: 'Difference mensuelle en faveur du meilleur scenario',
@@ -222,19 +222,19 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  ],
  editorialTitle: 'Comment calculer les impots du frontalier a plus de 20 km',
  editorialParagraphs: [
- 'Pour les nouveaux frontaliers residant a plus de 20 km de la frontiere, l\'Accord 2020 (en vigueur depuis le 17 juillet 2023) introduit la regle de **l\'imposition exclusive en Suisse** : le revenu d\'activite salariee produit au Tessin est impose integralement et uniquement en Suisse via l\'impot a la source retenu sur le salaire. En Italie, ce revenu n\'est pas declare (sauf autres revenus italiens) et l\'imposition concurrente ne s\'applique pas.',
- 'La difference avec les **anciens frontaliers** (embauches avant le 17 juillet 2023) est substantielle : les anciens frontaliers residant dans la bande des 20 km restent imposes uniquement en Suisse grace au regime transitoire, tandis que les nouveaux frontaliers dans les 20 km entrent dans l\'imposition concurrente (la Suisse retient 80 % en acompte, l\'Italie complete avec un credit d\'impot). Au-dela de 20 km, les nouveaux frontaliers retrouvent un regime d\'imposition exclusive similaire a celui des anciens, ce qui simplifie nettement la declaration italienne.',
- 'Exemple chiffre sur un salaire brut de CHF 60\'000/an (CHF 5\'000/mois), celibataire sans enfant : les cotisations sociales obligatoires (AVS/AI/APG/AC ~6,25 %, LPP ~7-8 %, LAA ~1 %, soit environ 14 %) reduisent le salaire de ~CHF 700/mois, laissant une base imposable de ~CHF 4\'300. L\'impot a la source tessinois 2026 sur cette tranche (bareme A0, celibataire) est d\'environ 9-11 %, soit ~CHF 420-480/mois. Le **net mensuel en poche** se situe donc autour de **CHF 3\'820-3\'880**, sans prelevement italien supplementaire. Pour des chiffres precis adaptes a votre cas, utilisez le calculateur ci-dessus avec votre commune et composition familiale.',
+ 'Toute personne residant a plus de 20 km de la frontiere n\'est pas frontaliere au sens de l\'Accord 2020 (en vigueur depuis le 17 juillet 2023, applicable depuis le 1er janvier 2024) : la Suisse applique l\'**impot a la source ordinaire**, sans reduction a 80 %. En Italie, le revenu doit etre declare et il est impose avec un **credit pour l\'impot suisse**, dans la limite de la part d\'IRPEF proportionnelle au revenu etranger. Les donnees sont echangees automatiquement entre les deux pays.',
+ 'La difference avec les **anciens frontaliers** de l\'art. 9 est substantielle : ceux qui resident dans la bande des 20 km et ont travaille comme frontaliers entre le 31 decembre 2018 et le 17 juillet 2023 restent imposes uniquement en Suisse, tandis que les nouveaux frontaliers dans les 20 km paient 80 % de l\'impot suisse ordinaire et declarent le revenu en Italie avec credit d\'impot. Au-dela de 20 km la retenue suisse est pleine et la declaration italienne reste due ; la franchise de 10 000 € n\'est pas exclue par la seule distance, si ses conditions sont remplies.',
+ 'Exemple chiffre sur un salaire brut de CHF 60\'000/an (CHF 5\'000/mois), celibataire sans enfant : les cotisations sociales obligatoires (AVS/AI/APG/AC ~6,25 %, LPP ~7-8 %, LAA ~1 %, soit environ 14 %) reduisent le salaire de ~CHF 700/mois, laissant une base imposable de ~CHF 4\'300. L\'impot a la source tessinois 2026 sur cette tranche (bareme A0, celibataire) est d\'environ 9-11 %, soit ~CHF 420-480/mois. Le **net mensuel en poche** se situe donc autour de **CHF 3\'820-3\'880**, avant le solde IRPEF en Italie. Pour des chiffres precis adaptes a votre cas, utilisez le calculateur ci-dessus avec votre commune et composition familiale.',
  ],
  faqTitle: 'FAQ essentielles',
  faq: [
  {
  q: 'Qui est considere comme nouveau frontalier a plus de 20 km?',
- a: 'Toute personne ayant commence a travailler en Suisse a partir du 17 juillet 2023 et residant dans une commune italienne situee a plus de 20 km de la frontiere.',
+ a: 'Toute personne travaillant en Suisse et residant dans une commune italienne hors de la liste officielle des 20 km. Au sens de l’Accord ce n’est pas un frontalier: retenue suisse ordinaire et imposition en Italie avec credit.',
  },
  {
  q: 'Vaut-il mieux vivre a moins ou a plus de 20 km?',
- a: 'Il n’y a pas de reponse unique: au-dela de 20 km la fiscalite suisse est souvent plus simple, tandis qu’en dessous de 20 km le solde final en Italie peut changer. Il faut le simuler sur votre revenu reel.',
+ a: 'Il n’y a pas de reponse unique: au-dela de 20 km la retenue suisse est pleine, en dessous de 20 km elle est reduite a 80 %, et dans les deux cas l’Italie impose avec credit. Il faut le simuler sur votre revenu reel.',
  },
  {
  q: 'Cette page suffit-elle pour faire la declaration?',

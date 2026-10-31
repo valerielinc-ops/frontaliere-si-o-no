@@ -347,17 +347,17 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogDescription: 'Cosa sono i ristorni fiscali e perché contano per i frontalieri.',
  canonicalPath: '/glossario-frontaliere/ristorni/',
  structuredData: [
- { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: quota delle imposte alla fonte svizzere retrocessa ai comuni italiani di confine dei lavoratori frontalieri.', url: `${BASE_URL}/glossario-frontaliere/ristorni/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: compensazione del 40% dell\'imposta lorda dei frontalieri dell\'art. 9, versata dai Cantoni all\'Italia fino all\'anno fiscale 2033.', url: `${BASE_URL}/glossario-frontaliere/ristorni/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
  {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
- { '@type': 'Question', name: "Cosa sono i ristorni fiscali per i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "I ristorni fiscali sono somme che la Confederazione Svizzera retrocede ai comuni italiani di confine come compensazione per i servizi pubblici erogati ai lavoratori frontalieri residenti in Italia. Storicamente la Svizzera restituiva il 38,8% dell'imposta alla fonte trattenuta ai vecchi frontalieri. I ristorni vengono gestiti dal Ministero dell'Economia italiano e distribuiti ai comuni in base al numero di frontalieri residenti." } },
+ { '@type': 'Question', name: "Cosa sono i ristorni fiscali per i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "I ristorni fiscali sono somme che i Cantoni Grigioni, Ticino e Vallese versano all'Italia a beneficio dei Comuni di frontiera. L'Accordo 2020 prevede il 40% dell'imposta lorda dei frontalieri dell'art. 9, fino all'anno fiscale 2033. Il pagamento avviene su un conto di Tesoreria intestato al MEF e le autorità italiane trasferiscono le somme ai Comuni." } },
  { '@type': 'Question', name: "Chi riceve i ristorni: i frontalieri o i comuni?", acceptedAnswer: { '@type': 'Answer', text: "I comuni italiani di frontiera, non i singoli frontalieri. Il comune usa i ristorni per finanziare infrastrutture e servizi locali (scuole, strade, trasporti, servizi sociali). Il frontaliere non riceve denaro direttamente, ma beneficia indirettamente attraverso migliori servizi nel proprio comune di residenza. Alcuni comuni hanno azzerato l'addizionale IRPEF grazie ai ristorni." } },
  { '@type': 'Question', name: "I ristorni cambiano con l’accordo fiscale Italia-Svizzera del 2020?", acceptedAnswer: { '@type': 'Answer', text: "L’articolo 9 prevede una compensazione all’Italia pari al 40% del gettito sui vecchi frontalieri fino all’anno fiscale 2033, senza riduzione graduale della percentuale. Dopo tale anno la Svizzera conserva il gettito. Questo non fa passare automaticamente i vecchi frontalieri al regime concorrente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { '@type': 'Question', name: "Quali comuni italiani ricevono i ristorni?", acceptedAnswer: { '@type': 'Answer', text: "I comuni italiani entro 20 km dal confine svizzero nelle province di Como, Varese, Verbano-Cusio-Ossola, Sondrio (per il Canton Ticino e Grigioni) e i comuni confinanti per Canton Vallese e Giura. L'elenco è stabilito dalla Convenzione CH-IT del 1974 e aggiornato periodicamente. I principali beneficiari storici sono Como, Chiasso, Ponte Tresa, Luino e Varese." } },
- { '@type': 'Question', name: "Quanto valgono complessivamente i ristorni annui?", acceptedAnswer: { '@type': 'Answer', text: "Negli ultimi anni la Svizzera ha retrocesso tra €70 milioni e €90 milioni l'anno all'Italia per i ristorni dei frontalieri. La quota è cresciuta con l'aumento del numero di frontalieri, ma si prevede una riduzione progressiva nel prossimo decennio per effetto del nuovo accordo che sposta il gettito direttamente nelle casse italiane tramite l'IRPEF." } },
- { '@type': 'Question', name: "I ristorni riguardano anche i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "In misura molto ridotta. Per i nuovi frontalieri, la Svizzera trattiene solo l'80% dell'imposta alla fonte ordinaria e non c'è retrocessione significativa ai comuni italiani, perché l'Italia incassa direttamente l'IRPEF dal lavoratore. Il modello di finanziamento dei comuni di frontiera è in fase di ridisegno tramite negoziati bilaterali." } }
+ { '@type': 'Question', name: "Quanto valgono complessivamente i ristorni annui?", acceptedAnswer: { '@type': 'Answer', text: "L'Accordo fissa una percentuale, non un importo: il 40% dell'imposta lorda dei frontalieri dell'art. 9, fino all'anno fiscale 2033. Le somme dipendono dal gettito dei Cantoni. Lo Stato italiano garantisce inoltre ai Comuni di frontiera 89 milioni di euro l'anno (L. 83/2023 art. 10)." } },
+ { '@type': 'Question', name: "I ristorni riguardano anche i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "No. Per i nuovi frontalieri la Svizzera applica l'80% dell'imposta alla fonte ordinaria e non è prevista alcuna compensazione: l'Italia tassa il reddito con credito per l'imposta svizzera." } }
  ],
  speakable: SPEAKABLE_SECTION,
  }
@@ -1476,7 +1476,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quando scade la dichiarazione dei redditi per frontalieri in Italia?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il Modello 730 scade il 30 settembre 2026, il Modello Redditi PF (ex Unico) scade il 30 novembre 2026 per l'invio telematico. Il pagamento del saldo IRPEF e primo acconto scade il 30 giugno 2026."
+ "text": "Il Modello 730 scade il 30 settembre 2026, il Modello Redditi PF (ex Unico) scade il 2 novembre 2026 per l'invio telematico. Il pagamento del saldo IRPEF e primo acconto scade il 30 giugno 2026."
  }
  },
  {
@@ -4329,11 +4329,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  ristorni: {
- title: 'Ristorni Fiscali Frontalieri 2026: Importi per Comune Italiano',
- description: 'Ristorni fiscali frontalieri 2026: importi aggiornati per comune italiano, andamento storico e confronto tra le province di confine con la Svizzera.',
+ title: 'Ristorni Fiscali Frontalieri 2026: Come Funziona il 40%',
+ description: 'Ristorni fiscali frontalieri: come funziona la compensazione del 40% prevista dall\'Accordo fino all\'anno fiscale 2033, chi la versa e per quali lavoratori.',
  keywords: 'ristorni fiscali frontalieri, compensi fiscali svizzera italia, ristorni comuni italiani, ristorni como varese, ristorni frontalieri importo',
- ogTitle: 'Ristorni Fiscali Frontalieri | Statistiche per Comune',
- ogDescription: '💶 Statistiche sui ristorni fiscali: importi per comune, andamento storico e confronto tra province.',
+ ogTitle: 'Ristorni Fiscali Frontalieri | Come Funzionano',
+ ogDescription: 'Come funziona la compensazione del 40% ai sensi dell\'Accordo, fino all\'anno fiscale 2033.',
  canonicalPath: '/tasse-e-pensione/ristorni-fiscali/',
  structuredData: [
  {
@@ -4362,7 +4362,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cosa sono i ristorni fiscali per frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I ristorni fiscali sono compensi che la Svizzera versa all'Italia, pari al 40% dell'imposta alla fonte trattenuta ai frontalieri. Questi fondi vengono distribuiti ai comuni italiani di residenza dei frontalieri per finanziare servizi locali."
+ "text": "I ristorni fiscali sono la compensazione che i Cantoni Grigioni, Ticino e Vallese versano all'Italia, pari al 40% dell'imposta lorda dei frontalieri dell'art. 9, fino all'anno fiscale 2033. Le autorità italiane trasferiscono poi le somme ai Comuni."
  }
  },
  {
@@ -4378,7 +4378,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quanto vale un ristorno fisale per comune?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "L'importo varia molto: comuni con molti frontalieri come Lavena Ponte Tresa, Porlezza o Ponte Chiasso ricevono centinaia di migliaia di euro, mentre comuni più piccoli ricevono importi inferiori. Il totale annuo supera i 90 milioni di euro."
+ "text": "L'importo varia da comune a comune e dipende dall'imposta dei frontalieri dell'art. 9 e dalla ripartizione italiana. L'Accordo fissa la percentuale del 40%, non un importo per comune."
  }
  },
  {
@@ -6328,7 +6328,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quali sono i casi particolari: telelavoro, lavoro in più cantoni, pensionati?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il telelavoro è regolato dall'Accordo integrativo del 6 giugno 2024: fino al 25% del tempo lavorativo dall'Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Per i lavoratori con meno del 50% di attività a domicilio, il permesso G resta valido."
+ "text": "Il telelavoro è regolato dal Protocollo di modifica firmato il 30 maggio e il 6 giugno 2024, in vigore dal 9 febbraio 2026 e applicabile dal 1° gennaio 2024: fino al 25% dell'attività dal domicilio in Italia senza perdita dello statuto di frontaliere. Lavoro in più cantoni: la tassazione segue il luogo di svolgimento prevalente dell'attività. Pensionati frontalieri: le rendite AVS/AI e LPP sono tassate in Italia (con convenzione contro doppia imposizione). Per i lavoratori con meno del 50% di attività a domicilio, il permesso G resta valido."
  }
  },
  {
