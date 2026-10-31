@@ -268,6 +268,7 @@ import {
  settleNewsletterAutologin,
  parseNewsletterAutologin,
  claimNewsletterAutologinAttempt,
+ newsletterAutologinAttemptKey,
 } from '@/services/newsletterAutologinSignal';
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
 import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
@@ -803,7 +804,8 @@ const App: React.FC = () => {
  const NEWSLETTER_PARAMS = ['ac', 'at', 'ne', 'authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
  let shouldStripNewsletterParams = false;
  let ownsAutologinAttempt = false;
- let acceptedAutologinAttempt = false;
+ let cleanupBlocked = false;
+ let claimedAttemptKey: string | null = null;
  (async () => {
  try {
  const url = new URL(window.location.href);
@@ -831,13 +833,9 @@ const App: React.FC = () => {
  // Claim the exchange once per credential-bearing URL. React StrictMode and
  // static-to-live remounts can run this effect twice; only the owner emits
  // attempt/outcome markers, while both effects await the same auth result.
- const attemptKey = [
-  autologinCode ? 'hmac_code' : 'legacy_token',
-  autologinCode || legacyAuthToken || '',
-  email,
-  assistedApplicationOrderId || '',
-  applicationConciergeServiceId || '',
- ].join('|');
+ const attemptKey = newsletterAutologinAttemptKey(url.searchParams);
+ if (!attemptKey) return;
+ claimedAttemptKey = attemptKey;
  const autologinAttempt = claimNewsletterAutologinAttempt(attemptKey, async () => {
   let user = null;
   if (autologinCode) {
@@ -854,7 +852,7 @@ const App: React.FC = () => {
   return user;
  });
  ownsAutologinAttempt = autologinAttempt.owner;
- acceptedAutologinAttempt = autologinAttempt.accepted;
+ cleanupBlocked = !autologinAttempt.accepted;
  if (autologinAttempt.owner) {
   // Emit an attempt marker before the async exchange so an aborted exchange
   // (page reload mid-flight) stays countable: attempts − success − failed −
@@ -879,11 +877,14 @@ const App: React.FC = () => {
  // (success or failure) — deferred from before the await so an interrupted
  // load keeps `ac`/`ne` for a retry. No-op for excluded actions (flag stays
  // false) and when the URL never carried them.
- if (acceptedAutologinAttempt && shouldStripNewsletterParams) {
+ if (!cleanupBlocked && shouldStripNewsletterParams) {
  try {
  const u = new URL(window.location.href);
- for (const p of NEWSLETTER_PARAMS) u.searchParams.delete(p);
- window.history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
+  const currentAttemptKey = newsletterAutologinAttemptKey(u.searchParams);
+  if (!claimedAttemptKey || currentAttemptKey === claimedAttemptKey) {
+   for (const p of NEWSLETTER_PARAMS) u.searchParams.delete(p);
+   window.history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
+  }
  } catch { /* replaceState unavailable */ }
  }
  // Re-enable sign-in affordances (One Tap, auth gates) once the exchange
