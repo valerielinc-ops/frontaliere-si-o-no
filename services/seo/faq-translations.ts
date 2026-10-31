@@ -1133,15 +1133,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Devo convertire l'imposta svizzera da CHF a EUR?": {
  en: {
  q: "Do I need to convert the Swiss tax from CHF to EUR?",
- a: "Yes, the withholding tax paid in CHF must be converted to EUR using the annual average exchange rate published by the Agenzia delle Entrate. For 2025 the indicative average rate is approximately 0.94 EUR per CHF."
+ a: "Yes, the withholding tax paid in CHF must be converted to EUR using the annual average exchange rate published by the Agenzia delle Entrate. For 2025 the average of ECB reference rates is about 0.937 francs per euro, or about 1.067 euro per franc."
  },
  de: {
  q: "Muss ich die Schweizer Steuer von CHF in EUR umrechnen?",
- a: "Ja, die in CHF gezahlte Quellensteuer muss zum Jahresdurchschnittskurs, der von der Agenzia delle Entrate veröffentlicht wird, in EUR umgerechnet werden. Für 2025 liegt der indikative Durchschnittskurs bei ca. 0,94 EUR pro CHF."
+ a: "Ja, die in CHF gezahlte Quellensteuer muss zum Jahresdurchschnittskurs, der von der Agenzia delle Entrate veröffentlicht wird, in EUR umgerechnet werden. Für 2025 liegt der Durchschnitt der EZB-Referenzkurse bei rund 0,937 Franken pro Euro, also rund 1,067 Euro pro Franken."
  },
  fr: {
  q: "Dois-je convertir l'impôt suisse de CHF en EUR ?",
- a: "Oui, l'impôt à la source payé en CHF doit être converti en EUR en utilisant le taux de change moyen annuel publié par l'Agenzia delle Entrate. Pour 2025, le taux moyen indicatif est d'environ 0,94 EUR pour 1 CHF."
+ a: "Oui, l'impôt à la source payé en CHF doit être converti en EUR en utilisant le taux de change moyen annuel publié par l'Agenzia delle Entrate. Pour 2025, la moyenne des taux de référence BCE est d'environ 0,937 franc pour un euro, soit environ 1,067 euro pour un franc."
  }
  },
 
@@ -2157,15 +2157,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quando è il momento migliore per cambiare CHF in EUR?": {
  en: {
  q: "When is the best time to exchange CHF to EUR?",
- a: "The CHF/EUR rate fluctuates daily. It is best to monitor the rate and exchange when the franc is strong (below 0.93 EUR). Avoid exchanging on weekends when spreads are wider."
+ a: "The CHF/EUR rate fluctuates daily. It is best to monitor the rate and exchange when the franc is strong. Avoid exchanging on weekends when spreads are wider."
  },
  de: {
  q: "Wann ist der beste Zeitpunkt, um CHF in EUR zu wechseln?",
- a: "Der CHF/EUR-Kurs schwankt täglich. Am besten den Kurs beobachten und wechseln, wenn der Franken stark ist (unter 0,93 EUR). Wechsel am Wochenende vermeiden, da die Spreads dann grösser sind."
+ a: "Der CHF/EUR-Kurs schwankt täglich. Am besten den Kurs beobachten und wechseln, wenn der Franken stark ist. Wechsel am Wochenende vermeiden, da die Spreads dann grösser sind."
  },
  fr: {
  q: "Quel est le meilleur moment pour changer des CHF en EUR ?",
- a: "Le taux CHF/EUR fluctue quotidiennement. Il est préférable de surveiller le taux et de changer lorsque le franc est fort (en dessous de 0,93 EUR). Évitez les changes le week-end lorsque les spreads sont plus larges."
+ a: "Le taux CHF/EUR fluctue quotidiennement. Il est préférable de surveiller le taux et de changer lorsque le franc est fort. Évitez les changes le week-end lorsque les spreads sont plus larges."
  }
  },
 
@@ -4320,9 +4320,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Comment changer d'assurance maladie frontaliere sans penalites ?", a: "La resiliation de l'assurance de base LAMal est possible deux fois par an : avant le 30 novembre avec effet au 1er janvier (changement de franchise ou de caisse) ou avant le 31 mars avec effet au 1er juillet (uniquement en cas de hausse de prime). La resiliation s'envoie en recommandee avec accuse de reception a l'ancienne caisse, et la nouvelle doit deja etre signee : meme un jour sans couverture est sanctionne. Les assurances complementaires se resilient librement avec un preavis de 3 mois au 31 decembre." }
  },
  "LAMal o SSN: cosa conviene per la famiglia del frontaliere?": {
- en: { q: "LAMal or SSN: which is better for the cross-border worker's family?", a: "For families with children the Italian SSN is almost always the better choice: the right of option covers spouse and dependent children at no extra premium, whereas with LAMal each family member pays their own premium (CHF 270–560 per month for adults, CHF 100–150 for children). Typical yearly saving for a family of four: CHF 8,000–12,000. The downside is that treatments in Switzerland under SSN require the EHIC and upfront payment (then reimbursed), while LAMal lets you access CH hospitals directly. Use the LAMal vs SSN comparator to estimate your case." },
- de: { q: "KVG oder SSN: was lohnt sich fuer die Familie eines Grenzgaengers?", a: "Fuer Familien mit Kindern ist der italienische SSN fast immer vorteilhafter: das Optionsrecht deckt Ehepartner und unterhaltsberechtigte Kinder ohne Zusatzpraemie, waehrend bei der KVG jedes Familienmitglied eine eigene Praemie zahlt (CHF 270–560 pro Monat fuer Erwachsene, CHF 100–150 fuer Kinder). Typische Jahresersparnis fuer eine vierkoepfige Familie: CHF 8'000–12'000. Nachteil: Behandlungen in der Schweiz mit SSN erfordern die Europaeische Krankenversicherungskarte (EKVK) und Vorauszahlung mit spaeterer Rueckerstattung, waehrend die KVG direkten Zugang zu CH-Spitaelern ermoeglicht. Nutzen Sie den KVG-vs-SSN-Vergleich zur Schaetzung." },
- fr: { q: "LAMal ou SSN : que choisir pour la famille du frontalier ?", a: "Pour les familles avec enfants, le SSN italien est presque toujours le plus avantageux : le droit d'option couvre le conjoint et les enfants a charge sans prime supplementaire, alors qu'avec la LAMal chaque membre paie sa propre prime (CHF 270–560 par mois pour les adultes, CHF 100–150 pour les enfants). Economie annuelle typique pour une famille de quatre : CHF 8 000–12 000. L'inconvenient est que les soins en Suisse avec le SSN necessitent la CEAM et un paiement d'avance (rembourse ensuite), tandis que la LAMal donne acces direct aux hopitaux CH. Utilisez le comparateur LAMal vs SSN pour estimer votre cas." }
+ en: { q: "LAMal or SSN: which is better for the cross-border worker's family?", a: "For families with children the Italian SSN is almost always the better choice: the right of option covers spouse and dependent children at no extra premium, whereas with LAMal each family member pays their own premium (FOPH 2026 for residents of Italy, without accident cover: CHF 279–487 per month for adults from 26, CHF 41–204 for children). Typical yearly saving for a family of four: CHF 8,000–12,000. The downside is that treatments in Switzerland under SSN require the EHIC and upfront payment (then reimbursed), while LAMal lets you access CH hospitals directly. Use the LAMal vs SSN comparator to estimate your case." },
+ de: { q: "KVG oder SSN: was lohnt sich fuer die Familie eines Grenzgaengers?", a: "Fuer Familien mit Kindern ist der italienische SSN fast immer vorteilhafter: das Optionsrecht deckt Ehepartner und unterhaltsberechtigte Kinder ohne Zusatzpraemie, waehrend bei der KVG jedes Familienmitglied eine eigene Praemie zahlt (BAG 2026 fuer Wohnsitz Italien, ohne Unfall: CHF 279–487 pro Monat fuer Erwachsene ab 26, CHF 41–204 fuer Kinder). Typische Jahresersparnis fuer eine vierkoepfige Familie: CHF 8'000–12'000. Nachteil: Behandlungen in der Schweiz mit SSN erfordern die Europaeische Krankenversicherungskarte (EKVK) und Vorauszahlung mit spaeterer Rueckerstattung, waehrend die KVG direkten Zugang zu CH-Spitaelern ermoeglicht. Nutzen Sie den KVG-vs-SSN-Vergleich zur Schaetzung." },
+ fr: { q: "LAMal ou SSN : que choisir pour la famille du frontalier ?", a: "Pour les familles avec enfants, le SSN italien est presque toujours le plus avantageux : le droit d'option couvre le conjoint et les enfants a charge sans prime supplementaire, alors qu'avec la LAMal chaque membre paie sa propre prime (OFSP 2026 pour les residents en Italie, sans accident : CHF 279–487 par mois pour les adultes des 26 ans, CHF 41–204 pour les enfants). Economie annuelle typique pour une famille de quatre : CHF 8 000–12 000. L'inconvenient est que les soins en Suisse avec le SSN necessitent la CEAM et un paiement d'avance (rembourse ensuite), tandis que la LAMal donne acces direct aux hopitaux CH. Utilisez le comparateur LAMal vs SSN pour estimer votre cas." }
  },
 
  // ── Sprint 2 pillar-page FAQ translations (filled in by Sprint 4 follow-up) ──

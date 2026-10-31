@@ -1,3 +1,4 @@
+import { JOB_META_LABELS, jobMetaLocale } from '@/services/jobMetaLabels';
 import { renderJobDescriptionContent } from '@/build-plugins/shared/jobDescriptionContent';
 import { buildJobPostingEditorialFields } from '@/services/jobs/jobPostingEditorial';
 import { useConciergeProposalAction } from '@/hooks/useConciergeProposalAction';
@@ -10874,9 +10875,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </h1>
  <p className="hybrid-ab-sub">{selectedJob.company} · {selectedJob.location} ({selectedJob.canton})</p>
  <div className="hybrid-ab-meta">
- <span>{`Categoria: ${t(categoryTranslationKey(selectedJob))}`}</span>
- <span>{`Contratto: ${t(contractTranslationKey(selectedJob))}`}</span>
- <span>{`Salario: ${salary || 'non indicato'}`}</span>
+ <span>{`${JOB_META_LABELS[jobMetaLocale(locale)].category}: ${t(categoryTranslationKey(selectedJob))}`}</span>
+ <span>{`${JOB_META_LABELS[jobMetaLocale(locale)].contract}: ${t(contractTranslationKey(selectedJob))}`}</span>
+ <span>{`${JOB_META_LABELS[jobMetaLocale(locale)].salary}: ${salary || JOB_META_LABELS[jobMetaLocale(locale)].notSpecified}`}</span>
  <span className="coverage">{`Coverage parser: ${parserCoverage}%`}</span>
  </div>
  </header>

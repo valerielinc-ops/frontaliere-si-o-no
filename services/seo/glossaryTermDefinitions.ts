@@ -113,7 +113,7 @@ export const GLOSSARY_TERM_DEFINITIONS: Readonly<Record<string, string>> = {
 
   // ── Permessi di soggiorno ──────────────────────────────────────────
   'permesso-g':
-    'Permesso G: autorizzazione di lavoro per frontalieri che risiedono in un Paese confinante e rientrano quotidianamente. Validità 5 anni.',
+    'Permesso G: autorizzazione di lavoro per chi risiede in uno Stato UE/AELS e rientra almeno una volta a settimana. Validità 5 anni con contratto superiore a un anno.',
   'permesso-b':
     'Permesso B: autorizzazione di dimora in Svizzera per cittadini UE/AELS. Consente residenza e lavoro in Svizzera, validità 5 anni.',
   'permesso-c':

@@ -804,10 +804,11 @@ export function localizeHomepageStructuredData(html: string, locale: 'en' | 'de'
 }
 
 const HOMEPAGE_STATIC_H1_TEXT: Record<HpSeoLocale, string> = {
- it: 'Frontaliere Ticino 2026 — Calcolatore Stipendio Netto Svizzera-Italia',
- en: 'Ticino Cross-Border Workers 2026 — Switzerland-Italy Net Salary Calculator',
- de: 'Grenzgänger Tessin 2026 — Nettolohnrechner Schweiz-Italien',
- fr: 'Frontaliers Tessin 2026 — Calculateur de salaire net Suisse-Italie',
+ // Stesso testo di `seoContent.calculator.title`, l'H1 dopo l'idratazione.
+ it: 'Calcolatore Stipendio Frontaliere Svizzera 2026',
+ en: 'Swiss Cross-Border Salary Calculator 2026',
+ de: 'Schweizer Grenzgänger-Lohnrechner 2026',
+ fr: 'Calculateur Salaire Frontalier Suisse 2026',
 };
 
 /**
@@ -4425,7 +4426,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  );
  } else if (canonicalPath.startsWith('/guida-frontaliere/permessi-di-lavoro')) {
  editorialBlocks.push(
- `Il confronto permessi analizza le differenze operative tra permesso G (frontaliere, rinnovo annuale) e permesso B (domiciliato, 5 anni): tassazione, accesso ai servizi, diritto di soggiorno e implicazioni per la famiglia.`,
+ `Il confronto permessi analizza le differenze operative tra permesso G (frontaliere, 5 anni con contratto superiore a un anno) e permesso B (dimora, 5 anni): tassazione, accesso ai servizi, diritto di soggiorno e implicazioni per la famiglia.`,
  `La scelta tra permesso G e B dipende dalla distanza dal confine, dalla situazione familiare e fiscale, e dalla durata prevista dell'impiego in Svizzera. Lo strumento aiuta a valutare i pro e i contro di ogni scenario.`,
  `Il confronto include anche le implicazioni previdenziali (AVS, LPP, disoccupazione), la differenza nei diritti di soggiorno per familiari e l'impatto sulla tassazione italiana e svizzera.`,
  );
@@ -5283,7 +5284,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // H.7 — enriched intro + conclusion to raise text/HTML ratio above 0.10
  // Definition block for AI extraction (intro 150+ words)
  editorialBlocks.push(
- `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (accordo Italia–Svizzera del 2020, applicabile dal 2024, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica del Protocollo sul telelavoro fino al 25%, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano le fonti utilizzate, che possono essere documenti ufficiali o notizie giornalistiche attribuite, e gli strumenti pertinenti della piattaforma. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
+ `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (accordo Italia–Svizzera del 2020, applicabile dal 2024, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica del Protocollo sul telelavoro fino al 25%, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano gli strumenti pertinenti della piattaforma e, quando ci sono fonti esterne, le linkano nel testo: possono essere documenti ufficiali o notizie giornalistiche attribuite. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
  );
  // Visible CTA → full A-Z archive. Critical for crawler reachability:
  // closes the BFS path from this index to /articoli-frontaliere/tutti/
@@ -5453,7 +5454,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">About Us — The Frontaliere Ticino Team</h2>`,
  `Frontaliere Ticino is an independent information platform for Italian cross-border workers employed in Canton Ticino, Switzerland, aiming to provide clear and impartial information on taxation, social security, work permits, and daily life.`,
- `${AI_USE_STATEMENT.en} We follow communications from the Federal Tax Administration (FTA/ESTV), the Italian Revenue Agency (Agenzia delle Entrate), SECO and INPS and link the sources in the text. The process and its limits are described in our <a href="${DISCLOSURE_ROUTE_CONTRACT.en.methodology}">methodology</a>; corrected errors are recorded in the <a href="${DISCLOSURE_ROUTE_CONTRACT.en.corrections}">public corrections log</a>.`,
+ `${AI_USE_STATEMENT.en} We follow communications from the Federal Tax Administration (FTA/ESTV), the Italian Revenue Agency (Agenzia delle Entrate), SECO and INPS and, when external sources are used, link them in the text. The process and its limits are described in our <a href="${DISCLOSURE_ROUTE_CONTRACT.en.methodology}">methodology</a>; corrected errors are recorded in the <a href="${DISCLOSURE_ROUTE_CONTRACT.en.corrections}">public corrections log</a>.`,
  `<h2 class="s-o3IET6">Our Mission</h2>`,
  `Frontaliere Ticino's mission is to make the fiscal and administrative complexities of cross-border work accessible and understandable. Our simulators calculate net salary using actual 2026 Swiss and Italian tax tables, our comparators benchmark LAMal health insurance, cost of living, and transport options, and our job search engine aggregates ${activeJobsPhrase('en', jobBoardCounts.en)} from employers' websites.`,
  `<h2 class="s-o3IET6">Sources and Independence</h2>`,

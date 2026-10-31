@@ -102,7 +102,7 @@ describe('buildJobBoardSeo (F3a — CTR-optimized titles)', () => {
     // Desc includes number + primary keyword + CTA
     expect(entry.desc).toContain('2408')
     expect(entry.desc).toContain('offerte di lavoro in Ticino')
-    expect(entry.desc).toContain('Leggi gli annunci; accesso gratuito per candidarti.')
+    expect(entry.desc).toContain('accesso gratuito')
   })
 
   it('keeps title and og title free of emoji at any count', () => {

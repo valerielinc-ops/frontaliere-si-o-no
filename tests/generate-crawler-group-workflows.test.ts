@@ -3136,11 +3136,24 @@ describe('cross-repo crawler execution artifacts', () => {
         id: 'site_checkout_primary',
         'continue-on-error': true,
       });
-      expect(checkouts[1].if).toBe("steps.site_checkout_primary.outcome == 'failure'");
+      expect(checkouts[1].if).toBe(
+        "steps.site_checkout_primary.outcome == 'failure' && steps.site_checkout_retry_prepare.outcome == 'success'",
+      );
+
+      const retryPreparation = job.steps.find((step: any) => step.id === 'site_checkout_retry_prepare');
+      expect(retryPreparation).toMatchObject({
+        name: 'Reset sparse checkout state before retry',
+        if: "steps.site_checkout_primary.outcome == 'failure'",
+      });
+      expect(retryPreparation.run).toContain('retrySparseCheckout() {');
+      expect(retryPreparation.run).toContain('git -C "$workspace" reset --hard HEAD');
+      expect(retryPreparation.run).toContain('git -C "$workspace" clean -ffdx');
+      expect(retryPreparation.run).toContain('The second actions/checkout invocation replaces the sparse patterns atomically.');
+      expect(retryPreparation.run).not.toContain('sparse-checkout disable');
 
       const reporter = job.steps.find((step: any) => step.name === 'Report exhausted site checkout');
       expect(reporter).toMatchObject({
-        if: "always() && steps.site_checkout_primary.outcome == 'failure' && steps.site_checkout_retry.outcome == 'failure'",
+        if: "always() && steps.site_checkout_primary.outcome == 'failure' && (steps.site_checkout_retry.outcome == 'failure' || steps.site_checkout_retry_prepare.outcome == 'failure')",
         env: {
           GH_TOKEN: '${{ github.token }}',
           ISSUE_TITLE: `Workflow Failure: ${doc.name}`,
@@ -3161,11 +3174,20 @@ describe('cross-repo crawler execution artifacts', () => {
       });
       expect(checkoutReady.if).toContain("steps.site_checkout_retry.outcome == 'success'");
 
+      const checkoutAbort = job.steps.find((step: any) => step.id === 'checkout_abort');
+      expect(checkoutAbort).toMatchObject({
+        name: 'Abort without a valid site checkout',
+        if: "always() && steps.checkout.outcome != 'success'",
+      });
+      expect(checkoutAbort.run).toContain('refusing to start crawler logic');
+
       const backoffAt = job.steps.findIndex((step: any) => /Backoff 30s/.test(step.name ?? ''));
+      const preparationAt = job.steps.indexOf(retryPreparation);
       const firstLogicAt = job.steps.findIndex((step: any) =>
         step.id?.startsWith('crawler-launch-') || /^Phase /.test(step.name ?? ''));
       expect(backoffAt).toBeGreaterThan(0);
       expect(job.steps[backoffAt].run).toContain('sleep 30');
+      expect(preparationAt).toBeGreaterThan(backoffAt);
       expect(firstLogicAt).toBeGreaterThan(backoffAt);
       expect(firstLogicAt).toBeGreaterThan(job.steps.indexOf(checkoutReady));
       expect(job.steps.indexOf(reporter)).toBeGreaterThan(job.steps.indexOf(checkouts[1]));

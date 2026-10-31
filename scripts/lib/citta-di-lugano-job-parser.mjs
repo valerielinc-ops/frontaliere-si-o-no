@@ -23,7 +23,22 @@ import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 
 const HQ = getCompanyDefaults('citta-di-lugano');
+const CITTA_DI_LUGANO_CONCORSI_URL = 'https://www.lugano.ch/temi-servizi/lavoro-e-impresa/concorsi-pubblici-posti-lavoro/';
 const GENERIC_LUGANO_APPLY_PATH = '/it/services/3';
+const ITALIAN_MONTHS = Object.freeze({
+  gennaio: 1,
+  febbraio: 2,
+  marzo: 3,
+  aprile: 4,
+  maggio: 5,
+  giugno: 6,
+  luglio: 7,
+  agosto: 8,
+  settembre: 9,
+  ottobre: 10,
+  novembre: 11,
+  dicembre: 12,
+});
 
 function isGenericLuganoApplyUrl(value = '') {
   try {
@@ -78,10 +93,19 @@ export function slugify(value = '') {
  */
 export function parseSwissDate(dateStr) {
   if (!dateStr) return '';
-  const m = String(dateStr).match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
-  if (!m) return '';
-  const [, day, month, year] = m;
-  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+  const value = String(dateStr).trim();
+  const numeric = value.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  if (numeric) {
+    const [, day, month, year] = numeric;
+    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+  }
+  const textual = value.match(/(\d{1,2})\s+([a-zàèéìòù]+)\s+(\d{4})/i);
+  if (!textual) return '';
+  const [, day, rawMonth, year] = textual;
+  const month = ITALIAN_MONTHS[rawMonth.toLowerCase()];
+  return month
+    ? `${year}-${String(month).padStart(2, '0')}-${day.padStart(2, '0')}`
+    : '';
 }
 
 // The municipality's directory heading is navigation, not an individual vacancy.
@@ -107,6 +131,7 @@ export function parseListingPage(html) {
 
   const jobs = [];
   const seen = new Set();
+  let listingEvidenceCount = 0;
 
   // Pattern 1: List items with <strong> job titles
   // e.g. <li><strong>Architetto/a progettista</strong> ... Scadenza: 30.03.2026 ...
@@ -114,26 +139,40 @@ export function parseListingPage(html) {
   let match;
   while ((match = liRe.exec(html)) !== null) {
     const liHtml = match[1];
+    const visibleText = stripHtml(liHtml);
+    if (/\bscadenza\b/i.test(visibleText) && /downloadConcorsi|\.pdf\b/i.test(liHtml)) {
+      listingEvidenceCount += 1;
+    }
 
-    // Extract title from <strong>
-    const strongMatch = liHtml.match(/<strong[^>]*>([\s\S]*?)<\/strong>/i);
-    if (!strongMatch) continue;
-    const title = normalizeSpace(stripHtml(strongMatch[1]));
+    // The CMS used to wrap titles in <strong>; the current page renders the
+    // same vacancy cards as plain text (and may use a heading/span instead).
+    // Stay inside the list item and stop at its deadline so navigation labels
+    // and the generic eGov link cannot become a fabricated title.
+    const titleMatch = liHtml.match(/<(?:strong|h[3-5])[^>]*>([\s\S]*?)<\/(?:strong|h[3-5])>/i);
+    const titleSource = titleMatch
+      ? titleMatch[1]
+      : visibleText.split(/\bscadenza\b/i)[0];
+    const title = normalizeSpace(stripHtml(titleSource))
+      .replace(/^[•·▪]\s*/, '')
+      .replace(/[|:]+$/, '')
+      .trim();
     if (!title || title.length < 5 || isGenericCompetitionTitle(title)) continue;
 
     // Extract deadline
-    const deadlineMatch = liHtml.match(/[Ss]cadenza[:\s]*(\d{1,2}\.\d{1,2}\.\d{4})/);
-    const deadline = deadlineMatch ? parseSwissDate(deadlineMatch[1]) : '';
+    const deadline = parseSwissDate(visibleText);
 
     // Extract PDF URL (capitolato)
-    const pdfMatch = liHtml.match(/href="([^"]*downloadConcorsi[^"]*)"/i)
-      || liHtml.match(/href="([^"]*\.pdf)"/i);
-    const pdfUrl = pdfMatch
-      ? (pdfMatch[1].startsWith('http') ? pdfMatch[1] : `https://www.lugano.ch${pdfMatch[1]}`)
-      : '';
+    const pdfMatch = liHtml.match(/href\s*=\s*["']([^"']*downloadConcorsi[^"']*)["']/i)
+      || liHtml.match(/href\s*=\s*["']([^"']*\.pdf[^"']*)["']/i);
+    let pdfUrl = '';
+    if (pdfMatch) {
+      try {
+        pdfUrl = new URL(decodeHTML(pdfMatch[1]), CITTA_DI_LUGANO_CONCORSI_URL).href;
+      } catch { /* malformed source URL — leave the listing without a PDF handoff */ }
+    }
 
     // Extract application URL
-    const applyMatch = liHtml.match(/href="(https?:\/\/egov\.lugano\.ch[^"]*)"/i);
+    const applyMatch = liHtml.match(/href\s*=\s*["'](https?:\/\/egov\.lugano\.ch[^"']*)["']/i);
     const linkedApplyUrl = applyMatch ? applyMatch[1] : '';
     const applyUrl = firstJobSpecificLuganoUrl(linkedApplyUrl, pdfUrl);
 
@@ -163,6 +202,19 @@ export function parseListingPage(html) {
   // Heading-only entries have no job-specific URL. Do not turn a section
   // heading into a published vacancy with the generic e-government service
   // page as its applyUrl.
+
+  // Keep parser evidence on the legacy array shape so the dedicated runner can
+  // classify a zero as a selector miss without changing existing consumers.
+  Object.defineProperties(jobs, {
+    discoveredCount: {
+      value: listingEvidenceCount,
+      enumerable: false,
+    },
+    fetchOutcome: {
+      value: jobs.length > 0 || listingEvidenceCount === 0 ? 'ok' : 'selector_miss',
+      enumerable: false,
+    },
+  });
 
   return jobs;
 }
