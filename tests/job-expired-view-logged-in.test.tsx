@@ -46,7 +46,13 @@ describe('JobExpiredView (logged-in)', () => {
  });
 
  it('renders full 2-column layout with hero, banner, description and sidebar', () => {
-  render(<JobExpiredView job={fullJob} hasAccess />);
+  const { container } = render(<JobExpiredView job={fullJob} hasAccess />);
+
+  const header = container.querySelector('[data-job-detail-header]');
+  expect(header).toHaveClass('rounded-3xl', 'bg-gradient-to-br', 'from-info-subtle', 'to-success-subtle');
+  expect(header).toHaveAttribute('data-no-auto-ads', 'inside');
+  expect(header?.querySelector('[data-job-detail-metadata]')).toBeInTheDocument();
+  expect(container.querySelector('[data-job-detail-mobile-sidebar]')).toBeInTheDocument();
 
   // Expired banner
   expect(screen.getByText(/non è più attiva/i)).toBeInTheDocument();
@@ -60,6 +66,7 @@ describe('JobExpiredView (logged-in)', () => {
 
   // Description HTML
   expect(screen.getByText(/Ruolo ibrido a Lugano/i)).toBeInTheDocument();
+  expect(container.querySelector('[data-job-detail-description]')).toHaveClass('rounded-2xl', 'border', 'bg-surface');
 
   // At least one sidebar callout visible (snapshot)
   expect(screen.getByText(/Snapshot annuncio/i)).toBeInTheDocument();
