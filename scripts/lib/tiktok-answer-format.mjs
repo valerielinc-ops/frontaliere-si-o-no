@@ -17,6 +17,8 @@ const QUESTION_MAX_CHARS = 110;
 const ANSWER_MIN_CHARS = 90;
 const ANSWER_MAX_CHARS = 420;
 const CARD_MAX_CHARS = 130;
+const MIN_SHARED_QUESTION_STEMS = 2;
+const MIN_SHARED_QUESTION_RATIO = 0.5;
 const MIN_CARD_SECONDS = 1.4;
 const GEMINI_TTS_MODEL = 'gemini-2.5-flash-preview-tts';
 const GEMINI_TTS_VOICE = 'Kore';
@@ -24,7 +26,11 @@ const GEMINI_PCM_SAMPLE_RATE = 24_000;
 const TTS_TIMEOUT_MS = 60_000;
 
 /** Evergreen money and work topics: the questions people search and save. */
-const SEARCHED_TOPIC = /\b(tass|impost|irpef|stipend|salari|guadagn|busta paga|permesso|contribut|pension|avs|lpp|lamal|malattia|disoccupazion|franchigi|ristorn|contratt|licenziament|ferie|assunzion|frontalier)/i;
+const SEARCHED_TOPIC = /\b(tass|impost|irpef|stipend|salari|guadagn|busta paga|permesso g|contribut|pension|avs\b|lpp\b|lamal|cassa malati|disoccupazion|franchigi|ristorn|licenziament|ferie|assunzion)/i;
+
+/** Speculative FAQs of news articles: true on the page, empty as a clip. */
+const VAGUE_QUESTION = /\b(implicazion|impatt|influi|influenz|potrebbe|potrebbero|benefici|vantaggi|conseguenz)/i;
+const ARTICLE_BOUND_ANSWER = /\b(l'articolo|l’articolo|questo articolo|potrebbe|potrebbero)\b/i;
 
 const HASHTAGS = Object.freeze(['#frontalieri', '#lavoroinsvizzera', '#ticino', '#svizzera']);
 
@@ -32,6 +38,8 @@ const API_SECTION_BY_HUB = Object.freeze({
   'articoli-frontaliere': 'frontaliere',
   'articoli-svizzera': 'svizzera',
 });
+
+const MARKDOWN_LINK = /\[([^\]]+)\]\([^)]*\)/g;
 
 /** Published payload of an Italian article page, or null for other pages. */
 export function articleBodyApiPath(pagePath) {
@@ -50,7 +58,7 @@ export function parseArticleFaq(payload) {
   }
   if (!Array.isArray(items)) return [];
   return items
-    .map((item) => ({ question: String(item?.q || '').trim(), answer: String(item?.a || '').replace(/\s+/g, ' ').trim() }))
+    .map((item) => ({ question: String(item?.q || '').trim(), answer: String(item?.a || '').replace(MARKDOWN_LINK, '$1').replace(/\s+/g, ' ').trim() }))
     .filter((item) => item.question && item.answer);
 }
 
@@ -71,13 +79,36 @@ export function trimAnswer(answer) {
   return kept.length ? kept.join(' ') : null;
 }
 
+const QUESTION_STOPWORDS = new Set(['come', 'cosa', 'quale', 'quali', 'quanto', 'quanti', 'quanta', 'quante', 'quando', 'dove', 'perché', 'sono', 'viene', 'vengono', 'deve', 'devo', 'devono', 'posso', 'possono', 'essere', 'avere', 'fare', 'della', 'delle', 'dello', 'degli', 'nella', 'nelle', 'sulla', 'sulle', 'alla', 'alle', 'dalla', 'dalle', 'loro', 'questo', 'questa', 'ottenere']);
+
+function contentStems(text) {
+  return String(text || '')
+    .toLowerCase()
+    .split(/[^\p{L}\p{N}]+/u)
+    .filter((word) => word.length >= 4 && !QUESTION_STOPWORDS.has(word))
+    .map((word) => word.slice(0, 5));
+}
+
+/**
+ * A FAQ lives under its article: read alone, "Quali sono i requisiti?" can be
+ * answered about teachers only. The clip has no such context, so the answer
+ * must repeat at least half of what the question asks about.
+ */
+export function answerMatchesQuestion(question, answer) {
+  const asked = [...new Set(contentStems(question))];
+  if (asked.length === 0) return false;
+  const answered = new Set(contentStems(answer));
+  const shared = asked.filter((stem) => answered.has(stem)).length;
+  return shared >= MIN_SHARED_QUESTION_STEMS && shared / asked.length >= MIN_SHARED_QUESTION_RATIO;
+}
+
 /** The first FAQ with a searched topic that fits in a 30-second answer. */
 export function selectAnswerFaq(faqs) {
   for (const { question, answer } of faqs || []) {
     if (!question.endsWith('?') || question.length < QUESTION_MIN_CHARS || question.length > QUESTION_MAX_CHARS) continue;
-    if (!SEARCHED_TOPIC.test(question)) continue;
+    if (!SEARCHED_TOPIC.test(question) || VAGUE_QUESTION.test(question)) continue;
     const trimmed = trimAnswer(answer);
-    if (trimmed && trimmed.length >= ANSWER_MIN_CHARS) return { question, answer: trimmed };
+    if (trimmed && !ARTICLE_BOUND_ANSWER.test(trimmed) && trimmed.length >= ANSWER_MIN_CHARS && answerMatchesQuestion(question, trimmed)) return { question, answer: trimmed };
   }
   return null;
 }
