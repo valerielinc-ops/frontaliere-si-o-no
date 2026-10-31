@@ -191,7 +191,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       checksIt: draft.checksIt || [],
       requirements: draft.requirements || [],
       matches: draft.matches || [],
-      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers),
+      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers, draft),
       coverLetter: draft.coverLetter || null,
       applicationEmail: draft.applicationEmail || null,
       formAnswers: formAnswersWithEdits({ order: orderSnapshot.data() || {}, draft, flow }),

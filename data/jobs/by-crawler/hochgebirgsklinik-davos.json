@@ -1002,12 +1002,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-0b10d9ace651",
-      "slug": "assistenzarzt-kardiologie-m-w-d-100-hochgebirgsklinik-davos-ch",
+      "slug": "assistente-cardiologia-medico-m-f-d-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "assistenzarzt-kardiologie-m-w-d-100-hochgebirgsklinik-davos-ch",
-        "it": "assistenzarzt-kardiologie-m-w-d-100-hochgebirgsklinik-davos-ch",
-        "en": "assistenzarzt-kardiologie-m-w-d-100-hochgebirgsklinik-davos-ch",
-        "fr": "assistenzarzt-kardiologie-m-w-d-100-hochgebirgsklinik-davos-ch"
+        "it": "assistente-cardiologia-medico-m-f-d-100-hochgebirgsklinik-davos-davos",
+        "en": "assistant-physician-cardiology-m-f-d-100-hochgebirgsklinik-davos-davos",
+        "fr": "medecin-adjoint-cardiologie-h-f-d-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1072,7 +1072,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-30T21:16:31.499Z"
+      "firstSeenAt": "2026-10-30T21:16:31.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-kardiologie-m-w-d-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "assistenzarzt-kardiologie-m-w-d-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "assistenzarzt-kardiologie-m-w-d-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-kardiologie-m-w-d-100-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-f52808ccea06",

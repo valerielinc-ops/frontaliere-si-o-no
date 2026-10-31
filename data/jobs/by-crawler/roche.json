@@ -8742,8 +8742,8 @@
       "slugByLocale": {
         "en": "internship-in-near-patient-care-r-d-rotkreuz-12-months-roche-ch",
         "it": "internship-in-near-patient-care-r-d-rotkreuz-12-months-roche-ch",
-        "de": "internship-in-near-patient-care-r-d-rotkreuz-12-months-roche-ch",
-        "fr": "internship-in-near-patient-care-r-d-rotkreuz-12-months-roche-ch"
+        "de": "praktikum-in-near-patient-care-r-d-rotkreuz-12-monate-roche-rotkreuz",
+        "fr": "stage-en-r-d-sur-les-soins-aux-patients-rotkreuz-12-mois-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8805,12 +8805,12 @@
     },
     {
       "id": "roche-a16d8239be26",
-      "slug": "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-per-12-monate-roche-basel",
+      "slug": "tirocinio-nel-settore-presso-drug-substance-manufacturing-basel-per-12-mesi-roche-basel",
       "slugByLocale": {
         "de": "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-fur-12-monate-roche-ch",
-        "it": "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-per-12-monate-roche-basel",
-        "en": "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-fur-12-monate-roche-ch",
-        "fr": "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-fur-12-monate-roche-ch"
+        "it": "tirocinio-nel-settore-presso-drug-substance-manufacturing-basel-per-12-mesi-roche-basel",
+        "en": "internship-at-drug-substance-manufacturing-basel-for-12-months-roche-basel",
+        "fr": "stage-a-basel-pour-12-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8853,14 +8853,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-fur-12-monate-roche-ch",
+          "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-per-12-monate-roche-basel"
+        ],
+        "en": [
+          "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-fur-12-monate-roche-ch"
+        ],
+        "fr": [
           "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-fur-12-monate-roche-ch"
         ]
       },
       "previousSlugs": [
-        "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-fur-12-monate-roche-ch"
+        "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-fur-12-monate-roche-ch",
+        "praktikum-im-bereich-bei-drug-substance-manufacturing-basel-per-12-monate-roche-basel"
       ],
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -8948,12 +8955,12 @@
     },
     {
       "id": "roche-f22514a7fb12",
-      "slug": "medical-science-partner-lung-cancer-w-m-d-roche-ch",
+      "slug": "medical-science-partner-cancro-polmonare-m-f-d-roche-basel",
       "slugByLocale": {
         "de": "medical-science-partner-lung-cancer-w-m-d-roche-ch",
-        "it": "medical-science-partner-lung-cancer-w-m-d-roche-ch",
+        "it": "medical-science-partner-cancro-polmonare-m-f-d-roche-basel",
         "en": "medical-science-partner-lung-cancer-w-m-d-roche-ch",
-        "fr": "medical-science-partner-lung-cancer-w-m-d-roche-ch"
+        "fr": "partenaire-des-sciences-medicales-cancer-du-poumon-h-f-d-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9012,16 +9019,27 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-30T21:13:43.978Z"
+      "firstSeenAt": "2026-10-30T21:13:43.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-science-partner-lung-cancer-w-m-d-roche-ch"
+        ],
+        "fr": [
+          "medical-science-partner-lung-cancer-w-m-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-science-partner-lung-cancer-w-m-d-roche-ch"
+      ]
     },
     {
       "id": "roche-5bb5c86401d2",
-      "slug": "qa-manager-2-jahre-befristung-roche-ch",
+      "slug": "qa-manager-2-anni-roche-kaiseraugst",
       "slugByLocale": {
         "de": "qa-manager-2-jahre-befristung-roche-ch",
-        "it": "qa-manager-2-jahre-befristung-roche-ch",
-        "en": "qa-manager-2-jahre-befristung-roche-ch",
-        "fr": "qa-manager-2-jahre-befristung-roche-ch"
+        "it": "qa-manager-2-anni-roche-kaiseraugst",
+        "en": "qa-manager-2-years-term-roche-kaiseraugst",
+        "fr": "gestionnaire-de-l-aq-2-ans-de-mandat-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9079,7 +9097,21 @@
       },
       "postalCode": "4303",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-10-30T21:13:43.002Z"
+      "firstSeenAt": "2026-10-30T21:13:43.002Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-manager-2-jahre-befristung-roche-ch"
+        ],
+        "en": [
+          "qa-manager-2-jahre-befristung-roche-ch"
+        ],
+        "fr": [
+          "qa-manager-2-jahre-befristung-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qa-manager-2-jahre-befristung-roche-ch"
+      ]
     },
     {
       "id": "roche-852c67c60923",

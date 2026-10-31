@@ -46,10 +46,111 @@ describe('signed-origin autonomous SDK startup', () => {
   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, { referrer: '' }, false)).toBe(true);
  });
  it('preserves ordinary unsigned visits and campaign/service context', () => {
-  const win = browser(clean);
-  expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, { referrer: '' })).toBe(false);
-  expect(win.location.href).toBe(clean);
+  const dom = new JSDOM('<!doctype html><body></body>', { url: clean });
+  try {
+   const win = browser(clean);
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
+   expect(win.location.href).toBe(clean);
+  } finally { dom.window.close(); }
  });
+ it.each(['iframe', 'href', 'jsonld'])('rejects a clean-origin document with a sensitive %s URL before SDK startup', (kind) => {
+  const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'https://frontaliereticino.ch/', runScripts: 'outside-only' });
+  try {
+   const element = dom.window.document.createElement(kind === 'iframe' ? 'iframe' : kind === 'href' ? 'a' : 'script');
+   const nested = `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`;
+   if (kind === 'jsonld') {
+    element.setAttribute('type', 'application/ld+json');
+    element.textContent = JSON.stringify({ mainEntity: [{ '@id': nested }] });
+   } else element.setAttribute(kind === 'href' ? 'href' : 'src', nested);
+   dom.window.document.body.appendChild(element);
+   const win = dom.window as unknown as PrivacyWindow;
+   expect(win.__FT_SENSITIVE_DOCUMENT__).toBe(undefined);
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(true);
+   expect(dom.window.location.href).toBe('https://frontaliereticino.ch/');
+   expect(win.__FT_SENSITIVE_DOCUMENT__).toBe(true);
+   element.remove();
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
+  } finally { dom.window.close(); }
+ });
+ it.each([['Ads', ADSENSE_LOADER_CONTENT], ['Partnerize', PARTNERIZE_TAG_CONTENT]])('%s bootstrap stays idle for clean-origin HTML containing a sensitive iframe', (_name, source) => {
+  const dom = new JSDOM('<!doctype html><head></head><body><iframe></iframe></body>', { url: 'https://frontaliereticino.ch/', runScripts: 'outside-only' });
+  try {
+   dom.window.document.querySelector('iframe')!.src = `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`;
+   vm.runInContext(source, dom.getInternalVMContext());
+   expect(dom.window.document.querySelectorAll('script')).toHaveLength(0);
+   expect((dom.window as unknown as PrivacyWindow).__FT_SENSITIVE_DOCUMENT__).toBe(true);
+   expect(dom.window.location.href).toBe('https://frontaliereticino.ch/');
+  } finally { dom.window.close(); }
+ });
+ it.each(['srcset', 'imagesrcset'])('attests each %s URL candidate without splitting SVG data or descriptors', (attribute) => {
+  const dom = new JSDOM('<!doctype html><body><img></body>', { url: 'https://frontaliereticino.ch/' });
+  try {
+   const image = dom.window.document.querySelector('img')!;
+   const win = dom.window as unknown as PrivacyWindow;
+   const check = (value: string) => {
+    image.setAttribute(attribute, value);
+    return isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document);
+   };
+   expect(check('https://img.example.test/a.png?size=100%25 1x, /images/b.png?variant=two%20large 2x')).toBe(false);
+   expect(check('data:image/svg+xml,%3Csvg%20viewBox=%220,0,100,100%22%3E%3Ctext%3E100%25%3C/text%3E%3C/svg%3E 1x, https://img.example.test/b.png 2x')).toBe(false);
+   expect(check('https://img.example.test/a.png 1x, https://synthetic:credential@img.example.test/b.png 2x')).toBe(true);
+   // WHATWG 4.8.4.2.1/parse-a-srcset-attribute: without whitespace this is
+   // one relative URL, not a second browser candidate. Privacy attestation
+   // separately checks serialized absolute references inside non-data tokens.
+   const commaInsideUrl = 'clean.jpg,https://synthetic:credential@img.example.test/b.png';
+   expect(new NodeURL(commaInsideUrl, dom.window.location.href).hostname).toBe('frontaliereticino.ch');
+   expect(check(commaInsideUrl)).toBe(true);
+   expect(check('clean.jpg, https://synthetic:credential@img.example.test/b.png')).toBe(true);
+   expect(check('clean.jpg,//synthetic:credential@img.example.test/b.png')).toBe(true);
+   expect(check('https://img.example.test/region,city/photo.png')).toBe(false);
+   expect(check('https://img.example.test/a.png?coords=10,20&scale=100%25')).toBe(false);
+   expect(check('https://img.example.test/a.png?name=wide%2Csmall%20image')).toBe(false);
+   expect(check('clean.jpg,https://img.example.test/b.png?size=100%25')).toBe(false);
+   expect(check('data:image/svg+xml,%3Ctext%3E,https://synthetic:credential@img.example.test/%3C/text%3E 1x')).toBe(false);
+   dom.window.document.body.appendChild(dom.window.document.createTextNode(commaInsideUrl));
+   expect(check('images/a.png 320w, images/b.png 640w')).toBe(false);
+   expect(check(`https://img.example.test/a.png?size=large 1x, https://img.example.test/b.png?redirect=${encodeURIComponent(signed)} 2x`)).toBe(true);
+   expect(check(`images/a.png?redirect=${encodeURIComponent(signed)} 320w, images/b.png 640w`)).toBe(true);
+   expect(check('https://img.example.test/a.png custom(1,2), https://synthetic:credential@img.example.test/b.png 2x')).toBe(true);
+   expect(check('images/a.png 320w, images/b.png 640w')).toBe(false);
+  } finally { dom.window.close(); }
+ });
+ it('attests semantic meta URLs while preserving ordinary description prose', () => {
+  const dom = new JSDOM('<!doctype html><head><meta></head><body></body>', { url: 'https://frontaliereticino.ch/' });
+  try {
+   const meta = dom.window.document.querySelector('meta')!;
+   const win = dom.window as unknown as PrivacyWindow;
+   meta.setAttribute('name', 'description');
+   meta.content = 'C# developers at 100%: ordinary prose, no URL field';
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
+   meta.setAttribute('property', 'og:url');
+   meta.content = `https://ads.example.test/frame?url=${encodeURIComponent(signed)}`;
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(true);
+   meta.setAttribute('property', 'og:image');
+   meta.content = `/images/preview.png?url=${encodeURIComponent(signed)}`;
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(true);
+   meta.content = '/images/preview.png?size=100%25';
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, win, dom.window.document)).toBe(false);
+  } finally { dom.window.close(); }
+ });
+ it.each([
+  ['0;url=https://synthetic:credential@ads.example.test/', true],
+  [`0;url=${signed}`, true],
+  [`1.5, URL = "https://ads.example.test/frame?redirect=${encodeURIComponent(signed)}"`, true],
+  [`0 '/next?redirect=${encodeURIComponent(signed)}' ignored tail`, true],
+  ['30', false],
+  ['0; URL=/next?size=100%25', false],
+  ['1.5, "https://img.example.test/clean.png?size=100%25" ignored tail', false],
+  ['. ;url="/next"', false],
+ ] as const)('attests the standard refresh target in %s', (content, sensitive) => {
+  const dom = new JSDOM('<!doctype html><head><meta http-equiv="Refresh"></head><body></body>', { url: 'https://frontaliereticino.ch/' });
+  try {
+   dom.window.document.querySelector('meta')!.content = content;
+   expect(isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, dom.window as unknown as PrivacyWindow, dom.window.document)).toBe(sensitive);
+   expect(dom.window.location.href).toBe('https://frontaliereticino.ch/');
+  } finally { dom.window.close(); }
+ });
+
  it('conservatively captures every canonical browser-URL credential form without retaining raw copies', () => {
   // Fixtures for the canonical helper's supported aliases, not startup logic.
   const aliases = ['ac', 'at', 'authToken', 'ne', 'newsletter_email', 'email', 'newsletter_autologin', 'subscriber_key', 'token', 'access_token', 'id_token', 'refresh_token', 'oobCode'];
@@ -253,7 +354,7 @@ describe('signed-origin autonomous SDK startup', () => {
   const requests: Array<{ url: string; body: string }> = [];
   Object.assign(win, { crypto: { subtle: { digest: async () => new ArrayBuffer(20) } } });
   const doc = {
-   referrer: '', readyState: 'loading', createElement: () => ({}),
+   referrer: '', querySelectorAll: () => [], readyState: 'loading', createElement: () => ({}),
    body: { appendChild: (script: Record<string, unknown>) => appended.push(script) },
    addEventListener: (event: string, cb: () => void) => { listeners[event] = cb; },
   };

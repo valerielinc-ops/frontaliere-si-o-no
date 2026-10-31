@@ -485,12 +485,12 @@
     },
     {
       "id": "medimeo-b48648c38d3a",
-      "slug": "facharztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinarem-team-freiburg",
+      "slug": "medica-specialista-medico-specialista-in-medicina-interna-generale-con-un-grande-team-interdisciplinare-medimeo-ag",
       "slugByLocale": {
         "de": "facharztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinarem-team-freiburg",
-        "it": "facharztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinarem-team-freiburg",
-        "en": "facharztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinarem-team-freiburg",
-        "fr": "facharztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinarem-team-freiburg"
+        "it": "medica-specialista-medico-specialista-in-medicina-interna-generale-con-un-grande-team-interdisciplinare-medimeo-ag",
+        "en": "specialist-specialist-general-internal-medicine-with-a-large-interdisciplinary-team-medimeo-ag-freiburg-neuenburg",
+        "fr": "specialiste-specialiste-medecine-interne-generale-avec-une-grande-equipe-interdisciplinaire-medimeo-ag-freiburg"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -534,7 +534,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -549,7 +548,21 @@
         }
       },
       "postalCode": "2000",
-      "firstSeenAt": "2026-10-30T21:19:07.798Z"
+      "firstSeenAt": "2026-10-30T21:19:07.798Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinarem-team-freiburg"
+        ],
+        "en": [
+          "facharztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinarem-team-freiburg"
+        ],
+        "fr": [
+          "facharztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinarem-team-freiburg"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinarem-team-freiburg"
+      ]
     },
     {
       "id": "medimeo-dfaad4f51a38",

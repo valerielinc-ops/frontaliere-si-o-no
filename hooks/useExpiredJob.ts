@@ -29,6 +29,19 @@ export interface ExpiredJob {
  previousSlugsByLocale?: Record<string, string[]>;
  sector?: string;
  expiredAt?: string;
+ contract?: string;
+ contractType?: string;
+ employmentType?: string;
+ datePosted?: string;
+ postedDate?: string;
+ postingDateSource?: string;
+ crawledAt?: string;
+ salaryMin?: number;
+ salaryMax?: number;
+ salaryCurrency?: string;
+ currency?: string;
+ salarySource?: string;
+ postalCode?: string;
  /** Detail-file key — present on slim index entries; points at expired-detail/<key>.json. */
  key?: string;
 }

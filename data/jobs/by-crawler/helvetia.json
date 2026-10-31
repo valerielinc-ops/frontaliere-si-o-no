@@ -1555,7 +1555,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1624,14 +1624,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -7938,10 +7938,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8016,21 +8016,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -8974,7 +8973,7 @@
       "id": "helvetia-a0e74f7477fc",
       "slug": "responsabile-gestione-immobiliare-losanna-m-w-d-tempo-parziale-pieno-helvetia-versicherungen-lausanne",
       "slugByLocale": {
-        "it": "responsabile-gestione-immobiliare-losanna-m-w-d-tempo-parziale-pieno-helvetia-versicherungen-lausanne",
+        "it": "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne",
         "en": "team-leader-real-estate-management-lausanne-m-f-d-part-time-full-time-helvetia-versicherungen-lausanne",
         "de": "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
         "fr": "chef-d-equipe-gestion-immobiliere-lausanne-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-lausanne"
@@ -9053,13 +9052,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-        "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne"
+        "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-          "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne"
+          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
         ],
         "en": [
           "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
@@ -11332,7 +11329,6 @@
         "de": "Gemeinsam neue Massstäbe setzen und die Zukunft gestalten – das bedeutet für uns mehr, als Aufgaben einfach abzuarbeiten. Hier arbeitest du mit Menschen zusammen, die Verantwortung übernehmen, hohe Ansprüche haben und den Mut mitbringen, neue Wege zu gehen. Bei uns findest du ein Umfeld, in dem Vertrauen und Leistung Hand in Hand gehen und deine Ideen, deine Initiative und dein Beitrag zählen. So hast du die Möglichkeit, wirklich etwas zu bewegen für unsere Kundinnen und Kunden, dein Team und deine persönliche Entwicklung.\n\nAufgaben:\n• Beratung & Betreuung mit Weitblick: Du begleitest Privat- und Firmenkunden in allen Versicherungsfragen mit echtem Engagement und sicherst massgeschneiderte Lösungen für jedes individuelle Bedürfnis. Als Kundenberater:in bist du da, wenn es darauf ankommt.\n\n• Langfristige Beziehungen aufbauen: Vertrauen steht im Zentrum deiner Arbeit – du pflegst und entwickelst nachhaltige Kundenbeziehungen, die auf deinem exzellenten Service beruhen.\n\n• Wachstum aktiv gestalten: Du hast ein gutes Netzwerk und bringst deine Energie in die Akquise neuer Kundinnen und Kunden ein. Dein Engagement sorgt dafür, dass unser Kundenstamm beständig wächst. Wie können wir dich hierbei unterstützen? Indem du einen eigenen Kundenstamm mit Privat- und Firmenkunden erhältst.\n\n• Marketing- & Vertriebsunterstützung: Mit frischen Ideen unterstützt du unsere Marketingaktionen, besuchst Messen und Veranstaltungen, um unser Netzwerk zu stärken.\n\n• Immer am Puls der Zeit: Durch unsere Grundausbildung und kontinuierliche Weiterbildungen bleibst du fachlich auf dem neuesten Stand und bietest höchste Beratungskompetenz.\n\nAnforderungen:\n• Erfahrung & Expertise: Du bringst Erfahrung in der Kundenberatung oder im Verkauf mit – optimalerweise in der Finanz- oder Versicherungsbranche. Auch ambitionierte Quereinsteiger:innen, die bereit sind schnell durchzustarten sind herzlich willkommen.\n\n• Kommunikationstalent: Menschen begeistern und gewinnen – das liegt dir im Blut. Du glänzt durch Kommunikations- und Verhandlungsstärke. Du kannst als Kundenberater:in überzeugend argumentieren und verfügst über stilsichere Deutschkenntnisse.\n\n• Dienstleistung ist deine Stärke: Der Aussendienst ist deine Leidenschaft und deine hohe Kundenorientierung sowie Servicebereitschaft zeichnen dich aus.\n\n• Engagement & Eigeninitiative: Mit überdurchschnittlicher Motivation und Unternehmergeist bist du bereit, Grosses zu erreichen und Ziele zu übertreffen.\n\n• Regionale Verankerung: Dein Wohnort liegt im Raum Zürich, wo du deine Kundinnen und Kunden betreust. Du verfügst über ein starkes Netzwerk in der Region und schätzt es, neue Kontakte aufzubauen und zu pflegen.\nBereit, Kundinnen und Kunden mit Leidenschaft zu begeistern und mit uns zu wachsen? Dann setze dein Talent gezielt ein und bewirb dich jetzt!\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
         "fr": "Conseil à la clientèle – Ventes\nOccupé: 50 - 100% Lieu de travail: Niveau d'expérience: Avec expérience professionnelle FlexOffice: sur place\nÉtablir de nouvelles normes ensemble et façonner l'avenir – pour nous, cela signifie plus que simplement travailler à travers les tâches. Ici, vous travaillez avec des gens qui prennent des responsabilités, qui ont des exigences élevées et qui ont le courage d'aller de nouvelles façons. Avec nous, vous trouverez un environnement où la confiance et la performance vont de pair et vos idées, initiatives et contributions comptent. Vous avez donc la possibilité de vraiment faire une différence pour nos clients, votre équipe et votre développement personnel.\n\n## Ce que tu fais\n• Conseil & assistance avec prévoyance: Vous accompagnez les clients privés et les entreprises avec un engagement réel dans toutes les questions d'assurance et vous assurez des solutions sur mesure pour chaque besoin individuel. En tant que conseiller client : vous êtes là quand ça compte.\n• Bâtir des relations à long terme : La confiance est au cœur de votre travail – vous nourrissez et développez des relations client durables basées sur votre excellent service.\n• Formez activement la croissance : vous avez un bon réseau et apportez votre énergie à l'acquisition de nouveaux clients. Votre engagement assure une croissance constante de notre clientèle. Comment pouvons-nous vous soutenir ? En obtenant votre propre clientèle avec des clients privés et d'entreprise.\n• Marketing & Support commercial: Avec de nouvelles idées vous soutenez nos campagnes marketing, visitez les salons et événements pour renforcer notre réseau.\n• Toujours sur le pouls des temps: Grâce à notre formation de base et à notre formation continue, vous restez à jour et offrez la plus haute compétence en conseil.\n\n## Ce que vous apportez\n• Expérience & expertise: Vous apportez de l'expérience en conseil à la clientèle ou en vente – idéalement dans le secteur financier ou de l'assurance. Également ambitieux entrants latéraux: les femmes prêtes à commencer rapidement sont les bienvenues.\n• Le talent de communication : les gens inspirent et gagnent – c'est dans votre sang. Vous brillez par la communication et la force de négociation. En tant que consultant client, vous pouvez argumenter de manière convaincante et avoir une connaissance élégante de l'allemand.\n• Le service est votre force: Le service sur le terrain est votre passion et votre haute orientation client et la préparation au service vous distinguent.\n• Engagement et initiative : Avec une motivation et un esprit d'entreprise supérieurs à la moyenne, vous êtes prêt à réaliser de grandes choses et à dépasser les objectifs.\n• Ancrages régionaux: Votre lieu de résidence se trouve dans la région de Zurich, où vous vous occupez de vos clients. Vous avez un réseau solide dans la région et appréciez la création et le maintien de nouveaux contacts.\nPrêt à inspirer les clients avec passion et grandir avec nous? Alors utilisez votre talent spécifiquement et appliquez maintenant!\n\n## Votre contact\nRuedi MüllerPartenaire de recrutement\nCe que nous offrons\nPensions: Prestations de retraite supérieures à la moyenne\nProgramme d'actions : acquisition d'actions à des conditions préférentielles\nRéduction sur le parc automobile : conditions attrayantes lors de l'achat ou de la location de véhicules\nPromotion de la santé : grande offre pour la promotion de la santé\n\n## Éducation et formation\nPossibilités de formation et de perfectionnement pour votre épanouissement personnel\nOn dirait un environnement qui vous convient ?\n\n## La collaboration qui fait la différence\nNous croyons en la coopération au niveau des yeux, en la confiance mutuelle et en ceux qui veulent assumer leurs responsabilités. Différentes perspectives nous aident à développer de meilleures solutions, tant pour nos clients que pour nous en tant qu'équipe.\n\n## Gianluca donne cinq conseils pour réussir dans le domaine\nGianluca Lombardi est un conseiller client à succès chez Helvetia – et ce n'est pas une coïncidence. Il résume son expérience et son savoir-faire en conseil à la clientèle et en vente de solutions d'assurance en cinq conseils. Ceux-ci peuvent être intéressants pour les consultants clients existants et les débutants latéraux."
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-w-m-d-versicherung-zuerich-stadt-teilzeit-vollzeit/b034d57e-c12e-41f2-8ced-e40a7fc0b20b",
@@ -11767,7 +11763,6 @@
         "de": "Gemeinsam neue Massstäbe setzen und die Zukunft gestalten – das bedeutet für uns mehr, als Aufgaben einfach abzuarbeiten. Hier arbeitest du mit Menschen zusammen, die Verantwortung übernehmen, hohe Ansprüche haben und den Mut mitbringen, neue Wege zu gehen. Bei uns findest du ein Umfeld, in dem Vertrauen und Leistung Hand in Hand gehen und deine Ideen, deine Initiative und dein Beitrag zählen. So hast du die Möglichkeit, wirklich etwas zu bewegen für unsere Kundinnen und Kunden, dein Team und deine persönliche Entwicklung.\n\nAufgaben:\n• Beratung & Betreuung mit Weitblick: Du begleitest Privat- und Firmenkunden in allen Versicherungsfragen mit echtem Engagement und sicherst massgeschneiderte Lösungen für jedes individuelle Bedürfnis. Als Kundenberater:in bist du da, wenn es darauf ankommt.\n\n• Langfristige Beziehungen aufbauen: Vertrauen steht im Zentrum deiner Arbeit – du pflegst und entwickelst nachhaltige Kundenbeziehungen, die auf deinem exzellenten Service beruhen.\n\n• Wachstum aktiv gestalten: Du hast ein gutes Netzwerk und bringst deine Energie in die Akquise neuer Kundinnen und Kunden ein. Dein Engagement sorgt dafür, dass unser Kundenstamm beständig wächst. Wie können wir dich hierbei unterstützen? Indem du einen eigenen Kundenstamm mit Privat- und Firmenkunden erhältst.\n\n• Marketing- & Vertriebsunterstützung: Mit frischen Ideen unterstützt du unsere Marketingaktionen, besuchst Messen und Veranstaltungen, um unser Netzwerk zu stärken.\n\n• Immer am Puls der Zeit: Durch unsere Grundausbildung und kontinuierliche Weiterbildungen bleibst du fachlich auf dem neuesten Stand und bietest höchste Beratungskompetenz.\n\nAnforderungen:\n• Erfahrung & Expertise: Du bringst Erfahrung in der Kundenberatung oder im Verkauf mit – optimalerweise in der Finanz- oder Versicherungsbranche. Auch ambitionierte Quereinsteiger:innen, die bereit sind schnell durchzustarten sind herzlich willkommen.\n\n• Kommunikationstalent: Menschen begeistern und gewinnen – das liegt dir im Blut. Du glänzt durch Kommunikations- und Verhandlungsstärke. Du kannst als Kundenberater:in überzeugend argumentieren und verfügst über stilsichere Deutschkenntnisse.\n\n• Dienstleistung ist deine Stärke: Der Aussendienst ist deine Leidenschaft und deine hohe Kundenorientierung sowie Servicebereitschaft zeichnen dich aus.\n\n• Engagement & Eigeninitiative: Mit überdurchschnittlicher Motivation und Unternehmergeist bist du bereit, Grosses zu erreichen und Ziele zu übertreffen.\n\n• Regionale Verankerung: Dein Wohnort liegt in der Region Muttenz (Baselland) in welchem du deine Kundinnen und Kunden betreust. Du verfügst über ein starkes Netzwerk in Baselland und schätzt es, neue Kontakte aufzubauen und zu pflegen.\n\nBereit, Kundinnen und Kunden mit Leidenschaft zu begeistern und mit uns zu wachsen? Dann setze dein Talent gezielt ein und bewirb dich jetzt!\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
         "fr": "Conseils clients – Ventes\nOccupé: 50-100% Lieu de travail: Niveau d'expérience: Avec expérience professionnelle FlexOffice: sur place\nÉtablir de nouvelles normes ensemble et façonner l'avenir – pour nous, cela signifie plus que simplement travailler à travers les tâches. Ici, vous travaillez avec des gens qui prennent des responsabilités, qui ont des exigences élevées et qui ont le courage d'aller de nouvelles façons. Avec nous, vous trouverez un environnement où la confiance et la performance vont de pair et vos idées, vos initiatives et vos contributions comptent. Vous avez donc la possibilité de vraiment faire une différence pour nos clients, votre équipe et votre développement personnel.\n\n## Ce que vous faites\n• Conseil & assistance avec prévoyance: Vous accompagnez les clients privés et les entreprises dans tous les problèmes d'assurance avec un engagement réel et vous assurez des solutions sur mesure pour chaque besoin individuel. En tant que conseiller client : vous êtes là quand ça compte.\n• Établir des relations à long terme : La confiance est au cœur de votre travail – vous maintenez et développez des relations client durables basées sur votre excellent service.\n• Une croissance active : Vous avez un bon réseau et apportez votre énergie à l'acquisition de nouveaux clients. Votre engagement assure une croissance constante de notre clientèle. Comment pouvons-nous vous soutenir ? En obtenant votre propre clientèle avec des clients privés et d'entreprise.\n• Marketing & Support commercial: Avec de nouvelles idées vous soutenez nos campagnes marketing, visitez les salons et événements pour renforcer notre réseau.\n• Toujours sur le pouls des temps: Grâce à notre formation de base et à notre formation continue, vous restez à jour et offrez la plus haute compétence en conseil.\n\n## Ce que vous apportez\n• Expérience & expertise: Vous apportez de l'expérience en conseil à la clientèle ou en vente – idéalement dans le secteur financier ou d'assurance. Également ambitieux entrants latéraux: les femmes prêtes à commencer rapidement sont les bienvenues.\n• Le talent de communication : les gens inspirent et gagnent – c'est dans votre sang. Vous brillez par la communication et la force de négociation. En tant que consultant client, vous pouvez argumenter de manière convaincante et avoir une connaissance élégante de l'allemand.\n• Le service est votre force : Le service sur le terrain est votre passion et votre haute orientation client et la préparation au service vous distinguent.\n• Engagement et initiative : Avec une motivation et un esprit d'entreprise supérieurs à la moyenne, vous êtes prêts à réaliser de grandes choses et à dépasser les objectifs.\n• Ancrages régionaux: Votre lieu de résidence se trouve dans la région de Muttenz (Balland) où vous vous occupez de vos clients. Vous avez un réseau solide à Bâleland et appréciez la construction et le maintien de nouveaux contacts.\nPrêt à inspirer les clients avec passion et grandir avec nous ? Ensuite, utilisez votre talent spécifiquement et appliquez maintenant!\n\n## Votre contact\nIlse HaslerChef Recrutement Ventes & Prochaine Génération\nCe que nous offrons\nRetraite : Prestations de retraite supérieures à la moyenne\nProgramme de partage : acquisition de parts à des conditions préférentielles\nRéduction sur le parc automobile : conditions attrayantes lors de l'achat ou de la location de véhicules\nPromotion de la santé : grande offre de promotion de la santé\n\n## Éducation et formation\nDes possibilités de formation et de perfectionnement attrayants pour votre épanouissement personnel\nOn dirait un environnement qui vous convient ?\n\n## La collaboration qui fait la différence\nNous croyons en la coopération sur un pied d'égalité, en la confiance mutuelle et en ceux qui veulent assumer leurs responsabilités. Différentes perspectives nous aident à développer de meilleures solutions, tant pour nos clients que pour nous en tant qu'équipe.\n\n## Gianluca donne cinq conseils pour réussir dans le domaine\nGianluca Lombardi est un conseiller client à succès chez Helvetia – et ce n'est pas une coïncidence. Il résume son expérience et son savoir-faire en conseil à la clientèle et en vente de solutions d'assurance dans cinq conseils. Ceux-ci peuvent être intéressants pour les consultants clients existants et les débutants latéraux."
       },
-      "needsRetranslation": true,
       "location": "Muttenz",
       "canton": "BL",
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-w-m-d-versicherung-muttenz-baselland-teilzeit-vollzeit/b4fc983b-d4b8-4da7-9c77-b2e8df769670",
@@ -11941,12 +11936,12 @@
     },
     {
       "id": "helvetia-0951dea578eb",
-      "slug": "kundenberater-w-m-d-versicherung-luzern-vollzeit-teilzeit-helvetia-luzern",
+      "slug": "consulente-clienti-m-f-d-assicurazione-lucerna-a-tempo-pieno-part-time-helvetia-versicherungen-luzern",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-luzern-vollzeit-teilzeit-helvetia-luzern",
-        "it": "kundenberater-w-m-d-versicherung-luzern-vollzeit-teilzeit-helvetia-luzern",
-        "en": "kundenberater-w-m-d-versicherung-luzern-vollzeit-teilzeit-helvetia-luzern",
-        "fr": "kundenberater-w-m-d-versicherung-luzern-vollzeit-teilzeit-helvetia-luzern"
+        "it": "consulente-clienti-m-f-d-assicurazione-lucerna-a-tempo-pieno-part-time-helvetia-versicherungen-luzern",
+        "en": "customer-consultant-m-f-d-insurance-lucerne-full-time-part-time-helvetia-versicherungen-luzern",
+        "fr": "consultant-client-h-f-d-assurance-lucerne-temps-plein-temps-partiel-helvetia-versicherungen-luzern"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12005,16 +12000,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:17:20.658Z"
+      "firstSeenAt": "2026-10-30T21:17:20.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-luzern-vollzeit-teilzeit-helvetia-luzern"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-luzern-vollzeit-teilzeit-helvetia-luzern"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-luzern-vollzeit-teilzeit-helvetia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-luzern-vollzeit-teilzeit-helvetia-luzern"
+      ]
     },
     {
       "id": "helvetia-9cdbd52f8487",
-      "slug": "soutien-de-vente-tous-genres-a-vevey-temps-partiel-50-80-helvetia-vevey",
+      "slug": "supporto-di-vendita-tutti-i-generi-a-vevey-part-time-50-80-helvetia-versicherungen-vevey",
       "slugByLocale": {
         "fr": "soutien-de-vente-tous-genres-a-vevey-temps-partiel-50-80-helvetia-vevey",
-        "it": "soutien-de-vente-tous-genres-a-vevey-temps-partiel-50-80-helvetia-vevey",
-        "en": "soutien-de-vente-tous-genres-a-vevey-temps-partiel-50-80-helvetia-vevey",
-        "de": "soutien-de-vente-tous-genres-a-vevey-temps-partiel-50-80-helvetia-vevey"
+        "it": "supporto-di-vendita-tutti-i-generi-a-vevey-part-time-50-80-helvetia-versicherungen-vevey",
+        "en": "sales-support-all-genres-to-vevey-part-time-50-80-helvetia-versicherungen-vevey",
+        "de": "verkaufsunterstutzung-alle-genres-an-vevey-teilzeit-50-80-helvetia-versicherungen-vevey"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12073,7 +12082,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:17:20.643Z"
+      "firstSeenAt": "2026-10-30T21:17:20.643Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "soutien-de-vente-tous-genres-a-vevey-temps-partiel-50-80-helvetia-vevey"
+        ],
+        "en": [
+          "soutien-de-vente-tous-genres-a-vevey-temps-partiel-50-80-helvetia-vevey"
+        ],
+        "de": [
+          "soutien-de-vente-tous-genres-a-vevey-temps-partiel-50-80-helvetia-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "soutien-de-vente-tous-genres-a-vevey-temps-partiel-50-80-helvetia-vevey"
+      ]
     },
     {
       "id": "helvetia-698d00d282a4",

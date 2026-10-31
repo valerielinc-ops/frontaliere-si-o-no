@@ -1709,7 +1709,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T22:56:20.544Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -4628,12 +4627,12 @@
     },
     {
       "id": "amstein-walthert-3a5048f150de",
-      "slug": "gesamtprojektleiter-in-gebaudetechnik-fachbauleiter-in-80-100-amstein-walthert-basel-vedi47161",
+      "slug": "responsabile-generale-di-progetto-per-gli-impianti-tecnici-degli-edifici-e-responsabile-specialista-dei-lavori-vedi47161",
       "slugByLocale": {
         "de": "gesamtprojektleiter-in-gebaudetechnik-fachbauleiter-in-80-100-amstein-walthert-basel-vedi47161",
-        "it": "gesamtprojektleiter-in-gebaudetechnik-fachbauleiter-in-80-100-amstein-walthert-basel-vedi47161",
-        "en": "gesamtprojektleiter-in-gebaudetechnik-fachbauleiter-in-80-100-amstein-walthert-basel-vedi47161",
-        "fr": "gesamtprojektleiter-in-gebaudetechnik-fachbauleiter-in-80-100-amstein-walthert-basel-vedi47161"
+        "it": "responsabile-generale-di-progetto-per-gli-impianti-tecnici-degli-edifici-e-responsabile-specialista-dei-lavori-vedi47161",
+        "en": "overall-project-manager-building-services-specialist-construction-manager-80-100-amstein-walthert-ag-basel-vedi47161",
+        "fr": "chef-fe-de-projet-general-e-en-technique-du-batiment-chef-fe-de-chantier-specialise-e-80-100-amstein-walthert-vedi47161"
       },
       "company": "Amstein + Walthert AG",
       "companyKey": "amstein-walthert",
@@ -4681,7 +4680,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -4695,7 +4693,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:14:55.031Z"
+      "firstSeenAt": "2026-10-30T21:14:55.031Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gesamtprojektleiter-in-gebaudetechnik-fachbauleiter-in-80-100-amstein-walthert-basel-vedi47161"
+        ],
+        "en": [
+          "gesamtprojektleiter-in-gebaudetechnik-fachbauleiter-in-80-100-amstein-walthert-basel-vedi47161"
+        ],
+        "fr": [
+          "gesamtprojektleiter-in-gebaudetechnik-fachbauleiter-in-80-100-amstein-walthert-basel-vedi47161"
+        ]
+      },
+      "previousSlugs": [
+        "gesamtprojektleiter-in-gebaudetechnik-fachbauleiter-in-80-100-amstein-walthert-basel-vedi47161"
+      ]
     },
     {
       "id": "amstein-walthert-0e87416dd8b1",
@@ -4703,8 +4715,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-elektro-80-100-amstein-walthert-horw-sawa47191",
         "it": "responsabile-di-progetto-elektro-80-100-amstein-walthert-ag-horw",
-        "en": "projektleiter-in-elektro-80-100-amstein-walthert-horw-sawa47191",
-        "fr": "projektleiter-in-elektro-80-100-amstein-walthert-horw-sawa47191"
+        "en": "project-manager-elektro-80-100-amstein-walthert-ag-horw-sawa47191",
+        "fr": "chef-de-projet-elektro-80-100-amstein-walthert-ag-horw-sawa47191"
       },
       "company": "Amstein + Walthert AG",
       "companyKey": "amstein-walthert",
@@ -4754,6 +4766,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-elektro-80-100-amstein-walthert-horw-sawa47191"
+        ],
+        "en": [
+          "projektleiter-in-elektro-80-100-amstein-walthert-horw-sawa47191"
+        ],
+        "fr": [
           "projektleiter-in-elektro-80-100-amstein-walthert-horw-sawa47191"
         ]
       },

@@ -6082,16 +6082,14 @@
           "• Ausgeprägte Dienstleistungsorientierung und eine „hands-on“ Mentalität"
         ]
       },
-      "previousSlugs": [
-        "service-manager-vz-vermoegenszentrum-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "service-manager-vz-vermoegenszentrum-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-30T09:33:56.420Z",
+      "previousSlugs": [
+        "service-manager-vz-vermoegenszentrum-ch"
+      ],
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -6104,7 +6102,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-30T09:33:56.420Z"
     },
     {
       "id": "vz-vermoegenszentrum-0b472dc1e26c",

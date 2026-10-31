@@ -8,6 +8,9 @@ on:
       - 'scripts/assisted-application/extension/apply-control.js'
       - 'scripts/assisted-application/lib/submit.mjs'
       - 'scripts/assisted-application/agent.mjs'
+      - 'scripts/assisted-application/verify-portal.mjs'
+      - 'scripts/assisted-application/reconcile-portal-questions.mjs'
+      - '.github/workflows/assisted-application-portal-recovery.yml'
       - 'scripts/assisted-application/lib/portal-code-version.mjs'
       - 'scripts/assisted-application/lib/execution-runtime.mjs'
       - 'scripts/assisted-application/lib/execution-artifacts.mjs'
@@ -49,6 +52,7 @@ on:
       - 'functions/src/assistedApplicationSubmissionGuard.js'
       - 'functions/src/lib/answerRules.js'
       - 'functions/src/lib/portalQuestionText.js'
+      - 'functions/src/lib/portalNativeContract.js'
   workflow_dispatch:
 
 permissions:
@@ -88,5 +92,11 @@ jobs:
           test -n "$FIREBASE_SERVICE_ACCOUNT_JSON"
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Prepare the read-only public-form browser
+        run: npx playwright install --with-deps chromium
+        timeout-minutes: 5
+      - name: Revalidate legacy operational portal contracts
+        run: node scripts/assisted-application/reconcile-portal-questions.mjs --apply
+        timeout-minutes: 5
       - name: Queue recoverable applications through the normal clock
         run: node scripts/assisted-application/reconcile-portal-code.mjs --apply

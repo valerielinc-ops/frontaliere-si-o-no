@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "msc-cargo-79b77bffefc2",
-      "slug": "junior-architect-port-development-intern-msc-geneva",
+      "slug": "junior-architetto-port-development-tirocinante-msc-group-geneva",
       "slugByLocale": {
         "en": "junior-architect-port-development-intern-msc-geneva",
-        "it": "junior-architect-port-development-intern-msc-geneva",
+        "it": "junior-architetto-port-development-tirocinante-msc-group-geneva",
         "de": "junior-architect-port-development-intern-msc-geneva",
-        "fr": "junior-architect-port-development-intern-msc-geneva"
+        "fr": "junior-architecte-port-development-stagiaire-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -68,16 +68,27 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-architect-port-development-intern-msc-geneva"
+        ],
+        "fr": [
+          "junior-architect-port-development-intern-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "junior-architect-port-development-intern-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-366420ad6a7c",
-      "slug": "hr-director-msc-geneva",
+      "slug": "risorse-umane-direttore-msc-group-geneva",
       "slugByLocale": {
         "en": "hr-director-msc-geneva",
-        "it": "hr-director-msc-geneva",
-        "de": "hr-director-msc-geneva",
-        "fr": "hr-director-msc-geneva"
+        "it": "risorse-umane-direttore-msc-group-geneva",
+        "de": "personalwesen-direktor-msc-group-geneva",
+        "fr": "ressources-humaines-directeur-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -122,7 +133,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -140,25 +150,25 @@
       "firstSeenAt": "2026-10-03T09:25:31.059Z",
       "previousSlugsByLocale": {
         "it": [
-          "risorse-umane-direttore-msc-group-geneva",
           "directeur-rh-msc-group-geneva",
-          "hr-director-msc-group-geneva"
+          "hr-director-msc-group-geneva",
+          "hr-director-msc-geneva"
         ],
         "de": [
-          "personalwesen-direktor-msc-group-geneva"
+          "hr-director-msc-geneva"
         ],
         "fr": [
           "directeur-des-ressources-humaines-msc-group-geneva",
           "directeur-rh-msc-group-geneva",
-          "hr-director-msc-group-geneva"
+          "hr-director-msc-group-geneva",
+          "hr-director-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "risorse-umane-direttore-msc-group-geneva",
-        "personalwesen-direktor-msc-group-geneva",
         "directeur-des-ressources-humaines-msc-group-geneva",
         "directeur-rh-msc-group-geneva",
-        "hr-director-msc-group-geneva"
+        "hr-director-msc-group-geneva",
+        "hr-director-msc-geneva"
       ]
     },
     {
@@ -1318,12 +1328,12 @@
     },
     {
       "id": "msc-cargo-7c6b74d245d9",
-      "slug": "hr-admin-intern-msc-geneva",
+      "slug": "risorse-umane-admin-tirocinante-msc-group-geneva",
       "slugByLocale": {
         "en": "hr-admin-intern-msc-geneva",
-        "it": "hr-admin-intern-msc-geneva",
-        "de": "hr-admin-intern-msc-geneva",
-        "fr": "hr-admin-intern-msc-geneva"
+        "it": "risorse-umane-admin-tirocinante-msc-group-geneva",
+        "de": "personalwesen-admin-praktikant-msc-group-geneva",
+        "fr": "ressources-humaines-admin-stagiaire-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1385,29 +1395,27 @@
       "firstSeenAt": "2026-10-27T21:26:32.978Z",
       "previousSlugsByLocale": {
         "it": [
-          "risorse-umane-admin-tirocinante-msc-group-geneva"
+          "hr-admin-intern-msc-geneva"
         ],
         "de": [
-          "personalwesen-admin-praktikant-msc-group-geneva"
+          "hr-admin-intern-msc-geneva"
         ],
         "fr": [
-          "ressources-humaines-admin-stagiaire-msc-group-geneva"
+          "hr-admin-intern-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "risorse-umane-admin-tirocinante-msc-group-geneva",
-        "personalwesen-admin-praktikant-msc-group-geneva",
-        "ressources-humaines-admin-stagiaire-msc-group-geneva"
+        "hr-admin-intern-msc-geneva"
       ]
     },
     {
       "id": "msc-cargo-eea3761c3310",
-      "slug": "retail-training-manager-msc-geneva",
+      "slug": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
       "slugByLocale": {
         "en": "retail-training-manager-msc-geneva",
-        "it": "retail-training-manager-msc-geneva",
-        "de": "retail-training-manager-msc-geneva",
-        "fr": "retail-training-manager-msc-geneva"
+        "it": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
+        "de": "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
+        "fr": "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1469,37 +1477,36 @@
       "firstSeenAt": "2026-09-28T05:02:31.217Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
           "responsabile-formazione-e-sviluppo-del-retail-msc-group-geneva",
           "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva",
           "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva",
           "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
           "retail-learning-development-manager-msc-geneva",
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
+          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
+          "retail-training-manager-msc-geneva"
         ],
         "de": [
-          "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
           "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva",
-          "retail-learning-development-manager-msc-geneva"
+          "retail-learning-development-manager-msc-geneva",
+          "retail-training-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
           "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva",
-          "retail-learning-development-manager-msc-geneva"
+          "retail-learning-development-manager-msc-geneva",
+          "retail-training-manager-msc-geneva"
         ],
         "en": [
           "retail-learning-development-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
-        "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
         "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
         "responsabile-formazione-e-sviluppo-del-retail-msc-group-geneva",
         "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva",
         "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva",
         "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
-        "retail-learning-development-manager-msc-geneva"
+        "retail-learning-development-manager-msc-geneva",
+        "retail-training-manager-msc-geneva"
       ]
     },
     {

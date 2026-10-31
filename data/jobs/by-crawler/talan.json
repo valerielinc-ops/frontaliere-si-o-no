@@ -956,12 +956,12 @@
     },
     {
       "id": "talan-1136cde917a9",
-      "slug": "head-of-presales-talan-geneva-ge-switzerland",
+      "slug": "responsabile-presales-talan-geneva-ge-switzerland",
       "slugByLocale": {
         "fr": "head-of-presales-talan-geneva-ge-switzerland",
-        "it": "head-of-presales-talan-geneva-ge-switzerland",
+        "it": "responsabile-presales-talan-geneva-ge-switzerland",
         "en": "head-of-presales-talan-geneva-ge-switzerland",
-        "de": "head-of-presales-talan-geneva-ge-switzerland"
+        "de": "leiter-presales-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
@@ -1022,7 +1022,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:15:44.902Z"
+      "firstSeenAt": "2026-10-30T21:15:44.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-presales-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "head-of-presales-talan-geneva-ge-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-presales-talan-geneva-ge-switzerland"
+      ]
     }
   ]
 }

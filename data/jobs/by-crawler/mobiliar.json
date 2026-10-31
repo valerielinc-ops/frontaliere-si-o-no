@@ -10,7 +10,7 @@
         "fr": "business-analyst-data-reporting-prevoyance-f-h-d-mobiliar-ch",
         "it": "business-analyst-data-reporting-prevoyance-f-h-d-mobiliar-ch",
         "en": "business-analyst-data-reporting-prevoyance-f-h-d-mobiliar-ch",
-        "de": "business-analyst-data-reporting-prevoyance-f-h-d-mobiliar-ch"
+        "de": "business-analyst-daten-reporting-prognose-m-w-d-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -148,7 +148,7 @@
       "slugByLocale": {
         "fr": "business-analyst-transformation-plateforme-contrats-f-h-d-mobiliar-ch",
         "it": "business-analyst-transformation-plateforme-contrats-f-h-d-mobiliar-ch",
-        "en": "business-analyst-transformation-plateforme-contrats-f-h-d-mobiliar-ch",
+        "en": "business-analyst-transformation-platform-contracts-m-f-d-die-mobiliar-nyon",
         "de": "business-analyst-transformation-plateforme-contrats-f-h-d-mobiliar-ch"
       },
       "company": "die Mobiliar",
@@ -213,12 +213,12 @@
     },
     {
       "id": "mobiliar-b771e958d1d2",
-      "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-bulach-die-mobiliar-kloten",
+      "slug": "consulente-assicurativo-e-previdenziale-m-f-d-agenzia-generale-bulach-die-mobiliar-kloten",
       "slugByLocale": {
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-bulach-mobiliar-ch",
-        "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-bulach-die-mobiliar-kloten",
-        "en": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-bulach-mobiliar-ch",
-        "fr": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-bulach-mobiliar-ch"
+        "it": "consulente-assicurativo-e-previdenziale-m-f-d-agenzia-generale-bulach-die-mobiliar-kloten",
+        "en": "insurance-and-pension-advisor-m-f-d-general-agency-bulach-die-mobiliar-kloten",
+        "fr": "conseiller-en-assurance-et-pension-h-f-d-agence-generale-bulach-die-mobiliar-kloten"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -277,14 +277,21 @@
         ]
       },
       "sfJobId": "1165714355",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-bulach-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-bulach-die-mobiliar-kloten"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-bulach-mobiliar-ch"
+        ],
+        "fr": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-bulach-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-bulach-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-bulach-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-bulach-die-mobiliar-kloten"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -305,12 +312,12 @@
     },
     {
       "id": "mobiliar-8e6e8f770444",
-      "slug": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch",
+      "slug": "damage-inspector-property-damage-direzione-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch",
-        "it": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch",
-        "en": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch",
-        "fr": "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+        "it": "damage-inspector-property-damage-direzione-m-f-d-die-mobiliar-bern",
+        "en": "damage-inspector-property-damage-directorate-m-f-d-die-mobiliar-bern",
+        "fr": "inspecteur-des-dommages-direction-des-dommages-materiels-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -384,7 +391,21 @@
       },
       "postalCode": "3004",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-30T21:13:43.196Z"
+      "firstSeenAt": "2026-10-30T21:13:43.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schadeninspektor-sachschaden-direktion-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-f452a5725751",
@@ -7478,9 +7499,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7544,17 +7565,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

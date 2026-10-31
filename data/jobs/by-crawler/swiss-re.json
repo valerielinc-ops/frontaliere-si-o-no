@@ -594,12 +594,12 @@
     },
     {
       "id": "swiss-re-cc2058554a32",
-      "slug": "manager-underwriting-portfolio-engineering-swiss-re-ch",
+      "slug": "gestore-stipulazione-portfolio-ingegneria-swiss-re-zurich-ch",
       "slugByLocale": {
         "en": "manager-underwriting-portfolio-engineering-swiss-re-ch",
-        "it": "manager-underwriting-portfolio-engineering-swiss-re-ch",
-        "de": "manager-underwriting-portfolio-engineering-swiss-re-ch",
-        "fr": "manager-underwriting-portfolio-engineering-swiss-re-ch"
+        "it": "gestore-stipulazione-portfolio-ingegneria-swiss-re-zurich-ch",
+        "de": "manager-underwriting-portfoliotechnik-swiss-re-zurich-ch",
+        "fr": "gestionnaire-ingenierie-du-portefeuille-de-souscription-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -642,7 +642,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -658,7 +657,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-30T21:20:09.919Z"
+      "firstSeenAt": "2026-10-30T21:20:09.919Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-underwriting-portfolio-engineering-swiss-re-ch"
+        ],
+        "de": [
+          "manager-underwriting-portfolio-engineering-swiss-re-ch"
+        ],
+        "fr": [
+          "manager-underwriting-portfolio-engineering-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-underwriting-portfolio-engineering-swiss-re-ch"
+      ]
     }
   ]
 }

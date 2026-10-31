@@ -6353,6 +6353,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  salaryMin: job.salaryMin,
  salaryMax: job.salaryMax,
  currency: job.currency,
+ salarySource: job.salarySource,
  featured: job.featured,
  };
  });
@@ -9891,7 +9892,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  slug={initialJobSlug}
  findActiveJob={(slug) => {
  const job = sortedJobs.find((j) => j.slug === slug || Object.values(j.slugByLocale ?? {}).includes(slug));
- return job ? toSaveableJob(job) : null;
+ return job ?? null;
  }}
  onBack={backToList}
  hasAccess={hasAccess}
