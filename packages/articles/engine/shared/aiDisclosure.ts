@@ -73,7 +73,7 @@ export interface ArticleTransparencyCopy {
   readonly human: (authorName: string) => string;
   /** Original contribution whose source has no named byline. */
   readonly humanWithoutName: string;
-  /** Solo quando l'articolo linka davvero una fonte: vedi articleHasExternalSource. */
+  /** Printed only when `hasLinkedSources()` holds for the article body. */
   readonly sources: string;
   /** Avvertenza per i temi fiscali, legali e previdenziali: sempre visibile. */
   readonly disclaimer: string;
@@ -82,6 +82,33 @@ export interface ArticleTransparencyCopy {
   /** Short labels for the static trust navigation. */
   readonly navMethodology: string;
   readonly navCorrections: string;
+}
+
+/**
+ * Hosts whose links are never an editorial source: our own pages, and the
+ * image-credit surfaces the article page prints next to the text. The audit of
+ * 2026-10-31 had to exclude the same hosts by hand: counting them moved the
+ * share of articles "with a source" from 32 to 54 per 100.
+ */
+const NON_SOURCE_HOST = /(^|\.)(frontaliereticino\.ch|commons\.wikimedia\.org|upload\.wikimedia\.org|creativecommons\.org)$/i;
+const LINK_TARGET = /(?:href\s*=\s*["']|(?:^|[^!])\[[^\]]*\]\(<?)\s*(https?:\/\/[^\s"'<>)]+)/gim;
+
+/**
+ * Whether a body really links an external source. `ARTICLE_TRANSPARENCY.sources`
+ * asserts that it does, so both emitters print that sentence only when this is
+ * true: rendered on every article it was false on 68 of the 100 audited pages.
+ * Accepts Markdown (SPA segments) and rendered HTML (static page).
+ */
+export function hasLinkedSources(text: string | readonly string[] | null | undefined): boolean {
+  const source = Array.isArray(text) ? text.join('\n') : String(text ?? '');
+  for (const match of source.matchAll(LINK_TARGET)) {
+    try {
+      if (!NON_SOURCE_HOST.test(new URL(match[1]).hostname)) return true;
+    } catch {
+      // Not a URL: it cannot be a source the reader can follow.
+    }
+  }
+  return false;
 }
 
 /** Per-article disclosure: the same claim as `AI_USE_STATEMENT`, applied to one article. */
@@ -173,17 +200,6 @@ export function resolveArticleBylineNote(
   const pseudonym = author?.kind === 'editorial-profile' && author.slug !== NEWSROOM_AUTHOR_SLUG;
   return [pseudonym ? copy.editorialSignature : '', aiAssisted ? copy.aiGenerated : ''].filter(Boolean).join(', ');
 
-}
-
-// Link esterni che non sono fonti: crediti immagine, condivisione, pubblicità.
-const NON_SOURCE_LINK = /(?:frontaliereticino\.ch|wikimedia\.org|creativecommons\.org|unsplash\.com|pexels\.com|facebook\.com|linkedin\.com|t\.me|wa\.me|whatsapp\.com|twitter\.com|x\.com|reddit\.com|google\.com|googlesyndication\.com|doubleclick\.net)/i;
-
-/** True se l'HTML dell'articolo contiene almeno un link a una fonte esterna. */
-export function articleHasExternalSource(html: string): boolean {
-  for (const match of html.matchAll(/<a\b[^>]*\bhref=["'](https?:\/\/[^"']+)["']/gi)) {
-    if (!NON_SOURCE_LINK.test(match[1].replace(/^https?:\/\//i, '').split('/')[0])) return true;
-  }
-  return false;
 }
 
 export function disclosureLocale(locale: string): DisclosureLocale {

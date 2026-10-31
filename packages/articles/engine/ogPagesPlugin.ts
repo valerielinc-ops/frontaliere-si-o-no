@@ -51,7 +51,7 @@ import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath,
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { renderArticleLocaleVariantNavHtml } from './shared/localeVariantNav.mjs';
-import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, articleHasExternalSource, disclosureLocale, resolveArticleBylineNote } from './shared/aiDisclosure';
+import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, hasLinkedSources, resolveArticleBylineNote } from './shared/aiDisclosure';
 import {
   resolveArticleProvenance,
   resolveArticleTransparencyStatement,
@@ -1226,7 +1226,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
   const statement = resolveArticleTransparencyStatement(locale, provenance, authorName);
-  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)}${articleHasExternalSource(bodyHtml) ? ` ${esc(tr.sources)}` : ''} ${esc(tr.disclaimer)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
+  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)}${hasLinkedSources(bodyHtml) ? ` ${esc(tr.sources)}` : ''} ${esc(tr.disclaimer)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
  };
 
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —
@@ -1761,7 +1761,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  }),
  url: full,
  inLanguage: locale,
- // Author matches the visible "Di {authorName}" byline below and the
+ // Author matches the visible localized byline ("Di/By/Von/Par {authorName}") below and the
  // SPA-side Organization schema (#3520) — Google's guidance: structured-data
  // author must match the byline. Organization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
