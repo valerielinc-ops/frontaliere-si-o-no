@@ -172,7 +172,8 @@ jobs:
       # (scripts/load-rc-env.mjs RC_TO_ENV: R2_ACCOUNT_ID, R2_BUCKET,
       # R2_S3_ENDPOINT, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY). Deliberately
       # NO full `npm ci` anywhere in this job — the renderer’s targeted runtime
-      # dependencies are installed from the root lockfile above. `tsx` stays
+      # dependencies (`esbuild` for static shell serialization plus the
+      # renderer packages) are installed from the root lockfile above. `tsx` stays
       # on-demand and the shard-push / CDN-upload scripts use Node built-ins.
       - name: Load secrets from Remote Config (R2 + indexing)
         if: inputs.dry_run != true && inputs.dry_run != 'true'

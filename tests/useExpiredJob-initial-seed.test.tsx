@@ -26,6 +26,13 @@ describe('useExpiredJob initial document seed', () => {
       slug: EXPIRED_SLUG,
       title: 'Crew member',
       company: 'McDonald’s Switzerland',
+      salaryMin: 80000,
+      salaryMax: 95000,
+      currency: 'CHF',
+      salarySource: 'reported',
+      contract: 'full-time',
+      datePosted: '2026-10-29',
+      postingDateSource: 'reported',
     };
 
     const root = document.getElementById('root')!;
@@ -48,7 +55,7 @@ describe('useExpiredJob initial document seed', () => {
         document.querySelector<HTMLElement>('main[data-expired-static-body]')
           ?.style.setProperty('display', 'none', 'important');
       }, []);
-      return <div>{expiredJob?.title ?? 'missing expired job'}</div>;
+      return <div>{expiredJob?.title ?? 'missing expired job'}:{expiredJob?.salaryMin}:{expiredJob?.contract}:{expiredJob?.datePosted}</div>;
     }
 
     render(<React.StrictMode><HydrationHarness /></React.StrictMode>);
@@ -58,7 +65,7 @@ describe('useExpiredJob initial document seed', () => {
     expect(seedMarker?.hidden).toBe(true);
     expect(seedMarker?.textContent).toBe('');
     expect(seedMarker?.style.getPropertyValue('display')).toBe('none');
-    expect(screen.getByText('Crew member')).toBeTruthy();
+    expect(screen.getByText('Crew member:80000:full-time:2026-10-29')).toBeTruthy();
     expect(fetchMock).not.toHaveBeenCalled();
   });
 

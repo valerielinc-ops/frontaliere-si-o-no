@@ -18,9 +18,18 @@ LOCKED_HTML_ENTITIES_VERSION="$(
     process.stdout.write(version);
   ' "$ROOT_DIR/package-lock.json"
 )"
+LOCKED_ESBUILD_VERSION="$(
+  node -e '
+    const lock = require(process.argv[1]);
+    const version = lock.packages?.["node_modules/esbuild"]?.version;
+    if (!version) process.exit(1);
+    process.stdout.write(version);
+  ' "$ROOT_DIR/package-lock.json"
+)"
 
 NOBLE_DEPS_DIR="$(mktemp -d "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/article-renderer-noble.XXXXXX")"
-trap 'rm -rf -- "$NOBLE_DEPS_DIR"' EXIT
+ESBUILD_DEPS_DIR="$(mktemp -d "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/article-renderer-esbuild.XXXXXX")"
+trap 'rm -rf -- "$NOBLE_DEPS_DIR" "$ESBUILD_DEPS_DIR"' EXIT
 
 npm install \
   --prefix "$NOBLE_DEPS_DIR" \
@@ -36,6 +45,22 @@ npm install \
 mkdir -p "$ROOT_DIR/node_modules/@noble"
 rm -rf -- "$ROOT_DIR/node_modules/@noble/hashes"
 cp -a -- "$NOBLE_DEPS_DIR/node_modules/@noble/hashes" "$ROOT_DIR/node_modules/@noble/hashes"
+
+npm install \
+  --prefix "$ESBUILD_DEPS_DIR" \
+  --workspaces=false \
+  --omit=peer \
+  --include=optional \
+  --ignore-scripts \
+  --no-audit \
+  --no-fund \
+  --no-save \
+  --package-lock=false \
+  "esbuild@$LOCKED_ESBUILD_VERSION"
+
+rm -rf -- "$ROOT_DIR/node_modules/esbuild" "$ROOT_DIR/node_modules/@esbuild"
+cp -a -- "$ESBUILD_DEPS_DIR/node_modules/esbuild" "$ROOT_DIR/node_modules/esbuild"
+cp -a -- "$ESBUILD_DEPS_DIR/node_modules/@esbuild" "$ROOT_DIR/node_modules/@esbuild"
 
 npm install \
   --prefix "$ROOT_DIR/packages/articles" \

@@ -43,7 +43,6 @@ describe('cf-observability-audit checks', () => {
     ['unknown-bot-share', { topUserAgents: [{ ua: 'NewBot/1.0', count: 60_000 }] }],
     ['googlebot-301-share', { googlebot301: 31_000 }],
     ['log-privacy-settings', { redactQueryString: false }],
-    ['log-budget', { total: 3_000_000 }],
   ])('%s fails alone on its own signal', (id, change) => {
     const ids = failing({ ...healthy, ...change } as typeof healthy);
     expect(ids).toContain(id);
@@ -53,10 +52,14 @@ describe('cf-observability-audit checks', () => {
     expect(failing({ ...healthy, topUserAgents: [{ ua: 'Reflectionbot/1.0', count: 90_000 }] })).toEqual([]);
   });
 
-  it('requires the 0.1 sampling rate only from the cutover date', () => {
+  it('judges sampling and volume only from the cutover date', () => {
+    const cutover = new Date('2026-12-01T00:00:00Z');
     const fullSampling = { ...healthy, total: 100_000, samplingRate: 1 };
     expect(failing(fullSampling)).not.toContain('log-budget');
-    expect(failing(fullSampling, new Date('2026-12-01T00:00:00Z'))).toContain('log-budget');
+    expect(failing(fullSampling, cutover)).toContain('log-budget');
+    const highVolume = { ...healthy, total: 3_000_000 };
+    expect(failing(highVolume)).not.toContain('log-budget');
+    expect(failing(highVolume, cutover)).toContain('log-budget');
   });
 
   it('stays report-only until the first window without the pre-fix traffic', () => {

@@ -284,7 +284,8 @@ jobs:
       # loads before calling the identical post-render plugin functions this
       # driver reuses — see scripts/load-rc-env.mjs's RC_TO_ENV mapping.
       # Deliberately NO full `npm ci`: the targeted renderer runtime dependencies
-      # are installed from the root lockfile above; `tsx` stays on-demand so
+      # (including `esbuild` for static shell serialization) are installed from
+      # the root lockfile above; `tsx` stays on-demand so
       # this workflow remains off the full-install/full-build critical path.
       - name: Load secrets from Remote Config (R2 + indexing)
         run: node scripts/load-rc-env.mjs

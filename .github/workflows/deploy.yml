@@ -1231,14 +1231,17 @@ jobs:
       # One step for the barrier and the download. The script retries transient
       # errors and validates each manifest, so a missing, truncated, or foreign
       # manifest cannot be interpreted as an unknown member and let one shard
-      # publish a different graph. Bound: 60 min barrier + 20 min downloads.
+      # publish a different graph. The barrier ends 260 minutes after the job
+      # start, not after a fixed wait: how far apart the legs arrive depends on
+      # their cache hits. Then 20 minutes of downloads at most.
       - name: Exchange same-run hreflang manifests
         id: exchange-hreflang-index-manifests
-        timeout-minutes: 85
+        timeout-minutes: 285
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           HREFlANG_BUILD_LOCALE: ${{ matrix.locale }}
+          HREFlANG_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
           HREFlANG_RUN_ID: ${{ github.run_id }}
           HREFlANG_RUN_ATTEMPT: ${{ github.run_attempt }}
         run: node scripts/ci/exchange-hreflang-manifests.mjs --manifest-dir .cache/hreflang-index-manifest
