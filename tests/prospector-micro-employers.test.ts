@@ -12,6 +12,7 @@ import {
   hasUntriedEmailDomainHint,
   isTraceRetryDue,
   reviveStaleNoCareersCandidates,
+  reviveUnresolvedDomainCandidates,
 } from '../scripts/lib/prospector/candidate-store.mjs';
 import { emailDomainHintsByEmployer, employerEmailDomain } from '../scripts/lib/prospector/sources/seco-jobroom.mjs';
 import { extractLinks, hasHomepageHiringSignal, isCareerLink } from '../scripts/lib/prospector/careers-trail.mjs';
@@ -102,6 +103,42 @@ describe('email-domain hints in domain resolution', () => {
       : { ok: false, status: 404, body: '' }));
     const result = await resolveDomain({ name: 'Polverini Spazzacamino', city: 'Lugano', domainHints: ['agenzia.ch'] });
     expect(result.domain).toBeNull();
+  });
+});
+
+describe('domain verdicts older than the guesser', () => {
+  const unresolved = (extra: Record<string, unknown>) => ({
+    status: 'dead',
+    reason: 'dominio non risolto',
+    name: 'Rossi SA',
+    traceLastAttemptAt: new Date(Date.parse('2026-10-31T00:00:00.000Z') - 86_400_000).toISOString(),
+    ...extra,
+  });
+
+  it('gives them one more attempt, Ticino first, within the batch', () => {
+    const store = { candidates: {
+      zh: unresolved({ key: 'zh', canton: 'ZH' }),
+      ti: unresolved({ key: 'ti', canton: 'TI' }),
+    } };
+    expect(reviveUnresolvedDomainCandidates(store as never, { limit: 1, ledgerFile: '/dev/null' })).toEqual(['ti']);
+    expect(store.candidates.ti).toMatchObject({ status: 'new', traceRetryAt: null });
+    expect(store.candidates.ti.reason).not.toBe('dominio non risolto');
+    expect(store.candidates.zh.status).toBe('dead');
+  });
+
+  it('wakes a candidate parked by exhausted retries', () => {
+    const parked = unresolved({ key: 'parked', status: 'new', canton: 'SG', traceAttempts: 4, traceRetryAt: new Date(Date.now() + 86_400_000).toISOString() });
+    const store = { candidates: { parked } };
+    reviveUnresolvedDomainCandidates(store as never, { ledgerFile: '/dev/null' });
+    expect(isTraceRetryDue(parked)).toBe(true);
+  });
+
+  it('leaves alone a verdict the new guesser already gave and any found domain', () => {
+    const store = { candidates: {
+      fresh: unresolved({ key: 'fresh', traceLastAttemptAt: new Date(Date.now() + 1000).toISOString() }),
+      found: unresolved({ key: 'found', domain: 'rossi.ch' }),
+    } };
+    expect(reviveUnresolvedDomainCandidates(store as never, { ledgerFile: '/dev/null' })).toEqual([]);
   });
 });
 

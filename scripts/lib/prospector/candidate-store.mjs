@@ -934,6 +934,43 @@ export function reviveStaleNoCareersCandidates(store, options = {}) {
   return due.map(([key]) => key);
 }
 
+/** The day the name-to-domain guesser last changed. Older failures describe the old guesser. */
+export const DOMAIN_GUESSER_REVISED_AT = '2026-10-31T00:00:00.000Z';
+export const DOMAIN_RETRY_BATCH = 150;
+export const DOMAIN_UNRESOLVED_REASON = 'dominio non risolto';
+
+/**
+ * Give "domain not resolved" verdicts one more attempt after the guesser
+ * changes. The verdict said the old guesses failed, not that the employer has no
+ * site, and without this only candidates discovered from now on would benefit.
+ * The attempt date makes this a single pass: TRACE stamps it again on failure.
+ * Ticino comes first, and the cap leaves room for never-traced candidates.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {{ limit?: number, ledgerFile?: string|null }} [options]
+ * @returns {string[]} the keys returned to the queue
+ */
+export function reviveUnresolvedDomainCandidates(store, options = {}) {
+  const revisedAt = Date.parse(DOMAIN_GUESSER_REVISED_AT);
+  const attemptedAt = (candidate) => Date.parse(String(candidate.traceLastAttemptAt || candidate.firstSeenAt || '')) || 0;
+  const due = Object.entries(store.candidates)
+    .filter(([, candidate]) => (candidate.status === 'dead' || candidate.status === 'new')
+      && candidate.reason === DOMAIN_UNRESOLVED_REASON
+      && !candidate.domain
+      && attemptedAt(candidate) < revisedAt)
+    .sort(([, a], [, b]) => Number(b.canton === 'TI') - Number(a.canton === 'TI')
+      || attemptedAt(b) - attemptedAt(a))
+    .slice(0, options.limit ?? DOMAIN_RETRY_BATCH);
+  for (const [key] of due) {
+    setStatus(store, key, 'new', {
+      reason: 'nuovo tentativo: generatore di domini aggiornato',
+      traceRetryable: true,
+      traceRetryAt: null,
+    }, options.ledgerFile);
+  }
+  return due.map(([key]) => key);
+}
+
 /**
  * Build bounded exponential backoff metadata for one retryable trace attempt.
  *
