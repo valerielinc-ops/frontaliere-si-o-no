@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { decodeFirestoreFields, readPublicDocument } from '@/services/firestorePublicRead';
 import { runOnFirstEngagement } from '@/services/runOnFirstEngagement';
 
@@ -21,7 +21,7 @@ describe('read-only pages do not load the Firestore client', () => {
 
   it('the exchange rate and the byline reads go over REST', () => {
     const rate = read('services/exchangeRateService.ts');
-    const body = rate.slice(rate.indexOf('async function getFirestoreRate'), rate.indexOf('// ─── Live rate'));
+    const body = rate.slice(rate.indexOf('async function getFirestoreRate'), rate.indexOf('// Cache Firestore write permission failures'));
     expect(body).toContain("readPublicDocument('config/exchange_rate')");
     expect(body).not.toContain("import('firebase/firestore')");
     const authors = read('services/authorProfileService.ts');
@@ -94,7 +94,11 @@ describe('readPublicDocument', () => {
 });
 
 describe('runOnFirstEngagement', () => {
-  afterEach(() => vi.useRealTimers());
+  beforeEach(() => { vi.stubGlobal('window', new EventTarget()); });
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+  });
 
   it('runs once on the first engagement and cancels the timeout', () => {
     vi.useFakeTimers();
