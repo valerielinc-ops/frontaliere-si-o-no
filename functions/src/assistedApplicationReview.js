@@ -226,13 +226,50 @@ export function buildWordCopy(file, { order, orderId, flow, draft, nowMs }) {
   return null;
 }
 
+/** The current round's canonical SENT record: the ledger's, never the draft's. */
+function sentRecordOf({ flow, submission }) {
+  const record = submission?.[`r${Number(flow?.round) || 1}`];
+  return record?.state === 'sent' ? record : null;
+}
+
+/** The one proof that `draft.sent` says what left: the canonical record holds that exact snapshot. */
+function sentSnapshotBound({ flow, draft, submission }) {
+  const record = sentRecordOf({ flow, submission });
+  return Boolean(record?.sent && draft?.sent && sameAnswerMaterial(record.sent, draft.sent));
+}
+
+/**
+ * What the page may list of keptDocumentsOf's result. With a canonical SENT, only the files of its exact
+ * snapshot; without one the files stay available, as prepared: the runner's record alone proves nothing.
+ * @param {{flow:object, draft:object, submission:object, keptDocuments:object|null}} input
+ * @returns {object|null}
+ */
+function keptOnPage({ flow, draft, submission, keptDocuments }) {
+  if (flow?.state !== 'submitted' || !keptDocuments?.files?.length) return null;
+  const bound = sentSnapshotBound({ flow, draft, submission });
+  if (sentRecordOf({ flow, submission }) && !(bound && keptDocuments.source === 'sent')) return null;
+  return keptDocuments.source === 'sent' && !bound ? { ...keptDocuments, source: 'prepared' } : keptDocuments;
+}
+
+/**
+ * The Word copies on offer, for the payload and the download alike. Before the sending, what can be built;
+ * afterwards, only those the page lists beside a kept file: never a copy of what did not leave.
+ * @returns {{letter:boolean, cv:boolean}}
+ */
+function wordOffered({ flow, draft, submission, keptDocuments }) {
+  if (flow?.state !== 'submitted' && !sentRecordOf({ flow, submission })) return wordCopiesOf({ flow, draft });
+  const listed = (keptOnPage({ flow, draft, submission, keptDocuments })?.files || []).flatMap((file) => file.word || []);
+  return { letter: listed.includes('letter.docx'), cv: listed.includes('cv.docx') };
+}
+
 /**
  * What the candidate keeps once the application left (owner decision 2026-10-03): the files the runner
  * recorded as sent or, for an older order and a record of which nothing can be signed, the stored letter
  * PDF and the CV that leaves (cvToSend). A WhatsApp application leaves from the candidate's phone and the
  * candidate chooses the CV they send in the chat (owner decision 2026-10-03): the letter, the tailored CV,
  * highlighted when there is one (`suggested`, never stored as a choice), and their own CV. Only keys in
- * the order's folder; the Word copies go beside the letter and the tailored CV.
+ * the order's folder; the Word copies go beside the letter and the tailored CV. `source` says where the
+ * list comes from: keptOnPage decides whether the page can attest it.
  * @returns {{source:'sent'|'prepared', whatsapp:boolean, files:Array<{kind:string, name:string, key:string, word:string[], suggested:boolean}>}|null}
  */
 export function keptDocumentsOf({ order, orderId, flow, draft }) {
@@ -240,8 +277,9 @@ export function keptDocumentsOf({ order, orderId, flow, draft }) {
   const whatsapp = order?.submissionChannel === 'whatsapp';
   const copies = wordCopiesOf({ flow, draft });
   const cv = cvToSend(draft, flow, order);
+  // Without `letterAddress` the stored PDF left (submit.mjs letterForSubmission): its recipient and date are not the Word's.
   const wordFor = (kind) => [
-    ...((kind === 'letter' || kind === 'dossier') && copies.letter ? ['letter.docx'] : []),
+    ...((kind === 'letter' || kind === 'dossier') && copies.letter && draft.letterAddress ? ['letter.docx'] : []),
     ...((kind === 'cvTailored' || (kind === 'dossier' && cv.cv === 'tailored')) && copies.cv ? ['cv.docx'] : []),
   ];
   // A key outside the order's folder is never signed (resolveCvLink hands an https:// value back as it is).
@@ -304,10 +342,6 @@ export function buildReviewPayload({ orderId, order, flow, draft, round, coverLe
   const current = Number(flow?.round) || 1;
   const state = publicSubmissionState({ order, flow, submission });
   const irreversible = submissionIrreversibility({ submission });
-  const sentRecord = submission?.[`r${current}`];
-  // With a canonical receipt, only its exact recorded snapshot can substantiate kept files.
-  const keptBoundToSend = sentRecord?.state !== 'sent'
-    || Boolean(sentRecord.sent && draft?.sent && sameAnswerMaterial(sentRecord.sent, draft.sent) && keptDocuments?.source === 'sent');
   const answerContracts = answerContractsFor({ orderId, order, flow, draft });
   const reviewRequired = currentAnswerReviewRequired(flow, draft);
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
@@ -395,10 +429,10 @@ export function buildReviewPayload({ orderId, order, flow, draft, round, coverLe
       permitOmitted: permitOmitted(profile.permitStatus, profile.nationality),
     } : null,
     // The editable Word copies the server builds on request: never stored, never a CV choice.
-    word: wordCopiesOf({ flow, draft }),
+    word: wordOffered({ flow, draft, submission, keptDocuments }),
     // After the sending: what the candidate keeps (keptDocumentsOf), with signed links.
     // Projection proves that a send happened, never that today's draft files left.
-    keptDocuments: flow?.state === 'submitted' && keptBoundToSend && keptDocuments?.files?.length ? keptDocuments : null,
+    keptDocuments: keptOnPage({ flow, draft, submission, keptDocuments }),
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
       approve: !stale && !irreversible && !reviewRequired && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
@@ -745,6 +779,30 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
   }
 }
 
+/** One signature per key and request: the letter can be both the review's and a kept file. */
+function requestSigner(deps) {
+  const signed = new Map();
+  return (key) => {
+    if (!key || !deps.signUrl) return null;
+    if (!signed.has(key)) signed.set(key, deps.signUrl(key).catch(() => null));
+    return signed.get(key);
+  };
+}
+
+/** keptDocumentsOf with signed links only: the storage keys never reach the page. A file without a link is not offered. */
+async function signedKeptDocuments(input, sign) {
+  const kept = keptDocumentsOf(input);
+  if (!kept) return null;
+  const urls = await Promise.all(kept.files.map((file) => sign(file.key)));
+  return {
+    source: kept.source,
+    whatsapp: kept.whatsapp,
+    files: withSuggestion(kept.files
+      .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: urls[index] }))
+      .filter((file) => file.url), kept.whatsapp),
+  };
+}
+
 /**
  * @param {{method:string, query?:object, body?:object}} req
  * @param {{db, runEffect, bucket?, sendCascade?, getSecret?, signUrl?, nowMs?}} deps bucket: the order's Storage, for
@@ -762,7 +820,11 @@ export async function handleAssistedApplicationReview(req, deps) {
       // An editable Word copy: the page's token checks, then built in memory and answered as a file.
       if (req.query?.file !== undefined) {
         if (kind !== 'review' || !WORD_FILES.has(String(req.query.file))) throw new ReviewError('not_found', 404);
-        const { order, flow, draft } = await loadAll(deps.db, orderId);
+        const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
+        // The list the page shows decides, signed links included: no signature is made before the sending.
+        const keptDocuments = await signedKeptDocuments({ order, orderId, flow, draft }, requestSigner(deps));
+        const offered = wordOffered({ flow, draft, submission, keptDocuments });
+        if (!offered[String(req.query.file) === 'letter.docx' ? 'letter' : 'cv']) throw new ReviewError('not_found', 404);
         const file = buildWordCopy(String(req.query.file), { order, orderId, flow, draft, nowMs });
         if (!file) throw new ReviewError('not_found', 404);
         return { status: 200, file };
@@ -775,28 +837,13 @@ export async function handleAssistedApplicationReview(req, deps) {
         return { status: 200, body: followupReviewPayload({ order: orderSnapshot.data(), draft: draftSnapshot.data() || {}, followup: followupSnapshot.data(), n: round }) };
       }
       const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
-      // One signature per key and request: the letter can be both the review's and a kept file.
-      const signed = new Map();
-      const sign = (key) => {
-        if (!key || !deps.signUrl) return null;
-        if (!signed.has(key)) signed.set(key, deps.signUrl(key).catch(() => null));
-        return signed.get(key);
-      };
-      const kept = keptDocumentsOf({ order, orderId, flow, draft });
-      const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, ...keptUrls] = await Promise.all([
+      const sign = requestSigner(deps);
+      const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments] = await Promise.all([
         sign(draft?.coverLetterPdfKey),
         sign(draft?.tailoredCv?.status === 'ready' ? draft.tailoredCv.pdfKey : null),
         sign(inPlaceReady(draft) ? draft.tailoredCv.inplace.docxKey : null),
-        ...(kept?.files || []).map((file) => sign(file.key)),
+        signedKeptDocuments({ order, orderId, flow, draft }, sign),
       ]);
-      // Signed links only: the storage keys never reach the page. A file without a link is not offered.
-      const keptDocuments = kept && {
-        source: kept.source,
-        whatsapp: kept.whatsapp,
-        files: withSuggestion(kept.files
-          .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
-          .filter((file) => file.url), kept.whatsapp),
-      };
       return { status: 200, body: { ...buildReviewPayload({ orderId, order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
         employerResponse: employerResponseView(await loadEmployerResponse(orderRefFor(deps.db, orderId), order)),
       } };
@@ -876,6 +923,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
     }
     if (action === 'answers') {
+      // Left, receipt or not: refused before any validation or provider check (saveAnswersWithCv repeats it in its commit).
+      if (flow.state === 'submitted') throw new ReviewError('already_sent', 409, { state: publicSubmissionState({ order, flow, submission }) });
       const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', flow.answers || {}, flow.questionAnswers || {});
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
       // The questions are dynamic (one set per posting), so the fixed rules

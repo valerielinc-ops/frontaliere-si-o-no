@@ -213,10 +213,10 @@ describe('a correction always reaches the tailored CV that leaves', () => {
     expect(printed().personal).toEqual([['Nationalität', 'Italien (EU)']]);
   });
 
-  it('keeps the PDF of a sent application, and saves nothing without Storage', async () => {
+  it('refuses answers on a sent application and keeps its PDF, and saves nothing without Storage', async () => {
     seed({ flow: { state: 'submitted' }, draft: { questions: [permitQuestion] } });
-    expect(await post({ action: 'answers', answers: { work_permit: DE[2] } })).toMatchObject({ status: 200 });
-    expect([flowNow().answers, draftNow().tailoredCv.pdfKey, renders()]).toEqual([{ work_permit: DE[2] }, CV_KEY, 0]);
+    expect(await post({ action: 'answers', answers: { work_permit: DE[2] } })).toMatchObject({ status: 409, body: { ok: false, error: 'already_sent', state: 'submitted' } });
+    expect([flowNow().answers, draftNow().tailoredCv.pdfKey, renders()]).toEqual([{}, CV_KEY, 0]);
 
     seed({ draft: { questions: [permitQuestion] } });
     expect(await post({ action: 'answers', answers: { work_permit: DE[2] } }, { bucket: undefined })).toMatchObject({ status: 503, body: { ok: false, error: 'storage_unavailable' } });

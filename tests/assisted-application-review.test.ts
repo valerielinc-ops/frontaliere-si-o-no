@@ -691,11 +691,13 @@ describe('the candidate keeps the documents', () => {
   const signUrl = vi.fn(async (key: string) => `https://signed.example/${key.split('/').pop()}`);
   const keptDeps = () => ({ ...deps(), bucket, signUrl });
   const orderRef = () => store.db.collection('assisted_applications').doc(ORDER);
-  const seed = async ({ order = {}, flow = {}, draftExtra = {} }: { order?: Record<string, any>, flow?: Record<string, any>, draftExtra?: Record<string, any> } = {}) => {
+  const seed = async ({ order = {}, flow = {}, draftExtra = {}, submission = {} }: { order?: Record<string, any>, flow?: Record<string, any>, draftExtra?: Record<string, any>, submission?: Record<string, any> } = {}) => {
     await orderRef().set({ cvStorageKey: ORIGINAL, ...order }, { merge: true });
     await orderRef().collection('automation').doc('flow').set(flow, { merge: true });
     await orderRef().collection('ai_drafts').doc('current').set(keptDraft(draftExtra));
+    await orderRef().collection('automation').doc('submission').set(submission);
   };
+  const ledger = (sent: Record<string, any>) => ({ r1: { state: 'sent', channel: 'lever', sent } });
   const view = async (t = token()) => (await handleAssistedApplicationReview({ method: 'GET', query: { t } }, keptDeps())).body;
   const word = (file: unknown, t = token()) => handleAssistedApplicationReview({ method: 'GET', query: { t, file } }, keptDeps()) as Promise<any>;
   const texts = (buffer: Buffer) => paragraphInventory(entryData(readZip(buffer).find((entry: any) => entry.name === 'word/document.xml'), 1 << 24).toString('utf8'))
@@ -772,7 +774,8 @@ describe('the candidate keeps the documents', () => {
   });
 
   it('lists what really left, signed, from the order’s folder only', async () => {
-    await seed({ flow: { state: 'submitted' }, draftExtra: { sent: { at: T0, channel: 'email', packaging: 'separate', files: sentFiles } } });
+    const sent = { at: T0, channel: 'email', packaging: 'separate', files: sentFiles };
+    await seed({ flow: { state: 'submitted' }, draftExtra: { sent }, submission: ledger(sent) });
     const body = await view();
     expect(body.keptDocuments).toEqual({
       source: 'sent',
@@ -791,8 +794,132 @@ describe('the candidate keeps the documents', () => {
     expect(JSON.stringify(body)).not.toContain('assisted-application-uploads/');
     // The candidate's own Word file with the adapted lines, recorded by its key.
     const inplace = { status: 'ready', docxKey: KEY('ai-cv-inplace-r1-1.docx') };
-    await seed({ flow: { state: 'submitted' }, draftExtra: { tailoredCv: { status: 'ready', pdfKey: TAILORED, cv, inplace }, sent: { at: T0, files: [{ kind: 'cv', name: 'CV_Maria_Rossi.docx', key: inplace.docxKey }] } } });
+    const inplaceSent = { at: T0, files: [{ kind: 'cv', name: 'CV_Maria_Rossi.docx', key: inplace.docxKey }] };
+    await seed({ flow: { state: 'submitted' }, draftExtra: { tailoredCv: { status: 'ready', pdfKey: TAILORED, cv, inplace }, sent: inplaceSent }, submission: ledger(inplaceSent) });
     expect((await view()).keptDocuments.files).toEqual([{ kind: 'cvInplace', name: 'CV_Maria_Rossi.docx', url: 'https://signed.example/ai-cv-inplace-r1-1.docx', word: [], suggested: false }]);
+  });
+
+  describe('the Word copies after the sending follow the list the page shows', () => {
+    const LETTER_FILE = { kind: 'letter', name: 'Lettera_di_presentazione_Maria_Rossi.pdf', key: KEY(`sent-r1-${T0}-letter.pdf`) };
+    const TAILORED_FILE = { kind: 'cv', name: 'CV_Maria_Rossi.pdf', key: TAILORED };
+    const boundSent = { at: T0, channel: 'lever', packaging: 'separate', files: [LETTER_FILE, TAILORED_FILE] };
+    // The payload and both downloads, read together: they can only agree.
+    const offer = async (t = token()) => ({
+      word: (await view(t)).word,
+      letter: (await word('letter.docx', t)).status,
+      cv: (await word('cv.docx', t)).status,
+    });
+    const both = { word: { letter: true, cv: true }, letter: 200, cv: 200 };
+    const none = { word: { letter: false, cv: false }, letter: 404, cv: 404 };
+
+    it('offers both copies of a send the ledger binds', async () => {
+      await seed({ flow: { state: 'submitted' }, draftExtra: { sent: boundSent }, submission: ledger(boundSent) });
+      expect((await view()).keptDocuments).toMatchObject({ source: 'sent', files: [{ kind: 'letter', word: ['letter.docx'] }, { kind: 'cvTailored', word: ['cv.docx'] }] });
+      expect(await offer()).toEqual(both);
+    });
+
+    it.each([
+      ['a different snapshot on the draft', { sent: { ...boundSent, at: T0 - DAY } }, ledger(boundSent)],
+      ['no snapshot on the draft', {}, ledger(boundSent)],
+      ['no snapshot in the ledger', { sent: boundSent }, { r1: { state: 'sent', channel: 'lever' } }],
+      ['a legacy acknowledgement, which proves the state and synthesizes no snapshot', {}, { r1: { state: 'sent', channel: 'email', receiptBindingHash: 'a'.repeat(64) } }],
+    ])('offers nothing with %s, and invents no receipt', async (_name, draftExtra, submission) => {
+      await seed({ flow: { state: 'submitted' }, draftExtra, submission });
+      const before = JSON.stringify([...store.docs]);
+      expect((await view()).keptDocuments).toBeNull();
+      expect(await offer()).toEqual(none);
+      expect(JSON.stringify([...store.docs])).toBe(before);
+    });
+
+    it('offers nothing from a stale flow the ledger projects as sent', async () => {
+      await seed({ flow: { state: 'owner_takeover' }, draftExtra: { sent: boundSent }, submission: ledger(boundSent) });
+      const body = await view();
+      expect(body.state).toBe('submitted');
+      expect(body.keptDocuments).toBeNull();
+      expect(await offer()).toEqual(none);
+    });
+
+    it('never gives the tailored Word as the copy of an original or in-place CV that left', async () => {
+      const original = { ...boundSent, files: [LETTER_FILE, { kind: 'cv', name: 'CV_Maria_Rossi.pdf', key: ORIGINAL }] };
+      await seed({ flow: { state: 'submitted', cvChoice: 'original' }, draftExtra: { sent: original }, submission: ledger(original) });
+      expect((await view()).keptDocuments.files.map((file: any) => [file.kind, file.word])).toEqual([['letter', ['letter.docx']], ['cvOriginal', []]]);
+      expect(await offer()).toEqual({ word: { letter: true, cv: false }, letter: 200, cv: 404 });
+
+      const inplace = { status: 'ready', docxKey: KEY('ai-cv-inplace-r1-1.docx') };
+      const inPlaceSent = { ...boundSent, files: [LETTER_FILE, { kind: 'cv', name: 'CV_Maria_Rossi.docx', key: inplace.docxKey }] };
+      await seed({ flow: { state: 'submitted', cvChoice: 'inplace' }, draftExtra: { tailoredCv: { status: 'ready', pdfKey: TAILORED, cv, inplace }, sent: inPlaceSent }, submission: ledger(inPlaceSent) });
+      expect((await view()).keptDocuments.files.map((file: any) => [file.kind, file.word])).toEqual([['letter', ['letter.docx']], ['cvInplace', []]]);
+      expect(await offer()).toEqual({ word: { letter: true, cv: false }, letter: 200, cv: 404 });
+    });
+
+    it('gives no Word letter when no letter left', async () => {
+      const noLetter = { ...boundSent, files: [TAILORED_FILE] };
+      await seed({ flow: { state: 'submitted' }, draftExtra: { sent: noLetter }, submission: ledger(noLetter) });
+      expect((await view()).keptDocuments.files.map((file: any) => file.kind)).toEqual(['cvTailored']);
+      expect(await offer()).toEqual({ word: { letter: false, cv: true }, letter: 404, cv: 200 });
+    });
+
+    it('does not serve a copy the page could not list without its signed link', async () => {
+      const sent = { ...boundSent };
+      await seed({ flow: { state: 'submitted' }, draftExtra: { sent }, submission: ledger(sent) });
+      const unsigned = { ...keptDeps(), signUrl: async (key: string) => (key === LETTER_FILE.key ? null : `https://signed.example/${key.split('/').pop()}`) };
+      const page = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, unsigned);
+      expect(page.body.word).toEqual({ letter: false, cv: true });
+      expect(await handleAssistedApplicationReview({ method: 'GET', query: { t: token(), file: 'letter.docx' } }, unsigned)).toMatchObject({ status: 404 });
+      expect(await handleAssistedApplicationReview({ method: 'GET', query: { t: token(), file: 'cv.docx' } }, unsigned)).toMatchObject({ status: 200 });
+    });
+
+    it('presents the runner’s record without a canonical SENT as prepared, with the same files', async () => {
+      for (const submission of [{}, { r1: { state: 'failed', channel: 'lever' } }, { r1: { state: 'sending', channel: 'lever' } }]) {
+        await seed({ flow: { state: 'submitted' }, draftExtra: { sent: boundSent }, submission });
+        const before = JSON.stringify([...store.docs]);
+        const body = await view();
+        expect(body.state).toBe('submitted');
+        expect(body.keptDocuments).toMatchObject({ source: 'prepared', files: [{ kind: 'letter' }, { kind: 'cvTailored' }] });
+        expect(await offer()).toEqual(both);
+        expect(JSON.stringify([...store.docs])).toBe(before);
+      }
+    });
+
+    it('keeps the PDFs and the prepared Word copies of a candidate’s confirmation, with no ledger made for it', async () => {
+      await seed({ flow: { state: 'candidate_handoff' } });
+      expect(await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'confirm_submitted' } }, keptDeps())).toMatchObject({ status: 200, body: { state: 'submitted' } });
+      expect(store.read(`${BASE}/automation/submission`)).toEqual({});
+      expect((await view()).keptDocuments).toMatchObject({
+        source: 'prepared',
+        files: [{ kind: 'letter', url: 'https://signed.example/ai-cover-letter-r1-1.pdf' }, { kind: 'cvTailored', url: 'https://signed.example/ai-cv-r1-1.pdf' }],
+      });
+      expect(await offer()).toEqual(both);
+    });
+
+    it('does not call a Word letter the copy of a draft whose stored PDF left, and keeps it before the sending', async () => {
+      await seed({ draftExtra: { letterAddress: null } });
+      expect(await offer()).toEqual(both);
+      await seed({ flow: { state: 'submitted' }, draftExtra: { letterAddress: null } });
+      expect((await view()).keptDocuments.files.map((file: any) => [file.kind, file.word])).toEqual([['letter', []], ['cvTailored', ['cv.docx']]]);
+      expect(await offer()).toEqual({ word: { letter: false, cv: true }, letter: 404, cv: 200 });
+      await seed({ flow: { state: 'submitted' }, draftExtra: { letterAddress: null, sent: boundSent }, submission: ledger(boundSent) });
+      expect((await view()).keptDocuments).toMatchObject({ source: 'sent', files: [{ kind: 'letter', url: `https://signed.example/sent-r1-${T0}-letter.pdf`, word: [] }, { kind: 'cvTailored' }] });
+      expect(await offer()).toEqual({ word: { letter: false, cv: true }, letter: 404, cv: 200 });
+    });
+
+    it('refuses the owner’s answers on a submitted flow without a ledger', async () => {
+      await seed({ flow: { state: 'submitted', answers: { work_permit: 'G' } }, draftExtra: { questions: draft().questions } });
+      const before = JSON.stringify([...store.docs]);
+      await expect(handleAutomationAdminAction(store.db, { action: 'automationSetAnswers', orderId: ORDER, answers: { work_permit: 'B' } }, 'owner@example.com', { runEffect, nowMs: T0 }))
+        .rejects.toMatchObject({ code: 'already_sent', status: 409 });
+      expect(JSON.stringify([...store.docs])).toBe(before);
+    });
+
+    it('prints the answers of before: a refused POST leaves the Word CV as it was', async () => {
+      const day = (days: number) => new Date(T0 + days * DAY).toISOString().slice(0, 10);
+      await seed({ flow: { state: 'submitted', answers: { availability: day(30) } }, draftExtra: { questions: [{ id: 'availability', question: 'Disponibilità', type: 'text' }] } });
+      const printed = texts((await word('cv.docx')).file.buffer);
+      const refused = await reviewHandler({ method: 'POST', body: { t: token(), action: 'answers', answers: { availability: day(60) } } }, keptDeps());
+      expect(refused).toMatchObject({ status: 409, body: { error: 'already_sent', state: 'submitted' } });
+      expect(store.read(`${BASE}/automation/flow`).answers).toEqual({ availability: day(30) });
+      expect(texts((await word('cv.docx')).file.buffer)).toEqual(printed);
+    });
   });
 
   it('keeps the stored letter and the CV that leaves for an older order, or a record it cannot sign', async () => {

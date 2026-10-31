@@ -65,6 +65,66 @@ describe('question confirmation protocol', () => {
       expect(remove).toHaveBeenCalled();
     } finally { vi.mocked(pdf.tailoredCvChanges).mockReturnValue(false); }
   });
+  it('refuses answers on a submitted flow without any ledger, for the candidate and the owner, and writes nothing', async () => {
+    for (const answerActor of ['candidate', 'owner']) {
+      const f = fixture(); const flowPath = 'assisted_applications/source/automation/flow';
+      f.read(flowPath).state = 'submitted';
+      vi.mocked(pdf.rebuildTailoredCvPdf).mockClear(); const before = JSON.stringify([...f.docs]);
+      await expect(f.save({ english: 'C1' }, { answerActor })).rejects.toMatchObject({ code: 'already_sent', status: 409, details: { state: 'submitted' } });
+      expect(JSON.stringify([...f.docs])).toBe(before);
+      expect(pdf.rebuildTailoredCvPdf).not.toHaveBeenCalled();
+    }
+  });
+  it('refuses a stale request whose flow became submitted before it reached the writer', async () => {
+    const f = fixture(); const stale = f.input(); const flowPath = 'assisted_applications/source/automation/flow';
+    const shown = answerContractsFor(stale);
+    const flow = structuredClone(stale.flow);
+    f.docs.set(flowPath, { ...f.read(flowPath), state: 'submitted' });
+    const before = JSON.stringify([...f.docs]);
+    await expect(saveAnswersWithCv({ ...stale, flow, answers: { english: 'C1' }, answerContracts: shown })).rejects.toMatchObject({ code: 'already_sent', status: 409 });
+    expect(JSON.stringify([...f.docs])).toBe(before);
+  });
+  it('does not publish answers or the rebuilt PDF when the flow becomes submitted during the PDF await', async () => {
+    const f = fixture(); let finish!: (value: any) => void; let enter!: () => void;
+    const flowPath = 'assisted_applications/source/automation/flow';
+    const entered = new Promise<void>(resolve => { enter = resolve; });
+    vi.mocked(pdf.tailoredCvChanges).mockReturnValue(true);
+    vi.mocked(pdf.rebuildTailoredCvPdf).mockImplementation(() => new Promise(resolve => { finish = resolve; enter(); }));
+    const remove = vi.fn(async () => {});
+    try {
+      const pending = f.save({ english: 'C1' }, { bucket: { file: () => ({ delete: remove }) } });
+      await entered;
+      f.docs.set(flowPath, { ...f.read(flowPath), state: 'submitted' });
+      const before = JSON.stringify([...f.docs]);
+      finish({ pdfKey: 'refused-submitted.pdf', renderer: 'test', photo: null });
+      // The field comparison alone would say changed_meanwhile: this is the commit's own refusal.
+      await expect(pending).rejects.toMatchObject({ code: 'already_sent', status: 409 });
+      expect(JSON.stringify([...f.docs])).toBe(before);
+      expect(remove).toHaveBeenCalledTimes(1);
+    } finally { vi.mocked(pdf.tailoredCvChanges).mockReturnValue(false); }
+  });
+  it.each(['candidate_review', 'needs_candidate_action'])('keeps saving answers and rebuilding the PDF in %s', async state => {
+    const f = fixture(); f.read('assisted_applications/source/automation/flow').state = state;
+    vi.mocked(pdf.tailoredCvChanges).mockReturnValue(true);
+    vi.mocked(pdf.rebuildTailoredCvPdf).mockReset();
+    vi.mocked(pdf.rebuildTailoredCvPdf).mockResolvedValue({ pdfKey: 'new.pdf', renderer: 'test', photo: null } as any);
+    try {
+      await expect(f.save({ english: 'C1' }, { bucket: { file: () => ({ delete: async () => {} }) } })).resolves.toMatchObject({ rebuilt: true });
+      expect(f.input().flow.answers).toEqual({ english: 'C1' });
+      expect(f.input().draft.tailoredCv).toMatchObject({ pdfKey: 'new.pdf' });
+    } finally { vi.mocked(pdf.tailoredCvChanges).mockReturnValue(false); }
+  });
+  it('keeps saving answers on a failed flow, whose PDF stays the record of what left', async () => {
+    const f = fixture(); f.read('assisted_applications/source/automation/flow').state = 'failed';
+    vi.mocked(pdf.tailoredCvChanges).mockReturnValue(true);
+    vi.mocked(pdf.rebuildTailoredCvPdf).mockClear();
+    try {
+      await expect(f.save({ english: 'C1' })).resolves.toMatchObject({ rebuilt: false });
+      expect(f.input().flow.answers).toEqual({ english: 'C1' });
+      expect(f.input().flow.state).toBe('failed');
+      expect(pdf.rebuildTailoredCvPdf).not.toHaveBeenCalled();
+    } finally { vi.mocked(pdf.tailoredCvChanges).mockReturnValue(false); }
+  });
   it('allows recovery after a failed ledger even with stale sentAttempt/queue legacy payload', async () => {
     const f = fixture(); f.docs.set('assisted_applications/source/automation/submission', { r1: { state: 'failed', clickedAt: now } });
     Object.assign(f.input().order, { submissionStatus: 'ready_for_manual_submission', submittedAt: now });

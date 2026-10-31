@@ -112,6 +112,21 @@ describe('durable submission public state', () => {
     assert.equal(buildReviewPayload({ ...input, draft: readyDraft() }).keptDocuments, null);
     assert.equal(buildReviewPayload({ ...input, keptDocuments: { ...keptDocuments, source: 'prepared' } }).keptDocuments, null);
   });
+
+  for (const [name, submission] of Object.entries({
+    'no ledger': {}, sending: { r1: { state: 'sending', channel: 'lever' } }, failed: { r1: { state: 'failed', channel: 'lever' } },
+    'another round': { r2: { state: 'sent', sent: { at: NOW } } },
+  })) {
+    it(`shows the runner's record as prepared with ${name}: only a bound ledger attests it`, () => {
+      const sent = { at: NOW, files: [{ kind: 'letter', key: `assisted-application-uploads/${ORDER}/recorded.pdf` }] };
+      const keptDocuments = { source: 'sent', files: [{ name: 'recorded.pdf', url: 'https://signed.example/recorded.pdf', word: ['letter.docx'] }] };
+      const payload = buildReviewPayload({ orderId: ORDER, order: {}, flow: { state: 'submitted', round: 1 }, round: 1,
+        draft: { ...readyDraft(), sent }, keptDocuments, submission });
+      assert.equal(payload.state, 'submitted');
+      assert.deepEqual(payload.keptDocuments, { ...keptDocuments, source: 'prepared' });
+      assert.deepEqual(payload.word, { letter: true, cv: false });
+    });
+  }
 });
 
 describe('order-wide irreversible submission fence', () => {
@@ -303,6 +318,52 @@ describe('review direct writers race with the final send fence', () => {
     assert.deepEqual(deleted, saved);
     assert.ok(!deleted.includes(oldKey));
   });
+
+  it('refuses answers on a submitted flow without any ledger, before validation, provider, Storage or any write', async () => {
+    const { store, deps, effects, writes } = seed({}, 'submitted', {
+      draft: { questions: [{ id: 'available', question: 'Available?', type: 'choice', options: ['no'] }] },
+    });
+    const before = JSON.stringify([...store.docs]);
+    const checkAnswers = vi.fn(async () => ({ ok: true }));
+    const bucket = { file: () => { throw new Error('storage touched'); } };
+    // `yes` is not among the options: a 400 here would mean the validation ran first.
+    const result = await handleAssistedApplicationReview(post('answers'), { ...deps, bucket, checkAnswers });
+    assert.equal(result.status, 409);
+    assert.equal(result.body.error, 'already_sent');
+    assert.equal(result.body.state, 'submitted');
+    assert.equal(writes(), 0);
+    assert.deepEqual(effects, []);
+    assert.equal(checkAnswers.mock.calls.length, 0);
+    assert.equal(JSON.stringify([...store.docs]), before);
+  });
+
+  it('refuses a flow that becomes submitted after the POST read, and publishes nothing', async () => {
+    const { store, deps, effects } = seed({}, 'candidate_review', {
+      draft: { questions: [{ id: 'available', question: 'Available?', type: 'text' }] },
+    });
+    const flowPath = `${BASE}/automation/flow`;
+    const checkAnswers = async () => {
+      store.docs.set(flowPath, { ...store.read(flowPath), state: 'submitted' });
+      return { ok: true };
+    };
+    const result = await handleAssistedApplicationReview(post('answers'), { ...deps, checkAnswers });
+    assert.equal(result.status, 409);
+    assert.equal(result.body.error, 'already_sent');
+    assert.equal(store.read(flowPath).state, 'submitted');
+    assert.deepEqual(store.read(flowPath).answers, {});
+    assert.equal(store.read(flowPath).answerConfirmations, undefined);
+    assert.deepEqual(effects, []);
+  });
+
+  for (const state of ['candidate_review', 'needs_candidate_action', 'failed']) {
+    it(`keeps answers saved on a flow in ${state}, without promoting it`, async () => {
+      const { store, deps } = seed({}, state, { order: { cvUploadedAt: NOW }, draft: { questions: [{ id: 'available', question: 'Available?', type: 'text' }] } });
+      const result = await handleAssistedApplicationReview(post('answers'), deps);
+      assert.equal(result.status, 200);
+      assert.equal(store.read(`${BASE}/automation/flow`).answers.available, 'yes');
+      assert.notEqual(store.read(`${BASE}/automation/flow`).state, 'submitted');
+    });
+  }
 
   it('keeps a failed pre-click attempt editable despite its stale prepared payload', async () => {
     const { store, deps } = seed({ r1: { state: 'failed', clickedAt: null } }, 'candidate_review', {

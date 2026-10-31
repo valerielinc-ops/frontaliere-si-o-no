@@ -137,7 +137,7 @@ describe('starting the flow', () => {
     const key = candidateQuestionAnswerKey(question);
     const at = Date.now();
     const sourceOrder = paidOrder({ userId, cvUploadedAt: at, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
-    const sourceFlow = { state: 'submitted', round: 1, answers: {}, questionAnswers: {} };
+    const sourceFlow = { state: 'candidate_review', round: 1, answers: {}, questionAnswers: {} };
     const sourceDraft = { round: 1, questions: [question] };
     store = createMemoryFirestore({ [ORDER_PATH]: sourceOrder,
       [`${ORDER_PATH}/automation/flow`]: sourceFlow, [`${ORDER_PATH}/ai_drafts/current`]: sourceDraft,

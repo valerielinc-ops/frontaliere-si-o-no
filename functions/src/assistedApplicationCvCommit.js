@@ -123,8 +123,10 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * Answers (the candidate's or the owner's) saved with the tailored CV they
  * print: rebuilt and committed together, before any flow event can dispatch
  * the submission (decision 7). Only the request's own keys are written. A
- * submitted or failed flow keeps its PDF (the record of what left); a
- * renderer or a Storage that fails saves nothing; no bucket, no answers.
+ * submitted flow takes no answer, with or without a receipt: the Word copies
+ * are built from these answers, the PDF that left is not. A failed flow keeps
+ * its PDF (the record of what left); a renderer or a Storage that fails saves
+ * nothing; no bucket, no answers.
  * @returns {Promise<{rebuilt:boolean}>}
  */
 export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs, answerActor = null, answerContracts = {}, requireAnswerContracts = false }) {
@@ -139,6 +141,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const [intakeSnapshot, submissionSnapshot, freshOrder, freshFlow] = await Promise.all([intakeRef.get(), submissionRef.get(), orderRef.get(), flowRef.get()]);
   const initialIrreversibility = submissionIrreversibility({ submission: submissionSnapshot.data() });
   if (initialIrreversibility) throw new CvCommitError(initialIrreversibility, 409, { state: publicSubmissionState({ order: freshOrder.data(), flow: freshFlow.data(), submission: submissionSnapshot.data() }) });
+  if ([flow?.state, freshFlow.data()?.state].includes('submitted')) throw new CvCommitError('already_sent', 409, { state: 'submitted' });
   const intake = intakeSnapshot.data() || null;
   const mergedAnswers = { ...(flow.answers || {}), ...answers };
   const previousMemory = { ...(flow.questionAnswers || {}) };
@@ -206,7 +209,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       console.warn('[assistedApplicationCvCommit] candidate answer ledger failed', orderId, error instanceof Error ? error.message : String(error));
     }
   };
-  const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && !['submitted', 'failed'].includes(flow.state);
+  const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && flow.state !== 'failed';
   const needsRebuild = !confirmation.reviewRequired && live && tailoredCvChanges({ order, draft, flow, nextFlow });
   if (needsRebuild && !bucket) throw new CvCommitError('storage_unavailable', 503);
   const rebuilt = needsRebuild ? await rebuildCvToCommit({ db, bucket, order, orderId, draft, flow: nextFlow, nowMs }) : null;
@@ -216,6 +219,8 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       const [os, fs, ds, ins, ss] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef), transaction.get(intakeRef), transaction.get(submissionRef)]);
       const irreversibility = submissionIrreversibility({ submission: ss.data() });
       if (irreversibility) throw new CvCommitError(irreversibility, 409, { state: publicSubmissionState({ order: os.data(), flow: fs.data(), submission: ss.data() }) });
+      // Sent while the PDF was built: refused here, before any contract or field comparison can answer otherwise.
+      if (fs.data()?.state === 'submitted') throw new CvCommitError('already_sent', 409, { state: 'submitted' });
       if (!os.exists || !fs.exists || !ds.exists) return false;
       const currentFlow = fs.data(); const currentDraft = ds.data();
       if (qualificationCounterContextHash(qualificationCounterContext({ order: os.data(), flow: currentFlow, intake: ins.data() || null })) !== beforeCounterHash) return false;
