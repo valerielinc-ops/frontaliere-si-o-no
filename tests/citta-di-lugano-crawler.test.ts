@@ -160,6 +160,27 @@ describe('parseListingPage', () => {
     expect((jobs as any).fetchOutcome).toBe('ok');
   });
 
+  it('keeps vacancy cards when document and action links are nested list items', () => {
+    const jobs = parseListingPage(`
+      <ul>
+        <li>
+          <div>un/a collaboratore/trice in ambito prestazioni sociali all'80%</div>
+          <div>Scadenza | 26 ottobre 2026 |</div>
+          <ul>
+            <li><a href="/downloadConcorsi?name=Allegato1.pdf&amp;unid=ABC123">Capitolato di concorso</a></li>
+            <li><a href="https://egov.lugano.ch/it/services/3">Partecipa</a></li>
+          </ul>
+        </li>
+      </ul>`);
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].title).toContain('collaboratore/trice');
+    expect(jobs[0].deadline).toBe('2026-10-26');
+    expect(jobs[0].pdfUrl).toBe('https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=ABC123');
+    expect((jobs as any).discoveredCount).toBe(1);
+    expect((jobs as any).fetchOutcome).toBe('ok');
+  });
+
   it('resolves document-relative PDF links against the Concorsi page URL', () => {
     const [job] = parseListingPage(`
       <ul><li>

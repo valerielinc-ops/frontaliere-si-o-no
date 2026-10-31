@@ -114,6 +114,31 @@ export function isGenericCompetitionTitle(title = '') {
   return /^(?:concorsi(?: pubblici)?(?: e posti di lavoro)?|concorsi per (?:posti di lavoro|l.assunzione di personale)(?:[ .,:—–-].*)?)$/i.test(text);
 }
 
+function extractTopLevelListItems(html = '') {
+  const items = [];
+  const liTagRe = /<\/?li\b[^>]*>/gi;
+  let depth = 0;
+  let contentStart = -1;
+  let match;
+
+  while ((match = liTagRe.exec(html)) !== null) {
+    if (match[0][1] !== '/') {
+      if (depth === 0) contentStart = match.index + match[0].length;
+      depth += 1;
+      continue;
+    }
+
+    if (depth === 0) continue;
+    depth -= 1;
+    if (depth === 0 && contentStart >= 0) {
+      items.push(html.slice(contentStart, match.index));
+      contentStart = -1;
+    }
+  }
+
+  return items;
+}
+
 /* ── Listing page parser ───────────────────────────────────── */
 
 /**
@@ -133,12 +158,11 @@ export function parseListingPage(html) {
   const seen = new Set();
   let listingEvidenceCount = 0;
 
-  // Pattern 1: List items with <strong> job titles
+  // Pattern 1: top-level list items with <strong> job titles
   // e.g. <li><strong>Architetto/a progettista</strong> ... Scadenza: 30.03.2026 ...
-  const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
-  let match;
-  while ((match = liRe.exec(html)) !== null) {
-    const liHtml = match[1];
+  // The CMS nests the document/action links in a second <ul>. A non-balanced
+  // regex closes at the first nested </li> and loses the vacancy container.
+  for (const liHtml of extractTopLevelListItems(html)) {
     const visibleText = stripHtml(liHtml);
     if (/\bscadenza\b/i.test(visibleText) && /downloadConcorsi|\.pdf\b/i.test(liHtml)) {
       listingEvidenceCount += 1;

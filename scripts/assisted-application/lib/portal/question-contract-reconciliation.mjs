@@ -13,7 +13,7 @@ import { hasNativeApplicantIdentity } from './native-control-contract.mjs';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../../../functions/src/lib/portalNativeContract.js';
 
 export const PORTAL_CONTRACT_RECONCILIATION_VERSION = PORTAL_NATIVE_CONTRACT_VERSION;
-const text = value => String(value ?? '').normalize('NFC').replace(/\s+/g, ' ').trim();
+const text = value => ['string', 'number'].includes(typeof value) ? String(value).normalize('NFC').replace(/\s+/g, ' ').trim() : '';
 const hasAnswer = value => text(value).length > 0;
 const routingLabels = [
   /^(?:come (?:sono|sei|e|siamo|siete) venut[oaie] a conoscenza (?:di|del|della|dell|di questa|di questo|della nostra|del nostro) (?:lavoro|annuncio(?: di lavoro)?|offerta(?: di lavoro)?|posizione|azienda)|come (?:hai|ha|avete) (?:saputo di|scoperto|trovato|conosciuto) (?:questo |questa |il |la |l |la nostra )?(?:lavoro|annuncio(?: di lavoro)?|offerta(?: di lavoro)?|posizione|azienda)|fonte dell annuncio)$/,
@@ -117,6 +117,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
         version: PORTAL_CONTRACT_RECONCILIATION_VERSION, round: Number(draft.round), observedAt: proof.observedAt, url: proof.url,
         fieldId: field.id, nativeControlId: text(field.nativeControlId).slice(0, 200),
         nativeSelectId: text(field.nativeSelectId).slice(0, 200), frame: field.frame, label: field.label, kind: field.kind,
+        controlId: text(field.controlId).slice(0, 200), semanticId: text(field.semanticId).slice(0, 200),
         form: field.form, topic: relaxablePortalQuestionTopic(question), requiredEvidence: field.explicitlyOptional ? 'aria-required:false' : 'required',
         context: text(field.context).slice(0, 240), section: text(field.section).slice(0, 240), required: field.required,
       },

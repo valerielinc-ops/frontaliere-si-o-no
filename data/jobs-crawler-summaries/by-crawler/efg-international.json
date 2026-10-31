@@ -1,137 +1,20 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-10-31T09:15:27.832Z",
+  "generatedAt": "2026-10-31T21:24:28.369Z",
   "total": 20,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 20,
-  "durationMs": 12268,
-  "avgDurationMs": 12268,
+  "durationMs": 8830,
+  "avgDurationMs": 8830,
   "durationHistory": [
-    12268
+    8830
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "efg-6385",
-      "slug": "responsabile-rischio-aziendale-pb-coo-brm-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Business Risk Manager - PB COO - BRM",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6385",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "Motivated, passionate, hard worker and positive individual who continuously aims to make outstanding contributions and effect a difference from day 1."
-            ],
-            "responsibilities": [
-              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
-              "Preparation of the CRO RSC and Quarterly Control report",
-              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
-              "Contribution on preparation of the annual risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews.",
-              "Work with the Regional and Global PB BRM to achieve a robust First Line of Defence in the Area",
-              "Report on the internal control environment and potentially arising risks or issues.",
-              "Collaborate with local Compliance teams, Ops Risk and auditors for any ad-hoc reviews"
-            ],
-            "requirements": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
-              "Excellent data analysis and Program Languages (Python, SQL, R), Bloomberg Terminal",
-              "Languages required: English, German, French and Italian",
-              "Pro-active and clear communicator with strong organizational skills",
-              "Detailed oriented, precise and ability to work under pressure and tight deadlines",
-              "Willing to go the extra mile, efficient and resourceful<br>"
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
-            ],
-            "process": [],
-            "highlights": [
-              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
-              "Preparation of the CRO RSC and Quarterly Control report",
-              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
-              "Excellent data analysis and Program Languages (Python, SQL, R), Bloomberg Terminal",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry",
-              "Excellent data analysis and Program Languages (Python",
-              "Languages required",
-              "Pro-active and clear communicator with strong organizational skills",
-              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
-              "Preparation of the CRO RSC and Quarterly Control report",
-              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
-              "Contribution on preparation of the annual risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews."
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. <br>",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-09-01T00:30:29.427Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-08-04T22:14:55.681Z",
-      "salarySource": "estimated",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1959,
-      "needsRetranslation": true,
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6385",
-      "postingDateSource": "unknown",
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "efg-6488",
@@ -167,7 +50,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.264Z",
+      "crawledAt": "2026-10-31T21:24:13.746Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -305,7 +188,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.259Z",
+      "crawledAt": "2026-10-31T21:24:13.740Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -362,7 +245,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.223Z",
+      "crawledAt": "2026-10-31T21:24:13.710Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28T09:29:23+00:00",
@@ -490,7 +373,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.220Z",
+      "crawledAt": "2026-10-31T21:24:13.706Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -548,7 +431,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.215Z",
+      "crawledAt": "2026-10-31T21:24:13.702Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -679,7 +562,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.189Z",
+      "crawledAt": "2026-10-31T21:24:13.684Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -741,7 +624,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.179Z",
+      "crawledAt": "2026-10-31T21:24:13.677Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -2057,5 +1940,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

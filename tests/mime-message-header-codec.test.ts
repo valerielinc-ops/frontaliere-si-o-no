@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { decodeEncodedWords, parseMimeMessage } from '../functions/src/lib/mimeMessage.js';
 
-function base64Word(value: string) {
-  return `=?UTF-8?B?${Buffer.from(value, 'utf8').toString('base64')}?=`;
+function base64Word(value: string, charset = 'UTF-8') {
+  return `=?${charset}?B?${Buffer.from(value, 'utf8').toString('base64')}?=`;
 }
 
 function quotedPrintableWord(value: string) {
@@ -75,10 +75,35 @@ describe('RFC 2047 MIME header codec', () => {
     const unknownToken = `=?X-unknown-charset?B?${Buffer.from('Andrea', 'utf8').toString('base64')}?=`;
     const unknownCharset = `${unknownToken} =?UTF-8?B?Um9zc2k=?=`;
     const controlBearing = `=?UTF-8?B?${Buffer.from('safe\r\nInjected', 'utf8').toString('base64')}?=`;
+    const malformedCharset = `=?x-utf-8-bogus?B?${Buffer.from('é', 'utf8').toString('base64')}?=`;
+    const emptyBase64 = '=?UTF-8?B??=';
+    const overlong = `=?UTF-8?B?${'A'.repeat(64)}?=`;
+    const valid = base64Word('Andrea');
 
     expect(() => decodeEncodedWords(malformed)).not.toThrow();
     expect(decodeEncodedWords(malformed)).toBe(malformed);
     expect(decodeEncodedWords(unknownCharset)).toBe(`${unknownToken} Rossi`);
     expect(decodeEncodedWords(controlBearing)).toBe(controlBearing);
+    expect(decodeEncodedWords(malformedCharset)).toBe(malformedCharset);
+    expect(decodeEncodedWords(emptyBase64)).toBe(emptyBase64);
+    expect(overlong.length).toBeGreaterThan(75);
+    expect(decodeEncodedWords(overlong)).toBe(overlong);
+    expect(decodeEncodedWords(`${valid} ${unknownToken}`)).toBe(`Andrea ${unknownToken}`);
+    expect(decodeEncodedWords(`${valid}\r\n\t${malformed}`)).toBe(`Andrea\r\n\t${malformed}`);
+    expect(decodeEncodedWords(`${valid} ${controlBearing}`)).toBe(`Andrea ${controlBearing}`);
+  });
+
+  it('accepts RFC 2231 language-tagged UTF-8 and preserves raw fallback in parsed headers', () => {
+    const languageTagged = base64Word('Città', 'UTF-8*it');
+    const unknown = '=?X-unknown-charset?B?Qg==?=';
+    const malformed = '=?UTF-8?B?%%%?=';
+
+    expect(decodeEncodedWords(languageTagged)).toBe('Città');
+
+    for (const rawWord of [unknown, malformed]) {
+      const subject = `${base64Word('Andrea')} ${rawWord}`;
+      const parsed = parseMimeMessage(Buffer.from(`Subject: ${subject}\r\n\r\n`, 'latin1'));
+      expect(parsed.subject).toBe(`Andrea ${rawWord}`);
+    }
   });
 });

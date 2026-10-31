@@ -1,7 +1,7 @@
 {
   "crawlerKey": "planzer",
-  "assembledAt": "2026-10-31T09:22:08.319Z",
-  "runId": "41187297189",
+  "assembledAt": "2026-10-31T21:33:51.392Z",
+  "runId": "41242014604",
   "jobs": [
     {
       "id": "planzer-0e88445685a5",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4094249",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:22:01.199Z",
+      "crawledAt": "2026-10-31T21:33:46.929Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -116,7 +116,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4090020",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:22:00.476Z",
+      "crawledAt": "2026-10-31T21:33:46.271Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -197,7 +197,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4094108",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:59.794Z",
+      "crawledAt": "2026-10-31T21:33:45.624Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -278,7 +278,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4092129",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:59.064Z",
+      "crawledAt": "2026-10-31T21:33:44.900Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hermetschloostrasse 12",
@@ -346,7 +346,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4092126",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:58.386Z",
+      "crawledAt": "2026-10-31T21:33:44.222Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hermetschloostrasse 12",
@@ -428,7 +428,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4091935",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:57.721Z",
+      "crawledAt": "2026-10-31T21:33:43.508Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 10",
@@ -510,7 +510,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4095041",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:57.036Z",
+      "crawledAt": "2026-10-31T21:33:42.840Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "streetAddress": "Niderfeldstrasse 5",
@@ -593,7 +593,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4092570",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:56.258Z",
+      "crawledAt": "2026-10-31T21:33:42.182Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "streetAddress": "Mühleäulistrasse 6",
@@ -669,7 +669,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4092123",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:55.591Z",
+      "crawledAt": "2026-10-31T21:33:41.532Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -723,9 +723,9 @@
       "id": "planzer-112179f73f10",
       "slug": "carico-generale-m-f-d-planzer-villmergen",
       "slugByLocale": {
-        "de": "disponent-stuckgut-m-w-d-planzer-villmergen",
         "it": "carico-generale-m-f-d-planzer-villmergen",
         "en": "disponent-general-cargo-m-f-d-planzer-villmergen",
+        "de": "disponent-stuckgut-m-w-d-planzer-villmergen",
         "fr": "depannage-de-la-cargaison-generale-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
@@ -733,24 +733,25 @@
       "companyDomain": "planzer.ch",
       "title": "Disponent Stückgut (m/w/d)",
       "titleByLocale": {
-        "de": "Disponent Stückgut (m/w/d)",
         "it": "carico generale (m/f/d)",
         "en": "Disponent general cargo (m/f/d)",
+        "de": "Disponent Stückgut (m/w/d)",
         "fr": "Dépannage de la cargaison générale (h/f/d)"
       },
       "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du planst und koordinierst den Einsatz aller verfügbaren Transportmittel\n• Mit deiner freundlichen und kompetenten Art betreust und berätst du unsere Kundschaft rund um den Transport\n• Du erstellst individuelle Transportofferten für unsere Kunden\n• Die Führung und Betreuung unserer Chauffeure und Vertragsfahrer gehören ebenso zu deinem Verantwortungsbereich\n• Kundenreklamationen und Schadenfälle gehst du lösungsorientiert und professionell an\n• Unsere Transportaufträge erfasst, mutierst und rechnest du selbstständig ab\n• Auch bei administrativen Aufgaben bringst du dich zuverlässig ein\n\nWeshalb es dir gelingt\n• Sehr gute Kenntnisse der Schweizer Geografie – du weisst, wo’s langgeht\n• Du denkst wirtschaftlich und findest auch in herausfordernden Situationen die passende Lösung\n• Die Arbeit im Schichtbetrieb (zwischen 04:00 und 22:00 Uhr im Wochenwechsel) passt zu deinem Lebensrhythmus\n• Flexibilität, Belastbarkeit und Zuverlässigkeit zeichnen dich aus\n• Du hast eine abgeschlossene Berufslehre – idealerweise in der Transportbranche\n• Mit den gängigen EDV-Anwendungen kennst du dich aus\n• Ein Führerausweis Kat. C oder C/E sowie Erfahrung als Chauffeur sind von Vorteil, aber kein Muss\n• Du kommunizierst sicher in Deutsch – mündlich wie schriftlich und Französischkenntnisse sind ein Plus\n• Als ehrliche, teamfähige und vertrauenswürdige Persönlichkeit passt du bestens zu uns\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Eigenes Personalrestaurant: Geniesse leckere Menüs zu fairen Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du planst und koordinierst den Einsatz aller verfügbaren Transportmittel\n• Mit deiner freundlichen und kompetenten Art betreust und berätst du unsere Kundschaft rund um den Transport\n• Du erstellst individuelle Transportofferten für unsere Kunden\n• Die Führung und Betreuung unserer Chauffeure und Vertragsfahrer gehören ebenso zu deinem Verantwortungsbereich\n• Kundenreklamationen und Schadenfälle gehst du lösungsorientiert und professionell an\n• Unsere Transportaufträge erfasst, mutierst und rechnest du selbstständig ab\n• Auch bei administrativen Aufgaben bringst du dich zuverlässig ein\n\nWeshalb es dir gelingt\n• Sehr gute Kenntnisse der Schweizer Geografie – du weisst, wo’s langgeht\n• Du denkst wirtschaftlich und findest auch in herausfordernden Situationen die passende Lösung\n• Die Arbeit im Schichtbetrieb (zwischen 04:00 und 22:00 Uhr im Wochenwechsel) passt zu deinem Lebensrhythmus\n• Flexibilität, Belastbarkeit und Zuverlässigkeit zeichnen dich aus\n• Du hast eine abgeschlossene Berufslehre – idealerweise in der Transportbranche\n• Mit den gängigen EDV-Anwendungen kennst du dich aus\n• Ein Führerausweis Kat. C oder C/E sowie Erfahrung als Chauffeur sind von Vorteil, aber kein Muss\n• Du kommunizierst sicher in Deutsch – mündlich wie schriftlich und Französischkenntnisse sind ein Plus\n• Als ehrliche, teamfähige und vertrauenswürdige Persönlichkeit passt du bestens zu uns\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Eigenes Personalrestaurant: Geniesse leckere Menüs zu fairen Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Pianifica e coordina l'uso di tutti i mezzi di trasporto disponibili\n• Con il vostro modo amichevole e competente, supporta e consiglia i nostri clienti sul trasporto\n• Crea offerte di trasporto individuali per i nostri clienti\n• La guida e il supporto dei nostri accompagnatori e dei nostri autisti sono anche parte della vostra area di responsabilità.\n• Lamentele e casi di danno del cliente si avvicinano orientati alla soluzione e professionalmente\n• I nostri ordini di trasporto sono registrati, mutati e fatturati in modo indipendente\n• Anche nei compiti amministrativi si è in modo affidabile\n\nPerché hai successo?\n• Ottima conoscenza della geografia svizzera – sapete dove andare\n• Pensi economicamente e trovi la soluzione giusta anche in situazioni difficili\n• I turni di lavoro (tra le 04:00 e le 22:00 nel cambio della settimana) corrispondono al ritmo di vita\n• Flessibilità, resilienza e affidabilità ti hanno separato\n• Hai completato un apprendistato – idealmente nel settore dei trasporti\n• Con le applicazioni EDP comuni si conosce\n• Una patente di guida Cat. C o C/E così come l'esperienza come autista sono vantaggiose, ma non un must\n• Si comunica in modo sicuro in tedesco – orale così come le competenze scritte e francesi sono un plus\n• Come una personalità onesta, di team-capable e affidabile, sei una soluzione perfetta per noi\n\nI tuoi vantaggi\n• Ulteriori opportunità di formazione e sviluppo: Con noi si può sviluppare - promuoviamo e sfidare i talenti\n• Cultura della famiglia: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Ristorante personale: Godetevi menu deliziosi a prezzi eque\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
         "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• You plan and coordinate the use of all available means of transport\n• With your friendly and competent manner, you support and advise our customers about transport\n• You create individual transport offers for our customers\n• The guidance and support of our chauffeurs and contract drivers are also part of your area of responsibility.\n• Customer complaints and damage cases you approach solution-oriented and professionally\n• Our transport orders are recorded, mutated and billed independently\n• Also in administrative tasks you are reliably involved\n\nWhy do you succeed?\n• Very good knowledge of Swiss geography – you know where to go\n• You think economically and find the right solution even in challenging situations\n• Working shifts (between 04:00 and 22:00 in the week change) matches your life rhythm\n• Flexibility, resilience and reliability set you apart\n• You have completed an apprenticeship – ideally in the transport industry\n• With the common EDP applications you know yourself\n• A driving licence Cat. C or C/E as well as experience as a chauffeur are advantageous, but not a must\n• You communicate safely in German – oral as well as written and French skills are a plus\n• As an honest, team-capable and trustworthy personality, you are a perfect fit for us\n\nYour Benefits\n• Further education and development opportunities: With us you can develop yourself - we promote and challenge talents\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Own staff restaurant: Enjoy delicious menus at fair prices\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
+        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du planst und koordinierst den Einsatz aller verfügbaren Transportmittel\n• Mit deiner freundlichen und kompetenten Art betreust und berätst du unsere Kundschaft rund um den Transport\n• Du erstellst individuelle Transportofferten für unsere Kunden\n• Die Führung und Betreuung unserer Chauffeure und Vertragsfahrer gehören ebenso zu deinem Verantwortungsbereich\n• Kundenreklamationen und Schadenfälle gehst du lösungsorientiert und professionell an\n• Unsere Transportaufträge erfasst, mutierst und rechnest du selbstständig ab\n• Auch bei administrativen Aufgaben bringst du dich zuverlässig ein\n\nWeshalb es dir gelingt\n• Sehr gute Kenntnisse der Schweizer Geografie – du weisst, wo’s langgeht\n• Du denkst wirtschaftlich und findest auch in herausfordernden Situationen die passende Lösung\n• Die Arbeit im Schichtbetrieb (zwischen 04:00 und 22:00 Uhr im Wochenwechsel) passt zu deinem Lebensrhythmus\n• Flexibilität, Belastbarkeit und Zuverlässigkeit zeichnen dich aus\n• Du hast eine abgeschlossene Berufslehre – idealerweise in der Transportbranche\n• Mit den gängigen EDV-Anwendungen kennst du dich aus\n• Ein Führerausweis Kat. C oder C/E sowie Erfahrung als Chauffeur sind von Vorteil, aber kein Muss\n• Du kommunizierst sicher in Deutsch – mündlich wie schriftlich und Französischkenntnisse sind ein Plus\n• Als ehrliche, teamfähige und vertrauenswürdige Persönlichkeit passt du bestens zu uns\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Eigenes Personalrestaurant: Geniesse leckere Menüs zu fairen Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous apprécions les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Vous planifiez et coordonnez l'utilisation de tous les moyens de transport disponibles\n• Avec votre manière amicale et compétente, vous aidez et conseillez nos clients sur le transport\n• Vous créez des offres de transport individuelles pour nos clients\n• Les conseils et le soutien de nos chauffeurs et chauffeurs contractuels font également partie de votre domaine de responsabilité.\n• Plaintes des clients et cas de dommages que vous approchez axée sur la solution et professionnelle\n• Nos ordres de transport sont enregistrés, mutés et facturés indépendamment\n• Aussi dans les tâches administratives vous êtes impliqué de manière fiable\n\nPourquoi tu réussis ?\n• Très bonne connaissance de la géographie suisse – vous savez où aller\n• Vous pensez économiquement et trouvez la bonne solution même dans des situations difficiles\n• Les quarts de travail (entre 04:00 et 22:00 dans le changement de semaine) correspondent à votre rythme de vie\n• La flexibilité, la résilience et la fiabilité vous distinguent\n• Vous avez terminé un apprentissage – idéalement dans le secteur des transports\n• Avec les applications EDP communes vous vous connaissez\n• Un permis de conduire Cat. C ou C/E ainsi qu'une expérience en tant que chauffeur sont avantageux, mais pas un must\n• Vous communiquez en toute sécurité en allemand – les compétences orales, écrites et françaises sont un plus\n• En tant que personnalité honnête, capable d'équipe et digne de confiance, vous êtes parfait pour nous\n\nVos avantages\n• Possibilités d'éducation et de développement supplémentaires: Avec nous vous pouvez vous développer - nous promouvons et défions les talents\n• Culture familiale : vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Restaurant personnel : dégustez de délicieux menus à des prix équitables\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
+      "needsRetranslation": false,
       "location": "Villmergen",
       "canton": "AG",
       "url": "https://live.solique.ch/planzer/job/details/4091932",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:54.743Z",
+      "crawledAt": "2026-10-31T21:33:40.699Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -770,9 +771,22 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4091932",
       "externalId": "4091932",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "disponent-stuckgut-m-w-d-planzer-villmergen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "disponent-stuckgut-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "disponent-stuckgut-m-w-d-planzer-villmergen"
+        ]
       },
+      "firstSeenAt": "2026-10-31T09:21:54.743Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -785,22 +799,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-31T09:21:54.743Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "disponent-stuckgut-m-w-d-planzer-villmergen"
-        ],
-        "en": [
-          "disponent-stuckgut-m-w-d-planzer-villmergen"
-        ],
-        "fr": [
-          "disponent-stuckgut-m-w-d-planzer-villmergen"
-        ]
-      },
-      "previousSlugs": [
-        "disponent-stuckgut-m-w-d-planzer-villmergen"
-      ]
+      }
     },
     {
       "id": "planzer-636f95dfeb5c",
@@ -877,89 +876,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "planzer-0db14fd43e2a",
-      "slug": "chauffeur-cat-c-ce-m-f-d-planzer-dintikon",
-      "slugByLocale": {
-        "it": "chauffeur-cat-c-ce-m-f-d-planzer-dintikon",
-        "en": "chauffeur-cat-c-ce-m-f-d-planzer-dintikon",
-        "de": "chauffeur-kat-c-ce-m-w-d-planzer-dintikon",
-        "fr": "chauffeur-cat-c-ce-h-f-d-planzer-dintikon"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Chauffeur Kat. C/CE (m/w/d)",
-      "titleByLocale": {
-        "it": "Chauffeur Cat C/CE (m/f/d)",
-        "en": "Chauffeur Cat C/CE (m/f/d)",
-        "de": "Chauffeur Kat. C/CE (m/w/d)",
-        "fr": "Chauffeur Cat C/CE (h/f/d)"
-      },
-      "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du verteilst unsere Sendungen zuverlässig innerhalb der Deutschschweiz und hältst dich dabei an den Einsatzplan der Disposition\n• Termingerecht und freundlich bedienst du unsere Kundinnen und Kunden\n• Du gehst sorgfältig mit Transportpapieren um und sorgst für eine korrekte Abwicklung\n• Die Kontrolle der Tauschgeräte gehört ebenso zu deinem Verantwortungsbereich\n• Beim Ein- und Ausladen der Güter packst du mit an und sicherst die Ladung fachgerecht\n• Dein Fahrzeug hältst du sauber und in gutem Zustand – Pflege und Unterhalt übernimmst du gewissenhaft\n\nWeshalb es dir gelingt\n• Du besitzt den Führerausweis der Kategorie C oder CE und bist gerne auf Achse\n• Erfahrung im Stückguttransport ist von Vorteil und hilft dir, dich rasch zurechtzufinden\n• Gute Kenntnisse der Schweizer Geografie unterstützen dich bei der sicheren Navigation\n• Belastbarkeit, Flexibilität und Teamfähigkeit zeichnen dich aus – auch in hektischen Situationen\n• Du arbeitest speditiv und sauber\n• Der sorgfältige Umgang mit Fahrzeug und Arbeitsmitteln ist für dich selbstverständlich\n• In deutscher Sprache kannst du dich gut verständigen – mündlich wie schriftlich\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Grosszügiges Spesenreglement: Mit unserem Spesenreglement bist du gut versorgt\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Distribuisci in modo affidabile le nostre spedizioni all'interno della Svizzera tedesca e attenersi al programma di spedizione\n• Timely e amichevole servite i nostri clienti\n• Gestisci attentamente i documenti di trasporto e assicurati una corretta gestione\n• Il controllo dei dispositivi di scambio è anche parte della vostra responsabilità\n• Quando si carica e scarica la merce si imballa e si assicura il carico correttamente\n• Mantenere il veicolo pulito e in buone condizioni – si prende cura e manutenzione con attenzione\n\nPerché hai successo?\n• Hai la licenza di guida della categoria C o CE e come essere sull'asse\n• L'esperienza nel trasporto merci generale è un vantaggio e vi aiuta a trovare rapidamente la vostra strada\n• Buona conoscenza della geografia svizzera ti supporta nella navigazione sicura\n• Resilienza, flessibilità e lavoro di squadra ti caratterizzano – anche in situazioni frenetiche\n• Si lavora veloce e pulito\n• La gestione attenta di veicoli e attrezzature di lavoro è una questione naturalmente per voi\n• È possibile comunicare bene in tedesco – sia verbalmente che per iscritto\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Bonus di qualità: La qualità è scritta nella nostra capitale e premiata\n• Allenamento introduttivo centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Regole di spesa generose: Con i nostri regolamenti di spesa sei ben curato\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• You reliably distribute our shipments within German-speaking Switzerland and adhere to the schedule of dispatch\n• Timely and friendly you serve our customers\n• You handle transport documents carefully and ensure correct handling\n• The control of the exchange devices is also part of your responsibility\n• When loading and unloading the goods you pack and secure the load properly\n• You keep your vehicle clean and in good condition – you take care and maintenance carefully\n\nWhy do you succeed?\n• You have the driving license of category C or CE and like to be on the axle\n• Experience in general cargo transport is an advantage and helps you to find your way quickly\n• Good knowledge of Swiss geography supports you in safe navigation\n• Resilience, flexibility and teamwork characterize you – even in hectic situations\n• You work fast and clean\n• Careful handling of vehicles and work equipment is a matter of course for you\n• You can communicate well in German – both verbally and in writing\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Quality bonus: Quality is written in our capital and rewarded\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Generous expense regulations: With our expense regulations you are well taken care of\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du verteilst unsere Sendungen zuverlässig innerhalb der Deutschschweiz und hältst dich dabei an den Einsatzplan der Disposition\n• Termingerecht und freundlich bedienst du unsere Kundinnen und Kunden\n• Du gehst sorgfältig mit Transportpapieren um und sorgst für eine korrekte Abwicklung\n• Die Kontrolle der Tauschgeräte gehört ebenso zu deinem Verantwortungsbereich\n• Beim Ein- und Ausladen der Güter packst du mit an und sicherst die Ladung fachgerecht\n• Dein Fahrzeug hältst du sauber und in gutem Zustand – Pflege und Unterhalt übernimmst du gewissenhaft\n\nWeshalb es dir gelingt\n• Du besitzt den Führerausweis der Kategorie C oder CE und bist gerne auf Achse\n• Erfahrung im Stückguttransport ist von Vorteil und hilft dir, dich rasch zurechtzufinden\n• Gute Kenntnisse der Schweizer Geografie unterstützen dich bei der sicheren Navigation\n• Belastbarkeit, Flexibilität und Teamfähigkeit zeichnen dich aus – auch in hektischen Situationen\n• Du arbeitest speditiv und sauber\n• Der sorgfältige Umgang mit Fahrzeug und Arbeitsmitteln ist für dich selbstverständlich\n• In deutscher Sprache kannst du dich gut verständigen – mündlich wie schriftlich\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Grosszügiges Spesenreglement: Mit unserem Spesenreglement bist du gut versorgt\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous valorisons les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Vous distribuez nos expéditions de manière fiable en Suisse germanophone et respectez le calendrier d'expédition\n• Vous servez nos clients en temps opportun et amical\n• Vous manipulez soigneusement les documents de transport et vous assurez une manipulation correcte\n• Le contrôle des dispositifs d'échange fait également partie de votre responsabilité\n• Lors du chargement et du déchargement des marchandises que vous emballez et sécurisez correctement le chargement\n• Vous gardez votre véhicule propre et en bon état – vous prenez soin et l'entretien soigneusement\n\nPourquoi tu réussis ?\n• Vous avez le permis de conduire de catégorie C ou CE et aimez être sur l'essieu\n• L'expérience du transport général de marchandises est un avantage et vous aide à trouver votre chemin rapidement\n• Bonne connaissance de la géographie suisse vous accompagne dans la navigation en toute sécurité\n• La résilience, la flexibilité et le travail d'équipe vous caractérisent – même dans des situations agitées\n• Tu travailles vite et tu es propre\n• La manipulation soigneuse des véhicules et des équipements de travail est bien sûr une question pour vous\n• Vous pouvez bien communiquer en allemand – tant verbalement que par écrit\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Bonus de qualité: La qualité est écrite dans notre capital et récompensée\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Règles de dépenses généreuses: Avec nos règlements de dépenses, vous êtes bien pris en charge\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "needsRetranslation": false,
-      "location": "Dintikon",
-      "canton": "AG",
-      "url": "https://live.solique.ch/planzer/job/details/4092892",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:36:26.350Z",
-      "addressLocality": "Dintikon",
-      "addressRegion": "AG",
-      "streetAddress": "Silostrasse 8",
-      "postalCode": "5606",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Trasporti / Autisti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4092892",
-      "externalId": "4092892",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chauffeur-kat-c-ce-m-w-d-planzer-dintikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-c-ce-m-w-d-planzer-dintikon"
-        ],
-        "en": [
-          "chauffeur-kat-c-ce-m-w-d-planzer-dintikon"
-        ],
-        "fr": [
-          "chauffeur-kat-c-ce-m-w-d-planzer-dintikon"
-        ]
-      },
-      "firstSeenAt": "2026-10-28T09:17:30.911Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
