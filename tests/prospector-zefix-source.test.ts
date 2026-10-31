@@ -109,6 +109,18 @@ describe('Zefix sweep', () => {
     expect(cursors.cantons.TI).toMatchObject({ lowest: 10, exhausted: true });
   });
 
+  it('rereads a canton that answered empty on the first run', async () => {
+    const cursors = { cantons: {} as Record<string, any> };
+    const options = { ...sweepOptions, cantons: ['TI'], cursors, budget: 5, accept: () => true };
+
+    await sweepZefix({ ...options, fetchImpl: registry([]) as never });
+    expect(cursors.cantons.TI).toMatchObject({ highest: null, lowest: null, exhausted: false });
+
+    const later = await sweepZefix({ ...options, fetchImpl: registry([row(7, 'Nuova Sagl')]) as never });
+    expect(later.accepted).toBe(1);
+    expect(cursors.cantons.TI.highest).toBe(7);
+  });
+
   it('reads Ticino before any other canton, within the requested cantons', async () => {
     const queries: string[] = [];
     await sweepZefix({

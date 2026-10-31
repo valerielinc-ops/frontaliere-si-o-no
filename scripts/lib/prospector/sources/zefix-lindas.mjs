@@ -250,6 +250,9 @@ export async function sweepZefix(options) {
         touch();
       }
       if (backlog.entries.length < pageSize && result.accepted < budget) {
+        // With no ID seen there is no "new entries" scan to fall back on:
+        // an empty answer must leave the canton readable on the next run.
+        if (cursor.highest === null) break;
         cursor.exhausted = true;
         touch();
       }
