@@ -9,7 +9,7 @@ export const DISCOVERY_SOURCE_OUTCOMES = Object.freeze([
   'malformed',
 ]);
 
-export const DISCOVERY_SOURCE_NAMES = Object.freeze(['seco', 'osm', 'web']);
+export const DISCOVERY_SOURCE_NAMES = Object.freeze(['seco', 'osm', 'web', 'zefix']);
 
 const HISTORY_LIMIT = 60;
 
@@ -43,7 +43,7 @@ export function startDiscoveryHealthRun(options = {}) {
  * Error messages and URLs are deliberately excluded from the persisted report.
  *
  * @param {ReturnType<typeof startDiscoveryHealthRun>} run
- * @param {'seco'|'osm'|'web'} source
+ * @param {'seco'|'osm'|'web'|'zefix'} source
  * @param {{ outcome: string, items?: number, recordsSeen?: number, newCandidatesFiled?: number, errorCode?: string|null }} result
  */
 export function recordDiscoverySourceOutcome(run, source, result = {}) {
