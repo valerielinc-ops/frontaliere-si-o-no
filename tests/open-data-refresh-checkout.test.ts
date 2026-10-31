@@ -646,7 +646,10 @@ describe('data publisher preserves its source checkout', () => {
     const setup = fixture();
     const staleHead = git(setup.remote, ['rev-parse', 'chore/refresh']);
     const mainHead = git(setup.remote, ['rev-parse', 'main']);
-    const result = publish(setup, false, ['--reconcile-main'], { REFRESH_FIXTURE_OPEN_PR: '0' });
+    const result = publish(setup, false, ['--reconcile-main'], {
+      REFRESH_FIXTURE_OPEN_PR: '0',
+      REFRESH_FIXTURE_REMOTE: setup.remote,
+    });
 
     expect(result.status, result.stderr).toBe(0);
     expect(result.stdout).toContain(
