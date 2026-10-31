@@ -731,7 +731,8 @@
       && !Object.keys(context).some(key => !['section', 'owners', 'unknown'].includes(key))
       && context.unknown === false && typeof context.section === 'string' && context.section.length <= 300
       && Array.isArray(context.owners) && context.owners.length <= 16
-      && context.owners.every(owner => typeof owner === 'string' && owner.length <= 300));
+      && context.owners.every(owner => typeof owner === 'string' && owner.length <= 300)
+      && Boolean(context.section.trim() || context.owners.some(owner => owner.trim())));
   }
 
   function ownedKitAddressAnswer(entry, item) {

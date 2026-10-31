@@ -70,6 +70,20 @@ describe('fill extension: scoped saved geography answers', () => {
     return result;
   }
 
+  it.each([
+    { section: '', owners: [], unknown: false },
+    { section: ' ', owners: [' '], unknown: false },
+  ])('keeps a saved geographic statement with no named native owner technical', async (addressContext) => {
+    const { window, document, F } = page('<form><label for="city">City</label><input id="city" data-aa-id="f1" autocomplete="address-level2"></form>');
+    (window as any).CompilaRunnerFields = () => ({ fields: [{ id: 'f1', label: 'City', context: 'City', section: '', autocomplete: 'address-level2', addressContext }] });
+    const result = await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Lugano', source: 'answers', current: true, context: 'City', section: '', autocomplete: 'address-level2', addressContext }] }, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('city') as HTMLInputElement).value).toBe('');
+    expect(result.filled).toEqual([]);
+    expect(result.missing).toHaveLength(1);
+    expect(result.missing[0].reason).toBe('native_contract_unavailable');
+    window.close();
+  });
+
   it.each(['identity', 'profile', 'answers'])('does not use an unbound saved %s city for the employer', async (source) => {
     const { window, document, F } = addressPage('Employer', employer);
     await F.fillPage(document, { ...kit, answers: [{ question: 'City', answer: 'Como', source }] }, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
