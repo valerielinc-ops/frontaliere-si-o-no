@@ -131,7 +131,11 @@ describe('starting the flow', () => {
     const key = candidateQuestionAnswerKey(question);
     const at = Date.now();
     const sourceOrder = paidOrder({ userId, cvUploadedAt: at, jobId: 'source-job', jobUrl: 'https://example.test/jobs/source/' });
-    store = createMemoryFirestore({ [ORDER_PATH]: sourceOrder, [`user_cv_profiles/${userId}`]: { status: 'ready' } });
+    const sourceFlow = { state: 'submitted', round: 1, answers: {}, questionAnswers: {} };
+    const sourceDraft = { round: 1, questions: [question] };
+    store = createMemoryFirestore({ [ORDER_PATH]: sourceOrder,
+      [`${ORDER_PATH}/automation/flow`]: sourceFlow, [`${ORDER_PATH}/ai_drafts/current`]: sourceDraft,
+      [`user_cv_profiles/${userId}`]: { status: 'ready' } });
 
     await saveAnswersWithCv({
       db: store.db,
@@ -139,8 +143,9 @@ describe('starting the flow', () => {
       orderId: ORDER,
       order: sourceOrder,
       answerActor: 'candidate',
-      flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: {} },
-      draft: { round: 1, questions: [question] },
+      flow: sourceFlow,
+      draft: sourceDraft,
+      answerContracts: answerContractsFor({ orderId: ORDER, order: sourceOrder, flow: sourceFlow, draft: sourceDraft }),
       answers: { work_permit: 'Permit G' },
       nowMs: at,
     });

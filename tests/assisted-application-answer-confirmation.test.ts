@@ -141,7 +141,9 @@ describe('question confirmation protocol', () => {
     draft.questions[0].originalNativeContract.context = 'Marketing and valid work permit assertion';
     expect(localAnswerEvidence(f.input())).toEqual([]);
     await expect(f.save({ portal_agree: 'Yes' }, { answerContracts: contracts })).rejects.toMatchObject({ code: 'answer_contract_changed' });
-    expect(f.read('user_cv_profiles/candidate').applicationQuestionAnswerEvidence || {}).not.toHaveProperty(candidateQuestionAnswerKey(question));
+    const clock = f.read('user_cv_profiles/candidate').applicationQuestionAnswerEvidence[candidateQuestionAnswerKey(question)];
+    expect(clock).toMatchObject({ cleared: true });
+    expect(clock).not.toHaveProperty('question'); expect(clock).not.toHaveProperty('answer');
   });
   it('clear removes Q/A from the local receipt and prevents a late positive save', async () => {
     const f = fixture(); await f.save({ english: 'C1' }, { nowMs: now + 1 });
