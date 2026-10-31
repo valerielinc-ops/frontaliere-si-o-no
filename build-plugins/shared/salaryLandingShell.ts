@@ -199,12 +199,34 @@ const round10 = (n: number): number => Math.round(n / 10) * 10;
 
 /** Righe RAL → netto dal motore: nuovo frontaliere, single, 30 anni, entro 20 km. */
 function ralNetRows(tag: string): Array<{ cells: string[]; emphasized?: true }> {
+  const formatInteger = (value: number) => {
+    const rounded = Math.round(value);
+    const absolute = Math.abs(rounded);
+    if (absolute >= 1000 && absolute < 10000) {
+      // it-IT's Intl data omits grouping for four-digit values; keep monthly nets consistent.
+      const separator = new Intl.NumberFormat(tag)
+        .formatToParts(10_000)
+        .find((part) => part.type === 'group')?.value;
+      if (separator) {
+        const digits = String(absolute);
+        return `${rounded < 0 ? '-' : ''}${digits.slice(0, -3)}${separator}${digits.slice(-3)}`;
+      }
+    }
+    return rounded.toLocaleString(tag);
+  };
+
   return [60000, 80000, 100000, 120000].map((ral) => {
-    const r = calculateSimulation({ ...DEFAULT_INPUTS, annualIncomeCHF: ral, expensesIT: [], expensesCH: [] });
+    const r = calculateSimulation({
+      ...DEFAULT_INPUTS,
+      annualIncomeCHF: ral,
+      healthInsuranceCHF: 0,
+      expensesIT: [],
+      expensesCH: [],
+    });
     const net = r.itResident.netIncomeAnnual;
-    const n = (value: number) => round100(value).toLocaleString(tag);
+    const n = (value: number) => formatInteger(round100(value));
     return {
-      cells: [ral.toLocaleString(tag), `~CHF ${n(net / 12)}`, `~CHF ${n(net)}`, `~EUR ${n(net * DEFAULT_EXCHANGE_RATE)}`],
+      cells: [formatInteger(ral), `~CHF ${n(net / 12)}`, `~CHF ${n(net)}`, `~EUR ${n(net * DEFAULT_EXCHANGE_RATE)}`],
       ...(ral === 80000 ? { emphasized: true as const } : {}),
     };
   });
@@ -2231,6 +2253,7 @@ export const _internal = {
   resolveScenarioData,
   buildSalaryTierData,
   tierDecomposition,
+  ralNetRows,
   OVER20_ROWS,
   HUB_PATH_TO_KEY,
 };
