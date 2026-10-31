@@ -54,7 +54,7 @@ export const isNoticeRequest = value => NOTICE_REQUEST.test(plain(value));
 export function isOptionalPurpose(...values) {
   const text = values.join(' ').replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
-  return /newsletter|marketing|\bwerbung\b|pubblicit|promozion|promotion|offerte|angebote|job.?alert|job.?abo|talent.?pool|future (?:openings|opportunities|positions|vacancies)|other (?:companies|vacancies|positions)|weitere stellen|andere stellen|altre (?:posizioni|offerte|societa)|autres (?:postes|offres|societes)|third part|dritte|\bterzi\b|\btiers\b|whatsapp|cookie|(?:shar(?:e|ed|ing)|disclos(?:e|d|ing|ure)|transfer(?:red|ring)?)(?: [^.!?;:\r\n]{0,60})? (?:with|to) (?:(?:a|our|selected|trusted|commercial|third party|other) )*partners?\b|(?:weitergabe|weitergeben|teilen|ubermittlung|ubermitteln)(?: [^.!?;:\r\n]{0,60})? (?:an|mit) (?:(?:die|den|unsere|unseren|ausgewahlte|ausgewahlten) )*partner(?:firmen|unternehmen|n)?\b|(?:condivisione|condividere|condivido|condividi|condividiamo|trasmissione|trasmettere)(?: [^.!?;:\r\n]{0,60})? (?:con|ai|a) (?:(?:i|le|nostri|nostre|selezionati|selezionate) )*partner\b|(?:partage|partager|transmission|transmettre)(?: [^.!?;:\r\n]{0,60})? (?:avec|aux|a) (?:(?:nos|les|des|leurs) )*partenaires?\b/.test(text);
+  return /newsletter|marketing|\bwerbung\b|pubblicit|promozion|promotion|offerte|angebote|job.?alert|job.?abo|talent.?pool|future (?:openings|opportunities|positions|vacancies)|other (?:companies|vacancies|positions)|weitere stellen|andere stellen|altre (?:posizioni|offerte|societa)|autres (?:postes|offres|societes)|third part|dritte|\bterzi\b|\btiers\b|whatsapp|cookie|(?:shar(?:e|ed|ing)|disclos(?:e|ed|ing|ure)|transfer(?:red|ring)?)(?: [^.!?;:\r\n]{0,60})? (?:with|to) (?:(?:a|our|selected|trusted|commercial|third party|other) )*partners?\b|(?:weitergabe|weitergeben|teilen|ubermittlung|ubermitteln)(?: [^.!?;:\r\n]{0,60})? (?:an|mit) (?:(?:die|den|unsere|unseren|ausgewahlte|ausgewahlten) )*partner(?:firmen|unternehmen|n)?\b|(?:condivisione|condividere|condivido|condividi|condividiamo|trasmissione|trasmettere)(?: [^.!?;:\r\n]{0,60})? (?:con|ai|a) (?:(?:i|le|nostri|nostre|selezionati|selezionate) )*partner\b|(?:partage|partager|transmission|transmettre)(?: [^.!?;:\r\n]{0,60})? (?:avec|aux|a) (?:(?:nos|les|des|leurs) )*partenaires?\b/.test(text);
 }
 /** The notice this application needs. A bare «Lesen und akzeptieren» takes its object only from a name bound to the control. */
 export const isRequiredNotice = control => {
@@ -110,12 +110,23 @@ export function privacySemanticIdentifiers(...sources) {
   return values;
 }
 export function hasConsentContradiction(value, ...semanticIds) {
-  const ids = privacySemanticIdentifiers(...semanticIds).map(id => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_:.-]+/g, ' ')).join(' ');
+  const context = [];
+  const visitContext = source => {
+    if (!source || typeof source !== 'object' || Array.isArray(source)) return;
+    for (const key of ['ariaLabel', 'ariaDescription', 'title', 'placeholder', 'description']) {
+      const item = source[key];
+      if (typeof item === 'string' || typeof item === 'number') context.push(item);
+    }
+    for (const key of ['portalNativeContract', 'originalNativeContract', 'nativeContract']) visitContext(source[key]);
+  };
+  semanticIds.forEach(visitContext);
+  const ids = privacySemanticIdentifiers(...semanticIds, ...context).map(id => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_:.-]+/g, ' ')).join(' ');
   const primary = ['string', 'number'].includes(typeof value) ? String(value) : '';
   const text = `${primary} ${ids}`.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
   return consentContradictionPatterns.negated.test(text) || consentContradictionPatterns.facts.test(text)
     || /\b(?:bday|dob|sex|gender|country|paese|nazione|pays|land)\b/.test(text)
+    || /\b(?:e ?mail|mail(?:box| address)?|phone|telephone|mobile(?: number)?|cellulare|handy|mobiltelefon|celular|movil|telefon\w*|telefono|portable|courriel|adresse|anschrift|address|indirizzo|street|strasse|rue|residence|residenza|wohnort|domicile|postal code|zip code|code postal|postleitzahl|plz|npa|cap)\b/.test(text)
     || consentContradictionPatterns.otherTerms.test(text)
     || consentContradictionPatterns.accuracy.test(text) || isOptionalPurpose(text);
 }

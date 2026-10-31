@@ -519,6 +519,19 @@ describe('the same grammar on the canonical consent path', () => {
   });
 
   it.each([
+    ['email aria label', { ariaLabel: 'Email' }],
+    ['phone control id', { semanticId: 'candidate_phone' }],
+    ['Italian mobile control id', { semanticId: 'cellulare' }],
+    ['residence address name', { name: 'residence_address' }],
+    ['German postal code id', { semanticId: 'PLZ' }],
+    ['disclosed partner purpose', { ariaDescription: 'Candidate data disclosed to our partners' }],
+  ])('vetoes a privacy-reading default when control metadata is factual or has another purpose: %s', (_name, metadata) => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    expect(isPrivacyReviewAcknowledgment(label, metadata)).toBe(false);
+    expect(ownConsent({ kind: 'checkbox', required: true, label, ...metadata })).toBe(false);
+  });
+
+  it.each([
     ['de imperative', 'Lese und akzeptiere die Datenschutzerklärung.'],
     ['de grammatical imperative', 'Lies und akzeptiere die Datenschutzerklärung.'],
     ['de formal', 'Bitte lesen Sie die Datenschutzerklärung und akzeptieren Sie diese.'],

@@ -379,6 +379,18 @@ describe('fill extension: JOIN steps', () => {
     expect(pressed).toBe(0);
   });
 
+  it('does not apply the privacy-reading default when the native control identifies an email field', async () => {
+    const { F, document } = page(`<form>
+      <label for="privacy-email">Select this checkbox to confirm that you have read the Privacy Notice for Candidates.</label>
+      <input type="checkbox" id="privacy-ack" name="privacy-ack" aria-label="Email" required>
+    </form>`, 'https://jobs.example.test/apply');
+    const field = F.collect(document).find((entry: any) => entry.element.id === 'privacy-ack');
+    expect(field).toBeTruthy();
+    expect(F.answerFor(field, kit)).toBeNull();
+    await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('privacy-ack') as HTMLInputElement).checked).toBe(false);
+  });
+
   // Coop's SuccessFactors form, mapped on 2026-10-03.
   it('chooses in SuccessFactors’ picklists once their options load, and types its UI5 birth date', async () => {
     const sf = page(`<label for="a">* Anrede</label><input id="a" aria-label="Anrede" type="text" role="combobox" placeholder="Bitte auswählen" aria-owns="an:_listSelect" aria-required="true" class="rcmpaginatedselectinput"><ul id="an:_listSelect" role="listbox"></ul>
