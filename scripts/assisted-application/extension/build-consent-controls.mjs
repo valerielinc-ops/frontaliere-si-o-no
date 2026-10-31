@@ -23,9 +23,15 @@ function region(source, body, anchor) {
 
 export function renderConsentControls(current) {
   const body = `  const pureApplicationConsent = (${createApplicationConsentGuard.toString()})(${JSON.stringify(APPLICATION_CONSENT_FACT_SOURCES)});\n  const readOwnConsentMetadata = ${readOwnConsentMetadata.toString()};`;
-  return region(current, body, '  root.AssistedApplyControls = Object.freeze(')
-    .replace('isNonCvDocumentLabel });', 'isNonCvDocumentLabel, pureApplicationConsent, isConsentOnly: pureApplicationConsent.isConsentOnly, isConsentRefusal: pureApplicationConsent.isConsentRefusal, readOwnConsentMetadata });')
-    .replace('isNonCvDocumentLabel, pureApplicationConsent, readOwnConsentMetadata });', 'isNonCvDocumentLabel, pureApplicationConsent, isConsentOnly: pureApplicationConsent.isConsentOnly, isConsentRefusal: pureApplicationConsent.isConsentRefusal, readOwnConsentMetadata });');
+  const rendered = region(current, body, '  root.AssistedApplyControls = Object.freeze(');
+  const exports = rendered.match(/root\.AssistedApplyControls = Object\.freeze\(\{([^{}]*)\}\);/);
+  if (!exports) throw new Error('application_consent_exports_anchor_missing');
+  const properties = exports[1].split(',').map(value => value.trim()).filter(Boolean);
+  for (const property of ['pureApplicationConsent', 'isConsentOnly: pureApplicationConsent.isConsentOnly', 'isConsentRefusal: pureApplicationConsent.isConsentRefusal', 'readOwnConsentMetadata']) {
+    const key = property.split(':')[0];
+    if (!properties.some(value => value.split(':')[0].trim() === key)) properties.push(property);
+  }
+  return rendered.replace(exports[0], `root.AssistedApplyControls = Object.freeze({ ${properties.join(', ')} });`);
 }
 
 export function renderConsentMetadataInFields(current) {

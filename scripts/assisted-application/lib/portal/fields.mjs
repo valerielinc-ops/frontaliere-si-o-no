@@ -691,7 +691,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false, a
       || (disabled && type === 'checkbox' && element.form && element.name
         && [...document.querySelectorAll('input[type="hidden"]')].some(hidden => hidden.form === element.form
           && hidden.name === element.name && !hidden.matches(':disabled'))));
-    if ((disabled || readOnly) && !auditOnly || !readable(element)) continue;
+    if (((disabled || readOnly) && !auditOnly) || (!readable(element) && !auditOnly)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
     // is a trap whatever its size: never a field of the form.
     if (element.getAttribute('data-automation-id') === 'beecatcher' || HONEYPOT_LABEL.test(labelFor(element))) continue;

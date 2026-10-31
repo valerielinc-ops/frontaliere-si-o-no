@@ -1,10 +1,12 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { ownConsent, guardPlan, candidateAnswerForField } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { isConsentOnly, readOwnConsentMetadata } from '../functions/src/lib/applicationConsent.js';
-import { renderConsentControls, renderConsentMetadataInFields } from '../scripts/assisted-application/extension/build-consent-controls.mjs';
+import { renderConsentControls } from '../scripts/assisted-application/extension/build-consent-controls.mjs';
 import { portalRequirementsFromMissingRequired, localizePortalQuestions, candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const open: JSDOM[] = [];
@@ -245,17 +247,32 @@ describe('native consent authority shared by planner and browser', () => {
       + '<label for="bare">No successful carrier</label><input id="bare" name="bare" type="checkbox" disabled>'
       + '<input id="secret" type="password" name="password" value="synthetic-secret" readonly>');
     const normal = dom.window.eval(`(${extractFieldsInPage.toString()})()`);
-    const audit = dom.window.eval(`(${extractFieldsInPage.toString()})({auditSuccessful:true,includeHidden:true})`);
+    const audit = dom.window.eval(`(${extractFieldsInPage.toString()})({auditSuccessful:true})`);
     expect(normal.fields).toHaveLength(0);
     expect(audit.fields.map((field: any) => field.name)).toEqual(['nationality', 'degree']);
     expect(audit.fields[0]).toMatchObject({ value: 'Swiss', auditOnly: true, readOnly: true, disabled: false });
     expect(audit.fields[1]).toMatchObject({ auditOnly: true, readOnly: false, disabled: true, checked: false });
   });
+  it('includes invisible successful audit controls without exposing hidden editable steps', () => {
+    const { dom } = readers('<label for="readonly">Nationality</label><input style="display:none" id="readonly" name="nationality" value="Swiss" readonly>'
+      + '<label for="c">I hold a degree</label><input style="display:none" id="c" name="degree" type="checkbox" disabled><input type="hidden" name="degree" value="No">'
+      + '<label for="later">Later step</label><input style="display:none" id="later" name="later" value="Not current">');
+    expect(dom.window.eval(`(${extractFieldsInPage.toString()})()`).fields).toEqual([]);
+    const audit = dom.window.eval(`(${extractFieldsInPage.toString()})({auditSuccessful:true})`).fields;
+    expect(audit.map((field: any) => field.name)).toEqual(['nationality', 'degree']);
+    expect(audit.every((field: any) => field.auditOnly)).toBe(true);
+  });
   it('generates the same policy and reader into both browser runtimes', () => {
-    const apply = readFileSync(new URL('../scripts/assisted-application/extension/apply-control.js', import.meta.url), 'utf8');
-    const fields = readFileSync(new URL('../scripts/assisted-application/lib/portal/fields.mjs', import.meta.url), 'utf8');
-    expect(renderConsentControls(apply)).toBe(apply);
-    expect(renderConsentMetadataInFields(fields)).toBe(fields);
+    // Generate from raw Node source: Vitest's transform changes Function.toString().
+    // The production generator still checks both committed files byte for byte.
+    execFileSync(process.execPath, [fileURLToPath(new URL('../scripts/assisted-application/extension/build-consent-controls.mjs', import.meta.url)), '--check']);
+    execFileSync(process.execPath, [fileURLToPath(new URL('../scripts/assisted-application/extension/build-runner-fields.mjs', import.meta.url)), '--check']);
     expect(typeof readOwnConsentMetadata).toBe('function');
+  });
+  it('adds missing consent exports while preserving independently generated controls', () => {
+    const apply = readFileSync(new URL('../scripts/assisted-application/extension/apply-control.js', import.meta.url), 'utf8');
+    const otherExport = apply.replace(/root\.AssistedApplyControls = Object\.freeze\(\{[^{}]*\}\);/, 'root.AssistedApplyControls = Object.freeze({ APPLY_RE, isNonCvDocumentLabel, individualApplicationOriginQuestion });');
+    const rendered = renderConsentControls(otherExport);
+    expect(rendered).toContain('individualApplicationOriginQuestion, pureApplicationConsent, isConsentOnly: pureApplicationConsent.isConsentOnly, isConsentRefusal: pureApplicationConsent.isConsentRefusal, readOwnConsentMetadata });');
   });
 });
