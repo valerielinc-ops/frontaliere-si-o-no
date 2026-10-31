@@ -314,7 +314,7 @@ jobs:
       #
       # Probe the same two-transport contract as
       # push-article-shard-incremental.sh: prefer the per-shard deploy key and
-      # use the owner-aware HTTPS PAT when the key is absent. A missing pair or
+      # use the owner-aware HTTPS PAT when the key is absent or refused. A missing pair or
       # a remote without main remains a hard failure, so a repair cannot render
       # successfully and then report that it published nothing.
       #
@@ -349,6 +349,28 @@ jobs:
           fi
           upper="$(printf '%s' "$shard" | LC_ALL=C tr '[:lower:]' '[:upper:]')"
 
+          probe_https_pat() {
+            local token https_repo
+            token="$(shard_push_token_for_repo "$repo")"
+            if [ -z "$token" ]; then
+              echo "::error::$var and no SHARD_PUSH_PAT/GITHUB_PAT credential are available for $owner/frontaliere-$shard-$loc"
+              return 1
+            fi
+            if ! https_repo="$(shard_https_push_url "$repo")"; then
+              echo "::error::$owner/frontaliere-$shard-$loc: cannot derive an HTTPS remote for the PAT fallback"
+              return 1
+            fi
+            echo "::add-mask::$token"
+            if SHARD_PUSH_TOKEN="$token" \
+               git -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
+               ls-remote --heads "$https_repo" main 2>/dev/null | grep 'refs/heads/main' >/dev/null; then
+              echo "  reachable via HTTPS PAT  $owner/frontaliere-$shard-$loc"
+              return 0
+            fi
+            echo "::error::$owner/frontaliere-$shard-$loc: the PAT did not authenticate, or the shard has no main branch to build on"
+            return 1
+          }
+
           fail=0
           for loc in it en de fr; do
             locupper="$(printf '%s' "$loc" | LC_ALL=C tr '[:lower:]' '[:upper:]')"
@@ -364,29 +386,14 @@ jobs:
                  2>/dev/null | grep 'refs/heads/main' >/dev/null; then
                 echo "  reachable via deploy key  $owner/frontaliere-$shard-$loc"
               else
-                echo "::error::$owner/frontaliere-$shard-$loc: the deploy key did not authenticate, or the shard has no main branch to build on"
-                fail=1
+                echo "::warning::$owner/frontaliere-$shard-$loc: the deploy key did not authenticate, or the shard has no main branch to build on; trying the owner-aware HTTPS PAT"
+                if ! probe_https_pat; then
+                  fail=1
+                fi
               fi
               rm -f "$kf"
             else
-              token="$(shard_push_token_for_repo "$repo")"
-              if [ -z "$token" ]; then
-                echo "::error::$var and no SHARD_PUSH_PAT/GITHUB_PAT credential are available for $owner/frontaliere-$shard-$loc"
-                fail=1
-                continue
-              fi
-              if ! https_repo="$(shard_https_push_url "$repo")"; then
-                echo "::error::$owner/frontaliere-$shard-$loc: cannot derive an HTTPS remote for the PAT fallback"
-                fail=1
-                continue
-              fi
-              echo "::add-mask::$token"
-              if SHARD_PUSH_TOKEN="$token" \
-                 git -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
-                 ls-remote --heads "$https_repo" main 2>/dev/null | grep 'refs/heads/main' >/dev/null; then
-                echo "  reachable via HTTPS PAT  $owner/frontaliere-$shard-$loc"
-              else
-                echo "::error::$owner/frontaliere-$shard-$loc: the PAT did not authenticate, or the shard has no main branch to build on"
+              if ! probe_https_pat; then
                 fail=1
               fi
             fi

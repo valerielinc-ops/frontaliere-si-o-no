@@ -185,6 +185,17 @@ describe('rerender article hubs — shard credential probe', () => {
     expect(workflow).toContain('cannot resolve the owner for $shard');
     expect(workflow).not.toContain('push-article-shard-incremental.sh would skip');
   });
+
+  it('retries the owner-aware PAT after a refused deploy key before failing the probe', () => {
+    const refusedKeyStart = workflow.indexOf('the deploy key did not authenticate');
+    const refusedKeyEnd = workflow.indexOf('rm -f "$kf"', refusedKeyStart);
+    expect(refusedKeyStart).toBeGreaterThan(-1);
+    expect(refusedKeyEnd).toBeGreaterThan(refusedKeyStart);
+    const refusedKeyBranch = workflow.slice(refusedKeyStart, refusedKeyEnd);
+    expect(refusedKeyBranch).toContain('probe_https_pat');
+    expect(refusedKeyBranch).toMatch(/if ! probe_https_pat; then\s+fail=1/);
+  });
+
 });
 
 describe('scripts/ci/report-shard-push-failure.mjs — cause ordering', () => {
