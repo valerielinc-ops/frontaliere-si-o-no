@@ -9,14 +9,15 @@
  * output. No Vite build, no real dist/ mutation — the plugin wiring itself
  * is covered by the end-to-end `npm run build:ci` in CI.
  */
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
   buildSitemapIndexXml,
   discoverSitemapFiles,
-  isIndexRetiredSitemapFile,
+  reconcileFinalSitemapsWithDist,
+  reconcileRemainingSitemapsWithDist,
   reconcileSitemapFuelWithDist,
   type DiscoveredSitemap,
 } from '@/build-plugins/sitemapAliasPlugin';
@@ -188,8 +189,8 @@ describe('sitemapAliasPlugin — auto-discovery', () => {
     expect(xml.match(/<lastmod>/g)).toHaveLength(1);
   });
 
-  it('never announces the families retired from the index', async () => {
-    const retired = [
+  it('keeps every emitted recovery family in the sitemap index', async () => {
+    const restored = [
       'sitemap-orphan-landings.xml',
       'sitemap-profession-cantons.xml',
       'sitemap-profession-cities.xml',
@@ -198,16 +199,13 @@ describe('sitemapAliasPlugin — auto-discovery', () => {
       'sitemap-topics-frontaliere.xml',
       'sitemap-topics-svizzera.xml',
     ];
-    for (const file of [...retired, 'sitemap-moduli.xml']) seedSitemap(distDir, file);
+    for (const file of [...restored, 'sitemap-moduli.xml']) seedSitemap(distDir, file);
 
     const names = (await discoverSitemapFiles(distDir)).map((s) => s.file);
 
-    // `moduli` stays: its only page is index,follow in the HTML and in the render.
-    expect(names).toEqual(['sitemap-moduli.xml']);
-    for (const file of retired) expect(isIndexRetiredSitemapFile(file)).toBe(true);
-    // Same stem as a retired family, still a live one.
-    expect(isIndexRetiredSitemapFile('sitemap-professions.xml')).toBe(false);
-    expect(isIndexRetiredSitemapFile('sitemap-fuel-italian-cities.xml')).toBe(false);
+    expect(names).toEqual([...restored, 'sitemap-moduli.xml'].sort());
+    const index = buildSitemapIndexXml(await discoverSitemapFiles(distDir), BASE_URL);
+    for (const file of restored) expect(index).toContain(`<loc>${BASE_URL}/${file}</loc>`);
   });
 
   it('does not include duplicate entries when called twice on the same dist', async () => {
@@ -284,6 +282,76 @@ describe('sitemapAliasPlugin — index XML builder', () => {
     const xml = buildSitemapIndexXml(entries, BASE_URL);
     expect(xml).toContain('https://frontaliereticino.ch/sitemap-pages.xml');
     expect(xml).not.toContain('www.frontaliereticino.ch');
+  });
+});
+
+describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
+  let distDir: string;
+
+  beforeEach(() => {
+    distDir = makeTmpDist();
+  });
+
+  afterEach(() => {
+    if (distDir && fs.existsSync(distDir)) fs.rmSync(distDir, { recursive: true, force: true });
+  });
+
+  it('uses strict all-locale URL checks after CI rehydrates the final dist', () => {
+    const source = fs.readFileSync(
+      new URL('../scripts/ci/reconcile-rehydrated-sitemaps.ts', import.meta.url),
+      'utf8',
+    );
+    expect(source).toMatch(/reconcileFinalSitemapsWithDist\(distDir, \[\], \{\s*keepMissing: false,\s*ignoreShardOwnership: true,\s*\}\)/);
+  });
+
+  it('keeps healthy recovered URLs and removes noindex, noncanonical, and final-dist 404 URLs', async () => {
+    const healthy = `${BASE_URL}/it/professioni/ticino/infermiere/`;
+    const noindex = `${BASE_URL}/it/professioni/ticino/placeholder/`;
+    const noncanonical = `${BASE_URL}/it/professioni/ticino/legacy-slug/`;
+    const missing = `${BASE_URL}/it/professioni/ticino/missing-page/`;
+    const file = 'sitemap-profession-cantons.xml';
+    seedSitemapWithLocs(distDir, file, [healthy, noindex, noncanonical, missing]);
+    seedHtmlPage(distDir, '/it/professioni/ticino/infermiere/');
+    seedHtmlPage(distDir, '/it/professioni/ticino/placeholder/', { noindex: true });
+    seedHtmlPage(distDir, '/it/professioni/ticino/legacy-slug/', {
+      canonical: `${BASE_URL}/contact/`,
+    });
+
+    await reconcileRemainingSitemapsWithDist(distDir);
+    const shardBuildLocs = [...fs.readFileSync(path.join(distDir, file), 'utf8').matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
+      .map((match) => match[1]!);
+    expect(shardBuildLocs).toEqual([healthy, missing]);
+
+    await reconcileFinalSitemapsWithDist(distDir, [], {
+      keepMissing: false,
+      ignoreShardOwnership: true,
+    });
+    const finalLocs = [...fs.readFileSync(path.join(distDir, file), 'utf8').matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
+      .map((match) => match[1]!);
+    expect(finalLocs).toEqual([healthy]);
+  });
+
+  it('checks absent foreign-locale URLs in the complete dist even under a shard environment', async () => {
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    vi.resetModules();
+    try {
+      const sitemapAlias = await import('../build-plugins/sitemapAliasPlugin');
+      const foreign = `${BASE_URL}/en/professioni/ticino/infermiere/`;
+      const file = 'sitemap-profession-cantons.xml';
+      seedSitemapWithLocs(distDir, file, [foreign]);
+
+      await sitemapAlias.reconcileFinalSitemapsWithDist(distDir, [], {
+        keepMissing: false,
+        ignoreShardOwnership: true,
+      });
+
+      expect(fs.existsSync(path.join(distDir, file))).toBe(false);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      vi.resetModules();
+    }
   });
 });
 
