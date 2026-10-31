@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-31T13:24:03.738Z",
+  "generatedAt": "2026-10-31T14:20:42.744Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -128960,6 +128960,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-17T20:15:56.489Z"
     },
+    "myswitzerland:a8d610f53f194ab1ad85f980a626660b::706770380d24f0bec3b594a2f25662edcc189230c613be12f28abb392a408e97": {
+      "id": "myswitzerland:a8d610f53f194ab1ad85f980a626660b",
+      "sourceDescriptionHash": "706770380d24f0bec3b594a2f25662edcc189230c613be12f28abb392a408e97",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Théâtre du Passage; comune: Neuchâtel; cantone: NE; categoria: Theater; organizzatore: Ticketcorner; partecipante: Mummenschanz; data: 2027-06-11; ora: 20:00; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Théâtre du Passage; comune: Neuchâtel; cantone: NE; categoria: Theater; organizzatore: Ticketcorner; partecipante: Mummenschanz; data: 2027-06-11; ora: 20:00; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Théâtre du Passage; municipality: Neuchâtel; canton: NE; category: Theater; organiser: Ticketcorner; participant: Mummenschanz; date: 2027-06-11; time: 20:00; price: http://schema.org/InStock. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Théâtre du Passage; gemeinde: Neuchâtel; kanton: NE; kategorie: Theater; veranstalter: Ticketcorner; mitwirkender: Mummenschanz; datum: 2027-06-11; uhrzeit: 20:00; preis: http://schema.org/InStock. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Théâtre du Passage; commune: Neuchâtel; canton: NE; catégorie: Theater; organisateur: Ticketcorner; participant: Mummenschanz; date: 2027-06-11; heure: 20:00; prix: http://schema.org/InStock. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-31T14:17:00.104Z"
+    },
     "myswitzerland:a8d762966a584b11a1ecfe4532f8cff6::c2dabdd2166fcc58507723d2be8914dcd63bb9f0543c8dbb26c68109185bfb61": {
       "id": "myswitzerland:a8d762966a584b11a1ecfe4532f8cff6",
       "sourceDescriptionHash": "c2dabdd2166fcc58507723d2be8914dcd63bb9f0543c8dbb26c68109185bfb61",
@@ -183732,15 +183746,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T18:28:31.296Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:a8d610f53f194ab1ad85f980a626660b::706770380d24f0bec3b594a2f25662edcc189230c613be12f28abb392a408e97": {
-      "id": "myswitzerland:a8d610f53f194ab1ad85f980a626660b",
-      "sourceDescriptionHash": "706770380d24f0bec3b594a2f25662edcc189230c613be12f28abb392a408e97",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-16T03:37:11.614Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
