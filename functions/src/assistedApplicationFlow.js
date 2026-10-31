@@ -158,7 +158,7 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
   // career-ops Block G "Suspicious": the owner looks at the posting first.
   if (draft?.legitimacy?.tier === 'suspicious' && !acknowledged('legitimacy')) owner.push('legitimacy');
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
-  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers);
+  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
   const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
   const candidate = questions
     .filter((question) => question.required && !String(projected?.[question.id] ?? '').trim())

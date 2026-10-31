@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pks-bewerbung-ch",
-  "assembledAt": "2026-10-30T09:41:37.558Z",
-  "runId": "41033036488",
+  "assembledAt": "2026-10-30T21:55:21.812Z",
+  "runId": "41130651027",
   "jobs": [
     {
       "id": "pks-bewerbung-ch-82a92461d441",
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:41:31.341Z",
+      "crawledAt": "2026-10-30T21:55:14.331Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalist-in-40-60-in-der-bankenbranche/basel/hrm/1c106405",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:41:31.338Z",
+      "crawledAt": "2026-10-30T21:55:14.329Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       "previousSlugs": [
         "sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-ca-sommer-2027-operative-personalarbeit"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

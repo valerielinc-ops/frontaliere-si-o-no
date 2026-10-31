@@ -204,7 +204,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       checksIt: draft.checksIt || [],
       requirements: draft.requirements || [],
       matches: draft.matches || [],
-      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers).map(question => {
+      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers, draft).map(question => {
         const descriptor = answerQuestionDescriptor(question);
         return { ...question, originalQuestionContext: descriptor?.originalNativeContract?.context || '',
           originalQuestionSection: descriptor?.originalNativeContract?.section || '',

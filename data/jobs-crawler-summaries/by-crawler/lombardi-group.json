@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-10-30T09:35:01.885Z",
+  "generatedAt": "2026-10-30T21:24:36.872Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 16040,
-  "avgDurationMs": 16040,
+  "durationMs": 16098,
+  "avgDurationMs": 16098,
   "durationHistory": [
-    16040
+    16098
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -95,47 +95,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Geotechnical Engineer (M/F/X)",
-      "slug": "geotechnical-ingegnere-m-f-x-lombardi-group-giubiasco",
-      "url": "https://lombardi.group/eng/careers/job?id=159053",
-      "applyUrl": "https://lombardi.group/eng/careers/job?id=159053",
-      "company": "Lombardi Group",
-      "companyKey": "lombardi-group",
-      "companyDomain": "lombardi.group",
-      "location": "Giubiasco",
-      "addressLocality": "Giubiasco",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria civile",
-      "source": "lombardi-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "id": "lombardi-group-424c3dd390d8",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-01T23:14:50.545Z",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "6512",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Senior Engineer / Project Manager for Hydropower and Dams (M/F/X)",
@@ -336,5 +296,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

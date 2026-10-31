@@ -1201,132 +1201,50 @@ jobs:
             --manifest-dir .cache/hreflang-index-manifest \
             --dry-run
 
-      - name: Save hreflang index manifest (${{ matrix.locale }})
-        uses: actions/cache/save@v6
+      # Artifacts, not actions/cache: a cache restore turns a download failure
+      # into a warning plus a miss, and a workflow cannot retry it. The manifest
+      # is mandatory, so run 41088323300 lost three legs after two hours of
+      # build to one `Egress is over the account limit` answer. Same key as
+      # before: run id and attempt, so a leg never reads another attempt.
+      - name: Publish hreflang index manifest (${{ matrix.locale }})
+        id: publish-hreflang-index-manifest
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
         with:
+          name: hreflang-index-manifest-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: .cache/hreflang-index-manifest/${{ matrix.locale }}.json
-          key: hreflang-index-manifest-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 1
+          if-no-files-found: error
+          include-hidden-files: true
 
-      - name: Wait for complete same-run hreflang manifest set
+      - name: Retry hreflang index manifest publish (${{ matrix.locale }})
+        if: steps.publish-hreflang-index-manifest.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: hreflang-index-manifest-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .cache/hreflang-index-manifest/${{ matrix.locale }}.json
+          retention-days: 1
+          if-no-files-found: error
+          include-hidden-files: true
+          overwrite: true
+
+      # One step for the barrier and the download. The script retries transient
+      # errors and validates each manifest, so a missing, truncated, or foreign
+      # manifest cannot be interpreted as an unknown member and let one shard
+      # publish a different graph. The barrier ends 260 minutes after the job
+      # start, not after a fixed wait: how far apart the legs arrive depends on
+      # their cache hits. Then 20 minutes of downloads at most.
+      - name: Exchange same-run hreflang manifests
+        id: exchange-hreflang-index-manifests
+        timeout-minutes: 285
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
+          HREFlANG_BUILD_LOCALE: ${{ matrix.locale }}
+          HREFlANG_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
           HREFlANG_RUN_ID: ${{ github.run_id }}
           HREFlANG_RUN_ATTEMPT: ${{ github.run_attempt }}
-        run: |
-          set -euo pipefail
-          # The locale matrix builds in parallel but their completion times can
-          # differ substantially. A 15-minute barrier expires while the
-          # slower de/fr legs are still producing their manifests, leaving the
-          # faster it/en legs to fail the whole build before the set exists.
-          # Keep the barrier inside the job's normal budget while allowing the
-          # slowest locale to catch up.
-          barrier_seconds=3600
-          deadline=$((SECONDS + barrier_seconds))
-          while :; do
-            complete=1
-            for locale in it en de fr; do
-              key="hreflang-index-manifest-${locale}-${HREFlANG_RUN_ID}-${HREFlANG_RUN_ATTEMPT}"
-              count="$(gh api -X GET "repos/${GH_REPO}/actions/caches?key=${key}" --jq '.total_count')"
-              if [ "${count:-0}" -lt 1 ]; then
-                complete=0
-                break
-              fi
-            done
-            if [ "$complete" -eq 1 ]; then
-              echo "✓ complete same-run hreflang manifest set is available"
-              break
-            fi
-            # A sibling that has already terminated cannot publish its
-            # manifest. Do not make the healthy legs burn the full one-hour
-            # barrier in that case: surface the first failed locale now so
-            # the rearm job can classify a host loss or ordinary build error
-            # from the actual failed leg instead of three misleading barrier
-            # timeouts.
-            failed_locale_job="$(
-              gh api -X GET "repos/${GH_REPO}/actions/runs/${HREFlANG_RUN_ID}/jobs?filter=latest&per_page=100" \
-                --jq '.jobs[]
-                  | select(.name | startswith("build-locale ("))
-                  | select(.conclusion == "failure" or .conclusion == "cancelled" or .conclusion == "timed_out")
-                  | .name' \
-                | sed -n '1p'
-            )"
-            if [ -n "$failed_locale_job" ]; then
-              echo "::error::same-run hreflang manifest barrier aborted: ${failed_locale_job} terminated before publishing its manifest"
-              exit 1
-            fi
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::same-run hreflang manifest barrier timed out"
-              exit 1
-            fi
-            sleep 10
-          done
-
-      - name: Restore same-run hreflang index manifest (it)
-        if: matrix.locale != 'it'
-        uses: actions/cache/restore@v6
-        with:
-          path: .cache/hreflang-index-manifest/it.json
-          key: hreflang-index-manifest-it-${{ github.run_id }}-${{ github.run_attempt }}
-
-      - name: Restore same-run hreflang index manifest (en)
-        if: matrix.locale != 'en'
-        uses: actions/cache/restore@v6
-        with:
-          path: .cache/hreflang-index-manifest/en.json
-          key: hreflang-index-manifest-en-${{ github.run_id }}-${{ github.run_attempt }}
-
-      - name: Restore same-run hreflang index manifest (de)
-        if: matrix.locale != 'de'
-        uses: actions/cache/restore@v6
-        with:
-          path: .cache/hreflang-index-manifest/de.json
-          key: hreflang-index-manifest-de-${{ github.run_id }}-${{ github.run_attempt }}
-
-      - name: Restore same-run hreflang index manifest (fr)
-        if: matrix.locale != 'fr'
-        uses: actions/cache/restore@v6
-        with:
-          path: .cache/hreflang-index-manifest/fr.json
-          key: hreflang-index-manifest-fr-${{ github.run_id }}-${{ github.run_attempt }}
-
-      # `actions/cache/restore` is deliberately allowed to be a no-op on a
-      # miss.  Verify the files and their envelope before the rewrite pass so
-      # a missing, truncated, or foreign manifest cannot be interpreted as an
-      # unknown member and let one shard publish a different graph.
-      - name: Verify same-run hreflang manifests after restore
-        id: verify-hreflang-index-manifest
-        shell: bash
-        env:
-          HREFlANG_BUILD_LOCALE: ${{ matrix.locale }}
-          HREFlANG_RUN_ID: ${{ github.run_id }}
-        run: |
-          set -euo pipefail
-          for locale in it en de fr; do
-            if [[ "$locale" == "$HREFlANG_BUILD_LOCALE" ]]; then
-              continue
-            fi
-            file=".cache/hreflang-index-manifest/${locale}.json"
-            if [[ ! -s "$file" ]]; then
-              echo "::error::same-run hreflang manifest missing after restore: ${locale}"
-              exit 1
-            fi
-            node --input-type=module - "$file" "$locale" "$HREFlANG_RUN_ID" <<'NODE'
-          import fs from 'node:fs';
-          import { parseHreflangManifest } from './scripts/lib/hreflang-index-manifest.mjs';
-
-          const [file, locale, expectedRunId] = process.argv.slice(2);
-          const parsed = parseHreflangManifest(fs.readFileSync(file, 'utf8'), locale);
-          if ('error' in parsed) {
-            console.error(`::error::invalid same-run hreflang manifest ${locale}: ${parsed.error}`);
-            process.exit(1);
-          }
-          if (!parsed.runId || parsed.runId !== expectedRunId) {
-            console.error(`::error::foreign same-run hreflang manifest ${locale}: runId=${parsed.runId || '<missing>'}, expected=${expectedRunId}`);
-            process.exit(1);
-          }
-          NODE
-          done
+        run: node scripts/ci/exchange-hreflang-manifests.mjs --manifest-dir .cache/hreflang-index-manifest
 
       # Every decision is taken before the first rename. A read, write or
       # rename failure aborts this leg before packing/publishing and the script

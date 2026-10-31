@@ -24,3 +24,10 @@ export function portalRecoveryDefinitelyUnsent({ orderId, order, flow, draft, su
     && send?.state === 'failed' && send.channel === 'portal' && !send.clickedAt && Number(send.releasedAt) > 0
     && !Object.values(submission).some(record => record?.state === 'sent' || isUnconfirmedSubmission(record));
 }
+
+/** Native owner metadata may be repaired before the safe discovery engine lands. */
+export function operationalPortalRecoveryReady({ flow }) {
+  // PR #16143 supplies the strict readiness and native-control guards. Until
+  // then this lane stays held even if an optional referral marker is fixed.
+  return !flow?.heldBy?.includes('portal:portal_needs_candidate');
+}

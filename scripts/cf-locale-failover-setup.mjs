@@ -193,7 +193,16 @@ const BLOCKED_CRAWLER_UAS = [
   'BLEXBot',
   'DataForSeoBot',
   'SerpstatBot',
+  // Owner decision 2026-10-30, from Workers Logs (23-30/10): 1.53M Baidu requests
+  // against 220 Baidu referrals, and 707k CorsairBot requests from Google Cloud.
+  'Baiduspider',
+  'CorsairBot',
 ];
+
+// Decade-old Chrome builds sent only by Chinese networks (306k + 203k requests in
+// the same week, mostly version files and 404s). Exact build AND country: a real
+// visitor on an old browser elsewhere keeps working.
+const BLOCKED_CN_SPOOFED_UAS = ['Chrome/48.0.2564.116', 'Chrome/99.0.4844.51'];
 
 // Ambiguous non-self-identifying automated traffic: `managed_challenge`, not a
 // hard block (uncertain enough that an outright block risks a real visitor
@@ -277,6 +286,9 @@ const MANAGED_FIREWALL_RULES = [
       TRUSTED_CRAWLER_IP_RANGES.join(' ') +
       '}) and (' +
       BLOCKED_CRAWLER_UAS.map((ua) => `http.user_agent contains "${ua}"`).join(' or ') +
+      ' or (ip.src.country eq "CN" and (' +
+      BLOCKED_CN_SPOOFED_UAS.map((ua) => `http.user_agent contains "${ua}"`).join(' or ') +
+      '))' +
       ')))',
   },
   {

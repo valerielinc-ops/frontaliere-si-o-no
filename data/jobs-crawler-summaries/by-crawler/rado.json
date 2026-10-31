@@ -1,17 +1,17 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-10-30T09:38:37.947Z",
+  "generatedAt": "2026-10-30T21:28:45.456Z",
   "total": 3,
-  "authoritativeEmptySnapshot": true,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 365820,
-  "avgDurationMs": 365820,
+  "durationMs": 388220,
+  "avgDurationMs": 388220,
   "durationHistory": [
-    365820
+    388220
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -36,7 +36,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-29T21:28:17.015Z",
+      "crawledAt": "2026-10-30T21:28:08.178Z",
       "firstSeenAt": "2026-10-23T21:17:42.290Z",
       "sourceLang": "fr",
       "salaryMin": 68500,
@@ -46,7 +46,6 @@
       "postalCode": "3001",
       "addressLocality": "Lengnau BE",
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
       "streetAddress": "Bielstrasse 45",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -86,7 +85,7 @@
       "addressLocality": "Lengnau BE",
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -125,7 +124,7 @@
       "addressLocality": "Lengnau BE",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -135,5 +134,5 @@
       }
     }
   ],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

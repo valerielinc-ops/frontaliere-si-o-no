@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T12:21:59.513Z",
+  "generatedAt": "2026-10-30T21:53:11.196Z",
   "sourceWeek": "2026-W44",
   "hubs": [
     {
@@ -46,7 +46,8 @@
       "routeKind": "dynamic",
       "label": "Sanità / Ospedali",
       "labelByLocale": {
-        "it": "Sanità / Ospedali"
+        "it": "Sanità / Ospedali",
+        "de": "Gesundheitswesen / Krankenhäuser"
       },
       "sourceFields": [
         "category",
@@ -72,7 +73,7 @@
         "Tecnica"
       ],
       "firstPublishedAt": "2026-10-20T08:22:55.192Z",
-      "status": "cooling-off"
+      "status": "retired"
     }
   ]
 }

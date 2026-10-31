@@ -64,7 +64,7 @@ export function portalNeedsPlanner(draft) {
 /** Open required questions block the submission, whatever the channel. */
 export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {} } = {}) {
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
-  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers);
+  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
   const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
   return questions.filter((question) => question.required
     && !(deferPortal && question.source === 'portal')

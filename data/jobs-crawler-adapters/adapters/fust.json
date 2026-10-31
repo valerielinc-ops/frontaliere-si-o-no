@@ -10,6 +10,28 @@
     "jsonld"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/9b170607-8546-4f88-a83a-97f8c5a62f85": {
+      "location": "Winterthur",
+      "canton": "ZH",
+      "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
+      "sourceId": "10245484",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
+    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/da8070ea-9eaf-4691-b806-13df477bf874": {
+      "location": "Region Bern",
+      "canton": "BE",
+      "title": "Servicetechniker:in Heimservice",
+      "sourceId": "10245271",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
     "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/6e9bab01-71b7-4fa5-9317-f2c2f5478d32": {
       "location": "Burgdorf",
       "canton": "BE",
@@ -925,8 +947,10 @@
     }
   },
   "notes": "Fust (Coop Group) — CH-wide discovery across all 26 cantons via Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch expose JSON-LD JobPosting and source workplace metadata.",
-  "updatedAt": "2026-10-30T09:35:28.020Z",
+  "updatedAt": "2026-10-30T21:42:08.340Z",
   "seedDetailUrls": [
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/9b170607-8546-4f88-a83a-97f8c5a62f85",
+    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/da8070ea-9eaf-4691-b806-13df477bf874",
     "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/6e9bab01-71b7-4fa5-9317-f2c2f5478d32",
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-kundendienst-kuechen-baeder/2ffe1d89-11aa-4159-ba6a-f1af6eeaa05e",
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-kundendienst-kuechen-baeder/73024bd3-bcf0-461a-82cf-916a3abf0cd0",

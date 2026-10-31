@@ -1,7 +1,7 @@
 {
   "key": "fondazione-san-gottardo",
   "label": "Fondazione San Gottardo",
-  "generatedAt": "2026-10-30T09:20:19.261Z",
+  "generatedAt": "2026-10-30T21:18:49.118Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6251,
-  "avgDurationMs": 6251,
+  "unchangedCount": 1,
+  "durationMs": 4187,
+  "avgDurationMs": 4187,
   "durationHistory": [
-    6251
+    4187
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "fondazione-san-gottardo-stage-4ffe280d419e",
       "slug": "stage-pre-supsi-9-mesi-lopagno-fondazione-san-gottardo-ch",
@@ -40,7 +42,7 @@
       "url": "https://www.fsangottardo.ch/lavoro",
       "source": "Fondazione San Gottardo Dedicated Parser (Internship Opportunity)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-30T09:20:06.053Z",
+      "crawledAt": "2026-10-30T21:18:34.639Z",
       "category": "Altro",
       "contract": "internship",
       "employmentType": "INTERN",
@@ -65,7 +67,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

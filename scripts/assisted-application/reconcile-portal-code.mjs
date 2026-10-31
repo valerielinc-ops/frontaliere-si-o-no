@@ -5,7 +5,7 @@ import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { evaluateRedFlags, roundWasSent } from '../../functions/src/assistedApplicationFlow.js';
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
 import { getRemoteConfig } from 'firebase-admin/remote-config';
-import { portalCodeVersion, portalRecoveryDefinitelyUnsent } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
+import { portalCodeVersion, portalRecoveryDefinitelyUnsent, operationalPortalRecoveryReady } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 
 export async function reconcilePortalCode({ db, version, apply = false, nowMs = Date.now(), isEnabled = null }) {
   if (!portalCodeVersion(version)) throw new Error('invalid_portal_code_version');

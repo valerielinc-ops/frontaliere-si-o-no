@@ -7,6 +7,7 @@ import { countryCodeOfLabel, phoneCountryCode } from '../../../../functions/src/
 import { residenceCountryCode } from './residence-address.mjs';
 import { dismissOptionalAutofill } from './optional-autofill.mjs';
 import { ownedOption, ownedOptionList, PortalQualificationUnverified } from './qualification-gate.mjs';
+import { beginChoiceObservation, choiceFailureEvidence } from './choice-evidence.mjs';
 
 const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'residence_country';
 
@@ -70,12 +71,22 @@ const UPLOAD_QUIET_MS = 700;
  * script click (career-ops, Lever: a programmatic click on a box pops an
  * hCaptcha challenge in the middle of the form).
  */
-async function setChoice(locator, checked) {
+async function setChoice(locator, checked, observation = null) {
+  const attempt = async (method, action) => {
+    if (observation) observation.method = method;
+    try {
+      await action();
+      observation?.attempts.push({ method, outcome: 'returned' });
+    } catch (error) {
+      observation?.attempts.push({ method, outcome: 'threw' });
+      throw error;
+    }
+  };
   try {
-    await locator.setChecked(checked, { timeout: ACTION_TIMEOUT_MS });
+    await attempt('native', () => locator.setChecked(checked, { timeout: ACTION_TIMEOUT_MS }));
   } catch {
     try {
-      await locator.setChecked(checked, { force: true, timeout: ACTION_TIMEOUT_MS });
+      await attempt('forced', () => locator.setChecked(checked, { force: true, timeout: ACTION_TIMEOUT_MS }));
     } catch (error) {
       const current = await locator.isChecked({ timeout: 2000 }).catch(() => !checked);
       if (current === checked) return;
@@ -87,7 +98,25 @@ async function setChoice(locator, checked) {
       }, null, { timeout: 2000 }).catch(() => false);
       if (!marked) throw error;
       const label = locator.locator('xpath=ancestor::html[1]//label[@data-aa-label="choice"]').first();
-      await label.click({ timeout: ACTION_TIMEOUT_MS });
+      const hitObserver = observation && typeof label.evaluateHandle === 'function' ? await label.evaluateHandle(element => {
+        const controller = new element.ownerDocument.defaultView.AbortController();
+        element.addEventListener('click', event => {
+          const tag = event.target?.tagName?.toLowerCase();
+          element.setAttribute('data-aa-choice-hit', ['input', 'label', 'a', 'button', 'span', 'i'].includes(tag) ? tag : 'other');
+        }, { once: true, passive: true, capture: true, signal: controller.signal });
+        return controller;
+      }, null, { timeout: 2000 }).catch(() => null) : null;
+      try {
+        await attempt('label', () => label.click({ timeout: ACTION_TIMEOUT_MS }));
+      } finally {
+        await hitObserver?.evaluate(controller => controller.abort()).catch(() => {});
+        if (observation && typeof label.evaluate === 'function') observation.labelClickTag = await label.evaluate(element => {
+          const tag = element.getAttribute('data-aa-choice-hit');
+          element.removeAttribute('data-aa-choice-hit');
+          return ['input', 'label', 'a', 'button', 'span', 'i', 'other'].includes(tag) ? tag : null;
+        }, null, { timeout: 2000 }).catch(() => null);
+        await hitObserver?.dispose().catch(() => {});
+      }
       await label.evaluate((element) => element.removeAttribute('data-aa-label')).catch(() => {});
     }
   }
@@ -765,6 +794,8 @@ export async function applyActions(page, fields, actions, files, {
     if (!field || action.action === 'skip') continue;
     // How many files an upload set, for the record of what left (submit.mjs).
     let uploaded = 0;
+    let choiceObservation;
+    let choiceLocator;
     try {
       await dismissOptionalAutofill(page);
       await beforeAction(field, action);
@@ -783,8 +814,13 @@ export async function applyActions(page, fields, actions, files, {
         continue;
       } else if (action.action === 'check' || action.action === 'uncheck') {
         const wanted = action.action === 'check';
-        await setChoice(locator, wanted);
+        choiceLocator = locator;
+        const frames = page.frames();
+        const frame = frames[field.frame || 0] || page.mainFrame();
+        choiceObservation = await beginChoiceObservation(locator, wanted, frame, frames.indexOf(frame));
+        await setChoice(locator, wanted, choiceObservation);
         const registered = await locator.isChecked({ timeout: 2000 }).catch(() => null);
+        choiceObservation.registeredChecked = registered;
         if (registered !== wanted) throw new Error('choice_not_registered');
       } else if (field.kind === 'radio') {
         const option = field.options.find((item) => item.label === action.value || item.value === action.value);
@@ -876,7 +912,11 @@ export async function applyActions(page, fields, actions, files, {
       results.push({ fieldId: field.id, ok: true, ...(uploaded ? { files: uploaded } : {}) });
     } catch (error) {
       if (error?.code === 'evidence_entailment_unverified') throw error;
-      results.push({ fieldId: field.id, ok: false, error: String(error?.message || error).slice(0, 120) });
+      const choiceEvidence = choiceObservation
+        ? await choiceFailureEvidence({ page, fields, field, locator: choiceLocator, observation: choiceObservation }).catch(() => null) : null;
+      results.push({ fieldId: field.id, ok: false, error: String(error?.message || error).slice(0, 120), ...(choiceEvidence ? { choiceEvidence } : {}) });
+    } finally {
+      await choiceObservation?.original?.dispose?.().catch(() => {});
     }
     await pause();
   }

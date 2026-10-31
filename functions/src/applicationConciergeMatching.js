@@ -8,6 +8,7 @@
  */
 
 import { normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
+import { locationMatchPoints } from './applicationConciergeGeography.js';
 import { MAX_ELIGIBILITY_RETRIES_PER_RUN, dueEligibilityRetries, eligibilityRetryRef, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
 import { createHash } from 'node:crypto';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
@@ -27,19 +28,6 @@ const MAX_ELIGIBILITY_WORK_PER_RUN = 40;
 const MIN_MATCH_SCORE = 28;
 export { APPLICATION_CONCIERGE_MATCHING_VERSION } from './applicationConciergeConstants.js';
 export const APPLICATION_CONCIERGE_REQUIREMENTS_VERIFIED = true;
-const LOCATION_MATCH_POINTS = Object.freeze({
-  sameLocality: 8,
-  sameThreeDigitPostcode: 6,
-  sameTwoDigitPostcode: 4,
-  adjacentTwoDigitPostcode: 2,
-});
-const CANTON_CODES = new Set([
-  'ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'ge', 'gl', 'gr', 'ju', 'lu', 'ne', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zg', 'zh',
-]);
-const NON_LOCALITY_WORDS = new Set([
-  'ch', 'switzerland', 'svizzera', 'schweiz', 'suisse', 'italia', 'italy', 'italien', 'canton', 'cantone', 'kanton',
-  'ticino', 'tessin', 'grigioni', 'graubunden', 'graubuenden', 'grisons',
-]);
 const STOP_WORDS = new Set([
   'and', 'con', 'per', 'the', 'with', 'del', 'della', 'delle', 'dei', 'degli', 'di', 'in', 'a', 'da', 'su', 'il', 'lo', 'la', 'le', 'un', 'una', 'uno',
   'job', 'lavoro', 'stellen', 'emploi', 'arbeit', 'switzerland', 'svizzera', 'suisse', 'schweiz', 'full', 'time', 'part', 'tempo', 'pieno',
@@ -136,39 +124,6 @@ function profileEvidence(profile) {
 
 function jobText(job) {
   return [job?.title, job?.category, job?.sector, job?.description, job?.requirements].filter(Boolean).join(' ');
-}
-
-function postcode(value) {
-  const match = String(value || '').match(/\b(\d{4,5})\b/);
-  return match?.[1] || '';
-}
-
-function localityKey(value) {
-  const parts = String(value || '').replace(/\b\d{4,5}\b/g, ' ').split(/[;,|/]+/);
-  return parts.map((part) => normalize(part).split(/\s+/)
-    .filter((token) => !CANTON_CODES.has(token) && !NON_LOCALITY_WORDS.has(token)).join(' '))
-    .find(Boolean) || '';
-}
-
-/** A small, private ranking hint from a city/CAP only; it is not a route distance. */
-function locationMatchPoints(candidateLocation, job) {
-  if (!candidateLocation) return 0;
-  const jobLocation = [job?.postalCode, job?.addressLocality || job?.location].filter(Boolean).join(' ');
-  if (!jobLocation) return 0;
-  const candidateLocality = localityKey(candidateLocation);
-  const jobLocality = localityKey(jobLocation);
-  if (candidateLocality && candidateLocality === jobLocality) return LOCATION_MATCH_POINTS.sameLocality;
-
-  const candidatePostcode = postcode(candidateLocation);
-  const jobPostcode = postcode(jobLocation);
-  if (!candidatePostcode || !jobPostcode || candidatePostcode.length !== jobPostcode.length) return 0;
-  if (candidatePostcode === jobPostcode) return LOCATION_MATCH_POINTS.sameLocality;
-  if (candidatePostcode.slice(0, 3) === jobPostcode.slice(0, 3)) return LOCATION_MATCH_POINTS.sameThreeDigitPostcode;
-  if (candidatePostcode.slice(0, 2) === jobPostcode.slice(0, 2)) return LOCATION_MATCH_POINTS.sameTwoDigitPostcode;
-  if (Math.abs(Number(candidatePostcode.slice(0, 2)) - Number(jobPostcode.slice(0, 2))) === 1) {
-    return LOCATION_MATCH_POINTS.adjacentTwoDigitPostcode;
-  }
-  return 0;
 }
 
 function roleSignals(value) {
