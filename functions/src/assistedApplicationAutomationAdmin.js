@@ -686,6 +686,8 @@ async function authorizeOwnerFinalIntent(db, orderId, raw, deps, nowMs) {
       if (freshNow() - request.intent.capturedAt > 120_000) throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
     },
   });
+  // A source changed during the verifier must not create even a resumable pre-click claim.
+  await ownerSourceFence(() => db.runTransaction(transaction => sourceGuard.assertInTransaction(transaction)));
   const guard = submissionGuard(db, orderId, flow.round || 1, { answerSourceGuard: sourceGuard });
   const claim = await guard.claim('owner_extension', freshNow(), { resumable: true });
   if (claim.status !== 'claimed') throw new AutomationAdminError(claim.status === 'already_sent' ? 'already_sent' : 'submission_unconfirmed', 409);
