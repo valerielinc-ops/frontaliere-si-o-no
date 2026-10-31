@@ -122,6 +122,18 @@ function exactSourceEvidence(sourceText, pageText) {
   return page.includes(source);
 }
 
+function dateEvidence(value, pageText) {
+  const raw = clean(value, 80);
+  if (!raw) return false;
+  const normalizedPage = evidenceText(pageText);
+  const normalizedDate = evidenceText(raw);
+  if (normalizedPage.includes(normalizedDate)) return true;
+  const iso = /^(\d{4})-(\d{2})-(\d{2})/.exec(raw);
+  if (!iso) return false;
+  return normalizedPage.includes(`${iso[3]} ${iso[2]} ${iso[1]}`)
+    || normalizedPage.includes(`${iso[3]} ${iso[2]} ${iso[1].slice(2)}`);
+}
+
 function parseJsonResponse(value) {
   if (value && typeof value === 'object') return value;
   const raw = String(value || '').trim()
@@ -244,6 +256,16 @@ export function validateFreeTextOffer(offer, {
     return { valid: false, reason: 'description_below_50_words' };
   }
   if (tokenOverlap(description, pageText) < 0.3) return { valid: false, reason: 'description_not_grounded' };
+  const rawLocationText = [
+    offer.location,
+    offer.addressLocality,
+    offer.addressRegion,
+    offer.postalCode,
+    offer.streetAddress,
+  ].map((value) => clean(value, 240)).filter(Boolean).join(' ');
+  if (rawLocationText && tokenOverlap(rawLocationText, pageText) < 0.5) {
+    return { valid: false, reason: 'location_not_grounded' };
+  }
   const jobLike = gradeJobLike(`${sourceText}\n${description}`);
   if (!jobLike.jobLike) return { valid: false, reason: 'not_job_like', jobLike };
   const location = resolvedLocation({
@@ -261,8 +283,13 @@ export function validateFreeTextOffer(offer, {
   }
   const company = clean(context.companyName || offer.company, 240);
   if (!company) return { valid: false, reason: 'employer_identity_missing', jobLike };
-  const dateFields = sourcePostingDateFields(clean(offer.datePosted, 80));
-  const employmentType = clean(offer.employmentType, 80) || 'FULL_TIME';
+  const dateFields = dateEvidence(offer.datePosted, pageText)
+    ? sourcePostingDateFields(clean(offer.datePosted, 80))
+    : sourcePostingDateFields('');
+  const proposedEmploymentType = clean(offer.employmentType, 80);
+  const employmentType = proposedEmploymentType && tokenOverlap(proposedEmploymentType, pageText) >= 0.5
+    ? proposedEmploymentType
+    : 'FULL_TIME';
   const applyUrl = sameOriginUrl(offer.applyUrl, pageUrl);
   return {
     valid: true,
