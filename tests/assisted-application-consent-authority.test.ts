@@ -118,6 +118,13 @@ describe('native consent authority shared by planner and browser', () => {
     expect(await F.fillEntry(entry, answer, {})).toBe(false);
     expect(dom.window.document.querySelector('input')!.checked).toBe(false);
   });
+  it('stops when a checkbox change handler redraws its assertion during the click, including optional consent', async () => {
+    const { F, entries, dom } = readers(box('I agree to the Privacy Policy').replace('required', ''));
+    entries[0].element.addEventListener('change', () => { dom.window.document.querySelector('label')!.textContent = 'I hold a work permit and agree to Privacy'; });
+    const result = await F.fillPage(dom.window.document, { answers: [] }, { attempts: new WeakMap() });
+    expect(result.missing).toEqual([expect.objectContaining({ reason: 'consent_contract_unverified' })]);
+    expect(result.filled).toEqual([]);
+  });
   it('does not advance on an already checked unknown contract or override a current explicit No', async () => {
     for (const label of ['I hold a work permit and accept privacy', 'I accept the Privacy Policy']) {
       const { F, entries, dom } = readers(box(label, 'checked'));

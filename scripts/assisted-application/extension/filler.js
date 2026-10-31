@@ -1148,7 +1148,11 @@
         const target = isShown(element) ? element : [...element.labels || []].find(label => label.control === element && isShown(label));
         if (!target) return false;
         if (!element.checked) press(target);
-        return element.checked;
+        const committed = { kind: 'checkbox', label: labelOf(element), name: element.name,
+          required: isRequiredControl(element) || labelsOf(element, labelOf(element)).some(value => REQUIRED_RE.test(value)),
+          ...consentMetadataFor(element, labelOf(element)) };
+        return element.isConnected && element.checked && receipt.contract === JSON.stringify(committed)
+          && pureApplicationConsent(committed);
       }
       case 'radio': {
         const option = bestOption(entry.options, answer.value, answer.family);
@@ -1324,7 +1328,7 @@
       const ok = await fillEntry(entry, answer, { getFile, getFiles }).catch(() => false);
       if (ok && documentKey) uploaded.add(documentKey);
       (ok ? filled : failed).push(entry.label || entry.kind);
-      if (!ok && entry.required) missing.push({ label: entry.label, answer: answer.value || answer.document || '' });
+      if (!ok && (entry.required || entry.kind === 'checkbox')) missing.push({ label: entry.label, answer: answer.value || answer.document || '', ...(entry.kind === 'checkbox' ? { reason: 'consent_contract_unverified' } : {}) });
     }
     return { filled, missing, failed, entries: entries.length };
   }
