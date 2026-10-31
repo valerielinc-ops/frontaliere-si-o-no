@@ -6372,26 +6372,48 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, [expiredJob, sortedJobs]);
 
- // Load blog meta translations + articles data for cross-linking (only when job selected).
- // preloadBlogData in the same gate: blogMetaReady implies BLOG_SLUGS present,
- // so the related-article hrefs below are canonical by construction (the slug
- // map no longer preloads unconditionally at App mount — #3528/#3532). Failure
- // swallowed: degrade to id-fallback hrefs instead of hiding the section.
+ // The related-article section is below the fold and is absent from the gated
+ // detail. Do not pay for its 2 MB metadata chunk (or article registry) until
+ // an authorized reader approaches it. Crawlers keep the eager path so their
+ // hydrated links remain available alongside the complete static HTML.
  const [blogMetaReady, setBlogMetaReady] = useState(false);
  const [blogArticles, setBlogArticles] = useState<Article[]>([]);
+ const relatedArticleMetadataRef = useRef<HTMLDivElement>(null);
+ const [relatedArticleMetadataRequestedFor, setRelatedArticleMetadataRequestedFor] = useState<string | null>(null);
  useEffect(() => {
- if (!selectedJob) return;
- Promise.all([
+ if (!selectedJob || !hasAccess || blogMetaReady) return;
+ const jobId = selectedJob.id;
+ if (isCrawlerVisitor || typeof IntersectionObserver === 'undefined') {
+  setRelatedArticleMetadataRequestedFor(jobId);
+  return;
+ }
+ const target = relatedArticleMetadataRef.current;
+ if (!target) return;
+ const observer = new IntersectionObserver(([entry]) => {
+  if (!entry?.isIntersecting) return;
+  setRelatedArticleMetadataRequestedFor(jobId);
+  observer.disconnect();
+ }, { rootMargin: '900px 0px' });
+ observer.observe(target);
+ return () => observer.disconnect();
+ }, [selectedJob?.id, hasAccess, blogMetaReady, isCrawlerVisitor]);
+ useEffect(() => {
+ if (!selectedJob || !hasAccess || blogMetaReady
+  || relatedArticleMetadataRequestedFor !== selectedJob.id) return;
+ let cancelled = false;
+ void Promise.all([
  loadBlogMeta(),
  preloadBlogData().catch(() => {}),
  // #4176: resilientImport so a transient CDN deploy-window failure on the
  // non-hashed blog-articles-data.js chunk self-heals instead of surfacing.
  resilientImport(() => import('@/data/blog-articles-data'), m => Array.isArray(m.ARTICLES)).then(m => m.ARTICLES),
  ]).then(([, , data]) => {
+  if (cancelled) return;
  setBlogArticles(data);
  setBlogMetaReady(true);
  }).catch(() => {});
- }, [selectedJob]);
+ return () => { cancelled = true; };
+ }, [selectedJob?.id, hasAccess, blogMetaReady, relatedArticleMetadataRequestedFor]);
 
  const relatedArticles = useMemo(() => {
  if (!selectedJob || !blogMetaReady || blogArticles.length === 0) return [];
@@ -10108,7 +10130,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <a
  href={gateCompanyHref}
  onClickCapture={openGateCompanyFilter}
- className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="inline-flex min-h-[44px] items-center gap-1 px-2 py-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  ><Building2 size={14} />{companyName}</a>
  {jobLocation && gateLocationHref && (
  <a
@@ -10122,7 +10144,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_location_filter_open', jobLocation);
  }}
- className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="inline-flex min-h-[44px] items-center gap-1 px-2 py-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  ><MapPin size={14} />{jobLocation}</a>
  )}
  {jobLocation && !gateLocationHref && <span className="inline-flex items-center gap-1"><MapPin size={14} />{jobLocation}</span>}
@@ -11072,7 +11094,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_location_filter_open', selectedJob.location);
  }}
- className="hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="inline-flex min-h-[44px] items-center py-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >{selectedJob.location} ({selectedJob.canton})</a>
  ) : (
  <>{selectedJob.location} ({selectedJob.canton})</>
@@ -11436,6 +11458,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  )}
 
+ <div ref={relatedArticleMetadataRef} aria-hidden="true" className="h-0" />
  {relatedArticles.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between mb-4">
