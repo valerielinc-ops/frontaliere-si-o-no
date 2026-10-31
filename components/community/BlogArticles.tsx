@@ -2403,10 +2403,6 @@ function BlogArticlesContent({
  );
  const transparencyLocale = disclosureLocale(locale);
  const transparencyCopy = ARTICLE_TRANSPARENCY[transparencyLocale];
- const [articleLinksSources, setArticleLinksSources] = useState(false);
- useEffect(() => {
-  setArticleLinksSources(articleHasExternalSource(articleRef.current?.innerHTML ?? ''));
- }, [bodyReady, locale]);
 
  // Wait for article body translations to load
  if (!bodyReady) {
@@ -3216,7 +3212,7 @@ function BlogArticlesContent({
  <p className="mb-1">
  <strong className="text-body">{transparencyCopy.label}:</strong>{' '}
  {transparencyStatement}
- {articleLinksSources ? ` ${transparencyCopy.sources}` : ''}
+ <ArticleSourcesNote articleRef={articleRef} text={transparencyCopy.sources} />
  {' '}{transparencyCopy.disclaimer}
  </p>
  <p className="text-xs">
@@ -3674,6 +3670,15 @@ function BlogArticlesContent({
  </div>
  </div>
  );
+}
+
+/** Promette le fonti solo se il testo mostrato linka davvero una fonte esterna. */
+function ArticleSourcesNote({ articleRef, text }: { articleRef: import('react').RefObject<HTMLElement | null>; text: string }) {
+ const [hasSource, setHasSource] = useState(false);
+ useEffect(() => {
+  setHasSource(articleHasExternalSource(articleRef.current?.innerHTML ?? ''));
+ });
+ return hasSource ? <>{` ${text}`}</> : null;
 }
 
 function BlogArticles(props: BlogArticlesProps) {
