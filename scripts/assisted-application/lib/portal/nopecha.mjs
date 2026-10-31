@@ -11,11 +11,14 @@ export async function launchNopechaContext(extensionPath, options) {
   const chromium = await getChromium();
   const remote = process.env.ASSISTED_APPLICATION_EXECUTOR === 'mac-agenti';
   if (remote && (!process.env.ASSISTED_APPLICATION_BROWSER_WRAPPER || !process.env.ASSISTED_APPLICATION_BROWSER_PROFILE)) throw new Error('execution_browser_isolation_missing');
+  const proxy = process.env.ASSISTED_APPLICATION_BROWSER_PROXY;
+  if (remote && (!/^http:\/\/127\.0\.0\.1:[1-9]\d{0,4}$/.test(proxy || '') || Number(new URL(proxy).port) > 65535)) throw new Error('execution_browser_egress_missing');
   const context = await chromium.launchPersistentContext(remote ? process.env.ASSISTED_APPLICATION_BROWSER_PROFILE : '', {
     ...options,
     env: privateBrowserEnvironment({ home: remote ? process.env.ASSISTED_APPLICATION_BROWSER_HOME : os.homedir(),
       temporary: remote ? process.env.ASSISTED_APPLICATION_BROWSER_TEMP : os.tmpdir() }),
     ...(remote ? { executablePath: process.env.ASSISTED_APPLICATION_BROWSER_WRAPPER } : {}),
+    ...(remote ? { proxy: { server: proxy, bypass: '<-loopback>' } } : {}),
     channel: 'chromium',
     args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`],
   });

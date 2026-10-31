@@ -12,11 +12,15 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { acquireSingleFlightLockHandle } from '../lib/single-flight-lock.mjs';
 import { compileExecutionRelease, removePrivateTree, verifyExecutionRelease } from './lib/execution-release.mjs';
 import { createDarwinIsolation } from './lib/darwin-isolation.mjs';
-import { prepareDarwinBroker } from '../../.github/actions/setup-codex-darwin-broker/bootstrap.mjs';
-import { REMOTE_EXECUTOR, REMOTE_EXECUTOR_FLAG } from '../../functions/src/assistedApplicationExecution.js';
+import { prepareDarwinBroker, verifyDarwinNode } from '../../.github/actions/setup-codex-darwin-broker/bootstrap.mjs';
+import { REMOTE_EXECUTOR, REMOTE_EXECUTOR_FLAG, executionLease } from '../../functions/src/assistedApplicationExecution.js';
 import { parseCodexLogin } from '../../functions/src/codexFallback.js';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
-import { processGroupAlive, waitForDetachedChild } from './lib/execution-process.mjs';
+import { processGroupAlive, waitForDetachedChild, reapRegisteredProcessGroups } from './lib/execution-process.mjs';
+import { startBrowserEgress } from './lib/browser-egress.mjs';
+import { createServer } from 'node:net';
+import { once } from 'node:events';
+import { createProcessRegistry, cleanupStaleProcessRegistry } from './lib/process-registry.mjs';
 
 const execute = promisify(execFile);
 const PAUSE_MS = 20_000;
@@ -25,7 +29,7 @@ const JOB_TIMEOUT_MS = 105 * 60_000;
 const ownRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 const plainEnvironment = home => ({ PATH: `${path.dirname(process.execPath)}:${path.join(os.homedir(), '.local/bin')}:/usr/bin:/bin`, HOME: home,
-  LANG: process.env.LANG || 'en_US.UTF-8' });
+  LANG: process.env.LANG || 'en_US.UTF-8', OPENSSL_CONF: '/dev/null' });
 
 async function freeProviderReady() {
   const response = await fetch('https://api.nopecha.com/v1/status', { signal: AbortSignal.timeout(10_000), redirect: 'error' });
@@ -38,6 +42,11 @@ async function preflightRelease(release, temporary) {
   // Admin credentials, model auth or candidate material is supplied.
   await execute(process.execPath, ['--input-type=module', '-e', "await import('./scripts/assisted-application/agent.mjs')"],
     { cwd: release.root, env: { ...plainEnvironment(temporary), TMPDIR: temporary }, timeout: 30_000, maxBuffer: 32 * 1024 });
+}
+
+async function reserveFixturePort() {
+  const server = createServer(); server.listen(0, '127.0.0.1'); await once(server, 'listening');
+  const port = server.address().port; await new Promise(resolve => server.close(resolve)); return port;
 }
 
 async function browserAndExtension(release, jobRoot) {
@@ -57,43 +66,69 @@ async function readiness({ release, stateDirectory, credentialsPath }) {
   // An exhausted/free-ineligible IP must not repeatedly install the runtime.
   await freeProviderReady();
   const broker = await prepareDarwinBroker({ temporary: stateDirectory, workspace: release.root });
-  removePrivateTree(path.dirname(broker.manifest));
   const jobRoot = fs.mkdtempSync(path.join(stateDirectory, 'readiness-')); fs.chmodSync(jobRoot, 0o700);
+  let egress; let registry;
   try {
     await preflightRelease(release, jobRoot);
     const chromiumPath = await browserAndExtension(release, jobRoot);
+    const fixturePort = await reserveFixturePort(); egress = await startBrowserEgress({ fixturePort });
+    registry = await createProcessRegistry({ jobRoot, browserBundle: /^(.*\.app)(?:\/|$)/.exec(chromiumPath)?.[1], authorizeBrowser: async () => true });
     const isolation = await createDarwinIsolation({ jobRoot, releaseRoot: release.root,
-      dependencyRoot: release.manifest.dependencyRoot, credentialsPath, brokerSocket: '/dev/null', chromiumPath });
-    await execute(process.execPath, [path.join(release.root, 'scripts/assisted-application/nopecha-e2e.mjs')], {
-      cwd: release.root, timeout: 60_000, maxBuffer: 1024 * 1024,
-      env: { ...plainEnvironment(isolation.home), TMPDIR: isolation.documents,
+      dependencyRoot: release.manifest.dependencyRoot, credentialsPath, brokerSocket: broker.socket, chromiumPath, proxyPort: egress.port,
+      node: broker.node, nodeSha256: broker.node_sha256, registrySocket: registry.socket, registryNonce: registry.nonce });
+    const env = { ...plainEnvironment(isolation.home), TMPDIR: isolation.documents,
         NOPECHA_EXTENSION_PATH: path.join(jobRoot, 'nopecha/extension'),
         ASSISTED_APPLICATION_EXECUTOR: REMOTE_EXECUTOR,
         ASSISTED_APPLICATION_BROWSER_WRAPPER: isolation.browserLauncher,
         ASSISTED_APPLICATION_BROWSER_PROFILE: isolation.browserProfile,
         ASSISTED_APPLICATION_BROWSER_HOME: isolation.browserHome,
-        ASSISTED_APPLICATION_BROWSER_TEMP: isolation.browserRoot },
-    });
-  } finally { removePrivateTree(jobRoot); }
+        ASSISTED_APPLICATION_BROWSER_TEMP: isolation.browserRoot,
+        ASSISTED_APPLICATION_BROWSER_PROXY: egress.server, ASSISTED_APPLICATION_FIXTURE_PORT: String(fixturePort),
+        ASSISTED_APPLICATION_PROCESS_REGISTRY_SOCKET: registry.socket, ASSISTED_APPLICATION_PROCESS_REGISTRY_NONCE: registry.nonce };
+    const child = spawn(verifyDarwinNode(broker), [
+      path.join(release.root, 'scripts/assisted-application/nopecha-e2e.mjs')], { cwd: release.root, env, detached: true, stdio: 'ignore' });
+    try { registry.bindAgentGroup(child.pid); } catch { await waitForDetachedChild(child, 1); throw new Error('remote_readiness_agent_group_failed'); }
+    await waitForDetachedChild(child, 60_000);
+  } finally {
+    try { await registry?.close(); await reapRegisteredProcessGroups(path.join(jobRoot, 'process-groups')); removePrivateTree(jobRoot); }
+    finally { await egress?.close(); removePrivateTree(path.dirname(broker.socket)); removePrivateTree(path.dirname(broker.manifest)); }
+  }
 }
 
 async function runRequest({ db, repository, stateDirectory, credentialsPath, orderId, execution }) {
   const jobRoot = fs.mkdtempSync(path.join(stateDirectory, 'job-')); fs.chmodSync(jobRoot, 0o700);
-  let broker; let prepared; let unreaped = false;
+  let broker; let prepared; let egress; let registry; let unreaped = false;
   fs.writeFileSync(path.join(jobRoot, 'process.json'), JSON.stringify({ state: 'preparing', pid: process.pid }), { mode: 0o600 });
   try {
     await freeProviderReady();
     const release = await compileExecutionRelease({ repository, stateDirectory, sourceSha: execution.sourceSha });
     await preflightRelease(release, jobRoot);
+    const { currentPortalCodeVersion } = await import(pathToFileURL(path.join(release.root, 'scripts/assisted-application/lib/portal-code-version.mjs')).href);
+    const expectedEngine = currentPortalCodeVersion(release.root);
     const native = await import(pathToFileURL(path.join(release.root, '.github/actions/setup-codex-darwin-broker/bootstrap.mjs')).href);
     prepared = await native.prepareDarwinBroker({ temporary: stateDirectory, workspace: release.root });
     const chromiumPath = await browserAndExtension(release, jobRoot);
+    egress = await startBrowserEgress();
+    registry = await createProcessRegistry({ jobRoot, browserBundle: /^(.*\.app)(?:\/|$)/.exec(chromiumPath)?.[1], authorizeBrowser: async () => {
+      const current = (await db.collection('assisted_applications').doc(orderId).collection('automation').doc('execution').get()).data();
+      const matches = current?.id === execution.id && current.sourceSha === execution.sourceSha && current.round === execution.round
+        && current.dispatchAt === execution.dispatchAt && current.state === 'running'
+        && current.materialVersion === execution.materialVersion && current.engineVersion === expectedEngine
+        && current.generation === Number(execution.generation || 0) + 1 && current.lease?.generation === current.generation
+        && current.lease?.owner === execution.controller.runId && current.lease.expiresAt > Date.now()
+        && current.controller?.runId === execution.controller.runId && current.controller.expiresAt > Date.now();
+      if (!matches) return false;
+      await executionLease({ db, orderId, executionId: current.id, sourceSha: current.sourceSha, engineVersion: expectedEngine,
+        owner: current.lease.owner, token: current.lease.token }).assert();
+      return true;
+    } });
+    const isolation = await createDarwinIsolation({ jobRoot, releaseRoot: release.root, dependencyRoot: release.manifest.dependencyRoot,
+      credentialsPath, brokerSocket: prepared.socket, chromiumPath, proxyPort: egress.port,
+      node: prepared.node, nodeSha256: prepared.node_sha256, registrySocket: registry.socket, registryNonce: registry.nonce });
     const { getRemoteConfig } = await import('firebase-admin/remote-config');
     const template = await getRemoteConfig().getTemplate();
     const key = name => template.parameters?.[name]?.defaultValue?.value || '';
     broker = await native.startDarwinBroker({ ...prepared, auth: key('CODEX_AUTH_JSON') });
-    const isolation = await createDarwinIsolation({ jobRoot, releaseRoot: release.root, dependencyRoot: release.manifest.dependencyRoot,
-      credentialsPath, brokerSocket: broker.socket, chromiumPath });
     verifyExecutionRelease(release.root, release.manifestSha);
     const env = { ...plainEnvironment(isolation.home), TMPDIR: isolation.documents,
       GOOGLE_APPLICATION_CREDENTIALS: credentialsPath, ASSISTED_APPLICATION_RUN_KEY: key('ASSISTED_APPLICATION_RUN_KEY'),
@@ -104,15 +139,18 @@ async function runRequest({ db, repository, stateDirectory, credentialsPath, ord
       ASSISTED_APPLICATION_RELEASE_ROOT: release.root, ASSISTED_APPLICATION_RELEASE_MANIFEST_SHA256: release.manifestSha,
       ASSISTED_APPLICATION_BROWSER_WRAPPER: isolation.browserLauncher, ASSISTED_APPLICATION_BROWSER_PROFILE: isolation.browserProfile,
       ASSISTED_APPLICATION_BROWSER_HOME: isolation.browserHome, ASSISTED_APPLICATION_BROWSER_TEMP: isolation.browserRoot,
+      ASSISTED_APPLICATION_BROWSER_PROXY: egress.server,
+      ASSISTED_APPLICATION_PROCESS_REGISTRY_SOCKET: registry.socket, ASSISTED_APPLICATION_PROCESS_REGISTRY_NONCE: registry.nonce,
       ASSISTED_APPLICATION_STOP_REPORT: path.join(isolation.documents, 'portal-stop.json'),
       ASSISTED_APPLICATION_PORTAL_PASS: path.join(isolation.documents, 'portal-pass.json'),
       NOPECHA_EXTENSION_PATH: path.join(jobRoot, 'nopecha/extension'), ASSISTED_APPLICATION_HEADED: '1' };
     env.ASSISTED_APPLICATION_JOB_ROOT = jobRoot;
-    const child = spawn('/usr/bin/sandbox-exec', ['-f', isolation.agentProfile, process.execPath,
+    const node = native.verifyDarwinNode(prepared);
+    const child = spawn(node, [
       path.join(release.root, 'scripts/assisted-application/supervised-agent.mjs'), '--order', orderId, '--mode', 'submit', '--round', String(execution.round)],
     { cwd: release.root, env, detached: true, stdio: ['ignore', 'ignore', 'ignore'] });
     if (child.pid) {
-      try { fs.writeFileSync(path.join(jobRoot, 'process.json'), JSON.stringify({ state: 'running', pid: child.pid, started: '' }), { mode: 0o600 }); }
+      try { registry.bindAgentGroup(child.pid); fs.writeFileSync(path.join(jobRoot, 'process.json'), JSON.stringify({ state: 'running', pid: child.pid, pgid: child.pid, started: '' }), { mode: 0o600 }); }
       catch { await waitForDetachedChild(child, 1); throw new Error('remote_executor_job_marker_failed'); }
     }
     await waitForDetachedChild(child, JOB_TIMEOUT_MS);
@@ -131,9 +169,13 @@ async function runRequest({ db, repository, stateDirectory, credentialsPath, ord
     if (unreaped) throw error;
     return { code };
   } finally {
-    try { await broker?.cleanup(); } finally {
-      if (!broker && prepared) removePrivateTree(path.dirname(prepared.manifest));
-      if (!unreaped) removePrivateTree(jobRoot);
+    try { await registry?.close(); await reapRegisteredProcessGroups(path.join(jobRoot, 'process-groups')); }
+    catch (error) { unreaped = true; throw error; }
+    finally {
+      try { await egress?.close(); await broker?.cleanup(); } finally {
+        if (!broker && prepared) { removePrivateTree(path.dirname(prepared.socket)); removePrivateTree(path.dirname(prepared.manifest)); }
+        if (!unreaped) removePrivateTree(jobRoot);
+      }
     }
   }
 }
@@ -165,9 +207,11 @@ async function main() {
         if (owner.state === 'running') {
           let started = '';
           try { started = execFileSync('/bin/ps', ['-p', String(owner.pid), '-o', 'lstart='], { encoding: 'utf8', timeout: 2000 }).trim(); } catch { /* no process */ }
-          if (processGroupAlive(owner.pid) || (started && (!owner.started || started === owner.started))) throw new Error('remote_executor_child_still_active');
+          if (processGroupAlive(owner.pgid || owner.pid) || (started && (!owner.started || started === owner.started))) throw new Error('remote_executor_child_still_active');
         }
       }
+      await reapRegisteredProcessGroups(path.join(root, 'process-groups'));
+      cleanupStaleProcessRegistry(root);
       removePrivateTree(root);
     }
     await readiness({ release: { root: ownRoot, manifest: releaseManifest }, stateDirectory, credentialsPath });

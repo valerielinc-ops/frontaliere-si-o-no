@@ -17,6 +17,16 @@
  */
 
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { createHash } from 'node:crypto';
+
+function executionRecordOf(execution) {
+  return { executionId: execution.id, executionGeneration: execution.lease.generation, executionSourceSha: execution.sourceSha,
+    executionEngineVersion: execution.engineVersion, executionMaterialVersion: execution.materialVersion, executionRound: execution.round,
+    executionTokenHash: createHash('sha256').update(execution.lease.token).digest('hex') };
+}
+function matchesExecutionRecord(record, execution) {
+  return record && Object.entries(executionRecordOf(execution)).every(([key, value]) => record[key] === value);
+}
 
 export const SUBMISSION_DOC_ID = 'submission';
 
@@ -82,8 +92,7 @@ export function submissionGuard(db, orderId, round, { execution = null } = {}) {
           outcome = { status: 'in_flight', record: current };
           return;
         }
-        const identity = executionContext ? { executionId: executionContext.execution.id,
-          executionGeneration: executionContext.execution.lease.generation } : {};
+        const identity = executionContext ? executionRecordOf(executionContext.execution) : {};
         transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null, ...identity } }, { merge: true });
         outcome = { status: 'claimed', resumed: current?.state === 'sending' };
       });
@@ -99,8 +108,7 @@ export function submissionGuard(db, orderId, round, { execution = null } = {}) {
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
           throw new Error('application_withdrawn');
         }
-        if (executionContext && (submissionDoc.data()?.[key]?.executionId !== executionContext.execution.id
-          || submissionDoc.data()?.[key]?.executionGeneration !== executionContext.execution.lease.generation)) throw new Error('execution_submission_superseded');
+        if (executionContext && !matchesExecutionRecord(submissionDoc.data()?.[key], executionContext.execution)) throw new Error('execution_submission_superseded');
         transaction.set(ref, { [key]: { clickedAt: nowMs } }, { merge: true });
       });
     },
@@ -108,7 +116,7 @@ export function submissionGuard(db, orderId, round, { execution = null } = {}) {
       if (execution) return db.runTransaction(async transaction => {
         const context = await execution.assertOutcomeInTransaction(transaction);
         const current = (await transaction.get(ref)).data()?.[key];
-        if (current?.executionId !== context.execution.id || current?.executionGeneration !== context.execution.lease.generation
+        if (!matchesExecutionRecord(current, context.execution)
           || !current.clickedAt) throw new Error('execution_submission_superseded');
         transaction.set(ref, { [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
       });
@@ -118,7 +126,7 @@ export function submissionGuard(db, orderId, round, { execution = null } = {}) {
       if (execution) return db.runTransaction(async transaction => {
         const context = await execution.assertInTransaction(transaction);
         const current = (await transaction.get(ref)).data()?.[key];
-        if (current?.executionId !== context.execution.id || current?.executionGeneration !== context.execution.lease.generation) throw new Error('execution_submission_superseded');
+        if (!matchesExecutionRecord(current, context.execution)) throw new Error('execution_submission_superseded');
         if (current.clickedAt && !['portal_refused', 'portal_validation'].includes(reason)) throw new Error('execution_ambiguous_release_forbidden');
         transaction.set(ref, { [key]: { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs } }, { merge: true });
       });

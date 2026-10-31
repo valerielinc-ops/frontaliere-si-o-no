@@ -20,8 +20,11 @@ export function currentPortalCodeVersion(root = fileURLToPath(new URL('../../../
     'scripts/assisted-application/supervised-agent.mjs', 'scripts/assisted-application/lib/execution-runtime.mjs',
     'scripts/assisted-application/lib/execution-release.mjs', 'scripts/assisted-application/lib/execution-artifacts.mjs',
     'scripts/assisted-application/lib/execution-process.mjs',
+    'scripts/assisted-application/lib/browser-ownership.mjs', 'scripts/assisted-application/lib/process-registry.mjs',
+    'scripts/assisted-application/lib/browser-egress.mjs', 'scripts/lib/prospector/public-fetch-policy.mjs',
+    'scripts/assisted-application/nopecha-e2e.mjs',
     'scripts/assisted-application/lib/darwin-isolation.mjs', 'scripts/assisted-application/report-runner-failure.mjs',
-    '.github/actions/setup-codex-darwin-broker/bootstrap.mjs', '.github/actions/setup-codex-darwin-broker/sandbox-probe.mjs',
+    '.github/actions/setup-codex-darwin-broker/bootstrap.mjs', '.github/actions/setup-codex-darwin-broker/sandbox-probe.mjs', '.github/actions/setup-codex-darwin-broker/process-privacy-probe.mjs',
     '.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs', '.github/actions/setup-claude-haiku-fallback/broker-permissions.mjs');
   const hash = createHash('sha256');
   for (const file of files.sort()) hash.update(file).update('\0').update(readFileSync(path.join(root, file))).update('\0');

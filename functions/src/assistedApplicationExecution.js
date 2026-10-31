@@ -206,22 +206,22 @@ export function executionController({ db, orderId, executionId, sourceSha, runId
 /** Same Firestore lease protects browser entry, heartbeat, click and runner event. */
 export function executionLease({ db, orderId, executionId, sourceSha, engineVersion, owner, token = randomUUID(), now = Date.now }) {
   const ref = refs(db, orderId);
-  const identity = (context, { materials = true } = {}) => {
+  const identity = (context, { materials = true, outcome = false } = {}) => {
     const execution = context.execution;
-    if (!executionId || execution.id !== executionId || context.flow.executionId !== executionId
+    if (!executionId || execution.id !== executionId || (!outcome && context.flow.executionId !== executionId)
       || execution.sourceSha !== sourceSha || !SOURCE_SHA.test(sourceSha || '')
       || !ENGINE_VERSION.test(engineVersion || '') || execution.executor !== REMOTE_EXECUTOR
       || execution.protocol !== 1 || execution.mode !== 'submit'
-      || execution.dispatchAt !== Number(context.flow.dispatch?.requestedAt)) throw new Error('execution_superseded');
+      || (!outcome && execution.dispatchAt !== Number(context.flow.dispatch?.requestedAt))) throw new Error('execution_superseded');
     if (execution.engineVersion && execution.engineVersion !== engineVersion) throw new Error('execution_engine_changed');
     if (materials && execution.materialVersion !== executionMaterialVersion(context)) throw new Error('execution_material_changed');
-    if (context.order.paymentStatus !== 'paid' || context.order.withdrawnAt || context.submission.withdrawnAt || !assistedApplicationRetained(context.order, now())
+    if (!outcome && (context.order.paymentStatus !== 'paid' || context.order.withdrawnAt || context.submission.withdrawnAt || !assistedApplicationRetained(context.order, now())
       || context.flow.submittedAt
       || ['pending', 'succeeded', 'refunded'].includes(context.order.refundStatus)
       || !['awaiting_upload', 'ready_for_manual_submission', 'in_progress'].includes(context.order.submissionStatus)
       || !hasAssistedApplicationConsent(context.order)
       || context.flow.state !== 'submitting' || Number(context.flow.round) !== execution.round
-      || !roundWasSent(context.flow, execution.round)) throw new Error('execution_not_submittable');
+      || !roundWasSent(context.flow, execution.round))) throw new Error('execution_not_submittable');
     return execution;
   };
   const assertInTransaction = async (transaction, options) => {
@@ -229,6 +229,7 @@ export function executionLease({ db, orderId, executionId, sourceSha, engineVers
     const execution = identity(context, options);
     if (options?.materials !== false && hasRecordedSubmission(context)) throw new Error('execution_submission_proven');
     if (execution.state !== 'running' || execution.lease?.token !== token || execution.lease?.owner !== owner
+      || execution.lease?.generation !== execution.generation
       || (!options?.outcome && (execution.lease.expiresAt <= now() || execution.controller?.expiresAt <= now()
         || !execution.controller?.runId))) throw new Error('execution_lease_lost');
     return context;
@@ -270,15 +271,25 @@ export function executionLease({ db, orderId, executionId, sourceSha, engineVers
     async complete({ artifacts = {} } = {}) {
       return db.runTransaction(async transaction => {
         const execution = (await transaction.get(ref.execution)).data();
-        if (execution?.id !== executionId || execution.lease?.token !== token) return;
+        if (execution?.id !== executionId || execution.sourceSha !== sourceSha || execution.engineVersion !== engineVersion
+          || execution.lease?.token !== token || execution.lease.owner !== owner || execution.lease.generation !== execution.generation) return;
         const outcome = reportedType === 'submit_succeeded' ? 'sent' : reportedType ? 'evidenced_failure' : 'unknown';
         transaction.set(ref.execution, { state: 'finished', outcome, artifacts, finishedAt: now(), lease: null }, { merge: true });
       });
     },
     async report(eventRef, event) {
       await db.runTransaction(async transaction => {
-        const context = await assertInTransaction(transaction, { materials: false });
-        transaction.set(eventRef, { ...event, executionId, sourceSha, engineVersion, executionGeneration: context.execution.generation,
+        const receipt = event.type === 'submit_succeeded';
+        const context = await assertInTransaction(transaction, { materials: false, outcome: receipt });
+        if (receipt) {
+          const sent = context.submission[`r${context.execution.round}`];
+          if (sent?.state !== 'sent' || !sent.clickedAt || sent.executionId !== executionId
+            || sent.executionGeneration !== context.execution.generation || sent.executionSourceSha !== sourceSha
+            || sent.executionEngineVersion !== engineVersion || sent.executionMaterialVersion !== context.execution.materialVersion
+            || sent.executionTokenHash !== createHash('sha256').update(token).digest('hex')) throw new Error('execution_receipt_unproven');
+        }
+        transaction.set(eventRef, { ...event, round: context.execution.round, mode: context.execution.mode,
+          executionId, sourceSha, engineVersion, executionGeneration: context.execution.generation,
           materialVersion: context.execution.materialVersion });
       });
       reportedType = event.type;

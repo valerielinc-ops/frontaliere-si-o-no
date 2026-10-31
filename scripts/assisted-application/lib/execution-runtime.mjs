@@ -3,6 +3,7 @@ import { executionLease, EXECUTION_HEARTBEAT_MS } from '../../../functions/src/a
 import { currentPortalCodeVersion } from './portal-code-version.mjs';
 import { verifyExecutionRelease } from './execution-release.mjs';
 import { readExecutionArtifacts } from './execution-artifacts.mjs';
+import { createPublicAgentFetch } from './browser-egress.mjs';
 
 export async function enterExecution({ db, orderId, flow, mode, env = process.env, sourceSha, engineVersion,
   onLeaseLost = () => process.kill(process.pid, 'SIGTERM') }) {
@@ -24,6 +25,7 @@ export async function enterExecution({ db, orderId, flow, mode, env = process.en
     engineVersion: engineVersion || currentPortalCodeVersion(), owner: String(env.GITHUB_RUN_ID || '') });
   if (!env.GITHUB_RUN_ID) throw new Error('execution_owner_missing');
   await lease.claim();
+  const publicTransport = createPublicAgentFetch();
   let renewing = false;
   const timer = setInterval(async () => {
     if (renewing) return;
@@ -37,5 +39,8 @@ export async function enterExecution({ db, orderId, flow, mode, env = process.en
     assertInTransaction(transaction) { verifySource(); return lease.assertInTransaction(transaction); },
     assertOutcomeInTransaction(transaction) { verifySource(); return lease.assertOutcomeInTransaction(transaction); },
   };
-  return { lease: checked, async close() { clearInterval(timer); await lease.complete({ artifacts: readExecutionArtifacts(env) }); } };
+  return { lease: checked, fetchImpl: publicTransport.fetch, async close() {
+    clearInterval(timer);
+    try { await lease.complete({ artifacts: readExecutionArtifacts(env) }); } finally { await publicTransport.close(); }
+  } };
 }

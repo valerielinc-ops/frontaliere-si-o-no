@@ -225,11 +225,44 @@ describe('portal infrastructure host recovery', () => {
   });
   it('preserves a real outcome after the runner stores its own sent record', async () => {
     const store = await prepared(); const guard = lease(store); await guard.claim();
+    const submission = submissionGuard(store.db, ORDER, 1, { execution: guard });
+    await submission.claim('portal'); await submission.markClicked(111); await submission.markSent({ channel: 'portal' }, 112);
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ sent: { at: 112 }, portalAnswers: { answers: [] } }, { merge: true });
     const event = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events').doc('receipt');
     await guard.report(event, { type: 'submit_succeeded' });
     expect(store.read(`${ROOT}/automation_events/receipt`)?.executionId).toBe('execution-fixture');
     await guard.complete(); await expect(guard.assert()).rejects.toThrow('execution_lease_lost');
     expect(store.read(`${ROOT}/automation/execution`)!.outcome).toBe('sent');
+  });
+  it.each(['payment', 'consent', 'withdrawal', 'state', 'newRound'])('preserves a clicked receipt after %s changes without authorising another click', async change => {
+    const store = await prepared(); const actor = lease(store); await actor.claim();
+    const guard = submissionGuard(store.db, ORDER, 1, { execution: actor });
+    await guard.claim('portal'); await guard.markClicked(111);
+    if (change === 'payment') store.read(ROOT)!.paymentStatus = 'refunded';
+    if (change === 'consent') store.read(ROOT)!.consentVersion = null;
+    if (change === 'withdrawal') store.read(ROOT)!.withdrawnAt = 112;
+    if (change === 'state') store.read(`${ROOT}/automation/flow`)!.state = 'withdrawn';
+    if (change === 'newRound') Object.assign(store.read(`${ROOT}/automation/flow`)!, { round: 2, executionId: 'new-round', dispatch: { requestedAt: 200 } });
+    await expect(guard.markClicked(113)).rejects.toThrow();
+    await guard.markSent({ channel: 'portal' }, 114);
+    const event = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events').doc('late-receipt');
+    await actor.report(event, { type: 'submit_succeeded' });
+    expect(store.read(`${ROOT}/automation/submission`)!.r1).toMatchObject({ state: 'sent', clickedAt: 111, sentAt: 114 });
+    expect(store.read(`${ROOT}/automation_events/late-receipt`)!.type).toBe('submit_succeeded');
+    if (change === 'newRound') expect(store.read(`${ROOT}/automation/flow`)!.round).toBe(2);
+    await expect(guard.release('portal_navigation')).rejects.toThrow();
+  });
+  it.each(['generation', 'token', 'source', 'engine', 'materials'])('rejects a late receipt with changed execution %s', async change => {
+    const store = await prepared(); const actor = lease(store); await actor.claim();
+    const guard = submissionGuard(store.db, ORDER, 1, { execution: actor });
+    await guard.claim('portal'); await guard.markClicked(111);
+    const current = store.read(`${ROOT}/automation/execution`)!;
+    if (change === 'generation') current.generation++;
+    if (change === 'token') current.lease.token = 'another-attempt';
+    if (change === 'source') current.sourceSha = 'c'.repeat(40);
+    if (change === 'engine') current.engineVersion = 'c'.repeat(64);
+    if (change === 'materials') current.materialVersion = 'c'.repeat(64);
+    await expect(guard.markSent({ channel: 'portal' }, 114)).rejects.toThrow();
+    expect(store.read(`${ROOT}/automation/submission`)!.r1.state).toBe('sending');
   });
 });

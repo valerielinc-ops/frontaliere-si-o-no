@@ -162,15 +162,18 @@ function validateSocketParent() {
   }
 }
 
-// Niente regola ":slash_tmp", a differenza di claude-codex-fallback/action.yml:
-// li' workspace, CODEX_HOME e TMPDIR stanno sotto RUNNER_TEMP, qui runCodex()
-// li costruisce sotto os.tmpdir(), cioe' /tmp (il broker parte con `env -i`).
-// Negare /tmp negava la radice del workspace stesso e, insieme a ":tmpdir",
-// bwrap non poteva montare TMPDIR dentro un /tmp in sola lettura: nel gemello
-// del corpus ogni richiesta moriva prima del modello ("Codex CLI exited with
-// code 1", frontaliere-articles run 36001495484). ":root" = "deny" nasconde gia'
-// il resto di /tmp: con `codex sandbox` 0.153.4 il workspace resta leggibile,
-// auth.json, config.toml e gli altri file di /tmp no, e TMPDIR resta negato.
+// Linux keeps its proven bwrap layout. Darwin :minimal permits scratch by
+// default, so the shared permission helper denies scratch globs and all real
+// request/auth trees live under the attested private cache prefix instead.
+function runtimeParent() {
+  if (process.platform !== 'darwin') return os.tmpdir();
+  if (!codexCliPrefix) throw new Error('Darwin broker runtime prefix missing');
+  const root = fs.realpathSync(codexCliPrefix);
+  if (['/tmp', '/private/tmp', '/var/tmp', '/private/var/tmp'].some(value => root === value || root.startsWith(`${value}/`))) {
+    throw new Error('Darwin broker runtime cannot live in scratch');
+  }
+  return root;
+}
 function childEnv(codexHome, codexTmp) {
   const env = {
     PATH: safePath(),
@@ -380,7 +383,7 @@ function readUsableAuth(authPath) {
  */
 function prepareAuthHome(credential) {
   if (!authHome) {
-    const home = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-auth-'));
+    const home = fs.mkdtempSync(path.join(runtimeParent(), 'codex-luna-max-auth-'));
     authHome = home;
     fs.chmodSync(home, 0o700);
   }
@@ -470,7 +473,7 @@ function removeAuthHome() {
 function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = 'agent', imageGeneration = false, imagePath = '', imageOutputPath = '', onSpawn, job }) {
   // Per-request tree: workspace, TMPDIR and the output files. The login lives
   // in the per-job home instead (prepareAuthHome), outside this tree.
-  const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-broker-'));
+  const runtimeRoot = fs.mkdtempSync(path.join(runtimeParent(), 'codex-luna-max-broker-'));
   const codexWorkspace = path.join(runtimeRoot, 'workspace');
   const codexTmp = path.join(runtimeRoot, 'tmp');
   const codexOut = path.join(runtimeRoot, 'out');

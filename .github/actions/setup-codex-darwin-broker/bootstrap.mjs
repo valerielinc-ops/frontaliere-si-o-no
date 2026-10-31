@@ -23,49 +23,66 @@ function output(name, value) {
 }
 function privateDirectory(value) {
   const stat = fs.lstatSync(value);
-  if (!stat.isDirectory() || stat.isSymbolicLink() || (stat.mode & 0o777) !== 0o700) throw new Error('darwin_broker_directory_not_private');
+  if (!stat.isDirectory() || stat.isSymbolicLink() || stat.uid !== process.getuid() || (stat.mode & 0o777) !== 0o700) throw new Error('darwin_broker_directory_not_private');
 }
 function checkFile(file, digest) {
   const stat = fs.lstatSync(file);
   if (!stat.isFile() || stat.isSymbolicLink() || hash(file) !== digest) throw new Error('darwin_broker_attestation_failed');
 }
 
-export async function prepareDarwinBroker({ temporary = fs.realpathSync(process.env.RUNNER_TEMP || os.tmpdir()),
+export async function prepareDarwinBroker({
   workspace = process.env.GITHUB_WORKSPACE } = {}) {
   if (process.platform !== 'darwin') throw new Error('darwin_broker_platform_invalid');
     if (process.env.CODEX_AUTH_JSON) throw new Error('darwin_broker_prepare_must_not_receive_auth');
     // Probe the mandatory OS sandbox before either downloading or accepting auth.
     execFileSync('/usr/bin/sandbox-exec', ['-p', '(version 1) (deny default) (allow process*) (allow file-read*)', '/usr/bin/true'],
       { timeout: 10_000, stdio: 'ignore', env: { PATH: '/usr/bin:/bin' } });
-    const prefix = fs.mkdtempSync(path.join(temporary, 'codex-luna-max-codex-cli.'));
+    // Scratch is explicitly denied to model tools. Runtime/auth/workspaces
+    // must therefore live in a private owner cache, while only IPC is short.
+    const cache = path.join(os.homedir(), 'Library/Caches/frontaliere-codex');
+    fs.mkdirSync(cache, { recursive: true, mode: 0o700 }); privateDirectory(cache);
+    const prefix = fs.mkdtempSync(path.join(fs.realpathSync(cache), 'codex-luna-max-codex-cli.'));
     fs.chmodSync(prefix, 0o700);
+    let brokerRoot;
     try {
       if (workspace && !outside(prefix, workspace)) throw new Error('darwin_broker_runtime_inside_workspace');
-      const node = path.join(prefix, 'node');
-      const originalNode = fs.realpathSync(process.execPath);
-      const nodeHash = hash(originalNode);
-      fs.copyFileSync(originalNode, node);
-      fs.chmodSync(node, 0o700);
+      // The manager's existing Node is already trusted. Copying a Homebrew
+      // executable breaks its @rpath/libnode linkage; attest the real runtime.
+      const node = fs.realpathSync(process.execPath);
+      const nodeHash = hash(node);
+      fs.symlinkSync(node, path.join(prefix, 'node'));
       checkFile(node, nodeHash);
-      // setup-node supplies npm alongside this runtime. Resolve its JS entry,
-      // then run it with the copied Node and an empty, credential-free env.
-      const npm = fs.realpathSync(path.resolve(path.dirname(originalNode), '../lib/node_modules/npm/bin/npm-cli.js'));
+      // Homebrew's real Node image is in Cellar, while npm remains under
+      // /opt/homebrew/lib. Resolve only the existing fixed installation paths.
+      const npmCandidate = [path.resolve(path.dirname(node), '../lib/node_modules/npm/bin/npm-cli.js'),
+        '/opt/homebrew/bin/npm', '/usr/local/bin/npm'].find(file => fs.existsSync(file));
+      if (!npmCandidate) throw new Error('darwin_broker_existing_npm_missing');
+      const npm = fs.realpathSync(npmCandidate);
+      if (path.basename(npm) !== 'npm-cli.js' || !fs.statSync(npm).isFile()) throw new Error('darwin_broker_existing_npm_invalid');
       const npmHome = path.join(prefix, 'npm-home'); fs.mkdirSync(npmHome, { mode: 0o700 });
+      const userNpmConfig = path.join(npmHome, 'user.npmrc'); const globalNpmConfig = path.join(npmHome, 'global.npmrc');
+      fs.writeFileSync(userNpmConfig, '', { mode: 0o600 }); fs.writeFileSync(globalNpmConfig, '', { mode: 0o600 });
       const env = { PATH: `${prefix}:/usr/bin:/bin`, HOME: npmHome, CI: 'true',
-        NPM_CONFIG_USERCONFIG: '/dev/null', NPM_CONFIG_GLOBALCONFIG: '/dev/null', npm_config_cache: path.join(prefix, 'npm-cache') };
+        OPENSSL_CONF: '/dev/null',
+        NPM_CONFIG_USERCONFIG: userNpmConfig, NPM_CONFIG_GLOBALCONFIG: globalNpmConfig, npm_config_cache: path.join(prefix, 'npm-cache') };
+      checkFile(node, nodeHash);
       execFileSync(node, [npm, 'install', '--prefix', prefix, '--no-save', '--no-package-lock', '--no-fund', '--no-audit', `@openai/codex@${VERSION}`],
         { env, timeout: 180_000, stdio: ['ignore', 'ignore', 'ignore'] });
       const cli = fs.realpathSync(path.join(prefix, 'node_modules/.bin/codex'));
       if (outside(cli, prefix)) throw new Error('darwin_broker_cli_outside_prefix');
-      const version = execFileSync(cli, ['--version'], { env: { PATH: env.PATH, CODEX_HOME: npmHome }, encoding: 'utf8', timeout: 10_000 }).trim();
+      checkFile(node, nodeHash);
+      const version = execFileSync(cli, ['--version'], { env: { PATH: env.PATH, HOME: npmHome, CODEX_HOME: npmHome, OPENSSL_CONF: '/dev/null' }, encoding: 'utf8', timeout: 10_000 }).trim();
       if (version !== `codex-cli ${VERSION}`) throw new Error('darwin_broker_cli_version_invalid');
       // No model call or credential: verify the pinned CLI really enforces
       // Darwin's sandbox, rather than merely finding sandbox-exec on disk.
-      await probeDarwinSandbox({ cli, temporary, env });
+      const cliHash = hash(cli);
+      await probeDarwinSandbox({ cli, temporary: prefix, env, assertRuntime: () => { checkFile(node, nodeHash); checkFile(cli, cliHash); } });
+      brokerRoot = fs.mkdtempSync(path.join(fs.realpathSync('/tmp'), 'aa-codex-ipc-')); fs.chmodSync(brokerRoot, 0o700);
+      const socket = path.join(brokerRoot, 'auth.sock');
       const manifest = path.join(prefix, 'runtime.json');
-      fs.writeFileSync(manifest, JSON.stringify({ prefix, node, nodeHash, cli, cliHash: hash(cli), broker, brokerHash: hash(broker) }), { mode: 0o600 });
-      return { manifest, manifest_sha256: hash(manifest), node };
-    } catch (error) { fs.rmSync(prefix, { recursive: true, force: true }); throw error; }
+      fs.writeFileSync(manifest, JSON.stringify({ prefix, node, nodeHash, cli, cliHash, broker, brokerHash: hash(broker), brokerRoot, socket }), { mode: 0o600 });
+      return { manifest, manifest_sha256: hash(manifest), node, node_sha256: nodeHash, socket };
+    } catch (error) { if (brokerRoot) fs.rmSync(brokerRoot, { recursive: true, force: true }); fs.rmSync(prefix, { recursive: true, force: true }); throw error; }
 }
 
 export async function startDarwinBroker({ manifest: manifestPath, manifest_sha256, auth }) {
@@ -77,12 +94,15 @@ export async function startDarwinBroker({ manifest: manifestPath, manifest_sha25
   if (!auth || Buffer.byteLength(auth) > 256 * 1024) throw new Error('darwin_broker_auth_missing');
   const subscription = parseCodexLogin(auth);
   if (!subscription.ok || subscription.expiresAt - Date.now() < 30 * 60_000) throw new Error('darwin_broker_subscription_auth_unavailable');
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-codex-broker.')); fs.chmodSync(root, 0o700);
-  const socket = path.join(root, 'auth.sock');
+  const root = manifest.brokerRoot; privateDirectory(root);
+  if (path.dirname(root) !== fs.realpathSync('/tmp') || !/^aa-codex-ipc-[A-Za-z0-9]+$/.test(path.basename(root))
+    || manifest.socket !== path.join(root, 'auth.sock')) throw new Error('darwin_broker_socket_invalid');
+  const socket = manifest.socket;
+  checkFile(manifest.node, manifest.nodeHash);
   const child = spawn(manifest.node, [broker, '--socket', socket, '--ttl-ms', '3600000', '--max-concurrency', '1',
     '--max-timeout-ms', '1800000', '--codex-cli-version', VERSION,
     '--codex-bin', manifest.cli, '--codex-realpath', manifest.cli, '--codex-sha256', manifest.cliHash, '--codex-prefix', manifest.prefix],
-  { env: { PATH: `${path.dirname(manifest.node)}:/usr/bin:/bin` }, detached: true, stdio: ['pipe', 'ignore', 'ignore'] });
+  { env: { PATH: `${path.dirname(manifest.node)}:/usr/bin:/bin`, HOME: root, OPENSSL_CONF: '/dev/null' }, detached: true, stdio: ['pipe', 'ignore', 'ignore'] });
   child.stdin.on('error', () => {});
   child.stdin.end(auth);
   let exited = false; child.once('exit', () => { exited = true; });
@@ -99,13 +119,21 @@ export async function startDarwinBroker({ manifest: manifestPath, manifest_sha25
   }
   child.unref(); child.stdin.unref?.();
   return { socket, async cleanup() {
-    try { execFileSync(manifest.node, [broker, '--cleanup', '--socket', socket], { timeout: 20_000, stdio: 'ignore' }); }
+    try { checkFile(manifest.node, manifest.nodeHash); execFileSync(manifest.node, [broker, '--cleanup', '--socket', socket], {
+      timeout: 20_000, stdio: 'ignore', env: { PATH: `${path.dirname(manifest.node)}:/usr/bin:/bin`, HOME: root, OPENSSL_CONF: '/dev/null' } }); }
     catch { child.kill('SIGTERM'); }
     finally {
       fs.rmSync(root, { recursive: true, force: true });
       fs.rmSync(manifest.prefix, { recursive: true, force: true });
     }
   } };
+}
+
+export function verifyDarwinNode({ manifest: manifestPath, manifest_sha256 }) {
+  checkFile(manifestPath, manifest_sha256);
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  checkFile(manifest.node, manifest.nodeHash);
+  return manifest.node;
 }
 
 async function main() {

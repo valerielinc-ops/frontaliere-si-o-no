@@ -315,6 +315,7 @@ export async function runAgent() {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
+      fetchImpl: executionRuntime?.fetchImpl,
       order, orderId, flow, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
       submissionGuard: dryRun ? null : submissionGuard(db, orderId, round, { execution }),
