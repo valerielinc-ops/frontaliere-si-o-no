@@ -6,7 +6,7 @@ import { candidateQuestionAnswerKey } from './assistedApplicationCandidateEdits.
 import { createHash } from 'node:crypto';
 import { answerQuestionDescriptor, canonicalQuestionJson } from './lib/applicationQuestionContract.js';
 import { validateAnswer } from './lib/answerRules.js';
-import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 import { qualificationAnswerOriginContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 
 export const ANSWER_CONFIRMATION_VERSION = 'native-answer-confirmation-v1';
@@ -28,11 +28,7 @@ export class AnswerConfirmationError extends Error {
   }; }
 }
 
-export function answerSourceRetained(order, nowMs) {
-  if (!order || order.retentionPurgedAt != null || order.retentionPurgingAt != null || !Number.isFinite(nowMs)) return false;
-  const due = retentionPurgeDueAt(order);
-  return talentPoolConsentActive(order) || Number.isFinite(due) && nowMs < due;
-}
+export const answerSourceRetained = assistedApplicationRetained;
 
 export function confirmedCvHash(order = {}, draft = {}) {
   return draft.cvKey && draft.cvKey === order.cvStorageKey && /^[a-f0-9]{64}$/.test(draft.sourceCvHash || '') ? draft.sourceCvHash : '';

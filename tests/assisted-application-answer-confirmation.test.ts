@@ -266,6 +266,13 @@ describe('private final-send source fence', () => {
       await expect(f.db.runTransaction(tx => context.answerSourceGuard.assertInTransaction(tx))).rejects.toMatchObject({ code: 'evidence_source_changed' });
     } finally { clock.mockRestore(); }
   });
+  it('excludes all answer-derived channels after the canonical payload purge tombstone', async () => {
+    const f = fixture(); await f.save({ english: 'C1' });
+    f.read('assisted_applications/source').retentionPayloadPurgedAt = now + 1;
+    const context = await loadRunnerAnswerContext({ ...f.input(), nowMs: now + 2 });
+    expect(context.localAnswerEvidence).toEqual([]); expect(context.answerEvidence).toEqual([]); expect(context.answerSourceConflicts).toEqual([]);
+    await expect(f.save({ english: 'C1' }, { nowMs: now + 3 })).rejects.toMatchObject({ status: 409 });
+  });
   it.each(['retentionPurgingAt', 'retentionPurgedAt'])('drops all answer-derived channels after source flow %s', async flag => {
     const f = fixture(); await f.save({ english: 'C1' });
     f.read('assisted_applications/source/automation/flow')[flag] = now + 1;
