@@ -158,6 +158,14 @@ describe('streetAddress preserves coverage and records its source tier', () => {
     });
     expect(sameCity).toMatchObject({ streetAddress: 'Viale Officina 3', streetAddressSource: 'curated-company-city' });
     expect(otherCity).toMatchObject({ streetAddress: 'Lugano', streetAddressSource: 'to-enrich' });
+    const similarButDifferentCity = resolveJobPostingStreetAddress({
+      companyKey: 'microsoft',
+    }, {
+      addressLocality: 'Zürich Flughafen', addressRegion: 'ZH',
+    });
+    expect(similarButDifferentCity).toMatchObject({
+      streetAddress: 'Zürich Flughafen', streetAddressSource: 'to-enrich',
+    });
     expect(resolveJobPostingStreetAddress({
       companyKey: 'eoc-ente-ospedaliero-cantonale', streetAddress: 'Viale Officina 3',
       streetAddressSource: 'curated-company-city',

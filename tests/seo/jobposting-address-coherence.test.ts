@@ -497,12 +497,19 @@ describe('shared locality helpers (#3513)', () => {
     }
   });
 
-  it('localityMatchesHq: empty city matches, different city does not', () => {
-    const hq = { addressLocality: 'Bellinzona' };
+  it('localityMatchesHq accepts exact cities and verified canton decorations, never a city prefix', () => {
+    const hq = { addressLocality: 'Bellinzona', addressRegion: 'TI' };
     expect(localityMatchesHq('', hq)).toBe(true);
     expect(localityMatchesHq('Bellinzona', hq)).toBe(true);
     expect(localityMatchesHq('Bellinzona (TI)', hq)).toBe(true);
+    expect(localityMatchesHq('Bellinzona (CH-TI)', hq)).toBe(true);
+    expect(localityMatchesHq('Bellinzona, Ticino', hq)).toBe(true);
+    expect(localityMatchesHq('Bellinzona Centro', hq)).toBe(false);
     expect(localityMatchesHq('Lugano', hq)).toBe(false);
+    expect(localityMatchesHq('Zürich Flughafen', {
+      addressLocality: 'Zürich', addressRegion: 'ZH',
+    })).toBe(false);
+    expect(localityMatchesHq('---', { addressLocality: '---', addressRegion: 'TI' })).toBe(false);
   });
 
   it('regionLocalityCapital maps region names and leaves real cities alone', () => {
@@ -559,18 +566,21 @@ describe('applyCompanyDefaults — crawler-side stamping (#3513)', () => {
     expect(noCity.addressLocality).toBe('Bellinzona');
   });
 
-  it('sameLocalityAsHq mirrors the shared TS helper semantics', () => {
-    expect(sameLocalityAsHq('', 'Bellinzona')).toBe(true);
-    expect(sameLocalityAsHq('Bellinzona, Ticino', 'Bellinzona')).toBe(true);
-    expect(sameLocalityAsHq('Winterthur', 'Manno')).toBe(false);
+  it('sameLocalityAsHq uses the shared exact locality and verified canton semantics', () => {
+    expect(sameLocalityAsHq('', 'Bellinzona', 'TI')).toBe(true);
+    expect(sameLocalityAsHq('Bellinzona, Ticino', 'Bellinzona', 'TI')).toBe(true);
+    expect(sameLocalityAsHq('Bellinzona Centro', 'Bellinzona', 'TI')).toBe(false);
+    expect(sameLocalityAsHq('Zürich Flughafen', 'Zürich', 'ZH')).toBe(false);
+    expect(sameLocalityAsHq('Winterthur', 'Manno', 'TI')).toBe(false);
+    expect(sameLocalityAsHq('Dübendorf-Stettbach', 'Dübendorf', 'ZH')).toBe(false);
   });
 });
 
 describe('hqPostalCodeForLocality — HQ CAP fallback of a crawler (#9841)', () => {
   it('keeps the HQ CAP only at the HQ or where the locality needs it as a Swiss anchor', () => {
-    // At the HQ, decorated, or without a city of its own.
+    // At the HQ, with a verified canton decoration, or without a city.
     expect(hqPostalCodeForLocality('Dübendorf', 'Dübendorf', '8600')).toBe('8600');
-    expect(hqPostalCodeForLocality('Dübendorf-Stettbach', 'Dübendorf', '8600')).toBe('8600');
+    expect(hqPostalCodeForLocality('Dübendorf (ZH)', 'Dübendorf', '8600', 'ZH')).toBe('8600');
     expect(hqPostalCodeForLocality('', 'Dübendorf', '8600')).toBe('8600');
     // Another known Swiss city: no HQ CAP, the assembler derives the city's own.
     expect(hqPostalCodeForLocality('Chur', 'Dübendorf', '8600')).toBe('');
