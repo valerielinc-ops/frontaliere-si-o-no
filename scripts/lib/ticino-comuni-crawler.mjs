@@ -175,9 +175,10 @@ async function readComuneListing(entry, client, renderer) {
         page,
         ...(view.category ? { catParam: listing.catParam, catId: listing.catId } : {}),
       });
-      // Oltre la prima pagina non tutti gli albi rispondono via GET: quello che
-      // si e' letto resta valido, e resta la grazia per cio' che manca.
-      if (page > 1 && !parsed.recognized) break;
+      // Oltre la prima pagina non tutti gli albi rispondono via GET, e la ricerca
+      // di Muralto rende un formato suo: quello che si e' letto resta valido,
+      // purche' la categoria sia stata confermata, e resta la grazia per il resto.
+      if (!parsed.recognized && (page > 1 || (results.length > 0 && !view.category))) break;
       results.push(parsed);
       if (!parsed.hasNextPage) break;
     }

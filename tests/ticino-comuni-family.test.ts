@@ -430,12 +430,14 @@ describe('fetchTicinoComuneJobs — dal listino agli annunci', () => {
     existingJobs = [],
     listingStatus = 200,
     disallowed = [] as string[],
+    searchBroken = false,
   }: {
     rows: string;
     docs: Record<string, Doc>;
     existingJobs?: unknown[];
     listingStatus?: number;
     disallowed?: string[];
+    searchBroken?: boolean;
   }) {
     const opened: string[] = [];
     const client = {
@@ -445,8 +447,10 @@ describe('fetchTicinoComuneJobs — dal listino agli annunci', () => {
         rule: null,
         crawlDelay: null,
       }),
-      fetch: async () => new Response(
-        `<html><body><form name="fric_4925"><select name="fric_4925_cat0"><option value="72" selected="selected">Concorsi</option></select>${rows}</form></body></html>`,
+      fetch: async (url: string) => new Response(
+        searchBroken && url.includes('param_textsearch=concorso')
+          ? '<html><body>formato inatteso</body></html>'
+          : `<html><body><form name="fric_4925"><select name="fric_4925_cat0"><option value="72" selected="selected">Concorsi</option></select>${rows}</form></body></html>`,
         { status: listingStatus },
       ),
     };
@@ -537,6 +541,11 @@ describe('fetchTicinoComuneJobs — dal listino agli annunci', () => {
 
   it('un albo vuoto dichiarato dal sito e\' uno zero autorevole', async () => {
     const { result } = await run({ rows: '<div>Nessun documento trovato...</div>', docs: {} });
+    expect(isAuthoritativeEmptySnapshot(result)).toBe(true);
+  });
+
+  it('una ricerca illeggibile non invalida una categoria confermata', async () => {
+    const { result } = await run({ rows: '<div>Nessun documento trvato</div>', docs: {}, searchBroken: true });
     expect(isAuthoritativeEmptySnapshot(result)).toBe(true);
   });
 
