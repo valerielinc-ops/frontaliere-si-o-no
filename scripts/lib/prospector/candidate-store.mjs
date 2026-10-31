@@ -1413,7 +1413,7 @@ export function upsertCandidate(store, incoming, source) {
     }
     if (k === 'emailDomainHints') {
       // A hint outlives the ad that carried it: the 30-day window slides.
-      if (source === 'seco') existing[k] = [...new Set([...(existing[k] || []), ...(v || [])])].slice(0, 3);
+      if (source === 'seco') existing[k] = [...new Set([...(existing[k] || []), ...(v || [])])].slice(-3);
       continue;
     }
     if (SECO_SIGNAL_FIELDS.has(k)) {

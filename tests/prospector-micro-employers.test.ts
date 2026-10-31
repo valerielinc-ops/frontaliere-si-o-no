@@ -8,6 +8,7 @@ vi.mock('../scripts/lib/prospector/polite-fetch.mjs', async (importOriginal) => 
 }));
 
 import {
+  upsertCandidate,
   hasUntriedEmailDomainHint,
   isTraceRetryDue,
   reviveStaleNoCareersCandidates,
@@ -48,6 +49,19 @@ describe('SECO application addresses as employer evidence', () => {
     const tried = { ...exhausted, emailDomainHintsTried: ['alfa.ch'] };
     expect(hasUntriedEmailDomainHint(tried)).toBe(false);
     expect(isTraceRetryDue(tried)).toBe(false);
+  });
+});
+
+describe('email-domain hints across runs', () => {
+  it('keeps earlier hints and prefers the newest when the cap is reached', () => {
+    const store = { candidates: {}, rejectedTombstones: {}, candidateAliases: {} };
+    const observe = (hints: string[]) => upsertCandidate(store as never, {
+      name: 'Alfa SA', city: 'Lugano', canton: 'TI', country: 'CH', emailDomainHints: hints,
+    }, 'seco');
+    const { key } = observe(['a.ch', 'b.ch']);
+    observe([]);
+    observe(['c.ch', 'd.ch']);
+    expect((store.candidates as never)[key as never]).toMatchObject({ emailDomainHints: ['b.ch', 'c.ch', 'd.ch'] });
   });
 });
 
