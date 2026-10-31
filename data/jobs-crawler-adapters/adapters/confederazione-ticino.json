@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign \"Estero\" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-10-31T09:47:14.830Z",
+  "updatedAt": "2026-10-31T22:03:35.848Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/aerztin-arzt-rekrutierung-im-rekrutierungszentrum-aarau/7b1ab0d6-cb76-4128-890b-97345976528a": {
       "location": "Aarau",
@@ -1965,6 +1965,30 @@
       "postedDate": "2026-06-29T22:00:00Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/posti-vacanti/praxisintegriertes-bachelorstudium-in-informatik-pibs/53f30967-c065-4771-bd24-e80aedeeda71": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-31T22:00:00Z",
+      "postedDate": "2026-10-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/schnuppertag-ict-fachleute-efz/51215ec7-7e12-4713-8e95-8aaa4c7441d9": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-31T22:00:00Z",
+      "postedDate": "2026-10-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/schnuppertag-informatik-efz-applikationsentwicklung/4e881d3f-0eb9-4be0-af9d-bd1313829ec9": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-31T22:00:00Z",
+      "postedDate": "2026-10-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/posti-vacanti/senior-projektleiter-in-sicherheitskommunikation/37290f4d-91bd-465e-a35e-0ae89fef558f": {
       "location": "3014 Bern",
       "canton": "BE",
@@ -2221,6 +2245,14 @@
       "postedDate": "2026-08-27T08:12:01Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/posti-vacanti/schnuppertag-informatik-efz-plattformentwicklung/fa7d66b2-eb98-4e63-80b7-fa8d654ea94b": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-31T22:00:00Z",
+      "postedDate": "2026-10-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/posti-vacanti/bim-manager-in-und-projektleiter-in/c4c554b8-08c4-4a40-849a-5e75b77c5f52": {
       "location": "Uttigenstrasse 54, 3600 Thun oder Bahnhofplatz 1, 3930 Visp",
       "canton": "BE",
@@ -2243,6 +2275,14 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-05T22:00:00Z",
       "postedDate": "2026-07-05T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/schnuppertag-entwickler-in-digitales-business-efz/f8248f30-baf1-446f-bae3-832b77714ae9": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-31T22:00:00Z",
+      "postedDate": "2026-10-31T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/datenbank-spezialist-in-senior-1291/76a0dca2-7c8f-47e1-b18f-364408f531aa": {
