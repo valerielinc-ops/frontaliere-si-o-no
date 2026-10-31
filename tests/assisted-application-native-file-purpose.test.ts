@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { nativeFormContract } from '../functions/src/lib/nativeFormContract.js';
-import { nativeApprovedFilePurpose, nativeFilePurposeCaption, nativeFilePurposeContract } from '../functions/src/lib/nativeFilePurpose.js';
+import { nativeApprovedFilePurpose, nativeDocumentInstruction, nativeFilePurposeCaption, nativeFilePurposeContract } from '../functions/src/lib/nativeFilePurpose.js';
 
 const contract = (overrides = {}) => nativeFormContract({ id: 'upload', label: 'Diploma', kind: 'file', inputType: 'file',
   nativeMetadataComplete: true, nativeOwnedScopes: [{ kind: 'form', names: ['Application documents'], unknown: false }], ...overrides });
+const instruction = 'Please click on "apply now" to submit a complete application, including CV, cover letter, references and degree certificates.';
 
 describe('one closed native file-purpose classifier', () => {
   it('preserves existing CV and cover-letter transport purposes', () => {
@@ -43,5 +44,62 @@ describe('one closed native file-purpose classifier', () => {
     expect(nativeFilePurposeContract(native)).toBeNull();
     expect(nativeFilePurposeContract(contract({ kind: 'text', inputType: 'text' }))).toBeNull();
     expect(nativeFilePurposeContract({ question: 'Diploma', kind: 'file', controlType: 'file' })).toBeNull();
+  });
+
+  it('reads the complete shared instruction as four explicit transport purposes', () => {
+    expect(nativeDocumentInstruction(instruction)).toEqual({ purposes: [
+      { family: 'cv', constraints: {} }, { family: 'cover_letter', constraints: {} },
+      { family: 'reference_document', constraints: {} }, { family: 'diploma', constraints: { educationalScope: 'university' } },
+    ] });
+    expect(nativeFilePurposeContract(contract({ context: instruction,
+      nativeOwnedScopes: [{ kind: 'group', names: [instruction], unknown: false }, { kind: 'form', names: ['Application documents'], unknown: false }] })))
+      .toEqual({ family: 'diploma', constraints: { educationalScope: 'university' } });
+    expect(nativeFilePurposeContract(contract({ label: 'CV', context: instruction }))).toEqual({ family: 'cv', constraints: {} });
+  });
+
+  it('uses the same complete-list grammar for document captions in four locales', () => {
+    for (const text of [
+      'Application documents: CV, cover letter, work references and degree certificates.',
+      'Documenti richiesti: CV, lettera di motivazione, referenze e diploma di laurea.',
+      'Bewerbungsunterlagen: Lebenslauf, Motivationsschreiben, Arbeitszeugnisse und Hochschuldiplom.',
+      'Documents de candidature: CV, lettre de motivation, certificats de travail et diplôme universitaire.',
+    ]) expect(nativeDocumentInstruction(text)?.purposes).toHaveLength(4);
+  });
+
+  it('rejects every unknown qualifier rather than skipping another item of the list', () => {
+    for (const text of [
+      instruction.replace('degree certificates', 'degree certificates in Physics'),
+      instruction.replace('degree certificates', 'degree certificates from University X'),
+      instruction.replace('degree certificates', 'degree certificates not required'),
+      instruction.replace('references', 'references from John Smith'),
+      instruction + ' I hold a work permit.',
+      'Not required: CV, cover letter and degree certificates.',
+      'CV or degree certificates', 'CV / degree certificates', 'CV, Resume and degree certificates',
+      'CV, , degree certificates', 'CV, and', 'CV, degree certifi…', instruction.slice(0, -9) + '...',
+    ]) {
+      expect(nativeDocumentInstruction(text)).toBeNull();
+      expect(nativeFilePurposeContract(contract({ context: text }))).toBeNull();
+    }
+  });
+
+  it('requires a specific native label, its matching list member and every owned scope', () => {
+    expect(nativeFilePurposeContract(contract({ label: 'Other documents', context: instruction }))).toBeNull();
+    expect(nativeFilePurposeContract(contract({ label: 'CV and degree certificates', context: instruction }))).toBeNull();
+    expect(nativeFilePurposeContract(contract({ context: 'Application documents: CV and cover letter.' }))).toBeNull();
+    expect(nativeFilePurposeContract(contract({ context: instruction,
+      nativeOwnedScopes: [{ kind: 'group', names: ['Reference John Smith', instruction], unknown: false }] }))).toBeNull();
+    expect(nativeFilePurposeContract(contract({ context: instruction, nativeContractUnavailable: true }))).toBeNull();
+    expect(nativeFilePurposeContract(contract({ context: instruction,
+      nativeOwnedScopes: [{ kind: 'group', names: [instruction], unknown: true }] }))).toBeNull();
+  });
+
+  it('does not reinterpret a standalone reference caption as a document or actor grant', () => {
+    for (const label of ['References', 'Reference', 'Referenzen', 'Références', 'Name of reference']) {
+      expect(nativeDocumentInstruction(label)).toBeNull();
+      expect(nativeFilePurposeCaption(label)).toBeNull();
+      expect(nativeFilePurposeContract(contract({ label, context: instruction }))).toBeNull();
+    }
+    expect(nativeDocumentInstruction('Documents required: CV and references.')?.purposes)
+      .toEqual([{ family: 'cv', constraints: {} }, { family: 'reference_document', constraints: {} }]);
   });
 });
