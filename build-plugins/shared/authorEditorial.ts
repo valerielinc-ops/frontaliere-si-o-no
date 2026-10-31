@@ -3,7 +3,7 @@ import { resolveAuthorProfileMetadata } from '../../services/seo/authorProfileMe
 import { AUTHORS, getAuthorBySlug, isEditorialProfile, isRealAuthor } from '../../data/authors';
 import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor, type AuthorLocale } from '../../data/authorLocales';
 import { AUTHOR_PAGE_COPY } from '../../services/authorPageCopy';
-import { buildAuthorSeo } from '../../services/seo/seo-authors';
+import { buildAuthorSeo, buildAuthorsHubCanonical } from '../../services/seo/seo-authors';
 import { SLUG_TABLES } from '../../services/routeSlugs.data';
 import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT } from '../../packages/articles/engine/shared/aiDisclosure';
 
@@ -17,8 +17,30 @@ function buildAuthorNavPath(slug: 'chiSiamo' | 'correzioni', locale: AuthorLocal
   return `${prefix}/${SLUG_TABLES[locale][slug]}/`;
 }
 
+const AUTHORS_HUB_RE = /^\/(?:autori|en\/authors|de\/autoren|fr\/auteurs)\/?$/;
+
+/**
+ * `/autori/` hub: real people and editorial bylines are two separate lists, so a
+ * reader never has to infer which names belong to a person.
+ */
+function renderAuthorsHub(locale: AuthorLocale): string[] {
+  const copy = AUTHOR_PAGE_COPY[locale];
+  const row = (source: (typeof AUTHORS)[number]) => {
+    const author = localizeAuthor(source, locale);
+    return `<li><a href="${escape(new URL(buildAuthorSeo(source, locale).canonical).pathname)}" rel="author">${escape(author.name)}</a> — ${escape(author.role)}</li>`;
+  };
+  return [
+    `<p>${escape(copy.hubIntro)}</p>`,
+    `<h2>${escape(copy.hubPeople)}</h2><p>${escape(copy.hubPeopleIntro)}</p><ul>${AUTHORS.filter(isRealAuthor).map(row).join('')}</ul>`,
+    `<h2>${escape(copy.hubSignatures)}</h2><p>${escape(copy.hubSignaturesIntro)}</p><ul>${AUTHORS.filter(isEditorialProfile).map(row).join('')}</ul>`,
+    `<p>${escape(EDITORIAL_PROFILE_DISCLOSURE[locale])}</p>`,
+    `<p><a href="${buildAuthorNavPath('chiSiamo', locale)}">${escape(copy.about)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}">${escape(ARTICLE_TRANSPARENCY[locale].navMethodology)}</a> · <a href="${buildAuthorNavPath('correzioni', locale)}">${escape(copy.corrections)}</a></p>`,
+  ];
+}
+
 /** Registered author pages bypass the generic translated section fallback. */
 export function renderAuthorEditorial(sourcePath: string, locale: AuthorLocale): string[] | null {
+  if (AUTHORS_HUB_RE.test(sourcePath)) return renderAuthorsHub(locale);
   const match = /^\/(?:autori|(?:en\/authors|de\/autoren|fr\/auteurs))\/([^/]+)\/?$/.exec(sourcePath);
   if (!match) return null;
   const original = getAuthorBySlug(match[1]);
@@ -49,7 +71,7 @@ export function renderAuthorEditorial(sourcePath: string, locale: AuthorLocale):
     organizationProfile,
     `<h2>${escape(editorialProfile ? copy.editorialOtherAuthors : copy.otherAuthors)}</h2><ul>${peers}</ul>`,
     // The disclosure points at the methodology (AI-prepared texts): link it.
-    `<p><a href="${buildAuthorNavPath('chiSiamo', locale)}">${escape(copy.about)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}">${escape(ARTICLE_TRANSPARENCY[locale].navMethodology)}</a> · <a href="${buildAuthorNavPath('correzioni', locale)}">${escape(copy.corrections)}</a></p>`,
+    `<p><a href="${new URL(buildAuthorsHubCanonical(locale)).pathname}">${escape(copy.allAuthors)}</a> · <a href="${buildAuthorNavPath('chiSiamo', locale)}">${escape(copy.about)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}">${escape(ARTICLE_TRANSPARENCY[locale].navMethodology)}</a> · <a href="${buildAuthorNavPath('correzioni', locale)}">${escape(copy.corrections)}</a></p>`,
   ];
 }
 

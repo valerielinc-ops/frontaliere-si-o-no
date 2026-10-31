@@ -828,7 +828,7 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
     expect(xml).toContain('xmlns:dc="http://purl.org/dc/elements/1.1/"');
 
     const alphaItem = xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes('Alpha it'))!;
-    expect(alphaItem).toContain('<dc:creator><![CDATA[Editorial profile]]></dc:creator>');
+    expect(alphaItem).toContain('<dc:creator><![CDATA[Editorial profile (Redazione Frontaliere Ticino)]]></dc:creator>');
   });
 
   it('emette <dc:creator> anche per un autore reale Person', () => {

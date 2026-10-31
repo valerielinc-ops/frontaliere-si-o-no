@@ -42,12 +42,33 @@ const ADMIN_DATA_FILES = [
  * 812 KB gzipped, and that chunk is `modulepreload`ed at high priority by the
  * static shell of /cerca-lavoro-ticino/ (staticPagesPlugin sectionChunks). The
  * whole map exists to rank a 4-card "trending" strip. Serving it as a runtime
- * fetch keeps the data identical and takes it off the critical path.
+ * fetch takes it off the critical path.
+ *
+ * The runtime copy is also trimmed (trimJobPopularity): the source grew to 96,616
+ * entries, 7.2 MB raw and 1.5 MB brotli on every job search and job detail view,
+ * and 58,987 of those entries have exactly 1 view, which is noise for a ranking.
  */
 const RUNTIME_DATA_FILES = [
  'data/job-popularity.json',
  'data/image-credits-blog.json',
 ];
+
+const JOB_POPULARITY_PATH = 'data/job-popularity.json';
+/** A single view says nothing about demand; the strip only compares the top of the list. */
+export const JOB_POPULARITY_MIN_VIEWS = 2;
+
+/**
+ * The browser copy of the popularity map, without the entries that cannot rank.
+ * The source file stays complete: scripts read it from the repository.
+ */
+export function trimJobPopularity(source: string): string {
+  const parsed: unknown = JSON.parse(source);
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return source;
+  const trimmed = Object.entries(parsed).filter(
+    ([, views]) => typeof views !== 'number' || views >= JOB_POPULARITY_MIN_VIEWS,
+  );
+  return JSON.stringify(Object.fromEntries(trimmed));
+}
 
 /** Every file this plugin copies, in one list shared with the dev middleware. */
 export const COPIED_DATA_FILES = [...ADMIN_DATA_FILES, ...RUNTIME_DATA_FILES];
@@ -111,7 +132,11 @@ export function adminDataPlugin(root: string): Plugin {
  }
 
  fs.mkdirSync(path.dirname(dest), { recursive: true });
+ if (relPath === JOB_POPULARITY_PATH) {
+ fs.writeFileSync(dest, trimJobPopularity(fs.readFileSync(src, 'utf8')));
+ } else {
  fs.copyFileSync(src, dest);
+ }
  copied++;
  }
 

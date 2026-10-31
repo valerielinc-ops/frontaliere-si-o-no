@@ -180,6 +180,12 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(result).toMatch(/"validThrough":"\d{4}-\d{2}-\d{2}T/);
   });
 
+ it('derives a missing deadline from the crawl heartbeat it receives', () => {
+  const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"old","crawledAt":"old"}</script>';
+  const result = replaceActiveJobPostingDates(fragment, '2026-01-01', null, '2026-03-01T00:00:00.000Z');
+  expect(result).toContain('"validThrough":"2026-04-30T00:00:00.000Z"');
+ });
+
  it('replaces a stale cached validThrough when the source deadline is absent', () => {
   const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"2030-01-01T00:00:00.000Z"}</script>';
   const result = replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', null);

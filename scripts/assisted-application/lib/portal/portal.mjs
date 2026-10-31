@@ -36,6 +36,7 @@ import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQu
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
+import { operationalAnswerForOption, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
@@ -453,18 +454,27 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  * the previous portal run when an ATS regenerates its field id.
  */
 function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
-  const items = questions.map((question) => ({
-    answerId: portalAnswerForApplication(question, answers[question.id]) !== String(answers[question.id] ?? '').trim() ? question.id : undefined,
-    question: question.applicationQuestion || question.question,
-    ...(question.applicationQuestion ? { applicationQuestion: question.applicationQuestion } : {}),
-    ...(question.applicationQuestion ? { candidateQuestion: question.question } : {}),
-    context: question.context || '',
-    section: question.section || '',
-    autocomplete: question.autocomplete || '',
-    answer: portalAnswerForApplication(question, answers[question.id]),
-    source: 'answers',
-    current: true,
-  })).filter((item) => item.answer);
+  const items = questions.map((question) => {
+    const raw = String(answers[question.id] ?? '').trim();
+    const projected = operationalAnswerForOption(question, raw) || raw;
+    const mapped = portalAnswerForApplication(question, projected);
+    // Preserve an explicit operational statement even when today's catalogue
+    // cannot express it. Its presence vetoes a policy fallback; it is not a
+    // claim that the native control accepts the value.
+    const answer = mapped || (operationalQuestionTopic(question) ? raw : '');
+    return {
+      answerId: answer !== raw ? question.id : undefined,
+      question: question.applicationQuestion || question.question,
+      ...(question.applicationQuestion ? { applicationQuestion: question.applicationQuestion } : {}),
+      ...(question.applicationQuestion ? { candidateQuestion: question.question } : {}),
+      context: question.context || '',
+      section: question.section || '',
+      autocomplete: question.autocomplete || '',
+      answer,
+      source: 'answers',
+      current: true,
+    };
+  }).filter((item) => item.answer);
   const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
