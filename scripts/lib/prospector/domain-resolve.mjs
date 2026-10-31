@@ -18,7 +18,7 @@ import { politeFetch } from './polite-fetch.mjs';
 import { registrableDomain } from './registrable.mjs';
 import { textOf } from './extract.mjs';
 import { NON_PLATFORM_HOSTS } from './config.mjs';
-import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+import { createSpecUrlPolicy, resolveProspectorFetch } from './public-fetch-policy.mjs';
 
 function retryableResponse(response) {
   if (response?.policyBlocked || response?.blockedByRobots) return false;
@@ -203,8 +203,11 @@ export function verifyOwnership(html, employer) {
 /** The application address already vouches for the domain, so one more signal beside the name settles it. */
 const HINTED_DOMAIN_MIN_SCORE = 2;
 
-/** Page requests one employer may cost, shared by every domain tried. DNS spends them on domains that exist. */
-const MAX_SITE_PROBES = 10;
+/**
+ * HTTP calls one employer may cost: pages, redirects and robots.txt, across
+ * every domain tried. DNS spends them on domains that exist.
+ */
+const MAX_HTTP_CALLS = 10;
 /** Below this a response is a parking page or a redirect stub, not a site to read. */
 const MIN_SITE_BODY_CHARS = 400;
 const DNS_LOOKUP_BATCH = 6;
@@ -273,6 +276,36 @@ async function filterByDns(guesses, lookupImpl, wanted) {
 }
 
 /**
+ * Count every HTTP call of one employer. A probe has no internal retries: a
+ * transient failure marks the candidate retryable and TRACE returns on its own
+ * schedule, instead of spending the budget on the same host now.
+ *
+ * @param {Record<string, any>} opts
+ * @returns {{ left: number, refused: boolean, opts: Record<string, any> }}
+ */
+function httpBudget(opts) {
+  const requestFetch = resolveProspectorFetch(opts.fetchImpl);
+  const budget = {
+    left: MAX_HTTP_CALLS,
+    refused: false,
+    opts: {
+      retries: 0,
+      ...opts,
+      /** @type {typeof fetch} */
+      fetchImpl: (...request) => {
+        if (budget.left <= 0) {
+          budget.refused = true;
+          throw new Error('prospector domain probe budget spent');
+        }
+        budget.left--;
+        return requestFetch(...request);
+      },
+    },
+  };
+  return budget;
+}
+
+/**
  * Fetch an employer's homepage on the apex or on `www.`, stopping at the first
  * host that serves a real page. A short 200 on the apex says nothing about `www.`.
  *
@@ -283,32 +316,30 @@ async function filterByDns(guesses, lookupImpl, wanted) {
  *
  * @param {string} domain
  * @param {string[]} hosts
- * @param {Record<string, any>} opts
- * @param {{ left: number }} budget  shared by every domain of one employer
+ * @param {ReturnType<typeof httpBudget>} budget  shared by every domain of one employer
  * @returns {Promise<{ response: any, failures: any[] }>}
  */
-async function fetchSite(domain, hosts, opts, budget) {
+async function fetchSite(domain, hosts, budget) {
   const urlPolicy = createSpecUrlPolicy(
     { seedUrls: [`https://${domain}/`, `https://www.${domain}/`] },
-    { lookupImpl: opts.lookupImpl },
+    { lookupImpl: budget.opts.lookupImpl },
   );
   const failures = [];
-  let answered = false;
   try {
     for (const host of hosts) {
       if (budget.left <= 0) break;
-      budget.left--;
       let response;
       try {
-        response = await politeFetch(`https://${host}/`, { ...opts, urlPolicy, dispatcher: urlPolicy.dispatcher });
+        response = await politeFetch(`https://${host}/`, { ...budget.opts, urlPolicy, dispatcher: urlPolicy.dispatcher });
       } catch {
         response = { ok: false, status: 0, body: '', transportError: 'network' };
       }
+      // A spent budget is this function's limit, not a site that failed.
+      if (budget.refused) break;
       if (response.ok && response.body.length >= MIN_SITE_BODY_CHARS) return { response, failures: [] };
-      if (response.ok) answered = true;
-      else failures.push(response);
+      if (!response.ok) failures.push(response);
     }
-    return { response: null, failures: answered ? [] : failures };
+    return { response: null, failures };
   } finally {
     await urlPolicy.dispatcher?.close?.();
   }
@@ -329,7 +360,7 @@ export async function resolveDomain(employer, opts = {}) {
     }
   };
   const triedHints = [];
-  const budget = { left: MAX_SITE_PROBES };
+  const budget = httpBudget(opts);
   const vouched = [
     ...(employer.domainHints || []).map((domain) => ({ domain, proof: 'email-domain' })),
     ...embeddedDomains(employer.name).map((domain) => ({ domain, proof: 'name-domain' })),
@@ -338,7 +369,7 @@ export async function resolveDomain(employer, opts = {}) {
     if (budget.left <= 0) break;
     best.tried++;
     if (proof === 'email-domain') triedHints.push(domain);
-    const { response: res, failures } = await fetchSite(domain, [domain, `www.${domain}`], opts, budget);
+    const { response: res, failures } = await fetchSite(domain, [domain, `www.${domain}`], budget);
     if (!res) {
       recordFailures(failures);
       continue;
@@ -364,7 +395,7 @@ export async function resolveDomain(employer, opts = {}) {
   for (const { domain, hosts } of live) {
     if (budget.left <= 0) break;
     best.tried++;
-    const { response: res, failures } = await fetchSite(domain, hosts, opts, budget);
+    const { response: res, failures } = await fetchSite(domain, hosts, budget);
     if (!res) {
       recordFailures(failures);
       continue;

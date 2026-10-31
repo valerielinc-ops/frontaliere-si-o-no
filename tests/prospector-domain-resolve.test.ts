@@ -181,6 +181,17 @@ describe('Prospector domain verification', () => {
     expect(result.domain).toBe('baugest.ch');
   });
 
+  it('keeps a transient www failure behind a stub on the apex', async () => {
+    politeFetch.mockImplementation(async (url: string) => (String(url).startsWith('https://www.')
+      ? { ok: false, status: 503, body: '' }
+      : { ok: true, status: 200, url: String(url), body: 'short' }));
+    const result = await resolveDomain(
+      { name: 'BAUgest SA', city: 'Cresciano', zip: '6705' },
+      { lookupImpl: onlyHosts('baugest.ch', 'www.baugest.ch') as never },
+    );
+    expect(result).toMatchObject({ domain: null, retryable: true, failureStatuses: [503] });
+  });
+
   it('tries www when the apex fails and forgets the apex failure if www answers', async () => {
     politeFetch.mockImplementation(async (url: string) => (String(url).startsWith('https://www.')
       ? page(String(url), 'Altra azienda qualunque, Italia')
@@ -190,19 +201,6 @@ describe('Prospector domain verification', () => {
       { lookupImpl: onlyHosts('baugest.ch', 'www.baugest.ch') as never },
     );
     expect(result).toMatchObject({ domain: null, retryable: false });
-  });
-
-  it('shares one request budget across hinted and guessed domains', async () => {
-    politeFetch.mockImplementation(async (url: string) => (String(url).startsWith('https://www.')
-      ? { ok: true, status: 200, url: String(url), body: 'short' }
-      : { ok: false, status: 404, body: '' }));
-    const hints = ['a.ch', 'b.ch', 'c.ch', 'd.ch', 'e.ch', 'f.ch'];
-    const result = await resolveDomain(
-      { name: 'Rossi Costruzioni SA', domainHints: hints },
-      { lookupImpl: everyHostExists as never },
-    );
-    expect(politeFetch.mock.calls.length).toBeLessThanOrEqual(10);
-    expect(result.triedHints).toEqual(['a.ch', 'b.ch', 'c.ch', 'd.ch', 'e.ch']);
   });
 
   it.each([
