@@ -16017,9 +16017,9 @@
       "id": "usz-249c32f2334f",
       "slug": "testa-di-ivf-andrology-laboratory-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
+        "de": "leitung-ivf-andrologielabor-80-100-usz-ch",
         "it": "testa-di-ivf-andrology-laboratory-80-100-universitatsspital-zurich-usz-zurich",
         "en": "head-of-ivf-andrology-laboratory-80-100-universitatsspital-zurich-usz-zurich",
-        "de": "leitung-ivf-andrologielabor-80-100-usz-ch",
         "fr": "chef-du-laboratoire-de-fiv-andrologie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -16335,11 +16335,11 @@
     },
     {
       "id": "usz-3673b83d883c",
-      "slug": "mpa-fast-track-per-das-institut-per-notfallmedizin-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "mpa-fast-track-per-l-istituto-di-medicina-d-urgenza-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "mpa-fast-track-per-das-institut-per-notfallmedizin-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "mpa-fast-track-fur-das-institut-fur-notfallmedizin-80-100-usz-ch",
         "de": "mpa-fast-track-fur-das-institut-fur-notfallmedizin-80-100-usz-ch",
+        "it": "mpa-fast-track-per-l-istituto-di-medicina-d-urgenza-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "mpa-fast-track-for-the-institute-of-emergency-medicine-80-100-universitatsspital-zurich-usz-zurich",
         "fr": "mpa-fast-track-fur-das-institut-fur-notfallmedizin-80-100-usz-ch"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -16385,11 +16385,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "mpa-fast-track-fur-das-institut-fur-notfallmedizin-80-100-usz-ch",
+          "mpa-fast-track-per-das-institut-per-notfallmedizin-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
           "mpa-fast-track-fur-das-institut-fur-notfallmedizin-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "mpa-fast-track-fur-das-institut-fur-notfallmedizin-80-100-usz-ch"
+        "mpa-fast-track-fur-das-institut-fur-notfallmedizin-80-100-usz-ch",
+        "mpa-fast-track-per-das-institut-per-notfallmedizin-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

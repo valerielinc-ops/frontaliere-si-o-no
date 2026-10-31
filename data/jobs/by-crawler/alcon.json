@@ -602,12 +602,11 @@
       },
       "description": "The intern will support the Global Tax team on assignments in connection with direct tax analysis, tax accounting, and tax compliance.\n\nATTENTION: Current Alcon Employee/Contingent Worker\n\nIf you are currently an active employee/contingent worker at Alcon, please click the appropriate link below to apply on the Internal Career site.\n\nFind Jobs for Employees\n\nFind Jobs for Contingent Worker",
       "descriptionByLocale": {
-        "it": "Lo stage sosterrà il team di Global Tax in incarichi in relazione all'analisi fiscale diretta, alla contabilità fiscale e alla conformità fiscale.\n\nATTENZIONE: Lavoratore dipendente/contingente corrente\n\nSe sei attualmente un dipendente attivo / lavoratore contingente presso Alcon, fare clic sul link appropriato qui sotto per applicare sul sito Interno Carriera.\n\nTrova lavori per dipendenti\n\nTrova lavori per Contingent Worker",
         "en": "The intern will support the Global Tax team on assignments in connection with direct tax analysis, tax accounting, and tax compliance.\n\nATTENTION: Current Alcon Employee/Contingent Worker\n\nIf you are currently an active employee/contingent worker at Alcon, please click the appropriate link below to apply on the Internal Career site.\n\nFind Jobs for Employees\n\nFind Jobs for Contingent Worker",
+        "it": "Lo stage sosterrà il team di Global Tax in incarichi in relazione all'analisi fiscale diretta, alla contabilità fiscale e alla conformità fiscale.\n\nATTENZIONE: Lavoratore dipendente/contingente corrente\n\nSe sei attualmente un dipendente attivo / lavoratore contingente presso Alcon, fare clic sul link appropriato qui sotto per applicare sul sito Interno Carriera.\n\nTrova lavori per dipendenti\n\nTrova lavori per Contingent Worker",
         "de": "Der Praktikant unterstützt das Global Tax Team bei Einsätzen im Zusammenhang mit direkter Steueranalyse, Steuerbilanzierung und Steuerkonformität.\n\nACHTUNG: Aktueller Alcon Mitarbeiter / Eventualarbeiter\n\nWenn Sie derzeit ein aktiver Mitarbeiter / Eventualarbeiter bei Alcon sind, klicken Sie bitte auf den entsprechenden Link unten, um sich auf der internen Karriereseite zu bewerben.\n\nJobs für Mitarbeiter finden\n\nFinden Sie Jobs für Contingent Worker",
         "fr": "Le stagiaire appuiera l'équipe de la taxe mondiale sur les affectations liées à l'analyse fiscale directe, à la comptabilité fiscale et à la conformité fiscale.\n\nATTENTION: Employé actuel/travailleur contingent\n\nSi vous êtes actuellement un employé ou un travailleur actif à Alcon, veuillez cliquer sur le lien approprié ci-dessous pour postuler sur le site de carrière interne.\n\nTrouver des emplois pour les employés\n\nTrouver des emplois pour un travailleur éventuel"
       },
-      "needsRetranslation": false,
       "location": "Geneva",
       "canton": "GE",
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Global-Tax-Intern_R-2026-50571",
@@ -632,6 +631,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2026-50571",
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 108000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
       "firstSeenAt": "2026-10-30T21:58:38.166Z",
       "previousSlugsByLocale": {
         "it": [
@@ -646,21 +659,7 @@
       },
       "previousSlugs": [
         "global-tax-intern-alcon-ch"
-      ],
-      "salaryMin": 77500,
-      "salaryMax": 108000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 108000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204"
+      ]
     },
     {
       "id": "alcon-8ca5fb80dee4",
