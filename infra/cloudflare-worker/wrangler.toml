@@ -43,6 +43,7 @@ routes = [
   # the same deterministic 301/410 response in locale-router.js.
   { pattern = "frontaliereticino.ch/cookie*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/sitemap_index.xml*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-index.xml*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/sitemap-jobs-ticino.xml*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/farmacie/ticino/castagnola/di-turno*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en/pharmacies/ticino/castagnola/on-duty*", zone_name = "frontaliereticino.ch" },

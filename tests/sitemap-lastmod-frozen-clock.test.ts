@@ -6,10 +6,10 @@ import path from 'node:path';
 import { discoverSitemapFiles } from '../build-plugins/sitemapAliasPlugin';
 
 /**
- * Sul banco con clock congelato il `lastmod` di sitemap.xml non deve dipendere
- * dall'orologio reale del filesystem (mtime): due gambe costruite a cavallo
- * della mezzanotte UTC producevano un sitemap.xml diverso per il solo fuso
- * del run. Senza BENCH_FROZEN_CLOCK_MS vale sempre la data di modifica.
+ * Il `lastmod` di sitemap.xml viene dal contenuto del figlio, non dall'orologio:
+ * ne' il filesystem (mtime) ne' il clock congelato del banco devono cambiarlo.
+ * Con il `mtime` due gambe costruite a cavallo della mezzanotte UTC producevano
+ * un sitemap.xml diverso per il solo fuso del run.
  */
 let dir: string | null = null;
 afterEach(() => {
@@ -18,29 +18,28 @@ afterEach(() => {
   dir = null;
 });
 
-function seed(mtime: Date): string {
+function seed(mtime: Date, xml: string): string {
   dir = fs.mkdtempSync(path.join(os.tmpdir(), 'sm-frozen-'));
   const file = path.join(dir, 'sitemap-pages.xml');
-  fs.writeFileSync(file, '<urlset/>');
+  fs.writeFileSync(file, xml);
   fs.utimesSync(file, mtime, mtime);
   return dir;
 }
 
 describe('discoverSitemapFiles lastmod', () => {
-  it('uses the file mtime when no frozen clock is configured', async () => {
-    const d = seed(new Date('2026-04-15T10:00:00Z'));
-    expect((await discoverSitemapFiles(d))[0].lastmod).toBe('2026-04-15');
+  it('ignores the file mtime', async () => {
+    const d = seed(new Date('2026-04-15T10:00:00Z'), '<urlset><lastmod>2026-02-17</lastmod></urlset>');
+    expect((await discoverSitemapFiles(d))[0].lastmod).toBe('2026-02-17');
   });
 
-  it('uses the frozen bench clock instead of the real mtime', async () => {
-    const d = seed(new Date('2026-04-15T10:00:00Z'));
+  it('ignores the frozen bench clock', async () => {
+    const d = seed(new Date('2026-04-15T10:00:00Z'), '<urlset><lastmod>2026-02-17</lastmod></urlset>');
     process.env.BENCH_FROZEN_CLOCK_MS = String(Date.parse('2026-10-24T22:00:00Z'));
-    expect((await discoverSitemapFiles(d))[0].lastmod).toBe('2026-10-24');
+    expect((await discoverSitemapFiles(d))[0].lastmod).toBe('2026-02-17');
   });
 
-  it('ignores a malformed frozen clock value', async () => {
-    const d = seed(new Date('2026-04-15T10:00:00Z'));
-    process.env.BENCH_FROZEN_CLOCK_MS = 'not-a-number';
-    expect((await discoverSitemapFiles(d))[0].lastmod).toBe('2026-04-15');
+  it('claims no date for a sitemap without dates', async () => {
+    const d = seed(new Date('2026-04-15T10:00:00Z'), '<urlset/>');
+    expect((await discoverSitemapFiles(d))[0].lastmod).toBeUndefined();
   });
 });

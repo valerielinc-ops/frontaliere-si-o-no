@@ -367,6 +367,18 @@ describe('FUEL_ITALIAN_CITIES curated list', () => {
   });
 });
 
+describe('generateFuelStationPages() — sitemap lastmod', () => {
+  it('reports the day of the price each page shows, not the build day', () => {
+    const lastmodByPath = new Map<string, string>();
+    const pages = generateFuelStationPages({ dataset: DATASET, today: new Date('2026-04-25T12:00:00Z'), lastmodByPath });
+
+    expect(lastmodByPath.size).toBeGreaterThan(0);
+    for (const path of lastmodByPath.keys()) expect(pages[path]).toBeDefined();
+    expect([...lastmodByPath.values()]).toContain('2026-04-20');
+    expect([...lastmodByPath.values()]).not.toContain('2026-04-25');
+  });
+});
+
 describe('generateFuelStationPages() — Ticino only', () => {
   const today = new Date('2026-04-20T06:00:00.000Z');
   const pages = generateFuelStationPages({ dataset: DATASET, today });

@@ -87,7 +87,10 @@ Allow: /data/switzerland-unemployment-rate.json
 Allow: /manifest.webmanifest
 Disallow: /*?debug=*
 Disallow: /*?status=*
-# Internal job search query strings — handled by canonical + noindex meta runtime
+# Internal job search query strings. The Disallow does the whole job: a compliant
+# crawler never fetches these URLs, so it cannot read any canonical or meta tag
+# they carry, and search-engine rows for them are practically nil (0 of 44,852
+# pages in Search Console, 1-28 October 2026). A noindex here would be unreadable.
 Disallow: /*?q=*
 Disallow: /*&q=*
 # AI-readable content files (llmstxt.org standard)

@@ -16,6 +16,8 @@ import path from 'node:path';
 import {
   buildSitemapIndexXml,
   discoverSitemapFiles,
+  isIndexRetiredSitemapFile,
+  newestSitemapLastmod,
   reconcileSitemapFuelWithDist,
   type DiscoveredSitemap,
 } from '@/build-plugins/sitemapAliasPlugin';
@@ -170,12 +172,45 @@ describe('sitemapAliasPlugin — auto-discovery', () => {
     ]);
   });
 
-  it('derives lastmod (YYYY-MM-DD) from each file\'s mtime', async () => {
-    const fixedMtime = new Date('2026-04-15T10:00:00Z');
-    seedSitemap(distDir, 'sitemap-pages.xml', fixedMtime);
+  it('dates an entry with the newest lastmod of its URLs, not with the file mtime', async () => {
+    fs.writeFileSync(
+      path.join(distDir, 'sitemap-pages.xml'),
+      '<urlset><url><lastmod>2026-02-17</lastmod></url><url><lastmod>2026-04-15T10:00:00.000Z</lastmod></url></urlset>',
+    );
+    seedSitemap(distDir, 'sitemap-eventi.xml', new Date('2026-10-30T10:00:00Z'));
 
     const discovered = await discoverSitemapFiles(distDir);
-    expect(discovered[0].lastmod).toBe('2026-04-15');
+
+    expect(discovered).toEqual([
+      { file: 'sitemap-eventi.xml', lastmod: undefined },
+      { file: 'sitemap-pages.xml', lastmod: '2026-04-15' },
+    ]);
+    const xml = buildSitemapIndexXml(discovered, BASE_URL);
+    expect(xml).toContain(`<loc>${BASE_URL}/sitemap-eventi.xml</loc>\n  </sitemap>`);
+    expect(xml).toContain('<lastmod>2026-04-15</lastmod>');
+    expect(xml.match(/<lastmod>/g)).toHaveLength(1);
+  });
+
+  it('never announces the families retired from the index', async () => {
+    const retired = [
+      'sitemap-orphan-landings.xml',
+      'sitemap-profession-cantons.xml',
+      'sitemap-profession-cities.xml',
+      'sitemap-fuel-italian-stations.xml',
+      'sitemap-job-market.xml',
+      'sitemap-topics-frontaliere.xml',
+      'sitemap-topics-svizzera.xml',
+    ];
+    for (const file of [...retired, 'sitemap-moduli.xml']) seedSitemap(distDir, file);
+
+    const names = (await discoverSitemapFiles(distDir)).map((s) => s.file);
+
+    // `moduli` stays: its only page is index,follow in the HTML and in the render.
+    expect(names).toEqual(['sitemap-moduli.xml']);
+    for (const file of retired) expect(isIndexRetiredSitemapFile(file)).toBe(true);
+    // Same stem as a retired family, still a live one.
+    expect(isIndexRetiredSitemapFile('sitemap-professions.xml')).toBe(false);
+    expect(isIndexRetiredSitemapFile('sitemap-fuel-italian-cities.xml')).toBe(false);
   });
 
   it('does not include duplicate entries when called twice on the same dist', async () => {
@@ -219,6 +254,11 @@ describe('sitemapAliasPlugin — index XML builder', () => {
     expect(xml).toContain(`<loc>${BASE_URL}/sitemap-weekly-employers.xml</loc>`);
     expect(xml).toContain('<lastmod>2026-04-15</lastmod>');
     expect(xml).toContain('<lastmod>2026-04-20</lastmod>');
+  });
+
+  it('reads the date as written, whatever the time part', () => {
+    expect(newestSitemapLastmod('<lastmod>2026-10-29T09:02:50.918Z</lastmod><lastmod> 2026-10-30 </lastmod>')).toBe('2026-10-30');
+    expect(newestSitemapLastmod('<url><loc>x</loc></url>')).toBeUndefined();
   });
 
   it('emits exactly one <loc> entry per input file (no duplicates)', () => {
@@ -268,11 +308,9 @@ describe('sitemapAliasPlugin — integration: discover + build', () => {
       'sitemap-glossario.xml',
       'sitemap-guides.xml',
       'sitemap-health-premiums.xml',
-      'sitemap-job-market.xml',
       'sitemap-jobs-expired.xml',
       'sitemap-jobs.xml',
       'sitemap-news.xml',
-      'sitemap-orphan-landings.xml',
       'sitemap-pages.xml',
       'sitemap-recency.xml',
       'sitemap-salary-hub.xml',
