@@ -446,7 +446,14 @@ export function formatRunCounters(stats) {
  */
 function verifySnapshot(snapshot) {
   const { firstDeclaredTotal: first, lastDeclaredTotal: last, rows, skippedRows } = snapshot;
-  const extractedCount = rows.length + skippedRows;
+  const skip = process.env.JOBS_SECO_JOBROOM_SKIP_COUNT_CHECK === '1';
+  // A row with no id or no content counts toward the total but can never be
+  // classified: its live ad would be retired as absent.
+  const malformedRows = skippedRows + rows.filter((row) => !row?.jobAdvertisement?.jobContent).length;
+  if (malformedRows > 0 && !skip) {
+    throw new Error(`[${SECO_JOBROOM_KEY}] ${malformedRows} malformed row(s) in the feed: refusing a partial slice.`);
+  }
+  const extractedCount = rows.length;
   const explainedByDrift = first !== null && last !== null
     && Math.abs(extractedCount - last) <= Math.abs(last - first);
   return assertExtractionComplete({
@@ -454,7 +461,7 @@ function verifySnapshot(snapshot) {
     extractedCount,
     declaredTotal: explainedByDrift ? extractedCount : last,
     escapeHatchEnvVar: 'JOBS_SECO_JOBROOM_SKIP_COUNT_CHECK',
-    skip: process.env.JOBS_SECO_JOBROOM_SKIP_COUNT_CHECK === '1',
+    skip,
   });
 }
 
@@ -483,7 +490,7 @@ async function readCompleteSnapshot(cantons, fetchOptions) {
 export function cantonsFromEnv(env = process.env) {
   const configured = String(env.SECO_JOBROOM_CANTONS || '').split(',')
     .map((code) => code.trim().toUpperCase()).filter(Boolean);
-  return configured.length ? configured : [...DEFAULT_CANTONS];
+  return configured.length ? [...new Set(configured)] : [...DEFAULT_CANTONS];
 }
 
 /**

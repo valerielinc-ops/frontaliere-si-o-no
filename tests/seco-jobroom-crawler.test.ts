@@ -419,6 +419,17 @@ describe('fetchAllSecoJobroomJobs', () => {
     expect(requests).toBe(2);
   });
 
+  it('refuses a snapshot with a row it could never classify, even when the total matches', async () => {
+    const noId = { jobAdvertisement: { jobContent: {} } };
+    const noContent = { jobAdvertisement: { id: 'x1' } };
+    for (const row of [noId, noContent]) {
+      clearPoliteFetchStateForTests();
+      await expect(fetchAllSecoJobroomJobs(options(
+        async (url: unknown) => feedResponse(String(url), 200, JSON.stringify([row]), 1),
+      ))).rejects.toThrow(/malformed row/);
+    }
+  });
+
   it('refuses a read with no declared total', async () => {
     await expect(fetchAllSecoJobroomJobs(options(
       async (url: unknown) => feedResponse(String(url), 200, JSON.stringify([ad('z1')])),
@@ -466,7 +477,7 @@ describe('fetchAllSecoJobroomJobs', () => {
 describe('crawler configuration', () => {
   it('starts on the cantons bordering Italy and widens through the environment', () => {
     expect(cantonsFromEnv({})).toEqual(['TI', 'GR', 'VS']);
-    expect(cantonsFromEnv({ SECO_JOBROOM_CANTONS: 'ti, ge' })).toEqual(['TI', 'GE']);
+    expect(cantonsFromEnv({ SECO_JOBROOM_CANTONS: 'ti, ge, TI' })).toEqual(['TI', 'GE']);
   });
 
   it('stays behind the translation admission threshold', () => {
