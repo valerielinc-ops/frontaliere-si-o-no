@@ -2432,7 +2432,7 @@
           "teilpensenlehrperson-16-lektionen-schulen-krauchthal-krauchthal-40075"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:21:54.909Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -2446,7 +2446,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-91029c4bc9dc",
@@ -5435,7 +5436,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "speziallehrperson-fur-integrative-forderung-9-lektionen-unbefristet-pensum-kann-erweitert-40632"
@@ -8411,8 +8411,8 @@
       "slugByLocale": {
         "de": "oberstufenlehrperson-23-l-osz-orpund-orpund-39872",
         "it": "professore-di-scuola-superiore-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund",
-        "en": "oberstufenlehrperson-26-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund",
-        "fr": "oberstufenlehrperson-26-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund"
+        "en": "high-school-teacher-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872",
+        "fr": "professeur-de-lycee-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872"
       },
       "slugDisambiguator": "39872",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -8467,16 +8467,15 @@
           "oberstufenlehrperson-26-l-osz-orpund-orpund-39872"
         ],
         "en": [
-          "high-school-teacher-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872"
+          "oberstufenlehrperson-26-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund"
         ],
         "fr": [
-          "professeur-de-lycee-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872"
+          "oberstufenlehrperson-26-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund"
         ]
       },
       "previousSlugs": [
         "oberstufenlehrperson-26-l-osz-orpund-orpund-39872",
-        "high-school-teacher-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872",
-        "professeur-de-lycee-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872"
+        "oberstufenlehrperson-26-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -9109,7 +9108,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mit-herz-klarheit-und-teamgeist-wir-suchen-dich-5-6-klasse-50-70-schule-grindelwald-40635"
@@ -9139,8 +9137,8 @@
       "slugByLocale": {
         "de": "mittagstischbetreuerin-mittagstischbetreuer-ca-10-sprachheilschule-bern-bern-30934",
         "it": "supervisore-del-tavolo-da-pranzo-circa-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-        "en": "mittagstischbetreuerin-mittagstischbetreuer-ca-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-        "fr": "mittagstischbetreuerin-mittagstischbetreuer-ca-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+        "en": "lunch-table-supervisor-about-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-30934",
+        "fr": "superviseur-de-table-environ-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-30934"
       },
       "slugDisambiguator": "30934",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -9192,16 +9190,15 @@
           "mittagstischbetreuerin-mittagstischbetreuer-ca-10-sprachheilschule-bern-bern-30934"
         ],
         "en": [
-          "lunch-table-supervisor-about-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-30934"
+          "mittagstischbetreuerin-mittagstischbetreuer-ca-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
         ],
         "fr": [
-          "superviseur-de-table-environ-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-30934"
+          "mittagstischbetreuerin-mittagstischbetreuer-ca-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
         ]
       },
       "previousSlugs": [
         "mittagstischbetreuerin-mittagstischbetreuer-ca-10-sprachheilschule-bern-bern-30934",
-        "lunch-table-supervisor-about-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-30934",
-        "superviseur-de-table-environ-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-30934"
+        "mittagstischbetreuerin-mittagstischbetreuer-ca-10-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
       ],
       "salaryMin": 5900,
       "salaryMax": 10900,
@@ -14714,7 +14711,7 @@
         "de": "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072",
         "it": "insegnante-di-classe-1-2-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
         "en": "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
-        "fr": "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
+        "fr": "enseignant-1-2-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen-40072"
       },
       "slugDisambiguator": "40072",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -14766,12 +14763,12 @@
           "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072"
         ],
         "fr": [
-          "enseignant-1-2-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen-40072"
+          "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
         ]
       },
       "previousSlugs": [
         "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072",
-        "enseignant-1-2-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen-40072"
+        "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -14793,9 +14790,9 @@
       "slug": "fachperson-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
       "slugByLocale": {
         "de": "fachperson-logopadie-schule-signau-signau-40617",
-        "it": "fachperson-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
-        "en": "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
-        "fr": "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
+        "it": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
+        "en": "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
+        "fr": "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
       },
       "slugDisambiguator": "40617",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -14842,7 +14839,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
         "fachperson-logopadie-schule-signau-signau-40616",
@@ -14850,22 +14846,19 @@
         "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
         "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
         "fachperson-logopadie-schule-signau-signau-40617",
-        "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
-        "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
-        "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
+        "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
           "fachperson-logopadie-schule-signau-signau-40616",
           "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
-          "fachperson-logopadie-schule-signau-signau-40617",
-          "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
+          "fachperson-logopadie-schule-signau-signau-40617"
         ],
         "en": [
           "fachperson-logopadie-schule-signau-signau-40616",
           "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
-          "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
+          "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
         ],
         "de": [
           "fachperson-logopadie-schule-signau-signau-40616"
@@ -14873,7 +14866,7 @@
         "fr": [
           "fachperson-logopadie-schule-signau-signau-40616",
           "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
-          "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617"
+          "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
         ]
       },
       "salaryMin": 59000,
@@ -18386,7 +18379,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-fur-lernende-spengler-in-efz-und-spenglerpraktiker-in-eba-100-technische-40636"
@@ -19390,8 +19382,8 @@
       "slugByLocale": {
         "de": "25-stunden-klassenhilfe-z3-oberstufe-schule-bethlehemacker-kornweg-113-bern-36086",
         "it": "25-ore-di-aiuto-di-classe-z3-scuola-superiore-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-36086",
-        "en": "4-6-stunden-gestalten-technisch-z3-oberstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-        "fr": "4-6-stunden-gestalten-technisch-z3-oberstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+        "en": "25-hours-class-aid-z3-upper-school-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-36086",
+        "fr": "25-heures-d-aide-scolaire-z3-lycee-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-36086"
       },
       "slugDisambiguator": "36086",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -19446,16 +19438,15 @@
           "4-6-stunden-gestalten-technisch-z3-oberstufe-schule-bethlehemacker-kornweg-113-bern-36086"
         ],
         "en": [
-          "25-hours-class-aid-z3-upper-school-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-36086"
+          "4-6-stunden-gestalten-technisch-z3-oberstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
         ],
         "fr": [
-          "25-heures-d-aide-scolaire-z3-lycee-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-36086"
+          "4-6-stunden-gestalten-technisch-z3-oberstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
         ]
       },
       "previousSlugs": [
         "4-6-stunden-gestalten-technisch-z3-oberstufe-schule-bethlehemacker-kornweg-113-bern-36086",
-        "25-hours-class-aid-z3-upper-school-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-36086",
-        "25-heures-d-aide-scolaire-z3-lycee-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-36086"
+        "4-6-stunden-gestalten-technisch-z3-oberstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
