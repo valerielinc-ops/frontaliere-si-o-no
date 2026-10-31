@@ -128,9 +128,12 @@ describe('automatic recovery after a portal fix', () => {
       write('scripts/assisted-application/lib/portal/fields.mjs', 'fixed selector');
       expect(currentPortalCodeVersion(root)).not.toBe(before);
       const afterFields = currentPortalCodeVersion(root);
-      write('functions/src/lib/portalQuestionText.js', 'functions/src/lib/applicationConsent.js', 'fixed question readability');
+      write('functions/src/lib/portalQuestionText.js', 'fixed question readability');
       expect(currentPortalCodeVersion(root)).not.toBe(afterFields);
       const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/assisted-application-portal-recovery.yml', import.meta.url), 'utf8'));
+      const afterQuestion = currentPortalCodeVersion(root);
+      write('functions/src/lib/applicationConsent.js', 'fixed consent authority');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterQuestion);
       for (const file of sourceFiles) expect(workflow.on.push.paths.some((pattern: string) => pattern.endsWith('/**') ? file.startsWith(pattern.slice(0, -2)) : file === pattern)).toBe(true);
     } finally { rmSync(root, { recursive: true, force: true }); }
   });
