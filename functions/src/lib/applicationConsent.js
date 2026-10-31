@@ -36,11 +36,24 @@ export function createApplicationConsentGuard(factSources = {}) {
   const positiveLanguage = (value, optional = false) => plain(value).replace(/&/g, ' and ').split(/[^a-z0-9]+/).filter(Boolean)
     .every(word => PRIVACY_WORDS.has(word) || optional && OPTIONAL_WORDS.has(word));
 
+  // Route vocabulary is separate from assertions. A privacy prefix never
+  // turns an unknown destination suffix/query into a proven legal purpose.
+  const LEGAL_ROUTE_WORDS = new Set('en it de fr ch html htm pdf legal careers career jobs lavoro carriera domande sulla about company corporate group groupe gruppe gruppo entreprise unternehmen fragen zur bewerbung questions candidature locale lang language hl'.split(' '));
+  const positivePurpose = (value, optional = false) => value.split(/[^a-z0-9]+/).filter(Boolean)
+    .every(word => PRIVACY_WORDS.has(word) || LEGAL_ROUTE_WORDS.has(word) || optional && OPTIONAL_WORDS.has(word));
+
   const GENERIC_TERMS = /\bterms\b|nutzungsbedingungen|teilnahmebedingungen|\bagb\b|termini|condizioni|conditions generales|conditions d utilisation/;
   const context = field => {
     if (field?.kind !== 'checkbox' || field.consentOwnershipUnknown === true || field.ownConsentMetadataComplete !== true
       || field.ownConsentQuestionOwned !== true || !Array.isArray(field.ownConsentText)
-      || !Array.isArray(field.ownConsentLinks) || typeof field.ownConsentOwnerKey !== 'string') return null;
+      || !Array.isArray(field.ownConsentQuestionLabels) || !Array.isArray(field.ownConsentLinks) || typeof field.ownConsentOwnerKey !== 'string') return null;
+    if (field.ownConsentText.length > 64 || field.ownConsentQuestionLabels.length > 64
+      || field.ownConsentText.some(value => typeof value !== 'string' || value.length > 8000)
+      || field.ownConsentText.reduce((sum, value) => sum + value.length, 0) > 12000
+      || field.ownConsentQuestionLabels.some(value => !field.ownConsentText.includes(value))
+      || field.ownConsentLinks.reduce((sum, value) => sum + String(value).length, 0) > 8192) return null;
+    const labelKey = value => plain(value).replace(/[^a-z0-9]+/g, '');
+    if (!field.ownConsentQuestionLabels.some(value => labelKey(value) && labelKey(value) === labelKey(field.label))) return null;
     const own = [...new Set([field.label, ...field.ownConsentText].map(value => String(value || '').trim()).filter(Boolean))].join(' ');
     if (!own || own.length > 16_000 || field.ownConsentOwnerKey.length > 4096) return null;
     let owner;
@@ -65,7 +78,7 @@ export function createApplicationConsentGuard(factSources = {}) {
   const isConsentOnly = field => {
     const value = context(field);
     return Boolean(value && value.optionalPositive && (PRIVACY.test(value.text) || APPLICATION_TERMS.test(value.text) || OPTIONAL.test(value.text))
-      && value.purposes.every(purpose => !OTHER_TERMS.test(purpose) && !FACTS.test(purpose) && (PRIVACY.test(purpose) || APPLICATION_TERMS.test(purpose) || OPTIONAL.test(purpose))));
+      && value.purposes.every(purpose => positivePurpose(purpose, true) && !OTHER_TERMS.test(purpose) && !FACTS.test(purpose) && (PRIVACY.test(purpose) || APPLICATION_TERMS.test(purpose) || OPTIONAL.test(purpose))));
   };
   const isConsentRefusal = value => value === false || value === 0
     || /^(?:no|nein|non|false|0|decline|refuse|rifiuto|non accetto|ich stimme nicht|je refuse)(?:$|[ ,;.!])/.test(plain(value));
@@ -73,7 +86,7 @@ export function createApplicationConsentGuard(factSources = {}) {
     const value = context(field);
     if (!value || !value.positive || (!PRIVACY.test(value.text) && !APPLICATION_TERMS.test(value.text))) return false;
     if (!field.required && !ACCEPTANCE.test(value.text)) return false;
-    if (OPTIONAL.test(value.text) || value.purposes.some(purpose => OPTIONAL.test(purpose) || OTHER_TERMS.test(purpose) || FACTS.test(purpose) || !PRIVACY.test(purpose) && !APPLICATION_TERMS.test(purpose))) return false;
+    if (OPTIONAL.test(value.text) || value.purposes.some(purpose => !positivePurpose(purpose) || OPTIONAL.test(purpose) || OTHER_TERMS.test(purpose) || FACTS.test(purpose) || !PRIVACY.test(purpose) && !APPLICATION_TERMS.test(purpose))) return false;
     if (GENERIC_TERMS.test(`${value.text} ${value.purposes.join(' ')}`) && !APPLICATION_TERMS.test(value.text)) return false;
     return true;
   };
@@ -171,7 +184,7 @@ export function readOwnConsentMetadata(element, primaryLabel = '', questionOwned
   const scopes = [];
   for (let node = element?.parentElement, depth = 0; node && node !== doc?.body; node = node.parentElement, depth++) {
     if (depth >= 64) { complete = false; break; }
-    if (!node.matches('fieldset, section, article, [role="group"], [role="radiogroup"], [role="region"], form, [role="form"]')) continue;
+    if (!node.matches('fieldset, section, article, .field, .form-group, .application-question, li, [role="group"], [role="radiogroup"], [role="region"], form, [role="form"]')) continue;
     const values = [node.getAttribute('aria-label') || ''];
     for (const id of clean(node.getAttribute('aria-labelledby')).split(/\s+/).filter(Boolean)) {
       if (ids.get(id)?.length !== 1) { complete = false; continue; }
@@ -181,7 +194,7 @@ export function readOwnConsentMetadata(element, primaryLabel = '', questionOwned
     if (heading) values.push(textOf(heading));
     const label = [...new Set(values.map(clean).filter(Boolean))].join(' · ');
     if (label.length > 1024) { complete = false; continue; }
-    if (label || node.id) scopes.push({ tag: node.tagName, id: node.id || '', role: node.getAttribute('role') || '', label });
+    scopes.push({ tag: node.tagName, id: node.id || '', index: node.parentElement ? [...node.parentElement.children].indexOf(node) : -1, role: node.getAttribute('role') || '', label });
   }
   const owner = { v: 1, tag: element?.tagName, type: element?.type, id: element?.id || '', name: element?.name || '',
     form: { tag: form?.tagName || '', id: form?.id || '', index: form ? [...doc.querySelectorAll('form, [role="form"]')].indexOf(form) : -1,

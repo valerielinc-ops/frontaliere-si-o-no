@@ -85,10 +85,14 @@ describe('native consent authority shared by planner and browser', () => {
     expect(source[0].ownConsentText).toEqual([]);
     expect(F.answerFor(entries[0], { answers: [] })).toBeNull();
   });
-  it.each(['/marketing-consent', '/work-permit', '/agency-terms', '/unidentified-purpose'])('does not authorize a different owned destination: %s', href => {
+  it.each(['/marketing-consent', '/work-permit', '/agency-terms', '/unidentified-purpose', '/privacy-employee-monitoring', '/privacy-unidentified-purpose'])('does not authorize a different owned destination: %s', href => {
     const { source, F, entries } = readers(box(`I agree to the <a href="${href}">Privacy Policy</a>`));
     expect(ownConsent(source[0])).toBe(false);
     expect(F.answerFor(entries[0], { answers: [] })).toBeNull();
+  });
+  it('preserves the real AMAG privacy route without treating career route words as a candidate assertion', () => {
+    const { source } = readers(box('Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di <a href="https://www.example.test/it/Lavoro-e-carriera/domande-sulla-candidatura/informativa-sulla-protezione-dei-dati.html">protezione dei dati</a>.'));
+    expect(ownConsent(source[0])).toBe(true);
   });
   it('keeps a privacy link and ignores sibling birth/employer text as consent authority', () => {
     const { source } = readers(box('I agree to the <a href="/privacy-policy">Privacy Policy</a>', '', '<label for="birth">Date of birth</label><input id="birth"><fieldset aria-label="Employer"><input name="employer"></fieldset>'));
@@ -113,6 +117,20 @@ describe('native consent authority shared by planner and browser', () => {
     if (change === 'link') dom.window.document.querySelector('a')!.setAttribute('href', '/marketing-consent');
     expect(await F.fillEntry(entry, answer, {})).toBe(false);
     expect(dom.window.document.querySelector('input')!.checked).toBe(false);
+  });
+  it('does not advance on an already checked unknown contract or override a current explicit No', async () => {
+    for (const label of ['I hold a work permit and accept privacy', 'I accept the Privacy Policy']) {
+      const { F, entries, dom } = readers(box(label, 'checked'));
+      const result = await F.fillPage(dom.window.document, { answers: [{ question: label, answer: 'No' }] }, { attempts: new WeakMap() });
+      expect(result.missing).toEqual([expect.objectContaining({ reason: 'consent_contract_unverified' })]);
+      expect(entries[0].element.checked).toBe(true);
+    }
+  });
+  it('does not let a conflicting legacy Yes suppress a scoped No veto', () => {
+    const { source, F, entries } = readers(box('I accept the Privacy Policy'));
+    const records = ['Yes', 'No'].map(answer => ({ question: source[0].label, answer, source: 'answers' }));
+    expect(() => guardPlan({ actions: [], missingRequired: [] }, source, { portalQuestionsAnswered: records })).toThrowError('native_attested_refusal');
+    expect(F.answerFor(entries[0], { answers: records })).toBeNull();
   });
   it('classifies optional pure permission separately without granting a default or hard-fact exemption', () => {
     const { source, F, entries } = readers(box('I agree to receive newsletters'));

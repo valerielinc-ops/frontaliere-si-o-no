@@ -99,7 +99,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   const scopes = [];
   for (let node = element?.parentElement, depth = 0; node && node !== doc?.body; node = node.parentElement, depth++) {
     if (depth >= 64) { complete = false; break; }
-    if (!node.matches('fieldset, section, article, [role="group"], [role="radiogroup"], [role="region"], form, [role="form"]')) continue;
+    if (!node.matches('fieldset, section, article, .field, .form-group, .application-question, li, [role="group"], [role="radiogroup"], [role="region"], form, [role="form"]')) continue;
     const values = [node.getAttribute('aria-label') || ''];
     for (const id of clean(node.getAttribute('aria-labelledby')).split(/\s+/).filter(Boolean)) {
       if (ids.get(id)?.length !== 1) { complete = false; continue; }
@@ -109,7 +109,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (heading) values.push(textOf(heading));
     const label = [...new Set(values.map(clean).filter(Boolean))].join(' · ');
     if (label.length > 1024) { complete = false; continue; }
-    if (label || node.id) scopes.push({ tag: node.tagName, id: node.id || '', role: node.getAttribute('role') || '', label });
+    scopes.push({ tag: node.tagName, id: node.id || '', index: node.parentElement ? [...node.parentElement.children].indexOf(node) : -1, role: node.getAttribute('role') || '', label });
   }
   const owner = { v: 1, tag: element?.tagName, type: element?.type, id: element?.id || '', name: element?.name || '',
     form: { tag: form?.tagName || '', id: form?.id || '', index: form ? [...doc.querySelectorAll('form, [role="form"]')].indexOf(form) : -1,

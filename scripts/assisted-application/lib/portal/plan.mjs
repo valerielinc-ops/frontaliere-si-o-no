@@ -1524,8 +1524,8 @@ function identityAnswerMatches(candidate, field, value) {
  */
 export function guardPlan(plan, fields, candidate = null, { refuses } = {}) {
   const refusalCandidate = candidate && { ...candidate,
-    portalQuestionsAnswered: (candidate.portalQuestionsAnswered || []).map(item => ({ ...item, answer: isConsentRefusal(item.answer) ? 'No' : item.answer })),
-    answers: Object.fromEntries(Object.entries(candidate.answers || {}).map(([id, value]) => [id, isConsentRefusal(value) ? 'No' : value])) };
+    portalQuestionsAnswered: (candidate.portalQuestionsAnswered || []).filter(item => isConsentRefusal(item.answer)).map(item => ({ ...item, answer: 'No' })),
+    answers: Object.fromEntries(Object.entries(candidate.answers || {}).filter(([, value]) => isConsentRefusal(value)).map(([id]) => [id, 'No'])) };
   const refused = new Set(fields.filter(field => field.kind === 'checkbox' && (refuses?.(field)
     || isConsentRefusal(recordedAnswerForQuestion(refusalCandidate, field.label, field.context, field)))).map(field => field.id));
   for (const field of fields) {

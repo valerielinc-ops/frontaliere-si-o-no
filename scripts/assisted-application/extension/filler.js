@@ -804,7 +804,7 @@
       return null;
     }
     if (entry.kind === 'checkbox') {
-      if (entry.consentOwnershipUnknown === true || isConsentRefusal(fromKit?.answer)) return null;
+      if (entry.consentOwnershipUnknown === true || kitAnswer(entry.labels || [entry.label], { ...kit, answers: (kit.answers || []).filter(item => isConsentRefusal(item.answer)) })) return null;
       const fresh = { kind: 'checkbox', label: labelOf(entry.element), name: entry.element.name,
         required: entry.required, ...consentMetadataFor(entry.element, labelOf(entry.element)) };
       if (!pureApplicationConsent(fresh)) return null;
@@ -1295,6 +1295,16 @@
     const preferredCv = new Set(preferredDocumentControls(cvControls));
     for (const entry of entries) {
       if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
+      if (entry.kind === 'checkbox' && entry.element.checked) {
+        const fresh = { kind: 'checkbox', label: labelOf(entry.element), name: entry.element.name,
+          required: entry.required, ...consentMetadataFor(entry.element, labelOf(entry.element)) };
+        const refusal = kitAnswer(entry.labels || [entry.label], { ...kit, answers: (kit.answers || []).filter(item => isConsentRefusal(item.answer)) });
+        if (!pureApplicationConsent(fresh) || refusal) {
+          failed.push(entry.label || 'checkbox');
+          missing.push({ label: entry.label || 'checkbox', answer: '', reason: 'consent_contract_unverified' });
+        }
+        continue;
+      }
       if (!isEmpty(entry)) continue;
       const answer = answerFor(entry, kit);
       const documentKey = answer?.document ? `${doc.defaultView.location.href}|${answer.document}|${uploadControlId(entry.element)}` : '';

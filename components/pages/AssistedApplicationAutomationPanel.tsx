@@ -138,6 +138,7 @@ export default function AssistedApplicationAutomationPanel({
       answerSnapshotRef.current = captured;
       setAnswerSnapshot(captured);
       setAnswers(flow?.answers || {});
+      setAnswerConfirmationRequired(false);
       setAnswerReviewRequired(false);
     } else if (answerContractsChanged(old, order.orderId, draft?.questions || [], automation?.answerContracts)) {
       setAnswerReviewRequired(true);

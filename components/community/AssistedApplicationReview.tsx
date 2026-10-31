@@ -229,6 +229,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         answerSnapshotRef.current = captured;
         setAnswerSnapshot(captured);
         setAnswers({ ...(review.answers || {}), ...proposed });
+        setAnswerConfirmationRequired(false);
         setAnswerReviewRequired(false);
       } else if (answerContractsChanged(existing, token, review.questions || [], review.answerContracts)) {
         setAnswerReviewRequired(true);
@@ -306,7 +307,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   }, [answerSnapshot, answers, locale]);
 
   const saveAnswers = () => {
-    if (answerReviewRequired || !answerSnapshot) return;
+    if (answerReviewRequired || !answerSnapshot || answerSnapshot.scope !== token) return;
     if (Object.keys(clientErrors).length) {
       setTouched(Object.fromEntries(Object.keys(clientErrors).map((id) => [id, true])));
       return;
