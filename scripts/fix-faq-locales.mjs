@@ -263,7 +263,8 @@ function hasSourcePassthroughField(left, right) {
 // actionable.  Exact source passthrough remains a separate hard failure above.
 const SOURCE_FUNCTIONAL_WORDS = Object.freeze({
   it: Object.freeze([
-    'della', 'delle', 'degli', 'dello', 'nella', 'nelle', 'nello',
+    'dalla', 'dalle', 'dagli', 'della', 'delle', 'degli', 'dello',
+    'nella', 'nelle', 'nello',
     'presso', 'oppure', 'anche', 'tramite', 'sulla', 'sulle', 'senza',
   ]),
   en: Object.freeze([
