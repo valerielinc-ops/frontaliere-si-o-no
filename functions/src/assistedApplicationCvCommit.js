@@ -74,6 +74,7 @@ export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 
   const same = (left, right) => (left || null) === (right || null);
   let irreversibleError = null;
   const committed = await db.runTransaction(async (transaction) => {
+    irreversibleError = null; // Firestore can retry the callback with a different current ledger.
     const [flowSnapshot, draftSnapshot, orderSnapshot, submissionSnapshot] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef), transaction.get(orderRef), transaction.get(submissionRef)]);
     const irreversibility = submissionIrreversibility({ submission: submissionSnapshot.data() });
     if (irreversibility) { irreversibleError = new CvCommitError(irreversibility, 409, { state: publicSubmissionState({ order: orderSnapshot.data(), flow: flowSnapshot.data(), submission: submissionSnapshot.data() }) }); return false; }
