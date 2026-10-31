@@ -4252,7 +4252,6 @@
         "system-engineer-cbtc-stadler-rail-wallisellen",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
         "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
         "system-ingegnere-cbtc-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
@@ -4261,7 +4260,6 @@
           "system-engineer-cbtc-stadler-rail-ch-2",
           "system-engineer-cbtc-stadler-rail-wallisellen",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
           "system-ingegnere-cbtc-stadler-rail-wallisellen"
         ],
         "de": [
@@ -11562,7 +11560,6 @@
         "system-engineer-cbtc-stadler-rail-ch",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
         "system-engineer-cbtc-stadler-rail-ch-c74w3g",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
         "system-ingegnere-cbtc-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
@@ -11570,7 +11567,6 @@
           "system-engineer-cbtc-stadler-rail-ch",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
           "system-engineer-cbtc-stadler-rail-ch-c74w3g",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
           "system-ingegnere-cbtc-stadler-rail-wallisellen"
         ],
         "fr": [
@@ -13271,7 +13267,7 @@
       "id": "stadler-rail-a18f1adc3f9b",
       "slug": "qehs-specialist-stadler-rail-ch-2",
       "slugByLocale": {
-        "en": "qehs-specialist-stadler-rail-ch",
+        "en": "qehs-specialist-stadler-rail-ch-ppi2p6",
         "it": "qehs-specialist-stadler-rail-ch-2",
         "de": "qehs-specialist-stadler-rail-ch-2",
         "fr": "qehs-specialist-stadler-rail-ch-2"
@@ -13335,6 +13331,9 @@
       "firstSeenAt": "2026-10-30T21:44:59.903Z",
       "previousSlugsByLocale": {
         "it": [
+          "qehs-specialist-stadler-rail-ch"
+        ],
+        "en": [
           "qehs-specialist-stadler-rail-ch"
         ]
       },

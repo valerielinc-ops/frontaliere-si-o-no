@@ -113486,16 +113486,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-mozione-ticino-ristorni-salute': {
     title: 'Mozione in Ticino contro la tassa sulla salute',
-    description: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni.',
+    description: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
     keywords: 'frontalieri, ticino, svizzera, italia, mozione, contro, tassa, sulla',
     ogTitle: 'Ticino: mozione contro la tassa sulla salute',
-    ogDescription: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni.',
+    ogDescription: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
     canonicalPath: '/articoli-frontaliere/mozione-ticino-ristorni-salute/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Mozione in Ticino contro la tassa sulla salute",
-      "description": "Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull'articolo 9 Il Ticino minaccia il blocco dei ristorni.",
+      "description": "Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
@@ -113675,6 +113675,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-brunate-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sindacati-aumenti-infermieri-ticino': {
+    title: 'Infermieri sociopsichiatrici: sindacati chiedono aumenti fino a 8\'941 franchi',
+    description: 'Il 10 novembre si riunisce l\'assemblea a Mendrisio Aumenti annui richiesti: da 5\'159 a 8\'941 franchi Riclassificazione: classi 4→5 e 5→6 OCST e VPOD',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, sociopsichiatrici, sindacati, chiedono',
+    ogTitle: 'Infermieri sociopsichiatrici chiedono aumenti fino a 8\'941 franchi',
+    ogDescription: 'Il 10 novembre si riunisce l\'assemblea a Mendrisio Aumenti annui richiesti: da 5\'159 a 8\'941 franchi Riclassificazione: classi 4→5 e 5→6 OCST e VPOD chiedono',
+    canonicalPath: '/articoli-frontaliere/sindacati-aumenti-infermieri-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri sociopsichiatrici: sindacati chiedono aumenti fino a 8'941 franchi",
+      "description": "Il 10 novembre si riunisce l'assemblea a Mendrisio Aumenti annui richiesti: da 5'159 a 8'941 franchi Riclassificazione: classi 4→5 e 5→6 OCST e VPOD",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sindacati-aumenti-infermieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-30T20:19:37+00:00",
+      "dateModified": "2026-10-30T20:19:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindacati-aumenti-infermieri-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giornico-consiglio-stato-fermata': {
+    title: 'Consiglio di Stato respinge riapertura fermata FFS a Giornico',
+    description: 'Il Consiglio di Stato respinge la riapertura a Giornico La linea 120 serve Paese, Fraggio e Scuola Media Le coincidenze TILO passano dalla S10',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, stato, respinge, riapertura',
+    ogTitle: 'Riapertura fermata FFS Giornico respinta Consiglio di Stato',
+    ogDescription: 'Il Consiglio di Stato respinge la riapertura a Giornico La linea 120 serve Paese, Fraggio e Scuola Media Le coincidenze TILO passano dalla S10 a Biasca Nessuno',
+    canonicalPath: '/articoli-frontaliere/giornico-consiglio-stato-fermata/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio di Stato respinge riapertura fermata FFS a Giornico",
+      "description": "Il Consiglio di Stato respinge la riapertura a Giornico La linea 120 serve Paese, Fraggio e Scuola Media Le coincidenze TILO passano dalla S10",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-giornico-consiglio-stato-fermata.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-30T21:52:12+00:00",
+      "dateModified": "2026-10-30T21:52:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giornico-consiglio-stato-fermata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cassa-pensione-snl-sev-attacca': {
+    title: 'Cassa pensione SNL: SEV contesta lettura risultati',
+    description: 'UBS gestirà il patrimonio della Cassa pensione SNL ATIOZ impose una nuova procedura dopo un conflitto d\'interessi Il grado di copertura era del 104,1%',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, pensione, contesta, lettura',
+    ogTitle: 'Cassa pensione SNL: SEV attacca mistificazione realtà',
+    ogDescription: 'UBS gestirà il patrimonio della Cassa pensione SNL ATIOZ impose una nuova procedura dopo un conflitto d\'interessi Il grado di copertura era del 104,1% a fine',
+    canonicalPath: '/articoli-frontaliere/cassa-pensione-snl-sev-attacca/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa pensione SNL: SEV contesta lettura risultati",
+      "description": "UBS gestirà il patrimonio della Cassa pensione SNL ATIOZ impose una nuova procedura dopo un conflitto d'interessi Il grado di copertura era del 104,1%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cassa-pensione-snl-sev-attacca.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-30T22:23:25+00:00",
+      "dateModified": "2026-10-30T22:23:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-pensione-snl-sev-attacca/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

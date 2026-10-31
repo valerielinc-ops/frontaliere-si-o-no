@@ -18,7 +18,6 @@ import {
   countCityJobsByLocale,
   jobMatchesCity,
   parseCityHubPath,
-  CITY_HUB_FIRE_THRESHOLD,
 } from '../build-plugins/cityJobsHub';
 
 const YEAR = 2026;
@@ -76,11 +75,11 @@ describe('cityJobsHub — SEO copy (F3a — CTR-optimized short titles)', () => 
     expect(seo.h1).toBe('123 Offerte di Lavoro a Lugano');
   });
 
-  it('adds fire emoji to title only when count ≥ threshold', () => {
-    const below = buildCityHubSeo('it', 'lugano', CITY_HUB_FIRE_THRESHOLD - 1, YEAR);
-    const at = buildCityHubSeo('it', 'lugano', CITY_HUB_FIRE_THRESHOLD, YEAR);
-    expect(below.title.includes('🔥')).toBe(false);
-    expect(at.title.includes('🔥')).toBe(true);
+  it('keeps title and og title free of decorative emoji at any count', () => {
+    for (const count of [1, 29, 30, 5000]) {
+      const seo = buildCityHubSeo('it', 'lugano', count, YEAR);
+      expect(`${seo.title} ${seo.ogT}`).not.toMatch(/\p{Extended_Pictographic}/u);
+    }
   });
 
   it('omits count prefix entirely when count is 0', () => {

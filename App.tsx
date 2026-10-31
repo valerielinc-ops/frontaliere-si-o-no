@@ -264,7 +264,12 @@ import {
  jobGateSubscriberVariantFor,
  sanitizeAuthReturnPath,
 } from '@/services/authService';
-import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
+import {
+ settleNewsletterAutologin,
+ parseNewsletterAutologin,
+ claimNewsletterAutologinAttempt,
+ newsletterAutologinAttemptKey,
+} from '@/services/newsletterAutologinSignal';
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
 import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
 import { subscribeSavedJobsFirestore } from '@/services/savedJobsService';
@@ -790,7 +795,6 @@ const App: React.FC = () => {
 
  // Auto-login via HMAC autologin code or legacy custom token in newsletter URL
  useEffect(() => {
- let cancelled = false;
  // Newsletter credential params (`ac`/`ne`/…) are stripped from the URL only
  // AFTER the autologin exchange resolves (see `finally`) — never before the
  // await — so a mid-flight reload (e.g. authService's lazyRetry chunk-reload)
@@ -799,6 +803,9 @@ const App: React.FC = () => {
  // (a logged-out visitor fails the prompt's `userId`/`userEmail` guard).
  const NEWSLETTER_PARAMS = ['ac', 'at', 'ne', 'authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
  let shouldStripNewsletterParams = false;
+ let ownsAutologinAttempt = false;
+ let cleanupBlocked = false;
+ let claimedAttemptKey: string | null = null;
  (async () => {
  try {
  const url = new URL(window.location.href);
@@ -823,47 +830,70 @@ const App: React.FC = () => {
  if (!autologinCode && !legacyAuthToken) return;
  if (!email || !email.includes('@')) return;
 
- // Emit an attempt marker before the async exchange so an aborted exchange
- // (page reload mid-flight) stays countable: attempts − success − failed −
- // error = aborted autologins.
- Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', 'attempt');
-
- let user = null;
- if (autologinCode) {
- // New flow: exchange HMAC code for a fresh custom token via Cloud Function
- const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
- const result = await exchangeNewsletterAuthCode(email, autologinCode, assistedApplicationOrderId, applicationConciergeServiceId);
- if (result.success && result.authToken) {
- user = await signInWithCustomAuthToken(result.authToken);
+ // Claim the exchange once per credential-bearing URL. React StrictMode and
+ // static-to-live remounts can run this effect twice; only the owner emits
+ // attempt/outcome markers, while both effects await the same auth result.
+ const attemptKey = newsletterAutologinAttemptKey(url.searchParams);
+ if (!attemptKey) return;
+ claimedAttemptKey = attemptKey;
+ const autologinAttempt = claimNewsletterAutologinAttempt(attemptKey, async () => {
+  let user = null;
+  if (autologinCode) {
+   // New flow: exchange HMAC code for a fresh custom token via Cloud Function
+   const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
+   const result = await exchangeNewsletterAuthCode(email, autologinCode, assistedApplicationOrderId, applicationConciergeServiceId);
+   if (result.success && result.authToken) {
+    user = await signInWithCustomAuthToken(result.authToken);
+   }
+  } else if (legacyAuthToken) {
+   // Legacy flow: direct sign-in with pre-generated custom token (may be expired)
+   user = await signInWithCustomAuthToken(legacyAuthToken);
+  }
+  return user;
+ });
+ ownsAutologinAttempt = autologinAttempt.owner;
+ cleanupBlocked = !autologinAttempt.accepted;
+ if (autologinAttempt.owner) {
+  // Emit an attempt marker before the async exchange so an aborted exchange
+  // (page reload mid-flight) stays countable: attempts − success − failed −
+  // error = aborted autologins.
+  Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', 'attempt');
  }
- } else if (legacyAuthToken) {
- // Legacy flow: direct sign-in with pre-generated custom token (may be expired)
- user = await signInWithCustomAuthToken(legacyAuthToken);
- }
 
- if (cancelled) return;
- Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', user ? 'success' : 'failed');
+ const user = await autologinAttempt.promise;
+ if (autologinAttempt.owner) {
+  // The outcome is telemetry-only and must not be dropped when the effect's
+  // component is remounted while Firebase finishes the auth exchange. The
+  // single-flight claim above prevents duplicate terminal markers.
+  Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', user ? 'success' : 'failed');
+ }
  } catch (error) {
  reportCaughtError(error, 'app.newsletterAutologin');
- Analytics.trackUIInteraction('newsletter', 'autologin', 'error');
+ if (ownsAutologinAttempt) {
+  Analytics.trackUIInteraction('newsletter', 'autologin', 'error');
+ }
  } finally {
  // Strip newsletter credential params now that the exchange has resolved
  // (success or failure) — deferred from before the await so an interrupted
  // load keeps `ac`/`ne` for a retry. No-op for excluded actions (flag stays
  // false) and when the URL never carried them.
- if (shouldStripNewsletterParams) {
+ if (!cleanupBlocked && shouldStripNewsletterParams) {
  try {
  const u = new URL(window.location.href);
- for (const p of NEWSLETTER_PARAMS) u.searchParams.delete(p);
- window.history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
+ const currentAttemptKey = newsletterAutologinAttemptKey(u.searchParams);
+  if (!claimedAttemptKey || currentAttemptKey === claimedAttemptKey) {
+   for (const p of NEWSLETTER_PARAMS) u.searchParams.delete(p);
+   window.history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
+  }
  } catch { /* replaceState unavailable */ }
  }
  // Re-enable sign-in affordances (One Tap, auth gates) once the exchange
  // resolves — success or failure. Idempotent + no-op when never in flight.
- settleNewsletterAutologin();
+ if (ownsAutologinAttempt || (!claimedAttemptKey && !cleanupBlocked)) {
+  settleNewsletterAutologin();
+ }
  }
  })();
- return () => { cancelled = true; };
  }, []);
 
  // LinkedIn OAuth2 callback handler — processes ?code=XXX&state=YYY returned by LinkedIn.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-31T07:21:31.979Z",
+  "generatedAt": "2026-10-31T08:20:35.277Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -22209,6 +22209,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T02:32:24.838Z"
+    },
+    "guidle:A8TWM49::08e5b9957ded5db738fc493081e5c593d754dada19b8980e0da5ad05799385ea": {
+      "id": "guidle:A8TWM49",
+      "sourceDescriptionHash": "08e5b9957ded5db738fc493081e5c593d754dada19b8980e0da5ad05799385ea",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Ermitage Wellness & Spa-Hotel; cantone: BE; categoria: Swing; organizzatore: Guidle; data: 2027-06-03; ora: 21:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Ermitage Wellness & Spa-Hotel; cantone: BE; categoria: Swing; organizzatore: Guidle; data: 2027-06-03; ora: 21:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Ermitage Wellness & Spa-Hotel; canton: BE; category: Swing; organiser: Guidle; date: 2027-06-03; time: 21:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Ermitage Wellness & Spa-Hotel; kanton: BE; kategorie: Swing; veranstalter: Guidle; datum: 2027-06-03; uhrzeit: 21:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Ermitage Wellness & Spa-Hotel; canton: BE; catégorie: Swing; organisateur: Guidle; date: 2027-06-03; heure: 21:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-31T08:15:57.125Z"
     },
     "guidle:A8u4W4f::6af02c2386319c098b0cdc8fb4fbbe7c071a3729951666468af7f14c996682d5": {
       "id": "guidle:A8u4W4f",
@@ -178577,15 +178591,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-28T18:21:06.641Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:A8TWM49::08e5b9957ded5db738fc493081e5c593d754dada19b8980e0da5ad05799385ea": {
-      "id": "guidle:A8TWM49",
-      "sourceDescriptionHash": "08e5b9957ded5db738fc493081e5c593d754dada19b8980e0da5ad05799385ea",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-29T18:58:56.753Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
