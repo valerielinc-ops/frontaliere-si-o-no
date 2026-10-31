@@ -182,7 +182,7 @@ type CopyTable = Record<JobRecencyVariant, Record<JobLandingLocale, RecencyCopy>
 const COPY: CopyTable = {
   'last-3-days': {
     it: {
-      title: (n) => `${n > 0 ? '🔥 ' : ''}${n > 0 ? `${n} ` : ''}Offerte di Lavoro Ticino negli Ultimi 3 Giorni — Aggiornate Oggi`,
+      title: (n) => `${n > 0 ? `${n} ` : ''}Offerte di Lavoro Ticino negli Ultimi 3 Giorni — Aggiornate Oggi`,
       heading: (n) => `Offerte di lavoro in Ticino negli ultimi 3 giorni${n > 0 ? ` (${n})` : ''}`,
       description: (n, year) =>
         n > 0
@@ -213,7 +213,7 @@ const COPY: CopyTable = {
       ],
     },
     en: {
-      title: (n) => `${n > 0 ? '🔥 ' : ''}${n > 0 ? `${n} ` : ''}Ticino Jobs From The Last 3 Days — Updated Today`,
+      title: (n) => `${n > 0 ? `${n} ` : ''}Ticino Jobs From The Last 3 Days — Updated Today`,
       heading: (n) => `Jobs in Ticino from the last 3 days${n > 0 ? ` (${n})` : ''}`,
       description: (n, year) =>
         n > 0
@@ -244,7 +244,7 @@ const COPY: CopyTable = {
       ],
     },
     de: {
-      title: (n) => `${n > 0 ? '🔥 ' : ''}${n > 0 ? `${n} ` : ''}Jobs im Tessin der letzten 3 Tage — Heute aktualisiert`,
+      title: (n) => `${n > 0 ? `${n} ` : ''}Jobs im Tessin der letzten 3 Tage — Heute aktualisiert`,
       heading: (n) => `Jobs im Tessin der letzten 3 Tage${n > 0 ? ` (${n})` : ''}`,
       description: (n, year) =>
         n > 0
@@ -275,7 +275,7 @@ const COPY: CopyTable = {
       ],
     },
     fr: {
-      title: (n) => `${n > 0 ? '🔥 ' : ''}${n > 0 ? `${n} ` : ''}Offres d'emploi Tessin des 3 derniers jours — Mises à jour aujourd'hui`,
+      title: (n) => `${n > 0 ? `${n} ` : ''}Offres d'emploi Tessin des 3 derniers jours — Mises à jour aujourd'hui`,
       heading: (n) => `Offres d'emploi au Tessin des 3 derniers jours${n > 0 ? ` (${n})` : ''}`,
       description: (n, year) =>
         n > 0
@@ -308,7 +308,7 @@ const COPY: CopyTable = {
   },
   'since-yesterday': {
     it: {
-      title: (n) => `${n > 0 ? '🔥 ' : ''}${n > 0 ? `${n} ` : ''}Offerte di Lavoro Ticino da Ieri — Nuove Oggi`,
+      title: (n) => `${n > 0 ? `${n} ` : ''}Offerte di Lavoro Ticino da Ieri — Nuove Oggi`,
       heading: (n) => `Offerte di lavoro in Ticino da ieri${n > 0 ? ` (${n})` : ''}`,
       description: (n, year) =>
         n > 0
@@ -335,7 +335,7 @@ const COPY: CopyTable = {
       ],
     },
     en: {
-      title: (n) => `${n > 0 ? '🔥 ' : ''}${n > 0 ? `${n} ` : ''}Ticino Jobs Since Yesterday — New Today`,
+      title: (n) => `${n > 0 ? `${n} ` : ''}Ticino Jobs Since Yesterday — New Today`,
       heading: (n) => `Jobs in Ticino since yesterday${n > 0 ? ` (${n})` : ''}`,
       description: (n, year) =>
         n > 0
@@ -362,7 +362,7 @@ const COPY: CopyTable = {
       ],
     },
     de: {
-      title: (n) => `${n > 0 ? '🔥 ' : ''}${n > 0 ? `${n} ` : ''}Jobs im Tessin seit gestern — Neu heute`,
+      title: (n) => `${n > 0 ? `${n} ` : ''}Jobs im Tessin seit gestern — Neu heute`,
       heading: (n) => `Jobs im Tessin seit gestern${n > 0 ? ` (${n})` : ''}`,
       description: (n, year) =>
         n > 0
@@ -389,7 +389,7 @@ const COPY: CopyTable = {
       ],
     },
     fr: {
-      title: (n) => `${n > 0 ? '🔥 ' : ''}${n > 0 ? `${n} ` : ''}Offres d'emploi Tessin depuis hier — Nouveau aujourd'hui`,
+      title: (n) => `${n > 0 ? `${n} ` : ''}Offres d'emploi Tessin depuis hier — Nouveau aujourd'hui`,
       heading: (n) => `Offres d'emploi au Tessin depuis hier${n > 0 ? ` (${n})` : ''}`,
       description: (n, year) =>
         n > 0

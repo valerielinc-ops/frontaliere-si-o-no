@@ -15,8 +15,6 @@ User-agent: *
 User-agent: Googlebot
 User-agent: Googlebot-Image
 User-agent: Bingbot
-User-agent: msnbot
-User-agent: Slurp
 User-agent: DuckDuckBot
 User-agent: YandexBot
 User-agent: facebot
@@ -33,10 +31,11 @@ User-agent: Google-Extended
 User-agent: GoogleOther
 # Anthropic
 User-agent: ClaudeBot
-User-agent: Claude-Web
-User-agent: anthropic-ai
+User-agent: Claude-User
+User-agent: Claude-SearchBot
 # Perplexity
 User-agent: PerplexityBot
+User-agent: Perplexity-User
 # Apple
 User-agent: Applebot
 User-agent: Applebot-Extended
@@ -49,20 +48,10 @@ User-agent: FacebookBot
 User-agent: YouBot
 # Common Crawl (training data for many LLMs)
 User-agent: CCBot
-# DeepSeek
-User-agent: DeepSeekBot
 # Mistral
-User-agent: MistralBot
-# Microsoft Copilot
-User-agent: CopilotBot
+User-agent: MistralAI-User
 # Brave Search AI
 User-agent: BraveBot
-# Qwen / Alibaba
-User-agent: Qwenbot
-# xAI / Grok
-User-agent: GrokBot
-# Neeva / Snowflake
-User-agent: NeevaBot
 # Phind (developer AI search)
 User-agent: PhindBot
 # Exa.ai (AI search API)
@@ -104,9 +93,11 @@ Disallow: /*&q=*
 # AI-readable content files (llmstxt.org standard)
 # /llms.txt — structured site summary for AI systems
 # /llms-full.txt — comprehensive domain knowledge for citation
+# /llms-index.txt — per-URL page index
 # /.well-known/llms.txt — alternative discovery path for AI systems
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /llms-index.txt
 Allow: /.well-known/llms.txt
 
 # ─── Blocked crawlers ─────────────────────────────────────────────────────
