@@ -31464,3 +31464,5 @@
 {"eventType":"candidate_attempt","key":"tkb.ch","status":"validated","outcome":"weak","at":"2026-10-31T13:17:44.356Z","runId":"41189854124","runAttempt":1,"phase":"validate","eventId":"1837cb74827ab360cbab9f85"}
 {"eventType":"candidate_attempt","key":"gpag.ch","status":"validated","outcome":"weak","at":"2026-10-31T13:17:48.940Z","runId":"41189854124","runAttempt":1,"phase":"validate","eventId":"7c6b4a0fe8c136dda780c9a1"}
 {"eventType":"phase_finished","at":"2026-10-31T13:17:49.527Z","outcome":"complete","durationMs":794842,"inputCount":65,"successCount":25,"retryCount":40,"runId":"41189854124","runAttempt":1,"phase":"validate","eventId":"c28132390a648d407cd3ae7c"}
+{"eventType":"phase_started","at":"2026-10-31T13:19:39.306Z","runId":"41189854124","runAttempt":1,"phase":"promote","eventId":"dfa10511108b650bb8d2df6b"}
+{"eventType":"candidate_attempt","key":"elektriker-elektromonteur-jobs.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-10-31T13:19:42.278Z","runId":"41189854124","runAttempt":1,"phase":"promote","eventId":"731074dd6a0116a731591ab2"}
