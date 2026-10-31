@@ -50,3 +50,10 @@ describe('staticPagesPlugin wires every route-chunk modulepreload through the he
     expect(src).toMatch(/corePreloadedChunks[^=]*= new Set\(\[vendorReactChunk, \.\.\.itCriticalChunks\]/);
   });
 });
+
+describe('chunk modulepreloads stay off while they name the stable aliases', () => {
+  it('does not hint a URL the entry never imports', async () => {
+    const { EMIT_CHUNK_MODULEPRELOADS } = await import('../../build-plugins/shared/modulePreloads');
+    expect(EMIT_CHUNK_MODULEPRELOADS).toBe(false);
+  });
+});

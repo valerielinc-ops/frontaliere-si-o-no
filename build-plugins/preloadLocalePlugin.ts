@@ -18,6 +18,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { stableChunkFiles } from './shared/chunkFiles';
+import { EMIT_CHUNK_MODULEPRELOADS } from './shared/modulePreloads';
 
 export function preloadLocalePlugin(rootDir: string): Plugin {
  return {
@@ -25,6 +26,7 @@ export function preloadLocalePlugin(rootDir: string): Plugin {
  apply: 'build',
  enforce: 'post',
  async closeBundle() {
+ if (!EMIT_CHUNK_MODULEPRELOADS) return;
  const distDir = np.resolve(rootDir, 'dist');
  const indexPath = np.join(distDir, 'index.html');
  try {

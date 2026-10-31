@@ -15,6 +15,17 @@
  * Usage: every route-chunk modulepreload of the page list goes through here
  * (tests/build-plugins/modulePreloads.test.ts checks the plugin source).
  */
+
+/**
+ * Off: the hints name the stable `/assets/<chunk>` aliases, but the executable
+ * graph is imported from `/assets/releases/<build>/`, a different URL. The
+ * browser downloaded both copies: 162 kB wasted on every calculator load
+ * (vendor-react, it-core, it-calculator, InputCard — live 31/10/2026). Static
+ * HTML outlives a release, so it cannot name the release path; turn this back
+ * on only if the hints ever resolve to the URL the entry actually imports.
+ */
+export const EMIT_CHUNK_MODULEPRELOADS = false;
+
 export function routeModulePreloadTags(
   chunks: ReadonlyArray<string | null | undefined>,
   alreadyPreloaded: ReadonlySet<string>,
