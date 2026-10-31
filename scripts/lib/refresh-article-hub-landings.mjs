@@ -92,6 +92,23 @@ function readMetaContent(html, key) {
   return '';
 }
 
+const CLOUDFLARE_JS_DETECTION_RX =
+  /<script\b[^>]*>(?:(?!<\/script>)[\s\S])*?__CF\$cv\$params(?:(?!<\/script>)[\s\S])*?<\/script>/g;
+
+/**
+ * Remove the JS-detection snippet Cloudflare injects into every HTML response.
+ *
+ * The shell this helper starts from is fetched through the public zone, so it
+ * carries that snippet, and writing it back turned one response-time injection
+ * into stored page content. Each refresh added a copy with a new ray id:
+ * `/articoli-frontaliere/` reached 327 KB with 293 copies, 304 KB of its inline
+ * script (GEO audit 2026-10-31). Cloudflare adds its own copy when it serves the
+ * page, so removing all of them here also heals the hubs already affected.
+ */
+export function stripCloudflareJsDetection(html) {
+  return String(html ?? '').replace(CLOUDFLARE_JS_DETECTION_RX, '');
+}
+
 /**
  * Add the four X-card tags to a landing whose editorial shell is preserved
  * from the live shard. The normal hub renderer owns archive/topic heads, but
@@ -246,7 +263,7 @@ export async function refreshArticleHubLandings(opts) {
       if (!response?.ok) {
         throw new Error(`HTTP ${response?.status ?? 'unknown'}`);
       }
-      liveHtml = await response.text();
+      liveHtml = stripCloudflareJsDetection(await response.text());
     } catch (err) {
       result.errors.push(`${localeLanding}: live shell unavailable (${err.message})`);
       continue;
