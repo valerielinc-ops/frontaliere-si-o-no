@@ -81,6 +81,14 @@ describe('the committed quarantine registry', () => {
       expect(quarantineDeadline(member), slug).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     }
   });
+
+  it('retires the historical company slice after the crawler was removed', () => {
+    expect(registry.retired.company).toMatchObject({
+      retiredAt: '2026-10-24T18:46:53Z',
+      issue: 16277,
+    });
+    expect(registry.retired.company.reason).toContain('58d04dc2dce');
+  });
 });
 
 describe('validateQuarantineRegistry', () => {
