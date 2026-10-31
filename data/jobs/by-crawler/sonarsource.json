@@ -1116,12 +1116,12 @@
     },
     {
       "id": "sonarsource-f0bf6ad5d9f9",
-      "slug": "major-incident-management-sonarsource-ch",
+      "slug": "gestione-principale-degli-incidenti-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "major-incident-management-sonarsource-ch",
-        "it": "major-incident-management-sonarsource-ch",
-        "de": "major-incident-management-sonarsource-ch",
-        "fr": "major-incident-management-sonarsource-ch"
+        "it": "gestione-principale-degli-incidenti-sonarsource-sonar-geneva",
+        "de": "gro-es-ereignismanagement-sonarsource-sonar-geneva",
+        "fr": "gestion-des-incidents-majeurs-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1180,7 +1180,21 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-30T21:25:04.190Z"
+      "firstSeenAt": "2026-10-30T21:25:04.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "major-incident-management-sonarsource-ch"
+        ],
+        "de": [
+          "major-incident-management-sonarsource-ch"
+        ],
+        "fr": [
+          "major-incident-management-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "major-incident-management-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-09bfac65de1e",

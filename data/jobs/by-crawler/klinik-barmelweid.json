@@ -2887,12 +2887,12 @@
     },
     {
       "id": "klinik-barmelweid-c8d484e8c151",
-      "slug": "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik",
+      "slug": "operatrice-operatore-sociosanitario-afc-a-riabilitazione-interdisciplinare-di-medicina-interna-klinik-barmelweid",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik",
-        "it": "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik",
-        "en": "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik",
-        "fr": "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik"
+        "it": "operatrice-operatore-sociosanitario-afc-a-riabilitazione-interdisciplinare-di-medicina-interna-klinik-barmelweid",
+        "en": "health-specialist-efz-a-interdisciplinary-rehabilitation-internal-medicine-klinik-barmelweid-barmelweid",
+        "fr": "specialiste-de-la-sante-efz-a-readaptation-interdisciplinaire-medecine-interne-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -2949,7 +2949,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik"
+      ]
     }
   ]
 }

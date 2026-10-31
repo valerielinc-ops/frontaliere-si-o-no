@@ -15,6 +15,14 @@
  * retry a workflow can drive, and can be evicted; this manifest is mandatory.
  * Artifacts are readable with the job token, so the retry lives here.
  *
+ * Why the barrier ends at a point of the job and not after a duration. The legs
+ * start together but reach this step far apart, and the gap follows their
+ * incremental cache hits: run 41119148516 published en at 21:19 and it at 22:21,
+ * two minutes after a fixed 60-minute wait had expired and taken the other legs
+ * with it. That wait had already gone from 15 to 60 minutes (#15173) and then to
+ * 120 (#16148): no fixed duration fits a gap that moves. A leg that died is caught
+ * by the sibling check, so the only real limit is the job budget.
+ *
  * Failure model
  *   - Listing or download errors are transient: retried inside a bounded budget.
  *   - Unreadable manifest content is not: an artifact is immutable, so a second
@@ -23,7 +31,7 @@
  *     as an unknown member, or one shard would publish a different graph.
  *
  * Usage (env: GH_TOKEN, GH_REPO, HREFlANG_RUN_ID, HREFlANG_RUN_ATTEMPT,
- * HREFlANG_BUILD_LOCALE):
+ * HREFlANG_BUILD_LOCALE, HREFlANG_JOB_START_EPOCH):
  *   node scripts/ci/exchange-hreflang-manifests.mjs
  *     [--manifest-dir .cache/hreflang-index-manifest]
  */
@@ -37,11 +45,13 @@ import { buildLocaleFromJobName } from './lib/deploy-job-failure-signature.mjs';
 
 const execFileAsync = promisify(execFile);
 
-// The locale matrix builds in parallel but completion times differ a lot: a
-// short barrier expires while the slower de/fr legs are still producing their
-// manifests, so the wait stays inside the job's normal budget.
-export const DEFAULT_BARRIER_MS = 60 * 60_000;
-export const DEFAULT_POLL_MS = 10_000;
+// Minutes after the job start by which the slowest leg must have published. The
+// rest of the 360-minute job covers the longest post-barrier work (76 minutes on
+// the it leg in run 41119148516) and the download budget below.
+export const BARRIER_JOB_ELAPSED_MS = 260 * 60_000;
+// A leg can wait for hours here, so the poll stays gentle on the shared token
+// quota. A manifest seen 30 s late costs nothing next to the wait itself.
+export const DEFAULT_POLL_MS = 30_000;
 // Shared by the three downloads, so the step has one known upper bound.
 export const DEFAULT_DOWNLOAD_BUDGET_MS = 20 * 60_000;
 
@@ -72,10 +82,12 @@ async function isPublished({ gh, repo, runId, name }) {
   return artifacts.some((artifact) => artifact?.name === name && artifact?.expired === false);
 }
 
-async function firstMissingLocale({ gh, repo, runId, runAttempt }) {
+async function firstMissingLocale({ gh, repo, runId, runAttempt, published }) {
   for (const locale of MANIFEST_LOCALES) {
+    if (published.has(locale)) continue;
     const name = manifestArtifactName(locale, runId, runAttempt);
     if (!(await isPublished({ gh, repo, runId, name }))) return locale;
+    published.add(locale);
   }
   return null;
 }
@@ -98,17 +110,17 @@ export async function waitForManifestSet({
   repo,
   runId,
   runAttempt,
-  barrierMs = DEFAULT_BARRIER_MS,
+  deadline,
   pollMs = DEFAULT_POLL_MS,
   now = Date.now,
   sleep,
   log = console.log,
 }) {
-  const deadline = now() + barrierMs;
+  const published = new Set();
   let waitingFor = 'the first poll';
   for (;;) {
     try {
-      const missing = await firstMissingLocale({ gh, repo, runId, runAttempt });
+      const missing = await firstMissingLocale({ gh, repo, runId, runAttempt, published });
       if (missing === null) {
         log('✓ complete same-run hreflang manifest set is available');
         return;
@@ -116,7 +128,7 @@ export async function waitForManifestSet({
       waitingFor = missing;
       // A sibling that has terminated cannot publish its manifest. Stop now, so
       // the rearm job classifies the failed leg itself instead of three
-      // misleading barrier timeouts one hour later.
+      // misleading barrier timeouts after the readiness budget expires.
       const failed = await terminatedLocaleJob({ gh, repo, runId });
       if (failed) {
         throw new ManifestExchangeError(
@@ -209,7 +221,8 @@ export async function exchangeHreflangManifests({
   runAttempt,
   buildLocale,
   manifestDir,
-  barrierMs = DEFAULT_BARRIER_MS,
+  jobStartEpoch,
+  barrierJobElapsedMs = BARRIER_JOB_ELAPSED_MS,
   pollMs = DEFAULT_POLL_MS,
   downloadBudgetMs = DEFAULT_DOWNLOAD_BUDGET_MS,
   now = Date.now,
@@ -219,10 +232,24 @@ export async function exchangeHreflangManifests({
   if (!MANIFEST_LOCALES.includes(buildLocale)) {
     throw new ManifestExchangeError(`unknown hreflang build locale: ${buildLocale || '<missing>'}`);
   }
-  for (const [label, value] of Object.entries({ repo, runId, runAttempt })) {
+  for (const [label, value] of Object.entries({ repo, runId, runAttempt, jobStartEpoch })) {
     if (!value) throw new ManifestExchangeError(`missing hreflang manifest exchange input: ${label}`);
   }
-  await waitForManifestSet({ gh, repo, runId, runAttempt, barrierMs, pollMs, now, sleep, log });
+  const jobStartMs = Number(jobStartEpoch) * 1000;
+  if (!Number.isSafeInteger(jobStartMs) || jobStartMs <= 0) {
+    throw new ManifestExchangeError(`invalid hreflang job start epoch: ${jobStartEpoch}`);
+  }
+  await waitForManifestSet({
+    gh,
+    repo,
+    runId,
+    runAttempt,
+    deadline: jobStartMs + barrierJobElapsedMs,
+    pollMs,
+    now,
+    sleep,
+    log,
+  });
 
   fs.mkdirSync(manifestDir, { recursive: true });
   const deadline = now() + downloadBudgetMs;
@@ -260,6 +287,7 @@ if (isInvokedDirectly(import.meta.url)) {
       runId: process.env.HREFlANG_RUN_ID,
       runAttempt: process.env.HREFlANG_RUN_ATTEMPT,
       buildLocale: process.env.HREFlANG_BUILD_LOCALE,
+      jobStartEpoch: process.env.HREFlANG_JOB_START_EPOCH,
       manifestDir: path.resolve(manifestDir),
     });
   } catch (error) {

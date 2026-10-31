@@ -3503,12 +3503,12 @@
     },
     {
       "id": "srg-ssr-df779c0891a7",
-      "slug": "gruppenleiter-in-application-management-srg-ssr-zurich",
+      "slug": "responsabile-di-gruppo-application-management-srg-ssr-zurich",
       "slugByLocale": {
         "de": "gruppenleiter-in-application-management-srg-ssr-zurich",
-        "it": "gruppenleiter-in-application-management-srg-ssr-zurich",
-        "en": "gruppenleiter-in-application-management-srg-ssr-zurich",
-        "fr": "gruppenleiter-in-application-management-srg-ssr-zurich"
+        "it": "responsabile-di-gruppo-application-management-srg-ssr-zurich",
+        "en": "group-lead-application-management-srg-ssr-zurich",
+        "fr": "responsable-de-groupe-application-management-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3588,7 +3588,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-30T21:16:31.144Z"
+      "firstSeenAt": "2026-10-30T21:16:31.144Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-in-application-management-srg-ssr-zurich"
+        ],
+        "en": [
+          "gruppenleiter-in-application-management-srg-ssr-zurich"
+        ],
+        "fr": [
+          "gruppenleiter-in-application-management-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-in-application-management-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-eb52fa7308d0",
@@ -3879,12 +3893,12 @@
     },
     {
       "id": "srg-ssr-4410ab4c1720",
-      "slug": "gruppenleiter-in-support-amp-workplace-srg-ssr-zurich",
+      "slug": "responsabile-di-gruppo-supporto-workplace-srg-ssr-zurich",
       "slugByLocale": {
         "de": "gruppenleiter-in-support-amp-workplace-srg-ssr-zurich",
-        "it": "gruppenleiter-in-support-amp-workplace-srg-ssr-zurich",
-        "en": "gruppenleiter-in-support-amp-workplace-srg-ssr-zurich",
-        "fr": "gruppenleiter-in-support-amp-workplace-srg-ssr-zurich"
+        "it": "responsabile-di-gruppo-supporto-workplace-srg-ssr-zurich",
+        "en": "group-lead-support-workplace-srg-ssr-zurich",
+        "fr": "responsable-de-groupe-support-workplace-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3964,7 +3978,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-30T21:16:28.570Z"
+      "firstSeenAt": "2026-10-30T21:16:28.570Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-in-support-amp-workplace-srg-ssr-zurich"
+        ],
+        "en": [
+          "gruppenleiter-in-support-amp-workplace-srg-ssr-zurich"
+        ],
+        "fr": [
+          "gruppenleiter-in-support-amp-workplace-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-in-support-amp-workplace-srg-ssr-zurich"
+      ]
     }
   ]
 }

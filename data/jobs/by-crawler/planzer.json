@@ -559,12 +559,12 @@
     },
     {
       "id": "planzer-fcaa58108f7e",
-      "slug": "collaboratore-trice-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
+      "slug": "addetto-a-alla-movimentazione-su-turni-m-f-d-planzer-pratteln",
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
-        "it": "collaboratore-trice-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
-        "en": "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
-        "fr": "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
+        "it": "addetto-a-alla-movimentazione-su-turni-m-f-d-planzer-pratteln",
+        "en": "employees-handling-shift-operation-m-f-d-planzer-pratteln",
+        "fr": "employes-charges-de-l-operation-de-poste-h-f-d-planzer-pratteln"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -613,11 +613,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
+          "collaboratore-trice-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
+        ],
+        "fr": [
           "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
+        "mitarbeiter-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln",
+        "collaboratore-trice-umschlag-im-schichtbetrieb-m-w-d-planzer-pratteln"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

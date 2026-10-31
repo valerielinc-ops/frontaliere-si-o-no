@@ -2842,8 +2842,8 @@
       "slugByLocale": {
         "de": "lehrstelle-koch-kochin-efz-stadt-bern-bern",
         "it": "apprendistato-koch-kochin-cfc-stadt-bern",
-        "en": "lehrstelle-koch-kochin-efz-stadt-bern-bern",
-        "fr": "lehrstelle-koch-kochin-efz-stadt-bern-bern"
+        "en": "apprenticeship-koch-koch-efz-stadt-bern-bern",
+        "fr": "apprentissage-koch-koch-efz-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2892,6 +2892,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-koch-kochin-efz-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-koch-kochin-efz-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-koch-kochin-efz-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
@@ -2918,8 +2924,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-kasse-stadt-bern-bern",
         "it": "collaboratore-trice-in-kasse-stadt-bern",
-        "en": "mitarbeiter-in-kasse-stadt-bern-bern",
-        "fr": "mitarbeiter-in-kasse-stadt-bern-bern"
+        "en": "cashier-stadt-bern-bern",
+        "fr": "employe-e-de-caisse-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2968,6 +2974,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kasse-stadt-bern-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-kasse-stadt-bern-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-kasse-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
@@ -2990,12 +3002,12 @@
     },
     {
       "id": "stadt-bern-c2c4dda772ba",
-      "slug": "fachangestellte-r-administration-support-stadt-bern-bern",
+      "slug": "impiegato-a-specializzato-a-supporto-amministrativo-stadt-bern-bern",
       "slugByLocale": {
         "de": "fachangestellte-r-administration-support-stadt-bern-bern",
-        "it": "fachangestellte-r-administration-support-stadt-bern-bern",
-        "en": "fachangestellte-r-administration-support-stadt-bern-bern",
-        "fr": "fachangestellte-r-administration-support-stadt-bern-bern"
+        "it": "impiegato-a-specializzato-a-supporto-amministrativo-stadt-bern-bern",
+        "en": "administrative-support-specialist-stadt-bern-bern",
+        "fr": "employe-e-specialise-e-en-administration-et-support-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -3053,7 +3065,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachangestellte-r-administration-support-stadt-bern-bern"
+        ],
+        "en": [
+          "fachangestellte-r-administration-support-stadt-bern-bern"
+        ],
+        "fr": [
+          "fachangestellte-r-administration-support-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachangestellte-r-administration-support-stadt-bern-bern"
+      ]
     }
   ]
 }

@@ -615,12 +615,12 @@
     },
     {
       "id": "pictet-8327cbdbf059",
-      "slug": "chapter-lead-forward-deployed-engineering-pictet-geneva",
+      "slug": "capitolo-lead-ingegneria-avanzata-pictet-group-geneva",
       "slugByLocale": {
         "en": "chapter-lead-forward-deployed-engineering-pictet-geneva",
-        "it": "chapter-lead-forward-deployed-engineering-pictet-geneva",
-        "de": "chapter-lead-forward-deployed-engineering-pictet-geneva",
-        "fr": "chapter-lead-forward-deployed-engineering-pictet-geneva"
+        "it": "capitolo-lead-ingegneria-avanzata-pictet-group-geneva",
+        "de": "kapitel-blei-zukunftsgerichtete-ingenieurwesen-pictet-group-geneva",
+        "fr": "chapitre-responsable-genie-avance-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -679,16 +679,30 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-30T21:21:11.502Z"
+      "firstSeenAt": "2026-10-30T21:21:11.502Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chapter-lead-forward-deployed-engineering-pictet-geneva"
+        ],
+        "de": [
+          "chapter-lead-forward-deployed-engineering-pictet-geneva"
+        ],
+        "fr": [
+          "chapter-lead-forward-deployed-engineering-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "chapter-lead-forward-deployed-engineering-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-d30444604c3f",
-      "slug": "data-analytics-expert-pictet-geneva",
+      "slug": "esperto-di-analisi-dati-pictet-group-geneva",
       "slugByLocale": {
         "en": "data-analytics-expert-pictet-geneva",
-        "it": "data-analytics-expert-pictet-geneva",
+        "it": "esperto-di-analisi-dati-pictet-group-geneva",
         "de": "data-analytics-expert-pictet-geneva",
-        "fr": "data-analytics-expert-pictet-geneva"
+        "fr": "expert-en-analyse-des-donnees-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -747,7 +761,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-30T21:21:10.380Z"
+      "firstSeenAt": "2026-10-30T21:21:10.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-analytics-expert-pictet-geneva"
+        ],
+        "fr": [
+          "data-analytics-expert-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "data-analytics-expert-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-b8312df4028c",

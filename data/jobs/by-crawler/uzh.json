@@ -9116,12 +9116,12 @@
     },
     {
       "id": "uzh-f2e4165a18c1",
-      "slug": "laboratory-technician-uzh-zurich",
+      "slug": "tecnico-di-laboratorio-universitat-zurich-zurich-c44b80",
       "slugByLocale": {
         "en": "laboratory-technician-uzh-zurich",
-        "it": "laboratory-technician-uzh-zurich",
-        "de": "laboratory-technician-uzh-zurich",
-        "fr": "laboratory-technician-uzh-zurich"
+        "it": "tecnico-di-laboratorio-universitat-zurich-zurich-c44b80",
+        "de": "laboratory-techniker-universitat-zurich-zurich",
+        "fr": "laboratory-technicien-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9179,16 +9179,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-technician-uzh-zurich"
+        ],
+        "de": [
+          "laboratory-technician-uzh-zurich"
+        ],
+        "fr": [
+          "laboratory-technician-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-technician-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-5b12b94f4d46",
-      "slug": "med-vet-doktorand-in-uzh-zurich",
+      "slug": "dottorando-a-in-medicina-veterinaria-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "med-vet-doktorand-in-uzh-zurich",
-        "it": "med-vet-doktorand-in-uzh-zurich",
-        "en": "med-vet-doktorand-in-uzh-zurich",
-        "fr": "med-vet-doktorand-in-uzh-zurich"
+        "it": "dottorando-a-in-medicina-veterinaria-universitat-zurich-zurich",
+        "en": "med-vet-doctoral-student-universitat-zurich-zurich",
+        "fr": "doctorant-e-en-medecine-veterinaire-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9247,7 +9261,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:15:10.363Z"
+      "firstSeenAt": "2026-10-30T21:15:10.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-vet-doktorand-in-uzh-zurich"
+        ],
+        "en": [
+          "med-vet-doktorand-in-uzh-zurich"
+        ],
+        "fr": [
+          "med-vet-doktorand-in-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "med-vet-doktorand-in-uzh-zurich"
+      ]
     }
   ]
 }

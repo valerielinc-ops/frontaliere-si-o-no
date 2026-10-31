@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "gesundheitsnetz-kuesnacht-d499e6b4a673",
-      "slug": "fachverantwortung-qualitat-betreuung-e-pflege-gesundheitsnetz-kusnacht-ag-kusnacht",
+      "slug": "responsabile-della-qualita-dell-assistenza-e-delle-cure-gesundheitsnetz-kusnacht-ag-kusnacht",
       "slugByLocale": {
         "de": "fachverantwortung-qualitat-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht",
-        "it": "fachverantwortung-qualitat-betreuung-e-pflege-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "fachverantwortung-qualitat-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht",
-        "fr": "fachverantwortung-qualitat-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht"
+        "it": "responsabile-della-qualita-dell-assistenza-e-delle-cure-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "professional-responsibility-quality-care-and-care-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "fr": "responsabilite-professionnelle-soins-de-qualite-gesundheitsnetz-kusnacht-ag-kusnacht"
       },
       "company": "Gesundheitsnetz Küsnacht AG",
       "companyKey": "gesundheitsnetz-kuesnacht",
@@ -62,11 +62,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "fachverantwortung-qualitat-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht",
+          "fachverantwortung-qualitat-betreuung-e-pflege-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ],
+        "en": [
+          "fachverantwortung-qualitat-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "fr": [
           "fachverantwortung-qualitat-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht"
         ]
       },
       "previousSlugs": [
-        "fachverantwortung-qualitat-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht"
+        "fachverantwortung-qualitat-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht",
+        "fachverantwortung-qualitat-betreuung-e-pflege-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

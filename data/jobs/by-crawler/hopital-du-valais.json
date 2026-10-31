@@ -4502,12 +4502,12 @@
     },
     {
       "id": "hopital-du-valais-d7eaba16b24a",
-      "slug": "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du",
+      "slug": "analisi-biomedica-technician-70-90-per-la-piattaforma-ematologia-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du",
-        "it": "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du",
-        "en": "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du",
-        "de": "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
+        "it": "analisi-biomedica-technician-70-90-per-la-piattaforma-ematologia-hopital-du-valais-sion",
+        "en": "biomedical-analysis-technician-70-90-for-the-hematology-platform-hopital-du-valais-sion",
+        "de": "biomedizinischer-analysetechniker-70-90-fur-die-hamatologie-plattform-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4567,7 +4567,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-30T21:17:40.791Z"
+      "firstSeenAt": "2026-10-30T21:17:40.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
+        ],
+        "en": [
+          "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
+        ],
+        "de": [
+          "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
+      ]
     },
     {
       "id": "hopital-du-valais-ced3f4e1d7b8",
@@ -4654,12 +4668,12 @@
     },
     {
       "id": "hopital-du-valais-b24db8c1b097",
-      "slug": "responsable-de-l-unite-de-gestion-des-flux-ugf-a-100-pour-le-centre-operationnel-des-flux",
+      "slug": "capo-unita-di-gestione-flux-fmu-al-100-per-il-centro-operativo-per-flussi-e-capacita-cofc-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "responsable-de-l-unite-de-gestion-des-flux-ugf-a-100-pour-le-centre-operationnel-des-flux",
-        "it": "responsable-de-l-unite-de-gestion-des-flux-ugf-a-100-pour-le-centre-operationnel-des-flux",
-        "en": "responsable-de-l-unite-de-gestion-des-flux-ugf-a-100-pour-le-centre-operationnel-des-flux",
-        "de": "responsable-de-l-unite-de-gestion-des-flux-ugf-a-100-pour-le-centre-operationnel-des-flux"
+        "it": "capo-unita-di-gestione-flux-fmu-al-100-per-il-centro-operativo-per-flussi-e-capacita-cofc-hopital-du-valais-sion",
+        "en": "head-of-the-flux-management-unit-fmu-at-100-for-the-operational-centre-for-flows-and-capabilities-cofc-hopital-du-valais",
+        "de": "leiter-der-flux-management-unit-fmu-bei-100-fur-das-operational-centre-for-flows-and-capabilities-cofc-hopital-du-valais"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4719,7 +4733,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-30T21:17:39.994Z"
+      "firstSeenAt": "2026-10-30T21:17:39.994Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-l-unite-de-gestion-des-flux-ugf-a-100-pour-le-centre-operationnel-des-flux"
+        ],
+        "en": [
+          "responsable-de-l-unite-de-gestion-des-flux-ugf-a-100-pour-le-centre-operationnel-des-flux"
+        ],
+        "de": [
+          "responsable-de-l-unite-de-gestion-des-flux-ugf-a-100-pour-le-centre-operationnel-des-flux"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-l-unite-de-gestion-des-flux-ugf-a-100-pour-le-centre-operationnel-des-flux"
+      ]
     }
   ]
 }
