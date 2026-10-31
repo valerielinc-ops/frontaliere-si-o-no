@@ -10,6 +10,12 @@ describe('attested general language facts against actual CV bytes', () => {
     expect(result.profile.languages).toEqual([{ language: 'English', level: 'C1' }, { language: 'German', level: 'B2' }]);
     expect(profile.languages[0].level).toBe('A2');
   });
+  it.each(['de', 'de-CH'])('updates an existing canonical ISO language row rather than leaving old A2 beside it: %s', language => {
+    const record = { ...proof, question: { ...proof.question, question: 'Wie ist Ihr Niveau in Deutsch?' } };
+    const result = projectAttestedLanguageFacts({ profile: { languages: [{ language, level: 'A2' }] }, answerEvidence: [record], currentCvHash: cvHash });
+    expect(result.conflicts).toEqual([]);
+    expect(result.profile.languages).toEqual([{ language, level: 'C1' }]);
+  });
   it('does not make a later byte-identical copy or profile parsing timestamp factually newer', () => {
     const result = projectAttestedLanguageFacts({ profile: { ...profile, updatedAt: now + 1000, cvUploadedAt: now + 2000 }, answerEvidence: [proof], currentCvHash: cvHash });
     expect(result.profile.languages[0].level).toBe('C1');

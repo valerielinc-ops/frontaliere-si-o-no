@@ -1,12 +1,12 @@
 /** Runtime projection only: a confirmation bound to these CV bytes can correct the same general language fact. */
 import { isPortableCandidateLanguageQuestion } from './candidateLanguageQuestion.js';
-import { isLanguageNameOnly, languageCodesIn } from './languageFacts.js';
+import { isLanguageNameOnly, languageCodeOf, languageCodesIn } from './languageFacts.js';
 const hash = value => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
 const level = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
 const accepted = value => /^(?:[abc][12]|native|mother tongue|madrelingua|muttersprache|langue maternelle)$/.test(level(value));
 const generalRow = row => isLanguageNameOnly(typeof row === 'string' ? row : row?.language)
   && !row?.modality && !row?.skill && !row?.context;
-const codeOf = value => { const codes = languageCodesIn(value); return codes.length === 1 ? codes[0] : ''; };
+const codeOf = value => { const code = languageCodeOf(value); if (code) return code; const codes = languageCodesIn(value); return codes.length === 1 ? codes[0] : ''; };
 
 export function projectAttestedLanguageFacts({ profile = {}, answerEvidence = [], currentCvHash = '' } = {}) {
   const projected = { ...profile, languages: (Array.isArray(profile.languages) ? profile.languages : []).map(row => row && typeof row === 'object' ? { ...row } : row) };
