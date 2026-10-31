@@ -806,7 +806,7 @@ const translations: Record<string, string> = {
  'firstday.bank_sub2': 'Le banche principali per frontalieri: PostFinance, UBS, Raiffeisen',
  'firstday.bank_sub3': 'Valutare anche conti multi-valuta (CHF/EUR) come Revolut Business',
  'firstday.insurance_sub1': 'Hai 3 mesi per scegliere tra LAMal (CH) e SSN (IT)',
- 'firstday.insurance_sub2': 'LAMal: premio mensile ~CHF 300-400, copertura completa in CH',
+ 'firstday.insurance_sub2': 'LAMal: premio mensile CHF 279-487 da 26 anni, senza infortuni (UFSP 2026), copertura completa in CH',
  'firstday.insurance_sub3': 'SSN: gratuito ma copertura limitata in Svizzera',
  'firstday.sim_sub1': 'Operatori consigliati con piani frontalieri: Salt, Sunrise, Swisscom',
  'firstday.sim_sub2': 'Verificare copertura nella zona di lavoro',

@@ -785,7 +785,7 @@ const deGuide: Record<string, string> = {
  'firstday.bank_sub2': 'Hauptbanken für Grenzgänger: PostFinance, UBS, Raiffeisen',
  'firstday.bank_sub3': 'Auch Multi-Währungskonten (CHF/EUR) wie Revolut Business prüfen',
  'firstday.insurance_sub1': '3 Monate Zeit zur Wahl zwischen KVG (CH) und SSN (IT)',
- 'firstday.insurance_sub2': 'KVG: Monatsprämie ~CHF 300-400, volle Deckung in CH',
+ 'firstday.insurance_sub2': 'KVG: Monatsprämie CHF 279-487 ab 26, ohne Unfall (BAG 2026), volle Deckung in CH',
  'firstday.insurance_sub3': 'SSN: kostenlos aber eingeschränkte Deckung in der Schweiz',
  'firstday.sim_sub1': 'Empfohlene Anbieter mit Grenzgänger-Tarifen: Salt, Sunrise, Swisscom',
  'firstday.sim_sub2': 'Netzabdeckung am Arbeitsort prüfen',

@@ -209,7 +209,7 @@ const frStats: Record<string, string> = {
  'glossary.terms.prestazioneLiberoPassaggio.example': 'En changeant d\'emploi, le capital LPP est automatiquement transféré à la caisse du nouvel employeur.',
  'glossary.terms.lamal.title': 'LAMal',
  'glossary.terms.lamal.desc': 'Loi fédérale sur l\'Assurance Maladie. Assurance maladie obligatoire suisse avec franchise et quote-part.',
- 'glossary.terms.lamal.example': 'Frontalier avec LAMal : prime ~CHF 400-600/mois, franchise CHF 300-2 500, quote-part 10% jusqu\'à CHF 700.',
+ 'glossary.terms.lamal.example': 'Frontalier résidant en Italie avec LAMal : prime CHF 279-487/mois dès 26 ans, sans accident (OFSP 2026), franchise ordinaire CHF 300, quote-part 10% jusqu\'à CHF 700.',
  'glossary.terms.cmu.title': 'CMU (France)',
  'glossary.terms.cmu.desc': 'Couverture Maladie Universelle. Assurance maladie française alternative à la LAMal pour les frontaliers franco-suisses.',
  'glossary.terms.cmu.example': 'Coût CMU : ~8% du revenu fiscal de référence. Pour les hauts revenus, peut être plus chère que la LAMal.',

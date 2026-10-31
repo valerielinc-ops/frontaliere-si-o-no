@@ -218,7 +218,7 @@ const translations: Record<string, string> = {
  'glossary.terms.prestazioneLiberoPassaggio.example': 'Cambiando lavoro, il capitale LPP viene trasferito automaticamente alla nuova cassa pensione del nuovo datore.',
  'glossary.terms.lamal.title': 'LAMal',
  'glossary.terms.lamal.desc': 'Legge federale sull\'Assicurazione Malattie. Assicurazione sanitaria obbligatoria svizzera con franchigia e aliquota.',
- 'glossary.terms.lamal.example': 'Frontaliere con LAMal: premio ~CHF 400-600/mese, franchigia CHF 300-2.500, aliquota 10% fino a CHF 700.',
+ 'glossary.terms.lamal.example': 'Frontaliere residente in Italia con LAMal: premio CHF 279-487/mese da 26 anni, senza infortuni (UFSP 2026), franchigia ordinaria CHF 300, aliquota 10% fino a CHF 700.',
  'glossary.terms.cmu.title': 'CMU (Francia)',
  'glossary.terms.cmu.desc': 'Couverture Maladie Universelle. Assicurazione sanitaria francese alternativa alla LAMal per frontalieri franco-svizzeri.',
  'glossary.terms.cmu.example': 'Costo CMU: ~8% del reddito fiscale di riferimento. Per redditi alti può essere più costosa della LAMal.',

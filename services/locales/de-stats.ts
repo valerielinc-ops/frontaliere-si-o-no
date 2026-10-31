@@ -209,7 +209,7 @@ const deStats: Record<string, string> = {
  'glossary.terms.prestazioneLiberoPassaggio.example': 'Bei Stellenwechsel wird das BVG-Kapital automatisch an die Pensionskasse des neuen Arbeitgebers übertragen.',
  'glossary.terms.lamal.title': 'KVG',
  'glossary.terms.lamal.desc': 'Bundesgesetz über die Krankenversicherung. Obligatorische Schweizer Krankenversicherung mit Franchise und Selbstbehalt.',
- 'glossary.terms.lamal.example': 'Grenzgänger mit KVG: Prämie ~CHF 400-600/Monat, Franchise CHF 300-2.500, 10% Selbstbehalt bis CHF 700.',
+ 'glossary.terms.lamal.example': 'Grenzgänger mit Wohnsitz in Italien und KVG: Prämie CHF 279-487/Monat ab 26, ohne Unfall (BAG 2026), ordentliche Franchise CHF 300, 10% Selbstbehalt bis CHF 700.',
  'glossary.terms.cmu.title': 'CMU (Frankreich)',
  'glossary.terms.cmu.desc': 'Universelle Krankenversicherung. Französische Alternative zum KVG für französisch-schweizerische Grenzgänger.',
  'glossary.terms.cmu.example': 'CMU-Kosten: ~8% des steuerlichen Referenzeinkommens. Bei hohem Einkommen teurer als KVG.',
