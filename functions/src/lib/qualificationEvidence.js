@@ -246,6 +246,14 @@ export function hasVerifiedQualificationAssessment(cached) {
 }
 
 
+/** The exact document witness is reusable only with its current original bytes, sources and raw corrections. */
+export function hasCurrentQualificationDocuments({ draft, sourceCvHash, sourceFingerprint, counterContext }) {
+  return /^[a-f0-9]{64}$/.test(sourceCvHash || '') && draft?.sourceCvHash === sourceCvHash
+    && /^[a-f0-9]{64}$/.test(sourceFingerprint || '') && draft.qualificationSourceFingerprint === sourceFingerprint
+    && hasVerifiedQualificationAssessment({ requirements: draft.requirementsRaw, match: draft.qualificationMatch,
+      entailment: draft.entailment, counterContext });
+}
+
 // The portal's independent verifier must also select a source: deterministic
 // profile autofill has no first-pass citation and never becomes primary proof.
 export const NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT = `Select up to three supplied original source excerpts that collectively could substantively support each proposed answer to its ORIGINAL native form question, or an empty sourceIds array when no adequate proof exists. This is selection only: a separate blind verifier will judge the selected proof. Never return a verdict or rationale. Return one index/sourceIds array per claim. sources is a compact table declared by sourceColumns: id is the selectable alias; kind cv is an original CV quotation and kind qa is a server-attested full Q/A record in content. position is [original paragraph block, ordinal, block size]; it is attribution metadata, not an additional qualification. Select every primary quote needed: a role and its dates must both be selected to establish tenure, not left as neighbor context. Preserve original source order.

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { qualificationSources, qualificationSourcesFingerprint, qualificationCounterContext, qualificationCounterContextHash, verifyQualificationEvidence, hasVerifiedQualificationEvidence,
-  qualificationAssessmentHash, hasVerifiedQualificationAssessment, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
+  qualificationAssessmentHash, hasVerifiedQualificationAssessment, hasCurrentQualificationDocuments, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
 import { qualificationAnswerOriginContext } from '../functions/src/lib/qualificationCounterContext.js';
 import { qualificationEvidenceCases } from './fixtures/qualification-evidence-cases.mjs';
 
@@ -300,4 +300,18 @@ it('preserves the complete private raw correction snapshot after the runtime ans
   rawCounterContext.values.source_question = 'mutated later';
   expect(current.values.source_question).toBe('I never managed providers.');
   expect(() => qualificationCounterContext({ rawCounterContext: {} })).toThrow('evidence_entailment_unverified');
+});
+
+
+it('shares the current document witness check across server and runner transports', async () => {
+  const f = fixture(); const counterContext = qualificationCounterContext({ flow: {} });
+  const checked = await verifyQualificationEvidence({ ...f, purpose: 'documents', unverifiedContext: counterContext });
+  const fingerprint = qualificationSourcesFingerprint(f.sources);
+  const draft = { sourceCvHash: 'a'.repeat(64), qualificationSourceFingerprint: fingerprint, requirementsRaw: f.requirements, qualificationMatch: f.match, entailment: checked.verification };
+  const input = { draft, sourceCvHash: draft.sourceCvHash, sourceFingerprint: fingerprint, counterContext };
+  expect(hasCurrentQualificationDocuments(input)).toBe(true);
+  expect(hasCurrentQualificationDocuments({ ...input, sourceCvHash: 'b'.repeat(64) })).toBe(false);
+  expect(hasCurrentQualificationDocuments({ ...input, sourceFingerprint: 'b'.repeat(64) })).toBe(false);
+  expect(hasCurrentQualificationDocuments({ ...input, counterContext: qualificationCounterContext({ flow: { candidateNotes: 'Current correction.' } }) })).toBe(false);
+  expect(hasCurrentQualificationDocuments({ ...input, draft: { ...draft, qualificationMatch: { ...f.match, summaryIt: 'changed full match' } } })).toBe(false);
 });

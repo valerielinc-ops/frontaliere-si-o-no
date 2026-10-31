@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
 import { timestampMillis } from './applicationConciergeConstants.js';
 import { FieldValue } from 'firebase-admin/firestore';
-import { generateServerText } from './geminiGenerate.js';
+import { generateQualificationJson as generateJson } from './lib/qualificationGenerate.js';
 import { detectCvFileType, ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { extractCvText } from './assistedApplicationAiDocuments.js';
 import { fetchJobPosting } from './assistedApplicationAiJob.js';
@@ -34,17 +34,6 @@ export function normalizeConciergeJobRecord(job = {}) {
     company: job.company || job.companyName || '',
     location: job.location || '',
   };
-}
-
-async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
-  const response = await generateServerText({ systemPrompt: `${systemPrompt}\nReturn ONLY valid JSON matching this schema:\n${JSON.stringify(schema)}`,
-    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false, ...options });
-  options.signal?.throwIfAborted();
-  if (!response.body?.ok) throw new Error('eligibility_provider_unavailable');
-  const text = response.body.text.replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
-  const result = JSON.parse(text);
-  if (!result || typeof result !== 'object' || Array.isArray(result)) throw new Error('eligibility_invalid_json');
-  return result;
 }
 
 async function beforeCancellation(operation, signal) {

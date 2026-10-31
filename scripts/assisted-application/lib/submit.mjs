@@ -39,7 +39,7 @@ import { checkPostingLiveness } from './posting-liveness.mjs';
 import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { portalPassFrom } from './portal/stop-report.mjs';
-import { hasVerifiedQualificationAssessment, qualificationCounterContext, qualificationSourcesFingerprint } from '../../../functions/src/lib/qualificationEvidence.js';
+import { hasCurrentQualificationDocuments, qualificationCounterContext, qualificationSourcesFingerprint } from '../../../functions/src/lib/qualificationEvidence.js';
 import { portalQualificationContext } from './portal/qualification-gate.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
 
@@ -236,10 +236,9 @@ export async function submitApplication(ctx) {
   }
   const qualificationContext = portalQualificationContext({ order, orderId, draft, cvBuffer: ctx.cvBuffer,
     answerEvidence: ctx.answerEvidence || [], answerCounterContext: ctx.answerCounterContext || [], answerSourceConflicts: ctx.answerSourceConflicts || [], rawCounterContext: ctx.rawCounterContext || null, intake: ctx.intake, flow });
-  if (!hasVerifiedQualificationAssessment({ requirements: draft.requirementsRaw, match: draft.qualificationMatch, entailment: draft.entailment,
-    counterContext: qualificationCounterContext({ order, flow, intake: ctx.intake, answerCounterContext: ctx.answerCounterContext || [], rawCounterContext: ctx.rawCounterContext || null }) })
-    || !qualificationContext.scope.sourceCvHash
-    || draft.qualificationSourceFingerprint !== (qualificationContext.documentSourceFingerprint || qualificationSourcesFingerprint(qualificationContext.sources))) {
+  if (!hasCurrentQualificationDocuments({ draft, sourceCvHash: qualificationContext.scope.sourceCvHash,
+    sourceFingerprint: qualificationContext.documentSourceFingerprint || qualificationSourcesFingerprint(qualificationContext.sources),
+    counterContext: qualificationCounterContext({ order, flow, intake: ctx.intake, answerCounterContext: ctx.answerCounterContext || [], rawCounterContext: ctx.rawCounterContext || null }) })) {
     return { type: 'submit_failed', error: 'evidence_source_unbound' };
   }
   qualificationContext.documentsCurrent = true;
