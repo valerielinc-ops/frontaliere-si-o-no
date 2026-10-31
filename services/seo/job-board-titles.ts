@@ -5,7 +5,7 @@
  * Returns short, CTR-optimized title tags in the 50-60 visible-character
  * range recommended by Google for SERP rendering. Patterns:
  *
- *   - Listing hub (home):    "Offerte di lavoro Ticino 2026 — {N} posti aggiornati oggi 🔥"
+ *   - Listing hub (home):    "Offerte di lavoro Ticino 2026 — {N} posti aggiornati oggi"
  *   - Per-city:              "Lavoro {City} 2026 — {N} offerte aggiornate ogni giorno"
  *   - Per-role:              "{Role} Ticino 2026 — {N} offerte | Candidati oggi"
  *   - Employer hub:          "Lavorare da {Company} in Svizzera 2026 — {N} posizioni aperte"
@@ -24,8 +24,8 @@
  *   - Recency (last N days): "Offerte Lavoro Ticino Ultimi {N} Giorni — {M} Nuove 2026"
  *
  * Each function takes a numeric live-job count read from `data/jobs.json`
- * at build time and returns a title string. A 🔥 emoji is injected above
- * {@link FIRE_EMOJI_THRESHOLD} to boost CTR on high-impression queries.
+ * at build time and returns a title string. No emoji: it spent budget on the
+ * keyword, and Google drops decorative symbols from SERP titles anyway.
  *
  * All outputs are validated at 50-60 code-points (see
  * {@link isValidTitleLength}). If a particular input combination falls
@@ -52,8 +52,6 @@ export const TITLE_MIN_CHARS = 50;
  * including the " | Frontaliere Ticino" brand suffix when it fits).
  */
 export const TITLE_MAX_CHARS = 66;
-/** Minimum active jobs above which we append 🔥 to boost CTR. */
-export const FIRE_EMOJI_THRESHOLD = 500;
 
 /**
  * Count visible characters (code points), which is what Google displays
@@ -95,15 +93,12 @@ function padToMin(title: string, padWord: string): string {
 
 /**
  * Trim the title to fit under TITLE_MAX_CHARS if needed, preserving word
- * boundaries and stripping a trailing 🔥 emoji before word-trimming.
+ * boundaries.
  */
 function trimToMax(title: string): string {
   if (visibleLength(title) <= TITLE_MAX_CHARS) return title;
-  // Remove trailing emoji first
-  let base = title.replace(/\s*🔥\s*$/, '');
-  if (visibleLength(base) <= TITLE_MAX_CHARS) return base;
   // Word-trim
-  const chars = [...base];
+  const chars = [...title];
   chars.length = TITLE_MAX_CHARS;
   let trimmed = chars.join('');
   const lastSpace = trimmed.lastIndexOf(' ');
@@ -111,17 +106,6 @@ function trimToMax(title: string): string {
   // A word-boundary cut can still stop mid-clause ("Offerte di lavoro a"),
   // which reads as broken in the SERP. Shared peel — see clauseTail.mjs.
   return peelDanglingClauseTail(trimmed);
-}
-
-/**
- * Apply the 🔥 emoji suffix when count is above threshold. Returns the
- * title as-is when below threshold or when adding the emoji would blow
- * past TITLE_MAX_CHARS.
- */
-function withFire(title: string, count: number): string {
-  if (count < FIRE_EMOJI_THRESHOLD) return title;
-  const candidate = `${title} 🔥`;
-  return visibleLength(candidate) <= TITLE_MAX_CHARS ? candidate : title;
 }
 
 interface CantonLandingArgs {
@@ -216,7 +200,7 @@ export function buildCantonLandingTitle({
   }
 
   const candidates = n > 0
-    ? [withFire(dynamic, n), dynamic, fresh, compact, fallback]
+    ? [dynamic, fresh, compact, fallback]
     : [dynamic, fresh, compact, fallback];
   const selected = candidates.find((candidate) => visibleLength(candidate) <= TITLE_MAX_CHARS)
     ?? fallback;
@@ -242,7 +226,7 @@ interface ListingHubArgs {
  *
  * This is the highest-impression page in the domain (1928 imp/mo for
  * "offerte di lavoro ticino") so the title is optimized for 50-60
- * visible chars with primary keyword + year + live count + 🔥.
+ * visible chars with primary keyword + year + live count.
  */
 export function buildListingHubTitle({ locale, count, year }: ListingHubArgs): string {
   const n = safeCount(count);
@@ -271,7 +255,7 @@ export function buildListingHubTitle({ locale, count, year }: ListingHubArgs): s
         : `Emploi Tessin Suisse ${year} — Mises à jour quotidiennes`;
       break;
   }
-  base = trimToMax(withFire(base, n));
+  base = trimToMax(base);
   if (visibleLength(base) < TITLE_MIN_CHARS) {
     base = padToMin(base, locale === 'it' ? 'in Svizzera' : locale === 'en' ? 'free' : locale === 'de' ? 'kostenlos' : 'gratuit');
   }
@@ -355,8 +339,6 @@ interface CityHubArgs {
   cityDisplay: string;
   count: number;
   year: number;
-  /** Override the fire-emoji threshold. Defaults to FIRE_EMOJI_THRESHOLD. */
-  fireThreshold?: number;
   /**
    * Optional canton display label (e.g. 'Basilea Città', 'Zurigo'). When set,
    * the base title and pad-to-min use the actual canton instead of the legacy
@@ -366,17 +348,11 @@ interface CityHubArgs {
   cantonDisplay?: string;
 }
 
-/** Default fire-emoji threshold for per-city hubs: single-city counts rarely
- *  exceed a few hundred, so we lower the bar from the site-wide 500. Callers
- *  (e.g. `build-plugins/cityJobsHub.ts`) can override by passing `fireThreshold`. */
-export const DEFAULT_CITY_HUB_FIRE_THRESHOLD = 30;
-
 export function buildCityHubTitle({
   locale,
   cityDisplay,
   count,
   year,
-  fireThreshold = DEFAULT_CITY_HUB_FIRE_THRESHOLD,
   cantonDisplay,
 }: CityHubArgs): string {
   const n = safeCount(count);
@@ -417,12 +393,6 @@ export function buildCityHubTitle({
         ? `Emploi à ${city} ${regionLabels.fr} ${year} — ${n} postes aujourd'hui`
         : `Emploi à ${city} ${regionLabels.fr} Suisse ${year} — Mises à jour`;
       break;
-  }
-  // Use per-caller fire threshold; city hubs pass 30, site-wide hub inherits 500.
-  const shouldFire = n >= fireThreshold;
-  const candidateWithFire = `${base} 🔥`;
-  if (shouldFire && visibleLength(candidateWithFire) <= TITLE_MAX_CHARS) {
-    base = candidateWithFire;
   }
   base = trimToMax(base);
   if (visibleLength(base) < TITLE_MIN_CHARS) {
@@ -475,7 +445,7 @@ export function buildRoleHubTitle({ locale, roleDisplay, count, year }: RoleHubA
         : `Emploi ${role} Tessin Suisse ${year} — Mises à jour quotidiennes`;
       break;
   }
-  base = trimToMax(withFire(base, n));
+  base = trimToMax(base);
   if (visibleLength(base) < TITLE_MIN_CHARS) {
     const padWord = locale === 'it'
       ? 'gratis'
@@ -600,7 +570,7 @@ export function buildEmployerHubTitle({
     })();
     const scoped = scopedCandidates.find((candidate) => visibleLength(candidate) <= TITLE_MAX_CHARS)
       ?? scopedCandidates[scopedCandidates.length - 1];
-    let scopedTitle = trimToMax(withFire(scoped, n));
+    let scopedTitle = trimToMax(scoped);
     if (visibleLength(scopedTitle) < TITLE_MIN_CHARS) {
       const padWord = locale === 'it'
         ? 'in Svizzera'
@@ -637,7 +607,7 @@ export function buildEmployerHubTitle({
         : `Travailler chez ${co} en Suisse ${year} — Postes Ouverts`;
       break;
   }
-  base = trimToMax(withFire(base, n));
+  base = trimToMax(base);
   if (visibleLength(base) < TITLE_MIN_CHARS) {
     const padWord = locale === 'it'
       ? 'candidati'
@@ -667,7 +637,7 @@ interface RecencyHubArgs {
  * Build the SEO title for a recency-filtered hub (last-3-days / since-yesterday).
  *
  * Recency pages carry an intrinsic "urgency" signal (freshness is their
- * selling point) so we always inject 🔥 when count > 0 — no threshold.
+ * selling point).
  */
 export function buildRecencyHubTitle({ locale, days, count, year }: RecencyHubArgs): string {
   const n = safeCount(count);
@@ -706,9 +676,6 @@ export function buildRecencyHubTitle({ locale, days, count, year }: RecencyHubAr
         : `Emploi Tessin ${w} ${year} — Nouveaux chaque jour`;
       break;
   }
-  // Always fire for recency when count > 0 (freshness is the page's raison d'être).
-  const withFireStr = n > 0 ? `${base} 🔥` : base;
-  base = visibleLength(withFireStr) <= TITLE_MAX_CHARS ? withFireStr : base;
   base = trimToMax(base);
   if (visibleLength(base) < TITLE_MIN_CHARS) {
     const padWord = locale === 'it'
