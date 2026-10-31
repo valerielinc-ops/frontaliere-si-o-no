@@ -2,8 +2,12 @@
 import { nativeQuestionText } from './nativeQuestionText.js';
 
 export function createCandidateIdentityContract({ nativeQuestionText }) {
-  const plain = value => nativeQuestionText(value).toLocaleLowerCase().replace(/^[＊*\s]+|[＊*:?!]+$/gu, '').trim()
-    .replace(/\s*\((?:required|optional|erforderlich|pflichtfeld|obbligatorio|facoltativo|obligatoire|facultatif)\)$/iu, '').trim();
+  // Only edge decorators are removed, spaced or not, on both sides of a required
+  // marker: the role parser below keeps comparing the whole remaining caption.
+  const edgeDecorators = /^[＊*\s]+|[＊*:?!\s]+$/gu;
+  const plain = value => nativeQuestionText(value).toLocaleLowerCase().replace(edgeDecorators, '')
+    .replace(/\s*\((?:required|optional|erforderlich|pflichtfeld|obbligatorio|facoltativo|obligatoire|facultatif)\)$/iu, '')
+    .replace(edgeDecorators, '');
   const selfPrefix = /^(?:your|my|candidate['’]?s?|applicant['’]?s?|personal|ihr(?:e|en)?|mein(?:e|en)?|dein(?:e|en)?|il tuo|la tua|il suo|la sua|tuo|tua|suo|sua|vostro|vostra|votre|mon|ma|ton|ta)\s+/iu;
   const selfQuestion = /^(?:what is your|please enter your|enter your|qual è il tuo|qual è la tua|inserisci il tuo|inserisci la tua|wie lautet ihr(?:e)?|veuillez saisir votre|saisissez votre)\s+/iu;
   const selfSuffix = /\s+(?:of (?:the )?(?:candidate|applicant)|del candidato|della candidata|du candidat|de la candidate|des bewerbers|der bewerberin)$/iu;

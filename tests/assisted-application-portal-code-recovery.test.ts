@@ -5,7 +5,7 @@ import path from 'node:path';
 import YAML from 'yaml';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
-import { currentPortalCodeVersion } from '../scripts/assisted-application/lib/portal-code-version.mjs';
+import { currentPortalCodeVersion, NATIVE_APPLICATION_SHARED_SOURCES } from '../scripts/assisted-application/lib/portal-code-version.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 
 const now = Date.now();
@@ -77,7 +77,7 @@ describe('automatic recovery after a portal fix', () => {
 
   it('changes the fingerprint only for runner sources and covers those files in the workflow trigger', () => {
     const root = mkdtempSync(path.join(tmpdir(), 'portal-source-version-'));
-    const sourceFiles = [
+    const sourceFiles = [...NATIVE_APPLICATION_SHARED_SOURCES,
       'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
@@ -108,6 +108,11 @@ describe('automatic recovery after a portal fix', () => {
       const afterFields = currentPortalCodeVersion(root);
       write('functions/src/lib/portalQuestionText.js', 'fixed question readability');
       expect(currentPortalCodeVersion(root)).not.toBe(afterFields);
+      for (const file of NATIVE_APPLICATION_SHARED_SOURCES) {
+        const previous = currentPortalCodeVersion(root);
+        write(file, 'changed shared field/proof source');
+        expect(currentPortalCodeVersion(root)).not.toBe(previous);
+      }
       const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/assisted-application-portal-recovery.yml', import.meta.url), 'utf8'));
       expect(workflow.jobs.recover.steps.find((step: any) => step.uses?.startsWith('actions/checkout@')).with['sparse-checkout']).toContain('.github/actions');
       for (const file of sourceFiles) expect(workflow.on.push.paths.some((pattern: string) => pattern.endsWith('/**') ? file.startsWith(pattern.slice(0, -2)) : file === pattern)).toBe(true);

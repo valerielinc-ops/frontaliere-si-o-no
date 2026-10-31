@@ -123,6 +123,9 @@ const socialRobotClosurePaths = new Set([
   'scripts/load-rc-env.mjs',
 ]);
 const sourceTreeLintTests = new Map([
+  // These real node:test suites run in a Vitest wrapper subprocess. Passing
+  // their .mjs paths to Vitest alone would match no configured test include.
+  ['tests/native-scope-node-suites.test.ts', /^tests\/(?:native-scope-interpretation|native-form-scope-contract|candidate-identity-caption-normalization)\.test\.mjs$/],
   // The pruner is executed in a disposable subprocess, never imported into
   // Vitest (importing it would execute cleanup). These are real runtime/read
   // dependencies that the static import graph cannot infer from path.join.
