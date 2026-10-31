@@ -383,8 +383,8 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     // upstream-aborted article URLs from the 2026-10-07 corpus sync + 7 GSC
     // 404 decisions checked on 2026-10-21 (one moved, six gone).
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 108,
-      gone: 42,
+      total: 112,
+      gone: 46,
       moved: 66,
     });
   });
