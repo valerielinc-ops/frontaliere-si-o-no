@@ -18,4 +18,3 @@ export function answerConflictMetadata(record, reason, at, { key = record?.key, 
     languageCode: language ? language[1] : '', scope,
     cvHash: /^[a-f0-9]{64}$/.test(record.provenance?.cvHash || '') ? record.provenance.cvHash : '', reason, at };
 }
-
