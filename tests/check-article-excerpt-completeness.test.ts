@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   ARTICLE_KEY,
+  ISOLATED_SECTION_LABELS,
   MIN_SUMMARY_LENGTH,
   validateArticleExcerptFiles,
 } from '../scripts/ci/check-article-excerpt-completeness.mjs';
@@ -52,5 +53,31 @@ describe('article excerpt completeness gate', () => {
 
   it('keeps the minimum threshold explicit for future callers', () => {
     expect(complete.length).toBeGreaterThan(MIN_SUMMARY_LENGTH);
+  });
+
+  it('rejects isolated section labels across mirrored metadata and SEO fields', () => {
+    expect(ISOLATED_SECTION_LABELS).toEqual(['Oggetto', 'Gegenstand', 'Subject', 'Objet']);
+    const directory = mkdtempSync(join(tmpdir(), 'article-section-label-tail-'));
+    try {
+      const meta = join(directory, 'blog-meta-it.ts');
+      const seo = join(directory, 'seo-blog-5.ts');
+      writeFileSync(
+        meta,
+        `const translations: Record<string, string> = {\n  'blog.article.demo.excerpt': 'Un riassunto editoriale completo Oggetto',\n};\nexport default translations;\n`,
+        'utf8',
+      );
+      writeFileSync(
+        seo,
+        `const seo = {\n  'blog-demo': {\n    description: 'Un riassunto editoriale completo Oggetto',\n    ogDescription: 'Un riassunto editoriale completo Subject',\n    structuredData: { description: 'Un riassunto editoriale completo Objet' },\n  },\n};\n`,
+        'utf8',
+      );
+
+      const result = validateArticleExcerptFiles([meta, seo], { all: true });
+      expect(result.checked).toBe(4);
+      expect(result.failures).toHaveLength(4);
+      expect(result.failures.join('\n')).toContain('isolated section label');
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
   });
 });
