@@ -20,10 +20,10 @@ import {
   writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -34,9 +34,7 @@ const LOC_ONLY = process.argv.includes('--loc-only');
 const OWNED_LOCALE = flagValue('--owned-locale');
 const MANIFEST_OUT = flagValue('--manifest-out');
 const VERIFY_MANIFEST = flagValue('--verify-manifest');
-const IS_MAIN = process.argv[1]
-  ? path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))
-  : false;
+const IS_MAIN = isInvokedDirectly(import.meta.url);
 
 function flagValue(name) {
   const prefix = `${name}=`;
