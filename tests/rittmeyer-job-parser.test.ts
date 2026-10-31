@@ -37,10 +37,15 @@ describe('rittmeyer-job-parser', () => {
       <a href="/offene-stellen/it-support-in-lugano/">IT Support in Lugano</a>
     `);
     expect(isRittmeyerTicinoListing(isoInTitle[0])).toBe(true);
+
+    expect(parseRittmeyerListingsPage(
+      '<a href="//untrusted.example/offene-stellen/it-support-in-lugano/">Foreign mirror</a>',
+    )).toHaveLength(0);
   });
 
   it('parses the public Onlyfy board listing and its structured detail metadata', () => {
     const listings = parseRittmeyerListingsPage(`
+      <p>2 jobs found</p>
       <div id="jobList">
         <a href="/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn/">
           Sales Project Engineer (a) Ticino | Part-time employee
@@ -49,6 +54,7 @@ describe('rittmeyer-job-parser', () => {
       </div>
     `);
     expect(listings).toHaveLength(2);
+    expect(listings.rittmeyerListingAdvertisedCount).toBe(2);
     expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
 
     const detail = parseRittmeyerJobDetailWithUrl(`

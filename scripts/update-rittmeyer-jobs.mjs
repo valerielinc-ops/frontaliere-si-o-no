@@ -40,6 +40,7 @@ import {
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { onlyfyFullAdUrl, extractOnlyfyJobAdText, isOnlyfyJobAdText } from './lib/onlyfy-listing-common.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -66,7 +67,7 @@ const COMPANY_DOMAIN = 'rittmeyer.com';
 // role details available without an authenticated session.
 const CAREERS_URL = 'https://brugg.onlyfy.jobs/en/';
 const DETAIL_BASE = 'https://brugg.onlyfy.jobs/';
-const LEGACY_CAREERS_URL = 'https://karriere.rittmeyer.com/offene-stellen/?suche=&country=1';
+const LEGACY_CAREERS_URL = 'https://karriere.rittmeyer.com/offene-stellen/';
 const LEGACY_DETAIL_BASE = 'https://karriere.rittmeyer.com/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -196,7 +197,6 @@ async function fetchListings() {
   let lastError;
   let sourceRows;
   let sourceLabel;
-  let detailBase;
   for (const source of sources) {
     try {
       const html = await fetchText(source.url);
@@ -204,14 +204,15 @@ async function fetchListings() {
       for (const row of parsedRows) row.sourceBase = source.detailBase;
       const sourceReadComplete = Boolean(
         parsedRows.rittmeyerListingSkippedMalformedRows === 0
-        && (parsedRows.length > 0 ? parsedRows.rittmeyerListingMarkupSeen : parsedRows.rittmeyerListingEmptyStateObserved),
+        && (parsedRows.length > 0 ? parsedRows.rittmeyerListingMarkupSeen : parsedRows.rittmeyerListingEmptyStateObserved)
+        && (parsedRows.rittmeyerListingAdvertisedCount == null
+          || parsedRows.length === parsedRows.rittmeyerListingAdvertisedCount),
       );
       if (!sourceReadComplete) {
         throw new Error(`Rittmeyer: ${source.label} listing markup was not read completely`);
       }
       sourceRows = parsedRows;
       sourceLabel = source.label;
-      detailBase = source.detailBase;
       break;
     } catch (err) {
       lastError = err;
@@ -235,7 +236,6 @@ async function fetchListings() {
     rittmeyerSourceTerminationProven: { value: true, enumerable: false },
     rittmeyerSourceTargetCount: { value: rows.length, enumerable: false },
     rittmeyerSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
-    rittmeyerSourceDetailBase: { value: detailBase, enumerable: false },
   });
   return rows;
 }
@@ -252,7 +252,6 @@ function copyRittmeyerSourceEvidence(jobs, source) {
     rittmeyerSourceTerminationProven: { value: source.rittmeyerSourceTerminationProven === true, enumerable: false },
     rittmeyerSourceTargetCount: { value: source.rittmeyerSourceTargetCount, enumerable: false },
     rittmeyerSourceUnrecognizedLocationCount: { value: source.rittmeyerSourceUnrecognizedLocationCount, enumerable: false },
-    rittmeyerSourceDetailBase: { value: source.rittmeyerSourceDetailBase, enumerable: false },
   });
   return jobs;
 }
@@ -284,8 +283,29 @@ function inferCategory(detail = {}) {
 
 async function buildRittmeyerJob(listing) {
   const detailUrl = absoluteUrl(listing.href, listing.sourceBase || DETAIL_BASE);
-  const html = await fetchText(detailUrl);
-  const detail = parseRittmeyerJobDetailWithUrl(html, detailUrl);
+  const shellHtml = await fetchText(detailUrl);
+  const shellDetail = parseRittmeyerJobDetailWithUrl(shellHtml, detailUrl);
+  const fullAdUrl = onlyfyFullAdUrl(detailUrl);
+  let detail = shellDetail;
+  if (fullAdUrl) {
+    try {
+      const fullAdHtml = await fetchText(fullAdUrl);
+      const fullAdText = extractOnlyfyJobAdText(fullAdHtml);
+      if (!isOnlyfyJobAdText(fullAdText)) {
+        throw new Error('full ad response did not contain a complete job body');
+      }
+      const fullAdDetail = parseRittmeyerJobDetailWithUrl(fullAdHtml, detailUrl);
+      detail = {
+        ...fullAdDetail,
+        ...Object.fromEntries(Object.entries(shellDetail).filter(([, value]) => value)),
+        summary: fullAdText,
+      };
+    } catch (err) {
+      if (!isOnlyfyJobAdText(shellDetail.summary)) {
+        throw new Error(`Rittmeyer: Onlyfy detail body unavailable for ${detailUrl}: ${err?.message || err}`);
+      }
+    }
+  }
   // Postings are German, French or Italian; the source slot must carry the
   // posting's own language so the translation step fills the other three.
   const sourceLang = detectLang(

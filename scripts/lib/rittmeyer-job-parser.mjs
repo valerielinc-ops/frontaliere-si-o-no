@@ -65,8 +65,7 @@ function blockParagraphs(block) {
 function isRittmeyerListingHref(rawHref = '') {
   try {
     const parsed = new URL(rawHref, 'https://brugg.onlyfy.jobs/');
-    if (/^https?:\/\//i.test(rawHref)
-      && !['brugg.onlyfy.jobs', 'karriere.rittmeyer.com', 'rittmeyer.com'].includes(parsed.hostname.toLowerCase())) {
+    if (!['brugg.onlyfy.jobs', 'karriere.rittmeyer.com', 'rittmeyer.com'].includes(parsed.hostname.toLowerCase())) {
       return false;
     }
     const pathname = parsed.pathname;
@@ -102,9 +101,12 @@ export function parseRittmeyerListingsPage(html = '') {
   const listingContainer = document.querySelector(
     '#jobList, ul.rex-navi2, .job-list, [data-job-list], [class*="job-list"], [class*="stellen"], [class*="career"]',
   );
+  const listingText = normalizeSpace(document.body?.textContent || listingContainer?.textContent || '');
+  const advertisedCount = listingText.match(/\b(\d+)\s+(?:jobs?|stellen(?:angebote)?|posti|postes?)\s+(?:found|gefunden|trovati|trouv[eé]s)\b/i)?.[1];
   Object.defineProperties(rows, {
     rittmeyerListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     rittmeyerListingRecordCount: { value: rows.length, enumerable: false },
+    rittmeyerListingAdvertisedCount: { value: advertisedCount == null ? null : Number(advertisedCount), enumerable: false },
     rittmeyerListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     rittmeyerListingEmptyStateObserved: {
       value: hasExplicitEmptyJobListing(listingContainer, {
