@@ -10,7 +10,7 @@
  * Verifies:
  *   - Every title lands in 50-66 visible-chars (Google SERP-safe range).
  *   - Primary keyword is present for each page type.
- *   - 🔥 emoji fires above threshold, never below.
+ *   - No emoji in any title, at any count.
  *   - All 4 locales are covered.
  *   - Titles are unique across sampled inputs (no duplicate SERP collisions).
  */
@@ -27,8 +27,6 @@ import {
   isValidTitleLength,
   TITLE_MIN_CHARS,
   TITLE_MAX_CHARS,
-  FIRE_EMOJI_THRESHOLD,
-  DEFAULT_CITY_HUB_FIRE_THRESHOLD,
   JOB_PAGE_LOCALES,
   type JobPageLocale,
 } from '../services/seo/job-board-titles';
@@ -59,8 +57,6 @@ describe('visibleLength + isValidTitleLength', () => {
   it('exports the SERP-safe thresholds', () => {
     expect(TITLE_MIN_CHARS).toBe(50);
     expect(TITLE_MAX_CHARS).toBe(66);
-    expect(FIRE_EMOJI_THRESHOLD).toBe(500);
-    expect(DEFAULT_CITY_HUB_FIRE_THRESHOLD).toBe(30);
   });
 });
 
@@ -111,9 +107,10 @@ describe('buildListingHubTitle — listing hub (home)', () => {
     }
   });
 
-  it('injects 🔥 when count >= FIRE_EMOJI_THRESHOLD, never below', () => {
-    expect(buildListingHubTitle({ locale: 'it', count: FIRE_EMOJI_THRESHOLD, year: YEAR })).toContain('🔥');
-    expect(buildListingHubTitle({ locale: 'it', count: FIRE_EMOJI_THRESHOLD - 1, year: YEAR })).not.toContain('🔥');
+  it('never adds an emoji, however many jobs are live', () => {
+    for (const count of [499, 500, 5000]) {
+      expect(buildListingHubTitle({ locale: 'it', count, year: YEAR })).not.toMatch(/\p{Extended_Pictographic}/u);
+    }
   });
 
   it('omits count when zero (no "0 posti")', () => {
@@ -196,7 +193,6 @@ describe('buildCityHubTitle — per-city hub', () => {
             cityDisplay: city,
             count,
             year: YEAR,
-            fireThreshold: DEFAULT_CITY_HUB_FIRE_THRESHOLD,
           });
           expect(
             isValidTitleLength(title),
@@ -216,15 +212,9 @@ describe('buildCityHubTitle — per-city hub', () => {
     }
   });
 
-  it('respects a custom fire threshold', () => {
-    const low = buildCityHubTitle({
-      locale: 'it', cityDisplay: 'Lugano', count: 20, year: YEAR, fireThreshold: 30,
-    });
-    const high = buildCityHubTitle({
-      locale: 'it', cityDisplay: 'Lugano', count: 50, year: YEAR, fireThreshold: 30,
-    });
-    expect(low).not.toContain('🔥');
-    expect(high).toContain('🔥');
+  it('never adds an emoji to a city title', () => {
+    const title = buildCityHubTitle({ locale: 'it', cityDisplay: 'Lugano', count: 500, year: YEAR });
+    expect(title).not.toMatch(/\p{Extended_Pictographic}/u);
   });
 
   it('produces unique titles for different cities in the same locale', () => {
@@ -420,19 +410,14 @@ describe('buildRecencyHubTitle — recency hub (last N days / since yesterday)',
     expect(buildRecencyHubTitle({ locale: 'fr', days: 3, count: 10, year: YEAR })).toContain('3 derniers jours');
   });
 
-  it('always adds 🔥 when count > 0 (recency implies urgency)', () => {
+  it('never adds an emoji, with or without live jobs', () => {
     for (const locale of LOCALES) {
       for (const days of DAYS) {
-        const t = buildRecencyHubTitle({ locale, days, count: 5, year: YEAR });
-        expect(t, `${locale}/${days}d`).toContain('🔥');
+        for (const count of [0, 5]) {
+          const t = buildRecencyHubTitle({ locale, days, count, year: YEAR });
+          expect(t, `${locale}/${days}d/${count}`).not.toMatch(/\p{Extended_Pictographic}/u);
+        }
       }
-    }
-  });
-
-  it('omits 🔥 when count is zero', () => {
-    for (const locale of LOCALES) {
-      const t = buildRecencyHubTitle({ locale, days: 3, count: 0, year: YEAR });
-      expect(t).not.toContain('🔥');
     }
   });
 });

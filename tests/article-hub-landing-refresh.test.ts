@@ -11,7 +11,7 @@ import {
 } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { refreshArticleHubLandings, stripCloudflareInjectedScripts } from '../scripts/lib/refresh-article-hub-landings.mjs';
+import { refreshArticleHubLandings, stripCloudflareJsDetection } from '../scripts/lib/refresh-article-hub-landings.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -65,7 +65,45 @@ function fakeFetch(html: string, seen: string[]) {
   };
 }
 
+const cfSnippet = (ray: string) =>
+  `<script>(function(){function c(){var b=a.contentDocument;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'${ray}',t:'MTc5'};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}})();</script>`;
+
+describe('stripCloudflareJsDetection', () => {
+  it('removes every accumulated copy and nothing else', () => {
+    const html = `<head><script>window.dataLayer=[];</script></head><body><script type="application/ld+json">{"a":1}</script>${cfSnippet('r1')}${cfSnippet('r2')}${cfSnippet('r3')}</body>`;
+    expect(stripCloudflareJsDetection(html)).toBe(
+      '<head><script>window.dataLayer=[];</script></head><body><script type="application/ld+json">{"a":1}</script></body>',
+    );
+  });
+
+  it('leaves a page without the snippet byte-identical', () => {
+    const html = '<body><script src="/assets/index-entry.js"></script></body>';
+    expect(stripCloudflareJsDetection(html)).toBe(html);
+  });
+});
+
 describe('refreshArticleHubLandings', () => {
+  it('never stores the snippet Cloudflare added to the live shell', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'article-hub-landing-'));
+    const dist = join(root, 'dist');
+    try {
+      writeFixture(root);
+      const shell = `${SHELL}${cfSnippet('a4ba8a77cfeaa0f3')}${cfSnippet('a4ba8a77cfeaa0f4')}`;
+      expect(shell).toContain('__CF$cv$params');
+      const result = await refreshArticleHubLandings({
+        rootDir: root,
+        distDir: dist,
+        section: 'frontaliere',
+        siteBase: 'https://example.test',
+        fetchImpl: fakeFetch(shell, []),
+      });
+      expect(result.errors).toEqual([]);
+      expect(readFileSync(join(dist, 'articoli-frontaliere/index.html'), 'utf-8')).not.toContain('__CF$cv$params');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('creates and refreshes all localized root grids, then returns their push paths', async () => {
     const root = mkdtempSync(join(tmpdir(), 'article-hub-landing-'));
     const dist = join(root, 'dist');
@@ -157,24 +195,5 @@ describe('refreshArticleHubLandings', () => {
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
-  });
-});
-
-describe('stripCloudflareInjectedScripts', () => {
-  const snippet = (ray: string) =>
-    `<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'${ray}',t:'MTc5'};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';";}}})();</script>`;
-  const entry = '<script type="module" src="/assets/index-entry.js"></script>';
-
-  it('rimuove tutti gli snippet accumulati e conserva gli altri script', () => {
-    const html = `<body>${entry}\n ${snippet('a')}${snippet('b')}</body>`;
-    const clean = stripCloudflareInjectedScripts(html);
-    expect(clean).not.toContain('challenge-platform');
-    expect(clean).toContain(entry);
-    expect(clean).toContain('</body>');
-  });
-
-  it('lascia invariata una pagina senza snippet', () => {
-    const html = `<body>${entry}<script>window.ok=1</script></body>`;
-    expect(stripCloudflareInjectedScripts(html)).toBe(html);
   });
 });

@@ -20,7 +20,8 @@ import { CROSS_BORDER_TAX_FACTS, CROSS_BORDER_TAX_SOURCE } from '../services/cro
  *     present in the clusters file.
  *
  * Anti-doorway mitigations:
- *   - Clusters with <3 matching jobs at build time emit
+ *   - Clusters with <3 matching jobs at build time, or a query naming Ticino
+ *     with <3 of them in Ticino, emit
  *     <meta name="robots" content="noindex,follow"> and are NOT added to
  *     the sitemap.
  *   - Role-aware editorial (tech / healthcare / retail / hospitality /
@@ -67,7 +68,7 @@ import {
   ORPHAN_LANDING_LOCALE_PREFIX,
   ORPHAN_LANDING_OG_LOCALE,
   buildOrphanLandingPath,
-  filterMatchingJobs,
+  selectOrphanLandingJobs,
   topCounts,
   type OrphanLandingLocale,
   type OrphanQueryCluster,
@@ -551,13 +552,15 @@ interface RenderedPageResult {
 function renderPage(opts: {
   cluster: OrphanQueryCluster;
   matchingJobs: OrphanCountableJob[];
+  /** False when the jobs are not where the query says; see selectOrphanLandingJobs. */
+  regionRelevant?: boolean;
   strings: Record<string, string>;
   dateStamp: string;
   knownSlugsByLocale: Map<OrphanLandingLocale, Set<string>>;
   /** dist directory for entry-asset resolution. Omit in tests. */
   distDir?: string;
 }): RenderedPageResult {
-  const { cluster, matchingJobs, strings, dateStamp, knownSlugsByLocale, distDir } = opts;
+  const { cluster, matchingJobs, regionRelevant = true, strings, dateStamp, knownSlugsByLocale, distDir } = opts;
   const locale = cluster.locale;
   const urlPath = buildOrphanLandingPath(locale, cluster.canonicalSlug);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -678,8 +681,9 @@ function renderPage(opts: {
     isPartOf: { '@type': 'WebSite', url: `${BASE_URL}/`, name: 'Frontaliere Ticino' },
   });
 
-  // Decide indexability — <MIN_MATCHING_JOBS jobs → noindex (anti-doorway).
-  const indexable = matchingJobs.length >= MIN_MATCHING_JOBS;
+  // Decide indexability — <MIN_MATCHING_JOBS jobs, or jobs elsewhere than the
+  // place the query names → noindex (anti-doorway).
+  const indexable = matchingJobs.length >= MIN_MATCHING_JOBS && regionRelevant;
 
   const body = `
     <nav class="s-bcr">
@@ -922,7 +926,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       };
 
       // Single source of truth for the renderPage(...) arg set + the
-      // `filterMatchingJobs(jobs, cluster, 15)` literal shared by the emission
+      // `selectOrphanLandingJobs(jobs, cluster, 15, ...)` call shared by the emission
       // pass (below) and the hub-hreflang availability pass (further down).
       // The availability predicate (`hubHreflangAvailability`) keys on the same
       // `render.indexable` the emission pass uses to populate
@@ -930,15 +934,18 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       // advertise an hreflang alternate to a locale that never gets a page
       // emitted → 404 (funnel-critical: SEO). Deriving both from this one
       // helper makes that drift impossible by construction.
-      const renderClusterPage = (cluster: OrphanQueryCluster): RenderedPageResult =>
-        renderPage({
+      const renderClusterPage = (cluster: OrphanQueryCluster): RenderedPageResult => {
+        const selected = selectOrphanLandingJobs(jobs, cluster, 15, MIN_MATCHING_JOBS);
+        return renderPage({
           cluster,
-          matchingJobs: filterMatchingJobs(jobs, cluster, 15),
+          matchingJobs: selected.jobs,
+          regionRelevant: selected.regionRelevant,
           strings: localeStrings[cluster.locale] || {},
           dateStamp,
           knownSlugsByLocale,
           distDir,
         });
+      };
 
       for (const cluster of clusters) {
         // Per-locale shard build (BUILD_LOCALE): a pure non-it shard renders

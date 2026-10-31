@@ -92,6 +92,23 @@ function readMetaContent(html, key) {
   return '';
 }
 
+const CLOUDFLARE_JS_DETECTION_RX =
+  /<script\b[^>]*>(?:(?!<\/script>)[\s\S])*?__CF\$cv\$params(?:(?!<\/script>)[\s\S])*?<\/script>/g;
+
+/**
+ * Remove the JS-detection snippet Cloudflare injects into every HTML response.
+ *
+ * The shell this helper starts from is fetched through the public zone, so it
+ * carries that snippet, and writing it back turned one response-time injection
+ * into stored page content. Each refresh added a copy with a new ray id:
+ * `/articoli-frontaliere/` reached 327 KB with 293 copies, 304 KB of its inline
+ * script (GEO audit 2026-10-31). Cloudflare adds its own copy when it serves the
+ * page, so removing all of them here also heals the hubs already affected.
+ */
+export function stripCloudflareJsDetection(html) {
+  return String(html ?? '').replace(CLOUDFLARE_JS_DETECTION_RX, '');
+}
+
 /**
  * Add the four X-card tags to a landing whose editorial shell is preserved
  * from the live shard. The normal hub renderer owns archive/topic heads, but
@@ -123,18 +140,6 @@ export function ensureTwitterCardMeta(html, { locale, siteBase }) {
  *          locales?: readonly string[], siteBase?: string,
  *          fetchImpl?: Function, timeoutMs?: number, logPrefix?: string}} opts
  */
-/**
- * The shell is read back through Cloudflare, which appends its JS Detection
- * snippet before </body> on every response. Republishing that HTML made each
- * refresh add one more: 291 by 31/10/2026, 83% of the page and a 37 s
- * DOMContentLoaded on phones. Cloudflare re-adds the one it needs at the edge.
- */
-const CLOUDFLARE_JSD_SNIPPET = /<script>\(function\(\)\{function c\(\)\{var b=a\.contentDocument[\s\S]*?<\/script>/g;
-
-export function stripCloudflareInjectedScripts(html) {
-  return html.replace(CLOUDFLARE_JSD_SNIPPET, '');
-}
-
 export async function refreshArticleHubLandings(opts) {
   const {
     rootDir,
@@ -258,13 +263,13 @@ export async function refreshArticleHubLandings(opts) {
       if (!response?.ok) {
         throw new Error(`HTTP ${response?.status ?? 'unknown'}`);
       }
-      liveHtml = await response.text();
+      liveHtml = stripCloudflareJsDetection(await response.text());
     } catch (err) {
       result.errors.push(`${localeLanding}: live shell unavailable (${err.message})`);
       continue;
     }
 
-    const refreshed = ensureArticleHubCards(stripCloudflareInjectedScripts(liveHtml), cardsHtml, locale);
+    const refreshed = ensureArticleHubCards(liveHtml, cardsHtml, locale);
     if (refreshed === null) {
       result.errors.push(
         `${localeLanding}: live shell has no balanced article grid or safe shell navigation anchor`,

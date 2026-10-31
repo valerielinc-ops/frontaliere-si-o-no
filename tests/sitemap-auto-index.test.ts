@@ -170,9 +170,9 @@ describe('sitemapAliasPlugin — auto-discovery', () => {
     ]);
   });
 
-  it('derives lastmod (YYYY-MM-DD) from each file\'s mtime', async () => {
-    const fixedMtime = new Date('2026-04-15T10:00:00Z');
-    seedSitemap(distDir, 'sitemap-pages.xml', fixedMtime);
+  it('derives lastmod from the newest entry of each file, not from its mtime', async () => {
+    fs.writeFileSync(path.join(distDir, 'sitemap-pages.xml'), '<urlset><url><lastmod>2026-04-15</lastmod></url></urlset>');
+    fs.utimesSync(path.join(distDir, 'sitemap-pages.xml'), new Date('2026-10-30T10:00:00Z'), new Date('2026-10-30T10:00:00Z'));
 
     const discovered = await discoverSitemapFiles(distDir);
     expect(discovered[0].lastmod).toBe('2026-04-15');
@@ -219,6 +219,13 @@ describe('sitemapAliasPlugin — index XML builder', () => {
     expect(xml).toContain(`<loc>${BASE_URL}/sitemap-weekly-employers.xml</loc>`);
     expect(xml).toContain('<lastmod>2026-04-15</lastmod>');
     expect(xml).toContain('<lastmod>2026-04-20</lastmod>');
+  });
+
+  it('omits <lastmod> for a sub-sitemap with no dated entry', () => {
+    const xml = buildSitemapIndexXml([{ file: 'sitemap-eventi.xml' }], BASE_URL);
+    expect(xml).toContain(`<loc>${BASE_URL}/sitemap-eventi.xml</loc>`);
+    expect(xml).not.toContain('<lastmod>');
+    expect(xml).not.toContain('undefined');
   });
 
   it('emits exactly one <loc> entry per input file (no duplicates)', () => {
