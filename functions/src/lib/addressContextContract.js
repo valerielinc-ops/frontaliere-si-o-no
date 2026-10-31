@@ -9,3 +9,10 @@ export function addressContextContract(question) {
     || context.owners.some(owner => typeof owner !== 'string' || owner.length > 300)) return null;
   return { section: context.section, owners: [...context.owners], unknown: context.unknown };
 }
+
+/** A valid representation is not ownership proof. This does not identify self/employer or an address purpose. */
+export function hasAddressContextOwnership(question) {
+  const context = addressContextContract(question);
+  return context != null && context.unknown === false
+    && (Boolean(context.section.trim()) || context.owners.some(owner => Boolean(owner.trim())));
+}

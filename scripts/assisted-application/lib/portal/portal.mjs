@@ -1,4 +1,4 @@
-import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
+import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
 /**
@@ -456,7 +456,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
 const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') ? { addressContext: addressContextContract(field) } : {};
 const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.consentOwnershipUnknown === true)
   || (addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
-    && Object.hasOwn(field || {}, 'addressContext') && (!addressContextContract(field) || addressContextContract(field).unknown));
+    && Object.hasOwn(field || {}, 'addressContext') && !hasAddressContextOwnership(field));
 
 function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
   const attestedIds = new Set(currentAnswerIds);

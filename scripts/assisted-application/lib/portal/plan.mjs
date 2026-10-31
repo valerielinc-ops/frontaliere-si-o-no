@@ -11,7 +11,7 @@
 import '../../extension/apply-control.js';
 const { isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose } = globalThis.AssistedApplyControls;
 
-import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
+import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { operationalDefaultAnswer, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
@@ -654,7 +654,7 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
   const label = String(value || '');
   const hasOwner = Object.hasOwn(metadata || {}, 'addressContext');
   const owner = addressContextContract(metadata);
-  if (hasOwner && (!owner || owner.unknown)) return false;
+  if (hasOwner && !hasAddressContextOwnership(metadata)) return false;
   const fieldContext = [context, metadata?.section].filter(Boolean).join(' ');
   const ownedContext = hasOwner ? [owner.section, ...owner.owners].join(' ') : fieldContext;
   if (hasOwner && (NON_RESIDENCE_ADDRESS_RE.test(ownedContext) || WORK_HISTORY_SECTION_RE.test(ownedContext))) return false;
@@ -677,7 +677,7 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   const surrounding = String(context || '').trim();
   const hasOwnership = Object.hasOwn(metadata || {}, 'addressContext');
   const ownership = addressContextContract(metadata);
-  if (hasOwnership && (!ownership || ownership.unknown)) return '';
+  if (hasOwnership && !hasAddressContextOwnership(metadata)) return '';
   const section = hasOwnership ? ownership.section : String(metadata?.section || '').trim();
   // Only explicit owners of this control can establish or veto residence.
   // Legacy callers retain their former section/context contract. The native
@@ -1028,7 +1028,7 @@ function ownedRecordedAnswer(item, question, metadata) {
   const current = addressContextContract(metadata);
   const previous = addressContextContract(item);
   if (current === undefined && previous === undefined) return true; // legacy exact-context questions
-  if (!current || current.unknown || !previous || previous.unknown) return false;
+  if (!hasAddressContextOwnership(metadata) || !hasAddressContextOwnership(item)) return false;
   return JSON.stringify(current) === JSON.stringify(previous);
 }
 

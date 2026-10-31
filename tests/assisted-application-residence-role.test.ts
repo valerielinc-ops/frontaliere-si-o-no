@@ -2,10 +2,20 @@ import { describe, expect, it } from 'vitest';
 import '../scripts/assisted-application/extension/apply-control.js';
 import { individualApplicationOriginQuestion } from '../functions/src/lib/applicationOrigin.js';
 import { nativeQuestionText } from '../functions/src/lib/nativeQuestionText.js';
+import { addressContextContract, hasAddressContextOwnership } from '../functions/src/lib/addressContextContract.js';
 
 const { residenceFieldRole: role, mentionsResidenceFieldRole: mentions, hasResidencePurpose: purpose, hasTelephonePurpose: telephone } = (globalThis as any).AssistedApplyControls;
 
 describe('shared positive residence field captions', () => {
+  it('serializes the same ownership proof separately from a valid representation', () => {
+    const controls = (globalThis as any).AssistedApplyControls;
+    expect(controls.addressContextContract.toString()).toBe(addressContextContract.toString());
+    expect(controls.hasAddressContextOwnership.toString()).toBe(hasAddressContextOwnership.toString());
+    const addressContext = { section: '', owners: [], unknown: false };
+    expect(addressContextContract({ addressContext })).toEqual(addressContext);
+    expect(controls.hasAddressContextOwnership({ addressContext })).toBe(false);
+    expect(controls.hasAddressContextOwnership({ addressContext: { ...addressContext, owners: ['Employer'] } })).toBe(true);
+  });
   it('serializes application transport provenance separately from experience', () => {
     const origin = (globalThis as any).AssistedApplyControls.individualApplicationOriginQuestion;
     expect(origin.toString()).toBe(individualApplicationOriginQuestion.toString());

@@ -23,6 +23,17 @@ function nativeField(html: string, reader: string, name = 'city') {
 }
 
 describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => {
+  it.each(['City', 'City of residence'])('does not treat an empty native ownership shape as evidence for %s', (label) => {
+    const field = nativeField(`<form><label for="city">${label}</label><input id="city" name="city" required autocomplete="address-level2"></form>`, reader);
+    expect(field.addressContext).toEqual({ section: '', owners: [], unknown: false });
+    const stated = { ...candidate, portalQuestionsAnswered: [{ question: field.label, context: field.context, section: field.section, autocomplete: field.autocomplete, addressContext: field.addressContext, answer: 'Lugano', source: 'answers', current: true }] };
+    expect(candidateAnswerForField(stated, field)).toBeNull();
+    expect(candidateAnswerForField(candidate, field)).toBeNull();
+    const requirements = portalRequirementsFromMissingRequired([field], [{ fieldId: field.id, question: label, type: 'text' }]);
+    expect(requirements.questions).toEqual([]);
+    expect(requirements.unreadableFields).toEqual([field.id]);
+  });
+
   it.each([
     ['City', 'Personal information'], ['Town', 'Personal information'], ['Città', 'Informazioni personali'],
     ['Citta', 'Dati personali'], ['Ort', 'Persönliche Informationen'],
