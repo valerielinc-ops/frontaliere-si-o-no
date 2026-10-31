@@ -6,7 +6,7 @@ import { useNavigation } from '@/services/NavigationContext';
 import { useTabContent } from '@/services/TabContentContext';
 import { useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analyticsProxy';
-import { pushRoute } from '@/services/router';
+import { isCalculatorIndexPath, pushRoute } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, BlogArticleId } from '@/services/router';
 import { Briefcase } from 'lucide-react';
 import {
@@ -17,6 +17,7 @@ import {
 } from '@/components/shared/Skeletons';
 import AiExtractableTable from '@/components/shared/AiExtractableTable';
 import FaqAccordion from '@/components/shared/FaqAccordion';
+import StructuredFaqList from '@/components/calculator/StructuredFaqList';
 import { SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
 
 // Eagerly load InputCard in THIS chunk so it parses only when CalcolatoreTabContent loads.
@@ -68,6 +69,7 @@ export default function CalcolatoreTabContent() {
  setActiveTab, setBlogArticle, navigateTo,
  } = useTabContent();
  const { t } = useTranslation();
+ const onCalculatorIndex = isCalculatorIndexPath(window.location.pathname);
  // Hidden desktop results still ran charts/effects on every mobile salary edit.
  // Mount only the calculator for the active breakpoint; state lives in the parent.
  const isDesktopViewport = useMediaQuery('(min-width: 768px)');
@@ -94,7 +96,7 @@ export default function CalcolatoreTabContent() {
  ) : (
  <>
  <h1 className="text-xl sm:text-2xl font-extrabold font-display text-heading tracking-tight mb-1">
- {t('seoContent.calculator.title')}
+ {t(onCalculatorIndex ? 'seoContent.calculatorIndex.title' : 'seoContent.calculator.title')}
  </h1>
  <p className="text-sm text-muted mb-4">
  {t('seoContent.calculator.subtitle')}
@@ -371,6 +373,7 @@ export default function CalcolatoreTabContent() {
  />
  </div>
  </details>
+ {onCalculatorIndex && <StructuredFaqList title={t('faq.title')} />}
  {/* Homepage end-of-page multiplex — complements the compact post-result slot
   * in ResultsView without competing with the hero/input on first paint. */}
  <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as React.CSSProperties} className="mt-8 mb-4 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>

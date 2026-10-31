@@ -803,10 +803,11 @@ export function localizeHomepageStructuredData(html: string, locale: 'en' | 'de'
 }
 
 const HOMEPAGE_STATIC_H1_TEXT: Record<HpSeoLocale, string> = {
- it: 'Frontaliere Ticino 2026 — Calcolatore Stipendio Netto Svizzera-Italia',
- en: 'Ticino Cross-Border Workers 2026 — Switzerland-Italy Net Salary Calculator',
- de: 'Grenzgänger Tessin 2026 — Nettolohnrechner Schweiz-Italien',
- fr: 'Frontaliers Tessin 2026 — Calculateur de salaire net Suisse-Italie',
+ // Stesso testo di `seoContent.calculator.title`, l'H1 dopo l'idratazione.
+ it: 'Calcolatore Stipendio Frontaliere Svizzera 2026',
+ en: 'Swiss Cross-Border Salary Calculator 2026',
+ de: 'Schweizer Grenzgänger-Lohnrechner 2026',
+ fr: 'Calculateur Salaire Frontalier Suisse 2026',
 };
 
 /**

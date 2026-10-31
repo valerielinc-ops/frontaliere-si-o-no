@@ -4191,6 +4191,23 @@ function isLocaleRoot(path: string): boolean {
  return path === '/' || /^\/(?:en|de|fr)\/?$/.test(path);
 }
 
+/**
+ * `/calcola-stipendio/` e i suoi equivalenti: pagine indicizzate con canonical
+ * proprio. buildPath() riporta il calcolatore alla radice, quindi senza questo
+ * controllo l'URL passava a `/` dopo l'idratazione.
+ */
+export function isCalculatorIndexPath(path: string): boolean {
+ const normalized = path.replace(/\/+$/, '');
+ return (Object.keys(SLUG_TABLES) as Locale[]).some(
+  (locale) => normalized === `${localePrefix(locale)}/${SLUG_TABLES[locale].calcolatore}`,
+ );
+}
+
+/** Pagina che mostra già il calcolatore: la rotta di default non deve cambiarne l'URL. */
+function staysOnCalculatorPage(path: string, route: AppRoute): boolean {
+ return (isLocaleRoot(path) || isCalculatorIndexPath(path)) && isDefaultHome(route);
+}
+
 /** Check if route is the default homepage (calculator main tab) */
 function isDefaultHome(route: AppRoute): boolean {
  return route.activeTab === 'calculator' && (!route.calcolatoreSubTab || route.calcolatoreSubTab === 'calculator');
@@ -4245,6 +4262,10 @@ function buildBorderMunicipalityStaticPath(slug: string, locale: Locale): string
  return `${prefix}/${table.vita}/${table.municipalities}/${slug}/`.replace(/\/+/g, '/');
 }
 
+function buildCalculatorIndexPath(locale: Locale): string {
+ return `${localePrefix(locale)}/${SLUG_TABLES[locale].calcolatore}/`;
+}
+
 export function pushRoute(route: AppRoute): void {
  // Static SEO overlay routes (per-station fuel, per-canton health, per-city
  // employers, per-cluster orphan landings, etc.) are matched against URLs
@@ -4261,8 +4282,8 @@ export function pushRoute(route: AppRoute): void {
  // allowlisted params (autologin, campaign tracking, OAuth, utm_*).
  const samePath = currentPath.replace(/\/$/, '') === newPath.replace(/\/$/, '');
  const search = samePath ? window.location.search : preservedSearch(window.location.search);
- // Root paths (/, /en/, /de/, /fr/) are canonical for the homepage — don't redirect to calculator slug
- if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
+ // Root paths and calculator index pages are canonical for themselves
+ if (staysOnCalculatorPage(currentPath, route) && !newHash) return;
  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
  const hashPart = newHash ? `#${newHash}` : '';
  history.pushState({ route }, '', newPath + search + hashPart);
@@ -4277,7 +4298,7 @@ export function replaceRoute(route: AppRoute): void {
  const currentHash = window.location.hash.slice(1);
  const samePath = currentPath.replace(/\/$/, '') === newPath.replace(/\/$/, '');
  const search = samePath ? window.location.search : preservedSearch(window.location.search);
- if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
+ if (staysOnCalculatorPage(currentPath, route) && !newHash) return;
  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
  const hashPart = newHash ? `#${newHash}` : '';
  history.replaceState({ route }, '', newPath + search + hashPart);
@@ -4338,6 +4359,11 @@ export function updatePathForLocale(newLocale: Locale): void {
  window.location.assign(newPath + search + window.location.hash);
  }
  }
+ return;
+ }
+ if (isCalculatorIndexPath(currentPath) && isDefaultHome(route)) {
+ const newIndex = buildCalculatorIndexPath(newLocale);
+ if (currentPath !== newIndex) history.replaceState({ route }, '', newIndex + search);
  return;
  }
  let nextRoute = route;

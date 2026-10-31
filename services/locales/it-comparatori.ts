@@ -51,7 +51,7 @@ const translations: Record<string, string> = {
  'livability.km': 'km',
 
  // SalaryCompare
- 'currency.title': 'Confronto Cambio Valuta CHF → EUR',
+ 'currency.title': 'Cambio franco-euro 2026: tasso del giorno e confronto spread',
  'currency.subtitle': 'Scopri quale piattaforma è più conveniente per convertire i tuoi franchi',
  'currency.tab_compare': 'Confronto & Cambio',
  'currency.tab_statistics': '📊 Statistiche & Analisi',
