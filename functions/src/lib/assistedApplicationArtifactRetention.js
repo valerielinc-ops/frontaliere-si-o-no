@@ -8,7 +8,7 @@ export function artifactKeyForOrder(orderId, key) {
   return typeof key === 'string' && key.length <= 600 && key.startsWith(prefix) && /^[A-Za-z0-9._-]+$/.test(key.slice(prefix.length));
 }
 
-async function settlePendingFlag(db, orderRef, collection) {
+export async function settlePendingArtifactFlag(db, orderRef, collection) {
   return db.runTransaction(async transaction => {
     const [current, remaining] = await Promise.all([transaction.get(orderRef), transaction.get(collection.limit(1))]);
     if (!current.exists) throw new Error('artifact_cleanup_order_missing');
@@ -18,12 +18,37 @@ async function settlePendingFlag(db, orderRef, collection) {
   });
 }
 
+/** Shared create-only GCS write. An error never discards its caller's reservation. */
+export async function uploadOwnedArtifact({ bucket, key, buffer, options = {}, writeId, acknowledged }) {
+  const file = bucket.file(key);
+  await file.save(buffer, { ...options, resumable: false, preconditionOpts: { ifGenerationMatch: 0 },
+    metadata: { ...options.metadata, metadata: { ...options.metadata?.metadata, retentionWriteId: writeId } } });
+  await acknowledged();
+  let metadata;
+  try { [metadata] = await file.getMetadata(); }
+  catch (error) { if (Number(error.code) === 404) return null; throw error; }
+  const generation = ownedArtifactGeneration(metadata, writeId);
+  if (!generation) throw new Error('artifact_retention_generation_unknown');
+  return { file, generation };
+}
+
+export function ownedArtifactGeneration(metadata, writeId) {
+  return metadata?.metadata?.retentionWriteId === writeId && /^\d+$/.test(String(metadata.generation || ''))
+    ? String(metadata.generation) : null;
+}
+
+export async function deleteOwnedArtifactGeneration(file, generation) {
+  if (!/^\d+$/.test(String(generation || ''))) throw new Error('artifact_retention_generation_unknown');
+  await file.delete({ ifGenerationMatch: String(generation), ignoreNotFound: true });
+}
+
 export function retainedArtifactStore({ db, bucket, orderId, round, dispatchAt = null, execution = null, now = Date.now }) {
   const orderRef = db.collection('assisted_applications').doc(orderId);
   const manifests = orderRef.collection('pending_artifacts'); const saved = new Map();
   const allowed = order => assistedApplicationRetained(order, now());
   return {
     async retained() { const snapshot = await orderRef.get(); return snapshot.exists && allowed(snapshot.data()); },
+    savedArtifact(key) { const record = saved.get(key); return record ? Object.freeze({ ...record }) : null; },
     async mergeOrder(patch) {
       return db.runTransaction(async transaction => {
         const [order, flow] = await Promise.all([transaction.get(orderRef), transaction.get(orderRef.collection('automation').doc('flow'))]);
@@ -49,7 +74,7 @@ export function retainedArtifactStore({ db, bucket, orderId, round, dispatchAt =
     },
     async save(key, buffer, options = {}) {
       if (!artifactKeyForOrder(orderId, key)) throw new Error('artifact_retention_key_invalid');
-      if (saved.has(key)) return await this.retained() ? saved.get(key) : null;
+      if (saved.has(key)) return await this.retained() ? saved.get(key).key : null;
       const marker = manifests.doc(randomUUID());
       const admitted = await db.runTransaction(async transaction => {
         const order = await transaction.get(orderRef);
@@ -64,27 +89,21 @@ export function retainedArtifactStore({ db, bucket, orderId, round, dispatchAt =
         transaction.set(orderRef, { artifactCleanupPending: true }, { merge: true }); return record;
       });
       if (!admitted) return null;
-      const file = bucket.file(key);
-      // Even a final 412 can follow a committed write whose ACK was lost:
-      // the SDK retries create-only uploads. Every failure keeps its marker.
-      await file.save(buffer, { ...options, resumable: false, preconditionOpts: { ifGenerationMatch: 0 },
-        metadata: { ...options.metadata, metadata: { ...options.metadata?.metadata, retentionWriteId: marker.id } } });
-      await db.runTransaction(async transaction => {
-        const order = await transaction.get(orderRef);
-        if (!order.exists) throw new Error('artifact_retention_order_missing');
-        transaction.set(marker, { ...admitted, state: 'uploaded', completedAt: now() });
-        transaction.set(orderRef, { artifactCleanupPending: true }, { merge: true });
-      });
-      let metadata;
-      try { [metadata] = await file.getMetadata(); }
-      catch (error) { if (Number(error.code) === 404) { await marker.delete(); await settlePendingFlag(db, orderRef, manifests); return null; } throw error; }
-      if (metadata.metadata?.retentionWriteId !== marker.id || !/^\d+$/.test(String(metadata.generation || ''))) throw new Error('artifact_retention_generation_unknown');
+      // Even a final 412 can follow a committed write whose ACK was lost.
+      const upload = await uploadOwnedArtifact({ bucket, key, buffer, options, writeId: marker.id,
+        acknowledged: () => db.runTransaction(async transaction => {
+          const order = await transaction.get(orderRef);
+          if (!order.exists) throw new Error('artifact_retention_order_missing');
+          transaction.set(marker, { ...admitted, state: 'uploaded', completedAt: now() });
+          transaction.set(orderRef, { artifactCleanupPending: true }, { merge: true });
+        }) });
+      if (!upload) { await marker.delete(); await settlePendingArtifactFlag(db, orderRef, manifests); return null; }
       const retained = await this.retained();
-      if (!retained) await file.delete({ ifGenerationMatch: metadata.generation, ignoreNotFound: true });
+      if (!retained) await deleteOwnedArtifactGeneration(upload.file, upload.generation);
       await marker.delete();
-      await settlePendingFlag(db, orderRef, manifests);
+      await settlePendingArtifactFlag(db, orderRef, manifests);
       if (!retained) return null;
-      saved.set(key, key); return key;
+      saved.set(key, { key, generation: upload.generation, writeId: marker.id }); return key;
     },
   };
 }
@@ -105,12 +124,13 @@ export async function cleanupPendingArtifacts({ db, bucket, orderRef }) {
       if (record.state === 'uploaded') await doc.ref.delete();
       continue; // An unacknowledged upload can still commit after this sweep.
     }
-    if (metadata.metadata?.retentionWriteId !== doc.id || !/^\d+$/.test(String(metadata.generation || ''))) continue;
-    await file.delete({ ifGenerationMatch: metadata.generation, ignoreNotFound: true });
+    const generation = ownedArtifactGeneration(metadata, doc.id);
+    if (!generation) continue;
+    await deleteOwnedArtifactGeneration(file, generation);
     if (record.state === 'uploaded') await doc.ref.delete();
     // A transport-unknown writer may still retry its create-only request.
     // Keep its ownership marker even after deleting an observed generation.
   }
-  const pending = await settlePendingFlag(db, orderRef, collection);
+  const pending = await settlePendingArtifactFlag(db, orderRef, collection);
   return { pending };
 }

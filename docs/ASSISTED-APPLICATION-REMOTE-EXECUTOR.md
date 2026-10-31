@@ -53,7 +53,13 @@ tornano allo step hosted di correzione automatica; la conclusione del worker
 non costituisce di per sé una ricevuta del datore.
 
 La ricevuta resta del normale submission guard: `markSent` registra prima
-l'invio provato, poi evento, stato ed email vengono riconciliati. Una risposta
+l'invio provato e l'istantanea dei documenti effettivamente consegnati. Il
+runner conserva quella stessa istantanea e pubblica l'evento di successo prima
+di ogni altra proiezione sul draft. Una failure successiva di archiviazione o
+cleanup non trasforma un invio già provato in un invio fallito. WhatsApp
+conserva prima il link e le istruzioni che il candidato deve ricevere: questo
+handoff non costituisce una ricevuta del datore. Stato ed email vengono
+riconciliati dal canale previsto. Una risposta
 HTTP riuscita, il completamento del processo o un token CAPTCHA non bastano.
 L'esito ambiguo dopo un click rimane fermo finché una prova attendibile lo
 risolve; non si cancella il ledger per ottenere un altro tentativo. Fatti,
@@ -76,8 +82,8 @@ limita l'osservazione, non la validità della prova: una ricevuta forte tardiva
 resta associata al tentativo immutabile, senza autorizzare un altro invio.
 
 La cancellazione dei documenti persiste `retentionPurgingAt` prima di eliminare
-il primo oggetto. Ogni writer rilegge conservazione e embargo; gli upload
-registrano prima un manifest privato, usano creazione esclusiva e ricontrollano
+il primo oggetto. Ogni writer deve rileggere conservazione e embargo; gli upload
+integrati registrano prima un manifest privato, usano creazione esclusiva e ricontrollano
 l'embargo dopo l'ACK. Una corsa elimina soltanto la propria generazione. Anche
 un errore finale 412 può seguire un upload riuscito con ACK perso: il manifest
 rimane rileggibile dal purger. Un upload dall'esito sconosciuto non viene
@@ -85,6 +91,17 @@ dichiarato concluso perché l'oggetto manca durante un controllo. Il purger
 riesamina i manifest anche dopo la cancellazione dei payload. Dopo l'embargo
 una ricevuta conserva solo hash, tempo, stato, round e hash del tentativo;
 non ricrea CV, allegati, draft, eventi con dati personali o notifiche.
+
+Il primo CV usa un ingresso distinto, autorizzato dall'uploader già verificato:
+non richiede il mandato al datore per la sola memorizzazione. Pagamento,
+assenza di CV e di precedenti anchor, rimborsi ed embarghi restano controllati.
+La prenotazione `initial_cv` conserva la propria generazione fino alla
+pubblicazione atomica di chiave e data del CV. La lease tecnica di 60 secondi
+riusa il limite dell'HTTP e non avvia la conservazione: `cvUploadedAt` nasce
+soltanto dalla pubblicazione riuscita. Un crash precedente lascia un manifest
+rileggibile anche senza anchor; la revoca della singola operazione precede la
+cancellazione della propria generazione e non pone l'intero ordine in embargo.
+Una sostituzione autorizzata conserva la data del CV precedente.
 
 ## Installazione e attivazione
 

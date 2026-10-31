@@ -13,6 +13,7 @@ import { ASSISTED_APPLICATIONS_COLLECTION, FOLLOWUP_DOC_ID, PORTAL_ACCOUNTS_DOC_
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { SUBMISSION_DOC_ID } from './assistedApplicationSubmissionGuard.js';
 import { artifactKeyForOrder, cleanupPendingArtifacts } from './lib/assistedApplicationArtifactRetention.js';
+import { cleanupExpiredInitialCvArtifacts } from './lib/assistedApplicationInitialCvIngress.js';
 
 import { ASSISTED_APPLICATION_RETENTION_DAYS, timestampMillis, retentionAnchor } from './lib/assistedApplicationRetentionPolicy.js';
 export { ASSISTED_APPLICATION_RETENTION_DAYS, retentionPurgeDueAt, talentPoolConsentActive } from './lib/assistedApplicationRetentionPolicy.js';
@@ -127,6 +128,14 @@ export async function purgeExpiredAssistedApplicationFiles(
 
   for (const snapshot of candidates.values()) {
     let order = snapshot.data() || {};
+    // First-upload operations have no CV anchor yet. Revisit their technical
+    // reservations before the normal 90-day eligibility test, without an order embargo.
+    if (order.artifactCleanupPending) {
+      try {
+        await cleanupExpiredInitialCvArtifacts({ db: firestore, bucket, orderRef: snapshot.ref, nowMs });
+        order = (await snapshot.ref.get()).data() || {};
+      } catch { failed += 1; continue; }
+    }
     if (order.retentionPurgedAt || order.retentionPayloadPurgedAt) {
       if (order.artifactCleanupPending) {
         try {
