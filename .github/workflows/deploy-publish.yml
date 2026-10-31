@@ -1666,12 +1666,9 @@ jobs:
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
   # deploy: publish the build run's dist/ to GitHub Pages.
   #
-  # ⚠️ KNOWN FUNNEL-CRITICAL GAP — issue #987: at the current site scale
-  # (~13 GB / ~470k files) actions/deploy-pages aborts at its 10-min polling
-  # cap, so this job can go RED even though GitHub Pages often finishes the
-  # publish server-side afterwards. The extended server-side poll below keeps
-  # the job GREEN when Pages reports the publish succeeded, so validate-live /
-  # publish still run.
+  # Only a successful Pages action or an existing durable receipt proves this
+  # publish. The github-pages environment deployment describes the Actions job,
+  # so its status cannot attest that the Pages backend published the artifact.
   # ───────────────────────────────────────────────────────────────────────
   deploy:
     # Publish only after the explicit source and post-build plans prove every
@@ -1688,7 +1685,7 @@ jobs:
     runs-on: ubuntu-latest
     # GitHub-hosted jobs have a hard six-hour execution ceiling. Keep the
     # publish tail explicit at that maximum so a future default change cannot
-    # shorten the window available to the extended Pages poll below.
+    # shorten the window available to artifact transfer and Pages publishing.
     timeout-minutes: 360
     # Only the actual Pages upload owns this cross-workflow lock. A long
     # validator in another run must not keep a newer build from reaching Pages.
@@ -1710,7 +1707,7 @@ jobs:
       contents: read
       issues: write
       actions: read       # cross-run download-artifact
-      deployments: read   # the extended server-side poll reads /deployments + /statuses
+      deployments: read   # Pages deployment metadata
       statuses: write     # durable Pages deployment receipt
     # ⚠️ This `environment:` is the single point where a run can WEDGE, and it
     # cannot be removed: actions/deploy-pages binds the Pages deployment to this
@@ -1743,17 +1740,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
     steps:
-      - name: Record publish job start
-        id: publish_budget
-        shell: bash
-        run: |
-          set -euo pipefail
-          job_started_at=$(date +%s)
-          job_deadline=$((job_started_at + 360 * 60))
-          echo "job_started_at=${job_started_at}" >> "$GITHUB_OUTPUT"
-          echo "job_deadline=${job_deadline}" >> "$GITHUB_OUTPUT"
-          echo "publish job budget starts at ${job_started_at}; hard deadline ${job_deadline}"
-
       - name: Checkout
         uses: actions/checkout@v7
         with:
@@ -1917,16 +1903,9 @@ jobs:
       # GitHub Pages allows only one deployment at a time. When concurrent
       # pushes trigger this workflow, the second run can hit "in progress
       # deployment" errors. Retry once after a short wait to handle this.
-      #
-      # `actions/deploy-pages@v5` ALSO caps its internal status polling at
-      # 10 minutes (the `timeout: 1800000` we pass is silently clamped to
-      # 600000 — see the warning emitted at start of the step). For sites
-      # with >1M files the Pages backend's `syncing_files` phase can run
-      # well past 10 minutes, causing the action to abort with
-      # `Timeout reached, aborting!` even though the deployment itself
-      # eventually completes server-side. The deployment-status extended
-      # poll below recognises that case and keeps the job green when Pages
-      # reports the publish succeeded.
+      # A failed action is not proof of a completed Pages publish. Preserve
+      # both action errors and fail after the one retry instead of waiting on
+      # this job's own github-pages environment deployment.
       - name: Deploy to GitHub Pages
         id: deployment_first
         if: steps.pages-receipt.outputs.pages_deployed != 'true'
@@ -1939,7 +1918,7 @@ jobs:
       - name: Wait for previous Pages deployment to finish
         if: steps.pages-receipt.outputs.pages_deployed != 'true' && steps.deployment_first.outcome == 'failure'
         run: |
-          echo "::warning::First deploy attempt failed (likely Pages busy or 10-minute polling cap). Retrying in 30s..."
+          echo "::warning::First Pages deploy attempt failed. Retrying once in 30s; see the original action error above."
           sleep 30
 
       - name: Deploy to GitHub Pages (retry)
@@ -1951,92 +1930,24 @@ jobs:
           timeout: 1800000
           error_count: 100
 
-      # actions/deploy-pages aborts at its 10-min polling cap (clamped from our
-      # `timeout: 1800000`), but for a ~13 GB / ~470k-file site GitHub Pages
-      # finishes publishing SERVER-SIDE afterwards. Proven 2026-05-30: run
-      # 26665087347 went red at the cap, yet ~32 min later the github-pages
-      # deployment for its sha reached state=success and the live build-id
-      # advanced (1780052190433 → 1780096323338). So a double action-failure is
-      # NOT a real deploy failure — it just means the publish is still syncing.
-      #
-      # This polls the github-pages DEPLOYMENT(s) for THIS sha until the
-      # remaining deploy-job budget expires and goes GREEN when Pages reports
-      # success — so validate-live → publish (IndexNow, Google Indexing API,
-      # GSC, previous-slug-winners sync, last_known_good) finally run (issue
-      # #987).
-      #
-      # The first step records the job-start budget. The poll derives its
-      # deadline from that absolute timestamp, rather than starting a fresh
-      # 330-minute clock after artifact transfer and the two action attempts.
-      # Keep one minute for the terminal diagnostic/close step; if setup has
-      # already consumed that margin, fail explicitly instead of letting the
-      # runner kill the job and silently skip downstream jobs.
-      #
-      # ONLY `success` is a terminal GREEN. The action emits two attempts
-      # (deployment_first + retry) → two Deployment objects per sha; on abort at
-      # the 10-min cap it may stamp a transient `error`/`failure`/cancel status
-      # BEFORE Pages finishes server-side. So `error`/`failure` are NOT treated
-      # as terminal — we keep polling. We check ALL deployments for the sha and
-      # succeed if ANY is success; we give up early only when EVERY deployment
-      # for the sha is `inactive` (definitively superseded by a newer deploy).
-      - name: Wait for server-side Pages publish (extended, beyond the 10-min action cap)
-        if: steps.pages-receipt.outputs.pages_deployed != 'true' && steps.deployment_first.outcome == 'failure' && steps.deployment.outcome == 'failure'
+      - name: Require successful GitHub Pages deployment
+        if: ${{ always() && steps.pages-receipt.outputs.pages_deployed != 'true' && steps.deployment_first.outcome != 'success' && steps.deployment.outcome != 'success' }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAGES_FIRST_OUTCOME: ${{ steps.deployment_first.outcome }}
+          PAGES_RETRY_OUTCOME: ${{ steps.deployment.outcome }}
         run: |
-          set -uo pipefail
-          job_deadline="${{ steps.publish_budget.outputs.job_deadline }}"
-          deadline=$((job_deadline - 60))
-          now=$(date +%s)
-          if [ "$now" -ge "$deadline" ]; then
-            echo "::error::pre-poll publish steps consumed the available job budget; Pages poll cannot start before the deploy job deadline (${job_deadline})."
-            exit 1
-          fi
-          echo "Pages poll has $((deadline - now)) seconds remaining before the deploy job close margin"
-          gh_api_with_deadline() {
-            local remaining
-            remaining=$((deadline - $(date +%s)))
-            if [ "$remaining" -le 1 ]; then
-              return 124
-            fi
-            timeout --foreground --signal=TERM --kill-after=5s "${remaining}s" gh api "$@"
-          }
-          while [ "$(date +%s)" -lt "$deadline" ]; do
-            ids=$(gh_api_with_deadline "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&sha=${GITHUB_SHA}&per_page=20" --jq '.[].id' 2>/dev/null || echo "")
-            if [ -n "$ids" ]; then
-              any_active=0
-              for d in $ids; do
-                st=$(gh_api_with_deadline "repos/${GITHUB_REPOSITORY}/deployments/${d}/statuses?per_page=1" --jq '.[0].state // empty' 2>/dev/null || echo "")
-                echo "$(date -u +%H:%M:%S) github-pages deployment ${d} state=${st:-<none>}"
-                if [ "$st" = "success" ]; then
-                  echo "✅ GitHub Pages completed the publish server-side (after the action's 10-min cap)."
-                  exit 0
-                fi
-                # error/failure/in_progress/pending/<none> may still reach success → keep waiting
-                if [ "$st" != "inactive" ]; then any_active=1; fi
-              done
-              if [ "$any_active" = "0" ]; then
-                echo "::warning::All github-pages deployments for ${GITHUB_SHA} are inactive (superseded by a newer deploy) — not waiting further."
-                exit 1
-              fi
-            else
-              echo "$(date -u +%H:%M:%S) no github-pages deployment for ${GITHUB_SHA} yet — waiting"
-            fi
-            remaining=$((deadline - $(date +%s)))
-            if [ "$remaining" -le 0 ]; then break; fi
-            sleep_for=60
-            if [ "$remaining" -lt "$sleep_for" ]; then sleep_for="$remaining"; fi
-            sleep "$sleep_for"
-          done
-          echo "::error::GitHub Pages did not report success before the remaining deploy-job budget expired for ${GITHUB_SHA} (job deadline ${job_deadline})."
+          set -euo pipefail
+          echo "::error::GitHub Pages publishing is unconfirmed: no successful deploy-pages attempt (first=${PAGES_FIRST_OUTCOME:-<missing>}, retry=${PAGES_RETRY_OUTCOME:-<missing>})."
+          echo "::error::Original action errors are retained in the Deploy to GitHub Pages and Deploy to GitHub Pages (retry) step logs: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          echo "::error::The github-pages environment deployment is the Actions job state, not a Pages publish receipt; no receipt will be written."
           exit 1
 
-      # Write this only after actions/deploy-pages or the extended server-side
-      # poll has proved success. It is the durable marker used by every later
-      # retry, so a red validator cannot cause a second Pages upload.
+      # Write this only after a Pages action has proved success. This durable
+      # marker prevents a later validator failure from repeating the upload.
       - name: Write durable Pages deployment receipt
         if: >-
-          ${{ success() && steps.pages-receipt.outputs.pages_deployed != 'true' }}
+          ${{ success() && steps.pages-receipt.outputs.pages_deployed != 'true' &&
+              (steps.deployment_first.outcome == 'success' || steps.deployment.outcome == 'success') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SOURCE_RUN_ID: ${{ inputs.source_run_id }}
@@ -2052,7 +1963,7 @@ jobs:
       # `priority:urgent`. Misurato su 30 giorni (97 issue urgent totali), questo
       # è il più prolifico del repo con un body povero — 17 issue, tutte con
       # dentro run/build-run/branch/trigger e NIENTE su quale step sia morto,
-      # mentre il job qui sotto ha 20+ step fra Pages, CDN e il poll server-side.
+      # mentre il job qui sotto ha 20+ step fra Pages e CDN.
       #
       # CHI CHIUDE: lo step gemello "Resolve deploy GitHub Issue on success" qui
       # sotto, con il TITOLO IDENTICO. Il reconciler centrale NON copre questo
@@ -2079,9 +1990,10 @@ jobs:
             - **Build run (quello che ha prodotto l'artifact):** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.source_run_id }}
             - **Branch del build:** ${{ inputs.source_branch }}
             - **Trigger del build:** ${{ inputs.source_event_name }}
-            - Se lo step fallito è `Deploy to GitHub Pages` o il poll esteso, il
-              guasto è lato Pages e non nel dist: guardare prima lo stato dei
-              deployment `github-pages` per questo SHA.
+            - Se fallisce `Require successful GitHub Pages deployment`, consultare
+              gli errori originali di `Deploy to GitHub Pages` e del suo retry.
+              Lo stato environment `github-pages` descrive il job Actions e non
+              prova la pubblicazione dell'artifact sul backend Pages.
 
       - name: Resolve deploy GitHub Issue on success
         if: success()
