@@ -1208,13 +1208,17 @@
           // Keep in sync with AD_BLOCKER_TRIGGER_PATTERNS in services/resilientImport.ts
           // (this inline bootstrap script cannot import a module — see the
           // CHUNK_LOAD_ERROR_SUBSTRINGS comment there for why). issue #4304.
-          var isAdBlocked = /analytics|tracking|adsense|adsbygoogle|googletag|firebase|gtag|recaptcha|clarity\.ms|fundingchoices|cloudflareinsights|t\.frontaliereticino\.ch/i.test(src);
+          var isAdBlocked = /analytics|tracking|adsense|adsbygoogle|googletag|firebase|gtag|recaptcha|clarity\.ms|fundingchoices|cloudflareinsights|doubleclick\.net|googlesyndication\.com|[0-9a-f]{32,}\.com\/tag\/|t\.frontaliereticino\.ch/i.test(src);
 
           // Always store the resource error for analytics (even ad-blocked ones)
           try {
+            if (isAdBlocked) sessionStorage.setItem('_adBlockSeen', '1');
             var errors = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
             errors.push({
               type: tagType,
+              rel: e.target.rel || '',
+              vis: document.visibilityState,
+              online: navigator.onLine,
               url: src.slice(0, 300),
               pagePath: location.pathname + location.search,
               adBlocked: isAdBlocked,
@@ -1354,12 +1358,15 @@
             !/does not provide an export named|import not found|indirect export|Importing binding name/.test(reason)) return;
         // Keep in sync with AD_BLOCKER_TRIGGER_PATTERNS in services/resilientImport.ts
         // (this inline bootstrap script cannot import a module). issue #4304.
-        var isAdBlocked = /analytics|tracking|adsense|adsbygoogle|googletag|firebase|gtag|recaptcha|clarity\.ms|fundingchoices|cloudflareinsights|t\.frontaliereticino\.ch/i.test(reason);
+        var isAdBlocked = /analytics|tracking|adsense|adsbygoogle|googletag|firebase|gtag|recaptcha|clarity\.ms|fundingchoices|cloudflareinsights|doubleclick\.net|googlesyndication\.com|[0-9a-f]{32,}\.com\/tag\/|t\.frontaliereticino\.ch/i.test(reason);
 
         try {
+          if (isAdBlocked) sessionStorage.setItem('_adBlockSeen', '1');
           var errors = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
           errors.push({
             type: 'dynamic_import',
+            vis: document.visibilityState,
+            online: navigator.onLine,
             url: reason.slice(0, 300),
             pagePath: location.pathname + location.search,
             adBlocked: isAdBlocked,

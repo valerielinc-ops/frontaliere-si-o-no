@@ -536,8 +536,11 @@ export function trackAssistedApplicationEvent(
   context: AssistedApplicationEventContext,
 ): void {
   if (shouldSuppressAssistedApplicationEvent()) return;
+  // `details` is the registered GA4 dimension: error_code alone is not queryable.
+  const details = context.details || context.error_code;
   Analytics.trackExperimentEvent(eventName, {
     ...context,
+    ...(details ? { details: String(details).slice(0, 100) } : {}),
     ...(context.copy_variant ? { copy_experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID } : {}),
     ...(context.layout_variant ? { layout_experiment_id: ASSISTED_APPLICATION_LAYOUT_EXPERIMENT_ID } : {}),
     experiment_id: ASSISTED_APPLICATION_EXPERIMENT_ID,

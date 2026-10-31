@@ -298,6 +298,7 @@ import {
  type AssistedApplicationCheckoutError,
  type AssistedApplicationCheckoutResult,
 } from '@/services/assistedApplicationCheckout';
+import { getAssistedPaymentResponseShape } from '@/services/assistedApplicationResponseShape';
 import { readReviewToken } from '@/services/assistedApplicationReviewService';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
@@ -8018,6 +8019,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
      reason: failureReason,
      error_code: errorCode,
+     details: getAssistedPaymentResponseShape(error),
     },
    );
    if (failureReason === 'auth_required') {
