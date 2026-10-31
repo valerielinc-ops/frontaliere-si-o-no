@@ -75,6 +75,7 @@ import { bridgeEmailCascadeCredentialsToEnv } from './src/remoteConfigSecrets.js
 import { handleManageJournalistRole } from './src/journalistRoleCore.js';
 import { handleRedazioneAdmin } from './src/redazioneAdminCore.js';
 import { handleAssistedApplicationAdmin } from './src/assistedApplicationAdminCore.js';
+import { createNativeOperation, disposeNativeOperation } from './src/lib/assistedApplicationNativeOperation.js';
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
@@ -534,17 +535,24 @@ export const manageRedazioneAdmin = onRequest(
 // performs every status/refund mutation server-side; `firestore.rules` keeps
 // the candidate-facing collection non-listable.
 export const manageAssistedApplicationAdmin = onRequest(
-  // 512MiB and 60 s, as assistedApplicationReview: the owner's edit of the letter
-  // compiles it with Typst here, and a process killed for memory cannot fall
-  // back to the standard-font writer as a failed compile does.
-  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: true },
+  // Full native verification shares this one entry deadline with source/GCS reads.
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 120, cors: true },
   async (req, res) => {
+    const disconnected = new AbortController();
+    const onAborted = () => disconnected.abort(new Error('native_operation_disconnected'));
+    const onClosed = () => { if (!res.writableEnded) onAborted(); };
+    req.once('aborted', onAborted); res.once('close', onClosed);
+    if (req.aborted) onAborted();
+    const nativeOperation = createNativeOperation({ signal: disconnected.signal });
     try {
-      const { status, body } = await handleAssistedApplicationAdmin(req);
+      const { status, body } = await handleAssistedApplicationAdmin(req, { nativeOperation });
       res.status(status).json(body);
     } catch (error) {
       console.error('[manageAssistedApplicationAdmin]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
+    } finally {
+      req.removeListener('aborted', onAborted); res.removeListener('close', onClosed);
+      disposeNativeOperation(nativeOperation);
     }
   },
 );
@@ -3069,7 +3077,6 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
       orderId: event.params.orderId,
       messageId: event.params.messageId,
       runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
-        isEnabled: isAutomationEnabledFor,
       classify: (request) => codexStructured(request),
       sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
       // An acknowledgement or a reply settles a submission of unknown outcome.

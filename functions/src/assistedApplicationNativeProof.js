@@ -37,8 +37,9 @@ export async function verifyNativeApplicationClaims({ claims, context, generate 
 }
 
 /** A full form is verified from server-derived coverage, never a client-selected claim subset. */
-export async function verifyNativeApplicationProof({ proof, context, docsManifest = [], generate = generateQualificationJson, signal = null }) {
-  const deadline = AbortSignal.timeout(PROOF_BUDGET_MS);
+export async function verifyNativeApplicationProof({ proof, context, docsManifest = [], generate = generateQualificationJson, signal = null, budgetMs = PROOF_BUDGET_MS }) {
+  if (!Number.isSafeInteger(budgetMs) || budgetMs <= 0) return unknown('proof_deadline');
+  const deadline = AbortSignal.timeout(Math.min(PROOF_BUDGET_MS, budgetMs));
   const cancellation = signal ? AbortSignal.any([signal, deadline]) : deadline;
   let ownedProof; let ownedContext; let ownedManifest; let initialInputHash; let ownedCatalog;
   const inputHash = () => qualificationCounterContextHash({ proof, docsManifest,
