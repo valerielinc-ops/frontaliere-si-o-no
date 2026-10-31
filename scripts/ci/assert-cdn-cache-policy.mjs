@@ -15,7 +15,7 @@
  * the retries is a warning, because this runs after a Worker rollout that must
  * not be reported as failed for a transient CDN error.
  */
-import { pathToFileURL } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
 const MIN_IMMUTABLE_MAX_AGE = 31536000;
@@ -104,6 +104,6 @@ async function main() {
   return problems.length ? 1 : 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   process.exitCode = await main();
 }
