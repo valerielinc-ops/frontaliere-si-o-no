@@ -21,7 +21,7 @@ const enNsFaq: Record<string, string> = {
  'faq.questions.taxes.q3': 'Can I deduct the 3rd pillar in Italy?',
  'faq.questions.taxes.a3': 'Pillar 3a payments are deductible from Swiss withholding tax. In Italy they are not deductible but are included in total income.',
  'faq.questions.taxes.q4': 'What are tax rebates (ristorni)?',
- 'faq.questions.taxes.a4': 'They are 38.8% of withholding taxes paid in CH, returned to Italian border municipalities. Not a direct benefit for the worker.',
+ 'faq.questions.taxes.a4': 'They are 40% of the gross tax on art. 9 cross-border workers, paid by the cantons to Italy through tax year 2033. Not a direct benefit for the worker.',
  'faq.questions.taxes.q5': 'Do I have to declare my Swiss bank account?',
  'faq.questions.taxes.a5': 'Yes, it must be declared in the RW section of the Redditi PF model for tax monitoring. No IVAFE is due on Swiss current accounts.',
  'faq.questions.taxes.q6': 'How does the Modello Redditi PF work for cross-border workers?',

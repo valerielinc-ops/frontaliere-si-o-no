@@ -79,6 +79,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
  const linkedInAvailable = useLinkedInSignInAvailable();
  const googleButtonRef = useRef<HTMLDivElement>(null);
+ const [googleButtonNearViewport, setGoogleButtonNearViewport] = useState(false);
 
 
  // Pre-fill email from auth account (checks providerData for Facebook users)
@@ -162,6 +163,26 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
    return () => { cancelled = true; };
  }, [compact, locale, pendingSocialMethod, t, user]);
 
+ // The compact form sits in the footer of every page and its button pulls the GSI
+ // client (accounts.google.com, about 90 KB plus a long task of about 200 ms). Mount
+ // it when the form approaches the viewport: until then the fallback button below
+ // holds the same min-h-[44px] box, so nothing shifts.
+ useEffect(() => {
+ if (!compact || user) return;
+ const element = googleButtonRef.current;
+ if (!element || typeof IntersectionObserver === 'undefined') {
+ setGoogleButtonNearViewport(true);
+ return;
+ }
+ const observer = new IntersectionObserver((entries) => {
+ if (!entries.some((entry) => entry.isIntersecting)) return;
+ setGoogleButtonNearViewport(true);
+ observer.disconnect();
+ }, { rootMargin: '200px' });
+ observer.observe(element);
+ return () => observer.disconnect();
+ }, [compact, user]);
+
  useEffect(() => {
  let cancelled = false;
 
@@ -171,6 +192,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  setGoogleButtonReady(false);
  return;
  }
+ if (!googleButtonNearViewport) return;
 
  try {
  const ready = await renderGoogleButtonWithReadiness(googleButtonRef.current, {
@@ -193,7 +215,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  return () => {
  cancelled = true;
  };
- }, [compact, user, locale]);
+ }, [compact, googleButtonNearViewport, user, locale]);
 
  const validateEmail = (emailStr: string) => validateEmailStrict(emailStr).valid;
 

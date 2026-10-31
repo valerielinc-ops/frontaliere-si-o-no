@@ -113486,16 +113486,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-mozione-ticino-ristorni-salute': {
     title: 'Mozione in Ticino contro la tassa sulla salute',
-    description: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
+    description: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni.',
     keywords: 'frontalieri, ticino, svizzera, italia, mozione, contro, tassa, sulla',
     ogTitle: 'Ticino: mozione contro la tassa sulla salute',
-    ogDescription: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
+    ogDescription: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni.',
     canonicalPath: '/articoli-frontaliere/mozione-ticino-ristorni-salute/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Mozione in Ticino contro la tassa sulla salute",
-      "description": "Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto",
+      "description": "Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull'articolo 9 Il Ticino minaccia il blocco dei ristorni.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
@@ -113792,6 +113792,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-pensione-snl-sev-attacca/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavori-barriere-antirumore-a8': {
+    title: 'Lavori su barriere antirumore in A8 e D08: guida alle chiusure',
+    description: 'Chiusure notturne su A8 e D08 dal 2 al 6 novembre Prime fasce: dalle 23:00 alle 5:00 Gallarate, Besnate e Busto Arsizio nei percorsi indicati Seconda',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, barriere, antirumore, alle',
+    ogTitle: 'Lavori A8 D08: chiusure notturne 2-6 novembre',
+    ogDescription: 'Chiusure notturne su A8 e D08 dal 2 al 6 novembre Prime fasce: dalle 23:00 alle 5:00 Gallarate, Besnate e Busto Arsizio nei percorsi indicati Seconda fase',
+    canonicalPath: '/articoli-frontaliere/lavori-barriere-antirumore-a8/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori su barriere antirumore in A8 e D08: guida alle chiusure",
+      "description": "Chiusure notturne su A8 e D08 dal 2 al 6 novembre Prime fasce: dalle 23:00 alle 5:00 Gallarate, Besnate e Busto Arsizio nei percorsi indicati Seconda",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lavori-barriere-antirumore-a8.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-31T08:27:34+00:00",
+      "dateModified": "2026-10-31T08:27:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-barriere-antirumore-a8/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bellinzona-imposte-piu-salate-2028': {
+    title: 'A Bellinzona imposte più salate dal 2028 | Frontaliere Ticino',
+    description: 'Il Municipio di Bellinzona annuncia imposte più salate dal 2028. Preventivo 2026 con disavanzo di 10,6 milioni; moltiplicatore 93% per l\'anno',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, imposte, salate, municipio',
+    ogTitle: 'Imposte Bellinzona più salate dal 2028',
+    ogDescription: 'Il Municipio di Bellinzona annuncia imposte più salate dal 2028. Il Preventivo 2026 mostra un disavanzo di 10,6 milioni e il moltiplicatore per l\'anno prossimo è 93%.',
+    canonicalPath: '/articoli-frontaliere/bellinzona-imposte-piu-salate-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Bellinzona imposte più salate dal 2028",
+      "description": "Il Municipio di Bellinzona annuncia imposte più salate dal 2028. Preventivo 2026 con disavanzo di 10,6 milioni; moltiplicatore 93% per l'anno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bellinzona-imposte-piu-salate-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-31T08:56:47+00:00",
+      "dateModified": "2026-10-31T08:56:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-imposte-piu-salate-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-infermieri-osc-sindacati-stipendi': {
+    title: 'Infermieri Osc e sindacati chiedono sblocco stipendi',
+    description: 'La riclassificazione Osc è ferma da anni 2019: classe 4→5 per infermieri, 5→6 per specialità Aumenti annui da 5\'159 a 8\'941 franchi Assemblea il 10',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, sindacati, chiedono, sblocco',
+    ogTitle: 'Infermieri Osc chiedono sblocco stipendi',
+    ogDescription: 'La riclassificazione Osc è ferma da anni 2019: classe 4→5 per infermieri, 5→6 per specialità Aumenti annui da 5\'159 a 8\'941 franchi Assemblea il 10 novembre',
+    canonicalPath: '/articoli-frontaliere/infermieri-osc-sindacati-stipendi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri Osc e sindacati chiedono sblocco stipendi",
+      "description": "La riclassificazione Osc è ferma da anni 2019: classe 4→5 per infermieri, 5→6 per specialità Aumenti annui da 5'159 a 8'941 franchi Assemblea il 10",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-assemblea-ccti-rotta-economia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-31T09:38:45+00:00",
+      "dateModified": "2026-10-31T09:38:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-osc-sindacati-stipendi/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

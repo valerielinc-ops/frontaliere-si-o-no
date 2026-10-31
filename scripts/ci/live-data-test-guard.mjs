@@ -514,6 +514,13 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
  */
 export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
   {
+    file: 'tests/fiscal-facts-forbidden-phrases.test.ts',
+    roots: ['services/locales/'],
+    since: '2026-10-31',
+    evidence: 'review',
+    reason: 'scansiona solo i file regolari di services/locales, tradotti a mano: i blog-meta e blog-body del corpus sono symlink e listFiles li salta con entry.isFile()',
+  },
+  {
     file: 'tests/git-commit-data-decontamination.test.ts',
     roots: ['data/jobs/'],
     reason: 'il test crea le slice data/jobs/by-crawler solo sotto mkdtemp e passa quella root sintetica al loader; non legge le slice vive del checkout',

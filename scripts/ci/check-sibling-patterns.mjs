@@ -248,6 +248,34 @@ function git(args, { allowFail = false } = {}) {
   }
 }
 
+/**
+ * Run the batch object lookup without passing a live stdin pipe to
+ * `spawnSync`. The managed Node runtime used by agent hooks can leave that
+ * pipe open after the input buffer is consumed, so `git cat-file --batch`
+ * never observes EOF. A read-only temporary descriptor preserves the same
+ * request/response protocol and gives the child an unambiguous EOF.
+ *
+ * @param {Buffer} requests
+ * @param {object} options
+ * @returns {import('node:child_process').SpawnSyncReturns<Buffer>}
+ */
+function runGitCatFileBatch(requests, options) {
+  const inputRoot = mkdtempSync(join(tmpdir(), 'frontaliere-cat-file-'));
+  const inputPath = join(inputRoot, 'requests');
+  let inputFd;
+  try {
+    writeFileSync(inputPath, requests);
+    inputFd = openSync(inputPath, 'r');
+    return spawnSync('git', ['cat-file', '--batch'], {
+      ...options,
+      stdio: [inputFd, 'pipe', 'ignore'],
+    });
+  } finally {
+    if (inputFd !== undefined) closeSync(inputFd);
+    rmSync(inputRoot, { recursive: true, force: true });
+  }
+}
+
 function sleepSync(milliseconds) {
   Atomics.wait(SLEEP_CELL, 0, 0, milliseconds);
 }
@@ -451,8 +479,7 @@ function createHeadSnapshotFromObjects() {
     if (files.length === 0) throw new Error('git tree contains no code blobs');
 
     const requests = Buffer.from(files.map(({ oid }) => `${oid}\n`).join(''));
-    const packedResult = spawnSync('git', ['cat-file', '--batch'], {
-      input: requests,
+    const packedResult = runGitCatFileBatch(requests, {
       encoding: 'buffer',
       maxBuffer: 256 * 1024 * 1024,
       timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
@@ -558,12 +585,9 @@ function createHeadSnapshot(files) {
     // Keep the batch protocol here: a later refactor must not accidentally
     // reintroduce one `git show` per file and recreate the multi-pack lookup
     // cost.
-    const blobs = spawnSync(
-      'git',
-      ['cat-file', '--batch'],
+    const blobs = runGitCatFileBatch(
+      Buffer.from(`${entries.map(({ oid }) => oid).join('\n')}\n`),
       {
-        input: Buffer.from(`${entries.map(({ oid }) => oid).join('\n')}\n`),
-        stdio: ['pipe', 'pipe', 'ignore'],
         maxBuffer: 256 * 1024 * 1024,
         timeout: HEAD_SNAPSHOT_TIMEOUT_MS,
         killSignal: 'SIGTERM',
