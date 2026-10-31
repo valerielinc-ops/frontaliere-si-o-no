@@ -75,6 +75,16 @@ describe('loop clock table and cadence', () => {
     });
   });
 
+  it('keeps the hourly AdSense snapshots on the external clock', () => {
+    expect(LOOP_CLOCK_ENTRIES).toContainEqual({
+      id: 'site-adsense-hourly-monitor',
+      repo: 'site',
+      workflow: 'adsense-hourly-monitor.yml',
+      everyMinutes: 60,
+      introducedAt: '2026-10-31T12:00:00Z',
+    });
+  });
+
   it('keeps event description rewriting on the hourly external clock', () => {
     expect(LOOP_CLOCK_ENTRIES).toContainEqual({
       id: 'site-event-description-rewrite',

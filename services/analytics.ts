@@ -120,6 +120,7 @@ import { APPLICATION_CONCIERGE_PATH } from '../functions/src/lib/newsletterUrlPa
 import { readBuildIdForTelemetry } from './buildInfo';
 import { jobGateNewsletterTags } from './jobGateExperiment';
 import { GA4_ERROR_EVENTS, isNonProductionTelemetryHost } from './nonProductionHost';
+import { isStalePassiveGa4Event, neutralizeGa4TrafficParams } from './ga4TrafficParams';
 
 // Keep this named export on the analytics chunk for compatibility with
 // AdSenseBanner assets cached by browsers before the bot gate moved to the
@@ -441,6 +442,8 @@ function _doSetProps(properties: Record<string, string | null>) {
  }
 }
 
+let lastGa4EventAt: number | null = null;
+
 const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
  const onSent = typeof params?.event_callback === 'function' ? params.event_callback as () => void : undefined;
  if (params && 'event_callback' in params) {
@@ -456,6 +459,10 @@ const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
  // production errors: keep them out of the GA4 property the backlog feeder
  // reads (see ./nonProductionHost).
  if (GA4_ERROR_EVENTS.has(eventName) && isNonProductionTelemetryHost()) return;
+ const now = Date.now();
+ if (isStalePassiveGa4Event(eventName, lastGa4EventAt, now)) return;
+ lastGa4EventAt = now;
+ params = neutralizeGa4TrafficParams(params);
  if (_firebaseReady) {
   _doLog(eventName, params, onSent);
  } else {

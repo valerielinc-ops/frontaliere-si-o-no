@@ -1,56 +1,20 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-30T21:24:37.864Z",
+  "generatedAt": "2026-10-31T09:22:39.560Z",
   "total": 19,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 15,
-  "durationMs": 4823,
-  "avgDurationMs": 4823,
+  "unchangedCount": 16,
+  "durationMs": 5300,
+  "avgDurationMs": 5300,
   "durationHistory": [
-    4823
+    5300
   ],
-  "newJobs": [
-    {
-      "title": "Im Auftrag eines strukturierten Industrieunternehmens im Bereich",
-      "slug": "im-auftrag-eines-strukturierten-industrieunternehmens-im-bereich-lwp-ledermann-wieting-partners-switzerland",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/verkaufsleiter_in_industrieverpackungen.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "id": "lwphr-8d717757acb5",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-30T21:24:25.570Z",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 13
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "​RELATIONSHIP MANAGERS O PRIVATE BANKERS",
@@ -167,6 +131,40 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Im Auftrag eines strukturierten Industrieunternehmens im Bereich",
+      "slug": "a-nome-di-un-impresa-industriale-strutturata-nel-settore-lwp-ledermann-wieting-partners",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/verkaufsleiter_in_industrieverpackungen.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "lwphr-8d717757acb5",
+      "firstSeenAt": "2026-10-30T21:24:25.570Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 13
+      }
+    },
     {
       "title": "gruppi di capacità.",
       "slug": "gruppi-di-capacita-lwp-ledermann-wieting-partners-switzerland",
@@ -685,5 +683,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

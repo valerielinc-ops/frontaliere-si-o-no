@@ -584,6 +584,34 @@ describe('buildJobPostingSchema — industry / occupationalCategory (derived fro
     expect(schema.occupationalCategory).toBeUndefined();
   });
 
+  it('omits a health sector the title and employer do not support', () => {
+    const job = (title: string, company: string): JobInput => ({
+      title,
+      description:
+        'Descrizione sufficientemente lunga da superare la soglia minima richiesta dal builder dello schema.',
+      company,
+      city: 'Lugano',
+      sector: 'Sanità / Ospedali',
+    });
+    expect(buildJobPostingSchema(job('Maestra di scuola elementare', 'Scuole comunali'), OPTS).industry).toBeUndefined();
+    expect(buildJobPostingSchema(job('Maestra', 'Ospedale Regionale'), OPTS).industry).toBeUndefined();
+    expect(buildJobPostingSchema(job('Projektleiter Strasse', 'Stadt Bern'), OPTS).industry).toBeUndefined();
+    expect(buildJobPostingSchema(job('Impiegata contabile', 'Clinica Luganese'), OPTS).industry).toBe('Sanità / Ospedali');
+    expect(buildJobPostingSchema(job('Pflegefachfrau HF', 'Stadt Bern'), OPTS).industry).toBe('Sanità / Ospedali');
+  });
+
+  it.each(['Altro', 'other'])('omits the catch-all sector %s', (sector) => {
+    const job: JobInput = {
+      title: 'Ruolo generico',
+      description:
+        'Descrizione generica sufficientemente lunga da superare la soglia minima richiesta dal builder.',
+      company: 'Ditta Anonima',
+      city: 'Lugano',
+      sector,
+    };
+    expect(buildJobPostingSchema(job, OPTS).industry).toBeUndefined();
+  });
+
   it('omits occupationalCategory when the category/sector text is unmapped', () => {
     const job: JobInput = {
       title: 'Ruolo generico',
@@ -728,6 +756,17 @@ describe('buildJobPostingSchema — validThrough source-first fallback', () => {
     expect(fromCrawl.validThrough).toBe('2026-11-30T00:00:00.000Z');
     const fromPosted = buildJobPostingSchema(job({ postedDate: '2025-09-20' }), { ...OPTS, now });
     expect(Number.isNaN(new Date(fromPosted.validThrough).getTime())).toBe(false);
+  });
+
+  it('derives the deadline from the last sighting, never from the build date', () => {
+    const now = new Date('2026-10-26T00:00:00.000Z');
+    const stale = buildJobPostingSchema(job({ crawledAt: '2026-08-01T00:00:00.000Z', postedDate: '2026-07-20' }), { ...OPTS, now });
+    expect(stale.validThrough).toBe('2026-09-30T00:00:00.000Z');
+    const otherBuild = buildJobPostingSchema(job({ crawledAt: '2026-08-01T00:00:00.000Z', postedDate: '2026-07-20' }), {
+      ...OPTS,
+      now: new Date('2026-12-01T00:00:00.000Z'),
+    });
+    expect(otherBuild.validThrough).toBe(stale.validThrough);
   });
 
   it('keeps a future source deadline verbatim', () => {

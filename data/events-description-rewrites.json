@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-31T08:20:35.277Z",
+  "generatedAt": "2026-10-31T10:21:56.157Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -148280,6 +148280,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-15T15:08:31.741Z"
     },
+    "myswitzerland:cff781ea4ae7416b8dd1609b759164d2::e734b05c282dc6bca9f884b4d46c10a90e80d64fd3bcb1b0b266305535023958": {
+      "id": "myswitzerland:cff781ea4ae7416b8dd1609b759164d2",
+      "sourceDescriptionHash": "e734b05c282dc6bca9f884b4d46c10a90e80d64fd3bcb1b0b266305535023958",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Schönried; comune: Saanen; cantone: BE; categoria: Event; data: 2027-06-03; ora: 21:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Schönried; comune: Saanen; cantone: BE; categoria: Event; data: 2027-06-03; ora: 21:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Schönried; municipality: Saanen; canton: BE; category: Event; date: 2027-06-03; time: 21:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Schönried; gemeinde: Saanen; kanton: BE; kategorie: Event; datum: 2027-06-03; uhrzeit: 21:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Schönried; commune: Saanen; canton: BE; catégorie: Event; date: 2027-06-03; heure: 21:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-31T09:16:44.568Z"
+    },
     "myswitzerland:cffa1a5bc7d14d15bcdc70c35755bf70::9c0b2da2459ec3b0e7191dd5bb76f60b79753c2f224a94d8861fa564782b926e": {
       "id": "myswitzerland:cffa1a5bc7d14d15bcdc70c35755bf70",
       "sourceDescriptionHash": "9c0b2da2459ec3b0e7191dd5bb76f60b79753c2f224a94d8861fa564782b926e",
@@ -177905,8 +177919,8 @@
       "id": "ge-agenda:hallomania-grand-chasse-bonbons-vieille-ville-geneve",
       "sourceDescriptionHash": "cadc3bfe0d850d3df4bfe1be04f636f2eb36aa22b609b0bd6c720a0aae21f3fa",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-31T07:17:43.997Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-31T10:17:54.118Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -184513,15 +184527,6 @@
       "code": "new-date-or-price",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-18T00:55:57.717Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:cff781ea4ae7416b8dd1609b759164d2::e734b05c282dc6bca9f884b4d46c10a90e80d64fd3bcb1b0b266305535023958": {
-      "id": "myswitzerland:cff781ea4ae7416b8dd1609b759164d2",
-      "sourceDescriptionHash": "e734b05c282dc6bca9f884b4d46c10a90e80d64fd3bcb1b0b266305535023958",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-16T03:28:50.199Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

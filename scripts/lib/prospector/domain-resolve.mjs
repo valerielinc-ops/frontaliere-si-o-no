@@ -106,8 +106,11 @@ export function verifyOwnership(html, employer) {
   return { score, evidence };
 }
 
+/** The application address already vouches for the domain, so one more signal beside the name settles it. */
+const HINTED_DOMAIN_MIN_SCORE = 2;
+
 /**
- * @param {{ name: string, city?: string, zip?: string }} employer
+ * @param {{ name: string, city?: string, zip?: string, domainHints?: string[] }} employer
  * @param {{ minScore?: number }} [opts]
  * @returns {Promise<{ domain: string|null, score: number, evidence: string[], tried: number, retryable: boolean, failureStatuses: number[] }>}
  */
@@ -115,6 +118,35 @@ export async function resolveDomain(employer, opts = {}) {
   const minScore = opts.minScore ?? 3;
   const guesses = domainGuesses(employer.name);
   let best = { domain: null, score: 0, evidence: [], tried: 0, retryable: false, failureStatuses: [] };
+  const triedHints = [];
+  for (const hint of employer.domainHints || []) {
+    best.tried++;
+    triedHints.push(hint);
+    let res;
+    try {
+      res = await politeFetch(`https://${hint}/`, opts);
+    } catch {
+      res = { ok: false, status: 0, body: '', transportError: 'network' };
+    }
+    if (!res.ok) {
+      best.failureStatuses.push(Number(res.status) || 0);
+      if (retryableResponse(res)) best.retryable = true;
+      continue;
+    }
+    if (res.body.length < 400) continue;
+    const v = verifyOwnership(res.body, employer);
+    // An agency's site can match the town and the country, never the employer.
+    const namesEmployer = v.evidence.some((e) => e === 'all-tokens' || e === 'title' || e.startsWith('tokens:'));
+    if (namesEmployer && v.score >= HINTED_DOMAIN_MIN_SCORE) {
+      return {
+        ...best,
+        domain: registrableDomain(new URL(res.url).hostname),
+        score: v.score,
+        evidence: [...v.evidence, 'email-domain'],
+        triedHints,
+      };
+    }
+  }
   for (const g of guesses) {
     best.tried++;
     let res;
@@ -141,5 +173,5 @@ export async function resolveDomain(employer, opts = {}) {
     }
     if (best.score >= minScore + 1) break; // decisive, stop paying for more probes
   }
-  return best.score >= minScore ? best : { ...best, domain: null };
+  return best.score >= minScore ? { ...best, triedHints } : { ...best, domain: null, triedHints };
 }

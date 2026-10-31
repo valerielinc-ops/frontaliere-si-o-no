@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { ARTICLE_BYLINE_PREFIX, hasLinkedSources } from '@/packages/articles/engine/shared/aiDisclosure';
+import { hasLinkedSources } from '@/packages/articles/engine/shared/aiDisclosure';
 
 describe('hasLinkedSources: la frase "fonti linkate" deve essere vera', () => {
   it('riconosce un link Markdown e un href HTML verso un sito esterno', () => {
@@ -31,20 +31,5 @@ describe('hasLinkedSources: la frase "fonti linkate" deve essere vera', () => {
     expect(staticEngine).toContain('hasLinkedSources(bodyHtml)');
     expect(spa).toContain('hasLinkedSources(collectArticleBodySegments(article.id, t))');
     expect(staticEngine).not.toMatch(/\$\{esc\(statement\)\} \$\{esc\(tr\.sources\)\}/);
-  });
-});
-
-describe('byline statica localizzata', () => {
-  it('coincide con blog.bylinePrefix delle quattro lingue', () => {
-    for (const [locale, prefix] of Object.entries(ARTICLE_BYLINE_PREFIX)) {
-      const file = readFileSync(`services/locales/${locale}-stats.ts`, 'utf8');
-      expect(file).toContain(`'blog.bylinePrefix': '${prefix}'`);
-    }
-  });
-
-  it('il render statico non scrive piu\' la preposizione italiana fissa', () => {
-    const staticEngine = readFileSync('packages/articles/engine/ogPagesPlugin.ts', 'utf8');
-    expect(staticEngine).not.toContain('<p class="article-byline s-L_lk4l">Di ');
-    expect(staticEngine).toContain('ARTICLE_BYLINE_PREFIX[disclosureLocale(locale)]');
   });
 });

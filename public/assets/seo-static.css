@@ -3256,3 +3256,9 @@ html.dark .leaflet-control-zoom-in:hover,
 html.dark .leaflet-control-zoom-out:hover {
   background: var(--_surface-raised);
 }
+
+/* Bersagli touch e URL lunghi delle pagine statiche (audit mobile 31/10/2026). */
+.s-bcl,.fh-lnk,main li > a { display:inline-block;min-height:24px;line-height:24px }
+.seo-locale-variants a { display:inline-block;min-height:44px;line-height:44px;padding:0 4px }
+main a { overflow-wrap:anywhere }
+main p a,.fh-lnk { text-decoration:underline;text-underline-offset:2px }

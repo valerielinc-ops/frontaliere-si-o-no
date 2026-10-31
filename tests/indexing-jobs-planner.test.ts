@@ -14,15 +14,24 @@ import {
   observeSitemap,
   planSubmissions,
   recordOutcome,
+  recordNotification,
+  reserveQuota,
   judgeLive,
   spentOn,
   backlogRank,
   DELETE_SHARE,
   GONE_FORGET_DAYS,
 } from '../scripts/lib/indexing-jobs-planner.mjs';
-import { parseArgs, runBudgetFor, DAILY_BUDGET } from '../scripts/submit-google-indexing-jobs.js';
+import {
+  parseArgs,
+  runBudgetFor,
+  runLiveChecks,
+  LIVE_CHECK_CONCURRENCY,
+  DAILY_BUDGET,
+} from '../scripts/submit-google-indexing-jobs.js';
 
 const S = 'https://frontaliereticino.ch';
+const testDay = '2026-10-24';
 const job = (p: string) => `${S}${p}`;
 
 describe('quotaDayKey', () => {
@@ -66,9 +75,24 @@ describe('sitemap parsing', () => {
 });
 
 describe('ledger', () => {
-  it('falls back to a fresh ledger on garbage or version mismatch', () => {
-    expect(loadLedger('not json', '2026-10-24')).toEqual(createLedger('2026-10-24'));
-    expect(loadLedger(JSON.stringify({ version: 999, urls: {} }), '2026-10-24').version).toBe(1);
+  it('starts from zero only when no ledger exists', () => {
+    expect(loadLedger(null, '2026-10-24')).toEqual(createLedger('2026-10-24'));
+  });
+
+  it('rejects anything that would forget the spent quota', () => {
+    const valid = createLedger('2026-10-24');
+    expect(loadLedger('not json', '2026-10-24')).toBeNull();
+    expect(loadLedger('', '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, version: 999 }), '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, days: undefined }), '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, days: ['1999'] }), '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, days: { '2026-10-24': 'many' } }), '2026-10-24')).toBeNull();
+    expect(loadLedger(JSON.stringify({ ...valid, days: { '2026-10-24': -1 } }), '2026-10-24')).toBeNull();
+  });
+
+  it('accepts ledgers written before notifications existed', () => {
+    const { notifications: _omitted, ...legacy } = createLedger('2026-10-24');
+    expect(loadLedger(JSON.stringify(legacy), '2026-10-24')?.notifications).toEqual({});
   });
 
   it('marks URLs that left the sitemaps and forgets them after the retention window', () => {
@@ -80,6 +104,49 @@ describe('ledger', () => {
     observeSitemap(l, [], later);
     expect(l.urls[job('/cerca-lavoro-ticino/a/')]).toBeUndefined();
   });
+
+  it('shares the 2,000-request day between job and article callers', () => {
+    const l = createLedger(testDay);
+    l.days[testDay] = 1_960; // 1,960 job publishes already accounted for.
+    const articleUrls = Array.from({ length: 40 }, (_, i) => `${S}/articoli-frontaliere/article-${i}/`);
+
+    for (const url of articleUrls) {
+      expect(reserveQuota(l, testDay)).toBe(true);
+      recordNotification(l, { url, source: 'article' }, { ok: true, status: 200 }, testDay);
+    }
+
+    expect(spentOn(l, testDay)).toBe(DAILY_BUDGET);
+    expect(reserveQuota(l, testDay)).toBe(false);
+    expect(Object.keys(l.notifications)).toHaveLength(40);
+    expect(l.notifications[articleUrls[0]]).toMatchObject({ source: 'article', sent: testDay });
+  });
+});
+
+describe('bounded live-check queue', () => {
+  it('handles 2,000 timeout-equivalent checks without serial execution', async () => {
+    let active = 0;
+    let peak = 0;
+    const plan = Array.from({ length: 2_000 }, (_, i) => ({
+      url: `${S}/cerca-lavoro-ticino/job-${i}/`,
+      type: 'URL_UPDATED' as const,
+    }));
+    const started = Date.now();
+    const results = await runLiveChecks(plan, {
+      concurrency: LIVE_CHECK_CONCURRENCY,
+      check: async () => {
+        active += 1;
+        peak = Math.max(peak, active);
+        await new Promise((resolve) => setTimeout(resolve, 20));
+        active -= 1;
+        return 'transient' as const;
+      },
+    });
+
+    expect(results).toHaveLength(2_000);
+    expect(results.every(({ verdict }) => verdict === 'transient')).toBe(true);
+    expect(peak).toBeLessThanOrEqual(LIVE_CHECK_CONCURRENCY);
+    expect(Date.now() - started).toBeLessThan(5_000);
+  }, 10_000);
 });
 
 describe('planSubmissions', () => {
@@ -199,21 +266,21 @@ describe('judgeLive — never notify a non-job page, never delete a live one', (
 
 describe('submit-google-indexing-jobs CLI', () => {
   it('clamps --max to the daily job budget', () => {
-    expect(parseArgs(['--max', '999']).max).toBe(DAILY_BUDGET);
+    expect(parseArgs(['--max', '9999']).max).toBe(DAILY_BUDGET);
     expect(parseArgs([]).max).toBe(15);
     expect(parseArgs(['--max', '130', '--priority-file', '/tmp/p.json', '--dry-run'])).toMatchObject({ max: 130, priorityFile: '/tmp/p.json', dryRun: true });
   });
 
   it('the first run of the quota day takes the large share, later runs the small one, never past the budget', () => {
-    const args = parseArgs(['--max', '15', '--max-first-run', '130']);
-    expect(runBudgetFor(args, 0)).toBe(130);
-    expect(runBudgetFor(args, 130)).toBe(15);
-    expect(runBudgetFor(args, 159)).toBe(1);
+    const args = parseArgs(['--max', '15', '--max-first-run', '2000']);
+    expect(runBudgetFor(args, 0)).toBe(2000);
+    expect(runBudgetFor(args, 200)).toBe(15);
+    expect(runBudgetFor(args, 1999)).toBe(1);
     expect(runBudgetFor(args, DAILY_BUDGET)).toBe(0);
   });
 
   it('an explicit --max 0 is a hard cap, even on the first run of the quota day', () => {
-    expect(runBudgetFor({ max: 0, maxFirstRun: 130 }, 0)).toBe(0);
-    expect(runBudgetFor(parseArgs(['--max', '0', '--max-first-run', '130']), 0)).toBe(0);
+    expect(runBudgetFor({ max: 0, maxFirstRun: 2000 }, 0)).toBe(0);
+    expect(runBudgetFor(parseArgs(['--max', '0', '--max-first-run', '2000']), 0)).toBe(0);
   });
 });

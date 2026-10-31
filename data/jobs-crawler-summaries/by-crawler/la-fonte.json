@@ -1,61 +1,19 @@
 {
   "key": "la-fonte",
   "label": "La Fonte",
-  "generatedAt": "2026-10-30T21:31:08.516Z",
+  "generatedAt": "2026-10-31T09:29:02.070Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3258,
-  "avgDurationMs": 3258,
+  "unchangedCount": 3,
+  "durationMs": 3759,
+  "avgDurationMs": 3759,
   "durationHistory": [
-    3258
+    3759
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "Stagiaire",
-      "slug": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-      "company": "Fondazione La Fonte",
-      "companyKey": "la-fonte",
-      "location": "Luganese, Malcantone",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone#:~:text=Stagiaire",
-      "applyUrl": "https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone#:~:text=Stagiaire",
-      "category": "internship",
-      "sector": "Servizi sociali / Non-profit",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "source": "la-fonte-crawler",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "sourceLang": "it",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "2026-10-30T21:30:59.980Z",
-      "id": "fondazione-la-fonte-8ea3b422c946",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Luganese, Malcantone",
-      "addressRegion": "TI",
-      "postalCode": "6500",
-      "firstSeenAt": "2026-05-17T10:35:50.358Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +39,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-30T21:30:59.980Z",
+      "crawledAt": "2026-10-31T09:28:50.548Z",
       "id": "fondazione-la-fonte-319213f47039",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -98,6 +56,47 @@
         "richness": 24,
         "translation": 23,
         "completeness": 20
+      }
+    },
+    {
+      "title": "Stagiaire",
+      "slug": "apprendistato-fondazione-la-fonte-luganese-malcantone",
+      "company": "Fondazione La Fonte",
+      "companyKey": "la-fonte",
+      "location": "Luganese, Malcantone",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone#:~:text=Stagiaire",
+      "applyUrl": "https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone#:~:text=Stagiaire",
+      "category": "internship",
+      "sector": "Servizi sociali / Non-profit",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "source": "la-fonte-crawler",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "sourceLang": "it",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "2026-10-31T09:28:50.548Z",
+      "id": "fondazione-la-fonte-8ea3b422c946",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Luganese, Malcantone",
+      "addressRegion": "TI",
+      "postalCode": "6500",
+      "firstSeenAt": "2026-05-17T10:35:50.358Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
       }
     },
     {
@@ -123,7 +122,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-30T21:30:59.980Z",
+      "crawledAt": "2026-10-31T09:28:50.548Z",
       "id": "fondazione-la-fonte-485211a481ee",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -143,5 +142,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
 }

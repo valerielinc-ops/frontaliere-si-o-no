@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+ "whatsNew.v39910.title": "Chi scrive e come si finanzia il sito",
+ "whatsNew.v39910.authors.title": "Autori e firme in una pagina",
+ "whatsNew.v39910.authors.desc": "La nuova pagina Autori distingue le persone reali dalle firme editoriali della redazione. Accanto al nome trovi la natura della firma e l’uso dell’IA, e le pagine con link partner spiegano come si finanzia il sito.",
  "whatsNew.v3999.title": "Salva ogni offerta, ovunque",
  "whatsNew.v3999.jobSave.title": "Il segnalibro su tutte le card",
  "whatsNew.v3999.jobSave.desc": "Ora puoi salvare un’offerta da ogni card del sito: pagine azienda, città, settori e articoli. Se non hai ancora un account, ti chiediamo di crearlo e l’offerta viene salvata subito dopo.",
