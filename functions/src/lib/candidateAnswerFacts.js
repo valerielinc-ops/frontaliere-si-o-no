@@ -36,7 +36,8 @@ function namedSubject(value, type) {
 }
 function unqualified(question) {
   const label = words(question.question);
-  return !question.context && !question.section && !question.autocomplete && !Object.hasOwn(question, 'addressContext') && question.source !== 'policy_default'
+  return !question.context && !question.section && !question.autocomplete && !question.why && !Object.hasOwn(question, 'originalNativeContract')
+    && !['ownConsentText', 'ownConsentQuestionLabels', 'ownConsentLinks', 'ownConsentOwnerKey', 'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'consentOwnershipUnknown', 'questionOwned', 'metadataComplete', 'ownershipUnknown'].some(field => Object.hasOwn(question, field)) && !Object.hasOwn(question, 'addressContext') && question.source !== 'policy_default'
     && (!question.applicationQuestion || words(question.applicationQuestion) === label);
 }
 

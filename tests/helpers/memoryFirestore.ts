@@ -40,9 +40,11 @@ export function createMemoryFirestore(initial: Record<string, Data> = {}) {
         const data = docs.get(path);
         return { id, ref, exists: data !== undefined, data: () => (data === undefined ? undefined : structuredClone(data)) };
       },
-      async set(data: Data, options?: { merge?: boolean }) {
+      async set(data: Data, options?: { merge?: boolean; mergeFields?: string[] }) {
         const current = docs.get(path);
-        docs.set(path, options?.merge && current ? deepMerge(current, data) : { ...data });
+        docs.set(path, options?.mergeFields
+          ? { ...current, ...Object.fromEntries(options.mergeFields.map(field => [field, data[field]])) }
+          : options?.merge && current ? deepMerge(current, data) : { ...data });
       },
       async delete() {
         docs.delete(path);

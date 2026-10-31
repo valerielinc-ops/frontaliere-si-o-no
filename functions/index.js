@@ -1,3 +1,4 @@
+import { answerContractRequired } from './src/assistedApplicationAnswerConfirmation.js';
 import { purgeConciergeEligibility } from './src/applicationConciergeEligibility.js';
 import { HttpsError, onCall, onRequest } from 'firebase-functions/v2/https';
 import { handleJobsSourceRelay } from './src/jobsSourceRelay.js';
@@ -3089,6 +3090,7 @@ export const assistedApplicationReview = onRequest(
         runEffect: (context) => runAutomationEffect(context),
         signUrl: (key) => resolveAssistedApplicationFileLink(key),
         checkAnswers: (input) => checkAssistedApplicationAnswers(input),
+        requireAnswerContracts: req.method === 'POST' ? await answerContractRequired(getRemoteConfigValue) : false,
         // A follow-up the candidate sends right away (af1 link).
         sendCascade: async (emails, options) => {
           await bridgeEmailCascadeCredentialsToEnv();

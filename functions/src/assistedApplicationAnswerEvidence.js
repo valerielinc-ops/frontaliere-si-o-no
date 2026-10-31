@@ -1,12 +1,18 @@
+import { candidateAnswerFact } from './lib/candidateAnswerFacts.js';
+import { answerConflictMetadata } from './lib/answerSourceConflict.js';
+import { qualificationAnswerOriginContext, qualificationCounterContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
+import { isConsentRefusal } from './lib/applicationConsent.js';
+import { localAnswerEvidence, localAnswerSourceConflicts, sameAnswerMaterial, answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
+import { createAnswerSourceGuard } from './assistedApplicationAnswerSourceGuard.js';
+import { answerQuestionDescriptor as descriptor } from './lib/applicationQuestionContract.js';
 import { isPortableCandidateLanguageQuestion } from './lib/candidateLanguageQuestion.js';
 import { addressContextContract } from './lib/addressContextContract.js';
 /** Shared answers keep their question and attested source. Opaque legacy values are never promoted. */
 import { createHash } from 'node:crypto';
-import { candidateAnswerFact } from './lib/candidateAnswerFacts.js';
 import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { languageCodesIn, isLanguageAbilityQuestion } from './lib/languageFacts.js';
-import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
+import { retentionPurgeDueAt } from './assistedApplicationRetention.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
 export const ANSWER_EVIDENCE_VERSION = 'confirmed-question-evidence-v1';
@@ -18,40 +24,36 @@ const canonical = value => Array.isArray(value) ? value.map(canonical) : value &
   ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, item]) => [key, canonical(item)])) : value;
 const serialized = value => JSON.stringify(canonical(value));
 const same = (a, b) => serialized(a) === serialized(b);
+function groupCounterContexts(entries) {
+  const groups = new Map();
+  for (const entry of entries) {
+    const key = serialized([entry.orderId, entry.round, entry.confirmedHash, entry.currentHash]);
+    if (!groups.has(key)) groups.set(key, { ...entry, answerIds: [] });
+    groups.get(key).answerIds.push(...entry.answerIds);
+  }
+  return [...groups.values()].map(entry => ({ ...entry, answerIds: [...new Set(entry.answerIds)].sort() }));
+}
 const PRIVACY = /\b(?:privacy|datenschutz|confidentialite|consent\w*|consens\w*|einwillig\w*|zustimm\w*|einverstanden|speicher\w*|agree|accept\w*|accett\w*|autorizz\w*|authoriz\w*|permission|marketing|newsletter|data processing|trattamento|traitement|verarbeitung|terms|conditions|condizioni)\b/;
 const FACT_QUESTION = /^(?:do you (?:hold|have|possess)|have you|how many|what is your|what are your|which\b.{0,80}\bdo you (?:hold|have)|hai\b|possiedi\b|qual(?:e|i| e)\b|quanti\b|da quanti\b|verfugen sie\b|haben sie\b|besitzen sie\b|welche\b|wie viele\b|avez vous\b|possedez vous\b|quel(?:le|s|les)?\b|combien\b)/;
 const LANGUAGE_QUESTION = /^(?:what is your|what are your|how would you describe your|is your|do you speak|can you speak|qual e il tuo|qual e la tua|parli|conosci|wie ist ihr|wie ist dein|wie sind ihre|welches niveau|sprechen sie|quel est votre|parlez vous)\b/;
 const MOBILITY_QUESTION = /^(?:can you|are you|do you|puoi|sei|hai|konnen sie|sind sie|haben sie|pouvez vous|etes vous|avez vous)\b/;
 const LEVEL = /^(?:[abc][12]|native|mother tongue|madrelingua|muttersprache|langue maternelle)$/;
 
-function descriptor(question) {
-  const q = object(question);
-  const ownership = addressContextContract(q);
-  if (ownership === null) return null;
-  const fields = ['id', 'question', 'applicationQuestion', 'context', 'section', 'autocomplete', 'source', 'minDate'];
-  if (fields.some(field => String(q[field] || '').length > 1000) || Array.isArray(q.options) && q.options.length > 100) return null;
-  if (!['text', 'number', 'date', 'yes_no', 'choice', 'checkbox', 'multi_choice'].includes(q.type)
-    || q.required != null && typeof q.required !== 'boolean') return null;
-  return { ...Object.fromEntries(fields.map(field => [field, String(q[field] || '').trim()])),
-    ...(ownership === undefined ? {} : { addressContext: ownership }),
-    required: Boolean(q.required), type: String(q.type || 'text'), options: Array.isArray(q.options) ? q.options : [], validation: object(q.validation) };
-}
+
 function semantics(question, answer, nowMs = Date.now()) {
   const key = candidateQuestionAnswerKey(question);
   const label = norm(question.question);
-  const text = norm([question.question, question.applicationQuestion, question.context, question.section].join(' '));
-  if (addressContextContract(question)?.unknown) return null;
+  const native = question.originalNativeContract || {};
+  const text = norm([question.question, question.applicationQuestion, question.context, question.section, ...(question.ownConsentText || []), ...(question.ownConsentLinks || []), native.question, native.context, native.section, ...(native.ownConsentText || []), ...(native.ownConsentLinks || [])].join(' '));
+  if (addressContextContract(question)?.unknown || question.ownershipUnknown === true || question.metadataComplete === false) return null;
   if (!key || question.source === 'policy_default') return null;
   const typed = candidateAnswerFact(question, answer, { nowMs });
-  if (typed) {
-    const { category, unit, scope, ...fact } = typed;
-    return { category, unit, scope, fact };
-  }
+  if (typed) { const { category, unit, scope, ...fact } = typed; return { category, unit, scope, fact }; }
   if (PRIVACY.test(text)) return null;
   const language = /^language_([a-z]{2})_(any|oral|written)_(proficiency|ability|threshold_[abc][12])$/.exec(key);
   if ((language || languageCodesIn(question.question).length === 1 && isLanguageAbilityQuestion(question.question)) && LANGUAGE_QUESTION.test(label)) {
     const levelAnswer = ['text', 'choice'].includes(question.type) && LEVEL.test(norm(answer));
-    const portable = language?.[2] === 'any' && language?.[3] === 'proficiency' && levelAnswer && isPortableCandidateLanguageQuestion(question);
+    const portable = language?.[2] === 'any' && language?.[3] === 'proficiency' && levelAnswer && !question.why && !Object.hasOwn(question, 'originalNativeContract') && isPortableCandidateLanguageQuestion(question);
     const unit = levelAnswer ? 'CEFR_or_stated_level' : ['yes_no', 'checkbox'].includes(question.type) ? 'boolean'
       : question.type === 'number' ? 'question_specific_number' : 'question_specific_text';
     return { category: 'language', unit, scope: portable ? 'candidate' : 'job' };
@@ -67,18 +69,14 @@ function semantics(question, answer, nowMs = Date.now()) {
   if (MOBILITY_QUESTION.test(label) && /\b(?:residen\w*|relocat\w*|trasfer\w*|wohnsitz|umzug|domicil\w*|demenag\w*)\b/.test(text)) return { category: 'mobility', unit, scope: 'job' };
   return null;
 }
-function retained(order, nowMs) {
-  if (!order || order.retentionPurgedAt != null) return false;
-  const due = retentionPurgeDueAt(order);
-  return talentPoolConsentActive(order) || Number.isFinite(due) && nowMs < due;
-}
+const retained = answerSourceRetained;
 function provenance({ actor, order, orderId, round, nowMs }) {
   return { actor, userId: order.userId, orderId, round, confirmedAt: nowMs, retentionAt: retentionPurgeDueAt(order),
     jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || '') };
 }
 
 /** One transaction applies the same accepted keys to raw values and their evidence/clear clocks. */
-export function planCandidateAnswerEvidence({ questions = [], changed = {}, previous = {}, latestWriteAt = 0, orderId, order = {}, flow = {}, draft = {}, actor, nowMs }) {
+export function planCandidateAnswerEvidence({ questions = [], changed = {}, previous = {}, latestWriteAt = 0, orderId, order = {}, flow = {}, draft = {}, actor, nowMs, limit = 80, confirmations = null }) {
   const records = { ...object(previous) };
   const accepted = new Set();
   const round = Number(flow.round || 1);
@@ -98,21 +96,28 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, prev
     if (Number(old?.provenance?.confirmedAt) > nowMs) continue;
     const raw = group[0]; const answer = changed[raw.id];
     if (old?.provenance?.confirmedAt === nowMs && (same(old.answer, answer) || old.cleared && !hasAnswer(answer))) continue;
-    const source = provenance({ actor, order, orderId, round, nowMs });
+    const receipt = confirmations?.[raw.id];
+    const source = { ...provenance({ actor, order, orderId, round, nowMs }), questionId: raw.id,
+      ...(receipt ? { confirmationId: receipt.id, contractHash: receipt.contractHash, cvHash: receipt.provenance.cvHash, sourceCounterHash: receipt.provenance.sourceCounterHash } : {}) };
     const question = descriptor(raw); const policy = question && semantics(question, answer, nowMs);
     const conflict = old?.provenance?.confirmedAt === nowMs
       || group.some(q => !same(changed[q.id], answer) || !same(descriptor(q), question));
     accepted.add(key);
     delete records[key];
-    if (conflict || !policy || !hasAnswer(answer) || !validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok || policy.scope === 'job' && !order.jobUrl) {
+    if (conflict || confirmations !== null && (!receipt || receipt.cleared) || !policy || !hasAnswer(answer) || !validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok || policy.scope === 'job' && !order.jobUrl) {
       // Keep only the ordering clock after a clear; never retain the removed Q/A.
-      records[key] = { version: ANSWER_EVIDENCE_VERSION, key, cleared: true, provenance: source };
+      const reason = conflict ? 'same_clock_conflict' : !hasAnswer(answer) ? 'explicit_clear' : 'unconfirmed_source';
+      const knownOld = old?.provenance?.userId === order.userId && (old?.cleared && old.conflict
+        || validRecord(key, old, order.userId, { [key]: old?.answer }, nowMs));
+      const metadata = knownOld && (old.scope === 'candidate' || old.conflict?.scope === 'candidate' || samePosting(old.provenance || {}, order))
+        ? answerConflictMetadata(old, reason, nowMs) : null;
+      records[key] = { version: ANSWER_EVIDENCE_VERSION, key, cleared: true, provenance: source, ...(metadata ? { conflict: metadata } : {}) };
       continue;
     }
     const record = { version: ANSWER_EVIDENCE_VERSION, key, question, answer, ...policy, provenance: source };
     records[key] = { id: `answer-${createHash('sha256').update(serialized(record)).digest('hex').slice(0, 24)}`, ...record };
   }
-  return { records: Object.fromEntries(Object.entries(records).slice(-80)), accepted };
+  return { records: limit == null ? records : Object.fromEntries(Object.entries(records).slice(-limit)), accepted };
 }
 export const rememberCandidateAnswerEvidence = input => planCandidateAnswerEvidence(input).records;
 
@@ -123,6 +128,7 @@ function validRecord(key, record, userId, legacy, nowMs) {
   return Boolean(policy && same(policy, { category: record.category, unit: record.unit, scope: record.scope, ...(record.fact ? { fact: record.fact } : {}) })
     && candidateQuestionAnswerKey(question) === key && validateAnswer(record.answer, question, { todayIso: Number.isFinite(nowMs) ? new Date(nowMs).toISOString().slice(0, 10) : '' }).ok
     && source?.userId === userId && ['candidate', 'owner'].includes(source.actor) && source.orderId
+    && /^confirmation-[a-f0-9]{64}$/.test(source.confirmationId || '') && /^[a-f0-9]{64}$/.test(source.sourceCounterHash || '')
     && Number.isInteger(source.round) && source.round > 0 && Number.isFinite(source.confirmedAt) && source.confirmedAt > 0
     && Object.hasOwn(legacy, key) && same(legacy[key], record.answer));
 }
@@ -135,37 +141,122 @@ const samePosting = (source, target) => {
 export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, userId, nowMs = Date.now(), getDocument = ref => ref.get() }) {
   const startedAt = Date.now();
   const legacy = object(profileRecord.applicationQuestionAnswers);
-  const candidates = Object.entries(object(profileRecord.applicationQuestionAnswerEvidence)).slice(-80)
-    .filter(([key, record]) => validRecord(key, record, userId, legacy, nowMs) && record.provenance.confirmedAt <= nowMs).map(([, record]) => record);
+  const entries = Object.entries(object(profileRecord.applicationQuestionAnswerEvidence)).slice(-80);
+  const historical = entries.filter(([key, record]) => validRecord(key, record, userId, { [key]: record?.answer }, nowMs)
+    && record.provenance.confirmedAt <= nowMs).map(([, record]) => record);
+  const candidates = historical.filter(record => Object.hasOwn(legacy, record.key) && same(legacy[record.key], record.answer));
+  const tombstones = entries.filter(([key, record]) => record?.cleared && record.version === ANSWER_EVIDENCE_VERSION && record.key === key
+    && record.provenance?.userId === userId && ['candidate', 'owner'].includes(record.provenance.actor)
+    && record.provenance.orderId && Number.isInteger(record.provenance.round) && record.provenance.round > 0
+    && Number.isFinite(record.provenance.confirmedAt) && record.provenance.confirmedAt > 0 && record.provenance.confirmedAt <= nowMs
+    && /^[a-f0-9]{64}$/.test(record.provenance.sourceCounterHash || '') && /^confirmation-[a-f0-9]{64}$/.test(record.provenance.confirmationId || '')
+    && record.conflict?.key === key && ['candidate', 'job'].includes(record.conflict.scope)
+    && typeof record.conflict.property === 'string' && record.conflict.property.length > 0 && record.conflict.property.length <= 600
+    && ['explicit_clear', 'same_clock_conflict', 'source_round_changed', 'question_changed', 'unconfirmed_source'].includes(record.conflict.reason)
+    && (record.conflict.languageCode === '' || /^[a-z]{2}$/.test(record.conflict.languageCode || ''))
+    && (record.conflict.cvHash === '' || /^[a-f0-9]{64}$/.test(record.conflict.cvHash || ''))
+    && Number.isFinite(record.conflict.at) && record.conflict.at > 0 && record.conflict.at <= nowMs).map(([, record]) => record);
+  // Bound records are represented by validated evidence/conflicts instead. In particular,
+  // their raw mirror must not survive source expiry through the unverified legacy channel.
+  const boundKeys = new Set(entries.filter(([, record]) => record?.version === ANSWER_EVIDENCE_VERSION
+    && record.provenance?.userId === userId && record.provenance?.orderId
+    && /^confirmation-[a-f0-9]{64}$/.test(record.provenance.confirmationId || '')).map(([key]) => key));
+  const rawCounterAnswers = Object.fromEntries(Object.entries(legacy).filter(([key]) => !boundKeys.has(key)));
   const sources = new Map();
-  await Promise.all([...new Set(candidates.map(record => record.provenance.orderId))].map(async orderId => {
+  await Promise.all([...new Set([...historical, ...tombstones].map(record => record.provenance.orderId))].map(async orderId => {
     const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
-    const [order, flow, draft] = await Promise.all([getDocument(ref), getDocument(ref.collection('automation').doc('flow')), getDocument(ref.collection('ai_drafts').doc('current'))]);
-    sources.set(orderId, { order: order.data(), flow: flow.data(), draft: draft.data() });
+    const [order, flow, draft, intake] = await Promise.all([getDocument(ref), getDocument(ref.collection('automation').doc('flow')), getDocument(ref.collection('ai_drafts').doc('current')), getDocument(ref.collection('automation').doc('intake'))]);
+    sources.set(orderId, { order: order.data(), flow: flow.data(), draft: draft.data(), intake: intake.data() || null });
   }));
   const verified = candidates.filter(record => {
     const source = sources.get(record.provenance.orderId); const current = source?.draft?.questions?.find(question => question.id === record.question.id);
-    return source?.order?.userId === userId && retained(source.order, nowMs) && !source.flow?.retentionPurgedAt
+    const receipt = localAnswerEvidence({ orderId: record.provenance.orderId, order: source?.order, flow: source?.flow, draft: source?.draft, intake: source?.intake, nowMs })
+      .find(item => item.id === record.provenance.confirmationId);
+    return receipt && sameAnswerMaterial(receipt.question, record.question) && sameAnswerMaterial(receipt.answer, record.answer)
+      && receipt.contractHash === record.provenance.contractHash && receipt.provenance.cvHash === record.provenance.cvHash && receipt.provenance.sourceCounterHash === record.provenance.sourceCounterHash
+      && source?.order?.userId === userId && retained(source.order, nowMs) && !source.flow?.retentionPurgedAt
       && Number(source.flow?.round) === record.provenance.round && Number(source.draft?.round) === record.provenance.round
       && current && same(descriptor(current), record.question) && same(source.flow?.answers?.[record.question.id], record.answer)
       && (record.scope === 'candidate' || samePosting(record.provenance, { jobId: source.order.jobId, jobUrl: source.order.jobUrl }));
   });
+  const verifiedIds = new Set(verified.map(record => record.id));
+  const conflictRecords = [...tombstones.map(record => ({ record, metadata: answerConflictMetadata(record, record.conflict.reason, record.conflict.at) })),
+    ...historical.filter(record => !verifiedIds.has(record.id)).map(record => {
+      const source = sources.get(record.provenance.orderId);
+      const current = source?.draft?.questions?.find(question => question?.id === record.question.id);
+      const reason = Number(source?.flow?.round) !== record.provenance.round || Number(source?.draft?.round) !== record.provenance.round
+        ? 'source_round_changed' : !current || !same(descriptor(current), record.question) ? 'question_changed' : 'unconfirmed_source';
+      return { record, metadata: answerConflictMetadata(record, reason, record.provenance.confirmedAt) };
+    })];
   return (job, { purpose = 'eligibility' } = {}) => {
     const evidence = verified.filter(record => retained(sources.get(record.provenance.orderId)?.order, nowMs + Math.max(0, Date.now() - startedAt))
       && (record.scope === 'candidate' || samePosting(record.provenance, job)) && (purpose === 'form' || record.category !== 'form_preference'))
       .sort((a, b) => a.key.localeCompare(b.key));
-    return { answers: Object.fromEntries(evidence.map(record => [record.key, record.answer])), answerEvidence: evidence,
-      fingerprint: serialized({ version: ANSWER_EVIDENCE_VERSION, legacy, evidence }) };
+    const applicableConflicts = conflictRecords.filter(({ record, metadata }) => metadata
+      && sources.get(record.provenance.orderId)?.order?.userId === userId
+      && sources.get(record.provenance.orderId)?.flow?.retentionPurgingAt == null && sources.get(record.provenance.orderId)?.flow?.retentionPurgedAt == null
+      && retained(sources.get(record.provenance.orderId)?.order, nowMs + Math.max(0, Date.now() - startedAt))
+      && (metadata.scope === 'candidate' || samePosting(record.provenance, job)));
+    const answerSourceConflicts = applicableConflicts
+      .map(({ metadata }) => metadata).sort((a, b) => a.key.localeCompare(b.key));
+    const counterSources = new Map();
+    const answerCounterContext = groupCounterContexts(evidence.map(record => {
+      const source = sources.get(record.provenance.orderId);
+      if (!counterSources.has(record.provenance.orderId)) {
+        const context = qualificationAnswerOriginContext({ order: source.order, flow: source.flow, intake: source.intake });
+        counterSources.set(record.provenance.orderId, { context, currentHash: qualificationCounterContextHash(context) });
+      }
+      const { context, currentHash } = counterSources.get(record.provenance.orderId);
+      return { answerIds: [record.id], orderId: record.provenance.orderId, round: record.provenance.round,
+        confirmedHash: record.provenance.sourceCounterHash, currentHash,
+        changedSinceConfirmation: currentHash !== record.provenance.sourceCounterHash, context };
+    }));
+    return { answers: Object.fromEntries(evidence.map(record => [record.key, record.answer])), answerEvidence: evidence, answerCounterContext, answerSourceConflicts, rawCounterAnswers,
+      sourceOrderIds: [...new Set([...evidence.map(record => record.provenance.orderId), ...applicableConflicts.map(({ record }) => record.provenance.orderId)])],
+      fingerprint: serialized({ version: ANSWER_EVIDENCE_VERSION, legacy: rawCounterAnswers, evidence, answerSourceConflicts,
+        counterSources: answerCounterContext.map(({ answerIds, confirmedHash, currentHash }) => ({ answerIds, confirmedHash, currentHash })) }) };
   };
 }
 
 /** Runner reads keep the raw CAS/lease snapshot untouched and project only the execution's answer context. */
-export async function loadRunnerAnswerContext({ db, order, flow, draft, nowMs = Date.now() }) {
-  const profileRecord = order.userId ? (await db.collection('user_cv_profiles').doc(order.userId).get()).data() || {} : {};
-  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs });
-  return { flow: { ...flow, questionAnswers: { ...contextFor(order, { purpose: 'form' }).answers,
-    ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: flow?.answers || {} }) } },
-  answerEvidence: contextFor(order).answerEvidence };
+export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft, intake = null, nowMs = Date.now() }) {
+  const startedAt = Date.now();
+  const currentTime = () => nowMs + Math.max(0, Date.now() - startedAt);
+  const profileRef = order.userId ? db.collection('user_cv_profiles').doc(order.userId) : null;
+  const profileRecord = profileRef ? (await profileRef.get()).data() || {} : {};
+  const sources = new Map();
+  const getDocument = async ref => { const snapshot = await ref.get(); sources.set(ref.path, { ref, data: snapshot.data() }); return snapshot; };
+  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs: currentTime(), getDocument });
+  const local = orderId ? localAnswerEvidence({ orderId, order, flow, draft, intake, nowMs: currentTime() }) : [];
+  const formContext = contextFor(order, { purpose: 'form' });
+  const globalConflicts = formContext.answerSourceConflicts;
+  const localConflicts = orderId ? localAnswerSourceConflicts({ orderId, order, flow, draft, intake, nowMs: currentTime() }) : [];
+  const answerSourceConflicts = [...globalConflicts, ...localConflicts.filter(local => !globalConflicts.some(global => global.key === local.key
+    && global.property === local.property && global.cvHash === local.cvHash))];
+  const localContext = qualificationAnswerOriginContext({ order, flow, intake });
+  const localHash = qualificationCounterContextHash(localContext);
+  const localCounterContext = local.map(record => ({ answerIds: [record.id], orderId, round: record.provenance.round,
+    confirmedHash: record.provenance.sourceCounterHash, currentHash: localHash, changedSinceConfirmation: record.sourceCounterChanged, context: localContext }));
+  const verifiedLocalAnswers = Object.fromEntries(local.map(record => [record.question.id, record.answer]));
+  const globalEvidence = formContext.answerEvidence;
+  const localQualificationEvidence = local.flatMap(record => {
+    const policy = semantics(record.question, record.answer, currentTime());
+    if (!policy || globalEvidence.some(global => global.provenance.confirmationId === record.id)) return [];
+    // The exact local receipt is sufficient on this order, even for a guest or a failed optional profile mirror.
+    // This projection is never persisted in another profile/account or reused as an arbitrary native declaration.
+    return [{ ...record, key: candidateQuestionAnswerKey(record.question), ...policy,
+      provenance: { ...record.provenance, confirmationId: record.id, contractHash: record.contractHash } }];
+  });
+  // Unattested current raw values remain on the DB snapshot for CAS. Only explicit No is retained as a conservative veto.
+  const refusals = Object.fromEntries(Object.entries(flow.answers || {}).filter(([, value]) => isConsentRefusal(value)));
+  const safeAnswers = { ...refusals, ...verifiedLocalAnswers };
+  const answerCounterContext = groupCounterContexts([...formContext.answerCounterContext, ...localCounterContext]);
+  const rawCounterContext = qualificationCounterContext({ order, flow, intake, answerCounterContext });
+  return { flow: { ...flow, answers: safeAnswers, questionAnswers: { ...formContext.answers,
+    ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: verifiedLocalAnswers }) } },
+    answerEvidence: [...globalEvidence, ...localQualificationEvidence], answerSourceConflicts, localAnswerEvidence: local,
+    answerCounterContext, rawCounterContext,
+    answerSourceGuard: orderId ? createAnswerSourceGuard({ db, orderId, order, flow, draft, intake, profileRef, profileRecord, sources: [...sources.values()].filter(({ ref }) => formContext.sourceOrderIds.includes(ref.path.split('/')[1])), nowMs: currentTime() }) : null };
 }
 
 /** A source purge removes only records/clocks still owned by that order, never newer confirmations. */

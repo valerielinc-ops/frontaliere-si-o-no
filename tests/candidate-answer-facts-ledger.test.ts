@@ -1,3 +1,4 @@
+import { answerContractsFor, planAnswerConfirmations } from '../functions/src/assistedApplicationAnswerConfirmation.js';
 import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
@@ -6,7 +7,7 @@ import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 const now = Date.now();
 const target = { id: 'target', url: 'https://example.test/jobs/target/' };
-const order = { userId: 'synthetic', jobId: 'source', jobUrl: 'https://example.test/jobs/source/', cvUploadedAt: now };
+const order = { userId: 'synthetic', jobId: 'source', jobUrl: 'https://example.test/jobs/source/', cvUploadedAt: now, cvStorageKey: 'source.pdf' };
 const birth = `${new Date(now).getUTCFullYear() - 30}-02-20`;
 const cases = [
   { question: { id: 'dob', question: 'What is your date of birth?', type: 'date' }, answer: birth, category: 'personal', unit: 'calendar_date', fact: { type: 'birth_date', subject: 'candidate' } },
@@ -17,11 +18,13 @@ const cases = [
 function fixture(testCase = cases[0]) {
   const { question, answer } = testCase;
   const flow = { round: 1, answers: { [question.id]: answer } };
-  const draft = { round: 1, questions: [question] };
-  const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: flow.answers, orderId: 'source', order, flow, draft, actor: 'candidate', nowMs: now });
+  const draft = { round: 1, questions: [question], cvKey: order.cvStorageKey, sourceCvHash: 'a'.repeat(64) };
+  const confirmations = planAnswerConfirmations({ orderId: 'source', order, flow, draft, answers: flow.answers, answerContracts: answerContractsFor({ orderId: 'source', order, flow, draft }), actor: 'candidate', nowMs: now }).confirmations;
+  const confirmedFlow = { ...flow, answerConfirmations: confirmations };
+  const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: flow.answers, confirmations, orderId: 'source', order, flow, draft, actor: 'candidate', nowMs: now });
   const key = candidateQuestionAnswerKey(question);
   const profileRecord = { applicationQuestionAnswers: { [key]: answer }, applicationQuestionAnswerEvidence: evidence };
-  const store = createMemoryFirestore({ 'assisted_applications/source': order, 'assisted_applications/source/automation/flow': flow, 'assisted_applications/source/ai_drafts/current': draft });
+  const store = createMemoryFirestore({ 'assisted_applications/source': order, 'assisted_applications/source/automation/flow': confirmedFlow, 'assisted_applications/source/ai_drafts/current': draft });
   const load = () => loadCandidateAnswerEvidence({ db: store.db, profileRecord, userId: order.userId, nowMs: now });
   return { store, evidence, profileRecord, key, load };
 }

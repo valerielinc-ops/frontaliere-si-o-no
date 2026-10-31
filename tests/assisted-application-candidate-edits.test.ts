@@ -175,6 +175,29 @@ describe('candidate edits', () => {
     expect(candidateQuestionAnswerKey(residence)).not.toBe(candidateQuestionAnswerKey(generic));
   });
 
+  it('keeps the original application question constraints in the reuse key', () => {
+    const general = { id: 'general', question: 'What is your English proficiency level?', type: 'text' };
+    const legal = { ...general, id: 'legal', applicationQuestion: 'What is your English proficiency level for negotiating legal contracts?' };
+    const casual = { ...general, id: 'casual', applicationQuestion: 'What is your English proficiency level for casual conversation?' };
+    expect(candidateQuestionAnswerKey(general)).not.toBe(candidateQuestionAnswerKey(legal));
+    expect(candidateQuestionAnswerKey(casual)).not.toBe(candidateQuestionAnswerKey(legal));
+    const memory = rememberCandidateQuestionAnswers({ questions: [legal], answers: { legal: 'C1' } });
+    expect(candidateAnswersForQuestions([casual, general], {}, memory)).toEqual({});
+    expect(candidateQuestionAnswerKey({ ...general, applicationQuestion: general.question })).toBe(candidateQuestionAnswerKey(general));
+  });
+
+  it('keeps native address owners separate from flat sibling labels and legacy missing provenance', () => {
+    const legacy = { id: 'legacy', question: 'City', context: 'Candidate and employer information', section: '', type: 'text' };
+    const candidate = { ...legacy, id: 'candidate', addressContext: { section: 'Personal information', owners: ['Candidate address'], unknown: false } };
+    const employer = { ...legacy, id: 'employer', addressContext: { section: 'Work experience', owners: ['Employer address'], unknown: false } };
+    expect(new Set([legacy, candidate, employer].map(candidateQuestionAnswerKey)).size).toBe(3);
+    const memory = rememberCandidateQuestionAnswers({ questions: [candidate], answers: { candidate: 'Synthetic City' } });
+    expect(candidateAnswersForQuestions([employer, legacy], {}, memory)).toEqual({});
+    expect(candidateQuestionAnswerKey({ ...candidate, addressContext: { ...candidate.addressContext, unknown: true } })).toBe('');
+    expect(candidateQuestionAnswerKey({ ...candidate, addressContext: null })).toBe('');
+    expect(candidateQuestionAnswerKey({ ...candidate, addressContext: { unknown: false, owners: ['Candidate address'], section: 'Personal information' } })).toBe(candidateQuestionAnswerKey(candidate));
+  });
+
   it('keeps the alias and the fields a question asks locked, with the reason', () => {
     const current = draft({ questions: [{ id: 'work_permit', question: 'Permesso?', type: 'choice', options: ['G'], required: true }] });
     const views = Object.fromEntries(formAnswersWithEdits({ order, draft: current, flow: {} }).map((field) => [field.key, fieldView(field, { draft: current, locale: 'de' })]));

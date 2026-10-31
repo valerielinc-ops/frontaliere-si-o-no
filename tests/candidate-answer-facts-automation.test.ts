@@ -1,3 +1,4 @@
+import { answerContractsFor } from '../functions/src/assistedApplicationAnswerConfirmation.js';
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
@@ -25,11 +26,11 @@ describe('typed facts use the complete producer and automation path', () => {
       { id: 'permit', question: 'What is your current Swiss work permit status?', type: 'choice', options: permitOptions('en') },
     ];
     const answers = { dob: `${new Date(now).getUTCFullYear() - 30}-02-20`, experience: '3.5', credential: 'Sì', permit: permitOptions('en')[1] };
-    const flow = { round: 1, state: 'candidate_review', answers: {}, questionAnswers: {} }, draft = { round: 1, questions };
+    const flow = { round: 1, state: 'candidate_review', answers: {}, questionAnswers: {} }, draft = { round: 1, questions, cvKey: cvStorageKey, sourceCvHash: 'a'.repeat(64) };
     const store = createMemoryFirestore({ [path]: order, 'assisted_applications/source': source,
       'assisted_applications/source/automation/flow': flow, 'assisted_applications/source/ai_drafts/current': draft,
       'user_cv_profiles/synthetic': { status: 'ready', profile: { languages: [] } } });
-    await saveAnswersWithCv({ db: store.db, bucket: null, orderId: 'source', order: source, flow, draft, answers, answerActor: 'candidate', nowMs: now });
+    await saveAnswersWithCv({ db: store.db, bucket: null, orderId: 'source', order: source, flow, draft, answers, answerContracts: answerContractsFor({ orderId: 'source', order: source, flow, draft }), answerActor: 'candidate', nowMs: now });
     const profile = store.read('user_cv_profiles/synthetic');
     expect(Object.values(profile.applicationQuestionAnswerEvidence)).toHaveLength(4);
     expect(profile.profile).toEqual({ languages: [] });

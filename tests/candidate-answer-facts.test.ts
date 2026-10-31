@@ -21,6 +21,9 @@ describe('positive typed candidate answer contracts', () => {
   it.each(['Place of birth', 'Geburtsort', 'Comune di nascita', 'Luogo di nascita', 'Lieu de naissance', "What is your child's date of birth?", 'What is your expected date of birth?'])('never aliases a place or a different person/date: %s', label => {
     expect(candidateQuestionFact(question(label, 'date'))).toBeNull();
   });
+  it.each([{ why: "Only the employer's requested qualification" }, { originalNativeContract: { question: 'DOB with another scope', kind: 'date', options: [] } }, { ownConsentText: ['I authorize data use'] }, { metadataComplete: false }])('does not promote hidden native/owner/why qualifiers as a general fact: %j', metadata => {
+    expect(candidateQuestionFact(question('What is your date of birth?', 'date', metadata))).toBeNull();
+  });
   it('requires an actual past ISO date rather than inferring a date from text or age', () => {
     const q = question('What is your date of birth?', 'date');
     for (const answer of ['20.02.1995', '30', 'Zurich', `${previousYear}-02-30`, '9999-01-01']) expect(candidateAnswerFact(q, answer)).toBeNull();

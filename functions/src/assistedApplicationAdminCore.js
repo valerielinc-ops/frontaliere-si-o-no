@@ -1,3 +1,4 @@
+import { answerContractRequired } from './assistedApplicationAnswerConfirmation.js';
 /**
  * Admin-only operational queue for one-off assisted applications.
  *
@@ -76,9 +77,10 @@ const EVENT_FOR_STATUS = Object.freeze({
 const REFUND_RESERVATION_TTL_MS = 15 * 60 * 1000;
 
 class AssistedApplicationAdminError extends Error {
-  constructor(code, status = 400) {
+  constructor(code, status = 400, details = null) {
     super(code);
     this.name = 'AssistedApplicationAdminError';
+    this.details = details;
     this.code = code;
     this.status = status;
   }
@@ -371,7 +373,7 @@ async function handleCandidateView(db, raw) {
 
 function transitionErrorResponse(error) {
   if (error instanceof AssistedApplicationAdminError) {
-    return { status: error.status, body: { ok: false, error: error.code } };
+    return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
   }
   throw error;
 }
@@ -913,6 +915,7 @@ async function handleMutate(db, req, adminEmail) {
     try {
       const body = await handleAutomationAdminAction(db, raw, adminEmail, {
         runEffect: runAutomationEffect,
+        requireAnswerContracts: action === 'automationSetAnswers' ? await answerContractRequired(getRemoteConfigValue) : false,
         bucket: getStorage().bucket(STORAGE_BUCKET),
         // Read only by automationRevealAccount (portal accounts on the alias).
         runKey: () => getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
@@ -922,7 +925,7 @@ async function handleMutate(db, req, adminEmail) {
       });
       return { status: 200, body };
     } catch (error) {
-      if (error instanceof AutomationAdminError) throw new AssistedApplicationAdminError(error.code, error.status);
+      if (error instanceof AutomationAdminError) throw new AssistedApplicationAdminError(error.code, error.status, error.details);
       throw error;
     }
   }
