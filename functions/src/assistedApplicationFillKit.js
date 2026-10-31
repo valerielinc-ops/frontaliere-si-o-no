@@ -41,7 +41,7 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
   // correction taking precedence over a previous answer to that exact scope.
   const fromPortal = (draft.portalAnswers?.answers || [])
     .map((item) => ({ ...item, question: item?.applicationQuestion || item?.question, answer: item?.answer, source: item?.source || 'portal', current: false }));
-  const fromDraft = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers)
+  const fromDraft = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers, draft)
     .map((question) => ({ ...question, question: question.applicationQuestion || question.question, answer: applicationAnswer(question, answers[question.id]), source: 'answers', current: Object.hasOwn(flow.answers || {}, question.id) }));
   const boundedAnswer = item => ({
     question: text(item.question, 300), answer: text(item.answer, 2000), source: text(item.source, 20),

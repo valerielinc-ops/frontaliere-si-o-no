@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rh-expert-ch",
-  "assembledAt": "2026-10-30T09:41:11.815Z",
-  "runId": "41033036488",
+  "assembledAt": "2026-10-30T21:56:00.045Z",
+  "runId": "41130651027",
   "jobs": [
     {
       "id": "rh-expert-ch-01943f816aae",
@@ -35,7 +35,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/plongeur",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:41:05.318Z",
+      "crawledAt": "2026-10-30T21:55:53.900Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -114,7 +114,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/lingere-repasseuse",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:41:05.318Z",
+      "crawledAt": "2026-10-30T21:55:53.900Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -193,7 +193,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/garcon-doffice",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:41:05.317Z",
+      "crawledAt": "2026-10-30T21:55:53.899Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -224,89 +224,6 @@
         ]
       },
       "firstSeenAt": "2026-10-19T09:28:20.834Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1201",
-      "addressLocality": "Genève"
-    },
-    {
-      "id": "rh-expert-ch-d2b0f2fcec23",
-      "slug": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
-      "slugByLocale": {
-        "it": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
-        "en": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
-        "de": "jager-bagger-variator-rh-expert-geneve-d2b0f2fc",
-        "fr": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
-      },
-      "slugDisambiguator": "d2b0f2fc",
-      "company": "RH-Expert",
-      "companyKey": "rh-expert-ch",
-      "companyDomain": "rh-expert.ch",
-      "title": "Chasseur/Bagagiste/Voiturier",
-      "titleByLocale": {
-        "it": "Hunter/Bagger/Varier",
-        "en": "Hunter/Bagger/Varier",
-        "de": "Jäger/Bagger/Variator",
-        "fr": "Chasseur/Bagagiste/Voiturier"
-      },
-      "description": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir",
-      "descriptionByLocale": {
-        "it": "• Buona padronanza di inglese e francese\n• Senso di dettaglio e organizzazione\n• Velocità, efficacia\n• Assicurare la ricezione del cliente all'arrivo\n• Spoglia i bagagli, portali in camera\n• Parcheggiare l'auto degli ospiti nel parcheggio dell'hotel\n• Eseguire le gare dei clienti sotto la responsabilità del Concierge\n• Rispetto degli standard di qualità dell'hotel\n• Lavoro attento e rapido\n• Esperienza minima 2 anni in un hotel minimo 4 stelle\n• Essere disponibili e motivati\n• possedere la patente di guida\n• Conoscenza essenziale dell'inglese\n• Vi offriamo:\n• Tipo di contratto: medio e lungo termine\n• Entrata in ufficio: immediatamente o da concordare",
-        "en": "• Good mastery of English and French\n• Sense of detail and organization\n• Speed, effectiveness\n• Ensure customer reception upon arrival\n• Undress the luggage, get them into the room\n• Park the guests' car in the hotel parking lot\n• Carrying out the customer races under the responsibility of the Concierge\n• Compliance with hotel quality standards\n• Careful and rapid work\n• Minimum experience 2 years in a 4 star minimum hotel\n• Being available and motivated\n• possess the driving licence\n• Essential knowledge of English\n• We offer you:\n• Contract Type: Medium and Long Term Temporary\n• Entry into office: immediately or to be agreed",
-        "de": "• Gute Beherrschung von Englisch und Französisch\n• Sinn für Detail und Organisation\n• Geschwindigkeit, Wirksamkeit\n• Sicherstellen des Kundenempfangs bei der Ankunft\n• Ziehen Sie das Gepäck aus, bringen Sie es in den Raum\n• Parken Sie das Auto der Gäste auf dem Hotelparkplatz\n• Durchführung der Kundenrennen unter der Verantwortung des Concierge\n• Einhaltung der Hotelqualitätsstandards\n• Sorgfältige und schnelle Arbeit\n• Mindesterfahrung 2 Jahre in einem 4-Sterne-Minimumhotel\n• Zur Verfügung stehen und motiviert sein\n• im Besitz des Führerscheins\n• Grundlegende Englischkenntnisse\n• Wir bieten Ihnen:\n• Art des Vertrags: mittel- und langfristig befristet\n• Amtsantritt: sofort oder noch zu vereinbaren",
-        "fr": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir"
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
-      "source": "RH-Expert Official Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:41:05.316Z",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "employmentType": "OTHER",
-      "contract": "other",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
-        "chasseur-bagagiste-voiturier-rh-expert-geneve-d2b0f2fc",
-        "chasseur-bagagiste-voiturier-rh-expert-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
-        ],
-        "en": [
-          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
-        ],
-        "de": [
-          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
-          "chasseur-bagagiste-voiturier-rh-expert-geneve-d2b0f2fc",
-          "chasseur-bagagiste-voiturier-rh-expert-geneve"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T09:28:20.832Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -355,7 +272,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/shift-leader-receptionniste",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:41:05.316Z",
+      "crawledAt": "2026-10-30T21:55:53.898Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,7 +351,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/chefs-de-rang-hf-hotel-5",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:41:05.316Z",
+      "crawledAt": "2026-10-30T21:55:53.898Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -513,7 +430,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/portier-detage-valet-de-chambre-5",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:41:05.315Z",
+      "crawledAt": "2026-10-30T21:55:53.897Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -544,6 +461,89 @@
         ]
       },
       "firstSeenAt": "2026-10-19T09:28:20.831Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1201",
+      "addressLocality": "Genève"
+    },
+    {
+      "id": "rh-expert-ch-d2b0f2fcec23",
+      "slug": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
+      "slugByLocale": {
+        "it": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
+        "en": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
+        "de": "jager-bagger-variator-rh-expert-geneve-d2b0f2fc",
+        "fr": "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
+      },
+      "slugDisambiguator": "d2b0f2fc",
+      "company": "RH-Expert",
+      "companyKey": "rh-expert-ch",
+      "companyDomain": "rh-expert.ch",
+      "title": "Chasseur/Bagagiste/Voiturier",
+      "titleByLocale": {
+        "it": "Hunter/Bagger/Varier",
+        "en": "Hunter/Bagger/Varier",
+        "de": "Jäger/Bagger/Variator",
+        "fr": "Chasseur/Bagagiste/Voiturier"
+      },
+      "description": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir",
+      "descriptionByLocale": {
+        "it": "• Buona padronanza di inglese e francese\n• Senso di dettaglio e organizzazione\n• Velocità, efficacia\n• Assicurare la ricezione del cliente all'arrivo\n• Spoglia i bagagli, portali in camera\n• Parcheggiare l'auto degli ospiti nel parcheggio dell'hotel\n• Eseguire le gare dei clienti sotto la responsabilità del Concierge\n• Rispetto degli standard di qualità dell'hotel\n• Lavoro attento e rapido\n• Esperienza minima 2 anni in un hotel minimo 4 stelle\n• Essere disponibili e motivati\n• possedere la patente di guida\n• Conoscenza essenziale dell'inglese\n• Vi offriamo:\n• Tipo di contratto: medio e lungo termine\n• Entrata in ufficio: immediatamente o da concordare",
+        "en": "• Good mastery of English and French\n• Sense of detail and organization\n• Speed, effectiveness\n• Ensure customer reception upon arrival\n• Undress the luggage, get them into the room\n• Park the guests' car in the hotel parking lot\n• Carrying out the customer races under the responsibility of the Concierge\n• Compliance with hotel quality standards\n• Careful and rapid work\n• Minimum experience 2 years in a 4 star minimum hotel\n• Being available and motivated\n• possess the driving licence\n• Essential knowledge of English\n• We offer you:\n• Contract Type: Medium and Long Term Temporary\n• Entry into office: immediately or to be agreed",
+        "de": "• Gute Beherrschung von Englisch und Französisch\n• Sinn für Detail und Organisation\n• Geschwindigkeit, Wirksamkeit\n• Sicherstellen des Kundenempfangs bei der Ankunft\n• Ziehen Sie das Gepäck aus, bringen Sie es in den Raum\n• Parken Sie das Auto der Gäste auf dem Hotelparkplatz\n• Durchführung der Kundenrennen unter der Verantwortung des Concierge\n• Einhaltung der Hotelqualitätsstandards\n• Sorgfältige und schnelle Arbeit\n• Mindesterfahrung 2 Jahre in einem 4-Sterne-Minimumhotel\n• Zur Verfügung stehen und motiviert sein\n• im Besitz des Führerscheins\n• Grundlegende Englischkenntnisse\n• Wir bieten Ihnen:\n• Art des Vertrags: mittel- und langfristig befristet\n• Amtsantritt: sofort oder noch zu vereinbaren",
+        "fr": "• Bonne maitrise du français et de l'anglais\n• Sens du détail et de l’organisation\n• Rapidité, efficacité\n• Assurer l'accueil des clients dès leur arrivée\n• Decharcher les bagages, les monter en chambre\n• Garer la voiture des clients dans le parking de l'hôtel\n• Effectuer les courses des clients sous la responsabilité du Concierge\n• Respect des standards de qualité de l'hôtel\n• Travail soigné et rapide\n• Expérience de minimum 2 ans dans un hôtel de minimum 4 étoiles\n• Etre disponible et motivé\n• posseder le permis de conduire\n• Connaissances imperatives de l'anglais\n• Nous vous proposons :\n• Type de contrat : Temporaire moyen et long terme\n• Entrée en fonction : de suite ou à convenir"
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
+      "source": "RH-Expert Official Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-30T21:55:53.897Z",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "employmentType": "OTHER",
+      "contract": "other",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
+        "chasseur-bagagiste-voiturier-rh-expert-geneve-d2b0f2fc",
+        "chasseur-bagagiste-voiturier-rh-expert-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
+        ],
+        "en": [
+          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc"
+        ],
+        "de": [
+          "chasseur-bagagiste-voiturier-geneve-rh-expert-ch-d2b0f2fc",
+          "chasseur-bagagiste-voiturier-rh-expert-geneve-d2b0f2fc",
+          "chasseur-bagagiste-voiturier-rh-expert-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-10-19T09:28:20.832Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -592,7 +592,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/test-2",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:41:05.313Z",
+      "crawledAt": "2026-10-30T21:55:53.895Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -675,7 +675,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/maitre-dhotel",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:41:05.312Z",
+      "crawledAt": "2026-10-30T21:55:53.894Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
