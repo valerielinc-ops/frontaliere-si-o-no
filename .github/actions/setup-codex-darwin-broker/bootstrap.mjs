@@ -6,6 +6,7 @@ import crypto from 'node:crypto';
 import { spawn, execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { probeDarwinSandbox } from './sandbox-probe.mjs';
+import { probeConciergeTools } from '../setup-claude-haiku-fallback/concierge-tool-probe.mjs';
 import { isInvokedDirectly } from '../../../scripts/lib/is-invoked-directly.mjs';
 import { parseCodexLogin } from '../../../functions/src/codexFallback.js';
 
@@ -77,6 +78,7 @@ export async function prepareDarwinBroker({
       // Darwin's sandbox, rather than merely finding sandbox-exec on disk.
       const cliHash = hash(cli);
       await probeDarwinSandbox({ cli, temporary: prefix, env, assertRuntime: () => { checkFile(node, nodeHash); checkFile(cli, cliHash); } });
+      await probeConciergeTools({ cli, temporary: prefix, assertRuntime: () => { checkFile(node, nodeHash); checkFile(cli, cliHash); } });
       brokerRoot = fs.mkdtempSync(path.join(fs.realpathSync('/tmp'), 'aa-codex-ipc-')); fs.chmodSync(brokerRoot, 0o700);
       const socket = path.join(brokerRoot, 'auth.sock');
       const manifest = path.join(prefix, 'runtime.json');
@@ -100,6 +102,7 @@ export async function startDarwinBroker({ manifest: manifestPath, manifest_sha25
   const socket = manifest.socket;
   checkFile(manifest.node, manifest.nodeHash);
   const child = spawn(manifest.node, [broker, '--socket', socket, '--ttl-ms', '3600000', '--max-concurrency', '1',
+    '--concierge-json-only',
     '--max-timeout-ms', '1800000', '--codex-cli-version', VERSION,
     '--codex-bin', manifest.cli, '--codex-realpath', manifest.cli, '--codex-sha256', manifest.cliHash, '--codex-prefix', manifest.prefix],
   { env: { PATH: `${path.dirname(manifest.node)}:/usr/bin:/bin`, HOME: root, OPENSSL_CONF: '/dev/null' }, detached: true, stdio: ['pipe', 'ignore', 'ignore'] });

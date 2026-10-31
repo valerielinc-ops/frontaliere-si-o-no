@@ -87,6 +87,14 @@ mantiene `:minimal` e nega esplicitamente i quattro glob `/tmp/**`,
 `/private/tmp/**`, `/var/tmp/**`, `/private/var/tmp/**`. Runtime, home di login e
 workspace stanno in cache privata del proprietario a modo 0700; solo il socket
 IPC resta nel percorso temporaneo corto. Il profilo Linux resta invariato.
+La sandbox del CLI non nega la lettura dell’ambiente di processi dello stesso
+utente su questo macOS. Il modello concierge non riceve quindi strumenti:
+un catalogo del tag ufficiale fissato conserva modello, provider, effort e Lite,
+ma disabilita shell, patch, REPL, agenti, ricerca e utility. Solo il broker
+concierge usa questa modalità; le review agentiche Linux conservano il contratto
+precedente. Prima dell’autenticazione una fixture locale verifica la lista vuota
+anche dentro `additional_tools` del protocollo Lite e il rifiuto di chiamate
+shell/patch inventate senza effetti. Non si dichiara isolamento OS del modello.
 Manager e agente deterministico SUBMIT hanno home e ambiente privati, ma
 l’agente Node è codice fidato senza sandbox filesystem aggiuntiva. Il browser
 applica direttamente il proprio primo profilo Seatbelt stretto; non eredita
@@ -131,10 +139,12 @@ servono probe sul Mac e una ricevuta persistita dal normale submission guard.
 I probe nativi devono dimostrare lettura positiva e negazione del cookie-canary,
 TCP diretto e socket Unix privati negati con listener vivi prima e dopo il test,
 CONNECT pubblico attraverso il gate funzionante e destinazioni private negate.
-Browser e modello devono inoltre negare la lettura dell’ambiente di un processo
-Node sintetico esterno, con controllo positivo non isolato sullo stesso PID.
-La canary legge soltanto dati fittizi e analizza i confini NUL dell’ambiente:
+Il browser deve inoltre negare la lettura dell’ambiente di un processo Node
+sintetico esterno, con controllo positivo non isolato sullo stesso PID. La
+canary legge soltanto dati fittizi e analizza i confini NUL dell’ambiente:
 non usa argomenti, errori o mancato avvio come prova di negazione. La lettura
-possibile o una prova sconosciuta fermano il bootstrap prima dell’autenticazione.
+possibile o una prova sconosciuta fermano il worker prima dell’autenticazione.
+Questo confine del browser rimane distinto dalla modalità senza strumenti del
+modello: il successo della seconda non certifica la prima.
 Un errore di compilazione, timeout o un controllo positivo fallito significa
 prova sconosciuta e impedisce readiness; non equivale a isolamento dimostrato.

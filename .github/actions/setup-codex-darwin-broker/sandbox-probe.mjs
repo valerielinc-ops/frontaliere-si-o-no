@@ -52,8 +52,10 @@ export async function probeDarwinSandbox({ cli, temporary, env, assertRuntime = 
     if (!(await run('/usr/bin/curl', args)).ok) throw new Error('darwin_sandbox_network_control_failed');
     const network = await sandbox(['/usr/bin/curl', ...args]);
     if (network.ok || network.code !== 7 || network.stdout || !(await run('/usr/bin/curl', args)).ok) throw new Error('darwin_sandbox_network_not_denied');
-    await probeProcessEnvironmentPrivacy({ sandbox });
+    // Record the OS limitation truthfully. Model capability isolation is the
+    // separately mandatory tools-empty native probe, never a false Seatbelt claim.
+    const privacy = await probeProcessEnvironmentPrivacy({ sandbox, requireDenied: false });
     return { workspaceReadable: true, ownerCanaryDenied: true, authCanaryDenied: true, scratchCanaryDenied: true,
-      workspaceWriteDenied: true, ownerWriteDenied: true, scratchWriteDenied: true, networkDenied: true, processEnvironmentDenied: true };
+      workspaceWriteDenied: true, ownerWriteDenied: true, scratchWriteDenied: true, networkDenied: true, ...privacy };
   } finally { server.closeAllConnections?.(); server.close(); fs.rmSync(root, { recursive: true, force: true }); fs.rmSync(scratch, { recursive: true, force: true }); }
 }

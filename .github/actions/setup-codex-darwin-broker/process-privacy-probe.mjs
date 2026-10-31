@@ -29,7 +29,7 @@ argc.times { stop = data.index("\0", offset); exit(2) unless stop; offset = stop
 values = data.byteslice(offset, length.unpack1('J') - offset).split("\0")
 STDOUT.write(values.include?('SYNTHETIC_MANAGER_COOKIE=' + ARGV.fetch(1)) ? 'allowed' : 'unknown')`;
 
-export async function probeProcessEnvironmentPrivacy({ sandbox, node = process.execPath }) {
+export async function probeProcessEnvironmentPrivacy({ sandbox, node = process.execPath, requireDenied = true }) {
   const cookie = randomBytes(24).toString('hex');
   const child = spawn(node, ['-e', 'setInterval(()=>{},1000)'], {
     env: { SYNTHETIC_MANAGER_COOKIE: cookie, OPENSSL_CONF: '/dev/null' }, stdio: 'ignore',
@@ -40,6 +40,7 @@ export async function probeProcessEnvironmentPrivacy({ sandbox, node = process.e
     const control = await execute(args[0], args.slice(1), { env: { PATH: '/usr/bin:/bin' }, timeout: 5000, maxBuffer: 4096 });
     if (control.stdout !== 'allowed') throw new Error('darwin_process_privacy_control_unknown');
     const result = await sandbox(args);
+    if (!requireDenied && result.ok && result.stdout === 'allowed') return { processEnvironmentDenied: false };
     if (!result.ok || result.stdout !== 'denied') throw new Error(result.stdout === 'allowed'
       ? 'darwin_process_environment_exposed' : 'darwin_process_privacy_unknown');
     return { processEnvironmentDenied: true };

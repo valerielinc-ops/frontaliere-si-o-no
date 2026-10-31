@@ -48,6 +48,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import { brokerPermissionConfig as permissionConfig } from './broker-permissions.mjs';
+import { prepareConciergeTools, FUNCTION_PROFILE_DISABLED_FEATURES } from './concierge-tools.mjs';
 import {
   CODEX_FALLBACK_EFFORT,
   CODEX_FALLBACK_MODEL,
@@ -86,12 +87,8 @@ const LOGIN_ACCESS_TOKEN_MIN_REMAINING_MS = MAX_TIMEOUT_MS + 30 * 60 * 1000;
 // spente sono i tool dell'agente; tutte esistono nella 0.153.4 pinnata e
 // `--strict-config` rifiuta una feature o una chiave sconosciuta.
 const FUNCTION_PROFILE_INSTRUCTIONS = 'You are a stateless text-processing function called by a batch job. Read the request, produce the requested output directly, and never use tools, run commands or ask questions.\n';
-const FUNCTION_PROFILE_DISABLED_FEATURES = Object.freeze([
-  'shell_tool', 'unified_exec', 'multi_agent', 'image_generation', 'browser_use',
-  'computer_use', 'apps', 'plugins', 'view_image', 'goals', 'sleep_tool',
-  'tool_suggest', 'skill_search',
-]);
 const REQUEST_PROFILES = new Set(['agent', 'function']);
+const conciergeJsonOnly = process.argv.includes('--concierge-json-only');
 const MAX_STDERR_TAIL_CHARS = 16 * 1024;
 // Sta nei 300 caratteri dell'errore che il broker restituisce, dopo il suo prefisso.
 const MAX_FAILURE_REASON_CHARS = 200;
@@ -234,6 +231,7 @@ function assertOutsideWorkspace(target, label) {
  * reports the pinned version without inheriting credentials.
  */
 function validateCodexCli() {
+  if (conciergeJsonOnly && CODEX_CLI_VERSION !== '0.153.4') throw new Error('Concierge JSON requires its attested catalogue pin');
   if (!path.isAbsolute(codexCliArgument) || !path.isAbsolute(codexCliRealpathArgument) || !path.isAbsolute(codexCliPrefixArgument)) {
     throw new Error('Codex CLI requires absolute --codex-bin, --codex-realpath, and --codex-prefix');
   }
@@ -556,6 +554,8 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
           ...FUNCTION_PROFILE_DISABLED_FEATURES.flatMap((feature) => ['--disable', feature]),
         );
       }
+      const conciergeTools = conciergeJsonOnly ? prepareConciergeTools(runtimeRoot, CODEX_MODEL) : null;
+      if (conciergeTools) args.push(...conciergeTools.args);
       assertPrivateRuntime(
         runtimeRoot,
         [codexWorkspace, codexTmp, codexOut],
@@ -567,6 +567,7 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
         throw new Error('Codex CLI changed after attestation');
       }
       const imageGenerationStartedAt = Date.now();
+      conciergeTools?.assert();
       child = spawn(codexCliPath, args, {
         stdio: ['pipe', 'ignore', 'pipe'],
         env: childEnv(codexHome, codexTmp),
@@ -652,6 +653,8 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
 function validateRequest(request) {
   if (request?.op === 'cleanup') return '';
   if (!request || request.op !== 'exec') return 'unsupported request';
+  if (conciergeJsonOnly && (request.profile !== 'function' || !request.schema || Array.isArray(request.schema)
+    || request.imageGeneration || request.imagePath || request.imageOutputPath)) return 'concierge JSON-only request required';
   if (typeof request.prompt !== 'string' || !request.prompt.trim()) return 'prompt is required';
   const timeoutMs = Number(request.timeoutMs);
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0 || timeoutMs > MAX_TIMEOUT_MS) return 'invalid timeout';

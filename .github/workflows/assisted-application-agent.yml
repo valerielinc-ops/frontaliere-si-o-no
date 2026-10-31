@@ -150,6 +150,7 @@ jobs:
         uses: ./.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          concierge_json_only: 'true'
           broker_idle_ttl_ms: '3600000'
           broker_max_concurrency: '2'
           # A slow draft must finish (owner decision 2026-09-30): 30 min per call.

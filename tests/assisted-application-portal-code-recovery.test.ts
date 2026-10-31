@@ -131,7 +131,7 @@ describe('automatic recovery after a portal fix', () => {
       'scripts/assisted-application/nopecha-e2e.mjs',
       'scripts/assisted-application/lib/darwin-isolation.mjs', 'scripts/assisted-application/report-runner-failure.mjs',
       '.github/actions/setup-codex-darwin-broker/bootstrap.mjs', '.github/actions/setup-codex-darwin-broker/sandbox-probe.mjs', '.github/actions/setup-codex-darwin-broker/process-privacy-probe.mjs',
-      '.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs', '.github/actions/setup-claude-haiku-fallback/broker-permissions.mjs',
+      '.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs', '.github/actions/setup-claude-haiku-fallback/broker-permissions.mjs', '.github/actions/setup-claude-haiku-fallback/concierge-tools.mjs', '.github/actions/setup-claude-haiku-fallback/concierge-model-source.json', '.github/actions/setup-claude-haiku-fallback/concierge-tool-probe.mjs', '.github/actions/setup-claude-haiku-fallback/action.yml',
       ...['assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
         'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/answerRules.js', 'lib/portalQuestionText.js'].map(file => `functions/src/${file}`),
     ];
