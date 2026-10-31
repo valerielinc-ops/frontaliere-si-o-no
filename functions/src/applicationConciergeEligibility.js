@@ -16,7 +16,7 @@ import { projectAttestedLanguageFacts } from './lib/attestedLanguageProjection.j
 import { languageCodesIn } from './lib/languageFacts.js';
 import { SOURCE_CITATIONS_VERSION, citationSchema, resolveCitations } from './lib/sourceCitations.js';
 import { EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_PROMPT_HASH, qualificationSources,
-  verifyQualificationEvidence, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
+  verifyQualificationEvidence, qualificationCounterContext, hasVerifiedQualificationEvidence } from './lib/qualificationEvidence.js';
 
 export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v5-${SOURCE_CITATIONS_VERSION}-${EVIDENCE_ENTAILMENT_VERSION}-${EVIDENCE_ENTAILMENT_PROMPT_HASH}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
@@ -101,7 +101,7 @@ async function evaluateConciergePosting({ job, profile, answers = {}, answerEvid
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
   const preliminary = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
   const checked = await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources, preliminary, generate,
-    unverifiedContext: Object.keys(answers).length ? { values: answers } : null });
+    unverifiedContext: qualificationCounterContext({ flow: { answers } }) });
   const result = checked.status === 'unverified'
     ? { status: 'unverified', reason: checked.reason, gaps: [], questions: [] } : preliminary;
   const entailment = checked.verification || { version: EVIDENCE_ENTAILMENT_VERSION, status: 'not_required' };

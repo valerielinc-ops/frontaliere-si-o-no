@@ -13,7 +13,7 @@ import { guardMobilityMatch } from '../../../functions/src/lib/mobilityRequireme
 import { citationSchema, resolveCitations } from '../../../functions/src/lib/sourceCitations.js';
 import { projectAttestedLanguageFacts } from '../../../functions/src/lib/attestedLanguageProjection.js';
 import { languageCodesIn } from '../../../functions/src/lib/languageFacts.js';
-import { qualificationSources, qualificationSourcesFingerprint, verifyQualificationEvidence, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
+import { qualificationSources, qualificationCounterContext, qualificationSourcesFingerprint, verifyQualificationEvidence, hasVerifiedQualificationEvidence } from '../../../functions/src/lib/qualificationEvidence.js';
 import { conciergeProposalEligibility } from '../../../functions/src/assistedApplicationFitNotice.js';
 import { repairApplicationDocuments } from './fact-repair.mjs';
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
@@ -136,6 +136,7 @@ export async function buildDraft(ctx) {
   const round = Number(flow?.round) || 1;
   // Fase 2: what the candidate wrote in the e-mail that carried the CV.
   const candidateNotes = String(ctx.intake?.emailNotes || '').slice(0, 4000);
+  const counterContext = qualificationCounterContext({ order, flow, intake: ctx.intake });
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   maskValues(personalValuesOf(order));
 
@@ -229,11 +230,11 @@ export async function buildDraft(ctx) {
   let match = reuseQualifiedMatch ? structuredClone(qualification.match)
     : guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, sources.verificationText),
       { profile, sourceText: cvText, answers, memory: flow?.questionAnswers || {}, locale });
-  const checked = reuseQualifiedMatch && hasVerifiedQualificationEvidence({ ...qualification, requirements, match })
+  const checked = reuseQualifiedMatch && hasVerifiedQualificationEvidence({ ...qualification, requirements, match, counterContext })
     ? { status: 'supported', verification: qualification.entailment }
     : await verifyQualificationEvidence({ requirements, match, rawMatch: matchRaw, sources,
       preliminary: conciergeProposalEligibility(requirements, match, { profile, answers }), purpose: 'documents',
-      unverifiedContext: { values: answers, candidateNotes, corrections: edited.overrides, feedback: flow?.feedback || [] },
+      unverifiedContext: counterContext,
       generate: (system, user, schema) => codex({ prompt: codexPrompt(system, user), schema, timeoutMs: EVIDENCE_TIMEOUT_MS }) });
   if (checked.status === 'unverified') throw new DraftAbort('draft_failed', 'evidence_entailment_unverified');
   requirements = checked.assessment?.requirements || requirements;

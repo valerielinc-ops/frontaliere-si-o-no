@@ -270,6 +270,17 @@ describe('what leaves by e-mail, and the record of it', () => {
     expect(store.read(`${BASE}/automation/submission`).r1.clickedAt).toBeNull();
   });
 
+  it.each(['feedback', 'intake'])('rejects an old email document witness when a new %s correction predates bootstrap', async source => {
+    const cvBuffer = pdfOf('Original CV');
+    const base = await reviewedDocumentContext({ order, flow: TWO_DOCUMENTS, draft: draftFor(), cvBuffer });
+    const sendCascade = delivered();
+    const current = source === 'feedback' ? { flow: { ...TWO_DOCUMENTS, feedback: [{ text: 'I do not hold that degree; the old CV is wrong.' }] } }
+      : { intake: { emailNotes: 'I do not hold that degree; the old CV is wrong.' } };
+    const event = await submitApplicationRaw({ ...base, ...current, orderId: ORDER, sendCascade });
+    expect(event).toEqual({ type: 'submit_failed', error: 'evidence_source_unbound' });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
   it('never sends a legacy email draft without a current document witness and requests bounded repair', async () => {
     const sendCascade = delivered();
     const store = createMemoryFirestore({});

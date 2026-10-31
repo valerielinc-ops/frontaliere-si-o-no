@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { qualificationSources, qualificationSourcesFingerprint, verifyQualificationEvidence, hasVerifiedQualificationEvidence,
+import { qualificationSources, qualificationSourcesFingerprint, qualificationCounterContext, qualificationCounterContextHash, verifyQualificationEvidence, hasVerifiedQualificationEvidence,
   qualificationAssessmentHash, hasVerifiedQualificationAssessment, EVIDENCE_ENTAILMENT_VERSION, EVIDENCE_ENTAILMENT_SYSTEM_PROMPT } from '../functions/src/lib/qualificationEvidence.js';
 import { qualificationEvidenceCases } from './fixtures/qualification-evidence-cases.mjs';
 
@@ -243,6 +243,21 @@ describe('semantic evidence, separate from literal quotation authenticity', () =
     expect(qualificationSourcesFingerprint(make([{ ...record, answer: 'A2' }]))).not.toBe(key);
     expect(qualificationSourcesFingerprint(make([{ ...record, provenance: { ...record.provenance, cvHash: 'b'.repeat(64) } }]))).not.toBe(key);
     expect(qualificationSourcesFingerprint(make([]))).not.toBe(key);
+  });
+
+
+  it('binds the document witness to its exact raw counter-context before a later bootstrap', async () => {
+    const f = fixture();
+    const flow = { answers: {}, feedback: [] as any[], formOverrides: {} };
+    const counterContext = qualificationCounterContext({ flow });
+    const result = await verifyQualificationEvidence({ ...f, unverifiedContext: counterContext, purpose: 'documents' });
+    const assessment = { requirements: f.requirements, match: f.match, entailment: result.verification };
+    expect(result.verification.counterContextHash).toBe(qualificationCounterContextHash(counterContext));
+    expect(hasVerifiedQualificationAssessment({ ...assessment, counterContext: qualificationCounterContext({ flow }) })).toBe(true);
+    flow.feedback.push({ text: 'Correction: I never managed external providers; my old CV is wrong.' });
+    expect(counterContext.feedback).toEqual([]);
+    expect(hasVerifiedQualificationAssessment({ ...assessment, counterContext: qualificationCounterContext({ flow }) })).toBe(false);
+    expect(hasVerifiedQualificationAssessment({ ...assessment, counterContext: qualificationCounterContext({ intake: { emailNotes: 'I do not hold that degree.' } }) })).toBe(false);
   });
 
 });

@@ -2,7 +2,7 @@
  * Fixtures that model qualification claims must supply their own verified witness.
  */
 import { createHash } from 'node:crypto';
-import { qualificationSources, qualificationSourcesFingerprint, verifyQualificationEvidence } from '../../functions/src/lib/qualificationEvidence.js';
+import { qualificationSources, qualificationCounterContext, qualificationSourcesFingerprint, verifyQualificationEvidence } from '../../functions/src/lib/qualificationEvidence.js';
 
 export async function reviewedDocumentContext(ctx: any) {
   const draft = ctx.draft;
@@ -12,7 +12,7 @@ export async function reviewedDocumentContext(ctx: any) {
   const match = { matches: [] };
   const sources = qualificationSources({ sourceText: draft.factSources?.text || '', answerEvidence: ctx.answerEvidence || [] });
   const assessed = await verifyQualificationEvidence({ requirements, match, sources, preliminary: { status: 'unverified' },
-    purpose: 'documents', generate: async () => { throw new Error('zero-positive fixture must not infer evidence'); } });
+    purpose: 'documents', unverifiedContext: qualificationCounterContext(ctx), generate: async () => { throw new Error('zero-positive fixture must not infer evidence'); } });
   return { ...ctx, draft: { ...draft, cvKey: ctx.order.cvStorageKey,
     sourceCvHash: createHash('sha256').update(ctx.cvBuffer).digest('hex'),
     requirementsRaw: requirements, qualificationMatch: match, entailment: assessed.verification,
