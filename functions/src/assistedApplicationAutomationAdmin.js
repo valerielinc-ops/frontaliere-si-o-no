@@ -40,6 +40,7 @@ import { ensureOrderAlias } from './assistedApplicationAlias.js';
 import { factCheckTokens, roundWasSent } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
+import { retainedArtifactStore } from './lib/assistedApplicationArtifactRetention.js';
 import { submissionIrreversibility } from './assistedApplicationSubmissionState.js';
 import { submissionGuard, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
@@ -289,7 +290,8 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
     // refused below deletes only its own PDF, never the one the committed draft points to.
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
     coverLetterRenderer = rebuilt.renderer;
-    await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
+    const store = retainedArtifactStore({ db, bucket, orderId, round: draft.round || 1, now: freshNow });
+    if (!await store.save(coverLetterPdfKey, rebuilt.pdf, { contentType: 'application/pdf' })) throw new AutomationAdminError('changed_meanwhile', 409);
   }
   // Written only on the draft it was built from, as the candidate's own writes are
   // (assistedApplicationReview.js commitRebuild): a candidate edit, a line choice or

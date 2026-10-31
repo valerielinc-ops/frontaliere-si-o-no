@@ -416,15 +416,37 @@ describe('owner queue', () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
     store.docs.set(`${ORDER_PATH}/ai_drafts/current`, { ...readyDraft(), language: 'it', profile: {}, coverLetter: { text: 'Original letter' } });
     const removed: string[] = [];
-    const bucket = { file: (key: string) => ({ save: async () => {
+    let metadata: any;
+    const bucket = { file: (key: string) => ({ save: async (_bytes: any, options: any) => {
+      metadata = { generation: '1', metadata: options.metadata.metadata };
       if (reason === 'expired') store.read(ORDER_PATH).cvUploadedAt = T0 - 90 * 86400000 - 1;
       else if (reason === 'purging') store.read(ORDER_PATH).retentionPurgingAt = T0;
       else store.docs.set(`${ORDER_PATH}/automation/submission`, { r1: { state: 'sent', channel: 'portal' } });
-    }, delete: async () => { removed.push(key); } }) };
+    }, getMetadata: async () => [metadata], delete: async () => { removed.push(key); } }) };
     await expect(handleAutomationAdminAction(store.db, { action: 'automationEditDraft', orderId: ORDER, coverLetterText: 'Gentili signore e signori,\n\nMi candido per il ruolo.\n\nCordiali saluti' }, 'owner@example.com', { bucket, runEffect, nowMs: T0 }))
       .rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
     expect(store.read(`${ORDER_PATH}/ai_drafts/current`).coverLetterPdfKey).toBeUndefined();
     expect(removed).toHaveLength(1);
+  });
+  it('keeps an owner letter upload manifest after an unknown ACK and never publishes it after purge', async () => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    const { cleanupPendingArtifacts } = await import('../functions/src/lib/assistedApplicationArtifactRetention.js');
+    store.docs.set(`${ORDER_PATH}/ai_drafts/current`, { ...readyDraft(), language: 'it', profile: {}, coverLetter: { text: 'Original' } });
+    let metadata: any; const deletes: any[] = [];
+    const bucket = { file: () => ({ save: async (_bytes: any, options: any) => {
+      expect(options.preconditionOpts.ifGenerationMatch).toBe(0);
+      metadata = { generation: '19', metadata: options.metadata.metadata };
+      store.read(ORDER_PATH).retentionPurgingAt = T0;
+      throw new Error('synthetic_ack_lost');
+    }, getMetadata: async () => [metadata], delete: async (options: any) => { deletes.push(options); } }) };
+    await expect(handleAutomationAdminAction(store.db, { action: 'automationEditDraft', orderId: ORDER, coverLetterText: 'Gentili signore e signori,\n\nMi candido.\n\nCordiali saluti' }, 'owner@example.com', { bucket, runEffect, nowMs: T0 }))
+      .rejects.toThrow('synthetic_ack_lost');
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`).coverLetterPdfKey).toBeUndefined();
+    const manifestPaths = [...store.docs.keys()].filter(path => path.startsWith(`${ORDER_PATH}/pending_artifacts/`));
+    expect(manifestPaths).toHaveLength(1);
+    await cleanupPendingArtifacts({ db: store.db, bucket, orderRef: store.db.collection('assisted_applications').doc(ORDER) });
+    expect(deletes).toEqual([{ ifGenerationMatch: '19', ignoreNotFound: true }]);
+    expect(store.docs.has(manifestPaths[0])).toBe(true); // A transport retry can still arrive after cleanup.
   });
   // The owner's edit is written only on the draft it was built from, as the candidate's own writes are.
   it('refuses an owner edit when the candidate changed the draft meanwhile, and writes it otherwise', async () => {
@@ -454,8 +476,8 @@ describe('owner queue', () => {
     once.mockRestore();
 
     // Two owner edits of the letter in the same millisecond: one wins, and the file it points to survives.
-    const saved = new Map<string, Buffer>();
-    const bucket = { file: (key: string) => ({ save: async (data: Buffer) => { saved.set(key, data); }, delete: async () => { saved.delete(key); } }) };
+    const saved = new Map<string, Buffer>(); const metadata = new Map<string, any>();
+    const bucket = { file: (key: string) => ({ save: async (data: Buffer, options: any) => { saved.set(key, data); metadata.set(key, { generation: '1', metadata: options.metadata.metadata }); }, getMetadata: async () => [metadata.get(key)], delete: async () => { saved.delete(key); } }) };
     const letter = (text: string) => ({ action: 'automationEditDraft', orderId: ORDER, coverLetterText: `Gentili signore e signori,\n\n${text}\n\nCordiali saluti` });
     const results = await Promise.allSettled([
       handleAutomationAdminAction(store.db, letter('Mi candido per il posto di infermiere in reparto.'), 'owner@example.com', { runEffect, bucket, nowMs: T0 + 5 }),
