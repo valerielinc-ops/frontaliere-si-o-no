@@ -7,7 +7,14 @@ import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 import { COMPANY_HQ_ADDRESSES, resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { resolveJobEmploymentTypes } from './lib/job-employment-type.mjs';
-import { isSalaryReportedBySource, isSourceStreetAddress, resolveSourceDeadline } from './lib/jobposting-field-provenance.mjs';
+import {
+  isPlaceholderStreetAddress,
+  isSalaryReportedBySource,
+} from './lib/jobposting-field-provenance.mjs';
+import {
+  resolveActiveJobPostingDeadline,
+  resolveJobPostingStreetAddress,
+} from './lib/jobposting-field-enrichment.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -231,21 +238,19 @@ const sameInstant = (a, b) => {
 };
 
 /**
- * Owner decision 2026-10-24: source values win. This observer checks that
- * they are preserved and accepts deterministic safe fallbacks for the mandatory
- * fields. Street and deadline have no fallback: a value without a source is an
- * invented one, so it fails here instead of passing as a default.
+ * Source values win; derived fields must match the same provenance resolver as
+ * the producer. Low-granularity street values are allowed only when explicitly
+ * marked `to-enrich` in the internal job record.
  */
 function validateFieldProvenance(jobPosting, job) {
   const errors = [];
-  const sourceValidThrough = resolveSourceDeadline(job?.validThrough);
-  if (jobPosting?.validThrough !== undefined) {
-    if (!isIsoDate(jobPosting.validThrough)) errors.push('invalid:validThrough');
-    else if (!sourceValidThrough || !sameInstant(jobPosting.validThrough, sourceValidThrough)) {
-      errors.push('validThrough:not_from_source');
-    }
-  } else if (sourceValidThrough) {
-    errors.push('validThrough:source_value_not_preserved');
+  const expectedDeadline = resolveActiveJobPostingDeadline(job);
+  if (!isIsoDate(jobPosting?.validThrough)) errors.push('invalid:validThrough');
+  else if (!expectedDeadline.validThrough || !sameInstant(jobPosting.validThrough, expectedDeadline.validThrough)) {
+    errors.push('validThrough:not_from_active_observation');
+  }
+  if (job?.validThroughSource && job.validThroughSource !== expectedDeadline.validThroughSource) {
+    errors.push('validThroughSource:provenance_mismatch');
   }
 
   const reportedSalary = isSalaryReportedBySource(job) && Number(job?.salaryMin) > 0;
@@ -268,8 +273,11 @@ function validateFieldProvenance(jobPosting, job) {
   const address = jobPosting?.jobLocation?.address || {};
   const hq = COMPANY_HQ_ADDRESSES[String(job?.companyKey || '').toLowerCase().trim()] || null;
   const sourceLocality = address.addressLocality || job?.addressLocality || job?.location;
-  const sourceStreet = String(job?.streetAddress ?? '').trim();
-  const sourceStreetCanEmit = isSourceStreetAddress(sourceStreet, sourceLocality);
+  const expectedStreet = resolveJobPostingStreetAddress(job, {
+    addressLocality: sourceLocality,
+    addressRegion: address.addressRegion || job?.addressRegion || job?.canton,
+    postalCode: String(job?.postalCode ?? '').trim(),
+  });
   const sourcePostalCode = String(job?.postalCode ?? '').trim();
   const sourcePostalCanEmit = /^\d{4}$/.test(sourcePostalCode);
   const fromSourceOrHq = (value, sourceValue, hqValue) => {
@@ -277,15 +285,10 @@ function validateFieldProvenance(jobPosting, job) {
     return v === String(sourceValue ?? '').trim() || (hqValue !== undefined && v === String(hqValue ?? '').trim());
   };
   const emittedStreet = String(address.streetAddress || '').trim();
-  if (emittedStreet && !fromSourceOrHq(emittedStreet, job?.streetAddress, hq?.streetAddress)) {
-    errors.push('streetAddress:not_from_source');
-  } else if (
-    !emittedStreet
-    && sourceStreetCanEmit
-    // An incoherent source CAP takes its street with it (issue 9108).
-    && (!sourcePostalCode || String(address.postalCode ?? '').trim() === sourcePostalCode)
-  ) {
-    errors.push('streetAddress:source_value_not_preserved');
+  if (!emittedStreet) errors.push('streetAddress:missing');
+  else if (emittedStreet !== expectedStreet.streetAddress) errors.push('streetAddress:source_level_mismatch');
+  if (job?.streetAddressSource && job.streetAddressSource !== expectedStreet.streetAddressSource) {
+    errors.push('streetAddressSource:provenance_mismatch');
   }
   if (!/^\d{4,5}$/.test(String(address.postalCode || '').trim())) errors.push('postalCode:missing_or_invalid');
   else if (sourcePostalCanEmit && !fromSourceOrHq(address.postalCode, job?.postalCode, hq?.postalCode)) {
@@ -320,9 +323,14 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
     ['jobLocation.address.addressRegion', jobPosting?.jobLocation?.address?.addressRegion],
     ['jobLocation.address.addressCountry', jobPosting?.jobLocation?.address?.addressCountry],
     ['jobLocation.address.postalCode', jobPosting?.jobLocation?.address?.postalCode],
+    ['jobLocation.address.streetAddress', jobPosting?.jobLocation?.address?.streetAddress],
+    ['validThrough', jobPosting?.validThrough],
   ];
   for (const [field, value] of required) {
     if (!value || String(value).trim().length === 0) errors.push(`missing:${field}`);
+  }
+  if (isPlaceholderStreetAddress(jobPosting?.jobLocation?.address?.streetAddress)) {
+    errors.push('invalid:jobLocation.address.streetAddress_placeholder');
   }
 
   if (jobPosting?.datePosted && !isIsoDate(jobPosting.datePosted)) {
@@ -420,6 +428,10 @@ function main() {
     jobPostingBuildClockDate: 0,
     publicationDateUnverified: 0,
     eligibleLocaleChecks: 0,
+    fieldCoverage: {
+      streetAddress: { expected: 0, actual: 0, regression: false },
+      validThrough: { expected: 0, actual: 0, regression: false },
+    },
     parseErrors: 0,
     errors: 0,
     warnings: 0,
@@ -471,6 +483,12 @@ function main() {
         continue;
       }
 
+      const streetAddress = jobPosting?.jobLocation?.address?.streetAddress;
+      if (typeof streetAddress === 'string' && streetAddress.trim() && !isPlaceholderStreetAddress(streetAddress)) {
+        report.fieldCoverage.streetAddress.actual += 1;
+      }
+      if (isIsoDate(jobPosting?.validThrough)) report.fieldCoverage.validThrough.actual += 1;
+
       // build-clock is the build's own date: the audit may run on another day.
       const dateMatches = schemaDate.provenance === 'build-clock'
         ? /^\d{4}-\d{2}-\d{2}/.test(String(jobPosting.datePosted || ''))
@@ -496,6 +514,21 @@ function main() {
     }
   }
 
+  for (const field of ['streetAddress', 'validThrough']) {
+    const coverage = report.fieldCoverage[field];
+    coverage.expected = report.eligibleLocaleChecks;
+    coverage.regression = coverage.actual < coverage.expected;
+    if (coverage.regression) {
+      report.errors += 1;
+      report.details.push({
+        slug: '*',
+        locale: 'all',
+        level: 'error',
+        issue: `coverage_regression:${field}:${coverage.actual}/${coverage.expected}`,
+      });
+    }
+  }
+
   const grouped = {};
   for (const d of report.details) {
     const key = `${d.level}:${d.issue}`;
@@ -508,6 +541,8 @@ function main() {
   console.log(`Errors: ${report.errors} | Warnings: ${report.warnings}`);
   console.log(`Missing files: ${report.filesMissing}`);
   console.log(`Eligible locale checks: ${report.eligibleLocaleChecks}`);
+  console.log(`streetAddress coverage: ${report.fieldCoverage.streetAddress.actual}/${report.fieldCoverage.streetAddress.expected} (regression=${report.fieldCoverage.streetAddress.regression})`);
+  console.log(`validThrough coverage: ${report.fieldCoverage.validThrough.actual}/${report.fieldCoverage.validThrough.expected} (regression=${report.fieldCoverage.validThrough.regression})`);
   console.log(`Publication date not reported by the source (first-seen/observed/build-clock): ${report.publicationDateUnverified}`);
   console.log(`JobPosting first-seen dates: ${report.jobPostingFirstSeenDate}`);
   console.log(`JobPosting observed dates: ${report.jobPostingObservedDate}`);

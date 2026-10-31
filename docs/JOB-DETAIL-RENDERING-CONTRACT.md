@@ -24,6 +24,16 @@ togliere il gate agli utenti anonimi e di omettere `baseSalary` stimato; il
 gate resta come nella tabella qui sopra e `baseSalary` resta la stima del
 sito, senza etichette e senza rimozioni.
 
+La copertura dei campi JobPosting resta invariata o cresce mentre migliora la
+qualità: si sostituisce un valore debole con un valore migliore, non si omette
+il campo. `streetAddress` resta obbligatorio e segue la gerarchia di prove in
+`docs/SEO-RULES.md`; quando manca una strada reale si conserva il miglior dato
+esistente con `streetAddressSource: 'to-enrich'`, senza inventare via o civico.
+`validThrough` resta obbligatorio: usa una scadenza sorgente plausibile oppure
+una finestra legata all'ultima osservazione reale dell'annuncio attivo e alla
+sua età. La pipeline rinnova la finestra solo dopo una nuova osservazione;
+nessun build-clock la rinnova.
+
 ## SEO e semantica
 
 - Un H1 di identità per documento; descrizione con heading e liste reali,

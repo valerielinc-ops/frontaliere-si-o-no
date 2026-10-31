@@ -28,6 +28,7 @@ const base = {
   company: 'Datore verificato',
   city: 'Bern',
   canton: 'BE',
+  validThrough: new Date(Date.now() + 90 * 86_400_000).toISOString(),
 };
 
 describe('every active job emits JobPosting', () => {

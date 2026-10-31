@@ -20,8 +20,10 @@ const FIELD_CASES = [
   ['jobLocation.address.addressRegion', 'jobLocation.address.addressRegion'],
   ['jobLocation.address.addressCountry', 'jobLocation.address.addressCountry'],
   ['jobLocation.address.postalCode', 'jobLocation.address.postalCode'],
+  ['jobLocation.address.streetAddress', 'jobLocation.address.streetAddress'],
   ['employmentType', 'employmentType'],
   ['baseSalary', 'baseSalary'],
+  ['validThrough', 'validThrough'],
 ] as const;
 
 type MutableJsonObject = Record<string, unknown>;
@@ -70,7 +72,7 @@ function deletePath(target: MutableJsonObject, path: string) {
 describe('JobPosting mandatory-field contract (#10499)', () => {
   it('requires exactly the complete JobPosting field paths', () => {
     expect(MANDATORY_JOBPOSTING_FIELDS).toEqual(FIELD_CASES.map(([, field]) => field));
-    expect(OPTIONAL_JOBPOSTING_FIELDS).toEqual(['jobLocation.address.streetAddress', 'validThrough']);
+    expect(OPTIONAL_JOBPOSTING_FIELDS).toEqual([]);
   });
 
   it('accepts several stated employment types and a salary without an upper bound', () => {
@@ -84,6 +86,16 @@ describe('JobPosting mandatory-field contract (#10499)', () => {
 
   it('accepts a valid default fixture', () => {
     expect(validateMandatoryJobPostingFields(validJobPosting())).toEqual([]);
+  });
+
+  it('rejects a city-centre placeholder even when it is non-empty', () => {
+    const schema = validJobPosting();
+    (schema.jobLocation as MutableJsonObject).address = {
+      ...((schema.jobLocation as MutableJsonObject).address as MutableJsonObject),
+      streetAddress: 'Lugano city centre',
+    };
+    expect(validateMandatoryJobPostingFields(schema).map((error) => error.field))
+      .toContain('jobLocation.address.streetAddress');
   });
 
   it('measures the minimum description length after trimming whitespace', () => {

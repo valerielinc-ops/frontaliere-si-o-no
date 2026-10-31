@@ -79,12 +79,12 @@ describe('employer publication date provenance', () => {
     expect(schema?.datePosted).toBe(yesterday);
     expect(schema?.['@type']).toBe('JobPosting');
     expect(schema?.jobLocation.address.addressLocality).toBe('Lugano');
-    // The CAP has a safe default; street and deadline exist only with a source.
+    // The CAP and street preserve coverage; deadline is capped from publication.
     expect(schema?.jobLocation.address.postalCode).toBe('6900');
-    expect(schema?.jobLocation.address.streetAddress).toBeUndefined();
+    expect(schema?.jobLocation.address.streetAddress).toBe('Lugano');
     expect(schema?.baseSalary?.value.minValue).toBeGreaterThan(0);
     expect(schema?.employmentType).toBe('FULL_TIME');
-    expect(schema?.validThrough).toBeUndefined();
+    expect(schema?.validThrough).toBeTruthy();
   });
   it('keeps presentation FAQ facts separate from the JobPosting date', () => {
     const facts = buildJobPostingFacts(job, 'it');

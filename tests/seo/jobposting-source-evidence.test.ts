@@ -11,6 +11,10 @@ import {
   isSourceStreetAddress,
   resolveSourceDeadline,
 } from '../../scripts/lib/jobposting-field-provenance.mjs';
+import {
+  resolveActiveJobPostingDeadline,
+  resolveJobPostingStreetAddress,
+} from '../../scripts/lib/jobposting-field-enrichment.mjs';
 import { validateMandatoryJobPostingFields } from '../../scripts/lib/jobposting-mandatory-fields.mjs';
 
 const NOW = new Date('2026-10-31T12:00:00.000Z');
@@ -31,23 +35,50 @@ const job: JobInput = {
 };
 const build = (input: JobInput) => buildJobPostingSchema(input, { locale: 'en', url: 'https://frontaliereticino.ch/x/', now: NOW });
 
-describe('validThrough comes from the source or does not exist', () => {
-  it('omits it without a source date, however old the posting and whatever the crawl date', () => {
+describe('validThrough preserves coverage using source or active observation', () => {
+  it('uses a bounded window from the last observation when the source has no deadline', () => {
     const schema = build(job);
-    expect(schema).not.toHaveProperty('validThrough');
+    expect(schema.validThrough).toBe(new Date(Date.parse(job.crawledAt!) + 30 * 86_400_000).toISOString());
     expect(validateMandatoryJobPostingFields(schema)).toEqual([]);
   });
 
-  it('keeps a source deadline, past ones included', () => {
+  it('keeps a plausible future source deadline', () => {
     expect(build({ ...job, validThrough: daysFromNow(20) }).validThrough).toBe(daysFromNow(20));
-    expect(build({ ...job, validThrough: daysFromNow(-3) }).validThrough).toBe(daysFromNow(-3));
   });
 
-  it('treats dates years ahead as ATS defaults, not deadlines', () => {
+  it('replaces an expired source date with the latest active observation window', () => {
+    expect(build({ ...job, validThrough: daysFromNow(-3) }).validThrough)
+      .toBe(new Date(Date.parse(job.crawledAt!) + 30 * 86_400_000).toISOString());
+  });
+
+  it('corrects ATS defaults beyond one year with the observed window', () => {
     expect(resolveSourceDeadline('2036-10-26', NOW)).toBeNull();
     expect(resolveSourceDeadline('2028-07-27', NOW)).toBeNull();
     expect(resolveSourceDeadline(daysFromNow(SOURCE_DEADLINE_MAX_DAYS), NOW)).toBe(daysFromNow(SOURCE_DEADLINE_MAX_DAYS));
-    expect(build({ ...job, validThrough: '2036-10-26' })).not.toHaveProperty('validThrough');
+    expect(build({ ...job, validThrough: '2036-10-26' }).validThrough)
+      .toBe(new Date(Date.parse(job.crawledAt!) + 30 * 86_400_000).toISOString());
+  });
+
+  it('shrinks the window for a mature posting and renews only from a newer observation', () => {
+    const fresh = resolveActiveJobPostingDeadline({
+      datePosted: daysFromNow(-10), crawledAt: daysFromNow(-1), employmentType: 'FULL_TIME',
+    }, NOW);
+    const old = resolveActiveJobPostingDeadline({
+      datePosted: daysFromNow(-250), crawledAt: daysFromNow(-1), employmentType: 'FULL_TIME',
+    }, NOW);
+    expect(Date.parse(fresh.validThrough!) - Date.parse(daysFromNow(-1))).toBe(81 * 86_400_000);
+    expect(Date.parse(old.validThrough!) - Date.parse(daysFromNow(-1))).toBe(30 * 86_400_000);
+  });
+
+  it('does not renew a stored window on a later build without a newer observation', () => {
+    const input = { datePosted: daysFromNow(-30), crawledAt: daysFromNow(-10), employmentType: 'FULL_TIME' };
+    const first = resolveActiveJobPostingDeadline(input, NOW);
+    const rebuilt = resolveActiveJobPostingDeadline({
+      ...input,
+      validThrough: first.validThrough,
+      validThroughSource: first.validThroughSource,
+    }, new Date(NOW.getTime() + 20 * 86_400_000));
+    expect(rebuilt).toEqual(first);
   });
 
   it('still rejects a malformed value when the field is present', () => {
@@ -86,12 +117,15 @@ describe('jobLocationType marks only fully remote jobs', () => {
   });
 });
 
-describe('streetAddress needs evidence', () => {
-  it('omits the street when the source has none, keeping the rest of the address', () => {
+describe('streetAddress preserves coverage and records its source tier', () => {
+  it('keeps the best existing locality value and flags it for enrichment when no street exists', () => {
     const { address } = build(job).jobLocation;
-    expect(address).not.toHaveProperty('streetAddress');
+    expect(address.streetAddress).toBe('Bern');
     expect(address).toMatchObject({ addressLocality: 'Bern', addressRegion: 'BE', addressCountry: 'CH' });
     expect(address.postalCode).toMatch(/^\d{4}$/);
+    expect(resolveJobPostingStreetAddress(job, {
+      addressLocality: 'Bern', addressRegion: 'BE', postalCode: address.postalCode,
+    })).toMatchObject({ streetAddress: 'Bern', streetAddressSource: 'to-enrich' });
   });
 
   it.each(['Spreitenbach city centre', 'Murten Stadtzentrum', 'Genève centre-ville', 'Lugano centro'])(
@@ -113,6 +147,69 @@ describe('streetAddress needs evidence', () => {
   it('keeps the street the listing states', () => {
     const { address } = build({ ...job, streetAddress: 'Bundesgasse 12', postalCode: '3011' }).jobLocation;
     expect(address.streetAddress).toBe('Bundesgasse 12');
+  });
+
+  it('uses a curated employer address only in its own city', () => {
+    const sameCity = resolveJobPostingStreetAddress({ companyKey: 'eoc-ente-ospedaliero-cantonale' }, {
+      addressLocality: 'Bellinzona', addressRegion: 'TI', postalCode: '6500',
+    });
+    const otherCity = resolveJobPostingStreetAddress({ companyKey: 'eoc-ente-ospedaliero-cantonale' }, {
+      addressLocality: 'Lugano', addressRegion: 'TI', postalCode: '6900',
+    });
+    expect(sameCity).toMatchObject({ streetAddress: 'Viale Officina 3', streetAddressSource: 'curated-company-city' });
+    expect(otherCity).toMatchObject({ streetAddress: 'Lugano', streetAddressSource: 'to-enrich' });
+    expect(resolveJobPostingStreetAddress({
+      companyKey: 'eoc-ente-ospedaliero-cantonale', streetAddress: 'Viale Officina 3',
+      streetAddressSource: 'curated-company-city',
+    }, {
+      addressLocality: 'Bellinzona', addressRegion: 'TI', postalCode: '6500',
+    })).toMatchObject({ streetAddress: 'Viale Officina 3', streetAddressSource: 'curated-company-city' });
+  });
+
+  it('preserves a plausible source address that happens to match a fallback from another city', () => {
+    expect(resolveJobPostingStreetAddress({
+      company: 'Demo SA', city: 'Bioggio', streetAddress: 'Via Industria 1',
+    }, {
+      addressLocality: 'Bioggio', addressRegion: 'TI', postalCode: '6934',
+    })).toMatchObject({ streetAddress: 'Via Industria 1', streetAddressSource: 'listing-source' });
+  });
+
+  it('replaces an explicitly tagged legacy synthetic city address with the locality', () => {
+    expect(resolveJobPostingStreetAddress({
+      company: 'Demo SA', city: 'Lugano', streetAddress: 'Piazza Riforma 1',
+      streetAddressSource: 'municipality-table',
+    }, {
+      addressLocality: 'Lugano', addressRegion: 'TI', postalCode: '6900',
+    })).toMatchObject({ streetAddress: 'Lugano', streetAddressSource: 'to-enrich' });
+  });
+
+  it('treats an untagged source address as stronger evidence than a same-city fallback string', () => {
+    expect(resolveJobPostingStreetAddress({
+      company: 'Demo SA', city: 'Lugano', streetAddress: 'Piazza Riforma 1',
+    }, {
+      addressLocality: 'Lugano', addressRegion: 'TI', postalCode: '6900',
+    })).toMatchObject({ streetAddress: 'Piazza Riforma 1', streetAddressSource: 'listing-source' });
+  });
+
+  it('keeps city-centre wording out of streetAddress while retaining its municipality', () => {
+    expect(resolveJobPostingStreetAddress({ location: 'Herisau Zentrum' }, {
+      addressLocality: 'Herisau Zentrum', addressRegion: 'AR',
+    })).toMatchObject({ streetAddress: 'Herisau', streetAddressSource: 'to-enrich' });
+  });
+
+  it('uses a Zefix cache record only for the same company city and canton', () => {
+    const jobWithRegistry = {
+      companyRegisteredAddress: {
+        source: 'zefix-lindas', streetAddress: 'Seestrasse 10', postalCode: '8002',
+        addressLocality: 'Zürich', addressRegion: 'ZH',
+      },
+    };
+    expect(resolveJobPostingStreetAddress(jobWithRegistry, {
+      addressLocality: 'Zürich', addressRegion: 'ZH', postalCode: '8002',
+    })).toMatchObject({ streetAddress: 'Seestrasse 10', streetAddressSource: 'zefix-registry' });
+    expect(resolveJobPostingStreetAddress(jobWithRegistry, {
+      addressLocality: 'Bern', addressRegion: 'BE', postalCode: '3000',
+    })).toMatchObject({ streetAddress: 'Bern', streetAddressSource: 'to-enrich' });
   });
 });
 

@@ -2,6 +2,14 @@
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 import { hasPostingDateProvenance, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import {
+  cachedRegisteredCompanyAddress,
+  readJobpostingAddressCache,
+} from './lib/jobposting-address-cache.mjs';
+import {
+  resolveActiveJobPostingDeadline,
+  resolveJobPostingStreetAddress,
+} from './lib/jobposting-field-enrichment.mjs';
 /**
  * scripts/assemble-jobs-dataset.mjs
  *
@@ -651,7 +659,7 @@ function humanizeCompanyKey(key) {
  * authority is exactly the one the source wrote, only spelled absolutely.
  *
  * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
- * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, sourceGeographyReconciled: number, urlNormalized: number, applyUrlBackfilled: number, countryEvidenceCanonicalized: number, emptyCountryEvidenceRemoved: number }}
+ * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, sourceGeographyReconciled: number, urlNormalized: number, applyUrlBackfilled: number, countryEvidenceCanonicalized: number, emptyCountryEvidenceRemoved: number, streetAddressResolved: number, streetAddressToEnrich: number, validThroughResolved: number }}
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
@@ -663,6 +671,11 @@ export function normalizeParsedJobsForSlice(jobs) {
   let applyUrlBackfilled = 0;
   let countryEvidenceCanonicalized = 0;
   let emptyCountryEvidenceRemoved = 0;
+  let streetAddressResolved = 0;
+  let streetAddressToEnrich = 0;
+  let validThroughResolved = 0;
+  const addressCache = readJobpostingAddressCache();
+  const enrichmentClock = new Date();
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
 
@@ -727,6 +740,31 @@ export function normalizeParsedJobsForSlice(jobs) {
       job.addressRegion = String(job.canton).toUpperCase();
       regionDefaulted++;
     }
+
+    if (!job.companyRegisteredAddress) {
+      const registered = cachedRegisteredCompanyAddress(job, addressCache);
+      if (registered) job.companyRegisteredAddress = registered;
+    }
+    const resolvedStreet = resolveJobPostingStreetAddress(job, {
+      addressLocality: job.addressLocality || job.city || job.location || localityFallback,
+      addressRegion: job.addressRegion || job.canton,
+      postalCode: job.postalCode,
+    });
+    if (resolvedStreet.streetAddress && resolvedStreet.streetAddress !== job.streetAddress) {
+      job.streetAddress = resolvedStreet.streetAddress;
+      streetAddressResolved++;
+    }
+    job.streetAddressSource = resolvedStreet.streetAddressSource;
+    if (resolvedStreet.streetAddressSource === 'to-enrich') streetAddressToEnrich++;
+
+    const deadline = resolveActiveJobPostingDeadline(job, enrichmentClock);
+    if (deadline.validThrough) {
+      if (deadline.validThrough !== job.validThrough || deadline.validThroughSource !== job.validThroughSource) {
+        validThroughResolved++;
+      }
+      job.validThrough = deadline.validThrough;
+      job.validThroughSource = deadline.validThroughSource;
+    }
   }
   return {
     locationFixed,
@@ -737,6 +775,9 @@ export function normalizeParsedJobsForSlice(jobs) {
     applyUrlBackfilled,
     countryEvidenceCanonicalized,
     emptyCountryEvidenceRemoved,
+    streetAddressResolved,
+    streetAddressToEnrich,
+    validThroughResolved,
   };
 }
 
@@ -2755,8 +2796,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // fetch; retained jobs in a partial slice are not proof of current liveness.
   const observedCrawledAtRefreshed = stampObservedCrawledAt(jobs, options.observedJobs);
   const norm = normalizeParsedJobsForSlice(jobs);
-  if (observedCrawledAtRefreshed > 0 || norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.sourceGeographyReconciled > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0 || norm.countryEvidenceCanonicalized > 0 || norm.emptyCountryEvidenceRemoved > 0) {
-    console.log(`  🧭 Upstream normalize: observed crawledAt refreshed ${observedCrawledAtRefreshed}, location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, source geography reconciled ${norm.sourceGeographyReconciled}, country evidence canonicalized ${norm.countryEvidenceCanonicalized}, empty country evidence removed ${norm.emptyCountryEvidenceRemoved}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
+  if (observedCrawledAtRefreshed > 0 || norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.sourceGeographyReconciled > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0 || norm.countryEvidenceCanonicalized > 0 || norm.emptyCountryEvidenceRemoved > 0 || norm.streetAddressResolved > 0 || norm.validThroughResolved > 0 || norm.streetAddressToEnrich > 0) {
+    console.log(`  🧭 Upstream normalize: observed crawledAt refreshed ${observedCrawledAtRefreshed}, location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, source geography reconciled ${norm.sourceGeographyReconciled}, streetAddress resolved ${norm.streetAddressResolved} (to-enrich ${norm.streetAddressToEnrich}), validThrough resolved ${norm.validThroughResolved}, country evidence canonicalized ${norm.countryEvidenceCanonicalized}, empty country evidence removed ${norm.emptyCountryEvidenceRemoved}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
@@ -3074,6 +3115,26 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
         job.postedDate = prior;
       }
     }
+  }
+
+  // `firstSeenAt` is carried/backfilled above, after the write-time location
+  // pass. Resolve the bounded deadline once more here so a newly discovered
+  // active listing still has `validThrough` in this same persisted slice.
+  // Subsequent writes reuse this fixed first-seen date; only a refreshed
+  // `crawledAt` from an actual successful observation can extend the window.
+  let deadlineResolvedAfterFirstSeen = 0;
+  const deadlineClock = new Date(now);
+  for (const job of hardened.jobs) {
+    const deadline = resolveActiveJobPostingDeadline(job, deadlineClock);
+    if (!deadline.validThrough) continue;
+    if (deadline.validThrough !== job.validThrough || deadline.validThroughSource !== job.validThroughSource) {
+      deadlineResolvedAfterFirstSeen++;
+    }
+    job.validThrough = deadline.validThrough;
+    job.validThroughSource = deadline.validThroughSource;
+  }
+  if (deadlineResolvedAfterFirstSeen > 0) {
+    console.log(`  🗓️ JobPosting deadline resolved after firstSeenAt backfill: ${deadlineResolvedAfterFirstSeen}`);
   }
 
   // ── prev-slug safety net (FRO-prev-slug-attribution, 2026-05-20) ───────

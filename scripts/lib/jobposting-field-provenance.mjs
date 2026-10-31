@@ -3,10 +3,9 @@
  * builder (build-plugins/shared/jobPostingSchema.ts) and the audit that checks
  * its output against data/jobs.json (scripts/validate-jobs-rich-results-sample.mjs).
  *
- * Owner decision 2026-10-24: the schema is always emitted and source values
- * win. Street and deadline have no fallback: a value the source does not state
- * is omitted. One definition here keeps producer and observer aligned on what
- * counts as source evidence.
+ * Owner decision 2026-10-31: keep JobPosting field coverage while improving
+ * data quality. Shared predicates distinguish a real source street/deadline
+ * from weak values and placeholders; producer and observer use the same rules.
  */
 
 /**
