@@ -262,6 +262,11 @@ describe.each(['source', 'bundle'])('native address ownership: %s', (reader) => 
     expect(field.label).not.toContain('max 200');
   });
 
+  it('recognizes the explicit German country and region of residence caption', () => {
+    const field = nativeField('<form><h2>Personal information</h2><label for="city">Land/Region des Wohnorts</label><input id="city" name="city"></form>', reader);
+    expect(candidateAnswerForField(candidate, field)?.value).toBe('Italia');
+  });
+
   it('does not invent DOB when the profile has no date of birth', () => {
     const field = nativeField('<form><label for="dob">DOB</label><input id="dob" name="dob" type="date" required></form>', reader, 'dob');
     const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'fill', value: '1990-01-02', source: 'inferred' }], missingRequired: [] }, [field], { ...candidate, profile: {} });

@@ -41,7 +41,7 @@ describe('shared positive residence field captions', () => {
   it.each([
     ['Town', 'city'], ['City', 'city'], ['Città', 'city'], ['Comune', 'city'], ['Ville', 'city'], ['Wohnort', 'city'],
     ['Luogo di residenza', 'city'], ['Lieu de résidence', 'city'], ['Place of residence', 'city'],
-    ['Country of residence', 'country'], ['Paese di residenza', 'country'], ['Pays de résidence', 'country'], ['Wohnsitzland', 'country'],
+    ['Country of residence', 'country'], ['Paese di residenza', 'country'], ['Pays de résidence', 'country'], ['Wohnsitzland', 'country'], ['Land/Region des Wohnorts', 'country'], ['Land / Region des Wohnorts', 'country'],
     ['Postal code', 'postalCode'], ['ZIP / Postal code', 'postalCode'], ['CAP (obbligatorio)', 'postalCode'], ['Postleitzahl', 'postalCode'], ['Code postal', 'postalCode'],
     ['Street name', 'street'], ['Via', 'street'], ['Strasse', 'street'], ['Rue', 'street'],
     ['Rue et numéro', 'address'], ['Via e numero civico', 'address'], ['Strasse und Hausnummer', 'address'],
