@@ -38,6 +38,17 @@ function run(id: number, createdAt: string, conclusion: 'success' | 'failure' | 
 }
 
 describe('close-recovered history reads', () => {
+  it('qualifies issue-fix recovery only when the fixer job itself succeeded', () => {
+    const workflow = 'Issue fix (Codex Luna Max → PR)';
+    expect(RECOVERY_REQUIRED_JOBS[workflow]).toEqual(['fix']);
+    expect(hasRequiredRecoveryJobs(workflow, {
+      jobs: [{ name: 'fix', conclusion: 'skipped' }],
+    })).toBe(false);
+    expect(hasRequiredRecoveryJobs(workflow, {
+      jobs: [{ name: 'fix', conclusion: 'success' }],
+    })).toBe(true);
+  });
+
   it('strips the loop-clock run-name decoration before querying workflow history', () => {
     const decorated = 'Revenue signal monitor [loop-clock site-revenue-signal-monitor@2026-10-19T15:40Z]';
     expect(canonicalWorkflowNameForHistory(decorated)).toBe('Revenue signal monitor');

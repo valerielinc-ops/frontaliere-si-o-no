@@ -9,6 +9,7 @@ import {
  FALLBACK_SUBJECT,
 } from '@/services/newsletter-content-core.mjs';
 import { reportCaughtError } from '@/services/errorReporter';
+import { DEFAULT_EXCHANGE_RATE } from '@/constants';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -72,8 +73,8 @@ async function fetchExchangeRate(db: ReturnType<typeof getFirestore>) {
  const data = snapshot.data() || {};
  const normalize = (value: number) => (value > 0 && value < 0.8 ? 1 / value : value);
  return {
- rate: normalize(Number(data.rate || 0.94)),
- previousRate: normalize(Number(data.previousRate || data.rate || 0.94)),
+ rate: normalize(Number(data.rate || DEFAULT_EXCHANGE_RATE)),
+ previousRate: normalize(Number(data.previousRate || data.rate || DEFAULT_EXCHANGE_RATE)),
  };
  } catch (e) {
  reportCaughtError(e, 'newsletterPreview.fetchExchangeRate');

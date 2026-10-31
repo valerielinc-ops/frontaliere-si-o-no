@@ -93,6 +93,100 @@ function advertisementId(row) {
   return null;
 }
 
+function transportOptions(opts) {
+  return { fetchImpl: opts.fetchImpl, sleepImpl: opts.sleepImpl, lookupImpl: opts.lookupImpl };
+}
+
+/**
+ * One page of the public search, the single request behind both consumers: the
+ * prospector wants the employers, the job crawler publishes the ads. Never
+ * throws — each consumer decides what a failed page means.
+ *
+ * `displayRestricted:false` asks for what anyone can read. `x-total-count` is
+ * the source's own total, and the only way to tell a complete read from a
+ * short one.
+ *
+ * @param {number} page
+ * @param {{ cantons: string[], onlineSince: number, pageSize: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} opts
+ * @returns {Promise<{ ok: true, batch: any[], declaredTotal: number|null } | { ok: false, outcome: 'unavailable'|'malformed', errorCode: string }>}
+ */
+export async function readSecoSearchPage(page, { cantons, onlineSince, pageSize, fetchImpl, sleepImpl, lookupImpl }) {
+  try {
+    const res = await politeFetch(`${API}?page=${page}&size=${pageSize}&sort=date_desc`, {
+      method: 'POST',
+      accept: 'application/json',
+      ignoreRobots: true,
+      captureHeaders: ['x-total-count'],
+      body: JSON.stringify({
+        permanent: null,
+        workloadPercentageMin: 0,
+        workloadPercentageMax: 100,
+        onlineSince,
+        displayRestricted: false,
+        keywords: [],
+        professionCodes: [],
+        cantonCodes: cantons,
+        communalCodes: [],
+        companyName: null,
+      }),
+      fetchImpl,
+      sleepImpl,
+      lookupImpl,
+    });
+    if (!res.ok) return { ok: false, outcome: 'unavailable', errorCode: `http_${res.status}` };
+    let batch;
+    try { batch = JSON.parse(res.body); } catch { batch = null; }
+    if (!Array.isArray(batch)) {
+      return { ok: false, outcome: 'malformed', errorCode: batch === null ? 'malformed_json' : 'unexpected_payload' };
+    }
+    const rawTotal = String(res.headers?.['x-total-count'] ?? '').trim();
+    return { ok: true, batch, declaredTotal: /^\d+$/.test(rawTotal) ? Number(rawTotal) : null };
+  } catch {
+    return { ok: false, outcome: 'unavailable', errorCode: 'network_error' };
+  }
+}
+
+/**
+ * The whole feed for a set of cantons, read in one sweep.
+ *
+ * The prospector's head/after cursors below are deliberately not used here:
+ * they exist to spread a discovery sweep over several runs, while a publisher
+ * must see every live ad in every run or it would retire the ones it skipped.
+ * What this shares with them is the stable-ID rule: pages shift while new ads
+ * land, so a row is identified by its ID and never by its position.
+ *
+ * @param {{ cantons?: string[], onlineSince?: number, maxPages?: number, pageSize?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} [opts]
+ * @returns {Promise<{ rows: any[], outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null, pagesRead: number, firstDeclaredTotal: number|null, lastDeclaredTotal: number|null, skippedRows: number }>}
+ */
+export async function fetchSecoAdSnapshot(opts = {}) {
+  const cantons = opts.cantons || ['TI'];
+  const onlineSince = opts.onlineSince ?? 30;
+  const maxPages = opts.maxPages ?? 100;
+  const pageSize = opts.pageSize ?? 100;
+  const byId = new Map();
+  let pagesRead = 0;
+  let firstDeclaredTotal = null;
+  let lastDeclaredTotal = null;
+  let skippedRows = 0;
+  const finish = (outcome, errorCode = null) => ({
+    rows: [...byId.values()], outcome, errorCode, pagesRead, firstDeclaredTotal, lastDeclaredTotal, skippedRows,
+  });
+
+  for (let page = 0; page < maxPages; page++) {
+    const result = await readSecoSearchPage(page, { cantons, onlineSince, pageSize, ...transportOptions(opts) });
+    if (!result.ok) return finish(pagesRead > 0 ? 'partial' : result.outcome, result.errorCode);
+    pagesRead++;
+    if (firstDeclaredTotal === null) firstDeclaredTotal = result.declaredTotal;
+    if (result.declaredTotal !== null) lastDeclaredTotal = result.declaredTotal;
+    for (const row of result.batch) {
+      const id = advertisementId(row);
+      if (id) byId.set(id, row); else skippedRows++;
+    }
+    if (result.batch.length < pageSize) return finish('complete');
+  }
+  return finish('partial', 'page_limit_reached');
+}
+
 /**
  * @param {{ cantons?: string[], onlineSince?: number, headId?: string|null, startAfterId?: string|null, startPageHint?: number, maxPages?: number, headSearchPages?: number, cursorSearchPages?: number, pageSize?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} [opts]
  * @returns {Promise<{ employers: SecoEmployer[], adCount: number, hostHistogram: Record<string, number>, outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null, pagesRead: number, headId: string|null, nextAfterId: string|null, nextAfterPageHint: number }>}
@@ -143,38 +237,7 @@ export async function fetchSecoEmployers(opts = {}) {
 
   async function readPage(page) {
     if (pageCache.has(page)) return pageCache.get(page);
-    let result;
-    try {
-      const res = await politeFetch(`${API}?page=${page}&size=${pageSize}&sort=date_desc`, {
-        method: 'POST',
-        accept: 'application/json',
-        ignoreRobots: true,
-        body: JSON.stringify({
-          permanent: null,
-          workloadPercentageMin: 0,
-          workloadPercentageMax: 100,
-          onlineSince,
-          displayRestricted: false,
-          keywords: [],
-          professionCodes: [],
-          cantonCodes: cantons,
-          communalCodes: [],
-          companyName: null,
-        }),
-        fetchImpl: opts.fetchImpl,
-        sleepImpl: opts.sleepImpl,
-        lookupImpl: opts.lookupImpl,
-      });
-      if (!res.ok) result = { ok: false, outcome: 'unavailable', errorCode: `http_${res.status}` };
-      else {
-        let batch;
-        try { batch = JSON.parse(res.body); } catch { batch = null; }
-        if (!Array.isArray(batch)) result = { ok: false, outcome: 'malformed', errorCode: batch === null ? 'malformed_json' : 'unexpected_payload' };
-        else result = { ok: true, batch };
-      }
-    } catch {
-      result = { ok: false, outcome: 'unavailable', errorCode: 'network_error' };
-    }
+    const result = await readSecoSearchPage(page, { cantons, onlineSince, pageSize, ...transportOptions(opts) });
     pageCache.set(page, result);
     if (result.ok) pagesRead++;
     return result;

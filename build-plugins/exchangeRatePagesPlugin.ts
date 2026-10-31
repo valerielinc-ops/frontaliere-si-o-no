@@ -296,7 +296,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     hubDescription: (rate, date) =>
       `Tasso di cambio CHF/EUR aggiornato al ${date}: 1 franco = ${rate} euro. Storico 30/90/365 giorni, quando conviene cambiare lo stipendio da frontaliere e come evitare le commissioni nascoste.`,
     hubH1: 'Cambio franco svizzero → euro: tasso di oggi e storico',
-    hubLede: (rate) => `Oggi 1 franco svizzero vale ${rate} euro (tasso interbancario BCE).`,
+    hubLede: (rate) => `Oggi 1 franco svizzero vale ${rate} euro (tasso interbancario).`,
     tiles: { current: 'Tasso attuale', d30: 'Variazione 30 giorni', d90: 'Variazione 90 giorni', d365: 'Variazione 12 mesi' },
     historyTitle: 'Storico del cambio CHF/EUR',
     historyIntro: (min365, max365) =>
@@ -353,7 +353,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     hubFaq: [
       {
         q: 'Quanto vale un franco svizzero in euro oggi?',
-        a: 'Il valore aggiornato è indicato in cima a questa pagina: è il tasso interbancario di riferimento BCE, rinfrescato ogni giorno con il cron che alimenta anche il comparatore. Gli operatori applicano poi il proprio spread su questo valore.',
+        a: 'Il valore aggiornato è indicato in cima a questa pagina: è il tasso interbancario rilevato una volta al giorno, lo stesso usato dal comparatore. Gli operatori applicano poi il proprio spread su questo valore.',
       },
       {
         q: 'Quando conviene cambiare i franchi in euro?',
@@ -425,7 +425,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     amountFaq: (amount, eur, rate, lowNet, bankNet, netLow, netHigh) => [
       {
         q: `Quanto valgono ${amount} franchi svizzeri in euro?`,
-        a: `Al tasso interbancario di oggi (${rate}) ${amount} CHF valgono ${eur} euro. Il valore si aggiorna ogni giorno con i tassi di riferimento BCE.`,
+        a: `Al tasso interbancario di oggi (${rate}) ${amount} CHF valgono ${eur} euro. Il valore si aggiorna una volta al giorno.`,
       },
       {
         q: `Quanti euro ricevo davvero cambiando ${amount} CHF?`,
@@ -445,7 +445,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
       { title: 'Offerte di lavoro in Ticino', href: '/cerca-lavoro-ticino/' },
     ],
     updatedLabel: 'Aggiornato al',
-    sourceNote: 'Fonte: tassi di riferimento BCE (via Frankfurter/Firestore), aggiornamento giornaliero automatico.',
+    sourceNote: 'Fonte: tasso interbancario rilevato una volta al giorno (TwelveData; tassi di riferimento BCE se non disponibile), storico da tassi di riferimento BCE.',
   },
   en: {
     breadcrumbHome: 'Home',
@@ -454,7 +454,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     hubDescription: (rate, date) =>
       `CHF/EUR exchange rate updated ${date}: 1 Swiss franc = ${rate} euro. 30/90/365-day history, when cross-border workers should convert their salary, and how to avoid hidden fees.`,
     hubH1: 'Swiss franc → euro: today\'s rate and history',
-    hubLede: (rate) => `Today 1 Swiss franc is worth ${rate} euro (ECB mid-market rate).`,
+    hubLede: (rate) => `Today 1 Swiss franc is worth ${rate} euro (mid-market rate).`,
     tiles: { current: 'Current rate', d30: '30-day change', d90: '90-day change', d365: '12-month change' },
     historyTitle: 'CHF/EUR rate history',
     historyIntro: (min365, max365) =>
@@ -510,7 +510,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     hubFaq: [
       {
         q: 'How much is one Swiss franc worth in euro today?',
-        a: 'The updated value is at the top of this page: it is the ECB mid-market reference rate, refreshed daily by the same cron that feeds the interactive comparator. Providers then apply their own spread on top of it.',
+        a: 'The updated value is at the top of this page: it is the mid-market rate observed once a day, the same one the comparator uses. Providers then apply their own spread on top of it.',
       },
       {
         q: 'When is the best moment to convert francs to euro?',
@@ -582,7 +582,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     amountFaq: (amount, eur, rate, lowNet, bankNet, netLow, netHigh) => [
       {
         q: `How much is ${amount} Swiss francs in euro?`,
-        a: `At today's mid-market rate (${rate}) ${amount} CHF is worth ${eur} euro. The value refreshes daily with ECB reference rates.`,
+        a: `At today's mid-market rate (${rate}) ${amount} CHF is worth ${eur} euro. The value refreshes once a day.`,
       },
       {
         q: `How many euro do I actually receive converting ${amount} CHF?`,
@@ -602,7 +602,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
       { title: 'Job openings in Ticino', href: '/en/find-jobs-ticino/' },
     ],
     updatedLabel: 'Updated',
-    sourceNote: 'Source: ECB reference rates (via Frankfurter/Firestore), refreshed automatically every day.',
+    sourceNote: 'Source: mid-market rate observed once a day (TwelveData, ECB reference rates if unavailable); history from ECB reference rates.',
   },
   de: {
     breadcrumbHome: 'Home',
@@ -611,7 +611,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     hubDescription: (rate, date) =>
       `CHF/EUR-Wechselkurs, aktualisiert am ${date}: 1 Franken = ${rate} Euro. Verlauf über 30/90/365 Tage, wann Grenzgänger den Lohn wechseln sollten und wie man versteckte Gebühren vermeidet.`,
     hubH1: 'Schweizer Franken → Euro: aktueller Kurs und Verlauf',
-    hubLede: (rate) => `Heute ist 1 Schweizer Franken ${rate} Euro wert (EZB-Interbankenkurs).`,
+    hubLede: (rate) => `Heute ist 1 Schweizer Franken ${rate} Euro wert (Interbankenkurs).`,
     tiles: { current: 'Aktueller Kurs', d30: 'Veränderung 30 Tage', d90: 'Veränderung 90 Tage', d365: 'Veränderung 12 Monate' },
     historyTitle: 'Kursverlauf CHF/EUR',
     historyIntro: (min365, max365) =>
@@ -667,7 +667,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     hubFaq: [
       {
         q: 'Wie viel ist ein Schweizer Franken heute in Euro wert?',
-        a: 'Der aktuelle Wert steht oben auf dieser Seite: Es ist der EZB-Interbanken-Referenzkurs, täglich aktualisiert durch denselben Cron, der auch den interaktiven Vergleichsrechner speist. Anbieter schlagen darauf ihren eigenen Spread auf.',
+        a: 'Der aktuelle Wert steht oben auf dieser Seite: Es ist der einmal täglich erfasste Interbankenkurs, derselbe, den der Vergleichsrechner verwendet. Anbieter schlagen darauf ihren eigenen Spread auf.',
       },
       {
         q: 'Wann ist der beste Zeitpunkt, Franken in Euro zu wechseln?',
@@ -739,7 +739,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     amountFaq: (amount, eur, rate, lowNet, bankNet, netLow, netHigh) => [
       {
         q: `Wie viel sind ${amount} Schweizer Franken in Euro?`,
-        a: `Zum heutigen Interbankenkurs (${rate}) sind ${amount} CHF ${eur} Euro wert. Der Wert wird täglich mit den EZB-Referenzkursen aktualisiert.`,
+        a: `Zum heutigen Interbankenkurs (${rate}) sind ${amount} CHF ${eur} Euro wert. Der Wert wird einmal täglich aktualisiert.`,
       },
       {
         q: `Wie viele Euro erhalte ich wirklich beim Wechsel von ${amount} CHF?`,
@@ -759,7 +759,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
       { title: 'Stellenangebote im Tessin', href: '/de/jobs-im-tessin/' },
     ],
     updatedLabel: 'Aktualisiert am',
-    sourceNote: 'Quelle: EZB-Referenzkurse (via Frankfurter/Firestore), automatische tägliche Aktualisierung.',
+    sourceNote: 'Quelle: einmal täglich erfasster Interbankenkurs (TwelveData, bei Ausfall EZB-Referenzkurse); Verlauf aus EZB-Referenzkursen.',
   },
   fr: {
     breadcrumbHome: 'Home',
@@ -768,7 +768,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     hubDescription: (rate, date) =>
       `Taux de change CHF/EUR mis à jour le ${date} : 1 franc = ${rate} euro. Historique 30/90/365 jours, quand les frontaliers devraient changer leur salaire et comment éviter les frais cachés.`,
     hubH1: 'Franc suisse → euro : taux du jour et historique',
-    hubLede: (rate) => `Aujourd'hui 1 franc suisse vaut ${rate} euro (taux interbancaire BCE).`,
+    hubLede: (rate) => `Aujourd'hui 1 franc suisse vaut ${rate} euro (taux interbancaire).`,
     tiles: { current: 'Taux actuel', d30: 'Variation 30 jours', d90: 'Variation 90 jours', d365: 'Variation 12 mois' },
     historyTitle: 'Historique du taux CHF/EUR',
     historyIntro: (min365, max365) =>
@@ -824,7 +824,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     hubFaq: [
       {
         q: 'Combien vaut un franc suisse en euro aujourd\'hui ?',
-        a: 'La valeur à jour figure en haut de cette page : c\'est le taux interbancaire de référence BCE, rafraîchi chaque jour par le même cron qui alimente le comparateur interactif. Les opérateurs y ajoutent ensuite leur propre spread.',
+        a: 'La valeur à jour figure en haut de cette page : c\'est le taux interbancaire relevé une fois par jour, le même que celui du comparateur. Les opérateurs y ajoutent ensuite leur propre spread.',
       },
       {
         q: 'Quel est le meilleur moment pour changer des francs en euros ?',
@@ -896,7 +896,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     amountFaq: (amount, eur, rate, lowNet, bankNet, netLow, netHigh) => [
       {
         q: `Combien valent ${amount} francs suisses en euros ?`,
-        a: `Au taux interbancaire du jour (${rate}), ${amount} CHF valent ${eur} euros. La valeur est actualisée chaque jour avec les taux de référence BCE.`,
+        a: `Au taux interbancaire du jour (${rate}), ${amount} CHF valent ${eur} euros. La valeur est actualisée une fois par jour.`,
       },
       {
         q: `Combien d'euros vais-je vraiment recevoir en changeant ${amount} CHF ?`,
@@ -916,7 +916,7 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
       { title: 'Offres d\'emploi au Tessin', href: '/fr/trouver-emploi-tessin/' },
     ],
     updatedLabel: 'Mis à jour le',
-    sourceNote: 'Source : taux de référence BCE (via Frankfurter/Firestore), mise à jour automatique quotidienne.',
+    sourceNote: 'Source : taux interbancaire relevé une fois par jour (TwelveData, taux de référence BCE si indisponible) ; historique issu des taux de référence BCE.',
   },
 };
 

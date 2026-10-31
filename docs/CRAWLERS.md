@@ -422,3 +422,32 @@ An unmarked import is the one state the gate refuses. A tagged one is not
 blocked, because the loop this repo runs cannot review every PR by hand —
 the tag **is** the review, exactly like the promotion gate's rejection
 reasons in `docs/PROSPECTOR.md`.
+
+## Public Employment Service Feed — `seco-jobroom`
+
+`scripts/update-seco-jobroom-jobs.mjs` publishes the ads of job-room.ch, the
+SECO/RAV register, read from its search API (owner decision, 2026-10-31, taken
+regardless of robots.txt: the file disallows `/job-search/`, which the crawler
+never requests). It is the one multi-employer crawler: `companyKey` is
+`seco-jobroom`, `company` is whoever the ad names, and `url` is the ad's
+job-room page.
+
+- **Scope.** `SECO_JOBROOM_CANTONS` (default `TI,GR,VS`, the cantons bordering
+  Italy). All 26 held 75,683 ads on 2026-10-31, 2.5 times the corpus.
+- **Publication.** Member of `TRANSLATION_HOLD_CRAWLER_KEYS`: a new ad stays in
+  the slice and out of the site until its titles are translated.
+- **What stays out.** Non-public ads, the RAV exclusivity window, ads with no
+  identifiable employer (anonymous, placeholder, a job board named as the
+  company) and bodies under 50 words after contact data is removed.
+- **The employer's own source wins.** `seco-jobroom-corpus-index.mjs` matches
+  every ad against the other slices on URL, single-crawler host, reference and
+  company + title + place. With no slice to read the crawl fails instead of
+  publishing unchecked.
+- **Contact data.** Named contacts, e-mail addresses and phone numbers are
+  neither stored nor left in the text; `applyUrl` or the job-room page carries
+  the channel.
+- **Log.** Every run prints `[seco-jobroom] letti=… pubblicabili=…
+  deduplicati=… esclusi=…`, each with its reasons.
+
+The read is a full snapshot checked against `x-total-count`: the removal cycle
+treats an absent ad as gone, so a partial read must not reach the merge.

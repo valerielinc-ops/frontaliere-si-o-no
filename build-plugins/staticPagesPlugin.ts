@@ -12,6 +12,7 @@ import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from '.
 
 import type { Plugin } from 'vite';
 import { withPhaseInstrument } from './shared/phaseInstrument';
+import { localeHomeUrl } from './shared/breadcrumbHome';
 import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo } from './shared/authorEditorial';
 import { renderRevenueModelHtml, renderRevenueNoteHtml } from '../services/revenueDisclosure';
 import { localizeStaticPageStructuredData } from './shared/localeStaticStructuredData';
@@ -3824,10 +3825,12 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  };
  const segments = canonicalPath.split('/').filter(Boolean);
  const HOME_LABEL: Record<string, string> = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' };
- const breadcrumbs = [{ name: HOME_LABEL[locale] || 'Home', url: BASE_URL + '/' }];
+ const breadcrumbs = [{ name: HOME_LABEL[locale] || 'Home', url: localeHomeUrl(locale, BASE_URL) }];
  let accumPath = '';
- for (const seg of segments) {
+ for (const [segmentIndex, seg] of segments.entries()) {
  accumPath += '/' + seg;
+ // The locale prefix is the home crumb above, not a level of its own.
+ if (segmentIndex === 0 && seg === locale) continue;
  const readableName = BREADCRUMB_NAMES[seg] || LOCALE_SECTION_TITLES[locale]?.[seg] || seg.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
  breadcrumbs.push({ name: readableName, url: BASE_URL + withTrailingSlash(accumPath) });
  }
@@ -4351,7 +4354,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
 
  // Block 4: Contributi Sociali e Previdenza
  `<h2>Contributi sociali e sistema previdenziale svizzero</h2>`,
- `I contributi sociali obbligatori in Svizzera vengono trattenuti direttamente dalla busta paga. L'AVS/AI/IPG (Assicurazione Vecchiaia e Superstiti / Invalidità / Indennità per Perdita di Guadagno) corrisponde al 5,3% del salario lordo a carico del lavoratore, con un identico 5,3% a carico del datore di lavoro. L'assicurazione contro la disoccupazione (AD/AC) è pari all'1,1% del salario fino a CHF 148.200/anno, con un contributo di solidarietà dello 0,5% sulla parte eccedente. L'assicurazione infortuni non professionali (LAINF/UVG) varia dallo 0,5% al 2% a seconda del settore e dell'assicuratore, ed è interamente a carico del lavoratore.`,
+ `I contributi sociali obbligatori in Svizzera vengono trattenuti direttamente dalla busta paga. L'AVS/AI/IPG (Assicurazione Vecchiaia e Superstiti / Invalidità / Indennità per Perdita di Guadagno) corrisponde al 5,3% del salario lordo a carico del lavoratore, con un identico 5,3% a carico del datore di lavoro. L'assicurazione contro la disoccupazione (AD/AC) è pari all'1,1% del salario fino a CHF 148.200/anno, senza contributo sulla parte eccedente. L'assicurazione infortuni non professionali (LAINF/UVG) varia dallo 0,5% al 2% a seconda del settore e dell'assicuratore, ed è interamente a carico del lavoratore.`,
  `Il secondo pilastro (LPP/BVG) è la previdenza professionale obbligatoria. I contributi variano per fascia d'età: 7% del salario coordinato (25-34 anni), 10% (35-44 anni), 15% (45-54 anni) e 18% (55-65 anni). Questi contributi sono ripartiti tra lavoratore e datore di lavoro, con il datore che copre almeno il 50%. Il salario coordinato è la parte del salario annuo compresa tra la deduzione di coordinamento (CHF 26.460 nel 2026) e il limite superiore (CHF 90.720). Al termine del rapporto di lavoro, il capitale segue le regole del libero passaggio. Il rientro in Italia non consente da solo il prelievo della parte obbligatoria: se la persona resta soggetta all’assicurazione obbligatoria italiana per vecchiaia, invalidità e superstiti, tale parte resta vincolata. La parte sovraobbligatoria ha condizioni distinte; verifica con la cassa pensioni. <a href="https://www.ahv-iv.ch/p/880.i">Fonte AVS/AI, previdenza professionale</a>.`,
  `Il terzo pilastro 3a è previdenza individuale vincolata. La possibilità di versare contributi e la deducibilità fiscale sono questioni distinte: non basta possedere un permesso G per ottenere una deduzione. Per i frontalieri fiscali dell’accordo Italia–Svizzera la TOU è esclusa; prima di versare per ragioni fiscali occorre verificare lo status e il trattamento applicabile. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">ESTV / AFC</a>.`,
 
@@ -4369,7 +4372,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
 
  // Block 7: Dichiarazione dei Redditi
  `<h2>Dichiarazione dei redditi: obblighi in Italia e in Svizzera</h2>`,
- `Per i nuovi frontalieri, la dichiarazione dei redditi italiana è obbligatoria. Il reddito da lavoro dipendente in Svizzera deve essere dichiarato nel Modello 730 (scadenza 30 settembre) o nel Modello Redditi PF (scadenza 30 novembre). Il reddito in CHF va convertito in EUR al tasso di cambio medio annuo pubblicato dall'Agenzia delle Entrate. Nella dichiarazione si applica la franchigia di EUR 10.000 e si richiede il credito d'imposta per le imposte pagate in Svizzera (imposta alla fonte), compilando il quadro CE (crediti per redditi prodotti all'estero). I vecchi frontalieri (ante 17 luglio 2023, entro 20 km) sono generalmente esenti dalla dichiarazione per il reddito da lavoro svizzero, ma devono comunque dichiarare eventuali altri redditi italiani.`,
+ `Per i nuovi frontalieri, la dichiarazione dei redditi italiana è obbligatoria. Il reddito da lavoro dipendente in Svizzera deve essere dichiarato nel Modello 730 (scadenza 30 settembre) o nel Modello Redditi PF (per il 2026, invio telematico entro il 2 novembre). Il reddito in CHF va convertito in EUR al tasso di cambio medio annuo pubblicato dall'Agenzia delle Entrate. Nella dichiarazione si applica la franchigia di EUR 10.000 e si richiede il credito d'imposta per le imposte pagate in Svizzera (imposta alla fonte), compilando il quadro CE (crediti per redditi prodotti all'estero). I vecchi frontalieri (ante 17 luglio 2023, entro 20 km) sono generalmente esenti dalla dichiarazione per il reddito da lavoro svizzero, ma devono comunque dichiarare eventuali altri redditi italiani.`,
  `La rettifica di errori nella tariffa o nei dati dell’imposta alla fonte non coincide con la richiesta di deduzioni individuali tramite tassazione ordinaria ulteriore (TOU). La FAQ 5.3 dell’ESTV esclude la TOU per i frontalieri fiscali dell’accordo Italia–Svizzera. Non si può quindi promettere un rimborso per versamenti 3a, trasporti o custodia dei figli a ogni titolare di permesso G. Verifica procedura e termini presso l’autorità cantonale in base al tuo status. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">ESTV / AFC</a>.`,
  `Nella dichiarazione italiana il credito per l’imposta svizzera segue le regole applicabili ai redditi esteri: non è una percentuale automatica del lordo né un rimborso garantito del certificato di salario. Conserva il Lohnausweis, la prova dell’imposta pagata e i documenti relativi alle spese; verifica le istruzioni dell’anno del modello utilizzato e la tua posizione fiscale. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">ESTV / AFC</a>.`,
 
@@ -4422,7 +4425,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  );
  } else if (canonicalPath.startsWith('/guida-frontaliere/permessi-di-lavoro')) {
  editorialBlocks.push(
- `Il confronto permessi analizza le differenze operative tra permesso G (frontaliere, rinnovo annuale) e permesso B (domiciliato, 5 anni): tassazione, accesso ai servizi, diritto di soggiorno e implicazioni per la famiglia.`,
+ `Il confronto permessi analizza le differenze operative tra permesso G (frontaliere, 5 anni con contratto superiore a un anno) e permesso B (dimora, 5 anni): tassazione, accesso ai servizi, diritto di soggiorno e implicazioni per la famiglia.`,
  `La scelta tra permesso G e B dipende dalla distanza dal confine, dalla situazione familiare e fiscale, e dalla durata prevista dell'impiego in Svizzera. Lo strumento aiuta a valutare i pro e i contro di ogni scenario.`,
  `Il confronto include anche le implicazioni previdenziali (AVS, LPP, disoccupazione), la differenza nei diritti di soggiorno per familiari e l'impatto sulla tassazione italiana e svizzera.`,
  );
@@ -5280,7 +5283,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // H.7 — enriched intro + conclusion to raise text/HTML ratio above 0.10
  // Definition block for AI extraction (intro 150+ words)
  editorialBlocks.push(
- `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (accordo Italia–Svizzera del 2020, applicabile dal 2024, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica definitiva del telelavoro fino a 45 giorni, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano le fonti utilizzate, che possono essere documenti ufficiali o notizie giornalistiche attribuite, e gli strumenti pertinenti della piattaforma. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
+ `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (accordo Italia–Svizzera del 2020, applicabile dal 2024, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica del Protocollo sul telelavoro fino al 25%, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano gli strumenti pertinenti della piattaforma e, quando ci sono fonti esterne, le linkano nel testo: possono essere documenti ufficiali o notizie giornalistiche attribuite. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
  );
  // Visible CTA → full A-Z archive. Critical for crawler reachability:
  // closes the BFS path from this index to /articoli-frontaliere/tutti/
@@ -5450,7 +5453,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">About Us — The Frontaliere Ticino Team</h2>`,
  `Frontaliere Ticino is an independent information platform for Italian cross-border workers employed in Canton Ticino, Switzerland, aiming to provide clear and impartial information on taxation, social security, work permits, and daily life.`,
- `${AI_USE_STATEMENT.en} We follow communications from the Federal Tax Administration (FTA/ESTV), the Italian Revenue Agency (Agenzia delle Entrate), SECO and INPS and link the sources in the text. The process and its limits are described in our <a href="${DISCLOSURE_ROUTE_CONTRACT.en.methodology}">methodology</a>; corrected errors are recorded in the <a href="${DISCLOSURE_ROUTE_CONTRACT.en.corrections}">public corrections log</a>.`,
+ `${AI_USE_STATEMENT.en} We follow communications from the Federal Tax Administration (FTA/ESTV), the Italian Revenue Agency (Agenzia delle Entrate), SECO and INPS and, when external sources are used, link them in the text. The process and its limits are described in our <a href="${DISCLOSURE_ROUTE_CONTRACT.en.methodology}">methodology</a>; corrected errors are recorded in the <a href="${DISCLOSURE_ROUTE_CONTRACT.en.corrections}">public corrections log</a>.`,
  `<h2 class="s-o3IET6">Our Mission</h2>`,
  `Frontaliere Ticino's mission is to make the fiscal and administrative complexities of cross-border work accessible and understandable. Our simulators calculate net salary using actual 2026 Swiss and Italian tax tables, our comparators benchmark LAMal health insurance, cost of living, and transport options, and our job search engine aggregates ${activeJobsPhrase('en', jobBoardCounts.en)} from employers' websites.`,
  `<h2 class="s-o3IET6">Sources and Independence</h2>`,

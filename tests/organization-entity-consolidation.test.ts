@@ -1,4 +1,5 @@
 import { METHODOLOGY_COPY } from '../services/editorialMethodology';
+import { FUNDING_SECTION_ID } from '../services/revenueDisclosure';
 import { describe, expect, it } from 'vitest';
 import { lstatSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -514,6 +515,14 @@ describe('every policy URL points at something that exists', () => {
   ] as const)('%s resolves to a real anchor in %s', (prop, component) => {
     const fragment = ORGANIZATION_POLICIES[prop].split('#')[1];
     expect(fragment).toBeTruthy();
-    expect(read(`components/pages/${component}`)).toContain(fragment);
+    const source = read(`components/pages/${component}`);
+    if (prop === 'ownershipFundingInfo') {
+      // ChiSiamo shares the anchor with the static renderer through the
+      // revenue disclosure contract instead of repeating its literal value.
+      expect(fragment).toBe(FUNDING_SECTION_ID);
+      expect(source).toContain('id={FUNDING_SECTION_ID}');
+    } else {
+      expect(source).toContain(fragment);
+    }
   });
 });

@@ -23,8 +23,14 @@ jobs:
   deploy-functions:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      # actions/checkout turns sparse checkout into a blob:none partial clone.
+      # A transient promisor fetch can therefore fail during checkout with
+      # early EOF; retry this idempotent preparation once before any deploy
+      # logic, while keeping a second failure fatal.
+      - name: Checkout (attempt 1/2)
+        id: checkout_primary
         uses: actions/checkout@v7
+        continue-on-error: true
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -50,6 +56,47 @@ jobs:
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
+
+      - name: Backoff 30s before checkout retry
+        if: steps.checkout_primary.outcome == 'failure'
+        run: |
+          echo "First sparse checkout failed; retrying in 30s"
+          sleep 30
+
+      - name: Checkout (attempt 2/2)
+        id: checkout_retry
+        if: steps.checkout_primary.outcome == 'failure'
+        uses: actions/checkout@v7
+        with:
+          # Keep the generated sparse profile identical on the retry.
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Confirm checkout succeeded
+        id: checkout
+        if: always() && (steps.checkout_primary.outcome == 'success' || steps.checkout_retry.outcome == 'success')
+        run: "true"
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -103,7 +150,7 @@ jobs:
         run: firebase deploy --only firestore:indexes --project frontaliere-ticino
 
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: failure() && (steps.checkout_primary.outcome == 'success' || steps.checkout_retry.outcome == 'success')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
