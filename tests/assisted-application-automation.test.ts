@@ -27,6 +27,8 @@ const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplic
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
+const { getAccountFailure, serializeAccountFailure, submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
+const { handleAuth, verifyAccount } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
 const ORDER = 'order_ABC123';
@@ -796,5 +798,95 @@ describe('effects', () => {
     // With a question to answer, the same draft points to the answers.
     await draftRef.set({ ...readyDraft(), verdict: 'poor', questions: [{ id: 'work_permit', question: 'Hai un permesso?', type: 'text', required: false }] });
     expect(await review()).toContain('precisalo nelle risposte prima dell’invio');
+  });
+});
+
+describe('account failure observability', () => {
+  it('round-trips a closed diagnostic through the failure record and existing audit', async () => {
+    const guard = submissionGuard(store.db, ORDER, 1);
+    await guard.claim('portal', T0, { resumable: true });
+    await guard.release('account', T0 + 1, { accountFailure: { code: 'no_create_button', stage: 'login' } });
+    const record = store.read(`${ORDER_PATH}/automation/submission`)?.r1;
+    expect(record).toMatchObject({ state: 'failed', reason: 'account', accountFailure: { code: 'no_create_button', stage: 'login' } });
+    expect(getAccountFailure(record)).toEqual({ code: 'no_create_button', stage: 'login' });
+
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
+      state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', round: 1, attempts: 1 },
+    });
+    const eventRef = await store.db.collection('assisted_applications').doc(ORDER).collection('automation_events').add({
+      type: 'submit_handoff', round: 1, reason: 'account', accountFailure: { code: 'no_create_button', stage: 'login' },
+    });
+    const result = await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef, data: store.read(eventRef.path), runEffect, nowMs: T0 + 2 });
+    expect(result).toMatchObject({ ok: true });
+    const audit = store.list(`${ORDER_PATH}/events/`).map((path) => store.read(path));
+    expect(audit).toContainEqual(expect.objectContaining({
+      eventType: 'submit_handoff', accountFailure: { code: 'no_create_button', stage: 'login' },
+    }));
+  });
+
+  it('rejects extra or unknown codes without touching sent or clicked-unknown phases', async () => {
+    const valid = { code: 'locator_control_error', stage: 'registration' };
+    expect(serializeAccountFailure(valid)).toEqual(valid);
+    expect(getAccountFailure({ state: 'failed', accountFailure: valid })).toEqual(valid);
+    expect(serializeAccountFailure({ ...valid, secret: 'A1B2C3' })).toBeNull();
+    expect(getAccountFailure({ accountFailure: { ...valid, secret: 'A1B2C3' } })).toBeNull();
+    expect(serializeAccountFailure({ code: 'unknowncode123', stage: 'registration' })).toBeNull();
+
+    const sent = { state: 'sent', sentAt: T0, clickedAt: T0 - 1 };
+    const clickedUnknown = { state: 'sending', startedAt: T0, clickedAt: T0 + 1 };
+    const sentBefore = structuredClone(sent);
+    const clickedBefore = structuredClone(clickedUnknown);
+    expect(getAccountFailure(sent)).toBeNull();
+    expect(getAccountFailure(clickedUnknown)).toBeNull();
+    expect(sent).toEqual(sentBefore);
+    expect(clickedUnknown).toEqual(clickedBefore);
+
+    const sentGuard = submissionGuard(store.db, ORDER, 1);
+    await sentGuard.claim('portal', T0, { resumable: true });
+    await sentGuard.markSent({ channel: 'portal' }, T0 + 1);
+    expect(await sentGuard.read()).toMatchObject({ state: 'sent', channel: 'portal' });
+    const clickedGuard = submissionGuard(store.db, ORDER, 2);
+    await clickedGuard.claim('portal', T0, { resumable: true });
+    await clickedGuard.markClicked(T0 + 1);
+    expect(await clickedGuard.read()).toMatchObject({ state: 'sending', clickedAt: T0 + 1 });
+  });
+
+  it('emits diagnostics from the real account stop and throw branches', async () => {
+    const missingCreateLink = {
+      url: () => 'https://ats.example/login',
+      getByRole: vi.fn(() => ({ first: () => ({ waitFor: vi.fn().mockRejectedValue(new Error('not-visible')) }) })),
+    };
+    const stopped = await handleAuth({
+      page: missingCreateLink,
+      snapshot: { fields: [{ inputType: 'password' }], buttons: [] },
+      ctx: { accounts: { load: vi.fn(async () => null) } },
+    });
+    expect(stopped).toEqual({ handoff: 'account', accountFailure: { code: 'no_create_button', stage: 'login' } });
+
+    const failingLocator = { first: () => ({ click: vi.fn(async () => { throw new Error('locator.detached'); }) }) };
+    const frame = {
+      url: () => 'https://ats.example/register',
+      evaluate: vi.fn(async () => { throw new Error('detached'); }),
+      locator: vi.fn(() => failingLocator),
+      getByText: vi.fn(() => failingLocator),
+    };
+    const thrownPage = { url: () => 'https://ats.example/register', frames: () => [frame], mainFrame: () => frame };
+    await expect(handleAuth({
+      page: thrownPage,
+      snapshot: {
+        fields: [{ inputType: 'password' }, { inputType: 'password' }],
+        buttons: [{ text: 'Sign In', id: 'sign-in', disabled: false, frame: 0 }],
+      },
+      ctx: { accounts: { load: vi.fn(async () => ({})) } },
+    })).rejects.toThrow('locator.detached');
+
+    const timedOut = await verifyAccount({
+      page: missingCreateLink,
+      host: 'ats.example',
+      sinceMs: 0,
+      snapshot: { fields: [], buttons: [] },
+      ctx: { accounts: { verificationMessageIds: vi.fn(async () => []), waitForVerification: vi.fn(async () => null) } },
+    });
+    expect(timedOut).toEqual({ handoff: 'account_verification_timeout', accountFailure: { code: 'verification_timeout', stage: 'verification' } });
   });
 });

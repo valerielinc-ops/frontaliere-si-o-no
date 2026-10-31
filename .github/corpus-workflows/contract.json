@@ -4,20 +4,20 @@
   "generatorSha256": "4b6e7bc072d9cdcb05f0e29555519e095ab5c58029e035826935118e54dd477e",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "fc27fcfe2143b634401a116ff876c82b871d13fc",
+  "sourceCommit": "fcda7f31de85018e34adf1f935fb77ca9586e31b",
   "artifactObservation": {
     "generatorSha256": "4b6e7bc072d9cdcb05f0e29555519e095ab5c58029e035826935118e54dd477e",
     "sourceRef": "main",
-    "sourceCommit": "fc27fcfe2143b634401a116ff876c82b871d13fc"
+    "sourceCommit": "fcda7f31de85018e34adf1f935fb77ca9586e31b"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 666,
+  "crawlerCount": 669,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:28a6e43b3c86b1d607fb973cc8ac4e466721c9c0fb172d58b1db613017de5354",
+    "rosterDigest": "sha256:df5adaf7b43ffa08e40d9f97496e25f3afbd9e5d8352c519221be85997148aea",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -107,6 +107,7 @@
     "scripts/update-artificialy-jobs.mjs",
     "scripts/update-arxada-jobs.mjs",
     "scripts/update-asana-spital-jobs.mjs",
+    "scripts/update-asanti-ch-jobs.mjs",
     "scripts/update-asile-des-aveugles-jobs.mjs",
     "scripts/update-atec-personal-jobs.mjs",
     "scripts/update-audemars-piguet-jobs.mjs",
@@ -118,6 +119,7 @@
     "scripts/update-baloise-jobs.mjs",
     "scripts/update-baronie-jobs.mjs",
     "scripts/update-barry-callebaut-jobs.mjs",
+    "scripts/update-bb-trading-werbeartikel-ag-jobs.mjs",
     "scripts/update-bcv-jobs.mjs",
     "scripts/update-bcvs-jobs.mjs",
     "scripts/update-beekeeper-jobs.mjs",
@@ -188,6 +190,7 @@
     "scripts/update-cseb-jobs.mjs",
     "scripts/update-csem-jobs.mjs",
     "scripts/update-csl-behring-jobs.mjs",
+    "scripts/update-csl-immobilien-ag-jobs.mjs",
     "scripts/update-css-versicherung-jobs.mjs",
     "scripts/update-csvm-mustair-jobs.mjs",
     "scripts/update-csvp-poschiavo-jobs.mjs",
@@ -1561,11 +1564,14 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "9e8055bddb546da2f72648e09eb7cd7fb24827f4dc3904fac87f7f691c708294",
-      "artifactSha256": "6144f8dcd23232dedc2a20cd8ecd94b8e7e5873added8be206165b546054a6e0",
+      "sourceSha256": "a17b260342b02ebe78b26ab0d82667ae33bfb9c91e9ee8cf6e58db0ae23b81c6",
+      "artifactSha256": "29fb39edf0f4cca8ae375fe2b2228e3fce488ee37c5b14b5b568cd59cb135218",
       "generatorSha256": "4b6e7bc072d9cdcb05f0e29555519e095ab5c58029e035826935118e54dd477e",
       "members": [
-        "seco-jobroom"
+        "seco-jobroom",
+        "asanti-ch",
+        "bb-trading-werbeartikel-ag",
+        "csl-immobilien-ag"
       ]
     },
     {
