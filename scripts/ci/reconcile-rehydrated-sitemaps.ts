@@ -28,7 +28,10 @@ async function main(): Promise<void> {
     throw new Error(`reconcile-rehydrated-sitemaps: dist/ not found at ${distDir}`);
   }
 
-  await reconcileFinalSitemapsWithDist(distDir, []);
+  await reconcileFinalSitemapsWithDist(distDir, [], {
+    keepMissing: false,
+    ignoreShardOwnership: true,
+  });
 
   // The reconciler can remove an emptied shard. Keep sitemap.xml in sync with
   // the files that remain in the assembled dist before any consumer reads it.

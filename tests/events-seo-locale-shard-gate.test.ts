@@ -41,15 +41,19 @@ afterEach(() => {
 
 describe('#5130 — events-seo-pages does not render locales this shard discards', () => {
   it('gates every render loop, not just the biggest one', () => {
-    // The locale loops cover the per-canton pages, past-event details, the
-    // national index, and locale-owned cleanup/redirect work. Gating only the
-    // main render loop would leave other non-owned work in place.
-    const emitLoops = CODE.split(/for \(const locale of LOCALES\) \{/).length - 1;
-    const gates = CODE.split('if (!shouldEmitLocale(locale))').length - 1;
-    expect(emitLoops).toBeGreaterThanOrEqual(3);
-    // Every locale loop that renders is gated; the inbound-link patch loop is
-    // deliberately NOT (it only touches hub files that already exist on disk).
-    expect(gates).toBe(emitLoops);
+    // Count only locale loops inside closeBundle that actually render/emit
+    // pages. The two title-disambiguation loops earlier in the file must run
+    // for every locale to keep all shards deterministic; the inbound-link
+    // patch loop is also intentionally ungated because it only touches files
+    // that already exist on disk.
+    const handlerAt = CODE.indexOf('async closeBundle()');
+    const handler = CODE.slice(handlerAt);
+    const localeLoops = [...handler.matchAll(/for \(const locale of LOCALES\) \{([\s\S]*?)(?=for \(const locale of LOCALES\) \{|$)/g)];
+    const renderLoops = localeLoops
+      .map((match) => match[1]!)
+      .filter((body) => /\b(?:emit|render[A-Z]\w*)\s*\(/.test(body));
+    expect(renderLoops.length).toBeGreaterThanOrEqual(3);
+    for (const body of renderLoops) expect(body).toContain('if (!shouldEmitLocale(locale))');
   });
 
   it('imports the shared filter rather than re-deriving locale ownership', () => {
@@ -62,13 +66,16 @@ describe('#5130 — events-seo-pages does not render locales this shard discards
     // docblock warns about. They are built from perCantonSitemap/detailSlugs,
     // never inside a gated loop.
     const sitemapAt = CODE.indexOf('const sitemapXml = buildSitemap(');
+    const historicalSitemapAt = CODE.indexOf('const historicalSitemapXml = buildHistoricalSitemap(');
     const gateAt = CODE.indexOf('if (!shouldEmitLocale(locale))');
     expect(sitemapAt).toBeGreaterThan(-1);
+    expect(historicalSitemapAt).toBeGreaterThan(-1);
     expect(gateAt).toBeGreaterThan(-1);
     // buildSitemap is called after the loops, at top level of the handler —
     // assert it is not inside a `shouldEmitLocale` guard by checking no gate
     // appears between the last emit loop and it on the same nesting path.
     expect(CODE.slice(sitemapAt, sitemapAt + 200)).not.toContain('shouldEmitLocale');
+    expect(CODE.slice(historicalSitemapAt, historicalSitemapAt + 200)).not.toContain('shouldEmitLocale');
   });
 
   it('still patches inbound hub links for every locale', () => {

@@ -434,7 +434,6 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld['@type']).toBe('Event');
     expect(ld.name).toBeTruthy();
     expect(ld.startDate).toBeTruthy();
-    expect(ld.endDate).toBeTruthy();
     expect(ld.eventStatus).toBe('https://schema.org/EventScheduled');
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
     expect(ld.location?.address?.addressLocality).toBeTruthy();
@@ -451,8 +450,11 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.performer).toBeUndefined();
     expect(ld.offers).toBeUndefined();
     expect(ld.isAccessibleForFree).toBeUndefined();
-    // endDate must never precede startDate (Google Rich Results validity).
-    expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
+    // When the source provides an end date, its calendar day must not precede
+    // the source start day; date-only values intentionally carry no end time.
+    if (ld.endDate !== undefined) {
+      expect(String(ld.endDate).slice(0, 10) >= String(ld.startDate).slice(0, 10)).toBe(true);
+    }
   };
 
   it('emits every required Event field for a full event', () => {
@@ -462,6 +464,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
           id: 'tio-agenda:1',
           title: 'Concerto sinfonico',
           startDate: '2026-07-04',
+          endDate: '2026-07-04',
           startTime: '20:00',
           category: 'musica',
           venue: 'Teatro Sociale Bellinzona',
@@ -523,7 +526,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     });
   });
 
-  it('single-day timed event: endDate equals startDate datetime, CEST offset in summer', () => {
+  it('single-day timed event with no source end date does not invent an end time', () => {
     const ld = eventLd(
       {
         id: 'tio-agenda:3',
@@ -539,7 +542,26 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     ) as Record<string, any>;
     // July → CEST (+02:00), not the winter +01:00.
     expect(ld.startDate).toBe('2026-07-04T20:00:00+02:00');
-    expect(ld.endDate).toBe(ld.startDate);
+    expect(ld.endDate).toBeUndefined();
+  });
+
+  it('single-day timed event preserves the source end date without inventing its end time', () => {
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:3b',
+        title: 'Concerto estivo',
+        startDate: '2026-07-04',
+        endDate: '2026-07-04',
+        startTime: '20:00',
+        canton: 'TI',
+        url: 'https://www.tio.ch/agenda/day/20260704/62103',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'it',
+    ) as Record<string, any>;
+    expect(ld.startDate).toBe('2026-07-04T20:00:00+02:00');
+    expect(ld.endDate).toBe('2026-07-04');
   });
 
   it('multi-day event keeps a distinct later endDate', () => {
