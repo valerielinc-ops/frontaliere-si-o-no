@@ -13616,7 +13616,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate will receive almost 500 thousand euros less in rebates.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.mozione-ticino-ristorni-salute.title': 'Motion in Ticino against the health tax',
-    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparty motion submitted to the Grand Council The Italian measure is challenged over Article 9 Ticino threatens to block the tax revenue transfers.',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparty motion submitted to the Grand Council The Italian measure is challenged over Article 9 Ticino threatens to block the tax revenue transfers Subject',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.ristorni-malnate-meno-500mila.title': 'Cross-border tax rebates, 500mila euro less for Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate will receive nearly 500 thousand euros less The national fund increases from 89 to 108 million The refunds will arrive in early November Nearly 1,700 residents of Malnate',
@@ -13630,6 +13630,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-brunate-lavorare-ticino.title': 'Living in Brunate and working in Ticino as a cross-border commuter',
     'blog.article.vivere-brunate-lavorare-ticino.excerpt': 'Tax and social security guide for those who live in Brunate and work in Ticino, covering the new Cross-Border Agreement, withholding tax, exemptions, and payslip items.',
     'blog.article.vivere-brunate-lavorare-ticino.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.sindacati-aumenti-infermieri-ticino.title': 'Socio-psychiatric nurses: unions demand increases of up to 8\'941 francs',
+    'blog.article.sindacati-aumenti-infermieri-ticino.excerpt': 'The assembly meets in Mendrisio on November 10 Requested annual increases: from 5\'159 to 8\'941 francs Reclassification: classes 4→5 and 5→6 OCST and VPOD call for',
+    'blog.article.sindacati-aumenti-infermieri-ticino.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.giornico-consiglio-stato-fermata.title': 'Council of State rejects reopening of FFS stop in Giornico',
+    'blog.article.giornico-consiglio-stato-fermata.excerpt': 'The Council of State rejects reopening in Giornico The 120 route serves Paese, Fraggio and Scuola Media TILO connections switch from the S10 at Biasca Nobody',
+    'blog.article.giornico-consiglio-stato-fermata.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.cassa-pensione-snl-sev-attacca.title': 'SNL pension fund: SEV disputes interpretation of results',
+    'blog.article.cassa-pensione-snl-sev-attacca.excerpt': 'UBS will manage the assets of the SNL pension fund ATIOZ imposed a new procedure after a conflict of interest The coverage ratio was 104,1% at the end',
+    'blog.article.cassa-pensione-snl-sev-attacca.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
