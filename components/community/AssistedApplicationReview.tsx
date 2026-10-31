@@ -233,11 +233,12 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         answerSnapshotRef.current = captured;
         setAnswerSnapshot(captured);
         setAnswers({ ...(review.answers || {}), ...proposed });
-        setAnswerConfirmationRequired(false);
+        setAnswerConfirmationRequired(Boolean(review.reviewRequired));
         setAnswerReviewRequired(false);
       } else if (answerContractsChanged(existing, token, review.questions || [], review.answerContracts)) {
         setAnswerReviewRequired(true);
       }
+      if (review.reviewRequired === true) setAnswerConfirmationRequired(true);
       setError(null);
     } catch (reason) {
       if (currentToken.current === token) setError(reason instanceof ReviewRequestError ? reason.code : 'network');
@@ -592,6 +593,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             onSubmit={(event) => { event.preventDefault(); saveAnswers(); }}
           >
             <h2 className="text-base font-bold text-heading">{t('jobBoard.assisted.review.questionsTitle')}</h2>
+            {answerConfirmationRequired && !answerReviewRequired && <p role="status" className="text-sm text-warning">{t('jobBoard.assisted.review.confirmCurrentAnswers', 'Rileggi le domande e salva le risposte per confermarle.')}</p>}
             {(answerSnapshot?.questions || []).map((question) => (
               <QuestionField
                 key={question.id}
@@ -884,7 +886,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <button
               type="button"
               onClick={() => { void run('approve'); }}
-              disabled={Boolean(busy) || !data.can.approve || editing || answerReviewRequired || answerConfirmationRequired || Boolean(answerSnapshot?.questions.some(question => question.contractUnavailable))}
+              disabled={Boolean(busy) || !data.can.approve || editing || answerReviewRequired || answerConfirmationRequired || Boolean(data.reviewRequired) || Boolean(answerSnapshot?.questions.some(question => question.contractUnavailable))}
               className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
             >
               {busy === 'approve' ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Send className="h-4 w-4" aria-hidden="true" />}

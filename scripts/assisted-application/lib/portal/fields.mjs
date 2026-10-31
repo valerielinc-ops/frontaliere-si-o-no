@@ -639,7 +639,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   const datePickerSelector = '[data-scope="date-picker"][data-part="root"]';
   for (const picker of document.querySelectorAll(datePickerSelector)) {
     if (!readable(picker)) continue;
-    const label = clean(labelFor(picker));
+    const label = fullQuestionText(labelFor(picker));
     const selected = picker.querySelector('[data-part="table-cell-trigger"][data-selected], [data-part="table-cell-trigger"][aria-selected="true"]')?.getAttribute('data-value') || '';
     fields.push({
       id: idFor(picker),
@@ -785,7 +785,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   // a web component whose input lives in its shadow root, out of the loop above.
   for (const element of document.querySelectorAll('[ui5-date-picker]')) {
     if (element.hasAttribute('disabled') || element.hasAttribute('readonly') || !readable(element)) continue;
-    const label = clean(element.getAttribute('accessible-name') || element.getAttribute('title') || labelFor(element));
+    const label = fullQuestionText(element.getAttribute('accessible-name') || element.getAttribute('title') || labelFor(element));
     fields.push({
       id: idFor(element),
       kind: 'text',
@@ -824,7 +824,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (!label) continue;
     let entry = ariaGroups.get(container);
     if (!entry) {
-      const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element)
+      const question = fullQuestionText(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element)
         || (hasSingleQuestionContext(element) ? headingBefore(element) : '');
       entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
       ariaGroups.set(container, entry);

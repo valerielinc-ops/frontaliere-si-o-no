@@ -192,6 +192,7 @@ export interface ReviewPayload {
   fit?: ReviewFitNotice | null;
   answers: Record<string, string>;
   answerContracts?: Record<string, string>;
+  reviewRequired?: boolean;
   /** School reports, test results… the posting requires besides the CV and the letter. */
   documents?: ReviewDocument[];
   documentLimits?: { maxBytes: number; maxFiles: number };

@@ -76,6 +76,7 @@ export interface AutomationSentView {
 }
 
 export interface AssistedApplicationAutomationView {
+  reviewRequired?: boolean;
   answerContracts?: Record<string, string>;
   candidateAlias?: string | null;
   /** Employer messages received on the order alias (newest first, max 10). */
@@ -101,6 +102,7 @@ export interface AssistedApplicationAutomationView {
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
+    answerReviewRequired?: boolean;
     /** The fields the candidate corrected on the review page. */
     formOverrides?: Record<string, string>;
     dispatch: { mode: string; round: number; requestedAt: number; attempts: number; reason: string | null } | null;

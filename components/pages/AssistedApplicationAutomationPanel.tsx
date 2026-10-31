@@ -138,12 +138,13 @@ export default function AssistedApplicationAutomationPanel({
       answerSnapshotRef.current = captured;
       setAnswerSnapshot(captured);
       setAnswers(flow?.answers || {});
-      setAnswerConfirmationRequired(false);
+      setAnswerConfirmationRequired(Boolean(automation?.reviewRequired || flow?.answerReviewRequired));
       setAnswerReviewRequired(false);
     } else if (answerContractsChanged(old, order.orderId, draft?.questions || [], automation?.answerContracts)) {
       setAnswerReviewRequired(true);
     }
-  }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, flow?.answers, order.orderId, draft?.questions, automation?.answerContracts]);
+    if (automation?.reviewRequired || flow?.answerReviewRequired) setAnswerConfirmationRequired(true);
+  }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, flow?.answers, order.orderId, draft?.questions, automation?.answerContracts, automation?.reviewRequired, flow?.answerReviewRequired]);
 
   const act = async (action: AutomationAdminAction, extra: Record<string, unknown> = {}, success = 'Fatto.') => {
     if (busy) return;
@@ -542,6 +543,7 @@ export default function AssistedApplicationAutomationPanel({
           {draft.questions.length > 0 && (
             <div className="space-y-2 rounded-stripe border border-edge bg-surface p-3">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted">Domande per il candidato (puoi rispondere tu se te lo ha detto via email)</p>
+              {answerConfirmationRequired && !answerReviewRequired && <p role="status" className="text-xs text-warning">Rileggi le domande e salva le risposte per confermarle.</p>}
               {answerSnapshot.questions.map((question) => (
                 <label key={question.id} className="block text-xs text-body">
                   {question.question}{question.required ? ' *' : ''}
@@ -632,7 +634,7 @@ export default function AssistedApplicationAutomationPanel({
         )}
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
           {flow.state === 'owner_review' && !repairingFacts && (
-            <button type="button" className={primary} disabled={Boolean(busy) || answerReviewRequired || answerConfirmationRequired || answerSnapshot.questions.some(question => question.contractUnavailable)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
+            <button type="button" className={primary} disabled={Boolean(busy) || answerReviewRequired || answerConfirmationRequired || Boolean(automation?.reviewRequired || flow?.answerReviewRequired) || answerSnapshot.questions.some(question => question.contractUnavailable)} onClick={() => { void act('automationApprove', { acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
               {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
             </button>
           )}

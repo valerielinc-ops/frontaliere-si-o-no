@@ -41,6 +41,19 @@ const reviewSave = () => screen.getByRole('button', { name: 'jobBoard.assisted.r
 const reviewApprove = () => screen.getByRole('button', { name: 'jobBoard.assisted.review.approve' }) as HTMLButtonElement;
 
 describe('answer contract CAS in actual Review and Admin renderers', () => {
+  it('requires confirmation after a new mount reads provisional saved answers, without blocking Save', async () => {
+    api.fetchReview.mockResolvedValue({ ...payload(), answers: { 'same-id': 'Yes' }, reviewRequired: true });
+    render(<Review token="token-remount" />);
+    expect((await screen.findByLabelText(/Original privacy question/) as HTMLInputElement).value).toBe('Yes');
+    expect((reviewSave() as HTMLButtonElement).disabled).toBe(false);
+    expect(reviewApprove().disabled).toBe(true);
+    cleanup();
+    const provisional = order(); provisional.automation.reviewRequired = true; provisional.automation.flow.answers = { 'same-id': 'Yes' };
+    render(<Admin order={provisional} user={null} onChanged={vi.fn()} />);
+    expect((screen.getByLabelText(/Original privacy question/) as HTMLInputElement).value).toBe('Yes');
+    expect((screen.getByRole('button', { name: /Salva risposte/ }) as HTMLButtonElement).disabled).toBe(false);
+    expect((screen.getByRole('button', { name: /Approva ora/ }) as HTMLButtonElement).disabled).toBe(true);
+  });
   it('treats a compatibility200 reviewRequired as unconfirmed in both forms', async () => {
     const reply = { ok: true, reviewRequired: true, rawSaved: true, answerConfirmation: { status: 'review_required', authority: false } };
     api.sendReviewAction.mockResolvedValueOnce(reply);
