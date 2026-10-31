@@ -1,7 +1,7 @@
 {
   "key": "pks-bewerbung-ch",
   "label": "pks-bewerbung",
-  "generatedAt": "2026-10-31T09:35:11.197Z",
+  "generatedAt": "2026-10-31T22:11:08.749Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,60 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5915,
-  "avgDurationMs": 5915,
+  "durationMs": 7385,
+  "avgDurationMs": 7385,
   "durationHistory": [
-    5915
+    7385
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "pks-bewerbung-ch-6cf3968ca115",
-      "slug": "impiegato-a-amministrativo-a-hr-50-80-impiego-a-tempo-determinato-fino-a-circa-l-estate-2027-lavoro-operativo-delle",
-      "company": "pks-bewerbung",
-      "companyKey": "pks-bewerbung-ch",
-      "companyDomain": "pks-personal.ch",
-      "title": "Sachbearbeiter:in HR 50–80% (befristeter Einsatz bis ca. Sommer 2027) – operative Personalarbeit, die wirklich gebraucht wird… Sachbearbeiter:in HR 50–80% (befr",
-      "location": "4102 Binningen",
-      "canton": "BL",
-      "url": "https://www.pks-personal.ch/stellen/sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-sommer-2027/basel/hrm/dc0618a9",
-      "source": "pks-bewerbung Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:49:28.682Z",
-      "addressLocality": "Binningen",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4102",
-      "streetAddress": "Binningen",
-      "category": "Produzione",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.pks-personal.ch/stellen/sachbearbeiter-in-hr-50-80-befristeter-einsatz-bis-sommer-2027/basel/hrm/dc0618a9",
-      "salaryMin": 55600,
-      "salaryMax": 74800,
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-29T21:49:28.682Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "pks-bewerbung-ch-82a92461d441",
@@ -81,7 +37,7 @@
       "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:35:02.552Z",
+      "crawledAt": "2026-10-31T22:10:54.582Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -123,7 +79,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalist-in-40-60-in-der-bankenbranche/basel/hrm/1c106405",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:35:02.551Z",
+      "crawledAt": "2026-10-31T22:10:54.580Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -154,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

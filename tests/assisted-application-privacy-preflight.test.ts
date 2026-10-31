@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import * as portal from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFields } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan, ownConsent } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { isPrivacyReviewAcknowledgment } from '../functions/src/lib/applicationConsent.js';
 
 const { acceptPrivacyStatement, privacyConsentControls, submitViaPortal } = portal as any;
 const preflight = (page: any, options?: any) => (portal as any).registrationPrivacyPreflight(page, options);
@@ -473,6 +474,13 @@ describe('privacy before the registration click', () => {
 
 describe('the same grammar on the canonical consent path', () => {
   const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+  const privacyAcknowledgments = [
+    ['it', 'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.'],
+    ['de', 'Aktivieren Sie dieses Kontrollkästchen, um zu bestätigen, dass Sie die Datenschutzerklärung für Bewerber gelesen haben.'],
+    ['en', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.'],
+    ['fr', 'Veuillez cocher cette case pour confirmer que vous avez pris connaissance de l’avis de confidentialité destiné aux candidats.'],
+    ['real-en', 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.'],
+  ] as const;
   // extractFields -> ownConsent -> mandate: what a real page gives the planner.
   const requiredBox = async (label: string) => {
     const { page } = fakePage([`<form id="f" action="/register"><label><input type="checkbox" id="box" name="box" required> ${label}</label></form>`]);
@@ -487,6 +495,27 @@ describe('the same grammar on the canonical consent path', () => {
 
   it('keeps the box the guard always knew, so that a refusal below is the guard and not the harness', async () => {
     expect(await requiredBox('Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.')).toEqual({ own: true, mandated: true, asked: 0 });
+  });
+
+  it.each(privacyAcknowledgments)('accepts the sole privacy-reading acknowledgement in %s as a soft own-consent checkbox', (_locale, label) => {
+    expect(isPrivacyReviewAcknowledgment(label)).toBe(true);
+    expect(ownConsent({ kind: 'checkbox', required: false, label })).toBe(true);
+  });
+
+  it.each([
+    ['extra word', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and agree to the terms.'],
+    ['fact', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and have 5 years of experience.'],
+    ['refusal', 'Select this checkbox to confirm that you have not read the Privacy Notice for Candidates.'],
+    ['optional purpose', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates for marketing.'],
+    ['talent pool', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates for the talent pool.'],
+    ['third party sharing', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and share data with third parties.'],
+    ['subscription', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and agree to the subscription.'],
+    ['technical country id', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.'],
+  ] as const)('keeps mixed, negative or contradictory privacy acknowledgement unknown: %s', (_name, label) => {
+    const semanticId = _name === 'technical country id' ? 'country' : undefined;
+    const field = semanticId ? { name: semanticId } : {};
+    expect(isPrivacyReviewAcknowledgment(label, semanticId)).toBe(false);
+    expect(ownConsent({ kind: 'checkbox', required: true, label, ...field })).toBe(false);
   });
 
   it.each([
