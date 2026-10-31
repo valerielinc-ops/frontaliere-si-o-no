@@ -283,6 +283,8 @@ describe('portal field extraction', () => {
     expect(extract('<section><h2>Inactive step</h2></section><section><div><input id="input-7"></div></section>').fields[0].label).not.toContain('Inactive step');
     const pair = extract('<div><span>First question</span><input id="input-7"><span>Second question</span><input id="input-8"></div>');
     expect(pair.fields.map((field: any) => field.label)).toEqual(['First question', 'Second question']);
+    const unlabelledPair = extract('<div><span>First question</span><input id="input-7"><input id="input-8"></div>');
+    expect(unlabelledPair.fields.map((field: any) => field.label)).toEqual(['First question', 'input-8']);
   });
 
   it('reads a radio group required only by its label as required, and asks the candidate for it', () => {

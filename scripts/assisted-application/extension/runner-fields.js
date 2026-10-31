@@ -273,11 +273,21 @@
     const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
     const technical = names.find((value) => !GENERATED_ID_RE.test(value));
     if (technical) return technical;
-    if (!ownContext || !hasSingleQuestionContext(element)) return names[0] || '';
+    const isolatedContext = ownContext && hasSingleQuestionContext(element);
+    const isDatePicker = Boolean(element.closest(DATE_QUESTION_SELECTOR));
+    const zone = isDatePicker ? '' : zoneText(element);
+    if (zone) {
+      // A file drop zone can be the only control in its own question even when
+      // the page has other fields. For sibling questions, the local text is
+      // enough and a document-wide heading would name both fields alike.
+      const heading = element.type === 'file' || isolatedContext ? headingBefore(element) : '';
+      return [...new Set([heading, zone].filter(Boolean))].join(' · ') || names[0] || '';
+    }
+    if (!isolatedContext) return names[0] || '';
     // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
     // the heading the control sits under and the text of its zone say what it
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
-    return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
+    return headingBefore(element) || names[0] || '';
   };
   const hasRequiredMarker = (element, labelText) => {
     if (element.hasAttribute('data-required')) return true;
@@ -429,12 +439,13 @@
     return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
   };
   // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
-  // nearest before it, else the first after it, so two unnamed fields in one
-  // zone never share the first one's question.
+  // nearest before it, else the first after it. A question from another field
+  // cannot cross an intervening control.
   const zoneText = (element) => {
     let node = element.parentElement;
     for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
       const walker = document.createTreeWalker(node, 4);
+      const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)];
       let before = '';
       let after = '';
       for (let text = walker.nextNode(); text; text = walker.nextNode()) {
@@ -443,7 +454,12 @@
         const value = clean(text.textContent);
         if (!value) continue;
         // eslint-disable-next-line no-bitwise
-        if (text.compareDocumentPosition(element) & FOLLOWING) before = value;
+        const isBefore = Boolean(text.compareDocumentPosition(element) & FOLLOWING);
+        const crossesControl = controls.some((control) => control !== element && (isBefore
+          ? (text.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
+          : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(text) & FOLLOWING)));
+        if (crossesControl) continue;
+        if (isBefore) before = value;
         else if (!after) after = value;
       }
       const words = before || after;
