@@ -36,7 +36,8 @@
  *
  * Filenames are STABLE (no content hash) like every other bundler asset — see
  * vite.config.ts `chunkFileNames`/`assetFileNames` for the rationale. The
- * identity-bearing gtag-init producer is the deliberate exception: new HTML
+ * identity-bearing gtag-init and signed-document Ads/Partnerize privacy
+ * producers are deliberate exceptions: new HTML
  * references its content-addressed filename, while the stable alias remains
  * available for already-published HTML during cache convergence (#9403).
  *
@@ -61,6 +62,7 @@ import {
   GTAG_INIT_VERSIONED_FILENAME,
   ADSENSE_LOADER_CONTENT,
   ADSENSE_LOADER_FILENAME,
+  ADSENSE_LOADER_VERSIONED_FILENAME,
   EARLY_BOOT_CONTENT,
   EARLY_BOOT_FILENAME,
   POSTHOG_INIT_CONTENT,
@@ -69,6 +71,8 @@ import {
   FUEL_CHART_SCRIPT_FILENAME,
   PARTNERIZE_TAG_CONTENT,
   PARTNERIZE_TAG_FILENAME,
+  PARTNERIZE_TAG_VERSIONED_FILENAME,
+  PARTNERIZE_TAG_SNIPPET,
   OFFERWALL_FC_SCRIPT_CONTENT,
 } from './constants';
 import { CRITICAL_CSS, CRITICAL_CSS_FILENAME } from './shared/criticalCss';
@@ -91,10 +95,12 @@ export function listStaticScriptFiles(): Array<readonly [string, string]> {
     [GTAG_INIT_VERSIONED_FILENAME, GTAG_INIT_CONTENT],
     [GTAG_INIT_FILENAME, GTAG_INIT_CONTENT],
     [ADSENSE_LOADER_FILENAME, ADSENSE_LOADER_CONTENT],
+    [ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LOADER_CONTENT],
     [EARLY_BOOT_FILENAME, EARLY_BOOT_CONTENT],
     [POSTHOG_INIT_FILENAME, POSTHOG_INIT_CONTENT],
     [FUEL_CHART_SCRIPT_FILENAME, FUEL_CHART_SCRIPT_CONTENT],
     [PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT],
+    [PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_CONTENT],
     [GPT_LOADER_FILENAME, GPT_LOADER_CONTENT],
     [JOB_BOARD_FC_LOADER_FILENAME, OFFERWALL_FC_SCRIPT_CONTENT],
     [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
@@ -105,6 +111,14 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
   return {
     name: 'static-scripts',
     apply: 'build',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html) {
+        // Root SPA and generated pages consume the same protected producer.
+        // Content addressing prevents an older cached vendor from bypassing it.
+        return html.replace('<script src="/assets/partnerize-tag.js"></script>', PARTNERIZE_TAG_SNIPPET);
+      },
+    },
     async closeBundle() {
       const outDir = path.resolve(rootDir, 'dist', 'assets');
       fs.mkdirSync(outDir, { recursive: true });

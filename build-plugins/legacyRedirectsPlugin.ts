@@ -8,6 +8,7 @@ import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { withPhaseInstrument } from './shared/phaseInstrument';
+import { isUnverifiedJobArchiveHtml } from './shared/unverifiedJobArchiveHtml';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { WEBSITE_ID } from '../services/seo/organizationLd';
 import {
@@ -119,6 +120,9 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  // promotes the marked fallback to HTTP 301; a future real page still wins.
  '/cerca-lavoro-ticino/ricerca-ambiente-bern/': '/cerca-lavoro-ticino/',
  '/cerca-lavoro-ticino/ricerca-ambiente-luzern/': '/cerca-lavoro-ticino/',
+ // Same Post ATS vacancy 73995-it_IT (stable id posta-svizzera-centro-regionale-9aea4c466375).
+ // The old Italian locale URL is absent from previousSlugs; other locales link to this canonical.
+ '/cerca-lavoro-ticino/apprendistato-come-impiegata-o-di-commercio-afc-banca-la-posta-svizzera-lugano/': '/cerca-lavoro-ticino/apprendistato-come-impiegata-o-di-commercio-afc-banca-post/',
  '/guida-frontalieri/': '/guida-frontaliere/',
  '/guida-frontalieri/calendario-fiscale/': '/tasse-e-pensione/scadenze-fiscali/',
  '/pianificatore-pensione/': '/tasse-e-pensione/calcola-previdenza/',
@@ -697,12 +701,19 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  if (isUnshippablePath(from, unshippablePrefixes)) { skippedUnshippable++; continue; }
 
  const outDir = safeTargets.directoryPath;
- // Normal redirects preserve already emitted pages. These four historical
- // directory headings were never vacancies and must replace their stale detail HTML.
- if (fs.existsSync(path.join(outDir, 'index.html'))
+ // This canonical map has declared/record-backed targets; the generic GSC
+ // compatibility loop below keeps its separate, conservative ownership rule.
+ // Protect real content in either served representation, including warm dist.
+ const existingTargets = [safeTargets.indexPath, ...(safeTargets.flatPath ? [safeTargets.flatPath] : [])]
+   .filter((file) => fs.existsSync(file));
+ if (existingTargets.length
    && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from]
    && !BORDER_WAIT_LEGACY_REDIRECTS.has(from)
-   && !FORCE_CANONICAL_BRIDGE_PATHS.has(from)) continue;
+   && !FORCE_CANONICAL_BRIDGE_PATHS.has(from)
+   && !existingTargets.every((file) => {
+     try { return isUnverifiedJobArchiveHtml(fs.readFileSync(file, 'utf8'), from); }
+     catch { return false; } // Unreadable content does not establish an orphan.
+   })) continue;
  const fromUrl = `${BASE_URL}${from}`;
  const toUrl = `${BASE_URL}${to}`;
  const redirectLd = inlineScriptJson({

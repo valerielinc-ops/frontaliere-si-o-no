@@ -280,6 +280,9 @@ type JobLike = Record<string, any>;
 // produce valid `LandingJobLink`s and the renderer simply hides the
 // corresponding chips.
 export type LandingJobLink = {
+ id?: string;
+ slug?: string;
+ category?: string;
  title: string;
  company: string;
  location: string;
@@ -1470,6 +1473,9 @@ function toLinkedJobs(jobs: JobLike[], now: Date, locale: JobLandingLocale, opti
     typeof j.addressLocality === 'string' ? j.addressLocality : undefined,
    companyDomain: typeof j.companyDomain === 'string' ? j.companyDomain : undefined,
    url: typeof j.url === 'string' ? j.url : undefined,
+   id: typeof j.id === 'string' ? j.id : undefined,
+   slug: typeof j.slug === 'string' ? j.slug : undefined,
+   category: typeof j.category === 'string' ? j.category : undefined,
   };
  });
 }

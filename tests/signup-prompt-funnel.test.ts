@@ -43,7 +43,10 @@ describe('shared save/follow signup funnel', () => {
     expect(follow).not.toContain('company-follow-email');
     expect(board).toContain("onClick={() => handleToggleSave(selectedJob, 'detail_gate')}");
     expect(board).toContain("onClick={() => handleToggleSave(selectedJob, 'detail')}");
-    expect((board.match(/\{saveAuthPromptJsx\}/g) || []).length).toBe(4);
+    // One modal for every card on the site: JobBoard no longer renders its own.
+    expect(board).not.toContain('SaveSignInPromptModal');
+    expect(read('components/community/JobSaveMount.tsx')).toContain('<SaveSignInPromptModal');
+    expect(read('App.tsx')).toContain('<JobSaveMount />');
   });
 
   it('ships follow-specific copy in all four locales', () => {

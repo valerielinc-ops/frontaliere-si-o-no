@@ -5,7 +5,8 @@
  * add a second copy. The builder's rendered output and override behavior are
  * checked by `seoPageShell-identities.test.ts`; the static page plugin test
  * below pins coverage across all three HTML templates. Runtime DOM injection
- * remains prohibited because the approved policy is build-time metadata.
+ * uses a job-only deduplicating updater under the owner contract of 2026-10-29;
+ * scattered runtime updates remain prohibited.
  */
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -115,7 +116,7 @@ describe('Twitter card metadata policy', () => {
     }
   });
 
-  it('keeps client-side updateOrCreateMetaTag("name","twitter:*",…) absent from services/*.ts', () => {
+  it('keeps scattered runtime tags absent and scopes the shared updater to job details', () => {
     const offenders = findOffenders('services', RUNTIME_META_RE, 'updateOrCreateMetaTag(');
     if (offenders.length > 0) {
       const report = offenders.map((o) => `${o.file}:\n  ${o.lines.join('\n  ')}`).join('\n');
@@ -124,5 +125,8 @@ describe('Twitter card metadata policy', () => {
       );
     }
     expect(offenders).toEqual([]);
+    const service = readFileSync('services/seoService.ts', 'utf8');
+    expect(service.match(/updateJobTwitterCardMeta\(/g)).toHaveLength(1);
+    expect(service).toMatch(/if \(isJobDetailPage\) \{\s*const jobOgImage[^;]+;\s*updateJobTwitterCardMeta\(/);
   });
 });

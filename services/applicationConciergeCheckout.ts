@@ -1,5 +1,4 @@
 import { CREATE_APPLICATION_CONCIERGE_CHECKOUT_URL } from './functionsBase';
-import { ensureAssistedApplicationAuth } from './assistedApplicationCheckout';
 
 export interface ApplicationConciergeCheckoutInput {
   successUrl: string;
@@ -10,7 +9,6 @@ export interface ApplicationConciergeCheckoutInput {
   renewalOfServiceId?: string;
   acceptRenewalTerms?: boolean;
   expectedAmountTotal?: number;
-  customerEmail?: string;
 }
 
 export type ApplicationConciergeCheckoutResult =
@@ -47,12 +45,11 @@ function errorCode(value: unknown): string {
   return 'application_concierge_checkout_failed';
 }
 
-/** Anonymous Auth is enough to preserve ownership across the payment redirect. */
+/** The server takes the recipient from the caller's verified account, never from this input. */
 export async function createApplicationConciergeCheckout(
   input: ApplicationConciergeCheckoutInput,
-  suppliedUser?: any | null,
+  user: any,
 ): Promise<ApplicationConciergeCheckoutResult> {
-  const user = suppliedUser?.getIdToken ? suppliedUser : await ensureAssistedApplicationAuth();
   if (!user?.getIdToken) throw new Error('application_concierge_auth_required');
   const token = await user.getIdToken();
   const response = await fetch(CREATE_APPLICATION_CONCIERGE_CHECKOUT_URL, {

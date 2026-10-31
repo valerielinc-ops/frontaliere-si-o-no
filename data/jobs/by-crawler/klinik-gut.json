@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-10-30T09:28:35.518Z",
-  "runId": "41031747954",
+  "assembledAt": "2026-10-30T21:25:58.396Z",
+  "runId": "41129275294",
   "jobs": [
     {
       "id": "klinik-gut-4367-59b216f06dc4",
@@ -35,7 +35,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:28:29.028Z",
+      "crawledAt": "2026-10-30T21:25:53.714Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -93,9 +93,9 @@
       "slug": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
       "slugByLocale": {
         "it": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
-        "en": "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
+        "en": "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
         "de": "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "fr": "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
+        "fr": "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -120,7 +120,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:28:29.021Z",
+      "crawledAt": "2026-10-30T21:25:53.712Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -141,18 +141,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
-        "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
+        "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
+        "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch"
         ],
         "en": [
-          "election-year-pj-sub-assistants-klinik-gut-ag-flasch"
+          "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch"
         ],
         "fr": [
-          "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
+          "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
@@ -201,7 +201,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:28:29.018Z",
+      "crawledAt": "2026-10-30T21:25:53.711Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -277,7 +277,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4447",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:28:29.014Z",
+      "crawledAt": "2026-10-30T21:25:53.709Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -361,7 +361,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:28:28.989Z",
+      "crawledAt": "2026-10-30T21:25:53.700Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",

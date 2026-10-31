@@ -46,22 +46,22 @@ describe('Clarity initialization on signed payment links', () => {
  expect(window.location.href).toBe(cleanUrl);
  });
 
- it.each(['success', 'failure'])('waits for URL cleanup after auth %s', async () => {
+ it.each(['success', 'failure', 'expired'])('keeps the signed-origin document excluded after auth %s', async () => {
  setUrl(signedUrl);
  const { initClarity, settleNewsletterAutologin } = await loadClarity();
- const pending = initClarity();
+ await initClarity();
  expect(scripts()).toHaveLength(0);
  expect(config.getConfigValue).not.toHaveBeenCalled();
  expect(window.location.href).toBe(signedUrl);
  // App's finally removes credentials before settling, on both outcomes.
  setUrl(cleanUrl);
  settleNewsletterAutologin();
- await pending;
- expect(scripts()).toHaveLength(1);
+ await initClarity();
+ expect(scripts()).toHaveLength(0);
  expect(window.location.href).toBe(cleanUrl);
  });
 
- it('does not treat the auth safety timeout as URL cleanup and allows a clean retry', async () => {
+ it('does not let the auth safety timeout or a clean retry reopen the document', async () => {
  setUrl(signedUrl);
  const { initClarity, isNewsletterAutologinInFlight } = await loadClarity();
  const pending = initClarity();
@@ -72,10 +72,10 @@ describe('Clarity initialization on signed payment links', () => {
  expect(window.location.href).toBe(signedUrl);
  setUrl(cleanUrl);
  await initClarity();
- expect(scripts()).toHaveLength(1);
+ expect(scripts()).toHaveLength(0);
  });
 
- it('honors consent revoked while auth is pending and permits a later clean retry', async () => {
+ it('does not let a later consent grant reopen the signed-origin document', async () => {
  setUrl(signedUrl);
  const { initClarity, settleNewsletterAutologin } = await loadClarity();
  const pending = initClarity();
@@ -86,7 +86,30 @@ describe('Clarity initialization on signed payment links', () => {
  expect(scripts()).toHaveLength(0);
  config.consent = true;
  await initClarity();
- expect(scripts()).toHaveLength(1);
+ expect(scripts()).toHaveLength(0);
+ });
+
+ it('excludes a late-loaded recorder when an iframe retains the signed URL after cleanup', async () => {
+ setUrl(signedUrl);
+ // App imports this before redeem, but the Clarity chunk may load afterward.
+ const signal = await import('@/services/newsletterAutologinSignal');
+ setUrl(cleanUrl);
+ signal.settleNewsletterAutologin();
+ const iframe = document.createElement('iframe');
+ const retainedSrc = 'https://googleads.g.doubleclick.net/pagead/ads?url=' + encodeURIComponent(signedUrl);
+ // A detached fixture cannot issue an ad request; it can be attached later.
+ iframe.setAttribute('src', retainedSrc);
+ const serializedDomAttribute = 'src=' + iframe.getAttribute('src');
+ expect(decodeURIComponent(serializedDomAttribute)).toContain('ac=synthetic-code');
+ expect(signal.isNewsletterAutologinInFlight()).toBe(false);
+ expect(signal.wasNewsletterAutologinAttempted()).toBe(true);
+ const { initClarity } = await import('@/services/clarity');
+ await initClarity();
+ await initClarity();
+ expect(scripts()).toHaveLength(0);
+ expect(config.getConfigValue).not.toHaveBeenCalled();
+ expect(window.location.href).toBe(cleanUrl);
+ expect(iframe.getAttribute('src')).toBe(retainedSrc);
  });
 
  it('rechecks consent after the asynchronous configuration fetch', async () => {
@@ -102,18 +125,26 @@ describe('Clarity initialization on signed payment links', () => {
  expect(scripts()).toHaveLength(0);
  });
 
- it('rechecks the current URL after configuration resolves', async () => {
+ it.each(['present', 'empty', 'rejected'])('latches the current URL when configuration is %s', async outcome => {
  let finishConfig!: (value: string) => void;
- config.getConfigValue.mockImplementationOnce(() => new Promise<string>(resolve => { finishConfig = resolve; }));
+ let failConfig!: (error: Error) => void;
+ config.getConfigValue.mockImplementationOnce(() => new Promise<string>((resolve, reject) => {
+ finishConfig = resolve;
+ failConfig = reject;
+ }));
  const { initClarity } = await loadClarity();
  const pending = initClarity();
  await vi.dynamicImportSettled();
  expect(config.getConfigValue).toHaveBeenCalledOnce();
  setUrl(signedUrl);
- finishConfig('test-project');
+ if (outcome === 'rejected') failConfig(new Error('configuration unavailable'));
+ else finishConfig(outcome === 'empty' ? '' : 'test-project');
  await pending;
  expect(scripts()).toHaveLength(0);
  expect(window.location.href).toBe(signedUrl);
+ setUrl(cleanUrl);
+ await initClarity();
+ expect(scripts()).toHaveLength(0);
  });
 
  it.each([
@@ -126,6 +157,9 @@ describe('Clarity initialization on signed payment links', () => {
  expect(scripts()).toHaveLength(0);
  expect(document.referrer).toBe(referrer);
  expect(window.location.href).toBe(cleanUrl);
+ config.referrer = '';
+ await initClarity();
+ expect(scripts()).toHaveLength(0);
  });
 
  it('blocks credentials even when no autologin exchange owns them', async () => {
@@ -134,6 +168,22 @@ describe('Clarity initialization on signed payment links', () => {
  expect(isNewsletterAutologinInFlight()).toBe(false);
  await initClarity();
  expect(scripts()).toHaveLength(0);
+ setUrl(cleanUrl);
+ await initClarity();
+ expect(scripts()).toHaveLength(0);
+ });
+
+ it('latches a sensitive URL before any await even when consent is initially denied', async () => {
+ setUrl(cleanUrl + '&ac=synthetic-code');
+ config.consent = false;
+ const { initClarity, wasNewsletterAutologinAttempted } = await loadClarity();
+ expect(wasNewsletterAutologinAttempted()).toBe(false);
+ await initClarity();
+ setUrl(cleanUrl);
+ config.consent = true;
+ await initClarity();
+ expect(scripts()).toHaveLength(0);
+ expect(config.getConfigValue).not.toHaveBeenCalled();
  });
 
  it('does not initialize when analytics consent is denied', async () => {
@@ -142,6 +192,9 @@ describe('Clarity initialization on signed payment links', () => {
  await initClarity();
  expect(scripts()).toHaveLength(0);
  expect(config.getConfigValue).not.toHaveBeenCalled();
+ config.consent = true;
+ await initClarity();
+ expect(scripts()).toHaveLength(1);
  });
 
  it('keeps non-production hosts excluded', async () => {
@@ -152,12 +205,9 @@ describe('Clarity initialization on signed payment links', () => {
  expect(config.getConfigValue).not.toHaveBeenCalled();
  });
 
- it('does not inject duplicate scripts for concurrent callers waiting on the same auth', async () => {
- setUrl(signedUrl);
- const { initClarity, settleNewsletterAutologin } = await loadClarity();
+ it('does not inject duplicate scripts for concurrent callers on a clean document', async () => {
+ const { initClarity } = await loadClarity();
  const pending = [initClarity(), initClarity()];
- setUrl(cleanUrl);
- settleNewsletterAutologin();
  await Promise.all(pending);
  expect(scripts()).toHaveLength(1);
  });

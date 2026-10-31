@@ -99,10 +99,12 @@ export function guardMobilityMatch(requirements, match, { profile = {}, sourceTe
     const answer = binary(confirmed[question.id]);
     const proof = answer === null ? cvProof(row, previous?.evidence, profile, sourceText) : null;
     const status = answer === true || proof ? 'met' : answer === false ? 'missing' : 'partial';
-    const record = { index, status, evidence: answer !== null ? String(confirmed[question.id]) : proof || '', evidenceUnverified: false };
+    const record = { index, status, evidence: answer !== null ? String(confirmed[question.id]) : proof || '',
+      evidenceUnverified: answer === null && !proof && (!previous || previous.evidenceUnverified === true
+        || (previous.status !== 'missing' && !String(previous.evidence || '').trim())) };
     if (at < 0) result.matches.push(record); else result.matches[at] = record;
     result.questions = result.questions.filter(q => q.id !== question.id);
-    if (status === 'partial') result.questions.push(question);
+    if (status === 'partial' && !record.evidenceUnverified) result.questions.push(question);
     if (status === 'missing') result.verdict = 'poor';
     else if (status === 'partial' && ['strong', 'good'].includes(result.verdict)) result.verdict = 'weak';
   }

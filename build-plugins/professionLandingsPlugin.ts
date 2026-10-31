@@ -245,6 +245,8 @@ function renderFeaturedJobs(
   const visibleJobs = snapshot.jobs ?? snapshot.featured;
   const items = visibleJobs.map((j) => ({
     job: {
+      id: j.id,
+      slug: j.slug,
       title: j.title,
       titleByLocale: j.titleByLocale,
       company: j.company,

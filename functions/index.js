@@ -2939,10 +2939,11 @@ export const processApplicationConciergeCv = onDocumentWritten(
     const periodicRefresh = data.proposalRefreshRequestedBy === 'lifecycle' && data.proposalRefreshRequestId
       && data.proposalRefreshRequestId !== before?.proposalRefreshRequestId;
     if (!periodicRefresh && !shouldRunApplicationConciergeMatchingForServiceUpdate(before, data)) return;
+    const matchingDeadlineMs = Date.now() + 480_000;
     try {
       const db = getAdminDb();
       if (periodicRefresh) {
-        await runConciergeProposalRefresh({ db, serviceId: event.params.serviceId, requestId: data.proposalRefreshRequestId });
+        await runConciergeProposalRefresh({ db, serviceId: event.params.serviceId, requestId: data.proposalRefreshRequestId, deadlineMs: matchingDeadlineMs });
         return;
       }
       const cvChanged = data.cvStorageKey !== before?.cvStorageKey;
@@ -2961,7 +2962,7 @@ export const processApplicationConciergeCv = onDocumentWritten(
           return;
         }
       }
-      const matching = await runApplicationConciergeMatching({ db, serviceId: event.params.serviceId });
+      const matching = await runApplicationConciergeMatching({ db, serviceId: event.params.serviceId, deadlineMs: matchingDeadlineMs });
       console.log('[processApplicationConciergeCv]', event.params.serviceId, matching.status, matching.proposals ?? 0);
     } catch (error) {
       console.error('[processApplicationConciergeCv]', event.params.serviceId, error instanceof Error ? error.message : String(error));

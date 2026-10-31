@@ -89,6 +89,9 @@ export const CHUNK_LOAD_ERROR_PATTERN_SOURCE = CHUNK_LOAD_ERROR_SUBSTRINGS.map(e
  * entry is domain-anchored (not a bare keyword) so it cannot accidentally match
  * a first-party chunk filename (e.g. services/clarity.ts's own lazy-loaded
  * chunk has no `.ms` TLD in its name).
+ *
+ * GA4 2026-10-31: doubleclick, googlesyndication and hash-named `/tag/` hosts
+ * made up 14 of the 48 labelled events, all counted as genuine.
  */
 export const AD_BLOCKER_TRIGGER_PATTERNS: readonly RegExp[] = [
   /analytics/,
@@ -102,6 +105,9 @@ export const AD_BLOCKER_TRIGGER_PATTERNS: readonly RegExp[] = [
   /clarity\.ms/,
   /fundingchoices/,
   /cloudflareinsights/,
+  /doubleclick\.net/,
+  /googlesyndication\.com/,
+  /[0-9a-f]{32,}\.com\/tag\//,
   /t\.frontaliereticino\.ch/,
 ];
 

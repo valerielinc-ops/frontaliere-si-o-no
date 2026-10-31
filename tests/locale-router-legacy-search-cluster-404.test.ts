@@ -7,8 +7,9 @@
  * compat bridges, so they never reach the Worker's 404 chain. The Worker used to
  * 301 every OTHER `ricerca-/search-/suche-/recherche-` slug to the national
  * board: any invented cluster URL became a 301 to a listing, a soft 404 for
- * Google. Unknown cluster slugs are now a real 404 with a localized page whose
- * first link is the national board.
+ * Google. Unknown cluster slugs now answer 200 from the national board under an
+ * explicit noindex (owner decision 2026-10-30: job pages link them), and stay a
+ * real 404 with a localized page when the slug word is not the locale's.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -49,23 +50,35 @@ function mockFetch(map: Record<string, Record<string, string>> | null): void {
   });
 }
 
-describe('locale-router unknown legacy search-cluster slug → real 404', () => {
+describe('locale-router unknown search-cluster slug', () => {
   it.each([
-    ['/en/find-jobs-ticino/search-painter-switzerland/', 'en', '/en/find-jobs-switzerland/'],
-    ['/de/jobs-im-tessin/suche-maler-schweiz/', 'de', '/de/jobs-in-schweiz/'],
-    ['/fr/trouver-emploi-tessin/recherche-peintre-suisse/', 'fr', '/fr/trouver-emploi-suisse/'],
-    ['/fr/trouver-emploi-tessin/ricerca-stipendio-pittore-svizzera/', 'fr', '/fr/trouver-emploi-suisse/'],
-    ['/cerca-lavoro-zurigo/ricerca-pittore-inesistente-svizzera/', 'it', '/cerca-lavoro-svizzera/'],
-  ])('%s is a 404 (no 301 to the board) with the board as a link', async (path, lang, board) => {
+    ['/en/find-jobs-ticino/search-painter-switzerland/'],
+    ['/de/jobs-im-tessin/suche-maler-schweiz/'],
+    ['/fr/trouver-emploi-tessin/recherche-peintre-suisse/'],
+    ['/cerca-lavoro-zurigo/ricerca-pittore-inesistente-svizzera/'],
+  ])('%s is served from the board under noindex, with no redirect', async (path) => {
     mockFetch(null);
 
     const res = await worker.fetch(new Request(`${APEX}${path}?utm_source=google`), {}, ctx);
 
-    expect(res.status).toBe(404);
+    expect(res.status).toBe(200);
     expect(res.headers.get('Location')).toBeNull();
+    expect(res.headers.get('X-Robots-Tag')).toBe('noindex, follow');
+  });
+
+  it('keeps a real localized 404 when the slug word belongs to another locale', async () => {
+    mockFetch(null);
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/fr/trouver-emploi-tessin/ricerca-stipendio-pittore-svizzera/`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(404);
     const html = await res.text();
-    expect(html).toContain(`<html lang="${lang}">`);
-    expect(html).toContain(`href="${board}"`);
+    expect(html).toContain('<html lang="fr">');
+    expect(html).toContain('href="/fr/trouver-emploi-suisse/"');
     expect(html).not.toContain('location.replace');
   });
 

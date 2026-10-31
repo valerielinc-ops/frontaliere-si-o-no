@@ -103,6 +103,7 @@ import { jobJourneyFields, recordJobJourneyStep, type JobJourneyStep, type JobJo
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { runAfterNextPaint } from './afterNextPaint';
 import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
+import { buildResourceErrorDetails, buildResourceErrorLabel } from './resourceErrorLabel';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
@@ -1450,7 +1451,8 @@ export const Analytics = {
  /**
   * GA4-only click event for every attempt to open the checkout.
   * Firebase relays event_callback unchanged to gtag, which invokes it after
-  * event processing. logEvent returning void is not that acknowledgement.
+  * event processing. The returned timestamp stays local and is not a network
+  * receipt. logEvent returning void is not that acknowledgement.
   * Control parameter reference: https://developers.google.com/tag-platform/gtagjs/reference/parameters
   */
  trackApplicationConciergeCheckoutClick: () => {
@@ -1462,7 +1464,7 @@ export const Analytics = {
      return `${window.location.pathname}${query ? `?${query}` : ''}`;
     })()
    : APPLICATION_CONCIERGE_PATH;
-  return new Promise<void>((resolve) => logFirebaseOnly('application_concierge_checkout_click', {
+  return new Promise<{ processedAtMs: number }>((resolve) => logFirebaseOnly('application_concierge_checkout_click', {
    page_path: pagePath,
    page_template: 'application_concierge',
    content_group: 'jobs',
@@ -1471,7 +1473,7 @@ export const Analytics = {
    position_limit: 10,
    price_eur: 39.99,
    price_eur_cents: 3999,
-   event_callback: () => resolve(),
+   event_callback: () => resolve({ processedAtMs: Date.now() }),
   }));
  },
 
@@ -1485,7 +1487,7 @@ export const Analytics = {
      return `${window.location.pathname}${query ? `?${query}` : ''}`;
     })()
    : APPLICATION_CONCIERGE_PATH;
-  return new Promise<void>((resolve) => logFirebaseOnly('application_concierge_checkout_resume', {
+  return new Promise<{ processedAtMs: number }>((resolve) => logFirebaseOnly('application_concierge_checkout_resume', {
    page_path: pagePath,
    page_template: 'application_concierge',
    content_group: 'jobs',
@@ -1494,7 +1496,7 @@ export const Analytics = {
    position_limit: 10,
    price_eur: 39.99,
    price_eur_cents: 3999,
-   event_callback: () => resolve(),
+   event_callback: () => resolve({ processedAtMs: Date.now() }),
   }));
  },
 
@@ -1886,10 +1888,12 @@ export const Analytics = {
  if (resErrors) {
  sessionStorage.removeItem('_resourceErrors');
  const errors: any[] = JSON.parse(resErrors);
+ const adBlockSeen = sessionStorage.getItem('_adBlockSeen') === '1';
  for (const err of errors.slice(0, 10)) {
  Analytics.trackResourceLoadError({
  resourceType: err.type || 'unknown',
  resourceUrl: err.url || '',
+ details: buildResourceErrorDetails({ ...err, adBlockSeen }),
  pagePath: err.pagePath || '/',
  triggeredReload: err.triggeredReload || false,
  blockedByAdBlocker: err.adBlocked || false,
@@ -1971,11 +1975,16 @@ export const Analytics = {
  trackResourceLoadError: (info: {
  resourceType: 'script' | 'link' | 'css' | 'unknown';
  resourceUrl: string;
+ details?: string;
  pagePath?: string;
  triggeredReload?: boolean;
  blockedByAdBlocker?: boolean;
  }) => {
  log('resource_load_error', {
+ // error_type/error_message are what GA4 can query: see resourceErrorLabel.ts.
+ error_type: `resource_${info.resourceType}`,
+ error_message: buildResourceErrorLabel(info.resourceUrl),
+ details: info.details,
  resource_type: info.resourceType,
  resource_url: truncate(info.resourceUrl, 200),
  page_path: truncate(info.pagePath || window.location.pathname, 180),

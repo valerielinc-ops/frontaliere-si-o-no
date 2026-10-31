@@ -4,12 +4,9 @@ import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.m
 /**
  * JobExpiredView — view for jobs found in /data/expired-jobs.json.
  *
- * Renders with the same layout as active job auth-gate pages:
- * 3-column ad grid, blurred description teaser, full auth gate with
- * social proof, and an orange expired banner at the top.
- *
- * When logged in, renders a 2-column layout (content + sidebar) with
- * full description and 5 ad slots, matching the active job detail view.
+ * Reuses the active JobDetail header, metadata pills, description panels,
+ * 8/4 content/sidebar grid, and ad rails. Expiry status and recovery CTAs
+ * replace application actions without changing AuthGate or crawler access.
  */
 
 import { Suspense, useEffect, useRef, useState, type MouseEvent } from 'react';
@@ -47,10 +44,26 @@ import { jobDescriptionPlainText, jobDescriptionPreview } from '@/services/jobs/
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { renderJobDescriptionContent } from '@/build-plugins/shared/jobDescriptionContent';
+import { formatDaysAgo, formatJobContractLabel, formatJobSalary } from '@/services/jobs/jobCardMetadata';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
+import JobSaveButton from '@/components/community/JobSaveButton';
+import { toSaveableJob } from '@/services/jobSaveGate';
+import {
+ JobDetailHeaderCard,
+ JobDetailMetadataRow,
+ JobDetailMetaPill,
+ JOB_DETAIL_HEADER_CONTENT_CLASS,
+ JOB_DETAIL_HEADER_COPY_CLASS,
+ JOB_DETAIL_HEADER_LOGO_FRAME_CLASS,
+ JOB_DETAIL_HEADER_LOGO_IMAGE_CLASS,
+ JOB_DETAIL_HEADER_SUBTITLE_CLASS,
+ JOB_DETAIL_HEADER_TITLE_CLASS,
+} from '@/components/community/JobDetailPresentation';
 
 interface RelatedJob {
+ id?: string;
+ category?: string;
  slug: string;
  title?: string;
  titleByLocale?: Record<string, string>;
@@ -67,7 +80,9 @@ interface RelatedJob {
  crawledAt?: string;
  salaryMin?: number;
  salaryMax?: number;
+ salarySource?: string;
  currency?: string;
+ salaryCurrency?: string;
  featured?: boolean;
 }
 
@@ -104,31 +119,6 @@ function slugifyLocationName(name: string): string {
  return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-const CONTRACT_COPY: Record<string, Record<string, string>> = {
- 'full-time': { it: 'Tempo pieno', en: 'Full-time', de: 'Vollzeit', fr: 'Temps plein' },
- 'part-time': { it: 'Part-time', en: 'Part-time', de: 'Teilzeit', fr: 'Temps partiel' },
- temporary: { it: 'Temporaneo', en: 'Temporary', de: 'Temporär', fr: 'Temporaire' },
- internship: { it: 'Stage', en: 'Internship', de: 'Praktikum', fr: 'Stage' },
- apprenticeship: { it: 'Apprendistato', en: 'Apprenticeship', de: 'Lehrstelle', fr: 'Apprentissage' },
-};
-function formatContractLabel(contract: string | undefined, locale: string): string | null {
- if (!contract) return null;
- return CONTRACT_COPY[contract]?.[locale] ?? CONTRACT_COPY[contract]?.it ?? contract;
-}
-function formatDaysAgo(dateStr: string | undefined, locale: string): string | null {
- if (!dateStr) return null;
- const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
- if (diff < 0) return null;
- if (diff === 0) return locale === 'it' ? 'Oggi' : locale === 'de' ? 'Heute' : locale === 'fr' ? "Aujourd'hui" : 'Today';
- if (diff === 1) return locale === 'it' ? 'Ieri' : locale === 'de' ? 'Gestern' : locale === 'fr' ? 'Hier' : 'Yesterday';
- return locale === 'it' ? `${diff} giorni fa` : locale === 'de' ? `Vor ${diff} Tagen` : locale === 'fr' ? `Il y a ${diff} jours` : `${diff} days ago`;
-}
-function formatRelatedSalary(rj: RelatedJob): string | null {
- if (!rj.salaryMin) return null;
- const min = (rj.salaryMin / 1000).toFixed(0);
- const max = rj.salaryMax ? (rj.salaryMax / 1000).toFixed(0) : null;
- return max ? `${rj.currency ?? 'CHF'} ${min}k – ${max}k` : `${rj.currency ?? 'CHF'} ${min}k+`;
-}
 
 const BANNER_COPY: Record<string, string> = {
  it: 'Questa posizione non è più attiva.',
@@ -223,6 +213,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const expiredDate = job.expiredAt
  ? new Date(job.expiredAt).toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
  : null;
+ const jobSalary = formatJobSalary(job, locale);
+ const jobContract = formatJobContractLabel(job.contract || job.employmentType || job.contractType, locale);
+ const jobPosted = formatDaysAgo(resolveReportedPostingDate(job) ?? undefined, locale);
 
  const logoUrl = cdnImageUrl(resolveCompanyLogoUrl({ company: job.company, companyKey: job.companyKey }));
  const jobLocation = job.addressLocality ?? job.location ?? '';
@@ -496,13 +489,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  );
 
- const expiredBanner = (
- <div className="flex items-start gap-2.5 rounded-xl bg-warning-subtle border border-warning-border px-4 py-3 text-sm leading-relaxed text-warning">
- <Clock size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
- {BANNER_COPY[locale] ?? BANNER_COPY.it}
- </div>
- );
-
  /**
   * CompanyAlert (#5012) — «Segui questa azienda» on an EXPIRED ad.
   *
@@ -548,53 +534,64 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  );
 
  const jobHeader = (
- <>
- <div className="flex items-start gap-3 sm:gap-4">
- {logoUrl && (
+ <JobDetailHeaderCard data-no-auto-ads="inside">
+ <div className={JOB_DETAIL_HEADER_CONTENT_CLASS}>
+ <div className={JOB_DETAIL_HEADER_LOGO_FRAME_CLASS} aria-hidden={!logoUrl}>
+ {logoUrl ? (
  <img
  src={logoUrl}
- alt={job.company}
+ alt={job.company || ''}
  width={56}
  height={56}
- className="w-14 h-14 rounded-xl object-contain bg-surface-alt flex-shrink-0"
+ className={JOB_DETAIL_HEADER_LOGO_IMAGE_CLASS}
  decoding="async"
  onError={handleCompanyLogoError}
  />
+ ) : (
+ <Building2 className="w-9 h-9 text-muted" aria-hidden="true" />
  )}
- <div className="flex-1 min-w-0">
- <h1 className="text-2xl sm:text-3xl font-bold font-display text-heading leading-tight tracking-tight break-words [hyphens:auto]">{localizedTitle}</h1>
- <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mt-2 text-sm leading-snug text-subtle">
- {job.company && companyHref && (
+ </div>
+ <div className={JOB_DETAIL_HEADER_COPY_CLASS}>
+ <h1 className={JOB_DETAIL_HEADER_TITLE_CLASS}>{localizedTitle}</h1>
+ <p className={JOB_DETAIL_HEADER_SUBTITLE_CLASS}>
+ {job.company && (companyHref ? (
  <button
  type="button"
  onClick={handleCompanyClick}
- className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
- <Building2 size={14} />
  {job.company}
  </button>
- )}
- {jobLocation && locationHref && (
+ ) : job.company)}
+ {job.company && jobLocation ? ' · ' : ''}
+ {jobLocation && (locationHref ? (
  <a
  href={locationHref}
  onClick={handleLocationClick}
- className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
- <MapPin size={14} />
  {jobLocation}
  </a>
+ ) : jobLocation)}
+ </p>
+ </div>
+ </div>
+ <JobDetailMetadataRow>
+ {job.sector && <JobDetailMetaPill tone="neutral">{job.sector}</JobDetailMetaPill>}
+ {jobContract && <JobDetailMetaPill tone="accent">{jobContract}</JobDetailMetaPill>}
+ {jobPosted && <JobDetailMetaPill tone="success" icon={<Clock className="w-3 h-3" aria-hidden="true" />}>{jobPosted}</JobDetailMetaPill>}
+ {jobSalary && <JobDetailMetaPill tone="success" icon={<Euro className="w-3 h-3" aria-hidden="true" />}>{jobSalary}</JobDetailMetaPill>}
+ {alreadySignedIn && (
+ <JobDetailMetaPill tone="warning" icon={<Clock className="w-3 h-3" aria-hidden="true" />}>
+ {BANNER_COPY[locale] ?? BANNER_COPY.it}
+ </JobDetailMetaPill>
  )}
- {/* Expiry date reveals the "no longer active" status → show only after sign-in.
-     Logged-out users hit the gate first; status surfaces once authenticated. */}
  {alreadySignedIn && expiredDate && (
- <span className="inline-flex items-center gap-1">
- <Calendar size={14} />
+ <JobDetailMetaPill tone="warning" icon={<Calendar className="w-3 h-3" aria-hidden="true" />}>
  {EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it} {expiredDate}
- </span>
+ </JobDetailMetaPill>
  )}
- </div>
- </div>
- </div>
+ </JobDetailMetadataRow>
  {employerHubCta}
  {/* And the follow CTA right under it: same employer, same question, and the
      one ask on this page that needs no account. It used to hang off the
@@ -603,7 +600,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
      i.e. out of reach of exactly the logged-out visitor it was written for.
      Same move as the active ad in JobBoard, same reason. */}
  {companyFollowCta}
- </>
+ </JobDetailHeaderCard>
  );
 
 
@@ -643,26 +640,27 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  );
 
  const relatedJobsSection = relatedJobs.length > 0 && (
- <div className="space-y-2">
- <h2 className="text-base font-semibold font-display text-strong">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
- <div className="space-y-2">
+ <section className="rounded-2xl border border-edge bg-surface p-5">
+ <h2 className="text-lg font-bold font-display text-heading mb-4">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" data-job-related-grid>
  {relatedJobs.slice(0, 6).flatMap((rj, rjIdx, rjArr) => {
  const rjSlug = rj.slug;
  const rjTitle = jobDisplayTitle(rj) || rjSlug;
  const rjLocation = formatJobLocation(rj.location, rj.canton);
  const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));
- const rjSalary = formatRelatedSalary(rj);
- const rjContract = formatContractLabel(rj.contract, locale);
+ const rjSalary = formatJobSalary(rj, locale);
+ const rjContract = formatJobContractLabel(rj.contract, locale);
  const rjPosted = formatDaysAgo(resolveReportedPostingDate(rj) ?? undefined, locale);
  const card = (
  <article
  key={rjSlug}
- className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
+ className={`relative rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
  rj.featured ? 'border-warning-border bg-warning-subtle hover:border-warning' : 'border-edge bg-surface/50 hover:border-accent-border'
  }`}
  >
- <a href={rjPath} onClick={(e) => handleRelatedJobClick(e, rjSlug)} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg">
+ {rj.id && <JobSaveButton job={toSaveableJob({ ...rj, id: rj.id, title: rj.title || rjTitle, company: rj.company || '' })} surface="card_related" />}
+ <a href={rjPath} onClick={(e) => handleRelatedJobClick(e, rjSlug)} className="block pr-9 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg">
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
  {rjLogo ? (
@@ -697,18 +695,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </a>
  </article>
  );
- // One in-feed ad after every Nth related card (shared `shouldPlaceInfeedAd`
- // cadence), never after the last — same logic as the main job list. The
- // `space-y-2` stack lets a full-width ad block slot cleanly between cards.
+ // Keep the standard job-detail cadence: one in-feed ad after each third
+ // related card, spanning the complete card grid, never after the last.
  if (rjIdx + 1 < rjArr.length && shouldPlaceInfeedAd(rjIdx + 1)) {
  const adCfg = isDesktopLg ? AD_SLOTS.JOBLIST_INFEED_DESKTOP : AD_SLOTS.JOBLIST_INFEED_MOBILE;
  return [
  card,
  // The banner owns the reserve so terminal no-fill leaves no orphan wrapper.
- <div
- key={`rel-infeed-${rjSlug}`}
-
- >
+ <div key={`rel-infeed-${rjSlug}`} className="col-span-full min-w-0" data-job-related-ad>
  <AdSenseBanner className="my-3" placement={`expired-related-${rjIdx}`} adSlot={adCfg.slot} adFormat={adCfg.format} fullWidthResponsive={adCfg.fullWidthResponsive} />
  </div>,
  ];
@@ -716,7 +710,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  return [card];
  })}
  </div>
- </div>
+ </section>
  );
 
  const ctaLink = (
@@ -736,6 +730,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const locationSnapshot = getJobLocationSnapshot({
  location: job.location,
  addressLocality: job.addressLocality,
+ postalCode: job.postalCode,
  });
  const relatedSearchTerms: string[] = Array.from(
  new Set(
@@ -755,7 +750,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  return (
  <div className="space-y-6" data-expired-layout="authenticated">
  {topBannerRow}
- {expiredBanner}
 
  {/* 3-column rail grid: left rail | content | right rail — same full-height
      side-rail layout as the active job detail. Rails 180px at xl (1280–1399),
@@ -768,21 +762,50 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </aside>
 
  {/* ── Center content (12-col job-detail grid) ── */}
- <div className="min-w-0 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
+ <div className="min-w-0 w-full grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
  {/* ── Main content (8 cols) ── */}
- <article className="lg:col-span-8 space-y-5">
- <div className="rounded-stripe border border-edge bg-surface p-5 sm:p-6 shadow-stripe-sm">
+ <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
  {jobHeader}
- {job.sector && (
- <div className="mt-4 flex flex-wrap gap-2 text-xs">
- <span className="px-2 py-1 rounded-full bg-surface-raised text-body">{job.sector}</span>
- </div>
- )}
- </div>
 
  {(descriptionPlain || requirements.length > 0) && (
- <div className="prose prose-sm dark:prose-invert max-w-none text-body" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+ <div className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 prose prose-sm dark:prose-invert max-w-none text-body" data-job-detail-description dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
  )}
+
+ <section aria-label={t('jobBoard.snapshotTitle')} className="lg:hidden rounded-2xl border border-edge bg-surface p-4 space-y-3" data-job-detail-mobile-sidebar>
+ <dl className="grid grid-cols-2 gap-2 text-xs">
+ {jobLocation && (
+  <div className="rounded-lg bg-surface-alt p-2 text-center">
+   <dt className="uppercase tracking-wide text-[10px] text-muted">{t('jobBoard.snapshot.location')}</dt>
+   <dd className="font-semibold font-display text-strong mt-0.5 leading-tight truncate">{locationSnapshot?.locality || jobLocation}</dd>
+  </div>
+ )}
+ {expiredDate && (
+  <div className="rounded-lg bg-surface-alt p-2 text-center">
+   <dt className="uppercase tracking-wide text-[10px] text-muted">{EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it}</dt>
+   <dd className="font-semibold font-display text-strong mt-0.5 leading-tight">{expiredDate}</dd>
+  </div>
+ )}
+ {jobContract && (
+  <div className="rounded-lg bg-surface-alt p-2 text-center">
+   <dt className="uppercase tracking-wide text-[10px] text-muted">{t('jobBoard.snapshot.contract')}</dt>
+   <dd className="font-semibold font-display text-strong mt-0.5 leading-tight">{jobContract}</dd>
+  </div>
+ )}
+ {jobPosted && (
+  <div className="rounded-lg bg-surface-alt p-2 text-center">
+   <dt className="uppercase tracking-wide text-[10px] text-muted">{t('jobBoard.snapshot.published')}</dt>
+   <dd className="font-semibold font-display text-strong mt-0.5 leading-tight">{jobPosted}</dd>
+  </div>
+ )}
+ </dl>
+ <a
+  href={listingPath}
+  onClick={handleCtaClick}
+  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 min-h-[48px] text-base font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg"
+ >
+  {t('jobBoard.expiredAdviceCta')}
+ </a>
+ </section>
 
  {/* Mobile/tablet in-article ad */}
  {!isDesktopLg && AD_SLOTS.ARTICLE_INLINE_MOBILE.slot && (
@@ -803,16 +826,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  />
  )}
 
- {relatedJobsSection}
  <JobAlertSection initialKeyword={job.title || ''} />
- {ctaLink}
  </article>
 
  {/* ── Sidebar (4 cols, desktop only) ── */}
  <aside className="hidden lg:block lg:col-span-4">
  <div className="sticky top-20 space-y-4">
  {/* Snapshot annuncio */}
- {(jobLocation || expiredDate || (locationSnapshot?.crossings && locationSnapshot.crossings.length > 0)) && (
+ {(jobLocation || expiredDate || jobContract || jobPosted || (locationSnapshot?.crossings && locationSnapshot.crossings.length > 0)) && (
  <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl">
  <div className="text-sm font-bold font-display text-heading">
  {t('jobBoard.snapshotTitle')}
@@ -837,6 +858,18 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="flex items-center justify-between gap-2">
  <span>{EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it}</span>
  <span className="font-semibold font-display text-strong">{expiredDate}</span>
+ </div>
+ )}
+ {jobContract && (
+ <div className="flex items-center justify-between gap-2">
+ <span>{t('jobBoard.snapshot.contract')}</span>
+ <span className="font-semibold font-display text-strong">{jobContract}</span>
+ </div>
+ )}
+ {jobPosted && (
+ <div className="flex items-center justify-between gap-2">
+ <span>{t('jobBoard.snapshot.published')}</span>
+ <span className="font-semibold font-display text-strong">{jobPosted}</span>
  </div>
  )}
  {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && (
@@ -943,7 +976,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </aside>
  </div>
 
- {/* End multiplex */}
+ {/* End multiplex and related jobs follow the same full-width order as the
+     active job detail, below its 8/4 content-and-sidebar grid. */}
  {AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot && (
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot}
@@ -951,6 +985,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  className="mt-2"
  />
  )}
+ {relatedJobsSection}
  </div>
  );
  }
@@ -973,7 +1008,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </aside>
 
  {/* ── Center content ── */}
- <div className="min-w-0 w-full max-w-3xl mx-auto">
+ <div className="min-w-0 w-full space-y-5" data-expired-gated-content>
 
  {/* Job header card */}
  <div onCopy={handleGateCopy}>
@@ -1139,13 +1174,19 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  fullWidthResponsive={AD_SLOTS.JOBDETAIL_AUTH_GATE.fullWidthResponsive}
  />
  )}
+
+ {/* Keep the remaining detail content inside the same full-width center
+     column as the gate and between the desktop ad rails. */}
+ {companyBanner}
+ {relatedJobsSection}
+ <JobAlertSection initialKeyword={job.title || ''} />
+ {ctaLink}
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
  <aside className={RAIL_ASIDE_CLASS_X}>
  <ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} />
  </aside>
-
  </div>
 
  {/* AdSense — end multiplex below 3-column layout */}
@@ -1157,19 +1198,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  />
  )}
 
- <div className="w-full max-w-3xl mx-auto space-y-6">
-  {/* Company banner */}
-  {companyBanner}
-
-  {/* Related active jobs */}
-  {relatedJobsSection}
-
-  {/* Job alert opt-in */}
-  <JobAlertSection initialKeyword={job.title || ''} />
-
-  {/* CTA */}
-  {ctaLink}
- </div>
  </div>
  );
 }

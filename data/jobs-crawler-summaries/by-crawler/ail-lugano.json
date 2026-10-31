@@ -1,7 +1,7 @@
 {
   "key": "ail-lugano",
   "label": "AIL SA",
-  "generatedAt": "2026-10-30T09:50:42.813Z",
+  "generatedAt": "2026-10-30T21:23:58.359Z",
   "total": 1,
   "discovered": 3,
   "parsed": 3,
@@ -12,10 +12,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5044,
-  "avgDurationMs": 5044,
+  "durationMs": 5069,
+  "avgDurationMs": 5069,
   "durationHistory": [
-    5044
+    5069
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-30T09:50:30.944Z",
+      "crawledAt": "2026-10-30T21:23:47.793Z",
       "validThrough": "2026-11-14",
       "slug": "project-manager-delle-comunicazione-ail-lugano",
       "sourceLang": "it",
@@ -66,5 +66,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "1dc96cd8193faf322ea1569d0e301b22615a2936"
+  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
 }

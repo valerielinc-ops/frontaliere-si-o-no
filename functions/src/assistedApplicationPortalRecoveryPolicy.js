@@ -2,7 +2,7 @@
 import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js';
 
 export const portalCodeVersion = value => /^[a-f0-9]{64}$/.test(String(value || '')) ? String(value) : null;
-const RECOVERABLE = new Set(['portal:account', 'portal:posting_mismatch', 'portal:portal_needs_candidate', 'portal:captcha_provider_unavailable']);
+const RECOVERABLE = new Set(['portal:account', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:posting_mismatch', 'portal:portal_needs_candidate', 'portal:captcha_provider_unavailable']);
 
 export function portalCodeChanged(flow, version) {
   return Boolean(portalCodeVersion(version)) && flow?.state === 'owner_takeover'
@@ -20,4 +20,11 @@ export function portalRecoveryDefinitelyUnsent({ order, flow, draft, submission 
     && draft?.status === 'ready' && Number(draft.round) === round && !draft.sent && !draft.sentAttempt
     && send?.state === 'failed' && send.channel === 'portal' && !send.clickedAt && Number(send.releasedAt) > 0
     && !Object.values(submission).some(record => record?.state === 'sent' || isUnconfirmedSubmission(record));
+}
+
+/** Native owner metadata may be repaired before the safe discovery engine lands. */
+export function operationalPortalRecoveryReady({ flow }) {
+  // PR #16143 supplies the strict readiness and native-control guards. Until
+  // then this lane stays held even if an optional referral marker is fixed.
+  return !flow?.heldBy?.includes('portal:portal_needs_candidate');
 }

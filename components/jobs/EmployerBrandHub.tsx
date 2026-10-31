@@ -20,6 +20,8 @@ import type { Locale } from '@/services/i18n';
 import type { EmployerBrand } from '@/services/employerBrands';
 import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
 import { stableOrganizationId } from '@/services/seo/organizationLd';
+import JobSaveButton from '@/components/community/JobSaveButton';
+import { toSaveableJob } from '@/services/jobSaveGate';
 
 interface EmployerBrandJob {
   readonly id: string;
@@ -217,10 +219,10 @@ export function EmployerBrandHub({
               const title = localizedJobTitle(job);
               const salary = formatSalary(job, locale);
               return (
-                <li key={job.id}>
+                <li key={job.id} className="relative">
                   <a
                     href={href}
-                    className="flex min-h-[52px] flex-col justify-center rounded-lg border border-edge bg-surface px-3 py-3 transition-colors hover:border-accent hover:bg-surface-raised sm:px-4"
+                    className="flex min-h-[52px] flex-col justify-center rounded-lg border border-edge bg-surface px-3 py-3 pr-12 transition-colors hover:border-accent hover:bg-surface-raised sm:px-4"
                   >
                     <span className="block text-sm font-semibold leading-snug text-heading">{title}</span>
                     <span className="mt-1 block text-xs leading-snug text-subtle">
@@ -229,6 +231,7 @@ export function EmployerBrandHub({
                       {salary ? ` · ${salary}` : ''}
                     </span>
                   </a>
+                  <JobSaveButton job={toSaveableJob(job)} surface="card_brand_hub" />
                 </li>
               );
             })}

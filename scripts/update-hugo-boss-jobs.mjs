@@ -23,7 +23,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { resolveLocalityAddress } from './lib/swiss-structured-address.mjs';
-import { exitCrawlerOnError, fetchHtml as sharedFetchHtml } from './lib/crawler-template.mjs';
+import {
+  exitCrawlerOnError,
+  fetchHtml as sharedFetchHtml,
+  fetchHtmlWithCookies,
+} from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
@@ -75,9 +79,9 @@ function isTrustedDomain(rawUrl = '') {
   try { return new URL(rawUrl).hostname.toLowerCase().includes('hugoboss.com'); } catch { return false; }
 }
 
-async function fetchPage(url, timeoutMs = 20000) {
+async function fetchPage(url, timeoutMs = 20000, cookieJar = null) {
   try {
-    return await sharedFetchHtml(url, {
+    const options = {
       timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
@@ -86,7 +90,10 @@ async function fetchPage(url, timeoutMs = 20000) {
         Pragma: 'no-cache',
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
-    });
+    };
+    return cookieJar instanceof Map
+      ? await fetchHtmlWithCookies(url, { ...options, cookieJar })
+      : await sharedFetchHtml(url, options);
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
 }
 
@@ -112,12 +119,17 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   let terminationProven = false;
   let terminationReason = null;
   let maxObserved = false;
+  // Phenom assigns the result ordering to the session cookie created by the
+  // first listing request. Reusing one jar across offsets prevents a fresh
+  // ordering on each page from producing overlapping pages and an unproven
+  // zero before the Swiss record is reached.
+  const listingCookieJar = new Map();
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const pageUrl = new URL(CAREERS_URL);
     pageUrl.searchParams.set('from', String(from));
     pageUrl.searchParams.set('pageSize', String(PAGE_SIZE));
-    let html = await fetchHtml(pageUrl.href, 25000);
+    let html = await fetchHtml(pageUrl.href, 25000, listingCookieJar);
     if (!html) {
       if (page === 0) console.error('❌ Failed to fetch Hugo Boss careers page.');
       break;
@@ -172,7 +184,7 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
         `⚠️ Hugo Boss national DDO page ${page + 1} repeated previously seen records; `
         + `retrying (${duplicateRetry + 1}/${DUPLICATE_PAGE_RETRIES}).`,
       );
-      html = await fetchHtml(pageUrl.href, 25000);
+      html = await fetchHtml(pageUrl.href, 25000, listingCookieJar);
       if (!html) {
         throw new Error(
           `Hugo Boss national DDO page ${page + 1} could not be refetched after a duplicated response. `

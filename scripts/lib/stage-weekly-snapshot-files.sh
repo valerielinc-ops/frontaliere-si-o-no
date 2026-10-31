@@ -45,5 +45,11 @@ for f in data/related-search-enriched.json data/related-search-candidates.json; 
     git add "$f" 2>/dev/null || true
   else
     echo "::warning::Skipping stage of $f this run — over its push-safety ceiling (#1658, owner-gated prune required). Core snapshot/delta/footer files still commit normally."
+    # A warning alone hid this for four months: the site stopped receiving new
+    # search pages on 2026-06-29 and nobody saw it. Best effort, stays non-fatal.
+    node scripts/lib/github-issue-creator.mjs \
+      --title "Related-search corpus over its push ceiling: $f" \
+      --description "$f supera il limite di assert-file-size-ceiling e non viene piu' committato: il sito smette di ricevere nuove pagine di ricerca. Ridurre il file, vedi scripts/lib/related-search-admission.mjs." \
+      --priority 2 --label monitoring --workflow "Snapshot Jobs Weekly (F5)" || true
   fi
 done

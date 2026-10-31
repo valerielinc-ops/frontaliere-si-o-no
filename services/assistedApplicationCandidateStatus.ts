@@ -1,3 +1,4 @@
+import { parseEmployerResponse, type EmployerResponse } from './assistedApplicationEmployerResponse';
 import { MY_ASSISTED_APPLICATIONS_URL } from './functionsBase';
 
 export type AssistedApplicationCandidateStatus =
@@ -20,6 +21,7 @@ export interface CandidateAssistedApplication {
   status: AssistedApplicationCandidateStatus;
   updatedAt: string | null;
   requiresCvUpload: boolean;
+  employerResponse?: EmployerResponse | null;
 }
 
 interface AuthenticatedUser {
@@ -87,6 +89,7 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
     status: value.status as AssistedApplicationCandidateStatus,
     updatedAt,
     requiresCvUpload: value.requiresCvUpload,
+    ...(Object.prototype.hasOwnProperty.call(value, 'employerResponse') ? { employerResponse: parseEmployerResponse(value.employerResponse) } : {}),
   };
 }
 

@@ -51,12 +51,13 @@ async function deliverNewProposals({ db, ref, nowMs, send }) {
 }
 
 /** One document-trigger worker per service: no user's AI work can starve another service's sweep. */
-export async function runConciergeProposalRefresh({ db, serviceId, requestId = null, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification }) {
+export async function runConciergeProposalRefresh({ db, serviceId, requestId = null, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification, deadlineMs = null }) {
   const ref = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
   const claimed = await db.runTransaction(async tx => {
     const current = (await tx.get(ref)).data();
     if (!serviceIsActive(current, nowMs) || !underCap(current)
-      || (requestId && current.proposalRefreshRequestId !== requestId)) return false;
+      || (requestId && (current.proposalRefreshRequestId !== requestId
+        || current.proposalRefreshCompletedRequestId === requestId))) return false;
     const started = timestampMillis(current.proposalRefreshWorkerStartedAt);
     if (started && nowMs - started < REFRESH_LEASE_MS) return false;
     tx.set(ref, { proposalRefreshWorkerStartedAt: new Date(nowMs) }, { merge: true });
@@ -66,21 +67,21 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
   let refreshed = 0;
   try {
     const before = await ref.collection('proposals').get();
-    const known = new Set(before.docs.map(d => d.id));
-    const result = await match({ db, serviceId });
+    const previouslyProposed = new Set(before.docs.filter(d => d.data().status === 'proposed').map(d => d.id));
+    const result = await match({ db, serviceId, ...(deadlineMs ? { deadlineMs } : {}) });
     if (result.status === 'complete') {
       refreshed = 1;
       const after = await ref.collection('proposals').get();
-      const ids = after.docs.filter(d => !known.has(d.id) && d.data().status === 'proposed').map(d => d.id).sort();
-      if (ids.length) {
-        const key = `new_proposals_${createHash('sha256').update(ids.join('|')).digest('hex').slice(0, 24)}`;
-        await db.runTransaction(async tx => {
-          const current = (await tx.get(ref)).data();
-          if (!current?.pendingProposalNotice && serviceIsActive(current, nowMs) && underCap(current)) {
-            tx.set(ref, { pendingProposalNotice: { key, proposalIds: ids, createdAt: new Date(nowMs) } }, { merge: true });
-          }
-        });
-      }
+      const ids = after.docs.filter(d => !previouslyProposed.has(d.id) && d.data().status === 'proposed').map(d => d.id).sort();
+      const key = `new_proposals_${createHash('sha256').update(`${ids.join('|')}|${requestId || nowMs}`).digest('hex').slice(0, 24)}`;
+      await db.runTransaction(async tx => {
+        const current = (await tx.get(ref)).data();
+        // Persist the consumed event with its notice: Firestore may redeliver a completed request.
+        if (requestId) tx.set(ref, { proposalRefreshCompletedRequestId: requestId }, { merge: true });
+        if (ids.length && !current?.pendingProposalNotice && serviceIsActive(current, nowMs) && underCap(current)) {
+          tx.set(ref, { pendingProposalNotice: { key, proposalIds: ids, createdAt: new Date(nowMs) } }, { merge: true });
+        }
+      });
     }
     return { refreshed, newJobEmails: await deliverNewProposals({ db, ref, nowMs, send }) ? 1 : 0 };
   } finally {

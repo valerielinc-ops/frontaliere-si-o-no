@@ -33,6 +33,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serializeCandidatesFile } from './lib/related-search-serialize.mjs';
+import { demandCandidate, shouldAdmitCandidate, toStoredCandidate } from './lib/related-search-admission.mjs';
 import { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword } from '../services/relatedSearchJunkTerms.mjs';
 import { SECTION_LEGACY_TI as SECTION_SLUG } from '../build-plugins/shared/cantonResolvers.mjs';
 
@@ -40,6 +41,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const GSC_CLUSTERS_PATH = path.join(ROOT, 'data', 'gsc-orphan-queries-clusters.json');
 const OUT_PATH = path.join(ROOT, 'data', 'related-search-candidates.json');
+const DEMAND_404_PATH = path.join(ROOT, 'data', 'related-search-404-demand.json');
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -417,6 +419,7 @@ function main() {
   // the audit doesn't see them this run.
   let mergedHistorical = 0;
   let mergedReinforced = 0;
+  const publishedKeys = new Set();
   if (fs.existsSync(OUT_PATH)) {
     let prev;
     try {
@@ -428,6 +431,7 @@ function main() {
       for (const old of prev.candidates) {
         if (!old || !old.slug || !old.locale) continue;
         const key = `${old.locale}::${old.slug}`;
+        publishedKeys.add(key);
         const cur = candidates.get(key);
         if (!cur) {
           // Historical-only: not produced by current jobs but kept alive.
@@ -459,7 +463,19 @@ function main() {
   }
   console.log(`Append-only merge: ${mergedHistorical} historical-only entries kept, ${mergedReinforced} reinforced.`);
 
+  // Slugs that real requests hit on a 404 (Workers Logs) become candidates even
+  // when no current posting produces them.
+  const demanded = JSON.parse(fs.readFileSync(DEMAND_404_PATH, 'utf-8')).slugs;
+  const demandedKeys = new Set(demanded.map(({ locale, slug }) => `${locale}::${slug}`));
+  for (const { locale, slug } of demanded) {
+    const key = `${locale}::${slug}`;
+    if (!candidates.has(key) && !isJunkSearchKeyword(slug.replace(/^[a-z]+-/, '').replace(/-/g, ' '))) {
+      candidates.set(key, demandCandidate({ slug, locale }));
+    }
+  }
+
   // Enrich with editorial-collision and GSC flags
+  let rejectedWithoutEvidence = 0;
   for (const entry of candidates.values()) {
     const bareSlug = entry.slug.replace(/^(ricerca|search|suche|recherche)-/, '');
     entry.editorialCollision = detectEditorialCollision(bareSlug, entry.locale);
@@ -468,6 +484,16 @@ function main() {
     // so a merged-historical entry still shows in the GSC-impressions gates.
     entry.gscMatch = entry.gscMatch === true || gscSlugSet.has(`${entry.locale}::${bareSlug}`);
     entry.sampleTerms = Array.from(entry.sampleTerms);
+    const key = `${entry.locale}::${entry.slug}`;
+    if (!shouldAdmitCandidate({
+      known: publishedKeys.has(key),
+      jobCount: entry.jobCount,
+      gscMatch: entry.gscMatch,
+      requestedOn404: demandedKeys.has(key),
+    })) {
+      candidates.delete(key);
+      rejectedWithoutEvidence++;
+    }
   }
 
   // Frequency cohorts
@@ -557,6 +583,9 @@ function main() {
   // the file toward GitHub's 100 MB hard push limit (#1576). Writing the bulk
   // `candidates` array one-object-per-line keeps git diffs line-granular while
   // dropping the indentation overhead by construction.
+  output.candidates = ranked.map(toStoredCandidate);
+  output.topNonEditorialCandidates = output.topNonEditorialCandidates.map(toStoredCandidate);
+  console.log(`Admission gate: ${rejectedWithoutEvidence} new slugs without evidence left to the edge fallback`);
   fs.writeFileSync(OUT_PATH, serializeCandidatesFile(output));
 
   // Stdout summary

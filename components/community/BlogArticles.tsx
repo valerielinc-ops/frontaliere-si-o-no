@@ -1125,6 +1125,8 @@ function getRelatedJobsForArticle(articleId: string, jobs: JobPreview[], locale:
 // Imported (not just re-exported) so the mount effect below can read the registry
 // synchronously — see the comment there for why it no longer loads it over the network.
 import { ARTICLES } from '@/data/blog-articles-data';
+import JobSaveButton from '@/components/community/JobSaveButton';
+import { toSaveableJob } from '@/services/jobSaveGate';
 
 export { ARTICLES };
 
@@ -2917,11 +2919,11 @@ function BlogArticlesContent({
  {relatedJobs.slice(0, 2).map(job => {
  const logo = jobLogoUrl(job);
  return (
+ <div key={job.id} className="relative">
  <a
- key={job.id}
  href={buildPath({ activeTab: 'job-board', jobBoardCanton: resolveJobCanton(job), jobSlug: job.slugByLocale?.[locale] ?? job.slug ?? job.id })}
  onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id, resolveJobCanton(job)); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
- className="flex items-center gap-3 p-2.5 bg-surface/70 rounded-lg hover:bg-surface/50 transition-colors group"
+ className="flex items-center gap-3 p-2.5 pr-12 bg-surface/70 rounded-lg hover:bg-surface/50 transition-colors group"
  >
  <div className="w-8 h-8 rounded-lg bg-accent-subtle flex items-center justify-center shrink-0 overflow-hidden">
  {logo ? <img src={logo} alt={`Logo ${job.company}`} width={24} height={24} className="w-6 h-6 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Building2 size={14} className="text-accent" />}
@@ -2936,6 +2938,8 @@ function BlogArticlesContent({
  </div>
  <ChevronRight size={14} className="text-muted shrink-0" />
  </a>
+ <JobSaveButton job={toSaveableJob(job)} surface="card_article" />
+ </div>
  );
  })}
  </div>
@@ -3137,11 +3141,11 @@ function BlogArticlesContent({
  const jobSlug = job.slugByLocale?.[locale] || job.slug || '';
  const logo = jobLogoUrl(job);
  return (
+ <div key={job.id} className="relative">
  <a
- key={job.id}
  href={buildPath({ activeTab: 'job-board', jobBoardCanton: resolveJobCanton(job), jobSlug })}
  onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', jobSlug, resolveJobCanton(job)); }}
- className="flex items-start gap-3 p-3 bg-accent-subtle/60 rounded-xl hover:bg-accent-subtle transition-colors text-left border border-accent-border"
+ className="flex h-full items-start gap-3 p-3 pr-12 bg-accent-subtle/60 rounded-xl hover:bg-accent-subtle transition-colors text-left border border-accent-border"
  >
  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center border border-edge shrink-0 overflow-hidden">
  {logo ? <img src={logo} alt={`Logo ${job.company}`} width={28} height={28} className="w-7 h-7 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Briefcase size={16} className="text-accent" />}
@@ -3153,6 +3157,8 @@ function BlogArticlesContent({
  <p className="text-sm text-subtle mt-0.5">{job.company} · {job.location}</p>
  </div>
  </a>
+ <JobSaveButton job={toSaveableJob(job)} surface="card_article" />
+ </div>
  );
  })}
  </div>

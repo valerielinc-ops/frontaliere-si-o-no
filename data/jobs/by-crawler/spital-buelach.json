@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-buelach",
-  "assembledAt": "2026-10-30T09:50:27.896Z",
-  "runId": "41032908171",
+  "assembledAt": "2026-10-30T21:53:00.280Z",
+  "runId": "41130516296",
   "jobs": [
     {
       "id": "spital-buelach-292bab1d5f97",
@@ -34,7 +34,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/spontanbewerbung/28759c65-784e-434f-b56c-def3ab1dc96f",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.372Z",
+      "crawledAt": "2026-10-30T21:51:50.572Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/assistenzaerztin-assistenzarzt-chirurgie/7d1d25c0-7d69-4cbd-9a32-fd60313f40bb",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.368Z",
+      "crawledAt": "2026-10-30T21:51:50.568Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -218,7 +218,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/assistenzaerztin-assistenzarzt-notfall/fa4d2757-9a07-4ae6-8059-2e115acae2ca",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.365Z",
+      "crawledAt": "2026-10-30T21:51:50.565Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -324,7 +324,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistentin-unterassistent-chirurgie/adc1b8d4-c700-445b-a13a-c4a55ee70224",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.361Z",
+      "crawledAt": "2026-10-30T21:51:50.561Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -423,7 +423,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistentin-unterassistent-anaesthesiologie/07b87b30-8511-431c-8b2f-497349c55c09",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.358Z",
+      "crawledAt": "2026-10-30T21:51:50.557Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -526,7 +526,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/studierende-pflegefachperson-hf-somatik-und-kjff/739a0e95-73c9-4610-afdf-1f8844778247",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.353Z",
+      "crawledAt": "2026-10-30T21:51:50.551Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -632,7 +632,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistentin-unterassistent-innere-medizin/37683a89-70fe-48e2-a1cc-5f509847bf3c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.348Z",
+      "crawledAt": "2026-10-30T21:51:50.545Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -737,7 +737,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/hebamme-pflegefachfrau-nachtdienst-geburtshaus/001ee020-7714-48f9-8461-e7fc22c54fcd",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.343Z",
+      "crawledAt": "2026-10-30T21:51:50.541Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -796,9 +796,9 @@
       "slug": "parto-in-seconda-posizione-spital-bulach-bulach",
       "slugByLocale": {
         "it": "parto-in-seconda-posizione-spital-bulach-bulach",
-        "en": "two-themed-birthplace-spital-bulach-bulach",
+        "en": "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "fr": "maison-de-naissance-spital-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -817,12 +817,13 @@
         "de": "20 - 100 %\nsofort\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Bereitschaft als zweite Fachperson zur Geburt\n• Unterstützung der Beleghebamme bei hebammengeleiteten Geburten\n• Individuelle und familienzentrierte Begleitung von Frauen und Familien\n• Eigenverantwortliches Arbeiten mit hoher Fachkompetenz\n• Vertrauensvolle Zusammenarbeit im Rahmen der selbständigen Tätigkeit\n\n## Mitbringen\n• Abgeschlossene Ausbildung als Hebamme FH oder Pflegefachfrau HF/FH mit SRK-Anerkennung\n• Gültige Berufsausübungsbewilligung und ZSR-Nummer des Kantons Zürich\n• Erfahrung im sicheren Begleiten von dynamischen geburtshilflichen Situationen und in der Betreuung von Mutter und Kind im Wochenbett\n• Selbständige, verantwortungsbewusste Arbeitsweise mit hoher Fachkompetenz\n• Herz für eine familienzentrierte Geburtshilfe und Freude an einer einfühlsamen Begleitung\n\n## Pluspunkte\nMobilität\n17 Min. von Zürich HB und 5 Min. vom Bahnhof Bülach. SBB oder Ochsner Sport Gutschein bis zu 200 Franken jährlich\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nUmkleidepauschale\nBis zu 75 Franken\npro Monat\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Dipl. Pflegefachperson Medizin 40 - 100 %\nZum Stelleninserat\nPraktikant:in Pflege Chirurgie 80 - 100 %\nFachfrau Gesundheit Chirurgie 60 - 100 %: Stellenportal",
         "fr": "20 - 100 %\nimmédiatement\nPerpétuelle\nL'hôpital Bülach grandit - grandissez avec vous.\n\n## Participation\n• Préparation comme deuxième spécialiste de la naissance\n• Soutien à la sage-femme dans les naissances guidées par une sage-femme\n• Accompagnement individuel et familial des femmes et des familles\n• Travail autoresponsable avec un haut niveau d'expertise\n• Coopération fiable dans le contexte du travail indépendant\n\n## Amène-toi.\n• Formation complétée en tant que sage-femme FH ou infirmière HF/FH avec reconnaissance SRK\n• Permis professionnel valide et numéro ZSR du canton de Zurich\n• Expérience dans des situations obstétricales dynamiques et soins à la mère et à l'enfant après le départ\n• Travailleurs indépendants, responsables travaillant avec un haut niveau d'expertise\n• Cœur pour une obstétrique centrée sur la famille et joie d'un accompagnement empathique\n\n## Plus les points\nMobilité\n17 minutes de Zurich HB et 5 minutes de la gare de Bülach. Chèque sport CFF ou Ochsner jusqu'à 200 francs par an\nProduits alimentaires\nDivers services de restauration\n30% de réduction) avec hebdomadaire \"Journée française\"\nAvantages\nSoutien aux parents\nCabine téléphonique\nRéduction sur les médicaments\nRemises sur la flotte\net autres suppléments\nChangements de vêtements\nJusqu'à 75 francs\nPar mois\nPrestations sociales\nPrimes brutes et cotisations sociales\nPromotion de la santé\nGestion de la santé au travail\nOffre de cours internes\nRéduction sur les activités sportives Groupes sportifs\nEnseignement supérieur et formation\nGrand programme de formation interne\nParticipation à la formation\nRemerciements\nReconnaissance des services ou événements spéciaux\nPause\n15 minutes de pause café payé par demi-journée\nSur nous\n\n## Région\nPlus grand fournisseur de soins de santé ainsi que deuxième plus grand employeur et entreprise de formation dans l'Unterland de Zurich.\n\n## Personnel\nPlus de 1 400 employés de 47 pays avec plus de 140 apprentis,\ndans plus de 20 professions.\n\n## Services médicaux\nPlus de 67 000 malades externes et environ 11 500 malades hospitalisés par an.\n\n## Nouveau-né\nCinquième plus grande maternité du canton de Zurich avec plus de 1 300 bébés par an.\n\n## Service de secours et d'urgence\nEnviron 60 ambulanciers : plus de 8 400 services d'urgence et en cas d'urgence, environ 30 000 personnes sont traitées chaque année.\n\n## Produits alimentaires\n10'500 repas fraîchement préparés dans leur propre restaurant, approvisionnement de nourriture de la région.\n\n## Durabilité\nChauffage avec des copeaux de bois des communautés actionnaires, extraction de l'énergie solaire, éviter les déchets alimentaires, recircle système, membre Fair Trade Town.\n\n## Environnement\nNiché entre la forêt et le centre-ville près de la gare avec une liaison directe avec Zurich HB.\n\n## Coopération\nEnvironnement de travail familial et promotion de la culture d'équipe.\nCarrière et éducation\nTravail et formation\ncoopération et\nPartenariats\n\n## Dipl. Expert: en soins anesthésiques NDS 40 - 100%\nSur le marché du travail\nDipl. Infirmière en veille permanente 60 - 100%\nDipl. Pool de soins spécialisés 20%: Portail d'emploi"
       },
+      "needsRetranslation": false,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus/a9d2ca93-8e8f-4dbb-b70a-ca642844c728",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.337Z",
+      "crawledAt": "2026-10-30T21:51:50.537Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -875,11 +876,11 @@
           "zweithebamme-geburtshaus-spital-bulach-bulach",
           "zweithebamme-geburtshaus-spital-bulach",
           "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
-          "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach"
+          "two-themed-birthplace-spital-bulach-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach",
-          "maison-de-naissance-spital-bulach"
+          "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
         ]
       },
       "previousSlugs": [
@@ -890,8 +891,8 @@
         "zweithebamme-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
-        "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
-        "maison-de-naissance-spital-bulach"
+        "two-themed-birthplace-spital-bulach-bulach",
+        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
       ],
       "firstSeenAt": "2026-05-19T12:20:48.647Z",
       "salaryMin": 91500,
@@ -940,7 +941,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/freiwilligen-team/89ac093c-ef7c-4233-a394-4e9b99507f90",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.333Z",
+      "crawledAt": "2026-10-30T21:51:50.532Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1023,7 +1024,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/studierende-radiologiefachperson-hf/3fb5c264-b8a8-477e-ac12-f5817afa775e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.328Z",
+      "crawledAt": "2026-10-30T21:51:50.527Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1138,7 +1139,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-notfall/67bcbd7f-4e95-4d02-92c6-a32b14f57f8a",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.323Z",
+      "crawledAt": "2026-10-30T21:51:50.524Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1240,7 +1241,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/nachdiplomstudium-hf-notfallpflege/bb4cf86f-eebc-4072-8c45-81bb22f72c4c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.318Z",
+      "crawledAt": "2026-10-30T21:51:50.521Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1347,7 +1348,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-koechin-koch-efz/2c1784fa-94d0-44b2-ab53-ba4b25169daa",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.313Z",
+      "crawledAt": "2026-10-30T21:51:50.518Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1441,7 +1442,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/nachdiplomstudium-hf-intensivpflege/da512ca3-628b-4083-8731-336ff0319283",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.309Z",
+      "crawledAt": "2026-10-30T21:51:50.514Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1516,7 +1517,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/cb22da75-b8c3-4e45-9db4-7325aa60dc83",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.305Z",
+      "crawledAt": "2026-10-30T21:51:50.511Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1591,7 +1592,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-fachperson-betriebsunterhalt-efz/972d2175-f0ed-4edd-8bb1-6c618bb897aa",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.302Z",
+      "crawledAt": "2026-10-30T21:51:50.508Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1655,10 +1656,10 @@
       "id": "spital-buelach-b83414e4d472",
       "slug": "elettricisti-commerciali-spital-bulach",
       "slugByLocale": {
-        "it": "elettricista-in-business-elettricista-in-spital-bulach-bulach",
+        "it": "elettricisti-commerciali-spital-bulach",
         "en": "electrician-in-business-electrician-in-spital-bulach-bulach",
         "de": "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "fr": "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+        "fr": "electriciens-d-affaires-spital-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1682,7 +1683,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/elektriker-in-betriebselektriker-in/616e803c-7c54-4b94-9333-917c2803709a",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.299Z",
+      "crawledAt": "2026-10-30T21:51:50.505Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1704,14 +1705,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "electriciens-d-affaires-spital-bulach"
+        "elettricista-in-business-elettricista-in-spital-bulach-bulach",
+        "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
+          "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
+          "elettricista-in-business-elettricista-in-spital-bulach-bulach"
         ],
         "fr": [
-          "electriciens-d-affaires-spital-bulach"
+          "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:51.572Z",
@@ -1761,7 +1764,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-handchirurgie/a970f61e-668e-45e6-9a35-7907339416d1",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.296Z",
+      "crawledAt": "2026-10-30T21:51:50.502Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1840,7 +1843,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mitarbeiter-in-etagenservice/20204b49-5f24-4d87-ac54-7347026f0868",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.293Z",
+      "crawledAt": "2026-10-30T21:51:50.498Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1932,7 +1935,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/studierende-r-biomedizinische-r-analytiker-in-hf/f0bb576f-3003-49d9-b5bd-cd0bc9258ba5",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.289Z",
+      "crawledAt": "2026-10-30T21:51:50.494Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2007,7 +2010,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/chief-financial-officer-cfo/f9ac3e4a-ef12-4b50-971e-9bc638456471",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.283Z",
+      "crawledAt": "2026-10-30T21:51:50.491Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2084,7 +2087,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/medizinproduktetechnolog-in-techn-sterilisationsassistent-in/98ddd1e7-acc1-461e-b6e2-395843b3124a",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.279Z",
+      "crawledAt": "2026-10-30T21:51:50.487Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2159,7 +2162,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-gastroenterologie/54b12923-7a02-47cc-83a5-af231a9a6c52",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.275Z",
+      "crawledAt": "2026-10-30T21:51:50.484Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2234,7 +2237,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/personalentwickler-in-ausbildung/1ebea20b-50a1-4930-a015-d46093d5e97b",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.272Z",
+      "crawledAt": "2026-10-30T21:51:50.481Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2311,7 +2314,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/praktikant-in-pflege-privatabteilung/1ecc6047-8cd8-4892-9692-4c40113904f1",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.269Z",
+      "crawledAt": "2026-10-30T21:51:50.477Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2386,7 +2389,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-pflege-pool/c689abb2-9c0d-4fe6-88a6-6386f6d59210",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.266Z",
+      "crawledAt": "2026-10-30T21:51:50.474Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2461,7 +2464,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-expert-in-notfallpflege/313b0e5c-36bf-4e80-a4c5-d7745ff666a8",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.261Z",
+      "crawledAt": "2026-10-30T21:51:50.471Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2536,7 +2539,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-als-dauernachtwache/f5c93f1e-0cfa-4835-96a7-16acde299466",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.255Z",
+      "crawledAt": "2026-10-30T21:51:50.468Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2613,7 +2616,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-expert-in-anaesthesiepflege-nds/8963d8a3-2fd8-47d4-a6a3-185ce94de640",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.251Z",
+      "crawledAt": "2026-10-30T21:51:50.465Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2687,7 +2690,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mitarbeiter-in-restauration/19b84c80-132f-4daa-81be-4ffd7bebb49e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.247Z",
+      "crawledAt": "2026-10-30T21:51:50.460Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2762,7 +2765,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mpa-arztsekretaer-in-gastroenterologie-angiologie/c6aa479c-1764-427f-9401-6e528851320e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.243Z",
+      "crawledAt": "2026-10-30T21:51:50.455Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2837,7 +2840,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mpa-fage-arztsekretaerin-endokrinologie-diabetologie/12a22181-5a3f-4dcd-ae8d-cce87c130811",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.240Z",
+      "crawledAt": "2026-10-30T21:51:50.450Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2912,7 +2915,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-altersmedizin/9b2dc446-dbd5-46c7-812f-4e0289caa4e6",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.235Z",
+      "crawledAt": "2026-10-30T21:51:50.444Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2987,7 +2990,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mpa-berufsbildner-in-notfallpraxis/ff6ea905-3675-4c27-a75b-756ff123586f",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.232Z",
+      "crawledAt": "2026-10-30T21:51:50.439Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3067,7 +3070,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mpa-chirurgie/4778fe35-c80f-440f-921c-dfbee4c95e49",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.228Z",
+      "crawledAt": "2026-10-30T21:51:50.435Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3148,7 +3151,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/it-systems-engineer-sql-middleware/cbd3bdaa-d9b3-4f34-8082-8b5247b1c36c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.225Z",
+      "crawledAt": "2026-10-30T21:51:50.431Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3226,7 +3229,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-gesundheit-privatstation/0ff1a0bd-230a-4be4-bcf3-3eab0becf696",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.220Z",
+      "crawledAt": "2026-10-30T21:51:50.428Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3303,7 +3306,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/sitzwache-pflege-pool/a1a88ca6-f5f7-45c9-b1e4-dc37e32e93bb",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.216Z",
+      "crawledAt": "2026-10-30T21:51:50.425Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3383,7 +3386,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/arztsekretaer-in-radiologie-schwerpunkt-bildversand/95b443bf-7813-404a-b565-c811cd957399",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.212Z",
+      "crawledAt": "2026-10-30T21:51:50.421Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3464,7 +3467,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/stv-leiter-in-finanzbuchhaltung/d837fc53-bb3a-4ae5-9210-3608c6c65311",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.209Z",
+      "crawledAt": "2026-10-30T21:51:50.417Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3546,7 +3549,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-rettungssanitaeter-in-hf/6db7d4ad-cccb-4dc0-99be-557e91462b6c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.205Z",
+      "crawledAt": "2026-10-30T21:51:50.414Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3626,7 +3629,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/berufsbildner-in-notfall-dipl-expert-in-notfall-nds/7debcf4a-ec2a-4f81-b3f8-c4ed4c9d237b",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.202Z",
+      "crawledAt": "2026-10-30T21:51:50.410Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3706,7 +3709,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberarzt-oberaerztin-schmerzmedizin/65f57ba6-e01f-4c12-81c1-d67ccd4a7c4e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.199Z",
+      "crawledAt": "2026-10-30T21:51:50.405Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3789,7 +3792,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-privatstation/f30e45de-c38f-492e-a231-56bb9f3f9bb9",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.195Z",
+      "crawledAt": "2026-10-30T21:51:50.401Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3866,7 +3869,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-fachperson-operationstechnik/7a070416-f9bc-4217-955b-1f722818af9d",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.191Z",
+      "crawledAt": "2026-10-30T21:51:50.398Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3943,7 +3946,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/berufsbildner-in-pflege-medizin/5ca60338-b4e9-4b6e-881e-8d5cfce2cf9b",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.188Z",
+      "crawledAt": "2026-10-30T21:51:50.395Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4020,7 +4023,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-expertin-experte-intensivpflege/49418ccb-3990-4a4d-b708-b6a1fa2fba0d",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.185Z",
+      "crawledAt": "2026-10-30T21:51:50.390Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4101,7 +4104,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/praktikant-in-pflege-akutgeriatrie/2ed7aeba-7bf3-4854-ae0b-51c09d859bed",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.180Z",
+      "crawledAt": "2026-10-30T21:51:50.385Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4181,7 +4184,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-chirurgie/09675d86-05d1-4d8e-bdd6-0afbc78aec7d",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.175Z",
+      "crawledAt": "2026-10-30T21:51:50.380Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4262,7 +4265,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/op-lagerungsassistenz/81e64803-b3ef-41a4-bc1b-807f732e17bb",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.171Z",
+      "crawledAt": "2026-10-30T21:51:50.376Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4337,7 +4340,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-gesundheit-medizin/d9150823-45fe-4036-9a03-aa1a252baa8f",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.168Z",
+      "crawledAt": "2026-10-30T21:51:50.373Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4412,12 +4415,13 @@
         "de": "80 - 100 %\n01.10.2026 oder nach Vereinbarung\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Sie koordinieren den Patientenfluss und die Bettenkapazitäten und behalten auch in dynamischen Situationen den Überblick.\n• Sie planen und koordinieren operative Eingriffe und sorgen gemeinsam mit den beteiligten Bereichen für einen reibungslosen Ablauf.\n• Sie sind eine wichtige Drehscheibe zwischen Ärzteschaft, Pflege, OP, Anästhesie und weiteren Fachbereichen.\n• Sie organisieren Patientenaufgebote und begleiten die Planung von der Anmeldung bis zum Spitaleintritt.\n• Ansprechperson für interne und externe Zuweisende und Kooperationspartner\n• Sie bringen eigene Ideen ein und gestalten die Weiterentwicklung unserer Abläufe und Prozesse aktiv mit.\n\n## Mitbringen\n• Sie verfügen über einen medizinischen Hintergrund oder bringen Berufserfahrung im Gesundheitswesen mit.\n• Sie haben Freude an Planung, Koordination und Organisation und schätzen die Arbeit in einem abwechslungsreichen und dynamischen Umfeld.\n• Auch bei mehreren gleichzeitig anfallenden Aufgaben behalten Sie den Überblick, setzen klare Prioritäten und treffen situationsgerecht Entscheidungen.\n• Sie kommunizieren sicher, respektvoll und wertschätzend mit Patient sowie mit Mitarbeitenden aus unterschiedlichen Berufsgruppen.\n• Sie zeichnen sich durch Zuverlässigkeit, Flexibilität und Belastbarkeit aus und arbeiten gerne konstruktiv im Team.\n• Sie sind versiert im Umgang mit digitalen Arbeitsmitteln und finden sich schnell in neuen IT-Systemen und digitalen Prozessen zurecht.\n• Sie denken gerne mit, bringen eigene Ideen ein und übernehmen Verantwortung für Ihre Aufgaben und deren Weiterentwicklung\n\n## Pluspunkte\nMobilität\n17 Min. von Zürich HB und 5 Min. vom Bahnhof Bülach. SBB oder Ochsner Sport Gutschein bis zu 200 Franken jährlich\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nUmkleidepauschale\nBis zu 75 Franken\npro Monat\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nGeburt\nUpgrade auf Privat sowie attraktive Zusatzleistungen für Mitarbeiterinnen und Partnerinnen\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Chefärztin / Chefarzt Medizin 100 %\nZum Stelleninserat\nAbteilungsleitung Endokrinologie/Diabetologie (LA) 80 - 100 %\nOberarzt / Oberärztin Schmerzmedizin 60 - 100 %: Stellenportal",
         "fr": "<b>L'hôpital de Bülach pousse - pousse avec.</b>\n\nTâches :\n• Ils coordonnent le flux de patients et les capacités du lit et gardent un aperçu dans des situations dynamiques.\n\n• Ils planifient et coordonnent les interventions opérationnelles et, avec les secteurs participants, assurent un processus sans heurts.\n\n• Ils constituent un carrefour important entre la profession médicale, les soins infirmiers, la chirurgie, l'anesthésie et d'autres domaines spécialisés.\n\n• Ils organisent des missions de patients et accompagnent la planification de l'inscription à l'hôpital.\n\n• Personne-ressource pour les missions internes et externes et les partenaires de coopération\n\n• Ils apportent leurs propres idées et façonnent activement le développement de nos processus.\n\nExigences\n• Vous avez une formation médicale ou une expérience professionnelle dans le secteur de la santé.\n\n• Ils apprécient la planification, la coordination et l'organisation et apprécient de travailler dans un environnement varié et dynamique.\n\n• Même avec plusieurs tâches qui se déroulent en même temps, vous gardez un aperçu, définissez des priorités claires et prenez des décisions de situation.\n\n• Ils communiquent en toute sécurité, respectueusement et avec reconnaissance avec les patients ainsi qu'avec les employés de différents groupes professionnels.\n\n• Ils sont caractérisés par la fiabilité, la flexibilité et la résilience et aiment travailler de manière constructive dans une équipe.\n\n• Ils sont bien informés dans l'utilisation des équipements de travail numériques et peuvent rapidement trouver leur chemin autour de nouveaux systèmes informatiques et processus numériques.\n\n• Vous aimez penser, apporter vos propres idées et prendre la responsabilité de vos tâches et de leur développement ultérieur\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3- benefits.svg,P4-change room.svg,P5-social benefits.svg,P6-health care.svg,P8-forth and more education.svg,P14- Birth.svg,P13-coffee break. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
       },
+      "needsRetranslation": false,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/mitarbeiter-in-kapazitaetsmanagement/242c8cb9-845d-45c8-918a-d5de6c11a789",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.164Z",
+      "crawledAt": "2026-10-30T21:51:50.368Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4487,11 +4491,11 @@
         "de": "Abteilungsleitung Endokrinologie/Diabetologie (LA)",
         "fr": "Chef du département Endocrinologie/Diabétologie (LA)"
       },
-      "description": "80 - 100 %\n04.01.2027\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Fachliche, personelle und organisatorische Führung der Endokrinologie/Diabetologie sowie Sicherstellung einer qualitativ hochstehenden, evidenzbasierten und wirtschaftlichen Versorgung\n• Ambulante und stationäre Betreuung von Patientinnen und Patienten sowie Weiterentwicklung des endokrinologischen und diabetologischen Leistungsangebots\n• Weiterentwicklung der diagnostischen und therapeutischen Prozesse sowie Initiierung und Umsetzung klinischer Projekte\n• Förderung, Coaching und Entwicklung der Mitarbeitenden sowie aktive Beteiligung an der Aus-, Weiter- und Fortbildung\n• Enge interdisziplinäre Zusammenarbeit mit der Inneren Medizin sowie insbesondere mit Chirurgie, Nuklearmedizin, Rheumatologie und Radiologie\n• Ausbau der Zusammenarbeit mit Hausärztinnen und Hausärzten, Zuweisenden und weiteren regionalen Partnern\n• Mitgestaltung der strategischen Weiterentwicklung der Endokrinologie/Diabetologie und der Klinik Medizin am Spital Bülach\n• Mitbeteiligung am internistischen Dienst erwünscht\n\n## Mitbringen\n• Facharzttitel Endokrinologie/Diabetologie, idealerweise ergänzt durch den Facharzttitel Allgemeine Innere Medizin oder eine gleichwertige anerkannte Qualifikation\n• Mehrjährige klinische Erfahrung und ausgewiesene Expertise im gesamten Spektrum der Endokrinologie und Diabetologie\n• Erfahrung in einer führenden Funktion sowie ausgeprägte integrative Leadership-Kompetenzen\n• Freude daran, Mitarbeitende entsprechend ihren individuellen Stärken zu fördern, zu entwickeln und zu befähigen\n• Hohe Sozial- und Kommunikationskompetenz sowie Freude an interprofessioneller und interdisziplinärer Zusammenarbeit\n• Unternehmerisches Denken, Qualitäts- und Dienstleistungsverständnis sowie Bereitschaft, Veränderungen aktiv zu gestalten\n• Identifikation mit einer werte- und stärkenorientierten Führungskultur\nBei dieser Rekrutierung werden wir von Mitarbeitenden der CoSB AG, Industriepark 11, CH-8610 Uster unterstützt. Ihr Dossier wird ggf. mit CoSB ausgetauscht und weiter bearbeitet.\n\n## Pluspunkte\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nTalentprogramm Pflege und Therapien\nNachwuchsförderung für Bildung, Fach- und Führungsfunktionen\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nÄrztliche Fort- und Weiterbildung\n5 bezahlte externe Weiterbildungstage\npro Jahr\nWöchentliche interne Weiterbildung\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Chefärztin / Chefarzt Medizin 100 %\nZum Stelleninserat\nMitarbeiter:in Kapazitätsmanagement 80 - 100 %\nOberarzt / Oberärztin Schmerzmedizin 60 - 100 %: Stellenportal",
+      "description": "80 - 100 %\n04.01.2027\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Fachliche, personelle und organisatorische Führung der Endokrinologie/Diabetologie sowie Sicherstellung einer qualitativ hochstehenden, evidenzbasierten und wirtschaftlichen Versorgung\n• Ambulante und stationäre Betreuung von Patientinnen und Patienten sowie Weiterentwicklung des endokrinologischen und diabetologischen Leistungsangebots\n• Weiterentwicklung der diagnostischen und therapeutischen Prozesse sowie Initiierung und Umsetzung klinischer Projekte\n• Förderung, Coaching und Entwicklung der Mitarbeitenden sowie aktive Beteiligung an der Aus-, Weiter- und Fortbildung\n• Enge interdisziplinäre Zusammenarbeit mit der Inneren Medizin sowie insbesondere mit Chirurgie, Nuklearmedizin, Rheumatologie und Radiologie\n• Ausbau der Zusammenarbeit mit Hausärztinnen und Hausärzten, Zuweisenden und weiteren regionalen Partnern\n• Mitgestaltung der strategischen Weiterentwicklung der Endokrinologie/Diabetologie und der Klinik Medizin am Spital Bülach\n• Mitbeteiligung am internistischen Dienst erwünscht\n\n## Mitbringen\n• Facharzttitel Endokrinologie/Diabetologie, idealerweise ergänzt durch den Facharzttitel Allgemeine Innere Medizin oder eine gleichwertige anerkannte Qualifikation\n• Mehrjährige klinische Erfahrung und ausgewiesene Expertise im gesamten Spektrum der Endokrinologie und Diabetologie\n• Erfahrung in einer führenden Funktion sowie ausgeprägte integrative Leadership-Kompetenzen\n• Freude daran, Mitarbeitende entsprechend ihren individuellen Stärken zu fördern, zu entwickeln und zu befähigen\n• Hohe Sozial- und Kommunikationskompetenz sowie Freude an interprofessioneller und interdisziplinärer Zusammenarbeit\n• Unternehmerisches Denken, Qualitäts- und Dienstleistungsverständnis sowie Bereitschaft, Veränderungen aktiv zu gestalten\n• Identifikation mit einer werte- und stärkenorientierten Führungskultur\nBei der Besetzung dieser Position arbeiten wir mit der CoSB AG als externem Rekrutierungspartner zusammen. Kai Kochanek und Linus Kellnhofer stehen Ihnen unter +41 44 943 10 06 gerne für weitere Informationen zur Verfügung. Im Rahmen dieser Zusammenarbeit können eingehende Bewerbungsdossiers an die CoSB AG zur weiteren Bearbeitung weitergeleitet werden. CoSB AG, Industriepark 11, CH-8610 Uster, www.cosb.ch\n\n## Pluspunkte\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nTalentprogramm Pflege und Therapien\nNachwuchsförderung für Bildung, Fach- und Führungsfunktionen\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nÄrztliche Fort- und Weiterbildung\n5 bezahlte externe Weiterbildungstage\npro Jahr\nWöchentliche interne Weiterbildung\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Chefärztin / Chefarzt Medizin 100 %\nZum Stelleninserat\nMitarbeiter:in Kapazitätsmanagement 80 - 100 %\nOberarzt / Oberärztin Schmerzmedizin 60 - 100 %: Stellenportal",
       "descriptionByLocale": {
         "it": "80 - 100 %\n04.01.2027\nPerpetuo\nOspedale Bülach sta crescendo - crescere con voi.\n\n## Partecipazione\n• Gestione professionale, umana e organizzativa dell'endocrinologia/diabetologia, nonché garanzia di alta qualità, basata su prove ed assistenza economica\n• Cura ambulante e apatia e sviluppo ulteriore dei servizi endocrinologici e diabetologici\n• Ulteriore sviluppo dei processi diagnostici e terapeutici, nonché l'avvio e l'attuazione di progetti clinici\n• Promozione, formazione e sviluppo dei dipendenti nonché partecipazione attiva all'istruzione, all'istruzione e alla formazione\n• Chiudere la cooperazione interdisciplinare con la medicina interna e in particolare con la chirurgia, la medicina nucleare, la reumatologia e la radiologia\n• Ampliamento della cooperazione con i medici di famiglia, gli arbitri e altri partner regionali\n• Co-modellare lo sviluppo strategico dell'endocrinologia/diabetologia e del Medizin Klinik all'Ospedale Bülach\n• Partecipazione al servizio interno desiderato\n\n## Porta con te\n• Titolo specialistico Endocrinologia/Diabetologia, idealmente integrato dal titolo specialistico Medicina Interna Generale o una qualifica riconosciuta equivalente\n• Diversi anni di esperienza clinica e comprovata esperienza nell'intero spettro di endocrinologia e diabetologia\n• Esperienza in un ruolo di primo piano e forte capacità di leadership integrativa\n• Difficoltà nel promuovere, sviluppare e potenziare i dipendenti secondo i loro punti di forza individuali\n• Alte competenze sociali e di comunicazione, nonché il godimento della cooperazione interprofessionale e interdisciplinare\n• Il pensiero imprenditoriale, la qualità e la comprensione del servizio e la volontà di plasmare attivamente il cambiamento\n• Identificazione con una cultura di leadership orientata al valore e alla forza\n\n## Più punti\nCibo\nServizi di catering diversi\n(30% di sconto) con \"giorno francese\" settimanale\nVantaggi\nSupporto per i genitori\nCabina telefonica\nSconto sui farmaci\nSconti delle pulci\ne altri extra\nPrestazioni sociali\nPremi e contributi di previdenza sociale\nPromozione della salute\nGestione della salute sul lavoro\nOfferta del corso interno\nSconto sulle attività sportive\nFormazione e formazione\nProgramma di formazione interna\nPartecipazione alla formazione\nProgramma Talent infermieristica e terapie\nSviluppo di giovani talenti per l'istruzione, le funzioni specialistiche e manageriali\nValutazione\nRiconoscimento di servizi o eventi speciali\nIstruzione medica e formazione\n5 giorni lavorativi versati\nPer anno\nFormazione interna settimanale\nPausa\n15 minuti di pausa caffè a pagamento per mezza giornata\nPer questo post, i dossier dei reclutatori non possono essere considerati. Grazie per la vostra comprensione.\nInformazioni su di noi\n\n## Ospedale regionale\nIl più grande fornitore di assistenza sanitaria e il secondo più grande datore di lavoro e società di formazione nell'Unterland di Zurigo.\n\n## Personale\nOltre 1.400 dipendenti da 47 nazioni con oltre 140 apprendisti,\nin oltre 20 professioni.\n\n## Servizi medici\nPiù di 67.000 ambulatori e circa 11.500 pazienti all'anno.\n\n## Neonato\nQuinta clinica di maternità più grande nel Cantone di Zurigo con oltre 1.300 bambini all'anno.\n\n## Servizio di soccorso e emergenza\nCirca 60 paramedici: più di 8.400 servizi di emergenza e nella nostra emergenza, circa 30.000 persone sono trattate annualmente.\n\n## Cibo\n10'500 pasti appena preparati nel loro ristorante, sourcing cibo dalla regione.\n\n## sostenibilità\nRiscaldamento con trucioli di legno da parte delle comunità degli azionisti, estrazione di energia solare, evitando rifiuti alimentari, sistema di recupero, membro Fair Trade Town.\n\n## Ambiente\nImmerso tra la foresta e il centro della città vicino alla stazione ferroviaria con collegamento diretto con la HB di Zurigo.\n\n## Cooperazione\nAmbiente di lavoro familiare e promozione della cultura del team.\nCarriera e istruzione\nLavoro e formazione\ncooperazione e\nPartnerships\n\n## Dipendenti: nella gestione delle capacità 80 - 100%\nSulla pubblicità del lavoro\nMedicina del dolore medico senior 60 - 100%\nSenior medico / senior medico gastroenterologia 100%: portale di lavoro",
         "en": "80 - 100 %\n04.01.2027\nPerpetual\nHospital Bülach is growing - grow with you.\n\n## Participation\n• Professional, human and organisational management of endocrinology/diabetology as well as ensuring high-quality, evidence-based and economic care\n• Outpatient and inpatient care and further development of endocrinological and diabetological services\n• Further development of diagnostic and therapeutic processes as well as initiation and implementation of clinical projects\n• Promotion, coaching and development of employees as well as active participation in education, further education and training\n• Close interdisciplinary cooperation with internal medicine and in particular with surgery, nuclear medicine, rheumatology and radiology\n• Expanding cooperation with family doctors, referees and other regional partners\n• Co-shaping the strategic development of endocrinology/diabetology and the Klinik Medizin at the Bülach Hospital\n• Participation in internistic service desired\n\n## Bring with you\n• Specialist title Endocrinology/Diabetology, ideally supplemented by the specialist title General Internal Medicine or an equivalent recognised qualification\n• Several years of clinical experience and proven expertise in the entire spectrum of endocrinology and diabetology\n• Experience in a leading role as well as strong integrative leadership skills\n• Delight in promoting, developing and empowering employees according to their individual strengths\n• High social and communication skills as well as enjoyment of interprofessional and interdisciplinary cooperation\n• Entrepreneurial thinking, quality and service understanding and willingness to actively shape change\n• Identification with a value- and strength-oriented leadership culture\n\n## Plus points\nFood\nDiverse catering services\n(30% discount) with weekly \"French Day\"\nAdvantages\nSupport for parents\nTelephone cab\nDiscount on medicines\nFleet discounts\nand other extras\nSocial benefits\nGross premiums and social security contributions\nHealth promotion\nOccupational health management\nInternal course offer\nDiscount on sports activities Sports groups\nFurther education and training\nBroad internal training programme\nParticipation in training\nTalent Program Nursing and Therapies\nDevelopment of young talent for education, specialist and managerial functions\nAppreciation\nRecognition of special services or events\nMedical education and training\n5 paid external training days\nPer year\nWeekly internal training\nPause\n15 minutes paid coffee break per half day\nFor this post, dossiers from recruiters cannot be considered. Thank you for your understanding.\nAbout us\n\n## Regionalspital\nLargest health care provider as well as second largest employer and training company in the Zurich Unterland.\n\n## Staff\nOver 1,400 employees from 47 nations with over 140 apprentices,\nin over 20 professions.\n\n## Medical services\nMore than 67,000 outpatients and around 11,500 inpatients per year.\n\n## Newborn\nFifth largest maternity clinic in the Canton of Zurich with over 1,300 babies per year.\n\n## Rescue service and emergency\nAround 60 paramedics: more than 8,400 emergency services and in our emergency, around 30,000 people are treated annually.\n\n## Food\n10'500 freshly prepared meals in their own restaurant, sourcing food from the region.\n\n## Sustainability\nHeating with wood chips from shareholder communities, extracting solar energy, avoiding food waste, reCircle system, member Fair Trade Town.\n\n## Environment\nNestled between the forest and the city centre near the train station with direct train connection to Zurich HB.\n\n## Cooperation\nFamily working environment and promotion of team culture.\nCareer and education\nWorking and training\ncooperation and\nPartnerships\n\n## Employees: in capacity management 80 - 100%\nOn the job advertisement\nSenior physician pain medicine 60 - 100%\nSenior physician / senior physician gastroenterology 100%: job portal",
-        "de": "80 - 100 %\n04.01.2027\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Fachliche, personelle und organisatorische Führung der Endokrinologie/Diabetologie sowie Sicherstellung einer qualitativ hochstehenden, evidenzbasierten und wirtschaftlichen Versorgung\n• Ambulante und stationäre Betreuung von Patientinnen und Patienten sowie Weiterentwicklung des endokrinologischen und diabetologischen Leistungsangebots\n• Weiterentwicklung der diagnostischen und therapeutischen Prozesse sowie Initiierung und Umsetzung klinischer Projekte\n• Förderung, Coaching und Entwicklung der Mitarbeitenden sowie aktive Beteiligung an der Aus-, Weiter- und Fortbildung\n• Enge interdisziplinäre Zusammenarbeit mit der Inneren Medizin sowie insbesondere mit Chirurgie, Nuklearmedizin, Rheumatologie und Radiologie\n• Ausbau der Zusammenarbeit mit Hausärztinnen und Hausärzten, Zuweisenden und weiteren regionalen Partnern\n• Mitgestaltung der strategischen Weiterentwicklung der Endokrinologie/Diabetologie und der Klinik Medizin am Spital Bülach\n• Mitbeteiligung am internistischen Dienst erwünscht\n\n## Mitbringen\n• Facharzttitel Endokrinologie/Diabetologie, idealerweise ergänzt durch den Facharzttitel Allgemeine Innere Medizin oder eine gleichwertige anerkannte Qualifikation\n• Mehrjährige klinische Erfahrung und ausgewiesene Expertise im gesamten Spektrum der Endokrinologie und Diabetologie\n• Erfahrung in einer führenden Funktion sowie ausgeprägte integrative Leadership-Kompetenzen\n• Freude daran, Mitarbeitende entsprechend ihren individuellen Stärken zu fördern, zu entwickeln und zu befähigen\n• Hohe Sozial- und Kommunikationskompetenz sowie Freude an interprofessioneller und interdisziplinärer Zusammenarbeit\n• Unternehmerisches Denken, Qualitäts- und Dienstleistungsverständnis sowie Bereitschaft, Veränderungen aktiv zu gestalten\n• Identifikation mit einer werte- und stärkenorientierten Führungskultur\nBei dieser Rekrutierung werden wir von Mitarbeitenden der CoSB AG, Industriepark 11, CH-8610 Uster unterstützt. Ihr Dossier wird ggf. mit CoSB ausgetauscht und weiter bearbeitet.\n\n## Pluspunkte\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nTalentprogramm Pflege und Therapien\nNachwuchsförderung für Bildung, Fach- und Führungsfunktionen\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nÄrztliche Fort- und Weiterbildung\n5 bezahlte externe Weiterbildungstage\npro Jahr\nWöchentliche interne Weiterbildung\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Chefärztin / Chefarzt Medizin 100 %\nZum Stelleninserat\nMitarbeiter:in Kapazitätsmanagement 80 - 100 %\nOberarzt / Oberärztin Schmerzmedizin 60 - 100 %: Stellenportal",
+        "de": "80 - 100 %\n04.01.2027\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Fachliche, personelle und organisatorische Führung der Endokrinologie/Diabetologie sowie Sicherstellung einer qualitativ hochstehenden, evidenzbasierten und wirtschaftlichen Versorgung\n• Ambulante und stationäre Betreuung von Patientinnen und Patienten sowie Weiterentwicklung des endokrinologischen und diabetologischen Leistungsangebots\n• Weiterentwicklung der diagnostischen und therapeutischen Prozesse sowie Initiierung und Umsetzung klinischer Projekte\n• Förderung, Coaching und Entwicklung der Mitarbeitenden sowie aktive Beteiligung an der Aus-, Weiter- und Fortbildung\n• Enge interdisziplinäre Zusammenarbeit mit der Inneren Medizin sowie insbesondere mit Chirurgie, Nuklearmedizin, Rheumatologie und Radiologie\n• Ausbau der Zusammenarbeit mit Hausärztinnen und Hausärzten, Zuweisenden und weiteren regionalen Partnern\n• Mitgestaltung der strategischen Weiterentwicklung der Endokrinologie/Diabetologie und der Klinik Medizin am Spital Bülach\n• Mitbeteiligung am internistischen Dienst erwünscht\n\n## Mitbringen\n• Facharzttitel Endokrinologie/Diabetologie, idealerweise ergänzt durch den Facharzttitel Allgemeine Innere Medizin oder eine gleichwertige anerkannte Qualifikation\n• Mehrjährige klinische Erfahrung und ausgewiesene Expertise im gesamten Spektrum der Endokrinologie und Diabetologie\n• Erfahrung in einer führenden Funktion sowie ausgeprägte integrative Leadership-Kompetenzen\n• Freude daran, Mitarbeitende entsprechend ihren individuellen Stärken zu fördern, zu entwickeln und zu befähigen\n• Hohe Sozial- und Kommunikationskompetenz sowie Freude an interprofessioneller und interdisziplinärer Zusammenarbeit\n• Unternehmerisches Denken, Qualitäts- und Dienstleistungsverständnis sowie Bereitschaft, Veränderungen aktiv zu gestalten\n• Identifikation mit einer werte- und stärkenorientierten Führungskultur\nBei der Besetzung dieser Position arbeiten wir mit der CoSB AG als externem Rekrutierungspartner zusammen. Kai Kochanek und Linus Kellnhofer stehen Ihnen unter +41 44 943 10 06 gerne für weitere Informationen zur Verfügung. Im Rahmen dieser Zusammenarbeit können eingehende Bewerbungsdossiers an die CoSB AG zur weiteren Bearbeitung weitergeleitet werden. CoSB AG, Industriepark 11, CH-8610 Uster, www.cosb.ch\n\n## Pluspunkte\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nTalentprogramm Pflege und Therapien\nNachwuchsförderung für Bildung, Fach- und Führungsfunktionen\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nÄrztliche Fort- und Weiterbildung\n5 bezahlte externe Weiterbildungstage\npro Jahr\nWöchentliche interne Weiterbildung\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Chefärztin / Chefarzt Medizin 100 %\nZum Stelleninserat\nMitarbeiter:in Kapazitätsmanagement 80 - 100 %\nOberarzt / Oberärztin Schmerzmedizin 60 - 100 %: Stellenportal",
         "fr": "80 - 100 %\n04.01.2027\nPerpétuelle\nL'hôpital Bülach grandit - grandissez avec vous.\n\n## Participation\n• Gestion professionnelle, humaine et organisationnelle de l'endocrinologie et de la diabétéologie, ainsi que la garantie de soins de qualité, fondés sur des données probantes et économiques\n• Soins ambulatoires et hospitaliers et développement des services endocrinologiques et diabétéologiques\n• Développement des processus diagnostiques et thérapeutiques ainsi que lancement et mise en œuvre de projets cliniques\n• Promotion, encadrement et perfectionnement des employés ainsi que participation active à l'éducation, à la formation continue et à la formation\n• Coopération interdisciplinaire étroite avec la médecine interne et en particulier avec la chirurgie, la médecine nucléaire, la rhumatologie et la radiologie\n• Élargir la coopération avec les médecins de famille, les arbitres et les autres partenaires régionaux\n• Co-élaboration du développement stratégique de l'endocrinologie/diabétologie et du Klinik Medizin à l'hôpital de Bülach\n• Participation au service interniste souhaité\n\n## Amène-toi.\n• Titre du spécialiste Endocrinologie/Diabétologie, idéalement complétée par le titre de spécialiste Médecine interne générale ou une qualification reconnue équivalente\n• Plusieurs années d'expérience clinique et d'expertise prouvée dans tout le spectre de l'endocrinologie et de la diabétéologie\n• Expérience dans un rôle de premier plan ainsi que de solides compétences en leadership intégratif\n• Délice de promouvoir, développer et autonomiser les employés en fonction de leurs forces individuelles\n• Compétences sociales et de communication élevées ainsi que la coopération interprofessionnelle et interdisciplinaire\n• Pensée entrepreneuriale, compréhension de la qualité et du service et volonté de façonner activement le changement\n• Identification avec une culture de leadership axée sur la valeur et la force\n\n## Plus les points\nProduits alimentaires\nDivers services de restauration\n30% de réduction) avec hebdomadaire \"Journée française\"\nAvantages\nSoutien aux parents\nCabine téléphonique\nRéduction sur les médicaments\nRemises sur la flotte\net autres suppléments\nPrestations sociales\nPrimes brutes et cotisations sociales\nPromotion de la santé\nGestion de la santé au travail\nOffre de cours internes\nRéduction sur les activités sportives Groupes sportifs\nEnseignement supérieur et formation\nGrand programme de formation interne\nParticipation à la formation\nProgramme de talents Soins infirmiers et thérapies\nDéveloppement des jeunes talents dans les domaines de l'éducation, de la spécialisation et de la gestion\nRemerciements\nReconnaissance des services ou événements spéciaux\nEnseignement et formation médicaux\n5 journées de formation externe rémunérées\nPar an\nFormation interne hebdomadaire\nPause\n15 minutes de pause café payé par demi-journée\nPour ce poste, les dossiers des recruteurs ne peuvent être examinés. Merci de votre compréhension.\nSur nous\n\n## Région\nPlus grand fournisseur de soins de santé ainsi que deuxième plus grand employeur et entreprise de formation dans l'Unterland de Zurich.\n\n## Personnel\nPlus de 1 400 employés de 47 pays avec plus de 140 apprentis,\ndans plus de 20 professions.\n\n## Services médicaux\nPlus de 67 000 malades externes et environ 11 500 malades hospitalisés par an.\n\n## Nouveau-né\nCinquième plus grande maternité du canton de Zurich avec plus de 1 300 bébés par an.\n\n## Service de secours et d'urgence\nEnviron 60 ambulanciers : plus de 8 400 services d'urgence et en cas d'urgence, environ 30 000 personnes sont traitées chaque année.\n\n## Produits alimentaires\n10'500 repas fraîchement préparés dans leur propre restaurant, approvisionnement de nourriture de la région.\n\n## Durabilité\nChauffage avec des copeaux de bois des communautés actionnaires, extraction de l'énergie solaire, éviter les déchets alimentaires, recircle système, membre Fair Trade Town.\n\n## Environnement\nNiché entre la forêt et le centre-ville près de la gare avec une liaison directe avec Zurich HB.\n\n## Coopération\nEnvironnement de travail familial et promotion de la culture d'équipe.\nCarrière et éducation\nTravail et formation\ncoopération et\nPartenariats\n\n## Employés: en gestion de capacité 80 - 100%\nSur le marché du travail\nMédecin senior antidouleur 60 - 100%\nMédecin supérieur / médecin supérieur gastroentérologie 100%: portail d'emploi"
       },
       "needsRetranslation": false,
@@ -4500,7 +4504,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/abteilungsleitung-endokrinologie-diabetologie-la/8014323e-c52b-43fe-bd42-96bd5962a52c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.159Z",
+      "crawledAt": "2026-10-30T21:51:50.363Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4581,7 +4585,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-gesundheit-geburtshaus/a923730b-3ebf-4426-a1f6-4392bd1ee9db",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.155Z",
+      "crawledAt": "2026-10-30T21:51:50.360Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4664,7 +4668,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachfrau-gesundheit-chirurgie/3e307762-af55-44b4-942e-6031ddda3a99",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.152Z",
+      "crawledAt": "2026-10-30T21:51:50.356Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4745,7 +4749,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/praktikant-in-pflege-chirurgie/e83a3e4d-3ba9-474c-a53b-bb64b3bdbaa5",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.148Z",
+      "crawledAt": "2026-10-30T21:51:50.353Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4825,7 +4829,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/stv-leitung-labor/f7d82aa3-4891-48ae-8fa4-7f3df0eeb820",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.145Z",
+      "crawledAt": "2026-10-30T21:51:50.349Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4878,9 +4882,9 @@
       "id": "spital-buelach-9d41c9feb7d2",
       "slug": "medico-principale-medicina-principale-medico-spital-bulach-bulach",
       "slugByLocale": {
-        "de": "chefarztin-chefarzt-medizin-spital-buelach-bulach",
         "it": "medico-principale-medicina-principale-medico-spital-bulach-bulach",
         "en": "chief-physician-chief-physician-medicine-spital-bulach-bulach",
+        "de": "chefarztin-chefarzt-medizin-spital-buelach-bulach",
         "fr": "medecin-en-chef-medecin-en-chef-medecine-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
@@ -4888,16 +4892,16 @@
       "companyDomain": "spitalbuelach.ch",
       "title": "Chefärztin / Chefarzt Medizin",
       "titleByLocale": {
-        "de": "Chefärztin / Chefarzt Medizin",
         "it": "medico principale / medicina principale medico",
         "en": "Chief physician / Chief physician Medicine",
+        "de": "Chefärztin / Chefarzt Medizin",
         "fr": "Médecin en chef / Médecin en chef Médecine"
       },
       "description": "100 %\n01.01.2028\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Sie übernehmen die medizinische, personelle, strategische und unternehmerische Führung der Klinik Medizin und tragen die Gesamtverantwortung für die Qualität, Wirtschaftlichkeit und nachhaltige Weiterentwicklung. Die Klinik Medizin umfasst: die Allgemeine Innere Medizin, Neurologie, Pneumologie, Kardiologie, Angiologie, Endokrinologie und Diabetologie, Infektiologie und Spitalhygiene, Gastroenterologie, die Medizinische Poliklinik, Palliative Care, IPS und das Ambulatorium mit den Sprechstunden\n• Sie stellen eine qualitativ hochstehende, evidenzbasierte, patientenzentrierte und wirtschaftliche Patientenversorgung sicher.\n• Sie entwickeln das medizinische Leistungsangebot und die klinischen Prozesse strategisch weiter und stärken damit die Positionierung der Klinik.\n• Sie fördern und entwickeln die ärztlichen Mitarbeitenden sowie weitere Fachpersonen und gestalten eine attraktive, zukunftsorientierte Aus- und Weiterbildung.\n• Sie fördern eine enge, partnerschaftliche und interprofessionelle Zusammenarbeit innerhalb des Spitals, insbesondere mit der Notfallstation, der Altersmedizin und weiteren Fachbereichen. Dabei stärken Sie gemeinsame Versorgungskonzepte, aufeinander abgestimmte klinische Prozesse und eine Zusammenarbeit auf Augenhöhe.\n• Sie pflegen und entwickeln tragfähige, partnerschaftliche Netzwerke mit Hausärztinnen und Hausärzten, Zuweisenden sowie weiteren regionalen Gesundheitspartnern. Damit stärken Sie die sektorenübergreifende Zusammenarbeit und gestalten die integrierte regionale Gesundheitsversorgung aktiv mit.\n• Sie sind selbst klinisch tätig, beteiligen sich aktiv am ärztlichen Dienstbetrieb und bewahren damit die Nähe zur Patientenversorgung und zum klinischen Alltag.\n• Sie leben eine transparente und stärken- und werteorientierte Führungskultur, beziehen das Kaderteam aktiv in Entscheidungen ein und schaffen ein Umfeld, in dem sich Mitarbeitende fachlich und persönlich weiterentwickeln können.\n• Als Mitglied der Geschäftsleitung übernehmen Sie Mitverantwortung für die strategische und unternehmerische Weiterentwicklung des gesamten Spitals.\n\n## Mitbringen\n• Facharzttitel in Allgemeiner Innerer Medizin (FMH) und ausgewiesene klinische Expertise; ein zusätzlicher Facharzttitel, beispielsweise in Intensivmedizin, ist von Vorteil.\n• Eine Habilitation ist erwünscht, jedoch keine Voraussetzung.\n• Mehrjährige Führungserfahrung in einer ärztlichen Kaderfunktion, idealerweise als Leitende Ärztin oder Leitender Arzt.\n• Ausgewiesene Erfahrung in der Betreuung komplexer internistischer Patientinnen und Patienten sowie in der interdisziplinären Zusammenarbeit.\n• Ausgewiesene Leadership-Kompetenzen sowie Erfahrung in der Organisations- und Strategieentwicklung.\n• Eine integrative Führungspersönlichkeit mit hoher Sozialkompetenz, Integrität und einer werte- und stärkenorientierten Führungshaltung.\n• Gute Kenntnisse des schweizerischen Gesundheitswesens und Erfahrung im Schweizer Spitalumfeld.\n• Ein gutes Verständnis der regionalen Gesundheitsversorgung sowie die Fähigkeit, tragfähige Beziehungen zu Hausärzten, Zuweisern und weiteren Partnern aufzubauen und zu pflegen.\n• Unternehmerisches Denken sowie ein ausgeprägtes Qualitäts- und Dienstleistungsverständnis.\n\n## Pluspunkte\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nArbeitszeit\nFlexible Teilzeitarbeitsmodelle\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nÄrztliche Fort- und Weiterbildung\n5 bezahlte externe Weiterbildungstage\npro Jahr\nWöchentliche interne Weiterbildung\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\nFachbereich: Innere Medizin ->\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Abteilungsleitung Endokrinologie/Diabetologie (LA) 80 - 100 %\nZum Stelleninserat\nMitarbeiter:in Kapazitätsmanagement 80 - 100 %\nOberarzt / Oberärztin Schmerzmedizin 60 - 100 %: Stellenportal",
       "descriptionByLocale": {
-        "de": "100 %\n01.01.2028\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Sie übernehmen die medizinische, personelle, strategische und unternehmerische Führung der Klinik Medizin und tragen die Gesamtverantwortung für die Qualität, Wirtschaftlichkeit und nachhaltige Weiterentwicklung. Die Klinik Medizin umfasst: die Allgemeine Innere Medizin, Neurologie, Pneumologie, Kardiologie, Angiologie, Endokrinologie und Diabetologie, Infektiologie und Spitalhygiene, Gastroenterologie, die Medizinische Poliklinik, Palliative Care, IPS und das Ambulatorium mit den Sprechstunden\n• Sie stellen eine qualitativ hochstehende, evidenzbasierte, patientenzentrierte und wirtschaftliche Patientenversorgung sicher.\n• Sie entwickeln das medizinische Leistungsangebot und die klinischen Prozesse strategisch weiter und stärken damit die Positionierung der Klinik.\n• Sie fördern und entwickeln die ärztlichen Mitarbeitenden sowie weitere Fachpersonen und gestalten eine attraktive, zukunftsorientierte Aus- und Weiterbildung.\n• Sie fördern eine enge, partnerschaftliche und interprofessionelle Zusammenarbeit innerhalb des Spitals, insbesondere mit der Notfallstation, der Altersmedizin und weiteren Fachbereichen. Dabei stärken Sie gemeinsame Versorgungskonzepte, aufeinander abgestimmte klinische Prozesse und eine Zusammenarbeit auf Augenhöhe.\n• Sie pflegen und entwickeln tragfähige, partnerschaftliche Netzwerke mit Hausärztinnen und Hausärzten, Zuweisenden sowie weiteren regionalen Gesundheitspartnern. Damit stärken Sie die sektorenübergreifende Zusammenarbeit und gestalten die integrierte regionale Gesundheitsversorgung aktiv mit.\n• Sie sind selbst klinisch tätig, beteiligen sich aktiv am ärztlichen Dienstbetrieb und bewahren damit die Nähe zur Patientenversorgung und zum klinischen Alltag.\n• Sie leben eine transparente und stärken- und werteorientierte Führungskultur, beziehen das Kaderteam aktiv in Entscheidungen ein und schaffen ein Umfeld, in dem sich Mitarbeitende fachlich und persönlich weiterentwickeln können.\n• Als Mitglied der Geschäftsleitung übernehmen Sie Mitverantwortung für die strategische und unternehmerische Weiterentwicklung des gesamten Spitals.\n\n## Mitbringen\n• Facharzttitel in Allgemeiner Innerer Medizin (FMH) und ausgewiesene klinische Expertise; ein zusätzlicher Facharzttitel, beispielsweise in Intensivmedizin, ist von Vorteil.\n• Eine Habilitation ist erwünscht, jedoch keine Voraussetzung.\n• Mehrjährige Führungserfahrung in einer ärztlichen Kaderfunktion, idealerweise als Leitende Ärztin oder Leitender Arzt.\n• Ausgewiesene Erfahrung in der Betreuung komplexer internistischer Patientinnen und Patienten sowie in der interdisziplinären Zusammenarbeit.\n• Ausgewiesene Leadership-Kompetenzen sowie Erfahrung in der Organisations- und Strategieentwicklung.\n• Eine integrative Führungspersönlichkeit mit hoher Sozialkompetenz, Integrität und einer werte- und stärkenorientierten Führungshaltung.\n• Gute Kenntnisse des schweizerischen Gesundheitswesens und Erfahrung im Schweizer Spitalumfeld.\n• Ein gutes Verständnis der regionalen Gesundheitsversorgung sowie die Fähigkeit, tragfähige Beziehungen zu Hausärzten, Zuweisern und weiteren Partnern aufzubauen und zu pflegen.\n• Unternehmerisches Denken sowie ein ausgeprägtes Qualitäts- und Dienstleistungsverständnis.\n\n## Pluspunkte\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nArbeitszeit\nFlexible Teilzeitarbeitsmodelle\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nÄrztliche Fort- und Weiterbildung\n5 bezahlte externe Weiterbildungstage\npro Jahr\nWöchentliche interne Weiterbildung\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\nFachbereich: Innere Medizin ->\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Abteilungsleitung Endokrinologie/Diabetologie (LA) 80 - 100 %\nZum Stelleninserat\nMitarbeiter:in Kapazitätsmanagement 80 - 100 %\nOberarzt / Oberärztin Schmerzmedizin 60 - 100 %: Stellenportal",
         "it": "100 %\n01.01.2028\nPerpetuo\nOspedale Bülach sta crescendo - crescere con voi.\n\n## Partecipazione\n• Si occupano della leadership medica, personale, strategica e imprenditoriale di Klinik Medizin e si occupano della qualità, dell'efficienza e dello sviluppo sostenibile. La Clinica di Medicina comprende: Medicina Interna Generale, Neurologia, Pneumologia, Cardiologia, Angiologia, Endocrinologia e Diabetologia, Infettiologia e Igiene ospedaliera, Gastroenterologia, Policlinico Medico, Cura Palliativa, IPS e Ambulatorium con le ore di consultazione\n• Garantiscono cure mediche di alta qualità, basate su prove, concentrate sul paziente ed economiche.\n• Sviluppano strategicamente i servizi medici e i processi clinici e rafforzano così il posizionamento della clinica.\n• Promuovano e sviluppavano il personale medico e altri specialisti e formavano un'educazione e una formazione accattivanti e orientate al futuro.\n• Promuovano una stretta collaborazione, basata sulla partnership e interprofessionale all'interno dell'ospedale, in particolare con il dipartimento di emergenza, la medicina di vecchiaia e altre aree specializzate. Rafforzarete i concetti di assistenza congiunta, i processi clinici coordinati e la cooperazione a livello degli occhi.\n• Mantengono e sviluppano reti sostenibili, basate sul partenariato con medici, referenti e altri partner sanitari regionali. In questo modo, si rafforza la cooperazione trasversale e forma attivamente l'assistenza sanitaria integrata regionale.\n• Essi sono essi stessi clinicamente attivi, partecipare attivamente al servizio medico e quindi mantenere la vicinanza alla cura del paziente e la vita quotidiana clinica.\n• Vivono una cultura di leadership trasparente ed empowerment- e orientata ai valori, coinvolgere attivamente il team di gestione nelle decisioni e creare un ambiente in cui i dipendenti possono sviluppare professionalmente e personalmente.\n• Come membro del consiglio di amministrazione, si assume la responsabilità congiunta per lo sviluppo strategico e imprenditoriale dell'intero ospedale.\n\n## Porta con te\n• Titolo specialistico in Medicina Interna Generale (FMH) e comprovata esperienza clinica; un titolo specialistico aggiuntivo, per esempio in medicina di cura intensiva, è un vantaggio.\n• Si desidera una abilitazione, ma non un requisito.\n• Diversi anni di esperienza di leadership in una funzione di cadre medico, idealmente come medico leader.\n• Esperienza comprovata nella cura di pazienti internistici complessi e nella cooperazione interdisciplinare.\n• Prove capacità di leadership e l'esperienza nello sviluppo organizzativo e strategico.\n• Un leader integrato con un alto livello di competenza sociale, integrità e un atteggiamento di leadership orientato al valore e alla forza.\n• Buona conoscenza del sistema sanitario svizzero e dell'esperienza nell'ambiente ospedaliero svizzero.\n• Una buona comprensione della sanità regionale e la capacità di costruire e mantenere relazioni sostenibili con i medici, gli arbitri e altri partner.\n• Il pensiero imprenditoriale e una forte comprensione della qualità e dei servizi.\n\n## Più punti\nCibo\nServizi di catering diversi\n(30% di sconto) con \"giorno francese\" settimanale\nVantaggi\nSupporto per i genitori\nCabina telefonica\nSconto sui farmaci\nSconti delle pulci\ne altri extra\nPrestazioni sociali\nPremi e contributi di previdenza sociale\nPromozione della salute\nGestione della salute sul lavoro\nOfferta del corso interno\nSconto sulle attività sportive\nOre lavorative\nModelli di lavoro part-time flessibili\nFormazione e formazione\nProgramma di formazione interna\nPartecipazione alla formazione\nValutazione\nRiconoscimento di servizi o eventi speciali\nIstruzione medica e formazione\n5 giorni lavorativi versati\nPer anno\nFormazione interna settimanale\nPausa\n15 minuti di pausa caffè a pagamento per mezza giornata\nPer questo post, i dossier dei reclutatori non possono essere considerati. Grazie per la vostra comprensione.\nInformazioni su di noi\nDipartimento: Medicina interna ->\n\n## Ospedale regionale\nIl più grande fornitore di assistenza sanitaria e il secondo più grande datore di lavoro e società di formazione nell'Unterland di Zurigo.\n\n## Personale\nOltre 1.400 dipendenti da 47 nazioni con oltre 140 apprendisti,\nin oltre 20 professioni.\n\n## Servizi medici\nPiù di 67.000 ambulatori e circa 11.500 pazienti all'anno.\n\n## Neonato\nQuinta clinica di maternità più grande nel Cantone di Zurigo con oltre 1.300 bambini all'anno.\n\n## Servizio di soccorso e emergenza\nCirca 60 paramedici: più di 8.400 servizi di emergenza e nella nostra emergenza, circa 30.000 persone sono trattate annualmente.\n\n## Cibo\n10'500 pasti appena preparati nel loro ristorante, sourcing cibo dalla regione.\n\n## sostenibilità\nRiscaldamento con trucioli di legno da parte delle comunità degli azionisti, estrazione di energia solare, evitando rifiuti alimentari, sistema di recupero, membro Fair Trade Town.\n\n## Ambiente\nImmerso tra la foresta e il centro della città vicino alla stazione ferroviaria con collegamento diretto con la HB di Zurigo.\n\n## Cooperazione\nAmbiente di lavoro familiare e promozione della cultura del team.\nCarriera e istruzione\nLavoro e formazione\ncooperazione e\nPartnerships\n\n## Capo Dipartimento Endocrinologia/Diabetologia (LA) 80 - 100%\nSulla pubblicità del lavoro\nDipendenti: nella gestione delle capacità 80 - 100%\nMedicina del dolore medico senior 60 - 100%: portale di lavoro",
         "en": "100 %\n01.01.2028\nPerpetual\nHospital Bülach is growing - grow with you.\n\n## Participation\n• They take over the medical, personnel, strategic and entrepreneurial leadership of Klinik Medizin and bear the overall responsibility for quality, efficiency and sustainable development. The Clinic of Medicine includes: General Internal Medicine, Neurology, Pneumology, Cardiology, Angiology, Endocrinology and Diabetology, Infectiology and Hospital Hygiene, Gastroenterology, Medical Polyclinic, Palliative Care, IPS and the Ambulatorium with the consultation hours\n• They ensure high-quality, evidence-based, patient-centred and economic patient care.\n• They strategically develop the medical services and clinical processes and thus strengthen the positioning of the clinic.\n• They promote and develop the medical staff as well as other specialists and shape an attractive, future-oriented education and training.\n• They promote close, partnership-based and interprofessional cooperation within the hospital, in particular with the emergency department, the old-age medicine and other specialist areas. You will strengthen joint care concepts, coordinated clinical processes and cooperation at eye level.\n• They maintain and develop sustainable, partnership-based networks with primary care physicians, referents and other regional health partners. In this way, you strengthen cross-sectoral cooperation and actively shape integrated regional health care.\n• They are themselves clinically active, actively participate in the medical service and thus maintain proximity to patient care and clinical everyday life.\n• They live a transparent and empowerment- and values-oriented leadership culture, actively involve the management team in decisions and create an environment in which employees can develop professionally and personally.\n• As a member of the Management Board, you take on joint responsibility for the strategic and entrepreneurial development of the entire hospital.\n\n## Bring with you\n• Specialist title in General Internal Medicine (FMH) and proven clinical expertise; an additional specialist title, for example in intensive care medicine, is an advantage.\n• A habilitation is desired, but not a requirement.\n• Several years of leadership experience in a medical cadre function, ideally as a leading physician.\n• Proven experience in the care of complex internistic patients and in interdisciplinary cooperation.\n• Proven leadership skills as well as experience in organizational and strategy development.\n• An integrative leader with a high level of social competence, integrity and a value- and strength-oriented leadership attitude.\n• Good knowledge of the Swiss health care system and experience in the Swiss hospital environment.\n• A good understanding of regional healthcare as well as the ability to build and maintain sustainable relationships with primary care physicians, referees and other partners.\n• Entrepreneurial thinking and a strong understanding of quality and services.\n\n## Plus points\nFood\nDiverse catering services\n(30% discount) with weekly \"French Day\"\nAdvantages\nSupport for parents\nTelephone cab\nDiscount on medicines\nFleet discounts\nand other extras\nSocial benefits\nGross premiums and social security contributions\nHealth promotion\nOccupational health management\nInternal course offer\nDiscount on sports activities Sports groups\nWorking hours\nFlexible part-time work models\nFurther education and training\nBroad internal training programme\nParticipation in training\nAppreciation\nRecognition of special services or events\nMedical education and training\n5 paid external training days\nPer year\nWeekly internal training\nPause\n15 minutes paid coffee break per half day\nFor this post, dossiers from recruiters cannot be considered. Thank you for your understanding.\nAbout us\nDepartment: Internal Medicine ->\n\n## Regionalspital\nLargest health care provider as well as second largest employer and training company in the Zurich Unterland.\n\n## Staff\nOver 1,400 employees from 47 nations with over 140 apprentices,\nin over 20 professions.\n\n## Medical services\nMore than 67,000 outpatients and around 11,500 inpatients per year.\n\n## Newborn\nFifth largest maternity clinic in the Canton of Zurich with over 1,300 babies per year.\n\n## Rescue service and emergency\nAround 60 paramedics: more than 8,400 emergency services and in our emergency, around 30,000 people are treated annually.\n\n## Food\n10'500 freshly prepared meals in their own restaurant, sourcing food from the region.\n\n## Sustainability\nHeating with wood chips from shareholder communities, extracting solar energy, avoiding food waste, reCircle system, member Fair Trade Town.\n\n## Environment\nNestled between the forest and the city centre near the train station with direct train connection to Zurich HB.\n\n## Cooperation\nFamily working environment and promotion of team culture.\nCareer and education\nWorking and training\ncooperation and\nPartnerships\n\n## Head of Department Endocrinology/Diabetology (LA) 80 - 100%\nOn the job advertisement\nEmployees: in capacity management 80 - 100%\nSenior physician pain medicine 60 - 100%: Job portal",
+        "de": "100 %\n01.01.2028\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Sie übernehmen die medizinische, personelle, strategische und unternehmerische Führung der Klinik Medizin und tragen die Gesamtverantwortung für die Qualität, Wirtschaftlichkeit und nachhaltige Weiterentwicklung. Die Klinik Medizin umfasst: die Allgemeine Innere Medizin, Neurologie, Pneumologie, Kardiologie, Angiologie, Endokrinologie und Diabetologie, Infektiologie und Spitalhygiene, Gastroenterologie, die Medizinische Poliklinik, Palliative Care, IPS und das Ambulatorium mit den Sprechstunden\n• Sie stellen eine qualitativ hochstehende, evidenzbasierte, patientenzentrierte und wirtschaftliche Patientenversorgung sicher.\n• Sie entwickeln das medizinische Leistungsangebot und die klinischen Prozesse strategisch weiter und stärken damit die Positionierung der Klinik.\n• Sie fördern und entwickeln die ärztlichen Mitarbeitenden sowie weitere Fachpersonen und gestalten eine attraktive, zukunftsorientierte Aus- und Weiterbildung.\n• Sie fördern eine enge, partnerschaftliche und interprofessionelle Zusammenarbeit innerhalb des Spitals, insbesondere mit der Notfallstation, der Altersmedizin und weiteren Fachbereichen. Dabei stärken Sie gemeinsame Versorgungskonzepte, aufeinander abgestimmte klinische Prozesse und eine Zusammenarbeit auf Augenhöhe.\n• Sie pflegen und entwickeln tragfähige, partnerschaftliche Netzwerke mit Hausärztinnen und Hausärzten, Zuweisenden sowie weiteren regionalen Gesundheitspartnern. Damit stärken Sie die sektorenübergreifende Zusammenarbeit und gestalten die integrierte regionale Gesundheitsversorgung aktiv mit.\n• Sie sind selbst klinisch tätig, beteiligen sich aktiv am ärztlichen Dienstbetrieb und bewahren damit die Nähe zur Patientenversorgung und zum klinischen Alltag.\n• Sie leben eine transparente und stärken- und werteorientierte Führungskultur, beziehen das Kaderteam aktiv in Entscheidungen ein und schaffen ein Umfeld, in dem sich Mitarbeitende fachlich und persönlich weiterentwickeln können.\n• Als Mitglied der Geschäftsleitung übernehmen Sie Mitverantwortung für die strategische und unternehmerische Weiterentwicklung des gesamten Spitals.\n\n## Mitbringen\n• Facharzttitel in Allgemeiner Innerer Medizin (FMH) und ausgewiesene klinische Expertise; ein zusätzlicher Facharzttitel, beispielsweise in Intensivmedizin, ist von Vorteil.\n• Eine Habilitation ist erwünscht, jedoch keine Voraussetzung.\n• Mehrjährige Führungserfahrung in einer ärztlichen Kaderfunktion, idealerweise als Leitende Ärztin oder Leitender Arzt.\n• Ausgewiesene Erfahrung in der Betreuung komplexer internistischer Patientinnen und Patienten sowie in der interdisziplinären Zusammenarbeit.\n• Ausgewiesene Leadership-Kompetenzen sowie Erfahrung in der Organisations- und Strategieentwicklung.\n• Eine integrative Führungspersönlichkeit mit hoher Sozialkompetenz, Integrität und einer werte- und stärkenorientierten Führungshaltung.\n• Gute Kenntnisse des schweizerischen Gesundheitswesens und Erfahrung im Schweizer Spitalumfeld.\n• Ein gutes Verständnis der regionalen Gesundheitsversorgung sowie die Fähigkeit, tragfähige Beziehungen zu Hausärzten, Zuweisern und weiteren Partnern aufzubauen und zu pflegen.\n• Unternehmerisches Denken sowie ein ausgeprägtes Qualitäts- und Dienstleistungsverständnis.\n\n## Pluspunkte\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nArbeitszeit\nFlexible Teilzeitarbeitsmodelle\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nÄrztliche Fort- und Weiterbildung\n5 bezahlte externe Weiterbildungstage\npro Jahr\nWöchentliche interne Weiterbildung\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\nFachbereich: Innere Medizin ->\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Abteilungsleitung Endokrinologie/Diabetologie (LA) 80 - 100 %\nZum Stelleninserat\nMitarbeiter:in Kapazitätsmanagement 80 - 100 %\nOberarzt / Oberärztin Schmerzmedizin 60 - 100 %: Stellenportal",
         "fr": "100 %\n01.01.2028\nPerpétuelle\nL'hôpital Bülach grandit - grandissez avec vous.\n\n## Participation\n• Ils prennent en charge le leadership médical, personnel, stratégique et entrepreneurial de Klinik Medizin et assument la responsabilité globale de la qualité, de l'efficacité et du développement durable. La clinique de médecine comprend: médecine interne générale, neurologie, pneumologie, cardiologie, angiologie, endocrinologie et diabétéologie, infectiologie et hygiène hospitalière, gastroentérologie, polyclinique médicale, soins palliatifs, IPS et ambulatoire avec les heures de consultation\n• Ils assurent des soins de qualité, fondés sur des données probantes, axés sur le patient et économiques.\n• Ils développent stratégiquement les services médicaux et les processus cliniques et renforcent ainsi le positionnement de la clinique.\n• Ils encouragent et développent le personnel médical ainsi que d'autres spécialistes et façonnent une éducation et une formation attrayantes et orientées vers l'avenir.\n• Ils favorisent une coopération étroite, fondée sur le partenariat et interprofessionnelle au sein de l'hôpital, en particulier avec le service des urgences, la médecine de la vieillesse et d'autres domaines spécialisés. Vous renforcerez les concepts de soins conjoints, les processus cliniques coordonnés et la coopération au niveau des yeux.\n• Ils maintiennent et développent des réseaux durables fondés sur le partenariat avec les médecins de soins primaires, les référents et d'autres partenaires régionaux de la santé. De cette façon, vous renforcez la coopération intersectorielle et façonnez activement les soins de santé régionaux intégrés.\n• Ils sont eux-mêmes cliniquement actifs, participent activement au service médical et maintiennent ainsi la proximité des soins et de la vie quotidienne clinique.\n• Ils vivent une culture de leadership transparente et axée sur l'autonomisation et les valeurs, associent activement l'équipe de direction aux décisions et créent un environnement dans lequel les employés peuvent se développer professionnellement et personnellement.\n• En tant que membre du conseil d'administration, vous assumez la responsabilité conjointe du développement stratégique et entrepreneurial de l'ensemble de l'hôpital.\n\n## Amène-toi.\n• Titre de spécialiste en médecine interne générale (FMH) et expertise clinique éprouvée; un titre de spécialiste supplémentaire, par exemple en médecine de soins intensifs, est un avantage.\n• Une adaptation est souhaitée, mais pas une exigence.\n• Plusieurs années d'expérience de leadership dans une fonction de cadre médical, idéalement en tant que médecin de premier plan.\n• Expérience éprouvée dans les soins de patients internistes complexes et dans la coopération interdisciplinaire.\n• Compétences éprouvées en leadership et expérience dans l'élaboration d'une organisation et d'une stratégie.\n• Un leader intégrateur avec un haut niveau de compétence sociale, d'intégrité et une attitude de leadership axée sur la valeur et la force.\n• Bonne connaissance du système de santé suisse et de l'expérience en milieu hospitalier suisse.\n• Une bonne compréhension des soins de santé régionaux ainsi que la capacité d'établir et de maintenir des relations durables avec les médecins de première ligne, les arbitres et d'autres partenaires.\n• La pensée entrepreneuriale et une bonne compréhension de la qualité et des services.\n\n## Plus les points\nProduits alimentaires\nDivers services de restauration\n30% de réduction) avec hebdomadaire \"Journée française\"\nAvantages\nSoutien aux parents\nCabine téléphonique\nRéduction sur les médicaments\nRemises sur la flotte\net autres suppléments\nPrestations sociales\nPrimes brutes et cotisations sociales\nPromotion de la santé\nGestion de la santé au travail\nOffre de cours internes\nRéduction sur les activités sportives Groupes sportifs\nHeures de travail\nModèles flexibles de travail à temps partiel\nEnseignement supérieur et formation\nGrand programme de formation interne\nParticipation à la formation\nRemerciements\nReconnaissance des services ou événements spéciaux\nEnseignement et formation médicaux\n5 journées de formation externe rémunérées\nPar an\nFormation interne hebdomadaire\nPause\n15 minutes de pause café payé par demi-journée\nPour ce poste, les dossiers des recruteurs ne peuvent être examinés. Merci de votre compréhension.\nÀ propos de nous\nDépartement: Médecine interne ->\n\n## Région\nPlus grand fournisseur de soins de santé ainsi que deuxième plus grand employeur et entreprise de formation dans l'Unterland de Zurich.\n\n## Personnel\nPlus de 1 400 employés de 47 pays avec plus de 140 apprentis,\ndans plus de 20 professions.\n\n## Services médicaux\nPlus de 67 000 malades externes et environ 11 500 malades hospitalisés par an.\n\n## Nouveau-né\nCinquième plus grande maternité du canton de Zurich avec plus de 1 300 bébés par an.\n\n## Service de secours et d'urgence\nEnviron 60 ambulanciers : plus de 8 400 services d'urgence et en cas d'urgence, environ 30 000 personnes sont traitées chaque année.\n\n## Produits alimentaires\n10'500 repas fraîchement préparés dans leur propre restaurant, approvisionnement de nourriture de la région.\n\n## Durabilité\nChauffage avec des copeaux de bois des communautés actionnaires, extraction de l'énergie solaire, éviter les déchets alimentaires, recircle système, membre Fair Trade Town.\n\n## Environnement\nNiché entre la forêt et le centre-ville près de la gare avec une liaison directe avec Zurich HB.\n\n## Coopération\nEnvironnement de travail familial et promotion de la culture d'équipe.\nCarrière et éducation\nTravail et formation\ncoopération et\nPartenariats\n\n## Chef du département Endocrinologie/Diabétologie (LA) 80 - 100%\nSur le marché du travail\nEmployés: en gestion de capacité 80 - 100%\nMédecin senior de la douleur 60 - 100%: Portail emploi"
       },
       "location": "Bülach",
@@ -4905,7 +4909,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/chefaerztin-chefarzt-medizin/8db52a63-813d-4bf5-a260-8ec47c8b70c3",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.141Z",
+      "crawledAt": "2026-10-30T21:51:50.345Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4924,23 +4928,10 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.spitalbuelach.ch/chefaerztin-chefarzt-medizin-100-de-f1495.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-30T09:49:15.141Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chefarztin-chefarzt-medizin-spital-buelach-bulach"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chefarztin-chefarzt-medizin-spital-buelach-bulach"
@@ -4952,17 +4943,28 @@
           "chefarztin-chefarzt-medizin-spital-buelach-bulach"
         ]
       },
-      "previousSlugs": [
-        "chefarztin-chefarzt-medizin-spital-buelach-bulach"
-      ]
+      "firstSeenAt": "2026-10-30T09:49:15.141Z",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "spital-buelach-f73828225a2c",
       "slug": "dipl-professionista-dell-assistenza-medica-spital-bulach-bulach",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
         "it": "dipl-professionista-dell-assistenza-medica-spital-bulach-bulach",
         "en": "dipl-medical-care-professional-spital-bulach-bulach",
+        "de": "dipl-pflegefachperson-medizin-spital-buelach-bulach",
         "fr": "dipl-professionnels-de-soins-medicaux-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
@@ -4970,24 +4972,25 @@
       "companyDomain": "spitalbuelach.ch",
       "title": "Dipl. Pflegefachperson Medizin",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachperson Medizin",
         "it": "Dipl. Professionista dell'assistenza medica",
         "en": "Dipl. Medical care professional",
+        "de": "Dipl. Pflegefachperson Medizin",
         "fr": "Dipl. Professionnels de soins médicaux"
       },
       "description": "40 - 100 %\nsofort\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Medizinische Patientinnen und Patienten betreuen\n• Ganzheitliche Pflege nah am Menschen\n• Kleine Einheit mit 12 Betten mitgestalten\n• Überschaubare Patientensituationen begleiten\n• Pflegequalität im Alltag sichern\n• Positive Teamkultur mit Vertrauen und Wertschätzung fördern\n\n## Mitbringen\n• Dipl. Pflegefachperson HF/FH\n• Freude an medizinischer Pflege\n• Verantwortungsbewusst und fachlich sicher\n• Wertschätzend, offen und kommunikativ\n• Engagiert, teamorientiert und zuverlässig\n• Lust auf eine kleine Station mit guter Übersicht\n\n## Pluspunkte\nMobilität\n17 Min. von Zürich HB und 5 Min. vom Bahnhof Bülach. SBB oder Ochsner Sport Gutschein bis zu 200 Franken jährlich\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nUmkleidepauschale\nBis zu 75 Franken\npro Monat\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nArbeitszeit\nFlexible Teilzeitarbeitsmodelle\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nTalentprogramm Pflege und Therapien\nNachwuchsförderung für Bildung, Fach- und Führungsfunktionen\nGeburt\nUpgrade auf Privat sowie attraktive Zusatzleistungen für Mitarbeiterinnen und Partnerinnen\nJahresarbeitszeit Pflege\nPensum durchs Jahr flexibel planbar Saisonale Einsätze möglich\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Praktikant:in Pflege Chirurgie 80 - 100 %\nZum Stelleninserat\nFachfrau Gesundheit Chirurgie 60 - 100 %\nFachperson Gesundheit Geburtshaus 20 %: Stellenportal",
       "descriptionByLocale": {
-        "de": "40 - 100 %\nsofort\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Medizinische Patientinnen und Patienten betreuen\n• Ganzheitliche Pflege nah am Menschen\n• Kleine Einheit mit 12 Betten mitgestalten\n• Überschaubare Patientensituationen begleiten\n• Pflegequalität im Alltag sichern\n• Positive Teamkultur mit Vertrauen und Wertschätzung fördern\n\n## Mitbringen\n• Dipl. Pflegefachperson HF/FH\n• Freude an medizinischer Pflege\n• Verantwortungsbewusst und fachlich sicher\n• Wertschätzend, offen und kommunikativ\n• Engagiert, teamorientiert und zuverlässig\n• Lust auf eine kleine Station mit guter Übersicht\n\n## Pluspunkte\nMobilität\n17 Min. von Zürich HB und 5 Min. vom Bahnhof Bülach. SBB oder Ochsner Sport Gutschein bis zu 200 Franken jährlich\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nUmkleidepauschale\nBis zu 75 Franken\npro Monat\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nArbeitszeit\nFlexible Teilzeitarbeitsmodelle\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nTalentprogramm Pflege und Therapien\nNachwuchsförderung für Bildung, Fach- und Führungsfunktionen\nGeburt\nUpgrade auf Privat sowie attraktive Zusatzleistungen für Mitarbeiterinnen und Partnerinnen\nJahresarbeitszeit Pflege\nPensum durchs Jahr flexibel planbar Saisonale Einsätze möglich\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Praktikant:in Pflege Chirurgie 80 - 100 %\nZum Stelleninserat\nFachfrau Gesundheit Chirurgie 60 - 100 %\nFachperson Gesundheit Geburtshaus 20 %: Stellenportal",
         "it": "40 - 100 %\nimmediatamente\nPerpetuo\nOspedale Bülach sta crescendo - crescere con voi.\n\n## Partecipazione\n• Cura dei pazienti medici\n• Cura olistica vicino alle persone\n• Piccola unità con 12 letti\n• Accompagnate situazioni di paziente gestibili\n• Assicurare la qualità della cura nella vita quotidiana\n• Promuovere la cultura positiva del team con fiducia e apprezzamento\n\n## Porta con te\n• Dipl. Professionista HF/FH\n• Divertimento delle cure mediche\n• Responsabile e professionalmente sicuro\n• Apprezzativo, aperto e comunicativo\n• Engaged, team-oriented e affidabile\n• Alla ricerca di una piccola stazione con una buona panoramica\n\n## Più punti\nMobilità\n17 minuti da Zurigo HB e 5 minuti dalla stazione di Bülach. SBB o Ochsner Sport voucher fino a 200 franchi all'anno\nCibo\nServizi di catering diversi\n(30% di sconto) con \"giorno francese\" settimanale\nVantaggi\nSupporto per i genitori\nCabina telefonica\nSconto sui farmaci\nSconti delle pulci\ne altri extra\nIndumenti cambianti\nFino a 75 franchi\nPer mese\nPrestazioni sociali\nPremi e contributi di previdenza sociale\nOre lavorative\nModelli di lavoro part-time flessibili\nFormazione e formazione\nProgramma di formazione interna\nPartecipazione alla formazione\nProgramma Talent infermieristica e terapie\nSviluppo di giovani talenti per l'istruzione, le funzioni specialistiche e manageriali\nNascita\nAggiornamento a servizi aggiuntivi privati e attraenti per dipendenti e partner\nOre lavorative annuali\nDurata durante tutto l'anno possibili assegnazioni stagionali flessibili\nInformazioni su di noi\n\n## Ospedale regionale\nIl più grande fornitore di assistenza sanitaria e il secondo più grande datore di lavoro e società di formazione nell'Unterland di Zurigo.\n\n## Personale\nOltre 1.400 dipendenti da 47 nazioni con oltre 140 apprendisti,\nin oltre 20 professioni.\n\n## Servizi medici\nPiù di 67.000 ambulatori e circa 11.500 pazienti all'anno.\n\n## Neonato\nQuinta clinica di maternità più grande nel Cantone di Zurigo con oltre 1.300 bambini all'anno.\n\n## Servizio di soccorso e emergenza\nCirca 60 paramedici: più di 8.400 servizi di emergenza e nella nostra emergenza, circa 30.000 persone sono trattate annualmente.\n\n## Cibo\n10'500 pasti appena preparati nel loro ristorante, sourcing cibo dalla regione.\n\n## sostenibilità\nRiscaldamento con trucioli di legno da parte delle comunità degli azionisti, estrazione di energia solare, evitando rifiuti alimentari, sistema di recupero, membro Fair Trade Town.\n\n## Ambiente\nImmerso tra la foresta e il centro della città vicino alla stazione ferroviaria con collegamento diretto con la HB di Zurigo.\n\n## Cooperazione\nAmbiente di lavoro familiare e promozione della cultura del team.\nCarriera e istruzione\nLavoro e formazione\ncooperazione e\nPartnerships\n\n## Interno: in allattamento 80 - 100%\nSulla pubblicità del lavoro\nChirurgia Professionale 60 - 100%\nProfessional Health Birthplace 20%: Job Portal",
         "en": "40 - 100 %\nimmediately\nPerpetual\nHospital Bülach is growing - grow with you.\n\n## Participation\n• Care for medical patients\n• Holistic care close to people\n• Small unit with 12 beds\n• Accompanies manageable patient situations\n• Ensure quality of care in everyday life\n• Promote positive team culture with trust and appreciation\n\n## Bring with you\n• Dipl. Care professional HF/FH\n• Enjoyment of medical care\n• Responsible and professionally safe\n• Appreciative, open and communicative\n• Engaged, team-oriented and reliable\n• Looking for a small station with a good overview\n\n## Plus points\nMobility\n17 minutes from Zurich HB and 5 minutes from Bülach station. SBB or Ochsner Sport voucher up to 200 francs annually\nFood\nDiverse catering services\n(30% discount) with weekly \"French Day\"\nAdvantages\nSupport for parents\nTelephone cab\nDiscount on medicines\nFleet discounts\nand other extras\nChanging garments\nUp to 75 francs\nPer month\nSocial benefits\nGross premiums and social security contributions\nWorking hours\nFlexible part-time work models\nFurther education and training\nBroad internal training programme\nParticipation in training\nTalent Program Nursing and Therapies\nDevelopment of young talent for education, specialist and managerial functions\nBirth\nUpgrade to private and attractive additional services for employees and partners\nAnnual working hours Care\nDuration throughout the year flexible seasonal assignments possible\nAbout us\n\n## Regionalspital\nLargest health care provider as well as second largest employer and training company in the Zurich Unterland.\n\n## Staff\nOver 1,400 employees from 47 nations with over 140 apprentices,\nin over 20 professions.\n\n## Medical services\nMore than 67,000 outpatients and around 11,500 inpatients per year.\n\n## Newborn\nFifth largest maternity clinic in the Canton of Zurich with over 1,300 babies per year.\n\n## Rescue service and emergency\nAround 60 paramedics: more than 8,400 emergency services and in our emergency, around 30,000 people are treated annually.\n\n## Food\n10'500 freshly prepared meals in their own restaurant, sourcing food from the region.\n\n## Sustainability\nHeating with wood chips from shareholder communities, extracting solar energy, avoiding food waste, reCircle system, member Fair Trade Town.\n\n## Environment\nNestled between the forest and the city centre near the train station with direct train connection to Zurich HB.\n\n## Cooperation\nFamily working environment and promotion of team culture.\nCareer and education\nWorking and training\ncooperation and\nPartnerships\n\n## Intern: in nursing surgery 80 - 100%\nOn the job advertisement\nProfessional Health Surgery 60 - 100%\nProfessional Health Birthplace 20%: Job Portal",
+        "de": "40 - 100 %\nsofort\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Medizinische Patientinnen und Patienten betreuen\n• Ganzheitliche Pflege nah am Menschen\n• Kleine Einheit mit 12 Betten mitgestalten\n• Überschaubare Patientensituationen begleiten\n• Pflegequalität im Alltag sichern\n• Positive Teamkultur mit Vertrauen und Wertschätzung fördern\n\n## Mitbringen\n• Dipl. Pflegefachperson HF/FH\n• Freude an medizinischer Pflege\n• Verantwortungsbewusst und fachlich sicher\n• Wertschätzend, offen und kommunikativ\n• Engagiert, teamorientiert und zuverlässig\n• Lust auf eine kleine Station mit guter Übersicht\n\n## Pluspunkte\nMobilität\n17 Min. von Zürich HB und 5 Min. vom Bahnhof Bülach. SBB oder Ochsner Sport Gutschein bis zu 200 Franken jährlich\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nUmkleidepauschale\nBis zu 75 Franken\npro Monat\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nArbeitszeit\nFlexible Teilzeitarbeitsmodelle\nFort- und Weiterbildung\nBreites internes Fortbildungsprogramm\nBeteiligung an fachlicher Weiterbildung\nTalentprogramm Pflege und Therapien\nNachwuchsförderung für Bildung, Fach- und Führungsfunktionen\nGeburt\nUpgrade auf Privat sowie attraktive Zusatzleistungen für Mitarbeiterinnen und Partnerinnen\nJahresarbeitszeit Pflege\nPensum durchs Jahr flexibel planbar Saisonale Einsätze möglich\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Praktikant:in Pflege Chirurgie 80 - 100 %\nZum Stelleninserat\nFachfrau Gesundheit Chirurgie 60 - 100 %\nFachperson Gesundheit Geburtshaus 20 %: Stellenportal",
         "fr": "40 - 100 %\nimmédiatement\nPerpétuelle\nL'hôpital Bülach grandit - grandissez avec vous.\n\n## Participation\n• Soins aux patients médicaux\n• Soins holistiques proches des personnes\n• Petite unité avec 12 lits\n• Accompanies situations de patients gérables\n• Assurer la qualité des soins dans la vie quotidienne\n• Promouvoir une culture d'équipe positive avec confiance et appréciation\n\n## Amène-toi.\n• Dipl. Soins professionnels HF/FH\n• Bénéficier des soins médicaux\n• Responsabilité et sécurité professionnelle\n• Appréciation, ouverture et communication\n• Engagement, équipe et fiabilité\n• Recherche d'une petite station avec un bon aperçu\n\n## Plus les points\nMobilité\n17 minutes de Zurich HB et 5 minutes de la gare de Bülach. Chèque sport CFF ou Ochsner jusqu'à 200 francs par an\nProduits alimentaires\nDivers services de restauration\n30% de réduction) avec hebdomadaire \"Journée française\"\nAvantages\nSoutien aux parents\nCabine téléphonique\nRéduction sur les médicaments\nRemises sur la flotte\net autres suppléments\nChangements de vêtements\nJusqu'à 75 francs\nPar mois\nPrestations sociales\nPrimes brutes et cotisations sociales\nHeures de travail\nModèles flexibles de travail à temps partiel\nEnseignement supérieur et formation\nGrand programme de formation interne\nParticipation à la formation\nProgramme de talents Soins infirmiers et thérapies\nDéveloppement des jeunes talents dans les domaines de l'éducation, de la spécialisation et de la gestion\nNaissance\nMise à niveau vers des services supplémentaires privés et attrayants pour les employés et les partenaires\nHeures de travail annuelles\nDurée pendant toute l'année\nÀ propos de nous\n\n## Région\nPlus grand fournisseur de soins de santé ainsi que deuxième plus grand employeur et entreprise de formation dans l'Unterland de Zurich.\n\n## Personnel\nPlus de 1 400 employés de 47 pays avec plus de 140 apprentis,\ndans plus de 20 professions.\n\n## Services médicaux\nPlus de 67 000 malades externes et environ 11 500 malades hospitalisés par an.\n\n## Nouveau-né\nCinquième plus grande maternité du canton de Zurich avec plus de 1 300 bébés par an.\n\n## Service de secours et d'urgence\nEnviron 60 ambulanciers : plus de 8 400 services d'urgence et en cas d'urgence, environ 30 000 personnes sont traitées chaque année.\n\n## Produits alimentaires\n10'500 repas fraîchement préparés dans leur propre restaurant, approvisionnement de nourriture de la région.\n\n## Durabilité\nChauffage avec des copeaux de bois des communautés actionnaires, extraction de l'énergie solaire, éviter les déchets alimentaires, recircle système, membre Fair Trade Town.\n\n## Environnement\nNiché entre la forêt et le centre-ville près de la gare avec une liaison directe avec Zurich HB.\n\n## Coopération\nEnvironnement de travail familial et promotion de la culture d'équipe.\nCarrière et éducation\nTravail et formation\ncoopération et\nPartenariats\n\n## Stagiaire: en chirurgie infirmière 80 - 100%\nSur le marché du travail\nChirurgie professionnelle 60 - 100%\nSanté professionnelle Lieu de naissance 20%: Portail d'emploi"
       },
+      "needsRetranslation": false,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-medizin/7db97cb3-09e0-4797-bf35-c127ce8a412e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.134Z",
+      "crawledAt": "2026-10-30T21:51:50.341Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5006,9 +5009,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.spitalbuelach.ch/dipl-pflegefachperson-medizin-20-100--de-f1407.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+        ]
       },
+      "firstSeenAt": "2026-10-30T09:49:15.134Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -5021,30 +5037,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-30T09:49:15.134Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
-        ],
-        "en": [
-          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-medizin-spital-buelach-bulach"
-      ]
+      }
     },
     {
       "id": "spital-buelach-8ea7aa898bd3",
-      "slug": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
+      "slug": "assistente-medico-a-in-pneumologia-neurologia-spital-bulach-bulach",
       "slugByLocale": {
-        "de": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
-        "it": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
+        "it": "assistente-medico-a-in-pneumologia-neurologia-spital-bulach-bulach",
         "en": "mpa-medical-secretary-pneumology-neurology-spital-bulach-bulach",
+        "de": "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach",
         "fr": "mpa-secretaire-medical-en-pneumologie-neurologie-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
@@ -5052,25 +5053,24 @@
       "companyDomain": "spitalbuelach.ch",
       "title": "MPA/Arztsekretär:in Pneumologie/Neurologie",
       "titleByLocale": {
-        "de": "MPA/Arztsekretär:in Pneumologie/Neurologie",
-        "it": "MPA/Arztsekretär:in Pneumologie/Neurologie",
+        "it": "Assistente medico/a in pneumologia/neurologia",
         "en": "MPA/Medical Secretary Pneumology/Neurology",
+        "de": "MPA/Arztsekretär:in Pneumologie/Neurologie",
         "fr": "MPA/Secrétaire médical :en pneumologie/neurologie"
       },
       "description": "80 - 100 %\nAb 01.02.2027\nbefristet bis 31.03.2028\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Koordination, Organisation sowie Planung des Tagesablaufes für Pneumologie und Neurologie\n• Redigieren und Versenden von Sprechstundenberichten\n• Abgabe und Instruktion von Polygraphiegeräten / Pulsoxymetern\n• Durchführung von EEG-Untersuchungen\n• Assistenz bei Pleurapunktionen und Lumbalpunktionen\n• Übernahme vielfältiger administrativer und organisatorischer Aufgaben\n• Interdisziplinäre Zusammenarbeit mit verschiedenen Fachgebieten\n\n## Mitbringen\n• Abgeschlossene Ausbildung als Medizinische Praxisassistent:in oder Arztsekretär:in mit Freude an direktem Patientenkontakt und Interesse daran, die praktischen Tätigkeiten am Patienten weiter zu erlernen\n• Fundierte Kenntnisse der medizinischen Terminologie\n• Sehr gute IT-Kenntnisse und Freude an Sekretariatsaufgaben\n• Geregelte Arbeitszeiten/kein Wochenenddienst\n\n## Pluspunkte\nMobilität\n17 Min. von Zürich HB und 5 Min. vom Bahnhof Bülach. SBB oder Ochsner Sport Gutschein bis zu 200 Franken jährlich\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nArbeitszeit\nFlexible Teilzeitarbeitsmodelle\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nGeburt\nUpgrade auf Privat sowie attraktive Zusatzleistungen für Mitarbeiterinnen und Partnerinnen\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Arztsekretär:in Radiologie – Schwerpunkt Bildversand 30 %\nZum Stelleninserat\nMPA Chirurgie 80 %\nMPA/Berufsbildner:in Notfallpraxis 80 %: Stellenportal",
       "descriptionByLocale": {
-        "de": "80 - 100 %\nAb 01.02.2027\nbefristet bis 31.03.2028\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Koordination, Organisation sowie Planung des Tagesablaufes für Pneumologie und Neurologie\n• Redigieren und Versenden von Sprechstundenberichten\n• Abgabe und Instruktion von Polygraphiegeräten / Pulsoxymetern\n• Durchführung von EEG-Untersuchungen\n• Assistenz bei Pleurapunktionen und Lumbalpunktionen\n• Übernahme vielfältiger administrativer und organisatorischer Aufgaben\n• Interdisziplinäre Zusammenarbeit mit verschiedenen Fachgebieten\n\n## Mitbringen\n• Abgeschlossene Ausbildung als Medizinische Praxisassistent:in oder Arztsekretär:in mit Freude an direktem Patientenkontakt und Interesse daran, die praktischen Tätigkeiten am Patienten weiter zu erlernen\n• Fundierte Kenntnisse der medizinischen Terminologie\n• Sehr gute IT-Kenntnisse und Freude an Sekretariatsaufgaben\n• Geregelte Arbeitszeiten/kein Wochenenddienst\n\n## Pluspunkte\nMobilität\n17 Min. von Zürich HB und 5 Min. vom Bahnhof Bülach. SBB oder Ochsner Sport Gutschein bis zu 200 Franken jährlich\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nArbeitszeit\nFlexible Teilzeitarbeitsmodelle\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nGeburt\nUpgrade auf Privat sowie attraktive Zusatzleistungen für Mitarbeiterinnen und Partnerinnen\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Arztsekretär:in Radiologie – Schwerpunkt Bildversand 30 %\nZum Stelleninserat\nMPA Chirurgie 80 %\nMPA/Berufsbildner:in Notfallpraxis 80 %: Stellenportal",
         "it": "80 - 100 %\nDal 01.02.2027\nlimitato a 31.03.2028\nOspedale Bülach sta crescendo - crescere con voi.\n\n## Partecipazione\n• Coordinamento, organizzazione e pianificazione della routine quotidiana per la polmonologia e la neurologia\n• Modifica e invio dei rapporti delle ore di ufficio\n• Consegna e istruzioni di dispositivi poligrafici / ossimetri di impulso\n• Conduzione degli studi EEG\n• Assistenza in punture pleurali e punture lombari\n• Assumere una vasta gamma di compiti amministrativi e organizzativi\n• Cooperazione interdisciplinare con diverse discipline\n\n## Porta con te\n• Formazione completata come assistente di pratica medica:in o segretario medico:in con piacere nel contatto diretto del paziente e interesse nell'apprendimento delle attività pratiche sul paziente\n• Conoscenza sana della terminologia medica\n• Molto buona conoscenza dell'IT e godimento delle attività di segreteria\n• Orario di lavoro regolare/senza servizio week-end\n\n## Più punti\nMobilità\n17 minuti da Zurigo HB e 5 minuti dalla stazione di Bülach. SBB o Ochsner Sport voucher fino a 200 franchi all'anno\nCibo\nServizi di catering diversi\n(30% di sconto) con \"giorno francese\" settimanale\nVantaggi\nSupporto per i genitori\nCabina telefonica\nSconto sui farmaci\nSconti delle pulci\ne altri extra\nPrestazioni sociali\nPremi e contributi di previdenza sociale\nPromozione della salute\nGestione della salute sul lavoro\nOfferta del corso interno\nSconto sulle attività sportive\nOre lavorative\nModelli di lavoro part-time flessibili\nValutazione\nRiconoscimento di servizi o eventi speciali\nPausa\n15 minuti di pausa caffè a pagamento per mezza giornata\nNascita\nAggiornamento a servizi aggiuntivi privati e attraenti per dipendenti e partner\nPer questo post, i dossier dei reclutatori non possono essere considerati. Grazie per la vostra comprensione.\nInformazioni su di noi\n\n## Ospedale regionale\nIl più grande fornitore di assistenza sanitaria e il secondo più grande datore di lavoro e società di formazione nell'Unterland di Zurigo.\n\n## Personale\nOltre 1.400 dipendenti da 47 nazioni con oltre 140 apprendisti,\nin oltre 20 professioni.\n\n## Servizi medici\nPiù di 67.000 ambulatori e circa 11.500 pazienti all'anno.\n\n## Neonato\nQuinta clinica di maternità più grande nel Cantone di Zurigo con oltre 1.300 bambini all'anno.\n\n## Servizio di soccorso e emergenza\nCirca 60 paramedici: più di 8.400 servizi di emergenza e nella nostra emergenza, circa 30.000 persone sono trattate annualmente.\n\n## Cibo\n10'500 pasti appena preparati nel loro ristorante, sourcing cibo dalla regione.\n\n## sostenibilità\nRiscaldamento con trucioli di legno da parte delle comunità degli azionisti, estrazione di energia solare, evitando rifiuti alimentari, sistema di recupero, membro Fair Trade Town.\n\n## Ambiente\nImmerso tra la foresta e il centro della città vicino alla stazione ferroviaria con collegamento diretto con la HB di Zurigo.\n\n## Cooperazione\nAmbiente di lavoro familiare e promozione della cultura del team.\nCarriera e istruzione\nLavoro e formazione\ncooperazione e\nPartnerships\n\n## Segreteria medica: in radiologia – concentrarsi sulla spedizione delle immagini 30%\nSulla pubblicità del lavoro\nChirurgia MPA 80%\nMPA/allenatore professionale: nella pratica di emergenza 80%: portale di lavoro",
         "en": "80 - 100 %\nFrom 01.02.2027\nlimited to 31.03.2028\nHospital Bülach is growing - grow with you.\n\n## Participation\n• Coordination, organisation and planning of the daily routine for pulmonology and neurology\n• Editing and sending office hours reports\n• Delivery and instruction of polygraph devices / pulse oxymeters\n• Conduct of EEG studies\n• Assistance in pleural punctures and lumbar punctures\n• Taking on a wide range of administrative and organisational tasks\n• Interdisciplinary cooperation with different disciplines\n\n## Bring with you\n• Completed training as a medical practice assistant:in or medical secretary:in with pleasure in direct patient contact and interest in learning the practical activities on the patient\n• Sound knowledge of medical terminology\n• Very good IT knowledge and enjoyment of secretarial tasks\n• Regular working hours/no weekend service\n\n## Plus points\nMobility\n17 minutes from Zurich HB and 5 minutes from Bülach station. SBB or Ochsner Sport voucher up to 200 francs annually\nFood\nDiverse catering services\n(30% discount) with weekly \"French Day\"\nAdvantages\nSupport for parents\nTelephone cab\nDiscount on medicines\nFleet discounts\nand other extras\nSocial benefits\nGross premiums and social security contributions\nHealth promotion\nOccupational health management\nInternal course offer\nDiscount on sports activities Sports groups\nWorking hours\nFlexible part-time work models\nAppreciation\nRecognition of special services or events\nPause\n15 minutes paid coffee break per half day\nBirth\nUpgrade to private and attractive additional services for employees and partners\nFor this post, dossiers from recruiters cannot be considered. Thank you for your understanding.\nAbout us\n\n## Regionalspital\nLargest health care provider as well as second largest employer and training company in the Zurich Unterland.\n\n## Staff\nOver 1,400 employees from 47 nations with over 140 apprentices,\nin over 20 professions.\n\n## Medical services\nMore than 67,000 outpatients and around 11,500 inpatients per year.\n\n## Newborn\nFifth largest maternity clinic in the Canton of Zurich with over 1,300 babies per year.\n\n## Rescue service and emergency\nAround 60 paramedics: more than 8,400 emergency services and in our emergency, around 30,000 people are treated annually.\n\n## Food\n10'500 freshly prepared meals in their own restaurant, sourcing food from the region.\n\n## Sustainability\nHeating with wood chips from shareholder communities, extracting solar energy, avoiding food waste, reCircle system, member Fair Trade Town.\n\n## Environment\nNestled between the forest and the city centre near the train station with direct train connection to Zurich HB.\n\n## Cooperation\nFamily working environment and promotion of team culture.\nCareer and education\nWorking and training\ncooperation and\nPartnerships\n\n## Medical secretary: in radiology – focus on image shipping 30%\nOn the job advertisement\nMPA surgery 80%\nMPA/vocational trainer:in emergency practice 80%: job portal",
+        "de": "80 - 100 %\nAb 01.02.2027\nbefristet bis 31.03.2028\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Koordination, Organisation sowie Planung des Tagesablaufes für Pneumologie und Neurologie\n• Redigieren und Versenden von Sprechstundenberichten\n• Abgabe und Instruktion von Polygraphiegeräten / Pulsoxymetern\n• Durchführung von EEG-Untersuchungen\n• Assistenz bei Pleurapunktionen und Lumbalpunktionen\n• Übernahme vielfältiger administrativer und organisatorischer Aufgaben\n• Interdisziplinäre Zusammenarbeit mit verschiedenen Fachgebieten\n\n## Mitbringen\n• Abgeschlossene Ausbildung als Medizinische Praxisassistent:in oder Arztsekretär:in mit Freude an direktem Patientenkontakt und Interesse daran, die praktischen Tätigkeiten am Patienten weiter zu erlernen\n• Fundierte Kenntnisse der medizinischen Terminologie\n• Sehr gute IT-Kenntnisse und Freude an Sekretariatsaufgaben\n• Geregelte Arbeitszeiten/kein Wochenenddienst\n\n## Pluspunkte\nMobilität\n17 Min. von Zürich HB und 5 Min. vom Bahnhof Bülach. SBB oder Ochsner Sport Gutschein bis zu 200 Franken jährlich\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nArbeitszeit\nFlexible Teilzeitarbeitsmodelle\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nPause\n15 Minuten bezahlte Kaffeepause pro Halbtag\nGeburt\nUpgrade auf Privat sowie attraktive Zusatzleistungen für Mitarbeiterinnen und Partnerinnen\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Arztsekretär:in Radiologie – Schwerpunkt Bildversand 30 %\nZum Stelleninserat\nMPA Chirurgie 80 %\nMPA/Berufsbildner:in Notfallpraxis 80 %: Stellenportal",
         "fr": "80 - 100 %\nA partir du 01.02.2027\nlimité au 31.03.2028\nL'hôpital Bülach grandit - grandissez avec vous.\n\n## Participation\n• Coordination, organisation et planification de la routine quotidienne pour la Pulmonologie et la neurologie\n• Édition et envoi de rapports sur les heures de bureau\n• Livraison et instruction des dispositifs polygraphes / oxymètres d'impulsion\n• Réalisation d'études EEG\n• Assistance dans les perforations pleurales et lombaires\n• Entreprendre un large éventail de tâches administratives et organisationnelles\n• Coopération interdisciplinaire avec différentes disciplines\n\n## Amène-toi.\n• Achevé la formation en tant qu'assistant de pratique médicale:en ou secrétaire médical:avec plaisir en contact direct avec le patient et intérêt à apprendre les activités pratiques sur le patient\n• Bonne connaissance de la terminologie médicale\n• Très bonne connaissance informatique et jouissance des tâches de secrétariat\n• Heures de travail régulières/pas de service le week-end\n\n## Plus les points\nMobilité\n17 minutes de Zurich HB et 5 minutes de la gare de Bülach. Chèque sport CFF ou Ochsner jusqu'à 200 francs par an\nProduits alimentaires\nDivers services de restauration\n30% de réduction) avec hebdomadaire \"Journée française\"\nAvantages\nSoutien aux parents\nCabine téléphonique\nRéduction sur les médicaments\nRemises sur la flotte\net autres suppléments\nPrestations sociales\nPrimes brutes et cotisations sociales\nPromotion de la santé\nGestion de la santé au travail\nOffre de cours internes\nRéduction sur les activités sportives Groupes sportifs\nHeures de travail\nModèles flexibles de travail à temps partiel\nRemerciements\nReconnaissance des services ou événements spéciaux\nPause\n15 minutes de pause café payé par demi-journée\nNaissance\nMise à niveau vers des services supplémentaires privés et attrayants pour les employés et les partenaires\nPour ce poste, les dossiers des recruteurs ne peuvent être examinés. Merci de votre compréhension.\nÀ propos de nous\n\n## Région\nPlus grand fournisseur de soins de santé ainsi que deuxième plus grand employeur et entreprise de formation dans l'Unterland de Zurich.\n\n## Personnel\nPlus de 1 400 employés de 47 pays avec plus de 140 apprentis,\ndans plus de 20 professions.\n\n## Services médicaux\nPlus de 67 000 malades externes et environ 11 500 malades hospitalisés par an.\n\n## Nouveau-né\nCinquième plus grande maternité du canton de Zurich avec plus de 1 300 bébés par an.\n\n## Service de secours et d'urgence\nEnviron 60 ambulanciers : plus de 8 400 services d'urgence et en cas d'urgence, environ 30 000 personnes sont traitées chaque année.\n\n## Produits alimentaires\n10'500 repas fraîchement préparés dans leur propre restaurant, approvisionnement de nourriture de la région.\n\n## Durabilité\nChauffage avec des copeaux de bois des communautés actionnaires, extraction de l'énergie solaire, éviter les déchets alimentaires, recircle système, membre Fair Trade Town.\n\n## Environnement\nNiché entre la forêt et le centre-ville près de la gare avec une liaison directe avec Zurich HB.\n\n## Coopération\nEnvironnement de travail familial et promotion de la culture d'équipe.\nCarrière et éducation\nTravail et formation\ncoopération et\nPartenariats\n\n## Secrétaire médical: en radiologie – se concentrer sur le transport d'images 30%\nSur le marché du travail\nChirurgie du MPA 80%\nMPA/formateur professionnel:en pratique d'urgence 80%: portail d'emploi"
       },
-      "needsRetranslation": true,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/mpa-arztsekretaer-in-pneumologie-neurologie/b9ae7915-f261-4684-bdaa-23a3c848bdc2",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:49:15.125Z",
+      "crawledAt": "2026-10-30T21:51:50.333Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5089,9 +5089,16 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.spitalbuelach.ch/mpaarztsekretaerin-pneumologieneurologie-de-f1549.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-arztsekretar-in-pneumologie-neurologie-spital-buelach-bulach"
+        ]
       },
+      "firstSeenAt": "2026-10-30T09:49:15.125Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -5104,8 +5111,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-30T09:49:15.125Z"
+      }
     },
     {
       "id": "spital-buelach-11cdd9ee41ec",
@@ -5181,7 +5187,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

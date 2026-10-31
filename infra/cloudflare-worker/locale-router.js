@@ -706,14 +706,42 @@ const COMPANY_HUB_RE =
 // Worker used to 301 every OTHER `ricerca-*` slug to the national board; that
 // generative redirect turned any invented cluster URL into a 301 to a listing,
 // which Google classifies as a soft 404. An unknown cluster slug now stays a
-// real 404 (with the localized page from renderNotFoundPage). The national
-// boards remain the primary link of that page.
+// real 404 (with the localized page from renderNotFoundPage) only if the board
+// cannot be served: see serveUnknownSearchCluster. The national boards remain the
+// primary link of that page.
 const NATIONAL_BOARD_BY_LOCALE = {
   it: '/cerca-lavoro-svizzera/',
   en: '/en/find-jobs-switzerland/',
   de: '/de/jobs-in-schweiz/',
   fr: '/fr/trouver-emploi-suisse/',
 };
+
+// Job pages link searches computed from the current posting, but a static page
+// exists only for the admitted candidates (scripts/lib/related-search-admission.mjs).
+// Every other search answers with the national board, whose SPA runs the query
+// from the URL, under an explicit noindex: reachable for people, and no soft 404
+// for search engines because nothing here can be indexed.
+const SEARCH_CLUSTER_WORD_BY_LOCALE = { it: 'ricerca', en: 'search', de: 'suche', fr: 'recherche' };
+const SEARCH_CLUSTER_PATH_RE = /^(?:\/(en|de|fr))?\/[a-z0-9-]+\/(ricerca|search|suche|recherche)-[a-z0-9]+(?:-[a-z0-9]+)*\/$/u;
+const SEARCH_CLUSTER_PATH_MAX_LENGTH = 120;
+const SEARCH_CLUSTER_FALLBACK_CACHE_CONTROL = 'public, max-age=300, s-maxage=3600';
+
+export async function serveUnknownSearchCluster(request, response, dispatch) {
+  if (response.status !== 404 || (request.method !== 'GET' && request.method !== 'HEAD')) return response;
+  const { pathname } = new URL(request.url);
+  const match = pathname.length <= SEARCH_CLUSTER_PATH_MAX_LENGTH && pathname.match(SEARCH_CLUSTER_PATH_RE);
+  if (!match) return response;
+  const locale = match[1] || 'it';
+  if (match[2] !== SEARCH_CLUSTER_WORD_BY_LOCALE[locale]) return response;
+  const board = await dispatch(new Request(new URL(NATIONAL_BOARD_BY_LOCALE[locale], request.url), { method: 'GET' }));
+  if (board.status !== 200) return response;
+  const headers = new Headers(board.headers);
+  headers.set('X-Robots-Tag', 'noindex, follow');
+  headers.set('Cache-Control', SEARCH_CLUSTER_FALLBACK_CACHE_CONTROL);
+  headers.delete('ETag');
+  headers.delete('Last-Modified');
+  return new Response(request.method === 'HEAD' ? null : board.body, { status: 200, headers });
+}
 
 // Legacy listing-pagination recovery. The old listing URL format
 //   /<locale>/<section>-<canton>/<filter>/page-<N>/   (filter ∈ the "all jobs"
@@ -1879,6 +1907,9 @@ export function retiredEdgeResponse(url) {
 export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   // Observed legacy legal URL; the Italian privacy page contains the cookie notice.
   '/cookie/': '/privacy/',
+  // Conventional sitemap names probed by crawlers; the index is /sitemap.xml.
+  '/sitemap_index.xml': '/sitemap.xml',
+  '/sitemap-jobs-ticino.xml': '/sitemap.xml',
   // Same NASpI consolidation already declared for the Italian article in the SSG map.
   '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/': '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/',
   '/jobs-im-tessin/': '/de/jobs-im-tessin/', // cathedral-allow: legacy SEO redirect
@@ -2552,6 +2583,7 @@ export async function serveCorpusSection(request, url, ctx) {
       const stale = await serveStaleOnError(url, resp ? `corpus-${resp.status}` : 'corpus-timeout');
       if (stale) return stale;
     }
+    if (request.method !== 'GET') logEdgeFailure(resp ? `corpus-${resp.status}` : 'corpus-timeout', url);
     return new Response('Section origin unavailable', {
       status: 503,
       headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' },
@@ -2569,20 +2601,25 @@ export async function serveCorpusSection(request, url, ctx) {
   };
   // Apex-keyed copy for stale-if-error and the over-cap fail-open path,
   // exactly as serveShard stores one (explicit buffer, never a tee).
-  if (ctx && request.method === 'GET' && !url.search) {
+  storeLastGoodCopy(request, url, ctx, body, headers);
+  return corpusResponse(request, body, { status: 200, headers });
+}
+
+// Apex-keyed last-good copy read by serveStaleOnError. Always an explicit
+// buffer, never a tee (#1791); query-string URLs are not canonical.
+function storeLastGoodCopy(request, url, ctx, body, headers) {
+  if (!ctx || request.method !== 'GET' || url.search) return;
+  const cacheHeaders = new Headers(headers);
+  cacheHeaders.set('Cache-Control', `public, max-age=300, s-maxage=${FAIL_OPEN_CACHE_TTL}`);
+  try {
     ctx.waitUntil(
       caches.default
-        .put(
-          new Request(url.toString(), { method: 'GET' }),
-          new Response(body, {
-            status: 200,
-            headers: { ...headers, 'Cache-Control': `public, max-age=300, s-maxage=${FAIL_OPEN_CACHE_TTL}` },
-          }),
-        )
+        .put(new Request(url.toString(), { method: 'GET' }), new Response(body, { status: 200, headers: cacheHeaders }))
         .catch(() => {}),
     );
+  } catch {
+    // Best-effort failover warmup — never fail the live response.
   }
-  return corpusResponse(request, body, { status: 200, headers });
 }
 
 // Per-section sitemaps and their index, published by the corpus to R2 next to
@@ -2631,7 +2668,7 @@ function corpusSitemapNotFound(request) {
 }
 
 /** Serve a corpus sitemap from R2; null for every other path or method. */
-export async function serveCorpusEdgeFile(request, url) {
+export async function serveCorpusEdgeFile(request, url, ctx) {
   const file = corpusEdgeFileForPath(url.pathname);
   if (!file) return null;
   if (request.method !== 'GET' && request.method !== 'HEAD') return null;
@@ -2652,14 +2689,19 @@ export async function serveCorpusEdgeFile(request, url) {
     if (!resp.ok && resp.status !== 404 && resp.status !== 410) throw new Error(`edge ${resp.status}`);
     if (!resp.ok) return corpusSitemapNotFound(request);
     const body = await resp.arrayBuffer();
-    return corpusResponse(request, body, {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/xml; charset=utf-8',
-        'Cache-Control': CORPUS_RELEASE_CACHE_CONTROL,
-      },
-    });
+    const headers = {
+      'Content-Type': 'application/xml; charset=utf-8',
+      'Cache-Control': CORPUS_RELEASE_CACHE_CONTROL,
+    };
+    storeLastGoodCopy(request, url, ctx, body, headers);
+    return corpusResponse(request, body, { status: 200, headers });
   } catch {
+    if (request.method === 'GET') {
+      const stale = await serveStaleOnError(url, 'corpus-sitemap');
+      if (stale) return stale;
+    } else {
+      logEdgeFailure('corpus-sitemap', url);
+    }
     return new Response('Sitemap origin unavailable', {
       status: 503,
       headers: { 'Retry-After': '60', 'Cache-Control': 'no-store' },
@@ -2807,6 +2849,10 @@ async function recoverExpiredJobToCantonRoot(url, origin) {
   });
 }
 
+// Apex paths worth a last-good copy: pages and XML feeds/sitemaps. Assets and
+// the small version files stay streaming passthroughs.
+const APEX_STALE_PATH_RE = /(?:\/|\.html|\.xml)$/u;
+
 // Per-attempt upstream timeout + one retry. A healthy shard origin answers in
 // ~0.1-0.2s, so 6s is generous for a slow-but-ok fetch yet fails a hung
 // connection fast; 6s×2=12s stays comfortably under Cloudflare's gateway
@@ -2908,6 +2954,20 @@ async function readShardBodyWithRetry(resp, upstream, request, cfOpts) {
 // falls back to surfacing the origin error. Only meaningful for GET (the cache
 // holds GET 200s); callers guard on method.
 async function serveStaleOnError(url, reason) {
+  const stale = await readStaleCopy(url, reason);
+  logEdgeFailure(reason, url, { stale: stale !== null });
+  return stale;
+}
+
+// The only application log of this Worker: one structured line per origin
+// failure, never on the happy path, so Workers Logs volume stays proportional
+// to invocations while a 5xx finally carries its cause. `url.pathname` only:
+// query strings may hold unsubscribe tokens and must not reach the logs.
+function logEdgeFailure(reason, url, fields = {}) {
+  console.error(JSON.stringify({ event: 'origin_failure', reason, path: url.pathname, ...fields }));
+}
+
+async function readStaleCopy(url, reason) {
   try {
     const cached = await caches.default.match(
       new Request(url.toString(), { method: 'GET' }),
@@ -3064,6 +3124,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       const stale = await serveStaleOnError(url, 'origin-timeout');
       if (stale) return stale;
     }
+    if (request.method !== 'GET') logEdgeFailure('origin-timeout', url);
     return new Response('Shard origin unavailable', {
       status: 503,
       headers: { 'Retry-After': '30' },
@@ -3121,18 +3182,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       if (employerRedirect) return employerRedirect;
       const headers = new Headers(resp.headers);
       headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
-      if (ctx && !url.search) {
-        const cacheHeaders = new Headers(resp.headers);
-        cacheHeaders.set('Cache-Control', `public, max-age=300, s-maxage=${FAIL_OPEN_CACHE_TTL}`);
-        ctx.waitUntil(
-          caches.default
-            .put(
-              new Request(url.toString(), { method: 'GET' }),
-              new Response(body, { status: 200, statusText: resp.statusText, headers: cacheHeaders }),
-            )
-            .catch(() => {}), // best-effort failover warmup — never fail the live response
-        );
-      }
+      storeLastGoodCopy(request, url, ctx, body, resp.headers);
       return new Response(body, { status: 200, statusText: resp.statusText, headers });
     }
   }
@@ -3356,7 +3406,7 @@ const router = {
     // one regex-validated rule instead of an exact EDGE_PUSHED_FILES entry per
     // canton. Disjoint from the table above (canton ids only), so the order
     // between the two changes nothing.
-    const corpusEdgeFile = await serveCorpusEdgeFile(request, url);
+    const corpusEdgeFile = await serveCorpusEdgeFile(request, url, ctx);
     if (corpusEdgeFile) return corpusEdgeFile;
 
     // Retired paths (issue #5369 §4) — 301 to a substitute, or 410 Gone. Must
@@ -3423,17 +3473,46 @@ const router = {
       // Pages answer. The outer response filter removes stale first-party SRI
       // from HTML. The timeout+retry guard mirrors the shard-origin layer. No
       // cf caching opts: this passthrough must respect the zone's cache rules.
+      // Documents and sitemaps keep a last-good copy, as serveShard does: on
+      // 2026-10-28 this path answered 503 with nothing to fall back on.
       try {
         const response = await fetchOriginWithRetry(url, request);
+        if (request.method === 'GET' && response.status >= 500) {
+          const stale = await serveStaleOnError(url, `apex-${response.status}`);
+          if (stale) return stale;
+        }
         if ((request.method === 'GET' || request.method === 'HEAD') && (response.status === 404 || response.status === 200)) {
           const redirect = await recoverOrphanQueryAlias(url, url.hostname, response.status === 200);
           if (redirect) return redirect;
           const employerRedirect = await recoverEmployerProfileAlias(url, url.hostname);
           if (employerRedirect) return employerRedirect;
+          // Blog images live on the CDN only; old absolute apex references 404.
+          if (response.status === 404 && url.pathname.startsWith('/images/blog/')) {
+            return Response.redirect(new URL(url.pathname, CDN_BASE).toString(), 301);
+          }
+        }
+        if (request.method === 'GET' && response.status === 200 && APEX_STALE_PATH_RE.test(url.pathname)) {
+          const { resp, body } = await readShardBodyWithRetry(response, url, request);
+          if (resp.status >= 500) {
+            const stale = await serveStaleOnError(url, `apex-${resp.status}`);
+            if (stale) return stale;
+          }
+          if (resp.status !== 200 || body === null) return resp;
+          storeLastGoodCopy(request, url, ctx, body, resp.headers);
+          return new Response(body, { status: 200, statusText: resp.statusText, headers: resp.headers });
         }
         return response;
       } catch {
-        return new Response('Origin unavailable', { status: 503 });
+        if (request.method === 'GET') {
+          const stale = await serveStaleOnError(url, 'apex-timeout');
+          if (stale) return stale;
+        } else {
+          logEdgeFailure('apex-timeout', url);
+        }
+        return new Response('Origin unavailable', {
+          status: 503,
+          headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' },
+        });
       }
     }
 
@@ -3451,6 +3530,9 @@ export default {
       await router.fetch(request, env, ctx),
       () => router.fetch(new Request(request, { method: 'GET' }), env, ctx),
     );
-    return stripStaleAssetIntegrity(request, response);
+    const served = await serveUnknownSearchCluster(request, response, (boardRequest) =>
+      router.fetch(boardRequest, env, ctx),
+    );
+    return stripStaleAssetIntegrity(request, served);
   },
 };

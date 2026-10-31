@@ -54,6 +54,55 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.read(base).automationDueAt).toBeNull();
   });
 
+  it.each(['portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
+    const store = fixture();
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: [reason] });
+    const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ queued: 1 });
+    const ambiguous = fixture();
+    ambiguous.docs.set(`${base}/automation/flow`, { ...ambiguous.read(`${base}/automation/flow`), heldBy: [reason] });
+    ambiguous.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now } });
+    expect(await reconcilePortalCode({ ...ctx, db: ambiguous.db })).toMatchObject({ queued: 0 });
+  });
+
+  it.each(['unpaid', 'not_approved', 'wrong_round', 'same_code', 'already_recovered', 'withdrawn', 'purged', 'refunded', 'sent_attempt', 'sent', 'ambiguous', 'clicked', 'other_round_sent', 'hard_question', 'no_source', 'expired', 'disabled', 'reason_not_exact'])('retains the existing recovery fences for an unregistered choice: %s', async kind => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`, draftPath = `${base}/ai_drafts/current`, submissionPath = `${base}/automation/submission`;
+    store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['portal:portal_choice_not_registered'] });
+    if (kind === 'unpaid') store.docs.set(base, { ...store.read(base), paymentStatus: 'pending' });
+    if (kind === 'not_approved') store.docs.set(flowPath, { ...store.read(flowPath), dispatch: { mode: 'draft', round: 1 } });
+    if (kind === 'wrong_round') store.docs.set(draftPath, { ...store.read(draftPath), round: 2 });
+    if (kind === 'same_code') store.docs.set(flowPath, { ...store.read(flowPath), portalCodeVersion: version });
+    if (kind === 'already_recovered') store.docs.set(flowPath, { ...store.read(flowPath), portalRecoveryVersion: version });
+    if (kind === 'withdrawn') store.docs.set(base, { ...store.read(base), withdrawnAt: now });
+    if (kind === 'purged') store.docs.set(base, { ...store.read(base), retentionPurgedAt: now });
+    if (kind === 'refunded') store.docs.set(base, { ...store.read(base), refundStatus: 'succeeded' });
+    if (kind === 'sent_attempt') store.docs.set(draftPath, { ...store.read(draftPath), sentAttempt: { at: now } });
+    if (['sent', 'ambiguous', 'clicked'].includes(kind)) store.docs.set(submissionPath, { r1: {
+      state: kind === 'sent' ? 'sent' : kind === 'ambiguous' ? 'sending' : 'failed', channel: 'portal', clickedAt: now, releasedAt: now,
+    } });
+    if (kind === 'other_round_sent') store.docs.set(submissionPath, { ...store.read(submissionPath), r2: { state: 'sent', channel: 'portal' } });
+    if (kind === 'hard_question') store.docs.set(draftPath, { ...store.read(draftPath), questions: [{ id: 'salary', question: 'Desired salary?', required: true, type: 'text' }] });
+    if (kind === 'no_source') store.docs.set(draftPath, { ...store.read(draftPath), job: { source: 'none' } });
+    if (kind === 'expired') store.docs.set(flowPath, { ...store.read(flowPath), postingExpiredAt: now });
+    if (kind === 'reason_not_exact') store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['portal:portal_choice_not_registered_extra'] });
+    expect(await reconcilePortalCode({ db: store.db, version, apply: true, nowMs: now, isEnabled: async () => kind !== 'disabled' })).toMatchObject({ eligible: 0, queued: 0 });
+    expect(store.read(base).automationDueAt).toBeNull();
+    expect(store.list(`${base}/events/`)).toHaveLength(0);
+  });
+
+  it('queues a resolved choice exactly once without changing its approved round or saved answers', async () => {
+    const store = fixture(), flowPath = `${base}/automation/flow`;
+    const answers = { confirmed_fact: 'candidate supplied value' };
+    const dispatch = { mode: 'submit', round: 1 };
+    store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['portal:portal_choice_not_registered'], answers, dispatch });
+    const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ queued: 1 });
+    expect(store.read(flowPath)).toMatchObject({ round: 1, answers, dispatch, portalRecoveryVersion: version });
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ queued: 0 });
+    expect(store.list(`${base}/events/`)).toHaveLength(1);
+  });
+
   it('retains the provider-outage lane instead of treating it as an unanswered personal question', async () => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: ['portal:captcha_provider_unavailable'] });
@@ -68,7 +117,7 @@ describe('automatic recovery after a portal fix', () => {
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
       ...['assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
-        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/answerRules.js'].map(file => `functions/src/${file}`),
+        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/answerRules.js', 'lib/portalQuestionText.js', 'lib/portalNativeContract.js'].map(file => `functions/src/${file}`),
     ];
     const write = (file: string, text: string) => { mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); writeFileSync(path.join(root, file), text); };
     try {
@@ -78,6 +127,9 @@ describe('automatic recovery after a portal fix', () => {
       expect(currentPortalCodeVersion(root)).toBe(before);
       write('scripts/assisted-application/lib/portal/fields.mjs', 'fixed selector');
       expect(currentPortalCodeVersion(root)).not.toBe(before);
+      const afterFields = currentPortalCodeVersion(root);
+      write('functions/src/lib/portalQuestionText.js', 'fixed question readability');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterFields);
       const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/assisted-application-portal-recovery.yml', import.meta.url), 'utf8'));
       for (const file of sourceFiles) expect(workflow.on.push.paths.some((pattern: string) => pattern.endsWith('/**') ? file.startsWith(pattern.slice(0, -2)) : file === pattern)).toBe(true);
     } finally { rmSync(root, { recursive: true, force: true }); }

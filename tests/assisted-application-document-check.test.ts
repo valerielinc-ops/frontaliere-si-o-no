@@ -2,9 +2,12 @@
 // them when a file does not look like the document the posting asks for
 // (owner decision 2026-10-02: a warning, never a block). Rolex: school
 // reports and the EVA test results.
-import { describe, expect, it } from 'vitest';
-import { checkDocumentFile, classifyDocumentText, DOCUMENT_CHECK_VERSION } from '../services/assistedApplicationDocumentCheck';
+import { describe, expect, it, vi } from 'vitest';
+import { checkDocumentFile, classifyDocumentText, DOCUMENT_CHECK_VERSION, readDocumentText } from '../services/assistedApplicationDocumentCheck';
 import { sanitizeClientCheck } from '../functions/src/assistedApplicationExtraDocuments.js';
+
+
+vi.mock('pdfjs-dist', () => ({ GlobalWorkerOptions: {}, getDocument: vi.fn() }));
 
 const REPORTS = { label: 'Bulletins des trois dernières années scolaires', kind: 'school_report', keywords: ['bulletin', 'Zeugnis', 'pagella', 'school report'] };
 const EVA = { label: 'Résultats du test EVA', kind: 'aptitude_test', keywords: ['EVA', 'evatech', 'test d\'aptitudes'] };
@@ -49,12 +52,72 @@ describe('the browser\'s check of a requested document', () => {
     expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }).verdict).toBe('match');
   });
 
+  it.each([
+    'Si certifica che il candidato ha superato, con voti 100 su 110, l’esame di laurea in ingegneria informatica.',
+    `Si certifica che il candidato ha superato in data ${new Intl.DateTimeFormat('it-IT').format(new Date())} con voti 100/110 l’esame di laurea in ingegneria informatica.`,
+    'Modello amministrativo 42. Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Si attesta che la candidata ha superato l’esame di laurea in ingegneria informatica.',
+    'SI CERTIFICA CHE IL CANDIDATO HA SUPERATO, CON VOTAZIONE 100/110, L’ESAME DI LAUREA IN INFORMATICA.',
+  ])('recognises completed degree exams certified without a degree title: %s', text => {
+    expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }))
+      .toEqual({ verdict: 'match', matched: 'esame di laurea' });
+  });
+
+  it.each([
+    'Non si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Mai si attesta che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Fattura per servizio di traduzione. Testo richiesto dal cliente: «Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica».',
+    'Template: si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Fac simile di certificato: si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Lettera di referenza. Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.',
+    'Si certifica che il candidato non ha superato l’esame di laurea in ingegneria informatica.',
+    'Si certifica che il candidato non ha ancora superato l’esame di laurea in ingegneria informatica.',
+    'Si certifica che il candidato deve sostenere l’esame di laurea in ingegneria informatica.',
+    'Il candidato ha superato un esame di formazione. Certificato di residenza per uso amministrativo.',
+  ])('requires a certified completed degree exam: %s', text => {
+    expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }).verdict).toBe('mismatch');
+  });
+
+  it('keeps CV warnings ahead of certified degree exam wording and scopes it to diplomas', () => {
+    const certificate = 'Si certifica che il candidato ha superato, con voti 100 su 110, l’esame di laurea in ingegneria informatica.';
+    expect(classifyDocumentText(CV + certificate, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }).verdict).toBe('looks_like_cv');
+    expect(classifyDocumentText(certificate, { label: 'Arbeitszeugnisse', kind: 'reference', keywords: ['Arbeitszeugnisse'] }).verdict).toBe('mismatch');
+  });
+
   it('recognises an Italian work reference requested in German and keeps unrelated documents and CVs distinct', () => {
     expect(classifyDocumentText('Certificato di lavoro. Si attesta il rapporto di impiego e si descrivono le mansioni svolte.', { label: 'Arbeitszeugnisse', kind: 'reference', keywords: ['Arbeitszeugnisse'] }).verdict).toBe('match');
     const degree = { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] };
     expect(classifyDocumentText(CV + ' Diploma di laurea in informatica.', degree).verdict).toBe('looks_like_cv');
     expect(classifyDocumentText('Comune. Certificato di residenza relativo alla persona iscritta in anagrafe, per uso amministrativo.', degree).verdict).toBe('mismatch');
     expect(classifyDocumentText('Fattura per un master di formazione. Importo dovuto e modalità di pagamento, scadenza trenta giorni.', degree).verdict).toBe('mismatch');
+  });
+
+  it.each(['readable', 'page_error', 'load_error'])('releases the PDF reader after a browser recheck, including parsing errors: %s', async broken => {
+    const pdfjs = await import('pdfjs-dist');
+    const destroy = vi.fn(async () => {});
+    const pdf = { numPages: 1, getPage: async () => ({ getTextContent: async () => {
+      if (broken === 'page_error') throw new Error('unreadable PDF');
+      return { items: [{ str: 'Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.' }] };
+    } }) };
+    vi.mocked(pdfjs.getDocument).mockReturnValue({ promise: broken === 'load_error' ? Promise.reject(new Error('invalid PDF')) : Promise.resolve(pdf), destroy } as any);
+    const text = await readDocumentText({ name: 'degree.pdf', type: 'application/pdf', arrayBuffer: async () => new ArrayBuffer(0) } as File);
+    expect(text).toBe(broken !== 'readable' ? '' : 'Si certifica che il candidato ha superato l’esame di laurea in ingegneria informatica.');
+    expect(destroy).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(['readable', 'page_error', 'load_error'])('releases the sibling article PDF reader without changing its error contract: %s', async broken => {
+    const pdfjs = await import('pdfjs-dist');
+    const { extractArticleBodyFromFile } = await import('../services/articleDocumentImport');
+    const destroy = vi.fn(async () => {});
+    const pdf = { numPages: 1, getPage: async () => ({ getTextContent: async () => {
+      if (broken === 'page_error') throw new Error('unreadable PDF');
+      return { items: [{ str: 'Article text retained exactly as read.' }] };
+    } }) };
+    vi.mocked(pdfjs.getDocument).mockReturnValue({ promise: broken === 'load_error' ? Promise.reject(new Error('invalid PDF')) : Promise.resolve(pdf), destroy } as any);
+    const reading = extractArticleBodyFromFile({ name: 'article.pdf', arrayBuffer: async () => new ArrayBuffer(0) } as File);
+    if (broken === 'readable') expect(await reading).toBe('Article text retained exactly as read.');
+    else await expect(reading).rejects.toThrow();
+    expect(destroy).toHaveBeenCalledTimes(1);
   });
 
   it('versions new browser checks and preserves their version without storing extracted text', async () => {

@@ -1,4 +1,5 @@
 import { CREATE_ASSISTED_APPLICATION_CHECKOUT_URL } from './functionsBase';
+import { withAssistedPaymentResponseShape } from './assistedApplicationResponseShape';
 import type {
   AssistedApplicationCopyVariant,
   AssistedApplicationLayoutVariant,
@@ -286,7 +287,7 @@ export async function createAssistedApplicationCheckout(
     && data.url.length > 0;
   if (!response.ok || !data?.ok || !data?.orderId || (!isSumUpWidgetResponse && !isRedirectResponse)) {
     const code = safeErrorCode(data?.error) || (httpErrorCode(response.status) || 'invalid_response');
-    throw checkoutError(code, response.status, checkoutDetails(data));
+    throw withAssistedPaymentResponseShape(checkoutError(code, response.status, checkoutDetails(data)), response.status, data);
   }
   return data as AssistedApplicationCheckoutResult;
 }

@@ -73,6 +73,40 @@ describe('Offer status gated behind auth (logged-out)', () => {
   ).toBeInTheDocument();
  });
 
+ it('keeps expired related jobs in the full-width AuthGate column with the standard card grid', () => {
+  const relatedJobs = Array.from({ length: 4 }, (_, index) => ({
+   slug: `related-job-${index}`,
+   title: `Related role ${index}`,
+   company: 'Acme SA',
+   location: 'Lugano',
+  }));
+  const { container } = render(<JobExpiredView job={expiredJob} relatedJobs={relatedJobs} hasAccess={false} />);
+
+  const gatedLayout = container.querySelector('[data-expired-layout="gated"]');
+  const centerContent = gatedLayout?.querySelector('[data-expired-gated-content]');
+  expect(centerContent).toBeInTheDocument();
+  expect(centerContent).toHaveClass('w-full');
+  expect(centerContent).not.toHaveClass('max-w-3xl');
+  expect(centerContent?.querySelector('#job-auth-gate')).toBeInTheDocument();
+
+  const relatedGrid = centerContent?.querySelector('[data-job-related-grid]');
+  expect(relatedGrid).toHaveClass('grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3');
+  expect(relatedGrid?.querySelectorAll('article')).toHaveLength(4);
+  const infeedAd = relatedGrid?.querySelector('[data-job-related-ad]');
+  expect(infeedAd).toHaveClass('col-span-full');
+  expect(relatedGrid?.querySelectorAll('[data-job-related-ad]')).toHaveLength(1);
+ });
+
+ it('gives archived orphan details the same 8/4 grid as the standard job detail', () => {
+  const { container } = render(<JobOrphanView slug="software-engineer-acme-sa-lugano" hasAccess />);
+
+  const layout = container.querySelector('[data-orphan-layout="authenticated"]');
+  const detailGrid = layout?.querySelector('[data-orphan-detail-grid]');
+  expect(detailGrid).toHaveClass('grid-cols-1', 'lg:grid-cols-12');
+  expect(detailGrid?.querySelector('article')).toHaveClass('lg:col-span-8');
+  expect(detailGrid?.querySelector('aside')).toHaveClass('lg:col-span-4');
+ });
+
  it('JobExpiredView gate teaser strips a leading markdown ATX heading (`## `) instead of printing it literally', () => {
   render(<JobExpiredView job={markdownHeadingJob} />);
 
