@@ -332,6 +332,27 @@ describe('orphanQueryData — job matching', () => {
     expect(jobMatchesCluster(job, cluster)).toBe(true);
   });
 
+  it('a query that names Ticino needs a job in Ticino (GEO audit 2026-10-31)', () => {
+    const c = makeCluster('it', 'offerte-di-lavoro-architetto-ticino', 30, ['architett'], ['ticino']);
+    const inTicino = activeJob({ title: 'Architetto', canton: 'TI', location: 'Lugano', addressLocality: 'Lugano' });
+    const inZurich = activeJob({ title: 'Cloud Architetto', canton: 'ZH', location: 'Zurigo', addressLocality: 'Zurigo' });
+    expect(jobMatchesCluster(inTicino, c)).toBe(true);
+    expect(jobMatchesCluster(inZurich, c)).toBe(false);
+    // Same verdict from the memoised path the plugin actually runs.
+    expect(filterMatchingJobs([inZurich, inTicino], c, 15)).toEqual([inTicino]);
+  });
+
+  it('a nationwide query keeps matching every canton', () => {
+    const inZurich = activeJob({ title: 'Chauffeur', canton: 'ZH', location: 'Zurigo', addressLocality: 'Zurigo' });
+    expect(jobMatchesCluster(inZurich, cluster)).toBe(true);
+  });
+
+  it('a city in the query decides over the Ticino token', () => {
+    const c = makeCluster('it', 'lavoro-cuoco-lugano-ticino', 30, ['cuoc'], ['lugano', 'ticino']);
+    expect(jobMatchesCluster(activeJob({ title: 'Cuoco', canton: 'TI', location: 'Lugano', addressLocality: 'Lugano' }), c)).toBe(true);
+    expect(jobMatchesCluster(activeJob({ title: 'Cuoco', canton: 'TI', location: 'Bellinzona', addressLocality: 'Bellinzona' }), c)).toBe(false);
+  });
+
   it('requires the complete profession and ignores salary/search filler', () => {
     const c = makeCluster('it', 'stipendio-specialista-delle-dogane-svizzera', 30,
       ['dogan', 'specialist', 'stipendi'], ['svizzera']);
