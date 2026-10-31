@@ -66,9 +66,11 @@ export async function deleteStored(bucket, orderId, keys) {
 export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, nowMs }) {
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const same = (left, right) => (left || null) === (right || null);
   const committed = await db.runTransaction(async (transaction) => {
-    const [flowSnapshot, draftSnapshot] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef)]);
+    const [flowSnapshot, draftSnapshot, orderSnapshot] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef), transaction.get(orderRef)]);
+    if (!orderSnapshot.exists || !answerSourceRetained(orderSnapshot.data(), Math.max(nowMs, Date.now()))) return false;
     const current = { flow: flowSnapshot.data() || {}, draft: draftSnapshot.data() || {} };
     const unchanged = current.flow.state === state
       && Number(current.flow.round || 1) === Number(flow.round || 1)

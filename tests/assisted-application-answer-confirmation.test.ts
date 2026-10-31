@@ -10,7 +10,7 @@ vi.mock('../functions/src/assistedApplicationAutomation.js', () => ({
 vi.mock('../functions/src/assistedApplicationTailoredCvPdf.js', () => ({
   tailoredCvChanges: vi.fn(() => false), rebuildTailoredCvPdf: vi.fn(), supersededPhotoPdf: () => null,
 }));
-const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
+const { saveAnswersWithCv, commitRebuild } = await import('../functions/src/assistedApplicationCvCommit.js');
 const pdf = await import('../functions/src/assistedApplicationTailoredCvPdf.js');
 const now = Date.now(); const hash = 'a'.repeat(64);
 const q = { id: 'english', question: 'What is your English proficiency level?', type: 'text' };
@@ -26,6 +26,17 @@ function fixture(question: any = q) {
 }
 
 describe('question confirmation protocol', () => {
+  it.each(['expired', 'purging'])('does not publish photo/CV/edit rebuilds while the source is %s', async reason => {
+    const f = fixture();
+    if (reason === 'expired') f.read('assisted_applications/source').cvUploadedAt = now - 90 * 86400000 - 1;
+    else f.read('assisted_applications/source').retentionPurgingAt = now;
+    const remove = vi.fn(async () => {});
+    await expect(commitRebuild({ db: f.db, bucket: { file: () => ({ delete: remove }) }, orderId: 'source',
+      flow: f.input().flow, draft: f.input().draft, created: ['new-private.pdf'], draftPatch: { tailoredCv: { pdfKey: 'new-private.pdf' } }, nowMs: now }))
+      .rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
+    expect(f.read('assisted_applications/source/ai_drafts/current').tailoredCv).toBeUndefined();
+    expect(remove).toHaveBeenCalled();
+  });
   it('keeps the pending predicate safe before the first flow/draft exists', () => {
     expect(currentAnswerReviewRequired(null, null)).toBe(false);
   });

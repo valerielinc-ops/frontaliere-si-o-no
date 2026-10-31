@@ -139,6 +139,8 @@ function questionView(question, nowMs = Date.now()) {
     id: question.id,
     question: question.question,
     applicationQuestion: question.applicationQuestion || descriptor?.originalNativeContract?.question || '',
+    originalQuestionContext: descriptor?.originalNativeContract?.context || '',
+    originalQuestionSection: descriptor?.originalNativeContract?.section || '',
     why: question.why || '',
     type: question.type,
     options: question.options || [],

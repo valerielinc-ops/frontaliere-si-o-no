@@ -15,6 +15,7 @@ function boundedNativeContract(value) {
     if (serialized.length > 64000) return null;
     const copy = JSON.parse(serialized);
     if (typeof copy.question !== 'string' || copy.question.length > 8000 || typeof copy.kind !== 'string'
+      || ['context', 'section'].some(field => Object.hasOwn(copy, field) && typeof copy[field] !== 'string')
       || !Array.isArray(copy.options) || copy.options.length > 300 || copy.options.some(value => typeof value !== 'string')
       || ['questionOwned', 'metadataComplete', 'ownershipUnknown'].some(field => Object.hasOwn(copy, field) && typeof copy[field] !== 'boolean')
       || consentOwnershipContract(copy) === null || addressContextContract(copy) === null) return null;

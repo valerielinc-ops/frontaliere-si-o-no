@@ -73,6 +73,14 @@ beforeEach(() => {
 });
 
 describe('candidate review API', () => {
+  it('shows complete original native constraints for non-checkbox questions before confirmation', async () => {
+    const context = 'Only University X degrees qualify. ' + 'Complete original requirement. '.repeat(30);
+    store.read(`${BASE}/ai_drafts/current`).questions = [{ id: 'degree', question: 'Degree?', type: 'yes_no', required: true,
+      originalNativeContract: { question: 'Degree?', kind: 'select', options: ['Yes', 'No'], context, section: 'Accredited education' } }];
+    const response = await reviewHandler({ method: 'GET', query: { t: token() } }, deps());
+    expect(response.body.questions[0]).toMatchObject({ originalQuestionContext: context, originalQuestionSection: 'Accredited education' });
+    expect(response.body.answerContracts.degree).toMatch(/^[a-f0-9]{64}$/);
+  });
   it('returns a preparing payload when the first draft does not exist yet', async () => {
     store.docs.delete(`${BASE}/ai_drafts/current`);
     store.read(`${BASE}/automation/flow`).state = 'drafting';
