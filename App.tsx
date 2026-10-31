@@ -886,7 +886,7 @@ const App: React.FC = () => {
  }
  // Re-enable sign-in affordances (One Tap, auth gates) once the exchange
  // resolves — success or failure. Idempotent + no-op when never in flight.
- settleNewsletterAutologin();
+ if (ownsAutologinAttempt) settleNewsletterAutologin();
  }
  })();
  }, []);

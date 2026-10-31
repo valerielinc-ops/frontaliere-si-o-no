@@ -79,15 +79,23 @@ describe('newsletter autologin → sign-in affordance suppression', () => {
  it('claims one exchange and one terminal owner per credential-bearing URL', async () => {
   const sig = await freshSignal();
   const factory = vi.fn(async () => 'signed-in-user');
+  let resolveFirst!: (value: string) => void;
+  const firstFactory = () => new Promise<string>((resolve) => { resolveFirst = resolve; });
 
-  const first = sig.claimNewsletterAutologinAttempt('same-link', factory);
-  const second = sig.claimNewsletterAutologinAttempt('same-link', factory);
+  const first = sig.claimNewsletterAutologinAttempt('same-link', firstFactory);
+  const second = sig.claimNewsletterAutologinAttempt('same-link', firstFactory);
 
   expect(first.owner).toBe(true);
   expect(second.owner).toBe(false);
+  const blocked = sig.claimNewsletterAutologinAttempt('different-link', factory);
+  expect(blocked.owner).toBe(false);
+  await expect(blocked.promise).rejects.toThrow('newsletter_autologin_in_progress');
+
+  await Promise.resolve();
+  resolveFirst('signed-in-user');
   await expect(first.promise).resolves.toBe('signed-in-user');
   await expect(second.promise).resolves.toBe('signed-in-user');
-  expect(factory).toHaveBeenCalledTimes(1);
+  expect(factory).not.toHaveBeenCalled();
 
   const later = sig.claimNewsletterAutologinAttempt('different-link', factory);
   expect(later.owner).toBe(true);

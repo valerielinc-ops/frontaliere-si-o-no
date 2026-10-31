@@ -71,21 +71,30 @@ const attemptedAtLoad = inFlight;
 type NewsletterAutologinAttempt = {
  key: string;
  promise: Promise<unknown>;
+ settled: boolean;
 };
 
 // React StrictMode (and a few static-to-live remount paths) can run the App
 // effect more than once for the same URL. Keep the exchange and its telemetry
-// terminal state single-flight for that URL, while still allowing a later
-// in-SPA newsletter link with a different credential to start a new attempt.
+// terminal state single-flight for that URL. A second credential-bearing link
+// is rejected while an earlier exchange is still pending; this prevents the
+// global in-flight sign-in signal from being settled by the wrong attempt.
 let activeAutologinAttempt: NewsletterAutologinAttempt | null = null;
 
-export function claimNewsletterAutologinAttempt<T>(
+export function claimNewsletterAutologinAttempt(
  key: string,
- factory: () => Promise<T>,
-): { promise: Promise<T>; owner: boolean } {
+ factory: () => Promise<unknown>,
+): { promise: Promise<unknown>; owner: boolean } {
  if (activeAutologinAttempt?.key === key) {
   return {
-   promise: activeAutologinAttempt.promise as Promise<T>,
+   promise: activeAutologinAttempt.promise,
+   owner: false,
+  };
+ }
+
+ if (activeAutologinAttempt && !activeAutologinAttempt.settled) {
+  return {
+   promise: Promise.reject(new Error('newsletter_autologin_in_progress')),
    owner: false,
   };
  }
@@ -93,7 +102,12 @@ export function claimNewsletterAutologinAttempt<T>(
  // Defer the factory to the next microtask so the owner can emit the attempt
  // marker before the network/auth exchange starts.
  const promise = Promise.resolve().then(factory);
- activeAutologinAttempt = { key, promise };
+ const attempt: NewsletterAutologinAttempt = { key, promise, settled: false };
+ activeAutologinAttempt = attempt;
+ void promise.then(
+  () => { attempt.settled = true; },
+  () => { attempt.settled = true; },
+ );
  return { promise, owner: true };
 }
 
