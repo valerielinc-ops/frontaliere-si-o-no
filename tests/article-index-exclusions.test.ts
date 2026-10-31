@@ -10,6 +10,8 @@ import {
 } from '../packages/articles/engine/shared/articleIndexExclusions.mjs';
 import { indexExcludedArticleIds } from '../scripts/lib/article-canonical-overrides.mjs';
 
+const [SITE_LEDGER, CORPUS_LEDGER] = ARTICLE_INDEX_EXCLUSIONS_FILES;
+
 function tempRoot(): string {
   return fs.mkdtempSync(path.join(os.tmpdir(), 'article-index-exclusions-'));
 }
@@ -37,7 +39,7 @@ describe('article index exclusions ledger', () => {
 
   it('refuses an unreadable file: an empty set would silently re-index every excluded article', () => {
     const root = tempRoot();
-    writeLedger(root, 'content/article-index-exclusions.json', '{"excluded":[{"section":"frontaliere"');
+    writeLedger(root, CORPUS_LEDGER, '{"excluded":[{"section":"frontaliere"');
     const candidates = ARTICLE_INDEX_EXCLUSIONS_FILES.map((candidate) => path.join(root, candidate));
     expect(() => loadArticleIndexExclusions(fs, candidates)).toThrow();
 
@@ -47,13 +49,13 @@ describe('article index exclusions ledger', () => {
 
   it('resolves both repo layouts, site first', () => {
     const root = tempRoot();
-    writeLedger(root, 'content/article-index-exclusions.json', JSON.stringify({
+    writeLedger(root, CORPUS_LEDGER, JSON.stringify({
       excluded: [{ section: 'frontaliere', id: 'corpus-layout' }],
     }));
     const candidates = ARTICLE_INDEX_EXCLUSIONS_FILES.map((candidate) => path.join(root, candidate));
     expect([...loadArticleIndexExclusions(fs, candidates)]).toEqual(['frontaliere|corpus-layout']);
 
-    writeLedger(root, 'packages/articles/content/article-index-exclusions.json', JSON.stringify({
+    writeLedger(root, SITE_LEDGER, JSON.stringify({
       excluded: [{ section: 'frontaliere', id: 'site-layout' }],
     }));
     expect([...loadArticleIndexExclusions(fs, candidates)]).toEqual(['frontaliere|site-layout']);
@@ -61,7 +63,7 @@ describe('article index exclusions ledger', () => {
 
   it('exempts from the sitemap sync gate only the ids of the section that withdrew them', () => {
     const root = tempRoot();
-    writeLedger(root, 'packages/articles/content/article-index-exclusions.json', JSON.stringify({
+    writeLedger(root, SITE_LEDGER, JSON.stringify({
       excluded: [
         { section: 'frontaliere', id: 'burraco-solidale-buguggiate' },
         { section: 'svizzera', id: 'muro-big-bend' },
