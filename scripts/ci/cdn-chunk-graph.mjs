@@ -102,18 +102,15 @@ export const MAX_PURGE_URLS_PER_RUN = 3000;
  * with the post-purge verification, and ~24k R2 reads per pass — for leaves
  * whose staleness shows old prose, never a link error (the loader only reads
  * `.default`). Their targets are therefore covered by a rotating window:
- * `DEFAULT_FANOUT_SAMPLE` per run, a different window every half hour, so the
+ * `DEFAULT_FANOUT_SAMPLE` per run, a different window every hour, so the
  * whole family is walked within ceil(n / sample) runs. The ~270 code chunks
- * are always checked in full. The loop clock runs this every 30 minutes: 1000
- * chunks on an hourly window made the second run of each hour re-read the
- * first run's chunks, 330k requests a day for no extra coverage; 500 on a
- * half-hour window keeps 1000 distinct chunks an hour.
+ * are always checked in full.
  */
 export const FANOUT_SAMPLE_THRESHOLD = 400;
-export const DEFAULT_FANOUT_SAMPLE = 500;
-/** One rotation step per half hour: consecutive runs land on different windows. */
+export const DEFAULT_FANOUT_SAMPLE = 1000;
+/** One rotation step per hour: consecutive runs land on different windows. */
 export function defaultRotation(nowMs = Date.now()) {
-  return Math.floor(nowMs / 1_800_000);
+  return Math.floor(nowMs / 3_600_000);
 }
 const TRANSIENT_RETRIES = 2;
 const RETRY_DELAY_MS = 400;

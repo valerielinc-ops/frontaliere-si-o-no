@@ -10,7 +10,8 @@
  *      truncates the title at SERP-render time.
  *
  *   2. The brand suffix " | Frontaliere Ticino" is appended only when the
- *      total stays within the cap. When the headline alone already fills
+ *      total stays within the target of 60: the tolerance up to the cap is
+ *      for headlines, never for the brand. When the headline alone already fills
  *      (or exceeds) the cap, the brand is DROPPED to preserve the keyword
  *      content of the headline. The brand is a "nice-to-have", not a
  *      ranking signal.
@@ -461,7 +462,7 @@ export function clampMetaDescription(
 export function buildTitleWithBrand(
   headline: string,
   brand: string = TITLE_BRAND_SUFFIX,
-  maxChars: number = TITLE_MAX_CHARS,
+  maxChars: number = TITLE_TARGET_CHARS,
   measureLength: (s: string) => number = (s) => s.length,
 ): string {
   const safeHeadline = String(headline || '').trim();

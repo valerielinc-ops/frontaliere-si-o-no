@@ -21,9 +21,9 @@
 // anything the page paints with. The map's entire job is to rank a 4-card strip
 // that renders below the fold and only when 3+ matches exist.
 //
-// Fetching it instead moves it off the critical path (the file is copied to
-// dist/data/ by build-plugins/adminDataPlugin.ts, which drops the single-view
-// entries, then served from the CDN by the deploy's `cp -r dist/data` + offload).
+// Fetching it instead keeps the data byte-identical (the file is copied to
+// dist/data/ by build-plugins/adminDataPlugin.ts, then served from the CDN by
+// the deploy's `cp -r dist/data` + offload) and moves it off the critical path.
 //
 // FAIL-SOFT: every failure path resolves to `{}`. getTrendingByLocation()
 // returns [] for an empty map and TrendingSection only renders at 3+ jobs, so a

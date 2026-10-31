@@ -20,16 +20,6 @@ const entries = [
     everyMinutes: 60,
     introducedAt: '2026-10-07T16:50:03Z',
   },
-  // AdSense has no hourly dimension: each run stores the day's running total,
-  // so the snapshots are only hourly if the run is. The native cron of an
-  // hourly workflow fired every 4.5-5 hours in October 2026.
-  {
-    id: 'site-adsense-hourly-monitor',
-    repo: 'site',
-    workflow: 'adsense-hourly-monitor.yml',
-    everyMinutes: 60,
-    introducedAt: '2026-10-31T12:00:00Z',
-  },
   { id: 'site-event-description-rewrite', repo: 'site', workflow: 'event-description-rewrite.yml', everyMinutes: 60 },
   // GitHub's native cron has left this daily workflow dormant despite a green
   // scheduled run. Keep it on the external clock, with the native schedule as

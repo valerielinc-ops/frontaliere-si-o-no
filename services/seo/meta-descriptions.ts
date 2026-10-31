@@ -91,14 +91,41 @@ export function finalizeMeta(base: string, qualifier: string): string {
   return finalize(base, qualifier);
 }
 
+// Stessa promessa, formule diverse: una coda identica su decine di hub si legge
+// come testo generato in serie. La scelta dipende dalla frase, quindi è stabile.
+export const JOB_HUB_CTA: Record<JobPageLocale, readonly string[]> = {
+  it: [
+    'Leggi gli annunci; accesso gratuito per candidarti.',
+    'Consulta le offerte; per candidarti l’accesso è gratuito.',
+    'Annunci da consultare; accesso gratuito per candidarti.',
+  ],
+  en: [
+    'Read listings freely; free sign-in to apply.',
+    'Browse the roles; apply with a free sign-in.',
+    'Open listings to read; free sign-in when you apply.',
+  ],
+  de: [
+    'Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.',
+    'Stellen ansehen; Bewerbung mit kostenloser Anmeldung.',
+    'Offene Anzeigen; für die Bewerbung kostenlos anmelden.',
+  ],
+  fr: [
+    'Annonces en accès libre ; connexion gratuite pour postuler.',
+    'Consultez les offres ; connexion gratuite pour postuler.',
+    'Offres à consulter ; postulez avec une connexion gratuite.',
+  ],
+};
+
+function pickJobHubCta(base: string, locale: JobPageLocale): string {
+  const variants = JOB_HUB_CTA[locale];
+  let hash = 0;
+  for (const char of base) hash = (hash * 31 + char.codePointAt(0)!) % 9973;
+  return variants[hash % variants.length];
+}
+
 /** Reserve the complete reading/sign-in CTA before shortening sector prose. */
 function finalizeJobHubMeta(base: string, locale: JobPageLocale): string {
-  const cta = {
-    it: 'Leggi gli annunci; accesso gratuito per candidarti.',
-    en: 'Read listings freely; free sign-in to apply.',
-    de: 'Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.',
-    fr: 'Annonces en accès libre ; connexion gratuite pour postuler.',
-  }[locale];
+  const cta = pickJobHubCta(base, locale);
   const qualifier = {
     it: 'Annunci aggiornati.',
     en: 'Explore open roles.',
