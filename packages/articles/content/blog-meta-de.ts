@@ -13615,7 +13615,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate wird fast 500.000 Euro weniger aus den Rückvergütungen haben.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.mozione-ticino-ristorni-salute.title': 'Motion im Tessin gegen die Gesundheitssteuer',
-    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparteiliche Motion im Grossen Rat eingereicht Die italienische Massnahme wird im Hinblick auf Artikel 9 beanstandet Das Tessin droht mit der Blockierung der Rückvergütungen Gegenstand',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparteiliche Motion im Grossen Rat eingereicht Die italienische Massnahme wird im Hinblick auf Artikel 9 beanstandet Das Tessin droht mit der Blockierung der Rückvergütungen.',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.ristorni-malnate-meno-500mila.title': 'Grenzgänger-Rückerstattungen, 500mila euro weniger für Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate erhält fast 500mila euro weniger Der nationale Fonds steigt von 89 auf 108 Millionen Die Rückerstattungen werden Anfang November eintreffen Fast 1.700 Einwohner von Malnate',
