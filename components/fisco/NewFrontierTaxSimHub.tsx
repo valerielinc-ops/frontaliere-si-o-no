@@ -61,7 +61,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  {
  icon: 'receipt',
  title: 'IRPEF in Italia con franchigia',
- body: 'L\'Italia tassa il reddito svizzero con l\'IRPEF ordinaria, ma concede una franchigia di \u20AC10.000: i primi 10.000 euro di reddito non vengono tassati in Italia. La franchigia si applica solo ai residenti entro 20 km dal confine.',
+ body: 'L\'Italia tassa il reddito svizzero con l\'IRPEF ordinaria, ma concede una franchigia di \u20AC10.000: i primi 10.000 euro di reddito non vengono tassati in Italia. Spetta ai frontalieri che soddisfano le condizioni di legge, non dipende dalla sola distanza di 20 km.',
  },
  {
  icon: 'users',
@@ -80,7 +80,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  'Sottrai i contributi sociali: AVS 5,3%, AC 1,1%, LAINF, IGM e LPP (variabile per eta).',
  'Applica l\'imposta alla fonte ticinese con la tabella corretta (A, B, C o H) — per i frontalieri al 80%.',
  'Converti il reddito netto svizzero in EUR al tasso di cambio medio annuo.',
- 'Calcola l\'IRPEF italiana sul reddito estero meno la franchigia di \u20AC10.000 (se entro 20 km).',
+ 'Calcola l\'IRPEF italiana sul reddito estero meno la franchigia di \u20AC10.000.',
  'Detrai il credito d\'imposta per le tasse svizzere gia pagate.',
  'Il risultato finale e il tuo stipendio netto mensile in euro.',
  ],
@@ -108,7 +108,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  question: 'La franchigia di \u20AC10.000 si applica sempre?',
- answer: 'No. La franchigia si applica solo ai frontalieri residenti entro 20 km dal confine svizzero. Chi risiede oltre 20 km paga l\'IRPEF piena senza franchigia, ma ha comunque diritto al credito d\'imposta.',
+ answer: 'No. Secondo l\'Agenzia delle Entrate (circolare 25/E del 2023) la soglia di \u20AC10.000 vale per i lavoratori frontalieri in generale: la distanza oltre 20 km non la esclude da sola. Verifica le condizioni di lavoro continuativo ed esclusivo.',
  },
  {
  question: 'Devo fare la dichiarazione dei redditi in Italia?',
@@ -152,7 +152,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  {
  icon: 'receipt',
  title: 'IRPEF in Italy with franchise',
- body: 'Italy taxes your Swiss income with standard IRPEF rates, but grants a EUR 10,000 franchise: the first 10,000 euros are not taxed in Italy. The franchise applies only to residents within 20 km of the border.',
+ body: 'Italy taxes your Swiss income with standard IRPEF rates, but grants a EUR 10,000 franchise: the first 10,000 euros are not taxed in Italy. It goes to cross-border workers who meet the legal conditions and does not depend on the 20 km distance alone.',
  },
  {
  icon: 'users',
@@ -171,7 +171,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  'Deduct social contributions: AVS 5.3%, unemployment 1.1%, accident insurance, sickness benefits, and LPP (varies by age).',
  'Apply Ticino withholding tax using the correct table (A, B, C or H) — at 80% for cross-border workers.',
  'Convert Swiss net income to EUR at the annual average exchange rate.',
- 'Calculate Italian IRPEF on foreign income minus the EUR 10,000 franchise (if within 20 km).',
+ 'Calculate Italian IRPEF on foreign income minus the EUR 10,000 franchise.',
  'Deduct the tax credit for Swiss taxes already paid.',
  'The result is your monthly net salary in euros.',
  ],
@@ -199,7 +199,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  question: 'Does the EUR 10,000 franchise always apply?',
- answer: 'No. The franchise applies only to cross-border workers residing within 20 km of the Swiss border. Those beyond 20 km pay full IRPEF without the franchise, but still qualify for the tax credit.',
+ answer: 'No. According to the Agenzia delle Entrate (circular 25/E of 2023) the EUR 10,000 threshold applies to cross-border workers in general: living beyond 20 km does not exclude it by itself. Check the conditions on continuous and exclusive employment.',
  },
  {
  question: 'Do I need to file a tax return in Italy?',
@@ -243,7 +243,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  {
  icon: 'receipt',
  title: 'IRPEF in Italien mit Franchise',
- body: 'Italien besteuert Ihr Schweizer Einkommen mit den normalen IRPEF-Saetzen, gewaehrt aber eine Franchise von EUR 10.000: Die ersten 10.000 Euro werden in Italien nicht besteuert. Die Franchise gilt nur fuer Einwohner innerhalb von 20 km der Grenze.',
+ body: 'Italien besteuert Ihr Schweizer Einkommen mit den normalen IRPEF-Saetzen, gewaehrt aber eine Franchise von EUR 10.000: Die ersten 10.000 Euro werden in Italien nicht besteuert. Sie steht Grenzgaengern zu, die die gesetzlichen Bedingungen erfuellen, und haengt nicht allein von den 20 km ab.',
  },
  {
  icon: 'users',
@@ -262,7 +262,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  'Sozialabzuege abziehen: AHV 5,3%, ALV 1,1%, UVG, KTG und BVG (variiert nach Alter).',
  'Tessiner Quellensteuer mit der richtigen Tabelle (A, B, C oder H) anwenden — fuer Grenzgaenger zu 80%.',
  'Schweizer Nettoeinkommen zum Jahres-Durchschnittskurs in EUR umrechnen.',
- 'Italienische IRPEF auf das auslaendische Einkommen abzueglich der EUR 10.000 Franchise (innerhalb 20 km) berechnen.',
+ 'Italienische IRPEF auf das auslaendische Einkommen abzueglich der EUR 10.000 Franchise berechnen.',
  'Steuergutschrift fuer bereits gezahlte Schweizer Steuern abziehen.',
  'Das Ergebnis ist Ihr monatliches Nettogehalt in Euro.',
  ],
@@ -290,7 +290,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  question: 'Gilt die Franchise von EUR 10.000 immer?',
- answer: 'Nein. Die Franchise gilt nur fuer Grenzgaenger mit Wohnsitz innerhalb von 20 km der Schweizer Grenze. Wer weiter als 20 km entfernt wohnt, zahlt volle IRPEF ohne Franchise, hat aber Anspruch auf die Steuergutschrift.',
+ answer: 'Nein. Laut Agenzia delle Entrate (Rundschreiben 25/E von 2023) gilt die Schwelle von EUR 10.000 fuer Grenzgaenger allgemein: Ein Wohnsitz jenseits von 20 km schliesst sie nicht allein aus. Pruefen Sie die Bedingungen zur dauerhaften und ausschliesslichen Beschaeftigung.',
  },
  {
  question: 'Muss ich in Italien eine Steuererklaerung abgeben?',
@@ -334,7 +334,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  {
  icon: 'receipt',
  title: 'IRPEF en Italie avec franchise',
- body: 'L\'Italie impose votre revenu suisse avec les taux IRPEF ordinaires, mais accorde une franchise de 10 000 EUR : les premiers 10 000 euros ne sont pas imposes en Italie. La franchise s\'applique uniquement aux residents a moins de 20 km de la frontiere.',
+ body: 'L\'Italie impose votre revenu suisse avec les taux IRPEF ordinaires, mais accorde une franchise de 10 000 EUR : les premiers 10 000 euros ne sont pas imposes en Italie. Elle revient aux frontaliers qui remplissent les conditions legales et ne depend pas de la seule distance de 20 km.',
  },
  {
  icon: 'users',
@@ -353,7 +353,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  'Deduisez les cotisations sociales : AVS 5,3%, AC 1,1%, LAA, IJM et LPP (variable selon l\'age).',
  'Appliquez l\'impot a la source tessinois avec le bon bareme (A, B, C ou H) — a 80% pour les frontaliers.',
  'Convertissez le net suisse en EUR au taux de change moyen annuel.',
- 'Calculez l\'IRPEF italienne sur le revenu etranger moins la franchise de 10 000 EUR (si dans les 20 km).',
+ 'Calculez l\'IRPEF italienne sur le revenu etranger moins la franchise de 10 000 EUR.',
  'Deduisez le credit d\'impot pour les impots suisses deja payes.',
  'Le resultat est votre salaire net mensuel en euros.',
  ],
@@ -381,7 +381,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  question: 'La franchise de 10 000 EUR s\'applique-t-elle toujours ?',
- answer: 'Non. La franchise ne s\'applique qu\'aux frontaliers residant a moins de 20 km de la frontiere suisse. Au-dela de 20 km, l\'IRPEF complete s\'applique sans franchise, mais le credit d\'impot reste applicable.',
+ answer: 'Non. Selon l\'Agenzia delle Entrate (circulaire 25/E de 2023), le seuil de 10 000 EUR vaut pour les frontaliers en general : resider au-dela de 20 km ne l\'exclut pas a lui seul. Verifiez les conditions de travail continu et exclusif.',
  },
  {
  question: 'Dois-je faire une declaration de revenus en Italie ?',
