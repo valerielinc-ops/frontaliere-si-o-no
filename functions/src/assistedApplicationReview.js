@@ -294,7 +294,7 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
   const state = flow?.state || 'drafting';
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
-  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, flow?.questionAnswers).map((question) => {
+  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, flow?.questionAnswers, draft).map((question) => {
     const view = questionView(question, nowMs);
     if (question.id !== 'work_permit') return view;
     const { options, value } = permitQuestionView(view.options, answers.work_permit);
@@ -419,7 +419,7 @@ async function loadAll(db, orderId) {
  */
 export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', stored = {}, questionAnswers = {}) {
   const { profile, answers } = candidateWithEdits({ order: {}, draft, flow: { answers: stored, questionAnswers } });
-  const allowed = new Map(questionsForCandidate(draft?.questions, profile, answers, questionAnswers).map((question) => [question.id, question]));
+  const allowed = new Map(questionsForCandidate(draft?.questions, profile, answers, questionAnswers, draft).map((question) => [question.id, question]));
   const todayIso = zurichToday(nowMs);
   const out = {};
   const fields = {};
