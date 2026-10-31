@@ -883,9 +883,9 @@ jobs:
                   if (!latest) continue;
                   const observedAttempt = validRunAttempt(latest.run_attempt);
                   if (observedAttempt === null) continue;
-                  const exactRun = markerMatchesRun(existing.state, latest);
+                  const pendingMarkerMatchesRun = markerMatchesRun(existing.state, latest);
                   const newerAttempt = markerSameRunWithNewerAttempt(existing.state, latest);
-                  if (!exactRun && !newerAttempt) continue;
+                  if (!pendingMarkerMatchesRun && !newerAttempt) continue;
                   let pending = existing;
                   if (newerAttempt) {
                     pending = await persistMarker(number, {
