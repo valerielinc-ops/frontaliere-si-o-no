@@ -43,6 +43,11 @@
   Content-Type: text/plain; charset=utf-8
   X-Robots-Tag: noindex
 
+/llms-index.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: noindex
+
 /.well-known/llms.txt
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
