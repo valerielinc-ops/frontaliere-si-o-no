@@ -315,6 +315,9 @@ describe('the shared full native application policy', () => {
           .toBe('native_attachment_ambiguous');
         expect(deriveNativeApplicationClaims({ ...request, proof: { ...request.proof, fields: [entry('', { label: 'degree certificates',
           kind: 'file', inputType: 'file', validation: { type: 'file', multiple: false } })] } }).failure).toBe('native_attachment_ambiguous');
+        const alias = { ...manifest[0], slot: 'alias-slot' };
+        expect(deriveNativeApplicationClaims({ ...request, docsManifest: [...manifest, alias], proof: { ...request.proof,
+          attachments: [attachments[0], { ...attachments[0], slot: alias.slot }] } }).failure).toBe('native_document_transport_unverified');
       }
     }
   });

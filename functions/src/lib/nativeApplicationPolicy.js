@@ -354,6 +354,10 @@ export function fieldFromNativeProof(entry) {
 
 function verifiedDiplomaTransport({ proof, field, selected, purpose, context, verifiedDocumentTransports }) {
   if (!Array.isArray(verifiedDocumentTransports) || selected.some(file => !file.documentId || !file.fileId || !file.generation)) return null;
+  const identity = file => JSON.stringify([file.documentId, file.fileId]);
+  const fileSet = files => files.map(file => [file.documentId, file.fileId, file.generation, file.sha256, file.size])
+    .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)));
+  if (new Set(selected.map(identity)).size !== selected.length) return null;
   const matches = verifiedDocumentTransports.filter(result => {
     const witness = result?.attestation;
     return result?.status === 'verified' && witness?.version === NATIVE_DOCUMENT_TRANSPORT_VERSION
@@ -365,9 +369,10 @@ function verifiedDiplomaTransport({ proof, field, selected, purpose, context, ve
       && sameContract(witness.purpose, purpose) && witness.requestedPurpose?.family === purpose.family
       && Object.entries(purpose.constraints).every(([key, value]) => witness.requestedPurpose.constraints?.[key] === value)
       && Array.isArray(witness.files) && witness.files.length === selected.length
-      && selected.every(manifest => witness.documentId === manifest.documentId
-        && witness.files.filter(file => file.documentId === manifest.documentId && file.fileId === manifest.fileId
-          && file.generation === manifest.generation && file.sha256 === manifest.sha256 && file.size === manifest.size).length === 1)
+      && witness.files.every(file => file && typeof file === 'object')
+      && new Set(witness.files.map(identity)).size === witness.files.length
+      && selected.every(manifest => witness.documentId === manifest.documentId)
+      && sameContract(fileSet(selected), fileSet(witness.files))
       && /^document-transport-[a-f0-9]{64}$/u.test(witness.id || '')
       && /^[a-f0-9]{64}$/u.test(witness.requestContextHash || '') && /^[a-f0-9]{64}$/u.test(witness.nativeContractHash || '');
   });
