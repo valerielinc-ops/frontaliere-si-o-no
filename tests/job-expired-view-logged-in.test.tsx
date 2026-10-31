@@ -2,13 +2,13 @@
  * JobExpiredView — logged-in branch integration test.
  *
  * Verifies the richer 2-column layout for authenticated users landing on an
- * expired job URL: hero card with title/company/expired-at, banner, full
- * description HTML, and at least one sidebar callout. Also exercises a
+ * expired job URL: shared detail header with title/company/expired-at,
+ * expiry status, full description HTML, and sidebar callouts. Also exercises a
  * minimal job payload to confirm missing data degrades gracefully.
  */
 
 import { describe, it, expect, afterEach } from 'vitest';
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, within } from '@testing-library/react';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 
@@ -45,7 +45,7 @@ describe('JobExpiredView (logged-in)', () => {
   cleanup();
  });
 
- it('renders full 2-column layout with hero, banner, description and sidebar', () => {
+ it('renders the shared detail layout with expiry status, description and sidebar', () => {
   const { container } = render(<JobExpiredView job={fullJob} hasAccess />);
 
   const header = container.querySelector('[data-job-detail-header]');
@@ -54,7 +54,7 @@ describe('JobExpiredView (logged-in)', () => {
   expect(header?.querySelector('[data-job-detail-metadata]')).toBeInTheDocument();
   expect(container.querySelector('[data-job-detail-mobile-sidebar]')).toBeInTheDocument();
 
-  // Expired banner
+  // Expiry status
   expect(screen.getByText(/non è più attiva/i)).toBeInTheDocument();
 
   // Hero content
@@ -73,15 +73,17 @@ describe('JobExpiredView (logged-in)', () => {
 
   // Advice callout with expired CTA variant
   expect(screen.getByText(/Consiglio candidatura/i)).toBeInTheDocument();
+  const mobileSidebar = container.querySelector('[data-job-detail-mobile-sidebar]');
+  expect(mobileSidebar).not.toBeNull();
   expect(
-   screen.getByRole('button', { name: /Vedi offerte simili attive/i }),
+   within(mobileSidebar as HTMLElement).getByRole('button', { name: /Vedi offerte simili attive/i }),
   ).toBeInTheDocument();
  });
 
- it('renders safely with minimal job data (no crash, banner still visible)', () => {
+ it('renders safely with minimal job data and keeps the expiry status visible', () => {
   render(<JobExpiredView job={minimalJob} hasAccess />);
 
-  // Banner still renders
+  // Expiry status still renders
   expect(screen.getByText(/non è più attiva/i)).toBeInTheDocument();
 
   // Title still renders
