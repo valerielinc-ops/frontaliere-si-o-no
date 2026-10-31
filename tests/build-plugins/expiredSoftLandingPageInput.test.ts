@@ -180,7 +180,7 @@ describe('jobsSeoPagesPlugin wires the payload the renderer actually emits', () 
     for (const field of [
       'expiredDataObj.contract = jobContract',
       'expiredDataObj.datePosted = jobDatePosted',
-      'expiredDataObj.postingDateSource = ejData?.postingDateSource',
+      'expiredDataObj.postingDateSource = ejData.postingDateSource',
       'expiredDataObj.salaryMin = jobSalaryMin',
       'expiredDataObj.salaryMax = jobSalaryMax',
       'expiredDataObj.salarySource = jobSalarySource',
