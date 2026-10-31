@@ -360,9 +360,29 @@ const CATEGORY_TO_ONET: Record<string, string> = {
   security: '33-0000', safety: '33-0000',
 };
 
+const CATCH_ALL_SECTOR_RE = /^(?:altro|altri|other|others|sonstige|autre|autres)$/i;
+const HEALTH_SECTOR_RE = /sanit|health|medic/i;
+const HEALTH_EVIDENCE_RE = /pfleg|spital|spitex|klinik|klinique|clinic|arzt|ärzt|medic|mediz|ospedal|h[oô]pital|hospital|infermier|infirmi|sanitar|sanità|santé|health|psych|therap|th[ée]rap|apothek|pharm|farmac|physio|fisio|\bergo|logop|hebamme|levatric|geburts|\blabor|radiolog|r[oö]ntgen|anästhes|altersheim|casa anziani/i;
+const EDUCATION_TITLE_RE = /\bmaestr[ao]\b|\bmaestre\b|\bdocent[ei]\b|\binsegnant[ei]\b|\blehrperson|\blehrer|\blehrkraft|\bkinderg[aä]rtner|\benseignant|\bteacher\b/i;
+
+/**
+ * The sector text, when it says something about THIS job. Many parsers stamp
+ * one tenant-wide default ('Sanità / Ospedali' is the shared parser default,
+ * so a teacher or a road engineer inherits it): a health value needs a health
+ * signal in the title or employer, and a catch-all carries no information.
+ */
+function resolveJobSector(job: JobInput): string {
+  const raw = String(job.sector || job.category || '').trim();
+  if (CATCH_ALL_SECTOR_RE.test(raw)) return '';
+  if (!HEALTH_SECTOR_RE.test(raw)) return raw;
+  const title = String(job.title || '');
+  if (EDUCATION_TITLE_RE.test(title)) return '';
+  return HEALTH_EVIDENCE_RE.test(`${title} ${job.company || ''}`) ? raw : '';
+}
+
 /** Resolve `job.sector`/`job.category` to an O*NET-SOC code, if known. */
 function resolveOccupationalCategory(job: JobInput): string | undefined {
-  const cat = String(job.sector || job.category || '').trim();
+  const cat = resolveJobSector(job);
   return cat ? CATEGORY_TO_ONET[cat] : undefined;
 }
 
@@ -371,8 +391,7 @@ function resolveOccupationalCategory(job: JobInput): string | undefined {
  * signal used for `occupationalCategory` — no separate source needed.
  */
 function resolveIndustry(job: JobInput): string | undefined {
-  const raw = String(job.sector || job.category || '').trim();
-  return raw.length > 0 ? raw : undefined;
+  return resolveJobSector(job) || undefined;
 }
 
 /**
@@ -395,16 +414,12 @@ function toIsoDate(raw: string | null | undefined): string | null {
   return d.toISOString();
 }
 
-/** Keep a derived active deadline in the future so Google does not treat a
- * still-published listing as already expired. Explicit source deadlines stay
- * authoritative, including past values on expired-job pages. */
-function floorToFuture(computed: Date, now?: Date): string {
-  const floor = new Date(now || new Date());
-  floor.setUTCDate(floor.getUTCDate() + 30);
-  return (computed.getTime() < floor.getTime() ? floor : computed).toISOString();
-}
-
-/** Resolve a deadline for every emitted JobPosting, with source-first fallbacks. */
+/**
+ * Resolve a deadline for every emitted JobPosting: the source's own deadline,
+ * else the last real sighting at the source plus 60 days, else the publication
+ * date plus 90. Never derived from the build date: a listing no crawl has seen
+ * for that long is allowed to expire, even when the page is still published.
+ */
 function computeValidThrough(
   explicit: string | null | undefined,
   crawledAt: string | null | undefined,
@@ -418,14 +433,14 @@ function computeValidThrough(
   if (crawledIso) {
     const out = new Date(crawledIso);
     out.setUTCDate(out.getUTCDate() + 60);
-    return floorToFuture(out, now);
+    return out.toISOString();
   }
 
   const posted = new Date(datePosted);
   if (!Number.isNaN(posted.getTime())) {
     const out = new Date(posted);
     out.setUTCDate(out.getUTCDate() + 90);
-    return floorToFuture(out, now);
+    return out.toISOString();
   }
 
   const fallback = new Date(now || new Date());
@@ -627,7 +642,7 @@ export function sanitizeLocalityForRegion(rawLocality: string, region: string): 
 function resolveAddress(
   job: JobInput,
   _companyName: string,
-  locale: string,
+  _locale: string,
 ): PostalAddressSchema {
   const companySlug = job.companySlug || job.companyKey || '';
   const rawCity = String(
@@ -726,7 +741,9 @@ function resolveAddress(
   const streetAddress = sourceStreet
     || (useHq ? String(hqEntry.streetAddress).trim() : '')
     || (fallbackDescribesLocality ? fallback.streetAddress : '')
-    || localisedCentro(addressLocality, locale);
+    // Safe default of the mandatory field: the place we know, not a made-up
+    // "city centre" the source never stated.
+    || addressLocality;
 
   if (!streetAddress || !postalCode || !addressLocality || !region) {
     throw new Error(
@@ -761,22 +778,6 @@ function cantonFallbackPostalTuples(region: string): Array<{ postalCode: string;
     ] : []),
     ...(crawlerFallback ? [{ postalCode: crawlerFallback.postalCode, locality: crawlerFallback.city }] : []),
   ].filter(({ postalCode }) => postalCode.length > 0);
-}
-
-/** Localised "<city> centro" fallback for streetAddress. */
-function localisedCentro(city: string, locale: string): string {
-  const short = (locale || 'it').slice(0, 2).toLowerCase();
-  switch (short) {
-    case 'en':
-      return `${city} city centre`;
-    case 'de':
-      return `${city} Stadtzentrum`;
-    case 'fr':
-      return `${city} centre-ville`;
-    case 'it':
-    default:
-      return `${city} centro`;
-  }
 }
 
 /**

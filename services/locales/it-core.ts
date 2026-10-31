@@ -1755,6 +1755,7 @@ const translations: Record<string, string> = {
  'newsletter.consentRequired': 'Devi accettare il consenso per iscriverti.',
  'newsletter.popup.title': 'Resta Aggiornato!',
  'newsletter.popup.subtitle': 'Iscriviti alla newsletter settimanale: tasso CHF/EUR, traffico e novità fiscali ogni lunedì.',
+ 'map.twoFingerHint': 'Usa due dita per spostare la mappa',
  'newsletter.popup.close': 'Chiudi',
  'newsletter.popup.googleSignIn': 'Continua con Google',
  'newsletter.popup.facebookSignIn': 'Continua con Facebook',

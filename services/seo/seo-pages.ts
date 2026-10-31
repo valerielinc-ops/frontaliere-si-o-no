@@ -8,7 +8,7 @@
 // this file at build time. Keep the same format as other seo-*.ts entries.
 
 import type { SEOMetadata } from '../seoService';
-import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
+import { EXCHANGE_RATE_DATE, EXCHANGE_RATE_EUR } from './exchangeRateMeta';
 import { authorSeoPageEntries } from './authorProfileMetadata';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -54,15 +54,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "url": `${BASE_URL}/`,
  "description": "Strumento completo per frontalieri Svizzera-Italia: simulatore fiscale, pensione, guida e comparatori servizi",
  "inLanguage": ["it", "en", "de", "fr"],
- "speakable": SPEAKABLE_SECTION,
- "potentialAction": {
- "@type": "SearchAction",
- "target": {
- "@type": "EntryPoint",
- "urlTemplate": `${BASE_URL}/?q={search_term_string}`
- },
- "query-input": "required name=search_term_string"
- }
+ "speakable": SPEAKABLE_SECTION
  },
  {
  "@context": "https://schema.org",
@@ -87,9 +79,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   "name": "Frontaliere Ticino",
   "url": "https://frontaliereticino.ch/",
   "sameAs": [
-   "https://www.facebook.com/profile.php?id=61588174947294",
    "https://www.facebook.com/frontaliereticino/",
-   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://www.linkedin.com/company/frontaliere-ticino/",
    "https://github.com/valerielinc-ops/frontaliere-si-o-no"
   ],
   "logo": {
@@ -149,29 +140,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "Permit G Permit B",
  "Canton Ticino employment"
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "mainEntity": [
- { "@type": "Question", "name": "Qual è la differenza tra vecchio e nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il vecchio frontaliere qualificato dall’articolo 9 ha svolto attività come frontaliere fiscale in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023: il salario interessato è tassato esclusivamente in Svizzera. I nuovi frontalieri fiscali pagano l’80% dell’imposta alla fonte ordinaria svizzera e le imposte italiane con credito per quelle svizzere. Contano anche Comune di residenza ammesso e rientro in principio quotidiano, non soltanto la data dell’ultimo contratto. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Conviene lavorare come vecchio o nuovo frontaliere nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Non esiste una soglia salariale universale. Confronta il netto sulla base del tuo status documentato, della tariffa cantonale, dei contributi, delle imposte italiane eventualmente dovute, del credito d'imposta e dei costi di pendolarismo." } },
- { "@type": "Question", "name": "Come si calcola l'imposta alla fonte in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "La tariffa dipende dalla tabella applicabile, dal reddito e dai dati personali. Per i nuovi frontalieri fiscali qualificati si applica l'80% della tariffa ordinaria; le tabelle del regime transitorio sono distinte. Consulta il tariffario ufficiale dell'anno, senza applicare riduzioni fisse per figlio." } },
- { "@type": "Question", "name": "Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il netto dipende da tariffa, contributi, situazione familiare, cambio e regime fiscale italiano eventualmente applicabile. Usa il simulatore con i tuoi dati e verifica il risultato con le tabelle cantonali e la normativa italiana." } },
- { "@type": "Question", "name": "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
- { "@type": "Question", "name": "Come funziona la pensione per i frontalieri svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "Il sistema distingue previdenza statale AVS, professionale LPP e individuale volontaria. Requisiti e prestazioni vanno verificati presso gli enti competenti. Il terzo pilastro non comporta una deduzione automatica per tutti i frontalieri. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "L'articolo 4 della legge 83/2023 fissa a 10.000 € la soglia esclusa dall'imposizione per redditi di lavoro dipendente qualificati, se ricorrono i requisiti previsti; non è una franchigia determinata dalla sola data di assunzione. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
- { "@type": "Question", "name": "Qual è il modo migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Wise (ex TransferWise) e Revolut offrono i tassi migliori con markup dello 0,25-0,5% sul tasso interbancario. Le banche tradizionali (UBS, PostFinance) applicano markup del 2-3%. Per un frontaliere che cambia CHF 5.000/mese, Wise fa risparmiare circa CHF 100-150/mese rispetto alla banca tradizionale, ovvero CHF 1.200-1.800/anno." } },
- { "@type": "Question", "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri fiscali il salario svizzero è imponibile anche in Italia, con credito per le imposte svizzere. I vecchi qualificati dall’articolo 9 sono esenti sul salario coperto dal regime, ma possono avere obblighi italiani per altri redditi o monitoraggio. Lo status dipende dai requisiti fiscali e dall’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, non soltanto dall’ultima assunzione. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (USTAT, I trimestre 2026). I frontalieri rappresentano circa il 32% della forza lavoro cantonale. Negli ultimi due anni il numero è in lieve calo (-0,5% su base annua nel I trimestre 2026, USTAT). I settori principali sono manifattura, costruzioni, finanza, sanità, ospitalità e IT." } },
- { "@type": "Question", "name": "Cosa sono i ristorni fiscali?", "acceptedAnswer": { "@type": "Answer", "text": "L’articolo 9 prevede una compensazione all’Italia pari al 40% del gettito sui vecchi frontalieri fino all’anno fiscale 2033, senza riduzione graduale della percentuale. Dopo tale anno la Svizzera conserva il gettito. Questo non fa passare automaticamente i vecchi frontalieri al regime concorrente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Quanto guadagna un frontaliere in Svizzera al mese?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere in Canton Ticino guadagna in media CHF 5.600 lordi al mese (mediana USS), pari a circa CHF 4.300–4.600 netti dopo imposta alla fonte e contributi AVS/LPP/AC. Profili qualificati (IT, ingegneria, farma, finanza) arrivano a CHF 7.000–9.000 lordi, mentre operai e commercio si attestano intorno a CHF 4.200–4.800. Usa il simulatore gratuito su frontaliereticino.ch per stimare il netto esatto in base a stato civile, figli e comune." } },
- { "@type": "Question", "name": "Quali sono le differenze tra permesso G e permesso B?", "acceptedAnswer": { "@type": "Answer", "text": "Il permesso G prevede domicilio all’estero e rientro almeno settimanale; il B è un permesso di dimora in Svizzera. Il titolo di soggiorno non determina da solo le imposte: per il G occorre distinguere vecchi frontalieri fiscalmente qualificati, nuovi e lavoratori fuori dai requisiti dell’accordo. Confronta residenza effettiva, reddito e costi familiari senza una soglia salariale universale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Dove trovare lavoro da frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Le principali fonti di offerte per frontalieri sono il portale JobRoom della Confederazione, job-board cantonali (lavoro.swiss), siti privati come jobs.ch, jobup.ch e indeed.ch, agenzie interinali (Adecco, Manpower, Randstad, Kelly) e la job-board dedicata ai frontalieri su frontaliereticino.ch/cerca-lavoro-ticino con ~6.000 annunci aggiornati quotidianamente da ricerche specifiche per Ticino." } }
- ],
- "speakable": SPEAKABLE_SECTION
- },
- HOWTO_CALCULATOR
+ }
  ]
  },
 
@@ -1123,13 +1092,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "UnitPriceSpecification",
  "price": EXCHANGE_RATE_EUR,
  "priceCurrency": "EUR",
+ "validFrom": EXCHANGE_RATE_DATE,
  "referenceQuantity": {
  "@type": "QuantitativeValue",
  "value": "1",
  "unitCode": "CHF"
  }
  },
- "exchangeRateSpread": "0.3-3.0% a seconda del provider"
+ "exchangeRateSpread": { "@type": "MonetaryAmount", "currency": "CHF", "minValue": 0.3, "maxValue": 3, "description": "Costo in CHF per ogni 100 CHF cambiati, a seconda del provider" }
  },
  {
  "@context": "https://schema.org",
@@ -6440,9 +6410,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   "name": "Frontaliere Ticino",
   "url": "https://frontaliereticino.ch/",
   "sameAs": [
-   "https://www.facebook.com/profile.php?id=61588174947294",
    "https://www.facebook.com/frontaliereticino/",
-   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://www.linkedin.com/company/frontaliere-ticino/",
    "https://github.com/valerielinc-ops/frontaliere-si-o-no"
   ],
   "logo": {
@@ -6596,9 +6565,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   "name": "Frontaliere Ticino",
   "url": "https://frontaliereticino.ch/",
   "sameAs": [
-   "https://www.facebook.com/profile.php?id=61588174947294",
    "https://www.facebook.com/frontaliereticino/",
-   "https://www.linkedin.com/company/frontaliere-ticino",
+   "https://www.linkedin.com/company/frontaliere-ticino/",
    "https://github.com/valerielinc-ops/frontaliere-si-o-no"
   ],
   "logo": {
@@ -6692,8 +6660,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'tassa-salute-frontalieri': {
  title: 'Tassa Salute Frontalieri 2026: Importo, Chi Paga e Regole',
- h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
- description: 'Tassa salute frontalieri 2026: contributo SSN, calcolo del 3–6% sul salario netto e scadenze regionali.',
+ h1: 'Tassa salute frontalieri 2026 — importo, chi paga, Lombardia e Piemonte',
+ description: 'Tassa salute frontalieri 2026: contributo SSN, calcolo del 3–6% sul salario netto e stato in Lombardia e Piemonte.',
  keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
  ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
  ogDescription: 'Contributo SSN per frontalieri: chi è interessato, importo 3–6%, diritto d’opzione e attuazione regionale.',
@@ -6707,7 +6675,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-22",
- "dateModified": "2026-10-03",
+ "dateModified": "2026-10-31",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/`,
  "speakable": SPEAKABLE_SECTION

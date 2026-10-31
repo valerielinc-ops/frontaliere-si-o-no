@@ -1685,6 +1685,7 @@ const frCore: Record<string, string> = {
  'newsletter.consentRequired': 'Vous devez accepter le consentement pour vous inscrire.',
  'newsletter.popup.title': 'Restez informé !',
  'newsletter.popup.subtitle': 'Abonnez-vous à la newsletter hebdomadaire : taux CHF/EUR, trafic et actualités fiscales chaque lundi.',
+ 'map.twoFingerHint': 'Utilisez deux doigts pour déplacer la carte',
  'newsletter.popup.close': 'Fermer',
  'newsletter.popup.googleSignIn': 'Continuer avec Google',
  'newsletter.popup.facebookSignIn': 'Continuer avec Facebook',
