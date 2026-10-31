@@ -112,6 +112,24 @@ function fixture() {
   fs.writeFileSync(gh, [
     '#!/bin/sh',
     'if [ "$REFRESH_FIXTURE_GH_FAIL" = 1 ]; then exit 19; fi',
+    'if [ "$1" = "api" ] && [ "$2" = "graphql" ] && [ -n "${REFRESH_FIXTURE_REMOTE:-}" ]; then',
+    '  cas_before=""',
+    '  cas_after=""',
+    '  for arg in "$@"; do',
+    '    case "$arg" in',
+    '      beforeOid=*) cas_before="${arg#beforeOid=}" ;;',
+    '      afterOid=*) cas_after="${arg#afterOid=}" ;;',
+    '    esac',
+    '  done',
+    '  if [ "${REFRESH_FIXTURE_ORPHAN_RESET_RACE:-0}" = 1 ]; then',
+    '    /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"',
+    '  fi',
+    '  /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$cas_after" "$cas_before" || exit 1',
+    '  if [ -n "${REFRESH_FIXTURE_PATCH_MARKER:-}" ]; then touch "$REFRESH_FIXTURE_PATCH_MARKER"; fi',
+    '  if [ -n "${REFRESH_FIXTURE_PATCH_LOG:-}" ]; then printf "%s\\n" "$cas_before->$cas_after" >> "$REFRESH_FIXTURE_PATCH_LOG"; fi',
+    '  echo "$cas_after"',
+    '  exit 0',
+    'fi',
     'if [ "$1" = "api" ] && [ "$2" = "-X" ] && [ "$3" = "PATCH" ] && [ -n "${REFRESH_FIXTURE_REMOTE:-}" ]; then',
     '  patch_sha=""',
     '  patch_force=""',
@@ -625,10 +643,12 @@ describe('data publisher preserves its source checkout', () => {
 
     write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
     const resetMarker = path.join(path.dirname(setup.repo), 'orphan-reset');
-    const result = publishPlain(setup, [], {
+    const resetLog = path.join(path.dirname(setup.repo), 'orphan-reset.log');
+    const result = publishPlain(setup, ['--reconcile-main'], {
       REFRESH_FIXTURE_OPEN_PR: '0',
       REFRESH_FIXTURE_REMOTE: setup.remote,
       REFRESH_FIXTURE_PATCH_MARKER: resetMarker,
+      REFRESH_FIXTURE_PATCH_LOG: resetLog,
       REFRESH_FIXTURE_REQUIRE_STALE_RESET: '1',
     });
 
@@ -636,6 +656,7 @@ describe('data publisher preserves its source checkout', () => {
     expect(result.stdout).toContain('No open refresh PR for chore/refresh');
     expect(result.stdout).toContain('created');
     expect(fs.existsSync(resetMarker)).toBe(true);
+    expect(fs.readFileSync(resetLog, 'utf8').trim().split('\n')).toHaveLength(1);
     expect(git(setup.remote, ['rev-parse', 'chore/refresh^'])).toBe(mainHead);
     expect(git(setup.remote, ['show', 'chore/refresh:data/cache.json'])).toBe('{"version":"current"}');
     expect(git(setup.remote, ['merge-tree', '--write-tree', 'main', 'chore/refresh'])).not.toContain('CONFLICT');
@@ -646,7 +667,7 @@ describe('data publisher preserves its source checkout', () => {
     const setup = fixture();
     const staleHead = git(setup.remote, ['rev-parse', 'chore/refresh']);
     const mainHead = git(setup.remote, ['rev-parse', 'main']);
-    const result = publish(setup, false, ['--reconcile-main'], {
+    const result = publishPlain(setup, ['--reconcile-main'], {
       REFRESH_FIXTURE_OPEN_PR: '0',
       REFRESH_FIXTURE_REMOTE: setup.remote,
     });
@@ -1426,7 +1447,7 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     // primary and fallback identities cannot drift apart.
     expect(pushLines).toHaveLength(2);
     expect(helper.match(/push_with_fallback /g)).toHaveLength(4);
-    expect(helper.match(/patch_ref_with_fallback /g)).toHaveLength(2);
+    expect(helper.match(/update_ref_with_lease /g)).toHaveLength(1);
     for (const { index } of pushLines) {
       // The command the push line belongs to starts at most two lines above it.
       const command = lines.slice(Math.max(0, index - 2), index + 1).join('\n');
@@ -1437,6 +1458,11 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(helper).toMatch(/elif push_new_stable_branch; then/);
     expect(helper).toContain('run_push_with_token "$FALLBACK_PUSH_URL"');
     expect(helper).toContain('GITHUB_PAT fallback');
+    expect(helper).toContain('updateRefs');
+    expect(helper).toContain('beforeOid:$beforeOid');
+    expect(helper).toContain('afterOid:$afterOid');
+    expect(helper).not.toContain('patch_ref_with_fallback');
+    expect(helper).not.toContain('gh api -X PATCH');
     // The cleanup deletes with a lease on the base commit; a REST delete has no such condition.
     expect(helper).toContain('--force-with-lease="refs/heads/${BRANCH}:${REMOTE_BASE_SHA}"');
     expect(helper).not.toContain('-X DELETE');
