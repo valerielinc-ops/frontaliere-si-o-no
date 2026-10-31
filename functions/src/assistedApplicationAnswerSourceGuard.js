@@ -15,7 +15,6 @@ const profileMaterial = record => selected(record, ['applicationQuestionAnswers'
 // Finishing the origin application does not revoke an unchanged personal fact.
 // Its current retention is checked separately, rather than freezing an operational anchor/status.
 const sourceOrderMaterial = order => selected(order, ['userId', 'jobId', 'jobUrl', 'cvStorageKey', 'candidateNotes', 'retentionPurgingAt', 'retentionPurgedAt', 'talentPoolConsent']);
-const sourceFlowMaterial = flow => selected(flow, ['round', 'answers', 'questionAnswers', 'answerConfirmations', 'formOverrides', 'feedback', 'candidateNotes', 'retentionPurgingAt', 'retentionPurgedAt']);
 
 export function evidenceSourceChanged() {
   const error = new Error('evidence_source_changed'); error.code = 'evidence_source_changed'; return error;
@@ -32,6 +31,9 @@ export function createAnswerSourceGuard({ db, orderId, order, flow, draft, intak
     const originId = ref.path.split('/')[1];
     const questionIds = new Set(Object.values(profileRecord.applicationQuestionAnswerEvidence || {})
       .filter(record => record?.provenance?.orderId === originId).map(record => record?.question?.id).filter(Boolean));
+    const sourceFlowMaterial = value => ({ ...selected(value, ['round', 'formOverrides', 'feedback', 'candidateNotes', 'retentionPurgingAt', 'retentionPurgedAt']),
+      answers: Object.fromEntries([...questionIds].map(id => [id, value?.answers?.[id] ?? null])),
+      answerConfirmations: Object.fromEntries([...questionIds].map(id => [id, value?.answerConfirmations?.[id] ?? null])) });
     const sourceDraftMaterial = value => ({ ...selected(value, ['round', 'cvKey', 'sourceCvHash']),
       applyUrl: String(value?.channel?.applyUrl || value?.job?.applyUrl || ''),
       questions: (Array.isArray(value?.questions) ? value.questions : []).filter(question => questionIds.has(question?.id)).map(answerQuestionDescriptor) });

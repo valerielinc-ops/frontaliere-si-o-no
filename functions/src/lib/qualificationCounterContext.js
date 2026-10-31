@@ -20,3 +20,8 @@ export function qualificationCounterContext({ order = {}, flow = {}, intake = nu
       changedSinceConfirmation: source.changedSinceConfirmation, context: source.context,
     })) });
 }
+
+/** The attested question/value is checked separately; derived answer-cache updates are not new corrections. */
+export function qualificationAnswerOriginContext({ order = {}, flow = {}, intake = null } = {}) {
+  return qualificationCounterContext({ order, flow: { ...flow, answers: {}, questionAnswers: {} }, intake });
+}

@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { answerQuestionDescriptor, canonicalQuestionJson } from './lib/applicationQuestionContract.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
-import { qualificationCounterContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
+import { qualificationAnswerOriginContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 
 export const ANSWER_CONFIRMATION_VERSION = 'native-answer-confirmation-v1';
 export const ANSWER_CONTRACT_REQUIRED_RC_KEY = 'ASSISTED_APPLICATION_ANSWER_CONTRACT_REQUIRED';
@@ -70,7 +70,7 @@ export function currentAnswerReviewRequired(flow = {}, draft = {}) {
 
 /** Missing hashes are provisional; a supplied stale hash never confirms a changed question. */
 export function planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts = {}, actor, nowMs, intake = null,
-  sourceCounterHash = qualificationCounterContextHash(qualificationCounterContext({ order, flow, intake })) }) {
+  sourceCounterHash = qualificationCounterContextHash(qualificationAnswerOriginContext({ order, flow, intake })) }) {
   if (!['candidate', 'owner'].includes(actor) || !answerSourceRetained(order, nowMs)
     || flow.retentionPurgedAt != null || Number(draft?.round) !== Number(flow.round || 1)) throw new AnswerConfirmationError('answer_contract_changed');
   const contracts = answerContractsFor({ orderId, order, flow, draft });
@@ -99,7 +99,7 @@ export function planAnswerConfirmations({ orderId, order, flow, draft, answers, 
 export function localAnswerEvidence({ orderId, order, flow, draft, intake = null, nowMs = Date.now() }) {
   if (!answerSourceRetained(order, nowMs) || flow?.retentionPurgedAt != null) return [];
   const contracts = answerContractsFor({ orderId, order, flow, draft });
-  const currentSourceCounterHash = qualificationCounterContextHash(qualificationCounterContext({ order, flow, intake }));
+  const currentSourceCounterHash = qualificationCounterContextHash(qualificationAnswerOriginContext({ order, flow, intake }));
   return Object.entries(object(flow?.answerConfirmations)).slice(0, 80).flatMap(([id, record]) => {
     const source = record?.provenance;
     if (!record || record.cleared || record.version !== ANSWER_CONFIRMATION_VERSION || !/^confirmation-[a-f0-9]{64}$/.test(record.id || '')

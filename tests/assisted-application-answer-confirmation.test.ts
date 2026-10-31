@@ -78,6 +78,24 @@ describe('question confirmation protocol', () => {
       const f = fixture(question); expect(answerContractsFor(f.input())).toEqual({});
     }
   });
+  it.each(['intake', 'order_note'])('refuses a correction changed in %s between pre-read and deferred answer commit', async change => {
+    const f = fixture(); let finish!: (value: any) => void;
+    vi.mocked(pdf.tailoredCvChanges).mockReturnValue(true);
+    vi.mocked(pdf.rebuildTailoredCvPdf).mockImplementation(() => new Promise(resolve => { finish = resolve; }));
+    const remove = vi.fn(async () => {});
+    try {
+      const pending = f.save({ english: 'C1' }, { bucket: { file: () => ({ delete: remove }) } });
+      await Promise.resolve();
+      if (change === 'intake') f.docs.set('assisted_applications/source/automation/intake', { emailNotes: 'Current A2' });
+      else f.read('assisted_applications/source').candidateNotes = 'Current A2';
+      finish({ pdfKey: 'refused-counter.pdf', renderer: 'test', photo: null });
+      await expect(pending).rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
+      expect(f.read('assisted_applications/source/automation/flow').answers).toEqual({});
+      expect(f.read('assisted_applications/source/automation/flow').answerConfirmations).toBeUndefined();
+      expect(f.read('assisted_applications/source/ai_drafts/current').tailoredCv).toBeUndefined();
+      expect(remove).toHaveBeenCalled();
+    } finally { vi.mocked(pdf.tailoredCvChanges).mockReturnValue(false); }
+  });
   it('rechecks source deadline after an awaited PDF rebuild and never references its refused PDF', async () => {
     const f = fixture(); f.read('assisted_applications/source').cvUploadedAt = now - 90 * 86400000 + 5;
     let wall = now; const clock = vi.spyOn(Date, 'now').mockImplementation(() => wall);
@@ -196,6 +214,7 @@ describe('private final-send source fence', () => {
     f.read('assisted_applications/source').submissionStatus = 'ready_for_manual_submission';
     f.read('assisted_applications/source').submittedAt = now + 11;
     f.read('assisted_applications/source/automation/flow').state = 'submitted';
+    f.read('assisted_applications/source/automation/flow').questionAnswers = { cache_other: 'derived cached value' };
     f.read('assisted_applications/source/automation/flow').dispatch = { mode: 'submit', round: 1, requestedAt: now + 11 };
     f.read('assisted_applications/source/ai_drafts/current').status = 'submitted';
     f.read('assisted_applications/source/ai_drafts/current').questions.push({ id: 'other', question: 'Unrelated later question', type: 'text' });

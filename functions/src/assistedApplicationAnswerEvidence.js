@@ -1,4 +1,4 @@
-import { qualificationCounterContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
+import { qualificationAnswerOriginContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 import { isConsentRefusal } from './lib/applicationConsent.js';
 import { localAnswerEvidence, sameAnswerMaterial, answerSourceRetained } from './assistedApplicationAnswerConfirmation.js';
 import { createAnswerSourceGuard } from './assistedApplicationAnswerSourceGuard.js';
@@ -157,7 +157,7 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
     const answerCounterContext = groupCounterContexts(evidence.map(record => {
       const source = sources.get(record.provenance.orderId);
       if (!counterSources.has(record.provenance.orderId)) {
-        const context = qualificationCounterContext({ order: source.order, flow: source.flow, intake: source.intake });
+        const context = qualificationAnswerOriginContext({ order: source.order, flow: source.flow, intake: source.intake });
         counterSources.set(record.provenance.orderId, { context, currentHash: qualificationCounterContextHash(context) });
       }
       const { context, currentHash } = counterSources.get(record.provenance.orderId);
@@ -179,7 +179,7 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   const getDocument = async ref => { const snapshot = await ref.get(); sources.set(ref.path, { ref, data: snapshot.data() }); return snapshot; };
   const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs, getDocument });
   const local = orderId ? localAnswerEvidence({ orderId, order, flow, draft, intake, nowMs }) : [];
-  const localContext = qualificationCounterContext({ order, flow, intake });
+  const localContext = qualificationAnswerOriginContext({ order, flow, intake });
   const localHash = qualificationCounterContextHash(localContext);
   const localCounterContext = local.map(record => ({ answerIds: [record.id], orderId, round: record.provenance.round,
     confirmedHash: record.provenance.sourceCounterHash, currentHash: localHash, changedSinceConfirmation: record.sourceCounterChanged, context: localContext }));

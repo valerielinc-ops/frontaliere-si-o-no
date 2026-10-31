@@ -7,6 +7,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
+const { localAnswerEvidence } = await import('../functions/src/assistedApplicationAnswerConfirmation.js');
 const { handleAssistedApplicationReview: reviewHandler, minDateFor, sendReviewResponse } = await import('../functions/src/assistedApplicationReview.js');
 const { permitOptions } = await import('../functions/src/lib/permitStatus.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
@@ -73,6 +74,14 @@ beforeEach(() => {
 });
 
 describe('candidate review API', () => {
+  it('does not mark its own successful answer stale when the normal event cleans a derived legacy memory cache', async () => {
+    store.read(`${BASE}/automation/flow`).questionAnswers = { question_legacy: 'Yes' };
+    const response = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } }, deps());
+    expect(response.status).toBe(200);
+    expect(store.read(`${BASE}/automation/flow`).questionAnswers).not.toHaveProperty('question_legacy');
+    const records = localAnswerEvidence({ orderId: ORDER, order: store.read(BASE), flow: store.read(`${BASE}/automation/flow`), draft: store.read(`${BASE}/ai_drafts/current`), nowMs: T0 });
+    expect(records).toHaveLength(1); expect(records[0].sourceCounterChanged).toBe(false);
+  });
   it('shows complete original native constraints for non-checkbox questions before confirmation', async () => {
     const context = 'Only University X degrees qualify. ' + 'Complete original requirement. '.repeat(30);
     store.read(`${BASE}/ai_drafts/current`).questions = [{ id: 'degree', question: 'Degree?', type: 'yes_no', required: true,

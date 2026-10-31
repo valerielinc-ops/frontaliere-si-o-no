@@ -1,4 +1,4 @@
-import { qualificationCounterContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
+import { qualificationCounterContext, qualificationAnswerOriginContext, qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
 /**
  * A rebuilt tailored CV published with the change that prints it, in one
  * guarded commit. The review page's writers (the photo, the line choices, the
@@ -130,7 +130,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     previous: flow.questionAnswers || {}, changed: answers });
   const candidateFlow = { ...flow, answers: mergedAnswers, questionAnswers };
   const beforeCounterHash = qualificationCounterContextHash(qualificationCounterContext({ order, flow, intake }));
-  const sourceCounterHash = qualificationCounterContextHash(qualificationCounterContext({ order, flow: candidateFlow, intake }));
+  const sourceCounterHash = qualificationCounterContextHash(qualificationAnswerOriginContext({ order, flow: candidateFlow, intake }));
   let confirmation;
   try {
     confirmation = planAnswerConfirmations({ orderId, order, flow, draft, answers, answerContracts, actor: answerActor, nowMs, sourceCounterHash, intake });
