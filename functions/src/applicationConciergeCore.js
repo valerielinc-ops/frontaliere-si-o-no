@@ -1,4 +1,5 @@
 import { employerResponseView, loadEmployerResponse } from './assistedApplicationEmployerResponse.js';
+import { publicSubmissionState } from './assistedApplicationSubmissionState.js';
 /**
  * Candidate and owner API for the application concierge.
  *
@@ -224,7 +225,8 @@ async function loadService(db, serviceId) {
     if (child?.userId !== parent.userId || child.parentServiceId !== serviceId || child.parentProposalId !== proposal.id) return proposal;
     const employerResponse = await loadEmployerResponse(childRef, child);
     const flow = flowDoc.data();
-    const childApplicationState = flow?.state || child.automationState || null;
+    const childApplicationState = publicSubmissionState({ order: child,
+      flow: flow || { state: child.automationState || null }, submission: submissionDoc.data() || {} });
     const send = submissionDoc.data()?.[`r${Number(flow?.round) || 1}`];
     return { id: proposal.id, ref: proposal.ref || proposal, data: () => ({ ...data,
       childEmployerResponse: employerResponseView(employerResponse),
