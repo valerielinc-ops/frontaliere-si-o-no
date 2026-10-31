@@ -68,7 +68,7 @@ describe('article excerpt completeness gate', () => {
       );
       writeFileSync(
         seo,
-        `const seo = {\n  'blog-demo': {\n    description: 'Un riassunto editoriale completo Oggetto',\n    ogDescription: 'Un riassunto editoriale completo Subject',\n    structuredData: { description: 'Un riassunto editoriale completo Objet' },\n  },\n};\n`,
+        `const seo = {\n  'blog-demo': {\n    description: 'Un riassunto editoriale completo Oggetto',\n    ogDescription: 'Un riassunto editoriale completo Statements',\n    structuredData: { description: 'Un riassunto editoriale completo Objet' },\n  },\n};\n`,
         'utf8',
       );
 
@@ -76,6 +76,7 @@ describe('article excerpt completeness gate', () => {
       expect(result.checked).toBe(4);
       expect(result.failures).toHaveLength(4);
       expect(result.failures.join('\n')).toContain('isolated section label');
+      expect(result.failures.join('\n')).toContain('known truncated fragment');
     } finally {
       rmSync(directory, { recursive: true, force: true });
     }
