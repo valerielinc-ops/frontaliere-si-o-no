@@ -3588,7 +3588,7 @@ CONVENZIONI E ACCORDI:
 - Nuovo Accordo Frontalieri: firmato 23 DICEMBRE 2020, in vigore dal 17/7/2023, applicabile dal 1° GENNAIO 2024
 - Vecchi frontalieri (Accordo art. 9): lavoratori frontalieri ai sensi dell'art. 2 (Comune entro 20 km dal confine, datore svizzero, rientro al domicilio) attivi in Ticino, Grigioni o Vallese tra il 31/12/2018 e il 17/7/2023; restano tassati solo in Svizzera. Il 2033 riguarda solo i ristorni ai Comuni (art. 9 par. 2)
 - Nuovi frontalieri (Accordo art. 3): Svizzera fino all'80% dell'imposta, poi tassazione in Italia con eliminazione della doppia imposizione
-- Fuori da Ticino, Grigioni e Vallese non si applica l'Accordo frontalieri: valgono la Convenzione del 1976 e la tassazione in Italia con credito d'imposta
+- Chi non rientra nell'art. 2 (lavoro fuori da Ticino, Grigioni e Vallese, Comune oltre i 20 km, niente rientro quotidiano) non e' frontaliere dell'Accordo: valgono la Convenzione del 1976 e la tassazione in Italia con credito d'imposta
 - Ratifica italiana: Legge 83 del 13 GIUGNO 2023
 
 ALIQUOTE SVIZZERE:
@@ -3668,7 +3668,7 @@ ASSICURAZIONI:
 // instead of only being graded against them after the fact. New estTokens
 // ~7333 (+118 vs the measurement above) — still ~667 under the 8000 cap.
 const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checker blocca l'articolo se diverghi da questi valori):
-- Imposta alla fonte sul reddito da lavoro: trattenuta in Svizzera. Nuovi frontalieri: la Svizzera preleva fino all'80% e l'Italia tassa il reddito, eliminando la doppia imposizione con il credito d'imposta (quadro CE del 730). Vecchi frontalieri (Accordo art. 9): tassati solo in Svizzera.
+- Imposta alla fonte sul reddito da lavoro: trattenuta in Svizzera. Nuovi frontalieri: la Svizzera preleva fino all'80% e l'Italia tassa il reddito, eliminando la doppia imposizione con il credito d'imposta (quadro CE del 730). Vecchi frontalieri (Accordo art. 9): tassati solo in Svizzera. Nuovi e vecchi frontalieri sono solo i lavoratori dell'art. 2: Comune entro 20 km, lavoro in Ticino, Grigioni o Vallese, rientro quotidiano. Fuori da questi requisiti non si applica l'Accordo: valgono la Convenzione del 1976 e la tassazione in Italia con credito d'imposta.
 - Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 17/7/2023, applicabile dal 1° GENNAIO 2024. Ratifica IT: Legge 83 del 13/6/2023.
 - Nuovi frontalieri: franchigia IRPEF €10'000. Vecchi frontalieri (art. 9: frontalieri ai sensi dell'art. 2 attivi in Ticino, Grigioni o Vallese tra il 31/12/2018 e il 17/7/2023): tassati solo in Svizzera; il 2033 riguarda solo i ristorni ai Comuni.
 - Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 MARZO 1976 (NON dicembre). La Svizzera NON è membro UE/SEE.

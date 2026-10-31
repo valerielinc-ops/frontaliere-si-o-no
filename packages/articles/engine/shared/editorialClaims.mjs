@@ -371,14 +371,20 @@ function hasPromptEcho(sentence, locale) {
 /** Etichette del prompt tradotte: «TITOLO ARTICOLO:» arriva in quattro lingue. */
 const PROMPT_TITLE_LABEL = /(?<![\p{L}\p{N}])(?:TITOLO\s+(?:DELL['’]?ARTICOLO|ARTICOLO)|TITRE(?:\s+(?:DE\s+L['’]ARTICLE|ARTICLE))?|TITEL(?:\s+(?:DES\s+ARTIKELS|ARTIKEL))?|ARTIKEL-?TITEL|ARTICLE\s+TITLE|TITLE\s+ARTICLE|TITLE\s+OF\s+THE\s+ARTICLE)\s*:\s*/u;
 const LABEL_LINE_MAX = 180;
+/** Stessa etichetta come riga intera, anche in minuscolo o come intestazione. */
+const PROMPT_TITLE_LINE = /^[ \t]*#{0,6}[ \t]*(?:\*\*)?(?:titolo\s+(?:dell['’]?articolo|articolo)|article\s+title|title\s+of\s+the\s+article|title\s+article|titel\s+des\s+artikels|artikel-?titel|titre\s+(?:de\s+l['’]artic\S*|article))(?:\*\*)?[ \t]*(?::[^\n]{0,200})?$\n?/gimu;
 
 /**
  * Toglie la riga con l'etichetta del prompt. Se dopo l'etichetta c'e' testo vero
  * sulla stessa riga si toglie solo il titolo noto, altrimenti la sola etichetta.
  */
 export function stripPromptTitleLabels(text, { title = '' } = {}) {
-  let value = String(text ?? '');
   let removed = 0;
+  let value = String(text ?? '').replace(PROMPT_TITLE_LINE, () => {
+    removed += 1;
+    return '';
+  });
+  if (removed > 0) value = value.replace(/\n{3,}/g, '\n\n');
   for (let match = value.match(PROMPT_TITLE_LABEL); match; match = value.match(PROMPT_TITLE_LABEL)) {
     const start = match.index;
     const afterLabel = start + match[0].length;
@@ -584,8 +590,9 @@ const CLASS_RULES = Object.freeze([
 /** Elenca le frasi vietate di un campo. */
 export function findEditorialClaims(text, { locale = 'it' } = {}) {
   const found = [];
-  const label = String(text ?? '').match(PROMPT_TITLE_LABEL);
-  if (label) found.push({ class: 'stringa-prompt', sentence: label[0] });
+  const raw = String(text ?? '');
+  const label = raw.match(PROMPT_TITLE_LABEL) ?? raw.match(new RegExp(PROMPT_TITLE_LINE.source, 'imu'));
+  if (label) found.push({ class: 'stringa-prompt', sentence: label[0].trim() });
   const segments = splitClaimSegments(text);
   for (let index = 0; index < segments.length; index += 2) {
     const sentence = segments[index];
@@ -606,7 +613,7 @@ export function repairEditorialClaims(text, { locale = 'it', title = '' } = {}) 
   const stripped = stripPromptTitleLabels(text, { title });
   const segments = splitClaimSegments(stripped.value);
   const changes = stripped.removed > 0
-    ? [{ class: 'stringa-prompt', before: String(text ?? '').match(PROMPT_TITLE_LABEL)?.[0] ?? '', after: '' }]
+    ? [{ class: 'stringa-prompt', before: `${stripped.removed} etichette`, after: '' }]
     : [];
   const used = new Set();
   for (let index = 0; index < segments.length; index += 2) {
