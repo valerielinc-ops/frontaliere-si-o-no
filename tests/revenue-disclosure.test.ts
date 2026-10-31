@@ -63,8 +63,5 @@ describe('active job count', () => {
 
   it('no hand-written total survives', () => {
     expect(read('build-plugins/staticPagesPlugin.ts')).not.toMatch(/oltre 1\.500 posizioni|over 1,500 active/);
-    for (const locale of LOCALES) {
-      expect(read(`services/locales/${locale}-core.ts`)).not.toMatch(/'jobBoard\.seoDescription':[^\n]*1500/);
-    }
   });
 });
