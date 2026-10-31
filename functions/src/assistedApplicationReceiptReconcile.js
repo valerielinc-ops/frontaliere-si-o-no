@@ -5,7 +5,7 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { transition } from './assistedApplicationFlow.js';
 import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 import { qualificationCounterContextHash } from './lib/qualificationCounterContext.js';
-import { submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash, isMinimalSubmissionReceipt } from './lib/submissionReceiptContract.js';
+import { submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash, isMinimalSubmissionReceipt, submissionOwnerIntent } from './lib/submissionReceiptContract.js';
 import { submittedOrderFields } from './lib/submittedOrderFields.js';
 
 const SHA256 = /^[a-f0-9]{64}$/;
@@ -37,6 +37,7 @@ export async function reconcileCanonicalSubmissionReceipt({ db, orderId, round, 
     const proofRef = orderRef.collection('submission_receipts').doc(attemptHash);
     const frame = (await tx.get(proofRef)).data();
     if (!frame || frame.attemptHash !== attemptHash || frame.round !== guardedRound || !SHA256.test(frame.sourceFingerprint || '')
+      || (frame.channel === 'owner_extension' && !submissionOwnerIntent(frame.ownerIntent))
       || !SHA256.test(frame.draftMaterialHash || '') || !SHA256.test(frame.attemptMaterialHash || '')
       || !isMinimalSubmissionReceipt(frame.minimalReceipt, attemptHash, guardedRound)) return handled('receipt_unbound');
     if (frame.slotHash !== submissionSlotHash({ orderId, order })) return handled('slot_changed');

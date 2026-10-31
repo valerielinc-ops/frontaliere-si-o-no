@@ -16,7 +16,7 @@
  *   release   the send failed for certain: a later run may try again
  */
 
-import { submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash } from './lib/submissionReceiptContract.js';
+import { submissionAttemptHash, submissionSlotHash, submissionDraftMaterialHash, submissionAttemptMaterialHash, submissionOwnerIntent } from './lib/submissionReceiptContract.js';
 import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 import { roundWasSent } from './assistedApplicationFlow.js';
 import { randomUUID } from 'node:crypto';
@@ -155,7 +155,9 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       });
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
-    async markClicked(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard } = {}) {
+    async markClicked(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard, ownerIntent = null } = {}) {
+      let intentSnapshot;
+      try { intentSnapshot = submissionOwnerIntent(ownerIntent); } catch { intentSnapshot = null; }
       const markerStartedAt = Date.now();
       await db.runTransaction(async transaction => {
         // All proof dependencies are reread in the same transaction as the
@@ -168,11 +170,16 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         }
         if (!assistedApplicationRetained(orderDoc.data(), nowMs)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
         if (!submissionFlowAllowsSend(flowDoc.data(), guardedRound, submissionDoc.data()?.[key]?.channel)) throw Object.assign(new Error('submission_approval_changed'), { code: 'submission_approval_changed' });
+        if (submissionDoc.data()?.[key]?.channel === 'owner_extension' && !intentSnapshot) throw Object.assign(new Error('submission_intent_changed'), { code: 'evidence_source_changed' });
         const proof = await armHandoff(transaction, submissionDoc.data(), nowMs, currentAnswerSourceGuard, { slotHash: submissionSlotHash({ orderId, order: orderDoc.data() }),
           draftMaterialHash: submissionDraftMaterialHash(draftDoc.data()), attemptMaterialHash: submissionAttemptMaterialHash(draftDoc.data()) });
         const handoffAt = nowMs + Math.max(0, Date.now() - markerStartedAt);
         if (!assistedApplicationRetained(orderDoc.data(), handoffAt)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
-        transaction.set(proof.ref, { ...proof.frame, handoffAt });
+        if (intentSnapshot) {
+          let currentIntent; try { currentIntent = submissionOwnerIntent(ownerIntent); } catch { currentIntent = null; }
+          if (JSON.stringify(currentIntent) !== JSON.stringify(intentSnapshot)) throw Object.assign(new Error('submission_intent_changed'), { code: 'evidence_source_changed' });
+        }
+        transaction.set(proof.ref, { ...proof.frame, handoffAt, ...(intentSnapshot ? { ownerIntent: intentSnapshot } : {}) });
         transaction.set(ref, { [key]: { clickedAt: handoffAt } }, { merge: true });
       });
     },

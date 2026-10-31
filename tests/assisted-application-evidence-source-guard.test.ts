@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { transportSourceGuard } from './helpers/submissionSourceGuard';
+import { transportSourceGuard, transportOwnerIntent } from './helpers/submissionSourceGuard';
 import { submissionGuard as rawSubmissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
@@ -172,7 +172,7 @@ it.each(['email', 'portal', 'owner_extension'])('requires a current full source 
   if (channel === 'owner_extension') store.docs.set(`${base}/automation/flow`, { state: 'owner_takeover', round: 1 });
   const guard = rawSubmissionGuard(store.db, 'source_guard_fixture', 1);
   await guard.claim(channel, 1);
-  await expect(channel === 'email' ? guard.markEmailSending(2) : guard.markClicked(2)).rejects.toMatchObject({ code: 'evidence_source_changed' });
+  await expect(channel === 'email' ? guard.markEmailSending(2) : guard.markClicked(2, { ownerIntent: channel === 'owner_extension' ? transportOwnerIntent() : null })).rejects.toMatchObject({ code: 'evidence_source_changed' });
   expect(store.read(`${base}/automation/submission`).r1.clickedAt).toBeNull();
   expect([...store.docs.keys()].filter(key => key.includes('/submission_receipts/'))).toHaveLength(0);
 });
@@ -217,4 +217,32 @@ it.each(['email', 'portal'])('rechecks retention after the final awaited proof/s
     expect(store.read(`${base}/automation/submission`).r1.clickedAt).toBeNull();
     expect([...store.docs.keys()].filter(key => key.includes('/submission_receipts/'))).toHaveLength(0);
   }
+});
+
+
+it('binds the server-verified owner intent metadata in the same immutable handoff frame', async () => {
+  const store = fixture(); store.docs.set(`${base}/automation/flow`, { state: 'owner_takeover', round: 1 });
+  const guard = submissionGuard(store.db, 'source_guard_fixture', 1); const ownerIntent = transportOwnerIntent();
+  await guard.claim('owner_extension', 1); await guard.markClicked(2, { ownerIntent });
+  const framePath = [...store.docs.keys()].find(key => key.includes('/submission_receipts/'))!;
+  expect(store.read(framePath).ownerIntent).toEqual(ownerIntent);
+  ownerIntent.nativeDigest = 'b'.repeat(64);
+  expect(store.read(framePath).ownerIntent.nativeDigest).toBe('a'.repeat(64));
+});
+
+it.each([null, { ...transportOwnerIntent(), nativeDigest: 'unverified' }, { ...transportOwnerIntent(), rawQuestion: 'must not persist' }])('refuses a missing or non-whitelisted owner intent', async ownerIntent => {
+  const store = fixture(); store.docs.set(`${base}/automation/flow`, { state: 'owner_takeover', round: 1 });
+  const guard = submissionGuard(store.db, 'source_guard_fixture', 1); await guard.claim('owner_extension', 1);
+  await expect(guard.markClicked(2, { ownerIntent })).rejects.toMatchObject({ code: 'evidence_source_changed' });
+  expect([...store.docs.keys()].filter(key => key.includes('/submission_receipts/'))).toHaveLength(0);
+});
+
+it('rejects owner-intent mutation during the final source await before either handoff write', async () => {
+  const store = fixture(); store.docs.set(`${base}/automation/flow`, { state: 'owner_takeover', round: 1 });
+  const ownerIntent = transportOwnerIntent();
+  const guard = rawSubmissionGuard(store.db, 'source_guard_fixture', 1, { answerSourceGuard: { ...transportSourceGuard(),
+    assertInTransaction: async () => { ownerIntent.nativeDigest = 'b'.repeat(64); } } });
+  await guard.claim('owner_extension', 1);
+  await expect(guard.markClicked(2, { ownerIntent })).rejects.toMatchObject({ code: 'evidence_source_changed' });
+  expect([...store.docs.keys()].filter(key => key.includes('/submission_receipts/'))).toHaveLength(0);
 });
