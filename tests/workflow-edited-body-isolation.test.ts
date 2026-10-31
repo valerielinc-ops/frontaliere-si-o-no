@@ -15,8 +15,9 @@ const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 const require = createRequire(import.meta.url);
 const HEAD_SHA = 'a'.repeat(40);
 
-async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, newerPendingMarker = null as 'malformed' | 'invalid' | null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, markerExtra = {} as Record<string, unknown>, bodyEditedAt = null as string | null, attemptJobs = null as Array<{ conclusion: string; started_at?: string }> | null, concurrentEdit = null as { body?: string; editedAt?: string } | null } = {}) {
-  const reruns: number[] = [];
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', runEvent = 'pull_request', runBranch = 'fork-branch', runPath = '.github/workflows/tests.yml', runRepository = 'owner/repo', runCreatedAt = '2026-09-19T09:00:00Z', runStartedAt = '2026-09-19T09:00:00Z', pendingStatus = null, newerPendingMarker = null as 'malformed' | 'invalid' | null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, returnCancellations = false, markerExtra = {} as Record<string, unknown>, bodyEditedAt = null as string | null, attemptJobs = null as Array<{ conclusion: string; started_at?: string }> | null, concurrentEdit = null as { body?: string; editedAt?: string } | null } = {}) {
+    const reruns: number[] = [];
+  const cancellations: number[] = [];
   const dispatches: unknown[] = [];
   const callOrder: string[] = [];
   const attemptRequests: Array<{ run_id: number; attempt_number: number }> = [];
@@ -24,7 +25,11 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   let lastEditedAt = bodyEditedAt;
   let nativeAutoMergeRevoked = false;
   let reads = 0;
-  const run = { id: 42, status, conclusion, run_attempt: changedAttempt ? 2 : 1, event: 'pull_request', head_sha: HEAD_SHA };
+  const run = {
+    id: 42, status, conclusion, run_attempt: changedAttempt ? 2 : 1, event: runEvent,
+    path: runPath, repository: { full_name: runRepository }, head_sha: HEAD_SHA,
+    head_branch: runBranch, created_at: runCreatedAt, run_started_at: runStartedAt,
+  };
   const manualRun = { ...run, id: 43, event: 'pull_request' };
   const comments = pendingStatus ? [{
       id: 900,
@@ -87,10 +92,13 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       },
       actions: {
         listWorkflowRuns: 'runs', listJobsForWorkflowRun: 'jobs', listJobsForWorkflowRunAttempt: 'attemptJobs',
-        getWorkflowRun: async ({ run_id }: { run_id: number }) => ({ data: { ...run, id: run_id, status: finishing ? 'completed' : status, conclusion: finishing ? 'failure' : conclusion, run_attempt: changedAttempt ? 2 : 1, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { sha: HEAD_SHA } }] } }),
+        getWorkflowRun: async ({ run_id }: { run_id: number }) => ({ data: { ...run, id: run_id, status: finishing ? 'completed' : status, conclusion: finishing ? 'failure' : conclusion, run_attempt: changedAttempt ? 2 : 1, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { ref: runBranch, sha: HEAD_SHA } }] } }),
         reRunWorkflow: async ({ run_id }: { run_id: number }) => {
           if (rerunFails) throw new Error('rerun failed');
           reruns.push(run_id);
+        },
+        cancelWorkflowRun: async ({ run_id }: { run_id: number }) => {
+          cancellations.push(run_id);
         },
         createWorkflowDispatch: async (input: unknown) => {
           if (dispatchFails) throw new Error('dispatch failed');
@@ -157,7 +165,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       eventName,
       repo: { owner: 'owner', repo: 'repo' },
       payload: eventName === 'workflow_run'
-        ? { workflow_run: { id: eventRunId, name: 'Code checks and review · PR #1 · synchronize', path: '.github/workflows/tests.yml', status: 'completed', conclusion, event: 'pull_request', run_attempt: eventRunAttempt, created_at: '2026-09-19T09:00:00Z', head_sha: HEAD_SHA, repository: { full_name: 'owner/repo' }, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { sha: HEAD_SHA } }] } }
+        ? { workflow_run: { id: eventRunId, name: 'Code checks and review · PR #1 · synchronize', path: runPath, status: 'completed', conclusion, event: runEvent, run_attempt: eventRunAttempt, created_at: runCreatedAt, run_started_at: runStartedAt, head_sha: HEAD_SHA, head_branch: runBranch, repository: { full_name: runRepository }, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { ref: runBranch, sha: HEAD_SHA } }] } }
         : { pull_request: { number: 1, head: { sha: HEAD_SHA } } },
     }, { info: () => undefined, warning: () => undefined }, require);
   } catch (caught) {
@@ -172,7 +180,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   if (rerunFails || dispatchFails) return { reruns, dispatches, comments, error };
   if (nativeAutoMerge) return { reruns, dispatches, callOrder, ...(returnComments ? { comments } : {}) };
   if (attemptJobs) return { reruns, dispatches, attemptRequests, ...(returnComments ? { comments } : {}) };
-  return { reruns, dispatches, ...(returnComments ? { comments } : {}) };
+  return { reruns, dispatches, ...(returnComments ? { comments } : {}), ...(returnCancellations ? { cancellations } : {}) };
 }
 
 describe('one code verdict and metadata-triggered review recovery', () => {
@@ -339,6 +347,9 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).not.toContain('exec(');
     expect(script).toContain('BODY_REVIEW_RECOVERY_PENDING');
     expect(script).toContain('CODEX_AUTH_BLOCKED');
+    expect(script).toContain('TESTS_WORKFLOW_PATH');
+    expect(script).toContain('runStartedBeforeLastBodyEdit');
+    expect(script).toContain('cancelWorkflowRun');
     expect(script).toContain('retryReasonForCompletedRun');
     expect(script).toContain('workflow_run');
     expect(recovery.concurrency.group).toContain('tests-body-recovery-schedule');
@@ -349,6 +360,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).toContain('markerMatchesRun');
     expect(script).toContain('createWorkflowDispatch');
     expect(script).toContain("workflow_id: 'enable-native-automerge.yml'");
+    expect(script).not.toContain("workflow_id: 'tests.yml'");
     expect(script).toContain("nativeMergeStatus: 'pending'");
     expect(script).toContain("nativeMergeStatus: 'dispatched'");
     expect(script).toContain('status: \'manual\'');
@@ -378,6 +390,32 @@ describe('one code verdict and metadata-triggered review recovery', () => {
 
   it('retries a failed body preflight after an edit', async () => {
     expect(await runRecovery()).toEqual({ reruns: [42], dispatches: [] });
+  });
+
+  it('accepts only a tests pull_request run on the current PR branch', async () => {
+    expect(await runRecovery({ runEvent: 'push' })).toEqual({ reruns: [], dispatches: [] });
+    expect(await runRecovery({ runBranch: 'another-branch' })).toEqual({ reruns: [], dispatches: [] });
+    expect(await runRecovery({ runPath: '.github/workflows/other.yml' })).toEqual({ reruns: [], dispatches: [] });
+  });
+
+  it('cancels an in-flight pre-edit run before waiting for its bounded rerun', async () => {
+    const result = await runRecovery({
+      body: 'success', status: 'in_progress', conclusion: '',
+      bodyEditedAt: '2026-09-19T09:00:10Z', returnComments: true, returnCancellations: true,
+    });
+    expect(result.reruns).toEqual([]);
+    expect(result.cancellations).toEqual([42]);
+    expect(result.comments!.at(-1)?.body).toContain('"cancelRequested":true');
+  });
+
+  it('does not cancel an in-flight run that started after the current body edit', async () => {
+    const result = await runRecovery({
+      body: 'success', status: 'in_progress', conclusion: '',
+      bodyEditedAt: '2026-09-19T09:00:10Z', runStartedAt: '2026-09-19T09:01:00Z',
+      returnCancellations: true,
+    });
+    expect(result.reruns).toEqual([]);
+    expect(result.cancellations).toEqual([]);
   });
 
   it('revokes native auto-merge before writing the recovery marker', async () => {
