@@ -11,7 +11,7 @@ import {
 } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { refreshArticleHubLandings } from '../scripts/lib/refresh-article-hub-landings.mjs';
+import { refreshArticleHubLandings, stripCloudflareInjectedScripts } from '../scripts/lib/refresh-article-hub-landings.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -157,5 +157,24 @@ describe('refreshArticleHubLandings', () => {
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
+  });
+});
+
+describe('stripCloudflareInjectedScripts', () => {
+  const snippet = (ray: string) =>
+    `<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'${ray}',t:'MTc5'};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';";}}})();</script>`;
+  const entry = '<script type="module" src="/assets/index-entry.js"></script>';
+
+  it('rimuove tutti gli snippet accumulati e conserva gli altri script', () => {
+    const html = `<body>${entry}\n ${snippet('a')}${snippet('b')}</body>`;
+    const clean = stripCloudflareInjectedScripts(html);
+    expect(clean).not.toContain('challenge-platform');
+    expect(clean).toContain(entry);
+    expect(clean).toContain('</body>');
+  });
+
+  it('lascia invariata una pagina senza snippet', () => {
+    const html = `<body>${entry}<script>window.ok=1</script></body>`;
+    expect(stripCloudflareInjectedScripts(html)).toBe(html);
   });
 });

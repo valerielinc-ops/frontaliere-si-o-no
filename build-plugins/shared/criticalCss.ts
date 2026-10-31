@@ -323,6 +323,7 @@ export const SEO_STATIC_HERO_RESERVE_CSS =
   '.s-tval,.s-9UotdJ{margin-top:8px;font-size:28px;font-weight:800;line-height:1.1}' +
   '.s-ahW6q9{margin-top:8px;font-size:15px;font-weight:800}' +
   '.s-bcr{margin:0 0 14px;font-size:13px}' +
+  '.s-bcl{display:inline-block;min-height:24px;line-height:24px}' +
   // font-weight:700 reserved so CTA glyph width (hence any adjacent inline
   // element) is stable; mobile mirrors the async ≤639px full-width swap.
   '.s-cta{display:inline-flex;align-items:center;gap:6px;padding:12px 20px;font-weight:700}' +

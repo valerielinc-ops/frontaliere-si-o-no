@@ -1711,6 +1711,7 @@ const deCore: Record<string, string> = {
  'newsletter.consentRequired': 'Sie müssen die Einwilligung akzeptieren, um sich anzumelden.',
  'newsletter.popup.title': 'Bleiben Sie informiert!',
  'newsletter.popup.subtitle': 'Abonnieren Sie den wöchentlichen Newsletter: CHF/EUR-Kurs, Verkehr und Steuernews jeden Montag.',
+ 'map.twoFingerHint': 'Karte mit zwei Fingern bewegen',
  'newsletter.popup.close': 'Schließen',
  'newsletter.popup.googleSignIn': 'Weiter mit Google',
  'newsletter.popup.facebookSignIn': 'Weiter mit Facebook',

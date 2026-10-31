@@ -123,6 +123,18 @@ export function ensureTwitterCardMeta(html, { locale, siteBase }) {
  *          locales?: readonly string[], siteBase?: string,
  *          fetchImpl?: Function, timeoutMs?: number, logPrefix?: string}} opts
  */
+/**
+ * The shell is read back through Cloudflare, which appends its JS Detection
+ * snippet before </body> on every response. Republishing that HTML made each
+ * refresh add one more: 291 by 31/10/2026, 83% of the page and a 37 s
+ * DOMContentLoaded on phones. Cloudflare re-adds the one it needs at the edge.
+ */
+const CLOUDFLARE_JSD_SNIPPET = /<script>\(function\(\)\{function c\(\)\{var b=a\.contentDocument[\s\S]*?<\/script>/g;
+
+export function stripCloudflareInjectedScripts(html) {
+  return html.replace(CLOUDFLARE_JSD_SNIPPET, '');
+}
+
 export async function refreshArticleHubLandings(opts) {
   const {
     rootDir,
@@ -252,7 +264,7 @@ export async function refreshArticleHubLandings(opts) {
       continue;
     }
 
-    const refreshed = ensureArticleHubCards(liveHtml, cardsHtml, locale);
+    const refreshed = ensureArticleHubCards(stripCloudflareInjectedScripts(liveHtml), cardsHtml, locale);
     if (refreshed === null) {
       result.errors.push(
         `${localeLanding}: live shell has no balanced article grid or safe shell navigation anchor`,

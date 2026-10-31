@@ -16,7 +16,7 @@ export const HERO_EYEBROW_STYLE =
   'margin:0 0 8px;color:var(--color-accent);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em';
 
 export const H1_STYLE =
-  'margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.15;color:var(--color-heading);font-weight:700';
+  'margin:0 0 12px;font-size:clamp(1.5rem,4.5vw,2.75rem);line-height:1.15;color:var(--color-heading);font-weight:700';
 
 export const LEDE_STYLE =
   'margin:0 0 14px;font-size:18px;line-height:1.55;color:var(--color-body);max-width:60ch';

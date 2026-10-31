@@ -3641,14 +3641,14 @@ const App: React.FC = () => {
  <div className="flex items-center justify-center mt-2 mb-2">
  <a
  ref={commitBadgeRef}
- href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${commitHash || 'unknown'}`}
+ href={commitHash ? `https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${commitHash}` : undefined}
  target="_blank"
  rel="noopener noreferrer"
- className="text-sm font-mono text-muted hover:text-accent px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+ className={`inline-flex items-center min-h-[44px] text-sm font-mono text-muted hover:text-accent px-1 rounded transition-colors ${commitHash ? '' : 'invisible'}`}
  title="Versione del sito: commit GitHub deploy"
  >
  <span>v</span>
- <span>{commitHash ? commitHash.slice(0, 7) : 'unknown'}</span>
+ <span>{commitHash.slice(0, 7)}</span>
  </a>
  </div>
 
