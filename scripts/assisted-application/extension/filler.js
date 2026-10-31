@@ -353,10 +353,15 @@
     const read = root.CompilaRunnerFields;
     const byId = new Map();
     if (typeof read !== 'function') return byId;
+    const add = (id, field) => {
+      if (!id) return;
+      if (byId.has(id) && byId.get(id) !== field) byId.set(id, { nativeContractUnavailable: true });
+      else if (!byId.has(id)) byId.set(id, field);
+    };
     try {
       for (const field of read({ channelType }).fields || []) {
-        if (field.id) byId.set(field.id, field);
-        for (const option of field.options || []) if (option.aaId) byId.set(option.aaId, field);
+        add(field.id, field);
+        for (const option of field.options || []) add(option.aaId, field);
       }
     } catch {
       // A page the runner's reading does not understand: the engine's own names only.
@@ -486,6 +491,11 @@
   function collect(doc, channelType = '') {
     const entries = [];
     const runner = runnerLabels(channelType);
+    const nativeIdCounts = new Map();
+    for (const node of doc.querySelectorAll('[data-aa-id]')) {
+      const id = node.getAttribute('data-aa-id');
+      nativeIdCounts.set(id, (nativeIdCounts.get(id) || 0) + 1);
+    }
     const inPicker = (element) => element.closest('[data-scope="date-picker"]');
     for (const picker of doc.querySelectorAll('[data-scope="date-picker"][data-part="root"]')) {
       if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: labelOf(picker), required: true });
@@ -595,7 +605,12 @@
       });
     }
     return entries.map(entry => {
-      const field = runner.get(entry.element.getAttribute('data-aa-id'));
+      const id = entry.element.getAttribute('data-aa-id');
+      const field = runner.get(id);
+      if (entry.nativeContractUnavailable === true || field?.nativeContractUnavailable === true
+        || field?.consentOwnershipUnknown === true || (id && nativeIdCounts.get(id) !== 1)) {
+        return { ...entry, label: '', labels: [], nativeContractUnavailable: true };
+      }
       // A styled select's proxy is a locator; the native successful control
       // owns the submitted meaning and its containing scopes.
       const purpose = runnerSectionOf(runner, entry.nativeSelect || entry.element, field);
@@ -826,6 +841,7 @@
 
   /** The value for one entry, or null: never invented, always from the kit. */
   function answerFor(entry, kit) {
+    if (entry.nativeContractUnavailable === true) return null;
     const fromKit = kitAnswer(entry.labels || [entry.label], kit, entry);
     if (entry.kind === 'file') {
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
@@ -1332,6 +1348,11 @@
     const preferredCv = new Set(preferredDocumentControls(cvControls));
     for (const entry of entries) {
       if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
+      if (entry.nativeContractUnavailable === true) {
+        failed.push(entry.label || entry.kind);
+        missing.push({ label: entry.label || entry.kind, answer: '', reason: 'native_contract_unavailable' });
+        continue;
+      }
       if (!isEmpty(entry)) continue;
       const answer = answerFor(entry, kit);
       const documentKey = answer?.document ? `${doc.defaultView.location.href}|${answer.document}|${uploadControlId(entry.element)}` : '';

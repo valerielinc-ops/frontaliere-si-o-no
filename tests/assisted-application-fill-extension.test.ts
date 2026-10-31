@@ -206,6 +206,43 @@ describe('fill extension: native checkbox ownership contract', () => {
   });
 });
 
+describe('fill extension: exact native metadata binding', () => {
+  const field = { id: 'shared', label: 'City', section: 'Personal information', context: 'City',
+    addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false } };
+
+  it.each([false, true])('rejects duplicate reader or DOM IDs without borrowing another owner (DOM duplicate=%s)', async domDuplicate => {
+    const { window, document, F } = page(`<form><section aria-label="Work preferences"><label for="work">City</label><input id="work" data-aa-id="shared"></section>${domDuplicate ? '<section aria-label="Personal information"><label for="home">City</label><input id="home" data-aa-id="shared"></section>' : ''}</form>`);
+    (window as any).CompilaRunnerFields = () => ({ fields: domDuplicate ? [field] : [{ ...field, addressContext: { ...field.addressContext, owners: ['Work preferences'] } }, field] });
+    const result = await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('work') as HTMLInputElement).value).toBe('');
+    expect(result.missing).toHaveLength(domDuplicate ? 2 : 1);
+    expect(result.missing.every((item: any) => item.reason === 'native_contract_unavailable')).toBe(true);
+    expect(F.collect(document).every((entry: any) => entry.labels.length === 0 && entry.label === '')).toBe(true);
+    window.close();
+  });
+
+  it.each(['', 'existing@example.test'])('keeps duplicate annotated contacts technical when the reader omits them (%s)', async existing => {
+    const { window, document, F } = page(`<form><input type="email" value="${existing}" data-aa-id="shared"><input type="email" value="${existing}" data-aa-id="shared"></form>`);
+    (window as any).CompilaRunnerFields = () => ({ fields: [] });
+    const result = await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap() });
+    expect([...document.querySelectorAll('input')].map(input => input.value)).toEqual([existing, existing]);
+    expect(result.filled).toEqual([]);
+    expect(result.missing).toHaveLength(2);
+    expect(result.missing.every((item: any) => item.reason === 'native_contract_unavailable')).toBe(true);
+    window.close();
+  });
+
+  it.each(['nativeContractUnavailable', 'consentOwnershipUnknown'])('does not bypass %s for an optional prefilled control', async flag => {
+    const { window, document, F } = page('<form><label for="contact">Email address</label><input id="contact" type="email" value="existing@example.test" data-aa-id="shared"></form>');
+    (window as any).CompilaRunnerFields = () => ({ fields: [{ ...field, label: 'Email address', [flag]: true }] });
+    const result = await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('contact') as HTMLInputElement).value).toBe('existing@example.test');
+    expect(result.failed).toHaveLength(1);
+    expect(result.missing[0].reason).toBe('native_contract_unavailable');
+    window.close();
+  });
+});
+
 describe('fill extension: patterns', () => {
   it('shares URL-safe Apply selection with the runner', () => {
     const { F, document } = page('<a href="/wrong">https://jobs.example/?apply=true</a><a href="/email">mailto:apply+foo@example.ch</a><button>Apply now</button>');
