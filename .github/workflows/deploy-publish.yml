@@ -1903,9 +1903,13 @@ jobs:
       # GitHub Pages allows only one deployment at a time. When concurrent
       # pushes trigger this workflow, the second run can hit "in progress
       # deployment" errors. Retry once after a short wait to handle this.
-      # A failed action is not proof of a completed Pages publish. Preserve
-      # both action errors and fail after the one retry instead of waiting on
-      # this job's own github-pages environment deployment.
+      # deploy-pages v5 attempts to cancel its native Pages deployment when
+      # its polling times out (src/internal/deployment.js). Its declared output
+      # is page_url, not the native deployment ID: failure does not establish
+      # an identified, still-pending publication that this job can recover.
+      # Preserve both action errors and fail after the one retry; the normal
+      # publish coordinator can recover after this job releases pages-deploy.
+      # This job's environment deployment must never stand in for a Pages ID.
       - name: Deploy to GitHub Pages
         id: deployment_first
         if: steps.pages-receipt.outputs.pages_deployed != 'true'
@@ -1939,6 +1943,7 @@ jobs:
           set -euo pipefail
           echo "::error::GitHub Pages publishing is unconfirmed: no successful deploy-pages attempt (first=${PAGES_FIRST_OUTCOME:-<missing>}, retry=${PAGES_RETRY_OUTCOME:-<missing>})."
           echo "::error::Original action errors are retained in the Deploy to GitHub Pages and Deploy to GitHub Pages (retry) step logs: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          echo "::error::No native Pages deployment ID is exposed by these failed action outputs for a run-bound recovery."
           echo "::error::The github-pages environment deployment is the Actions job state, not a Pages publish receipt; no receipt will be written."
           exit 1
 
