@@ -3,7 +3,9 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { COOKIE_ACCEPT_RE, COOKIE_REJECT_RE, openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { COOKIE_ACCEPT_RE, COOKIE_REJECT_RE, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { operationalQuestionTopic } from '../functions/src/assistedApplicationOperationalAnswers.js';
+import { mergeLivePortalQuestions } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, unknown> = {}) {
@@ -32,6 +34,66 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it('preserves accessible field metadata through question reduction and live refresh', () => {
+    const prompt = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const snapshot = extract(`<form>
+      <label for="privacy-ack">${prompt}</label>
+      <input id="privacy-ack" name="privacy-ack" type="checkbox" aria-label="Email" aria-describedby="privacy-hint" required>
+      <small id="privacy-hint">Use your email address.</small>
+    </form>`);
+    const field = snapshot.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(field).toBeTruthy();
+    expect(field).toMatchObject({
+      ariaLabel: 'Email', description: 'Use your email address.',
+      labels: expect.arrayContaining([prompt, 'Email', 'Use your email address.']),
+    });
+    const reduced = portalRequirementsFromMissingRequired(snapshot.fields, [{
+      fieldId: field.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(reduced).toMatchObject({ ariaLabel: 'Email', labels: expect.arrayContaining(['Email']) });
+    expect(operationalQuestionTopic(reduced)).toBeNull();
+
+    const old = { ...reduced };
+    delete old.ariaLabel;
+    delete old.ariaDescription;
+    delete old.title;
+    delete old.placeholder;
+    delete old.description;
+    delete old.labels;
+    const refreshed = mergeLivePortalQuestions([old], [reduced]);
+    expect(refreshed.ambiguous).toBe(false);
+    expect(refreshed.questions[0]).toMatchObject({ ariaLabel: 'Email', description: 'Use your email address.' });
+    expect(operationalQuestionTopic(refreshed.questions[0])).toBeNull();
+  });
+
+  it('fails closed when accessible metadata exceeds extraction limits', () => {
+    const prompt = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const longEmailLabel = 'x'.repeat(296) + ' Email';
+    const snapshot = extract('<form><label for="privacy-ack">' + prompt
+      + '</label><input id="privacy-ack" name="privacy-ack" type="checkbox" aria-label="'
+      + longEmailLabel + '" required></form>');
+    const field = snapshot.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(field).toMatchObject({ ariaLabel: 'x'.repeat(296) + ' Ema', privacyMetadataIncomplete: true });
+    const question = portalRequirementsFromMissingRequired(snapshot.fields, [{
+      fieldId: field.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(question.privacyMetadataIncomplete).toBe(true);
+    expect(operationalQuestionTopic(question)).toBeNull();
+
+    const hintIds = Array.from({ length: 13 }, (_value, index) => 'privacy-hint-' + index);
+    const hintElements = hintIds.map((id, index) => '<span id="' + id + '">' + (index === 12 ? 'Email' : 'Hint ' + index) + '</span>').join('');
+    const manyLabels = extract('<form><label for="privacy-ack">' + prompt + '</label>'
+      + '<input id="privacy-ack" type="checkbox" aria-labelledby="' + hintIds.join(' ') + '" required>'
+      + hintElements + '</form>');
+    const manyLabelsField = manyLabels.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(manyLabelsField.privacyMetadataIncomplete).toBe(true);
+    const manyLabelsQuestion = portalRequirementsFromMissingRequired(manyLabels.fields, [{
+      fieldId: manyLabelsField.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(manyLabelsQuestion.privacyMetadataIncomplete).toBe(true);
+    expect(operationalQuestionTopic(manyLabelsQuestion)).toBeNull();
+  });
+
   it('recognizes the Deloitte login fields and optional-cookie controls', () => {
     const snapshot = extract(`
       <form aria-label="Deloitte login">

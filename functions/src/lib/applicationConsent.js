@@ -111,11 +111,16 @@ export function privacySemanticIdentifiers(...sources) {
 }
 export function hasConsentContradiction(value, ...semanticIds) {
   const context = [];
+  let incompleteMetadata = false;
   const visitContext = source => {
     if (!source || typeof source !== 'object' || Array.isArray(source)) return;
+    if (source.privacyMetadataIncomplete === true) incompleteMetadata = true;
     for (const key of ['ariaLabel', 'ariaDescription', 'title', 'placeholder', 'description']) {
       const item = source[key];
       if (typeof item === 'string' || typeof item === 'number') context.push(item);
+    }
+    if (Array.isArray(source.labels)) {
+      for (const item of source.labels) if (typeof item === 'string' || typeof item === 'number') context.push(item);
     }
     for (const key of ['portalNativeContract', 'originalNativeContract', 'nativeContract']) visitContext(source[key]);
   };
@@ -124,7 +129,7 @@ export function hasConsentContradiction(value, ...semanticIds) {
   const primary = ['string', 'number'].includes(typeof value) ? String(value) : '';
   const text = `${primary} ${ids}`.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
-  return consentContradictionPatterns.negated.test(text) || consentContradictionPatterns.facts.test(text)
+  return incompleteMetadata || consentContradictionPatterns.negated.test(text) || consentContradictionPatterns.facts.test(text)
     || /\b(?:bday|dob|sex|gender|country|paese|nazione|pays|land)\b/.test(text)
     || /\b(?:e ?mail|mail(?:box| address)?|phone|telephone|mobile(?: number)?|cellulare|handy|mobiltelefon|celular|movil|telefon\w*|telefono|portable|courriel|adresse|anschrift|address|indirizzo|street|strasse|rue|residence|residenza|wohnort|domicile|postal code|zip code|code postal|postleitzahl|plz|npa|cap)\b/.test(text)
     || consentContradictionPatterns.otherTerms.test(text)
