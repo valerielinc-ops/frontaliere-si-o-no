@@ -290,7 +290,7 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     await seed(takenOver);
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('submission').set({ r1: { state: 'failed', reason: 'portal_refused' } });
     expect(await call('automationMarkClicked')).toEqual({ ok: true, state: 'owner_takeover', guard: 'sending' });
-    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending', channel: 'owner_extension', clickedAt: T0 } });
+    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending', channel: 'owner_extension', clickedAt: T0, attemptId: expect.any(String) } });
     await expect(call('automationFillKit')).rejects.toMatchObject({ code: 'submission_unconfirmed', status: 409 });
     // The portal's confirmation then closes it as sent.
     expect(await call('automationMarkSubmitted', { via: 'extension' })).toEqual({ ok: true, state: 'submitted' });

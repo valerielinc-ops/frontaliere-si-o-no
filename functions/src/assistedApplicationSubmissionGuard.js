@@ -49,7 +49,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
     const current = submission?.[key];
     if (current?.state === 'sent') throw Object.assign(new Error('submission_already_sent'), { code: 'submission_already_sent', record: current });
     if (!claimedAttemptId || current?.state !== 'sending' || current.attemptId !== claimedAttemptId
-      || current.channel !== channel || current.clickedAt) {
+      || !(Array.isArray(channel) ? channel : [channel]).includes(current.channel) || current.clickedAt) {
       throw Object.assign(new Error('submission_claim_changed'), { code: 'submission_claim_changed' });
     }
   };
@@ -120,7 +120,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         // All proof dependencies are reread in the same transaction as the
         // irreversible-send marker, before any write or external send.
         const submissionDoc = await transaction.get(ref);
-        requireOwnClaim(submissionDoc.data(), 'portal');
+        requireOwnClaim(submissionDoc.data(), ['portal', 'owner_extension']);
         if (currentAnswerSourceGuard) await currentAnswerSourceGuard.assertInTransaction(transaction);
         const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
