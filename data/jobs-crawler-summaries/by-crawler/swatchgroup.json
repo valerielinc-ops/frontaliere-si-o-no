@@ -9,16 +9,16 @@
     "eta-sa-swatch-group",
     "swiss-timing-swatch-group"
   ],
-  "generatedAt": "2026-10-31T09:30:36.370Z",
+  "generatedAt": "2026-10-31T21:41:51.601Z",
   "total": 25,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 24,
-  "durationMs": 355817,
-  "avgDurationMs": 355817,
+  "durationMs": 420792,
+  "avgDurationMs": 420792,
   "durationHistory": [
-    355817
+    420792
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -61,47 +61,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "company-7uc34b",
-      "slug": "impiegata-impiegato-in-logistica-apprendistato-2027-rado-watch-co-ltd-lengnau-be-7uc34b",
-      "company": "Rado Watch Co. Ltd.",
-      "title": "Logistiker:in Lehrstelle 2027",
-      "location": "Lengnau BE",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/de/job/33585",
-      "applyUrl": "https://www.swatchgroup.com/de/job/33585",
-      "source": "Company Careers Crawler",
-      "companyKey": "rado",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-29T21:28:17.015Z",
-      "firstSeenAt": "2026-10-26T09:26:02.889Z",
-      "sourceLang": "de",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "postalCode": "3001",
-      "addressLocality": "Lengnau BE",
-      "addressRegion": "BE",
-      "streetAddress": "Bielstrasse 45",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "company-7uc3o0",
@@ -132,12 +92,51 @@
       "postalCode": "2400",
       "addressLocality": "Le Locle",
       "addressRegion": "NE",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
         "completeness": 20
+      }
+    },
+    {
+      "id": "company-7uc3px",
+      "slug": "risorse-umane-business-partner-100-rado-watch-co-ltd-lengnau-be-7uc3px",
+      "company": "Rado Watch Co. Ltd.",
+      "title": "HR Business Partner (100%)",
+      "location": "Lengnau BE",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.swatchgroup.com/fr/job/33628",
+      "applyUrl": "https://www.swatchgroup.com/fr/job/33628",
+      "source": "Company Careers Crawler",
+      "companyKey": "rado",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-10-31T21:41:08.235Z",
+      "firstSeenAt": "2026-10-23T21:17:42.290Z",
+      "sourceLang": "fr",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "addressLocality": "Lengnau BE",
+      "addressRegion": "BE",
+      "streetAddress": "Bielstrasse 45",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -170,49 +169,11 @@
       "addressLocality": "Lengnau BE",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "company-7uc3px",
-      "slug": "risorse-umane-business-partner-100-rado-watch-co-ltd-lengnau-be-7uc3px",
-      "company": "Rado Watch Co. Ltd.",
-      "title": "HR Business Partner (100%)",
-      "location": "Lengnau BE",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/fr/job/33628",
-      "applyUrl": "https://www.swatchgroup.com/fr/job/33628",
-      "source": "Company Careers Crawler",
-      "companyKey": "rado",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-30T21:28:08.178Z",
-      "firstSeenAt": "2026-10-23T21:17:42.290Z",
-      "sourceLang": "fr",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "postalCode": "3001",
-      "addressLocality": "Lengnau BE",
-      "addressRegion": "BE",
-      "streetAddress": "Bielstrasse 45",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
         "translation": 25,
         "completeness": 23
       }
@@ -998,5 +959,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }
