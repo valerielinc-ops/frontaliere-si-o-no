@@ -1,7 +1,10 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+// Il tasso vero cambia ogni giorno: qui conta che la costante segua il file.
+vi.mock('../data/exchange-rate-snapshot.json', () => ({ currentRate: 1.0777, rateDate: '2026-10-30' }));
+
 import { DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE } from '../constants';
-import snapshot from '../data/exchange-rate-snapshot.json';
 import { buildSpreadExample } from '../services/spreadExample';
 import { buildReferenceNetScenario } from '../services/referenceNetScenario';
 
@@ -9,8 +12,8 @@ const read = (rel: string) => readFileSync(new URL(`../${rel}`, import.meta.url)
 
 describe('tasso CHF/EUR di riferimento', () => {
   it('è quello dello snapshot di /cambio-franco-euro/, con la sua data', () => {
-    expect(DEFAULT_EXCHANGE_RATE).toBe(snapshot.currentRate);
-    expect(DEFAULT_EXCHANGE_RATE_DATE).toBe(snapshot.rateDate);
+    expect(DEFAULT_EXCHANGE_RATE).toBe(1.0777);
+    expect(DEFAULT_EXCHANGE_RATE_DATE).toBe('2026-10-30');
   });
 
   it('il comparatore non ha un secondo tasso live', () => {
@@ -36,7 +39,7 @@ describe('tasso CHF/EUR di riferimento', () => {
   });
 
   it("l'esempio sullo spread segue il tasso e il formato della lingua", () => {
-    expect(buildSpreadExample(1.1, 'it-CH').real).toBe('1,1000');
+    expect(buildSpreadExample(1.1, 'it').real).toBe('1,1000');
     expect(buildSpreadExample(1.1, 'en-US').real).toBe('1.1000');
     expect(buildSpreadExample(1.1, 'en-US').spread).toBe('2.66');
   });

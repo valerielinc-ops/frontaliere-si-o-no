@@ -63,6 +63,7 @@ describe('salaryLandingShell · resolver', () => {
       expect(r.data.eyebrow).toContain(c.eyebrowSubstr);
       expect(r.data.table?.headers.length).toBe(c.columns);
       expect(r.data.tiles.length).toBe(c.tiles);
+      // cron-count-ok: tre FAQ scritte a mano per pagina, non un conteggio dallo snapshot del cambio.
       expect(r.data.faqs?.length).toBe(3);
     }
   });
@@ -100,6 +101,7 @@ describe('salaryLandingShell · resolver', () => {
       // catch unknown paths under /{locale}/{salary-hub}/anything.
       expect(r.data.table?.headers.length, `missing comparison table for ${c.path}`).toBe(c.columns);
       expect(r.data.tiles.length, `wrong tile count for ${c.path}`).toBe(c.tiles);
+      // cron-count-ok: tre FAQ scritte a mano per pagina, non un conteggio dallo snapshot del cambio.
       expect(r.data.faqs?.length, `wrong FAQ count for ${c.path}`).toBe(3);
     }
   });
