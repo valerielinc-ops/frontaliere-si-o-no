@@ -1731,7 +1731,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -1781,7 +1781,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1790,7 +1790,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -4772,12 +4772,12 @@
     },
     {
       "id": "unibe-9d32b30fa9e4",
-      "slug": "direktionsassistent-in-e-leitung-institutsadministration-80-100-universitat-bern",
+      "slug": "assistente-di-direzione-e-responsabile-dell-amministrazione-dell-istituto-80-100-universitat-bern-bern",
       "slugByLocale": {
         "de": "direktionsassistent-in-und-leitung-institutsadministration-80-100-unibe-bern",
-        "it": "direktionsassistent-in-e-leitung-institutsadministration-80-100-universitat-bern",
-        "en": "direktionsassistent-in-und-leitung-institutsadministration-80-100-unibe-bern",
-        "fr": "direktionsassistent-in-und-leitung-institutsadministration-80-100-unibe-bern"
+        "it": "assistente-di-direzione-e-responsabile-dell-amministrazione-dell-istituto-80-100-universitat-bern-bern",
+        "en": "executive-assistant-and-head-of-institute-administration-80-100-universitat-bern-bern",
+        "fr": "assistant-e-de-direction-et-responsable-de-l-administration-de-l-institut-80-100-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4825,11 +4825,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "direktionsassistent-in-und-leitung-institutsadministration-80-100-unibe-bern",
+          "direktionsassistent-in-e-leitung-institutsadministration-80-100-universitat-bern"
+        ],
+        "en": [
+          "direktionsassistent-in-und-leitung-institutsadministration-80-100-unibe-bern"
+        ],
+        "fr": [
           "direktionsassistent-in-und-leitung-institutsadministration-80-100-unibe-bern"
         ]
       },
       "previousSlugs": [
-        "direktionsassistent-in-und-leitung-institutsadministration-80-100-unibe-bern"
+        "direktionsassistent-in-und-leitung-institutsadministration-80-100-unibe-bern",
+        "direktionsassistent-in-e-leitung-institutsadministration-80-100-universitat-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4852,7 +4860,7 @@
       "slugByLocale": {
         "en": "astronomical-instrumentation-postdoc-or-senior-research-assistant-unibe-bern",
         "it": "astronomical-instrumentation-postdoc-or-senior-research-assistant-unibe-bern",
-        "de": "astronomical-instrumentation-postdoc-or-senior-research-assistant-unibe-bern",
+        "de": "astronomical-instrumentation-postdoc-or-senior-forschung-assistent-universitat-bern-bern",
         "fr": "astronomical-instrumentation-postdoc-or-senior-research-assistant-unibe-bern"
       },
       "company": "Universität Bern",

@@ -1615,7 +1615,7 @@
         "it": "fx-trader-di-esecuzione-swissquote-gland",
         "en": "fx-execution-trader-swissquote-gland",
         "de": "fx-ausfuhrungshandler-swissquote-gland",
-        "fr": "fx-executeur-swissquote-gland"
+        "fr": "operateur-de-change-d-execution-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1664,7 +1664,7 @@
       "previousSlugs": [
         "fx-execution-trader-swissquote-gland",
         "commerce-fx-execution-swissquote-gland",
-        "operateur-de-change-d-execution-swissquote-gland"
+        "fx-executeur-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1676,7 +1676,7 @@
         "fr": [
           "commerce-fx-execution-swissquote-gland",
           "fx-execution-trader-swissquote-gland",
-          "operateur-de-change-d-execution-swissquote-gland"
+          "fx-executeur-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-09-18T14:21:38.632Z",
@@ -2812,12 +2812,12 @@
     },
     {
       "id": "swissquote-df651b2d5e11",
-      "slug": "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote-gland",
+      "slug": "apprendimento-piu-breve-2-anni-impresa-servizio-e-amministrazione-swissquote-gland",
       "slugByLocale": {
         "fr": "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote",
-        "it": "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote-gland",
-        "en": "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote",
-        "de": "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote"
+        "it": "apprendimento-piu-breve-2-anni-impresa-servizio-e-amministrazione-swissquote-gland",
+        "en": "shorter-learning-2-years-business-employee-service-administration-swissquote-gland",
+        "de": "kurzeres-lernen-2-jahre-geschaftsangestellter-service-administration-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2866,11 +2866,19 @@
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote",
+          "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote-gland"
+        ],
+        "en": [
+          "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote"
+        ],
+        "de": [
           "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote"
         ]
       },
       "previousSlugs": [
-        "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote"
+        "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote",
+        "apprentissage-raccourci-2-ans-employe-e-de-commerce-service-administration-swissquote-gland"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,

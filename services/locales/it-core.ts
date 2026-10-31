@@ -727,7 +727,7 @@ const translations: Record<string, string> = {
  'jobBoard.searchPageTitle': 'Lavoro {query} in Svizzera',
  'jobBoard.subtitle': 'Aggiornate ogni giorno da oltre 100 aziende in {canton}. Filtra per settore, località e contratto.',
  'jobBoard.seoTitle': 'Offerte di Lavoro {canton} \u2014 Cerca Lavoro in Svizzera Italiana',
- 'jobBoard.seoDescription': 'Cerchi lavoro in {canton}? Oltre 1500 offerte aggiornate ogni giorno da 100+ aziende. Banche, IT, pharma, sanit\u00e0. Candidati gratis.',
+ 'jobBoard.seoDescription': 'Cerchi lavoro in {canton}? Offerte aggiornate ogni giorno dai siti dei datori di lavoro. Banche, IT, pharma, sanit\u00e0. Candidati gratis.',
  'jobBoard.searchPlaceholder': 'Cerca per ruolo, azienda o località...',
  'jobBoard.filter.category': 'Categoria',
  'jobBoard.filter.all': 'Tutte le categorie',

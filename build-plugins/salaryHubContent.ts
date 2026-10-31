@@ -9,6 +9,9 @@
  * because the numbers, tax tables, and explanations vary per scenario.
  */
 
+import { FISCAL_PARAMS_UPDATED_AT } from '../services/contentDates';
+import { renderRevenueNoteHtml } from '../services/revenueDisclosure';
+import { renderFiscalParamsDate } from './shared/fiscalParamsDate';
 import { SimulationResult } from '../types';
 import { SalaryHubScenario, buildFullPath, getRelatedScenarios, LOCALE_CALC_PREFIX } from './salaryHubScenarios';
 import { adSlotHtml } from './lib/adSlotHtml';
@@ -238,7 +241,7 @@ const IT: Labels = {
     return parts.join(' — ');
   },
   subtitle: (s, r) =>
-    `Simulazione completa dello stipendio netto per un frontaliere con reddito lordo CHF ${fmtCHF(s.salary)} — confronto tra residente in Svizzera e frontaliere italiano. Aggiornata al 2026.`,
+    `Simulazione completa dello stipendio netto per un frontaliere con reddito lordo CHF ${fmtCHF(s.salary)} — confronto tra residente in Svizzera e frontaliere italiano.`,
   faqItems: (s, r) => [
     {
       q: `Quanto è lo stipendio netto con ${fmtCHF(s.salary)} CHF lordi per un frontaliere?`,
@@ -343,7 +346,7 @@ const EN: Labels = {
     if (s.distanceZone === 'OVER_20KM') parts.push('Over 20 km');
     return parts.join(' — ');
   },
-  subtitle: (s, _r) => `Full net salary simulation for a cross-border worker earning CHF ${fmtCHF(s.salary)} gross — Swiss resident vs Italian cross-border comparison. Updated 2026.`,
+  subtitle: (s, _r) => `Full net salary simulation for a cross-border worker earning CHF ${fmtCHF(s.salary)} gross — Swiss resident vs Italian cross-border comparison.`,
   faqItems: (s, r) => [
     {
       q: `What is the net salary with CHF ${fmtCHF(s.salary)} gross as a cross-border worker?`,
@@ -448,7 +451,7 @@ const DE: Labels = {
     if (s.distanceZone === 'OVER_20KM') parts.push('Über 20 km');
     return parts.join(' — ');
   },
-  subtitle: (s, _r) => `Vollständige Nettogehalt-Simulation für einen Grenzgänger mit CHF ${fmtCHF(s.salary)} brutto — Vergleich CH-Wohnsitz vs. IT-Grenzgänger. Aktualisiert 2026.`,
+  subtitle: (s, _r) => `Vollständige Nettogehalt-Simulation für einen Grenzgänger mit CHF ${fmtCHF(s.salary)} brutto — Vergleich CH-Wohnsitz vs. IT-Grenzgänger.`,
   faqItems: (s, r) => [
     {
       q: `Wie viel netto bei CHF ${fmtCHF(s.salary)} brutto als Grenzgänger?`,
@@ -553,7 +556,7 @@ const FR: Labels = {
     if (s.distanceZone === 'OVER_20KM') parts.push('Plus de 20 km');
     return parts.join(' — ');
   },
-  subtitle: (s, _r) => `Simulation complète du salaire net pour un frontalier gagnant CHF ${fmtCHF(s.salary)} brut — comparaison résident CH vs frontalier IT. Mise à jour 2026.`,
+  subtitle: (s, _r) => `Simulation complète du salaire net pour un frontalier gagnant CHF ${fmtCHF(s.salary)} brut — comparaison résident CH vs frontalier IT.`,
   faqItems: (s, r) => [
     {
       q: `Quel est le salaire net avec CHF ${fmtCHF(s.salary)} brut en tant que frontalier?`,
@@ -723,6 +726,7 @@ function buildHubSalaryLandingData(
   return {
     eyebrow: pack.eyebrow(scenario),
     tagline: l.subtitle(scenario, result),
+    metaHtml: renderFiscalParamsDate(locale),
     tiles: [
       { label: pack.tileNetCh, value: `CHF ${fmtCHF(ch)}`, tone: 'accent' },
       { label: pack.tileNetIt, value: `CHF ${fmtCHF(it)}`, tone: 'success' },
@@ -831,6 +835,7 @@ export function generatePageHtml(
     <h2>${l.distanceTitle}</h2><p>${l.distanceExplain(scenario, result)}</p>
     <h2>${l.budgetTitle}</h2><p>${l.budgetExplain(scenario, result)}</p>
     <h2>${l.tipsTitle}</h2><p>${l.tipsExplain(scenario, result)}</p>
+    ${renderRevenueNoteHtml(locale)}
     <h2>${l.relatedTitle}</h2><div class="related-grid">${relatedHtml}</div>
     <p><a href="${buildNearestExchangeAmountPath(locale, scenario.salary)}">${EXCHANGE_SCENARIO_LINK_LABEL[locale](fmtCHF(scenario.salary))} →</a></p>
     ${renderAuthoritativeSourcesHtml(locale)}
@@ -854,7 +859,18 @@ export function generatePageHtml(
     canonicalUrl,
     hreflangHtml,
     ogType: 'article',
-    jsonLdScripts: [faqSchema, breadcrumbSchema],
+    jsonLdScripts: [
+      faqSchema,
+      breadcrumbSchema,
+      // Dates the parameters behind the figures, not a review of this page.
+      JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        url: canonicalUrl,
+        inLanguage: locale,
+        dateModified: FISCAL_PARAMS_UPDATED_AT,
+      }),
+    ],
     bodyHtml,
     distDir,
   });
