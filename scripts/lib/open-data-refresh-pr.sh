@@ -570,7 +570,11 @@ if [ "$RESET_STALE_STABLE_BRANCH" = true ]; then
     exit 0
   fi
   REMOTE_HEAD="$RESET_BRANCH_HEAD"
-  RESET_STALE_STABLE_BRANCH=false
+  # Keep the reset marker through the first publish. The branch now points at
+  # this run's refresh base, so treating it as an ordinary pending branch
+  # would reconcile the refresh commit a second time before pushing it. The
+  # bounded retry below clears the marker only after it observes a concurrent
+  # writer's newer tip.
   if [ -z "$REFRESH_COMMIT" ]; then
     exit 0
   fi
