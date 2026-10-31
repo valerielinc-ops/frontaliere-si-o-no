@@ -51,7 +51,7 @@ import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath,
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { renderArticleLocaleVariantNavHtml } from './shared/localeVariantNav.mjs';
-import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from './shared/aiDisclosure';
+import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, resolveArticleBylineNote } from './shared/aiDisclosure';
 import {
   resolveArticleProvenance,
   resolveArticleTransparencyStatement,
@@ -1576,6 +1576,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   ? resolvedAuthor.provenance
   : resolveArticleProvenance({ aiAssisted: en.aiAssisted }, undefined);
  const articleTransparencyAuthorName = en.authorName.trim() || resolvedAuthor?.name;
+ const articleBylineNote = resolveArticleBylineNote(
+  locale,
+  resolvedAuthor && { slug: resolvedAuthor.slug, kind: isRealArticleAuthor(resolvedAuthor) ? 'real-author' : 'editorial-profile' },
+  articleProvenance.aiAssisted,
+ );
  // The one author surface #author-eeat left behind: `article:author` below
  // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
  // moved to the per-article editorial profile. Every OG consumer (Facebook,
@@ -1604,6 +1609,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  name: resolvedAuthor.name,
  url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
  description: resolvedAuthor.role,
+ disambiguatingDescription: ARTICLE_BYLINE[disclosureLocale(locale)].editorialSignature,
  ...(resolvedAuthor.linkedin ? { sameAs: [resolvedAuthor.linkedin] } : {}),
  parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
@@ -2066,7 +2072,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
-${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleAtfMarkup}${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">${ARTICLE_BYLINE[disclosureLocale(locale)].by} ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${articleBylineNote ? ` (${esc(articleBylineNote)})` : ''}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleAtfMarkup}${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

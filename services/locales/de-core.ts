@@ -691,7 +691,7 @@ const deCore: Record<string, string> = {
  'jobBoard.searchPageTitle': '{query} Jobs in der Schweiz',
  'jobBoard.subtitle': 'T\u00e4glich aktualisiert von \u00fcber 100 Unternehmen {cantonPrep}. Filtern nach Branche, Standort und Vertragsart.',
  'jobBoard.seoTitle': 'Stellenangebote {cantonPrep} 2026 \u2014 Arbeit f\u00fcr Grenzg\u00e4nger',
- 'jobBoard.seoDescription': 'Jobs {cantonPrep} gesucht? \u00dcber 1500 t\u00e4glich aktualisierte Stellenangebote von 100+ Unternehmen. Banken, IT, Pharma, Gesundheit. Kostenlos bewerben.',
+ 'jobBoard.seoDescription': 'Jobs {cantonPrep} gesucht? T\u00e4glich aktualisierte Stellenangebote von den Websites der Arbeitgeber. Banken, IT, Pharma, Gesundheit. Kostenlos bewerben.',
  'jobBoard.searchPlaceholder': 'Suche nach Rolle, Unternehmen oder Ort...',
  'jobBoard.filter.category': 'Kategorie',
  'jobBoard.filter.all': 'Alle Kategorien',
