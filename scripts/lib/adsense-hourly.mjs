@@ -110,7 +110,8 @@ export function comparableSnapshot(snapshots, date, minuteOfDay, toleranceMinute
 }
 
 function comparison(current, baseline, config) {
-  const change = current.earnings / baseline.earnings - 1;
+  // Arrotondata: in virgola mobile 8/10 - 1 e' -0.19999..., sopra la soglia del -20%.
+  const change = Number((current.earnings / baseline.earnings - 1).toFixed(6));
   const pageViewsChange = baseline.pageViews > 0 ? current.pageViews / baseline.pageViews - 1 : null;
   const rpm = current.pageViews > 0 ? current.earnings / current.pageViews : null;
   const baselineRpm = baseline.pageViews > 0 ? baseline.earnings / baseline.pageViews : null;
