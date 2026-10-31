@@ -1,17 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { canWithdrawApplication, withdrawAssistedApplication } from '../functions/src/assistedApplicationWithdrawal.js';
-import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
+import { transportSourceGuard } from './helpers/submissionSourceGuard';
+import { submissionGuard as rawSubmissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { claimWatchdogDispatch } from '../functions/src/assistedApplicationAutomation.js';
 
+const submissionGuard = (db: any, id: string, round: number) => rawSubmissionGuard(db, id, round, { answerSourceGuard: transportSourceGuard() });
 const now = Date.now();
 const orderId = 'order_withdraw_test';
 const path = `assisted_applications/${orderId}`;
 const parent = 'application_concierge_services/service_withdraw_test';
 function fixture() {
   return createMemoryFirestore({
-    [path]: { billingMode: 'application_concierge', paymentStatus: 'paid', userId: 'candidate_test', parentServiceId: 'service_withdraw_test', parentProposalId: 'proposal_test', submissionStatus: 'in_progress' },
+    [path]: { billingMode: 'application_concierge', paymentStatus: 'paid', cvUploadedAt: now, userId: 'candidate_test', parentServiceId: 'service_withdraw_test', parentProposalId: 'proposal_test', submissionStatus: 'in_progress' },
     [`${path}/automation/flow`]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 } },
     [`${path}/ai_drafts/current`]: { status: 'ready', round: 1 },
     [parent]: { userId: 'candidate_test', paymentStatus: 'paid', serviceStatus: 'active', acceptedPositionsCount: 4, expiresAt: new Date(now + 86400000) },

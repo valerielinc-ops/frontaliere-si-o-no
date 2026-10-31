@@ -33,6 +33,7 @@ const { sentSummaryIt } = await import('../services/assistedApplicationSentRecor
 function createMemoryFirestore(seed: Record<string, any> = {}) {
   const base = `assisted_applications/${ORDER}`;
   return createMemoryFirestoreRaw({ ...seed,
+    [base]: { cvUploadedAt: Date.now(), ...seed[base] },
     [`${base}/automation/flow`]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 }, ...seed[`${base}/automation/flow`] },
     [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, ...seed[`${base}/ai_drafts/current`] },
   });
@@ -788,4 +789,11 @@ describe('the owner’s view of what left', () => {
     expect(line({ packaging: 'separate', reason: 'default', confirmedBy: 'acknowledgement', files: [file('cv'), file('letter')] }))
       .toBe('lettera e CV separati · invio dall’esito incerto, confermato dalla risposta del datore — lettera composta con Typst');
   });
+});
+
+it('never starts an e-mail handoff without a current source guard, even with no candidate-answer proof', async () => {
+  const sendCascade = delivered();
+  const event = await submit({ answerSourceGuard: null, sendCascade });
+  expect(event).toEqual({ type: 'submit_failed', error: 'evidence_source_changed' });
+  expect(sendCascade).not.toHaveBeenCalled();
 });

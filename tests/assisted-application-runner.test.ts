@@ -31,6 +31,7 @@ async function submitApplication(ctx: any) { return submitApplicationRaw(await r
 function createMemoryFirestore(seed: Record<string, any> = {}) {
   const base = `assisted_applications/${ORDER_ID}`;
   return createMemoryFirestoreRaw({ ...seed,
+    [base]: { cvUploadedAt: Date.now(), ...seed[base] },
     [`${base}/automation/flow`]: { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 }, ...seed[`${base}/automation/flow`] },
     [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, ...seed[`${base}/ai_drafts/current`] },
   });

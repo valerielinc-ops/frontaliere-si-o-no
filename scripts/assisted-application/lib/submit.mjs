@@ -235,17 +235,17 @@ export async function submitApplication(ctx) {
     if (previous.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
   }
   const qualificationContext = portalQualificationContext({ order, orderId, draft, cvBuffer: ctx.cvBuffer,
-    answerEvidence: ctx.answerEvidence || [], flow });
+    answerEvidence: ctx.answerEvidence || [], answerCounterContext: ctx.answerCounterContext || [], answerSourceConflicts: ctx.answerSourceConflicts || [], rawCounterContext: ctx.rawCounterContext || null, intake: ctx.intake, flow });
   if (!hasVerifiedQualificationAssessment({ requirements: draft.requirementsRaw, match: draft.qualificationMatch, entailment: draft.entailment,
-    counterContext: qualificationCounterContext({ order, flow, intake: ctx.intake }) })
+    counterContext: qualificationCounterContext({ order, flow, intake: ctx.intake, answerCounterContext: ctx.answerCounterContext || [], rawCounterContext: ctx.rawCounterContext || null }) })
     || !qualificationContext.scope.sourceCvHash
     || draft.qualificationSourceFingerprint !== (qualificationContext.documentSourceFingerprint || qualificationSourcesFingerprint(qualificationContext.sources))) {
     return { type: 'submit_failed', error: 'evidence_source_unbound' };
   }
   qualificationContext.documentsCurrent = true;
   const { cvBuffer, cvType, cvSent, cvKey } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType, cvKey: order?.cvStorageKey || null });
-  const usesAnswerEvidence = Boolean(ctx.answerEvidence?.length || draft.entailment?.checks?.some(check => check.sourceKind === 'candidate_answer'));
-  if (!ctx.dryRun && usesAnswerEvidence && (!ctx.submissionGuard || typeof ctx.answerSourceGuard?.assertInTransaction !== 'function')) {
+  if (!ctx.dryRun && (!ctx.submissionGuard || typeof ctx.answerSourceGuard?.assertInTransaction !== 'function'
+    || !/^[a-f0-9]{64}$/.test(ctx.answerSourceGuard.fingerprint || ''))) {
     return { type: 'submit_failed', error: 'evidence_source_changed' };
   }
   // Resolve facts that the CV already states before the generic required-question gate.
@@ -423,7 +423,7 @@ export async function submitApplication(ctx) {
       const released = guard ? await guard.release(error?.code || 'pre_send_guard_failed', Date.now()) : true;
       if (released === false) return lostSubmissionClaim(guard, 'email', nowMs);
       if (await clearReleasedAttempt(guard, keepAttempt) === false) return lostSubmissionClaim(guard, 'email', nowMs);
-      if (['evidence_source_changed', 'submission_approval_changed'].includes(error?.code)) return { type: 'submit_failed', error: error.code };
+      if (['evidence_source_changed', 'submission_approval_changed', 'submission_retention_changed'].includes(error?.code)) return { type: 'submit_failed', error: error.code };
       throw error;
     }
     const { failed, sent } = await sendCascade(
@@ -564,7 +564,7 @@ export async function submitApplication(ctx) {
         candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
         // Original bytes only: the outgoing CV may be a tailored replacement.
         qualificationContext: { ...portalQualificationContext({ order, orderId, draft, cvBuffer: ctx.cvBuffer,
-          answerEvidence: ctx.answerEvidence || [], flow: submitFlow }), documentsCurrent: true },
+          answerEvidence: ctx.answerEvidence || [], answerCounterContext: ctx.answerCounterContext || [], answerSourceConflicts: ctx.answerSourceConflicts || [], rawCounterContext: ctx.rawCounterContext || null, intake: ctx.intake, localAnswerEvidence: ctx.localAnswerEvidence || [], flow: submitFlow }), documentsCurrent: true },
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,
@@ -628,7 +628,7 @@ export async function submitApplication(ctx) {
         if (released === false) return lostSubmissionClaim(guard, channelType, nowMs);
         if (attemptKept && await clearReleasedAttempt(guard, keepAttempt) === false) return lostSubmissionClaim(guard, channelType, nowMs);
       }
-      if (!clicked && !succeeded && ['evidence_source_changed', 'submission_approval_changed'].includes(error?.code)) return { type: 'submit_failed', error: error.code };
+      if (!clicked && !succeeded && ['evidence_source_changed', 'submission_approval_changed', 'submission_retention_changed'].includes(error?.code)) return { type: 'submit_failed', error: error.code };
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
       if (!clicked && !succeeded && navigationInfrastructureFailure(error)) return { type: 'submit_handoff', reason: 'navigation_unavailable' };
       throw error;

@@ -16,6 +16,8 @@
  *   release   the send failed for certain: a later run may try again
  */
 
+import { submissionAttemptHash, submissionSlotHash } from './lib/submissionReceiptContract.js';
+import { assistedApplicationRetained } from './lib/assistedApplicationRetentionPolicy.js';
 import { roundWasSent } from './assistedApplicationFlow.js';
 import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
@@ -62,6 +64,26 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       || !(Array.isArray(channel) ? channel : [channel]).includes(current.channel) || current.clickedAt) {
       throw Object.assign(new Error('submission_claim_changed'), { code: 'submission_claim_changed' });
     }
+  };
+  const armHandoff = async (transaction, submission, nowMs, currentAnswerSourceGuard, slotHash) => {
+    if (typeof currentAnswerSourceGuard?.assertInTransaction !== 'function') {
+      throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
+    }
+    const sourceFingerprint = currentAnswerSourceGuard.fingerprint;
+    const current = submission[key];
+    const attemptHash = submissionAttemptHash(claimedAttemptId);
+    const proofRef = orderRef.collection('submission_receipts').doc(attemptHash);
+    if ((await transaction.get(proofRef)).exists) {
+      throw Object.assign(new Error('submission_claim_changed'), { code: 'submission_claim_changed' });
+    }
+    // The provider checks current source deadlines after its reads. Keep it
+    // as the final await; no proof/document read may open another time gap.
+    await currentAnswerSourceGuard.assertInTransaction(transaction);
+    if (!/^[a-f0-9]{64}$/.test(sourceFingerprint || '') || currentAnswerSourceGuard.fingerprint !== sourceFingerprint) {
+      throw Object.assign(new Error('evidence_source_changed'), { code: 'evidence_source_changed' });
+    }
+    return { ref: proofRef, frame: { attemptHash, round: guardedRound, channel: current.channel,
+      claimArmedAt: current.startedAt, handoffAt: nowMs, sourceFingerprint, slotHash } };
   };
   return {
     attemptBinding() { return claimedAttemptId ? { id: claimedAttemptId, round: guardedRound } : null; },
@@ -116,30 +138,40 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
     },
     /** Immediately before SMTP/provider handoff; this is not a portal click. */
     async markEmailSending(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard } = {}) {
+      const markerStartedAt = Date.now();
       await db.runTransaction(async transaction => {
         const submissionDoc = await transaction.get(ref);
         requireOwnClaim(submissionDoc.data(), 'email');
-        if (currentAnswerSourceGuard) await currentAnswerSourceGuard.assertInTransaction(transaction);
         const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') throw new Error('application_withdrawn');
+        if (!assistedApplicationRetained(orderDoc.data(), nowMs)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
         if (!submissionFlowAllowsSend(flowDoc.data(), guardedRound, 'email')) throw Object.assign(new Error('submission_approval_changed'), { code: 'submission_approval_changed' });
-        transaction.set(ref, { [key]: { startedAt: nowMs } }, { merge: true });
+        const proof = await armHandoff(transaction, submissionDoc.data(), nowMs, currentAnswerSourceGuard, submissionSlotHash({ orderId, order: orderDoc.data() }));
+        const handoffAt = nowMs + Math.max(0, Date.now() - markerStartedAt);
+        if (!assistedApplicationRetained(orderDoc.data(), handoffAt)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
+        transaction.set(proof.ref, { ...proof.frame, handoffAt });
+        transaction.set(ref, { [key]: { startedAt: handoffAt } }, { merge: true });
       });
     },
     /** Right before a portal's final submit click: from here the outcome may be unknown. */
     async markClicked(nowMs = Date.now(), { answerSourceGuard: currentAnswerSourceGuard = answerSourceGuard } = {}) {
+      const markerStartedAt = Date.now();
       await db.runTransaction(async transaction => {
         // All proof dependencies are reread in the same transaction as the
         // irreversible-send marker, before any write or external send.
         const submissionDoc = await transaction.get(ref);
         requireOwnClaim(submissionDoc.data(), ['portal', 'owner_extension']);
-        if (currentAnswerSourceGuard) await currentAnswerSourceGuard.assertInTransaction(transaction);
         const [orderDoc, flowDoc] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
         if (submissionDoc.data()?.withdrawnAt || orderDoc.data()?.withdrawnAt || flowDoc.data()?.state === 'withdrawn') {
           throw new Error('application_withdrawn');
         }
+        if (!assistedApplicationRetained(orderDoc.data(), nowMs)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
         if (!submissionFlowAllowsSend(flowDoc.data(), guardedRound, submissionDoc.data()?.[key]?.channel)) throw Object.assign(new Error('submission_approval_changed'), { code: 'submission_approval_changed' });
-        transaction.set(ref, { [key]: { clickedAt: nowMs } }, { merge: true });
+        const proof = await armHandoff(transaction, submissionDoc.data(), nowMs, currentAnswerSourceGuard, submissionSlotHash({ orderId, order: orderDoc.data() }));
+        const handoffAt = nowMs + Math.max(0, Date.now() - markerStartedAt);
+        if (!assistedApplicationRetained(orderDoc.data(), handoffAt)) throw Object.assign(new Error('submission_retention_changed'), { code: 'submission_retention_changed' });
+        transaction.set(proof.ref, { ...proof.frame, handoffAt });
+        transaction.set(ref, { [key]: { clickedAt: handoffAt } }, { merge: true });
       });
     },
     async markSent(record = {}, nowMs = Date.now()) {

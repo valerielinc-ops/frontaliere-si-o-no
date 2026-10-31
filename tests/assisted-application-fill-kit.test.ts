@@ -21,6 +21,7 @@ const KEY = (name: string) => `assisted-application-uploads/${ORDER}/${name}`;
 const order = {
   orderId: ORDER,
   paymentStatus: 'paid',
+  cvUploadedAt: Date.now(),
   submissionStatus: 'in_progress',
   applicantName: 'Maria Rossi',
   applicantEmail: 'maria@example.com',
