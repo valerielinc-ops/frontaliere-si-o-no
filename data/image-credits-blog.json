@@ -82505,6 +82505,80 @@
         }
       }
     },
+    "generated:article-sindacati-aumenti-infermieri-ticino": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-31T06:22:40.383Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-31",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-sindacati-aumenti-infermieri-ticino",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "83b6dab5ab729326db78f4c7e8ef783dd4f72d6f83f507e82dabde5e37b56e52",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "7894256925db88a73ed869ffea9f0011629c6ce2bb4886eb81d4b548c93ed7ed",
+        "bytes": 106440,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-31T06:22:40.383Z",
+        "verifiedAt": "2026-10-31T06:23:00.791Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-sindacati-aumenti-infermieri-ticino.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of a healthcare worker commuting by train; no readable text, logos, identifiable face, or specific real event."
+        }
+      }
+    },
     "generated:article-sportello-virtuale-polizia-berna": {
       "source": "generated-provider",
       "commons": {
@@ -123465,6 +123539,10 @@
     },
     "article-scontro-fiscale-coppie-atto": {
       "file": "generated:article-scontro-fiscale-coppie-atto",
+      "modified": "resized"
+    },
+    "article-sindacati-aumenti-infermieri-ticino": {
+      "file": "generated:article-sindacati-aumenti-infermieri-ticino",
       "modified": "resized"
     },
     "article-sportello-virtuale-polizia-berna": {

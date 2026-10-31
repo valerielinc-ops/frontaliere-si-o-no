@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 979,
+      "5": 980,
       "6": 5061
     },
-    "publishedCovers": 7722,
+    "publishedCovers": 7723,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -212103,6 +212103,39 @@
         "provider": "openai-codex",
         "assetId": "article-scontro-fiscale-coppie-atto",
         "imageUrl": "/images/blog/article-scontro-fiscale-coppie-atto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sindacati-aumenti-infermieri-ticino": {
+      "cover": "/images/blog/article-sindacati-aumenti-infermieri-ticino.webp",
+      "hash": "7894256925db88a73ed869ffea9f0011629c6ce2bb4886eb81d4b548c93ed7ed",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "sindacati-aumenti-infermieri-ticino",
+          "category": "novita",
+          "date": "2026-10-30T20:19:36.843Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sindacati-aumenti-infermieri-ticino.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-31",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sindacati-aumenti-infermieri-ticino",
+        "imageUrl": "/images/blog/article-sindacati-aumenti-infermieri-ticino.webp",
         "evidence": "generated-engine-record"
       }
     },

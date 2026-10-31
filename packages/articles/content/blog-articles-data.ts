@@ -45992,7 +45992,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'sindacati-aumenti-infermieri-ticino',
  category: 'novita',
  date: '2026-10-30T20:19:36.843Z',
- image: '/images/blog/article-ocst-storia-frontalieri-ticino.webp',
+ image: '/images/blog/article-sindacati-aumenti-infermieri-ticino.webp',
  hasCalculator: true,
  articleType: 'news',
  canton: ['TI'],
