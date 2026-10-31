@@ -14735,7 +14735,7 @@
       "slugByLocale": {
         "de": "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072",
         "it": "insegnante-di-classe-1-2-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
-        "en": "class-teacher-1-2-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
+        "en": "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
         "fr": "enseignant-1-2-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen-40072"
       },
       "slugDisambiguator": "40072",
@@ -14789,12 +14789,13 @@
           "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
         ],
         "en": [
-          "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
+          "class-teacher-1-2-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
         ]
       },
       "previousSlugs": [
         "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072",
-        "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
+        "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
+        "class-teacher-1-2-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,

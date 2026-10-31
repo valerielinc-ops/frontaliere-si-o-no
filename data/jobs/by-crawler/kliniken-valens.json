@@ -5028,8 +5028,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-valens",
         "it": "fachfrau-mann-service-m-w-a-80-100-kliniken-valens",
-        "en": "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-valens",
-        "fr": "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-valens"
+        "en": "service-specialist-m-f-a-80-100-kliniken-valens-valens",
+        "fr": "specialiste-du-service-h-f-d-80-100-kliniken-valens-valens"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -5077,6 +5077,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-valens"
+        ],
+        "en": [
+          "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-valens"
+        ],
+        "fr": [
           "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-valens"
         ]
       },
