@@ -102,43 +102,6 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-function cancelResponseBody(response, state = RESPONSE_STATES.get(response)) {
-  const reader = state?.activeReader;
-  try {
-    const cancellation = typeof reader?.cancel === 'function'
-      ? reader.cancel()
-      : response?.body?.cancel?.();
-    if (cancellation && typeof cancellation.then === 'function') {
-      cancellation.catch(() => {});
-    }
-  } catch {
-    // Minimal fetch doubles and locked bodies may reject cancellation.
-  }
-}
-
-async function readResponseText(response, state) {
-  const body = response?.body;
-  if (typeof body?.getReader !== 'function') return response.text();
-
-  const reader = body.getReader();
-  state.activeReader = reader;
-  const decoder = new TextDecoder();
-  let text = '';
-  try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) return text + decoder.decode();
-      if (value == null) continue;
-      text += typeof value === 'string'
-        ? value
-        : decoder.decode(value, { stream: true });
-    }
-  } finally {
-    if (state.activeReader === reader) state.activeReader = null;
-    try { reader.releaseLock?.(); } catch { /* cleanup stays best effort */ }
-  }
-}
-
 async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
   const ac = new AbortController();
   let timedOut = false;
@@ -173,6 +136,43 @@ async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
     return response;
   } finally {
     clearTimeout(t);
+  }
+}
+
+function cancelResponseBody(response, state = RESPONSE_STATES.get(response)) {
+  const reader = state?.activeReader;
+  try {
+    const cancellation = typeof reader?.cancel === 'function'
+      ? reader.cancel()
+      : response?.body?.cancel?.();
+    if (cancellation && typeof cancellation.then === 'function') {
+      cancellation.catch(() => {});
+    }
+  } catch {
+    // Minimal fetch doubles and locked bodies may reject cancellation.
+  }
+}
+
+async function readResponseText(response, state) {
+  const body = response?.body;
+  if (typeof body?.getReader !== 'function') return response.text();
+
+  const reader = body.getReader();
+  state.activeReader = reader;
+  const decoder = new TextDecoder();
+  let text = '';
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) return text + decoder.decode();
+      if (value == null) continue;
+      text += typeof value === 'string'
+        ? value
+        : decoder.decode(value, { stream: true });
+    }
+  } finally {
+    if (state.activeReader === reader) state.activeReader = null;
+    try { reader.releaseLock?.(); } catch { /* cleanup stays best effort */ }
   }
 }
 
@@ -225,7 +225,7 @@ async function fetchOneSeed(seed, fetchImpl) {
   for (let attempt = 0; attempt <= 1; attempt++) {
     try {
       const res = await fetchWithTimeout(fetchImpl, url, REQUEST_TIMEOUT_MS);
-      const state = (res && RESPONSE_STATES.get(res)) ?? {
+      const state = RESPONSE_STATES.get(res) ?? {
         controller: new AbortController(),
         activeReader: null,
       };
