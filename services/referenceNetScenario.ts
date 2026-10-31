@@ -30,7 +30,12 @@ export function buildReferenceNetScenario(
  rate: number = DEFAULT_EXCHANGE_RATE,
  rateDate: string = DEFAULT_EXCHANGE_RATE_DATE,
 ): ReferenceNetScenario {
- const base = { ...DEFAULT_INPUTS, annualIncomeCHF: REFERENCE_GROSS_CHF, customExchangeRate: rate };
+ const base = {
+  ...DEFAULT_INPUTS,
+  annualIncomeCHF: REFERENCE_GROSS_CHF,
+  healthInsuranceCHF: 0,
+  customExchangeRate: rate,
+ };
  const next = calculateSimulation({ ...base, frontierWorkerType: 'NEW' }).itResident;
  const old = calculateSimulation({ ...base, frontierWorkerType: 'OLD' }).itResident;
  const irpef = next.details.irpefDetails;

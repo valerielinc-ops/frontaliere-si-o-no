@@ -273,6 +273,9 @@ export async function extractPdfJobContentFromUrl(
     // datacenter egress IP. Defaults to the same transport as the direct read.
     jinaFetchImpl = fetchImpl,
     jinaRetryDelayMs,
+    // `false` for a source whose refusal must stand: the crawler that promised
+    // not to route around a 403 cannot have the helper do it on its behalf.
+    proxyRescue = true,
   } = {},
 ) {
   if (!pdfUrl) return { text: '', thin: false, totalPages: 0, rawText: '', sourceUrl: '' };
@@ -301,7 +304,7 @@ export async function extractPdfJobContentFromUrl(
       // so a source that answers the GitHub egress with 415 only for its PDFs
       // failed every posting (klinik-wyssholzli, run corpus 36989251899: five
       // text PDFs, all HTTP 415 in CI, all 200 from a clean IP).
-      const wafBlocked = WAF_IP_BLOCK_STATUS.has(Number(response?.status));
+      const wafBlocked = proxyRescue && WAF_IP_BLOCK_STATUS.has(Number(response?.status));
       if (wafBlocked) {
         try { await response?.body?.cancel?.(); } catch { /* already closed */ }
       }
