@@ -25,7 +25,7 @@ function fixture(patch = {}) {
     return { matches: [{ index: 0, status: 'met', evidence: payload.candidateSourceExcerpts.find((source: any) => source.id.startsWith('[[answer_')).id }], verdict: 'good', questions: [] };
   });
   const run = () => evaluateConciergePosting({ job, profile, sourceText, cvHash, answerEvidence: [record], generate,
-    readPosting: async () => ({ text: 'English C1 is required. ' + 'Maintain infrastructure services. '.repeat(10), textTruncated: false }) });
+    readPosting: async () => ({ text: 'English C1 is required. ' + 'Maintain infrastructure services. '.repeat(10), textTruncated: false, source: 'job_detail' }) });
   return { run, profile, record, blind };
 }
 
