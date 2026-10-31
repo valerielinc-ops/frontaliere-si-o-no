@@ -340,7 +340,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  'landing-salary-60000-within20km': {
  // A.3 — long-tail variant; master "/calcola-stipendio/" owns the head keyword.
  title: 'Stipendio netto 60000 CHF frontaliere — simulazione fiscale 2026',
- description: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 60.000 CHF/anno. Imposta alla fonte Ticino, vecchio ordinamento e franchigia 70%.',
+ description: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 60.000 CHF/anno. Imposta alla fonte Ticino e vecchio ordinamento.',
  keywords: 'stipendio netto 60000 chf frontaliere, calcolo tasse frontalieri entro 20 km, stipendio netto 60000 chf entro 20km, vecchio frontaliere entro 20 km, comuni frontiera 20 km',
  ogTitle: 'Netto 60.000 CHF (entro 20 km dal confine)',
  ogDescription: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 60.000 CHF/anno con vecchio ordinamento.',
@@ -367,7 +367,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  'landing-salary-100000-within20km': {
  // A.3 — long-tail variant; master "/calcola-stipendio/" owns the head keyword.
  title: 'Stipendio netto 100000 CHF frontaliere — simulazione fiscale 2026',
- description: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 100.000 CHF/anno. Vecchio ordinamento, imposta alla fonte, franchigia 70%.',
+ description: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 100.000 CHF/anno. Vecchio ordinamento e imposta alla fonte.',
  keywords: 'stipendio netto 100000 chf frontaliere, calcolo tasse frontalieri entro 20 km, stipendio netto 100000 chf entro 20km, vecchio frontaliere entro 20 km, tasse frontaliere alto reddito',
  ogTitle: 'Netto 100.000 CHF (entro 20 km dal confine)',
  ogDescription: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 100.000 CHF/anno. Vecchio ordinamento.',
@@ -422,7 +422,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  name: 'Cosa cambia rispetto a chi vive entro 20 km?',
  acceptedAnswer: {
  '@type': 'Answer',
- text: 'Per i nuovi frontalieri oltre 20 km l’imposta resta integralmente trattenuta in Svizzera, mentre entro 20 km la Svizzera trattiene l’80% e l’Italia tassa il reddito con credito per le imposte già pagate.',
+ text: 'Oltre 20 km si applica la ritenuta svizzera ordinaria, entro 20 km la Svizzera trattiene l’80% di quella ordinaria. In entrambi i casi l’Italia tassa il reddito con credito per l’imposta svizzera.',
  },
  },
  {
