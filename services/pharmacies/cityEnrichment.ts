@@ -155,6 +155,7 @@ export function nextVerifiedCityDuty(
     } else {
       const [coverageName] = coverageNames;
       const duty = publicDutiesForRegion(dataset, coverageName, now, ticinoCatalogue)
+        .filter((candidate) => candidate.pharmacyId === pharmacy.id)
         .find(afterNow);
       result = duty ? { duty, sourceUrl: duty.sourceUrl } : null;
     }
