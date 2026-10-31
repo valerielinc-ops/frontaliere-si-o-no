@@ -716,16 +716,34 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
 // manager's decision, not its preferences control.
 export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
 export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
+// Some Deloitte responses expose only the preference-center entry point on
+// the login page. It is a navigation control, not consent by itself: open it
+// and rescan for the same bounded reject/accept decision.
+export const COOKIE_CUSTOMIZE_RE = /^(customi[sz]e cookies|cookie (?:settings|preferences)|manage cookies|modify cookie preferences)$/i;
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
 export async function dismissCookieBanner(page, snapshot) {
-  const button = findButton(snapshot.buttons, COOKIE_REJECT_RE) || findButton(snapshot.buttons, COOKIE_ACCEPT_RE);
-  if (button) {
-    await clickButton(page, button).catch(() => {});
+  let current = snapshot;
+  let openedCustomizer = false;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const button = findButton(current.buttons, COOKIE_REJECT_RE) || findButton(current.buttons, COOKIE_ACCEPT_RE);
+    if (button) {
+      await clickButton(page, button).catch(() => {});
+      await page.waitForTimeout(800);
+      return true;
+    }
+    if (openedCustomizer) break;
+    const customize = findButton(current.buttons, COOKIE_CUSTOMIZE_RE);
+    if (!customize) break;
+    const clicked = await clickButton(page, customize).then(() => true, () => false);
+    if (!clicked) break;
+    openedCustomizer = true;
     await page.waitForTimeout(800);
-    return true;
+    current = await extractFields(page, NAVIGATION).catch(() => null);
+    if (!current) break;
   }
+  if (openedCustomizer) return true;
   // A banner inside a shadow root (Usercentrics on Coop's career pages,
   // 2026-10-02) is out of the page scan's reach while its overlay takes every
   // click. Only a shadow root's own buttons: marked in the page, clicked by a
