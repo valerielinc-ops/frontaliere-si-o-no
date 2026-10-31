@@ -44,8 +44,8 @@ describe('current server document manifest for native proof', () => {
     const attachments = [{ fieldId: 'diploma-file', slot: 'extra_1', sha256: digest(diploma), size: diploma.length }];
     const target = ownerTargetFixture('https://example.test/job/engineer.html');
     const request = { answerSourceFingerprint: kit.answerSourceFingerprint,
-      nativeProof: { version: 'owner-native-proof-v1', frameUrl: 'https://example.test/job/engineer.html', round: 3, target, fields, attachments },
-      finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/job/engineer.html', nativeDigest: digest(fields),
+      nativeProof: { version: 'owner-native-proof-v1', successfulControlsDigest: 'c'.repeat(64), frameUrl: 'https://example.test/job/engineer.html', round: 3, target, fields, attachments },
+      finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/job/engineer.html', nativeDigest: digest({ fields, successfulControlsDigest: 'c'.repeat(64) }),
         materialDigest: digest(attachments), submitterDigest: digest(target), capturedAt: now } };
     captured.proof = null;
     await expect(call('automationMarkClicked', request)).rejects.toMatchObject({ status: 409,

@@ -13,10 +13,21 @@ function request() {
   const attachments = [{ fieldId: 'cv-upload', slot: 'cv', sha256: 'a'.repeat(64), size: 500 }];
   const target = ownerTargetFixture('https://example.test/apply/');
   return { nativeProofProtocol: 'owner-final-intent-v1', answerSourceFingerprint: 'b'.repeat(64),
-    nativeProof: { version: 'owner-native-proof-v1', frameUrl: 'https://example.test/apply/', round: 1, target, fields, attachments },
-    finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/apply/', nativeDigest: hash(fields), materialDigest: hash(attachments), submitterDigest: hash(target), capturedAt: now } };
+    nativeProof: { version: 'owner-native-proof-v1', successfulControlsDigest: 'c'.repeat(64), frameUrl: 'https://example.test/apply/', round: 1, target, fields, attachments },
+    finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/apply/', nativeDigest: hash({ fields, successfulControlsDigest: 'c'.repeat(64) }), materialDigest: hash(attachments), submitterDigest: hash(target), capturedAt: now } };
 }
 describe('owner final intent transport (not semantic authority)', () => {
+  it('binds the full opaque successful-control snapshot without accepting it as semantic evidence', () => {
+    const raw = request();
+    expect(ownerFinalIntent(raw, { round: 1, nowMs: now }).proof.successfulControlsDigest).toBe('c'.repeat(64));
+    raw.nativeProof.successfulControlsDigest = 'd'.repeat(64);
+    expect(() => ownerFinalIntent(raw, { round: 1, nowMs: now })).toThrow('native_proof_invalid');
+    raw.finalIntent.nativeDigest = hash({ fields: raw.nativeProof.fields, successfulControlsDigest: raw.nativeProof.successfulControlsDigest });
+    expect(ownerFinalIntent(raw, { round: 1, nowMs: now }).proof.successfulControlsDigest).toBe('d'.repeat(64));
+    delete (raw.nativeProof as any).successfulControlsDigest;
+    expect(() => ownerFinalIntent(raw, { round: 1, nowMs: now })).toThrow('native_proof_invalid');
+  });
+
   it('owns the full input snapshot and joins files to their native controls', () => {
     const raw = request(); const parsed = ownerFinalIntent(raw, { round: 1, nowMs: now });
     raw.nativeProof.fields[0].nativeFormContract.context = 'Changed after request';
@@ -25,12 +36,12 @@ describe('owner final intent transport (not semantic authority)', () => {
   });
   it('preserves an empty optional file control for the server purpose policy', () => {
     const raw = request(); raw.nativeProof.fields.push({ fieldId: 'optional-extra', nativeFormContract: { question: 'Other optional file', kind: 'file', required: false, options: [] } });
-    raw.finalIntent.nativeDigest = hash(raw.nativeProof.fields);
+    raw.finalIntent.nativeDigest = hash({ fields: raw.nativeProof.fields, successfulControlsDigest: raw.nativeProof.successfulControlsDigest });
     expect(ownerFinalIntent(raw, { round: 1, nowMs: now }).proof.fields).toHaveLength(3);
   });
   it('counts multibyte native metadata against the byte budget without truncating it', () => {
     const raw = request(); raw.nativeProof.fields[0].nativeFormContract.context = '語'.repeat(22000);
-    raw.finalIntent.nativeDigest = hash(raw.nativeProof.fields);
+    raw.finalIntent.nativeDigest = hash({ fields: raw.nativeProof.fields, successfulControlsDigest: raw.nativeProof.successfulControlsDigest });
     expect(() => ownerFinalIntent(raw, { round: 1, nowMs: now })).toThrow('native_proof_invalid');
   });
   it.each(['missing_protocol', 'missing_fingerprint', 'stale_round', 'changed_value', 'changed_context', 'wrong_file_field', 'file_fakepath', 'duplicate_field', 'old_intent', 'insecure_url', 'extra_key', 'missing_target', 'changed_target', 'oversize_target'])('refuses incomplete/stale native transport: %s', change => {

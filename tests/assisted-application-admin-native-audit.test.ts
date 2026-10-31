@@ -87,9 +87,9 @@ describe('actual AdminCore native audit and entry deadline (synthetic I/O, no br
         body: { orderId: id, nativeProofProtocol: 'owner-final-intent-v1', ...body } });
       const kit = await handleAssistedApplicationAdmin(req({ action: 'automationFillKit' }), { nativeOperation: operation });
       expect(kit.status).toBe(200);
-      const proof = { version: 'owner-native-proof-v1', frameUrl: url, round: 1, target: ownerTargetFixture(url), fields: structuredClone(nativeFields), attachments: [] };
+      const proof = { version: 'owner-native-proof-v1', successfulControlsDigest: 'c'.repeat(64), frameUrl: url, round: 1, target: ownerTargetFixture(url), fields: structuredClone(nativeFields), attachments: [] };
       if (mode === 'foreign_target') proof.target.form.action = proof.target.destination.url = 'https://jobs.example.test/job/engineer-99.html';
-      const finalIntent = { id: 'synthetic-intent-0001', frameUrl: url, nativeDigest: hash(proof.fields), materialDigest: hash(proof.attachments), submitterDigest: hash(proof.target), capturedAt: clock };
+      const finalIntent = { id: 'synthetic-intent-0001', frameUrl: url, nativeDigest: hash({ fields: proof.fields, successfulControlsDigest: proof.successfulControlsDigest }), materialDigest: hash(proof.attachments), submitterDigest: hash(proof.target), capturedAt: clock };
       const result = await handleAssistedApplicationAdmin(req({ action: 'automationMarkClicked', answerSourceFingerprint: kit.body.kit.answerSourceFingerprint,
         nativeProof: proof, finalIntent }), { nativeOperation: operation });
       expect(auditCount).toBe(mode === 'foreign_target' ? 0 : 1);

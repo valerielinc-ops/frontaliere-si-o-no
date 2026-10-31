@@ -17,6 +17,13 @@ export const NATIVE_APPLICATION_MAX_FIELDS = 300;
 export const NATIVE_APPLICATION_MAX_CLAIMS = 24;
 export const NATIVE_APPLICATION_MAX_ATTACHMENTS = 82;
 
+/** Shared transport recipe, not evidence or authority. Opaque values never enter the model payload. */
+export function nativeApplicationDigestMaterial(proof) {
+  if (!Array.isArray(proof?.fields) || typeof proof.successfulControlsDigest !== 'string'
+    || !/^[a-f0-9]{64}$/.test(proof.successfulControlsDigest)) return null;
+  return { fields: proof.fields, successfulControlsDigest: proof.successfulControlsDigest };
+}
+
 const normalized = value => String(value ?? '').normalize('NFKC').replace(/\s+/g, ' ').trim();
 const comparable = value => normalized(value).toLowerCase();
 const questionComparable = value => nativeQuestionText(value).toLowerCase();

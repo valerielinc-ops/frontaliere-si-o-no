@@ -32,8 +32,8 @@ async function fixture() {
   const attachments = [{ fieldId: 'file', slot: 'cv', sha256: hash(bytes), size: bytes.length }];
   const target = ownerTargetFixture('https://example.test/job/engineer.html');
   const raw = { answerSourceFingerprint: kit.answerSourceFingerprint,
-    nativeProof: { version: 'owner-native-proof-v1', frameUrl: 'https://example.test/job/engineer.html', round: 1, target, fields, attachments },
-    finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/job/engineer.html', nativeDigest: hash(fields), materialDigest: hash(attachments), submitterDigest: hash(target), capturedAt: now } };
+    nativeProof: { version: 'owner-native-proof-v1', successfulControlsDigest: 'c'.repeat(64), frameUrl: 'https://example.test/job/engineer.html', round: 1, target, fields, attachments },
+    finalIntent: { id: 'synthetic-final-intent', frameUrl: 'https://example.test/job/engineer.html', nativeDigest: hash({ fields, successfulControlsDigest: 'c'.repeat(64) }), materialDigest: hash(attachments), submitterDigest: hash(target), capturedAt: now } };
   return { store, call, raw, metadata, nativeOperation, deps };
 }
 describe('complete owner preauthorization refuses before a click', () => {

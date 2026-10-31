@@ -63,10 +63,12 @@ export async function verifyNativeApplicationProof({ proof, context, docsManifes
       import('./lib/nativeApplicationTarget.js'), import('./lib/nativeApplicationPolicy.js'),
     ]);
     policy = sharedPolicy;
+    if (!policy.nativeApplicationDigestMaterial(ownedProof)) return unknown('native_successful_controls_unbound');
     const sourceUrl = ownedContext.scope?.primaryPostingUrl || ownedContext.scope?.jobUrl;
     if (typeof sourceUrl !== 'string' || !sourceUrl) return unknown('native_target_unverified');
     target = validateNativeApplicationTarget({ target: ownedProof.target,
-      expected: { applyUrl: sourceUrl, sourceProtocol: ownedContext.scope?.sourceProtocol || null } });
+      expected: { applyUrl: sourceUrl, sourceProtocol: ownedContext.scope?.sourceProtocol || null,
+        jobTitle: ownedContext.scope?.sourceAuthority?.sourceTitle } });
     if (target?.owned !== true || target.binding?.frameUrl !== canonicalNativeApplicationFrameUrl(ownedProof.frameUrl)) return unknown('native_target_unverified');
   } catch { return unknown(cancellation.aborted ? 'proof_deadline' : 'native_target_unverified'); }
   let verifiedDocumentTransports = [];
