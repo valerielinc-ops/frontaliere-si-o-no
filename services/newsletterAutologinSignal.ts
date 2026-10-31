@@ -84,11 +84,12 @@ let activeAutologinAttempt: NewsletterAutologinAttempt | null = null;
 export function claimNewsletterAutologinAttempt(
  key: string,
  factory: () => Promise<unknown>,
-): { promise: Promise<unknown>; owner: boolean } {
+): { promise: Promise<unknown>; owner: boolean; accepted: boolean } {
  if (activeAutologinAttempt?.key === key) {
   return {
    promise: activeAutologinAttempt.promise,
    owner: false,
+   accepted: true,
   };
  }
 
@@ -96,6 +97,7 @@ export function claimNewsletterAutologinAttempt(
   return {
    promise: Promise.reject(new Error('newsletter_autologin_in_progress')),
    owner: false,
+   accepted: false,
   };
  }
 
@@ -108,7 +110,7 @@ export function claimNewsletterAutologinAttempt(
   () => { attempt.settled = true; },
   () => { attempt.settled = true; },
  );
- return { promise, owner: true };
+ return { promise, owner: true, accepted: true };
 }
 
 const subscribers = new Set<() => void>();

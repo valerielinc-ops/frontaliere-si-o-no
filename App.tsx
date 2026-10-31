@@ -803,6 +803,7 @@ const App: React.FC = () => {
  const NEWSLETTER_PARAMS = ['ac', 'at', 'ne', 'authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
  let shouldStripNewsletterParams = false;
  let ownsAutologinAttempt = false;
+ let acceptedAutologinAttempt = false;
  (async () => {
  try {
  const url = new URL(window.location.href);
@@ -853,6 +854,7 @@ const App: React.FC = () => {
   return user;
  });
  ownsAutologinAttempt = autologinAttempt.owner;
+ acceptedAutologinAttempt = autologinAttempt.accepted;
  if (autologinAttempt.owner) {
   // Emit an attempt marker before the async exchange so an aborted exchange
   // (page reload mid-flight) stays countable: attempts − success − failed −
@@ -877,7 +879,7 @@ const App: React.FC = () => {
  // (success or failure) — deferred from before the await so an interrupted
  // load keeps `ac`/`ne` for a retry. No-op for excluded actions (flag stays
  // false) and when the URL never carried them.
- if (shouldStripNewsletterParams) {
+ if (acceptedAutologinAttempt && shouldStripNewsletterParams) {
  try {
  const u = new URL(window.location.href);
  for (const p of NEWSLETTER_PARAMS) u.searchParams.delete(p);

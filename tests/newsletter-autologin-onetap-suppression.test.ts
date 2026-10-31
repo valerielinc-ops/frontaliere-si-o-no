@@ -86,9 +86,12 @@ describe('newsletter autologin → sign-in affordance suppression', () => {
   const second = sig.claimNewsletterAutologinAttempt('same-link', firstFactory);
 
   expect(first.owner).toBe(true);
+  expect(first.accepted).toBe(true);
   expect(second.owner).toBe(false);
+  expect(second.accepted).toBe(true);
   const blocked = sig.claimNewsletterAutologinAttempt('different-link', factory);
   expect(blocked.owner).toBe(false);
+  expect(blocked.accepted).toBe(false);
   await expect(blocked.promise).rejects.toThrow('newsletter_autologin_in_progress');
 
   await Promise.resolve();
@@ -99,6 +102,7 @@ describe('newsletter autologin → sign-in affordance suppression', () => {
 
   const later = sig.claimNewsletterAutologinAttempt('different-link', factory);
   expect(later.owner).toBe(true);
+  expect(later.accepted).toBe(true);
   await expect(later.promise).resolves.toBe('signed-in-user');
   expect(factory).toHaveBeenCalledTimes(2);
  });
@@ -172,6 +176,7 @@ describe('promptOneTap suppression wiring', () => {
  // The single-flight owner, rather than an effect-local cancellation flag,
  // keeps StrictMode/remount telemetry to one attempt + one terminal outcome.
  expect(effect).not.toContain('if (cancelled) return;');
+ expect(effect).toContain('if (acceptedAutologinAttempt && shouldStripNewsletterParams)');
  expect(effect.slice(0, finallyStart)).not.toContain('settleNewsletterAutologin();');
  expect(effect.slice(finallyStart, settleCall)).toContain('window.history.replaceState');
  });
