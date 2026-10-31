@@ -1,3 +1,4 @@
+import { JOB_CATEGORY_LABELS, JOB_META_LABELS, jobMetaLocale } from '../services/jobMetaLabels';
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
@@ -4521,9 +4522,9 @@ ${staticAnalyticsHtml}
  <!-- jobs-seo-reuse:hero-badges:start -->${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:hero-badges:end -->
  <div class="hero-sub">${esc(job.company)} · ${esc(formatJobLocation(job.location, job.canton || DEFAULT_CANTON))}</div>
  <div class="hero-meta">
- <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
- <span>${esc(`Contratto: ${formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)}`)}</span>
- <span>${esc(`Salario: ${salaryText}`)}</span>
+ <span>${esc(`${JOB_META_LABELS[jobMetaLocale(locale)].category}: ${JOB_CATEGORY_LABELS[String(job.category || 'other')]?.[jobMetaLocale(locale)] ?? String(job.category || 'other')}`)}</span>
+ <span>${esc(`${JOB_META_LABELS[jobMetaLocale(locale)].contract}: ${formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)}`)}</span>
+ <span>${esc(`${JOB_META_LABELS[jobMetaLocale(locale)].salary}: ${salaryText}`)}</span>
  </div>
  </section>
  <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
@@ -12162,16 +12163,7 @@ ${staticAnalyticsHtml}
        // Top categories by job count (max 6). Mirror the category slug
        // tables from the category-listing block (~line 5742-5752); kept
        // inline to avoid hoisting a nested scope across thousands of lines.
-       const categoryLabelMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
-         health: { it: 'Sanità', en: 'Healthcare', de: 'Gesundheit', fr: 'Santé' },
-         finance: { it: 'Finanza', en: 'Finance', de: 'Finanzen', fr: 'Finance' },
-         tech: { it: 'Informatica', en: 'Technology', de: 'Technik', fr: 'Technologie' },
-         engineering: { it: 'Ingegneria', en: 'Engineering', de: 'Ingenieurwesen', fr: 'Ingénierie' },
-         admin: { it: 'Amministrazione', en: 'Administration', de: 'Verwaltung', fr: 'Administration' },
-         hospitality: { it: 'Ristorazione', en: 'Hospitality', de: 'Gastgewerbe', fr: 'Hôtellerie' },
-         sales: { it: 'Vendita', en: 'Sales', de: 'Vertrieb', fr: 'Vente' },
-         other: { it: 'Altro', en: 'Other', de: 'Andere', fr: 'Autre' },
-       };
+       const categoryLabelMap = JOB_CATEGORY_LABELS;
        // Source-of-truth alignment: the per-canton category-listing emitter
        // (~line 5921) keys buckets by `job.category` directly and only emits
        // a page when that bucket has ≥3 jobs. The previous implementation of

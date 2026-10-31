@@ -73,7 +73,10 @@ export interface ArticleTransparencyCopy {
   readonly human: (authorName: string) => string;
   /** Original contribution whose source has no named byline. */
   readonly humanWithoutName: string;
+  /** Solo quando l'articolo linka davvero una fonte: vedi articleHasExternalSource. */
   readonly sources: string;
+  /** Avvertenza per i temi fiscali, legali e previdenziali: sempre visibile. */
+  readonly disclaimer: string;
   readonly methodology: string;
   readonly corrections: string;
   /** Short labels for the static trust navigation. */
@@ -89,6 +92,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     human: (name) => `contributo originale di ${name}, pubblicato dalla redazione senza stesura assistita da intelligenza artificiale.`,
     humanWithoutName: 'contributo originale della redazione, pubblicato senza stesura assistita da intelligenza artificiale.',
     sources: 'Le fonti utilizzate sono linkate nel testo.',
+    disclaimer: 'Informazioni generali: non sostituiscono il parere di un professionista fiscale o legale.',
     methodology: 'Come scriviamo gli articoli',
     corrections: 'Segnala una correzione',
     navMethodology: 'Metodologia',
@@ -100,6 +104,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     human: (name) => `original contribution by ${name}, published by the newsroom without AI-assisted drafting.`,
     humanWithoutName: 'original contribution by the newsroom, published without AI-assisted drafting.',
     sources: 'The sources used are linked in the text.',
+    disclaimer: 'General information: it does not replace advice from a tax or legal professional.',
     methodology: 'How we write articles',
     corrections: 'Report a correction',
     navMethodology: 'Methodology',
@@ -111,6 +116,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     human: (name) => `Originalbeitrag von ${name}, von der Redaktion ohne KI-gestützte Erstellung veröffentlicht.`,
     humanWithoutName: 'Originalbeitrag der Redaktion, ohne KI-gestützte Erstellung veröffentlicht.',
     sources: 'Die verwendeten Quellen sind im Text verlinkt.',
+    disclaimer: 'Allgemeine Informationen: Sie ersetzen nicht den Rat einer Steuer- oder Rechtsfachperson.',
     methodology: 'Wie wir Artikel schreiben',
     corrections: 'Korrektur melden',
     navMethodology: 'Methodik',
@@ -122,12 +128,24 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     human: (name) => `contribution originale de ${name}, publiée par la rédaction sans rédaction assistée par l’IA.`,
     humanWithoutName: 'contribution originale de la rédaction, publiée sans rédaction assistée par l’IA.',
     sources: 'Les sources utilisées sont liées dans le texte.',
+    disclaimer: 'Informations générales : elles ne remplacent pas l’avis d’un professionnel fiscal ou juridique.',
     methodology: 'Comment nous rédigeons les articles',
     corrections: 'Signaler une correction',
     navMethodology: 'Méthodologie',
     navCorrections: 'Corrections',
   },
 });
+
+// Link esterni che non sono fonti: crediti immagine, condivisione, pubblicità.
+const NON_SOURCE_LINK = /(?:frontaliereticino\.ch|wikimedia\.org|creativecommons\.org|unsplash\.com|pexels\.com|facebook\.com|linkedin\.com|t\.me|wa\.me|whatsapp\.com|twitter\.com|x\.com|reddit\.com|google\.com|googlesyndication\.com|doubleclick\.net)/i;
+
+/** True se l'HTML dell'articolo contiene almeno un link a una fonte esterna. */
+export function articleHasExternalSource(html: string): boolean {
+  for (const match of html.matchAll(/<a\b[^>]*\bhref=["'](https?:\/\/[^"']+)["']/gi)) {
+    if (!NON_SOURCE_LINK.test(match[1].replace(/^https?:\/\//i, '').split('/')[0])) return true;
+  }
+  return false;
+}
 
 export function disclosureLocale(locale: string): DisclosureLocale {
   return locale === 'en' || locale === 'de' || locale === 'fr' ? locale : 'it';
