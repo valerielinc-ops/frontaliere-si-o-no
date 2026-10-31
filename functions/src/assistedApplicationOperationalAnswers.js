@@ -65,7 +65,8 @@ export function operationalAnswerForOption(question, answer) {
   return validateAnswer(value, { ...question, type: 'choice', options: options.map(option => option.label) }).ok ? value : null;
 }
 
-/** Compare stated notice values without deleting qualifiers or approximations. */
+/** Compare facts symmetrically: a native range is not an exact duration.
+ * Native selection uses the directional operationalAnswerForOption projection. */
 export function equivalentOperationalAnswers(question, left, right) {
   if (operationalQuestionTopic(question) !== 'notice_period') return false;
   const a = noticeDuration(left); const b = noticeDuration(right);

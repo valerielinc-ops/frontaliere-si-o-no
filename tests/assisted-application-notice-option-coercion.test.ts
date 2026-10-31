@@ -104,6 +104,14 @@ describe('notice duration projection onto the native catalogue', () => {
     expect(answeredByCandidate(range, native.label, '7 days', '', { ...native, options: [{ label: '7 days' }] })).toBe(false);
   });
 
+  it('preserves string labels when an explicit unmatched notice needs a candidate action', () => {
+    const native = { ...field, options: ['3 months'] };
+    const candidate = { identity: {}, answers: {}, portalQuestionsAnswered: [{ question: field.label, answer: '7 days', source: 'answers' }] };
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [native], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired[0].options).toEqual(['3 months']);
+  });
+
   it('retains a valid choice when native option labels are strings', () => {
     const native = { ...field, options: ['3 months'] };
     const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 months', source: 'policy_default' }], missingRequired: [] }, [native], { identity: {}, answers: {} });

@@ -4,7 +4,9 @@ import { dedupePortalQuestions, portalQuestionKey } from './portal.mjs';
 import { mergeRequiredDocuments, requiredDocumentLabelKey, requiredDocumentsOf } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
 
 const label = question => String(question?.applicationQuestion || question?.question || '').replace(/\s*\*\s*$/, '').trim().replace(/\s+/g, ' ');
-const CONTRACT_KEYS = ['question', 'applicationQuestion', 'type', 'options', 'applicationOptions', 'optionMap', 'validation', 'required', 'context', 'section', 'autocomplete', 'portalNativeContract'];
+const PROVENANCE_KEYS = ['portalNativeContract', 'originalNativeContract', 'ownConsentText', 'ownConsentQuestionLabels',
+  'ownConsentLinks', 'ownConsentMetadataComplete', 'ownConsentQuestionOwned', 'ownConsentOwnerKey', 'consentOwnershipUnknown'];
+const CONTRACT_KEYS = ['question', 'applicationQuestion', 'type', 'options', 'applicationOptions', 'optionMap', 'validation', 'required', 'context', 'section', 'autocomplete', ...PROVENANCE_KEYS];
 function sameField(old, live) {
   if (old?.source !== 'portal' || live?.source !== 'portal' || !label(old) || label(old) !== label(live)) return false;
   return ['context', 'section', 'autocomplete'].every(key => !String(old[key] || '').trim()
@@ -51,7 +53,7 @@ export function mergeLivePortalQuestions(existingQuestions = [], incomingQuestio
     if (old) {
       for (const key of references.has(live) ? [] : CONTRACT_KEYS) {
         if (Object.hasOwn(live, key)) old[key] = structuredClone(live[key]);
-        else if (['optionMap', 'validation', 'portalNativeContract'].includes(key)) delete old[key];
+        else if (['optionMap', 'validation', ...PROVENANCE_KEYS].includes(key)) delete old[key];
       }
       ids.set(live.id, old.id);
     } else {

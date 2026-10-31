@@ -120,7 +120,7 @@ const trimField = (field) => ({
   ...(field.value ? { currentValue: field.value } : {}),
   ...(field.maxLength ? { maxLength: field.maxLength } : {}),
   // Whole lists: a country list has ~250 entries and Italien is past the 100th.
-  ...(field.options ? { options: field.options.map((option) => option.label).filter(Boolean).slice(0, 300) } : {}),
+  ...(field.options ? { options: field.options.map((option) => typeof option === 'string' ? option : option.label).filter(Boolean).slice(0, 300) } : {}),
   ...(field.kind === 'file' && field.accept ? { accept: field.accept } : {}),
   ...(field.invalid ? { invalid: true } : {}),
 });
@@ -1161,7 +1161,7 @@ function optionForAnswer(field, answer) {
     const match = options.find((option) => answerBoolean !== null && booleanAnswer(option.label) === answerBoolean);
     if (match) return match.label;
   }
-  if (topic === 'civil_status') return civilStatusOption(options.map((option) => option.label), answer);
+  if (topic === 'civil_status') return civilStatusOption(options.map((option) => typeof option === 'string' ? option : option.label), answer);
   return '';
 }
 
@@ -1646,7 +1646,7 @@ export function guardPlan(plan, fields, candidate = null) {
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), ...(field.section ? { section: String(field.section).slice(0, 240) } : {}), ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), ...(field.section ? { section: String(field.section).slice(0, 240) } : {}), ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => typeof option === 'string' ? option : option.label) });
     }
   };
   // Once a candidate-only action has been rejected, the recovery pass below

@@ -48,6 +48,15 @@ describe('current runner updates a previously stored portal question contract', 
     expect(mergeLivePortalQuestions([stale], [{ ...live, portalNativeContract: proof }]).questions[0].portalNativeContract).toEqual(proof);
   });
 
+  it('replaces or clears opaque native consent ownership metadata without reconstructing it', () => {
+    const evidence = { originalNativeContract: { opaque: ['native'] }, ownConsentText: 'Privacy information', ownConsentQuestionLabels: ['Privacy'],
+      ownConsentLinks: [{ href: '/privacy' }], ownConsentMetadataComplete: true, ownConsentQuestionOwned: true,
+      ownConsentOwnerKey: 'native-owner', consentOwnershipUnknown: false };
+    expect(mergeLivePortalQuestions([old], [{ ...live, ...evidence }]).questions[0]).toMatchObject(evidence);
+    const cleared = mergeLivePortalQuestions([{ ...old, ...evidence }], [live]).questions[0];
+    for (const key of Object.keys(evidence)) expect(cleared).not.toHaveProperty(key);
+  });
+
   it('keeps bounded preflight descriptors as references without replacing the native catalogue', async () => {
     const store = fixture();
     store.expected.draft.questions = [live];
