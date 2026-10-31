@@ -21,6 +21,16 @@ describe('owner final intent transport (not semantic authority)', () => {
     expect(parsed.proof.fields[0].nativeFormContract.context).toBe('Only University X degrees qualify');
     expect(parsed.proof.attachments[0].fieldId).toBe('cv-upload');
   });
+  it('preserves an empty optional file control for the server purpose policy', () => {
+    const raw = request(); raw.nativeProof.fields.push({ fieldId: 'optional-extra', nativeFormContract: { question: 'Other optional file', kind: 'file', required: false, options: [] } });
+    raw.finalIntent.nativeDigest = hash(raw.nativeProof.fields);
+    expect(ownerFinalIntent(raw, { round: 1, nowMs: now }).proof.fields).toHaveLength(3);
+  });
+  it('counts multibyte native metadata against the byte budget without truncating it', () => {
+    const raw = request(); raw.nativeProof.fields[0].nativeFormContract.context = '語'.repeat(22000);
+    raw.finalIntent.nativeDigest = hash(raw.nativeProof.fields);
+    expect(() => ownerFinalIntent(raw, { round: 1, nowMs: now })).toThrow('native_proof_invalid');
+  });
   it.each(['missing_protocol', 'missing_fingerprint', 'stale_round', 'changed_value', 'changed_context', 'wrong_file_field', 'file_fakepath', 'duplicate_field', 'old_intent', 'insecure_url', 'extra_key'])('refuses incomplete/stale native transport: %s', change => {
     const raw: any = request();
     if (change === 'missing_protocol') delete raw.nativeProofProtocol;

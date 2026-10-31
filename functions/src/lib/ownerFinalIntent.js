@@ -20,7 +20,7 @@ const isFile = field => field.nativeFormContract.kind === 'file' || field.native
 export function ownerFinalIntent(raw, { round, nowMs = Date.now() }) {
   let proof; let intent;
   try {
-    if (canonicalQuestionJson({ proof: raw?.nativeProof, intent: raw?.finalIntent }).length > 2 * 1024 * 1024) throw invalid();
+    if (Buffer.byteLength(canonicalQuestionJson({ proof: raw?.nativeProof, intent: raw?.finalIntent }), 'utf8') > 2 * 1024 * 1024) throw invalid();
     ({ proof, intent } = structuredClone({ proof: raw?.nativeProof, intent: raw?.finalIntent }));
   } catch { throw invalid(); }
   if (raw?.nativeProofProtocol !== OWNER_NATIVE_PROOF_PROTOCOL || !digest(raw?.answerSourceFingerprint)
@@ -34,7 +34,7 @@ export function ownerFinalIntent(raw, { round, nowMs = Date.now() }) {
   const ids = new Set();
   for (const field of proof.fields) {
     if (!object(field) || !only(field, ['fieldId', 'nativeFormContract', 'proposedAnswer']) || typeof field.fieldId !== 'string' || !field.fieldId || field.fieldId.length > 1000 || ids.has(field.fieldId)
-      || !object(field.nativeFormContract) || canonicalQuestionJson(field.nativeFormContract).length > 64000
+      || !object(field.nativeFormContract) || Buffer.byteLength(canonicalQuestionJson(field.nativeFormContract), 'utf8') > 64000
       || typeof field.nativeFormContract.question !== 'string' || field.nativeFormContract.question.length > 8000
       || typeof field.nativeFormContract.kind !== 'string' || !Array.isArray(field.nativeFormContract.options)) throw invalid();
     ids.add(field.fieldId);
@@ -50,7 +50,7 @@ export function ownerFinalIntent(raw, { round, nowMs = Date.now() }) {
     if (attachmentIds.has(key)) throw invalid();
     attachmentIds.add(key);
   }
-  if (proof.fields.filter(isFile).some(field => !proof.attachments.some(file => file.fieldId === field.fieldId))
-    || sha(proof.fields) !== intent.nativeDigest || sha(proof.attachments) !== intent.materialDigest) throw invalid();
+  // Empty file controls remain in the full snapshot. Required/optional purpose is decided by the server proof policy.
+  if (sha(proof.fields) !== intent.nativeDigest || sha(proof.attachments) !== intent.materialDigest) throw invalid();
   return Object.freeze({ proof, intent, answerSourceFingerprint: raw.answerSourceFingerprint });
 }
