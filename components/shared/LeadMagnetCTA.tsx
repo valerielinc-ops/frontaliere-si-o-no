@@ -37,6 +37,11 @@ import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { isDismissalActive, NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { readStorageItem, writeStorageItem } from '@/services/storageAvailability';
 import { useCaptureImpression } from '@/hooks/useCaptureImpression';
+import { DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE } from '@/constants';
+
+const formatRate = DEFAULT_EXCHANGE_RATE.toFixed(4).replace('.', ',');
+const formatDate = DEFAULT_EXCHANGE_RATE_DATE.split('-').reverse().join('/');
+const formatEuro = (value: number) => Math.round(value).toLocaleString('de-CH').replace(/[’']/g, '.');
 
 /** Last-touch attribution for a login started from this box (see authService). */
 const LEAD_MAGNET_AUTH_ATTRIBUTION = { cta: 'lead_magnet_social', component: 'LeadMagnetCTA' } as const;
@@ -231,9 +236,9 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'LPP 35-44 anni (5%): - CHF 300',
  'Imposta alla fonte Tab. A (10.3%): - CHF 618',
  '= Netto svizzero: circa CHF 4.608/mese',
- 'Convertito in EUR (tasso 0.94): circa EUR 4.332/mese',
+ `Convertito in EUR (tasso ${formatRate}, ${formatDate}): circa EUR ${formatEuro(4608 * DEFAULT_EXCHANGE_RATE)}/mese`,
  'Meno IRPEF residua italiana (dopo credito imposta): circa - EUR 150-300/mese',
- '= Netto finale effettivo: circa EUR 4.030-4.180/mese',
+ `= Netto finale effettivo: circa EUR ${formatEuro(4608 * DEFAULT_EXCHANGE_RATE - 300)}-${formatEuro(4608 * DEFAULT_EXCHANGE_RATE - 150)}/mese`,
  ]},
  { heading: 'Tabelle Imposta alla Fonte - Aliquote Indicative', items: [
  'CHF 4.000/mese: Tab A ~6.5%, Tab B ~2.8%, Tab C ~5.2%',

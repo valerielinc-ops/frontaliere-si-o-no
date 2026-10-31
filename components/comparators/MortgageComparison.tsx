@@ -277,7 +277,7 @@ export default function MortgageComparison() {
  setChCustomRate(null);
  setItCustomRate(null);
  setGrossIncomeCHF(7000);
- setExchangeRate(0.94);
+ setExchangeRate(_liveRate);
  }, []);
 
  return (

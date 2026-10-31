@@ -1,4 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+// Il tasso vero cambia ogni giorno con lo snapshot: le cifre esatte di questo
+// file si verificano su un tasso fissato.
+vi.mock('../../data/exchange-rate-snapshot.json', () => ({ currentRate: 1.096, rateDate: '2026-10-30' }));
+
 import {
   buildSalaryLandingBody,
   _internal,

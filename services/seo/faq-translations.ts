@@ -982,15 +982,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Devo convertire l'imposta svizzera da CHF a EUR?": {
  en: {
  q: "Do I need to convert the Swiss tax from CHF to EUR?",
- a: "Yes, the withholding tax paid in CHF must be converted to EUR using the annual average exchange rate published by the Agenzia delle Entrate. For 2025 the indicative average rate is approximately 0.94 EUR per CHF."
+ a: "Yes, the withholding tax paid in CHF must be converted to EUR using the annual average exchange rate published by the Agenzia delle Entrate. For 2025 the average of ECB reference rates is about 0.937 francs per euro, or about 1.067 euro per franc."
  },
  de: {
  q: "Muss ich die Schweizer Steuer von CHF in EUR umrechnen?",
- a: "Ja, die in CHF gezahlte Quellensteuer muss zum Jahresdurchschnittskurs, der von der Agenzia delle Entrate veröffentlicht wird, in EUR umgerechnet werden. Für 2025 liegt der indikative Durchschnittskurs bei ca. 0,94 EUR pro CHF."
+ a: "Ja, die in CHF gezahlte Quellensteuer muss zum Jahresdurchschnittskurs, der von der Agenzia delle Entrate veröffentlicht wird, in EUR umgerechnet werden. Für 2025 liegt der Durchschnitt der EZB-Referenzkurse bei rund 0,937 Franken pro Euro, also rund 1,067 Euro pro Franken."
  },
  fr: {
  q: "Dois-je convertir l'impôt suisse de CHF en EUR ?",
- a: "Oui, l'impôt à la source payé en CHF doit être converti en EUR en utilisant le taux de change moyen annuel publié par l'Agenzia delle Entrate. Pour 2025, le taux moyen indicatif est d'environ 0,94 EUR pour 1 CHF."
+ a: "Oui, l'impôt à la source payé en CHF doit être converti en EUR en utilisant le taux de change moyen annuel publié par l'Agenzia delle Entrate. Pour 2025, la moyenne des taux de référence BCE est d'environ 0,937 franc pour un euro, soit environ 1,067 euro pour un franc."
  }
  },
 
@@ -2006,15 +2006,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quando è il momento migliore per cambiare CHF in EUR?": {
  en: {
  q: "When is the best time to exchange CHF to EUR?",
- a: "The CHF/EUR rate fluctuates daily. It is best to monitor the rate and exchange when the franc is strong (below 0.93 EUR). Avoid exchanging on weekends when spreads are wider."
+ a: "The CHF/EUR rate fluctuates daily. It is best to monitor the rate and exchange when the franc is strong. Avoid exchanging on weekends when spreads are wider."
  },
  de: {
  q: "Wann ist der beste Zeitpunkt, um CHF in EUR zu wechseln?",
- a: "Der CHF/EUR-Kurs schwankt täglich. Am besten den Kurs beobachten und wechseln, wenn der Franken stark ist (unter 0,93 EUR). Wechsel am Wochenende vermeiden, da die Spreads dann grösser sind."
+ a: "Der CHF/EUR-Kurs schwankt täglich. Am besten den Kurs beobachten und wechseln, wenn der Franken stark ist. Wechsel am Wochenende vermeiden, da die Spreads dann grösser sind."
  },
  fr: {
  q: "Quel est le meilleur moment pour changer des CHF en EUR ?",
- a: "Le taux CHF/EUR fluctue quotidiennement. Il est préférable de surveiller le taux et de changer lorsque le franc est fort (en dessous de 0,93 EUR). Évitez les changes le week-end lorsque les spreads sont plus larges."
+ a: "Le taux CHF/EUR fluctue quotidiennement. Il est préférable de surveiller le taux et de changer lorsque le franc est fort. Évitez les changes le week-end lorsque les spreads sont plus larges."
  }
  },
 

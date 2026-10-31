@@ -40,7 +40,8 @@ const EXCHANGE_RATE_FETCH_RETRY_DELAY_MS = 200;
  *     and the UI labels it `1 CHF = {rate} EUR` (InputCard.tsx).
  *
  * It is imported rather than re-typed: a second literal of one quantity is what
- * let the two halves diverge in the first place (#5379). Direction and band are
+ * let the two halves diverge in the first place (#5379). The value is the daily
+ * snapshot behind /cambio-franco-euro/, not a literal of its own. Direction and band are
  * enforced by tests/exchange-rate-fallback-direction.test.tsx.
  */
 const DEFAULT_RATE = DEFAULT_EXCHANGE_RATE;
