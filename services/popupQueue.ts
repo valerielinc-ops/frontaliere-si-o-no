@@ -18,6 +18,8 @@
  * 3. Only render visible UI when `isActive(id)` returns true
  * 4. Call `releaseSlot(id)` when dismissed / auto-hidden
  */
+import { ADS_CONSENT_CHANGE_EVENT } from './adsConsent';
+
 
 type Listener = () => void;
 
@@ -291,4 +293,11 @@ export function markSlotShown(id: string): void {
 export function markPromotionalPromptShown(now = Date.now()): void {
   lastPromotionalPromptAt = now;
   try { sessionStorage.setItem(PROMOTIONAL_PROMPT_KEY, String(now)); } catch { /* storage optional */ }
+}
+
+// The consent wall is an interstitial too: the visitor who has just closed it must
+// not get a second one (a full-screen newsletter 10-15 s later, seen on every page
+// on 2026-10-31). The CMP bridge fires this event only when the choice changes.
+if (typeof window !== 'undefined') {
+  window.addEventListener(ADS_CONSENT_CHANGE_EVENT, () => markPromotionalPromptShown());
 }

@@ -11,7 +11,9 @@ const DISMISS_KEY = 'preferredSourcePopup:dismissedUntil';
 const ACCEPTED_KEY = 'preferredSourcePopup:accepted';
 const SEEN_KEY = 'preferredSourcePopup:seen';
 const DISMISS_DAYS = 7;
-const SHOW_DELAY_MS = 1200;
+// Matches the newsletter's minimum. At 1.2 s it sat under the consent wall and then
+// over the article, on top of the fixed bars of a mobile reader.
+const SHOW_DELAY_MS = 20_000;
 const TITLE_ID = 'preferred-source-popup-title';
 
 export interface PreferredSourcePopupProps {
