@@ -248,4 +248,23 @@ describe('blind native form answer evidence selection', () => {
     expect(nativeFormAssessmentHash(injected)).not.toBe(before);
   });
 
+
+  it('does not demand unrelated neighboring units for a complete role/date quotation within a flattened CV block', async () => {
+    const f = fixture();
+    const sourceText = 'Candidate Example\n2018–Present | Software engineer specialising in Python\nEnglish C1';
+    f.generate.mockImplementation(async (system, user) => {
+      const payload = JSON.parse(user);
+      if (system === NATIVE_FORM_ENTAILMENT_SYSTEM_PROMPT) return { assessments: [{ index: 0,
+        sourceIds: [nativeEvidenceCatalog(payload).find(source => source.quote.includes('2018–Present')).sourceId] }] };
+      expect(payload.claims[0].proof.quotes).toHaveLength(1);
+      expect(payload.claims[0].proof.quotes[0].quote).toContain('Software engineer');
+      expect(JSON.stringify(payload.claims[0].proof)).not.toContain('English C1');
+      return { assessments: [{ index: 0, proofId: payload.claims[0].proof.id, verdict: 'supported', reason: 'relevant_role_or_tenure' }] };
+    });
+    const result = await verifyNativeFormAnswers({ ...f, claims: [{ fieldId: 'tenure', nativeFormContract: { question: 'Have you worked as a Python engineer since 2018?' }, proposedAnswer: 'Yes' }],
+      sources: qualificationSources({ sourceText }) });
+    expect(result.status).toBe('supported');
+    expect(f.generate).toHaveBeenCalledTimes(2);
+  });
+
 });

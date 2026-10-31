@@ -75,4 +75,34 @@ describe('current answer source fence before irreversible send', () => {
     expect(store.read(`${base}/automation/submission`).r1.clickedAt).toBe(5);
   });
 
+
+  it.each(['new_claim', 'sent_receipt'])('never clears a dossier after release when %s acquired the ledger', async mutation => {
+    const store = fixture();
+    const draftPath = `${base}/ai_drafts/current`;
+    store.docs.set(draftPath, { sentAttempt: { photo: 'old-dossier' } });
+    const old = submissionGuard(store.db, 'source_guard_fixture', 1);
+    await old.claim('portal', 1);
+    expect(await old.release('certainly unsent', 2)).toBe(true);
+    const next = submissionGuard(store.db, 'source_guard_fixture', 1);
+    if (mutation === 'new_claim') await next.claim('portal', 3);
+    else await next.markSent({ channel: 'portal', messageId: 'actual-ack' }, 3);
+    store.docs.set(draftPath, { sentAttempt: { photo: 'current-dossier' } });
+    expect(await old.clearReleasedAttempt()).toBe(false);
+    expect(store.read(draftPath).sentAttempt).toEqual({ photo: 'current-dossier' });
+  });
+
+
+  it('never treats an email handoff as an unclicked resumable portal claim', async () => {
+    const store = fixture();
+    const email = submissionGuard(store.db, 'source_guard_fixture', 1);
+    await email.claim('email', 1);
+    await email.markEmailSending(2);
+    const original = structuredClone(store.read(`${base}/automation/submission`));
+    for (const channel of ['portal', 'owner_extension', 'email']) {
+      const next = submissionGuard(store.db, 'source_guard_fixture', 1);
+      expect(await next.claim(channel, 3, { resumable: true })).toMatchObject({ status: 'in_flight' });
+      expect(store.read(`${base}/automation/submission`)).toEqual(original);
+    }
+  });
+
 });

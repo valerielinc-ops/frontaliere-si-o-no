@@ -224,6 +224,23 @@ describe('what leaves by e-mail, and the record of it', () => {
     expect(store.read(`${BASE}/automation/submission`).r1.state).toBe('sent');
   });
 
+  it.each(['email', 'portal'])('preserves the dossier when a stale %s failure arrives after canonical acknowledgement', async channel => {
+    const store = createMemoryFirestore({});
+    const guard = submissionGuard(store.db, ORDER, 1);
+    const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
+    const keepSentAttempt = vi.fn(async (attempt: unknown) => draftRef.set({ sentAttempt: attempt }, { merge: true }));
+    const acknowledge = () => guard.markSent({ channel: channel === 'portal' ? 'lever' : 'email', messageId: 'actual-acknowledgement' }, NOW);
+    const sendCascade = vi.fn(async () => { await acknowledge(); return { failed: [{ error: 'rejected', ambiguousDelivery: false }], sent: [] }; });
+    const portalRunner = vi.fn(async ctx => { await ctx.onBeforeSubmit({ uploads: [] }); await acknowledge();
+      return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence: {} }; });
+    const event = await submit({ draft: draftFor(channel === 'portal' ? { channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } } : {}),
+      sendCascade, keepSentAttempt, submissionGuard: guard, codex: vi.fn(), portalRunner });
+    expect(event).toMatchObject({ type: 'submit_succeeded', replayed: true });
+    expect(store.read(`${BASE}/automation/submission`).r1).toMatchObject({ state: 'sent', messageId: 'actual-acknowledgement' });
+    expect(store.read(`${BASE}/ai_drafts/current`).sentAttempt).toBeTruthy();
+    expect(keepSentAttempt.mock.calls.every(([attempt]) => attempt !== null)).toBe(true);
+  });
+
   it('never sends a legacy email draft without a current document witness and requests bounded repair', async () => {
     const sendCascade = delivered();
     const store = createMemoryFirestore({});
@@ -542,7 +559,7 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
     const steps: unknown[] = [];
     const event = await submit({ sendCascade, keepSentAttempt: async (attempt: unknown) => { steps.push(attempt && 'attempt'); await keepSentAttempt(attempt); }, submissionGuard: submissionGuard(store.db, ORDER, 1) });
     expect(event).toEqual({ type: 'submit_failed', error: 'email_failed' });
-    expect(steps).toEqual(['attempt', null]);
+    expect(steps).toEqual(['attempt']);
     expect(draft()).toMatchObject({ sentAttempt: null });
     expect(draft().sent).toBeUndefined();
     expect(store.read(`${BASE}/automation/submission`)!.r1).toMatchObject({ state: 'failed', reason: 'email_failed' });

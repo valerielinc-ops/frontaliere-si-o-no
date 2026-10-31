@@ -328,10 +328,10 @@ export async function verifyNativeFormAnswers({ claims, sources, generate, scope
       // not a role picked from a different experience or an omitted header.
       const first = cvProofs[0];
       const positions = cvProofs.map(source => source.position?.ordinal).sort((a, b) => a - b);
-      if (cvProofs.some(source => source.documentHash !== first.documentHash
+      const selfContainedUnit = cvProofs.length === 1 && !dateOnlyUnit(first.quote);
+      if (!selfContainedUnit && (cvProofs.length < 2 || cvProofs.some(source => source.documentHash !== first.documentHash
         || source.position?.block !== first.position?.block || source.position?.blockSize !== cvProofs.length)
-        || positions.some((ordinal, index) => !Number.isInteger(ordinal) || (index > 0 && ordinal !== positions[index - 1] + 1))
-        || (cvProofs.length === 1 && dateOnlyUnit(first.quote))) return fail('source_association_unverified');
+        || positions.some((ordinal, index) => !Number.isInteger(ordinal) || (index > 0 && ordinal !== positions[index - 1] + 1)))) return fail('source_association_unverified');
     }
     proofs.sort((left, right) => left.documentHash.localeCompare(right.documentHash) || left.position.ordinal - right.position.ordinal);
     selected[result.index] = proofs;

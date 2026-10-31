@@ -211,6 +211,18 @@ function replayedSubmission(record = {}, channel, nowMs = Date.now()) {
     ...(record.sent ? { sent: record.sent } : {}) };
 }
 
+async function lostSubmissionClaim(guard, channel, nowMs) {
+  const current = await guard.inspect();
+  return current.status === 'already_sent' ? replayedSubmission(current.record, channel, nowMs)
+    : { type: 'submit_failed', error: channel === 'email' ? 'email_ambiguous' : 'portal_ambiguous' };
+}
+
+async function clearReleasedAttempt(guard, keepAttempt) {
+  if (guard?.clearReleasedAttempt) return guard.clearReleasedAttempt();
+  await keepAttempt(null);
+  return true;
+}
+
 export async function submitApplication(ctx) {
   const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
   const nowMs = ctx.nowMs || Date.now();
@@ -397,7 +409,7 @@ export async function submitApplication(ctx) {
     // After the claim, never before: a re-dispatched run that finds the round in flight keeps this one's.
     // Not durable: nothing leaves, and the claim goes back for the retry.
     if (!(await keepAttempt(sentRecord))) {
-      if (guard) await guard.release('sent_attempt_not_stored', nowMs);
+      if (guard && await guard.release('sent_attempt_not_stored', nowMs) === false) return lostSubmissionClaim(guard, 'email', nowMs);
       return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
     }
     try {
@@ -407,7 +419,8 @@ export async function submitApplication(ctx) {
       if (error?.code === 'submission_claim_changed') return { type: 'submit_failed', error: 'email_ambiguous' };
       // The transaction vetoed before SMTP: delivery is certainly unsent.
       const released = guard ? await guard.release(error?.code || 'pre_send_guard_failed', Date.now()) : true;
-      if (released !== false) await keepAttempt(null);
+      if (released === false) return lostSubmissionClaim(guard, 'email', nowMs);
+      if (await clearReleasedAttempt(guard, keepAttempt) === false) return lostSubmissionClaim(guard, 'email', nowMs);
       if (error?.code === 'evidence_source_changed') return { type: 'submit_failed', error: error.code };
       throw error;
     }
@@ -420,9 +433,9 @@ export async function submitApplication(ctx) {
       // submit of unknown outcome is not re-submitted): the guard stays
       // "sending", so a later run reports it ambiguous too.
       const ambiguous = Boolean(failed[0].ambiguousDelivery);
-      if (guard && !ambiguous) await guard.release('email_failed', nowMs);
-      // Failed for certain: nothing left, the attempt is no record. An ambiguous one keeps it.
-      if (!ambiguous) await keepAttempt(null);
+      if (guard && !ambiguous && await guard.release('email_failed', nowMs) === false) return lostSubmissionClaim(guard, 'email', nowMs);
+      // Clear only while this failed claim still owns the dossier.
+      if (!ambiguous && await clearReleasedAttempt(guard, keepAttempt) === false) return lostSubmissionClaim(guard, 'email', nowMs);
       await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous, sent: sentRecord }, key: runKey, nowMs });
       return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : emailInfrastructureFailure(failed[0]) ? 'email_provider_unavailable' : 'email_failed' };
     }
@@ -525,8 +538,16 @@ export async function submitApplication(ctx) {
       };
       // A round the guard releases sent nothing: the attempt recorded at its final click is no record.
       const release = async (reason) => {
-        await guard.release(reason);
-        if (attemptKept) await keepAttempt(null);
+        if (await guard.release(reason) === false) {
+          const current = await guard.inspect();
+          if (current.status === 'already_sent') throw Object.assign(new Error('submission_already_sent'), { code: 'submission_already_sent', record: current.record });
+          throw Object.assign(new Error('submission_claim_changed'), { code: 'submission_claim_changed' });
+        }
+        if (attemptKept && await clearReleasedAttempt(guard, keepAttempt) === false) {
+          const current = await guard.inspect();
+          if (current.status === 'already_sent') throw Object.assign(new Error('submission_already_sent'), { code: 'submission_already_sent', record: current.record });
+          throw Object.assign(new Error('submission_claim_changed'), { code: 'submission_claim_changed' });
+        }
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
@@ -602,7 +623,8 @@ export async function submitApplication(ctx) {
       if (guard && !clicked && !succeeded) {
         const released = await guard.release(`error: ${error instanceof Error ? error.message : String(error)}`).catch(() => false);
         // Do not clear another attempt or a concurrently confirmed receipt.
-        if (attemptKept && released !== false) await keepAttempt(null);
+        if (released === false) return lostSubmissionClaim(guard, channelType, nowMs);
+        if (attemptKept && await clearReleasedAttempt(guard, keepAttempt) === false) return lostSubmissionClaim(guard, channelType, nowMs);
       }
       if (!clicked && !succeeded && error?.code === 'evidence_source_changed') return { type: 'submit_failed', error: error.code };
       if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };

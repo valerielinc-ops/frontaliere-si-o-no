@@ -43,6 +43,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
   const ref = submissionRefFor(db, orderId);
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const flowRef = orderRef.collection('automation').doc('flow');
+  const draftRef = orderRef.collection('ai_drafts').doc('current');
   const key = `r${Number(round) || 1}`;
   let claimedAttemptId = null;
   const requireOwnClaim = (submission, channel) => {
@@ -79,7 +80,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
           outcome = { status: 'already_sent', record: current };
           return;
         }
-        if (current?.state === 'sending' && !(resumable && !current.clickedAt)) {
+        if (current?.state === 'sending' && !(resumable && channel !== 'email' && current.channel !== 'email' && !current.clickedAt)) {
           outcome = { status: 'in_flight', record: current };
           return;
         }
@@ -131,6 +132,17 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
     },
     async markSent(record = {}, nowMs = Date.now()) {
       await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
+    },
+    /** Cleanup is CAS-protected too: a newer claim/receipt keeps its dossier. */
+    async clearReleasedAttempt() {
+      return db.runTransaction(async transaction => {
+        const [submissionDoc, draftDoc] = await Promise.all([transaction.get(ref), transaction.get(draftRef)]);
+        const current = submissionDoc.data()?.[key];
+        if (!claimedAttemptId || current?.state !== 'failed' || current.attemptId !== claimedAttemptId) return false;
+        if (!draftDoc.data()) return true;
+        transaction.set(draftRef, { sentAttempt: null }, { merge: true });
+        return true;
+      });
     },
     async release(reason, nowMs = Date.now()) {
       return db.runTransaction(async transaction => {
