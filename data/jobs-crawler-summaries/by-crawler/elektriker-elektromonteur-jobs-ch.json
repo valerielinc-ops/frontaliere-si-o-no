@@ -1,7 +1,7 @@
 {
   "key": "elektriker-elektromonteur-jobs-ch",
   "label": "elektriker-elektromonteur-jobs",
-  "generatedAt": "2026-11-01T09:49:37.069Z",
+  "generatedAt": "2026-11-01T22:13:49.848Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7935,
-  "avgDurationMs": 7935,
+  "durationMs": 6824,
+  "avgDurationMs": 6824,
   "durationHistory": [
-    7935
+    6824
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:49:20.313Z",
+      "crawledAt": "2026-11-01T22:13:31.199Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -57,9 +57,9 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T09:49:20.313Z",
+      "validThrough": "2027-01-30T22:13:31.199Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T09:49:20.313Z",
+      "firstSeenAt": "2026-11-01T22:13:31.199Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +80,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalist-in-40-60-in-der-bankenbranche/basel/hrm/1c106405",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:49:20.311Z",
+      "crawledAt": "2026-11-01T22:13:31.196Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -103,9 +103,9 @@
       "salaryMax": 56400,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T09:49:20.311Z",
+      "validThrough": "2027-01-30T22:13:31.196Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T09:49:20.311Z",
+      "firstSeenAt": "2026-11-01T22:13:31.196Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -118,5 +118,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

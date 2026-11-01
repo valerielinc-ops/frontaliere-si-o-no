@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-11-01T09:50:38.886Z",
+  "generatedAt": "2026-11-01T22:11:42.143Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 46241,
-  "avgDurationMs": 46241,
+  "durationMs": 30146,
+  "avgDurationMs": 30146,
   "durationHistory": [
-    46241
+    30146
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
       "datePosted": "2026-10-31",
       "postedDate": "2026-10-31",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-01T09:50:25.901Z",
+      "crawledAt": "2026-11-01T22:11:27.204Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -53,7 +53,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:50:25.901Z",
+      "validThrough": "2027-01-29T22:11:27.204Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-01T09:50:25.901Z",
+      "crawledAt": "2026-11-01T22:11:27.204Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -100,7 +100,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:50:25.901Z",
+      "validThrough": "2027-01-28T22:11:27.204Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-01T09:50:25.901Z",
+      "crawledAt": "2026-11-01T22:11:27.204Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -147,7 +147,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T09:50:25.901Z",
+      "validThrough": "2026-12-10T22:11:27.204Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -158,5 +158,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }
