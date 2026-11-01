@@ -12,7 +12,9 @@
 
 import {
   FUEL_INDEX_TERMINAL_SLUGS as SHARED_FUEL_INDEX_TERMINAL_SLUGS,
+  FUEL_ITALY_SLUG as SHARED_FUEL_ITALY_SLUG,
   FUEL_SECTION_SLUG as SHARED_FUEL_SECTION_SLUG,
+  FUEL_STATIONS_SLUG as SHARED_FUEL_STATIONS_SLUG,
   FUEL_TODAY_SLUG as SHARED_FUEL_TODAY_SLUG,
   FUEL_ZONES as SHARED_FUEL_ZONES,
 } from './shared/fuelRouteSlugs.mjs';
@@ -209,20 +211,12 @@ export function listFuelTodayPaths(): FuelDailyPath[] {
 //   IT per-station:      /prezzi-benzina/italia/{city-slug}/stazioni/{station-slug}/
 
 /** Stations slug segment per locale. */
-export const FUEL_STATIONS_SLUG: Record<FuelDailyLocale, string> = {
-  it: 'stazioni',
-  en: 'stations',
-  de: 'tankstellen',
-  fr: 'stations',
-};
+export const FUEL_STATIONS_SLUG: Record<FuelDailyLocale, string> =
+  SHARED_FUEL_STATIONS_SLUG as Record<FuelDailyLocale, string>;
 
 /** "Italy" segment per locale. */
-export const FUEL_ITALY_SLUG: Record<FuelDailyLocale, string> = {
-  it: 'italia',
-  en: 'italy',
-  de: 'italien',
-  fr: 'italie',
-};
+export const FUEL_ITALY_SLUG: Record<FuelDailyLocale, string> =
+  SHARED_FUEL_ITALY_SLUG as Record<FuelDailyLocale, string>;
 
 /**
  * Normalise a free-form string to a kebab-case URL slug.
