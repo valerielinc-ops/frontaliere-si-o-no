@@ -751,6 +751,7 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
 export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
 export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
 const COOKIE_DIALOG_CONTEXT_RE = /\bcookies?\b/i;
+const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accepter)$/i;
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
@@ -2890,8 +2891,7 @@ async function knownCookieDialogSnapshot(page, snapshot) {
     const buttons = (snapshot.buttons || []).filter((button) => button.dialog && button.dialogId === dialogId
       && [button.text, button.label, button.ariaLabel, button.title].some((value) => {
         const label = String(value || '').trim();
-        return COOKIE_REJECT_RE.test(label) || (COOKIE_ACCEPT_RE.test(label)
-          && (COOKIE_DIALOG_CONTEXT_RE.test(label) || /^(tout accepter|accepter tout)$/i.test(label)));
+        return COOKIE_REJECT_RE.test(label) || (COOKIE_ACCEPT_RE.test(label) && !COOKIE_GENERIC_ACCEPT_LABEL_RE.test(label));
       }));
     if (!buttons.length) continue;
     const frame = page.frames()[Number(dialog.frame ?? buttons[0].frame) || 0] || page.mainFrame();

@@ -169,6 +169,24 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(page.request.post).not.toHaveBeenCalled();
   });
 
+  it('allows an explicit Accept all choice only inside a verified cookie dialog', async () => {
+    const { page, frame, locator, cookieLocator } = pageWithLink({
+      label: 'Sign in', href: '/de/login', cookieOverlay: true, cookieText: 'We use cookies to improve this site.',
+    });
+    const snapshot = {
+      dialogs: [{ dialog: true, dialogId: 'd1', frame: 0 }],
+      buttons: [{ id: 'cookie-reject', frame: 0, text: 'Accept all', dialog: true, dialogId: 'd1' }],
+      links: [{ id: 'auth-link', frame: 0, text: 'Sign in' }],
+    };
+
+    await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(true);
+
+    expect(cookieLocator.click).toHaveBeenCalledOnce();
+    expect(frame.goto).toHaveBeenCalledOnce();
+    expect(locator.click).not.toHaveBeenCalled();
+    expect(page.request.post).not.toHaveBeenCalled();
+  });
+
   it('stops if a same-site auth route redirects outside the verified portal family', async () => {
     const { page, frame } = pageWithLink({ label: 'Anmelden', href: '/de/login', finalUrl: 'https://evil.example/login' });
     const snapshot = { dialogs: [], links: [{ id: 'auth-link', frame: 0, text: 'Anmelden' }] };
