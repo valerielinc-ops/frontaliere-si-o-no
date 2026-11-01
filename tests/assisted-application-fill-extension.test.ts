@@ -1403,6 +1403,7 @@ describe('fill extension: shared privacy-reading acknowledgement', () => {
   it.each([
     ['extra word', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and agree to the terms.', {}],
     ['fact', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and have 5 years of experience.', {}],
+    ['visa id', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.', { name: 'visa1' }],
     ['optional purpose', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates for marketing.', {}],
     ['talent pool', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates for the talent pool.', {}],
     ['third party sharing', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and share data with third parties.', {}],

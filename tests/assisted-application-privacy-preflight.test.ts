@@ -536,6 +536,7 @@ describe('the same grammar on the canonical consent path', () => {
     ['email-like generated id', { name: 'mail1' }],
     ['telephone-like generated id', { name: 'tel1' }],
     ['sex-like generated id', { name: 'sex1' }],
+    ['visa-like generated id', { name: 'visa1' }],
     ['phone control id', { semanticId: 'candidate_phone' }],
     ['Italian mobile control id', { semanticId: 'cellulare' }],
     ['residence address name', { name: 'residence_address' }],
@@ -564,6 +565,7 @@ describe('the same grammar on the canonical consent path', () => {
 
     for (const metadata of [
       { name: 'email', ariaLabel: 'Email' },
+      { name: 'visa1' },
       { privacyMetadataIncomplete: true },
       { label: 'Privacy acknowledgement', applicationQuestion: label, name: 'email', ariaLabel: 'Email' },
     ]) {
