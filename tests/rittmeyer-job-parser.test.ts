@@ -122,6 +122,7 @@ describe('rittmeyer-job-parser', () => {
       </a>`;
     const firstUrl = 'https://brugg.onlyfy.jobs/en/';
     const secondUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 2);
+    expect(secondUrl).toBe('https://brugg.onlyfy.jobs/en/?page=2');
     const pages = new Map([
       [firstUrl, `<p>16 jobs found</p><div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1, 'Baar')).join('')}</div>`],
       [secondUrl, `<p>16 jobs found</p><div class="results">${Array.from({ length: 6 }, (_, i) => card(i + 11, 'Camorino')).join('')}</div>`],
